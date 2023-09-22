@@ -1,5 +1,5 @@
 ---
-title: Create or edit a dynamic group and get status - Azure AD | Microsoft Docs
+title: Create or edit a dynamic group and get status
 description: How to create or update a group membership rule in the Azure portal, and check its processing status.
 services: active-directory
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2022
+ms.date: 09/08/2023
 ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Create or update a dynamic group in Azure Active Directory
+# Create or update a dynamic group in Microsoft Entra ID
 
-You can use rules to determine group membership based on user or device properties In Azure Active Directory (Azure AD), part of Microsoft Entra. This article tells how to set up a rule for a dynamic group in the Azure portal. Dynamic membership is supported for security groups and Microsoft 365 Groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group. Security groups can be used for either devices or users, but Microsoft 365 Groups can be only user groups. Using Dynamic groups requires Azure AD premium P1 license or Intune for Education license. See [Dynamic membership rules for groups](./groups-dynamic-membership.md) for more details. 
+You can use rules to determine group membership based on user or device properties In Microsoft Entra ID, part of Microsoft Entra. This article tells how to set up a rule for a dynamic group in the Azure portal. Dynamic membership is supported for security groups and Microsoft 365 Groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group. Security groups can be used for either devices or users, but Microsoft 365 Groups can be only user groups. Using Dynamic groups requires Microsoft Entra ID P1 license or Intune for Education license. See [Dynamic membership rules for groups](./groups-dynamic-membership.md) for more details. 
 
 ## Rule builder in the Azure portal
 
-Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
+Microsoft Entra ID provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
 Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 
@@ -37,15 +37,17 @@ Here are some examples of advanced rules or syntax for which we recommend that y
 
 ![Screenshot that shows the "Dynamic membership rules" page with the "Add expression" action on the "Configure rules" tab selected.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
-For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
+For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Microsoft Entra ID](groups-dynamic-membership.md).
 
 ## To create a group membership rule
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Intune administrator, or User administrator role in the Azure AD organization.
-1. Search for and select **Groups**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.> **Groups**.
 1. Select **All groups**, and select **New group**.
 
-   ![Screenshot showing how to select the "add new group" action](./media/groups-create-rule/create-new-group-azure-active-directory.png)
+   ![Screenshot showing how to select the "add new group" action](./media/groups-create-rule/create-new-group.png)
 
 1. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
@@ -61,7 +63,8 @@ If the rule you entered isn't valid, an explanation of why the rule couldn't be 
 
 ## To update an existing rule
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Group administrator, Intune administrator, or User administrator role in the Azure AD organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
 1. Select **Groups** > **All groups**.
 1. Select a group to open its profile.
 1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
@@ -91,6 +94,9 @@ The following status messages can be shown for **Dynamic rule processing** statu
 - **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
 - **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
 
+>[!NOTE]
+>In this screen you now may also choose to **Pause processing**. Previously, this option was only available through the modification of the membershipRuleProcessingState property. Global admins, group admins, user admins, and Intune admins can manage this setting and can pause and resume dynamic group processing. Group owners without the correct roles do not have the rights needed to edit this setting.
+
 The following status messages can be shown for **Last membership change** status:
 
 - &lt;**Date and time**&gt;: The last time the membership was updated.
@@ -103,10 +109,10 @@ If an error occurs while processing the membership rule for a specific group, an
 
 ## Next steps
 
-The following articles provide additional information on how to use groups in Azure Active Directory.
+The following articles provide additional information on how to use groups in Microsoft Entra ID.
 
-- [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [See existing groups](../fundamentals/groups-view-azure-portal.md)
+- [Create a new group and adding members](../fundamentals/how-to-manage-groups.md)
+- [Manage settings of a group](../fundamentals/how-to-manage-groups.md)
+- [Manage memberships of a group](../fundamentals/how-to-manage-groups.md)
 - [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

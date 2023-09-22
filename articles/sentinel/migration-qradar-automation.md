@@ -47,7 +47,7 @@ Review which Microsoft Sentinel or Azure Logic Apps features map to the main QRa
 
 |QRadar  |Microsoft Sentinel/Azure Logic Apps  |
 |---------|---------|
-|Rules |[Analytics rules](detect-threats-built-in.md#use-built-in-analytics-rules) attached to playbooks or automation rules |
+|Rules |[Analytics rules](detect-threats-built-in.md) attached to playbooks or automation rules |
 |Gateway |[Condition control](../logic-apps/logic-apps-control-flow-conditional-statement.md) |
 |Scripts |[Inline code](../logic-apps/logic-apps-add-run-inline-code.md) |
 |Custom action processors |[Custom API calls](../logic-apps/logic-apps-create-api-app.md) in Azure Logic Apps or third party connectors |

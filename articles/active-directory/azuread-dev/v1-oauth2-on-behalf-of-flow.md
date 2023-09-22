@@ -1,5 +1,5 @@
 ---
-title: Service-to-service authentication with OAuth2.0 on-behalf-of flow | Microsoft Docs
+title: Service-to-service authentication with OAuth2.0 on-behalf-of flow
 description: This article describes how to use HTTP messages to implement service-to-service authentication with the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: .net
@@ -142,7 +142,7 @@ A service-to-service access token request with a certificate contains the follow
 | assertion |required | The value of the token used in the request. |
 | client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |required | A JSON Web Token that you create and sign with the certificate you registered as credentials for your application. See  [certificate credentials](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to learn about assertion format and about how to register your certificate.|
+| client_assertion |required | A JSON Web Token that you create and sign with the certificate you registered as credentials for your application. See  [certificate credentials](../develop/certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to learn about assertion format and about how to register your certificate.|
 | resource |required | The app ID URI of the receiving service (secured resource). To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | scope |required | A space separated list of scopes for the token request. For OpenID Connect, the scope **openid** must be specified.|

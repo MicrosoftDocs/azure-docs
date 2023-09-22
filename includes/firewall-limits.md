@@ -5,18 +5,18 @@
  author: vhorne
  ms.service: firewall
  ms.topic: include
- ms.date: 08/19/2022
+ ms.date: 03/13/2023
  ms.author: victorh
  ms.custom: include file
 ---
 
 | Resource | Limit |
 | --- | --- |
-| Data throughput |30 Gbps|
-|Rule limits|10,000 unique source/destinations in network and application rules <br><br> **Unique source/destinations in network** = sum of (unique source addresses * unique destination addresses for each rule)|
+| Max Data throughput | 100 Gbps for Premium, 30 Gbps for Standard, 250 Mbps for Basic (preview) SKU<br><br> For more information, see [Azure Firewall performance](../articles/firewall/firewall-performance.md#performance-data). |
+|Rule limits|20,000 unique source/destinations in network rules <br><br> **Unique source/destinations in network** = sum of (unique source addresses * unique destination addresses for each rule)<br><br>You can track the Firewall Policy network rule count in the [policy analytics](../articles/firewall/policy-analytics.md) under the **Insights** tab. As a proxy, you can also monitor your Firewall Latency Probe metrics to ensure it stays within 20 ms even during peak hours.|
 |Total size of rules within a single Rule Collection Group| 1 MB for Firewall policies created before July 2022<br>2 MB for Firewall policies created after July 2022|
-|Number of Rule Collection Groups in a firewall policy|50 for Firewall policies created before July 2022<br>100 for Firewall policies created after July 2022|
-|Maximum DNAT rules|250 maximum unique destinations (public IP address, port, and protocol)<br><br> The DNAT limitation is due to the underlying platform.<br><br>For example, you can configure 500 UDP rules to the same destination IP address and port (one unique destination), while 500 rules to the same IP address but to 500 different ports exceeds the limit (500 unique destinations).|
+|Number of Rule Collection Groups in a firewall policy|50 for Firewall policies created before July 2022<br>60 for Firewall policies created after July 2022|
+|Maximum DNAT rules (Maximum external destinations)|250 maximum [number of firewall public IP addresses + unique destinations (destination address, port, and protocol)]<br><br> The DNAT limitation is due to the underlying platform.<br><br>For example, you can configure 500 UDP rules to the same destination IP address and port (one unique destination), while 500 rules to the same IP address but to 500 different ports exceeds the limit (500 unique destinations).|
 |Minimum AzureFirewallSubnet size |/26|
 |Port range in network and application rules|1 - 65535|
 |Public IP addresses|250 maximum. All public IP addresses can be used in DNAT rules and they all contribute to available SNAT ports.|

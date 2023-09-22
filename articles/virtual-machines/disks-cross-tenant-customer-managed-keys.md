@@ -1,43 +1,27 @@
 ---
-title: Use a disk encryption set across Azure AD tenants (preview)
+title: Use a disk encryption set across Azure AD tenants
 description: Learn how to use customer-managed keys with your Azure disks in different Azure AD tenants.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 11/30/2022
 ms.author: rogarana
-ms.subservice: disks
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Encrypt managed disks with cross-tenant customer-managed keys (preview)
-
-> [!IMPORTANT]
-> Cross-tenant encryption with customer-managed keys (CMK) is currently in public preview.
-> This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Encrypt managed disks with cross-tenant customer-managed keys
 
 This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Azure Active Directory (Azure AD) tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
 
 A disk encryption set with federated identity in a cross-tenant CMK workflow spans service provider/ISV tenant resources (disk encryption set, managed identities, and app registrations) and customer tenant resources (enterprise apps, user role assignments, and key vault). In this case, the source Azure resource is the service provider's disk encryption set.
 
-If you have any questions about cross-tenant customer-managed keys with managed disks, email <crosstenantcmkvteam@service.microsoft.com>.
-
-## Prerequisites
-- Install the latest [Azure PowerShell module](/powershell/azure/install-az-ps).
-- You must enable the preview on your subscription. Use the following command to enable the preview:
-    ```azurepowershell
-    Register-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
-    ```
-
-    It may take some time for the feature registration to complete. You can confirm if it has with the following command:
-    
-    ```azurepowershell
-    Get-AzProviderFeature -FeatureName "EncryptionAtRestWithCrossTenantKey" -ProviderNamespace "Microsoft.Compute"
-    ```
+If you have questions about cross-tenant customer-managed keys with managed disks, email <crosstenantcmkvteam@service.microsoft.com>.
 
 ## Limitations
 
-Currently this feature is only available in the West Central US region. Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions. This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
+- Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions.
+- This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
+- This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 
@@ -45,13 +29,62 @@ Currently this feature is only available in the West Central US region. Managed 
 
 ## Create a disk encryption set
 
-Now that you've created your Azure Key Vault and performed the required Azure AD configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using an ARM template, REST API, Azure PowerShell, or Azure CLI.
+Now that you've created your Azure Key Vault and performed the required Azure AD configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using the Azure portal, Azure PowerShell, or Azure CLI. You can also use an [ARM template](#use-an-arm-template) or [REST API](#use-rest-api).
 
-# [ARM/REST](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
-Use an ARM template or REST API.
+To use the Azure portal, sign in to the portal and follow these steps.
 
-### ARM
+1. Select **+ Create a resource**, search for **Disk encryption set**, and select **Create > Disk encryption set**.
+1. Under **Project details**, select the subscription and resource group in which to create the disk encryption set.
+1. Under **Instance details**, provide a name for the disk encryption set.
+
+    :::image type="content" source="media/disks-cross-tenant-customer-managed-keys/create-disk-encryption-set.png" alt-text="Screenshot showing how to enter the project and instance details to create a new disk encryption set." border="true":::
+
+1. Select the **Region** in which to create the disk encryption set.
+1. For **Encryption type**, select **Encryption at-rest with a customer-managed key**.
+1. Under **Encryption key**, select the **Enter key from URI** radio button, and then enter the Key URI of the key created in the customer's tenant.
+1. Under **User-assigned identity**, select **Select an identity**.
+1. Select the user-assigned managed identity that you created previously in the ISV's tenant, and then select **Add**.
+1. Under **Multi-tenant application**, select **Select an application**.
+1. Select the multi-tenant registered application that you created previously in the ISV's tenant, and click **Select**.
+1. Select **Review + create**.
+
+# [PowerShell](#tab/azure-powershell)
+
+To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+
+In the script below, `-FederatedClientId` should be the application ID (client ID) of the multi-tenant application. You'll also need to provide the subscription ID, resource group name, and identity name.
+
+```azurepowershell-interactive
+$userAssignedIdentities = @{"/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName" = @{}};
+
+$config = New-AzDiskEncryptionSetConfig `
+   -Location 'westcentralus' `
+   -KeyUrl "https://vault1.vault.azure.net:443/keys/key1/mykey" `
+   -IdentityType 'UserAssigned' `
+   -RotationToLatestKeyVersionEnabled $True `
+   -UserAssignedIdentity $userAssignedIdentities `
+   -FederatedClientId "00000000-0000-0000-0000-000000000000" `
+   $config `
+   | New-AzDiskEncryptionSet -ResourceGroupName 'rg1' -Name 'enc1'
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+In the command below, `myAssignedId` should be the resource ID of the user-assigned managed identity that you created earlier, and `myFederatedClientId` should be the application ID (client ID) of the multi-tenant application.
+
+```azurecli-interactive
+az disk-encryption-set create --resource-group MyResourceGroup --name MyDiskEncryptionSet --key-url MyKey --mi-user-assigned myAssignedId --federated-client-id myFederatedClientId --location westcentralus
+```
+
+---
+
+### Use an ARM template
 
 ```json
 {
@@ -108,7 +141,7 @@ Use an ARM template or REST API.
 }
 ```
 
-### REST API
+### Use REST API
 
 Use bearer token as authorization header and application/JSON as content type in BODY. (Network tab, filter to management.azure while performing any ARM request on portal.)
 
@@ -138,40 +171,6 @@ Content-Type: application/json
   }
 }
 ```
-
-# [PowerShell](#tab/azure-powershell)
-
-To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
-
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
-
-In the script below, `-FederatedClientId` should be the application ID (client ID) of the multi-tenant application. You'll also need to provide the subscription ID, resource group name, and identity name.
-
-```azurepowershell-interactive
-$userAssignedIdentities = @{"/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName" = @{}};
-
-$config = New-AzDiskEncryptionSetConfig `
-   -Location 'westcentralus' `
-   -KeyUrl "https://vault1.vault.azure.net:443/keys/key1/mykey" `
-   -IdentityType 'UserAssigned' `
-   -RotationToLatestKeyVersionEnabled $True `
-   -UserAssignedIdentity $userAssignedIdentities `
-   -FederatedClientId "00000000-0000-0000-0000-000000000000" `
-   $config `
-   | New-AzDiskEncryptionSet -ResourceGroupName 'rg1' -Name 'enc1'
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-In the command below, `myAssignedId` should be the resource ID of the user-assigned managed identity that you created earlier, and `myFederatedClientId` should be the application ID (client ID) of the multi-tenant application.
-
-```azurecli-interactive
-az disk-encryption-set create --resource-group MyResourceGroup --name MyDiskEncryptionSet --key-url MyKey --mi-user-assigned myAssignedId --federated-client-id myFederatedClientId --location westcentralus
-```
-
----
 
 ## Next steps
 

@@ -32,14 +32,14 @@ Each virtual machine instance in NVadsA10v5-series comes with a GRID license. Th
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU partition | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (MBps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU partition | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6ads_A10_v5 |6 |55 |180 | 1/6 | 4 | 4 | 2 / 5000 |
-| Standard_NV12ads_A10_v5 |12 |110 |360 | 1/3 | 8 | 4 | 2 / 10000 |
-| Standard_NV18ads_A10_v5 |18 |220 |720 | 1/2 | 12 | 8 | 4 / 20000 |
-| Standard_NV36ads_A10_v5 |36 |440 |720 | 1 | 24 | 16 | 4 / 40000 |
-| Standard_NV36adms_A10_v5 |36 |880 |720 | 1 | 24 | 32 | 8 / 80000 |
-| Standard_NV72ads_A10_v5 |72 |880 |1400 | 2 | 48 | 32 | 8 / 80000 |
+| Standard_NV6ads_A10_v5 |6 |55 |180 | 1/6 | 4 | 4 | 6400 / 100 | 2 / 5000 |
+| Standard_NV12ads_A10_v5 |12 |110 |360 | 1/3 | 8 | 4 | 12800 / 200 | 2 / 10000 |
+| Standard_NV18ads_A10_v5 |18 |220 |720 | 1/2 | 12 | 8 | 25600 / 384 | 4 / 20000 |
+| Standard_NV36ads_A10_v5 |36 |440 |1440 | 1 | 24 | 16 |51200 / 768 | 4 / 40000 |
+| Standard_NV36adms_A10_v5 |36 |880 |2880 | 1 | 24 | 32 |51200 / 768 | 8 / 80000 |
+| Standard_NV72ads_A10_v5 |72 |880 |2880 | 2 | 48 | 32 | 80000 / 1200 | 8 / 80000 |
 
 <sup>1</sup> NVadsA10v5-series VMs feature AMD Simultaneous multithreading Technology
 

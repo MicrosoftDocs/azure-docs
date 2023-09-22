@@ -3,8 +3,8 @@ title: Troubleshoot low memory issues in Azure Database for MySQL
 description: Learn how to troubleshoot low memory issues in Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---
@@ -12,6 +12,8 @@ ms.date: 06/20/2022
 # Troubleshoot low memory issues in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 To help ensure that a MySQL database server performs optimally, it's very important to have the appropriate memory allocation and utilization. By default, when you create an instance of Azure Database for MySQL, the available physical memory is dependent on the tier and size you select for your workload. In addition, memory is allocated for buffers and caches to improve database operations. For more information, see [How MySQL Uses Memory](https://dev.mysql.com/doc/refman/5.7/en/memory-use.html).
 

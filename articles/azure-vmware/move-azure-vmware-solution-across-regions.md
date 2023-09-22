@@ -1,7 +1,7 @@
 ---
 title: Move Azure VMware Solution resources across regions
 description: This article describes how to move Azure VMware Solution resources from one Azure region to another.  
-ms.custom: subject-moving-resources
+ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 04/11/2022
@@ -104,6 +104,11 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
 1. From the target, sign in to the [Azure portal](https://portal.azure.com/).
 
+   > [!NOTE]
+   > If you need access to the Azure US Gov portal, go to https://portal.azure.us/
+
+  
+
 1. Select **Manage** > **Connectivity** > **ExpressRoute** and then select **+ Request an authorization key**.
 
    :::image type="content" source="media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Screenshot showing how to request an ExpressRoute authorization key." border="true" lightbox="media/expressroute-global-reach/start-request-authorization-key.png":::
@@ -121,6 +126,9 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 Now that you have the ExpressRoute circuit IDs and authorization keys for both environments, you can peer the source to the target. You'll use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
  
 1. From the target, sign in to the [Azure portal](https://portal.azure.com) using the same subscription as the source’s ExpressRoute circuit.
+
+   >[!NOTE]
+   >If you need access to the Azure US Gov portal, go to https://portal.azure.us/
 
 1. Under Manage, select **Connectivity** > **ExpressRoute Global Reach** > **Add**.
 
@@ -304,7 +312,7 @@ To this point, you've migrated the workloads to the target environment. These ap
 
 - Published through the public IP feature in vWAN.
 
-Public IP is typically the destination NAT translated into the Azure firewall. With DNAT rules, firewall policy would translate the public IP address request to a private address (webserver) with a port. For more information, see [How to use the public IP functionality in Azure Virtual WAN](./enable-public-internet-access.md).
+Public IP is typically the destination NAT translated into the Azure firewall. With DNAT rules, firewall policy would translate the public IP address request to a private address (webserver) with a port. For more information, see [How to use the public IP functionality in Azure Virtual WAN](./enable-public-ip-nsx-edge.md).
 
 >[!NOTE]
 >SNAT is by default configured in Azure VMware Solution, so you must enable SNAT from Azure VMware Solution private cloud connectivity settings under the Manage tab.

@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot common errors - Azure Database for MySQL
 description: Learn how to troubleshoot common migration errors encountered by users new to the Azure Database for MySQL service
-author: savjani
+author: sudheeshgh
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: single-server
-ms.author: pariks
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 06/20/2022
@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 # Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you'll see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL for the first time.
 

@@ -6,10 +6,10 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 08/24/2022
+ms.date: 12/14/2022
 ms.author: stevehow
-ms.reviewer: joanpo
-ms.custom: seo-lt-2019
+ms.reviewer: joanpo, wiassaf
+ms.custom: seo-lt-2019, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Restore an existing dedicated SQL pool
@@ -32,11 +32,16 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 
 8. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
 
-    ![Restore points](../media/sql-pools/restore-point.PNG)
+   ![Restore points](../media/sql-pools/restore-point.PNG)
 
-    If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours, or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
+   * If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours, or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
 
-    If you are restoring a geo-backup, select the workspace located in the source region and the dedicated SQL pool you want to restore. 
+   * If you want to restore a dedicated SQL pool from a different workspace, select **New dedicated SQL pool** from your current workspace. Under the **Additional settings** tab, find the **Use existing data** and select the **Restore point** option. As shown in the above screenshot, you can then select the **Server or workspace** name from which you can restore.
+
+   * If you are restoring a geo-backup, select the workspace located in the source region and the dedicated SQL pool you want to restore.
+
+   > [!NOTE]
+   > You cannot perform an in-place restore of a SQL pool with the same name as an existing pool. Regardless of the SQL pool being in the same workspace or a different workspace.
 
 9. Select **Review + Create**.
 
@@ -48,7 +53,7 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 
     ![ Restore Overview](../media/sql-pools/restore-sqlpool-01.png)
 
-4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
+4. Select either **Automatic Restore Points** or **User-Defined Restore Points**.
 
     If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours or create a user-defined restore point before restoring. 
 
@@ -127,26 +132,29 @@ Steps:
 
 1. Open a PowerShell terminal.
 
-2. Update Az.Sql Module to 3.8.0 (or greater) if needed
+1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A PowerShell command to validate the version is below.
+   ```powershell
+   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
+   ```
+   
+1. Connect to your Azure account and list all the subscriptions associated with your account.
 
-3. Connect to your Azure account and list all the subscriptions associated with your account.
+1. Select the subscription that contains the SQL pool to be restored.
 
-4. Select the subscription that contains the SQL pool to be restored.
+1. List the restore points for the dedicated SQL pool.
 
-5. List the restore points for the dedicated SQL pool.
+1. Pick the desired restore point using the **RestorePointCreationDate**.
 
-6. Pick the desired restore point using the **RestorePointCreationDate**.
+1. Select the destination subscription in which the SQL pool should be restored.
 
-7. Select the destination subscription in which the SQL pool should be restored.
+1. Restore the dedicated SQL pool to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
 
-8. Restore the dedicated SQL pool to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
+1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 
-9. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
-
-10. **If the desired destination is a Synapse Workspace, uncomment the code to perform the additional restore step.**
-    1. Create a restore point for the newly created data warehouse.
-    2. Retrieve the last restore point created by using the `Select -Last 1` syntax.
-    3. Perform the restore to the desired Azure Synapse workspace.
+1. If the desired destination is a Synapse Workspace, uncomment the code to perform the additional restore step.
+   1. Create a restore point for the newly created data warehouse.
+   2. Retrieve the last restore point created by using the `Select -Last 1` syntax.
+   3. Perform the restore to the desired Azure Synapse workspace.
 
 ```powershell
 $SourceSubscriptionName="<YourSubscriptionName>"
@@ -201,6 +209,7 @@ $RestoredDatabase.status
 
 ```
 
+
 ## Troubleshooting
 A restore operation can result in a deployment failure based on a "RequestTimeout" exception. 
 
@@ -214,3 +223,4 @@ This timeout can be ignored. Review the dedicated SQL pool page in the Azure por
 
 - [Create a restore point](sqlpool-create-restore-point.md)
 - [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+- [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772)

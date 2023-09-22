@@ -5,11 +5,12 @@ description: Learn about how MLflow uses the concept of models instead of artifa
 services: machine-learning
 author: santiagxf
 ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 07/8/2022
+ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: devx-track-python, cliv2, sdkv2
+ms.custom: cliv2, sdkv2
 ---
 
 # From artifacts to models in MLflow
@@ -26,8 +27,6 @@ Any file generated (and captured) from an experiment's run or job is an artifact
 
 You may have been logging artifacts already:
 
-# [Using MLflow SDK](#tab/mlflow)
-
 ```python
 filename = 'model.pkl'
 with open(filename, 'wb') as f:
@@ -36,32 +35,6 @@ with open(filename, 'wb') as f:
 mlflow.log_artifact(filename)
 ```
 
-# [Using Azure ML SDK v1](#tab/sdkv1)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-filename = 'model.pkl'
-with open(filename, 'wb') as f:
-  pickle.dump(model, f)
-
-mlflow.log_file(filename)
-```
-
-# [Using the outputs folder](#tab/outputs)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-os.mkdirs("outputs", exists_ok=True)
-
-filename = 'outputs/model.pkl'
-with open(filename, 'wb') as f:
-  pickle.dump(model, f)
-```
-
----
-
 ### Models
 
 A model in MLflow is also an artifact. However, we make stronger assumptions about this type of artifacts. Such assumptions provide a clear contract between the saved files and what they mean. When you log your models as artifacts (simple files), you need to know what the model builder meant for each of them in order to know how to load the model for inference. On the contrary, MLflow models can be loaded using the contract specified in the [The MLModel format](concept-mlflow-models.md#the-mlmodel-format).
@@ -69,37 +42,17 @@ A model in MLflow is also an artifact. However, we make stronger assumptions abo
 In Azure Machine Learning, logging models has the following advantages:
 > [!div class="checklist"]
 > * You can deploy them on real-time or batch endpoints without providing an scoring script nor an environment.
-> * When deployed, Model's deployments have a Swagger generated automatically and the __Test__ feature can be used in Azure ML studio.
+> * When deployed, Model's deployments have a Swagger generated automatically and the __Test__ feature can be used in Azure Machine Learning studio.
 > * Models can be used as pipelines inputs directly.
 > * You can use the [Responsible AI dashbord (preview)](how-to-responsible-ai-dashboard.md).
 
-Models can get logged by:
-
-# [Using MLflow SDK](#tab/mlflow)
+Models can get logged by using MLflow SDK:
 
 ```python
 import mlflow
-mlflow..sklearn.log_model(sklearn_estimator, "classifier")
+mlflow.sklearn.log_model(sklearn_estimator, "classifier")
 ```
 
-# [Using Azure ML SDK v1](#tab/sdkv1)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-> [!IMPORTANT]
-> Azure ML SDK v1 doesn't have the *model* concept.
-
-# [Using the outputs folder](#tab/outputs)
-
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
-
-```python
-os.mkdirs("outputs/classifier", exists_ok=True)
-
-mlflow.sklearn.save_model(sklearn_estimator, "outputs/classifier")
-```
-
----
 
 ## The MLmodel format
 
@@ -181,7 +134,7 @@ signature:
 ```
 
 > [!TIP]
-> Azure Machine Learning generates Swagger for model's deployment in MLflow format with a signature available. This makes easier to test deployed endpoints using the Azure ML studio.
+> Azure Machine Learning generates Swagger for model's deployment in MLflow format with a signature available. This makes easier to test deployed endpoints using the Azure Machine Learning studio.
 
 ### Model's environment
 
@@ -211,7 +164,7 @@ name: mlflow-env
 ```
 
 > [!NOTE]
-> MLflow environments and Azure Machine Learning environments are different concepts. While the former opperates at the level of the model, the latter operates at the level of the workspace (for registered environments) or jobs/deployments (for annonymous environments). When you deploy MLflow models in Azure Machine Learning, the model's environment is built and used for deployment. Alternatively, you can override this behaviour with the [Azure ML CLI v2](concept-v2.md) and deploy MLflow models using a specific Azure Machine Learning environments.
+> MLflow environments and Azure Machine Learning environments are different concepts. While the former opperates at the level of the model, the latter operates at the level of the workspace (for registered environments) or jobs/deployments (for annonymous environments). When you deploy MLflow models in Azure Machine Learning, the model's environment is built and used for deployment. Alternatively, you can override this behaviour with the [Azure Machine Learning CLI v2](concept-v2.md) and deploy MLflow models using a specific Azure Machine Learning environments.
 
 ### Model's predict function
 
@@ -231,4 +184,3 @@ There are two workflows available for loading models:
 ## Start logging models
 
 We recommend starting taking advantage of MLflow models in Azure Machine Learning. There are different ways to start using the model's concept with MLflow. Read [How to log MLFlow models](how-to-log-mlflow-models.md) to a comprehensive guide.
-

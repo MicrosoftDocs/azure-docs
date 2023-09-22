@@ -4,37 +4,27 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 07/21/2022
+ms.date: 08/25/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
+ms.custom: devx-track-azurecli
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region, using AzCopy. This process, direct upload, enables you to upload a VHD up to 32 TiB in size directly into a managed disk. Currently, direct upload is supported for standard HDD, standard SSD, and premium SSD managed disks. It isn't supported for ultra disks, yet.
+This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region, using AzCopy. This process, direct upload, enables you to upload a VHD up to 32 TiB in size directly into a managed disk. Currently, direct upload is supported for Ultra Disks, Premium SSD v2, Premium SSD, Standard SSD, and Standard HDD.
 
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
 
-## Secure uploads with Azure AD (preview)
+## Secure uploads with Azure AD
 
-If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is currently in preview. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
+If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
 
 ### Prerequisites
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
-- Use the following command to enable the preview on your subscription:
-    ```azurecli
-    az feature register --name AllowAADAuthForDataAccess --namespace Microsoft.Compute
-    ```
-
-    It may take some time for the feature registration to complete, you can confirm if it has with the following command:
-    
-    ```azurecli
-    az feature show --name AllowAADAuthForDataAccess --namespace Microsoft.Compute --output table
-    ```
 
 ### Restrictions
 [!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
@@ -80,16 +70,21 @@ Create an empty standard HDD for uploading by specifying both the **-–for-uplo
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` with values of your choosing. The `--upload-size-bytes` parameter contains an example value of `34359738880`, replace it with a value appropriate for you.
 
-> [!TIP]
+> [!IMPORTANT]
 > If you're creating an OS disk, add `--hyper-v-generation <yourGeneration>` to `az disk create`.
 > 
 > If you're using Azure AD to secure disk uploads, add `-dataAccessAuthmode 'AzureActiveDirectory'`.
+> When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
+>
+> VHDX files with logical sector size of 512k aren't supported.
 
 ```azurecli
+##For Ultra Disk or Premium SSD v2, add --logical-sector-size and specify either 512 or 4096, depending on if you're using a VHD or VHDX
+
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra disks are not supported for now.
+If you would like to upload a different disk type, replace **standard_lrs** with **premium_lrs**, **premium_zrs**, **standardssd_lrs**, **standardssd_zrs**, **premiumv2_lrs**, or **ultrassd_lrs**.
 
 ### (Optional) Grant access to the disk
 
@@ -119,11 +114,11 @@ Sample returned value:
 }
 ```
 
-## Upload a VHD
+## Upload a VHD or VHDX
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
-Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
+Use AzCopy v10 to upload your local VHD or VHDX file to a managed disk by specifying the SAS URI you generated.
 
 This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
@@ -166,7 +161,7 @@ sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[dis
 
 az disk create -g $targetRG -n $targetDiskName -l $targetLocation --os-type $targetOS --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
-targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
@@ -180,3 +175,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## Next steps
 
 Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM.
+
+If you've additional questions, see the [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) section in the FAQ.

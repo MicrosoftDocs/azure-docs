@@ -3,14 +3,14 @@ title: Manage training & deploy computes (studio)
 titleSuffix: Azure Machine Learning
 description: Use studio to manage training and deployment compute resources (compute targets) for machine learning.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
+author: vijetajo 
+ms.author: vijetaj
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.date: 08/11/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q1, event-tier1-build-2022
+ms.custom: contperf-fy21q1, event-tier1-build-2022, build-2023
 ---
 # Manage compute resources for model training and deployment in studio
 
@@ -25,6 +25,8 @@ In this article, learn how to manage the compute resources you use for model tra
 
 With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as _compute targets_). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine. 
 
+You can also use [serverless compute](./how-to-use-serverless-compute.md) as a compute target.  There's nothing for you to manage when you use serverless compute.
+
 ## View compute targets
 
 To see all compute targets for your workspace, use the following steps:
@@ -35,20 +37,22 @@ To see all compute targets for your workspace, use the following steps:
 
 1. Select tabs at the top to show each type of compute target.
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-compute-targets.png" alt-text="View list of compute targets":::
+    :::image type="content" source="media/how-to-create-attach-studio/compute-targets.png" alt-text="View list of compute targets":::
+
+[!INCLUDE [retiring vms](./includes/retiring-vms.md)]
 
 ## Compute instance and clusters
 
 You can create compute instances and compute clusters in your workspace, using the Azure Machine Learning SDK, CLI, or studio:
 
-* [Compute instance](how-to-create-manage-compute-instance.md)
+* [Compute instance](how-to-create-compute-instance.md)
 * [Compute cluster](how-to-create-attach-compute-cluster.md)
 
 In addition, you can use the [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) to create compute instances and compute clusters in your workspace.
 
-## Kubernetes cluster
+## Kubernetes clusters
 
-For information on configuring and attaching a Kubrnetes cluster to your workspace, see [Configure Kubernetes cluster for Azure Machine Learning](how-to-attach-kubernetes-anywhere.md).
+For information on configuring and attaching a Kubernetes cluster to your workspace, see [Configure Kubernetes cluster for Azure Machine Learning](how-to-attach-kubernetes-anywhere.md).
 
 ## Other compute targets
 
@@ -58,7 +62,8 @@ To use VMs created outside the Azure Machine Learning workspace, you must first 
  
 1. Under __Manage__, select __Compute__.
 
-1. In the tabs at the top, select **Attached compute** to attach a compute target for **training**.  Or select **Inference clusters** to attach an AKS cluster for **inferencing**.
+1. In the tabs at the top, select **Attached compute** to attach a compute target for **training**.  
+
 1. Select +New, then select the type of compute to attach. Not all compute types can be attached from Azure Machine Learning studio.
 
 1. Fill out the form and provide values for the required properties.
@@ -71,10 +76,6 @@ To use VMs created outside the Azure Machine Learning workspace, you must first 
 
 1. Select __Attach__.
 
-[!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
-
-> [!IMPORTANT]
-> To attach an Azure Kubernetes Services (AKS) or Azure Arc-enabled Kubernetes cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
 
 To detach your compute use the following steps:
 
@@ -83,11 +84,11 @@ To detach your compute use the following steps:
 
 ## Connect with SSH access
 
-[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](includes/machine-learning-ssh-access.md)]
 
 ## Next steps
 
-* Use the compute resource to [submit a training run](how-to-train-sdk.md).
+* Use the compute resource to [submit a training run](how-to-train-model.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
-* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-managed-online-endpoints.md).
+* Once you have a trained model, learn [how and where to deploy models](how-to-deploy-online-endpoints.md).
 * [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)

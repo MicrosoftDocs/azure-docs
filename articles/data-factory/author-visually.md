@@ -8,7 +8,7 @@ ms.custom: synapse
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ---
 
 # Visual authoring in Azure Data Factory
@@ -73,7 +73,7 @@ The management hub, accessed by the *Manage* tab in the UI, is a portal that hos
 
 Expressions and functions can be used instead of static values to specify many properties within the service.
 
-To specify an expression for a property value, select **Add Dynamic Content** or click **Alt + P** while focusing on the field.
+To specify an expression for a property value, select **Add Dynamic Content** or click **Alt + Shift + D** while focusing on the field.
 
 :::image type="content" source="media/author-visually/dynamic-content-1.png" alt-text="Add Dynamic Content":::
 

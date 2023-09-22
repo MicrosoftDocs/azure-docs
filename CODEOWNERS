@@ -4,11 +4,6 @@
 # Background: https://github.blog/2017-07-06-introducing-code-owners/
 # NOTE: The people you choose as code owners must have _write_ permissions for the repository. When the code owner is a team, that team must be _visible_ and it must have _write_ permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
-# Azure Policy: Samples and Compliance Controls
-/articles/**/policy-reference.md @timwarner-msft
-/articles/**/security-controls-policy.md @timwarner-msft
-/includes/policy/ @timwarner-msft
-
 # Azure Monitor
 articles/azure-monitor/* @bwren
 articles/azure-monitor/agents @guywi-ms @bwren
@@ -39,7 +34,7 @@ articles/service-health @rboucher
 /articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
 
 # Cognitive Services
-/articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan @eric-urban @jboback
+/articles/ai-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan @eric-urban @jboback
 
 # DevOps
 /articles/ansible/ @TomArcherMsft
@@ -56,15 +51,16 @@ articles/service-health @rboucher
 /articles/container-instances/ @macolso @mimckitt
 /articles/container-registry/ @dlepow @mimckitt
 
-# Governance
-/articles/governance/ @timwarner-msft
-
 # Security
 /articles/security/fundamentals/feature-availability.md @msmbaldwin @terrylanfear
 
 # Azure Security Center
 /articles/security-center/ @memildin
 /includes/*security-controls*.md @memildin
+
+# Defender for Cloud
+
+/articles/defender-for-cloud @dcurwin @ElazarK
 
 # DDOS Protection
 /articles/ddos-protection @aletheatoh @anupamvi
@@ -73,7 +69,7 @@ articles/service-health @rboucher
 /articles/lighthouse/ @JnHs
 
 # Healthcare APIs
-/articles/healthcare-apis/ @ginalee-dotcom
+/articles/healthcare-apis/ @ranvijaykumar @mikaelweave
 
 # Configuration
 *.json @SyntaxC4 @snoviking

@@ -1,9 +1,9 @@
 ---
 title: Certificate Rotation in Azure Kubernetes Service (AKS)
 description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 09/12/2022
+ms.custom: devx-track-azurecli
+ms.date: 01/19/2023
 ---
 
 # Certificate rotation in Azure Kubernetes Service (AKS)
@@ -55,7 +55,7 @@ az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id Ru
 To check expiration date of certificate on one virtual machine scale set agent node, run the following command:
 
 ```azurecli
-az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+az vmss run-command invoke --resource-group "MC_rg_myAKSCluster_region" --name "vmss-name " --command-id RunShellScript --instance-id 1 --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate" --query "value[0].message"
 ```
 
 ## Certificate Auto Rotation
@@ -75,7 +75,7 @@ For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Servi
 
 To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths:
 
-* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig*
+* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig* or */host/var/lib/kubelet/bootstrap-kubeconfig*
 * On a Windows node: *C:\k\bootstrap-config*
 
 To access agent nodes, see [Connect to Azure Kubernetes Service cluster nodes for maintenance or troubleshooting][aks-node-access] for more information.

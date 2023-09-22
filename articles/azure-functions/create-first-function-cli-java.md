@@ -4,7 +4,7 @@ description: Learn how to create a Java function from the command line, then pub
 ms.date: 11/03/2020
 ms.topic: quickstart
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api
+ms.custom: devx-track-java, mode-api, devx-track-extended-java
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -19,7 +19,7 @@ In this article, you use command-line tools to create a Java function that respo
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](./functions-create-first-java-gradle.md)
-+ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [IntelliJ IDEA](functions-create-maven-intellij.md)
 + [Visual Studio Code](create-first-function-vs-code-java.md)
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
@@ -30,21 +30,13 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
-
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
 + The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.     
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
-### Prerequisite check
-
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
-
-+ Run `az --version` to check that the Azure CLI version is 2.4 or later.
-
-+ Run `az login` to sign in to Azure and verify an active subscription.
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## Create a local function project
 
@@ -191,6 +183,8 @@ A function app and related resources are created in Azure when you first deploy 
     + Function app. A function app is the deployment and execution unit for your functions. The name is randomly generated based on your _artifactId_, appended with a randomly generated number.
     
     The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 

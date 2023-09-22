@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 07/26/2022
-ms.custom: mvc, devx-track-js, mode-ui
+ms.custom: mvc, mode-ui
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure portal
@@ -20,7 +20,7 @@ In this quickstart, you use the Azure portal to deploy an isolated Docker contai
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
 

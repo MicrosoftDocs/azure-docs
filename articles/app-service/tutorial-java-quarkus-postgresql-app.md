@@ -6,15 +6,15 @@ ms.author: dbrittain
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 5/27/2022
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
 ---
 
 # Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL
 
-This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
+This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure.
 When you are finished, you will have a [Quarkus](https://quarkus.io) application storing data in [PostgreSQL](../postgresql/index.yml) database running on [Azure App Service on Linux](overview.md).
 
-![Screenshot of Quarkus application storing data in PostgreSQL.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
+:::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Azure CLI](/cli/azure/overview), installed on your own computer. 
+* [Azure CLI](/cli/azure/overview), installed on your own computer.
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
@@ -38,7 +38,6 @@ In this tutorial, you learn how to:
 ## Clone the sample app and prepare the repo
 
 This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](../postgresql/index.yml). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
-
 
 Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
 
@@ -54,7 +53,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
     ```azurecli
     az login
     az account set -s <your-subscription-id>
-    ```   
+    ```
 
 2. Create an Azure Resource Group, noting the resource group name (referred to with `$RESOURCE_GROUP` later on)
 
@@ -63,6 +62,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
         --name <a-resource-group-name> \
         --location <a-resource-group-region>
     ```
+
 3. Create an App Service Plan. The App Service Plan is the compute container, it determines your cores, memory, price, and scale.
 
     ```azurecli
@@ -72,6 +72,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
         --sku B2 \
         --is-linux
     ```
+
 4. Create an app service within the App Service Plan.
 
     ```azurecli
@@ -82,6 +83,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
         --runtime "JAVA|11-java11" \
         --plan "quarkus-tutorial-app-service-plan"
     ```
+
 > [!IMPORTANT]
 > The `WEBAPP_NAME` must be **unique across all Azure**. A good pattern is to use a combination of your company name or initials of your name along with a good webapp name, for example `johndoe-quarkus-app`.
 
@@ -100,8 +102,8 @@ Follow these steps to create an Azure PostgreSQL database in your subscription. 
         --resource-group $RESOURCE_GROUP \
         --name $DB_SERVER_NAME \
         --location $LOCATION \
-        --admin-user $DB_USERNAME \
-        --admin-password $DB_PASSWORD \
+        --admin-user $ADMIN_USERNAME \
+        --admin-password $ADMIN_PASSWORD \
         --sku-name GP_Gen5_2
     ```
 
@@ -140,6 +142,7 @@ Follow these steps to create an Azure PostgreSQL database in your subscription. 
       --start-ip-address 0.0.0.0 \
       --end-ip-address 0.0.0.0
     ```
+
 3. Create a database named `fruits` within the Postgres service with this command:
 
     ```azurecli
@@ -181,6 +184,9 @@ Use Maven to run the sample.
 mvn quarkus:dev
 ```
 
+> [!IMPORTANT]
+> Be sure you have the H2 JDBC driver installed. You can add it using the following Maven command: `./mvnw quarkus:add-extension -Dextensions="jdbc-h2"`.
+
 This will build the app, run its unit tests, and then start the application in developer live coding. You should see:
 
 ```output
@@ -196,12 +202,12 @@ INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hiber
 
 You can access Quarkus app locally by typing the `w` character into the console, or using this link once the app is started: `http://localhost:8080/`.
 
-![Screenshot of Quarkus application storing data in PostgreSQL.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
+:::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 
 If you see exceptions in the output, double-check that the configuration values for `%dev` are correct.
 
 > [!TIP]
-> You can enable continuous testing by typing `r` into the terminal. This will continously run tests as you develop the application. You can also use Quarkus' *Live Coding* to see changes to your Java or `pom.xml` immediately. Simlply edit code and reload the browser.
+> You can enable continuous testing by typing `r` into the terminal. This will continuously run tests as you develop the application. You can also use Quarkus' *Live Coding* to see changes to your Java or `pom.xml` immediately. Simlply edit code and reload the browser.
 
 When you're done testing locally, shut down the application with `CTRL-C` or type `q` in the terminal.
 
@@ -221,6 +227,7 @@ az webapp config appsettings set \
         'PORT=8080' \
         'WEBSITES_PORT=8080'
 ```
+
 > [!NOTE]
 > The use of single quotes (`'`) to surround the settings is required if your password has special characters.
 
@@ -236,7 +243,7 @@ mvn clean package
 
 The final result will be a JAR file in the `target/` subfolder.
 
-To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
+To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/training/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
 
 ```azurecli
 az webapp deploy \
@@ -258,7 +265,7 @@ az webapp browse \
 
 You should see the app running with the remote URL in the address bar:
 
-![Screenshot of Quarkus application storing data in PostgreSQL running remotely.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-remotely.png)
+:::image type="content" source="./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-remotely.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL running remotely.":::
 
 If you see errors, use the following section to access the log file from the running app:
 
@@ -279,6 +286,7 @@ az appservice plan update --number-of-workers 2 \
 ## Clean up resources
 
 If you don't need these resources for another tutorial (see [Next steps](#next-steps)), you can delete them by running the following command in the Cloud Shell or on your local terminal:
+
 ```azurecli
 az group delete --name $RESOURCE_GROUP --yes
 ```
@@ -286,7 +294,7 @@ az group delete --name $RESOURCE_GROUP --yes
 ## Next steps
 
 [Azure for Java Developers](/java/azure/)
-[Quarkus](https://quarkus.io), 
+[Quarkus](https://quarkus.io),
 [Getting Started with Quarkus](https://quarkus.io/get-started/),
 and
 [App Service Linux](overview.md).
@@ -295,3 +303,8 @@ Learn more about running Java apps on App Service on Linux in the developer guid
 
 > [!div class="nextstepaction"] 
 > [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+
+Learn how to secure your app with a custom domain and certificate.
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

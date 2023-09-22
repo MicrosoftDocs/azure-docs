@@ -7,8 +7,8 @@ ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell, synapse
-ms.date: 09/09/2021
+ms.custom: synapse, devx-track-dotnet
+ms.date: 08/10/2023
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
@@ -128,6 +128,9 @@ The following table describes names and descriptions of properties that are spec
 
 > [!NOTE]
 > If you are passing linked services as referenceObjects in Custom Activity, it is a good security practice to pass an Azure Key Vault enabled linked service (since it does not contain any secure strings) and fetch the credentials using secret name directly from Key Vault from the code. You can find an example [here](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) that references AKV enabled linked service, retrieves the credentials from Key Vault, and then accesses the storage in the code.
+
+> [!NOTE]
+> Currently only Azure Blob storage is supported for resourceLinkedService in custom activity, and it is the only linked service that gets created by default and no option to choose other connectors like ADLS Gen2.
 
 ## Custom activity permissions
 

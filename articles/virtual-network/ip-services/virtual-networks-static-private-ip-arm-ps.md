@@ -1,13 +1,13 @@
 ---
-title: Create a VM with a static private IP address - Azure PowerShell
+title: 'Create a VM with a static private IP address - Azure PowerShell'
 description: Learn how to create a virtual machine with a static private IP address using Azure PowerShell.
-author: asudbring
-ms.author: allensu
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 10/01/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Create a virtual machine with a static private IP address using Azure PowerShell
@@ -19,7 +19,7 @@ A virtual machine (VM) is automatically assigned a private IP address from a ran
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -28,6 +28,7 @@ An Azure resource group is a logical container into which Azure resources are de
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **myResourceGroup** in the **eastus2** location.
 
 ```azurepowershell-interactive
+## Create resource group. ##
 $rg =@{
     Name = 'myResourceGroup'
     Location = 'eastus2'
@@ -99,7 +100,9 @@ $nic | Set-AzNetworkInterface
 ```
 
 > [!WARNING]
-> Though you can add private IP address settings to the operating system, we recommend not doing so until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).
+> From within the operating system of a VM, you shouldn't statically assign the *private* IP that's assigned to the Azure VM. Only do static assignment of a private IP when it's necessary, such as when [assigning many IP addresses to VMs](virtual-network-multiple-ip-addresses-portal.md). 
+>
+>If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
 
 ## Clean up resources
 
@@ -114,4 +117,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 - Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
-- Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines.
+- Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md) virtual machines.

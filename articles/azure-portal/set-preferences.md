@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 09/06/2022
+ms.date: 04/11/2023
 ms.topic: how-to
 ---
 
@@ -27,13 +27,18 @@ To see a full list of directories to which you have access, select **All Directo
 
 To mark a directory as a favorite, select its star icon. Those directories will be listed in the  **Favorites** section.
 
-To switch to a different directory, select the directory that you want to work in, then select the **Switch** button in its row.
+To switch to a different directory, find the directory that you want to work in, then select the **Switch** button in its row.
 
 :::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
 
-### Subscription filters
+## Subscription filters
 
 You can choose the subscriptions that are filtered by default when you sign in to the Azure portal. This can be helpful if you have a primary list of subscriptions you work with but use others occasionally.
+
+> [!IMPORTANT]
+> After you apply a subscription filter in the Azure portal settings page, you will only see subscriptions that match the filter across all portal experiences. You won't be able to work with other subscriptions that are excluded from the selected filter. Any new subscriptions that are created after the filter was applied may not be shown if the filter criteria don't match. To see them, you must update the filter criteria to include other subscriptions in the portal, or select **Advanced filters** and use the **Default** filter to always show all subscriptions.
+>
+> Certain features, such as **Management groups** or **Security Center**, may show subscriptions that don't match your filter criteria. However, you won't be able to perform operations on those subscriptions (such as moving a subscription between management groups) unless you adjust your filters to include the subscriptions that you want to work with.
 
 To use customized filters, select **Advanced filters**. You'll be prompted to confirm before continuing.
 
@@ -43,7 +48,7 @@ This will enable the **Advanced filters** page, where you can create and manage 
 
 :::image type="content" source="media/set-preferences/settings-advanced-filters-disable.png" alt-text="Screenshot showing the confirmation dialog box for disabling Advanced filters.":::
 
-## Advanced filters
+### Advanced filters
 
 After enabling the **Advanced filters** page, you can create, modify, or delete subscription filters.
 
@@ -96,12 +101,6 @@ The **Menu behavior** section lets you choose how the default Azure portal menu 
 The theme that you choose affects the background and font colors that appear in the Azure portal. In the **Theme** section, you can select from one of four preset color themes. Select each thumbnail to find the theme that best suits you.
 
 Alternatively, you can choose a theme from the **High contrast theme** section. These themes can make the Azure portal easier to read, especially if you have a visual impairment. Selecting either the white or black high-contrast theme will override any other theme selections.
-
-### Focus navigation
-
-Choose whether or not to enable focus navigation.
-
-If enabled, only one screen at a time will be visible as you step through a process in the portal. If disabled, as you move through the steps of a process, you'll be able to move between them through a horizontal scroll bar.
 
 ### Startup page
 

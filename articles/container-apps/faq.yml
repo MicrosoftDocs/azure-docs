@@ -5,20 +5,13 @@ metadata:
   keywords: azure container apps, frequently asked questions
   author: craigshoemaker
   ms.topic: faq
-  ms.service: static-web-apps
-  ms.date: 04/18/2022
+  ms.service: container-apps
+  ms.date: 04/14/2023
   ms.author: cshoe
 title: Azure Container Apps frequently asked questions
 summary: This article lists commonly asked questions about Azure Container Apps together with related answers.
   
 sections:
-  - name: Billing
-    questions:
-      - question: |
-          How is Azure Container Apps billed?
-        answer: |
-          Refer to the [billing](billing.md) page for details.
-
   - name: APIs
     questions:
       - question: |
@@ -30,12 +23,12 @@ sections:
         answer: |
           Yes.
 
-  - name: Data management
+  - name: Billing
     questions:
       - question: |
-          Where does Azure Container Apps store customer data?
+          How is Azure Container Apps billed?
         answer: |
-          Azure Container Apps does not move or store customer data out of the region it's deployed in.
+          Refer to the [billing](billing.md) page for details.
 
   - name: Configuration
     questions:
@@ -43,4 +36,62 @@ sections:
           Can I set up GitHub Actions to automatically build and deploy my code to Azure Container Apps?
         answer:
           Yes. Using Azure CLI, run `az containerapp github-action -h` to see the options. Using Azure portal, navigate to the "Continuous deployment" blade under your container app.
-          
+
+  - name: Data management
+    questions:
+      - question: |
+          Where does Azure Container Apps store customer data?
+        answer: |
+          Azure Container Apps does not move or store customer data out of the region it's deployed in.
+
+  - name: Quotas
+    questions:
+      - question: |
+          How can I request a quota increase?
+        answer: |
+          To request quota increase, [submit a support ticket](https://azure.microsoft.com/support/create-ticket/) with the following fields:
+
+          | Property | Value |
+          |--|--|
+          | Issue Type | Technical |
+          | Subscription | Your subscription |
+          | Service | My Services |
+          | Service Type | Container Apps |
+          | Resource | maxoutquotas |
+          | Summary | An explanation for your request, including:<br>• What quotas you want increased<br>• How much of an increase you would like<br>• Business reasons for the increase |
+          | Problem Type | Configuration and Management |
+          | Problem Subtype | Scaling |
+
+          Please keep in mind the following when it comes to quota increase requests: 
+
+          - **Scaling apps vs environments**: There are a number of different quotas available to increase. Use these descriptions to help identify your needs:
+            - **Increase apps and cores per environment**: Allows you to run more apps within an environment and/or more intensive apps. Recommended if your workloads can deploy within the same network and security boundaries.
+            - **Increasing environments**: Recommended if your workloads need network or security boundaries. Note: Additional business context may be required if your request involves increasing environment-level quotas.
+
+          - **Regions**: Approvals for increase requests vary based on compute capacity available in Azure regions.
+
+          - **Specific compute requirements**: The platform supports 4GB per container app. Memory limits overrides are evaluated on a per-case basis.
+
+          - **Business reasoning for scaling**: You may be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
+
+  - name: Dapr
+    questions:
+      - question: |
+          What Dapr features and APIs are available in Azure Container Apps?
+        answer: |
+          Each Dapr capability undergoes thorough evaluation to ensure it positively impacts customers running microservices in the Azure Container Apps environment, while providing the best possible experience.
+
+      - question: |
+          Are alpha Dapr APIs and components supported or available in Azure Container Apps?
+        answer: |
+          Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and features on a self-service, opt-in basis. Although the availability of these alpha APIs and components is not guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. While these alpha APIs and components are provided "as is" and "as available," their continuous evolution towards stable status ensures that developers can always be at the forefront of innovation.
+
+      - question: |
+          What is the Dapr version release cadence in Azure Container Apps?
+        answer: |
+          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps after rigorous testing. Rolling out to all regions can take roughly up to two weeks.
+
+      - question: |
+          How can I request a Dapr feature enhancement for Azure Container Apps?
+        answer:
+          You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.

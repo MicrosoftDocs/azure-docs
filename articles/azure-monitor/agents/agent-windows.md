@@ -2,7 +2,7 @@
 title: Install Log Analytics agent on Windows computers
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 06/01/2023
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: JeffWo
@@ -42,7 +42,7 @@ The change doesn't require any customer action unless you're running the agent o
     - Windows Server 2008 R2 SP1
 
 1. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 code signing support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus).
-1. Update to the latest version of the Windows agent (version 10.20.18029).
+1. Update to the latest version of the Windows agent (version 10.20.18067).
 1. We recommend that you configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12).
 
 ### Network requirements
@@ -69,7 +69,7 @@ Configure .NET Framework 4.6 or later to support secure cryptography because by 
 
 ### Workspace ID and key
 
-Regardless of the installation method used, you'll require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then in the **Settings** section, select **Agents management**.
+Regardless of the installation method used, you'll require the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Then in the **Settings** section, select **Agents**.
 
 [![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
 
@@ -114,7 +114,7 @@ The following table highlights the specific parameters supported by setup for th
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Configure the agent to report to a workspace.               |
 |OPINSIGHTS_WORKSPACE_ID                | Workspace ID (guid) for the workspace to add.                   |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace. |
-|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located. <br> 0 = Azure commercial cloud (default). <br> 1 = Azure Government. |
+|OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located. <br> 0 = Azure commercial cloud (default). <br> 1 = Azure Government. <br> 2 = Azure operated by 21Vianet cloud. |
 |OPINSIGHTS_PROXY_URL               | URI for the proxy to use. Example: OPINSIGHTS_PROXY_URL=IPAddress:Port or OPINSIGHTS_PROXY_URL=FQDN:Port |
 |OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy. |
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy. |
@@ -130,6 +130,12 @@ The following table highlights the specific parameters supported by setup for th
 
     ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
+    ```
+    
+   Or to configure the agent to report to Microsoft Azure operated by 21Vianet cloud, enter:
+
+    ```shell
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=2 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
     >[!NOTE]

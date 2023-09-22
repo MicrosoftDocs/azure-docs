@@ -35,15 +35,25 @@
   items:
   - name: Role definitions
     href: role-definitions.md
+  - name: Role assignments
+    href: role-assignments.md
   - name: Scope
     href: scope-overview.md
   - name: Best practices
     href: best-practices.md
-  - name: Conditions
+  - name: Delegate
+    items:
+    - name: Delegate role assignments overview
+      href: delegate-role-assignments-overview.md
+    - name: Authorization actions and attributes
+      href: conditions-authorization-actions-attributes.md
+    - name: Example conditions
+      href: delegate-role-assignments-examples.md
+  - name: ABAC conditions
     items:
     - name: Condition format
       href: conditions-format.md
-    - name: Example conditions
+    - name: Example conditions for Blob Storage
       href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions prerequisites
       href: conditions-prerequisites.md
@@ -78,8 +88,6 @@
       items:
       - name: Assign roles
         href: role-assignments-portal.md
-      - name: Subscription administrator
-        href: role-assignments-portal-subscription-admin.md
       - name: Managed identity
         href: role-assignments-portal-managed-identity.md
       - name: External guest users
@@ -93,7 +101,13 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
-  - name: Add or edit conditions
+  - name: Delegate
+    items:
+    - name: Subscription administrator
+      href: role-assignments-portal-subscription-admin.md
+    - name: Delegate role assignments with conditions
+      href: delegate-role-assignments-portal.md
+  - name: Add or edit ABAC conditions
     items:
     - name: Portal
       href: conditions-role-assignments-portal.md
@@ -105,8 +119,6 @@
       href: conditions-role-assignments-rest.md
     - name: ARM template
       href: conditions-role-assignments-template.md
-    - name: Troubleshoot conditions
-      href: conditions-troubleshoot.md
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
@@ -150,7 +162,13 @@
   - name: Transfer subscription to different directory
     href: transfer-subscription.md
   - name: Troubleshoot
-    href: troubleshooting.md
+    items:
+    - name: Troubleshoot Azure RBAC
+      href: troubleshooting.md
+    - name: Troubleshoot Azure RBAC limits
+      href: troubleshoot-limits.md
+    - name: Troubleshoot ABAC conditions
+      href: conditions-troubleshoot.md
 - name: Reference
   items:
   - name: Built-in roles
@@ -177,5 +195,5 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-active-directory
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-active-directory

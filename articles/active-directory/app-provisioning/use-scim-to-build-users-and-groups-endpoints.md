@@ -1,6 +1,6 @@
 ---
-title: Build a SCIM endpoint for user provisioning to apps from Azure Active Directory
-description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and automatically provision users and groups into your cloud applications. 
+title: Build a SCIM endpoint for user provisioning to apps from Microsoft Entra ID
+description: Learn to develop a SCIM endpoint, integrate your SCIM API with Microsoft Entra ID, and automatically provision users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Tutorial: Develop a sample SCIM endpoint in Azure Active Directory
+# Tutorial: Develop a sample SCIM endpoint in Microsoft Entra ID
 
-This tutorial describes how to deploy the SCIM [reference code](https://aka.ms/scimreferencecode) with  [Azure App Service](../../app-service/index.yml). Then, test the code by using Postman or by integrating with the Azure Active Directory (Azure AD) Provisioning Service. The tutorial is intended for developers who want to get started with SCIM, or anyone interested in testing a [SCIM endpoint](./use-scim-to-provision-users-and-groups.md). 
+This tutorial describes how to deploy the SCIM [reference code](https://aka.ms/scimreferencecode) with  [Azure App Service](../../app-service/index.yml). Then, test the code by using Postman or by integrating with the Microsoft Entra provisioning service. The tutorial is intended for developers who want to get started with SCIM, or anyone interested in testing a [SCIM endpoint](./use-scim-to-provision-users-and-groups.md). 
 
 In this tutorial, you learn how to:
 
@@ -67,7 +67,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. In the terminal, change the directory using the `cd Microsoft.SCIM.WebHostSample` command
 
-1. To run your app locally, in the terminal, run the .NET CLI command below. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
+1. To run your app locally, in the terminal, run the .NET CLI command. The [dotnet run](/dotnet/core/tools/dotnet-run) runs the Microsoft.SCIM.WebHostSample project using the [development environment](/aspnet/core/fundamentals/environments#set-environment-on-the-command-line).
 
     ```dotnetcli
     dotnet run --environment Development
@@ -75,16 +75,16 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. If not installed, add [Azure App Service for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](/azure/app-service/tutorial-dotnetcore-sqldb-app#2---create-the-app-service).
+1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-app).
 
-1. In the Visual Studio Code terminal, run the .NET CLI command below. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
+1. In the Visual Studio Code terminal, run the .NET CLI command. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 
     ```dotnetcli
     dotnet publish -c Debug
     ```
 
 1. In the Visual Studio Code explorer, right-click on the generated **publish** folder, and select Deploy to Web App.
-1. A new workflow will open in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
+1. A new workflow opens in the command palette at the top of the screen. Select the **Subscription** you would like to publish your app to.
 1. Select the **App Service** web app you created earlier.
 1. If Visual Studio Code prompts you to confirm, select **Deploy**. The deployment process may take a few moments. When the process completes, a notification should appear in the bottom right corner prompting you to browse to the deployed app.
 
@@ -92,22 +92,22 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 ### Configure the App Service
 
-Go to the application in **Azure App Service** > **Configuration** and select **New application setting** to add the *Token__TokenIssuer* setting with the value `https://sts.windows.net/<tenant_id>/`. Replace `<tenant_id>` with your Azure AD tenant ID. If you want to test the SCIM endpoint by using [Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), add an *ASPNETCORE_ENVIRONMENT* setting with the value `Development`.
+Go to the application in **Azure App Service** > **Configuration** and select **New application setting** to add the *Token__TokenIssuer* setting with the value `https://sts.windows.net/<tenant_id>/`. Replace `<tenant_id>` with your Microsoft Entra tenant ID. If you want to test the SCIM endpoint by using [Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), add an *ASPNETCORE_ENVIRONMENT* setting with the value `Development`.
 
 ![Screenshot that shows the Application settings window.](media/use-scim-to-build-users-and-groups-endpoints/app-service-settings.png)
 
-When you test your endpoint with an enterprise application in the [Azure portal](use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service), you have two options. You can keep the environment in `Development` and provide the testing token from the `/scim/token` endpoint, or you can change the environment to `Production` and leave the token field empty.
+When you test your endpoint with an enterprise application in the [Microsoft Entra admin center](use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service), you have two options. You can keep the environment in `Development` and provide the testing token from the `/scim/token` endpoint, or you can change the environment to `Production` and leave the token field empty.
 
 That's it! Your SCIM endpoint is now published, and you can use the Azure App Service URL to test the SCIM endpoint.
 
 ## Test your SCIM endpoint
 
-Requests to a SCIM endpoint require authorization. The SCIM standard has multiple options for authentication and authorization, including cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
+Requests to a SCIM endpoint require authorization. The SCIM standard has multiple options available.  Requests can use cookies, basic authentication, TLS client authentication, or any of the methods listed in [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
 
-Be sure to avoid methods that aren't secure, such as username and password, in favor of a more secure method such as OAuth. Azure AD supports long-lived bearer tokens (for gallery and non-gallery applications) and the OAuth authorization grant (for gallery applications).
+Be sure to avoid methods that aren't secure, such as username and password, in favor of a more secure method such as OAuth. Microsoft Entra ID supports long-lived bearer tokens (for gallery and non-gallery applications) and the OAuth authorization grant (for gallery applications).
 
 > [!NOTE]
-> The authorization methods provided in the repo are for testing only. When you integrate with Azure AD, you can review the authorization guidance. See [Plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md).
+> The authorization methods provided in the repo are for testing only. When you integrate with Microsoft Entra ID, you can review the authorization guidance. See [Plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md).
 
 The development environment enables features that are unsafe for production, such as reference code to control the behavior of the security token validation. The token validation code uses a self-signed security token, and the signing key is stored in the configuration file. See the **Token:IssuerSigningKey** parameter in the *appsettings.Development.json* file.
 
@@ -123,7 +123,7 @@ The development environment enables features that are unsafe for production, suc
 > [!NOTE]
 > When you send a **GET** request to the `/scim/token` endpoint, a token is issued using the configured key. That token can be used as a bearer token for subsequent authorization.
 
-The default token validation code is configured to use an Azure AD token and requires the issuing tenant be configured by using the **Token:TokenIssuer** parameter in the *appsettings.json* file.
+The default token validation code is configured to use a Microsoft Entra token and requires the issuing tenant be configured by using the **Token:TokenIssuer** parameter in the *appsettings.json* file.
 
 ``` json
 "Token": {
@@ -133,8 +133,6 @@ The default token validation code is configured to use an Azure AD token and req
 ```
 
 ## Next steps
-
-To develop a SCIM-compliant user and group endpoint with interoperability for a client, see [SCIM client implementation](http://www.simplecloud.info/#Implementations2).
 
 - [Tutorial: Validate a SCIM endpoint](scim-validator-tutorial.md)
 - [Tutorial: Develop and plan provisioning for a SCIM endpoint](use-scim-to-provision-users-and-groups.md)

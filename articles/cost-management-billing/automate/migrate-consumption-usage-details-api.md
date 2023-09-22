@@ -79,12 +79,14 @@ A full example legacy Usage Details record is shown at [Usage Details - List - R
 
 The following table provides a mapping between the old and new fields. New properties are available in the CSV files produced by Exports and the Cost Details API. To learn more about the fields, see [Understand usage details fields](understand-usage-details-fields.md).
 
+Bold property names are unchanged.
+
 | **Old Property** | **New Property** |
 | --- | --- |
 | accountName | AccountName |
-| | AccountOwnerId |
+| **AccountOwnerId** | AccountOwnerId |
 | additionalInfo | AdditionalInfo |
-| | AvailabilityZone |
+| **AvailabilityZone** | AvailabilityZone |
 | billingAccountId | BillingAccountId |
 | billingAccountName | BillingAccountName |
 | billingCurrency | BillingCurrencyCode |
@@ -100,40 +102,40 @@ The following table provides a mapping between the old and new fields. New prope
 | effectivePrice | EffectivePrice |
 | frequency | Frequency |
 | invoiceSection | InvoiceSectionName |
-| | InvoiceSectionId |
+| **InvoiceSectionId** | InvoiceSectionId |
 | isAzureCreditEligible | IsAzureCreditEligible |
 | meterCategory | MeterCategory |
 | meterId | MeterId |
 | meterName | MeterName |
-| | MeterRegion |
+| **MeterRegion** | MeterRegion |
 | meterSubCategory | MeterSubCategory |
 | offerId | OfferId |
 | partNumber | PartNumber |
-| | PayGPrice |
-| | PlanName |
-| | PricingModel |
+| **PayGPrice** | PayGPrice |
+| **PlanName** | PlanName |
+| **PricingModel** | PricingModel |
 | product | ProductName |
-| | ProductOrderId |
-| | ProductOrderName |
-| | PublisherName |
-| | PublisherType |
+| **ProductOrderId** | ProductOrderId |
+| **ProductOrderName** | ProductOrderName |
+| **PublisherName** | PublisherName |
+| **PublisherType** | PublisherType |
 | quantity | Quantity |
-| | ReservationId |
-| | ReservationName |
+| **ReservationId** | ReservationId |
+| **ReservationName** | ReservationName |
 | resourceGroup | ResourceGroup |
 | resourceId | ResourceId |
 | resourceLocation | ResourceLocation |
 | resourceName | ResourceName |
 | serviceFamily | ServiceFamily |
-| | ServiceInfo1 |
-| | ServiceInfo2 |
+| **ServiceInfo1** | ServiceInfo1 |
+| **ServiceInfo2** | ServiceInfo2 |
 | subscriptionId | SubscriptionId |
 | subscriptionName | SubscriptionName |
-| | Tags |
-| | Term |
+| **Tags** | Tags |
+| **Term** | Term |
 | unitOfMeasure | UnitOfMeasure |
 | unitPrice | UnitPrice |
-|  | CostAllocationRuleName |
+| **CostAllocationRuleName** | CostAllocationRuleName |
 
 ## Microsoft Customer Agreement field mapping
 

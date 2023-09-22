@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
 # FortiGate Azure Virtual Machine Deployment Guide
 
-Using this deployment guide, you will learn how to set up and work with the Fortinet FortiGate next-generation firewall product deployed as an Azure Virtual Machine. Additionally, you will configure the FortiGate SSL VPN Azure AD Gallery App to provide VPN authentication through Azure Active Directory.
+Using this deployment guide, you will learn how to set up and work with the Fortinet FortiGate next-generation firewall product deployed as an Azure Virtual Machine. Additionally, you will configure the FortiGate SSL VPN Microsoft Entra Gallery App to provide VPN authentication through Microsoft Entra ID.
 
 ## Redeem the FortiGate License
 
@@ -138,7 +138,9 @@ The following sections walk you through how to set up the FortiGate VM.
 
     ![Screenshot of Upload Remote Certificate.](certificate.png)
 
-### Upload the Azure AD SAML Signing Certificate
+<a name='upload-the-azure-ad-saml-signing-certificate'></a>
+
+### Upload the Microsoft Entra SAML Signing Certificate
 
 1. Go to `https://<address>:8443`. Here, `<address>` is the FQDN or the public IP address assigned to the FortiGate VM.
 
@@ -215,4 +217,4 @@ Multi-homed Azure VMs have all network interfaces on the same virtual network (b
 
 ## Configure FortiGate SSL VPN
 
-Follow the steps outlined in [Tutorial: Azure Active Directory single sign-on (SSO) integration with FortiGate SSL VPN](../../fortigate-ssl-vpn-tutorial.md)
+Follow the steps outlined in [Tutorial: Microsoft Entra single sign-on (SSO) integration with FortiGate SSL VPN](../../fortigate-ssl-vpn-tutorial.md)

@@ -1,0 +1,81 @@
+### YamlMime:Landing
+
+title: Active Directory integration documentation
+summary:  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+
+metadata:
+  author: billmath
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+  manager: amycolannino
+  ms.author: billmath
+  ms.collection: na
+  ms.date: 08/15/2019
+  ms.service: active-directory
+  ms.subservice: hybrid
+  ms.topic: landing-page
+  services: active-directory
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent: 
+  # Card
+  - title: About Hybrid Identity
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is hybrid identity?
+            url: ../whatis-hybrid-identity.md
+          - text: What is inter-directory provisioning?
+            url: ../what-is-inter-directory-provisioning.md  
+ 
+  # Card
+  - title: Choose the right sync tool
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Choosing the right sync tool
+            url: https://setup.microsoft.com/azure/add-or-sync-users-to-microsoft-365
+
+            
+ 
+
+
+  
+  # Card
+  - title: Synchronization features
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Getting started with AD integration
+            url: whatis-phs.md
+          - text: Managing users and groups
+            url: how-to-connect-pta.md
+
+
+
+
+  # Card
+  - title: Cloud sync reference
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Microsoft Entra Connect cloud sync?
+            url: how-to-connect-install-express.md
+
+
+  # Card
+  - title: Microsoft Entra Connect reference
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Microsoft Entra Connect?
+            url: how-to-connect-install-express.md
+
+  # Card
+  - title: Provisioning agent reference
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Microsoft Entra provisioning Agent?
+            url: how-to-connect-install-express.md

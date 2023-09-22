@@ -20,9 +20,9 @@ The following sections provide information about the cookies used in Azure Activ
 
 ## SameSite
 
-The Microsoft Azure AD B2C service is compatible with SameSite browser configurations, including support for `SameSite=None` with the `Secure` attribute.
+The Azure B2C service is compatible with SameSite browser configurations, including support for `SameSite=None` with the `Secure` attribute.
 
-To safeguard access to sites, web browsers will introduce a new secure-by-default model that assumes all cookies should be protected from external access unless otherwise specified. The Chrome browser is the first to implement this change, starting with [Chrome 80 in February 2020](https://www.chromium.org/updates/same-site). For more information about preparing for the change in Chrome, see [Developers: Get Ready for New SameSite=None; Secure Cookie Settings](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html) on the Chromium Blog.
+To safeguard access to sites, web browsers will introduce a new secure-by-default model that assumes all cookies should be protected from external access unless otherwise specified. The Chrome browser is the first to implement this change, starting with [Chrome 80 in February 2020](https://www.chromium.org/updates/same-site/). For more information about preparing for the change in Chrome, see [Developers: Get Ready for New SameSite=None; Secure Cookie Settings](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html) on the Chromium Blog.
 
 Developers must use the new cookie setting, `SameSite=None`, to designate cookies for cross-site access. When the `SameSite=None` attribute is present, an additional `Secure` attribute must be used so cross-site cookies can only be accessed over HTTPS connections. Validate and test all your applications, including those applications that use Azure AD B2C.
 
@@ -47,6 +47,7 @@ The following table lists the cookies used in Azure AD B2C.
 | `x-ms-cpim-ctx` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Context |
 | `x-ms-cpim-rp` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Used for storing membership data for the resource provider tenant. |
 | `x-ms-cpim-rc` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Used for storing the relay cookie. |
+| `x-ms-cpim-geo` | b2clogin.com, login.microsoftonline.com, branded domain | 1 Hour | Used as a hint to determine the resource tenants home geographic location. |
 
 ## Cross-Site request forgery token
 

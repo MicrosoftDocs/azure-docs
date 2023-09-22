@@ -3,11 +3,10 @@ title: Download a Windows VHD from Azure
 description: Download a Windows VHD using the Azure portal.
 author: roygara
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 01/03/2023
 ---
 
 # Download a Windows VHD from Azure
@@ -58,7 +57,7 @@ Your snapshot will be created shortly, and can then be used to download or creat
 > This method is only recommended for VMs with a single OS disk. VMs with one or more data disks should be stopped before download or before creating a snapshot for the OS disk and each data disk.
 
 
-## Secure downloads and uploads with Azure AD (preview)
+## Secure downloads and uploads with Azure AD
 
 [!INCLUDE [disks-azure-ad-upload-download-portal](../../../includes/disks-azure-ad-upload-download-portal.md)]
 

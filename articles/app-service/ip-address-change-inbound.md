@@ -4,7 +4,10 @@ description: If your inbound IP address is going to be changed, learn what to do
 
 ms.topic: article
 ms.date: 06/28/2018
-ms.custom: seodec18
+ms.custom: UpdateFrequency3
+ms.author: msangapu
+author: msangapu-msft
+
 ---
 
 # How to prepare for an inbound IP address change

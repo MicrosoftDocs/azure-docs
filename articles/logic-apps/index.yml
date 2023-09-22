@@ -3,15 +3,15 @@
 title: Azure Logic Apps documentation # < 60 chars
 summary: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems. # < 160 chars
 
-metadata: 
-  title: Azure Logic Apps documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems. # Required; article description that is displayed in search results. < 160 chars.
+metadata:
+  title: Azure Logic Apps documentation
+  description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
   services: logic-apps # service
-  ms.service: logic-apps #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: ecfan #Required; your GitHub user alias, with correct capitalization.
-  ms.author: estfan; logicappspm #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/24/2021 #Required; mm/dd/yyyy format.
+  ms.service: logic-apps
+  ms.topic: landing-page
+  author: ecfan
+  ms.author: estfan; azla
+  ms.date: 02/28/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,8 +31,8 @@ landingContent:
             url: azure-arc-enabled-logic-apps-overview.md
       - linkListType: concept
         links:
-          - text: Connectors overview for Azure Logic Apps
-            url: ../connectors/apis-list.md
+          - text: About connectors in Azure Logic Apps
+            url: ../connectors/introduction.md
           - text: Recurrence schedules for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration
@@ -42,12 +42,12 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
-            url: /learn/modules/intro-to-logic-apps/
+            url: /training/modules/intro-to-logic-apps/
       - linkListType: video
         links:
           - text: Introducing Azure Logic Apps
             url: /Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
-          - text: Connect and extend your mainframe to the cloud with Logic Apps
+          - text: Connect and extend your mainframe to the cloud with Azure Logic Apps
             url: /Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps
           - text: Azure Logic Apps - Code & API free integration
             url: https://www.youtube.com/watch?v=Z3qaBQS0w20
@@ -57,18 +57,14 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create logic app - Azure portal
-            url: quickstart-create-first-logic-app-workflow.md
-          - text: Create logic app - Visual Studio
+          - text: Create Consumption logic app workflow - Azure portal
+            url: quickstart-create-example-consumption-workflow.md
+          - text: Create Consumption logic app workflow - Visual Studio
             url: quickstart-create-logic-apps-with-visual-studio.md
       - linkListType: get-started
         links:
           - text: "Template: Run timer jobs on a schedule"
             url: https://azure.microsoft.com/resources/templates/logicapps-jobscheduler/
-      - linkListType: learn
-        links:
-          - text: Route and process data automatically
-            url: /learn/modules/route-and-process-data-logic-apps
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -77,10 +73,6 @@ landingContent:
             url: tutorial-process-mailing-list-subscriptions-workflow.md
           - text: Create an Azure Functions and Storage workflow
             url: tutorial-process-email-attachments-workflow.md
-      - linkListType: video
-        links:
-          - text: Be the scheduler hero with Azure Logic Apps
-            url: https://azure.microsoft.com/resources/videos/ignite-2018-be-the-scheduler-hero-with-azure-logic-apps
 
   # Card (optional)
   - title: Access on-premises data or virtual networks
@@ -156,7 +148,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Create and deploy with Resource Manager templates
-            url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
+            url: /training/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
             url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
   # Card (optional)

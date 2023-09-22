@@ -4,7 +4,7 @@ description: Learn how to connect an Azure VPN gateway (virtual network gateway)
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 07/28/2023
 ms.author: cherylmc
 
 ---
@@ -28,6 +28,7 @@ Azure Virtual WAN
 Virtual Network (for virtual network gateway)
 
 * [Create a virtual network](../virtual-network/quick-create-portal.md) without any virtual network gateways. This virtual network will be configured with an active/active virtual network gateway in later steps. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to.
+
 
 ## <a name="vnetgw"></a>1. Configure VPN Gateway virtual network gateway
 
@@ -116,6 +117,12 @@ In this section, you create two Azure VPN Gateway local network gateways. The co
 1. Repeat these steps to create another local network gateway, but this time, use the 'Instance1' values instead of 'Instance0' values from the configuration file.
 
    :::image type="content" source="./media/connect-virtual-network-gateway-vwan/local-2.png" alt-text="Screenshot that shows the Configuration page with an IP address highlighted for local network gateway 2." lightbox="./media/connect-virtual-network-gateway-vwan/local-2.png":::
+   
+> [!IMPORTANT] 
+> 
+> Please be aware that when configuring a BGP Over IPsec connection to a Public IP that is NOT a vWAN Gateway Public IP address with the remote ASN '65515', the Local Network Gateway deployment will fail as the ASN '65515' is a documented reserved ASN as depicted in [What Autonomous Systems Can I use](../vpn-gateway/vpn-gateway-vpn-faq.md#bgp). However, when the Local Network Gateway reads the vWAN Public address with the remote ASN '65515', this restriction is lifted by the platform.
+> 
+   
 
 ## <a name="createlocalgateways"></a>6. Create connections
 

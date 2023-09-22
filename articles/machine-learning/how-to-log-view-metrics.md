@@ -10,14 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/28/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 ---
 
 # Log metrics, parameters and files with MLflow
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
-> * [v1](./v1/how-to-log-view-metrics.md)
-> * [v2 (current)](how-to-log-view-metrics.md)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
 
 Azure Machine Learning supports logging and tracking experiments using [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). You can log models, metrics, parameters, and artifacts with MLflow as it supports local mode to cloud portability. 
 
@@ -32,10 +31,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 > * Viewing diagnostic information about training.
 
 > [!TIP]
-> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
-
-> [!TIP]
-> For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md).
+> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## Prerequisites
 
@@ -45,15 +41,13 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
     ```bash
     pip install mlflow azureml-mlflow
     ```
-* If you are doing remote tracking (tracking experiments running outside Azure Machine Learning), configure MLflow to track experiments using Azure Machine Learning. See [Setup your tracking environment](how-to-use-mlflow-cli-runs.md?#set-up-tracking-environment) for more details.
+* If you are doing remote tracking (tracking experiments running outside Azure Machine Learning), configure MLflow to track experiments using Azure Machine Learning. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
 
-## Getting started
+* To log metrics, parameters, artifacts and models in your experiments in Azure Machine Learning using MLflow, just import MLflow in your script:
 
-To log metrics, parameters, artifacts and models in your experiments in Azure Machine Learning using MLflow, just import MLflow in your training script:
-
-```python
-import mlflow
-```
+    ```python
+    import mlflow
+    ```
 
 ### Configuring experiments
 
@@ -72,16 +66,19 @@ For example, the following code snippet demonstrates configuring the experiment,
 
 ```python
 import mlflow
+# Set the experiment
 mlflow.set_experiment("mlflow-experiment")
 
-# Start the run, log metrics, end the run
+# Start the run
 mlflow_run = mlflow.start_run()
+# Log metrics or other information
 mlflow.log_metric('mymetric', 1)
+# End run 
 mlflow.end_run()
 ```
 
 > [!TIP]
-> Technically you don't have to call `start_run()` as a new run is created if one doesn't exist and you call a logging API. In that case, you can use `mlflow.active_run()` to retrieve the run. However, the `mlflow.ActiveRun` object returned by `mlflow.active_run()` won't contain items like parameters, metrics, etc. For more information, see [mlflow.active_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.active_run).
+> Technically you don't have to call `start_run()` as a new run is created if one doesn't exist and you call a logging API. In that case, you can use `mlflow.active_run()` to retrieve the run once currently being used. For more information, see [mlflow.active_run()](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.active_run).
 
 You can also use the context manager paradigm:
 
@@ -121,7 +118,7 @@ mlflow.log_metric('anothermetric',1)
 ```
 
 > [!TIP]
-> When submitting jobs using Azure ML CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
+> When submitting jobs using Azure Machine Learning CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
 
 ---
 
@@ -145,9 +142,6 @@ params = {
 mlflow.log_params(params)
 ```
 
-> [!NOTE] 
-> Azure ML SDK v1 logging can't log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
-
 ## Logging metrics
 
 Metrics, as opposite to parameters, are always numeric. The following table describes how to log specific numeric types:
@@ -159,7 +153,7 @@ Metrics, as opposite to parameters, are always numeric. The following table desc
 |Log a boolean value | `mlflow.log_metric("my_metric", 0)`| 0 = True, 1 = False|
 
 > [!IMPORTANT]
-> __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once or use `mlflow.log_batch` which accepts multiple type of elements for logging.
+> __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once or use `MLflowClient.log_batch` which accepts multiple type of elements for logging. See [Logging curves or list of values](#logging-curves-or-list-of-values) for an example.
 
 ### Logging curves or list of values
 
@@ -178,14 +172,16 @@ client.log_batch(mlflow.active_run().info.run_id,
 
 ## Logging images
 
-MLflow supports two ways of logging images:
+MLflow supports two ways of logging images. Both of them persists the given image as an artifact inside of the run.
 
 |Logged Value|Example code| Notes|
 |----|----|----|
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, "figure.png")`| `img` should be an instance of `numpy.ndarray` or `PIL.Image.Image`. `figure.png` is the name of the artifact that will be generated inside of the run. It doesn't have to be an existing file.|
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`| `figure.png` is the name of the artifact that will be generated inside of the run. It doesn't have to be an existing file. |
 
-## Logging other types of data
+## Logging files
+
+In general, files in MLflow are called artifacts. You can log artifacts in multiple ways in Mlflow:
 
 |Logged Value|Example code| Notes|
 |----|----|----|
@@ -194,11 +190,17 @@ MLflow supports two ways of logging images:
 |Log a trivial file already existing | `mlflow.log_artifact("path/to/file.pkl")`| Files are always logged in the root of the run. If `artifact_path` is provided, then the file is logged in a folder as indicated in that parameter. |
 |Log all the artifacts in an existing folder | `mlflow.log_artifacts("path/to/folder")`| Folder structure is copied to the run, but the root folder indicated is not included. |
 
+> [!TIP]
+> When __logging large files__ with `log_artifact` or `log_model`, you may encounter time out errors before the upload of the file is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_TIMEOUT`. It's default value is `300` (seconds).
+
 ## Logging models
 
 MLflow introduces the concept of "models" as a way to package all the artifacts required for a given model to function. Models in MLflow are always a folder with an arbitrary number of files, depending on the framework used to generate the model. Logging models has the advantage of tracking all the elements of the model as a single entity that can be __registered__ and then __deployed__. On top of that, MLflow models enjoy the benefit of [no-code deployment](how-to-deploy-mlflow-models.md) and can be used with the [Responsible AI dashboard](how-to-responsible-ai-dashboard.md) in studio. Read the article [From artifacts to models in MLflow](concept-mlflow-models.md) for more information.
 
 To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For more details about how to log MLflow models see [Logging MLflow models](how-to-log-mlflow-models.md) For migrating existing models to MLflow, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
+
+> [!TIP]
+> When __logging large models__, you may encounter the error `Failed to flush the queue within 300 seconds`. Usually, it means the operation is timing out before the upload of the model artifacts is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_VALUE`.
 
 ## Automatic logging
 
@@ -211,7 +213,7 @@ mlflow.autolog()
 ```
 
 > [!TIP]
-> You can control what gets automatically logged wit autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow will log everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks may disable automatic logging of models if the trained model goes behond specific boundaries. Such behavior depends on the flavor used and we recommend you to view they documentation if this is your case.
+> You can control what gets automatically logged with autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow will log everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks may disable automatic logging of models if the trained model goes behond specific boundaries. Such behavior depends on the flavor used and we recommend you to view they documentation if this is your case.
 
 ## View jobs/runs information with MLflow
 
@@ -248,7 +250,7 @@ client = mlflow.tracking.MlflowClient()
 client.list_artifacts("<RUN_ID>")
 ```
 
-The method above will list all the artifacts logged in the run, but they will remain stored in the artifacts store (Azure ML storage). To download any of them, use the method `download_artifact`:
+The method above will list all the artifacts logged in the run, but they will remain stored in the artifacts store (Azure Machine Learning storage). To download any of them, use the method `download_artifact`:
 
 ```python
 file_path = client.download_artifacts("<RUN_ID>", path="feature_importance_weight.png")
@@ -262,17 +264,13 @@ You can browse completed job records, including logged metrics, in the [Azure Ma
 
 Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar. Click on the job of interest to enter the details view, and then select the **Metrics** tab.
 
-Select the logged metrics to render charts on the right side.
+Select the logged metrics to render charts on the right side. You can customize the charts by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
 
-:::image type="content" source="media/how-to-log-view-metrics/metrics-old.png" alt-text="Screenshot of the current metrics view.":::
-
-For a customizable view of your job metrics (preview), use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can add/remove charts and customize them by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
-
-:::image type="content" source="media/how-to-log-view-metrics/metrics-new.png" alt-text="Screenshot of the new metrics view.":::
+:::image type="content" source="media/how-to-log-view-metrics/metrics.png" alt-text="Screenshot of the metrics view.":::
 
 ### View and download diagnostic logs
 
-Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
+Log files are an essential resource for debugging the Azure Machine Learning workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
 
 1. Navigate to the **Jobs** tab.
 1. Select the runID for a specific run.

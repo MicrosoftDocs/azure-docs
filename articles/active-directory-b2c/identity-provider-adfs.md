@@ -3,7 +3,7 @@ title: Add AD FS as an OpenID Connect identity provider by using custom policies
 titleSuffix: Azure AD B2C
 description: Set up AD FS 2016 using the OpenID Connect protocol and custom policies in Azure Active Directory B2C
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2022
 ms.custom: project-no-code
-ms.author: kengaderdus
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an AD FS application
 
-To enable sign-in for users with an AD FS account in Azure Active Directory B2C (Azure AD B2C), create an Application Group in your AD FS. For more information, see [Build a web application using OpenID Connect with AD FS 2016 and later](/windows-server/identity/ad-fs/development/enabling-openid-connect-with-ad-fs)
+To enable sign-in for users with an AD FS account in Azure Active Directory B2C (Azure AD B2C), create an Application Group in your AD FS. For more information, see [Build a web application using OpenID Connect with AD FS 2016 and later](../active-directory/develop/msal-migration.md)
 
 To create an Application Group, follow theses steps:
 

@@ -3,14 +3,14 @@ title: Azure App Configuration best practices | Microsoft Docs
 description: Learn best practices while using Azure App Configuration. Topics covered include key groupings, key-value compositions, App Configuration bootstrap, and more.
 services: azure-app-configuration
 documentationcenter: ''
-author: maud-lv
+author: zhenlan
 editor: ''
 
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: malev
+ms.date: 09/08/2023
+ms.author: zhenlwa
 ms.custom: "devx-track-csharp, mvc"
 ---
 
@@ -55,7 +55,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 ## References to external data
 
-App Configuration is designed to store any configuration data that you would normally save in configuration files or environment variables. However, some types of data may better suited to reside in other sources. For example, store secrets in Key Vault, files in Azure Storage, membership information in Azure AD groups, or customer lists in a database.
+App Configuration is designed to store any configuration data that you would normally save in configuration files or environment variables. However, some types of data may be better suited to reside in other sources. For example, store secrets in Key Vault, files in Azure Storage, membership information in Azure AD groups, or customer lists in a database.
 
 You can still take advantage of App Configuration by saving a reference to external data in a key-value. You can [use content type](./concept-key-value.md#use-content-type) to differentiate each data source. When your application reads a reference, it loads the actual data from the referenced source, assuming it has the necessary permission to the source. If you change the location of your external data, you only need to update the reference in App Configuration instead of updating and redeploying your entire application.
 
@@ -76,8 +76,8 @@ Use the App Configuration provider or SDK libraries to access App Configuration 
 
 You can also make your App Configuration data accessible to your application as *Application settings* or environment variables. With this approach, you can avoid changing your application code.
 
-* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
-* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
+* Add references to your App Configuration data in the *Application settings* of your App Service or Azure Functions. App Configuration offers tools to [export a collection of key-values as references](howto-import-export-data.md#export-data-to-azure-app-service) at once. For more information, see [Use App Configuration references for App Service and Azure Functions](../app-service/app-service-configuration-references.md).
+* [Export your App Configuration data](howto-import-export-data.md#export-data-to-azure-app-service) to the *Application settings* of your App Service or Azure Functions without selecting the option of export-as-reference. Export your data again every time you make new changes in App Configuration if you like your application to pick up the change.
 
 ## Reduce requests made to App Configuration
 
@@ -89,7 +89,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 * Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Use Event Grid for App Configuration data change notifications](./howto-app-configuration-event.md).
 
-* Spread your requests across multiple App Configuration stores. For example, use a different store from each geographic region for a globally deployed application. Each App Configuration store has its own request quota. This setup gives you a model for scalability and avoids the single point of failure.
+* [Enable geo-replication](./howto-geo-replication.md) of your App Configuration store and spread your requests across multiple replicas. For example, use a different replica from each geographic region for a globally deployed application. Each App Configuration replica has its separate request quota. This setup gives you a model for scalability and enhanced resiliency against transient and regional outages.
 
 ## Importing configuration data into App Configuration
 
@@ -97,7 +97,7 @@ App Configuration offers the option to bulk [import](./howto-import-export-data.
 
 ## Multi-region deployment in App Configuration
 
-App Configuration is regional service. For applications with different configurations per region, storing these configurations in one instance can create a single point of failure. Deploying one App Configuration instances per region across multiple regions may be a better option. It can help with regional disaster recovery, performance, and security siloing. Configuring by region also improves latency and uses separated throttling quotas, since throttling is per instance. To apply disaster recovery mitigation, you can use [multiple configuration stores](./concept-disaster-recovery.md). 
+If your application is deployed in multiple regions, we recommend that you [enable geo-replication](./howto-geo-replication.md) of your App Configuration store. You can let your application primarily connect to the replica matching the region where instances of your application are deployed and allow them to fail over to replicas in other regions. This setup minimizes the latency between your application and App Configuration, spreads the load as each replica has separate throttling quotas, and enhances your application's resiliency against transient and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
 
 ## Client applications in App Configuration 
 

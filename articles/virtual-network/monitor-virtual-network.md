@@ -2,8 +2,8 @@
 title: Monitoring Azure virtual networks
 description: Start here to learn how to monitor Azure virtual networks
 services: virtual-network
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
 ms.custom: subject-monitoring

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 03/31/2022
+  ms.date: 01/18/2023
 
 landingContent:
   - title: About Azure Managed Grafana
@@ -19,6 +19,8 @@ landingContent:
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
+          - text: What's new
+            url: concept-whats-new.md
   - title: Create an instance
     linkLists:
       - linkListType: get-started
@@ -39,17 +41,23 @@ landingContent:
             url: how-to-enable-zone-redundancy.md
           - text: Set up authentication and permissions
             url: how-to-authentication-permissions.md
+          - text: Create a dashboard
+            url: how-to-create-dashboard.md
+          - text: Share a dashboard
+            url: how-to-share-dashboard.md
+          - text: Configure SMTP settings
+            url: how-to-smtp-settings.md
   - title: Manage Azure Managed Grafana
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Modify permissions
+          - text: Modify access to Azure Monitor
             url: how-to-permissions.md
           - text: Share an instance
             url: how-to-share-grafana-workspace.md
           - text: Monitor an instance
             url: how-to-monitor-managed-grafana-workspace.md
-  - title: More resources
+  - title: Resources
     linkLists:
       - linkListType: reference
         links:
@@ -61,3 +69,5 @@ landingContent:
             url: https://aka.ms/managed-grafana/docs/http-api
           - text: Grafana UI
             url: grafana-app-ui.md
+          - text: Support
+            url: find-help-open-support-ticket.md

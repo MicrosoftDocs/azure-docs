@@ -2,7 +2,7 @@
 author: pehewitt
 ms.service: sql-database
 ms.topic: include
-ms.date: 12/24/2021
+ms.date: 02/14/2023
 ms.author: pehewitt
 ---
 ## Create an Azure Database Migration Service instance
@@ -15,9 +15,9 @@ ms.author: pehewitt
 
     ![Create Azure Database Migration Service instance](./media/database-migration-service-instance-create/dms-create-1.png)
 
-    Select the option **Continue to use Azure Database Migration Service**.
+    Select the appropriate **Source server type** and **Target server type**, and choose the **Database Migration Service (Classic)** option.
 
-    ![Select Database Migration Service scenario](./media/database-migration-service-instance-create/dms-create-2.png)
+    ![Select Database Migration Service (Classic) scenario](./media/database-migration-service-instance-create/dms-classic-create-2.png)
 
 3. On the **Create Migration Service** basics screen:
 

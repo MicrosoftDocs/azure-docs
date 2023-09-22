@@ -2,7 +2,8 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.custom: devx-track-arm-template
+ms.date: 08/22/2023
 ---
 
 # Object functions for ARM templates
@@ -13,6 +14,7 @@ Resource Manager provides several functions for working with objects in your Azu
 * [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
+* [items](#items)
 * [json](#json)
 * [length](#length)
 * [null](#null)
@@ -167,7 +169,7 @@ The output from the preceding example with the default values is:
 
 `items(object)`
 
-Converts a dictionary object to an array.
+Converts a dictionary object to an array. See [toObject](template-functions-lambda.md#toobject) about converting an array to an object.
 
 In Bicep, use the [items](../bicep/bicep-functions-object.md#items).
 
@@ -301,7 +303,7 @@ The example returns:
 }
 ```
 
-The items() function sorts the objects in the alphabetical order. For example, **item001** appears before **item002** in the outputs of the two preceding samples.
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 <a id="json"></a>
 
@@ -325,7 +327,7 @@ The JSON data type from the specified string, or an empty value when **null** is
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [format](template-functions-string.md#format) function to create the string that you pass to the function.
 
 You can also use [null()](#null) to get a null value.
 
@@ -431,7 +433,7 @@ An array or object.
 
 The union function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 

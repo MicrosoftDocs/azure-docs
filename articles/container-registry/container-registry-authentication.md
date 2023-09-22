@@ -2,8 +2,9 @@
 title: Registry authentication options
 description: Authentication options for a private Azure container registry, including signing in with an Azure Active Directory identity, using service principals, and using optional admin credentials.
 ms.topic: article
-ms.date: 06/16/2021
-ms.custom: devx-track-azurepowershell
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Authenticate with an Azure container registry
@@ -78,7 +79,7 @@ TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query access
 Then, run `docker login`, passing `00000000-0000-0000-0000-000000000000` as the username and using the access token as password:
 
 ```console
-docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password $TOKEN
+docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password-stdin <<< $TOKEN
 ```
 Likewise, you can use the token returned by `az acr login` with the `helm registry login` command to authenticate with the registry:
 

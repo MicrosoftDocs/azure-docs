@@ -14,7 +14,7 @@ manager: femila
 
 In this tutorial, you'll learn how to create a host pool within a Azure Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
 
-Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop tenant environments. Each host pool can contain an application group that users can interact with as they would on a physical desktop.
 
 The tasks in this tutorial include:
 
@@ -146,12 +146,12 @@ Users you add to the desktop application group can sign in to Azure Virtual Desk
 
 Here are the current supported clients:
 
-* [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-10-2019.md)
-* [Azure Virtual Desktop web client](connect-web-2019.md)
+- [Remote Desktop client for Windows 10](connect-windows-2019.md)
+- [Azure Virtual Desktop web client](connect-web-2019.md)
 
 ## Next steps
 
 You've made a host pool and assigned users to access its desktop. You can populate your host pool with RemoteApp programs. To learn more about how to manage apps in Azure Virtual Desktop, see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](manage-app-groups-2019.md)
+> [Manage application groups tutorial](manage-app-groups-2019.md)

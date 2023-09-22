@@ -4,10 +4,10 @@ description: Show how to architect end-to-end geospatial data on Azure.
 author: rovin-ms
 ms.service: orbital
 ms.topic: conceptual
-ms.custom: ga
+ms.custom: ga, ignite-2022
 ms.date: 06/13/2022
 ms.author: rovin
-# Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.
+#Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.
 ---
 # End-to-end geospatial storage, analysis, and visualization
 
@@ -36,7 +36,7 @@ Azure has many native geospatial capabilities. In this diagram and the ones that
 
    :::image type="content" source="media/geospatial-overview.png" alt-text="Geospatial On Azure" lightbox="media/geospatial-overview.png":::
 
-This architecture flow assumes that the data may be coming from databases, files or streaming sources and not stored in a native GIS format. Once the data is ingested with Azure Data Factory, or via Azure IoT, Event Hubs and Stream Analytics, it could then be stored permanently in warm storage with Azure SQL, Azure SQL Managed Instance, Azure Database for PostgreSQL or Azure Data Lake Storage. From there, the data can be transformed and processed in batch with Azure Batch or Synapse Spark Pool, of which both can be automated through the usage of an Azure Data Factory or Synapse pipeline. For real-time data, it can be further transformed or processed with Stream Analytics, Azure Maps or brought into context with Azure Digital Twins. Once the data is transformed, it can then once again be served for additional uses in Azure SQL DB or Azure Database for PostgreSQL, Synapse SQL Pool (for abstracted non-geospatial data), Cosmos DB or Azure Data Explorer. Once ready, the data can be queried directly through the data base API, but frequently a publish layer is used. The Azure Maps Data API would suffice for small datasets, otherwise a non-native service can be introduced based on OSS or COTS, for accessing the data through web services or desktop applications. Finally, the Azure Maps Web SDK hosted in Azure App Service would allow for geovisualization. Another option is to use Azure Maps in Power BI. Lastly, HoloLens and Azure Spatial Anchors can be used to view the data and place it in the real-world for virtual reality (VR) and augmented reality (AR) experiences.
+This architecture flow assumes that the data may be coming from databases, files or streaming sources and not stored in a native GIS format. Once the data is ingested with Azure Data Factory, or via Azure IoT, Event Hubs and Stream Analytics, it could then be stored permanently in warm storage with Azure SQL, Azure SQL Managed Instance, Azure Database for PostgreSQL or Azure Data Lake Storage. From there, the data can be transformed and processed in batch with Azure Batch or Synapse Spark Pool, of which both can be automated through the usage of an Azure Data Factory or Synapse pipeline. For real-time data, it can be further transformed or processed with Stream Analytics, Azure Maps or brought into context with Azure Digital Twins. Once the data is transformed, it can then once again be served for additional uses in Azure SQL DB or Azure Database for PostgreSQL, Synapse SQL Pool (for abstracted non-geospatial data), Azure Cosmos DB, or Azure Data Explorer. Once ready, the data can be queried directly through the data base API, but frequently a publish layer is used. The Azure Maps Data API would suffice for small datasets, otherwise a non-native service can be introduced based on OSS or COTS, for accessing the data through web services or desktop applications. Finally, the Azure Maps Web SDK hosted in Azure App Service would allow for geovisualization. Another option is to use Azure Maps in Power BI. Lastly, HoloLens and Azure Spatial Anchors can be used to view the data and place it in the real-world for virtual reality (VR) and augmented reality (AR) experiences.
 
 It should be noted as well that many of these options are optional and could be supplemented with OSS to reduce cost while also maintaining scalability, or 3rd party tools to utilize their specific capabilities. The next session addresses this need.
 
@@ -111,7 +111,7 @@ Various Spark libraries are available for working with geospatial data on Azure 
 
 But [other solutions also exist for processing and scaling geospatial workloads with Azure Databricks](https://databricks.com/blog/2019/12/05/processing-geospatial-data-at-scale-with-databricks.html).
 
-- Other Python libraries to consider include [PySAL](http://pysal.org/), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), [WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html), [Turf.js](https://turfjs.org/), [Pointpats](https://pointpats.readthedocs.io/en/latest/), [Raster Vision](https://docs.rastervision.io/en/0.13/), [EarthPy](https://earthpy.readthedocs.io/en/latest/index.html), [Planetary Computer](https://planetarycomputer.microsoft.com/), [PDAL](https://pdal.io/), etc.
+- Other Python libraries to consider include [PySAL](http://pysal.org/), [Rasterio](https://rasterio.readthedocs.io/en/latest/intro.html), [WhiteboxTools](https://www.whiteboxgeo.com/manual/wbt_book/intro.html), [Turf.js](https://turfjs.org/), [Pointpats](https://pypi.org/project/pointpats/), [Raster Vision](https://docs.rastervision.io/en/0.13/), [EarthPy](https://earthpy.readthedocs.io/en/latest/index.html), [Planetary Computer](https://planetarycomputer.microsoft.com/), [PDAL](https://pdal.io/), etc.
 
 - [Vector tiles](https://github.com/mapbox/vector-tile-spec) provide an efficient way to display GIS data on maps. A solution could use PostGIS to dynamically query vector tiles. This approach works well for simple queries and result sets that contain well under 1 million records. But in the following cases, a different approach may be better:
   - Your queries are computationally expensive.

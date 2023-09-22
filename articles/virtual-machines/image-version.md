@@ -6,20 +6,18 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/13/2022
+ms.date: 09/20/2023
 ms.author: saraic
 ms.reviewer: cynthn
 ms.custom: 
 
 ---
 
-
-
 # Create an image definition and an image version 
 
 A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Images can be created from a VM, VHD, snapshot, managed image, or another image version. 
 
-The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant, or publicly using a [community gallery (preview)](azure-compute-gallery.md#community). Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images.
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant, or publicly using a [community gallery](azure-compute-gallery.md#community). Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. Many new features like ARM64, Accelerated Networking and TrustedVM are only supported through Azure Compute Gallery and not available for managed images.
 
 The Azure Compute Gallery feature has multiple resource types:
 
@@ -61,21 +59,16 @@ For [generalized](generalize.md) images, see the OS specific guidance before cap
    
       If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](./windows/prepare-for-upload-vhd-image.md).  
 
-## Community gallery (preview)
+## Community gallery
 
-> [!IMPORTANT]
-> Azure Compute Gallery – community gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To share images in the community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs and scale sets from images shared the community gallery is open to all Azure users.
->
-> Information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
-
-If you will be sharing your images using a [community gallery (preview)](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region. 
+If you will be sharing your images using a [community gallery](azure-compute-gallery.md#community), make sure that you create your gallery, image definitions, and image versions in the same region. 
 
 When users search for community gallery images, only the latest version of an image is shown.
 
+> [!IMPORTANT]
+> Information from your image definitions will be publicly available, like what you provide for **Publish**, **Offer**, and **SKU**.
 
-## Create an image 
+## Create an image
 
 Choose an option below for creating your image definition and image version:
 
@@ -325,9 +318,65 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ---
 
-## New Features
-Many new features like ARM64, Accelerated Networking, TrustedVMSupported etc. are only supported through Azure Compute Gallery and not available for 'Managed images'.  For a complete list of new features available through Azure Compute Gallery, please refer
-https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-create 
+## Create an image in one tenant using the source image in another tenant
+
+In the subscription where the source image exists, grant reader permissions to the user. Once the user has reader permission to the source image, login to both accounts (source and target).
+
+You will need the `tenantID` of the source image, the `subscriptionID` for the subscription where the new image will be stored (target), and the `resourceID` of the source image.
+
+### [CLI](#tab/cli2)
+
+```azurecli-interactive
+# Set some variables
+tenantID="<tenant ID for the source image>"
+subID="<subscription ID where the image will be creted>"
+sourceImageID="<resource ID of the source image>"
+
+# Login to the subscription where the new image will be created
+az login
+
+# Log in to the tenant where the source image is available
+az login --tenant $tenantID
+
+# Log back in to the subscription where the image will be created and ensure subscription context is set
+az login
+az account set --subscription $subID
+
+# Create the image
+az sig image-version create `
+   --gallery-image-definition myImageDef `
+   --gallery-image-version 1.0.0 `
+   --gallery-name myGallery `
+   --resource-group myResourceGroup `
+   --image-version $sourceImageID
+```
+
+
+### [PowerShell](#tab/powershell2)
+
+```azurepowershell-interactive
+# Set variables 
+$targetSubID = "<subscription ID for the target>"
+$sourceTenantID = "<tenant ID where for the source image>"
+$sourceImageID = "<resource ID of the source image>"
+
+# Login to the tenant where the source image is published
+Connect-AzAccount -Tenant $sourceTenantID -UseDeviceAuthentication 
+
+# Login to the subscription where the new image will be created and set the context
+Connect-AzAccount -UseDeviceAuthentication -Subscription $targetSubID
+Set-AzContext -Subscription $targetSubID 
+
+# Create the image version from another image version in a different tenant
+New-AzGalleryImageVersion `
+   -ResourceGroupName myResourceGroup -GalleryName myGallery `
+   -GalleryImageDefinitionName myImageDef `
+   -Location "West US 2" `
+   -Name 1.0.0 `
+   -SourceImageId $sourceImageID
+```
+
+---
 
 ## Next steps
 

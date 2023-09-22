@@ -74,8 +74,8 @@ To register your application, follow these steps:
 ## Step 3: Configure the Azure App
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD tenant (not the Azure AD B2C tenant). Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find the Azure AD directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that contains your Microsoft Entra tenant (not the Azure AD B2C tenant). Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find the Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
 1. Navigate to your Azure web app.
 1. Select **Authentication** in the menu on the left. Select **Add identity provider**.
 1. Select **OpenID Connect** in the identity provider dropdown.
@@ -86,7 +86,7 @@ To register your application, follow these steps:
     https://<TENANT_NAME>.b2clogin.com/<TENANT_NAME>.onmicrosoft.com/<POLICY_NAME>/v2.0/.well-known/openid-configuration
     ```
 
-    1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`). If you have a [custom domains](custom-domain.md) configure, you can use that custom domain. Replace your B2C tenant name, contoso.onmicrosoft.com, in the authentication request URL with your tenant ID GUID. For example, you can change `https://fabrikamb2c.b2clogin.com/contoso.onmicrosoft.com/` to `https://account.contosobank.co.uk/<tenant ID GUID>/`.
+    1. Replace `<TENANT_NAME>` with the first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com`). If you have a [custom domains](custom-domain.md) configure, you can use that custom domain. Replace your B2C tenant name, contoso.onmicrosoft.com, in the authentication request URL with your tenant ID GUID. For example, you can change `https://fabrikamb2c.b2clogin.com/contoso.onmicrosoft.com/` to `https://account.contosobank.co.uk/<tenant ID GUID>/`.
 
     1. Replace the `<POLICY_NAME>` with the user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).
 

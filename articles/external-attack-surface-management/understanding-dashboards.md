@@ -3,21 +3,20 @@ title: Understanding dashboards
 description: Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Attack Surface inventory.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: how-to
 ---
 
 # Understanding dashboards
 
-## Overview
+Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Approved inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
 
-Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Attack Surface inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
+Defender EASM provides five dashboards:
 
-Defender EASM provides four dashboards:
-
+- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface. 
 - **Attack Surface Summary**: this dashboard summarizes the key observations derived from your inventory. It provides a high-level overview of your Attack Surface and the asset types that comprise it, and surfaces potential vulnerabilities by severity (high, medium, low). This dashboard also provides key context on the infrastructure that comprises your Attack Surface, providing insight into cloud hosting, sensitive services, SSL certificate and domain expiry, and IP reputation.
-- **Security Posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Confirmed Inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
+- **Security Posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR Compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
 - **OWASP Top 10**: this dashboard surfaces any assets that are vulnerable according to OWASP’s list of the most critical web application security risks. On this dashboard, organizations can quickly identify assets with broken access control, cryptographic failures, injections, insecure designs, security misconfigurations and other critical risks as defined by OWASP.
 
@@ -25,7 +24,19 @@ Defender EASM provides four dashboards:
 
 To access your Defender EASM dashboards, first navigate to your Defender EASM instance. In the left-hand navigation column, select the dashboard you’d like to view. You can access these dashboards from many pages in your Defender EASM instance from this navigation pane.
 
-![Screenshot of dashboard screen with dashboard navigation section highlighted](media/Dashboards-1.png)
+![Screenshot of dashboard screen with dashboard navigation section highlighted.](media/Dashboards-1.png)
+
+
+## Downloading chart data 
+
+The data underlying any dashboard chart can be exported to a CSV file.  This is useful for those who wish to import Defender EASM data into third party tools, or work off a CSV file when remediating any issues.  To download chart data, first select the specific chart segment that contains the data you wish to download. Note that chart exports currently support individual chart segments; to download multiple segments from the same chart, you will need to export each individual segment. 
+
+Selecting an individual chart segment will open a drilldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. If you are exporting a small number of assets, this action will directly download the CSV file to your machine. If you are exporting a large number of assets, this action will create a task manager notification where you can track the status of your export. 
+
+Microsoft Excel enforces a character limit of 32,767 characters per cell. Some fields, like the "Last banner" column, may be improperly displayed due to this limitation. If you encounter an issue, try opening the file in another program that supports CSV files. 
+
+![Screenshot of dashboard chart drilldown view with export button visible.](media/export-1.png)
+
 
 ## Attack surface summary
 
@@ -37,13 +48,16 @@ Microsoft identifies organizations' attack surfaces through proprietary technolo
 
 At the top of this dashboard, Defender EASM provides a list of security priorities organized by severity (high, medium, low). Large organizations’ attack surfaces can be incredibly broad, so prioritizing the key findings derived from our expansive data helps users quickly and efficiently address the most important exposed elements of their attack surface. These priorities can include critical CVEs, known associations to compromised infrastructure, use of deprecated technology, infrastructure best practice violations, or compliance issues.
 
-Insight Priorities are determined by Microsoft’s assessment of the potential impact of each insight. For instance, high severity insights may include vulnerabilities that are new, exploited frequently, particularly damaging, or easily exploited by hackers with a lower skill level. Low Severity Insights may include use of deprecated technology that is no longer supported, infrastructure that will soon expire, or compliance issues that do not align with security best practices. Each Insight contains suggested remediation actions to protect against potential exploits.
+Insight Priorities are determined by Microsoft’s assessment of the potential impact of each insight. For instance, high severity insights may include vulnerabilities that are new, exploited frequently, particularly damaging, or easily exploited by hackers with a lower skill level. Low severity insights may include use of deprecated technology that is no longer supported, infrastructure that will soon expire, or compliance issues that do not align with security best practices. Each insight contains suggested remediation actions to protect against potential exploits.
+
+Some insights will be flagged with "Potential" in the title. A "Potential" insight occurs when Defender EASM is unable to confirm that an asset is impacted by a vulnerability. This is common when our scanning system detects the presence of a specific service but cannot detect the version number; for example, some services enable administrators to hide version information. Vulnerabilities are often associated with specific versions of the software, so manual investigation is required to determine whether the asset is impacted. Other vulnerabilities can be remediated by steps that Defender EASM is unable to detect. For instance, users can make recommended changes to service configurations or run backported patches. If an insight is prefaced with "Potential", the system has reason to believe that the asset is impacted by the vulnerability but is unable to confirm it for one of the above listed reasons. To manually investigate, please click the insight name to review remediation guidance that can help you determine whether your assets are impacted.
+
 
 ![Screenshot of attack surface priorities with clickable options highlighted](media/Dashboards-2.png)
 
-Based on the Attack Surface Priorities chart displayed above, a user would want to first investigate the two Medium Severity Observations. You can click the top-listed observation (“Hosts with Expired SSL Certificates”) to be directly routed to a list of applicable assets, or instead select “View All 91 Insights” to see a comprehensive, expandable list of all potential observations that Defender EASM categorizes as “medium severity”.
+A user will usually decide to first investigate any High Severity Observations. You can click the top-listed observation to be directly routed to a list of impacted assets, or instead select “View All __ Insights” to see a comprehensive, expandable list of all potential observations within that severity group.
 
-The Medium Severity Observations page features a list of all potential insights in the left-hand column. This list is sorted by the number of assets that are impacted by each security risk, displaying the issues that impact the greatest number of assets first. To view the details of any security risk, simply click on it from this list. 
+The Observations page features a list of all potential insights in the left-hand column. This list is sorted by the number of assets that are impacted by each security risk, displaying the issues that impact the greatest number of assets first. To view the details of any security risk, simply click on it from this list. 
 
 ![Screenshot of attack surface drilldown for medium severity priorities](media/Dashboards-3.png)
 
@@ -135,7 +149,7 @@ For instance, the “clientUpdateProhibited” status code prevents unauthorized
 
 ### Open Ports
 
-This section helps users understand how their IP space is managed, detecting services that are exposed on the open internet. Attackers commonly scan ports across the internet to look for known exploits related to service vulnerabilities or misconfigurations. Microsoft identifies these open ports to compliment vulnerability assessment tools, flagging observations for review to ensure they are properly managed by your information technology team.
+This section helps users understand how their IP space is managed, detecting services that are exposed on the open internet. Attackers commonly scan ports across the internet to look for known exploits related to service vulnerabilities or misconfigurations. Microsoft identifies these open ports to complement vulnerability assessment tools, flagging observations for review to ensure they are properly managed by your information technology team.
 
 ![Screenshot of open ports chart](media/Dashboards-15.png)
 
@@ -151,13 +165,15 @@ For instance, the SSL configuration chart displays any detected configuration is
 
 The SSL organization chart provides insight on the registration of your SSL certificates, indicating the organization and business units associated with each certificate. This can help users understand the designated ownership of these certificates; it is recommended that companies consolidate their organization and unit list when possible to help ensure proper management moving forward.
 
+
 ## GDPR compliance dashboard
 
 The GDPR compliance dashboard presents an analysis of assets in your Confirmed Inventory as they relate to the requirements outlined in General Data Protection Regulation (GDPR). GDPR is a regulation in European Union (EU) law that enforces data protection and privacy standards for any online entities accessible to the EU. These regulations have become a model for similar laws outside of the EU, so it serves as an excellent guide on how to handle data privacy worldwide.
 
 This dashboard analyzes an organization’s public-facing web properties to surface any assets that are potentially non-compliant with GDPR.
 
-## Websites by status
+
+### Websites by status
 
 This chart organizes your website assets by HTTP response status code. These codes indicate whether a specific HTTP request has been successfully completed or provides context as to why the site is inaccessible. HTTP codes can also alert you of redirects, server error responses, and client errors. The HTTP response “451” indicates that a website is unavailable for legal reasons. This may indicate that a site has been blocked for people in the EU because it does not comply with GDPR.
 
@@ -183,7 +199,7 @@ This section analysis the signature algorithms that power an SSL certificate. SS
 
 Users can click any segment of the pie chart to view a list of assets that comprise the selected value. SHA256 is considered secure, whereas organizations should update any certificates using the SHA1 algorithm.
 
-## Personal identifiable information (PII) posture
+### Personal identifiable information (PII) posture
 
 The protection of personal identifiable information (PII) is a critical component to the General Data Protection Regulation. PII is defined as any data that can identify an individual, including names, addresses, birthdays, or email addresses. Any website that accepts this data through a form must be thoroughly secured according to GDPR guidelines. By analyzing the Document Object Model (DOM) of your pages, Microsoft identifies forms and login pages that may accept PII and should therefore be assessed according to European Union law.
 
@@ -194,6 +210,8 @@ A login page is a page on a website where a user has the option to enter a usern
 ### Cookie posture
 
 A cookie is information in the form of a very small text file that is placed on the hard drive of the computer running a web browser when browsing a site. Each time a website is visited, the browser sends the cookie back to the server to notify the website of your previous activity. GDPR has specific requirements for obtaining consent to issue a cookie, and different storage regulations for first- versus third-party cookies.
+
+
 
 ## OWASP top 10 dashboard
 
@@ -215,6 +233,8 @@ The current OWASP Top 10 Critical Securities list includes:
 10. **Server-side request forgery**: web applications that fetch a remote resource without validating the user-supplied URL.
 
 This dashboard provides a description of each critical risk, information on why it matters, and remediation guidance alongside a list of any assets that are potentially impacted. For more information, see the [OWASP website](https://owasp.org/www-project-top-ten/).
+
+
 
 ## Next Steps
 

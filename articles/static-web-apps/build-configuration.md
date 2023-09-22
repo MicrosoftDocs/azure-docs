@@ -134,7 +134,7 @@ In this configuration:
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
 - The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 - The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
-- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./get-started-portal.md?pivots=azure-devops).
+- The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./deployment-token-management.md).
 
 > [!NOTE]
 > `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
@@ -228,7 +228,7 @@ If you want to skip building the API, you can bypass the automatic build and dep
 
 Steps to skip building the API:
 
-- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct runtime and version. Refer to [Configure Azure Static Web Apps](configuration.md#selecting-the-api-language-runtime-version) for the list of supported runtimes and versions.
+- In the *staticwebapp.config.json* file, set `apiRuntime` to the correct runtime and version. Refer to [Configure Azure Static Web Apps](configuration.md#select-the-api-language-runtime-version) for the list of supported runtimes and versions.
     ```json
     {
       "platform": {

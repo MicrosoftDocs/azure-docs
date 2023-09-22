@@ -3,16 +3,16 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 11/17/2022
 ---
 
-IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
+IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This tutorial shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
 
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
+To complete this tutorial, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
 You can verify the current version of Node.js on your development machine using the following command:
 
@@ -34,11 +34,11 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples#iot-plug-and-play-device-samples).
 
-In this quickstart, you use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
+In this tutorial, you use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
 
 1. Open a terminal window and navigate to the local folder that contains the Microsoft Azure IoT SDK for Node.js repository you cloned from GitHub.
 
-1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the */azure-iot-sdk-node/device/samples/pnp* folder. Install all the dependencies by running the following command:
+1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the */azure-iot-sdk-node/device/samples/javascript* folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -54,16 +54,16 @@ In this quickstart, you use a sample thermostat device that's written in Node.js
 
 ## Run the sample solution
 
-In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
-In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device you just set up.
+In this tutorial, you use a sample Node.js IoT solution to interact with the sample device you just set up and ran.
 
 1. Open another terminal window to use as your **service** terminal.
 
-1. In the cloned Node SDK repository, navigate to the */azure-iot-sdk-node/service/samples/javascript* folder. Install all the dependencies by running the following command:
+1. In the cloned Node SDK repository, navigate to the *azure-iot-sdk-node/service/samples/javascript* folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install

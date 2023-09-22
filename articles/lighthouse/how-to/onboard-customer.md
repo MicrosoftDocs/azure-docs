@@ -1,9 +1,9 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed by users in your tenant.
-ms.date: 07/08/2022
+ms.date: 05/04/2023
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -29,7 +29,7 @@ To onboard a customer's tenant, it must have an active Azure subscription. When 
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider).
 - The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
 
-If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](/azure/active-directory/fundamentals/how-to-find-tenant).
 
 If you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), your tenant ID is provided automatically. You don't need to know the customer's tenant or subscription details in order to create your template in the Azure portal. However, if you plan to onboard one or more resource groups in the customer's tenant (rather than the entire subscription), you'll need to know the names of each resource group.
 
@@ -52,10 +52,10 @@ Whenever possible, we recommend using Azure AD user groups for each assignment w
 
 When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For information about supported roles and best practices, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
-To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
+To track your impact across customer engagements and receive recognition, associate your Microsoft Cloud Partner Program ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your partner ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
 
 > [!TIP]
-> You can also create *eligible authorizations* that let users in your managing tenant temporarily elevate their role. This feature is currently in public preview and has specific licensing requirements. For more information, see [Create eligible authorizations](create-eligible-authorizations.md).
+> You can also create *eligible authorizations* that let users in your managing tenant temporarily elevate their role. This feature has specific licensing requirements. For more information, see [Create eligible authorizations](create-eligible-authorizations.md).
 
 ## Create an Azure Resource Manager template
 
@@ -89,7 +89,7 @@ Finally, create your authorizations by selecting **+ Add authorization**. For ea
 1. Select the **+ Select user** link to open the selection pane. You can use the search field to find the user you'd like to add. Once you've done so, click **Select**. The user's **Principal ID** will be automatically populated.
 1. Review the **Display name** field (populated based on the user you selected) and make changes, if desired.
 1. Select the **Role** to assign to this user.
-1. For **Access** type, select **Permanent** or **Eligible**. If you choose **Eligible**, you will need to specify options for maximum duration, multifactor authentication, and whether or not approval is required. For more information about these options, see [Create eligible authorizations](create-eligible-authorizations.md). The eligible authorizations feature is currently in public preview, and can't be used with service principals.
+1. For **Access** type, select **Permanent** or **Eligible**. If you choose **Eligible**, you will need to specify options for maximum duration, multifactor authentication, and whether or not approval is required. For more information about these options, see [Create eligible authorizations](create-eligible-authorizations.md). The eligible authorizations feature can't be used with service principals.
 1. Select **Add** to create your authorization.
 
 :::image type="content" source="../media/add-authorization.png" alt-text="Screenshot of the Add authorization section in the Azure portal.":::
@@ -114,7 +114,7 @@ The template you choose will depend on whether you are onboarding an entire subs
 |Multiple resource groups within a subscription   |[multi-rg.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/rg/multi-rg.json)  |[multiple-rg.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/rg/multiple-rg.parameters.json)    |
 |Subscription (when using an offer published to Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-If you want to include [eligible authorizations](create-eligible-authorizations.md#create-eligible-authorizations-using-azure-resource-manager-templates) (currently in public preview), select the corresponding template from the [delegated-resource-management-eligible-authorizations section of our samples repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations).
+If you want to include [eligible authorizations](create-eligible-authorizations.md#create-eligible-authorizations-using-azure-resource-manager-templates), select the corresponding template from the [delegated-resource-management-eligible-authorizations section of our samples repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations).
 
 > [!TIP]
 > While you can't onboard an entire management group in one deployment, you can deploy a policy to [onboard each subscription in a management group](onboard-management-group.md). You'll then have access to all of the subscriptions in the management group, although you'll have to work on them as individual subscriptions (rather than taking actions on the management group resource directly).
@@ -347,7 +347,7 @@ If you are unable to successfully onboard your customer, or if your users have t
 - The `managedbyTenantId` value must not be the same as the tenant ID for the subscription being onboarded.
 - You can't have multiple assignments at the same scope with the same `mspOfferName`.
 - The **Microsoft.ManagedServices** resource provider must be registered for the delegated subscription. This should happen automatically during the deployment but if not, you can [register it manually](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
-- Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in role or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
+- Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) role, any roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions), or any roles that include [restricted actions](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
 - Groups must be created with [**Group type**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) set to **Security** and not **Microsoft 365**.
 - If access was granted to a group, check to make sure the user is a member of that group. If they aren't, you can [add them to the group using Azure AD](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md), without having to perform another deployment. Note that [group owners](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) are not necessarily members of the groups they manage, and may need to be added in order to have access.
 - There may be an additional delay before access is enabled for [nested groups](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).

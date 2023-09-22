@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 12/06/2022
 ms.author: banders
 ms.custom: seodec18
 ---

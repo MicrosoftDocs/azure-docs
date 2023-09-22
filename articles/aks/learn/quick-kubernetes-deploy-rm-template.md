@@ -1,10 +1,9 @@
 ---
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: quickstart
-ms.date: 08/17/2022
-ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
+ms.date: 11/01/2022
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
@@ -31,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -178,7 +177,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An external service to access the Azure Vote application from the internet.
 
 1. Create a file named `azure-vote.yaml`.
-    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system
+    
 1. Copy in the following YAML definition:
 
     ```yaml
@@ -269,6 +268,8 @@ Two [Kubernetes Services][kubernetes-service] are also created:
         app: azure-vote-front
     ```
 
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+
 1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
     ```console
@@ -345,7 +346,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [azure-dev-spaces]: /previous-versions/azure/dev-spaces/
@@ -360,7 +361,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
@@ -368,7 +369,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [connect-azaccount]: /powershell/module/az.accounts/Connect-AzAccount
 [sp-delete]: ../kubernetes-service-principal.md#additional-considerations
-[azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md

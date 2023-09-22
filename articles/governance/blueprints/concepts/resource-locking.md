@@ -1,10 +1,12 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 08/17/2021
+ms.date: 09/07/2023
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
+
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
 
 The creation of consistent environments at scale is only truly valuable if there's a mechanism to
 maintain that consistency. This article explains how resource locking works in Azure Blueprints. To

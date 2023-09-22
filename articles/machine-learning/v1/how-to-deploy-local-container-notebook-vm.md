@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: deploy, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, event-tier1-build-2022
 ms.author: ssalgado
 author: ssalgadodev
 ms.date: 04/22/2021
@@ -22,11 +22,11 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 > [!TIP]
 > Deploying a model from a Jupyter Notebook on a compute instance, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the compute instance.
 
-[!INCLUDE [endpoints-option](../../../includes/machine-learning-endpoints-preview-note.md)]
+[!INCLUDE [endpoints-option](../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace with a compute instance running. For more information, see [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md).
+- An Azure Machine Learning workspace with a compute instance running. For more information, see [Create resources to get started](../quickstart-create-resources.md).
 
 ## Deploy to the compute instances
 

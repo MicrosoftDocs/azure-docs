@@ -1,64 +1,76 @@
 ---
-title: 'Quickstart: Add a guest user and send an invitation - Azure AD'
-description: Use this quickstart to learn how Azure AD admins can add B2B guest users in the Azure portal and walk through the B2B invitation workflow.
+title: 'Quickstart: Add a guest user and send an invitation'
+description: Use this quickstart to learn how Microsoft Entra admins can add B2B guest users in the Microsoft Entra admin center and walk through the B2B invitation workflow.
 services: active-directory
-author: msmimart
-ms.author: mimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
-ms.date: 05/10/2022
+ms.date: 04/21/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
-ms.custom: it-pro, seo-update-azuread-jan, mode-ui
+ms.custom: engagement-fy23, it-pro, seo-update-azuread-jan, mode-ui
 ms.collection: M365-identity-device-management
 #Customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
 ---
 
 # Quickstart: Add a guest user and send an invitation
 
-With Azure AD [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account. In this quickstart, you'll learn how to add a new guest user to your Azure AD directory in the Azure portal. You'll also send an invitation and see what the guest user's invitation redemption process looks like. In addition to this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
+With Microsoft Entra [B2B collaboration](what-is-b2b.md), you can invite anyone to collaborate with your organization using their own work, school, or social account.
+
+In this quickstart, you'll learn how to add a new guest user to your Microsoft Entra directory in the Microsoft Entra admin center. You'll also send an invitation and see what the guest user's invitation redemption process looks like. 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+The updated experience for creating new users covered in this article is available as a Microsoft Entra ID preview feature. This feature is enabled by default, but you can opt out by going to **Microsoft Entra ID** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
+
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
 ## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
-- A role that allows you to create users in your tenant directory, such as the Global Administrator role or a limited administrator directory role (for example, Guest inviter or User administrator).
+- A role that allows you to create users in your tenant directory, such as the Global Administrator role or a limited administrator directory role such as Guest Inviter or User Administrator.
 
-- Access to a valid email address outside of your Azure AD tenant, such as a separate work, school, or social email address. You'll use this email to create the guest account in your tenant directory and access the invitation.
+- Access to a valid email address outside of your Microsoft Entra tenant, such as a separate work, school, or social email address. You'll use this email to create the guest account in your tenant directory and access the invitation.
 
-## Add a new guest user in Azure AD
+## Invite an external guest user
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's been assigned the Global administrator, Guest, inviter, or User administrator role.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Under **Azure services**, select **Azure Active Directory** (or use the search box to find and select **Azure Active Directory**).
+This quickstart guide provides the basic steps to invite an external user. To learn about all of the properties and settings that you can include when you invite an external user, see [How to create and delete a user](../fundamentals/how-to-create-delete-users.md).
 
-    ![Screenshot showing where to select the Azure Active Directory service.](media/quickstart-add-users-portal/azure-active-directory-service.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
 
-1. Under **Manage**, select **Users**.
+1. Browse to **Identity** > **Users** > **All users**.
 
-    ![Screenshot showing where to select the Users option](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+1. Select **Invite external user** from the menu. 
 
-1. Select **New guest user**.
+    ![Screenshot of the invite external user menu option.](media/quickstart-add-users-portal/invite-external-user-menu.png)
 
-    ![Screenshot showing where to select the New guest user option.](media/quickstart-add-users-portal/new-guest-user.png)
+### Basics for external users
 
-1. On the **New user** page, select **Invite user** and then add the guest user's information.
+In this section, you're inviting the guest to your tenant using *their email address*. For this quickstart, enter an email address that you can access.
 
-   - **Name.** The first and last name of the guest user.
-   - **Email address (required)**. The email address of the guest user.
-   - **Personal message (optional)** Include a personal welcome message to the guest user.
-   - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
-   - **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role.
+- **Email**: Enter the email address for the guest user you're inviting.
 
-    ![Screenshot showing the new user page.](media/quickstart-add-users-portal/invite-user.png)
+- **Display name**: Provide the display name.
 
-1. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**.
+-  **Invitation message**: Select the **Send invite message** checkbox to send an invitation message. When enabling this checkbox, you can also set up the customized short message and additional CC recipient.
+
+![Screenshot of the invite external user Basics tab.](media/quickstart-add-users-portal/invite-external-user-basics-tab.png)
+
+Select the **Review and invite** button to finalize the process.
+
+### Review and invite
+
+The final tab captures several key details from the user creation process. Review the details and select the **Invite** button if everything looks good.
+
+An email invitation is sent automatically. 
 
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
-    ![Screenshot showing the new guest user in the directory.](media/quickstart-add-users-portal/new-guest-user-directory.png)
+    :::image type="content" source="media/quickstart-add-users-portal/new-guest-user-directory.png" alt-text="Screenshot showing the new guest user in the directory.":::
 
 ## Accept the invitation
 
@@ -68,11 +80,11 @@ Now sign in as the guest user to see the invitation.
 
 1. In your inbox, open the email from "Microsoft Invitations on behalf of Contoso."
 
-    ![Screenshot showing the B2B invitation email](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    :::image type="content" source="media/quickstart-add-users-portal/quickstart-users-portal-email-small.png" alt-text="Screenshot showing the B2B invitation email.":::
 
 1. In the email body, select **Accept invitation**. A **Review permissions** page opens in the browser.
 
-    ![Screenshot showing the Review permissions page.](media/quickstart-add-users-portal/consent-screen.png)
+    :::image type="content" source="media/quickstart-add-users-portal/consent-screen.png" alt-text="Screenshot showing the Review permissions page.":::
 
 1. Select **Accept**.
 
@@ -82,11 +94,13 @@ Now sign in as the guest user to see the invitation.
 
 When no longer needed, delete the test guest user.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's been assigned the Global administrator or User administrator role.
-1. Select the **Azure Active Directory** service.
-1. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **User settings**.
 1. Select the test user, and then select **Delete user**.
 
 ## Next steps
 
-In this quickstart, you created a guest user in the Azure portal and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective and verified that the guest user was able to access their My Apps page. To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
+In this quickstart, you created a guest user in the Microsoft Entra admin center and sent an invitation to share apps. Then you viewed the redemption process from the guest user's perspective, and verified that the guest user was able to access their My Apps page. 
+To learn more about adding guest users for collaboration, see [Add Microsoft Entra B2B collaboration users in the Microsoft Entra admin center](add-users-administrator.md).
+To learn more about adding guest users with PowerShell, see [Add and invite guests with PowerShell](b2b-quickstart-invite-powershell.md).
+You can also bulk invite guest users [via the portal](tutorial-bulk-invite.md) or [via PowerShell](bulk-invite-powershell.md). 

@@ -21,12 +21,12 @@ This article describes how to migrate an Automanage Configuration Profile to a d
 We'll begin by downloading our previous Configuration Profile using PowerShell.  First, perform a `GET` using `Invoke-RestMethod` against the Automanage Resource Provider, substituting the values for your subscription.
 
 ```url
-https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2021-04-30-preview
+https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2022-05-04
 ```
 
 The GET command will display a list of Automanage Configuration Profile information, including the settings and the ConfigurationProfile ID
 ```azurepowershell-interactive
-$listConfigurationProfilesURI = "https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2021-04-30-preview"
+$listConfigurationProfilesURI = "https://management.azure.com/subscriptions/<yourSubscription>/providers/Microsoft.Automanage/configurationProfiles?api-version=2022-05-04"
 
 Invoke-RestMethod `
     -URI $listConfigurationProfilesURI
@@ -66,7 +66,7 @@ Here are the results, edited for brevity.
 The next step is to do another `GET`, this time to retrieve the specific profile we would like to create in a new region.  For this example, we'll retrieve 'testProfile1'.  We'll perform a `GET` against the `id` value for the desired profile.
 
 ```azurepowershell-interactive
-$profileId = "https://management.azure.com/subscriptions/yourSubscription/resourceGroups/yourResourceGroup/providers/Microsoft.Automanage/configurationProfiles/testProfile1?api-version=2021-04-30-preview"
+$profileId = "https://management.azure.com/subscriptions/yourSubscription/resourceGroups/yourResourceGroup/providers/Microsoft.Automanage/configurationProfiles/testProfile1?api-version=2022-05-04"
 
 $profile = Invoke-RestMethod `
     -URI $listConfigurationProfilesURI

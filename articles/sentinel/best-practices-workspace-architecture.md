@@ -1,11 +1,10 @@
 ---
 title: Workspace architecture best practices for Microsoft Sentinel
 description: Learn about best practices for designing your Microsoft Sentinel workspace.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 06/28/2023
 ---
 
 # Microsoft Sentinel workspace architecture best practices
@@ -33,7 +32,7 @@ Costs are one of the main considerations when determining Microsoft Sentinel arc
 
 If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration-for-data-connectors) that work only within their own Azure AD tenant.
 
-All connectors based on diagnostics settings cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) or [Azure Active Directory](connect-azure-active-directory.md).
+All connectors based on diagnostics settings cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors/azure-firewall.md), [Azure Storage](./data-connectors/azure-storage-account.md), [Azure Activity](./data-connectors/azure-activity.md) or [Azure Active Directory](connect-azure-active-directory.md).
 
 Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Microsoft Sentinel instances in different tenants.
 
@@ -48,7 +47,7 @@ In Microsoft Sentinel, data is mostly stored and processed in the same geography
 
 For more information, see:
 
-- [Geographical availability and data residency](quickstart-onboard.md#geographical-availability-and-data-residency)
+- [Geographical availability and data residency](geographical-availability-data-residency.md)
 - [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)
 - [Storing and processing EU data in the EU - EU policy blog](https://blogs.microsoft.com/eupolicy/2021/05/06/eu-data-boundary/)
 
@@ -90,7 +89,7 @@ For more information, see [Data residency in Azure](https://azure.microsoft.com/
 
 You may have situations planned where different teams will need access to the same data. For example, your SOC team must have access to all Microsoft Sentinel data, while operations and applications teams will need access to only specific parts. Independent security teams may also need to access Microsoft Sentinel features, but with varying sets of data.
 
-Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](../azure-monitor/logs/manage-access.md#table-level-azure-rbac) to provide your teams with a wide range of access options that should support most use cases.
+Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](../azure-monitor/logs/manage-access.md#set-table-level-read-access) to provide your teams with a wide range of access options that should support most use cases.
 
 For more information, see [Permissions in Microsoft Sentinel](roles.md).
 
@@ -139,7 +138,7 @@ Don't apply a resource lock to a Log Analytics workspace you'll use for Microsof
 
 If you do need to work with multiple workspaces, simplify your incident management and investigation by [condensing and listing all incidents from each Microsoft Sentinel instance in a single location](multiple-workspace-view.md).
 
-To reference data that's held in other Microsoft Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md).
+To reference data that's held in other Microsoft Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#use-cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces).
 
 The best time to use cross-workspace queries is when valuable information is stored in a different workspace, subscription or tenant, and can provide value to your current action. For example, the following code shows a sample cross-workspace query:
 
@@ -153,12 +152,8 @@ union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Up
 For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).
 
 ## Next steps
+
+In this article, you learned about key decision factors to help you determine the right workspace architecture for your organizations.
+
 > [!div class="nextstepaction"]
 > >[Design your Microsoft Sentinel workspace architecture](design-your-workspace-architecture.md)
-> [!div class="nextstepaction"]
-> >[Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
-> [!div class="nextstepaction"]
-> >[On-board Microsoft Sentinel](quickstart-onboard.md)
-> [!div class="nextstepaction"]
-> >[Get visibility into alerts](get-visibility.md)
-

@@ -1,21 +1,23 @@
 ---
 title: Deploy a Node.js web app using MongoDB to Azure
-description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Cosmos DB. 
+description: This article shows you have to deploy a Node.js app using Express.js and a MongoDB database to Azure. Azure App Service is used to host the web application and Azure Cosmos DB to host the database using the 100% compatible MongoDB API built into Azure Cosmos DB.
 ms.topic: tutorial
 ms.date: 09/06/2022
 ms.service: app-service
 ms.role: developer
 ms.devlang: javascript
-ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devx-track-azurecli, devdivchpfy22
+ms.author: msangapu
+author: msangapu-msft
+ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, ignite-2022, AppServiceConnectivity
 ---
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a MongoDB database (using [Azure Cosmos DB with MongoDB API](../cosmos-db/mongodb/mongodb-introduction.md)). When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb/mongodb-introduction.md) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/app-diagram.png" alt-text="A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB." lightbox="./media/tutorial-nodejs-mongodb-app/app-diagram-large.png":::
 
-This article assumes you're already familiar with [Node.js development](/learn/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
+This article assumes you're already familiar with [Node.js development](/training/paths/build-javascript-applications-nodejs/) and have Node and MongoDB installed locally. You'll also need an Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/nodejs/).
 
 ## Sample application
 
@@ -32,9 +34,9 @@ If you want to run the application locally, do the following:
 * Start the application using `npm start`.
 * To view the app, browse to `http://localhost:3000`.
 
-## 1. Create App Service and Cosmos DB
+## 1. Create App Service and Azure Cosmos DB
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB API for MongoDB that's. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB for MongoDB. For the creation process, you'll specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
 * The **Region** to run the app physically in the world.
@@ -46,7 +48,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the Azure portal:
+        **Step 1:** In the Azure portal:
         1. Enter "web app database" in the search bar at the top of the Azure portal.
         1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
         You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
@@ -57,13 +59,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Create Web App + Database** page, fill out the form as follows.
+        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
         1. *Resource Group* &rarr; Select **Create new** and use a name of **msdocs-expressjs-mongodb-tutorial**.
         1. *Region* &rarr; Any Azure region near you.
         1. *Name* &rarr; **msdocs-expressjs-mongodb-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
         1. *Runtime stack* &rarr; **Node 16 LTS**.
         1. *Hosting plan* &rarr; **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. **Cosmos DB API for MongoDB** is selected by default as the database engine. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
+        1. **Azure Cosmos DB for MongoDB** is selected by default as the database engine. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -73,15 +75,15 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
         - **Resource group** &rarr; The container for all the created resources.
         - **App Service plan** &rarr; Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service** &rarr; Represents your app and runs in the App Service plan.
         - **Virtual network** &rarr; Integrated with the App Service app and isolates back-end network traffic.
         - **Private endpoint** &rarr; Access endpoint for the database resource in the virtual network.
         - **Network interface** &rarr; Represents a private IP address for the private endpoint.
-        - **Cosmos DB API for MongoDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
-        - **Private DNS zone** &rarr; Enables DNS resolution of the Cosmos DB server in the virtual network.
+        - **Azure Cosmos DB for MongoDB** &rarr; Accessible only from behind the private endpoint. A database and a user are created for you on the server.
+        - **Private DNS zone** &rarr; Enables DNS resolution of the Azure Cosmos DB server in the virtual network.
         
     :::column-end:::
     :::column:::
@@ -95,7 +97,7 @@ The creation wizard generated the MongoDB URI for you already, but your app need
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the App Service page, in the left menu, select Configuration.
+        **Step 1:** In the App Service page, in the left menu, select Configuration.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-get-connection-string-1.png":::
@@ -103,7 +105,7 @@ The creation wizard generated the MongoDB URI for you already, but your app need
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Application settings** tab of the **Configuration** page, create a `DATABASE_NAME` setting:
+        **Step 2:** In the **Application settings** tab of the **Configuration** page, create a `DATABASE_NAME` setting:
         1. Select **New application setting**.
         1. In the **Name** field, enter *DATABASE_NAME*.
         1. In the **Value** field, enter the automatically generated database name from the creation wizard, which looks like *msdocs-expressjs-mongodb-XYZ-database*.
@@ -115,7 +117,7 @@ The creation wizard generated the MongoDB URI for you already, but your app need
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** 
+        **Step 3:** 
         1. Scroll to the bottom of the page and select the connection string **MONGODB_URI**. It was generated by the creation wizard.
         1. In the **Value** field, select the **Copy** button and paste the value in a text file for the next step. It's in the [MongoDB connection string URI format](https://www.mongodb.com/docs/manual/reference/connection-string/).
         1. Select **Cancel**.
@@ -126,7 +128,7 @@ The creation wizard generated the MongoDB URI for you already, but your app need
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** 
+        **Step 4:** 
         1. Using the same steps in **Step 2**, create an app setting named *DATABASE_URL* and set the value to the one you copied from the `MONGODB_URI` connection string (i.e. `mongodb://...`).
         1. In the menu bar at the top, select **Save**.
         1. When prompted, select **Continue**.
@@ -142,7 +144,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In a new browser window:
+        **Step 1:** In a new browser window:
         1. Sign in to your GitHub account.
         1. Navigate to [https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app).
         1. Select **Fork**.
@@ -154,7 +156,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the GitHub page, open Visual Studio Code in the browser by pressing the `.` key.
+        **Step 2:** In the GitHub page, open Visual Studio Code in the browser by pressing the `.` key.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing how to open the Visual Studio Code browser experience in GitHub." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-2.png":::
@@ -162,7 +164,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** In Visual Studio Code in the browser, open *config/connection.js* in the explorer.
+        **Step 3:** In Visual Studio Code in the browser, open *config/connection.js* in the explorer.
         In the `getConnectionInfo` function, see that the app settings you created earlier for the MongoDB connection are used (`DATABASE_URL` and `DATABASE_NAME`).
     :::column-end:::
     :::column:::
@@ -171,7 +173,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4.** Back in the App Service page, in the left menu, select **Deployment Center**. 
+        **Step 4:** Back in the App Service page, in the left menu, select **Deployment Center**. 
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-4.png":::
@@ -179,7 +181,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5.** In the Deployment Center page:
+        **Step 5:** In the Deployment Center page:
         1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
         1. Sign in to your GitHub account and follow the prompt to authorize Azure.
         1. In **Organization**, select your account.
@@ -193,7 +195,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6.** In the Deployment Center page:
+        **Step 6:** In the Deployment Center page:
         1. Select **Logs**. A deployment run is already started.
         1. In the log item for the deployment run, select **Build/Deploy Logs**. 
     :::column-end:::
@@ -203,7 +205,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7.** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 15 minutes.
+        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 15 minutes.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-deploy-sample-code-7.png":::
@@ -214,7 +216,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the App Service page:
+        **Step 1:** In the App Service page:
         1. From the left menu, select **Overview**.
         1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
     :::column-end:::
@@ -224,7 +226,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** Add a few tasks to the list.
+        **Step 2:** Add a few tasks to the list.
         Congratulations, you're running a secure data-driven Node.js app in Azure App Service.
     :::column-end:::
     :::column:::
@@ -240,7 +242,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the App Service page:
+        **Step 1:** In the App Service page:
         1. From the left menu, select **App Service logs**.
         1. Under **Application logging**, select **File System**.
     :::column-end:::
@@ -250,7 +252,7 @@ Azure App Service captures all messages logged to the console to assist you in d
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
+        **Step 2:** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-stream-diagnostic-logs-2.png":::
@@ -263,7 +265,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the App Service page:
+        **Step 1:** In the App Service page:
         1. From the left menu, select **Advanced Tools**.
         1. Select **Go**. You can also navigate directly to `https://<app-name>.scm.azurewebsites.net`.
     :::column-end:::
@@ -273,7 +275,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the Kudu page, select **Deployments**.
+        **Step 2:** In the Kudu page, select **Deployments**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-2.png" alt-text="A screenshot of the main page in the Kudu SCM app showing the different information available about the hosting environment." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-2.png":::
@@ -289,7 +291,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** Go back to the Kudu homepage and select **Site wwwroot**.
+        **Step 3:** Go back to the Kudu homepage and select **Site wwwroot**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-4.png" alt-text="A screenshot showing site wwwroot selected." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-4.png":::
@@ -310,7 +312,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 :::row:::
     :::column span="2":::
-        **Step 1.** In the search bar at the top of the Azure portal:
+        **Step 1:** In the search bar at the top of the Azure portal:
         1. Enter the resource group name.
         1. Select the resource group.
     :::column-end:::
@@ -320,7 +322,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the resource group page, select **Delete resource group**.
+        **Step 2:** In the resource group page, select **Delete resource group**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-2.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-2.png":::
@@ -328,7 +330,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3.** 
+        **Step 3:** 
         1. Enter the resource group name to confirm your deletion.
         1. Select **Delete**.
     :::column-end:::
@@ -340,7 +342,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to the Cosmos DB server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-cosmos-db-server-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How do I connect to the Azure Cosmos DB server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-azure-cosmos-db-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
 
@@ -349,15 +351,15 @@ When you're finished, you can delete all of the resources from your Azure subscr
 Pricing for the create resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The Cosmos DB server is create in a single region and can be distributed to other regions. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+- The Azure Cosmos DB server is created in a single region and can be distributed to other regions. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
-#### How do I connect to the Cosmos DB server that's secured behind the virtual network with other tools?
+#### How do I connect to the Azure Cosmos DB server that's secured behind the virtual network with other tools?
 
-- For basic access from a commmand-line tool, you can run `mongosh` from the app's SSH terminal. The app's container doesn't come with `mongosh`, so you must [install it manually](https://www.mongodb.com/docs/mongodb-shell/install/). Remember that the installed client doesn't persist across app restarts.
+- For basic access from a command-line tool, you can run `mongosh` from the app's SSH terminal. The app's container doesn't come with `mongosh`, so you must [install it manually](https://www.mongodb.com/docs/mongodb-shell/install/). Remember that the installed client doesn't persist across app restarts.
 - To connect from a MongoDB GUI client, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
-- To connect from the Mongo shell from the Cosmos DB management page in the portal, your machine must also be within the virtual network. You could instead open the Cosmos DB server's firewall for your local machine's IP address, but it increases the attack surface for your configuration.
+- To connect from the MongoDB shell from the Azure Cosmos DB management page in the portal, your machine must also be within the virtual network. You could instead open the Azure Cosmos DB server's firewall for your local machine's IP address, but it increases the attack surface for your configuration.
 
 #### How does local app development work with GitHub Actions?
 
@@ -385,3 +387,6 @@ Most of the time taken by the two-job process is spent uploading and download ar
 
 > [!div class="nextstepaction"]
 > [Configure Node.js app in App Service](./configure-language-nodejs.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

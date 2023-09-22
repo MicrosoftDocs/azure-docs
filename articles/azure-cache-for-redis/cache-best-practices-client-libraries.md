@@ -5,9 +5,9 @@ description: Learn about client libraries for Azure Cache for Redis.
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 01/04/2022
 ms.author: franlanglois
-
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java
 ---
 
 # Client libraries
@@ -38,14 +38,57 @@ For information on client library-specific guidance best practices, see the foll
 - [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
 - [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
+- [Redisson (Java)](cache-best-practices-client-libraries.md#redisson-java)
 - [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
 - [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
 - [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
 - [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
+## Redisson (Java)
+
+We _recommend_ you  use redisson 3.14.1 or higher. Older versions contain known connection leak issues that cause problems after failovers. Monitor the Redisson changelog for other known issues can affect features used by your application. For more information, see[`CHANGELOG`](https://github.com/redisson/redisson/blob/master/CHANGELOG.md) and the [Redisson FAQ](https://github.com/redisson/redisson/wiki/16.-FAQ).
+
+Other notes:
+
+- Redisson defaults to 'read from replica' strategy, unlike some other clients. To change this, modify the 'readMode' config setting.
+- Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or 'connection storms'. To reduce the risk, consider using fewer connections because you can efficiently pipeline commands, or batches of commands, over a few connections.
+- Redisson has a default idle connection timeout of 10 seconds, which leads to more closing and reopening of connections than ideal.
+
+Here's a recommended baseline configuration for cluster mode that you can modify as needed:
+
+```yml
+clusterServersConfig:
+  idleConnectionTimeout: 30000
+  connectTimeout: 15000
+  timeout: 5000
+  retryAttempts: 3
+  retryInterval: 3000
+  failedSlaveReconnectionInterval: 15000
+  failedSlaveCheckInterval: 60000
+  subscriptionsPerConnection: 5
+  clientName: "redisson"
+  loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> {}
+  subscriptionConnectionMinimumIdleSize: 1
+  subscriptionConnectionPoolSize: 50
+  slaveConnectionMinimumIdleSize: 2
+  slaveConnectionPoolSize: 24
+  masterConnectionMinimumIdleSize: 2
+  masterConnectionPoolSize: 24
+  readMode: "MASTER"
+  subscriptionMode: "MASTER"
+  nodeAddresses:
+  - "redis://mycacheaddress:6380"
+  scanInterval: 1000
+  pingConnectionInterval: 60000
+  keepAlive: false
+  tcpNoDelay: true
+```
+
+For an article demonstrating how to use Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
+
 ## How to use client libraries
 
-Besides the reference documentation, you can find tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. 
+Besides the reference documentation, you can find tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients.
 
 For more information on using some of these client libraries in tutorials, see the following articles:
 

@@ -1,12 +1,12 @@
 ---
-title: azcopy make | Microsoft Docs
+title: azcopy make
 description: This article provides reference information for the azcopy make command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
 ms.date: 05/26/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 

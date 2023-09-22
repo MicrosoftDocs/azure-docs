@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/13/2022
+ms.date: 08/10/2023
 ms.author: abnarain
 ---
 
@@ -109,7 +109,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Message**: `Job is not fully initialized yet. Please retry later.`
 
-- **Cause**: The job has not initialized.
+- **Cause**: The job hasn't initialized.
 
 - **Recommendation**: Wait and try again later.
 
@@ -143,7 +143,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
    :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Screenshot of the Databricks pipeline.":::
 
-    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output had been coming as expected before the failure. 
+    You noticed this change on September 28, 2021 at around 9 AM IST when your pipeline relying on this output started failing. No change was made on the pipeline, and the Boolean output data arrived as expected prior to the failure.
 
    :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="Screenshot of the difference in the output.":::
 
@@ -359,13 +359,13 @@ The following table applies to U-SQL.
 
 - **Cause**: The properties of the activity such as `pipelineParameters` are invalid for the Azure Machine Learning (ML) pipeline.
 
-- **Recommendation**: Check that the value of activity properties matches the expected payload of the published Azure ML pipeline specified in Linked Service.
+- **Recommendation**: Check that the value of activity properties matches the expected payload of the published Azure Machine Learning pipeline specified in Linked Service.
 
 ### Error code: 4124
 
 - **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: The published Azure ML pipeline endpoint doesn't exist.
+- **Cause**: The published Azure Machine Learning pipeline endpoint doesn't exist.
 
 - **Recommendation**: Verify that the published Azure Machine Learning pipeline endpoint specified in Linked Service exists in Azure Machine Learning.
 
@@ -381,7 +381,7 @@ The following table applies to U-SQL.
 
 - **Message**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
-- **Cause**: The Azure ML pipeline run failed.
+- **Cause**: The Azure Machine Learning pipeline run failed.
 
 - **Recommendation**: Check Azure Machine Learning for more error logs, then fix the ML pipeline.
 
@@ -407,7 +407,7 @@ The following table applies to U-SQL.
 
 - **Message**: `There are not enough vcores available for your spark job, details: '%errorMessage;'`
 
-- **Cause**: Insufficient vcores
+- **Cause**: Insufficient virtual cores
 
 - **Recommendation**: Try reducing the numbers of vCores requested or increasing your vCore quota. For more information, see [Apache Spark core concepts](../synapse-analytics/spark/apache-spark-concepts.md).
 
@@ -730,7 +730,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The service tried to create a batch on a Spark cluster using Livy API (livy/batch), but received an error.
 
-- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
+- **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them with the batch ID and job ID, which can be found in the activity run Output in the service Monitoring page. To troubleshoot further, collect the full log of the batch job.
 
    For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
@@ -1000,7 +1000,7 @@ The following table applies to Azure Batch.
 
 ### SSL error when linked service using HDInsight ESP cluster
 
-- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+- **Message**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.'`
 
 - **Cause**: The issue is most likely related with System Trust Store.
 
@@ -1028,7 +1028,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Cause**: The execution output is greater than 4 MB in size but the maximum supported output response payload size is 4 MB.
 
-- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](https://docs.microsoft.com/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
+- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
 
 ### Error Code: 2002
 
@@ -1064,7 +1064,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ### Error code: 2108
 
-- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url:<URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime`
+- **Message**: `Error calling the endpoint '<URL>'. Response status code: 'NA - Unknown'. More details: Exception message: 'NA - Unknown [ClientSideException] Invalid Url: <URL>. Please verify Url or integration runtime is valid and retry. Localhost URLs are allowed only with SelfHosted Integration Runtime'`
 
 - **Cause**: Unable to reach the URL provided. This can occur because there was a network connection issue, the URL was unresolvable, or a localhost URL was being used on an Azure integration runtime.
 
@@ -1163,11 +1163,31 @@ When you observe that the activity is running much longer than your normal runs 
 > [!TIP]
 > Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly state that the "deflate64" format is not supported in Azure Data Factory.
 
+### Execute Pipeline passes array parameter as string to the child pipeline
+
+**Error message:** `Operation on target ForEach1 failed: The execution of template action 'MainForEach1' failed: the result of the evaluation of 'foreach' expression '@pipeline().parameters.<parameterName>' is of type 'String'. The result must be a valid array.`
+
+**Cause:** Even if in the Execute Pipeline you create the parameter of type array, as shown in the below image, the pipeline will fail.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/parameter-type-array.png" alt-text="Screenshot showing the parameters of the Execute Pipeline activity.":::
+
+This is due to the fact that the payload is passed from the parent pipeline to the child as string. We can see it when we check the input passed to the child pipeline.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/input-type-string.png" alt-text="Screenshot showing the input type string.":::
+
+**Recommendation:** To solve the issue we can leverage the create array function as shown in the below image.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/create-array-function.png" alt-text="Screenshot showing how to use the create array function.":::
+
+Then our pipeline will succeed. And we can see in the input box that the parameter passed is an array.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/input-type-array.png" alt-text="Screenshot showing input type array.":::
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
-* [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+* [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

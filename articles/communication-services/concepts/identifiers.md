@@ -11,6 +11,7 @@ ms.date: 08/30/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: identity
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python-ios-android-rest
 ---
 
@@ -61,3 +62,4 @@ There are user identities that you create yourself and there are external identi
 * For an introduction to communication identities, see [Identity model](./identity-model.md).
 * To learn how to quickly create identities for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).
 * To learn how to use Communication Services together with Microsoft Teams, see [Teams interoperability](./teams-interop.md).
+* To learn how to use a Raw ID, see [Use cases for string identifiers in Communication SDKs](./raw-id-use-cases.md).

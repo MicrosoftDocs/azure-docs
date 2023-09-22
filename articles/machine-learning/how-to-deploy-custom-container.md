@@ -1,40 +1,49 @@
 ---
-title: Deploy a custom container as an online endpoint
+title: Deploy a model in a custom container to an online endpoint
 titleSuffix: Azure Machine Learning
-description: Learn how to use a custom container to use open-source servers in Azure Machine Learning.
+description: Learn how to use a custom container with an open-source server to deploy a model in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
-ms.author: sehan
+ms.subservice: inferencing
 author: dem108
-ms.reviewer: larryfr
-ms.date: 05/11/2022
+ms.author: sehan
+ms.reviewer: mopeakande
+ms.date: 10/13/2022
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
 ms.devlang: azurecli
 ---
 
-# Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint
+# Use a custom container to deploy a model to an online endpoint
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Learn how to deploy a custom container as an online endpoint in Azure Machine Learning.
+Learn how to use a custom container for deploying a model to an online endpoint in Azure Machine Learning.
 
 Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.
+
+The following table lists various [deployment examples](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container) that use custom containers such as TensorFlow Serving, TorchServe, Triton Inference Server, Plumber R package, and AzureML Inference Minimal image.
+
+|Example|Script (CLI)|Description| 
+|-------|------|---------|
+|[minimal/multimodel](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel)|[deploy-custom-container-minimal-multimodel](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-minimal-multimodel.sh)|Deploy multiple models to a single deployment by extending the Azure Machine Learning Inference Minimal image.|
+|[minimal/single-model](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/single-model)|[deploy-custom-container-minimal-single-model](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-minimal-single-model.sh)|Deploy a single model by extending the Azure Machine Learning Inference Minimal image.|
+|[mlflow/multideployment-scikit](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/mlflow/multideployment-scikit)|[deploy-custom-container-mlflow-multideployment-scikit](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-mlflow-multideployment-scikit.sh)|Deploy two MLFlow models with different Python requirements to two separate deployments behind a single endpoint using the Azure Machine Learning Inference Minimal Image.|
+|[r/multimodel-plumber](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/r/multimodel-plumber)|[deploy-custom-container-r-multimodel-plumber](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-r-multimodel-plumber.sh)|Deploy three regression models to one endpoint using the Plumber R package|
+|[tfserving/half-plus-two](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/tfserving/half-plus-two)|[deploy-custom-container-tfserving-half-plus-two](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-tfserving-half-plus-two.sh)|Deploy a simple Half Plus Two model using a TensorFlow Serving custom container using the standard model registration process.|
+|[tfserving/half-plus-two-integrated](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/tfserving/half-plus-two-integrated)|[deploy-custom-container-tfserving-half-plus-two-integrated](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-tfserving-half-plus-two-integrated.sh)|Deploy a simple Half Plus Two model using a TensorFlow Serving custom container with the model integrated into the image.|
+|[torchserve/densenet](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/torchserve/densenet)|[deploy-custom-container-torchserve-densenet](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-torchserve-densenet.sh)|Deploy a single model using a TorchServe custom container.|
+|[torchserve/huggingface-textgen](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/torchserve/huggingface-textgen)|[deploy-custom-container-torchserve-huggingface-textgen](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-torchserve-huggingface-textgen.sh)|Deploy Hugging Face models to an online endpoint and follow along with the Hugging Face Transformers TorchServe example.| 
+|[triton/single-model](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/triton/single-model)|[deploy-custom-container-triton-single-model](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-triton-single-model.sh)|Deploy a Triton model using a custom container|
+
+This article focuses on serving a TensorFlow model with TensorFlow (TF) Serving.
 
 > [!WARNING]
 > Microsoft may not be able to help troubleshoot problems caused by a custom image. If you encounter problems, you may be asked to use the default image or one of the images Microsoft provides to see if the problem is specific to your image.
 
 ## Prerequisites
 
-[!INCLUDE [cli & sdk](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
+[!INCLUDE [cli & sdk](includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
 * You, or the service principal you use, must have `Contributor` access to the Azure Resource Group that contains your workspace. You'll have such a resource group if you configured your workspace using the quickstart article.
 
@@ -55,8 +64,10 @@ cd azureml-examples/cli
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/sdk/endpoints/online/custom-container
+cd azureml-examples/sdk
 ```
+
+See also [the example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container.ipynb) but note that `3. Test locally` section in the notebook assumes to run under the `azureml-examples/sdk` directory.
 
 ---
 
@@ -64,35 +75,35 @@ cd azureml-examples/sdk/endpoints/online/custom-container
 
 Define environment variables:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="initialize_variables":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="initialize_variables":::
 
 ## Download a TensorFlow model
 
 Download and unzip a model that divides an input by two and adds 2 to the result:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="download_and_unzip_model":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="download_and_unzip_model":::
 
 ## Run a TF Serving image locally to test that it works
 
 Use docker to run your image locally for testing:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="run_image_locally_for_testing":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="run_image_locally_for_testing":::
 
 ### Check that you can send liveness and scoring requests to the image
 
 First, check that the container is "alive," meaning that the process inside the container is still running. You should get a 200 (OK) response.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_liveness_locally":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="check_liveness_locally":::
 
 Then, check that you can get predictions about unlabeled data:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="check_scoring_locally":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="check_scoring_locally":::
 
 ### Stop the image
 
 Now that you've tested locally, stop the image:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="stop_image":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="stop_image":::
 
 ## Deploy your online endpoint to Azure
 Next, deploy your online endpoint to Azure.
@@ -105,11 +116,11 @@ You can configure your cloud deployment using YAML. Take a look at the sample YA
 
 __tfserving-endpoint.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving/half-plus-two/tfserving-endpoint.yml":::
 
 __tfserving-deployment.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container//tfserving/half-plus-two/tfserving-deployment.yml":::
 
 # [Python SDK](#tab/python)
 
@@ -134,7 +145,7 @@ from azure.identity import DefaultAzureCredential
 2. Configure workspace details and get a handle to the workspace:
 
 ```python
-# enter details of your AzureML workspace
+# enter details of your Azure Machine Learning workspace
 subscription_id = "<SUBSCRIPTION_ID>"
 resource_group = "<RESOURCE_GROUP>"
 workspace = "<AZUREML_WORKSPACE_NAME>"
@@ -172,7 +183,7 @@ endpoint = ManagedOnlineEndpoint(
 
 ### Configure online deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. We will create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
+A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
 
 > [!TIP]
 > - `name` - Name of the deployment.
@@ -294,7 +305,7 @@ blue_deployment = ManagedOnlineDeployment(
 
 ---
 
-then your model will be located at `/var/tfserving-model-mount/tfserving-deployment/1` in your deployment. Note that it is no longer under `azureml-app/azureml-models`, but under the mount path you specified:
+then your model will be located at `/var/tfserving-model-mount/tfserving-deployment/1` in your deployment. Note that it's no longer under `azureml-app/azureml-models`, but under the mount path you specified:
 
 :::image type="content" source="./media/how-to-deploy-custom-container/mount-path-deployment-location.png" alt-text="Diagram showing a tree view of the deployment directory structure when using mount_model_path.":::
 
@@ -318,7 +329,7 @@ az ml online-deployment create --name tfserving-deployment -f endpoints/online/c
 
 # [Python SDK](#tab/python)
 
-Using the `MLClient` created earlier, we will now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
 ```python
 ml_client.begin_create_or_update(endpoint)
@@ -338,16 +349,16 @@ Once your deployment completes, see if you can make a scoring request to the dep
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-tfserving.sh" id="invoke_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-custom-container-tfserving-half-plus-two.sh" id="invoke_endpoint":::
 
 # [Python SDK](#tab/python)
 
-Using the `MLClient` created earlier, we will get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 - `endpoint_name` - Name of the endpoint
 - `request_file` - File with request data
 - `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/custom-container).
+We'll send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/custom-container).
 
 ```python
 # test the blue deployment with some sample data
@@ -380,6 +391,6 @@ ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ## Next steps
 
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Troubleshooting online endpoints deployment](./how-to-troubleshoot-online-endpoints.md)
-- [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)
+- [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-torchserve-densenet.sh)

@@ -1,9 +1,10 @@
 ---
 author: cephalin
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
+ms.subservice: web-apps
 ---
 ### App Service plan
 

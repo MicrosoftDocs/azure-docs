@@ -7,10 +7,9 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
 ms.author: jofrance
-ms.date: 03/17/2020
-
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.reviewer: mattmcinnes
+ms.date: 04/06/2023
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 ---
 
 # Configure LVM and RAID on encrypted devices

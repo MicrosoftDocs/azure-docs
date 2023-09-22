@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-azurepowershell, build-2023, devx-track-linux
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps
@@ -17,7 +17,6 @@ Using Azure Container Apps allows you to deploy applications without requiring t
 You learn how to:
 
 > [!div class="checklist"]
-
 > * Create a Container Apps environment to deploy your container apps
 > * Create an Azure Storage Queue to send messages to the container app
 > * Deploy your background processing application as a container app
@@ -129,15 +128,9 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Here we use Azure CLI as there isn't an equivalent PowerShell cmdlet to get the connection string for the storage account queue.
-
 ```azurepowershell
  $QueueConnectionString = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAcctName).Context.ConnectionString
 ```
-<!--
-
- $QueueConnectionString = (az storage account show-connection-string -g $ResourceGroupName --name $StorageAcctName --query connectionString --out json)  -replace '"',''
--->
 
 ---
 
@@ -147,7 +140,7 @@ Now you can create the message queue.
 
 ```azurecli
 az storage queue create \
-  --name 'myqueue" \
+  --name "myqueue" \
   --account-name $STORAGE_ACCOUNT_NAME \
   --connection-string $QUEUE_CONNECTION_STRING
 ```
@@ -196,12 +189,10 @@ Create a file named *queue.json* and paste the following configuration code into
             "type": "String"
         },
         "environment_name": {
-            "defaultValue": "",
             "type": "String"
         },
         "queueconnection": {
-            "defaultValue": "",
-            "type": "String"
+            "type": "secureString"
         }
     },
     "variables": {},
@@ -352,5 +343,3 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ---
-
-

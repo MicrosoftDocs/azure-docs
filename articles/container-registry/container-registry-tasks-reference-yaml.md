@@ -2,7 +2,9 @@
 title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
 ms.topic: reference
-ms.date: 07/08/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # ACR Tasks reference: YAML
@@ -134,7 +136,16 @@ steps:
     [property]: [value]
 ```
 
+Run the [az acr run][az-acr-run]command to get the docker version.
+
+```azurecli
+az acr run -r $ACR_NAME --cmd "docker version" /dev/null
+```
+
+Add environment variable `DOCKER_BUILDKIT=1` in yaml file to enable `buildkit` and use `secret` with `buildkit`.
+
 The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
+
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |

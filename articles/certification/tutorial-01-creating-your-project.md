@@ -65,7 +65,7 @@ Then, you must supply basic device information. You can to edit this information
 
 1. Select the `Next` button to continue to the `Certifications` tab.
 
-    ![Image of the Create new project form, Certifications tab](./media/images/create-new-project-certificationswindow.png)
+    ![Image of the Create new project form, Certifications tab](./media/images/select-the-certification.png)
 
 1. Specify which certification(s) you wish to achieve for your device.
 1. Select `Create` and the new project will be saved and visible in the home page of the portal.

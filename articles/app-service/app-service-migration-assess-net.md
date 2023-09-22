@@ -4,11 +4,10 @@ description: Assess .NET web apps before migrating to Azure App Service
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 06/28/2022
+ms.date: 06/29/2023
 ms.author: msangapu
 ms.devlang: csharp
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-dotnet
 ---
 # At-scale assessment of .NET web apps
 
@@ -29,4 +28,4 @@ For more information on web apps assessment, see:
 
 
 Next steps:
-[At-scale migration of .NET web apps](/learn/modules/migrate-app-service-migration-assistant/)
+[At-scale migration of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)

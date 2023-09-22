@@ -1,25 +1,17 @@
 ---
-author: clemensv
+author: spelluru
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: clemensv
+ms.date: 08/10/2023
+ms.author: spelluru
 ---
-Ensure that you have already [created a Relay namespace][namespace-how-to].
+On the **Relay** page for your namespace, follow these steps to create a hybrid connection.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left menu, select **All resources**.
-3. Select the namespace where you want to create the hybrid connection. In this case, it is **mynewns**.  
-4. Under **Relay namespace**, select **Hybrid Connections**.
+1. On the left menu, Under **Entities**, select **Hybrid Connections**, and then select **+ Hybrid Connection**.
 
-    ![Create a hybrid connection](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
-
-5. In the namespace overview window, select **+ Hybrid Connection**
+    :::image type="content" source="./media/relay-create-hybrid-connection-portal/create-hc-1.png" alt-text="Screenshot showing the Hybrid Connections page.":::
+2. On the **Create Hybrid Connection** page, enter a name for the hybrid connection, and select **Create**. 
    
-    ![Select the hybrid connection](./media/relay-create-hybrid-connection-portal/create-hc-2.png)
-6. Under **Create Hybrid Connection**, enter a value for the hybrid connection name. Leave the other default values.
-   
-    ![Select New](./media/relay-create-hybrid-connection-portal/create-hc-3.png)
-7. Select **Create**.
+    :::image type="content" source="./media/relay-create-hybrid-connection-portal/create-hc-3.png" alt-text="Screenshot showing the Create Hybrid Connection page.":::
 
-[namespace-how-to]: ../relay-create-namespace-portal.md 
+

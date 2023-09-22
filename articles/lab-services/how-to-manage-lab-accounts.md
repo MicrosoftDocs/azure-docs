@@ -113,7 +113,7 @@ The **Shut down virtual machines when users disconnect** setting supports both W
 - The Secure Shell (SSH) connection is disconnected for a Linux VM.
 
 > [!IMPORTANT]
-> Only [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) are supported.  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) image.
+> Only [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) are supported.  Shutdown settings are not supported by the [Data Science Virtual Machine - Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) image.
 
 You can specify how long the virtual machines should wait for the user to reconnect before automatically shutting down.
 

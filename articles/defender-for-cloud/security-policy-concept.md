@@ -1,8 +1,9 @@
 ---
-title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
+title: Understanding security policies, initiatives, and recommendations
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 06/06/2022
+ms.custom: ignite-2022
+ms.date: 01/24/2023
 ---
 
 # What are security policies, initiatives, and recommendations?
@@ -19,17 +20,17 @@ There are different types of policies in Azure Policy. Defender for Cloud mainly
 
 ## What is a security initiative?
 
-A security initiative is a collection of Azure Policy definitions, or rules, that are grouped together towards a specific goal or purpose. Security initiatives simplify management of your policies by grouping a set of policies together, logically, as a single item.
+A security initiative is a collection of Azure Policy definitions, or rules, are grouped together towards a specific goal or purpose. Security initiatives simplify management of your policies by grouping a set of policies together, logically, as a single item.
 
 A security initiative defines the desired configuration of your workloads and helps ensure you're complying with the security requirements of your company or regulators.
 
 Like security policies, Defender for Cloud initiatives are also created in Azure Policy. You can use [Azure Policy](../governance/policy/overview.md) to manage your policies, build initiatives, and assign initiatives to multiple subscriptions or for entire management groups.
 
-The default initiative automatically assigned to every subscription in Microsoft Defender for Cloud is Azure Security Benchmark. This benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security. Learn more about [Azure Security Benchmark](/security/benchmark/azure/introduction).
+The default initiative automatically assigned to every subscription in Microsoft Defender for Cloud is Microsoft cloud security benchmark. This benchmark is the Microsoft-authored set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security. Learn more about [Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
 
 Defender for Cloud offers the following options for working with security initiatives and policies:
 
-- **View and edit the built-in default initiative** - When you enable Defender for Cloud, the initiative named 'Azure Security Benchmark' is automatically assigned to all Defender for Cloud registered subscriptions. To customize this initiative, you can enable or disable individual policies within it by editing a policy's parameters. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
+- **View and edit the built-in default initiative** - When you enable Defender for Cloud, the initiative named 'Microsoft cloud security benchmark' is automatically assigned to all Defender for Cloud registered subscriptions. To customize this initiative, you can enable or disable individual policies within it by editing a policy's parameters. See the list of [built-in security policies](./policy-reference.md) to understand the options available out-of-the-box.
 
 - **Add your own custom initiatives** - If you want to customize the security initiatives applied to your subscription, you can do so within Defender for Cloud. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security initiatives and policies](custom-security-policies.md).
 
@@ -39,7 +40,7 @@ Defender for Cloud offers the following options for working with security initia
 
 Using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
 
-Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it is presented as a recommendation in Defender for Cloud.
+Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it's presented as a recommendation in Defender for Cloud.
 
 Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:
 
@@ -49,7 +50,7 @@ Recommendations are actions for you to take to secure and harden your resources.
 
 In practice, it works like this:
 
-1. Azure Security Benchmark is an ***initiative*** that contains requirements.
+1. Microsoft cloud security benchmark is an ***initiative*** that contains requirements.
 
     For example, Azure Storage accounts must restrict network access to reduce their attack surface.
 
@@ -109,7 +110,7 @@ The recommendation details shown are:
 
 ## Viewing the relationship between a recommendation and a policy
 
-As mentioned above, Defender for Cloud's built in recommendations are based on the Azure Security Benchmark. Almost every recommendation has an underlying policy that is derived from a requirement in the benchmark.
+As mentioned above, Defender for Cloud's built in recommendations are based on the Microsoft cloud security benchmark. Almost every recommendation has an underlying policy that is derived from a requirement in the benchmark.
 
 When you're reviewing the details of a recommendation, it's often helpful to be able to see the underlying policy. For every recommendation supported by a policy, use the **View policy definition** link from the recommendation details page to go directly to the Azure Policy entry for the relevant policy:
 
@@ -126,5 +127,5 @@ If you're reviewing the list of recommendations on our [Security recommendations
 This page explained, at a high level, the basic concepts and relationships between policies, initiatives, and recommendations. For related information, see:
 
 - [Create custom initiatives](custom-security-policies.md)
-- [Disable security policies to disable recommendations](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations)
+- [Disable security recommendations](tutorial-security-policy.md#disable-a-security-recommendation)
 - [Learn how to edit a security policy in Azure Policy](../governance/policy/tutorials/create-and-manage.md)

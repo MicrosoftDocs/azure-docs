@@ -4,17 +4,18 @@ description: Azure Cosmos DB currently supports a one-way migration from periodi
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
-ms.date: 08/24/2022
+ms.subservice: nosql
+ms.custom: ignite-2022, build-2023
+ms.date: 03/31/2023
 ms.topic: how-to
 ms.reviewer: mjbrown
 ---
 
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
 
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
+Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using the [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
 
 The following are the key reasons to migrate into continuous mode:
 
@@ -24,20 +25,16 @@ The following are the key reasons to migrate into continuous mode:
 * The ability to restore container, database, or the full account when it's deleted or modified.
 * The ability to choose the events on the container, database, or account and decide when to initiate the restore.
 
-> [!IMPORTANT]
-> Support for 7-day continous backup in both provisioning and migration scenarios is still in preview. Please use PowerShell and Azure CLI to migrate or provision an account with continous backup configured at the 7-day tier.
-
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
 >
 > You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
-> * If the account is of type SQL API or API for MongoDB.
-> * If the account is of type Table API or Gremlin API. These two APIs are in preview.
+> * If the account is of type API for NoSQL,API for Table, Gremlin or API for MongoDB.
 > * If the account has a single write region.
 > * If the account isn't enabled with analytical store.
 >
-> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a user-assigned managed identity must be declared in the Key Vault access policy and must be set as the default identity on the account.
+> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a managed identity (System-assigned or User-assigned) must be declared in the Key Vault access policy and must be set as the default identity on the account.
 
 ## Permissions
 
@@ -51,7 +48,7 @@ After you migrate your account to continuous backup mode, the cost can change wh
 
 Use the following steps to migrate your account from periodic backup to continuous backup mode:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Navigate to your Azure Cosmos DB account and open the **Backup & Restore** pane. Select **Backup Policies** tab and select on **change**. Once you choose the target continuous mode, select on **Save**.
 
@@ -63,7 +60,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 ## <a id="powershell"></a>Migrate using PowerShell
 
-1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or any version higher than 6.2.0.
+1. Install the [latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) or any version higher than 6.2.0.
 2. To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``Install-Module -Name Az.CosmosDB -AllowPrerelease``
 3. Next, run the following steps:
 
@@ -93,11 +90,7 @@ Use the following steps to migrate your account from periodic backup to continuo
 ## <a id="cli"></a>Migrate using CLI
 
 1. Install the latest version of Azure CLI:
-
-   * If you don’t have the Azure CLI already installed, see [install Azure CLI](/cli/azure/). Install the latest version of Azure CLI or any version higher than 2.26.0.
-   * If you already have Azure CLI installed, use the ``az upgrade`` command to upgrade to the latest version. Alternatively, you can also use the Azure Cloud Shell from the Azure portal.
-   * To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``az extension update --name cosmosdb-preview`` to manage the extension.
-
+* If you don’t have the Azure CLI already installed, see [install Azure CLI](/cli/azure/).  Alternatively, you can also use the Azure Cloud Shell from the Azure portal.
 2. Sign in to your Azure account and run the following command to migrate your account to continuous mode:
 
    ```azurecli-interactive
@@ -183,7 +176,7 @@ az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 You can switch between ``Continuous30Days`` and ``Continous7Days`` in Azure PowerShell, Azure CLI or the Azure portal.
 
-In the portal for the given Cosmos DB account, choose **Point in Time Restore** pane, select on change link next to Backup policy mode to show you the option of Continuous (30 days) or  Continuous (7 days). Choose the required target and select on **Save**.
+In the portal for the given Azure Cosmos DB account, choose **Point in Time Restore** pane, select on change link next to Backup policy mode to show you the option of Continuous (30 days) or  Continuous (7 days). Choose the required target and select on **Save**.
 
 :::image type="content" source="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" lightbox="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" alt-text="Screenshot of dialog to select tier of continuous mode.":::
 
@@ -226,7 +219,7 @@ Yes.
 
 ### Which accounts can be targeted for backup migration?
 
-Currently, SQL API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration. Table API and Gremlin API are in preview.
+Currently, API for NoSQL, API for Table, Gremlin API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration.  
 
 Accounts enabled with analytical storage and multiple-write regions aren't supported for migration.
 
@@ -280,9 +273,4 @@ To learn more about continuous backup mode, see the following articles:
 
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 
-* Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
-
-Trying to do capacity planning for a migration to Azure Cosmos DB?
-
-* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md)
-* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+* Restore an account using the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).

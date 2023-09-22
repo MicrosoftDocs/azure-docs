@@ -1,10 +1,10 @@
 ---
-title: Sample query logs and results from Update management center (preview)
-description: The article provides details of sample query logs from update management center (preview) in Azure using Azure Resource Graph
-ms.service: update-management-center
+title: Sample query logs and results from Azure Update Manager
+description: The article provides details of sample query logs from Azure Update Manager in Azure using Azure Resource Graph
+ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 09/18/2023
 ms.topic: conceptual
 ---
 
@@ -22,7 +22,7 @@ patchassessmentresources
 | extend prop = parse_json(properties)
 | extend lastTime = properties.lastModifiedDateTime
 | extend updateRollupCount = prop.availablePatchCountByClassification.updateRollup, featurePackCount = prop.availablePatchCountByClassification.featurePack, servicePackCount = prop.availablePatchCountByClassification.servicePack, definitionCount = prop.availablePatchCountByClassification.definition, securityCount = prop.availablePatchCountByClassification.security, criticalCount = prop.availablePatchCountByClassification.critical, updatesCount = prop.availablePatchCountByClassification.updates, toolsCount = prop.availablePatchCountByClassification.tools, otherCount = prop.availablePatchCountByClassification.other, OS = prop.osType
-| project lastTime, Id, OS, updateRollupCount, featurePackCount, servicePackCount, definitionCount, securityCount, criticalCount, updatesCount, toolsCount, otherCount
+| project lastTime, id, OS, updateRollupCount, featurePackCount, servicePackCount, definitionCount, securityCount, criticalCount, updatesCount, toolsCount, otherCount
 ```
 
 ## Count of update installations 
@@ -80,5 +80,5 @@ maintenanceresources
 ```
 
 ## Next steps
-- Review logs and search results from update management center (preview) in Azure using [Azure Resource Graph](query-logs.md).
-- Troubleshoot issues in update management center (preview), see the [Troubleshoot](troubleshoot.md).
+- Review logs and search results from Update Manager in Azure using [Azure Resource Graph](query-logs.md).
+- Troubleshoot issues in Update Manager, see the [Troubleshoot](troubleshoot.md).

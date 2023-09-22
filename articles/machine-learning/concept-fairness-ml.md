@@ -1,5 +1,5 @@
 ---
-title: Machine learning fairness (preview)
+title: Machine learning fairness
 titleSuffix: Azure Machine Learning
 description: Learn about machine learning fairness and how the Fairlearn Python package can help you assess and mitigate unfairness. 
 services: machine-learning
@@ -8,12 +8,13 @@ ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
+ms.reviewer: lagayhar
 ms.date: 08/17/2022
-ms.custom: responsible-ml
+ms.custom: responsible-ml, devx-track-python
 #Customer intent: As a data scientist, I want to learn about machine learning fairness and how to assess and mitigate unfairness in machine learning models.
 ---
 
-# Model performance and fairness (preview)
+# Model performance and fairness
 
 This article describes methods that you can use to understand your model performance and fairness in Azure Machine Learning.
 
@@ -89,7 +90,7 @@ The Fairlearn open-source package provides two types of unfairness mitigation al
 
 ## Next steps
 
-- Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-dashboard-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-dashboard-ui.md).
-- Explore the [supported model overview and fairness assessment visualizations](how-to-responsible-ai-dashboard.md#model-overview) of the Responsible AI dashboard.
+- Learn how to generate the Responsible AI dashboard via [CLI and SDK](how-to-responsible-ai-insights-sdk-cli.md) or [Azure Machine Learning studio UI](how-to-responsible-ai-insights-ui.md).
+- Explore the [supported model overview and fairness assessment visualizations](how-to-responsible-ai-dashboard.md#model-overview-and-fairness-metrics) of the Responsible AI dashboard.
 - Learn how to generate a [Responsible AI scorecard](how-to-responsible-ai-scorecard.md) based on the insights observed in the Responsible AI dashboard.
-- Learn how to use the components by checking out Fairlearn's [GitHub repository](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/main/user_guide/index.html), [examples](https://fairlearn.github.io/main/auto_examples/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Learn how to use the components by checking out Fairlearn's [GitHub repository](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/main/user_guide/index.html), [examples](https://fairlearn.github.io/main/auto_examples/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/blob/main/docs/contributor_guide/contributing_example_notebooks.rst).

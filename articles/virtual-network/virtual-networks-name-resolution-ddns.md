@@ -1,26 +1,23 @@
 ---
-title: Using dynamic DNS to register hostnames in Azure | Microsoft Docs
-description: Learn how to setup dynamic DNS to register hostnames in your own DNS servers.
+title: Using dynamic DNS to register hostnames in Azure
+description: Learn how to set up dynamic DNS to register hostnames in your own DNS servers.
 services: dns
-documentationcenter: na
-author: mbender-ms
-manager: vitinnan
-editor: ''
-
+author: greg-lindsay
+manager: kumud
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2017
-ms.author: mbender
-
+ms.custom: devx-track-linux
+ms.date: 04/27/2023
+ms.author: greglin
 ---
+
 # Use dynamic DNS to register hostnames in your own DNS server
 
 [Azure provides name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for virtual machines (VM) and role instances. When your name resolution needs exceed the capabilities provided by Azure's default DNS, you can provide your own DNS servers. Using your own DNS servers gives you the ability to tailor your DNS solution to suit your own specific needs. For example, you may need to access on-premises resources via your Active Directory domain controller.
 
-When your custom DNS servers are hosted as Azure VMs, you can forward hostname queries for the same virtual network to Azure to resolve hostnames. If you do not wish to use this option, you can register your VM hostnames in your DNS server using dynamic DNS (DDNS). Azure doesn't have the credentials to directly create records in your DNS servers, so alternative arrangements are often needed. Some common scenarios, with alternatives follow:
+When your custom DNS servers are hosted as Azure VMs, you can forward hostname queries for the same virtual network to Azure to resolve hostnames. If you don't wish to use this option, you can register your VM hostnames in your DNS server using dynamic DNS (DDNS). Azure doesn't have the credentials to directly create records in your DNS servers, so alternative arrangements are often needed. Some common scenarios, with alternatives follow:
 
 ## Windows clients
 Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot, or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set the suffix in the VM, via the [user interface](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) or [PowerShell](/powershell/module/dnsclient/set-dnsclient).
@@ -28,7 +25,7 @@ Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot,
 Domain-joined Windows clients register their IP addresses with the domain controller by using secure DDNS. The domain-join process sets the primary DNS suffix on the client and creates and maintains the trust relationship.
 
 ## Linux clients
-Linux clients generally don't register themselves with the DNS server on startup, they assume the DHCP server does it. Azure's DHCP servers do not have the credentials to register records in your DNS server. You can use a tool called `nsupdate`, which is included in the Bind package, to send DDNS updates. Because the DDNS protocol is standardized, you can use `nsupdate` even when you're not using Bind on the DNS server.
+Linux clients generally don't register themselves with the DNS server on startup, they assume the DHCP server does it. Azure's DHCP servers don't have the credentials to register records in your DNS server. You can use a tool called `nsupdate`, which is included in the Bind package, to send DDNS updates. Because the DDNS protocol is standardized, you can use `nsupdate` even when you're not using Bind on the DNS server.
 
 You can use the hooks that are provided by the DHCP client to create and maintain the hostname entry in the DNS server. During the DHCP cycle, the client executes the scripts in */etc/dhcp/dhclient-exit-hooks.d/*. You can use the hooks to register the new IP address using `nsupdate`. For example:
 

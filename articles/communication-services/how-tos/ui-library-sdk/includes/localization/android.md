@@ -8,7 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
 
 ### Available Languages
 
@@ -107,7 +107,7 @@ CallComposite callComposite =
 
 ### Customizing Translations
 
-There are two options to customize the language translations that we provide. You can find the list of localization keys [here](https://github.com/Azure/communication-ui-library-android/blob/main/azure-communication-ui/azure-communication-ui/src/calling/res/values/azure_communication_ui_calling_strings.xml) to override a particular string for the key-value pair. You can specify the locale as one of the supported languages, and when a key isn't provided, it will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using the `string.xml` file) and will fall back to English strings when a key isn't provided.
+There are two options to customize the language translations that we provide. You can find the list of localization keys [here](https://github.com/Azure/communication-ui-library-android/blob/main/azure-communication-ui/calling/src/main/res/values/azure_communication_ui_calling_strings.xml) to override a particular string for the key-value pair. You can specify the locale as one of the supported languages, and when a key isn't provided, it will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using the `string.xml` file) and will fall back to English strings when a key isn't provided.
 
 Let's say you wish to have the Control Bar with strings from our English (US) locale, but you want to change the label of the "Join Call" button to "Start Meeting" (instead of "Join call") in Setup View.
 

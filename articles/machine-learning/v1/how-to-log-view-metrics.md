@@ -8,18 +8,15 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
-ms.date: 04/19/2021
+ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022, devx-track-python
+ms.date: 10/26/2022
 ms.topic: how-to
 ---
 
 # Log & view metrics and log files v1
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
-> * [v1](how-to-log-view-metrics.md)
-> * [v2 (preview)](../how-to-log-view-metrics.md)
 
 Log real-time information using both the default Python logging package and Azure Machine Learning Python SDK-specific functionality. You can log locally and send logs to your workspace in the portal.
 
@@ -34,7 +31,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 
 > [!TIP]
-> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
+> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
 
 ## Data types
 
@@ -126,7 +123,7 @@ params = finished_mlflow_run.data.params
 >[!NOTE]
 > The metrics dictionary under `mlflow.entities.Run.data.metrics` only returns the most recently logged value for a given metric name. For example, if you log, in order, 1, then 2, then 3, then 4 to a metric called `sample_metric`, only 4 is present in the metrics dictionary for `sample_metric`.
 > 
-> To get all metrics logged for a particular metric name, you can use [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history).
+> To get all metrics logged for a particular metric name, you can use [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.client.html#mlflow.client.MlflowClient.get_metric_history).
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
@@ -143,7 +140,7 @@ You can also edit the run list table to select multiple runs and display either 
 
 ### View and download log files for a run 
 
-Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
+Log files are an essential resource for debugging the Azure Machine Learning workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
 
 1. Navigate to the **Experiments** tab.
 1. Select the runID for a specific run.
@@ -151,7 +148,7 @@ Log files are an essential resource for debugging the Azure ML workloads. After 
 2. Select **Download all** to download all your logs into a zip folder.
 3. You can also download individual log files by choosing the log file and selecting **Download**
 
-:::image type="content" source="media/how-to-log-view-metrics/download-logs.png" alt-text="Screenshot of Output and logs section of a run.":::
+:::image type="content" source="../media/how-to-log-view-metrics/download-logs.png" alt-text="Screenshot of Output and logs section of a run.":::
 
 #### user_logs folder
 
@@ -179,7 +176,7 @@ This example performs a parameter sweep over alpha values and captures the resul
 
 1. Create a training script that includes the logging logic, `train.py`.
 
-   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
+   [!code-python[](~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/scripts/train.py)]
 
 
 1. Submit the ```train.py``` script to run in a user-managed environment. The entire script folder is submitted for training.
@@ -214,7 +211,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
-For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](../how-to-track-designer-experiments.md)
+For information on logging metrics in Azure Machine Learning designer, see [How to log metrics in the designer](how-to-track-designer-experiments.md)
 
 ## Example notebooks
 
@@ -222,7 +219,7 @@ The following notebooks demonstrate concepts in this article:
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 

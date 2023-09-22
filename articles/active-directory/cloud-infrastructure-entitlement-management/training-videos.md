@@ -2,25 +2,28 @@
 title: Permissions Management training videos
 description: Permissions Management training videos.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
-# Entra Permissions Management training videos
+# Microsoft Entra Permissions Management training videos
 
 To view step-by-step training videos on how to use Permissions Management features, select a link below.
 
 ## Onboard Permissions Management in your organization
 
 
-### Enable Permissions Management in your Azure Active Directory (Azure AD) tenant
+<a name='enable-permissions-management-in-your-azure-active-directory-azure-ad-tenant'></a>
 
-To view a video on how to enable Permissions Management in your Azure AD tenant, select [Enable Permissions Management in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+### Enable Permissions Management in your Microsoft Entra tenant
+
+To view a video on how to enable Permissions Management in your Microsoft Entra tenant, select [Enable Permissions Management in your Microsoft Entra tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
 
 ### Configure and onboard Amazon Web Services (AWS) accounts
 

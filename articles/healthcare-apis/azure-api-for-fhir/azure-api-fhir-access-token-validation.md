@@ -2,13 +2,12 @@
 title: Azure API for FHIR access token validation
 description: Walks through token validation and gives tips on how to troubleshoot access issues
 services: healthcare-apis
-author: mikaelweave
-ms.reviewer: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/02/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 # Azure API for FHIR access token validation
 

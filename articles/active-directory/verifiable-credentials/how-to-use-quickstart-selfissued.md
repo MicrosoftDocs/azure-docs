@@ -17,6 +17,7 @@ ms.author: barclayn
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
+
 A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [selfIssued attestation](rules-and-display-definitions-model.md#selfissuedattestation-type) type produces an issuance flow where you're required to manually enter values for the claims in Microsoft Authenticator.  
 
 ## Create a custom credential with the selfIssued attestation type
@@ -104,7 +105,7 @@ The JSON attestation definition should contain the **selfIssued** name and the c
 
 During issuance, Authenticator prompts you to enter values for the specified claims. User input isn't validated.
 
-![Screenshot of selfIssued claims input.](media/how-to-use-quickstart-selfissued\selfIssued-claims-input.png)
+![Screenshot of selfIssued claims input.](./media/how-to-use-quickstart-selfissued/selfIssued-claims-input.png)
 
 ## Configure the samples to issue and verify your custom credential
 

@@ -4,14 +4,14 @@ description: Learn best practices for mitigating potential harm to people—espe
 author: nhu-do-1
 ms.author: nhudo
 ms.service: machine-learning
+ms.reviewer: lagayhar
 ms.topic: conceptual 
-ms.date: 05/05/2022 
+ms.date: 11/04/2022
 ms.custom: responsible-ml 
 ---
 # What is "human data" and why is it important to source responsibly?
 
-[!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [SDK/cli v2](includes/machine-learning-dev-v2.md)]
 
 Human data is data collected directly from, or about, people. Human data may include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs, or political affiliations. 
 
@@ -173,7 +173,7 @@ We suggest the following best practices for manually collecting human data direc
 
 In order for AI systems to work well for everyone, the datasets used for training and evaluation should reflect the diversity of people who will use or be affected by those systems. In many cases, age, ancestry, and gender identity can help approximate the range of factors that might affect how well a product performs for a variety of people; however, collecting this information requires special consideration.
 
-If you do collect this data, always let data contributors self-identify (choose their own responses) instead of having data collectors make assumptions, which might be incorrect. Also include a “prefer not to answer” option for each question. These practices will show respect for the data contributors and yield more balanced and higher-quality data. 
+If you do collect this data, always let data contributors self-identify (choose their own responses) instead of having data collectors make assumptions, which might be incorrect. Also include a "prefer not to answer" option for each question. These practices will show respect for the data contributors and yield more balanced and higher-quality data. 
  
 These best practices have been developed based on three years of research with intended stakeholders and collaboration with many teams at Microsoft: [fairness and inclusiveness working groups](https://www.microsoft.com/ai/our-approach?activetab=pivot1:primaryr5), [Global Diversity & Inclusion](https://www.microsoft.com/diversity/default.aspx), [Global Readiness](https://www.microsoft.com/security/blog/2014/09/29/microsoft-global-readiness-diverse-cultures-multiple-languages-one-world/), [Office of Responsible AI](https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6), and others.   
 
@@ -235,7 +235,6 @@ For more information on how to work with your data:
 - [Secure data access in Azure Machine Learning](concept-data.md)
 - [Data ingestion options for Azure Machine Learning workflows](concept-data-ingestion.md)
 - [Optimize data processing with Azure Machine Learning](concept-optimize-data-processing.md)
-- [Use differential privacy with Azure Machine Learning SDK](v1/how-to-differential-privacy.md)
 
 Follow these how-to guides to work with your data after you've collected it:
 

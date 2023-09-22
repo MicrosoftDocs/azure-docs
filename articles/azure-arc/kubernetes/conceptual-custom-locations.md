@@ -1,7 +1,5 @@
 ---
 title: "Custom Locations - Azure Arc-enabled Kubernetes"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 07/21/2022
 ms.topic: conceptual
 description: "This article provides a conceptual overview of the custom locations capability of Azure Arc-enabled Kubernetes"

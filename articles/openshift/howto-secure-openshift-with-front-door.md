@@ -90,7 +90,7 @@ This section explains how to register a domain in Azure DNS.
 
 3. Note the four nameservers that are present in Azure DNS for apps.example.com.
 
-4. Create a new **NS** record set in the example.com zone that points to **app** and specify the four nameservers that were present when the **apps** zone was created.
+4. Create a new **NS** record set in the example.com zone that points to **apps** and specify the four nameservers that were present when the **apps** zone was created.
 
 ## Create a new Azure Front Door Premium service
 

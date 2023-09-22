@@ -10,16 +10,13 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 07/18/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, sdkv1
+ms.custom: UpdateFrequency5, has-adal-ref, contperf-fy21q2, subject-rbac-steps, sdkv1
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows using SDK v1
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-	
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](how-to-setup-authentication.md)
-> * [v2 (current version)](../how-to-setup-authentication.md)
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
+    
 
 Learn how to set up authentication to your Azure Machine Learning workspace. Authentication to your Azure Machine Learning workspace is based on __Azure Active Directory__ (Azure AD) for most things. In general, there are four authentication workflows that you can use when connecting to the workspace:
 
@@ -29,7 +26,7 @@ Learn how to set up authentication to your Azure Machine Learning workspace. Aut
 
 * __Azure CLI session__: You use an active Azure CLI session to authenticate. Azure CLI authentication is used during _experimentation and iterative development_, or when you need an _automated process to authenticate_ to the service using a pre-authenticated session. You can log in to Azure via the Azure CLI on your local workstation, without storing credentials in Python code or prompting the user to authenticate. Similarly, you can reuse the same scripts as part of continuous integration and deployment pipelines, while authenticating the Azure CLI with a service principal identity.
 
-* __Managed identity__: When using the Azure Machine Learning SDK _on an Azure Virtual Machine_, you can use a managed identity for Azure. This workflow allows the VM to connect to the workspace using the managed identity, without storing credentials in Python code or prompting the user to authenticate. Azure Machine Learning compute clusters can also be configured to use a managed identity to access the workspace when _training models_.
+* __Managed identity__: When using the Azure Machine Learning SDK _on an Azure Virtual Machine_, you can use a managed identity for Azure. This workflow allows the VM to connect to the workspace using the managed identity, without storing credentials in Python code or prompting the user to authenticate. Azure Machine Learning compute clusters and compute instances can also be configured to use a managed identity to access the workspace when _training models_.
 
 Regardless of the authentication workflow used, Azure role-based access control (Azure RBAC) is used to scope the level of access (authorization) allowed to the resources. For example, an admin or automation process might have access to create a compute instance, but not use it, while a data scientist could use it, but not delete or create it. For more information, see [Manage access to Azure Machine Learning workspace](../how-to-assign-roles.md).
 
@@ -38,13 +35,13 @@ Azure AD Conditional Access can be used to further control or restrict access to
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](../how-to-manage-workspace.md).
-* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-azure-machine-learning-architecture.md#computes) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-azure-machine-learning-architecture.md#computes) with the SDK already installed.
 
 ## Azure Active Directory
 
 All the authentication workflows for your workspace rely on Azure Active Directory. If you want users to authenticate using individual accounts, they must have accounts in your Azure AD. If you want to use service principals, they must exist in your Azure AD. Managed identities are also a feature of Azure AD. 
 
-For more on Azure AD, see [What is Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
+For more on Azure AD, see [What is Azure Active Directory authentication](../../active-directory/authentication/overview-authentication.md).
 
 Once you've created the Azure AD accounts, see [Manage access to Azure Machine Learning workspace](../how-to-assign-roles.md) for information on granting them access to the workspace and other operations in Azure Machine Learning.
 
@@ -119,7 +116,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     ```
 
 1. To grant access to the workspace and other resources used by Azure Machine Learning, use the information in the following articles:
-    * [How to assign roles and actions in AzureML](../how-to-assign-roles.md)
+    * [How to assign roles and actions in Azure Machine Learning](../how-to-assign-roles.md)
     * [How to assign roles in the CLI](../../role-based-access-control/role-assignments-cli.md)
 
     > [!IMPORTANT]
@@ -129,11 +126,11 @@ The easiest way to create an SP and grant access to your workspace is by using t
 ## Configure a managed identity
 
 > [!IMPORTANT]
-> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine or with an Azure Machine Learning compute cluster.
+> Managed identity is only supported when using the Azure Machine Learning SDK from an Azure Virtual Machine or with an Azure Machine Learning compute cluster or compute instance.
 
 ### Managed identity with a VM
 
-1. Enable a [system-assigned managed identity for Azure resources on the VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+1. Enable a [system-assigned managed identity for Azure resources on the VM](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
 1. From the [Azure portal](https://portal.azure.com), select your workspace and then select __Access Control (IAM)__.
 1. Select __Add__, __Add Role Assignment__ to open the __Add role assignment page__.
@@ -238,7 +235,7 @@ ws.get_details()
 
 ## Use managed identity authentication
 
-To authenticate to the workspace from a VM or compute cluster that is configured with a managed identity, use the `MsiAuthentication` class. The following example demonstrates how to use this class to authenticate to a workspace:
+To authenticate to the workspace from a VM, compute cluster, or compute instance that is configured with a managed identity, use the `MsiAuthentication` class. The following example demonstrates how to use this class to authenticate to a workspace:
 
 ```python
 from azureml.core.authentication import MsiAuthentication
@@ -254,11 +251,11 @@ ws = Workspace(subscription_id="your-sub-id",
 
 ## Use Conditional Access
 
-As an administrator, you can enforce [Azure AD Conditional Access policies](/azure/active-directory/conditional-access/overview) for users signing in to the workspace. For example, you 
-can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps) to Machine Learning Cloud app.
+As an administrator, you can enforce [Azure AD Conditional Access policies](../../active-directory/conditional-access/overview.md) for users signing in to the workspace. For example, you 
+can require two-factor authentication, or allow sign in only from managed devices. To use Conditional Access for Azure Machine Learning workspaces specifically, [assign the Conditional Access policy](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md) to the app named __Azure Machine Learning__. The app ID is __0736f41a-0425-bdb5-1563eff02385__. 
 
 ## Next steps
 
-* [How to use secrets in training](../how-to-use-secrets-in-runs.md).
+* [How to use secrets in training](how-to-use-secrets-in-runs.md).
 * [How to configure authentication for models deployed as a web service](how-to-authenticate-web-service.md).
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).

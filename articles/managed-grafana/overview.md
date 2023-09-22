@@ -5,14 +5,14 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: overview 
-ms.date: 3/31/2022 
+ms.date: 3/23/2023
 --- 
 
 # What is Azure Managed Grafana?
 
 Azure Managed Grafana is a data visualization platform built on top of the Grafana software by Grafana Labs. It's built as a fully managed Azure service operated and supported by Microsoft. Grafana helps you bring together metrics, logs and traces into a single user interface. With its extensive support for data sources and graphing capabilities, you can view and analyze your application and infrastructure telemetry data in real-time.
 
-Azure Managed Grafana is optimized for the Azure environment. It works seamlessly with many Azure services. It provides the following integration features:
+Azure Managed Grafana is optimized for the Azure environment. It works seamlessly with many Azure services and provides the following integration features:
 
 * Built-in support for [Azure Monitor](../azure-monitor/index.yml) and [Azure Data Explorer](/azure/data-explorer/)
 * User authentication and access control using Azure Active Directory identities
@@ -22,7 +22,7 @@ To learn more about how Grafana works, visit the [Getting Started documentation]
 
 ## Why use Azure Managed Grafana?
 
-Managed Grafana lets you bring together all your telemetry data into one place. It can access a wide variety of data sources supported, including your data stores in Azure and elsewhere. By combining charts, logs and alerts into one view, you can get a holistic view of your application and infrastructure, and correlate information across multiple datasets.
+Azure Managed Grafana lets you bring together all your telemetry data into one place. It can access a wide variety of data sources supported, including your data stores in Azure and elsewhere. By combining charts, logs and alerts into one view, you can get a holistic view of your application and infrastructure, and correlate information across multiple datasets.
 
 As a fully managed service, Azure Managed Grafana lets you deploy Grafana without having to deal with setup. The service provides high availability, SLA guarantees and automatic software updates.
 

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: liud 
 ms.reviewer: pimorano
+
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace
@@ -27,7 +28,7 @@ To automate the deployment of an Azure Synapse workspace to multiple environment
 - Prepare an Azure DevOps project for running the release pipeline.
 - [Grant any users who will check in code Basic access at the organization level](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true), so they can see the repository.
 - Grant Owner permission to the Azure Synapse repository.
-- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent.
+- Make sure that you've created a self-hosted Azure DevOps VM agent or use an Azure DevOps hosted agent. 
 - Grant permissions to [create an Azure Resource Manager service connection for the resource group](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true).
 - An Azure Active Directory (Azure AD) administrator must [install the Azure DevOps Synapse Workspace Deployment Agent extension in the Azure DevOps organization](/azure/devops/marketplace/install-extension).
 - Create or nominate an existing service account for the pipeline to run as. You can use a personal access token instead of a service account, but your pipelines won't work after the user account is deleted.
@@ -182,9 +183,12 @@ The deployment task supports 3 types of operations,  validate only, deploy and v
           TargetWorkspaceName: '<target workspace name>'    
 ``` 
 
-**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
-
 **Validate and deploy** can be used to directly deploy the workspace from non-publish branch with the artifact root folder. 
+
+   > [!NOTE]
+   > The deployment task needs to download dependency JS files from this endpoint **web.azuresynapse.net** when the operation type is selected as **Validate** or **Validate and deploy**. Please ensure the endpoint **web.azuresynapse.net** is allowed if network policies are enabled on the VM.
+
+**Deploy**  The inputs of the operation deploy include Synapse workspace template and parameter template, which can be created after publishing in the workspace publish branch or after the validation. It is same as the version 1.x. 
 
 You can choose the operation types based on the use case. Following part is an example of the deploy.
 
@@ -428,9 +432,12 @@ Here's an example of what a parameter template definition looks like:
         }
     },
     "Microsoft.Synapse/workspaces/datasets": {
-        "properties": {
-            "typeProperties": {
-                "*": "="
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
             }
         }
     },
@@ -490,11 +497,46 @@ If you're using Git integration with your Azure Synapse workspace and you have a
 
 ## Troubleshoot artifacts deployment 
 
-### Use the Synapse workspace deployment task
+### Use the Synapse workspace deployment task to deploy Synapse artifacts
 
-In Azure Synapse, unlike in Data Factory, some artifacts aren't Resource Manager resources. You can't use the ARM template deployment task to deploy Azure Synapse artifacts. Instead, use the Synapse workspace deployment task.
- 
-### Unexpected token error in release
+In Azure Synapse, unlike in Data Factory, artifacts aren't Resource Manager resources. You can't use the ARM template deployment task to deploy Azure Synapse artifacts. Instead, use the Synapse workspace deployment task to deploy the artifacts, and use ARM deployment task for ARM resources (pools and workspace) deployment. Meanwhile this task only supports Synapse templates where resources have type Microsoft.Synapse.  And with this task, users can deploy changes from any branches automatically without manual clicking the publish in Synapse studio. The following are some frequently raised issues.
+
+#### 1.  Publish failed: workspace arm file is more than 20MB
+
+There is a file size limitation in git provider, for example, in Azure DevOps the maximum file size is 20Mb. Once the workspace template file size exceeds 20Mb, this error happens when you publish changes in Synapse studio, in which the workspace template file is generated and synced to git. To solve the issue, you can use the Synapse deployment task with **validate** or **validate and deploy** operation to save the workspace template file directly into the pipeline agent and without manual publish in synapse studio.  
+
+#### 2.  Unexpected token error in release
 
 If your parameter file has parameter values that aren't escaped, the release pipeline fails to parse the file and generates an `unexpected token` error. We suggest that you override parameters or use Key Vault to retrieve parameter values. You also can use double escape characters to resolve the issue.
+
+#### 3.  Integration runtime deployment failed 
+
+If you have the workspace template generated from a managed Vnet enabled workspace and try to deploy to a regular workspace or vice versa, this error happens. 
  
+#### 4.  Unexpected character encountered while parsing value
+
+The template can not be parsed the template file. Try by escaping the back slashes, eg. \\\\Test01\\Test
+
+#### 5. Failed to fetch workspace info, Not found
+
+The target workspace info is not correctly configured. Please make sure the service connection which you have created, is scoped to the resource group which has the workspace.
+
+#### 6. Artifact deletion failed
+
+The extension will compare the artifacts present in the publish branch with the template and based on the difference it will delete them. Please make sure you are not trying to delete any artifact which is present in publish branch and some other artifact has a reference or dependency on it.
+
+#### 8. Deployment failed with error: json position 0 
+
+If you were trying to manually update the template, this error would happen. Please make sure that you have not manually edited the template. 
+
+#### 9. The document creation or update failed because of invalid reference
+
+The artifact in synapse can be referenced by another one. If you have parameterized an attribute which is a referenced in an artifact, please make sure to provide correct and non null value to it
+
+####  10. Failed to fetch the deployment status in notebook deployment 
+
+The notebook you are trying to deploy is attached to a spark pool in the workspace template file, while in the deployment the pool does not exist in the target workspace. If you don't parameterize the pool name, please make sure that having the same name for the pools between environments. 
+
+
+
+

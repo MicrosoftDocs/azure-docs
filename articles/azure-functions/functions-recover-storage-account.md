@@ -1,9 +1,8 @@
 ---
 title: 'Troubleshoot error: Azure Functions Runtime is unreachable'
 description: Learn how to troubleshoot an invalid storage account.
-
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/15/2022
 ---
 
 # Troubleshoot error: "Azure Functions Runtime is unreachable"
@@ -91,7 +90,7 @@ For more information about inbound rule configuration, see the "Network Security
 
 For function apps that run on Linux in a container, the `Azure Functions runtime is unreachable` error can occur as a result of problems with the container. Use the following procedure to review the container logs for errors:
 
-1. Navigate to the Kudu endpoint for the function app, which is located at `https://scm.<FUNCTION_APP>.azurewebsites.net`, where `<FUNCTION_APP>` is the name of your app.
+1. Navigate to the Kudu endpoint for the function app, which is located at `https://<FUNCTION_APP>.scm.azurewebsites.net`, where `<FUNCTION_APP>` is the name of your app.
 
 1. Download the Docker logs .zip file and review the contents on your local computer. 
 
@@ -103,7 +102,7 @@ Errors can occur when the container image being referenced is unavailable or fai
 
 You need to correct any errors that prevent the container from starting for the function app run correctly.
 
-When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](functions-create-function-linux-custom-image.md), you need to fix the image and redeploy the updated version to the referenced registry.
+When the container image can't be found, you'll see a `manifest unknown` error in the Docker logs. In this case, you can use the Azure CLI commands documented at [How to target Azure Functions runtime versions](set-runtime-version.md?tabs=azurecli#manual-version-updates-on-linux) to change the container image being referenced. If you've deployed a [custom container image](./functions-how-to-custom-container.md), you need to fix the image and redeploy the updated version to the referenced registry.
 
 ### App container has conflicting ports
 
@@ -117,6 +116,10 @@ By default, the container in which your function app runs uses port `:80`. When 
 ## Host ID collision 
 
 Starting with version 3.x of the Functions runtime, [host ID collision](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).  
+
+## Read-only app settings
+
+Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unreachable state. 
 
 ## Next steps
 

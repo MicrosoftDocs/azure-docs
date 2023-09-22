@@ -1,6 +1,6 @@
 ---
 title: Suggesting search terms with the Bing Autosuggest API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: This article discusses the concept of suggesting query terms using the Bing Autosuggest API and the impact of query length on relevance.
 services: cognitive-services
 author: aahill
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Suggesting query terms
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 
 Typically, you'd call the Bing Autosuggest API each time a user types a new character in your application's search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant the list of suggested query terms are. For example, the suggestions that the API may return for `s` are likely to be less relevant than the queries it returns for `sailing dinghies`.

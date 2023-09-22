@@ -1,9 +1,10 @@
 ---
 author: cephalin
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 04/14/2020
 ms.author: cephalin
+ms.subservice: web-apps
 ---
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.

@@ -3,27 +3,30 @@ title: Major version upgrade in Azure Database for MySQL - Single Server
 description: This article describes how you can upgrade major version for Azure Database for MySQL - Single Server 
 ms.service: mysql
 ms.subservice: single-server
-author: Bashar-MSFT
-ms.author: bahusse
+ms.custom: devx-track-azurecli
+author: code-sidd 
+ms.author: sisawant
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
 
-# Major version upgrade in Azure Database for MySQL Single Server
+# Major version upgrade in Azure Database for MySQL single server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.
 
 > [!IMPORTANT]
-> Major version upgrade for Azure database for MySQL Single Server is in public preview.
+> Major version upgrade for Azure database for MySQL single server is in public preview.
 
 This article describes how you can upgrade your MySQL major version in-place in Azure Database for MySQL single server.
 
 This feature will enable customers to perform in-place upgrades of their MySQL 5.6 servers to MySQL 5.7 with a click of button without any data movement or the need of any application connection string changes.
 
-> [!Note]
+> [!NOTE]
 > * Major version upgrade is only available for major version upgrade from MySQL 5.6 to MySQL 5.7.
 > * The server will be unavailable throughout the upgrade operation. It is therefore recommended to perform upgrades during your planned maintenance window. You can consider [performing minimal downtime major version upgrade from MySQL 5.6 to MySQL 5.7 using read replica.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
@@ -106,7 +109,7 @@ You can perform minimal downtime major version upgrade from MySQL 5.6 to MySQL 5
 
 7. Point your application to the new primary (former replica) which is running server 5.7. Each server has a unique connection string. Update your application to point to the (former) replica instead of the source.
 
-> [!Note]
+> [!NOTE]
 > This scenario will have downtime during steps 4, 5 and 6 only.
 
 

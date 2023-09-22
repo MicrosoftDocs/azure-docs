@@ -2,10 +2,10 @@
 title: Resource Manager template samples for VM insights
 description: Sample Azure Resource Manager templates to deploy and configureVM insights.
 ms.topic: sample
-author: bwren
-ms.author: bwren
+ms.custom: devx-track-arm-template
+author: guywi-ms
+ms.author: guywild
 ms.date: 06/13/2022
-
 ---
 
 # Resource Manager template samples for VM insights
@@ -222,12 +222,12 @@ resource mmaExtension 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' 
     typeHandlerVersion: MmaExtensionVersion
     autoUpgradeMinorVersion: true
     settings: {
-      workspaceId: reference(WorkspaceResourceId, '@2021-12-01-preview').customerId
+      workspaceId: reference(WorkspaceResourceId, '2021-12-01-preview').customerId
       azureResourceId: VmResourceId
       stopOnMultipleConnections: true
     }
     protectedSettings: {
-      workspaceKey: listKeys(WorkspaceResourceId, '@2021-12-01-preview').primarySharedKey
+      workspaceKey: listKeys(WorkspaceResourceId, '2021-12-01-preview').primarySharedKey
     }
   }
 }
@@ -314,12 +314,12 @@ resource mmaExtension 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' 
         "typeHandlerVersion": "[variables('MmaExtensionVersion')]",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "workspaceId": "[reference(parameters('WorkspaceResourceId'), '@2021-12-01-preview').customerId]",
+          "workspaceId": "[reference(parameters('WorkspaceResourceId'), '2021-12-01-preview').customerId]",
           "azureResourceId": "[parameters('VmResourceId')]",
           "stopOnMultipleConnections": true
         },
         "protectedSettings": {
-          "workspaceKey": "[listKeys(parameters('WorkspaceResourceId'), '@2021-12-01-preview').primarySharedKey]"
+          "workspaceKey": "[listKeys(parameters('WorkspaceResourceId'), '2021-12-01-preview').primarySharedKey]"
         }
       },
       "dependsOn": [

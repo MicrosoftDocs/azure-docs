@@ -1,28 +1,32 @@
 ---
-title: Set up a self-hosted integration runtime for the SAP CDC solution (preview)
+title: Set up a self-hosted integration runtime for the SAP CDC connector
 titleSuffix: Azure Data Factory
-description: Learn how to create and set up a self-hosted integration runtime for your SAP change data capture (CDC) solution (preview) in Azure Data Factory.
+description: Learn how to create and set up a self-hosted integration runtime for the SAP change data capture (CDC) connector in Azure Data Factory.
 author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
+ms.custom: ignite-2022, devx-track-dotnet
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 07/20/2023
 ms.author: ulrichchrist
 ---
 
-# Set up a self-hosted integration runtime for the SAP CDC solution (preview)
+# Set up a self-hosted integration runtime for the SAP CDC connector
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Learn how to create and set up a self-hosted integration runtime for the SAP change data capture (CDC) solution (preview) in Azure Data Factory.
+Learn how to create and set up a self-hosted integration runtime for the SAP CDC connector in Azure Data Factory.
 
-To prepare a self-hosted integration runtime to use with the SAP ODP (preview) linked service and the SAP data extraction template or the SAP data partition template, complete the steps that are described in the following sections.
+To prepare a self-hosted integration runtime to use with the SAP CDC connector, complete the steps that are described in the following sections.
 
 ## Create and set up a self-hosted integration runtime
 
 In Azure Data Factory Studio, [create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md?tabs=data-factory). You can download the latest version of the private [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). The download version has improved performance and detailed error messages. Install the runtime on your on-premises computer or on a virtual machine (VM).
 
 The more CPU cores you have on the computer running the self-hosted integration runtime, the higher your data extraction throughput is. For example, an internal test achieved a higher than 12-MB/s throughput when running parallel extractions on a self-hosted integration runtime computer that has 16 CPU cores.
+
+> [!NOTE]
+> If you want to use shared self hosted integration runtime from another Data Factory, you need to make sure your Data Factory is in the same region of another Data Factory. What is more, your Data Flow integration runtime need to be configured to "Auto Resolve" or the same region of your Data Factory. 
 
 ## Download and install the SAP .NET connector
 
@@ -58,13 +62,13 @@ On the computer running your self-hosted integration runtime, edit *C:\Windows\S
 
 ```ini
 # SAP ECC 
-52.149.66.239 sapids01 
+xxx.xxx.xxx.xxx sapecc01 
 # SAP BW 
-20.190.60.250 sapbwx01 
+yyy.yyy.yyy.yyy sapbw01 
 # SAP SLT 
-20.56.211.31 sapnwx01 
+zzz.zzz.zzz.zzz sapnw01 
 ```
 
 ## Next steps
 
-[Set up an SAP ODP linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)
+[Set up an SAP CDC linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)

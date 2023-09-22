@@ -7,22 +7,19 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 06/29/2023
 ms.custom: mode-ui
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
 
-[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. 
+In this quickstart, you create a [knowledge store](knowledge-store-concept-intro.md) that serves as a repository for output generated from an [AI enrichment pipeline](cognitive-search-concept-intro.md) in  Azure Cognitive Search. A knowledge store makes generated content available in Azure Storage for workloads other than search.
 
-In this quickstart, you'll set up some sample data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
-
-> [!NOTE]
-> This quickstart shows you the fastest route to a finished knowledge store in Azure Storage. For more detailed explanations of each step, see [Create a knowledge store in REST](knowledge-store-create-rest.md) instead.
+First, you set up some sample data in Azure Storage. Next, you run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store contains original source content pulled from the data  source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
 ## Prerequisites
 
-This quickstart uses the following services:
+Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
@@ -36,13 +33,13 @@ This quickstart uses the following services:
 
   [Upload the file to a blob container](../storage/blobs/storage-quickstart-blobs-portal.md) in Azure Storage.
 
-This quickstart also uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for AI enrichment. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
+This quickstart also uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for AI enrichment. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an extra Azure AI multi-service resource.
 
 ## Start the wizard
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to create a knowledge store in four steps.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
@@ -74,9 +71,9 @@ Because the data is multiple rows in one CSV file, set the *parsing mode* to get
 
 ### Step 2: Add skills
 
-In this wizard step, add skills for AI enrichment. The source data consists of customer reviews in English and French. Skills that are relevant for this data set include key phrase extraction, sentiment detection, and text translation. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
+In this wizard step, add skills for AI enrichment. The source data consists of customer reviews in English and French. Skills that are relevant for this data set include key phrase extraction, sentiment detection, and text translation. In a later step, these enrichments are "projected" into a knowledge store as Azure tables.
 
-1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because the number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
+1. Expand **Attach Azure AI services**. **Free (Limited enrichments)** is selected by default. You can use this resource because the number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
 
 1. Expand **Add enrichments**.
 
@@ -99,9 +96,9 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 
 1. Scroll down and expand **Save enrichments to knowledge store**.
 
-1. Select **Choose an existing connection** and then select an Azure Storage account. The Containers page will appear so that you can create a container for projections. We recommend adopting a prefix naming convention, such as "kstore-hotel-reviews" to distinguish between source content and knowledge store content.
+1. Select **Choose an existing connection** and then select an Azure Storage account. The Containers page appears so that you can create a container for projections. We recommend adopting a prefix naming convention, such as "kstore-hotel-reviews" to distinguish between source content and knowledge store content.
 
-1. Returning to the Import data wizard, select the following **Azure table projections**. The wizard always offers the **Documents** projection. Other projections will be offered depending on the skills you select (such as **Key phrases**), or the enrichment granularity (**Pages**):
+1. Returning to the Import data wizard, select the following **Azure table projections**. The wizard always offers the **Documents** projection. Other projections are offered depending on the skills you select (such as **Key phrases**), or the enrichment granularity (**Pages**):
 
     + **Documents**
     + **Pages**
@@ -115,7 +112,9 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 
 ### Step 3: Configure the index
 
-In this wizard step, configure an index for optional full-text search queries. The wizard will sample your data source to infer fields and data types. You only need to select the attributes for your desired behavior. For example, the **Retrievable** attribute will allow the search service to return a field value while the **Searchable** will enable full text search on the field.
+In this wizard step, configure an index for optional full-text search queries. You don't need a search index for a knowledge store, but the indexer requires one in order to run. 
+
+In this step, the wizard samples your data source to infer fields and data types. You only need to select the attributes for your desired behavior. For example, the **Retrievable** attribute allows the search service to return a field value, while the **Searchable** attribute enables full text search on the field.
 
 1. For **Index name**, enter "hotel-reviews-idx".
 
@@ -129,7 +128,7 @@ In this wizard step, configure an index for optional full-text search queries. T
 
 ### Step 4: Configure and run the indexer
 
-In this wizard step, configure an indexer that will pull together the data source, skillset, and the index you defined in the previous wizard steps.
+In this wizard step, configure an indexer that pulls together the data source, skillset, and the index you defined in the previous wizard steps.
 
 1. For **Name**, enter "hotel-reviews-idxr".
 
@@ -149,9 +148,9 @@ In the **Overview** page, open the **Indexers** tab in the middle of the page, a
 
    You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 
-   + "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that are not collections. 
+   + "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that aren't collections. 
 
-   + "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
+   + "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, send output to a standalone table.
 
    + "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consisting of sentiment labels and translated text. A pages table (or a sentences table if you specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
 
@@ -167,7 +166,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 > [!TIP]
 > If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the **hotel-reviews-idxr** indexer and the related objects to recreate them. Deleting the indexer resets the free daily transaction counter to zero.

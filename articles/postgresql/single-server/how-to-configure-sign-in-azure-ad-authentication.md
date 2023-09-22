@@ -13,6 +13,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for PostgreSQL, and how to connect using an Azure AD token.
 
 ## Setting the Azure AD Admin user
@@ -158,7 +160,7 @@ To enable an Azure AD group for access to your database, use the same mechanism 
 Example:
 
 ```
-CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
+CREATE USER <new_user> IN ROLE azure_ad_user;
 ```
 When logging in, members of the group will use their personal access tokens, but sign with the group name specified as the username.
 
@@ -229,7 +231,7 @@ To add an Azure AD user to your Azure Database for PostgreSQL database, perform 
 **Example:**
 
 ```sql
-CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
+CREATE USER "user1@yourtenant.onmicrosoft.com" IN ROLE azure_ad_user;
 ```
 
 > [!NOTE]
@@ -263,7 +265,7 @@ They will now be able to sign in with Azure AD credentials instead of using thei
 If a PostgreSQL user either does not exist in Azure AD or has a different username, you can use Azure AD groups to authenticate as this PostgreSQL user. You can migrate existing Azure Database for PostgreSQL users to Azure AD by creating an Azure AD group with a name that matches the PostgreSQL user, and then granting role azure_ad_user to the existing PostgreSQL user:
 
 ```sql
-GRANT azure_ad_user TO "DBReadUser";
+GRANT azure_ad_user TO <new_user>;
 ```
 
 This assumes you have created a group "DBReadUser" in your Azure AD. Users belonging to that group will now be able to sign in to the database as this user.

@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 03/29/2023
 ms.author: banders
 ---
 
@@ -33,6 +33,8 @@ There are three options to transfer products:
 - Transfer only subscriptions
 - Transfer only reservations
 - Transfer both subscriptions and reservations
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 ## Prerequisites
 
@@ -150,11 +152,11 @@ On the Review request tab, the following status messages might be displayed.
 
 You can request billing ownership of the following subscription types.
 
-* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)<sup>1</sup>
+* [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)¹
 * [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
-* Azure Plan<sup>1</sup> [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
+* Azure Plan¹ [(Microsoft Customer Agreement in Enterprise Motion)](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement)
 
-<sup>1</sup> You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There's no discount currently available through the Dev/Test offer to CSP partners.
+¹ You must convert an EA Dev/Test subscription to an EA Enterprise offer using a support ticket and respectively, an Azure Plan Dev/Test offer to Azure plan. A Dev/Test subscription will be billed at a pay-as-you-go rate after conversion. There's no discount currently available through the Dev/Test offer to CSP partners.
 
 ## Additional information
 
@@ -212,9 +214,9 @@ Some of the customer transition requests may require an additional review proces
 
 ### Azure subscription directory
 
-The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship.
+The Azure AD directory (tenant) of the Azure subscriptions that are transferred must be the same Azure AD directory of the customer that was selected while establishing the CSP relationship.
 
-If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+If these two directories aren't the same, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
 ### EA subscription in the non-organization directory
 

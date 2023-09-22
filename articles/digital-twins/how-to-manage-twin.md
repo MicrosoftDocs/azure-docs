@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 08/10/2022
+ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -80,6 +80,21 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 >twin.Id = "myRoomId";
 >```
 
+### Create twins in bulk with the Jobs API
+
+You can use the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api) to create many twins at once in a single API call. This method requires the use of [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), as well as [write permissions](concepts-apis-sdks.md#check-permissions) in your Azure Digital Twins instance for twins and bulk jobs.
+
+>[!TIP]
+>The Jobs API also allows models and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-jobs-api).
+
+To import twins in bulk, you'll need to structure your twins (and any other resources included in the bulk import job) as an *NDJSON* file. The `Twins` section comes after the `Models` section (and before the `Relationships` section). Twins defined in the file can reference models that are either defined in this file or already present in the instance, and they can optionally include initialization of the twin's properties.
+
+You can view an example import file and a sample project for creating these files in the [Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-jobs-api).
+
+[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+
+Then, the file can be used in an [Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You'll provide the blob storage URL of the input file, as well as a new blob storage URL to indicate where you'd like the output log to be stored when it's created by the service.
+
 ## Get data for a digital twin
 
 You can access the details of any digital twin by calling the `GetDigitalTwin()` method like this:
@@ -100,9 +115,9 @@ Only properties that have been set at least once are returned when you retrieve 
 >[!TIP]
 >The `displayName` for a twin is part of its model metadata, so it will not show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
 
-To retrieve multiple twins using a single API call, see the query API examples in [Query the twin graph](how-to-query-graph.md).
+To retrieve multiple twins using a single API call, see the Query API examples in [Query the twin graph](how-to-query-graph.md).
 
-Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md)) that defines a Moon:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 
@@ -117,18 +132,10 @@ The result of calling `object result = await client.GetDigitalTwinAsync("my-moon
   "$metadata": {
     "$model": "dtmi:example:Moon;1",
     "radius": {
-      "desiredValue": 1737.1,
-      "desiredVersion": 5,
-      "ackVersion": 4,
-      "ackCode": 200,
-      "ackDescription": "OK"
+      "lastUpdateTime": "2022-12-06T20:00:32.8209188Z"
     },
     "mass": {
-      "desiredValue": 0.0734,
-      "desiredVersion": 8,
-      "ackVersion": 8,
-      "ackCode": 200,
-      "ackDescription": "OK"
+      "lastUpdateTime": "2022-12-04T12:04:43.3859361Z"
     }
   }
 }
@@ -137,12 +144,12 @@ The result of calling `object result = await client.GetDigitalTwinAsync("my-moon
 The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that isn't part of the DTDL definition is returned with a `$` prefix. Metadata properties include the following values:
 * `$dtId`: The ID of the digital twin in this Azure Digital Twins instance
 * `$etag`: A standard HTTP field assigned by the web server. This is updated to a new value every time the twin is updated, which can be useful to determine whether the twin's data has been updated on the server since a previous check. You can use `If-Match` to perform updates and deletes that only complete if the entity's etag matches the etag provided. For more information on these operations, see the documentation for [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) and [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
-* `$metadata`: A set of other properties, including:
-  - The DTMI of the model of the digital twin.
-  - Synchronization status for each writable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it's possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see this [IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
-  - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
+* `$metadata`: A set of metadata properties, which might include the following:
+  - `$model`, the DTMI of the model of the digital twin.
+  - `lastUpdateTime` for twin properties. This is a timestamp indicating the date and time the property update message was processed by Azure Digital Twins
+  - `sourceTime` for twin properties. This is an optional, writable property representing the timestamp when the property update was observed in the real world.
 
-You can read more about the serialization helper classes like `BasicDigitalTwin` in [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
+You can read more about the fields contained in a digital twin in [Digital twin JSON format](concepts-twins-graph.md#digital-twin-json-format). You can read more about the serialization helper classes like `BasicDigitalTwin` in [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers-in-the-net-c-sdk).
 
 ## View all digital twins
 
@@ -290,7 +297,7 @@ Then, **copy the following code** of the runnable sample into your project:
 Next, complete the following steps to configure your project code:
 1. Add the **Room.json** file you downloaded earlier to your project, and replace the `<path-to>` placeholder in the code to tell your program where to find it.
 2. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), and the second provides tools to help with authentication against Azure.
+3. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

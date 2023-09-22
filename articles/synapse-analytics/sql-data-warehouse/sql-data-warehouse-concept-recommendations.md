@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 06/26/2020
 ms.author: wiassaf
-ms.reviewer: wiassaf
 ms.custom: azure-synapse
 ---
 
@@ -56,7 +55,7 @@ The following section describes workload-based heuristics you may find in the Az
 Currently Advisor will only show at most four replicated table candidates at once with clustered columnstore indexes prioritizing the highest activity.
 
 > [!IMPORTANT]
-> The replicated table recommendation is not full proof and does not take into account data movement operations. We are working on adding this as a heuristic but in the meantime, you should always validate your workload after applying the recommendation. To learn more about replicated tables, visit the following [documentation](design-guidance-for-replicated-tables.md#what-is-a-replicated-table).
+> The replicated table recommendation is not fool proof and does not take into account data movement operations. We are working on adding this as a heuristic but in the meantime, you should always validate your workload after applying the recommendation. To learn more about replicated tables, visit the following [documentation](design-guidance-for-replicated-tables.md#what-is-a-replicated-table).
 
 
 ## Adaptive (Gen2) cache utilization

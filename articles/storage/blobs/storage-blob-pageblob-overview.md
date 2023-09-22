@@ -1,15 +1,14 @@
 ---
-title: Overview of Azure page blobs | Microsoft Docs
+title: Overview of Azure page blobs
 description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 06/15/2020
-ms.author: tamram
+ms.date: 05/11/2023
+ms.author: akashdubey
 ms.reviewer: wielriac
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -36,6 +35,8 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 - Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 - [SAS-based](../common/storage-sas-overview.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
 
+Unmanaged disks are being retired, for details see [Migrate your Azure unmanaged disks by September 30, 2025](../../virtual-machines/unmanaged-disks-deprecation.md).
+
 ## Pricing
 
 Both types of storage offered with page blobs have their own pricing model. Premium page blobs follow the managed disks pricing model, while standard page blobs are billed on used size and with each transaction. For more information, see the [Azure Page Blobs pricing page](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
@@ -52,76 +53,21 @@ The following diagram describes the overall relationships between account, conta
 
 #### Creating an empty page blob of a specified size
 
-# [.NET v12 SDK](#tab/dotnet)
-
 First, get a reference to a container. To create a page blob, call the GetPageBlobClient method, and then call the [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) method. Pass in the max size for the blob to create. That size must be a multiple of 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# [.NET v11 SDK](#tab/dotnet11)
-
-To create a page blob, we first create a **CloudBlobClient** object, with the base URI for accessing the blob storage for your storage account (*pbaccount* in figure 1) along with the **StorageCredentialsAccountAndKey** object, as shown in the following example. The example then shows creating a reference to a **CloudBlobContainer** object, and then creating the container (*testvhds*) if it doesn't already exist. Then using the **CloudBlobContainer** object, create a reference to a **CloudPageBlob** object by specifying the page blob name (os4.vhd) to access. To create the page blob, call [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passing in the max size for the blob to create. The *blobSize* must be a multiple of 512 bytes.
-
-```csharp
-using Microsoft.Azure;
-using Microsoft.Azure.Storage;
-using Microsoft.Azure.Storage.Blob;
-
-long OneGigabyteAsBytes = 1024 * 1024 * 1024;
-// Retrieve storage account from connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the blob client.
-CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-// Retrieve a reference to a container.
-CloudBlobContainer container = blobClient.GetContainerReference("testvhds");
-
-// Create the container if it doesn't already exist.
-container.CreateIfNotExists();
-
-CloudPageBlob pageBlob = container.GetPageBlobReference("os4.vhd");
-pageBlob.Create(16 * OneGigabyteAsBytes);
-```
-
----
-
 #### Resizing a page blob
-
-# [.NET v12 SDK](#tab/dotnet)
 
 To resize a page blob after creation, use the [Resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize) method. The requested size should be a multiple of 512 bytes.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# [.NET v11 SDK](#tab/dotnet11)
-
-To resize a page blob after creation, use the [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) method. The requested size should be a multiple of 512 bytes.
-
-```csharp
-pageBlob.Resize(32 * OneGigabyteAsBytes);
-```
-
----
-
 #### Writing pages to a page blob
-
-# [.NET v12 SDK](#tab/dotnet)
 
 To write pages,  use the [PageBlobClient.UploadPages](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages) method.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-To write pages,  use the [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) method.
-
-```csharp
-pageBlob.WritePages(dataStream, startingOffset); 
-```
-
----
 
 This allows you to write a sequential set of pages up to 4MBs. The offset being written to must start on a 512-byte boundary (startingOffset % 512 == 0), and end on a 512 boundary - 1.
 
@@ -136,22 +82,9 @@ The below diagram shows 2 separate write operations:
 
 #### Reading pages from a page blob
 
-# [.NET v12 SDK](#tab/dotnet)
-
 To read pages, use the [PageBlobClient.Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto) method to read a range of bytes from the page blob.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-To read pages, use the [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) method to read a range of bytes from the page blob.
-
-```csharp
-byte[] buffer = new byte[rangeSize];
-pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
-```
-
----
 
 This allows you to download the full blob or range of bytes starting from any offset in the blob. When reading, the offset does not have to start on a multiple of 512. When reading bytes from a NUL page, the service returns zero bytes.
 
@@ -161,35 +94,9 @@ The following figure shows a Read operation with an offset of 256 and a range si
 
 If you have a sparsely populated blob, you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.
 
-# [.NET v12 SDK](#tab/dotnet)
-
 To determine which pages are backed by data, use PageBlobClient.GetPageRanges. You can then enumerate the returned ranges and download the data in each range.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). You can then enumerate the returned ranges and download the data in each range.
-
-```csharp
-IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
-
-foreach (PageRange range in pageRanges)
-{
-    // Calculate the range size
-    int rangeSize = (int)(range.EndOffset + 1 - range.StartOffset);
-
-    byte[] buffer = new byte[rangeSize];
-
-    // Read from the correct starting offset in the page blob and
-    // place the data in the bufferOffset of the buffer byte array
-    pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, range.StartOffset, rangeSize);
-
-    // Then use the buffer for the page range just read
-}
-```
-
----
 
 #### Leasing a page blob
 
@@ -205,7 +112,12 @@ An alternative option is to use the page blobs directly via Azure Storage REST A
 
 ### Durability and high availability
 
-Both Standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability. For more information about Azure Storage Redundancy, see this [documentation](../common/storage-redundancy.md). Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+Both standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability.Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+
+For more information about Azure Storage redundancy for standard and premium storage accounts, see [Azure Storage redundancy](../common/storage-redundancy.md), and these two sections specifically:
+
+- [Supported Azure Storage services](../common/storage-redundancy.md#supported-azure-storage-services)
+- [Supported storage account types](../common/storage-redundancy.md#supported-storage-account-types)
 
 ### Seamless migration to Azure
 

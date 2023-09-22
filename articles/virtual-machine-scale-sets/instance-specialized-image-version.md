@@ -7,15 +7,15 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 11/22/2022
 ms.reviewer: cynthn 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create a scale set using a specialized image version with the Azure CLI
 
 > [!IMPORTANT]
-> You can't currently create a virtual machine scale set using Flexible orchestration mode from an image shared by another tenant.
+> You can't currently create a Virtual Machine Scale Set using Flexible orchestration mode from an image shared by another tenant.
 
 Create a scale set from a [specialized image version](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery. If you want to create a scale set using a generalized image version, see [Create a scale set from a generalized image](instance-generalized-image-version-cli.md).
 

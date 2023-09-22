@@ -1,7 +1,8 @@
 ---
 author: alexwolfmsft
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 07/08/2022
 ms.author: alexwolf

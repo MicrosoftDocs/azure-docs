@@ -1,14 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Microsoft Defender for Cloud FAQ - Questions about virtual machines'
+  title: Common questions -  Virtual Machines (VM)
   description: Frequently asked questions about virtual machines in Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: elkrieger
-  ms.author: elkrieger
+  ms.author: dacurwin
+  author: dcurwin
   manager: raynew
   ms.topic: faq
-  ms.date: 11/09/2021
-title: FAQ - Questions about virtual machines
+  ms.custom: ignite-2022
+  ms.date: 06/20/2023
+title: Common questions about virtual machines
 summary: |
 
 sections:
@@ -45,11 +46,22 @@ sections:
           
           Defender for Cloud typically scans for new data every hour, and refreshes the recommendations accordingly. 
           
-          > [!NOTE]
-          > Defender for Cloud uses the Log Analytics agent to collect and store data. To learn more, see [Microsoft Defender for Cloud Platform Migration](./enable-data-collection.md).
-          
-          
+          Defender for Cloud uses monitoring components to collect and store data. To learn more about [monitoring components](./monitoring-components.md).
+                    
       - question: |
           Why do I get the message "VM Agent is Missing?"
         answer: |
           The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+
+
+      - question: |
+          How are VM snapshots secured?
+        answer: |
+          Agentless scanning protects disk snapshots according to Microsoft’s highest security standards. To ensure VM snapshots are private and secure during the analysis process, some of the measures taken are:
+
+          - Data is encrypted at rest and in-transit.
+          - Snapshots are immediately deleted when the analysis process is complete.
+          - Snapshots remain within their original AWS or Azure region. EC2 snapshots aren't copied to Azure.
+          - Isolation of environments per customer account/subscription.
+          - Only metadata containing scan results is sent outside the isolated scanning environment.
+          - All operations are audited.

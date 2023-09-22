@@ -4,7 +4,8 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.custom: devx-track-bicep
+ms.date: 09/28/2022
 ---
 
 # Parameters in Bicep
@@ -15,13 +16,13 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-You are limited to 256 parameters. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+You are limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ### Training resources
 
-If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/learn/modules/build-reusable-bicep-templates-parameters).
+If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters).
 
 ## Declaration
 
@@ -122,6 +123,8 @@ You can define allowed values for a parameter. You provide the allowed values in
 ])
 param demoEnum string
 ```
+
+If you define allowed values for an array parameter, the actual value can be any subset of the allowed values.
 
 ### Length constraints
 

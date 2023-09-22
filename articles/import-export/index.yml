@@ -4,10 +4,10 @@ title: Azure Import/Export documentation # < 60 chars
 summary: Use Azure Import/Export to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. # < 160 chars
 
 metadata:
-  title: Azure Import/Export documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Import/Export documentation
   description: Azure Import/Export Documentation to securely import/export large amounts of data to and from Azure datacenters by shipping physical disks. # < 160 chars.
   services: storage
-  ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: azure-storage
   ms.subservice: storage
   ms.topic: landing-page 
   ms.collection: collection
@@ -63,7 +63,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Export data offline with Import/Export
-            url: /learn/modules/export-data-with-azure-import-export/
+            url: /training/modules/export-data-with-azure-import-export/
 
 
   # Card

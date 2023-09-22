@@ -45,7 +45,7 @@ As a security measure to prevent this scenario, you can block access to and from
     
     - The choice whether to allow inbound connections to your tenant from each allowed tenant.
 
-    - The choice whether to allow inbound connections from your tenant to each allowed tenant.
+    - The choice whether to allow outbound connections from your tenant to each allowed tenant.
 
 - To test the tenant isolation policy, you need a second Azure AD tenant. From this tenant, you'll try connecting to and from the isolated tenant after the isolation policy takes effect.
 

@@ -50,7 +50,7 @@ There are two areas of focus: light load and upper limit. The following lists de
 
 * Average IOPS decreased by 53%
 * Average throughput decreased by 53% 
-* Average latency increased by 3.2 ms
+* Average latency increased by 0.2 ms
 
 **Performance impact of krb5i:**
 

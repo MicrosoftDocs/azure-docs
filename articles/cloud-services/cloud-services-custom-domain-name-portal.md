@@ -3,11 +3,11 @@ title: Configure a custom domain name in Cloud Services (classic) | Microsoft Do
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Configuring a custom domain name for an Azure cloud service (classic)

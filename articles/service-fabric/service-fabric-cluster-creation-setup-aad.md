@@ -51,7 +51,7 @@ Run `SetupApplications.ps1` and provide the tenant ID, cluster name, web applica
 - ClusterName_Client
 
 > [!NOTE]
-> For national clouds (for example Azure Government, Azure China), you should also specify the `-Location` parameter.
+> For national clouds (for example Azure Government, Microsoft Azure operated by 21Vianet), you should also specify the `-Location` parameter.
 
 #### Parameters
 
@@ -170,7 +170,7 @@ $resourceGroupName = 'mysftestcluster'
 
 ## Granting admin consent
 
-It may be necessary to 'Grant admin consent' for the 'API permissions' being configured. Navigate to [Azure App registrations](https://ms.portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) blade and add name of cluster to the filter. For both registrations, open 'API permissions', and select 'Grant admin consent for' if available.
+It may be necessary to 'Grant admin consent' for the 'API permissions' being configured. Navigate to [Azure App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) blade and add name of cluster to the filter. For both registrations, open 'API permissions', and select 'Grant admin consent for' if available.
 
 ![Screenshot that shows Grant admin consent selected on the Azure App registrations blade.](media/service-fabric-cluster-creation-setup-aad/portal-client-api-grant.png)
 
@@ -345,7 +345,6 @@ After setting up Azure Active Directory applications and setting roles for users
 <!-- Links -->
 
 [azure-cli]: /cli/azure/get-started-with-azure-cli
-[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

@@ -6,15 +6,14 @@ services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
-ms.service: virtual-machines
-ms.subservice: security
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2019
+ms.date: 12/05/2022
 ms.author: terrylan
 
 ---
@@ -47,10 +46,9 @@ Learn more about antimalware software to help protect your virtual machines:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). With Windows Defender ATP, you get:
+For even more powerful protection, consider using [Microsoft Defender for Endpoint](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). With Defender for Endpoint, you get:
 
 * [Attack surface reduction](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -61,16 +59,13 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 * [Management and APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Learn more:
-
-* [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Overview of WDATP capabilities](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/what-s-new-in-the-wdatp-portal/ba-p/200828)  
+Learn more: [Get Started with Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
 
 ## Hardware security module
 
 Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault.
 
-Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](/azure/active-directory/).
+Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](../../active-directory/index.yml).
 
 Learn more:
 
@@ -85,8 +80,8 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-* [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md)
-* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md)
+* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## Virtual machine backup
 
@@ -140,7 +135,7 @@ Learn more:
 
 * [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 * [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
-* [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+* [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
 
 ## Compliance
 

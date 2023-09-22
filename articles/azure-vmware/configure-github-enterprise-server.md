@@ -3,7 +3,8 @@ title: Configure GitHub Enterprise Server on Azure VMware Solution
 description: Learn how to Set up GitHub Enterprise Server on your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 07/07/2021
+ms.date: 10/25/2022
+ms.custom: engagement-fy23
 ---
 
 # Configure GitHub Enterprise Server on Azure VMware Solution

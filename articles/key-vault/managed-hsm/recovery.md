@@ -3,10 +3,11 @@ title: Azure Key Vault Managed HSM recovery overview | Microsoft Docs
 description: Managed HSM recovery features are designed to prevent the accidental or malicious deletion of your HSM resource and keys.
 ms.service: key-vault
 ms.subservice: managed-hsm
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.author: mbaldwin
 author: mbaldwin
-ms.date: 06/01/2021
+ms.date: 11/14/2022
 ---
 
 # Managed HSM soft-delete and purge protection
@@ -18,7 +19,7 @@ For more information, see [Managed HSM overview](overview.md).
 ## Prerequisites
 
 * An Azure subscription. [Create one for free](https://azure.microsoft.com/free/dotnet).
-* The [PowerShell module](/powershell/azure/install-az-ps).
+* The [PowerShell module](/powershell/azure/install-azure-powershell).
 * Azure CLI 2.25.0 or later. Run `az --version` to determine which version you have. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM. You can create one by using the [Azure CLI](./quick-create-cli.md) or [Azure PowerShell](./quick-create-powershell.md).
 * Users will need the following permissions to perform operations on soft-deleted HSMs or keys:

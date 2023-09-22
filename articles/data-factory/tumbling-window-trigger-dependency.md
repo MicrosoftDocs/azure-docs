@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 09/27/2022
 ---
 
 # Create a tumbling window trigger dependency
@@ -20,13 +20,13 @@ In order to build a dependency chain and make sure that a trigger is executed on
 
 For a demonstration on how to create dependent pipelines using tumbling window trigger, watch the following video:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## Create a dependency in the UI
 
 To create dependency on a trigger, select **Trigger > Advanced > New**, and then choose the trigger to depend on with the appropriate offset and size. Select **Finish** and publish the changes for the dependencies to take effect.
 
-:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png" alt-text="Dependency Creation":::
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png" alt-text="Screenshot of the dependency creation window." lightbox="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png":::
 
 ## Tumbling window dependency properties
 
@@ -42,8 +42,8 @@ A tumbling window trigger with a dependency has the following properties:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": <<datetime>>,
-            "endTime": <<datetime – optional>>,
-            "delay": <<timespan – optional>>,
+            "endTime": <<datetime - optional>>,
+            "delay": <<timespan - optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
@@ -52,8 +52,8 @@ A tumbling window trigger with a dependency has the following properties:
             "dependsOn": [
                 {
                     "type": "TumblingWindowTriggerDependencyReference",
-                    "size": <<timespan – optional>>,
-                    "offset": <<timespan – optional>>,
+                    "size": <<timespan - optional>>,
+                    "offset": <<timespan - optional>>,
                     "referenceTrigger": {
                         "referenceName": "MyTumblingWindowDependency1",
                         "type": "TriggerReference"
@@ -61,7 +61,7 @@ A tumbling window trigger with a dependency has the following properties:
                 },
                 {
                     "type": "SelfDependencyTumblingWindowTriggerReference",
-                    "size": <<timespan – optional>>,
+                    "size": <<timespan - optional>>,
                     "offset": <<timespan>>
                 }
             ]
@@ -161,6 +161,9 @@ Click through the trigger name to view trigger dependencies. Right-hand panel sh
 You can see the status of the dependencies, and windows for each dependent trigger. If one of the dependencies triggers fails, you must successfully rerun it in order for the dependent trigger to run.
 
 A tumbling window trigger will wait on dependencies for _seven days_ before timing out. After seven days, the trigger run will fail.
+
+> [!NOTE]
+> A tumbling window trigger cannot be cancelled while it is in the **Waiting on dependency** state. The dependent activity must finish before the tumbling window trigger can be cancelled. This is by design to ensure dependent activities can complete once started, and helps reduce the likelihood of unexpected results.
 
 For a more visual to view the trigger dependency schedule, select the Gantt view.
 

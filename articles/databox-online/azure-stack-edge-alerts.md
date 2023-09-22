@@ -6,6 +6,7 @@ author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 10/14/2021
 ms.author: alkohli
@@ -18,7 +19,7 @@ This article describes how to view alerts and interpret alert severity for event
 
 ## Overview
 
-The Alerts blade for an Azure Stack Edge device lets you review Azure Stack Edge device–related alerts in real-time. From this blade, you can centrally monitor the health issues of your Azure Stack Edge devices and the overall Microsoft Azure Azure Stack Edge solution.
+The Alerts blade for an Azure Stack Edge device lets you review Azure Stack Edge device–related alerts in real-time. From this blade, you can centrally monitor the health issues of your Azure Stack Edge devices and the overall Microsoft Azure Stack Edge solution.
 
 The initial display is a high-level summary of alerts at each severity level. You can drill down to see individual alerts at each severity level.
 

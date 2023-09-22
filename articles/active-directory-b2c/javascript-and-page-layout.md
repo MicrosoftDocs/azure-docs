@@ -3,15 +3,15 @@ title: JavaScript and page layout versions
 titleSuffix: Azure AD B2C
 description: Learn how to enable JavaScript and use page layout versions in Azure Active Directory B2C.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/12/2021
-ms.custom: project-no-code, devx-track-js
-ms.author: kengaderdus
+ms.date: 10/26/2022
+ms.custom: project-no-code, devx-track-js, engagement-fy23
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -139,7 +139,7 @@ You enable script execution by adding the **ScriptExecution** element to the [Re
 
 Follow these guidelines when you customize the interface of your application using JavaScript:
 
-- Don't 
+- Don't:
     - bind a click event on `<a>` HTML elements.
     - take a dependency on Azure AD B2C code or comments.
     - change the order or hierarchy of Azure AD B2C HTML elements. Use an Azure AD B2C policy to control the order of the UI elements.
@@ -220,7 +220,7 @@ function addTermsOfUseLink() {
     var termsLabelText = termsOfUseLabel.innerHTML;
 
     // create a new <a> element with the same inner text
-    var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
+    var termsOfUseUrl = 'https://learn.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');

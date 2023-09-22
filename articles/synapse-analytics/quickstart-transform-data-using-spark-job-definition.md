@@ -11,13 +11,13 @@ ms.custom: seo-lt-2019
 ms.date: 02/15/2022
 ---
 
-# Quickstart: Transform data using Apache Spark job definition.
+# Quickstart: Transform data using Apache Spark job definition
 
 In this quickstart, you'll use Azure Synapse Analytics to create a pipeline using Apache Spark job definition.
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure Synapse workspace**: Create a Synapse workspace using the Azure portal following the instructions in [Quickstart: Create a Synapse workspace](quickstart-create-workspace.md).
 * **Apache Spark job definition**: Create an Apache Spark job definition in the Synapse workspace following the instructions in [Tutorial: Create Apache Spark job definition in Synapse Studio](spark/apache-spark-job-definitions.md).
 
@@ -26,7 +26,7 @@ In this quickstart, you'll use Azure Synapse Analytics to create a pipeline usin
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://portal.azure.com/#home). Select **Open** on the Open Synapse Studio card under Getting started.
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com). Select **Open** on the Open Synapse Studio card under **Getting started**.
 * Open [Azure Synapse Analytics](https://web.azuresynapse.net/) and sign in to your workspace.
 
 In this quickstart, we use the workspace named "sampletest" as an example. It will automatically navigate you to the Synapse Studio home page.
@@ -83,14 +83,17 @@ On this panel, you can reference to the Spark job definition to run.
      |  Property   | Description   |  
      | ----- | ----- |  
      |Main definition file| The main file used for the job. Select a PY/JAR/ZIP file from your storage. You can select **Upload file** to upload the file to a storage account. <br> Sample: `abfss://…/path/to/wordcount.jar`|
+     | References from subfolders | Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named "jars", "pyFiles", "files" or "archives" will be scanned, and the folders name are case sensitive. |
      |Main class name| The fully qualified identifier or the main class that is in the main definition file. <br> Sample: `WordCount`|
      |Command-line arguments| You can add command-line arguments by clicking the **New** button. It should be noted that adding command-line arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br> |
      |Apache Spark pool| You can select Apache Spark pool from the list.|
+     |Python code reference| Additional Python code files used for reference in the main definition file. <br> It supports passing files (.py, .py3, .zip) to the "pyFiles" property. It will override the "pyFiles" property defined in Spark job definition. <br>|
+     |Reference files | Additional files used for reference in the main definition file. |
      |Dynamically allocate executors| This setting maps to the dynamic allocation property in Spark configuration for Spark Application executors allocation.|
      |Min executors| Min number of executors to be allocated in the specified Spark pool for the job.|
      |Max executors| Max number of executors to be allocated in the specified Spark pool for the job.|
      |Driver size| Number of cores and memory to be used for driver given in the specified Apache Spark pool for the job.|
-
+     |Spark configuration| Specify values for Spark configuration properties listed in the topic: Spark Configuration - Application properties. Users can use default configuration and customized configuration. |
      
      ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 

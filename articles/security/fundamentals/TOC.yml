@@ -124,7 +124,7 @@
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
   - name: Automatic VM guest patching
-    href: /azure/virtual-machines/automatic-vm-guest-patching?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ffundamentals%2ftoc.json
   - name: Best practices - IaaS workloads
     href: iaas.md
   - name: Azure Marketplace images
@@ -132,18 +132,24 @@
 
 - name: Data security, encryption, and storage
   items: 
-  - name: Azure Certificate Authority details
-    href: azure-CA-details.md
   - name: Data security and encryption
     href: encryption-overview.md
   - name: Key management in Azure
     href: key-management.md
+  - name: Choosing a key management solution
+    href: key-management-choose.md
   - name: Double encryption
     href: double-encryption.md
-  - name: Sunset for SHA-1 OCSP signing
-    href: ocsp-sha-1-sunset.md
-  - name: TLS certificate changes
-    href: tls-certificate-changes.md
+  - name: Azure Certificate Authorities
+    items: 
+    - name: Azure Certificate Authority details
+      href: azure-ca-details.md
+    - name: Certificate Pinning
+      href: certificate-pinning.md
+    - name: Sunset for SHA-1 OCSP signing
+      href: ocsp-sha-1-sunset.md
+    - name: TLS certificate changes
+      href: tls-certificate-changes.md
   - name: Disk encryption
     items: 
     - name: Best practices
@@ -168,6 +174,8 @@
     href: customer-lockbox-overview.md
   - name: Security baseline for Customer Lockbox
     href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
+  - name: Trusted Hardware Identity Management
+    href: trusted-hardware-identity-management.md
 
 - name: Application
   items:

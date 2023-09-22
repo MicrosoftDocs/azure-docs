@@ -4,27 +4,27 @@ titleSuffix: Azure Machine Learning
 description: This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled Tensorflow deep learning model as a web service.service and score inference requests.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 08/08/2022
+ms.date: 11/16/2022
 ms.topic: how-to
-ms.custom: devx-track-python, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy a deep learning model for inference with GPU
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
 Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
 
-[!INCLUDE [endpoints-option](../../../includes/machine-learning-endpoints-preview-note.md)]
+[!INCLUDE [endpoints-option](../includes/machine-learning-endpoints-preview-note.md)]
 
 > [!IMPORTANT]
-> When using the Azure ML __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure ML __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-managed-online-endpoints.md).
+> When using the Azure Machine Learning __SDK v1__, GPU inference is only supported on Azure Kubernetes Service. When using the Azure Machine Learning __SDK v2__ or __CLI v2__, you can use an online endpoint for GPU inference. For more information, see [Deploy and score a machine learning model with an online endpoint](../how-to-deploy-online-endpoints.md).
 
 > For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](../tutorial-pipeline-batch-scoring-classification.md). 
 
@@ -42,18 +42,18 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 * A registered model that uses a GPU.
 
-    * To learn how to register models, see [Deploy Models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+    * To learn how to register models, see [Deploy Models](../how-to-deploy-online-endpoints.md).
 
     * To create and register the Tensorflow model used to create this document, see [How to Train a TensorFlow Model](../how-to-train-tensorflow.md).
 
-* A general understanding of [How and where to deploy models](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* A general understanding of [How and where to deploy models](../how-to-deploy-online-endpoints.md).
 
 ## Connect to your workspace
 
 To connect to an existing workspace, use the following code:
 
 > [!IMPORTANT]
-> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](../how-to-configure-environment.md#workspace).
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create workspace resources](../quickstart-create-resources.md).   For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md).
 
 ```python
 from azureml.core import Workspace
@@ -136,7 +136,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+This file is named `score.py`. For more information on entry scripts, see [How and where to deploy](../how-to-deploy-online-endpoints.md).
 
 ## Define the conda environment
 
@@ -146,8 +146,8 @@ The conda environment file specifies the dependencies for the service. It includ
 name: project_environment
 dependencies:
   # The Python interpreter version.
-  # Currently Azure ML only supports 3.5.2 and later.
-- python=3.6.2
+  # Currently Azure Machine Learning only supports 3.5.2 and later.
+- python=3.7
 
 - pip:
   # You must list azureml-defaults as a pip dependency

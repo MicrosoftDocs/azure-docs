@@ -6,16 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: balapv 
+author: balapv
+ms.reviewer: sgilley
 ms.date: 10/21/2021
-ms.custom: seoapril2019, seodec18
+ms.custom: UpdateFrequency5, seoapril2019, seodec18, ignite-2022
+monikerRange: 'azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
 # How Azure Machine Learning works: Architecture and concepts (v1)
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 This article applies to the first version (v1) of the Azure Machine Learning CLI & SDK. For version two (v2), see  [How Azure Machine Learning works (v2)](../concept-azure-machine-learning-v2.md).
 
@@ -58,7 +60,7 @@ Azure Machine Learning introduces two fully managed cloud-based virtual machines
 
 * **Compute clusters**: Compute clusters are a cluster of VMs with multi-node scaling capabilities. Compute clusters are better suited for compute targets for large jobs and production.  The cluster scales up automatically when a job is submitted.  Use as a training compute target or for dev/test deployment.
 
-For more information about training compute targets, see [Training compute targets](../concept-compute-target.md#train).  For more information about deployment compute targets, see [Deployment targets](../concept-compute-target.md#deploy).
+For more information about training compute targets, see [Training compute targets](../concept-compute-target.md#training-compute-targets).  For more information about deployment compute targets, see [Deployment targets](../concept-compute-target.md#compute-targets-for-inference).
 
 ## Datasets and datastores
 
@@ -103,7 +105,7 @@ You produce a run when you submit a script to train a model. A run can have zero
 
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Run configuration**
 
-A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure ML environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
+A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure Machine Learning environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 
@@ -123,7 +125,7 @@ There are multiple ways to view your logs: monitoring run status in real time, o
 
 
 > [!NOTE]
-> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 
 ### Git tracking and integration
 
@@ -152,7 +154,7 @@ Because Machine Learning Compute is a managed compute target (that is, it's mana
    1. Management code is written to the user's Azure Files share.
    1. The container is started with an initial command. That is, management code as described in the previous step.
 
-* After the run completes, you can query runs and metrics. In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Cosmos DB database and return them back to the client.
+* After the run completes, you can query runs and metrics. In the flow diagram below, this step occurs when the training compute target writes the run metrics back to Azure Machine Learning from storage in the Azure Cosmos DB database. Clients can call Azure Machine Learning. Machine Learning will in turn pull metrics from the Azure Cosmos DB database and return them back to the client.
 
 [![Training workflow](media/concept-Azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
@@ -220,11 +222,11 @@ Here are the details:
 [![Inference workflow](media/concept-Azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
 
 
-For an example of deploying a model as a web service, see [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md).
+For an example of deploying a model as a web service, see [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md).
 
 #### Real-time endpoints
 
-When you deploy a trained model in the designer, you can [deploy the model as a real-time endpoint](../tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
+When you deploy a trained model in the designer, you can [deploy the model as a real-time endpoint](tutorial-designer-automobile-price-deploy.md). A real-time endpoint commonly receives a single request via the REST endpoint and returns a prediction in real-time. This is in contrast to batch processing, which processes multiple values at once and saves the results after completion to a datastore.
 
 #### Pipeline endpoints
 
@@ -236,7 +238,7 @@ A pipeline endpoint is a collection of published pipelines. This logical organiz
 
 ### Azure Machine Learning CLI 
 
-The [Azure Machine Learning CLI](../how-to-configure-cli.md) is an extension to the Azure CLI, a cross-platform command-line interface for the Azure platform. This extension provides commands to automate your machine learning activities.
+The [Azure Machine Learning CLI v1](reference-azure-machine-learning-cli.md) is an extension to the Azure CLI, a cross-platform command-line interface for the Azure platform. This extension provides commands to automate your machine learning activities.
 
 ### ML Pipelines
 
@@ -249,23 +251,23 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 Azure Machine Learning provides the following monitoring and logging capabilities:
 
 * For **Data Scientists**, you can monitor your experiments and log information from your training runs. For more information, see the following articles:
-   * [Start, monitor, and cancel training runs](../how-to-track-monitor-analyze-runs.md)
-   * [Log metrics for training runs](../how-to-log-view-metrics.md)
-   * [Track experiments with MLflow](../how-to-use-mlflow.md)
-   * [Visualize runs with TensorBoard](../how-to-monitor-tensorboard.md)
+   * [Start, monitor, and cancel training runs](how-to-track-monitor-analyze-runs.md)
+   * [Log metrics for training runs](how-to-log-view-metrics.md)
+   * [Track experiments with MLflow](how-to-use-mlflow.md)
+   * [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
 * For **Administrators**, you can monitor information about the workspace, related Azure resources, and events such as resource creation and deletion by using Azure Monitor. For more information, see [How to monitor Azure Machine Learning](../monitor-azure-machine-learning.md).
-* For **DevOps** or **MLOps**, you can monitor information generated by models deployed as web services to identify problems with the deployments and gather data submitted to the service. For more information, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](../how-to-enable-app-insights.md).
+* For **DevOps** or **MLOps**, you can monitor information generated by models deployed as web services to identify problems with the deployments and gather data submitted to the service. For more information, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
 
 ## Interacting with your workspace
 
 ### Studio
 
-[Azure Machine Learning studio](../overview-what-is-machine-learning-studio.md) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
+[Azure Machine Learning studio](../overview-what-is-azure-machine-learning.md#studio) provides a web view of all the artifacts in your workspace.  You can view results and details of your datasets, experiments, pipelines, models, and endpoints.  You can also manage compute resources and datastores in the studio.
 
 The studio is also where you access the interactive tools that are part of Azure Machine Learning:
 
-+ [Azure Machine Learning designer](../concept-designer.md) to perform workflow steps without writing code
-+ Web experience for [automated machine learning](../concept-automated-ml.md)
++ [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
++ Web experience for [automated machine learning](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](../how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
 + Data labeling projects to create, manage, and monitor projects for labeling [images](../how-to-create-image-labeling-projects.md) or [text](../how-to-create-text-labeling-projects.md).
 
@@ -277,8 +279,8 @@ The studio is also where you access the interactive tools that are part of Azure
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ Use [Azure Machine Learning designer](../concept-designer.md) to perform the workflow steps without writing code. 
-+ Use [Azure Machine Learning CLI](../how-to-configure-cli.md) for automation.
++ Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
++ Use [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) for automation.
 
 ## Next steps
 
@@ -286,4 +288,4 @@ To get started with Azure Machine Learning, see:
 
 * [What is Azure Machine Learning?](../overview-what-is-azure-machine-learning.md)
 * [Create an Azure Machine Learning workspace](../quickstart-create-resources.md)
-* [Tutorial: Train and deploy a model](../tutorial-train-deploy-notebook.md)
+* [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)

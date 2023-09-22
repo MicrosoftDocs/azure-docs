@@ -5,22 +5,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
-ms.author: larryfr
-author: blackmist
-ms.date: 04/02/2021
-ms.custom: seodec18, devx-track-azurecli, cliv1
+author: saachigopal
+ms.author: sagopal
+ms.reviewer: larryfr
+ms.date: 11/11/2022
+ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 ---
 
 # Install & use the CLI (v1)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](reference-azure-machine-learning-cli.md)
-> * [v2 (current version)](../how-to-configure-cli.md)
 
-[!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
 
@@ -30,7 +27,7 @@ The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), 
 
 + Package, deploy, and track the lifecycle of your machine learning models
 
-The CLI is not a replacement for the Azure Machine Learning SDK. It is a complementary tool that is optimized to handle highly parameterized tasks which suit themselves well to automation.
+The CLI isn't a replacement for the Azure Machine Learning SDK. It's a complementary tool that is optimized to handle highly parameterized tasks which suit themselves well to automation.
 
 ## Prerequisites
 
@@ -57,7 +54,7 @@ az login
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-[!INCLUDE [select-subscription](../../../includes/machine-learning-cli-subscription.md)]
+[!INCLUDE [select-subscription](../includes/machine-learning-cli-subscription.md)]
 
 For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -88,7 +85,7 @@ az extension remove -n azure-cli-ml
 
 The following commands demonstrate how to use the CLI to manage resources used by Azure Machine Learning.
 
-+ If you do not already have one, create a resource group:
++ If you don't already have one, create a resource group:
 
     ```azurecli-interactive
     az group create -n myresourcegroup -l westus2
@@ -173,7 +170,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-managed-identity-note.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-note.md)]
 
 <a id="computeinstance"></a>
 
@@ -223,7 +220,7 @@ Manage compute instances.  In all the examples below, the name of the compute in
 
 ## <a id="experiments"></a>Run experiments
 
-* Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
+* Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
@@ -274,7 +271,7 @@ Add this file alongside the run configuration files. Then submit a HyperDrive ru
 az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
 ```
 
-Note the *arguments* section in runconfig and *parameter space* in HyperDrive config. They contain the command-line arguments to be passed to training script. The value in runconfig stays the same for each iteration, while the range in HyperDrive config is iterated over. Do not specify the same argument in both files.
+Note the *arguments* section in runconfig and *parameter space* in HyperDrive config. They contain the command-line arguments to be passed to training script. The value in runconfig stays the same for each iteration, while the range in HyperDrive config is iterated over. Don't specify the same argument in both files.
 
 ## Dataset management
 
@@ -316,7 +313,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
 ## Environment management
 
-The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](../how-to-configure-environment.md) for your workspace:
+The following commands demonstrate how to create, register, and list Azure Machine Learning [environments](how-to-configure-environment.md) for your workspace:
 
 + Create scaffolding files for an environment:
 
@@ -396,16 +393,16 @@ If you used the `az ml environment scaffold` command, it generates a template `a
 }
 ```
 
-The following table details each top-level field in the JSON file, it's type, and a description. If an object type is linked to a class from the Python SDK, there is a loose 1:1 match between each JSON field and the public variable name in the Python class. In some cases the field may map to a constructor argument rather than a class variable. For example, the `environmentVariables` field maps to the `environment_variables` variable in the [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) class.
+The following table details each top-level field in the JSON file, its type, and a description. If an object type is linked to a class from the Python SDK, there's a loose 1:1 match between each JSON field and the public variable name in the Python class. In some cases, the field may map to a constructor argument rather than a class variable. For example, the `environmentVariables` field maps to the `environment_variables` variable in the [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) class.
 
 | JSON field | Type | Description |
 |---|---|---|
-| `name` | `string` | Name of the environment. Do not start name with **Microsoft** or **AzureML**. |
+| `name` | `string` | Name of the environment. Don't start name with **Microsoft** or **AzureML**. |
 | `version` | `string` | Version of the environment. |
 | `environmentVariables` | `{string: string}` | A hash-map of environment variable names and values. |
 | `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection)hat defines the Python environment and interpreter to use on target compute resource. |
 | `docker` | [`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection) | Defines settings to customize the Docker image built to the environment's specifications. |
-| `spark` | [`SparkSection`](/python/api/azureml-core/azureml.core.environment.sparksection) | The section configures Spark settings. It is only used when framework is set to PySpark. |
+| `spark` | [`SparkSection`](/python/api/azureml-core/azureml.core.environment.sparksection) | The section configures Spark settings. It's only used when framework is set to PySpark. |
 | `databricks` | [`DatabricksSection`](/python/api/azureml-core/azureml.core.databricks.databrickssection) | Configures Databricks library dependencies. |
 | `inferencingStackVersion` | `string` | Specifies the inferencing stack version added to the image. To avoid adding an inferencing stack, leave this field `null`. Valid value: "latest". |
 
@@ -475,7 +472,7 @@ The following commands demonstrate how to register a trained model, and then dep
 
 ## Inference configuration schema
 
-[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+[!INCLUDE [inferenceconfig](../includes/machine-learning-service-inference-config.md)]
 
 <a id="deploymentconfig"></a>
 
@@ -483,15 +480,15 @@ The following commands demonstrate how to register a trained model, and then dep
 
 ### Local deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-local-deploy-config.md)]
 
 ### Azure Container Instance deployment configuration schema 
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aci-deploy-config.md)]
 
 ### Azure Kubernetes Service deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
+[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aks-deploy-config.md)]
 
 ## Next steps
 

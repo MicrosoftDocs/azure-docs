@@ -1,6 +1,6 @@
 ---
-title: Join a SLE VM to Azure AD Domain Services | Microsoft Docs
-description: Learn how to configure and join a SUSE Linux Enterprise virtual machine to an Azure AD Domain Services managed domain.
+title: Join a SLE VM to Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to configure and join a SUSE Linux Enterprise virtual machine to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -8,14 +8,14 @@ manager: amycolannino
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
+ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 01/29/2023
 ms.author: justinha
-
 ---
-# Join a SUSE Linux Enterprise virtual machine to an Azure Active Directory Domain Services managed domain
+# Join a SUSE Linux Enterprise virtual machine to a Microsoft Entra Domain Services managed domain
 
-To let users sign in to virtual machines (VMs) in Azure using a single set of credentials, you can join VMs to an Azure Active Directory Domain Services (Azure AD DS) managed domain. When you join a VM to an Azure AD DS managed domain, user accounts and credentials from the domain can be used to sign in and manage servers. Group memberships from the managed domain are also applied to let you control access to files or services on the VM.
+To let users sign in to virtual machines (VMs) in Azure using a single set of credentials, you can join VMs to a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain. When you join a VM to a Microsoft Entra DS managed domain, user accounts and credentials from the domain can be used to sign in and manage servers. Group memberships from the managed domain are also applied to let you control access to files or services on the VM.
 
 This article shows you how to join a SUSE Linux Enterprise (SLE) VM to a managed domain.
 
@@ -25,10 +25,10 @@ To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, the first tutorial [creates and configures a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
 * A user account that's a part of the managed domain.
 * Unique Linux VM names that are a maximum of 15 characters to avoid truncated names that might cause conflicts in Active Directory.
 
@@ -38,14 +38,14 @@ If you have an existing SLE Linux VM in Azure, connect to it using SSH, then con
 
 If you need to create a SLE Linux VM, or want to create a test VM for use with this article, you can use one of the following methods:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Microsoft Entra admin center](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 When you create the VM, pay attention to the virtual network settings to make sure that the VM can communicate with the managed domain:
 
-* Deploy the VM into the same, or a peered, virtual network in which you have enabled Azure AD Domain Services.
-* Deploy the VM into a different subnet than your Azure AD Domain Services managed domain.
+* Deploy the VM into the same, or a peered, virtual network in which you have enabled Microsoft Entra Domain Services.
+* Deploy the VM into a different subnet than your Microsoft Entra Domain Services managed domain.
 
 Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
@@ -53,7 +53,7 @@ Once the VM is deployed, follow the steps to connect to the VM using SSH.
 
 To make sure that the VM host name is correctly configured for the managed domain, edit the */etc/hosts* file and set the hostname:
 
-```console
+```bash
 sudo vi /etc/hosts
 ```
 
@@ -64,7 +64,7 @@ In the *hosts* file, update the *localhost* address. In the following example:
 
 Update these names with your own values:
 
-```console
+```config
 127.0.0.1 linux-q2gr linux-q2gr.aaddscontoso.com
 ```
 
@@ -86,7 +86,7 @@ To join the managed domain using **SSSD** and the *User Logon Management* module
 
     In YaST, select **System > Network Settings**.
 
-1. Select the *Hostname/DNS* tab, then enter the IP address(es) of the managed domain into the text box *Name Server 1*. These IP addresses are shown on the *Properties* window in the Azure portal for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
+1. Select the *Hostname/DNS* tab, then enter the IP address(es) of the managed domain into the text box *Name Server 1*. These IP addresses are shown on the *Properties* window in the Microsoft Entra admin center for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
 
     Add your own managed domain IP addresses, then select **OK**.
 
@@ -116,7 +116,7 @@ To join the VM to the managed domain, complete the following steps:
 
     ![Example screenshot of the Active Directory enrollment window in YaST](./media/join-suse-linux-vm/enroll-window.png)
 
-1. In the dialog, specify the *Username* and *Password* of a user that's a part of the managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. In the dialog, specify the *Username* and *Password* of a user that's a part of the managed domain. If needed, [add a user account to a group in Microsoft Entra ID](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
     To make sure that the current domain is enabled for Samba, activate *Overwrite Samba configuration to work with this AD*.
 
@@ -162,7 +162,7 @@ To join the managed domain using **winbind** and the *Windows Domain Membership*
 
 1. If you want to change the UID and GID ranges for the Samba users and groups, select *Expert Settings*.
 
-1. Configure Network Time Protocol (NTP) time synchronization for your managed domain by selecting *NTP Configuration*. Enter the IP addresses of the managed domain. These IP addresses are shown on the *Properties* window in the Azure portal for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
+1. Configure Network Time Protocol (NTP) time synchronization for your managed domain by selecting *NTP Configuration*. Enter the IP addresses of the managed domain. These IP addresses are shown on the *Properties* window in the Microsoft Entra admin center for your managed domain, such as *10.0.2.4* and *10.0.2.5*.
 
 1. Select **OK** and confirm the domain join when prompted for it.
 
@@ -178,7 +178,7 @@ To join the managed domain using **winbind** and the *YaST command line interfac
 
 * Join the domain:
 
-  ```console
+  ```bash
   sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
   ```
 
@@ -188,7 +188,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
 1. Install kerberos client and samba-winbind:
 
-   ```console
+   ```bash
    sudo zypper in krb5-client samba-winbind
    ```
 
@@ -196,7 +196,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/samba/smb.conf
    
-     ```ini
+     ```config
      [global]
          workgroup = AADDSCONTOSO
          usershare allow guests = NO #disallow guests from sharing
@@ -215,7 +215,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/krb5.conf
    
-     ```ini
+     ```config
      [libdefaults]
          default_realm = AADDSCONTOSO.COM
          clockskew = 300
@@ -239,7 +239,7 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/security/pam_winbind.conf
    
-     ```ini
+     ```config
      [global]
          cached_login = yes
          krb5_auth = yes
@@ -249,46 +249,46 @@ To join the managed domain using **winbind** and the *`samba net` command*:
 
    * /etc/nsswitch.conf
    
-     ```ini
+     ```config
      passwd: compat winbind
      group: compat winbind
      ```
 
-3. Check that the date and time in Azure AD and Linux are in sync. You can do this by adding the Azure AD server to the NTP service:
+3. Check that the date and time in Microsoft Entra ID and Linux are in sync. You can do this by adding the Microsoft Entra server to the NTP service:
    
-   1. Add the following line to /etc/ntp.conf:
+   1. Add the following line to `/etc/ntp.conf`:
      
-      ```console
+      ```config
       server aaddscontoso.com
       ```
 
    1. Restart the NTP service:
      
-      ```console
+      ```bash
       sudo systemctl restart ntpd
       ```
 
 4. Join the domain:
 
-   ```console
+   ```bash
    sudo net ads join -U Administrator%Mypassword
    ```
 
 5. Enable winbind as a login source in the Linux Pluggable Authentication Modules (PAM):
 
-   ```console
-   pam-config --add --winbind
+   ```bash
+   config pam-config --add --winbind
    ```
 
 6. Enable automatic creation of home directories so that users can log in:
 
-   ```console
-   pam-config -a --mkhomedir
+   ```bash
+   sudo pam-config -a --mkhomedir
    ```
 
 7. Start and enable the winbind service:
 
-   ```console
+   ```bash
    sudo systemctl enable winbind
    sudo systemctl start winbind
    ```
@@ -299,13 +299,13 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. Open the *sshd_conf* file with an editor:
 
-    ```console
+    ```bash
     sudo vi /etc/ssh/sshd_config
     ```
 
 1. Update the line for *PasswordAuthentication* to *yes*:
 
-    ```console
+    ```config
     PasswordAuthentication yes
     ```
 
@@ -313,7 +313,7 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. To apply the changes and let users sign in using a password, restart the SSH service:
 
-    ```console
+    ```bash
     sudo systemctl restart sshd
     ```
 
@@ -323,13 +323,13 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
 
 1. Open the *sudoers* file for editing:
 
-    ```console
+    ```bash
     sudo visudo
     ```
 
 1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *aaddscontoso.com*:
 
-    ```console
+    ```config
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators@aaddscontoso.com ALL=(ALL) NOPASSWD:ALL
     ```
@@ -342,29 +342,29 @@ To verify that the VM has been successfully joined to the managed domain, start 
 
 1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *linux-q2gr.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
-    ```console
-    ssh -l contosoadmin@AADDSCONTOSO.com linux-q2gr.aaddscontoso.com
+    ```bash
+    sudo ssh -l contosoadmin@AADDSCONTOSO.com linux-q2gr.aaddscontoso.com
     ```
 
 2. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
 
-    ```console
-    pwd
+    ```bash
+    sudo pwd
     ```
 
     You should be in the */home* directory with your own directory that matches the user account.
 
 3. Now check that the group memberships are being resolved correctly:
 
-    ```console
-    id
+    ```bash
+    sudo id
     ```
 
     You should see your group memberships from the managed domain.
 
 4. If you signed in to the VM as a member of the *AAD DC Administrators* group, check that you can correctly use the `sudo` command:
 
-    ```console
+    ```bash
     sudo zypper update
     ```
 

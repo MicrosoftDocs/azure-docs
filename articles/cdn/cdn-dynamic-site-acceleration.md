@@ -2,17 +2,13 @@
 title: Dynamic site acceleration via Azure CDN
 description: Azure CDN supports dynamic site acceleration (DSA) optimization for files with dynamic content.
 services: cdn
-documentationcenter: ''
 author: duongau
-manager: danielgi
-editor: ''
-
-ms.assetid:
+manager: kumudd
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 02/27/2023
 ms.author: duau
 ---
 # Dynamic site acceleration via Azure CDN
@@ -21,12 +17,12 @@ With the explosion of social media, electronic commerce, and the hyper-personali
 
 Standard content delivery network (CDN) capability includes the ability to cache files closer to end users to speed up delivery of static files. However, with dynamic web applications, caching that content in edge locations isn't possible because the server generates the content in response to user behavior. Speeding up the delivery of such content is more complex than traditional edge caching and requires an end-to-end solution that finely tunes each element along the entire data path from inception to delivery. With Azure CDN dynamic site acceleration (DSA) optimization, the performance of web pages with dynamic content is measurably improved.
 
-**Azure CDN from Akamai** and **Azure CDN from Verizon** both offer DSA optimization through the **Optimized for** menu during endpoint creation. Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md).
+**Azure CDN from Akamai** and **Azure CDN from Edgio** both offer DSA optimization through the **Optimized for** menu during endpoint creation. Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](../frontdoor/front-door-overview.md).
 
 > [!Important]
 > For **Azure CDN from Akamai** profiles, you are allowed to change the optimization of a CDN endpoint after it has been created.
 >   
-> For **Azure CDN from Verizon** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
+> For **Azure CDN from Edgio** profiles, you cannot change the optimization of a CDN endpoint after it has been created.
 
 ## CDN endpoint configuration to accelerate delivery of dynamic files
 
@@ -54,6 +50,9 @@ To configure a CDN endpoint to optimize delivery of dynamic files, you can eithe
 
 
 **To configure an existing endpoint for DSA (Azure CDN from Akamai profiles only):**
+
+> [!IMPORTANT]
+> Azure CDN from Akamai is scheduled to be retired on October 31, 2023. For more information, see [**Migrate CDN provider**](cdn-change-provider.md) for guidance on migrating to another Azure CDN provider.
 
 1. In the **CDN profile** page, select the endpoint you want to modify.
 
@@ -83,13 +82,13 @@ Route optimization chooses the most optimal path to the origin so that a site is
 
 The Akamai network uses techniques to collect real-time data and compare various paths through different nodes in the Akamai server, as well as the default BGP route across the open Internet to determine the fastest route between the origin and the CDN edge. These techniques avoid Internet congestion points and long routes. 
 
-Similarly, the Verizon network uses a combination of Anycast DNS, high capacity support PoPs, and health checks, to determine the best gateways to best route data from the client to the origin.
+Similarly, the Edgio network uses a combination of Anycast DNS, high capacity support PoPs, and health checks, to determine the best gateways to best route data from the client to the origin.
  
-As a result, fully dynamic and transactional content is delivered more quickly and more reliably to end users, even when it is uncacheable. 
+As a result, fully dynamic and transactional content is delivered more quickly and more reliably to end users, even when it's uncacheable. 
 
 ### TCP Optimizations
 
-Transmission Control Protocol (TCP) is the standard of the Internet protocol suite used to deliver information between applications on an IP network.  By default, several back-and-forth requests are required to set up a TCP connection, as well as limits to avoid network congestions, which result in inefficiencies at scale. **Azure CDN from Akamai** handles this problem by optimizing in three areas: 
+Transmission Control Protocol (TCP) is the standard of the Internet protocol suite used to deliver information between applications on an IP network.  By default, several back-and-forth requests are required to set up a TCP connection, and limits to avoid network congestions, which result in inefficiencies at scale. **Azure CDN from Akamai** handles this problem by optimizing in three areas: 
 
  - [Eliminating TCP slow start](#eliminating-tcp-slow-start)
  - [Leveraging persistent connections](#leveraging-persistent-connections)
@@ -99,7 +98,7 @@ Transmission Control Protocol (TCP) is the standard of the Internet protocol sui
 
 TCP *slow start* is an algorithm of the TCP protocol that prevents network congestion by limiting the amount of data sent over the network. It starts off with small congestion window sizes between sender and receiver until the maximum is reached or packet loss is detected.
 
- Both **Azure CDN from Akamai** and **Azure CDN from Verizon** profiles eliminate TCP slow start with the following three steps:
+ Both **Azure CDN from Akamai** and **Azure CDN from Edgio** profiles eliminate TCP slow start with the following three steps:
 
 1. Health and bandwidth monitoring is used to measure the bandwidth of connections between edge PoP servers.
     
@@ -109,31 +108,31 @@ TCP *slow start* is an algorithm of the TCP protocol that prevents network conge
 
 #### Leveraging persistent connections
 
-Using a CDN, fewer unique machines connect to your origin server directly compared with users connecting directly to your origin. Azure CDN also pools user requests together to establish fewer connections with the origin.
+When you're using a CDN, fewer unique machines connect to your origin server directly compared with users connecting directly to your origin. Azure CDN also pools user requests together to establish fewer connections with the origin.
 
-As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, which are implemented by the `Keep-Alive` HTTP header, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
+As previously mentioned, several handshake requests are required to establish a TCP connection. Persistent connections, which get implemented by the `Keep-Alive` HTTP header, reuse existing TCP connections for multiple HTTP requests to save round-trip times and speed up delivery. 
 
-**Azure CDN from Verizon** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
+**Azure CDN from Edgio** also sends periodic keep-alive packets over the TCP connection to prevent an open connection from being closed.
 
 #### Tuning TCP packet parameters
 
 **Azure CDN from Akamai** tunes the parameters that govern server-to-server connections and reduces the amount of long-haul round trips required to retrieve content embedded in the site by using the following techniques:
 
-- Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgement.
+- Increasing the initial congestion window so that more packets can be sent without waiting for an acknowledgment.
 - Decreasing the initial retransmit timeout so that a loss is detected, and retransmission occurs more quickly.
 - Decreasing the minimum and maximum retransmit timeout to reduce the wait time before assuming packets were lost in transmission.
 
 ### Object prefetch (Azure CDN from Akamai only)
 
-Most websites consist of an HTML page, which references various other resources such as images and scripts. Typically, when a client requests a webpage, the browser first downloads and parses the HTML object, and then makes additional requests to linked assets that are required to fully load the page. 
+Most websites consist of an HTML page, which references various other resources such as images and scripts. Typically, when a client requests a webpage, the browser first downloads and parses the HTML object, and then makes more requests to linked assets that are required to fully load the page. 
 
-*Prefetch* is a technique to retrieve images and scripts embedded in the HTML page while the HTML is served to the browser, and before the browser even makes these object requests. 
+*Prefetch* is a technique to retrieve images and scripts embedded in the HTML page while the HTML gets served to the browser, and before the browser even makes these object requests. 
 
-With the prefetch option turned on at the time when the CDN serves the HTML base page to the client’s browser, the CDN parses the HTML file and make additional requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server already has the requested objects and can serve them immediately without a round trip to the origin. This optimization benefits both cacheable and non-cacheable content.
+With the prefetch option turned on, the time when the CDN serves the HTML base page to the client’s browser, the CDN parses the HTML file and make more requests for any linked resources and store it in its cache. When the client makes the requests for the linked assets, the CDN edge server already has the requested objects and can serve them immediately without a round trip to the origin. This optimization benefits both cacheable and non-cacheable content.
 
 ### Adaptive image compression (Azure CDN from Akamai only)
 
-Some devices, especially mobile ones, experience slower network speeds from time to time. In these scenarios, it is more beneficial for the user to receive smaller images in their webpage more quickly rather than waiting a long time for full resolution images.
+Some devices, especially mobile ones, experience slower network speeds from time to time. In these scenarios, it's more beneficial for the user to receive smaller images in their webpage more quickly rather than waiting a long time for full resolution images.
 
 This feature automatically monitors network quality, and employs standard JPEG compression methods when network speeds are slower to improve delivery time.
 
@@ -143,11 +142,11 @@ JPEG compression | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
 ## Caching
 
-With DSA, caching is turned off by default on the CDN, even when the origin includes `Cache-Control` or `Expires` headers in the response. DSA is typically used for dynamic assets that should not be cached because they are unique to each client. Caching can break this behavior.
+With DSA, caching is turned off by default on the CDN, even when the origin includes `Cache-Control` or `Expires` headers in the response. DSA is typically used for dynamic assets that shouldn't be cached because they're unique to each client. Caching can break this behavior.
 
-If you have a website with a mix of static and dynamic assets, it is best to take a hybrid approach to get the best performance. 
+If you have a website with a mix of static and dynamic assets, it's best to take a hybrid approach to get the best performance. 
 
-For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
+For **Azure CDN Standard from Edgio** and **Azure CDN Standard from Akamai** profiles, you can turn on caching for specific DSA endpoints by using [caching rules](cdn-caching-rules.md).
 
 To access caching rules:
 
@@ -159,7 +158,7 @@ To access caching rules:
 
 2. Create a global or custom caching rule to turn on caching for your DSA endpoint. 
 
-For **Azure CDN Premium from Verizon** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](./cdn-verizon-premium-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
+For **Azure CDN Premium from Edgio** profiles only, you turn on caching for specific DSA endpoints by using the [rules engine](./cdn-verizon-premium-rules-engine.md). Any rules that are created affect only those endpoints of your profile that are optimized for DSA. 
 
 To access the rules engine:
     

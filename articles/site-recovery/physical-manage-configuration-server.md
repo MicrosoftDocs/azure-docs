@@ -2,11 +2,11 @@
 title: Manage the configuration server for physical servers in Azure Site Recovery
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/27/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ---
 
 # Manage the configuration server for physical server disaster recovery
@@ -262,7 +262,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](/powershell/azure/install-Az-ps) Azure PowerShell module
+1. [Install](/powershell/azure/install-azure-powershell) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzAccount –UseDeviceAuthentication`

@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 01/12/2023
 ms.author: cynthn
 ---
 
@@ -28,7 +28,7 @@ For more information on how Azure Backup works, see [Plan your VM backup infrast
 
 Azure Site Recovery protects your VMs from a major disaster scenario. These scenarios may include widespread service interruptions or regional outages caused by natural disasters. You can configure Azure Site Recovery for your VMs so that your applications are recoverable in matter of minutes with a single click. You can replicate to an Azure region of your choice, since recovery isn't restricted to paired regions.
 
-You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure automation runbooks.
+You can run disaster-recovery drills with on-demand test failovers, without affecting your production workloads or ongoing replication. Create recovery plans to orchestrate failover and failback of the entire application running on multiple VMs. The recovery plan feature is integrated with Azure Automation runbooks.
 
 You can get started by [replicating your virtual machines](../site-recovery/azure-to-azure-quickstart.md).
 
@@ -54,3 +54,5 @@ Learn more about [working with VM restore points](virtual-machines-create-restor
 
 ## Next steps
 You can try out Azure Backup by following the [Azure Backup quickstart](../backup/quick-backup-vm-portal.md).
+
+You can also plan and implement reliability for your virtual machine configuration. For more information see [Virtual Machine Reliability](./reliability-virtual-machines.md).

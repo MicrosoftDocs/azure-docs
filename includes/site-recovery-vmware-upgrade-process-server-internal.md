@@ -1,9 +1,9 @@
 ---
-author: rayne-wiselman
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2010
-ms.author: raynew
+ms.author: ankitadutta
 ---
 1. Sign in to the process server as an administrator.
 2. Download the latest version of the [Unified Setup Installer](https://aka.ms/unifiedinstaller).

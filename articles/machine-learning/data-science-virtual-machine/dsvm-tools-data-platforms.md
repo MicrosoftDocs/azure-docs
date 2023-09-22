@@ -6,10 +6,10 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: data-science-vm
 
-author: timoklimmer
-ms.author: tklimmer
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 10/04/2022
 
 ---
 
@@ -24,7 +24,7 @@ The following data platform tools are supported on the DSVM.
 | Category | Value |
 | ------------- | ------------- |
 | What is it?   | A local relational database instance      |
-| Supported DSVM editions      | Windows 2019, Ubuntu 18.04 (SQL Server 2019)   |
+| Supported DSVM editions      | Windows 2019, Linux (SQL Server 2019)   |
 | Typical uses      | <ul><li>Rapid development locally with smaller dataset</li><li>Run In-database R</li></ul> |
 | Links to samples      | <ul><li>A small sample of a New York City dataset is loaded into the SQL database:<br/>  `nyctaxi`</li><li>Jupyter sample showing Microsoft Machine Learning Server and in-database analytics can be found at:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
 | Related tools on the DSVM       | <ul><li>SQL Server Management Studio</li><li>ODBC/JDBC drivers</li><li>pyodbc, RODBC</li></ul> |

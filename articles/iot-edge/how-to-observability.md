@@ -11,7 +11,7 @@ services: iot-edge
 
 # How to implement IoT Edge observability using monitoring and troubleshooting
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 In this article, you'll learn the concepts and techniques of implementing both observability dimensions *measuring and monitoring* and *troubleshooting*. You'll learn about the following topics:
 * Define what indicators of the service performance to monitor 
@@ -28,7 +28,7 @@ In order to go beyond abstract considerations, we'll use a *real-life* scenario 
 
 ### La Niña
 
-![Illustration of La Nina solution collecting surface temperature from sensors into Azure IoT Edge](media/how-to-observability/la-nina-high-level.png)
+:::image type="content" source="media/how-to-observability/la-nina-high-level.png" alt-text="Illustration of La Niña solution collecting surface temperature from sensors into Azure I o T Edge.":::
 
 The La Niña service measures surface temperature in Pacific Ocean to predict La Niña winters. There is a number of buoys in the ocean with IoT Edge devices that send the surface temperature to Azure Cloud. The telemetry data with the temperature is pre-processed by a custom module on the IoT Edge device before sending it to the cloud. In the cloud, the data is processed by backend Azure Functions and saved to Azure Blob Storage. The clients of the service (ML inference workflows, decision making systems, various UIs, etc.) can pick up messages with temperature data from the Azure Blob Storage.
 
@@ -80,7 +80,7 @@ It's a common practice to measure service level indicators, like the ones we've 
 
 Let's clarify what components the La Niña service consists of:
 
-![Diagram of La Nina components including IoT Edge device and Azure Services](media/how-to-observability/la-nina-metrics.png)
+:::image type="content" source="media/how-to-observability/la-nina-metrics.png" alt-text="Diagram of La Niña components including I o T Edge device and Azure Services":::
 
 There is an IoT Edge device with `Temperature Sensor` custom module (C#) that generates some temperature value and sends it upstream with a telemetry message. This message is routed to another custom module `Filter` (C#). This module checks the received temperature against a threshold window (0-100 degrees Celsius). If the temperature is within the window, the FilterModule sends the telemetry message to the cloud.
 
@@ -95,7 +95,7 @@ In this scenario, we have a fleet of 10 buoys. One of the buoys has been intenti
 
 We're going to monitor Service Level Objectives (SLO) and corresponding Service Level Indicators (SLI) with Azure Monitor Workbooks. This scenario deployment includes the *La Nina SLO/SLI* workbook assigned to the IoT Hub. 
 
-![Screenshot of IoT Hub monitoring showing the Workbooks | Gallery in the Azure portal](media/how-to-observability/dashboard-path.png)
+:::image type="content" source="media/how-to-observability/dashboard-path.png" alt-text="Screenshot of I o T Hub monitoring showing the Workbooks. From the Gallery in the Azure portal.":::
 
 To achieve the best user experience the workbooks are designed to follow the _glance_ -> _scan_ -> _commit_ concept:
 
@@ -103,20 +103,20 @@ To achieve the best user experience the workbooks are designed to follow the _gl
  
 At this level, we can see the whole picture at a single glance. The data is aggregated and represented at the fleet level:
 
-![Screenshot of the monitoring summary report in the Azure portal showing an issue with device coverage and data freshness](media/how-to-observability/glance.png)
+:::image type="content" source="media/how-to-observability/glance.png" alt-text="Screenshot of the monitoring summary report in the Azure portal showing an issue with device coverage and data freshness.":::
 
 From what we can see, the service is not functioning according to the expectations. There is a violation of the *Data Freshness* SLO.
 Only 90% of the devices send the data frequently, and the service clients expect 95%.
 
 All SLO and threshold values are configurable on the workbook settings tab:
 
-![Screenshot of the workbook settings in the Azure portal](media/how-to-observability/workbook-settings.png)
+:::image type="content" source="media/how-to-observability/workbook-settings.png" alt-text="Screenshot of the workbook settings in the Azure portal.":::
 
 #### Scan
 
 By clicking on the violated SLO, we can drill down to the *scan* level and see how the devices contribute to the aggregated SLI value. 
 
-![Screenshot of message frequency by device](media/how-to-observability/scan.png)
+:::image type="content" source="media/how-to-observability/scan.png" alt-text="Screenshot of message frequency of different devices.":::
 
 There is a single device (out of 10) that sends the telemetry data to the cloud "rarely". In our SLO definition, we've stated that "frequently" means at least 10 times per minute. The frequency of this device is way below that threshold.
 
@@ -124,7 +124,7 @@ There is a single device (out of 10) that sends the telemetry data to the cloud 
 
 By clicking on the problematic device, we're drilling down to the *commit* level. This is a curated workbook *Device Details* that comes out of the box with IoT Hub monitoring offering. The *La Nina SLO/SLI* workbook reuses it to bring the details of the specific device performance. 
 
-![Screenshot of messaging telemetry for a device in the Azure portal](media/how-to-observability/commit.png)
+:::image type="content" source="media/how-to-observability/commit.png" alt-text="Screenshot of messaging telemetry for a device in the Azure portal.":::
 
 ## Troubleshooting
 
@@ -136,13 +136,13 @@ The *commit* level workbook gives a lot of detailed information about the device
 
 In this scenario, all parameters of the trouble device look normal and it's not clear why the device sends messages less frequent than expected. This fact is also confirmed by the *messaging* tab of the device-level workbook:
 
-![Screenshot of sample messages in the Azure portal](media/how-to-observability/messages.png)
+:::image type="content" source="media/how-to-observability/messages.png" alt-text="Screenshot of sample messages in the Azure portal.":::
 
 The `Temperature Sensor` (tempSensor) module produced 120 telemetry messages, but only 49 of them went upstream to the cloud.
 
 The first step we want to do is to check the logs produced by the `Filter` module. Click the **Troubleshoot live!** button and select the `Filter` module.
 
-![Screenshot of the filter module log in the Azure portal](media/how-to-observability/basic-logs.png)
+:::image type="content" source="media/how-to-observability/basic-logs.png" alt-text="Screenshot of the filter module log in the Azure portal.":::
 
 Analysis of the module logs doesn't discover the issue. The module receives messages, there are no errors. Everything looks good here.
 
@@ -152,51 +152,51 @@ There are two observability instruments serving the deep troubleshooting purpose
 
 The La Niña service uses [OpenTelemetry](https://opentelemetry.io) to produce and collect traces and logs in Azure Monitor.
 
-![Diagram illustrating an IoT Edge device sending telemetry data to Azure Monitor](media/how-to-observability/la-nina-detailed.png)
+:::image type="content" source="media/how-to-observability/la-nina-detailed.png" alt-text="Diagram illustrating an I o T Edge device sending telemetry data to Azure Monitor.":::
 
 IoT Edge modules `Temperature Sensor` and `Filter` export the logs and tracing data via OTLP (OpenTelemetry Protocol) to the [OpenTelemetryCollector](https://opentelemetry.io/docs/collector/) module, running on the same edge device. The `OpenTelemetryCollector` module, in its turn, exports logs and traces to Azure Monitor Application Insights service.
 
 The Azure .NET Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](../azure-monitor/app/opentelemetry-enable.md). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
 
-The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/java-in-process-agent.md) to produce and export tracing data and correlated logs to the Application Insights instance.
+The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/opentelemetry-enable.md?tabs=java) to produce and export tracing data and correlated logs to the Application Insights instance.
 
 By default, IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the [logging level](/aspnet/core/fundamentals/logging) is set to `Information`. The amount of produced tracing data is regulated by a [ratio based sampler](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35). The sampler is configured with a desired [probability](https://github.com/open-telemetry/opentelemetry-dotnet/blob/bdcf942825915666dfe87618282d72f061f7567e/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35) of a given activity to be included in a trace. By default, the probability is set to 0. With that in place, the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
 
 We've analyzed the `Information` level logs of the `Filter` module and realized that we need to dive deeper to locate the cause of the issue. We're going to update properties in the `Temperature Sensor` and `Filter` module twins and increase the `loggingLevel` to `Debug` and change the `traceSampleRatio` from `0` to `1`:
 
-![Screenshot of module troubleshooting showing updating FilterModule twin properties](media/how-to-observability/update-twin.png)
+:::image type="content" source="media/how-to-observability/update-twin.png" alt-text="Screenshot of module troubleshooting showing how to update the FilterModule twin properties.":::
 
 With that in place, we have to restart the `Temperature Sensor` and `Filter` modules:
 
-![Screenshot of module troubleshooting showing Restart FilterModule button](media/how-to-observability/restart-module.png)
+:::image type="content" source="media/how-to-observability/restart-module.png" alt-text="Screenshot of module troubleshooting showing the Restart FilterModule button.":::
 
 In a few minutes, the traces and detailed logs will arrive to Azure Monitor from the trouble device. The entire end-to-end message flow from the sensor on the device to the storage in the cloud will be available for monitoring with *application map* in Application Insights:
 
-![Screenshot of application map in Application Insights](media/how-to-observability/application-map.png)
+:::image type="content" source="media/how-to-observability/application-map.png" alt-text="Screenshot of the application map in Application Insights.":::
 
 From this map we can drill down to the traces and we can see that some of them look normal and contain all the steps of the flow, and some of them, are very short, so nothing happens after the `Filter` module. 
 
-![ Screenshot of monitoring traces](media/how-to-observability/traces.png)
+:::image type="content" source="media/how-to-observability/traces.png" alt-text="Screenshot of monitoring traces.":::
 
 Let's analyze one of those short traces and find out what was happening in the `Filter` module, and why it didn't send the message upstream to the cloud. 
 
 Our logs are correlated with the traces, so we can query logs specifying the `TraceId` and `SpanId` to retrieve logs corresponding exactly to this execution instance of the `Filter` module:
 
-![Sample trace query filtering based on Trace ID and Span ID.](media/how-to-observability/logs.png)
+:::image type="content" source="media/how-to-observability/logs.png" alt-text="Sample trace query filtering based on Trace I D and Span I D.":::
 
 The logs show that the module received a message with 70.465-degrees temperature. But the filtering threshold configured on this device is 30 to 70. So the message simply didn't pass the threshold. Apparently, this specific device was configured wrong. This is the cause of the issue we detected while monitoring the La Niña service performance with the workbook.
 
 Let's fix the `Filter` module configuration on this device by updating properties in the module twin. We also want to reduce back the `loggingLevel` to `Information` and `traceSampleRatio` to `0`: 
 
-![Sample JSON showing the logging level and trace sample ratio values](media/how-to-observability/fix-issue.png)
+:::image type="content" source="media/how-to-observability/fix-issue.png" alt-text="Sample JSON showing the logging level and trace sample ratio values.":::
 
 Having done that, we need to restart the module. In a few minutes, the device reports new metric values to Azure Monitor. It reflects in the workbook charts:
 
-![Screenshot of Azure Monitor workbook chart](media/how-to-observability/fixed-workbook.png)
+:::image type="content" source="media/how-to-observability/fixed-workbook.png" alt-text="Screenshot of the Azure Monitor workbook chart.":::
 
 We see that the message frequency on the problematic device got back to normal. The overall SLO value will become green again, if nothing else happens, in the configured observation interval:
 
-![Screenshot of the monitoring summary report in the Azure portal](media/how-to-observability/green-workbook.png)
+:::image type="content" source="media/how-to-observability/green-workbook.png" alt-text="Screenshot of the monitoring summary report in the Azure portal.":::
 
 ## Try the sample
 

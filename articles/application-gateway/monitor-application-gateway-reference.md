@@ -6,7 +6,7 @@ ms.author: greglin
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
-ms.date: 11/17/2021
+ms.date: 05/17/2023
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -57,8 +57,8 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
-|**Bytes received**|Bytes|Count of bytes received by the Application Gateway from the clients.|
-|**Bytes sent**|Bytes|Count of bytes sent by the Application Gateway to the clients.|
+|**Bytes received**|Bytes|Count of bytes received by the Application Gateway from the clients. (This metric accounts for only the Request content size observed by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.)|
+|**Bytes sent**|Bytes|Count of bytes sent by the Application Gateway to the clients. (This metric accounts for only the Response Content size served by the Application Gateway. It doesn't include data transfers such as TCP/IP packet headers or retransmissions.)|
 |**Client TLS protocol**|Count|Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the TLS Protocol dimension.|
 |**Current capacity units**|Count|Count of capacity units consumed to load balance the traffic. There are three determinants to capacity unit - compute unit, persistent connections, and throughput. Each capacity unit is composed of at most: one compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.|
 |**Current compute units**|Count|Count of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing.|
@@ -68,7 +68,7 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Fixed Billable Capacity Units**|Count|The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting (one instance translates to 10 capacity units) in the Application Gateway configuration.|
 |**New connections per second**|Count|The average number of new TCP connections per second established from clients to the Application Gateway and from the Application Gateway to the backend members.|
 |**Response Status**|Status code|HTTP response status returned by Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.|
-|**Throughput**|Bytes/sec|Number of bytes per second the Application Gateway has served.|
+|**Throughput**|Bytes/sec|Number of bytes per second the Application Gateway has served. (This metric accounts for only the Content size served by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.)|
 |**Total Requests**|Count|Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.|
 
 #### Backend metrics
@@ -111,7 +111,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
+<!-- See https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
 
 Azure Application Gateway supports dimensions for some of the metrics in Azure Monitor. Each metric includes a description that explains the available dimensions specifically for that metric.
 
@@ -128,7 +128,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 > [!NOTE]
 > The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.
 
-For more information, see [Back-end health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log)
+For more information, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log)
 
 <!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->
@@ -143,7 +143,7 @@ Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-mon
 |:---------|:-------------|------------------|
 | **Activitylog**   | Activity log | Activity log entries are collected by default. You can use [Azure activity logs](../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. |
 |**ApplicationGatewayAccessLog**|Access log| You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP address, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.|
-| **ApplicationGatewayPerformanceLog**|Performance log|You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.|
+| **ApplicationGatewayPerformanceLog**|Performance log|You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.|
 |**ApplicationGatewayFirewallLog**|Firewall log|You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds.|
 
 
@@ -153,7 +153,7 @@ Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-mon
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Application Gateway and available for query by Log Analytics. 
 
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
+<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
@@ -191,5 +191,5 @@ sslEnabled_s | Does the client request have SSL enabled|
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Application Gateway.
+- See [Monitoring Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Application Gateway.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

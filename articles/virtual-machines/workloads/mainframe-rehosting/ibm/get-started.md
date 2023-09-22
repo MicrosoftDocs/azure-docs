@@ -5,10 +5,10 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
 documentationcenter:
-author: njray
-ms.author: edprice
-manager: edprice
-editor: edprice
+author: swread
+ms.author: sread
+editor: swread
+manager: mamccrea 
 ms.topic: conceptual
 ms.date: 02/22/2019
 tags:

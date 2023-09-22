@@ -3,7 +3,7 @@ title: Azure HDInsight virtual network architecture
 description: Learn the resources available when you create an HDInsight cluster in an Azure Virtual Network.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 11/17/2022
 ---
 
 # Azure HDInsight virtual network architecture
@@ -16,12 +16,9 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 
 | Type | Description |
 | --- | --- |
-| Head node |  For all cluster types except Apache Storm, the head nodes host the processes that manage execution of the distributed application. The head node is also the node that you can SSH into and execute applications that are then coordinated to run across the cluster resources. The number of head nodes is fixed at two for all cluster types. |
 | ZooKeeper node | Zookeeper coordinates tasks between the nodes that are doing data processing. It also does leader election of the head node, and keeps track of which head node is running a specific master service. The number of ZooKeeper nodes is fixed at three. |
 | Worker node | Represents the nodes that support data processing functionality. Worker nodes can be added or removed from the cluster to scale computing capability and manage costs. |
 | Region node | For the HBase cluster type, the region node (also referred to as a Data Node) runs the Region Server. Region Servers serve and manage a portion of the data managed by HBase. Region nodes can be added or removed from the cluster to scale computing capability and manage costs.|
-| Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper, which coordinates the running of Storm topologies. |
-| Supervisor node | For the Storm cluster type, the supervisor node executes the instructions provided by the Nimbus node to do the processing. |
 
 ## Resource naming conventions
 

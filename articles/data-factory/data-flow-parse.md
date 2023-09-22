@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 07/17/2023
 ---
 
 # Parse transformation in mapping data flow
@@ -27,7 +27,7 @@ In the parse transformation configuration panel, you'll first pick the type of d
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you'll either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you'll want to define a new column that parses the incoming embedded document string field.
+Similar to derived columns and aggregates, this is where you'll either modify an existing column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you'll want to define a new column that parses the incoming embedded document string field.
 
 ### Expression
 
@@ -42,13 +42,14 @@ Use the expression builder to set the source for your parsing. This can be as si
   * Expression: ```(level as string, registration as long)```
 
 * Source Nested JSON data: ```{"car" : {"model" : "camaro", "year" : 1989}, "color" : "white", "transmission" : "v8"}```
-* Expression: ```(car as (model as string, year as integer), color as string, transmission as string)```
+  * Expression: ```(car as (model as string, year as integer), color as string, transmission as string)```
 
 * Source XML data: ```<Customers><Customer>122</Customer><CompanyName>Great Lakes Food Market</CompanyName></Customers>```
   * Expression: ```(Customers as (Customer as integer, CompanyName as string))```
 
 * Source XML with Attribute data: ```<cars><car model="camaro"><year>1989</year></car></cars>```
-* Expression: ```(cars as (car as ({@model} as string, year as integer)))```
+  * Expression: ```(cars as (car as ({@model} as string, year as integer)))```
+
 * Note: If you run into errors extracting attributes (i.e. @model) from a complex type, a workaround is to convert the complex type to a string, remove the @ symbol (i.e. replace(toString(your_xml_string_parsed_column_name.cars.car),'@','')
 ), and then use the parse JSON transformation activity. 
 

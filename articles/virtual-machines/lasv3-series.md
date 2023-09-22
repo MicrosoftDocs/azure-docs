@@ -41,9 +41,14 @@ The Lasv3-series of Azure Virtual Machines (Azure VMs) features high-throughput,
 | Standard_L80as_v3 | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 80000/2000 | 32 | 8 | 32000 | 
 
 1. **Temp disk**: Lasv3-series VMs have a standard SCSI-based temp resource disk for use by the OS paging or swap file (`D:` on Windows, `/dev/sdb` on Linux). This disk provides 80 GiB of storage, 4000 IOPS, and 80 MBps transfer rate for every 8 vCPUs. For example, Standard_L80as_v3 provides 800 GiB at 40000 IOPS and 800 MBPS. This configuration ensures that the NVMe drives can be fully dedicated to application use. This disk is ephemeral, and all data is lost on stop or deallocation. 
-1. **NVMe Disks**: NVMe disk throughput can go higher than the specified numbers. However, higher performance isn't guaranteed. Local NVMe disks are ephemeral. Data is lost on these disks if you stop or deallocate your VM. Local NVMe disks aren't encrypted by [Azure Storage encryption](disk-encryption.md), even if you enable [encryption at host](disk-encryption.md#supported-vm-sizes). 
-1. **NVMe Disk throughput**: Hyper-V NVMe Direct technology provides unthrottled access to local NVMe drives mapped securely into the guest VM space. Lasv3 NVMe disk throughput can go higher than the specified numbers, but higher performance isn't guaranteed. To achieve maximum performance, see how to optimize performance on Lasv3-series [Windows-based VMs](../virtual-machines/windows/storage-performance.md) or [Linux-based VMs](../virtual-machines/linux/storage-performance.md). Read/write performance varies based on IO size, drive load, and capacity utilization. 
-1. **Max burst uncached data disk throughput**: Lasv3-series VMs can [burst their disk performance](./disk-bursting.md) for up to 30 minutes at a time. 
+2. **NVMe Disks**: NVMe disk throughput can go higher than the specified numbers. However, higher performance isn't guaranteed. Local NVMe disks are ephemeral. Data is lost on these disks if you stop or deallocate your VM. 
+3. **NVMe Disk encryption** Lasv3 VMs created or allocated on or after 1/1/2023 have their local NVMe drives encrypted by default using hardware-based encryption with a Platform-managed key, except for the regions listed below. 
+
+> [!NOTE]
+> Central US and Qatar Central Lasv3 VMs created or allocated on or after 4/1/2023 have their local NVMe Drives Encrypted. 
+
+4. **NVMe Disk throughput**: Hyper-V NVMe Direct technology provides unthrottled access to local NVMe drives mapped securely into the guest VM space. Lasv3 NVMe disk throughput can go higher than the specified numbers, but higher performance isn't guaranteed. To achieve maximum performance, see how to optimize performance on Lasv3-series [Windows-based VMs](../virtual-machines/windows/storage-performance.md) or [Linux-based VMs](../virtual-machines/linux/storage-performance.md). Read/write performance varies based on IO size, drive load, and capacity utilization. 
+5. **Max burst uncached data disk throughput**: Lasv3-series VMs can [burst their disk performance](./disk-bursting.md) for up to 30 minutes at a time. 
 
 > [!NOTE]
 > Lasv3-series VMs don't provide a host cache for the data disk because this configuration doesn't benefit the Lasv3 workloads. 

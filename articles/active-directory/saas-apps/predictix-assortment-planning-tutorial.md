@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Predictix Assortment Planning | Microsoft Docs'
-description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Predictix Assortment Planning.
+title: 'Tutorial: Microsoft Entra integration with Predictix Assortment Planning'
+description: In this tutorial, you'll learn how to configure single sign-on between Microsoft Entra ID and Predictix Assortment Planning.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,44 +9,41 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Predictix Assortment Planning
+# Tutorial: Microsoft Entra integration with Predictix Assortment Planning
 
-In this tutorial, you'll learn how to integrate Predictix Assortment Planning with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Predictix Assortment Planning with Microsoft Entra ID.
 This integration provides these benefits:
 
-* You can use Azure AD to control who has access to Predictix Assortment Planning.
-* You can enable your users to be automatically signed in to Predictix Assortment Planning (single sign-on) with their Azure AD accounts.
+* You can use Microsoft Entra ID to control who has access to Predictix Assortment Planning.
+* You can enable your users to be automatically signed in to Predictix Assortment Planning (single sign-on) with their Microsoft Entra accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Microsoft Entra ID, see [Single sign-on to applications in Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
 
 ## Prerequisites
 
-To configure Azure AD integration with Predictix Assortment Planning, you need to have:
+To configure Microsoft Entra integration with Predictix Assortment Planning, you need to have:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/pricing/free-trial/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * A Predictix Assortment Planning subscription that has single sign-on enabled.
 
 ## Scenario description
 
-In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra single sign-on in a test environment.
 
 * Predictix Assortment Planning supports SP-initiated SSO.
 
 ## Add Predictix Assortment Planning from the gallery
 
-To set up the integration of Predictix Assortment Planning into Azure AD, you need to add Predictix Assortment Planning from the gallery to your list of managed SaaS apps.
+To set up the integration of Predictix Assortment Planning into Microsoft Entra ID, you need to add Predictix Assortment Planning from the gallery to your list of managed SaaS apps.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
-
-	![Select Azure Active Directory](common/select-azuread.png)
-
-2. Go to **Enterprise applications** > **All applications**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
@@ -58,27 +55,32 @@ To set up the integration of Predictix Assortment Planning into Azure AD, you ne
 
 	 ![Search results](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+<a name='configure-and-test-azure-ad-single-sign-on'></a>
 
-In this section, you'll configure and test Azure AD single sign-on with Predictix Assortment Planning by using a test user named Britta Simon.
-To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Predictix Assortment Planning.
+## Configure and test Microsoft Entra single sign-on
 
-To configure and test Azure AD single sign-on with Predictix Assortment Planning, you need to complete these steps:
+In this section, you'll configure and test Microsoft Entra single sign-on with Predictix Assortment Planning by using a test user named Britta Simon.
+To enable single sign-on, you need to establish a relationship between a Microsoft Entra user and the corresponding user in Predictix Assortment Planning.
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
+To configure and test Microsoft Entra single sign-on with Predictix Assortment Planning, you need to complete these steps:
+
+1. **[Configure Microsoft Entra single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
 2. **[Configure Predictix Assortment Planning single sign-on](#configure-predictix-assortment-planning-single-sign-on)** on the application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create a Predictix Assortment Planning test user](#create-a-predictix-assortment-planning-test-user)** that's linked to the Azure AD representation of the user.
+3. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on.
+4. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable Microsoft Entra single sign-on for the user.
+5. **[Create a Predictix Assortment Planning test user](#create-a-predictix-assortment-planning-test-user)** that's linked to the Microsoft Entra representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
-### Configure Azure AD single sign-on
+<a name='configure-azure-ad-single-sign-on'></a>
 
-In this section, you'll enable Azure AD single sign-on in the Azure portal.
+### Configure Microsoft Entra single sign-on
 
-To configure Azure AD single sign-on with Predictix Assortment Planning, take these steps:
+In this section, you'll enable Microsoft Entra single sign-on.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Predictix Assortment Planning** application integration page, select **Single sign-on**:
+To configure Microsoft Entra single sign-on with Predictix Assortment Planning, take these steps:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Predictix Assortment Planning** application integration page, select **Single sign-on**:
 
     ![Select Single sign-on](common/select-sso.png)
 
@@ -86,7 +88,7 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 
     ![Select a single sign-on method](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
+1. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
 	![Edit icon](common/edit-urls.png)
 
@@ -109,9 +111,9 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
         ```
 
 	> [!NOTE]
-	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Assortment Planning support team](https://www.infor.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Assortment Planning support team](https://www.infor.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
 	![Certificate download link](common/certificatebase64.png)
 
@@ -121,81 +123,71 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 
 	1. **Login URL**.
 
-	1. **Azure AD Identifier**.
+	1. **Microsoft Entra Identifier**.
 
 	1. **Logout URL**.
 
 ### Configure Predictix Assortment Planning single sign-on
 
-To configure single sign-on on the Predictix Assortment Planning side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Assortment Planning support team](https://www.infor.com/support). This team ensures the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Predictix Assortment Planning side, you need to send the certificate that you downloaded and the URLs that you copied to the [Predictix Assortment Planning support team](https://www.infor.com/support). This team ensures the SAML SSO connection is set properly on both sides.
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user named Britta Simon in the Azure portal.
+### Create a Microsoft Entra test user
 
-1. In the Azure portal, select **Azure Active Directory** in the left pane, select **Users**, and then select **All users**:
+In this section, you'll create a test user named Britta Simon.
 
-    ![Select All users](common/users.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
+<a name='assign-the-azure-ad-test-user'></a>
 
-2. Select **New user** at the top of the screen:
+### Assign the Microsoft Entra test user
 
-    ![Select New user](common/new-user.png)
+In this section, you'll enable Britta Simon to use Microsoft Entra single sign-on by granting her access to Predictix Assortment Planning.
 
-3. In the **User** dialog box, take the following steps.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Predictix Assortment Planning**.
 
-    ![User dialog box](common/user-properties.png)
+   ![List of applications](common/all-applications.png)
 
-    1. In the **Name** box, enter **BrittaSimon**.
-  
-    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
+1. In the left pane, select **Users and groups**:
 
-    1. Select **Show password**, and then write down the value that's in the **Password** box.
+   ![Select Users and groups](common/users-groups-blade.png)
 
-    1. Select **Create**.
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
-### Assign the Azure AD test user
+   ![Select Add user](common/add-assign-user.png)
 
-In this section, you'll enable Britta Simon to use Azure AD single sign-on by granting her access to Predictix Assortment Planning.
+1. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the screen.
 
-1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Predictix Assortment Planning**.
+1. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 
-	![Enterprise applications](common/enterprise-applications.png)
-
-2. In the list of applications, select **Predictix Assortment Planning**.
-
-	![List of applications](common/all-applications.png)
-
-3. In the left pane, select **Users and groups**:
-
-    ![Select Users and groups](common/users-groups-blade.png)
-
-4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-
-    ![Select Add user](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the screen.
-
-6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog box, select **Assign**.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
 ### Create a Predictix Assortment Planning test user
 
 Next, you need to create a user named Britta Simon in Predictix Assortment Planning. Work with the [Predictix Assortment Planning support team](https://www.infor.com/support) to add users. Users need to be created and activated before you use single sign-on.
 
 > [!NOTE]
-> The Azure AD account holder receives an email and selects a link to confirm the account before it becomes active.
+> The Microsoft Entra account holder receives an email and selects a link to confirm the account before it becomes active.
 
 ### Test single sign-on
 
-Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
+Now you need to test your Microsoft Entra single sign-on configuration by using the Access Panel.
 
 When you select the Predictix Assortment Planning tile in the Access Panel, you should be automatically signed in to the Predictix Assortment Planning instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
+- [Tutorials for integrating SaaS applications with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

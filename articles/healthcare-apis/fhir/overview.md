@@ -2,17 +2,17 @@
 title: What is the FHIR service in Azure Health Data Services?
 description: The FHIR service enables rapid exchange of health data through FHIR APIs. Ingest, manage, and persist Protected Health Information (PHI) with a managed cloud service.
 services: healthcare-apis
-author: matjazl
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 08/01/2022
-ms.author: chrupa
+ms.date: 09/01/2023
+ms.author: kesheth
 ---
 
-# What is the FHIR service in Azure Health Data Services?
+# What is the FHIR service?
 
-The FHIR service in Azure Health Data Services enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. Offered as a managed Platform-as-a-Service (PaaS), the FHIR service makes it easy for anyone working with health data to securely store and exchange Protected Health Information ([PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html)) in the cloud. 
+The FHIR service in Azure Health Data Services enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. As part of a managed Platform-as-a-Service (PaaS), the FHIR service makes it easy for anyone working with health data to securely store and exchange Protected Health Information ([PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html)) in the cloud. 
 
 The FHIR service offers the following:
 
@@ -21,10 +21,10 @@ The FHIR service offers the following:
 - High performance, low latency
 - Secure management of Protected Health Information (PHI) in a compliant cloud environment
 - SMART on FHIR for mobile and web clients
-- Controlled access to FHIR data at scale with Azure Active Directory-backed Role-Based Access Control (RBAC)
-- Audit log tracking for access, creation, and modification within the FHIR service data store
+- Controlled access to FHIR data at scale with Azure Active Directory Role-Based Access Control (RBAC)
+- Audit log tracking for access, creation, and modification events within the FHIR service data store
 
-The FHIR service allows you to quickly create and deploy a FHIR server in just minutes to leverage the elastic scale of the cloud for ingesting, persisting, and querying FHIR data. The Azure services that power the FHIR service are designed for high performance no matter how much data you're working with.
+The FHIR service allows you to quickly create and deploy a FHIR server to leverage the elastic scale of the cloud for ingesting, persisting, and querying FHIR data. The Azure services that power the FHIR service are designed for high performance no matter how much data you're working with.
 
 The FHIR API provisioned in the FHIR service enables any FHIR-compliant system to securely connect and interact with FHIR data. As a PaaS offering, Microsoft takes on the operations, maintenance, update, and compliance requirements for the FHIR service so you can free up your own operational and development resources. 
 
@@ -60,7 +60,7 @@ FHIR servers are essential for interoperability of health data. The FHIR service
 
 - **Healthcare Ecosystems:** While EHRs exist as the primary ‘source of truth’ in many clinical settings, it isn't uncommon for providers to have multiple databases that aren’t connected to one another (often because the data is stored in different formats). Utilizing the FHIR service as a conversion layer between these systems allows organizations to standardize data in the FHIR format. Ingesting and persisting in FHIR enables health data querying and exchange across multiple disparate systems. 
 
-- **Research:** Health researchers have embraced the FHIR standard as it gives the community a shared data model and removes barriers to assembling large datasets for machine learning and analytics. With the FHIR service's data conversion and PHI de-identification capabilities, researchers can prepare HIPAA-compliant data for secondary use before sending the data to Azure machine learning and analytics pipelines. The FHIR service's audit logging and alert mechanisms also play an important role in research workflows.
+- **Research:** Health researchers have embraced the FHIR standard as it gives the community a shared data model and removes barriers to assembling large datasets for machine learning and analytics. With the FHIR service's data conversion and PHI de-identification capabilities, researchers can prepare HIPAA-compliant data for secondary use before sending the data to Azure Machine Learning and analytics pipelines. The FHIR service's audit logging and alert mechanisms also play an important role in research workflows.
 
 ## FHIR platforms from Microsoft
 

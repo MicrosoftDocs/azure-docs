@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.topic: article
 ms.service: app-service
 ms.custom: subject-monitoring
-ms.date: 04/16/2021
+ms.date: 11/18/2022
 ---
 
 # Monitoring App Service
@@ -34,6 +34,9 @@ Resource Logs aren't collected and stored until you create a diagnostic setting 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *App Service* are listed in [App Service monitoring data reference](monitor-app-service-reference.md#resource-logs).
 
 The metrics and logs you can collect are discussed in the following sections.
+
+[!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
+
 
 ## Analyzing metrics
 
@@ -93,7 +96,7 @@ See [Azure Monitor queries for App Service](https://github.com/microsoft/AzureMo
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md).
 
-If you're running an application on App Service [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) offers more types of alerts.
+If you're running an application on App Service [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) offers more types of alerts.
 
 The following table lists common and recommended alert rules for App Service.
 

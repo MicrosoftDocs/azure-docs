@@ -9,7 +9,6 @@
     - name: B2C
       tocHref: /azure/active-directory/develop/
       topicHref: /azure/active-directory-b2c/index
-
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
@@ -21,7 +20,6 @@
     - name: B2C
       tocHref: /azure/active-directory/external-identities/
       topicHref: /azure/active-directory-b2c/index
-
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index

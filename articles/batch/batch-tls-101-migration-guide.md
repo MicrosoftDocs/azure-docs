@@ -1,44 +1,55 @@
 ---
-title: Batch Tls 1.0 Migration Guide
-description: Describes the migration steps for the batch TLS 1.0 and the end of support details.
+title: Migrate client code to TLS 1.2 in Azure Batch
+description: Learn how to migrate client code to TLS 1.2 in Azure Batch to plan for end of support for TLS 1.0 and TLS 1.1.
 author: harperche
 ms.author: harpercheng
 ms.service: batch
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 08/16/2022
+ms.topic: how-to
+ms.date: 10/12/2022
 ---
-# Batch TLS 1.0 Migration Guide
 
-Transport Layer Security (TLS) versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. They also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. There's an industry-wide push toward the exclusive use of TLS version 1.2 or later.
+# Migrate client code to TLS 1.2 in Batch
 
-To follow security best practices and remain in compliance with industry standards, Azure Batch will retire Batch TLS 1.0/1.1 on **31 March 2023**. Most customers have already migrated to TLS 1.2. Customers who continue to use TLS 1.0/1.1 can be identified via existing BatchOperation telemetry. Customers will need to adjust their existing workflows to ensure that they're using TLS 1.2. Failure to migrate to TLS 1.2 will break existing Batch workflows.
+To support security best practices and remain in compliance with industry standards, Azure Batch will retire Transport Layer Security (TLS) 1.0 and TLS 1.1 in Azure Batch on *March 31, 2023*. Learn how to migrate to TLS 1.2 in your Batch service client code.
 
-## Migration strategy
+## End of support for TLS 1.0 and TLS 1.1 in Batch
 
-Customers must update client code before the TLS 1.0/1.1 retirement. 
+TLS versions 1.0 and TLS 1.1 are known to be susceptible to BEAST and POODLE attacks and to have other Common Vulnerabilities and Exposures (CVE) weaknesses. TLS 1.0 and TLS 1.1 don't support the modern encryption methods and cipher suites that the Payment Card Industry (PCI) compliance standards recommends. Microsoft is participating in an industry-wide push toward the exclusive use of TLS version 1.2 or later.
 
-- Customers using native WinHTTP for client code can follow this [guide](https://support.microsoft.com/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392). 
+If you've already migrated to use TLS 1.2 in your Batch client applications, then this retirement doesn't apply to you. Only API requests that go directly to the Batch service via the data plane API (not management plane) are impacted. API requests at the management plane layer are routed through ARM and are subject to ARM TLS minimum version requirements. We recommend that you migrate to TLS 1.2 across Batch data plane or management plane API calls for security best practices, if possible.
 
-- Customers using .NET framework for their client code should upgrade to .NET > 4.7, that which enforces TLS 1.2 by default. 
+## Alternative: Use TLS 1.2
 
-- For customers on .NET framework who are unable to upgrade to > 4.7, please follow this [guide](https://docs.microsoft.com/dotnet/framework/network-programming/tls) to enforce TLS 1.2.
+To avoid disruption to your Batch workflows, you must update your client code to use TLS 1.2 before the TLS 1.0 and TLS 1.1 retirement in Batch on March 31, 2023.
 
-For TLS best practices, refer to [TLS best practices for .NET framework](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
+For specific development use cases, see the following information:
 
-## FAQ
+- If you use native WinHTTP for your client application code, see the guidance in [Update to enable TLS 1.1 and TLS 1.2 as default security protocols](https://support.microsoft.com/topic/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-winhttp-in-windows-c4bd73d2-31d7-761e-0178-11268bb10392).
 
-* Why must we upgrade to TLS 1.2?<br>
-   TLS 1.0/1.1 has security issues that are fixed in TLS 1.2. TLS 1.2 has been available since 2008 and is the current default version in most frameworks.
+- If you use the .NET Framework for your client application code, upgrade to .NET 4.7 or later. Beginning in .NET 4.7, TLS 1.2 is enforced by default.
 
-* What happens if I don’t upgrade?<br>
-   After the feature retirement, our client application won't work until you upgrade.<br>
+- If you use the .NET Framework and you *can't* upgrade to .NET 4.7 or later, see the guidance in [TLS for network programming](/dotnet/framework/network-programming/tls) to enforce TLS 1.2.
 
-* Will Upgrading to TLS 1.2 affect the performance?<br>
-   Upgrading to TLS 1.2 won't affect performance.<br>
+For more information, see [TLS best practices for the .NET Framework](/dotnet/framework/network-programming/tls).
 
-* How do I know if I’m using TLS 1.0/1.1?<br>
-   You can check the Audit Log to determine the TLS version you're using.
+## FAQs
+
+- Why do I need to upgrade to TLS 1.2?
+
+   TLS 1.0 and TLS 1.1 are considered insecure and have security issues that are addressed in TLS 1.2. TLS 1.2 has been available since 2008. TLS 1.2 is widely adopted as the minimum version for securing communication channels using TLS.
+
+- What happens if I don't upgrade?
+
+   After the feature retirement from Azure Batch, your client application won't be able to communicate with Batch data plane API services unless you upgrade to TLS 1.2.
+
+- Does upgrading to TLS 1.2 affect the performance of my application?
+
+   Upgrading to TLS 1.2 generally shouldn't affect your application's performance.
+
+- How do I know if I’m using TLS 1.0 or TLS 1.1?
+
+   To determine the TLS version you're using, check your client application logs and the audit log for your Batch deployment.
 
 ## Next steps
 
-For more information, see [How to enable TLS 1.2 on clients](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2-client).
+For more information, see [Enable TLS 1.2 on clients](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client).

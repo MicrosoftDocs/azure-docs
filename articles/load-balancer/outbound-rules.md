@@ -1,13 +1,13 @@
 ---
 title: Outbound rules Azure Load Balancer
-description: This article explains how to configure outbound rules to control egress of internet traffic with Azure Load Balancer.
+description: This article explains how to configure outbound rules to control outbound internet traffic with Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.custom: contperf-fy21q1
-ms.date: 1/6/2022
+ms.date: 05/08/2023
 ms.author: mbender
+ms.custom: template-how-to, contperf-fy21q1, engagement-fy23
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer
@@ -24,7 +24,7 @@ With outbound rules, you have full declarative control over outbound internet co
 
 Outbound rules will only be followed if the backend VM doesn't have an instance-level public IP address (ILPIP).
 
-:::image type="content" source="media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png" alt-text="This diagram shows configuration of SNAT ports on VMs w/ outbound load balancer rules.":::
+:::image type="content" source="media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png" alt-text="This diagram shows configuration of SNAT ports on virtual machines with outbound load balancer rules.":::
 
 With outbound rules, you can explicitly define outbound **SNAT** behavior.
 
@@ -84,7 +84,7 @@ You can use this parameter in two ways:
   
 2. Tune the outbound **SNAT** parameters of an IP address used for inbound and outbound simultaneously. The automatic outbound NAT must be disabled to allow an outbound rule to take control. To change the SNAT port allocation of an address also used for inbound, the `disableOutboundSnat` parameter must be set to true. 
 
-The operation to configure an outbound rule will fail if you attempt to redefine an IP address that is used for inbound.  Disable the outbound NAT of the load-balancing rule first.
+The operation to configure an outbound rule fails if you attempt to redefine an IP address that is used for inbound.  Disable the outbound NAT of the load-balancing rule first.
 
 >[!IMPORTANT]
 > Your virtual machine will not have outbound connectivity if you set this parameter to true and do not have an outbound rule to define outbound connectivity.  Some operations of your VM or your application may depend on having outbound connectivity available. Make sure you understand the dependencies of your scenario and have considered impact of making this change.
@@ -97,18 +97,15 @@ Ensure that the VM can receive health probe requests from Azure Load Balancer.
 
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked unavailable. The load balancer stops sending new flows to that VM.
 
-## Scenarios with outbound rules
-		
-
-### Outbound rules scenarios
+## Outbound rules scenarios
 
 
-* Configure outbound connections to a specific set of public IPs or prefix.
-* Modify [SNAT](load-balancer-outbound-connections.md) port allocation.
-* Enable outbound only.
-* Outbound NAT for VMs only (no inbound).
-* Outbound NAT for internal standard load balancer.
-* Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer.
+* [Configure outbound connections to a specific set of public IPs or prefix](#scenario1out).
+* [Modify SNAT port allocation](#scenario2out).
+* [Enable outbound only](#scenario3out).
+* [Outbound NAT for VMs only (no inbound)](#scenario4out).
+* [Outbound NAT for internal standard load balancer](#scenario5out).
+* [Enable both TCP & UDP protocols for outbound NAT with a public standard load balancer](#scenario6out).
 
 
 ### <a name="scenario1out"></a>Scenario 1: Configure outbound connections to a specific set of public IPs or prefix
@@ -151,7 +148,7 @@ Each public IP address contributes up to 64,000 ephemeral ports. The number of V
 You can use outbound rules to tune the SNAT ports given by default. You give more or less than the default [SNAT](load-balancer-outbound-connections.md) port allocation provides. Each public IP address from a frontend of an outbound rule contributes up to 64,000 ephemeral ports for use as [SNAT](load-balancer-outbound-connections.md) ports. 
 
 
-Load balancer gives [SNAT](load-balancer-outbound-connections.md) ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected. Each load balancing rule and inbound NAT rule will consume a range of eight ports. If a load balancing or inbound NAT rule shares the same range of 8 as another, no extra ports will be consumed.
+Load balancer gives [SNAT](load-balancer-outbound-connections.md) ports in multiples of 8. If you provide a value not divisible by 8, the configuration operation is rejected. Each load balancing rule and inbound NAT rule consume a range of eight ports. If a load balancing or inbound NAT rule shares the same range of 8 as another, no extra ports are consumed.
 
 
 If you attempt to give out more [SNAT](load-balancer-outbound-connections.md) ports than are available (based on the number of public IP addresses), the configuration operation is rejected. For example, if you give 10,000 ports per VM and seven VMs in a backend pool share a single public IP, the configuration is rejected. Seven multiplied by 10,000 exceeds the 64,000 port limit. Add more public IP addresses to the frontend of the outbound rule to enable the scenario. 
@@ -240,7 +237,7 @@ When only inbound NAT rules are used, no outbound NAT is provided.
 
 - The maximum number of usable ephemeral ports per frontend IP address is 64,000.
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
-- Load balancer doesn't support ICMP for outbound NAT.
+- Load balancer doesn't support ICMP for outbound NAT, the only supported protocols are TCP and UDP.
 - Outbound rules can only be applied to primary IP configuration of a NIC.  You can't create an outbound rule for the secondary IP of a VM or NVA. Multiple NICs are supported.
 - All virtual machines within an **availability set** must be added to the backend pool for outbound connectivity. 
 - All virtual machines within a **virtual machine scale set** must be added to the backend pool for outbound connectivity.

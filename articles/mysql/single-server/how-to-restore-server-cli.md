@@ -3,8 +3,8 @@ title: Backup and restore - Azure CLI - Azure Database for MySQL
 description: Learn how to backup and restore a server in Azure Database for MySQL by using the Azure CLI.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 06/20/2022
@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 Azure Database for MySQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
 ## Prerequisites
@@ -23,7 +25,7 @@ To complete this how-to guide:
 
 - You need an [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

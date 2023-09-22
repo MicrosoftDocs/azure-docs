@@ -2,6 +2,7 @@
 title: How to filter events for Azure Event Grid
 description: This article shows how to filter events (by event type, by subject, by operators and data, etc.) when creating an Event Grid subscription. 
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 08/11/2021 
 ---
 
@@ -346,4 +347,3 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 
 ## Next steps
 To learn more about filters (event types, subject, and advanced), see [Understand event filtering for Event Grid subscriptions](event-filtering.md). 
-

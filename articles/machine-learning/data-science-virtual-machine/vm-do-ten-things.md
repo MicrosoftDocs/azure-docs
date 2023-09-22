@@ -4,13 +4,12 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 
 author: jesscioffi
 ms.author: jcioffi
 ms.topic: conceptual
 ms.date: 06/23/2022
-
 ---
 
 # Data science with a Windows Data Science Virtual Machine
@@ -153,7 +152,7 @@ In Visual Studio, you can do the same clone operation. The  following screenshot
 
 ![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.png)
 
-You can find more information on using Git to work with your GitHub repository from resources available on github.com. The [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is a useful reference.
+You can find more information on using Git to work with your GitHub repository from resources available on github.com. The [cheat sheet](https://training.github.com/downloads/github-git-cheat-sheet/) is a useful reference.
 
 ## Access Azure data and analytics services
 ### Azure Blob storage

@@ -1,20 +1,18 @@
 ---
-title: Troubleshoot Azure VNET Gateway and Connections - Azure CLI
+title: Troubleshoot Azure VNet gateway and connections - Azure CLI
 titleSuffix: Azure Network Watcher
-description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI
+description: This page explains how to use the Azure Network Watcher troubleshoot Azure CLI.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.service: network-watcher
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: damendo
-
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 07/25/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
-# Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher Azure CLI
+# Troubleshoot virtual network gateway and connections with Azure Network Watcher using Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)

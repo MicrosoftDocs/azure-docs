@@ -2,17 +2,16 @@
 title: Upload large amounts of random data in parallel to Azure Storage 
 description: Learn how to use the Azure Storage client library to upload large amounts of random data in parallel to an Azure Storage account
 author: roygara
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: rogarana
-ms.subservice: blobs
 ms.devlang: csharp
 ---
 
 # Upload large amounts of random data in parallel to Azure storage
 
-This tutorial is part two of a series. This tutorial shows you deploy an application that uploads large amount of random data to an Azure storage account.
+This tutorial is part two of a series. This tutorial shows you how to deploy an application that uploads large amount of random data to an Azure storage account.
 
 In part two of the series, you learn how to:
 
@@ -62,111 +61,7 @@ The application creates five randomly named containers and begins uploading the 
 
 The `UploadFilesAsync` method is shown in the following example:
 
-# [.NET v12 SDK](#tab/dotnet)
-
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_UploadFilesAsync":::
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-The minimum and maximum number of threads are set to 100 to ensure that a large number of concurrent connections are allowed.
-
-```csharp
-private static async Task UploadFilesAsync()
-{
-    // Create five randomly named containers to store the uploaded files.
-    CloudBlobContainer[] containers = await GetRandomContainersAsync();
-
-    var currentdir = System.IO.Directory.GetCurrentDirectory();
-
-    // Path to the directory to upload
-    string uploadPath = currentdir + "\\upload";
-
-    // Start a timer to measure how long it takes to upload all the files.
-    Stopwatch time = Stopwatch.StartNew();
-
-    try
-    {
-        Console.WriteLine("Iterating in directory: {0}", uploadPath);
-
-        int count = 0;
-        int max_outstanding = 100;
-        int completed_count = 0;
-
-        // Define the BlobRequestOptions on the upload.
-        // This includes defining an exponential retry policy to ensure that failed connections
-        // are retried with a back off policy. As multiple large files are being uploaded using
-        // large block sizes, this can cause an issue if an exponential retry policy is not defined.
-        // Additionally, parallel operations are enabled with a thread count of 8.
-        // This should be a multiple of the number of processor cores in the machine.
-        // Lastly, MD5 hash validation is disabled for this example, improving the upload speed.
-        BlobRequestOptions options = new BlobRequestOptions
-        {
-            ParallelOperationThreadCount = 8,
-            DisableContentMD5Validation = true,
-            StoreBlobContentMD5 = false
-        };
-
-        // Create a new instance of the SemaphoreSlim class to 
-        // define the number of threads to use in the application.
-        SemaphoreSlim sem = new SemaphoreSlim(max_outstanding, max_outstanding);
-
-        List<Task> tasks = new List<Task>();
-        Console.WriteLine("Found {0} file(s)", Directory.GetFiles(uploadPath).Count());
-
-        // Iterate through the files
-        foreach (string path in Directory.GetFiles(uploadPath))
-        {
-            var container = containers[count % 5];
-            string fileName = Path.GetFileName(path);
-            Console.WriteLine("Uploading {0} to container {1}", path, container.Name);
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(fileName);
-
-            // Set the block size to 100MB.
-            blockBlob.StreamWriteSizeInBytes = 100 * 1024 * 1024;
-
-            await sem.WaitAsync();
-
-            // Create a task for each file to upload. The tasks are
-            // added to a collection and all run asynchronously.
-            tasks.Add(blockBlob.UploadFromFileAsync(path, null, options, null).ContinueWith((t) =>
-            {
-                sem.Release();
-                Interlocked.Increment(ref completed_count);
-            }));
-
-            count++;
-        }
-
-        // Run all the tasks asynchronously.
-        await Task.WhenAll(tasks);
-
-        time.Stop();
-
-        Console.WriteLine("Upload has been completed in {0} seconds. Press any key to continue", time.Elapsed.TotalSeconds.ToString());
-
-        Console.ReadLine();
-    }
-    catch (DirectoryNotFoundException ex)
-    {
-        Console.WriteLine("Error parsing files in the directory: {0}", ex.Message);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.Message);
-    }
-}
-```
-
-In addition to setting the threading and connection limit settings, the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) for the [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) method are configured to use parallelism and disable MD5 hash validation. The files are uploaded in 100-mb blocks, this configuration provides better performance but can be costly if using a poorly performing network as if there is a failure the entire 100-mb block is retried.
-
-|Property|Value|Description|
-|---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| The setting breaks the blob into blocks when uploading. For highest performance, this value should be eight times the number of cores. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. But does not confirm the validity or integrity of the files being transferred.   |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| This property determines if an MD5 hash is calculated and stored with the file.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| 2-second backoff with 10 max retry |Determines the retry policy of requests. Connection failures are retried, in this example an [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) policy is configured with a 2-second backoff, and a maximum retry count of 10. This setting is important when your application gets close to hitting the scalability targets for Blob storage. For more information, see [Scalability and performance targets for Blob storage](../blobs/scalability-targets.md).  |
-
----
 
 The following example is a truncated application output running on a Windows system.
 

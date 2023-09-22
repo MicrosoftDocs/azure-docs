@@ -50,6 +50,9 @@
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
     href: ./shared-query-template.md
+  - name: Paginate query results with Azure PowerShell
+    displayName: queries, powershell, Az.ResourceGraph
+    href: ./paginate-powershell.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal

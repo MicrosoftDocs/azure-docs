@@ -2,16 +2,16 @@
 title: "Quickstart: Create a hybrid mode instance with Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode.
-services: database-migration
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
+author: abhims14
+ms.author: abhishekum
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: seo-lt-2019, mode-ui, subject-rbac-steps
-ms.topic: quickstart
 ms.date: 03/13/2020
+ms.service: dms
+ms.topic: quickstart
+ms.custom:
+  - seo-lt-2019
+  - mode-ui
+  - subject-rbac-steps
 ---
 
 # Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to the Azure portal
 
-Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal.
+From a browser, sign in to the [Azure portal](https://portal.azure.com).
 
 The default view is your service dashboard.
 

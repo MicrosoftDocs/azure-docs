@@ -4,15 +4,16 @@ description: In this tutorial, you learn how to access Azure Storage for an app 
 services: storage, app-service-web
 author: rwike77
 manager: CelesteDG
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/25/2021
+ms.date: 07/31/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
+ms.subservice: web-apps
 ---
 
 # Tutorial: Access Azure Storage from a web app
@@ -23,7 +24,7 @@ Learn how to access Azure Storage for a web app (not a signed-in user) running o
 
 You want to add access to the Azure data plane (Azure Storage, Azure SQL Database, Azure Key Vault, or other services) from your web app. You could use a shared key, but then you have to worry about operational security of who can create, deploy, and manage the secret. It's also possible that the key could be checked into GitHub, which hackers know how to scan for. A safer way to give your web app access to data is to use [managed identities](../managed-identities-azure-resources/overview.md).
 
-A managed identity from Azure Active Directory (Azure AD) allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. People don't have to worry about managing secrets or app credentials.
+A managed identity from Microsoft Entra ID allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. People don't have to worry about managing secrets or app credentials.
 
 In this tutorial, you learn how to:
 
@@ -63,7 +64,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 1. On the Azure portal menu, select **All services**. In the list of resources, enter **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 
-1. In the **Storage Accounts** window that appears, select **Add**.
+1. In the **Storage Accounts** window that appears, select **Create**.
 
 1. Select the subscription in which to create the storage account.
 
@@ -73,17 +74,11 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 1. Select a location for your storage account, or use the default location.
 
-1. Leave these fields set to their default values:
+1. For **Performance**, select the **Standard** option.
 
-    |Field|Value|
-    |--|--|
-    |Deployment model|Resource Manager|
-    |Performance|Standard|
-    |Account kind|StorageV2 (general-purpose v2)|
-    |Replication|Read-access geo-redundant storage (RA-GRS)|
-    |Access tier|Hot|
+1. For **Redundancy**, select the **Locally-redundant storage (LRS)** option from the dropdown.
 
-1. Select **Review + Create** to review your storage account settings and create the account.
+1. Select **Review** to review your storage account settings and create the account.
 
 1. Select **Create**.
 
@@ -91,7 +86,7 @@ To create a Blob Storage container in Azure Storage, follow these steps.
 
 1. Go to your new storage account in the Azure portal.
 
-1. In the left menu for the storage account, scroll to the **Blob service** section, and then select **Containers**.
+1. In the left menu for the storage account, scroll to the **Data storage** section, and then select **Containers**.
 
 1. Select the **+ Container** button.
 
@@ -99,7 +94,7 @@ To create a Blob Storage container in Azure Storage, follow these steps.
 
 1. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
 
-1. Select **OK** to create the container.
+1. Select **Create** to create the container.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -134,7 +129,7 @@ To create a general-purpose v2 storage account and Blob Storage container, run t
 
 Specify the location for your storage account. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character.
 
-The following example uses your Azure AD account to authorize the operation to create the container. Before you create the container, assign the Storage Blob Data Contributor role to yourself. Even if you're the account owner, you need explicit permissions to perform data operations against the storage account.
+The following example uses your Microsoft Entra account to authorize the operation to create the container. Before you create the container, assign the Storage Blob Data Contributor role to yourself. Even if you're the account owner, you need explicit permissions to perform data operations against the storage account.
 
 Remember to replace placeholder values in angle brackets with your own values.
 
@@ -167,11 +162,22 @@ az storage container create \
 
 You need to grant your web app access to the storage account before you can create, read, or delete blobs. In a previous step, you configured the web app running on App Service with a managed identity. Using Azure RBAC, you can give the managed identity access to another resource, just like any security principal. The Storage Blob Data Contributor role gives the web app (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data.
 
+> [!NOTE]
+> Some operations on private blob containers are not supported by Azure RBAC, such as viewing blobs or copying blobs between accounts. A blob container with private access level requires a SAS token for any operation that is not authorized by Azure RBAC.  For more information, see [When to use a shared access signature](/azure/storage/common/storage-sas-overview#when-to-use-a-shared-access-signature).
+
 # [Portal](#tab/azure-portal)
 
 In the [Azure portal](https://portal.azure.com), go into your storage account to grant your web app access. Select **Access control (IAM)** in the left pane, and then select **Role assignments**. You'll see a list of who has access to the storage account. Now you want to add a role assignment to a robot, the app service that needs access to the storage account. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-Assign the **Storage Blob Data Contributor** role to the **App Service** at subscription scope.  For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. In the **Assignment type** tab, select **Job function type** and then **Next**.  
+
+1. In the **Role** tab, select **Storage Blob Data Contributor** role from the dropdown and then select **Next**.  
+
+1. In the **Members** tab, select **Assign access to** -> **Managed identity** and then select **Members** -> **Select members**.  In the **Select managed identities** window, find and select the managed identity created for your App Service in the **Managed identity** dropdown.  Select the **Select** button.  
+
+1. Select **Review and assign** and then select **Review and assign** once more.  
+ 
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 Your web app now has access to your storage account.
 
@@ -211,7 +217,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 ### Install client library packages
 
-Install the [Blob Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/) to work with Blob Storage and the [Azure Identity client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. Install the client libraries by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Blob Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/) to work with Blob Storage and the [Azure Identity client library for .NET NuGet package](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Microsoft Entra credentials. Install the client libraries by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 #### .NET Core command-line
 

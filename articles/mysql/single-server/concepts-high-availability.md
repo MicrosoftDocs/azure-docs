@@ -4,14 +4,16 @@ description: This article provides information on high availability in Azure Dat
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # High availability in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 The Azure Database for MySQL service provides a guaranteed high level of availability with the financially backed service level agreement (SLA) of [99.99%](https://azure.microsoft.com/support/legal/sla/mysql) uptime. Azure Database for MySQL provides high availability during planned events such as user-initiated scale compute operation, and also when unplanned events such as underlying hardware, software, or network failures occur. Azure Database for MySQL can quickly recover from most critical circumstances, ensuring virtually no application down time when using this service.
 

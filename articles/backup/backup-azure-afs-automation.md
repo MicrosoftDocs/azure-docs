@@ -4,9 +4,9 @@ description: In this article, learn how to back up an Azure Files file share by 
 ms.topic: conceptual
 ms.date: 02/11/2022
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up an Azure file share by using PowerShell
@@ -39,7 +39,7 @@ This article explains how to:
 
 Set up PowerShell as follows:
 
-1. [Download the latest version of Azure PowerShell](/powershell/azure/install-az-ps).
+1. [Download the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell).
 
     > [!NOTE]
     > The minimum PowerShell version required for backup of Azure file shares is Az.RecoveryServices 2.6.0. Using the latest version, or at least the minimum version, helps you avoid issues with existing scripts. Install the minimum version by using the following PowerShell command:

@@ -2,7 +2,7 @@
 title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 10/25/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---

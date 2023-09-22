@@ -1,13 +1,13 @@
 ---
-title: Terminology used with Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub
+title: Terminology and glossary for Azure DPS
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: This article describes common terminology used with the Device Provisioning Service (DPS) and IoT Hub
 author: kgremban
+
 ms.author: kgremban
 ms.date: 09/18/2019
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps
-manager: eliotga
 ---
 
 # IoT Hub Device Provisioning Service (DPS) terminology
@@ -71,6 +71,8 @@ For X.509 individual enrollments, the subject common name (CN) of the certificat
 
 Individual enrollments may have the desired IoT hub device ID specified in the enrollment entry. If it's not specified, the registration ID becomes the device ID that's registered to IoT Hub.
 
+You can temporarily or permanently allow or block a specific device from being provisioning through the Device Provisioning Service by controlling [provisioning status of an enrollment](how-to-revoke-device-access-portal.md)
+
 > [!TIP]
 > We recommend using individual enrollments for devices that require unique initial configurations, or for devices that can only authenticate using SAS tokens via TPM attestation.
 
@@ -102,9 +104,9 @@ The ID scope is assigned to a Device Provisioning Service when it is created by 
 > [!NOTE]
 > Uniqueness is important for long-running deployment operations and merger and acquisition scenarios.
 
-## Registration
+## Registration Record
 
-A registration is the record of a device successfully registering/provisioning to an IoT Hub via the Device Provisioning Service. Registration records are created automatically; they can be deleted, but they cannot be updated.
+A registration record is the record of a device successfully registering/provisioning to an IoT Hub via the Device Provisioning Service. Registration records are created automatically; they can be deleted, but they cannot be updated.
 
 ## Registration ID
 

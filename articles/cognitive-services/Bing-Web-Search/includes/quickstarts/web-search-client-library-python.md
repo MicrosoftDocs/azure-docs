@@ -1,6 +1,6 @@
 ---
 title: Bing Web Search Python client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -78,7 +78,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
 1. Create a new Python project using your favorite IDE or editor.
 
-1. Copy this sample code into your project. `endpoint` can be the global endpoint below, or the [custom subdomain](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.:  
+1. Copy this sample code into your project. `endpoint` can be the global endpoint below, or the [custom subdomain](~/articles/ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.:  
 
     ```python
     # Import required modules.
@@ -184,7 +184,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
         try:
             '''
             Set the query, offset, and count using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
+            https://learn.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
             print("\r\nSearching for \"Best restaurants in Seattle\"")
@@ -222,7 +222,7 @@ This sample uses the `response_filter` and `freshness` parameters to filter sear
         try:
             '''
             Set the query, response_filter, and freshness using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
+            https://learn.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="xbox",
                 response_filter=["News"],
@@ -274,7 +274,7 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
         try:
             '''
             Set the query, answer_count, promote, and safe_search parameters using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
+            https://learn.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(
                 query="Niagara Falls",
@@ -311,7 +311,7 @@ When you're done with this project, make sure to remove your subscription key fr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Cognitive Services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+> [Azure AI services Python SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ## See also
 

@@ -8,12 +8,12 @@ ms.author: chugu
 author: chugugrace
 ms.reviewer: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 02/21/2022
+ms.date: 08/10/2023
 ---
 
 # Troubleshoot package execution in the SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
   
 This article includes the most common errors that you might find when you're executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. It describes the potential causes and actions to solve the errors.
   

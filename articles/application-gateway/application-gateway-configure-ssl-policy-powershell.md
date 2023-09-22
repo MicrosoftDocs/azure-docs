@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 06/06/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -23,6 +23,9 @@ Learn how to configure TLS/SSL policy versions and cipher suites on Application 
 ## Get available TLS options
 
 The `Get-AzApplicationGatewayAvailableSslOptions` cmdlet provides a listing of available pre-defined policies, available cipher suites, and protocol versions that can be configured. The following example shows an example output from running the cmdlet.
+
+> [!IMPORTANT]
+> The default TLS policy is set to AppGwSslPolicy20220101 for API versions 2023-02-01 or higher. Visit [TLS policy overview](./application-gateway-ssl-policy-overview.md#default-tls-policy) to know more.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501
@@ -134,8 +137,8 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 > [!IMPORTANT]
-> - If you are using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher &#34;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34; to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU. This is not mandatory for Application Gateway v2 SKU (Standard_v2 or WAF_v2).
-> - Cipher suites "TLS_AES_128_GCM_SHA256" and "TLS_AES_256_GCM_SHA384" with TLSv1.3 are not customizable and included by default when setting a CustomV2 policy with a minimum TLS version of 1.2 or 1.3. These two cipher suites will not appear in the Get Details output, with an exception of Portal.
+> - If you're using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher &#34;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34; to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU. This is not mandatory for Application Gateway v2 SKU (Standard_v2 or WAF_v2).
+> - Cipher suites "TLS_AES_128_GCM_SHA256" and "TLS_AES_256_GCM_SHA384" with TLSv1.3 are not customizable and included by default when setting a CustomV2 policy with a minimum TLS version of 1.2 or 1.3. These two cipher suites won't appear in the Get Details output, with an exception of Portal.
 
 To set minimum protocol version to 1.3, you must use the following command:
 

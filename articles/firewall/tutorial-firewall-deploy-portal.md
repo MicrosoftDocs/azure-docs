@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/01/2022
+ms.date: 01/11/2023
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -59,11 +59,11 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 The resource group contains all the resources used in this procedure.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Create**.
 4. For **Subscription**, select your subscription.
-1. For **Resource group name**, type **Test-FW-RG**.
-1. For **Resource group location**, select a location. All other resources that you create must be in the same location.
+1. For **Resource group** name, type **Test-FW-RG**.
+1. For **Region**, select a region. All other resources that you create must be in the same region.
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -74,27 +74,27 @@ This VNet will have two subnets.
 > [!NOTE]
 > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-1. Select **Networking** > **Virtual network**.
+1. On the Azure portal menu or from the **Home** page, search for **Virtual networks**.
+1. Select **Virtual networks** in the result pane.
+1. Select **Create**.
 1. For **Subscription**, select your subscription.
 1. For **Resource group**, select **Test-FW-RG**.
 1. For **Name**, type **Test-FW-VN**.
-1. For **Region**, select the same location that you used previously.
 1. Select **Next: IP addresses**.
-1. For **IPv4 Address space**, accept the default **10.0.0.0/16**.
-1. Under **Subnet name**, select **default**.
-1. For **Subnet name** change it to **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-1. For **Address range**, change it to **10.0.1.0/26**.
+1. For **Address space**, accept the default **10.0.0.0/16**.
+1. Under **Subnet name**, select **default** and change it to **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+1. For **Subnet address range**, change it to **10.0.1.0/26**.
 1. Select **Save**.
+
 
    Next, create a subnet for the workload server.
 
 1. Select **Add subnet**.
-4. For **Subnet name**, type **Workload-SN**.
-5. For **Subnet address range**, type **10.0.2.0/24**.
-6. Select **Add**.
-7. Select **Review + create**.
-8. Select **Create**.
+1. For **Subnet name**, type **Workload-SN**.
+1. For **Subnet address range**, type **10.0.2.0/24**.
+1. Select **Add**.
+1. Select **Review + create**.
+1. Select **Create**.
 
 ### Create a virtual machine
 
@@ -119,9 +119,10 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Workload-SN**.
 9. For **Public IP**, select **None**.
 11. Accept the other defaults and select **Next: Management**.
-12. For **Boot diagnostics**, select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
-13. Review the settings on the summary page, and then select **Create**.
-1. After the deployment is complete, select **Srv-Work** and note the private IP address that you'll need to use later.
+1. Accept the defaults and select **Next: Monitoring**.
+1. For **Boot diagnostics**, select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+1. Review the settings on the summary page, and then select **Create**.
+1. After the deployment is complete, select **Go to resource** and note the **Srv-Work** private IP address that you'll need to use later.
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
@@ -141,7 +142,7 @@ Deploy the firewall into the VNet.
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |Region     |Select the same location that you used previously|
-   |Firewall tier|**Standard**|
+   |Firewall SKU|**Standard**|
    |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
    |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
    |Public IP address     |**Add new**<br>**Name**:  **fw-pip**|
@@ -150,30 +151,31 @@ Deploy the firewall into the VNet.
 6. Review the summary, and then select **Create** to create the firewall.
 
    This will take a few minutes to deploy.
-7. After deployment completes, go to the **Test-FW-RG** resource group, and select the **Test-FW01** firewall.
+7. After deployment completes, select the **Go to resource**.
 8. Note the firewall private and public IP addresses. You'll use these addresses later.
 
 ## Create a default route
 
 When creating a route for outbound and inbound connectivity through the firewall, a default route to 0.0.0.0/0 with the virtual appliance private IP as a next hop is sufficient. This will take care of any outgoing and incoming connections to go through the firewall. As an example, if the firewall is fulfilling a TCP-handshake and responding to an incoming request, then the response is directed to the IP address who sent the traffic. This is by design. 
 
-As a result, there is no need create an additional UDR to include the AzureFirewallSubnet IP range. This may result in dropped connections. The original default route is sufficient.
+As a result, there is no need create an additional user defined route to include the AzureFirewallSubnet IP range. This may result in dropped connections. The original default route is sufficient.
 
 For the **Workload-SN** subnet, configure the outbound default route to go through the firewall.
 
-1. On the Azure portal menu, select **Create a resource**.
-2. Under **Networking**, select **Route table**.
-5. For **Subscription**, select your subscription.
-6. For **Resource group**, select **Test-FW-RG**.
-7. For **Region**, select the same location that you used previously.
-4. For **Name**, type **Firewall-route**.
+1. On the Azure portal search for **Route tables**.
+1. Select **Route tables** in the results pane.
+1. Select **Create**.
+1. For **Subscription**, select your subscription.
+1. For **Resource group**, select **Test-FW-RG**.
+1. For **Region**, select the same location that you used previously.
+1. For **Name**, type **Firewall-route**.
 1. Select **Review + create**.
 1. Select **Create**.
 
 After deployment completes, select **Go to resource**.
 
 1. On the **Firewall-route** page, select **Subnets** and then select **Associate**.
-1. Select **Virtual network** > **Test-FW-VN**.
+1. For **Virtual network**, select **Test-FW-VN**.
 1. For **Subnet**, select **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall won't work correctly.
 
 13. Select **OK**.
@@ -254,7 +256,7 @@ For testing purposes, configure the server's primary and secondary DNS addresses
 2. Select the network interface for the **Srv-Work** virtual machine.
 3. Under **Settings**, select **DNS servers**.
 4. Under **DNS servers**, select **Custom**.
-5. Type **209.244.0.3** in the **Add DNS server** text box, and **209.244.0.4** in the next text box.
+5. Type **209.244.0.3** and press Enter in the **Add DNS server** text box, and **209.244.0.4** in the next text box.
 6. Select **Save**.
 7. Restart the **Srv-Work** virtual machine.
 
@@ -284,4 +286,5 @@ You can keep your firewall resources to continue testing, or if no longer needed
 
 ## Next steps
 
-[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+- [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+- [Learn more about Azure network security](../networking/security/index.yml)

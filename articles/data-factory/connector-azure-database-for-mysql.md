@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 12/15/2022
 ---
 
 # Copy and transform data in Azure Database for MySQL using Azure Data Factory or Synapse Analytics
@@ -19,16 +19,15 @@ This article outlines how to use Copy Activity in Azure Data Factory or Synapse 
 
 This connector is specialized for 
 - [Azure Database for MySQL Single Server](../mysql/single-server-overview.md)
-- [Azure Database for MySQL Flexible Server](../mysql/flexible-server/overview.md) (Currently public access is only supported)
+- [Azure Database for MySQL Flexible Server](../mysql/flexible-server/overview.md) 
 
- 
  To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).
 
 ## Prerequisites
 
 This quickstart requires the following resources and configuration mentioned below as a starting point:
 
-- An existing Azure database for MySQL Single server or MySQL Flexible Server.
+- An existing Azure database for MySQL Single server or MySQL Flexible Server with public access or private endpoint. 
 - Enable **Allow public access from any Azure service within Azure to this server** in networking page of the MySQL server . This will allow you to use Data factory studio.
 
 ## Supported capabilities
@@ -302,7 +301,7 @@ The below table lists the properties supported by Azure Database for MySQL sink.
 
 * Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
 
-* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+* Incremental column: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
 
 * Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 

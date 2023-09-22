@@ -2,8 +2,7 @@
 title: Host a static website in Azure Storage
 description: Learn how to serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account.
 author: normesta
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 04/19/2022
@@ -90,7 +89,7 @@ You can enable static website hosting by using the Azure PowerShell module.
    Get-InstalledModule -Name Az -AllVersions | select Name,Version
    ```
 
-   If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+   If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 

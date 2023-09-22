@@ -1,19 +1,19 @@
 ---
-title: Maintenance control for OS image upgrades on Azure virtual machine scale sets using an Azure Resource Manager template
-description: Learn how to control when automatic OS image upgrades are rolled out to your Azure virtual machine scale sets using Maintenance control and an Azure Resource Manager (ARM) template.
+title: Maintenance control for OS image upgrades on Azure Virtual Machine Scale Sets using an Azure Resource Manager template
+description: Learn how to control when automatic OS image upgrades are rolled out to your Azure Virtual Machine Scale Sets using Maintenance control and an Azure Resource Manager (ARM) template.
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 08/31/2022
+ms.date: 11/22/2022
 ms.author: jushiman 
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #pmcontact: PPHILLIPS
 ---
 
-# Maintenance control for OS image upgrades on Azure virtual machine scale sets using an ARM template
+# Maintenance control for OS image upgrades on Azure Virtual Machine Scale Sets using an ARM template
 
-Maintenance control lets you decide when to apply automatic OS image upgrades to your virtual machine scale sets. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+Maintenance control lets you decide when to apply automatic OS image upgrades to your Virtual Machine Scale Sets. For more information on using Maintenance control, see [Maintenance control for Azure Virtual Machine Scale Sets](virtual-machine-scale-sets-maintenance-control.md).
 
 This article explains how you can use an Azure Resource Manager (ARM) template to create a maintenance configuration. You will learn how to:
 
@@ -94,14 +94,15 @@ For more information, see [configurationAssignments](/azure/templates/microsoft.
 
 ```json
 { 
-  "type": "Microsoft.Maintenance/configurationAssignments", 
-  "apiVersion": "2021-09-01-preview", 
-  "name": "string", 
-  "location": "string", 
-  "properties": { 
-    "maintenanceConfigurationId": "string", 
-    "resourceId": "string" 
-  } 
+"type": "Microsoft.Maintenance/configurationAssignments",
+"apiVersion": "2021-09-01-preview",
+"name": "[variables('maintenanceConfigurationAssignmentName')]",
+"location": "string (e.g. westeurope)", 
+"scope": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
+"properties": {
+  "maintenanceConfigurationId": "Resource Id of the Maintenance Configuration"
+  "resourceId": "Resource Id of the resource that is being assigned to the Maintenance Configuration (e.g. VMSS Id)"
+}
 }
 ```
 

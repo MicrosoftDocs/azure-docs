@@ -88,8 +88,8 @@ This topology is used by customers that use Communication Services from the clou
 The direction of the arrows on the above diagram reflect the initiation direction of the communication that affects connectivity at the enterprise perimeters. In the case of UDP for media, the first packet(s) may flow in the reverse direction, but these packets may be blocked until packets in the other direction are flowing.
 
 Flow descriptions:
-* Flow 2* – Represents a flow initiated by a user on the customer network to the Internet as a part of the user's Communication Services experience. Examples of these flows include DNS and peer-to-peer media transmission.
-* Flow 2 – Represents a flow initiated by a remote mobile Communication Services user, with VPN to the customer network.
+* Flow 2 – Represents a flow initiated by a user on the customer network to the Internet as a part of the user's Communication Services experience. Examples of these flows include DNS and peer-to-peer media transmission.
+* Flow 2` – Represents a flow initiated by a remote mobile Communication Services user, with VPN to the customer network.
 * Flow 3 – Represents a flow initiated by a remote mobile Communication Services user to Communication Services endpoints.
 * Flow 4 – Represents a flow initiated by a user on the customer network to Communication Services.
 * Flow 5 – Represents a peer-to-peer media flow between one Communication Services user and another within the customer network.

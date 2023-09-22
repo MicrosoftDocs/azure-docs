@@ -1,8 +1,153 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-monitor/snapshot-debugger/snapshot-collector-release-notes.md",
+            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger#release-notes-for-microsoftapplicationinsightssnapshotcollector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/best-practices.md",
+            "redirect_url": "/azure/azure-monitor/getting-started",
+            "redirect_document_id": false
+         },
+         {
+            "source_path_from_root": "/articles/azure-monitor/observability-data.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+         },
+         {
+            "source_path_from_root": "/articles/azure-monitor/change/change-analysis-query.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
+            "redirect_document_id": false
+         },
+         {
+            "source_path_from_root": "/articles/azure-monitor/change/tutorial-outages.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-track-outages",
+            "redirect_document_id": false
+         },
+        {
+            "source_path_from_root": "/articles/azure-monitor/change/change-analysis-custom-filters.md",
+            "redirect_url": "/azure/azure-monitor/change/change-analysis-visualizations",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/change/change-analysis-powershell.md",
             "redirect_url": "/azure/azure-monitor/change/change-analysis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/source-map-support.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk-advanced",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/release-notes.md",
+            "redirect_url": "/azure/azure-monitor/app/app-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-runtime-exceptions.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-runtime-exceptions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-performance.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-users.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/tutorial-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/custom-data-correlation.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/custom-data-correlation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/correlation.md",
+            "redirect_url": "/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing.md",
+            "redirect_url": "/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/console.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/console",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-web-app.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/devops.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/old-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/automate-custom-reports.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/custom-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/resource-manager-function-app.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/resource-manager-function-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/web-app-extension-release-notes.md",
+            "redirect_url": "/azure/azure-monitor/app/azure-web-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/visual-studio.md",
+            "redirect_url": "https://learn.microsoft.com/visualstudio/azure/azure-app-insights-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/visual-studio-codelens.md",
+            "redirect_url": "https://learn.microsoft.com/visualstudio/azure/azure-app-insights-add-connected-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-react-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-react-native-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-angular-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-framework-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-click-analytics-plugin.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-feature-extensions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent-redirect.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/legacy-pricing.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/legacy-pricing",
             "redirect_document_id": false
         },
         {
@@ -22,7 +167,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/snapshot-debugger-troubleshoot.md",
-            "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-troubleshoot",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot",
             "redirect_document_id": false
         },
         {
@@ -40,7 +185,6 @@
             "redirect_url": "/azure/azure-monitor/snapshot-debugger/snapshot-debugger-release-notes",
             "redirect_document_id": false
         },
-
         {
             "source_path_from_root": "/articles/azure-monitor/app/profiler.md",
             "redirect_url": "/azure/azure-monitor/profiler/profiler",
@@ -144,6 +288,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/troubleshoot-portal-connectivity.md",
             "redirect_url": "/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-portal-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-sdk-load-failure.md",
+            "redirect_url": "https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting",
             "redirect_document_id": false
         },
         {
@@ -262,7 +411,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-groups.md",   
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-groups.md",
             "redirect_url": "/azure/azure-monitor/visualize/workbooks-create-workbook",
             "redirect_document_id": false
         },
@@ -278,251 +427,271 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat-setup.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-cherwell.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-provance.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-rate-limiting.md",
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-sms-behavior.md",
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat-setup.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-transition-hybrid",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat4-setup.md" ,
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat4-setup.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-transition-hybrid",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-overview.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-overview.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-page.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-page.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-instances.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-instances.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-states.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-states.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-manage-alert-instances",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-activity-log.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-activity-log.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-unified-log.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-unified-log.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/activity-log-alerts.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/activity-log-alerts.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-smartgroups-overview.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-smartgroups-overview.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-smart-groups.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-smart-groups.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-action-rules.md" ,
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-action-rules.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-processing-rules",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/data-explorer.md" ,
+            "source_path_from_root": "/articles/azure-monitor/insights/data-explorer.md",
             "redirect_url": "/azure/data-explorer/data-explorer-insights",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/troubleshoot-workbooks.md" ,
-            "redirect_url": "/azure/azure-monitor/visualize/workbooks-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-ga-release-faq.md" ,
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-ga-release-faq.md",
             "redirect_url": "/azure/azure-monitor/faq#vm-insights",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-cloud-services.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-cloud-services.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-log-search.md" ,
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-log-search.md",
             "redirect_url": "/azure/azure-monitor/alerts/vminsights-log-query",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/cli-samples.md" ,
+            "source_path_from_root": "/articles/azure-monitor/cli-samples.md",
             "redirect_url": "/cli/azure/azure-cli-reference-for-monitor",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/powershell-samples.md" ,
+            "source_path_from_root": "/articles/azure-monitor/powershell-samples.md",
             "redirect_url": "/powershell/module/az.monitor",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/azure-cli-application-insights-component.md" ,
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-cli-application-insights-component.md",
             "redirect_url": "/cli/azure/monitor/app-insights",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md" ,
+            "source_path_from_root": "/articles/azure-monitor/insights/redis-cache-insights-overview.md",
             "redirect_url": "/azure/azure-cache-for-redis/redis-cache-insights-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/ingestion-time-transformations.md" ,
+            "source_path_from_root": "/articles/azure-monitor/logs/ingestion-time-transformations.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations.md" ,
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations.md",
             "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-portal",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations-api.md" ,
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-ingestion-time-transformations-api.md",
             "redirect_url": "/azure/azure-monitor/logs/tutorial-workspace-transformations-api",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs.md" ,
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs.md",
             "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-portal",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs-api.md" ,
+            "source_path_from_root": "/articles/azure-monitor/logs/tutorial-custom-logs-api.md",
             "redirect_url": "/azure/azure-monitor/logs/tutorial-logs-ingestion-api",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/agents/data-sources.md" ,
+            "source_path_from_root": "/articles/azure-monitor/agents/data-sources.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-sources",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection-rule-transformations.md" ,
+            "source_path_from_root": "/articles/azure-monitor/essentials/data-collection-rule-transformations.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-transformations-structure",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/custom-logs-overview.md" ,
+            "source_path_from_root": "/articles/azure-monitor/logs/custom-logs-overview.md",
             "redirect_url": "/azure/azure-monitor/logs/logs-ingestion-api-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/cosmosdb-insights-overview.md" ,
+            "source_path_from_root": "/articles/azure-monitor/insights/cosmosdb-insights-overview.md",
             "redirect_url": "/azure/cosmos-db/cosmosdb-insights-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/network-insights-overview.md" ,
+            "source_path_from_root": "/articles/azure-monitor/insights/network-insights-overview.md",
             "redirect_url": "/azure/network-watcher/network-insights-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/key-vault-insights-overview.md" ,
+            "source_path_from_root": "/articles/azure-monitor/insights/key-vault-insights-overview.md",
             "redirect_url": "/azure/key-vault/key-vault-insights-overview",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-diagnostics.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-diagnostics.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-diagnostics",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-failure-diagnostics.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-failure-diagnostics.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-failure-diagnostics",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-performance-diagnostics.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-performance-diagnostics.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-performance-diagnostics",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-trace-severity.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-trace-severity.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-trace-severity",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-exception-volume.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-exception-volume.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-exception-volume",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-potential-memory-leak.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-potential-memory-leak.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-potential-memory-leak",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-application-security-detection-pack.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-application-security-detection-pack.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-application-security-detection-pack",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-arm-config.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-arm-config.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-arm-config",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/proactive-email-notification.md" ,
+            "source_path_from_root": "/articles/azure-monitor/app/proactive-email-notification.md",
             "redirect_url": "/azure/azure-monitor/alerts/proactive-email-notification",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/app/cloudservices.md" ,
-            "redirect_url": "/azure/azure-monitor/app/azure-web-apps-net-core",
+            "source_path_from_root": "/articles/azure-monitor/app/cloudservices.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/cloudservices",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/logs/workspace-design-service-providers.md" ,
+            "source_path_from_root": "/articles/azure-monitor/logs/workspace-design-service-providers.md",
             "redirect_url": "/azure/azure-monitor/logs/workspace-design",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/continuous-monitoring.md" ,
+            "source_path_from_root": "/articles/azure-monitor/continuous-monitoring.md",
             "redirect_url": "/azure/cloud-adoption-framework/manage/monitor",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-transition-hybrid.md" ,
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-transition-hybrid.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-onboard",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-livedata-deployments.md" ,
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-livedata-deployments.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-overview",
             "redirect_document_id": false
         },
@@ -849,6 +1018,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/java-get-started.md",
             "redirect_url": "/azure/azure-monitor/app/java-in-process-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/export-power-bi.md",
+            "redirect_url": "/azure/azure-monitor/logs/log-powerbi",
             "redirect_document_id": false
         },
         {
@@ -2908,13 +3082,13 @@
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-connections.md",
-            "redirect_url": "/azure/azure-monitor/platform/itsmc-connections",
+            "redirect_url": "/azure/azure-monitor/platform/itsmc-overview",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-overview.md",
             "redirect_url": "/azure/azure-monitor/platform/itsmc-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/log-analytics/log-analytics-itsmc-service-manager-script.md",
@@ -3572,6 +3746,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-monitor-proxy.md",
+            "redirect_url": "/azure/data-explorer/query-monitor-data",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/platform/service-notifications.md",
             "redirect_url": "/azure/service-health/service-notifications",
             "redirect_document_id": true
@@ -3753,7 +3932,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-common-schema-definitions.md",
-            "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema-definitions",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-definitions.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-common-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-test-action-definitions.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-payload-samples",
             "redirect_document_id": false
         },
         {
@@ -3819,6 +4008,21 @@
         {
             "source_path_from_root": "/articles/azure-monitor/platform/alerts-metric-create-templates.md",
             "redirect_url": "/azure/azure-monitor/alerts/alerts-metric-create-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-create-templates.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-create-resource-manager-template.md",
+            "redirect_url": "/azure/azure-monitor/alerts/action-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-create-templates.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-create-new-alert-rule",
             "redirect_document_id": false
         },
         {
@@ -4128,7 +4332,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/autoscale-resource-log-schema.md",
-            "redirect_url": "/azure/azure-monitor/autoscale/autoscale-resource-log-schema",
+            "redirect_url": "/azure/azure-monitor/autoscale/autoscale-diagnostics",
             "redirect_document_id": false
         },
         {
@@ -5108,17 +5312,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-cherwell.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-cherwell",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-provance.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-provance",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/platform/itsmc-connections-scsm.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections-scsm",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-overview",
             "redirect_document_id": false
         },
         {
@@ -5274,6 +5478,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/essentials/quick-collect-activity-log-arm.md",
             "redirect_url": "/azure/azure-monitor/essentials/resource-manager-diagnostic-settings#diagnostic-setting-for-activity-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/tutorial-alert.md",
+            "redirect_url": "/azure/azure-monitor/app/availability-standard-tests",
             "redirect_document_id": false
         },
         {
@@ -5439,6 +5648,676 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/sql-insights-troubleshoot.md",
             "redirect_url": "/azure/azure-sql/database/sql-insights-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-integration.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-prometheus",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-existing-clusters.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-aks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-new-cluster.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-aks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-update-metrics.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-custom-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/automation/migrate-oms-update-deployments.md",
+            "redirect_url": "/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/tutorial-autoscale-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-common-schema-integrations.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/action-groups-logic-app.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-logic-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-metrics-addon.md",
+            "redirect_url": "/azure/azure-monitor/essentials/prometheus-metrics-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus-monitoring-addon.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-prometheus",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/powershell-azure-diagnostics.md",
+            "redirect_url": "/azure/azure-monitor/agents/diagnostics-extension-to-application-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/platforms.md",
+            "redirect_url": "/azure/azure-monitor/app/app-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/export-data-model.md",
+            "redirect_url": "/azure/azure-monitor/app/export-telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/auto-collect-dependencies.md",
+            "redirect_url": "/azure/azure-monitor/app/asp-net-dependencies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/custom-endpoints.md",
+            "redirect_url": "/azure/azure-monitor/app/create-new-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/api/authentication-authorization.md",
+            "redirect_url": "/azure/azure-monitor/logs/api/access-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-get-started.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-trace-logs.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-agent.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-filter-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-collectd.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/java-2x-micrometer.md",
+            "redirect_url": "/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/tutorial-monitor-vm-alert.md",
+            "redirect_url": "/azure/azure-monitor/vm/tutorial-monitor-vm-alert-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/tutorial-monitor-vm-enable.md",
+            "redirect_url": "/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/collect-sccm.md",
+            "redirect_url": "/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-overview.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-migrate.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-enable.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-alerts.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-configure.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-configure-dcr.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/vminsights-health-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/vm/vminsights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-configure.md",
+            "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine-data-collection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-security.md",
+            "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine#security-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-workloads.md",
+            "redirect_url": "/azure/azure-monitor/vm/monitor-virtual-machine-data-collection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-monitor-cross-service-query.md",
+            "redirect_url": "/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/mobile-center-quickstart.md",
+            "redirect_url": "https://github.com/Microsoft/appcenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/windows-desktop.md",
+            "redirect_url": "https://github.com/Microsoft/appcenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/proactive-performance-diagnostics.md",
+            "redirect_url": "https://azure.microsoft.com/updates/public-preview-alerts-based-smart-detection-for-application-insights/",
+            "redirect_document_id": false
+        },
+      {
+            "source_path_from_root": "/articles/azure-monitor/autoscale/autoscale-resource-log-schema.md",
+            "redirect_url": "/azure/azure-monitor/autoscale/autoscale-diagnostics",
+            "redirect_document_id": false
+        },
+      {
+            "source_path_from_root": "/articles/azure-monitor/app/java-in-process-agent.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/logicapp-flow-connector.md",
+            "redirect_url": "/azure/connectors/connectors-azure-monitor-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/automate-with-logic-apps.md",
+            "redirect_url": "/azure/connectors/connectors-azure-application-insights",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solutions.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solution-targeting.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/solution-targeting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/ad-assessment.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/ad-assessment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/ad-replication-status.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/ad-replication-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/capacity-performance.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/capacity-performance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/containers.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/containers/containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solution-office-365.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/solution-office-365",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/service-map.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/vm/service-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/service-map-scom.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/vm/service-map-scom",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-sql.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/sql-assessment.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/sql-assessment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/surface-hubs.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/surface-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/vmware.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/vmware",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/wire-data.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/wire-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/alert-management-solution.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/alert-management-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-networking-analytics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-networking-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/dns-analytics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/dns-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-performance-monitor.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-performance-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-service-connectivity.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-service-connectivity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-expressroute.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-expressroute",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-pricing-faq.yml",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-pricing-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/network-performance-monitor-faq.yml",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/network-performance-monitor-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-web-apps-analytics.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-web-apps-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/app-insights-connector.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/logs/app-insights-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/oms-portal-transition.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/logs/oms-portal-transition",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/azure-key-vault-deprecated.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/insights/azure-key-vault-deprecated",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/deprecated-java-2x.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/deprecated-java-2x",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/create-new-resource.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/create-new-resource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/classic-api-retirement-metrics-autoscale.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/classic-api-retirement-metrics-autoscale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-supported-export-diagnostic-settings.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/metrics-supported-export-diagnostic-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/portal-disk-metrics-deprecation.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/portal-disk-metrics-deprecation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-blob-format.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/essentials/resource-logs-blob-format",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/monitoring-classic-retirement.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-using-migration-tool.md",
+            "redirect_url": "previous-versions/azure/azure-monitor/alerts/alerts-using-migration-tool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-tiles.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-tiles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-parts.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-parts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/view-designer-filters.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer-filters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/export-telemetry.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/export-telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/sharepoint.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/sharepoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/monitor-web-app-availability.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/monitor-web-app-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/availability-multistep.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/app/availability-multistep",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-overview.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-get-started.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-detailed-instructions.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/status-monitor-v2-api-reference.md",
+            "redirect_url": "/azure/azure-monitor/app/application-insights-asp-net-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-request-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-dependency-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-exception-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-trace-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-event-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-metric-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-pageview-telemetry.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/data-model-context.md",
+            "redirect_url": "/azure/azure-monitor/app/data-model-complete",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-management-packs.md",
+            "redirect_url": "/azure/azure-monitor/azure-monitor-operations-manager#migrate-management-pack-logic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/dashboard-upgrade.md",
+            "redirect_url": "/azure/azure-monitor/visualize/tutorial-logs-dashboards",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/opentelemetry-dotnet-exporter.md",
+            "redirect_url": "/azure/azure-monitor/app/opentelemetry-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-data-explorer-query-storage.md",
+            "redirect_url": "/azure/data-explorer/query-exported-azure-monitor-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/api/app-insights-azure-ad-api.md",
+            "redirect_url": "/azure/azure-monitor/app/app-insights-azure-ad-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/javascript-sdk-advanced.md",
+            "redirect_url": "/azure/azure-monitor/app/javascript-sdk-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/data-collection-firewall.md",
+            "redirect_url": "/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/autoscale/tutorial-autoscale-performance-schedule.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/autoscale/tutorial-autoscale-performance-schedule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/metrics-supported.md",
+            "redirect_url": "/azure/azure-monitor/reference/supported-metrics/metrics-index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/resource-logs-categories.md",
+            "redirect_url": "/azure/azure-monitor/reference/supported-logs/logs-index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-prometheus.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-enable.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-disable.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-disable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-from-arc-enabled-cluster.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-default.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-default",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-configuration.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-configuration-minimal.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-scale.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-scale",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-scrape-validate.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-scrape-validate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-multiple-workspaces.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-multiple-workspaces",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write-azure-ad-pod-identity.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write-managed-identity.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-remote-write-active-directory.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-remote-write-active-directory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/integrate-keda.md",
+            "redirect_url": "/azure/azure-monitor/containers/integrate-keda",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-authorization-proxy.md",
+            "redirect_url": "/azure/azure-monitor/containers/prometheus-authorization-proxy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/azure-cli-metrics-alert-sample.md",
+            "redirect_url": "/azure/azure-monitor/alerts/azure-cli-metrics-alert-sample",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/terminology.md",
+            "redirect_url": "/azure/azure-monitor/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/create-pipeline-datacollector-api.md",
+            "redirect_url": "/azure/azure-monitor/logs/data-collector-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/vmext-troubleshoot.md",
+            "redirect_url": "/azure/azure-monitor/agents/vmext-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/unify-app-resource-data.md",
+            "redirect_url": "/azure/azure-monitor/logs/cross-workspace-query",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/solution-agenthealth.md",
+            "redirect_url": "/azure/azure-monitor/agents/solution-agenthealth",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v3.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v4.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
             "redirect_document_id": false
         }
     ]

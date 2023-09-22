@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to create and use managed online endpoints using the Azure Machine Learning studio.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: studio
 ms.topic: how-to
 ms.custom: how-to, managed online endpoints, devplatv2, studio, event-tier1-build-2022
-ms.author: sehan
 author: dem108
-ms.reviewer: larryfr
+ms.author: sehan
+ms.reviewer: mopeakande
 ms.date: 09/07/2022
 ---
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](quickstart-create-resources.md).
-- The examples repository - Clone the [AzureML Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/online`.
+- The examples repository - Clone the [Azure Machine Learning Example repository](https://github.com/Azure/azureml-examples). This article uses the assets in `/cli/endpoints/online`.
 
 ## Create a managed online endpoint
 
@@ -109,7 +109,22 @@ To use the monitoring tab, you must select "**Enable Application Insight diagnos
 
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" alt-text="A screenshot of monitoring endpoint-level metrics in the studio.":::
 
-For more information on how viewing other monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+For more information on viewing other monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+
+### Deployment logs
+
+You can get logs from the containers that are running on the VM where the model is deployed. The amount of information you get depends on the provisioning status of the deployment. If the specified container is up and running, you'll see its console output; otherwise, you'll get a message to try again later.
+
+Use the **Deployment logs** tabs in the endpoint's details page to see log output from container.
+
+1. Select the **Deployment logs** tab in the endpoint's details page.
+1. Use the dropdown to select the deployment whose log you want to see.
+
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deployment-logs.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
+
+The logs are pulled from the inference server. Logs include the console log (from the inference server) which contains print/log statements from your scoring script (`score.py`).
+
+To get logs from the storage initializer container, use the Azure CLI or Python SDK. These logs contain information on whether code and model data were successfully downloaded to the container. See the [get container logs section in troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 ## Add a deployment to a managed online endpoint
 
@@ -192,7 +207,7 @@ Use the following steps to delete an individual deployment from a managed online
 In this article, you learned how to use Azure Machine Learning managed online endpoints. See these next steps:
 
 - [What are endpoints?](concept-endpoints.md)
-- [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
+- [How to deploy online endpoints with the Azure CLI](how-to-deploy-online-endpoints.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Troubleshooting managed online endpoints deployment and scoring](./how-to-troubleshoot-online-endpoints.md)

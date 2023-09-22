@@ -3,13 +3,13 @@ title: 'Azure Cosmos DB design pattern: Social media apps'
 description: Learn about a design pattern for Social Networks by leveraging the storage flexibility of Azure Cosmos DB and other Azure services.
 author: ealsur
 ms.service: cosmos-db
+ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-
 ---
 # Going social with Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Living in a massively interconnected society means that, at some point in life, you become part of a **social network**. You use social networks to keep in touch with friends, colleagues, family, or sometimes to share your passion with people with common interests.
 
@@ -33,7 +33,7 @@ You could use an enormous SQL instance with enough power to solve thousands of q
 
 ## The NoSQL road
 
-This article guides you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) cost-effectively. It also tells you how to use other Azure Cosmos DB features like the [Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
+This article guides you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) cost-effectively. It also tells you how to use other Azure Cosmos DB features like the [API for Gremlin](gremlin/introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 ```json
 {
@@ -56,7 +56,7 @@ This article guides you into modeling your social platform's data with Azure's N
 
 And it can be gotten with a single query, and with no joins. This query is much simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
 
-Azure Cosmos DB makes sure that all properties are indexed with its automatic indexing. The automatic indexing can even be [customized](index-policy.md). The schema-free approach lets us store documents with different and dynamic structures. Maybe tomorrow you want posts to have a list of categories or hashtags associated with them? Cosmos DB will handle the new Documents with the added attributes without extra work required by us.
+Azure Cosmos DB makes sure that all properties are indexed with its automatic indexing. The automatic indexing can even be [customized](index-policy.md). The schema-free approach lets us store documents with different and dynamic structures. Maybe tomorrow you want posts to have a list of categories or hashtags associated with them? Azure Cosmos DB will handle the new Documents with the added attributes without extra work required by us.
 
 Comments on a post can be treated as other posts with a parent property. (This practice simplifies your object mapping.)
 
@@ -100,13 +100,13 @@ Creating feeds is just a matter of creating documents that can hold a list of po
 ]
 ```
 
-You could have a "latest" stream with posts ordered by creation date. Or you could have a "hottest" stream with those posts with more likes in the last 24 hours. You could even implement a custom stream for each user based on logic like followers and interests. It would still be a list of posts. It’s a matter of how to build these lists, but the reading performance stays unhindered. Once you acquire one of these lists, you issue a single query to Cosmos DB using the [IN keyword](sql-query-keywords.md#in) to get pages of posts at a time.
+You could have a "latest" stream with posts ordered by creation date. Or you could have a "hottest" stream with those posts with more likes in the last 24 hours. You could even implement a custom stream for each user based on logic like followers and interests. It would still be a list of posts. It’s a matter of how to build these lists, but the reading performance stays unhindered. Once you acquire one of these lists, you issue a single query to Azure Cosmos DB using the [IN keyword](sql-query-keywords.md#in) to get pages of posts at a time.
 
-The feed streams could be built using [Azure App Services’](https://azure.microsoft.com/services/app-service/) background processes: [Webjobs](../app-service/webjobs-create.md). Once a post is created, background processing can be triggered by using [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) and Webjobs triggered using the [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementing the post propagation inside streams based on your own custom logic.
+The feed streams could be built using [Azure App Services’](https://azure.microsoft.com/services/app-service/) background processes: [Webjobs](../app-service/webjobs-create.md). Once a post is created, background processing can be triggered by using [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](/azure/storage/queues/storage-quickstart-queues-dotnet?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli) and Webjobs triggered using the [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementing the post propagation inside streams based on your own custom logic.
 
 Points and likes over a post can be processed in a deferred manner using this same technique to create an eventually consistent environment.
 
-Followers are trickier. Cosmos DB has a document size limit, and reading/writing large documents can impact the scalability of your application. So you may think about storing followers as a document with this structure:
+Followers are trickier. Azure Cosmos DB has a document size limit, and reading/writing large documents can impact the scalability of your application. So you may think about storing followers as a document with this structure:
 
 ```json
 {
@@ -135,7 +135,7 @@ To solve this problem, you can use a mixed approach. As part of the User Statist
 }
 ```
 
-You can store the actual graph of followers using Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md) to create [vertexes](http://mathworld.wolfram.com/GraphVertex.html) for each user and [edges](http://mathworld.wolfram.com/GraphEdge.html) that maintain the "A-follows-B" relationships. With the Gremlin API, you can get the followers of a certain user and create more complex queries to suggest people in common. If you add to the graph the Content Categories that people like or enjoy, you can start weaving experiences that include smart content discovery, suggesting content that those people you follow like, or finding people that you might have much in common with.
+You can store the actual graph of followers using Azure Cosmos DB [API for Gremlin](../cosmos-db/introduction.md) to create [vertexes](http://mathworld.wolfram.com/GraphVertex.html) for each user and [edges](http://mathworld.wolfram.com/GraphEdge.html) that maintain the "A-follows-B" relationships. With the API for Gremlin, you can get the followers of a certain user and create more complex queries to suggest people in common. If you add to the graph the Content Categories that people like or enjoy, you can start weaving experiences that include smart content discovery, suggesting content that those people you follow like, or finding people that you might have much in common with.
 
 The User Statistics document can still be used to create cards in the UI or quick profile previews.
 
@@ -171,11 +171,11 @@ By looking at this information, you can quickly detect which is critical informa
 
 The smallest step is called a UserChunk, the minimal piece of information that identifies a user and it’s used for data duplication. By reducing the duplicated data size to only the information you'll "show", you reduce the possibility of massive updates.
 
-The middle step is called the user. It’s the full data that will be used on most performance-dependent queries on Cosmos DB, the most accessed and critical. It includes the information represented by a UserChunk.
+The middle step is called the user. It’s the full data that will be used on most performance-dependent queries on Azure Cosmos DB, the most accessed and critical. It includes the information represented by a UserChunk.
 
-The largest is the Extended User. It includes the critical user information and other data that doesn’t need to be read quickly or has eventual usage, like the sign-in process. This data can be stored outside of Cosmos DB, in Azure SQL Database or Azure Storage Tables.
+The largest is the Extended User. It includes the critical user information and other data that doesn’t need to be read quickly or has eventual usage, like the sign-in process. This data can be stored outside of Azure Cosmos DB, in Azure SQL Database or Azure Storage Tables.
 
-Why would you split the user and even store this information in different places? Because from a performance point of view, the bigger the documents, the costlier the queries. Keep documents slim, with the right information to do all your performance-dependent queries for your social network. Store the other extra information for eventual scenarios like full profile edits, logins, and data mining for usage analytics and Big Data initiatives. You really don’t care if the data gathering for data mining is slower, because it’s running on Azure SQL Database. You do have concern though that your users have a fast and slim experience. A user stored on Cosmos DB would look like this code:
+Why would you split the user and even store this information in different places? Because from a performance point of view, the bigger the documents, the costlier the queries. Keep documents slim, with the right information to do all your performance-dependent queries for your social network. Store the other extra information for eventual scenarios like full profile edits, logins, and data mining for usage analytics and Big Data initiatives. You really don’t care if the data gathering for data mining is slower, because it’s running on Azure SQL Database. You do have concern though that your users have a fast and slim experience. A user stored on Azure Cosmos DB would look like this code:
 
 ```json
 {
@@ -212,7 +212,7 @@ Because you're using Azure Cosmos DB, you can easily implement a search engine u
 
 Why is this process so easy?
 
-Azure Cognitive Search implements what they call [Indexers](/rest/api/searchservice/Indexer-operations), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-cosmosdb.md). The transition of information from Cosmos DB to Azure Cognitive Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-what-is-an-index.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
+Azure Cognitive Search implements what they call [Indexers](/rest/api/searchservice/Indexer-operations), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-cosmosdb.md). The transition of information from Azure Cosmos DB to Azure Cognitive Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-what-is-an-index.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
 
 For more information about Azure Cognitive Search, you can visit the [Hitchhiker’s Guide to Search](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
@@ -230,29 +230,29 @@ Now that I got you hooked, you’ll probably think you need some PhD in math sci
 
 To achieve any of these Machine Learning scenarios, you can use [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) to ingest the information from different sources. You can also use [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) to process the information and generate an output that can be processed by Azure Machine Learning.
 
-Another available option is to use [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) to analyze your users content; not only can you understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), but you could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services includes many out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
+Another available option is to use [Azure AI services](https://www.microsoft.com/cognitive-services) to analyze your users content; not only can you understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), but you could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). Azure AI services includes many out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
 
 ## A planet-scale social experience
 
-There is a last, but not least, important article I must address: **scalability**. When you design an architecture, each component should scale on its own. You will eventually need to process more data, or you will want to have a bigger geographical coverage. Thankfully, achieving both tasks is a **turnkey experience** with Cosmos DB.
+There is a last, but not least, important article I must address: **scalability**. When you design an architecture, each component should scale on its own. You will eventually need to process more data, or you will want to have a bigger geographical coverage. Thankfully, achieving both tasks is a **turnkey experience** with Azure Cosmos DB.
 
-Cosmos DB supports dynamic partitioning out-of-the-box. It automatically creates partitions based on a given **partition key**, which is defined as an attribute in your documents. Defining the correct partition key must be done at design time. For more information, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
+Azure Cosmos DB supports dynamic partitioning out-of-the-box. It automatically creates partitions based on a given **partition key**, which is defined as an attribute in your documents. Defining the correct partition key must be done at design time. For more information, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
 
 For a social experience, you must align your partitioning strategy with the way you query and write. (For example, reads within the same partition are desirable, and avoid "hot spots" by spreading writes on multiple partitions.) Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, or by user. It all really depends on how you'll query the data and show the data in your social experience.
 
-Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, so you don't need to add any logic as your data grows.
+Azure Cosmos DB will run your queries (including [aggregates](/azure/cosmos-db/nosql/query/aggregate-functions)) across all your partitions transparently, so you don't need to add any logic as your data grows.
 
 With time, you'll eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your user base grows. The user base will start creating and reading more content. So the ability of **scaling your throughput** is vital. Increasing your RUs is easy. You can do it with a few clicks on the Azure portal or by [issuing commands through the API](/rest/api/cosmos-db/replace-an-offer).
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Scaling up and defining a partition key":::
 
-What happens if things keep getting better? Suppose users from another region, country, or continent notice your platform and start using it. What a great surprise!
+What happens if things keep getting better? Suppose users from another country/region or continent notice your platform and start using it. What a great surprise!
 
 But wait! You soon realize their experience with your platform isn't optimal. They're so far away from your operational region that the latency is terrible. You obviously don't want them to quit. If only there was an easy way of **extending your global reach**? There is!
 
-Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-sql-api.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-sql-api.md). This process also means that you can have [multiple failover regions](high-availability.md).
+Azure Cosmos DB lets you [replicate your data globally](nosql/tutorial-global-distribution.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](nosql/tutorial-global-distribution.md). This process also means that you can have [multiple failover regions](high-availability.md).
 
-When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you're using a web frontend or accessing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they'll be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
+When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you're using a web frontend or accessing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they'll be routed to the closest App Service, which in turn, will connect to the local Azure Cosmos DB replica.
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Adding global coverage to your social platform" border="false":::
 
@@ -266,4 +266,4 @@ The truth is that there's no silver bullet for this kind of scenarios. It’s th
 
 ## Next steps
 
-To learn more about use cases for Cosmos DB, see [Common Cosmos DB use cases](use-cases.md).
+To learn more about use cases for Azure Cosmos DB, see [Common Azure Cosmos DB use cases](use-cases.md).

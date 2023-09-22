@@ -90,7 +90,6 @@ Learn how to configure a micro agent twin.
 
 You learned how to configure a micro agent twin. For more information about micro agent configurations and event aggregation, see:
 
-- [Micro agent configurations (Preview)](concept-micro-agent-configuration.md)
+- [Micro agent configurations](concept-micro-agent-configuration.md)
 
-- [Micro agent event collection (Preview)](concept-event-aggregation.md)
-
+- [Micro agent event collection](concept-event-aggregation.md)

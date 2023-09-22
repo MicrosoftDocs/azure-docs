@@ -1,11 +1,10 @@
 ---
 title: Microsoft Sentinel for SAP data connector expert configuration options, on-premises deployment, and SAPControl log sources  | Microsoft Docs
-description: Learn how to deploy Microsoft Sentinel for SAP data connector environments using expert configuration options and an on-premises machines. Also learn more about SAPControl log sources.
-author: MSFTandrelom
-ms.author: andrelom
+description: Learn how to deploy Microsoft Sentinel for SAP data connector environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
-ms.date: 02/22/2022
+ms.date: 06/19/2023
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
@@ -23,7 +22,7 @@ Make sure that your system complies with the prerequisites documented in the mai
 
 ## Create your Azure key vault
 
-Create an Azure key vault that you can dedicate to your Microsoft Sentinel Solution for SAP data connector.
+Create an Azure key vault that you can dedicate to your Microsoft Sentinel solution for SAP® applications data connector.
 
 Run the following command to create your Azure key vault and grant access to an Azure service principal:
 
@@ -124,7 +123,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
 1. On your on-premises machine, create a new folder with a meaningful name, and copy the SDK zip file into your new folder.
 
-1. Clone the Microsoft Sentinel solution GitHub repository onto your on-premises machine, and copy Microsoft Sentinel Solution for SAP solution **systemconfig.ini** file into your new folder.
+1. Clone the Microsoft Sentinel solution GitHub repository onto your on-premises machine, and copy Microsoft Sentinel solution for SAP® applications solution **systemconfig.ini** file into your new folder.
 
     For example:
 
@@ -197,11 +196,11 @@ We recommend that you perform this procedure after you have a key vault ready wi
     docker logs –f sapcon-[SID]
     ```
 
-1. Continue with deploying **Microsoft Sentinel Solution for SAP**.
+1. Continue with deploying **Microsoft Sentinel solution for SAP® applications**.
 
     Deploying the solution enables the SAP data connector to display in Microsoft Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
 
-    For more information, see [Deploy SAP security content](deploy-sap-security-content.md).
+    For more information, see [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md).
 
 ## Manually configure the Microsoft Sentinel for SAP data connector
 
@@ -266,9 +265,9 @@ javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST u
 
 ### Define the SAP logs that are sent to Microsoft Sentinel
 
-Add the following code to the Microsoft Sentinel Solution for SAP **systemconfig.ini** file to define the logs that are sent to Microsoft Sentinel.
+Add the following code to the Microsoft Sentinel solution for SAP® applications **systemconfig.ini** file to define the logs that are sent to Microsoft Sentinel.
 
-For more information, see [Microsoft Sentinel Solution for SAP solution logs reference (public preview)](sap-solution-log-reference.md).
+For more information, see [Microsoft Sentinel solution for SAP® applications solution logs reference (public preview)](sap-solution-log-reference.md).
 
 ```python
 ##############################################################
@@ -380,8 +379,9 @@ For more information, see [Deploy the SAP solution](deploy-sap-security-content.
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel Solution for SAP data connector with SNC](configure-snc.md)
-- [Microsoft Sentinel Solution for SAP detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Microsoft Sentinel Solution for SAP logs reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
-- [Troubleshooting your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
+- [Deploy the Microsoft Sentinel solution for SAP® applications data connector with SNC](configure-snc.md)
+- [Monitor the health of your SAP system](../monitor-sap-system-health.md)
+- [Microsoft Sentinel solution for SAP® applications detailed SAP requirements](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Microsoft Sentinel solution for SAP® applications logs reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP® applications: security content reference](sap-solution-security-content.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)

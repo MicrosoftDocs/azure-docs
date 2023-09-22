@@ -1,19 +1,16 @@
 ---
 
-title: Cross-tenant access activity workbook in Azure AD | Microsoft Docs
+title: Cross-tenant access activity workbook in Microsoft Entra ID
 description: Learn how to use the cross-tenant access activity workbook.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: mimart
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 
 ms.collection: M365-identity-device-management
 ---
@@ -31,7 +28,7 @@ This article provides you with an overview of this workbook.
 
 Tenant administrators who are making changes to policies governing cross-tenant access can use this workbook to visualize and review existing access activity patterns before making policy changes. For example, you can identify the apps your users are accessing in external organizations so that you don't inadvertently block critical business processes. Understanding how external users access resources in your tenant (inbound access) and how users in your tenant access resources in external tenants (outbound access) will help ensure you have the right cross-tenant policies in place.
 
-For more information, see the [Azure AD External Identities documentation](../external-identities/index.yml).
+For more information, see the [Microsoft Entra External ID documentation](../external-identities/index.yml).
 
 ## Sections
 
@@ -51,7 +48,7 @@ Under **Step 1**, the external tenant list shows all the tenants that have had i
 
 [ ![Screenshot showing list of external tenants with sign-in data.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png) ](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png#lightbox)
 
-The table under **Step 2** summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the resons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
+The table under **Step 2** summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the reasons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
 
 ![Screenshot showing activity for the selected tenant.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-2.png)
 
@@ -85,10 +82,10 @@ Use this workbook to:
 
 - Get the information you need to manage your cross-tenant access settings effectively, without breaking legitimate collaborations
 
-- Identify all inbound sign-ins from external Azure AD organizations
+- Identify all inbound sign-ins from external Microsoft Entra organizations
 
-- Identify all outbound sign-ins by your users to external Azure AD organizations
+- Identify all outbound sign-ins by your users to external Microsoft Entra organizations
 
 ## Next steps
 
-- [How to use Azure AD workbooks](howto-use-azure-monitor-workbooks.md)
+- [How to use Microsoft Entra workbooks](howto-use-azure-monitor-workbooks.md)

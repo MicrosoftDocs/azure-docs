@@ -10,7 +10,9 @@ ms.date: 08/21/2022
 
 # Create custom APIs you can call from Azure Logic Apps
 
-Although Azure Logic Apps offers [hundreds of connectors](../connectors/apis-list.md) 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
+Although Azure Logic Apps offers hundreds of connectors 
 that you can use in logic app workflows, you might want to call APIs, 
 systems, and services that aren't available as connectors. 
 You can create your own APIs that provide actions and triggers to use in workflows. 
@@ -58,9 +60,6 @@ easy API hosting.
 > * [PHP](../app-service/quickstart-php.md)
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
->
-> For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](https://github.com/logicappsio).
 
 ## How do custom APIs differ from custom connectors?
 
@@ -132,9 +131,6 @@ The polling pattern mirrors the behavior where you call the
 bakery every 20 minutes to check whether the cake is ready. 
 The webhook pattern mirrors the behavior where the bakery asks you 
 for your phone number so they can call you when the cake is ready.
-
-For samples, visit the [Logic Apps GitHub repository](https://github.com/logicappsio). 
-Also, learn more about [usage metering for actions](logic-apps-pricing.md).
 
 <a name="async-pattern"></a>
 

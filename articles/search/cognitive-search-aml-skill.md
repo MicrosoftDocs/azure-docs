@@ -3,13 +3,13 @@ title: Custom AML skill in skillsets
 titleSuffix: Azure Cognitive Search
 description: Extend capabilities of Azure Cognitive Search skillsets with Azure Machine Learning models.
 
-manager: nitinme
-author: mattmsft
-ms.author: magottei
+manager: liamca
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
-ms.custom: event-tier1-build-2022
+ms.custom: 
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 12/01/2022
 ---
 
 # AML skill in an Azure Cognitive Search enrichment pipeline

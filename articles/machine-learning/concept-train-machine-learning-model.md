@@ -4,21 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train models with Azure Machine Learning. Explore the different training methods and choose the right one for your project.
 services: machine-learning
 ms.service: machine-learning
-author: Blackmist
-ms.author: larryfr
-ms.subservice: core
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
+ms.subservice: training
 ms.topic: conceptual
-ms.date: 08/30/2022
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022
+ms.date: 06/7/2023
+ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022, build-2023
 ms.devlang: azurecli
 ---
 
 # Train models with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
-> * [v1](v1/concept-train-machine-learning-model-v1.md)
-> * [v2 (preview)](concept-train-machine-learning-model.md)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Azure Machine Learning provides several ways to train your models, from code-first solutions using the SDK to low-code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
 
@@ -40,7 +38,7 @@ Each of these training methods can use different types of compute resources for 
 
 The Azure Machine Learning SDK for Python allows you to build and run machine learning workflows with Azure Machine Learning. You can interact with the service from an interactive Python session, Jupyter Notebooks, Visual Studio Code, or other IDE.
 
-* [Install/update the SDK](/python/api/overview/azure/ml/installv2)
+* [Install/update the SDK](/python/api/overview/azure/ai-ml-readme)
 * [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md)
 
 ### Submit a command
@@ -69,15 +67,19 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 Machine learning pipelines can use the previously mentioned training methods. Pipelines are more about creating a workflow, so they encompass more than just the training of models. 
 
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md)
-* [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
+* [Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
 
 
 ### Understand what happens when you submit a training job
 
 The Azure training lifecycle consists of:
 
-1. Zipping the files in your project folder, ignoring those specified in _.amlignore_ or _.gitignore_
-1. Scaling up your compute cluster 
+1. Zipping the files in your project folder and upload to the cloud.
+    
+    > [!TIP]
+    > [!INCLUDE [amlinclude-info](includes/machine-learning-amlignore-gitignore.md)]
+
+1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md) (preview))
 1. Building or downloading the dockerfile to the compute node 
     1. The system calculates a hash of: 
         - The base image 
@@ -98,15 +100,14 @@ The Azure training lifecycle consists of:
 The designer lets you train models using a drag and drop interface in your web browser.
 
 + [What is the designer?](concept-designer.md)
-+ [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 
 ## Azure CLI
 
 The machine learning CLI is an extension for the Azure CLI. It provides cross-platform CLI commands for working with Azure Machine Learning. Typically, you use the CLI to automate tasks, such as training a machine learning model.
 
 * [Use the CLI extension for Azure Machine Learning](how-to-configure-cli.md)
-* [MLOps on Azure](https://github.com/microsoft/MLOps)
-* [Train models with the CLI (v2)](how-to-train-cli.md)
+* [MLOps on Azure](https://github.com/Azure/mlops-v2)
+* [Train models](how-to-train-model.md)
 
 ## VS Code
 
@@ -114,4 +115,4 @@ You can use the VS Code extension to run and manage your training jobs. See the 
 
 ## Next steps
 
-Learn how to [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md).
+Learn how to [Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook](tutorial-pipeline-python-sdk.md).

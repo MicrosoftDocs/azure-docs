@@ -1,23 +1,34 @@
 ---
-title: Create and view statistical anomalies and anomaly triggers in Permissions Management
-description: How to create and view statistical anomalies and anomaly triggers in the Statistical Anomaly tab in Permissions Management.
+title: Create and view statistical anomaly alerts and alert triggers in Permissions Management
+description: How to create and view statistical anomaly alerts and alert triggers in the Statistical Anomaly tab in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
-# Create and view statistical anomalies and anomaly triggers
+# Create and view statistical anomaly alerts and alert triggers
 
-Statistical anomalies can detect outliers in an identity's behavior if recent activity is determined to be unusual based on models defined in an activity trigger. The goal of this anomaly trigger is a high recall rate.
+Statistical anomalies can detect outliers in an identity's behavior if the recent activity is determined to be unusual based on models defined in an activity trigger. The goal of this alert trigger is a high recall rate.
+
+You can configure statistical anomaly alert triggers for the following scenarios:
+- **Identity Performed High Number of Tasks**: The identity performs higher than their usual volume of tasks. For example, an identity typically performs 25 tasks per day, and now it is performing 100 tasks per day.
+- **Identity Performed Low Number of Tasks**: The identity performs lower than their usual volume of tasks. For example, an identity typically performs 100 tasks per day, and now it is performing 25 tasks per day.
+- **Identity Performed Tasks with Unusual Results**: The identity performing an action gets a different result than usual, such as most tasks end in a successful result and are now ending in a failed result or vice versa.
+- **Identity Performed Tasks with Unusual Timing**: The identity does tasks at unusual times as established by their baseline in the observance period. Times are grouped by the following UTC 4-hour windows.
+- **Identity Performed Tasks with Unusual Types**: The identity performs unusual types of tasks as established by their baseline in the observance period. For example, an identity performs read, write, or delete tasks they wouldn't ordinarily perform.
+- **Identity Performed Tasks with Multiple Unusual Patterns**: The identity has several unusual patterns in the tasks performed by the identity as established by their baseline in the observance period.
+
+Alert triggers are based on data collected. All alerts, if triggered, are shown every hour under the Alerts subtab.
 
 ## View statistical anomalies in an identity's behavior
 
-1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Alerts** (the bell icon).
 1. Select **Statistical Anomaly**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
@@ -38,9 +49,9 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
        - **View Trigger**: Displays the current trigger settings and applicable authorization system details
       - **View Trigger**: Displays the current trigger settings and applicable authorization system details
 
-## Create a statistical anomaly trigger
+## Create a statistical anomaly alert trigger
 
-1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Alerts** (the bell icon).
 1. Select **Statistical Anomaly**, select the **Alerts** subtab, and then select **Create Alert Trigger**.
 1. Enter a name for the alert in the **Alert Name** box.
 1. Select the **Authorization System**, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
@@ -69,11 +80,11 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
      - The **Controller** column displays if the controller is enabled or disabled.
 
 
-1. On the **Configuration** tab, to update the **Time Interval**, from the **Time Range** dropdown, select **90 Days**, **60 Days**, or **30 Days**, and then select **Save**.
+1. Select **Save**.
 
-## View statistical anomaly triggers
+## View statistical anomaly alert triggers
 
-1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Alerts** (the bell icon).
 1. Select **Statistical Anomaly**, and then select the **Alert Triggers** subtab.
 
     The **Alert Triggers** subtab displays the following information:
@@ -114,7 +125,7 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
 
 ## Next steps
 
-- For an overview on activity triggers, see [View information about activity triggers](ui-triggers.md).
+- For an overview on alerts and alert triggers, see [View information about alerts and alert triggers](ui-triggers.md).
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](how-to-create-alert-trigger.md).
-- For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](product-rule-based-anomalies.md).
-- For information on permission analytics triggers, see [Create and view permission analytics triggers](product-permission-analytics.md).
+- For information on rule-based anomaly alerts and alert triggers, see [Create and view rule-based anomaly alerts and alert triggers](product-rule-based-anomalies.md).
+- For information on permission analytics alerts and alert triggers, see [Create and view permission analytics alerts and alert triggers](product-permission-analytics.md).

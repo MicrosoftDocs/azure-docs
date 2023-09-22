@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/21/2022
+ms.date: 11/18/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -36,7 +36,7 @@ This sample also uses a *device simulator* that includes provisioning using the 
 
 Unzip the downloaded folder.
 
-You'll need [Node.js](https://nodejs.org/download) installed on your machine. The device simulator is based on Node.js, version 10.0.x or later.
+You'll need [Node.js](https://nodejs.org) installed on your machine. The device simulator is based on Node.js, version 10.0.x or later.
 
 ## Solution architecture
 
@@ -110,19 +110,19 @@ Next, you'll need to create an enrollment in Device Provisioning Service using a
 While going through that flow, make sure you select the following options to link the enrollment to the function you created.
 
 * **Select how you want to assign devices to hubs**: Custom (Use Azure Function).
-* **Select the IoT hubs this group can be assigned to:** Choose your IoT hub name or select the **Link a new IoT hub** button, and choose your IoT hub from the dropdown.
+* **Select the IoT hubs this group can be assigned to:** Choose your IoT hub name or select the **Link a new IoT hub** button, and choose your IoT hub from the options.
 
 Next, choose the **Select a new function** button to link your function app to the enrollment group. Then, fill in the following values:
 
 * **Subscription**: Your Azure subscription is autopopulated. Make sure it's the right subscription.
 * **Function App**: Choose your function app name.
-* **Function**: Choose DpsAdtAllocationFunc.
+* **Function**: Choose *DpsAdtAllocationFunc*.
 
 Save your details.                  
 
 :::image type="content" source="media/how-to-provision-using-device-provisioning-service/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Screenshot of the Customs enrollment group details window in the Azure portal." lightbox="media/how-to-provision-using-device-provisioning-service/link-enrollment-group-to-iot-hub-and-function-app.png":::
 
-After creating the enrollment, the **Primary Key** for the enrollment will be used later to configure the device simulator for this article.
+After creating the enrollment, select it to view its settings. Copy the **Primary Key** for the enrollment, which will be used later in this article to configure the device simulator.
 
 ### Set up the device simulator
 
@@ -138,7 +138,7 @@ For more information about models, see [Manage models](how-to-manage-model.md#up
 
 #### Configure and run the simulator
 
-In your command window, navigate to the downloaded sample *Azure Digital Twins and IoT Hub Integration* that you unzipped earlier, and then into the *device-simulator* directory. Next, install the dependencies for the project using the following command:
+In a command window on your local machine, navigate to the downloaded sample *Azure Digital Twins and IoT Hub Integration* that you unzipped earlier, and then into the *device-simulator* directory. Next, install the dependencies for the project using the following command:
 
 ```cmd
 npm install

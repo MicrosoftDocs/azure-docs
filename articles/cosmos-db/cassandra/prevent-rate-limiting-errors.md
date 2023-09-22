@@ -1,26 +1,27 @@
 ---
-title: Prevent rate-limiting errors for Azure Cosmos DB API for Cassandra.
-description: Prevent your Azure Cosmos DB API for Cassandra operations from hitting rate limiting errors with the SSR (server-side retry) feature
+title: Prevent rate-limiting errors for Azure Cosmos DB for Apache Cassandra.
+description: Prevent your Azure Cosmos DB for Apache Cassandra operations from hitting rate limiting errors with the SSR (server-side retry) feature
 author: dileepraotv-github
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: turao
 ---
 
-# Prevent rate-limiting errors for Azure Cosmos DB API for Cassandra operations
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Prevent rate-limiting errors for Azure Cosmos DB for Apache Cassandra operations
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (RU). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
 
-Azure Cosmos DB Cassandra API operations may fail with rate-limiting (OverloadedException/429) errors if they exceed a table’s throughput limit (RUs). This can be handled by client side as described [here](scale-account-throughput.md#handling-rate-limiting-429-errors). If the client retry policy cannot be implemented to handle the failure due to rate limiting error, then we can make use of the Server-side retry (SSR) feature where operations that exceed a table’s throughput limit will be retried automatically after a short delay. This is an account level setting and applies to all Key spaces and Tables in the account.
+Azure Cosmos DB for Apache Cassandra operations may fail with rate-limiting (OverloadedException/429) errors if they exceed a table’s throughput limit (RUs). This can be handled by client side as described [here](scale-account-throughput.md#handling-rate-limiting-429-errors). If the client retry policy cannot be implemented to handle the failure due to rate limiting error, then we can make use of the Server-side retry (SSR) feature where operations that exceed a table’s throughput limit will be retried automatically after a short delay. This is an account level setting and applies to all Key spaces and Tables in the account.
 
 ## Use the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to your Azure Cosmos DB API for Cassandra account.
+2. Navigate to your Azure Cosmos DB for Apache Cassandra account.
 
 3. Go to the **Features** pane underneath the **Settings** section.
 
@@ -28,7 +29,7 @@ Azure Cosmos DB Cassandra API operations may fail with rate-limiting (Overloaded
 
 5. Click **Enable** to enable this feature for all collections in your account.
 
-:::image type="content" source="./media/prevent-rate-limiting-errors/prevent-rate-limiting-errors.png" alt-text="Screenshot of the server-side retry feature for Azure Cosmos DB API for Cassandra":::
+:::image type="content" source="./media/prevent-rate-limiting-errors/prevent-rate-limiting-errors.png" alt-text="Screenshot of the server-side retry feature for Azure Cosmos DB for Apache Cassandra":::
 
 ## Use the Azure CLI
 
@@ -77,9 +78,9 @@ ProgrammaticDriverConfigLoaderBuilder configBuilder = DriverConfigLoader.program
 
 ### How can I monitor the effects of a server-side retry?
 
-You can view the rate limiting errors (429) that are retried server-side in the Cosmos DB Metrics pane. These errors don't go to the client when SSR is enabled, since they are handled and retried server-side.
+You can view the rate limiting errors (429) that are retried server-side in the Azure Cosmos DB Metrics pane. These errors don't go to the client when SSR is enabled, since they are handled and retried server-side.
 
-You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Cosmos DB resource logs](../cosmosdb-monitor-resource-logs.md).
+You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Azure Cosmos DB resource logs](../monitor-resource-logs.md).
 
 ### Will server-side retry affect my consistency level?
 
@@ -99,6 +100,5 @@ To learn more about troubleshooting common errors, see this article:
 See the following articles to learn about throughput provisioning in Azure Cosmos DB:
 
 * [Request units and throughput in Azure Cosmos DB](../request-units.md)
-* [Provision throughput on containers and databases](../how-to-provision-throughput-cassandra.md) 
-* [Partition key best practices](../cassandra-partitioning.md)
-
+* [Provision throughput on containers and databases](how-to-provision-throughput.md) 
+* [Partition key best practices](partitioning.md)

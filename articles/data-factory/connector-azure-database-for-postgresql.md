@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 07/13/2023
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -41,7 +41,7 @@ The three activities work on all Azure Database for PostgreSQL deployment option
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Azure database for PostgreSQL using UI
+## Create a linked service to Azure Database for PostgreSQL using UI
 
 Use the following steps to create a linked service to Azure database for PostgreSQL in the Azure portal UI.
 
@@ -346,7 +346,7 @@ The below table lists the properties supported by Azure Database for PostgreSQL 
 
 * Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
 
-* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+* Incremental column: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
 
 * Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 

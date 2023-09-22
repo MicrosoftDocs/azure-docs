@@ -6,12 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-ms.author: larryfr
-ms.reviewer: nibaccam
-author: blackmist
-ms.date: 10/21/2021
-ms.custom: automl
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
+ms.date: 06/12/2023
+ms.custom: automl, ignite-2022
+#Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
 # Tutorial: Forecast demand with no-code automated machine learning in the Azure Machine Learning studio
@@ -30,13 +30,13 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of a classification model, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
-* For a code first example of an object detection model, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* For a code first example of an object detection model, see the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 
 ## Prerequisites
 
 * An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
-* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
+* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
 
 ## Sign in to the studio
 
@@ -66,7 +66,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select **Upload files** from the **Upload** drop-down.. 
     
-    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
+    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
     1. Select **Next**
 
@@ -123,7 +123,7 @@ After you load and configure your data, set up your remote compute target and se
         
              Field | Description | Value for tutorial
             ----|---|---
-            Compute name |	A unique name that identifies your compute context. | bike-compute
+            Compute name |    A unique name that identifies your compute context. | bike-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
             Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
@@ -182,9 +182,9 @@ Navigate to the **Models** tab to see the algorithms (models) tested. By default
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
-The following example navigates through the **Details** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
+The following example navigates to select a model from the list of models that the job created. Then, you select the **Overview** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run detail](./media/tutorial-automated-ml-forecast/explore-models.gif)
+![Run Overview](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## Deploy the model
 
@@ -238,7 +238,7 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 
 ### Delete the resource group
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
@@ -251,8 +251,6 @@ See this article for steps on how to create a Power BI supported schema to facil
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
-+ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > This bike share dataset has been modified for this tutorial. This dataset was made available as part of a [Kaggle competition](https://www.kaggle.com/c/bike-sharing-demand/data) and was originally available via [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). It can also be found within the [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

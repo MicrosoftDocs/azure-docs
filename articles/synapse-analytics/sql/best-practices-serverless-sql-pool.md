@@ -5,7 +5,7 @@ author: filippopovic
 ms.author: fipopovi
 manager: craigg
 ms.reviewer: sngun, wiassaf
-ms.date: 09/01/2022
+ms.date: 02/15/2023
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
@@ -24,8 +24,9 @@ Some generic guidelines are:
 - Make sure the storage and serverless SQL pool are in the same region. Storage examples include Azure Data Lake Storage and Azure Cosmos DB.
 - Try to [optimize storage layout](#prepare-files-for-querying) by using partitioning and keeping your files in the range between 100 MB and 10 GB.
 - If you're returning a large number of results, make sure you're using SQL Server Management Studio or Azure Data Studio and not Azure Synapse Studio. Azure Synapse Studio is a web tool that isn't designed for large result sets.
-- If you're filtering results by string column, try to use a `BIN2_UTF8` collation.
+- If you're filtering results by string column, try to use a `BIN2_UTF8` collation. For more information on changing collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).
 - Consider caching the results on the client side by using Power BI import mode or Azure Analysis Services, and periodically refresh them. Serverless SQL pools can't provide an interactive experience in Power BI Direct Query mode if you're using complex queries or processing a large amount of data.
+- Maximum concurrency is not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.
 
 ## Client applications and network connections
 
@@ -78,7 +79,7 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ### Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns in Parquet files when needed. At this moment, statistics aren't automatically created for columns in CSV files. Create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics are not automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
 
 ## Data types
 
@@ -91,7 +92,7 @@ The data types you use in your query affect performance and concurrency. You can
 - Use the smallest data size that can accommodate the largest possible value.
   - If the maximum character value length is 30 characters, use a character data type of length 30.
   - If all character column values are of a fixed size, use **char** or **nchar**. Otherwise, use **varchar** or **nvarchar**.
-  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. You can find integer data type ranges in [this article](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
+  - If the maximum integer column value is 500, use **smallint** because it's the smallest data type that can accommodate this value. For more information, see [integer data type ranges](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 - If possible, use **varchar** and **char** instead of **nvarchar** and **nchar**.
   - Use the **varchar** type with some UTF8 collation if you're reading data from Parquet, Azure Cosmos DB, Delta Lake, or CSV with UTF-8 encoding.
   - Use the **varchar** type without UTF8 collation if you're reading data from CSV non-Unicode files (for example, ASCII).
@@ -103,7 +104,7 @@ The data types you use in your query affect performance and concurrency. You can
 
 [Schema inference](query-parquet-files.md#automatic-schema-inference) helps you quickly write queries and explore data without knowing file schemas. The cost of this convenience is that inferred data types might be larger than the actual data types. This discrepancy happens when there isn't enough information in the source files to make sure the appropriate data type is used. For example, Parquet files don't contain metadata about maximum character column length. So serverless SQL pool infers it as varchar(8000).
 
-You can use [sp_describe_first_results_set](/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) to check the resulting data types of your query.
+You can use the system stored procedure [sp_describe_first_results_set](/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) to check the resulting data types of your query.
 
 The following example shows how you can optimize inferred data types. This procedure is used to show the inferred data types:
 

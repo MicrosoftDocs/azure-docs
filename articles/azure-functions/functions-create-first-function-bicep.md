@@ -6,7 +6,7 @@ ms.author: mijacobs
 ms.date: 06/12/2022
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create and deploy Azure Functions resources using Bicep
@@ -37,6 +37,8 @@ The following four Azure resources are created by this Bicep file:
 + [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create a serverless Consumption hosting plan for the function app.
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): create an Application Insights instance for monitoring.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
 ## Deploy the Bicep file
 
@@ -111,4 +113,3 @@ Now that you've created your function app resources in Azure, you can deploy you
 * [Visual Studio Code](functions-develop-vs-code.md#republish-project-files)
 * [Visual Studio](functions-develop-vs.md#publish-to-azure)
 * [Azure Functions Core Tools](functions-run-local.md#publish)
-

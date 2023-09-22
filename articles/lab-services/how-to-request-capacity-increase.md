@@ -1,103 +1,163 @@
 ---
 title:  Request a core limit increase
-description: Learn how to request a core limit (quota) increase to expand capacity for your labs. 
+titleSuffix: Azure Lab Services
+description: Learn how to request a core limit (quota) increase to expand capacity for your labs in Azure Lab Services.
+services: lab-services
+ms.service: lab-services
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
-ms.date: 08/26/2022
+ms.author: nicktrog
+author: ntrogh
+ms.date: 03/03/2023
 ---
 
-<!-- As a lab administrator, I want more cores available for my subscription so that I can support more students. -->
+<!-- As a lab administrator, I want more VM cores available for my subscription so that I can support more students. -->
 
 # Request a core limit increase
-If you reach the cores limit for your subscription, you can request a limit increase to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-For information about creating support requests in general, see how to create a [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+This article describes how to collect the information and how to submit a support request for increasing the number of cores for Azure Lab Services in your Azure subscription.
+
+When you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+
+Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+### Prerequisites
+
+[!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
+
 ## Prepare to submit a request
-Before you begin your request for a capacity increase, you should make sure that you have all the information you need available and verify that you have the appropriate permissions. Review this article, and gather information like the number and size of cores you want to add, the regions you can use, and the location of resources like your existing labs and virtual networks.  
 
-### Permissions
-To create a support request, you must be assigned to one of the following roles at the subscription level:
- - [Owner](../role-based-access-control/built-in-roles.md)
- - [Contributor](../role-based-access-control/built-in-roles.md)
- - [Support Request Contributor](../role-based-access-control/built-in-roles.md)
+Before you create a support request for a core limit increase, you need to gather additional information, such as the number and size of cores and the Azure regions. You might also have to perform some preparation steps before creating the request.
+
+## [Lab account - May 2019 version](#tab/LabAccounts/)
 
 ### Determine the regions for your labs
-Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to your students. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
-### Locate and copy lab plan or lab account resource ID
-To add extra capacity to an existing lab, you must specify the lab's resource ID when you make the request. 
+Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to the lab users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
-Use the following steps to locate and copy the resource ID so that you can paste it into your support request.   
-1.	In the [Azure portal](https://portal.azure.com), navigate to the lab plan or lab account you want to add cores to. 
+### Determine the number of VM cores in your request
 
-1.	Under Settings, select Properties, and then copy the **Resource ID**.
-    :::image type="content" source="./media/how-to-request-capacity-increase/resource-id.png" alt-text="Screenshot showing the lab plan properties with resource ID highlighted.":::
+In your support request, you need to provide the number of *additional* VM cores. Each VM size has a number of VM cores. Azure Lab Services groups VM sizes together in size groups. You request VM cores for a specific size group.
 
-1. Paste the Resource ID into a document for safekeeping; you'll need it to complete the support request.
+- Small / Medium / Large cores
+- Medium (Nested Virtualization) / Large (Nested Virtualization) cores
+- Small (GPU Compute) cores
+- Small GPU (Visualization) cores
+- Medium GPU (Visualization) cores
 
-## Start a new support request
-You can follow these steps to request a limit increase:  
+To determine the total number of cores for your request: `total VM cores = (# cores for the selected VM size) * (# VMs)`
 
-1. In the Azure portal, in Support & Troubleshooting, select **Help + support**  
-   :::image type="content" source="./media/how-to-request-capacity-increase/support-troubleshooting.png" alt-text="Screenshot of the Azure portal showing Support & troubleshooting with Help + support highlighted.":::
-1. On the Help + support page, select **Create support request**.
-  :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page with Create support request highlighted.":::
+For example, you need more capacity for 20 *Medium* VMs. The number of additional VM cores for 20 Medium VMs is then 80 (4 cores per VM * 20).
 
-1. On the New support request page, use the following information to complete the **Problem description**, and then select **Next**.
+## [Lab plan - August 2022 version](#tab/Labplans/)
 
-   |Name  |Value  |
-   |---------|---------|
-   |**Issue type**|Service and subscription limits (quotas)|
-   |**Subscription**|The subscription you want to extend.|
-   |**Quota type**|Azure Lab Services|
+### Create a lab plan
 
-1. The **Recommended solution** tab isn't required for service and subscription limits (quotas) issues, so it is skipped.
+To create a request for Azure Lab Services capacity, you need to have a lab plan. If you don't already have a lab plan, follow these steps to [create a lab plan](./quick-create-lab-plan-portal.md).
 
-1. On the Additional details tab, in the **Problem details** section, select **Enter details**.
-   :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted."::: 
+### Verify available capacity
 
-## Make core limit increase request
-When you request core limit increase (sometimes called an increase in capacity), you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team will be able to process your request. 
+Before you begin calculating the number of extra cores you require, verify the capacity available in your subscription by [determining the current usage and quota](./how-to-determine-your-quota-usage.md). You're able to see exactly where your current capacity is used, and may discover extra capacity in an unused lab plan or lab.
 
-The information required for the lab accounts used in original version of Lab Services (May 2019) and the lab plans used in the updated version of Lab Services (August 2022) is different. Use the appropriate tab below to guide you as you complete the **Quota details**. 
-#### [Lab Accounts](#tab/LabAccounts/)
+### Determine the regions for your labs
 
-:::image type="content" source="./media/how-to-request-capacity-increase/lab-account.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
+Azure Lab Services resources can exist in many regions. You can choose to deploy resources in multiple regions close to the lab users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
-   |Name  |Value  |
-   |---------|---------|
-   |**Deployment Model**|Select **Lab Account (Classic)**|
-   |**Requested total core limit**|Enter the total number of cores for your subscription. Add the number of existing cores to the number of cores you're requesting.|
-   |**Region**|Select the regions that you would like to use. |
-   |**Is this for an existing lab or to create a new lab?**|Select **Existing lab** or **New lab**. </br> If you're adding cores to an existing lab, enter the lab's resource ID.|
-   |**What's the month-by-month usage plan for the requested cores?**|Enter the rate at which you want to add the extra cores.|
-   |**Additional details**|Answer the questions in the additional details box. The more information you can provide here, the easier it will be for the Azure Lab Services team to process your request. For example, you could include your preferred date for the new cores to be available.   |
+### Determine the number of VM cores in your request
 
-#### [Lab Plans](#tab/Labplans/)
+In your support request, you need to provide the *total* number of cores. This total includes both your existing number of cores, and the cores you want to add.
 
+Azure Lab Services groups VM sizes together in size groups:
 
-:::image type="content" source="./media/how-to-request-capacity-increase/lab-plan.png" alt-text="Screenshot of the Quota details page for Lab Services v2.":::
+- Small / Medium / Large cores
+- Medium (Nested Virtualization) / Large (Nested Virtualization) cores
+- Small (GPU Compute) cores
+- Small GPU (Visualization) cores
+- Medium GPU (Visualization) cores
 
-   |Name  |Value  |
-   |---------|---------|
-   |**Deployment Model**|Select **Lab Plan**|
-   |**Region**|Enter the preferred location or region where you want the extra cores.|
-   |**Alternate region**|If you're flexible with the location of your cores, you can select alternate regions.|
-   |**If you plan to use the new capacity with advanced networking, what region does your virtual network reside in?**|If your lab plan uses advanced networking, you must specify the region your virtual network resides in.|
-   |**Virtual Machine Size**|Select the virtual machine size that you require for the new cores.|
-   |**Requested total core limit**|Enter the total number of cores you require; your existing cores + the number you're requesting.|
-   |**What is the minimum number of cores you can start with?**|Your new cores may be made available gradually. Enter the minimum number of cores you require.|
-   |**What's the ideal date to have this by? (MM/DD/YYY)**|Enter the date on which you want the extra cores to be available.|
-   |**Is this for an existing lab or to create a new lab?**|Select **Existing lab** or **New lab**. </br> If you're adding cores to an existing lab, enter the lab's resource ID.|
-   |**What is the month-by-month usage plan for the requested cores?**|Enter the rate at which you want to add the extra cores.|
-   |**Additional details**|Answer the questions in the additional details box. The more information you can provide here, the easier it will be for the Azure Lab Services team to process your request. |
+You request VM cores for a specific Azure region. When you select the region in the support request, you can view your current usage and current limit per size group.
+
+To determine the total number of cores for your request: `total VM cores = (current # cores for the size group) + ((# cores for the selected VM size) * (# VMs))`
+
+For example, you need more capacity for 20 *Medium* VMs. You already have the following VMs:
+
+| VM size   | Cores per VM | # VMs | Total cores |
+| --------- | -----------: | ----: | ----------: |
+| Small     | 2            | 10    | 20          |
+| Medium    | 4            | 20    | 80          |
+| Small GPU | 6            | 5     | 30          |
+
+The current #cores for the Small/Medium/Large size group is 20 (Small) + 80 (Medium) = 100 cores. You don't count the *Small GPU* cores because they're in a different size group.
+
+The total number of VM cores for 20 additional Medium VMs is then 100 + (4 cores per Medium VM) * 20 = 180 cores.
 
 ---
 
-When you've entered the required information and any additional details, select **Save and continue**.
+## Best practices for requesting a core limit increase
+
+[!INCLUDE [lab-services-request-capacity-best-practices](includes/lab-services-request-capacity-best-practices.md)]
+
+## Start a new support request
+
+You can follow these steps to request a core limit increase:  
+
+1. In the Azure portal, navigate to your lab plan or lab account, and then select **Request core limit increase**.
+
+    :::image type="content" source="./media/how-to-request-capacity-increase/request-from-lab-plan.png" alt-text="Screenshot of the Lab plan overview page in the Azure portal, highlighting the Request core limit increase button.":::
+
+1. On the **New support request** page, enter the following information, and then select **Next**.
+
+    | Name              | Value   |
+    | ----------------- | ------- |
+    | **Issue type**    | *Service and subscription limits (quotas)* |
+    | **Subscription**  | Select the subscription to which the request applies. |
+    | **Quota type**    | *Azure Lab Services* |
+
+1. On the **Additional details** tab, select **Enter details** in the **Problem details** section.
+
+    :::image type="content" source="./media/how-to-request-capacity-increase/enter-details-link.png" alt-text="Screenshot of the Additional details page with Enter details highlighted."::: 
+
+## Make core limit increase request
+
+When you request core limit increase, you must supply some information to help the Azure Lab Services team evaluate and action your request as quickly as possible. The more information you can supply and the earlier you supply it, the more quickly the Azure Lab Services team is able to process your request. 
+
+Depending on whether you use lab accounts or lab plans, you need to provide different information on the **Quota details** page.
+
+## [Lab account - May 2019 version](#tab/LabAccounts/)
+
+:::image type="content" source="./media/how-to-request-capacity-increase/lab-account-pane.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
+
+| Name      | Value     |
+| --------- | --------- |
+| **Deployment Model** | *Lab Account (Classic)* |
+| **Region** | Select one or more regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) you would like to increase. |
+| **Alternate regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services), in case your preferred regions have no available capacity. |
+| **Virtual network regions** | Select one or more alternate regions in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you might host virtual networks for [advanced networking](./how-to-connect-peer-virtual-network.md). |
+| **Virtual machine size** | Select the VM size for which you need additional capacity. |
+| **Requested additional core limit** | Enter the number of additional cores for your subscription. |
+| **What is the lab account name?** | Only applies if you're adding cores to an existing lab. Select the lab account name. |
+| **What's the month-by-month usage plan for the requested cores?** | Enter the rate at which you want to add the extra cores, on a monthly basis. |
+| **Additional details** | Provide more information to make it easier for the Azure Lab Services team to process your request. For example, you could include your preferred date for the new cores to be available or if you plan to use GPU VM sizes. |
+
+#### [Lab plan - August 2022 version](#tab/Labplans/)
+
+:::image type="content" source="./media/how-to-request-capacity-increase/lab-plan-pane.png" alt-text="Screenshot of the Quota details page for Lab Services v2.":::
+
+| Name      | Value     |
+| --------- | --------- |
+| **Deployment Model** | *Lab Plan*|
+| **Region** | Select the region in the [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=lab-services) where you want the extra cores. |
+| **Does your virtual network reside in the same region as above?** | Select *Yes*, *No*, or *N/A*, depending on whether you use [advanced networking](./how-to-connect-peer-virtual-network.md) and have virtual networks in the region you selected. |
+| **Virtual machine size** | Select the virtual machine size that you require for the new cores. |
+| **Requested total core limit** | Enter the total number of cores you require. This number includes your existing cores + the number of extra cores you're requesting. See [Determine the total number of cores in your request](#prepare-to-submit-a-request) to learn how to calculate the total number of cores. |
+
+---
+
+When you've entered the required information and any extra details, select **Save and continue**.
 
 ## Complete the support request
+
+To complete the support request, enter the following information:
+
 1. Complete the remainder of the support request **Additional details** tab using the following information:
 
    ### Advanced diagnostic information
@@ -133,4 +193,5 @@ When you've entered the required information and any additional details, select 
 1. On the **Review + create** tab, review the information, and then select **Create**.
  
 ## Next steps
+
 For more information about capacity limits, see [Capacity limits in Azure Lab Services](capacity-limits.md).

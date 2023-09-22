@@ -1,10 +1,10 @@
 ---
-title: Using multiple steps for Updates with Device Update for Azure IoT Hub| Microsoft Docs
+title: Using multiple steps for Updates with Device Update for Azure IoT Hub
 description: Using multiple steps for Updates with Device Update for Azure IoT Hub
-author: ValOlson
-ms.author: valls
+author: kgremban
+ms.author: kgremban
 ms.date: 11/12/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
@@ -27,8 +27,8 @@ An example update manifest with one inline step:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -59,8 +59,8 @@ An example update manifest with two inline steps:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "du-device",
-            "deviceModel": "e2e-test"
+            "manufacturer": "du-device",
+            "model": "e2e-test"
         }
     ],
     "instructions": {
@@ -103,8 +103,8 @@ An example update manifest with one reference step:
       "isDeployable": true,
       "compatibility": [
           {
-              "deviceManufacturer": "du-device",
-              "deviceModel": "e2e-test"
+              "manufacturer": "du-device",
+              "model": "e2e-test"
           }
       ],
       "instructions": {
@@ -213,7 +213,7 @@ The steps content handler applies **IsInstalled** validation logic for each step
 
 To report an update result, the result of a step handler execution must be written to ADUC_Result struct in a desired result file as specified in --result-file option. Then based on results of the execution, for success return 0, for any fatal errors return -1 or 0xFF.
 
-For more information, see [Steps content handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-aware content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
+For more information, see [Steps content handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/step_handlers) and [Implementing a custom component-aware content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
 
 ### Reference steps in a parent update
 

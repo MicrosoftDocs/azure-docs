@@ -1,0 +1,75 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB for Gremlin documentation
+summary: Azure Cosmos DB for Gremlin provides a graph database service via the API for Gremlin on a fully managed database service designed for any scale.
+
+metadata:
+  title: Azure Cosmos DB for Gremlin documentation
+  description: Azure Cosmos DB for Gremlin provides a graph database service via the API for Gremlin on a fully managed database service designed for any scale.
+  services: cosmos-db
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: markjbrown
+  ms.service: cosmos-db
+  ms.subservice: apache-gremlin
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.date: 02/28/2023
+  ms.custom: ignite-2022
+landingContent:
+  - title: About API for Gremlin
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Cosmos DB for Gremlin?
+            url: introduction.md
+          - text: Wire protocol compatibility with Tinkerpop
+            url: support.md
+          - text: FAQ
+            url: gremlin-api-faq.yml
+      - linkListType: concept
+        links:
+          - text: Wire protocol compatibility
+            url: support.md
+          - text: API for Gremlin service limits
+            url: limits.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage your data using using Gremlin Console
+            url: quickstart-console.md
+          - text: Manage your data using a .NET app
+            url: quickstart-dotnet.md
+          - text: Manage your data using a Python app
+            url: quickstart-python.md
+      - linkListType: tutorial
+        links:
+          - text: Query using Gremlin
+            url: tutorial-query.md
+      - linkListType: how-to-guide
+        links:
+          - text: Graph data modeling
+            url: modeling.md
+          - text: Graph data partitioning best practices
+            url: partitioning.md
+          - text: Optimize Gremlin queries
+            url: execution-profile.md
+  - title: Migrate data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Import data using a bulk executor library
+            url: bulk-executor-dotnet.md
+  - title: Integrate with other solutions
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Third-party data visualization tools
+            url: visualization-partners.md
+          - text: Third-party data modeling tools
+            url: modeling-tools.md
+      - linkListType: sample
+        links:
+          - text: Solution for supply chain traceability
+            url: supply-chain-traceability-solution.md

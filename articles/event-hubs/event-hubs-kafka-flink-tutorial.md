@@ -7,7 +7,7 @@ ms.devlang: java
 ---
 
 # Use Apache Flink with Azure Event Hubs for Apache Kafka
-This tutorial shows you how to connect Apache Flink to an event hub without changing your protocol clients or running your own clusters. For more information on Event Hubs' support for the Apache Kafka consumer protocol, see [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
+This tutorial shows you how to connect Apache Flink to an event hub without changing your protocol clients or running your own clusters. For more information on Event Hubs' support for the Apache Kafka consumer protocol, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
 
 
 In this tutorial, you learn how to:
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure you have the following prerequisites:
 
-* Read through the [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) article. 
+* Read through the [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md) article. 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.

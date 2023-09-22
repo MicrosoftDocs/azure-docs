@@ -5,6 +5,8 @@ ms.topic: quickstart
 ms.date: 06/30/2022
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
+author: msangapu-msft
+ms.author: msangapu
 ---
 
 # Create an App Service app on Azure Arc (Preview)
@@ -52,6 +54,7 @@ Get a sample Node.js app using Git and deploy it using [ZIP deploy](deploy-zip.m
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 cd nodejs-docs-hello-world
 zip -r package.zip .
+az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app-name> --src package.zip
 ```
 

@@ -2,6 +2,7 @@
 title: Operational excellence recommendations
 description: Operational excellence recommendations
 ms.topic: article
+ms.custom: ignite-2022
 ms.date: 02/02/2022
 ---
 
@@ -21,19 +22,19 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 1. On the **Advisor** dashboard, select the **Operational Excellence** tab.
 
 
-## Spring Cloud
+## Azure Spring Apps
 
 ### Update your outdated Azure Spring Apps SDK to the latest version
 
 We have identified API calls from an outdated Azure Spring Apps SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Apps SDK to the latest version)](../spring-apps/index.yml).
+Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ### Update Azure Spring Apps API Version
 
-We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Azure Spring Apps API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Apps API Version)](../spring-apps/index.yml).
+Learn more about the [Azure Spring Apps service](../spring-apps/index.yml).
 
 ## Automation
 
@@ -97,13 +98,13 @@ TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and ha
 
 Learn more about [Redis Cache Server - TLSVersion (TLS versions 1.0 and 1.1 are known to be susceptible to security attacks, and have other Common Vulnerabilities and Exposures (CVE) weaknesses.)](https://aka.ms/TLSVersions).
 
-## Cognitive Services
+## Azure AI services
 
 ### Upgrade to the latest version of the Immersive Reader SDK
 
 We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
 
-Learn more about [Cognitive Service - ImmersiveReaderSDKRecommendation (Upgrade to the latest version of the Immersive Reader SDK)](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Learn more about [Azure AI Immersive Reader](/azure/ai-services/immersive-reader/).
 
 ## Compute
 
@@ -115,7 +116,7 @@ Learn more about [Virtual machine - IncreaseQuotaExperiment (Increase the number
 
 ### Add Azure Monitor to your virtual machine (VM) labeled as production
 
-Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs,  and it monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
+Azure Monitor for VMs monitors your Azure virtual machines (VM) and Virtual Machine Scale Sets at scale. It analyzes the performance and health of your Windows and Linux VMs,  and it monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider.
 
 Learn more about [Virtual machine - AddMonitorProdVM (Add Azure Monitor to your virtual machine (VM) labeled as production)](/azure/azure-monitor/insights/vminsights-overview).
 
@@ -179,7 +180,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/create-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 
@@ -191,13 +192,13 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 This cluster is not using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
-Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/cluster-configuration.md#ephemeral-os).
+Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/concepts-storage.md#ephemeral-os-disk).
 
-### Use Uptime SLA
+### Free and Standard tiers for AKS control plane management
 
-This cluster has not enabled Uptime SLA, and it limited to an SLO of 99.5%
+This cluster has not enabled the Standard tier which includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
-Learn more about [Kubernetes service - UseUptimeSLA (Use Uptime SLA)](../aks/uptime-sla.md).
+Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 
@@ -233,19 +234,19 @@ We have determined that too many of your host pools have Validation Environment 
 
 Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](../virtual-desktop/create-host-pools-powershell.md).
 
-## Cosmos DB
+## Azure Cosmos DB
 
 ### Migrate Azure Cosmos DB attachments to Azure Blob Storage
 
-We noticed that your Azure Cosmos collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
+We noticed that your Azure Cosmos DB collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
 
-Learn more about [Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
+Learn more about [Azure Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
 
 ### Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup
 
 Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup may also be more cost-effective as a single copy of your data is retained.
 
-Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
 
 ## Monitor
 
@@ -267,7 +268,7 @@ Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disable
 
 Create a periodic HSM backup to prevent data loss and have ability to recover the HSM in case of a disaster.
 
-Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#backup).
+Learn more about [Managed HSM Service - CreateHSMBackup (Create a backup of HSM)](../key-vault/managed-hsm/best-practices.md#create-backups).
 
 ## Data Explorer
 

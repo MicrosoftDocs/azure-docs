@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/17/2022
+ms.date: 10/26/2022
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -50,7 +50,7 @@ A resource is in the _Not Started_ state, or the compliance details aren't curre
 
 #### Cause
 
-A new policy or initiative assignment takes about 30 minutes to be applied. New or updated
+A new policy or initiative assignment takes about five minutes to be applied. New or updated
 resources within scope of an existing assignment become available in about 15 minutes. A
 standard compliance scan occurs every 24 hours. For more information, see
 [evaluation triggers](../how-to/get-compliance-data.md#evaluation-triggers).
@@ -314,7 +314,7 @@ This issue occurs when a cluster egress is locked down.
 
 Ensure that the domains and ports mentioned in the following article are open:
 
-- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 
 ### Scenario: The add-on is unable to reach the Azure Policy service endpoint because of the aad-pod-identity configuration
 
@@ -328,7 +328,7 @@ errors:
 
 #### Cause
 
-This error occurs when _add-pod-identity_ is installed on the cluster and the _kube-system_ pods
+This error occurs when _aad-pod-identity_ is installed on the cluster and the _kube-system_ pods
 aren't excluded in _aad-pod-identity_.
 
 The _aad-pod-identity_ component Node Managed Identity (NMI) pods modify the nodes' iptables to

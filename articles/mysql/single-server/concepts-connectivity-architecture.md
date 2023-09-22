@@ -3,8 +3,8 @@ title: Connectivity architecture - Azure Database for MySQL
 description: Describes the connectivity architecture for your Azure Database for MySQL server.
 ms.service: mysql
 ms.subservice: single-server
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.topic: conceptual
 ms.date: 06/20/2022
 ---
@@ -12,6 +12,8 @@ ms.date: 06/20/2022
 # Connectivity architecture in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article explains the Azure Database for MySQL connectivity architecture and how the traffic is directed to your Azure Database for MySQL instance from clients both within and outside Azure.
 
@@ -26,7 +28,7 @@ As client connects to the database, the connection string to the server resolves
 
 The gateway service is hosted on group of stateless compute nodes sitting behind an IP address, which your client would reach first when trying to connect to an Azure Database for MySQL server. 
 
-As part of ongoing service maintenance, we'll periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for MySQL servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. Once the new ring is fully functional, the older gateway hardware serving existing servers are planned for decommissioning. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal, three months in advance before decommissioning. The decommissioning of gateways can impact the connectivity to your servers if 
+As part of ongoing service maintenance, we'll periodically refresh compute hardware hosting the gateways to ensure we provide the most secure and performant experience. When the gateway hardware is refreshed, a new ring of the compute nodes is built out first. This new ring serves the traffic for all the newly created Azure Database for MySQL servers and it will have a different IP address from older gateway rings in the same region to differentiate the traffic. Once the new ring is fully functional, the older gateway hardware serving existing servers are planned for decommissioning. Before decommissioning a gateway hardware, customers running their servers and connecting to older gateway rings will be notified via email and in the Azure portal. The decommissioning of gateways can impact the connectivity to your servers if 
 
 * You hard code the gateway IP addresses in the connection string of your application. It is **not recommended**. You should use fully qualified domain name (FQDN) of your server in the format `<servername>.mysql.database.azure.com`, in the connection string for your application. 
 * You don't update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings.
@@ -39,34 +41,34 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 
 |  **Region name**       |  **Gateway IP addresses**                                  | **Gateway IP addresses   (decommissioning)**  |  **Gateway IP addresses   (decommissioned)**  |
 |------------------------|------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
-|  Australia Central     |  20.36.105.0 |  |       |
-|  Australia Central2    |  20.36.113.0  |  |        |
-|  Australia East        |  13.75.149.87, 40.79.161.1   |    |         |
-|  Australia South East  | 13.73.109.251, 13.77.49.32, 13.77.48.10     |        |            |
+|  Australia Central     |  20.36.105.32 | 20.36.105.0 |       |
+|  Australia Central2    |  20.36.113.0, 20.36.113.32  |  |        |
+|  Australia East        |  40.79.161.1, 13.70.112.32   |  13.75.149.87  |         |
+|  Australia South East  |  13.77.49.32, 13.77.48.10, 13.77.49.33     | 13.73.109.251       |            |
 |  Brazil South          |  191.233.201.8, 191.233.200.16     |       |  104.41.11.5                                  |
 |  Canada Central        |  13.71.168.32|| 40.85.224.249, 52.228.35.221             |                                               
-|  Canada East           |  40.86.226.166, 52.242.30.154                  |                                               |                                               |
+|  Canada East           |  40.69.105.32, 40.69.105.32                  | 52.242.30.154, 40.86.226.166                                              |                                               |
 |  Central US            |  23.99.160.139, 52.182.136.37,   52.182.136.38       |  13.67.215.62      |                                               |
-|  China East            |  139.219.130.35            |                                               |                                               |
+|  China East            |  52.130.112.139         |         139.219.130.35                                         |                                               |
 |  China East 2          |  40.73.82.1, 52.130.120.89            | 
 |  China East 3          |  52.131.155.192      | 
-|  China North           |  139.219.15.17    |        |                                               |
+|  China North           |  52.130.128.89    | 139.219.15.17       |                                               |
 |  China North 2         |  40.73.50.0          |                                        |
 |  China North 3         |  52.131.27.192     |          |
 |  East Asia             |  13.75.33.20, 52.175.33.150,   13.75.33.20, 13.75.33.21  |                |                                               |
 |  East US               |  40.71.8.203, 40.71.83.113                                 |  40.121.158.30                  |  191.238.6.43                   |
 |  East US 2             |  40.70.144.38, 52.167.105.38                               |  52.177.185.181  |                                               |
 |  France Central        |  40.79.137.0, 40.79.129.1                                  |   |                                               |
-|  France South          |  40.79.177.0                                               |                      |                                               |
+|  France South          |  40.79.177.0, 40.79.176.40                                               |                      |                                               |
 |  Germany Central       |  51.4.144.100                                              |                           |                                               |
 |  Germany North         |  51.116.56.0                                               |                                  |                                               |
 |  Germany North East    |  51.5.144.179                                              |                  |                                               |
 |  Germany West Central  |  51.116.152.0                                              |             |                                               |
-|  India Central         |  104.211.96.159                                            |                      |                                               |
-|  India South           |  104.211.224.146                                           |                     |                                               |
-|  India West            |  104.211.160.80                                            |           |                                               |
+|  India Central         |  20.192.96.33                                            |  104.211.96.159                    |                                               |
+|  India South           |  40.78.192.32                                           |  104.211.224.146                   |                                               |
+|  India West            |  104.211.144.32                                           |  104.211.160.80          |                                               |
 |  Japan East            |  40.79.192.23, 40.79.184.8                                 |  13.78.61.196           |                                               |
-|  Japan West            |  191.238.68.11, 40.74.96.6,   40.74.96.7                   |  104.214.148.156                |                                               |
+|  Japan West            |  191.238.68.11, 40.74.96.6,   40.74.96.7, 40.74.96.32                   |  104.214.148.156                |                                               |
 |  Korea Central         |  52.231.17.13                                              |  52.231.32.42                    |                                               |
 |  Korea South           |  52.231.145.3, 52.231.151.97                                              |  52.231.200.86     |                                               |
 |  North Central US      |  52.162.104.35, 52.162.104.36                              |  23.96.178.199       |                                               |
@@ -80,8 +82,8 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  UAE Central           |  20.37.72.64                                               |                      |                                               |
 |  UAE North             |  65.52.248.0                                               |                         |                                               |
 |  UK   South            |  51.140.144.32, 51.105.64.0                 |  51.140.184.11                                |                                               |
-|  UK   West             |  51.141.8.11                                               |                                 |                                               |
-|  West Central US       |  13.78.145.25, 52.161.100.158                              |                       |                                               |
+|  UK   West             |  51.140.208.98                                               | 51.141.8.11                                |                                               |
+|  West Central US       |  13.71.193.34                              |   13.78.145.25, 52.161.100.158                    |                                               |
 |  West Europe           |  13.69.105.208, 104.40.169.187                             |  40.68.37.158                                 |  191.237.232.75                               |
 |  West US               |  13.86.216.212, 13.86.217.212                              |  104.42.238.205                               |  23.99.34.75                                  |
 |  West US2               |  13.66.136.195, 13.66.136.192, 13.66.226.202                              |       |                                   |

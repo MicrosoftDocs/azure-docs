@@ -4,10 +4,10 @@ description: Learn how to use Azure PowerShell to configure Azure ExpressRoute D
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 09/20/2023
 ms.author: duau
-
 ---
 
 # How to configure ExpressRoute Direct
@@ -50,7 +50,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 3. List all locations where ExpressRoute Direct is supported.
   
    ```powershell
-   Get-AzExpressRoutePortsLocation
+   Get-AzExpressRoutePortsLocation | format-list
    ```
 
    **Example output**
@@ -83,7 +83,7 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
 4. Determine if a location listed above has available bandwidth
 
    ```powershell
-   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1" | format-list
    ```
 
    **Example output**
@@ -277,7 +277,10 @@ There are more circuit bandwidths that can be utilized on ExpressRoute Direct to
 
 **SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** can only be MeteredData. Unlimited isn't supported on ExpressRoute Direct.
+**SkuFamily** can only be **MeteredData** at creation. To use **Unlimited** data, you'll need to update the *SkuFamily* after creation.
+
+> [!NOTE]
+> Once you change to **Unlimited** data, you won't be able to change it back without recreating the ExpressRoute circuit.
 
 Create a circuit on the ExpressRoute Direct resource.
 

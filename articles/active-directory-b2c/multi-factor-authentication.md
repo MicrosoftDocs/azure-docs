@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) integrates directly with [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. You enable multifactor authentication without writing a single line of code. If you already created sign up and sign-in user flows, you can still enable multifactor authentication.
+Azure Active Directory B2C (Azure AD B2C) integrates directly with [Microsoft Entra multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. You enable multifactor authentication without writing a single line of code. If you already created sign up and sign-in user flows, you can still enable multifactor authentication.
 
 This feature helps applications handle scenarios such as:
 
@@ -41,13 +41,13 @@ With [Conditional Access](conditional-access-identity-protection-overview.md) us
 - **Authenticator app - TOTP** - The user must install an authenticator app that supports time-based one-time password (TOTP) verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app), on a device that they own. During the first sign-up or sign-in, the user scans a QR code or enters a code manually using the authenticator app. During subsequent sign-ins, the user types the TOTP code that appears on the authenticator app. See [how to set up the Microsoft Authenticator app](#enroll-a-user-in-totp-with-an-authenticator-app-for-end-users). 
 
 > [!IMPORTANT]
-> Authenticator app - TOTP provides stronger security than SMS/Phone and email is the least secure. [SMS/Phone-based multi-factor authentication incurs separate charges from the normal Azure AD B2C MAU's pricing model](https://azure.microsoft.com/pricing/details/active-directory/external-identities/). 
+> Authenticator app - TOTP provides stronger security than SMS/Phone and email is the least secure. [SMS/Phone-based multifactor authentication incurs separate charges from the normal Azure AD B2C MAU's pricing model](https://azure.microsoft.com/pricing/details/active-directory/external-identities/). 
 
 ## Set multifactor authentication
 
 ::: zone pivot="b2c-user-flow"
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
@@ -67,7 +67,7 @@ With [Conditional Access](conditional-access-identity-protection-overview.md) us
    >
    > - With general availability of Conditional Access in Azure AD B2C, users are now prompted to enroll in an MFA method during sign-up. Any sign-up user flows you created prior to general availability won't automatically reflect this new behavior, but you can include the behavior by creating new user flows.
    > - If you select **Conditional**, you'll also need to [add Conditional Access to user flows](conditional-access-user-flow.md), and specify the apps you want the policy to apply to.
-   > - Multi-factor authentication (MFA) is disabled by default for sign-up user flows. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
+   > - Multifactor authentication is disabled by default for sign-up user flows. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
 
 1. Select **Save**. MFA is now enabled for this user flow.
 
@@ -116,7 +116,7 @@ In Azure AD B2C, you can delete a user's TOTP authenticator app enrollment. Then
 
 ### Delete TOTP authenticator app enrollment using the Azure portal 
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Users**.
@@ -135,6 +135,6 @@ Learn how to [delete a user's Software OATH token authentication method](/graph/
 
 ## Next steps
 
-- Learn about the [TOTP display control](display-control-time-based-one-time-password.md) and [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md)
+- Learn about the [TOTP display control](display-control-time-based-one-time-password.md) and [Microsoft Entra multifactor authentication technical profile](multi-factor-auth-technical-profile.md)
 
 ::: zone-end

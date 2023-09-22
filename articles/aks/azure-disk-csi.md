@@ -1,65 +1,45 @@
 ---
-title: Use Container Storage Interface (CSI) driver for Azure Disks on Azure Kubernetes Service (AKS)
-description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disks in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
+title: Use Container Storage Interface (CSI) driver for Azure Disk on Azure Kubernetes Service (AKS)
+description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disk in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 07/21/2022
-author: palma21
-
+ms.custom: devx-track-linux
+ms.date: 04/19/2023
 ---
 
-# Use the Azure Disks Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
+# Use the Azure Disk Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
 
-The Azure Disks Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Disks.
+The Azure Disks Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Disk.
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS](csi-storage-drivers.md). This article describes how to use the Azure Disks CSI driver version 1.
+To create an AKS cluster with CSI driver support, see [Enable CSI driver on AKS](csi-storage-drivers.md). This article describes how to use the Azure Disk CSI driver version 1.
 
 > [!NOTE]
-> Azure Disks CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure Disks CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure Disk CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
-## Azure Disks CSI driver features
+## Azure Disk CSI driver features
 
-In addition to in-tree driver features, Azure Disks CSI driver supports the following features:
+In addition to in-tree driver features, Azure Disk CSI driver supports the following features:
 
 - Performance improvements during concurrent disk attach and detach
   - In-tree drivers attach or detach disks in serial, while CSI drivers attach or detach disks in batch. There's significant improvement when there are multiple disks attaching to one node.
+- Premium SSD v1 and v2 are supported.
+  -  `PremiumV2_LRS` only supports `None` caching mode
 - Zone-redundant storage (ZRS) disk support
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported. ZRS disk could be scheduled on the zone or non-zone node, without the restriction that disk volume should be co-located in the same zone as a given node. For more information, including which regions are supported, see [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md).
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
-- [Resize disk PV without downtime(Preview)](#resize-a-persistent-volume-without-downtime-preview)
+- [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
 
-## Storage class driver dynamic disks parameters
-
-|Name | Meaning | Available Value | Mandatory | Default value
-|--- | --- | --- | --- | ---
-|skuName | Azure Disks storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
-|fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
-|cachingMode | [Azure Data Disk Host Cache Setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching) | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
-|location | Specify Azure region where Azure Disks will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster|
-|resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver will use the same resource group name as current AKS cluster|
-|DiskIOPSReadWrite | [UltraSSD disk](../virtual-machines/linux/disks-ultra-ssd.md) IOPS Capability (minimum: 2 IOPS/GiB ) | 100~160000 | No | `500`|
-|DiskMBpsReadWrite | [UltraSSD disk](../virtual-machines/linux/disks-ultra-ssd.md) Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
-|LogicalSectorSize | Logical sector size in bytes for Ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
-|tags | Azure Disk [tags](../azure-resource-manager/management/tag-resources.md) | Tag format: `key1=val1,key2=val2` | No | ""|
-|diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest](../virtual-machines/windows/disk-encryption.md) | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
-|diskEncryptionType | Encryption type of the disk encryption set | `EncryptionAtRestWithCustomerKey`(by default), `EncryptionAtRestWithPlatformAndCustomerKeys` | No | ""|
-|writeAcceleratorEnabled | [Write Accelerator on Azure Disks](../virtual-machines/windows/how-to-enable-write-accelerator.md) | `true`, `false` | No | ""|
-|networkAccessPolicy | NetworkAccessPolicy property to prevent generation of the SAS URI for a disk or a snapshot | `AllowAll`, `DenyAll`, `AllowPrivate` | No | `AllowAll`|
-|diskAccessID | ARM ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
-|enableBursting | [Enable on-demand bursting](../virtual-machines/disk-bursting.md) beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512 GB. Ultra and shared disk isn't supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
-|useragent | User agent used for [customer usage attribution](../marketplace/azure-partner-customer-usage-attribution.md)| | No  | Generated Useragent formatted `driverName/driverVersion compiler/version (OS-ARCH)`|
-|enableAsyncAttach | Allow multiple disk attach operations (in batch) on one node in parallel.<br> While this parameter can speed up disk attachment, you may encounter Azure API throttling limit when there are large number of volume attachments. | `true`, `false` | No | `false`|
-|subscriptionID | Specify Azure subscription ID where the Azure Disks will be created  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
+> [!NOTE]
+> Depending on the VM SKU that's being used, the Azure Disk CSI driver might have a per-node volume limit. For some powerful VMs (for example, 16 cores), the limit is 64 volumes per node. To identify the limit per VM SKU, review the **Max data disks** column for each VM SKU offered. For a list of VM SKUs offered and their corresponding detailed capacity limits, see [General purpose virtual machine sizes][general-purpose-machine-sizes].
 
 ## Use CSI persistent volumes with Azure Disks
 
-A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disk for use by a single pod in an AKS cluster. For static provisioning, see [Create a static volume with Azure Disks](azure-disk-volume.md).
+A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disk for use by a single pod in an AKS cluster. For static provisioning, see [Create a static volume with Azure Disks](azure-csi-disk-storage-provision.md#statically-provision-a-volume).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -67,7 +47,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes storage classes][kubernetes-storage-classes].
 
-When you use the Azure Disks CSI driver on AKS, there are two more built-in `StorageClasses` that use the Azure Disks CSI storage driver. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use the Azure Disk CSI driver on AKS, there are two more built-in `StorageClasses` that use the Azure Disk CSI storage driver. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `managed-csi`: Uses Azure Standard SSD locally redundant storage (LRS) to create a managed disk.
 - `managed-csi-premium`: Uses Azure Premium LRS to create a managed disk.
@@ -85,7 +65,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk created
 pod/nginx-azuredisk created
 ```
@@ -137,13 +117,13 @@ kubectl apply -f sc-azuredisk-csi-waitforfirstconsumer.yaml
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 ```
 
 ## Volume snapshots
 
-The Azure Disks CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). As part of this capability, the driver can perform either *full* or [*incremental* snapshots](../virtual-machines/disks-incremental-snapshots.md) depending on the value set in the `incremental` parameter (by default, it's true).
+The Azure Disk CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). As part of this capability, the driver can perform either *full* or [*incremental* snapshots](../virtual-machines/disks-incremental-snapshots.md) depending on the value set in the `incremental` parameter (by default, it's true).
 
 The following table provides details for all of the parameters.
 
@@ -157,6 +137,9 @@ The following table provides details for all of the parameters.
 
 ### Create a volume snapshot
 
+> [!NOTE]
+> Before proceeding, ensure that the application is not writing data to the source disk.
+
 For an example of this capability, create a [volume snapshot class](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) with the [kubectl apply][kubectl-apply] command:
 
 ```bash
@@ -165,7 +148,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 ```
 
@@ -177,7 +160,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshot.snapshot.storage.k8s.io/azuredisk-volume-snapshot created
 ```
 
@@ -189,7 +172,7 @@ kubectl describe volumesnapshot azuredisk-volume-snapshot
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Name:         azuredisk-volume-snapshot
 Namespace:    default
 Labels:       <none>
@@ -227,7 +210,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk-snapshot-restored created
 pod/nginx-restored created
 ```
@@ -240,7 +223,7 @@ kubectl exec nginx-restored -- ls /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 lost+found
 outfile
 test.txt
@@ -261,7 +244,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk-cloning created
 pod/nginx-restored-cloning created
 ```
@@ -274,23 +257,13 @@ kubectl exec nginx-restored-cloning -- ls /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 lost+found
 outfile
 test.txt
 ```
 
-## Resize a persistent volume without downtime (Preview)
-
-> [!IMPORTANT]
-> Azure Disks CSI driver supports expanding PVCs without downtime (Preview).
-> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
-> 
-> az feature register --namespace Microsoft.Compute --name LiveResize
-> 
-> az feature show --namespace Microsoft.Compute --name LiveResize
->
-> Follow this [link][expand-pvc-with-downtime] to expand PVCs **with** downtime if you cannot try preview feature.
+## Resize a persistent volume without downtime
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
@@ -305,32 +278,36 @@ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        9.8G   42M  9.8G   1% /mnt/azuredisk
 ```
 
 Expand the PVC by increasing the `spec.resources.requests.storage` field running the following command:
 
-```basj
+```bash
 kubectl patch pvc pvc-azuredisk --type merge --patch '{"spec": {"resources": {"requests": {"storage": "15Gi"}}}}'
 ```
 
+> [!NOTE]
+> Shrinking persistent volumes is currently not supported. Trying to patch an existing PVC with a smaller size than the current one leads to the following error message:
+> `The persistentVolumeClaim "pvc-azuredisk" is invalid: spec.resources.requests.storage: Forbidden: field can not be less than previous value.`
+
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk patched
 ```
 
 Run the following command to confirm the volume size has increased:
 
-```console
+```bash
 kubectl get pv
 ```
 
 The output of the command resembles the following example:
 
-```bash
+```output
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                     STORAGECLASS   REASON   AGE
 pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete           Bound    default/pvc-azuredisk                     managed-csi             2d2h
 (...)
@@ -344,7 +321,7 @@ kubectl get pvc pvc-azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 pvc-azuredisk   Bound    pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            managed-csi    2d2h
 ```
@@ -357,7 +334,7 @@ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
@@ -387,7 +364,7 @@ allowVolumeExpansion: true
 
 ## Windows containers
 
-The Azure Disks CSI driver supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart][aks-quickstart-cli] to add a Windows node pool.
+The Azure Disk CSI driver supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart][aks-quickstart-cli] to add a Windows node pool.
 
 After you have a Windows node pool, you can now use the built-in storage classes like `managed-csi`. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into the file `data.txt` by running the following [kubectl apply][kubectl-apply] command:
 
@@ -397,7 +374,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 statefulset.apps/busybox-azuredisk created
 ```
 
@@ -410,7 +387,7 @@ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Windo
 
 The output of the command resembles the following example:
 
-```bash
+```output
 2020-08-27 08:13:41Z
 2020-08-27 08:13:42Z
 2020-08-27 08:13:44Z
@@ -420,8 +397,9 @@ The output of the command resembles the following example:
 ## Next steps
 
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver][azure-files-csi].
-- To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
+- To learn how to use CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI driver][azure-blob-csi].
 - For more information about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
+- For more information about disk-based storage solutions, see [Disk-based solutions in AKS][disk-based-solutions].
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -459,3 +437,5 @@ The output of the command resembles the following example:
 [az-on-demand-bursting]: ../virtual-machines/disk-bursting.md#on-demand-bursting
 [enable-on-demand-bursting]: ../virtual-machines/disks-enable-bursting.md?tabs=azure-cli
 [az-premium-ssd]: ../virtual-machines/disks-types.md#premium-ssds
+[general-purpose-machine-sizes]: ../virtual-machines/sizes-general.md
+[disk-based-solutions]: /azure/cloud-adoption-framework/scenarios/app-platform/aks/storage#disk-based-solutions

@@ -7,8 +7,8 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 10/14/2021
+ms.topic: overview
+ms.date: 01/10/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -24,20 +24,20 @@ A custom policy is represented as one or more XML-formatted files, which refer t
 
 ## Custom policy starter pack
 
-Azure AD B2C custom policy [starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) comes with several pre-built policies to get you going quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
+Azure AD B2C custom policy [starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) comes with several pre-built policies to get you started quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
 
 - **LocalAccounts** - Enables the use of local accounts only.
 - **SocialAccounts** - Enables the use of social (or federated) accounts only.
 - **SocialAndLocalAccounts** - Enables the use of both local and social accounts. Most of our samples refer to this policy.
 - **SocialAndLocalAccountsWithMFA** - Enables social, local, and multi-factor authentication options.
 
-In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you'll find samples for several enhanced Azure AD B2C custom CIAM user journeys. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
+In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you'll find samples for several enhanced Azure AD B2C custom CIAM user journeys and scenarios. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
  
 ## Understanding the basics 
 
 ### Claims
 
-A claim provides temporary storage of data during an Azure AD B2C policy execution. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems (claims exchanges). The [claims schema](claimsschema.md) is the place where you declare your claims. 
+A claim provides temporary storage of data during an Azure AD B2C policy execution. Claims are more like variable in a programing language. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems (claims exchanges). The [claims schema](claimsschema.md) is the place where you declare your claims. 
 
 When the policy runs, Azure AD B2C sends and receives claims to and from internal and external parties and then sends a subset of these claims to your relying party application as part of the token. Claims are used in these ways: 
 
@@ -48,7 +48,7 @@ When the policy runs, Azure AD B2C sends and receives claims to and from interna
 
 ### Manipulating your claims
 
-The [claims transformations](claimstransformations.md) are predefined functions that can be used to convert a given claim into another one, evaluate a claim, or set a claim value. For example adding an item to a string collection, changing the case of a string, or evaluate a date and time claim. A claims transformation specifies a transform method. 
+The [claims transformations](claimstransformations.md) are predefined functions that can be used to convert a given claim into another one, evaluate a claim, or set a claim value. For example adding an item to a string collection, changing the case of a string, or evaluate a date and time claim. A claims transformation specifies a transform method, which is also predefined. 
 
 ### Customize and localize your UI
 
@@ -105,7 +105,7 @@ The following diagram illustrates how Azure AD B2C uses a validation technical p
 
 ## Inheritance model
 
-Each starter pack includes the following files:
+Each [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) includes the following files:
 
 - A **Base** file that contains most of the definitions. To help with troubleshooting and long-term maintenance of your policies, try to minimize the number of changes you make to this file.
 - A **Localization** file that holds the localization strings. This policy file is derived from the Base file. Use this file to accommodate different languages to suit your customer needs.
@@ -127,13 +127,13 @@ The following diagram shows the relationship between the policy files and the re
 
 ### Best practices
 
-Within an Azure AD B2C custom policy, you can integrate your own business logic to build the user experiences you require and extend functionality of the service. We have a set of best practices and recommendations to get started.
+Within an Azure AD B2C custom policy, you can integrate your own business logic to build the user experiences you require and extend functionality of the service. We've a set of best practices and recommendations to get started.
 
 - Create your logic within the **extension policy**, or **relying party policy**. You can add new elements, which will override the base policy by referencing the same ID. This approach will allow you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
 - Within the **base policy**, we highly recommend avoiding making any changes. When necessary, make comments where the changes are made.
 - When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](./disable-email-verification.md) for an example of how to make the change.
 - To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
-- Avoid writing to the Azure AD directory during sign-in, which may lead to throttling issues.
+- Avoid writing to the Microsoft Entra directory during sign-in, which may lead to throttling issues.
 - If your policy has external dependencies, such as REST APIs, makes sure they're highly available.
 - For a better user experience, make sure your custom HTML templates, are globally deployed using [online content delivery](../cdn/index.yml). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and improve response speed.
 - If you want to make a change to user journey, copy the entire user journey from the base policy to the extension policy. Provide a unique user journey ID to the user journey you've copied. Then in the [relying party policy](relyingparty.md), change the [default user journey](relyingparty.md#defaultuserjourney) element to point to the new user journey.
@@ -144,7 +144,7 @@ When developing with Azure AD B2C policies, you may run into errors or exception
 
 - Integrate Application Insights with Azure AD B2C to [diagnose exceptions](troubleshoot-with-application-insights.md).
 - The [Azure AD B2C extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) can help you access and [visualize the logs](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) based on a policy name and time.
-- The most common error in setting up custom policies is improperly formatted XML. Use [XML schema validation](troubleshoot-custom-policies.md) to identify errors before you upload your XML file.
+- The most common error in setting up custom policies is improperly formatted XML. Use [XML schema validation](./troubleshoot.md) to identify errors before you upload your XML file.
 
 ## Continuous integration
 
@@ -159,7 +159,7 @@ You get started with Azure AD B2C custom policy:
 1. Add the necessary [policy keys](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) and [register the Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
 1. [Get the Azure AD B2C policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) and upload to your tenant. 
 1. After you upload the starter pack, [test your sign-up or sign-in policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy).
-1. We recommend you to download and install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code is a lightweight but powerful source code editor, which runs on your desktop and is available for Windows, macOS, and Linux. With VS Code, you can quickly navigate through and edit your Azure AD B2C custom policy XML files by installing the [Azure AD B2C extension for VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+1. We recommend that you download and install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code is a lightweight but powerful source code editor, which runs on your desktop and is available for Windows, macOS, and Linux. With VS Code, you can quickly navigate through and edit your Azure AD B2C custom policy XML files by installing the [Azure AD B2C extension for VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
  
 ## Next steps
 

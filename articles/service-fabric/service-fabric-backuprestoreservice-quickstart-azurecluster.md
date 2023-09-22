@@ -112,6 +112,9 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
             "parameters":  [{
                 "name": "SecretEncryptionCertThumbprint",
                 "value": "[Thumbprint]"
+            },{
+                "name": "SecretEncryptionCertX509StoreName",
+                "value": "My"
             }]
         }
         ...

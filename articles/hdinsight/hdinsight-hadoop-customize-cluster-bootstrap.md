@@ -3,8 +3,8 @@ title: Customize Azure HDInsight cluster configurations using bootstrap
 description: Learn how to customize HDInsight cluster configuration programmatically using .NET, PowerShell, and Resource Manager templates.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 05/31/2022
+ms.custom: hdinsightactive, devx-track-azurepowershell, devx-track-dotnet
+ms.date: 11/17/2022
 ---
 
 # Customize HDInsight clusters using Bootstrap
@@ -30,7 +30,6 @@ For example, using these programmatic methods, you can configure options in thes
 * mapred-site
 * oozie-site.xml
 * oozie-env.xml
-* storm-site.xml
 * tez-site.xml
 * webhcat-site.xml
 * yarn-site.xml

@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 09/16/2021
+ms.date: 08/18/2023
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -10,6 +10,31 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+
+## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
+
+### Issue
+When you run `Start-AzAutomationRunbook` to start specific runbooks:
+
+```powershell
+start-azautomationRunbook -Name "Test_2" -AutomationAccountName "AutomationParent" -ResourceGroupName "AutomationAccount" 
+```
+It fails with the following error:
+ 
+`Start-AzAutomationRunbook: "runbookname" does not match expected pattern '^[a-zA-Z]*-*[a-zA-Z0-9]*$'`
+ 
+### Cause
+
+Code that was introduced in [1.9.0](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) version of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid. 
+
+### Workaround
+
+We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
+
+### Resolution
+
+Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 
@@ -146,10 +171,6 @@ To determine what's wrong, follow these steps:
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
    ```powershell
-   # Get the connection "AzureRunAsConnection"
-   $connectionName = "AzureRunAsConnection"
-   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
-
    $logonAttempt = 0
    $logonResult = $False
 
@@ -158,11 +179,6 @@ To determine what's wrong, follow these steps:
        $LogonAttempt++
        #Logging in to Azure...
        $connectionResult = Connect-AzAccount `
-                              -ServicePrincipal `
-                              -Tenant $servicePrincipalConnection.TenantId `
-                              -ApplicationId $servicePrincipalConnection.ApplicationId `
-                              -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
-
        Start-Sleep -Seconds 30
    }
    ```
@@ -259,7 +275,7 @@ The runbook isn't using the correct context when running. This may be because th
 You may see errors like this one:
 
 ```error
-Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+Get-AzVM : The client '<client-id>' with object id '<object-id> does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
    ErrorCode: AuthorizationFailed
    StatusCode: 403
    ReasonPhrase: Forbidden Operation
@@ -305,7 +321,7 @@ To use a service principal with Azure Resource Manager cmdlets, see [Creating se
 Your runbook fails with an error similar to the following example:
 
 ```error
-Exception: A task was canceled.
+Exception: A task was cancelled.
 ```
 
 ### Cause
@@ -705,6 +721,22 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 #### Insufficient permissions
 
 [Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+
+## Scenario: Runbook fails with "Parameter length exceeded" error
+
+### Issue
+Your runbook uses parameters and fails with the following error:
+
+```error
+Total Length of Runbook Parameter names and values exceeds the limit of 30,000 characters. To avoid this issue, use Automation Variables to pass values to runbook.
+```
+
+### Cause
+There is a limit to the total length of characters of all Parameters that can be provided in Python 2.7, Python 3.8, and PowerShell 7.1 runbooks. The total length of all Parameter names, and Parameter values must not exceed 30,000 characters.
+
+### Resolution
+To overcome this issue, you can use Azure Automation [Variables](../shared-resources/variables.md) to pass values to runbook. You can alternatively reduce the number of characters in Parameter names and Parameter values to ensure that the total length does not exceed 30,000 characters. 
+
 
 ## Recommended documents
 

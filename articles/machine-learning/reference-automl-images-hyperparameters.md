@@ -5,8 +5,9 @@ description: Learn which hyperparameters are available for computer vision tasks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: reference
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 author: swatig007
 ms.author: swatig
 ms.date: 01/18/2022
@@ -14,18 +15,15 @@ ms.date: 01/18/2022
 
 # Hyperparameters for computer vision tasks in automated machine learning
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/reference-automl-images-hyperparameters-v1.md)
-> * [v2 (current version)](reference-automl-images-hyperparameters.md)
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 
-With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific.
+With support for computer vision tasks, you can control the model architecture and sweep hyperparameters. These model architectures and hyperparameters are passed in as the parameter space for the sweep. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific.
 
 ## Model-specific hyperparameters
 
-This table summarizes hyperparameters specific to the `yolov5` algorithm.
+This table summarizes hyperparameters specific to the `yolov5` architecture.
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|----|
@@ -36,6 +34,9 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0 |
 | `box_score_threshold` | During inference, only return proposals with a score greater than `box_score_threshold`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
 | `nms_iou_threshold` | IOU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
+| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> Should be passed as a string in '3x2' format. Example: --tile_grid_size '3x2' | No Default |
+| `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
+| `tile_predictions_nms_threshold` | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
 This table summarizes hyperparameters specific to the `maskrcnn_*` for instance segmentation during inference.
 
@@ -75,28 +76,30 @@ The following table describes the hyperparameters that are model agnostic.
 |`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
 |`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
 |`checkpoint_run_id`| The run ID of the experiment that has a pretrained checkpoint for incremental training.| no default  |
-|`layers_to_freeze`| How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1 referring to the below supported model layer info. <br> Must be a positive integer. <br><br>`'resnet': [('conv1.', 'bn1.'), 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>`'mobilenetv2': ['features.0.', 'features.1.', 'features.2.', 'features.3.', 'features.4.', 'features.5.', 'features.6.', 'features.7.', 'features.8.', 'features.9.', 'features.10.', 'features.11.', 'features.12.', 'features.13.', 'features.14.', 'features.15.', 'features.16.', 'features.17.', 'features.18.'],`<br>`'seresnext': ['layer0.', 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>`'vit': ['patch_embed', 'blocks.0.', 'blocks.1.', 'blocks.2.', 'blocks.3.', 'blocks.4.', 'blocks.5.', 'blocks.6.','blocks.7.', 'blocks.8.', 'blocks.9.', 'blocks.10.', 'blocks.11.'],`<br>`'yolov5_backbone': ['model.0.', 'model.1.', 'model.2.', 'model.3.', 'model.4.','model.5.', 'model.6.', 'model.7.', 'model.8.', 'model.9.'],`<br>`'resnet_backbone': ['backbone.body.conv1.', 'backbone.body.layer1.', 'backbone.body.layer2.','backbone.body.layer3.', 'backbone.body.layer4.']` | no default  |
+|`layers_to_freeze`| How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1 referring to the below supported model layer info. <br> Must be a positive integer. <br><br> - `'resnet'`: `[('conv1.', 'bn1.'), 'layer1.', 'layer2.', 'layer3.', 'layer4.']` <br> - `'mobilenetv2'`: `['features.0.', 'features.1.', 'features.2.', 'features.3.', 'features.4.', 'features.5.', 'features.6.', 'features.7.', 'features.8.', 'features.9.', 'features.10.', 'features.11.', 'features.12.', 'features.13.', 'features.14.', 'features.15.', 'features.16.', 'features.17.', 'features.18.']` <br> - `'seresnext'`: `['layer0.', 'layer1.', 'layer2.', 'layer3.', 'layer4.']` * `'vit'`: `['patch_embed', 'blocks.0.', 'blocks.1.', 'blocks.2.', 'blocks.3.', 'blocks.4.', 'blocks.5.', 'blocks.6.','blocks.7.', 'blocks.8.', 'blocks.9.', 'blocks.10.', 'blocks.11.']` * `'yolov5_backbone'`: `['model.0.', 'model.1.', 'model.2.', 'model.3.', 'model.4.','model.5.', 'model.6.', 'model.7.', 'model.8.', 'model.9.']` <br> - `'resnet_backbone'`: `['backbone.body.conv1.', 'backbone.body.layer1.', 'backbone.body.layer2.','backbone.body.layer3.', 'backbone.body.layer4.']` | no default  |
 
 ## Image classification (multi-class and multi-label) specific hyperparameters
 
 The following table summarizes hyperparmeters for image classification (multi-class and multi-label) tasks.
-  
+
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
-| `weighted_loss` | <li> 0 for no weighted loss. <li> 1 for weighted loss with sqrt.(class_weights) <li> 2 for weighted loss with class_weights. <li> Must be 0 or 1 or 2. | 0 |
-| `validation_resize_size` | <li> Image size to which to resize before cropping for validation dataset. <li> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*.  | 256  |
-| `validation_crop_size` | <li> Image crop size that's input to your neural network for validation dataset.  <li> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `validation_crop_size` and `training_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
-| `training_crop_size` | <li> Image crop size that's input to your neural network for train dataset.  <li> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `validation_crop_size` and `training_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 | 
+| `model_name` | Model name to be used for image classification task at hand. <br> <br> Must be one of `mobilenetv2`, `resnet18`, `resnet34`, `resnet50`, `resnet101`, `resnet152`, `resnest50`, `resnest101`, `seresnext`, `vits16r224`, `vitb16r224`, `vitl16r224`. | `seresnext` |
+| `weighted_loss` | - 0 for no weighted loss. <br> - 1 for weighted loss with sqrt.(class_weights) <br> - 2 for weighted loss with class_weights. <br> - Must be 0 or 1 or 2. | 0 |
+| `validation_resize_size` | - Image size to which to resize before cropping for validation dataset. <br> - Must be a positive integer. <br> <br> *Notes: <br> - `seresnext` doesn't take an arbitrary size. <br> - Training run may get into CUDA OOM if the size is too big*.  | 256  |
+| `validation_crop_size` | - Image crop size that's input to your neural network for validation dataset.  <br> - Must be a positive integer. <br> <br> *Notes: <br> - `seresnext` doesn't take an arbitrary size. <br> - *ViT-variants* should have the same `validation_crop_size` and `training_crop_size`. <br> - Training run may get into CUDA OOM if the size is too big*. | 224 |
+| `training_crop_size` | - Image crop size that's input to your neural network for train dataset.  <br> - Must be a positive integer. <br> <br> *Notes: <br> - `seresnext` doesn't take an arbitrary size. <br> - *ViT-variants* should have the same `validation_crop_size` and `training_crop_size`. <br> - Training run may get into CUDA OOM if the size is too big*. | 224 |
 
 ## Object detection and instance segmentation task specific hyperparameters
 
 The following hyperparameters are for object detection and instance segmentation tasks.
 
 > [!WARNING]
-> These parameters are not supported with the `yolov5` algorithm. See the [model specific hyperparameters](#model-specific-hyperparameters) section for `yolov5` supported hyperparmeters.
+> These parameters are not supported with the `yolov5` architecture. See the [model specific hyperparameters](#model-specific-hyperparameters) section for `yolov5` supported hyperparmeters.
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
+| `model_name` | Model name to be used for image classification task at hand. <br> - For object detection task, must be one of `yolov5`, `fasterrcnn_resnet18_fpn`, `fasterrcnn_resnet34_fpn`, `fasterrcnn_resnet50_fpn`, `fasterrcnn_resnet101_fpn`, `fasterrcnn_resnet152_fpn`, `retinanet_resnet50_fpn`. <br> - For instance segmentation task, must be one of `maskrcnn_resnet18_fpn`, `maskrcnn_resnet34_fpn`, `maskrcnn_resnet50_fpn`, `maskrcnn_resnet101_fpn`, `maskrcnn_resnet152_fpn` | - For object detection task, `fasterrcnn_resnet50_fpn` <br> - For instance segmentation task, `maskrcnn_resnet50_fpn` |
 | `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
 | `validation_iou_threshold` | IOU threshold for box matching when computing validation metrics.  <br>Must be a float in the range [0.1, 1]. | 0.5 |
 | `min_size` | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*.| 600 |
@@ -104,12 +107,12 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_score_threshold` | During inference, only return proposals with a classification score greater than `box_score_threshold`. <br> Must be a float in the range [0, 1].| 0.3 |
 | `nms_iou_threshold` | IOU (intersection over union) threshold used in non-maximum suppression (NMS) for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_image` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
-| `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
+| `tile_grid_size` | The grid size to use for tiling each image. <br>*- `tile_grid_size` must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic.*<br>*- `tile_grid_size` is not supported for instance segmentation tasks.*<br> Should be passed as a string in '3x2' format. Example: --tile_grid_size '3x2' | No Default |
 | `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
 | `tile_predictions_nms_threshold` | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
 ## Next steps
 
-* Learn how to [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
+* Learn how to [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md).
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).

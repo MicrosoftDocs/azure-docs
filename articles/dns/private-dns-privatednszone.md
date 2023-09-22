@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 09/08/2022
+ms.date: 02/27/2023
 ms.author: greglin
 ---
 
@@ -26,13 +26,12 @@ To understand how many private DNS zones you can create in a subscription and ho
 
 * Single-label private DNS zones aren't supported. Your private DNS zone must have two or more labels. For example, contoso.com has two labels separated by a dot. A private DNS zone can have a maximum of 34 labels.
 * You can't create zone delegations (NS records) in a private DNS zone. If you intend to use a child domain, you can directly create the domain as a private DNS zone. Then you can link it to the virtual network without setting up a nameserver delegation from the parent zone.
-* Starting the week of August 28th, 2022, specific reserved zone names will be blocked from creation to prevent disruption of services. The following zone names are blocked:
+* The following list of reserved zone names are blocked from creation to prevent disruption of services:
 
-    | Public | Azure Government | Azure China |
+    | Public | Azure Government | Microsoft Azure operated by 21Vianet |
     | --- | --- | --- |
     |azclient.ms	| azclient.us	| azclient.cn
     |azure.com |	azure.us	| azure.cn
-    |azure-api.net	| azure-api.us	| azure-api.cn
     |cloudapp.net |	usgovcloudapp.net	| chinacloudapp.cn
     |core.windows.net |	core.usgovcloudapi.net	| core.chinacloudapi.cn
     |microsoft.com |	microsoft.us |	microsoft.cn

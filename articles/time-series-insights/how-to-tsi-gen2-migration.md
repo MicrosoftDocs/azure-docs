@@ -70,45 +70,11 @@ Data
         :::image type="content" source="media/gen2-migration/adx-log-analytics.png" alt-text="Screenshot of the Azure Data Explorer Log Analytics Workspace" lightbox="media/gen2-migration/adx-log-analytics.png":::
 
 1.	Data partitioning.
-    1.	For small size data, the default ADX partitioning is enough. For more complex scenario, with large datasets and right push rate custom ADX data partitioning is more appropriate. Data partitioning is beneficial for scenarios, as follows:
-        1.	Improving query latency in big data sets.
-        1.	When querying historical data.
-        1.	When ingesting out-of-order data.
-    1.	The custom data partitioning should include:
-        1.	The timestamp column, which results in time-based partitioning of extents. 
-        1.	A string-based column, which corresponds to the Time Series ID with highest cardinality. 
-    1.	An example of data partitioning containing a Time Series ID column and a timestamp column is: 
-
-```
-.alter table events policy partitioning
- {
-   "PartitionKeys": [
-     {
-       "ColumnName": "timeSeriesId",
-       "Kind": "Hash",
-       "Properties": {
-         "Function": "XxHash64",
-         "MaxPartitionCount": 32,
-         "PartitionAssignmentMode": "Uniform"
-       }
-     },
-     {
-       "ColumnName": "timestamp",
-       "Kind": "UniformRange",
-       "Properties": {
-         "Reference": "1970-01-01T00:00:00",
-         "RangeSize": "1.00:00:00",
-         "OverrideCreationTime": true
-       }
-     }
-   ] ,
-  "EffectiveDateTime": "1970-01-01T00:00:00",
-  "MinRowCountPerOperation": 0,
-  "MaxRowCountPerOperation": 0,
-  "MaxOriginalSizePerOperation": 0
- }
-```
-For more references, check [ADX Data Partitioning Policy](/azure/data-explorer/kusto/management/partitioningpolicy).
+    1.	For most data sets, the default ADX partitioning is enough.
+    1.	Data partitioning is beneficial in a very specific set of scenarios, and shouldn't be applied otherwise:
+        1.	Improving query latency in big data sets where most queries filter on a high cardinality string column, e.g. a time-series ID.
+        1.	When ingesting out-of-order data, e.g. when events from the past may be ingested days or weeks after their generation in the origin.
+    1.	For more information, check [ADX Data Partitioning Policy](/azure/data-explorer/kusto/management/partitioningpolicy).
 
 #### Prepare for Data Ingestion
 
@@ -292,7 +258,7 @@ events
 
 #### GetEvents with filter
 
- ```TSQ
+```TSQ
 {
   "getEvents": {
     "timeSeriesId": [

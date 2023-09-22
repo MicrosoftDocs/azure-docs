@@ -6,7 +6,7 @@ services: virtual-wan
 author: wellee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/24/2021
+ms.date: 08/24/2023
 ms.author: wellee
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies for point-to-site VPN
 ---

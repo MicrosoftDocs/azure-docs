@@ -4,14 +4,17 @@ description: Describes the slow query logs available in Azure Database for MySQL
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Slow query logs in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the MySQL slow query log, see the MySQL reference manual's [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
@@ -47,13 +50,13 @@ When logging to the server's local storage, logs are available for up to seven d
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
-> [!Note]
+> [!NOTE]
 > The above log retention does not apply to logs that are piped using Azure Monitor Diagnostic Logs. You can change the retention period for the data sinks being emitted to (ex. Azure Storage).
 
 ## Diagnostic logs
 Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../../azure-monitor/essentials/platform-logs-overview.md).
 
->[!Note]
+>[!NOTE]
 >Premium Storage accounts are not supported if you sending the logs to Azure storage via diagnostics and settings 
 
 The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
@@ -86,7 +89,7 @@ The following table describes what's in each log. Depending on the output method
 | `thread_id_s` | Thread ID |
 | `\_ResourceId` | Resource URI |
 
-> [!Note]
+> [!NOTE]
 > For `sql_text`, log will be truncated if it exceeds 2048 characters.
 
 ## Analyze logs in Azure Monitor Logs
@@ -99,7 +102,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | where query_time_d > 10
     ```
 
@@ -109,7 +112,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | order by query_time_d desc
     | take 5
     ```
@@ -120,7 +123,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
@@ -130,7 +133,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
     | render timechart
     ```
@@ -140,7 +143,7 @@ Once your slow query logs are piped to Azure Monitor Logs through Diagnostic Log
     ```Kusto
     AzureDiagnostics
     | where Category == 'MySqlSlowLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, start_time_t , query_time_d, sql_text_s 
     | where query_time_d > 10
     ```    
     

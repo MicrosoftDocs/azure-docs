@@ -4,24 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Learn to deploy your AutoML model as a web service that's automatically managed by Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.author: sehan
-ms.reviewer: larryfr
+ms.subservice: inferencing
 author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
 ms.date: 05/11/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022, devx-track-python
 ms.devlang: azurecli
 ---
 
 # How to deploy an AutoML model to an online endpoint
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
-
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online (real-time inference) endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see [What is automated machine learning (AutoML)?](concept-automated-ml.md).
 
@@ -96,7 +91,7 @@ To deploy using these files, you can use either the studio or the Azure CLI.
  
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ## Configure the CLI 
 
@@ -154,29 +149,29 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
 
 1. From the command line, run: 
 
-    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
     ```azurecli
     az ml online-endpoint create -f automl_endpoint.yml
     az ml online-deployment create -f automl_deployment.yml
     ```
     
-After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
+After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ## Configure the Python SDK
 
 If you haven't installed Python SDK v2 yet, please install with this command:
 
 ```azurecli
-pip install --pre azure-ai-ml
+pip install azure-ai-ml azure-identity
 ```
 
-For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ai-ml-readme).
 
 ## Put the scoring file in its own directory
 
@@ -202,7 +197,7 @@ Create a directory called `src/` and place the scoring file you downloaded into 
 1. Configure workspace details and get a handle to the workspace:
 
     ```python
-    # enter details of your AzureML workspace
+    # enter details of your Azure Machine Learning workspace
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     workspace = "<AZUREML_WORKSPACE_NAME>"
@@ -256,7 +251,7 @@ Next, we'll create the managed online endpoints and deployments.
     model = Model(path="./src/model.pkl")
     env = Environment(
         conda_file="./src/conda_env_v_1_0_0.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -298,4 +293,4 @@ You can learn to deploy to managed online endpoints with SDK more in [Deploy mac
 ## Next steps
 
 - [Troubleshooting online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)

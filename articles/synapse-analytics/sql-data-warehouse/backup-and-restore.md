@@ -6,7 +6,7 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 07/19/2022
+ms.date: 11/30/2022
 ms.author: stevehow
 ms.reviewer: joanpo
 ms.custom: seo-lt-2019"
@@ -20,7 +20,12 @@ Learn how to use backup and restore in Azure Synapse Dedicated SQL pool. Use ded
 
 A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since dedicated SQL pool is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
-A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse snapshot is also a powerful mechanism to create copies of your data warehouse for test or development purposes. Dedicated SQL pool restore rates can vary depending on the database size and location of the source and target data warehouse.
+A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse snapshot is also a powerful mechanism to create copies of your data warehouse for test or development purposes.
+
+> [!NOTE]
+> Dedicated SQL pool Recovery Time Objective (RTO) rates can vary. Factors that may affect the recovery (restore) time:
+> - The database size
+> - The location of the source and target data warehouse (i.e., geo-restore) 
 
 ## Automatic Restore Points
 
@@ -42,7 +47,15 @@ order by run_id desc
 This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.synapse/new-azsynapsesqlpoolrestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
 
 > [!NOTE]
-> If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the dedicated SQL pool online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Synapse storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
+> If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8).
+
+> [!NOTE]
+> In case you're looking for a Long-Term Backup (LTR) concept:
+> 1. Create a new user-defined restore point, or you can use one of the automatically generated restore points.
+> 2. Restore from the newly created restore point to a new data warehouse.
+> 3. After you have restored, you have the dedicated SQL pool online. Pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Synapse storage rate. 
+> 
+> If you need an active copy of the restored data warehouse, you can resume, which should take only a few minutes.
 
 ### Restore point retention
 
@@ -69,9 +82,9 @@ If you do not require geo-backups for your dedicated SQL pool, you can disable t
 
 ## Data residency 
 
-If your paired data center is located outside of your country, you can ensure that your data stays within your region by provisioning your database on locally redundant storage (LRS). If your database has already been provisioned on RA-GRS (Read Only Geographically Redundant Storage, the current default) then you can opt out of geo-backups, however your database will continue to reside on storage that is replicated to a regional pair. To ensure that customer data stays within your region, you can provision or restore your dedicated SQL pool to locally redundant storage. For more information on how to provision or restore to local redundant storage, see [How-to guide for configuring single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](single-region-residency.md)
+If your paired data center is located outside of your country/region, you can ensure that your data stays within your region by provisioning your database on locally redundant storage (LRS). If your database has already been provisioned on RA-GRS (Read Only Geographically Redundant Storage, the current default) then you can opt out of geo-backups, however your database will continue to reside on storage that is replicated to a regional pair. To ensure that customer data stays within your region, you can provision or restore your dedicated SQL pool to locally redundant storage. For more information on how to provision or restore to local redundant storage, see [How-to guide for configuring single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](single-region-residency.md)
 
-To confirm that your paired data center is in a different country, refer to [Azure Paired Regions](../../availability-zones/cross-region-replication-azure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+To confirm that your paired data center is in a different country/region, refer to [Azure Paired Regions](../../availability-zones/cross-region-replication-azure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## Backup and restore costs
 
@@ -89,9 +102,16 @@ Each snapshot creates a restore point that represents the time the snapshot star
 
 You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) with the MODIFY NAME option.
 
-To restore a data warehouse, see [Restore a dedicated SQL pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
+To restore a data warehouse, see [Restore a dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-To restore a deleted data warehouse, see [Restore a deleted database](sql-data-warehouse-restore-deleted-dw.md), or if the entire server was deleted, see [Restore a data warehouse from a deleted server](sql-data-warehouse-restore-from-deleted-server.md).
+To restore a deleted data warehouse, see [Restore a deleted database (formerly SQL DW)](sql-data-warehouse-restore-deleted-dw.md), or if the entire server was deleted, see [Restore a data warehouse from a deleted server (formerly SQL DW)](sql-data-warehouse-restore-from-deleted-server.md).
+
+> [!NOTE]
+> Table-level restore is not supported in dedicated SQL Pools. You can only recover an entire database from your backup, and then copy the require table(s) by using 
+>  - ETL tools activities such as [Copy Activity](../../data-factory/copy-activity-overview.md)
+>  - Export and Import
+>     - Export the data from the restored backup into your Data Lake by using CETAS [CETAS Example](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=sql-server-linux-ver16&preserve-view=true#d-use-create-external-table-as-select-exporting-data-as-parquet)
+>     - Import the data by using [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) or [Polybase](../sql/load-data-overview.md#options-for-loading-with-polybase)
 
 ## Cross subscription restore
 

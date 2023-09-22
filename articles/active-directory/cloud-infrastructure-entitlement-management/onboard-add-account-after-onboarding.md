@@ -2,13 +2,14 @@
 title: Add an account /subscription/ project to Permissions Management after onboarding is complete
 description: How to add an account/ subscription/ project to Permissions Management after onboarding is complete.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 09/13/2023
+ms.author: jfields
 ---
 
 # Add an account/ subscription/ project after onboarding is complete
@@ -27,7 +28,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 
     The **Permissions Management Onboarding - AWS Member Account Details** page displays.
 
-1. Go to **Enter Your AWS Account IDs**, and then select **Add** (the plus **+** sign).
+1. Go to **Enter Your AWS Account IDs**, then select **Add** (the plus **+** sign).
 1. Copy your account ID from AWS and paste it into the **Enter Account ID** box.
 
     The AWS account ID is automatically added to the script.
@@ -53,8 +54,8 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 
     The **Permissions Management Onboarding - Summary** page displays.
 
-1. Go to **Azure subscription IDs**, and then select **Edit** (the pencil icon).
-1. Go to **Enter your Azure Subscription IDs**, and then select **Add subscription** (the plus **+** sign).
+1. Go to **Azure subscription IDs**, then select **Edit** (the pencil icon).
+1. Go to **Enter your Azure Subscription IDs**, then select **Add subscription** (the plus **+** sign).
 1. Copy and paste your subscription ID from Azure and paste it into the subscription ID box.
 
     The subscription ID is automatically added to the subscriptions line in the script.

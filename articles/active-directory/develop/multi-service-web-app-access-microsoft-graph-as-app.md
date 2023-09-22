@@ -5,14 +5,15 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/19/2022
+ms.date: 04/05/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript
-ms.custom: azureday1, devx-track-azurepowershell
+ms.custom: azureday1
+ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
 
@@ -22,7 +23,7 @@ Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
 :::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="./media/multi-service-web-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](../managed-identities-azure-resources/overview.md). A managed identity from Azure Active Directory allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
+You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](../managed-identities-azure-resources/overview.md). A managed identity from Microsoft Entra ID allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
 
 In this tutorial, you learn how to:
 
@@ -48,37 +49,43 @@ Take note of the **Object ID** value, which you'll need in the next step.
 
 ## Grant access to Microsoft Graph
 
-When accessing the Microsoft Graph, the managed identity needs to have proper permissions for the operation it wants to perform. Currently, there's no option to assign such permissions through the Azure portal. The following script will add the requested Microsoft Graph API permissions to the managed identity service principal object.
+When accessing the Microsoft Graph, the managed identity needs to have proper permissions for the operation it wants to perform. Currently, there's no option to assign such permissions through the Microsoft Entra admin center. The following script will add the requested Microsoft Graph API permissions to the managed identity service principal object.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Install the module. (You need admin on the machine.)
-# Install-Module AzureAD.
+# Install the module.
+# Install-Module Microsoft.Graph -Scope CurrentUser
 
-# Your tenant ID (in the Azure portal, under Azure Active Directory > Overview).
-$TenantID="<tenant-id>"
-$resourceGroup = "securewebappresourcegroup"
-$webAppName="SecureWebApp-20201102125811"
+# The tenant ID
+$TenantId = "11111111-1111-1111-1111-111111111111"
 
-# Get the ID of the managed identity for the web app.
-$spID = (Get-AzWebApp -ResourceGroupName $resourceGroup -Name $webAppName).identity.principalid
+# The name of your web app, which has a managed identity.
+$webAppName = "SecureWebApp-20201106120003" 
+$resourceGroupName = "SecureWebApp-20201106120003ResourceGroup"
 
-# Check the Microsoft Graph documentation for the permission you need for the operation.
-$PermissionName = "User.Read.All"
+# The name of the app role that the managed identity should be assigned to.
+$appRoleName = "User.Read.All"
 
-Connect-AzureAD -TenantId $TenantID
+# Get the web app's managed identity's object ID.
+Connect-AzAccount -Tenant $TenantId
+$managedIdentityObjectId = (Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $webAppName).identity.principalid
 
-# Get the service principal for Microsoft Graph.
-# First result should be AppId 00000003-0000-0000-c000-000000000000
-$GraphServicePrincipal = Get-AzureADServicePrincipal -SearchString "Microsoft Graph" | Select-Object -first 1
+Connect-MgGraph -TenantId $TenantId -Scopes 'Application.Read.All','AppRoleAssignment.ReadWrite.All'
 
-# Assign permissions to the managed identity service principal.
-$AppRole = $GraphServicePrincipal.AppRoles | `
-Where-Object {$_.Value -eq $PermissionName -and $_.AllowedMemberTypes -contains "Application"}
+# Get Microsoft Graph app's service principal and app role.
+$serverApplicationName = "Microsoft Graph"
+$serverServicePrincipal = (Get-MgServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
+$serverServicePrincipalObjectId = $serverServicePrincipal.Id
 
-New-AzureAdServiceAppRoleAssignment -ObjectId $spID -PrincipalId $spID `
--ResourceId $GraphServicePrincipal.ObjectId -Id $AppRole.Id
+$appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
+
+# Assign the managed identity access to the app role.
+New-MgServicePrincipalAppRoleAssignment `
+    -ServicePrincipalId $managedIdentityObjectId `
+    -PrincipalId $managedIdentityObjectId `
+    -ResourceId $serverServicePrincipalObjectId `
+    -AppRoleId $appRoleId
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -103,9 +110,9 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 ---
 
-After executing the script, you can verify in the [Azure portal](https://portal.azure.com) that the requested API permissions are assigned to the managed identity.
+After executing the script, you can verify in the [Microsoft Entra admin center](https://entra.microsoft.com) that the requested API permissions are assigned to the managed identity.
 
-Go to **Azure Active Directory**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. In **Managed Identities**, select the service principal for the managed identity.
+Go to **Applications**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant.  **Add a filter** for "Application type == Managed Identities" and select the service principal for the managed identity.
 
 If you're following this tutorial, there are two service principals with the same display name (SecureWebApp2020094113531, for example). The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal that appears in **Managed Identities** should *not* have a **Homepage URL** listed and the **Object ID** should match the object ID value of the managed identity in the [previous step](#enable-managed-identity-on-app).
 
@@ -125,9 +132,9 @@ The [ChainedTokenCredential](/dotnet/api/azure.identity.chainedtokencredential),
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
 
-### Install the Microsoft.Identity.Web.MicrosoftGraph client library package
+### Install the Microsoft.Identity.Web.GraphServiceClient client library package
 
-Install the [Microsoft.Identity.Web.MicrosoftGraph NuGet package](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
+Install the [Microsoft.Identity.Web.GraphServiceClient NuGet package](https://www.nuget.org/packages/Microsoft.Identity.Web.GraphServiceClient) in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
 #### .NET Core command-line
 
@@ -136,7 +143,8 @@ Open a command line, and switch to the directory that contains your project file
 Run the install commands.
 
 ```dotnetcli
-dotnet add package Microsoft.Identity.Web.MicrosoftGraph
+dotnet add package Microsoft.Identity.Web.GraphServiceClient
+dotnet add package Microsoft.Graph
 ```
 
 #### Package Manager Console
@@ -145,7 +153,8 @@ Open the project/solution in Visual Studio, and open the console by using the **
 
 Run the install commands.
 ```powershell
-Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Identity.Web.GraphServiceClient
+Install-Package Microsoft.Graph
 ```
 
 ### Example
@@ -155,9 +164,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Azure.Identity;​
-using Microsoft.Graph.Core;​​
-using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging;
+using Microsoft.Graph;
+using Azure.Identity;
 
 ...
 
@@ -171,27 +180,17 @@ public async Task OnGetAsync()
     var credential = new ChainedTokenCredential(
         new ManagedIdentityCredential(),
         new EnvironmentCredential());
-    var token = credential.GetToken(
-        new Azure.Core.TokenRequestContext(
-            new[] { "https://graph.microsoft.com/.default" }));
 
-    var accessToken = token.Token;
+    string[] scopes = new[] { "https://graph.microsoft.com/.default" };
+
     var graphServiceClient = new GraphServiceClient(
-        new DelegateAuthenticationProvider((requestMessage) =>
-        {
-            requestMessage
-            .Headers
-            .Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+        credential, scopes);
 
-            return Task.CompletedTask;
-        }));
-
-    // MSGraphUser is a DTO class being used to hold User information from the graph service client call
     List<MSGraphUser> msGraphUsers = new List<MSGraphUser>();
     try
     {
-        var users =await graphServiceClient.Users.Request().GetAsync();
-        foreach(var u in users)
+        var users = await graphServiceClient.Users.GetAsync();
+        foreach (var u in users.Value)
         {
             MSGraphUser user = new MSGraphUser();
             user.userPrincipalName = u.UserPrincipalName;
@@ -202,7 +201,7 @@ public async Task OnGetAsync()
             msGraphUsers.Add(user);
         }
     }
-    catch(Exception ex)
+    catch (Exception ex)
     {
         string msg = ex.Message;
     }

@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 07/17/2022
+ms.date: 07/13/2023
 ---
 
 # Examples for better understanding pricing model under different integration runtime types
@@ -18,7 +18,7 @@ In this article, we'll illustrate the pricing model using different integration 
 The integration runtime, which is serverless in Azure and self-hosted in hybrid scenarios, provides the compute resources used to execute the activities in a pipeline. Integration runtime charges are prorated by the minute and rounded up.
 
 > [!NOTE] 
-> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
+> The prices used in this example below are hypothetical and are not intended to imply actual pricing.
 
 ## Azure integration runtime
 
@@ -57,7 +57,7 @@ As the compute is reserved, the 6 copy activities aren't rounded up independentl
 
 :::image type="content" source="./media/integration-runtime-pricing/vnet-integration-runtime-example-2.png" alt-text="Screenshot of calculation formula for Azure integration runtime with managed virtual network example 2.":::
 
-**Example 3: If there are 6 HDInsight activities triggered by Foreach. The execution time of each is 9 minutes and 40 seconds. The parallel is configured as 50 in Foreach. TTL is 30 minutes.**
+**Example 3: If there are 6 HDInsight activities triggered by Foreach. The execution time of each is 9 minutes and 40 seconds. The parallel is configured as 50 in Foreach. Compute size is 1. TTL is 30 minutes.**
 
 In this example, the execution time of each HDInsight activity is rounded up to 10 minutes. As the 6 HDInsight activities run in parallel and within the concurrency limitation (800), they're only charged once. 
 

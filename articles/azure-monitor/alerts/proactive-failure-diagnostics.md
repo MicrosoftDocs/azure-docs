@@ -76,13 +76,14 @@ Click the alert to configure it.
 
 ## Delete alerts
 
-You can disable or delete a Failure Anomalies alert rule, but once deleted you can't create another one for the same Application Insights resource.
+You can disable or delete a Failure Anomalies alert rule.
 
-Notice that if you delete an Application Insights resource, the associated Failure Anomalies alert rule doesn't get deleted automatically. You can do so manually on the Alert rules page or with the following Azure CLI command:
+You can do so manually on the Alert rules page or with the following Azure CLI command:
 
 ```azurecli
 az resource delete --ids <Resource ID of Failure Anomalies alert rule>
 ```
+Notice that if you delete an Application Insights resource, the associated Failure Anomalies alert rule doesn't get deleted automatically. 
 
 ## Example of Failure Anomalies alert webhook payload
 
@@ -415,7 +416,7 @@ Smart Detection of Failure Anomalies complements other similar but distinct feat
 
 * [metric alerts](./alerts-log.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, Smart Detection of Failure Anomalies covers a small range of critical metrics (currently only failed request rate), designed to notify you in near real-time manner once your web app's failed request rate increases compared to web app's normal behavior. Unlike metric alerts, Smart Detection automatically sets and updates thresholds in response changes in the behavior. Smart Detection also starts the diagnostic work for you, saving you time in resolving issues.
 
-* [Smart Detection of performance anomalies](proactive-performance-diagnostics.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of Failure Anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for Failure Anomalies is performed continuously on incoming application data, and you will be notified within minutes if server failure rates are greater than expected.
+* [Smart Detection of performance anomalies](smart-detection-performance.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike Smart Detection of Failure Anomalies, the purpose of Smart  Detection of performance anomalies is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for Failure Anomalies is performed continuously on incoming application data, and you will be notified within minutes if server failure rates are greater than expected.
 
 ## If you receive a Smart Detection alert
 *Why have I received this alert?*
@@ -456,4 +457,4 @@ These diagnostic tools help you inspect the data from your app:
 Smart detections are automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](./alerts-log.md)
-* [Availability web tests](../app/monitor-web-app-availability.md)
+* [Availability web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability)

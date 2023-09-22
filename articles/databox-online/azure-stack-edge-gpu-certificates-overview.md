@@ -63,7 +63,7 @@ The various types of certificates that you can bring for your device are as foll
 - Encryption certificates
     - Support session certificates
 
-Each of these certificates are described in detail in the following sections.
+Each type of certificate is described in detail in the following sections.
 
 ## Signing chain certificates
 
@@ -153,7 +153,7 @@ There are three IoT Edge certificates that you need to install to enable this tr
 
 - The IoT Edge certificates are uploaded in `.pem` format. 
 
-For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](../iot-edge/how-to-manage-device-certificates.md?preserve-view=true&view=iotedge-2020-11#create-production-certificates).
+For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md) and [Create IoT Edge production certificates](../iot-edge/how-to-manage-device-certificates.md).
 
 ## Kubernetes certificates
 
@@ -182,7 +182,7 @@ If VPN (Point-to-site) is configured on your  device, you can bring your own VPN
 #### Caveats
 
 - The VPN certificate must be uploaded as a *.pfx* format with a  private key.
-- The VPN certificate is not dependant on the device name, device serial number, or device configuration. It only requires the external FQDN.
+- The VPN certificate is not dependent on the device name, device serial number, or device configuration. It only requires the external FQDN.
 - Make sure that the client OID is set.
 
 For more information, see [Generate and export certificates for Point-to-Site using PowerShell](../vpn-gateway/vpn-gateway-certificates-point-to-site.md#generate-and-export-certificates-for-point-to-site-using-powershell).

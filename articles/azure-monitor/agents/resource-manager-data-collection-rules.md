@@ -2,10 +2,10 @@
 title: Resource Manager template samples for data collection rules
 description: Sample Azure Resource Manager templates to create associations between data collection rules and virtual machines in Azure Monitor.
 ms.topic: sample
-author: bwren
-ms.author: bwren
-ms.date: 06/22/2022
-
+ms.custom: devx-track-arm-template
+author: guywi-ms
+ms.author: guywild
+ms.date: 07/19/2023
 ---
 
 # Resource Manager template samples for data collection rules in Azure Monitor
@@ -139,7 +139,7 @@ param associationName string
 @description('The resource ID of the data collection rule.')
 param dataCollectionRuleId string
 
-resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
+resource vm 'Microsoft.HybridCompute/machines@2021-11-01' existing = {
   name: vmName
 }
 
@@ -183,7 +183,7 @@ resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-
     {
       "type": "Microsoft.Insights/dataCollectionRuleAssociations",
       "apiVersion": "2021-09-01-preview",
-      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+      "scope": "[format('Microsoft.HybridCompute/machines/{0}', parameters('vmName'))]",
       "name": "[parameters('associationName')]",
       "properties": {
         "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",

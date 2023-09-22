@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -90,7 +90,7 @@ A typical connection string is `Server=<server>;Database=<database>;Port=<port>;
 > In order to have full SSL verification via the ODBC connection when using the Self Hosted Integration Runtime you must use an ODBC type connection instead of the PostgreSQL connector explicitly, and complete the following configuration:
 >
 > 1. Set up the DSN on any SHIR servers.
-> 1. Put the proper certificate for PostgreSQL in C:\Users\DIAHostService\AppData\Roaming\postgresql\root.crt on the SHIR servers. This is where the ODBC driver looks > for the SSL cert to verify when it connects to the database.
+> 1. Put the proper certificate for PostgreSQL in C:\Windows\ServiceProfiles\DIAHostService\AppData\Roaming\postgresql\root.crt on the SHIR servers. This is where the ODBC driver looks > for the SSL cert to verify when it connects to the database.
 > 1. In your data factory connection, use an ODBC type connection, with your connection string pointing to the DSN you created on your SHIR servers.
 
 **Example:**

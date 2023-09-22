@@ -17,7 +17,7 @@ If the configured value is both an exact match for a single setting and a prefix
 
 ### Connection string
 
-To obtain a connection string, follow the steps shown at [Get the management credentials](../articles/service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
+To obtain a connection string, follow the steps shown at [Get the management credentials](../articles/service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.
 
 This connection string should be stored in an application setting with a name matching the value specified by the `connection` property of the binding configuration.
 
@@ -25,7 +25,7 @@ If the app setting name begins with "AzureWebJobs", you can specify only the rem
 
 ### Identity-based connections
 
-If you are using version 5.x or higher of the extension, instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
+If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-service-bus.md?extensionv5), instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connection` property in the trigger and binding configuration.
 
 In this mode, the extension requires the following properties:
 
@@ -42,3 +42,4 @@ Additional properties may be set to customize the connection. See [Common proper
 [!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
 
 [!INCLUDE [functions-service-bus-permissions](./functions-service-bus-permissions.md)]
+

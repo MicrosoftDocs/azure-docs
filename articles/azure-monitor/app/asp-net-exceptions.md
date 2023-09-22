@@ -4,8 +4,8 @@ description: Capture exceptions from ASP.NET apps along with request telemetry.
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 08/19/2022
-ms.reviewer: casocha
+ms.date: 11/15/2022
+ms.reviewer: mmcc
 ---
 
 
@@ -23,7 +23,7 @@ To have exceptions reported from your server-side application, consider the foll
 
   * Add the [Application Insights Extension](./azure-web-apps.md) for Azure web apps.
   * Add the [Application Monitoring Extension](./azure-vm-vmss-apps.md) for Azure Virtual Machines and Azure Virtual Machine Scale Sets IIS-hosted apps.
-  * Install [Application Insights SDK](./asp-net.md) in your app code, run [Application Insights Agent](./status-monitor-v2-overview.md) for IIS web servers, or enable the [Java agent](./java-in-process-agent.md) for Java web apps.
+  * Install [Application Insights SDK](./asp-net.md) in your app code, run [Application Insights Agent](./application-insights-asp-net-agent.md) for IIS web servers, or enable the [Java agent](./opentelemetry-enable.md?tabs=java) for Java web apps.
 
 ### Client side
 
@@ -48,13 +48,13 @@ Open the app solution in Visual Studio. Run the app, either on your server or on
 
 Open the **Application Insights Search** telemetry window in Visual Studio. While debugging, select the **Application Insights** dropdown box.
 
-![Screenshot that shows right-clicking the project and choosing Application Insights.](./media/asp-net-exceptions/34.png)
+:::image type="content" source="./media/asp-net-exceptions/34.png" lightbox="./media/asp-net-exceptions/34.png" alt-text="Screenshot that shows right-clicking the project and choosing Application Insights.":::
 
 Select an exception report to show its stack trace. To open the relevant code file, select a line reference in the stack trace.
 
 If CodeLens is enabled, you'll see data about the exceptions:
 
-![Screenshot that shows CodeLens notification of exceptions.](./media/asp-net-exceptions/35.png)
+:::image type="content" source="./media/asp-net-exceptions/35.png" lightbox="./media/asp-net-exceptions/35.png" alt-text="Screenshot that shows CodeLens notification of exceptions.":::
 
 ## Diagnose failures using the Azure portal
 
@@ -62,11 +62,11 @@ Application Insights comes with a curated Application Performance Management exp
 
 You'll see the failure rate trends for your requests, how many of them are failing, and how many users are affected. The **Overall** view shows some of the most useful distributions specific to the selected failing operation. You'll see the top three response codes, the top three exception types, and the top three failing dependency types.
 
-![Screenshot that shows a failures triage view on the Operations tab.](./media/asp-net-exceptions/failures0719.png)
+:::image type="content" source="./media/asp-net-exceptions/failures0719.png" lightbox="./media/asp-net-exceptions/failures0719.png" alt-text="Screenshot that shows a failures triage view on the Operations tab.":::
 
 To review representative samples for each of these subsets of operations, select the corresponding link. As an example, to diagnose exceptions, you can select the count of a particular exception to be presented with the **End-to-end transaction details** tab.
 
-![Screenshot that shows the End-to-end transaction details tab.](./media/asp-net-exceptions/end-to-end.png)
+:::image type="content" source="./media/asp-net-exceptions/end-to-end.png" lightbox="./media/asp-net-exceptions/end-to-end.png" alt-text="Screenshot that shows the End-to-end transaction details tab.":::
 
 Alternatively, instead of looking at exceptions of a specific failing operation, you can start from the **Overall** view of exceptions by switching to the **Exceptions** tab at the top. Here you can see all the exceptions collected for your monitored app.
 
@@ -82,7 +82,7 @@ Using the <xref:Microsoft.VisualStudio.ApplicationInsights.TelemetryClient?displ
 
 To see these events, on the left menu, open [Search](./diagnostic-search.md). Select the dropdown menu **Event types**, and then choose **Custom Event**, **Trace**, or **Exception**.
 
-![Screenshot that shows the Search screen.](./media/asp-net-exceptions/customevents.png)
+:::image type="content" source="./media/asp-net-exceptions/customevents.png" lightbox="./media/asp-net-exceptions/customevents.png" alt-text="Screenshot that shows the Search screen.":::
 
 > [!NOTE]
 > If your app generates a lot of telemetry, the adaptive sampling module will automatically reduce the volume that's sent to the portal by sending only a representative fraction of events. Events that are part of the same operation will be selected or deselected as a group so that you can navigate between related events. For more information, see [Sampling in Application Insights](./sampling.md).
@@ -517,7 +517,7 @@ namespace WcfService4
 
 ## Exception performance counters
 
-If you've [installed the Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) on your server, you can get a chart of the exceptions rate, measured by .NET. Both handled and unhandled .NET exceptions are included.
+If you've [installed the Azure Monitor Application Insights Agent](./application-insights-asp-net-agent.md) on your server, you can get a chart of the exceptions rate, measured by .NET. Both handled and unhandled .NET exceptions are included.
 
 Open a metrics explorer tab, add a new chart. Under **Performance Counters**, select **Exception rate**.
 

@@ -7,28 +7,31 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.custom: mvc
-ms.date: 03/28/2022
+ms.date: 02/28/2023
 ms.author: mbaldwin
 author: msmbaldwin
+ms.collection:
+  - zerotrust-extra
+
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
 
 ---
 # What is Azure Key Vault Managed HSM?
 
-Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.
+Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. It is one of several [key management solutions in Azure](../../security/fundamentals/key-management.md).
 
 For pricing information, please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
-> [!NOTE]
-> The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid confusion, we use "Managed HSM instance" throughout these articles.
+The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid confusion, we use "Managed HSM instance" throughout these articles.
+
+[!INCLUDE [Zero Trust principles ](../../../includes/security/zero-trust-principles-key-management.md)]
 
 ## Why use Managed HSM?
 
 ### Fully managed, highly available, single-tenant HSM as a service
 
 - **Fully managed**: HSM provisioning, configuration, patching, and maintenance is handled by the service.
-- **Highly available and zone resilient** (where Availability zones are supported): Each HSM cluster consists of multiple HSM partitions that span across at least two availability zones. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes.
+- **Highly available**: Each HSM cluster consists of multiple HSM partitions. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes. For more information, see [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a cluster of multiple HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates each customer's HSM cluster.
 
 
@@ -55,8 +58,12 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 - Generate HSM-protected keys in your on-premises HSM and import them securely into Managed HSM.
 
 ## Next steps
+- [Key management in Azure](../../security/fundamentals/key-management.md)
+- For technical details, see [How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs](managed-hsm-technical-details.md)
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
+- [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline)
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
 - [Managed HSM Status](https://azure.status.microsoft)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)
+- [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

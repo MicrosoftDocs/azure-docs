@@ -2,13 +2,14 @@
 title: Manage users and groups with the User management dashboard in Permissions Management
 description: How to manage users and groups in the User management dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 09/15/2023
+ms.author: jfields
 ---
 
 # Manage users and groups with the User management dashboard
@@ -79,6 +80,4 @@ You can also select the following options:
 
 ## Next steps
 
-- For information about how to view information about active and completed tasks, see [View information about active and completed tasks](ui-tasks.md).
 - For information about how to view personal and organization information, see [View personal and organization information](product-account-settings.md).
-- For information about how to select group-based permissions settings, see [Select group-based permissions settings](how-to-create-group-based-permissions.md).

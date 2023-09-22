@@ -2,6 +2,7 @@
 title: Apache Kafka output binding for Azure Functions
 description: Use Azure Functions to write messages to an Apache Kafka stream.
 ms.topic: reference
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/14/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -24,7 +25,7 @@ An [in-process class library](functions-dotnet-class-library.md) is a compiled C
  
 # [Isolated process](#tab/isolated-process)
 
-An [isolated process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.   
 
 ---
 
@@ -269,7 +270,7 @@ For a complete set of working Java examples for Confluent, see the [Kafka extens
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `Kafka` attribute to define the function trigger. 
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `Kafka` attribute to define the function trigger. 
 
 The following table explains the properties you can set using this attribute:
 

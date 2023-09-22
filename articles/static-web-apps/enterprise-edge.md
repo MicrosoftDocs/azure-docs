@@ -39,7 +39,7 @@ For further control, you can also create [custom cache control headers](configur
 
 ## Configuration types
 
-You can enable enterprise-grade edge powered by Azure Front Door via a managed experience through the Azure portal, or you [can set it up manually](front-door-manual.md).
+You can enable enterprise-grade edge powered by Azure Front Door via a managed experience through the Azure portal, or you [can set it up manually](front-door-manual.md?pivots=swa-afd-manual-afd).
 
 A managed experience provides:
 
@@ -62,7 +62,7 @@ A manual setup gives you full control over the CDN configuration including the c
 
 # [Azure portal](#tab/azure-portal)
 
-1. Navigate to your static web app in the Azure portal.
+1. Go to your static web app in the Azure portal.
 
 1. Select **Enterprise-grade edge** in the left menu.
 

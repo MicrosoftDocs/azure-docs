@@ -2,7 +2,10 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 10/20/2021
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -62,7 +65,7 @@ The following resources are needed for the scenario in this article:
 
 - **An Azure container registry** in your Azure subscription. If needed, create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
 - **Helm client version 3.7 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
-- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI][./learn/quick-kubernetes-deploy-cli], [using Azure PowerShell][./learn/quick-kubernetes-deploy-powershell], or [using the Azure portal][./learn/quick-kubernetes-deploy-portal].
+- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Set up Helm client
@@ -144,7 +147,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
             --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
              --role acrpush \
             --query "password" --output tsv)
-  USER_NAME=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
+  USER_NAME=$(az identity show -n $SERVICE_PRINCIPAL_NAME -g $RESOURCE_GROUP_NAME --subscription $SUBSCRIPTION_ID --query "clientId" -o tsv)
   ```
 - Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts using an AD token.
   ```azurecli
@@ -153,7 +156,7 @@ Run  `helm registry login` to authenticate with the registry. You may pass [regi
   ```
 - Authenticate with a [repository scoped token](container-registry-repository-scoped-permissions.md) (Preview).
   ```azurecli
-  USER_NAME="helm-token"
+  USER_NAME="helmtoken"
   PASSWORD=$(az acr token create -n $USER_NAME \
                     -r $ACR_NAME \
                     --scope-map _repositories_admin \

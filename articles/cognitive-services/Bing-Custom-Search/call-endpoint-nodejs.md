@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using Node.js | Microsoft Docs"
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Node.js.
 services: cognitive-services
 author: aahill
@@ -16,7 +16,7 @@ ms.custom: devx-track-js, mode-api
 
 # Quickstart: Call your Bing Custom Search endpoint using Node.js
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 Use this quickstart to learn how to request search results from your Bing Custom Search instance. Although this application is written in JavaScript, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
@@ -44,7 +44,7 @@ Use this quickstart to learn how to request search results from your Bing Custom
 
 ## Send and receive a search request 
 
-1. Create a variable to store the information being sent in your request. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's custom configuration ID to the `customconfig=` parameter. Separate the parameters with an ampersand (`&`). You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+1. Create a variable to store the information being sent in your request. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's custom configuration ID to the `customconfig=` parameter. Separate the parameters with an ampersand (`&`). You can use the global endpoint in the following code, or use the [custom subdomain](../../ai-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     var info = {

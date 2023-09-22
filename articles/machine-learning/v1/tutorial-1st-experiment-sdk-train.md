@@ -4,22 +4,19 @@ titleSuffix: Azure Machine Learning
 description: How to train a machine learning model in Azure Machine Learning, with SDK v1. This is part 2 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 07/29/2022
-ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Train your first machine learning model (SDK v1, part 2 of 3)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](tutorial-1st-experiment-sdk-train.md)
-> * [v2 (preview)](../tutorial-1st-experiment-sdk-train.md)
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
 
@@ -164,7 +161,7 @@ First you'll create a file with the package dependencies.
         - defaults
         - pytorch
     dependencies:
-        - python=3.6.2
+        - python=3.7
         - pytorch
         - torchvision
     ```
@@ -231,7 +228,7 @@ if __name__ == "__main__":
 
 1. You'll see a link in the terminal window that opens. Select the link to view the job.
 
-    [!INCLUDE [amlinclude-info](../../../includes/machine-learning-py38-ignore.md)]
+    [!INCLUDE [amlinclude-info](../includes/machine-learning-py38-ignore.md)]
 
 ### View the output
 
@@ -357,7 +354,7 @@ channels:
     - defaults
     - pytorch
 dependencies:
-    - python=3.6.2
+    - python=3.7
     - pytorch
     - torchvision
     - pip

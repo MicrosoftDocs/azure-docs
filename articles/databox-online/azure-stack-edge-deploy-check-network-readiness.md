@@ -72,7 +72,7 @@ Before you begin, complete the following tasks:
 
 To install the Azure Stack Network Readiness Checker on the client computer, do these steps:
 
-1. Open PowerShell on the client computer. If you need to install PowerShell, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true).
+1. Open PowerShell on the client computer. If you need to install PowerShell, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 
 1. In a browser, go to [Microsoft.AzureStack.ReadinessChecker](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2100.1780.756) in the PowerShell Gallery. Version 1.2100.1780.756 of the Microsoft.AzureStack.ReadinessChecker module is displayed.
 
@@ -108,7 +108,7 @@ To run a network readiness check, do these steps:
       [-SkipTests {LinkLayer | IPConfig | DnsServer | TimeServer | PathMtu | DuplicateIP | AzureEndpoint | WindowsUpdateServer | DnsRegistration}] `
       [-OutputPath <string>]
     ```
-   
+
    To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include all of the following parameters that apply to your environment.
 
    |Parameter|Description|
@@ -124,7 +124,7 @@ To run a network readiness check, do these steps:
    |`-AzureEnvironment`|Indicates the Azure environment. Required if the device is deployed to an environment other than the Azure public cloud (Azure Cloud).|
    |`-SkipTests`|Can be used to exclude tests. (Optional)<br>Separate test names with a comma.|
    |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`<br>Each run of the Network Readiness Checker overwrites the existing report.|
- 
+
 ## Sample output
 
 The following samples are the output from successful and unsuccessful runs of the Azure Stack Network Readiness Checker tool.
@@ -227,7 +227,7 @@ Details:
 [-] DNS Registration for *.blob.aseclient.contoso.com: testname.aseclient.contoso.com : DNS name does not exist
 [-] DNS Registration for compute.aseclient.contoso.com: compute.aseclient.contoso.com : DNS name does not exist
 Additional help URL http://aka.ms/azsnrc
- 
+
 Log location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsNetworkValidation Completed

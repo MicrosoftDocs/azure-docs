@@ -1,12 +1,11 @@
 ---
-title: Azure IoT Hub cloud-to-device options | Microsoft Docs
-description: Developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
+title: Azure IoT Hub cloud-to-device options
+description: This article provides guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/29/2018
 ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -39,6 +38,6 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 
-* [Use direct methods](quickstart-control-device.md)
+* [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)
 * [Use desired properties to configure devices](tutorial-device-twins.md) 
-* [Send cloud-to-device messages](iot-hub-node-node-c2d.md)
+* [Send cloud-to-device messages](c2d-messaging-node.md)

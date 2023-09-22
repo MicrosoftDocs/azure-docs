@@ -1,12 +1,12 @@
 ---
 title: Register a client application for the DICOM service in Azure Active Directory
 description: How to register a client application for the DICOM service in Azure Active Directory.
-author: mcevoy-building7
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 09/02/2022
-ms.author: v-smcevoy
+ms.author: mmitrik
 ---
 
 # Register a client application for the DICOM service in Azure Active Directory

@@ -5,71 +5,83 @@ description: Learn how to use Azure Bastion to connect to Linux VM using SSH.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 04/25/2023
 ms.author: cherylmc
-ms.custom: ignite-fall-2021
 ---
 
 # Create an SSH connection to a Linux VM using Azure Bastion
 
-This article shows you how to securely and seamlessly create an SSH connection to your Linux VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. You can also connect to a Linux VM using RDP. For information, see [Create an RDP connection to a Linux VM](bastion-connect-vm-rdp-linux.md).
+This article shows you how to securely and seamlessly create an SSH connection to your Linux VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. 
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md) overview article.
 
-When connecting to a Linux virtual machine using SSH, you can use both username/password and SSH keys for authentication. 
-
-The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVATE KEY-----"` and ends with `"-----END RSA PRIVATE KEY-----"`.
+When connecting to a Linux virtual machine using SSH, you can use both username/password and SSH keys for authentication. The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVATE KEY-----"` and ends with `"-----END RSA PRIVATE KEY-----"`.
 
 ## Prerequisites
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. 
+Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](./tutorial-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
+
+The connection settings and features that are available depend on the Bastion SKU you're using.
+
+* To see the available features and settings per SKU tier, see the [SKUs and features](bastion-overview.md#sku) section of the Bastion overview article.  
+* To check the SKU tier of your Bastion deployment and upgrade if necessary, see [Upgrade a Bastion SKU](upgrade-sku.md).
 
 ### Required roles
 
 In order to make a connection, the following roles are required:
 
-* Reader role on the virtual machine
-* Reader role on the NIC with private IP of the virtual machine
-* Reader role on the Azure Bastion resource
+* Reader role on the virtual machine.
+* Reader role on the NIC with private IP of the virtual machine.
+* Reader role on the Azure Bastion resource.
+* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
 ### Ports
 
 In order to connect to the Linux VM via SSH, you must have the following ports open on your VM:
 
 * Inbound port: SSH (22) ***or***
-* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion)
-
-   > [!NOTE]
-   > If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports.
-   >
+* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion). This setting requires the **Standard** SKU tier.
 
 ## Bastion connection page
 
-1. In the [Azure portal](https://portal.azure.com), go to the virtual machine that you want to connect to. On the **Overview** page, select **Connect**, then select **Bastion** from the dropdown to open the Bastion connection page. You can also select **Bastion** from the left pane.
+1. In the [Azure portal](https://portal.azure.com), go to the virtual machine to which you want to connect. On the **Overview** page for the virtual machine, select **Connect**, then select **Bastion** from the dropdown to open the Bastion page.
 
-   :::image type="content" source="./media/bastion-connect-vm-ssh-linux/connect.png" alt-text="Screenshot shows the overview for a virtual machine in Azure portal with Connect selected" lightbox="./media/bastion-connect-vm-ssh-linux/connect.png":::
+   :::image type="content" source="./media/bastion-connect-vm-ssh-linux/bastion.png" alt-text="Screenshot shows the Overview page for a virtual machine." lightbox="./media/bastion-connect-vm-ssh-linux/bastion.png":::
 
-1. On the **Bastion** connection page, click the **Connection Settings** arrow to expand all the available settings. If you are using a Bastion **Standard** SKU, you have more available settings than a Basic SKU.
+1. On the **Bastion** page, the settings that you can configure depend on the Bastion [SKU](bastion-overview.md#sku) tier that your bastion host has been configured to use.
 
-   :::image type="content" source="./media/bastion-connect-vm-ssh-linux/connection-settings.png" alt-text="Screenshot shows connection settings.":::
+   * If you're using the **Standard** SKU, **Connection Settings** values (ports and protocols) are visible and can be configured.
 
-1. Authenticate and connect using one of the methods in the following sections.
+      :::image type="content" source="./media/bastion-connect-vm-ssh-linux/bastion-connect-full.png" alt-text="Screenshot shows connection settings for the Standard SKU." lightbox="./media/bastion-connect-vm-ssh-linux/bastion-connect-full.png":::
 
-   * [Username and password](#username-and-password)
-   * [Private key from local file](#private-key-from-local-file)
-   * [Password - Azure Key Vault](#password---azure-key-vault)
-   * [Private key - Azure Key Vault](#private-key---azure-key-vault)
+   * If you're using the **Basic** SKU, you can't configure **Connection Settings** values. Instead, your connection uses the following default settings: SSH and port 22.
 
-## Username and password
+      :::image type="content" source="./media/bastion-connect-vm-ssh-linux/basic.png" alt-text="Screenshot shows connection settings for the Basic SKU." lightbox="./media/bastion-connect-vm-ssh-linux/basic.png":::
+
+   * To view and select an available **Authentication Type**, use the dropdown.
+
+      :::image type="content" source="./media/bastion-connect-vm-ssh-linux/authentication-type.png" alt-text="Screenshot shows authentication type settings." lightbox="./media/bastion-connect-vm-ssh-linux/authentication-type.png":::
+
+1. Use the following sections in this article to configure authentication settings and connect to your VM.
+
+   * [Username and password](#password-authentication)
+   * [Password - Azure Key Vault](#password-authentication---azure-key-vault)
+   * [SSH private key from local file](#ssh-private-key-authentication---local-file)
+   * [SSH private key - Azure Key Vault](#ssh-private-key-authentication---azure-key-vault)
+
+## Password authentication
 
 Use the following steps to authenticate using username and password.
 
-:::image type="content" source="./media/bastion-connect-vm-ssh-linux/password.png" alt-text="Screenshot shows Password authentication.":::
+:::image type="content" source="./media/bastion-connect-vm-ssh-linux/password.png" alt-text="Screenshot shows Password authentication." lightbox="./media/bastion-connect-vm-ssh-linux/password.png":::
 
-1. To authenticate using a username and password, configure the following settings:
+1. To authenticate using a username and password, configure the following settings.
 
-   * **Protocol**: Select SSH.
-   * **Port**: Input the port number. Custom port connections are available for the Standard SKU only.
+   * **Connection Settings** (Standard SKU only)
+
+     * **Protocol**: Select SSH.
+     * **Port**: Specify the port number.
+
    * **Authentication type**: Select **Password** from the dropdown.
    * **Username**: Enter the username.
    * **Password**: Enter the **Password**.
@@ -78,34 +90,18 @@ Use the following steps to authenticate using username and password.
 
 1. Click **Connect** to connect to the VM.
 
-## Private key from local file
-
-Use the following steps to authenticate using an SSH private key from a local file.
-
-:::image type="content" source="./media/bastion-connect-vm-ssh-linux/private-key-file.png" alt-text="Screenshot shows private key from local file authentication.":::
-
-1. To authenticate using a private key from a local file, configure the following settings:
-
-   * **Protocol**: Select SSH.
-   * **Port**: Input the port number. Custom port connections are available for the Standard SKU only.
-   * **Authentication type**: Select **SSH Private Key from Local File** from the dropdown.
-   * **Local File**: Select the local file.
-   * **SSH Passphrase**: Enter the SSH passphrase if necessary.
-
-1. To work with the VM in a new browser tab, select **Open in new browser tab**.
-
-1. Click **Connect** to connect to the VM.
-
-## Password - Azure Key Vault
+## Password authentication - Azure Key Vault
 
 Use the following steps to authenticate using a password from Azure Key Vault.
 
-:::image type="content" source="./media/bastion-connect-vm-ssh-linux/password-key-vault.png" alt-text="Screenshot shows password from Azure Key Vault authentication.":::
+:::image type="content" source="./media/bastion-connect-vm-ssh-linux/password-key-vault.png" alt-text="Screenshot shows password from Azure Key Vault authentication." lightbox="./media/bastion-connect-vm-ssh-linux/password-key-vault.png":::
 
-1. To authenticate using a password from Azure Key Vault, configure the following settings:
+1. To authenticate using a password from Azure Key Vault, configure the following settings.
 
-   * **Protocol**: Select SSH.
-   * **Port**: Input the port number. Custom port connections are available for the Standard SKU only.
+   * **Connection Settings** (Standard SKU only)
+
+     * **Protocol**: Select SSH.
+     * **Port**: Specify the port number.
    * **Authentication type**: Select **Password from Azure Key Vault** from the dropdown.
    * **Username**: Enter the username.
    * **Subscription**: Select the subscription.
@@ -124,16 +120,39 @@ Use the following steps to authenticate using a password from Azure Key Vault.
 
 1. Click **Connect** to connect to the VM.
 
-## Private key - Azure Key Vault
+## SSH private key authentication - local file
+
+Use the following steps to authenticate using an SSH private key from a local file.
+
+:::image type="content" source="./media/bastion-connect-vm-ssh-linux/private-key-file.png" alt-text="Screenshot shows private key from local file authentication." lightbox="./media/bastion-connect-vm-ssh-linux/private-key-file.png":::
+
+1. To authenticate using a private key from a local file, configure the following settings.
+
+   * **Connection Settings** (Standard SKU only)
+
+     * **Protocol**: Select SSH.
+     * **Port**: Specify the port number.
+   * **Authentication type**: Select **SSH Private Key from Local File** from the dropdown.
+   * **Username**: Enter the username.
+   * **Local File**: Select the local file.
+   * **SSH Passphrase**: Enter the SSH passphrase if necessary.
+
+1. To work with the VM in a new browser tab, select **Open in new browser tab**.
+
+1. Click **Connect** to connect to the VM.
+
+## SSH private key authentication - Azure Key Vault
 
 Use the following steps to authenticate using a private key stored in Azure Key Vault.
 
-:::image type="content" source="./media/bastion-connect-vm-ssh-linux/ssh-key-vault.png" alt-text="Screenshot shows Private key stored in Azure Key Vault authentication.":::
+:::image type="content" source="./media/bastion-connect-vm-ssh-linux/ssh-key-vault.png" alt-text="Screenshot shows Private key stored in Azure Key Vault authentication." lightbox="./media/bastion-connect-vm-ssh-linux/ssh-key-vault.png":::
 
-1. To authenticate using a private key stored in Azure Key Vault, configure the following settings:
+1. To authenticate using a private key stored in Azure Key Vault, configure the following settings. For the Basic SKU, connection settings can't be configured and will instead use the default connection settings: SSH and port 22.
 
-   * **Protocol**: Select SSH.
-   * **Port**: Input the port number. Custom port connections are available for the Standard SKU only.
+   * **Connection Settings** (Standard SKU only)
+
+     * **Protocol**: Select SSH.
+     * **Port**: Specify the port number.
    * **Authentication type**: Select **SSH Private Key from Azure Key Vault** from the dropdown.
    * **Username**: Enter the username.
    * **Subscription**: Select the subscription.

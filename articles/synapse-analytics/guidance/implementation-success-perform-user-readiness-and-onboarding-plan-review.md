@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Perform user readiness and onboarding plan review"
 description: "Learn how to perform user readiness and onboarding of new users to ensure successful adoption of your data warehouse."
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual

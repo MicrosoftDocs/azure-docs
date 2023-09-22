@@ -21,22 +21,22 @@ ACS UI Library uses components and icons from both [Fluent UI](https://developer
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/access-tokens.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Localization over the Web UI library](./includes/theming/web.md)]
+[!INCLUDE [Theming over the Web UI library](./includes/theming/web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Localization over the Android UI library](./includes/theming/android.md)]
+[!INCLUDE [Theming over the Android UI library](./includes/theming/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Localization over the iOS UI library](./includes/theming/ios.md)]
+[!INCLUDE [Theming over the iOS UI library](./includes/theming/ios.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Learn more about UI Library](../../quickstarts/ui-library/get-started-composites.md)
+- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
 - [Learn more about UI Library Design Kit](../../quickstarts/ui-library/get-started-ui-kit.md)

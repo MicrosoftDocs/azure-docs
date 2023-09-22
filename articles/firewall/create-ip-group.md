@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/31/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -24,7 +24,7 @@ To create an IP Group by using the Azure portal:
 1. Select **Create**.
 1. Select your subscription.
 1. Select a resource group or create a new one.
-1. Enter a unique name for you IP Group, and then select a region.
+1. Enter a unique name for your IP Group, and then select a region.
 1. Select **Next: IP addresses**.
 1. Type an IP address, multiple IP addresses, or IP address ranges.
 
@@ -46,8 +46,8 @@ This example creates an IP Group with an address prefix and an IP address by usi
 ```azurepowershell
 $ipGroup = @{
     Name              = 'ipGroup'
-    ResourceGroupName = 'ipGroupRG'
-    Location          = 'West US'
+    ResourceGroupName = 'Test-FW-RG'
+    Location          = 'East US'
     IpAddress         = @('10.0.0.0/24', '192.168.1.10') 
 }
 
@@ -60,9 +60,9 @@ This example creates an IP Group with an address prefix and an IP address by usi
 
 ```azurecli-interactive
 az network ip-group create \
-    --name ipGroup \ 
-    --resource-group ipGroupRG \
-    --location westus \
+    --name ipGroup \
+    --resource-group Test-FW-RG \
+    --location eastus \
     --ip-addresses '10.0.0.0/24' '192.168.1.10'
 ```
 

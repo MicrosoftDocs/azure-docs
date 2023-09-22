@@ -6,8 +6,8 @@ author: duongau
 ms.author: duau
 ms.service: expressroute
 ms.topic: how-to
-ms.custom: subject-monitoring
-ms.date: 06/22/2021
+ms.custom: subject-monitoring, FY 23 content-maintenance
+ms.date: 01/04/2023
 ---
 
 # Monitoring Azure ExpressRoute
@@ -71,6 +71,9 @@ ExpressRoute stores data in the following tables.
 | AzureMetrics | Metric data emitted by ExpressRoute that measure their health and performance. 
 
 To view these tables, navigate to your ExpressRoute circuit resource and select **Logs** under *Monitoring*.
+
+> [!NOTE]
+> Azure diagnostic logs, such as BGP route table log are updated every 24 hours.
 
 ### Sample Kusto queries
 
@@ -149,27 +152,21 @@ The following table lists common and recommended alert rules for ExpressRoute.
 
 1. To configure alerts, navigate to **Azure Monitor**, then select **Alerts**.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="alerts":::
-2. Select **+ Select Target** and select the ExpressRoute gateway connection resource.
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/monitor-overview.png" alt-text="Screenshot of the alerts option from the monitor overview page.":::
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="target":::
-3. Define the alert details.
+1. Select **+ Create > Alert rule** and select the ExpressRoute gateway connection resource. Select **Next: Condition >** to configure the signal.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="action group":::
-4. Define and add the action group.
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/select-expressroute-gateway.png" alt-text="Screenshot of the selecting ExpressRoute virtual network gateway from the select a resource page.":::
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="add action group":::
+1. On the *Select a signal* page, select a metric, resource health, or activity log that you want to be alerted. Depending on the signal you select, you may need to enter additional information such as a threshold value. You may also combine multiple signals into a single alert. Select **Next: Actions >** to define who and how they get notify.
 
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/signal.png" alt-text="Screenshot of list of signals that can be alerted for ExpressRoute gateways.":::
 
-### Alerts based on each peering
+1. Select **+ Select action groups** to choose an existing action group you previously created or select **+ Create action group** to define a new one. In the action group, you determine how notifications get sent and who will receive them.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="each peering":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/action-group.png" alt-text="Screenshot of add action groups page.":::
 
-### Configure alerts for activity logs on circuits
-
-In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
-
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="activity logs":::
+1. Select **Review + create** and then **Create** to deploy the alert into your subscription.
 
 ## Next steps
 

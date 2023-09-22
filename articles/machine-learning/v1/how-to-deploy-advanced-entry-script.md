@@ -7,14 +7,15 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.date: 08/15/2022
-ms.author: larryfr
-author: blackmist
-ms.custom: deploy, sdkv1, event-tier1-build-2022
+author: dem108
+ms.author: sehan
+ms.reviewer: mopeakande
+ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Advanced entry script authoring
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 This article shows how to write entry scripts for specialized use cases.
 
@@ -150,7 +151,7 @@ def run(request):
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
 
-        # For demonstration purposes, this example just returns the size of the image as the response..
+        # For demonstration purposes, this example just returns the size of the image as the response.
         return AMLResponse(json.dumps(image.size), 200)
     else:
         return AMLResponse("bad request", 500)
@@ -165,6 +166,13 @@ def run(request):
 > ```shell
 > pip install azureml-contrib-services
 > ```
+
+> [!NOTE]
+> 500 is not recommended as a customed status code, as at azureml-fe side, the status code will be rewritten to 502.
+>   * The status code will be passed through the azureml-fe then sent to client.
+>   * The azureml-fe will only rewrite the 500 returned from the model side to be 502,  the client will receive 502.
+>   * But if the azureml-fe itself returns 500, client side will still receive 500.
+
 
 The `AMLRequest` class only allows you to access the raw posted data in the score.py, there's no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
 

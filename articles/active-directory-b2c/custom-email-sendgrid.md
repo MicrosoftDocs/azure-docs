@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/25/2022
+ms.date: 10/06/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -29,22 +29,22 @@ Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
+Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://www.mailjet.com/), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
 
 ## Create a SendGrid account
 
-If you don't already have one, start by setting up a SendGrid account (Azure customers can unlock 25,000 free emails each month). For setup instructions, see the [Create a SendGrid Account](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account).
+If you don't already have one, start by setting up a SendGrid account. For setup instructions, see the [Create a SendGrid Account](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account).
 
 Be sure to complete the section in which you [create a SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
 
 > [!IMPORTANT]
-> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
+> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://docs.sendgrid.com/ui/account-and-settings/dedicated-ip-addresses). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://docs.sendgrid.com/ui/sending-email/warming-up-an-ip-address).
 
 ## Create Azure AD B2C policy key
 
 Next, store the SendGrid API key in an Azure AD B2C policy key for your policies to reference.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
@@ -58,7 +58,7 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 
 ## Create SendGrid template
 
-With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://docs.sendgrid.com/ui/sending-email/how-to-send-an-email-with-dynamic-templates).
 
 1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create a Dynamic Template**.
 1. Enter a unique template name like `Verification email` and then select **Create**.
@@ -66,7 +66,7 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
 1. Select **Blank Template** and then **Code Editor**.
 1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
 
-    ```HTML
+    ```html
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
     <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head id="Head1">
@@ -154,16 +154,15 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
                <td valign="top" width="50%"></td>
            </tr>
        </table>
-    <img src="https://mucp.api.account.microsoft.com/m/v2/v?d=AIAACWEPFYXYIUTJIJVV4ST7XLBHVI5MLLYBKJAVXHBDTBHUM5VBSVVPTTVRWDFIXJ5JQTHYOH5TUYIPO4ZAFRFK52UAMIS3UNIPPI7ZJNDZPRXD5VEJBN4H6RO3SPTBS6AJEEAJOUYL4APQX5RJUJOWGPKUABY&amp;i=AIAACL23GD2PFRFEY5YVM2XQLM5YYWMHFDZOCDXUI2B4LM7ETZQO473CVF22PT6WPGR5IIE6TCS6VGEKO5OZIONJWCDMRKWQQVNP5VBYAINF3S7STKYOVDJ4JF2XEW4QQVNHMAPQNHFV3KMR3V3BA4I36B6BO7L4VQUHQOI64EOWPLMG5RB3SIMEDEHPILXTF73ZYD3JT6MYOLAZJG7PJJCAXCZCQOEFVH5VCW2KBQOKRYISWQLRWAT7IINZ3EFGQI2CY2EMK3FQOXM7UI3R7CZ6D73IKDI" width="1" height="1"></body>
+    </body>
     </html>
     ```
 
-1. Expand **Settings** on the left, and for **Version Name**, enter a template version. 
+1. Expand **Settings** on the left, and for **Version Name**, enter a template version.
 1. For **Subject**, enter `{{subject}}`.
 1. A the top of the page, select **Save**.
 1. Return to the **Transactional Templates** page by selecting the back arrow.
 1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
-
 
 [!INCLUDE [active-directory-b2c-important-for-custom-email-provider](../../includes/active-directory-b2c-important-for-custom-email-provider.md)]
 
@@ -323,11 +322,12 @@ Add the following technical profiles to the `<ClaimsProviders>` element.
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         <Metadata>
           <Item Key="Operation">GenerateCode</Item>
-          <Item Key="CodeExpirationInSeconds">1200</Item>
+          <Item Key="CodeExpirationInSeconds">600</Item>
           <Item Key="CodeLength">6</Item>
           <Item Key="CharacterSet">0-9</Item>
-          <Item Key="ReuseSameCode">true</Item>
           <Item Key="NumRetryAttempts">5</Item>
+          <Item Key="NumCodeGenerationAttempts">10</Item>
+          <Item Key="ReuseSameCode">false</Item>
         </Metadata>
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />

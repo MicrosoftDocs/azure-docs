@@ -1,45 +1,58 @@
 ---
-title: What is NGINX for Azure
-description: Learn about using the NGINX Cloud-Native Observability Platform in the Azure Marketplace.
+title: What is NGINXaaS
+description: Learn about using the NGINXaaS Cloud-Native Observability Platform in the Azure Marketplace.
+author: flang-msft
+
 ms.topic: conceptual
 ms.custom: event-tier1-build-2022
-author: flang-msft
 ms.author: franlanglois
-ms.date: 05/12/2022
+ms.date: 01/18/2023
+
 
 ---
 
-# What is NGINX for Azure (preview)?
+# What is NGINXaaS – An Azure Native ISV Service?
 
-In this article you learn how to enable deeper integration of the **NGINX** SaaS service with Azure.
+Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and F5.
 
-The Cloud-Native Observability Platform of NGINX centralizes log, metric, and tracing analytics in one place. You can more easily monitor the health and performance of your Azure environment, and troubleshoot your services faster.
+You can find NGINXaaS – An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-nginx-for-azure?tab=Overview).
 
-The NGINX for Azure (preview) offering in the Azure Marketplace allows you to manage NGINX in the Azure portal as an integrated service. You can implement NGINX as a monitoring solution for your cloud workloads through a streamlined workflow.
+In this article you learn how to enable deeper integration of the NGINXSaaS service with Azure.
 
-You can set up the NGINX resources through a resource provider named Nginx.NginxPlus. You can create and manage NGINX resources through the Azure portal. NGINX owns and runs the software as a service (SaaS) application including the NGINX accounts created.
+NGINXaaS delivers secure and high performance applications using familiar and trusted load balancing solutions. Use NGINXaaS as a reverse proxy within your Azure environment.
 
-Here are the key capabilities provided by the NGINX for Azure (preview) integration:
+The NGINXaaS offering in the Azure Marketplace allows you to manage NGINX in the Azure portal as an integrated service. You can implement NGINXaaS as a monitoring solution for your cloud workloads through a streamlined workflow.
 
-- **Seamless onboarding** of NGINX SaaS software as an integrated service on Azure
-- **Unified billing** of NGINX SaaS through Azure Monthly bill  
-- **Single-Sign on to NGINX.** - No separate sign-up needed from NGINX portal
-- **Lift and Shift config files** - Ability to use existing Configuration (.conf) files for SaaS deployment
+You can set up the NGINXaaS resources through a resource provider named Nginx.NginxPlus. You can create and manage NGINXaaS resources through the Azure portal. NGINX owns and runs the software as a service (SaaS) application including the NGINX accounts created.
 
-## Pre-requisites  
+Here are the key capabilities provided by the NGINXaaS integration:
+
+- **Seamless onboarding** of NGINXaaS software as an integrated service on Azure.
+- **Unified billing** of NGINXaaS through Azure monthly billing.
+- **Single-Sign on to NGINXaaS** - No separate sign-up needed from NGINX portal.
+- **Lift and Shift config files** - Ability to use existing Configuration (.conf) files for NGINXaaS deployment.
+
+## Pre-requisites for NGINXaaS
 
 ### Subscription owner
 
-The NGINX for Azure (preview) integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
+The NGINXaaS integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
-## Find NGINX for Azure (preview) in the Azure Marketplace
+## Find NGINXaaS in the Azure Marketplace
 
 1. Navigate to the Azure Marketplace page.
 
-1. Search for _NGINX for Azure_ listed.  
+1. Search for _NGINXaaS_ listed.  
 
-1. In the plan overview pane, select the **Setup and Subscribe**. The **Create new NGINX account** window opens.  
+1. In the plan overview pane, select the **Subscribe**. The **Create NGINXaaS** form opens in the working pane.  
 
 ## Next steps
 
-To create an instance of NGINX, see [QuickStart: Get started with NGINX](nginx-create.md).
+- To create an instance of NGINXaaS – An Azure Native ISV Service, see [QuickStart: Get started with NGINXaaS](nginx-create.md).
+- Get started with NGINXaaS – An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-nginx-for-azure?tab=Overview)

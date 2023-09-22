@@ -1,30 +1,203 @@
 ---
 title: Previous monthly updates in Azure Synapse Analytics
 description: Archive of the new features and documentation improvements for Azure Synapse Analytics
-author: ryanmajidi
-ms.author: rymajidi
-ms.date: 09/09/2022
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: rymajidi, sngun
+ms.date: 07/21/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
 ---
 
-# Previous monthly updates in Azure Synapse Analytics
+# What's New in Azure Synapse Analytics Archive
 
 This article describes previous month updates to Azure Synapse Analytics. For the most current month's release, check out [Azure Synapse Analytics latest updates](whats-new.md). Each update links to the Azure Synapse Analytics blog and an article that provides more information.
 
+## Generally available features
+
+The following table lists a past history of the features of Azure Synapse Analytics that have transitioned from preview to general availability (GA).
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- | 
+| July 2022 | **Apache Spark&trade; 3.2 for Synapse Analytics** | Apache Spark&trade; 3.2 for Synapse Analytics is now generally available. Review the [official release notes](https://spark.apache.org/releases/spark-release-3-2-0.html) and [migration guidelines between Spark 3.1 and 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32) to assess potential changes to your applications. For more details, read [Apache Spark version support and Azure Synapse Runtime for Apache Spark 3.2](./spark/apache-spark-version-support.md). Highlights of what got better in Spark 3.2 in the [Azure Synapse Analytics July Update 2022](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-july-update-2022/ba-p/3535089#TOCREF_1).|
+| July 2022 | **Apache Spark in Azure Synapse Intelligent Cache feature** | Intelligent Cache for Spark automatically stores each read within the allocated cache storage space, detecting underlying file changes and refreshing the files to provide the most recent data. To learn more, see how to [Enable/Disable the cache for your Apache Spark pool](./spark/apache-spark-intelligent-cache-concept.md).|
+| June 2022 | **Map Data tool** | The Map Data tool is a guided process to help you create ETL mappings and mapping data flows from your source data to Synapse without writing code. To learn more about the Map Data tool, read [Map Data in Azure Synapse Analytics](./database-designer/overview-map-data.md).|
+| June 2022 | **User Defined Functions** | User defined functions (UDFs) are now generally available. To learn more, read [User defined functions in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628). |
+| May 2022 | **Azure Synapse Data Explorer connector for Power Automate, Logic Apps, and Power Apps** | The Azure Data Explorer connector for Power Automate enables you to orchestrate and schedule flows, send notifications, and alerts, as part of a scheduled or triggered task. To learn more, read [Azure Data Explorer connector for Microsoft Power Automate](/azure/data-explorer/flow) and [Usage examples for Azure Data Explorer connector to Power Automate](/azure/data-explorer/flow-usage). |
+| April 2022 | **Cross-subscription restore for Azure Synapse SQL** | With the PowerShell `Az.Sql` module 3.8 update, the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet can be used for cross-subscription restore of dedicated SQL pools. To learn more, see [Blog: Restore a dedicated SQL pool (formerly SQL DW) to a different subscription](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-april-update-2022/ba-p/3280185). This feature is now generally available for dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in a Synapse workspace. [What's the difference?](https://aka.ms/dedicatedSQLpooldiff) |
+| April 2022 | **Database Designer** | The database designer allows users to visually create databases within Synapse Studio without writing a single line of code. For more information, see [Announcing General Availability of Database Designer](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/announcing-general-availability-of-database-designer-amp/ba-p/3294234). Read more about [lake databases](database-designer/concepts-lake-database.md) and learn [How to modify an existing lake database using the database designer](database-designer/modify-lake-database.md).|
+| April 2022 | **Database Templates** | New industry-specific database templates were introduced in the [Synapse Database Templates General Availability blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/synapse-database-templates-general-availability-and-new-synapse/ba-p/3289790). Learn more about [Database templates](database-designer/concepts-database-templates.md) and [the improved exploration experience](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-april-update-2022/ba-p/3295633#TOCREF_5).|
+| April 2022 | **Synapse Monitoring Operator RBAC role** | The Synapse Monitoring Operator RBAC (role-based access control) role allows a user persona to monitor the execution of Synapse Pipelines and Spark applications without having the ability to run or cancel the execution of these applications. For more information, review the [Synapse RBAC Roles](security/synapse-workspace-synapse-rbac-roles.md).|
+| March 2022 | **Flowlets** | Flowlets help you design portions of new data flow logic, or to extract portions of an existing data flow, and save them as separate artifact inside your Synapse workspace. Then, you can reuse these Flowlets can inside other data flows. To learn more, review the [Flowlets GA announcement blog post](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450) and read [Flowlets in mapping data flow](../data-factory/concepts-data-flow-flowlet.md). |
+| March 2022 | **Change Feed connectors** | Changed data capture (CDC) feed data flow source transformations for Azure Cosmos DB, Azure Blob Storage, ADLS Gen1, ADLS Gen2, and Common Data Model (CDM) are now generally available. By simply checking a box, you can tell ADF to manage a checkpoint automatically for you and only read the latest rows that were updated or inserted since the last pipeline run. To learn more, review the [Change Feed connectors GA preview blog post](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/flowlets-and-change-feed-now-ga-in-azure-data-factory/ba-p/3267450) and read [Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics](../data-factory/connector-azure-data-lake-storage.md).|
+| March 2022 | **Column level encryption for dedicated SQL pools** | [Column level encryption](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true) is now generally available for use on new and existing Azure SQL logical servers with Azure Synapse dedicated SQL pools and dedicated SQL pools in Azure Synapse workspaces. SQL Server Data Tools (SSDT) support for column level encryption for the dedicated SQL pools is available starting with the 17.2 Preview 2 build of Visual Studio 2022. |
+| March 2022 | **Synapse Spark Common Data Model (CDM) connector** | The CDM format reader/writer enables a Spark program to read and write CDM entities in a CDM folder via Spark dataframes. To learn more, see [how the CDM connector supports reading, writing data, examples, & known issues](./spark/data-sources/apache-spark-cdm-connector.md). |
+| November 2021 | **PREDICT** | The T-SQL [PREDICT](/sql/t-sql/queries/predict-transact-sql) syntax is now generally available for dedicated SQL pools. Get started with the [Machine learning model scoring wizard for dedicated SQL pools](./machine-learning/tutorial-sql-pool-model-scoring-wizard.md).|
+| October 2021 | **Synapse RBAC Roles** | [Synapse role-based access control (RBAC) roles are now generally available](https://techcommunity.microsoft.com/t5/azure-synapse-analytics/azure-synapse-analytics-october-update/ba-p/2875372#synapse-rbac). Learn more about [Synapse RBAC roles](./security/synapse-workspace-synapse-rbac-roles.md) and [Azure Synapse role-based access control (RBAC) using PowerShell](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/retrieve-azure-synapse-role-based-access-control-rbac/ba-p/3466419#:~:text=Synapse%20RBAC%20is%20used%20to%20manage%20who%20can%3A,job%20execution%2C%20review%20job%20output%2C%20and%20execution%20logs.).|
+
+## Community
+
+This section is an archive of Azure Synapse Analytics community opportunities and the [Azure Synapse Influencer program](https://aka.ms/synapseinfluencers) from Microsoft. 
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| May 2022 | **Azure Synapse Influencer program** | Sign up for our free [Azure Synapse Influencer program](https://aka.ms/synapseinfluencers) and get connected with a community of Synapse-users who are dedicated to helping others achieve more with cloud analytics. Register now for our next [Synapse Influencer Ask the Experts session](https://aka.ms/synapseinfluencers/#events). It's free to attend and everyone is welcome to participate and join the discussion on Synapse-related topics. You can [watch past recorded Ask the Experts events](https://aka.ms/ATE-RecordedSessions) on the [Azure Synapse YouTube channel](https://www.youtube.com/channel/UCsZ4IlYjjVxqe5OZ14tyh5g). |
+| March 2022 | **Azure Synapse Analytics and Microsoft MVP YouTube video series** | A joint activity with the Azure Synapse product team and the Microsoft MVP community, a new [YouTube MVP Video Series about the Azure Synapse features](https://www.youtube.com/playlist?list=PLzUAjXZBFU9MEK2trKw_PGk4o4XrOzw4H) has launched. See more at the [Azure Synapse Analytics YouTube channel](https://www.youtube.com/channel/UCsZ4IlYjjVxqe5OZ14tyh5g).|
+
+## Apache Spark for Azure Synapse Analytics
+
+This section is an archive of features and capabilities of [Apache Spark for Azure Synapse Analytics](spark/apache-spark-overview.md).
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| May 2022 | **Azure Synapse dedicated SQL pool connector for Apache Spark now available in Python** | Previously, the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](./spark/synapse-spark-sql-pool-import-export.md) was only available using Scala. Now, [the dedicated SQL pool connector for Apache Spark can be used with Python on Spark 3](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-may-update-2022/ba-p/3430970#TOCREF_6). |
+| May 2022 | **Manage Azure Synapse Apache Spark configuration** | With the new [Apache Spark configurations](./spark/apache-spark-azure-create-spark-configuration.md) feature, you can create a standalone Spark configuration artifact with auto-suggestions and built-in validation rules. The Spark configuration artifact allows you to share your Spark configuration within and across Azure Synapse workspaces. You can also easily associate your Spark configuration with a Spark pool, a Notebook, and a Spark job definition for reuse and minimize the need to copy the Spark configuration in multiple places. |
+| April 2022 | **Apache Spark 3.2 for Synapse Analytics** | Apache Spark 3.2 for Synapse Analytics with preview availability. Review the [official Spark 3.2 release notes](https://spark.apache.org/releases/spark-release-3-2-0.html) and [migration guidelines between Spark 3.1 and 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32) to assess potential changes to your applications. For more details, read [Apache Spark version support and Azure Synapse Runtime for Apache Spark 3.2](./spark/apache-spark-version-support.md). |
+| April 2022 | **Parameterization for Spark job definition** | You can now assign parameters dynamically based on variables, metadata, or specifying Pipeline specific parameters for the Spark job definition activity. For more details, read [Transform data using Apache Spark job definition](quickstart-transform-data-using-spark-job-definition.md#settings-tab). |
+| April 2022 | **Apache Spark notebook snapshot** | You can access a snapshot of the Notebook when there's a Pipeline Notebook run failure or when there's a long-running Notebook job. To learn more, read [Transform data by running a Synapse notebook](synapse-notebook-activity.md?tabs=classical#see-notebook-activity-run-history) and [Introduction to Microsoft Spark utilities](./spark/microsoft-spark-utilities.md?pivots=programming-language-scala#reference-a-notebook-1). |
+| March 2022 | **Synapse Spark Common Data Model (CDM) connector** | The CDM format reader/writer enables a Spark program to read and write CDM entities in a CDM folder via Spark dataframes. To learn more, see [how the CDM connector supports reading, writing data, examples, & known issues](./spark/data-sources/apache-spark-cdm-connector.md). |
+| March 2022 | **Performance optimization for Synapse Spark dedicated SQL pool connector** | New improvements to the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export.md) reduce data movement and leverage `COPY INTO`. Performance tests indicated at least ~5x improvement over the previous version. No action is required from the user to leverage these enhancements. For more information, see [Blog: Synapse Spark Dedicated SQL Pool (DW) Connector: Performance Improvements](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_10).|
+| March 2022 | **Support for all Spark Dataframe SaveMode choices** | The [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export.md) now supports all four Spark Dataframe SaveMode choices: Append, Overwrite, ErrorIfExists, Ignore. For more information on Spark SaveMode, read the [official Apache Spark documentation](https://spark.apache.org/docs/1.6.0/api/java/org/apache/spark/sql/SaveMode.html?wt.mc_id=azsynapseblog_mar2022_blog_azureeng). |
+| March 2022 | **Apache Spark in Azure Synapse Analytics Intelligent Cache feature** | Intelligent Cache for Spark automatically stores each read within the allocated cache storage space, detecting underlying file changes and refreshing the files to provide the most recent data. To learn more on this preview feature, see how to [Enable/Disable the cache for your Apache Spark pool](./spark/apache-spark-intelligent-cache-concept.md) or see the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_12).|
+
+## Data integration
+
+This section is an archive of features and capabilities of Azure Synapse Analytics data integration. Learn how to [Load data into Azure Synapse Analytics using Azure Data Factory (ADF) or a Synapse pipeline](../data-factory/load-azure-sql-data-warehouse.md).
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- | 
+| June 2022 | **SAP CDC connector preview** | A new data connector for SAP Change Data Capture (CDC) is now available in preview. For more information, see [Announcing Public Preview of the SAP CDC solution in Azure Data Factory and Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-the-sap-cdc-solution-in-azure-data/ba-p/3420904) and [SAP CDC solution in Azure Data Factory](../data-factory/sap-change-data-capture-introduction-architecture.md).|
+| June 2022 | **Fuzzy join option in Join Transformation** | Use fuzzy matching with a similarity threshold score slider has been added to the [Join transformation in Mapping Data Flows](../data-factory/data-flow-join.md). |
+| June 2022 | **Map Data tool GA** | We're excited to announce that the [Map Data tool](./database-designer/overview-map-data.md) is now Generally Available. The Map Data tool is a guided process to help you create ETL mappings and mapping data flows from your source data to Synapse without writing code. |
+| June 2022 | **Rerun pipeline with new parameters** | You can now change pipeline parameters when rerunning a pipeline from the Monitoring page without having to return to the pipeline editor. To learn more, read [Rerun pipelines and activities](../data-factory/monitor-visually.md#rerun-pipelines-and-activities).|
+| June 2022 | **User Defined Functions GA** | [User defined functions (UDFs) in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628) are now generally available (GA). |
+| May 2022 | **Export pipeline monitoring as a CSV** | The ability to [export pipeline monitoring to CSV and other monitoring improvements](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531) have been introduced to ADF. |
+| May 2022 | **Automatic incremental source data loading from PostgreSQL and MySQL** | Automatic [incremental source data loading from PostgreSQL and MySQL](../data-factory/tutorial-incremental-copy-overview.md) to Synapse SQL and Azure Database is now natively available in ADF. |
+| May 2022 | **Assert transformation error handling** | Error handling has now been added to sinks following an [assert transformation in mapping data flow](../data-factory/data-flow-assert.md). You can now choose whether to output the failed rows to the selected sink or to a separate file. |
+| May 2022 | **Mapping data flows projection editing** | In mapping data flows, you can now [update source projection column names and column types](../data-factory/data-flow-source.md). |
+| April 2022 | **Dataverse connector for Synapse Data Flows** | Dataverse is now a source and sink connector to Synapse Data Flows. You can [Copy and transform data from Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics](../data-factory/connector-dynamics-crm-office-365.md?tabs=data-factory).|
+| April 2022 | **Configurable Synapse Pipelines Web activity response timeout** | With the response timeout property `httpRequestTimeout`, you can [define a timeout for the HTTP request up to 10 minutes](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307). Web activities work exceptionally well with APIs that follow [the asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply), a suggested approach for building scalable web APIs/services. |
+| March 2022 | **sFTP connector for Synapse data flows** | A native sftp connector in Synapse data flows is supported to read and write data from sFTP using the visual low-code data flows interface in Synapse. To learn more, see [Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics](../data-factory/connector-sftp.md).|
+| March 2022 | **Data flow improvements to Data Preview** | Review features added to the [Data Preview and debug improvements in Mapping Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-preview-and-debug-improvements-in-mapping-data-flows/ba-p/3268254?wt.mc_id=azsynapseblog_mar2022_blog_azureeng). |
+| March 2022 | **Pipeline script activity** | You can now [Transform data by using the Script activity](../data-factory/transform-data-using-script.md) to invoke SQL commands to perform both DDL and DML. |
+| December 2021 | **Custom partitions for Synapse link for Azure Cosmos DB** | Improve query execution times for your Spark queries, by creating custom partitions based on fields frequently used in your queries. To learn more, see [Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)](../cosmos-db/custom-partitioning-analytical-store.md). |
+
+## Database Templates & Database Designer
+
+This section is an archive of features and capabilities of [database templates](./database-designer/overview-database-templates.md) and [the database designer](database-designer/quick-start-create-lake-database.md).
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| April 2022 | **Database Designer** | The database designer allows users to visually create databases within Synapse Studio without writing a single line of code. For more information, see [Announcing General Availability of Database Designer](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/announcing-general-availability-of-database-designer-amp/ba-p/3294234). Read more about [lake databases](database-designer/concepts-lake-database.md) and learn [How to modify an existing lake database using the database designer](database-designer/modify-lake-database.md).|
+| April 2022 | **Database Templates** | New industry-specific database templates were introduced in the [Synapse Database Templates General Availability blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/synapse-database-templates-general-availability-and-new-synapse/ba-p/3289790). Learn more about [Database templates](database-designer/concepts-database-templates.md) and [the improved exploration experience](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-april-update-2022/ba-p/3295633#TOCREF_5).|
+| April 2022 | **Clone lake database** | In Synapse Studio, you can now clone a database using the action menu available on the lake database. To learn more, read [How-to: Clone a lake database](./database-designer/clone-lake-database.md). |
+| April 2022 | **Use wildcards to specify custom folder hierarchies** | Lake databases sit on top of data that is in the lake and this data can live in nested folders that don't fit into clean partition patterns. You can now use wildcards to specify custom folder hierarchies. To learn more, read [How-to: Modify a datalake](./database-designer/modify-lake-database.md). |
+| January 2022 | **New database templates** | Learn more about new industry-specific [Automotive, Genomics, Manufacturing, and Pharmaceuticals templates](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/four-additional-azure-synapse-database-templates-now-available/ba-p/3058044) and get started with [database templates](./database-designer/overview-database-templates.md) in the Synapse Studio gallery. |
+
+## Developer experience
+
+This section is an archive of quality of life and feature improvements for [developers in Azure Synapse Analytics](sql/develop-overview.md).
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| May 2022 | **Updated Azure Synapse Analyzer Report** | Learn about the new features in [version 2.0 of the Synapse Analyzer report](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/updated-synapse-analyzer-report-workload-management-and-ability/ba-p/3580269).|
+| April 2022 | **Azure Synapse Analyzer Report** | The [Azure Synapse Analyzer Report](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analyzer-report-to-monitor-and-improve-azure/ba-p/3276960) helps you identify common issues that may be present in your database that can lead to performance issues.|
+| April 2022 | **Reference unpublished notebooks** | Now, when using %run notebooks, you can [enable 'unpublished notebook reference'](spark/apache-spark-development-using-notebooks.md#reference-unpublished-notebook), which will allow you to reference unpublished notebooks. When enabled, notebook run will fetch the current contents in the notebook web cache, meaning the changes in your notebook editor can be referenced immediately by other notebooks without having to be published (Live mode) or committed (Git mode). |
+| March 2022 | **Code cells with exception to show standard output**| Now in Synapse notebooks, both standard output and exception messages are shown when a code statement fails for Python and Scala languages. For examples, see [Synapse notebooks: Code cells with exception to show standard output](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_1).|
+| March 2022 | **Partial output is available for running notebook code cells** | Now in Synapse notebooks, you can see anything you write (with `println` commands, for example) as the cell executes, instead of waiting until it ends. For examples, see [Synapse notebooks: Partial output is available for running notebook code cells ](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_1).|
+| March 2022 | **Dynamically control your Spark session configuration with pipeline parameters** | Now in Synapse notebooks, you can use pipeline parameters to configure the session with the notebook %%configure magic. For examples, see [Synapse notebooks: Dynamically control your Spark session configuration with pipeline parameters](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_2).|
+| March 2022 | **Reuse and manage notebook sessions** | Now in Synapse notebooks, it's easy to reuse an active session conveniently without having to start a new one and to see and manage your active sessions in the **Active sessions** list. To view your sessions, select the 3 dots in the notebook and select **Manage sessions.** For examples, see [Synapse notebooks: Reuse and manage notebook sessions](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_3).|
+| March 2022 | **Support for Python logging** | Now in Synapse notebooks, anything written through the Python logging module is captured, in addition to the driver logs. For examples, see [Synapse notebooks: Support for Python logging](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_4).|
+
+## Machine Learning
+
+This section is an archive of features and improvements to machine learning models in Azure Synapse Analytics.
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| June 2022 | **Distributed Deep Neural Network Training (preview)** | The Azure Synapse runtime also includes supporting libraries like Petastorm and Horovod, which are commonly used for distributed training. This feature is currently available in preview. The Azure Synapse Analytics runtime for Apache Spark 3.1 and 3.2 also now includes support for the most common deep learning libraries like TensorFlow and PyTorch. To learn more about how to leverage these libraries within your Azure Synapse Analytics GPU-accelerated pools, read the [Deep learning tutorials](./machine-learning/concept-deep-learning.md). |
+| November 2021 | **PREDICT** | The T-SQL [PREDICT](/sql/t-sql/queries/predict-transact-sql) syntax is now generally available for dedicated SQL pools. Get started with the [Machine learning model scoring wizard for dedicated SQL pools](./machine-learning/tutorial-sql-pool-model-scoring-wizard.md).|
+
+## Samples and guidance
+
+This section is an archive of guidance and sample project resources for Azure Synapse Analytics.
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| June 2022 | **Azure Orbital analytics with Synapse Analytics** | We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics. The sample solution also demonstrates how to integrate geospatial-specific [Azure AI services](../ai-services/index.yml) models, AI models from partners, and bring-your-own-data models. |
+| June 2022 | **Migration guides for Oracle** | A new Microsoft-authored migration guide for Oracle to Azure Synapse Analytics is now available. [Design and performance for Oracle migrations](migration-guides/oracle/1-design-performance-migration.md). |
+| June 2022 | **Azure Synapse success by design** | The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. |
+| June 2022 | **Migration guides for Teradata** | A new Microsoft-authored migration guide for Teradata to Azure Synapse Analytics is now available. [Design and performance for Teradata migrations](migration-guides/teradata/1-design-performance-migration.md). |
+| June 2022 | **Migration guides for IBM Netezza** | A new Microsoft-authored migration guide for IBM Netezza to Azure Synapse Analytics is now available. [Design and performance for IBM Netezza migrations](migration-guides/netezza/1-design-performance-migration.md). |
+
+## Security
+
+This section is an archive of security features and settings in Azure Synapse Analytics.
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| April 2022 | **Synapse Monitoring Operator RBAC role** | The Synapse Monitoring Operator role-based access control (RBAC) role allows a user persona to monitor the execution of Synapse Pipelines and Spark applications without having the ability to run or cancel the execution of these applications. For more information, review the [Synapse RBAC Roles](security/synapse-workspace-synapse-rbac-roles.md).|
+| March 2022 | **Enforce minimal TLS version** | You can now raise or lower the minimum TLS version for dedicated SQL pools in Synapse workspaces. To learn more, see [Azure SQL connectivity settings](/azure/azure-sql/database/connectivity-settings#minimal-tls-version). The [workspace managed SQL API](/rest/api/synapse/sqlserver/workspace-managed-sql-server-dedicated-sql-minimal-tls-settings/update) can be used to modify the minimum TLS settings.|
+| March 2022 | **Azure Synapse Analytics now supports Azure Active Directory (Azure AD) only authentication** | You can now use Azure Active Directory authentication to centrally manage access to all Azure Synapse resources, including SQL pools. You can [disable local authentication](sql/active-directory-authentication.md#disable-local-authentication) upon creation or after a workspace is created through the Azure portal.|
+| December 2021 | **User-Assigned managed identities** | Now you can use user-assigned managed identities in linked services for authentication in Synapse Pipelines and Dataflows. To learn more, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory).|
+| December 2021 | **Browse ADLS Gen2 folders in the Azure Synapse Analytics workspace** | You can now [browse and secure an Azure Data Lake Storage Gen2 (ADLS Gen2) container or folder](how-to-access-container-with-access-control-lists.md) in your Azure Synapse Analytics workspace by connecting to a specific container or folder in Synapse Studio.|
+| December 2021 | **TLS 2.1 enforced for new Synapse Workspaces** | Starting in December 2021, [a requirement for TLS 1.2](security/connectivity-settings.md#minimal-tls-version) has been implemented for new Synapse Workspaces only. |
+
+## Azure Synapse Data Explorer  
+
+Azure Data Explorer (ADX) is a fast and highly scalable data exploration service for log and telemetry data. It offers ingestion from Event Hubs, IoT Hubs, blobs written to blob containers, and Azure Stream Analytics jobs. This section is an archive of features and capabilities of [the Azure Synapse Data Explorer](data-explorer/data-explorer-overview.md) and [the Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/). Read more about [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer? (Preview)](data-explorer/data-explorer-compare.md)
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| June 2022 | **Web Explorer new homepage** | The new Azure Synapse [Web Explorer homepage](https://dataexplorer.azure.com/home) makes it even easier to get started with Synapse Web Explorer. |
+| June 2022 | **Web Explorer sample gallery** | The [Web Explorer sample gallery]((https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/azure-data-explorer-in-60-minutes-with-the-new-samples-gallery/ba-p/3447552) provides end-to-end samples of how customers leverage Synapse Data Explorer popular use cases such as Logs Data, Metrics Data, IoT data and Basic big data examples. |
+| June 2022 | **Web Explorer dashboards drill through capabilities** | You can now [use drillthroughs as parameters in your Synapse Web Explorer dashboards](/azure/data-explorer/dashboard-parameters#use-drillthroughs-as-dashboard-parameters). |
+| June 2022 | **Time Zone settings for Web Explorer** | The [Time Zone settings of the Web Explorer](/azure/data-explorer/web-query-data#change-datetime-to-specific-time-zone) now apply to both the Query results and to the Dashboard. By changing the time zone, the dashboards will be automatically refreshed to present the data with the selected time zone. |
+| May 2022 | **Synapse Data Explorer live query in Excel** | Using the [new Data Explorer web experience Open in Excel feature](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/open-live-kusto-query-in-excel/ba-p/3198500), you can now provide access to live results of your query by sharing the connected Excel Workbook with colleagues and team members. You can open the live query in an Excel Workbook and refresh it directly from Excel to get the most up to date query results. To create an Excel Workbook connected to Synapse Data Explorer, [start by running a query in the Web experience](https://aka.ms/adx.help.livequery). |
+| May 2022 | **Use Managed Identities for external SQL Server tables** | With Managed Identity support, Synapse Data Explorer table definition is now simpler and more secure. You can now [use managed identities](/azure/data-explorer/managed-identities-overview) instead of entering in your credentials. To learn more about external tables, read [Create and alter SQL Server external tables](/azure/data-explorer/kusto/management/external-sql-tables).|
+| May 2022 | **Azure Synapse Data Explorer connector for Microsoft Power Automate, Logic Apps, and Power Apps** | New Azure Data Explorer connectors for Power Automate are generally available (GA). To learn more, read [Azure Data Explorer connector for Microsoft Power Automate](/azure/data-explorer/flow), the [Microsoft Logic App and Azure Data Explorer](/azure/data-explorer/kusto/tools/logicapps), and the ability to [Create Power Apps application to query data in Azure Data Explorer](/azure/data-explorer/power-apps-connector). |
+| May 2022 | **Dynamic events routing from event hub to multiple databases** | We now support [routing events data from Azure Event Hub/Azure IoT Hub/Azure Event Grid to multiple databases](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-may-update-2022/ba-p/3430970#TOCREF_15) hosted in a single ADX cluster. To learn more about dynamic routing, read [Ingest from event hub](/azure/data-explorer/ingest-data-event-hub-overview#events-routing). |
+| May 2022 | **Configure a database using a KQL inline script as part of JSON ARM deployment template** | Running a [Kusto Query Language (KQL) script to configure your database](/azure/data-explorer/database-script) can now be done using an inline script provided inline as a parameter to a JSON ARM template. |
+
+## Azure Synapse Link
+
+Azure Synapse Link is an automated system for replicating data from [SQL Server or Azure SQL Database](synapse-link/sql-synapse-link-overview.md), [Azure Cosmos DB](../cosmos-db/synapse-link.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext), or [Dataverse](/power-apps/maker/data-platform/export-to-data-lake?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext) into Azure Synapse Analytics. This section is an archive of news about the Azure Synapse Link feature.
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| May 2022 | **Azure Synapse Link for SQL preview** | Azure Synapse Link for SQL is in preview for both SQL Server 2022 and Azure SQL Database. The Azure Synapse Link feature provides low- and no-code, near real-time data replication from your SQL-based operational stores into Azure Synapse Analytics. Provide BI reporting on operational data in near real-time, with minimal impact on your operational store. The [Azure Synapse Link for SQL preview has been announced](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/announcing-the-public-preview-of-azure-synapse-link-for-sql/ba-p/3372986). For more information, see [Blog: Azure Synapse Link for SQL Deep Dive](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/synapse-link-for-sql-deep-dive/ba-p/3567645).|
+
+## Synapse SQL
+
+This section is an archive of improvements and features in SQL pools in Azure Synapse Analytics.
+
+|**Month** | **Feature** |  **Learn more**|
+|:-- |:-- | :-- |
+| June 2022 | **Result set size limit increase** | The [maximum size of query result sets](./sql/resources-self-help-sql-on-demand.md?tabs=x80070002#constraints) in serverless SQL pools has been increased from 200 GB to 400 GB.  |
+| May 2022 | **Automatic character column length calculation for serverless SQL pools** | It's no longer necessary to define character column lengths for serverless SQL pools in the data lake. You can get optimal query performance [without having to define the schema](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-may-update-2022/ba-p/3430970#TOCREF_4), because the serverless SQL pool will use automatically calculated average column lengths and cardinality estimation. |
+| April 2022 | **Cross-subscription restore for Azure Synapse SQL GA** | With the PowerShell `Az.Sql` module 3.8 update, the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet can be used for cross-subscription restore of dedicated SQL pools. To learn more, see [Restore a dedicated SQL pool to a different subscription](sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell). This feature is now generally available for dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in a Synapse workspace. [What's the difference?](https://aka.ms/dedicatedSQLpooldiff)|
+| April 2022 | **Recover SQL pool from dropped server or workspace** | With the PowerShell Restore cmdlets in `Az.Sql` and `Az.Synapse` modules, you can now restore from a deleted server or workspace without filing a support ticket. For more information, see [Restore a dedicated SQL pool from a deleted Azure Synapse workspace](backuprestore/restore-sql-pool-from-deleted-workspace.md) or [Restore a standalone dedicated SQL pools (formerly SQL DW) from a deleted server](backuprestore/restore-sql-pool-from-deleted-workspace.md), depending on your scenario.  |
+| March 2022 | **Column level encryption for dedicated SQL pools** | [Column level encryption](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true) is now generally available for use on new and existing Azure SQL logical servers with Azure Synapse dedicated SQL pools and dedicated SQL pools in Azure Synapse workspaces. SQL Server Data Tools (SSDT) support for column level encryption for the dedicated SQL pools is available starting with the 17.2 Preview 2 build of Visual Studio 2022.|
+| March 2022 | **Parallel execution for CETAS** | Better performance for [CREATE TABLE AS SELECT](sql/develop-tables-cetas.md) (CETAS) and subsequent SELECT statements now made possible by use of parallel execution plans. For examples, see [Better performance for CETAS and subsequent SELECTs](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-march-update-2022/ba-p/3269194#TOCREF_7).|
+
+## Previous monthly updates in Azure Synapse Analytics
+
+What follows are the previous format of monthly news updates for Synapse Analytics.
+
 ## June 2022 update
 
-## General
+### General
 
-* **Azure Orbital analytics with Synapse Analytics** - We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](overview-what-is.md). The sample solution also demonstrates how to integrate geospatial-specific [Azure Cognitive Services](../cognitive-services/index.yml) models, AI models from partners, and bring-your-own-data models.
+* **Azure Orbital analytics with Synapse Analytics** - We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with [Azure Synapse Analytics](overview-what-is.md). The sample solution also demonstrates how to integrate geospatial-specific [Azure AI services](../ai-services/index.yml) models, AI models from partners, and bring-your-own-data models.
 
 * **Azure Synapse success by design** - Project success is no accident and requires careful planning and execution. The Synapse Analytics' Success by Design playbooks are now available. The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. These guides contain best practices from the most challenging and complex solution implementations incorporating Azure Synapse. To learn more about the Azure Synapse proof of concept playbook, read [Success by Design](./guidance/success-by-design-introduction.md).
-## SQL
+
+### SQL
 
 **Result set size limit increase** - We know that you turn to Azure Synapse Analytics to work with large amounts of data. With that in mind, the maximum size of query result sets in Serverless SQL pools has been increased from 200 GB to 400 GB. This limit is shared between concurrent queries. To learn more about this size limit increase and other constraints, read [Self-help for serverless SQL pool](./sql/resources-self-help-sql-on-demand.md?tabs=x80070002#constraints).
 
-## Synapse data explorer
+### Synapse data explorer
 
 * **Web Explorer new homepage** - The new Synapse Web Explorer homepage makes it even easier to get started with Synapse Web Explorer. The [Web Explorer homepage](https://dataexplorer.azure.com/home) now includes the following sections:
 
@@ -38,7 +211,7 @@ This article describes previous month updates to Azure Synapse Analytics. For th
 
 * **Time Zone settings for Web Explorer** - Being able to display data in different time zones is very powerful. You can now decide to view the data in UTC time, your local time zone, or the time zone of the monitored device/machine. The Time Zone settings of the Web Explorer now apply to both the Query results and to the Dashboard. By changing the time zone, the dashboards will be automatically refreshed to present the data with the selected time zone.  For more information on time zone settings, read [Change datetime to specific time zone](/azure/data-explorer/web-query-data#change-datetime-to-specific-time-zone).
 
-## Data integration
+### Data integration
 
 * **Fuzzy Join option in Join Transformation** - Fuzzy matching with a sliding similarity score option has been added to the Join transformation in Mapping Data Flows. You can create inner and outer joins on data values that are similar rather than exact matches! Previously, you would have had to use an exact match. The sliding scale value goes from 60% to 100%, making it easy to adjust the similarity threshold of the match. For learn more about fuzzy joins, read [Join transformation in mapping data flow](../data-factory/data-flow-join.md).
 
@@ -48,7 +221,7 @@ This article describes previous month updates to Azure Synapse Analytics. For th
 
 * **User Defined Functions [Generally Available]** - We're excited to announce that user defined functions (UDFs) are now Generally Available. With user-defined functions, you can create customized expressions that can be reused across multiple mapping data flows. You no longer have to use the same string manipulation, math calculations, or other complex logic several times. User-defined functions will be grouped in libraries to help developers group common sets of functions.  To learn more about user defined functions, read [User defined functions in mapping data flows](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-user-defined-functions-preview-for-mapping-data/ba-p/3414628).
 
-## Machine learning
+### Machine learning
 
 **Distributed Deep Neural Network Training with Horovod and Petastorm [Public Preview]** - To simplify the process for creating and managing GPU-accelerated pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes.
 
@@ -96,11 +269,11 @@ The following updates are new to Azure Synapse Analytics this month.
 
   To learn more about external tables, read [Create and alter SQL Server external tables](/azure/data-explorer/kusto/management/external-sql-tables).
 
-* **New KQL Learn module (2 out of 3) is live!** - The power of Kusto Query Language (KQL) is its simplicity to query structured, semi-structured, and unstructured data together. To make it easier for you to learn KQL, we are releasing Learn modules. Previously, we released [Write your first query with Kusto Query Language](/learn/modules/write-first-query-kusto-query-language/). New this month is [Gain insights from your data by using Kusto Query Language](/learn/modules/gain-insights-data-kusto-query-language/).
+* **New KQL Learn module (2 out of 3) is live!** - The power of Kusto Query Language (KQL) is its simplicity to query structured, semi-structured, and unstructured data together. To make it easier for you to learn KQL, we are releasing Learn modules. Previously, we released [Write your first query with Kusto Query Language](/training/modules/write-first-query-kusto-query-language/). New this month is [Gain insights from your data by using Kusto Query Language](/training/modules/gain-insights-data-kusto-query-language/).
 
   KQL is the query language used to query Synapse Data Explorer big data. KQL has a fast-growing user community, with hundreds of thousands of developers, data engineers, data analysts, and students.
 
-  Check out the newest [KQL Learn Model](/learn/modules/gain-insights-data-kusto-query-language/) and see for yourself how easy it is to become a KQL master.
+  Check out the newest [KQL Learn module](/training/modules/gain-insights-data-kusto-query-language/) and see for yourself how easy it is to become a KQL master.
 
   To learn more about KQL, read [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
@@ -126,7 +299,7 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ### Azure Synapse Link
 
-**Azure Synapse Link for SQL [Public Preview]** - At Microsoft Build 2022, we announced the Public Preview availability of Azure Synapse Link for SQL, for both SQL Server 2022 and Azure SQL Database. Data-driven, quality insights are critical for companies to stay competitive. The speed to achieve those insights can make all the difference. The costly and time-consuming nature of traditional ETL and ELT pipelines is no longer enough. With this release, you can now take advantage of low- and no-code, near real-time data replication from your SQL-based operational stores into Azure Synapse Analytics. This makes it easier to run BI reporting on operational data in near real-time, with minimal impact on your operational store. To learn more, read [Announcing the Public Preview of Azure Synapse Link for SQL](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/announcing-the-public-preview-of-azure-synapse-link-for-sql/ba-p/3372986) and [watch our YouTube video](https://www.youtube.com/embed/pgusZy34-Ek).
+**Azure Synapse Link for SQL Server** - At Microsoft Build 2022, we announced the Public Preview availability of Azure Synapse Link for SQL, for both SQL Server 2022 and Azure SQL Database. Data-driven, quality insights are critical for companies to stay competitive. The speed to achieve those insights can make all the difference. The costly and time-consuming nature of traditional ETL and ELT pipelines is no longer enough. With this release, you can now take advantage of low- and no-code, near real-time data replication from your SQL-based operational stores into Azure Synapse Analytics. This makes it easier to run BI reporting on operational data in near real-time, with minimal impact on your operational store. To learn more, read [Announcing the Public Preview of Azure Synapse Link for SQL](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/announcing-the-public-preview-of-azure-synapse-link-for-sql/ba-p/3372986) and [watch our YouTube video](https://www.youtube.com/embed/pgusZy34-Ek).
 
 ## Apr 2022 update
 
@@ -282,9 +455,9 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ### Machine Learning
 
-* The Synapse Machine Learning library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--463873803) [article](https://microsoft.github.io/SynapseML/docs/about/)
+* The Synapse Machine Learning library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--463873803) [article](https://microsoft.github.io/SynapseML/docs/Overview/)
 * Getting started with state-of-the-art pre-built intelligent models [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-2023639030) [article](./machine-learning/tutorial-form-recognizer-use-mmlspark.md)
-* Building responsible AI systems with the Synapse ML library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-914346508) [article](https://microsoft.github.io/SynapseML/docs/features/responsible_ai/Model%20Interpretation%20on%20Spark/)
+* Building responsible AI systems with the Synapse ML library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-914346508) [article](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/Responsible%20AI/Interpreting%20Model%20Predictions/)
 * PREDICT is now GA for Synapse Dedicated SQL pools [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1594404878) [article](./machine-learning/tutorial-sql-pool-model-scoring-wizard.md)
 * Simple & scalable scoring with PREDICT and MLFlow for Apache Spark for Synapse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--213049585) [article](./machine-learning/tutorial-score-model-predict-spark-pool.md)
 * Retail AI solutions [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--2020504048) [article](./machine-learning/quickstart-industry-ai-solutions.md)
@@ -341,9 +514,9 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ### Machine Learning
 
-* The Synapse Machine Learning library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--463873803) [article](https://microsoft.github.io/SynapseML/docs/about/)
+* The Synapse Machine Learning library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--463873803) [article](https://microsoft.github.io/SynapseML/docs/Overview/)
 * Getting started with state-of-the-art pre-built intelligent models [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-2023639030) [article](./machine-learning/tutorial-form-recognizer-use-mmlspark.md)
-* Building responsible AI systems with the Synapse ML library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-914346508) [article](https://microsoft.github.io/SynapseML/docs/features/responsible_ai/Model%20Interpretation%20on%20Spark/)
+* Building responsible AI systems with the Synapse ML library [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-914346508) [article](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/Responsible%20AI/Interpreting%20Model%20Predictions/)
 * PREDICT is now GA for Synapse Dedicated SQL pools [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId-1594404878) [article](./machine-learning/tutorial-sql-pool-model-scoring-wizard.md)
 * Simple & scalable scoring with PREDICT and MLFlow for Apache Spark for Synapse [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--213049585) [article](./machine-learning/tutorial-score-model-predict-spark-pool.md)
 * Retail AI solutions [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-november-2021-update/ba-p/3020740#toc-hId--2020504048) [article](./machine-learning/quickstart-industry-ai-solutions.md)

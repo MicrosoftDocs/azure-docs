@@ -2,13 +2,14 @@
 title: View existing roles/policies and requests for permission in the Remediation dashboard in Permissions Management
 description: How to view existing roles/policies and requests for permission in the Remediation dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/23/2022
-ms.author: kenwith
+ms.date: 09/15/2023
+ms.author: jfields
 ---
 
 # View roles/policies and requests for permission in the Remediation dashboard
@@ -18,7 +19,7 @@ The **Remediation** dashboard in Permissions Management provides an overview of 
 This article provides an overview of the components of the **Remediation** dashboard.
 
 > [!NOTE]
-> To view the **Remediation** dashboard, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this dashboard, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
+> To view the **Remediation** dashboard, you must have **Viewer**, **Controller**, or **Approver** permissions. To make changes on this dashboard, you must have **Controller** or **Approver** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
@@ -222,14 +223,5 @@ The **Settings** subtab provides the following settings that you can use to make
 
 ## Next steps
 
-
 - For information on how to view existing roles/policies, requests, and permissions, see [View roles/policies, requests, and permission in the Remediation dashboard](ui-remediation.md).
-- For information on how to create a role/policy, see [Create a role/policy](how-to-create-role-policy.md).
-- For information on how to clone a role/policy, see [Clone a role/policy](how-to-clone-role-policy.md).
-- For information on how to delete a role/policy, see [Delete a role/policy](how-to-delete-role-policy.md).
-- For information on how to modify a role/policy, see Modify a role/policy](how-to-modify-role-policy.md).
-- To view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md).
-- For information on how to attach and detach permissions for AWS identities, see [Attach and detach policies for AWS identities](how-to-attach-detach-permissions.md).
-- For information on how to revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities, see [Revoke high-risk and unused tasks or assign read-only status for Azure and GCP identities](how-to-revoke-task-readonly-status.md)
 - For information on how to create or approve a request for permissions, see [Create or approve a request for permissions](how-to-create-approve-privilege-request.md).
-- For information on how to view information about roles/policies, see [View information about roles/policies](how-to-view-role-policy.md)

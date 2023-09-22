@@ -3,10 +3,13 @@ title: Manage block blobs with Azure CLI
 titleSuffix: Azure Storage
 description: Manage blobs with Azure CLI 
 author: StevenMatthew
+
 ms.author: shaas
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/02/2022
+ms.date: 08/28/2023
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Manage block blobs with Azure CLI
@@ -17,7 +20,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -65,14 +68,14 @@ You can use the `az storage blob upload-batch` command to recursively upload mul
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
-The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-unmodified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
+The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-modified-since` parameter ensures that only files modified within the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
 
 ```azurecli-interactive
 
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
-lastModified=`date -d "10 days ago" '+%Y-%m-%dT%H:%MZ'`
+lastModified=`date -d "7 days ago" '+%Y-%m-%dT%H:%MZ'`
 
 path="C:\\temp\\"
 filename="demo-file.txt"
@@ -93,7 +96,7 @@ az storage blob upload-batch \
     --pattern *.png \
     --account-name $storageAccount \
     --auth-mode login \
-    --if-unmodified-since $lastModified
+    --if-modified-since $lastModified
 
 ```
 
@@ -354,10 +357,6 @@ az storage blob set-tier
 ## Operations using blob tags
 
 Blob index tags make data management and discovery easier. Blob index tags are user-defined key-value index attributes that you can apply to your blobs. Once configured, you can categorize and find objects within an individual container or across all containers. Blob resources can be dynamically categorized by updating their index tags without requiring a change in container organization. This approach offers a flexible way to cope with changing data requirements. You can use both metadata and index tags simultaneously. For more information on index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
-
-> [!IMPORTANT]
-> Support for blob index tags is in preview status.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!TIP]
 > The code sample provided below uses pattern matching to obtain text from an XML file having a known structure. The example is used to illustrate a simplified approach for adding blob tags using basic Bash functionality. The use of an actual data parsing tool is always recommended when consuming data for production workloads.
