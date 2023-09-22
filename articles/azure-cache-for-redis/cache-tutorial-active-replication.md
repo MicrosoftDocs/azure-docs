@@ -50,76 +50,76 @@ To demonstrate data replication across regions, we run two instances of the same
 
 ### West namespace
 
-1. Update the following fields in the following YAML file and save it as _app_west.yaml_.
+Update the following fields in the following YAML file and save it as _app_west.yaml_.
 
-   1. Update the variable `REDIS_HOST` with the **Endpoint value** URL after removing the port suffix: 10000
-   1. Update `REDIS_PASSWORD` with the  **Access key** of your _West US 2_ cache.
-   1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to `Seattle` to indicate this application instance is running in Seattle.
-   1. Verify that the variable `namespace` value is `west` in both places in the file.
+1. Update the variable `REDIS_HOST` with the **Endpoint value** URL after removing the port suffix: 10000
+1. Update `REDIS_PASSWORD` with the  **Access key** of your _West US 2_ cache.
+1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to `Seattle` to indicate this application instance is running in Seattle.
+1. Verify that the variable `namespace` value is `west` in both places in the file.
 
 It should look like following code:
 
-    ```YAML
-    apiVersion: apps/v1
-    kind: Deployment
+```YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoppingcart-app
+  namespace: west
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: shoppingcart
+  template:
     metadata:
-      name: shoppingcart-app
-      namespace: west
-    spec:
-      replicas: 1 
-      selector:
-        matchLabels:
-          app: shoppingcart
-      template:
-        metadata:
-          labels:
-            app: shoppingcart
-        spec:
-          containers:
-          - name: demoapp
-            image: mcr.microsoft.com/azure-redis-cache/redisactivereplicationdemo:latest
-            resources:
-              limits:
-                cpu: "0.5"
-                memory: "250Mi"
-              requests:
-                cpu: "0.5"
-                memory: "128Mi"
-            env:
-             - name: REDIS_HOST
-               value: "DemoWest.westus2.redisenterprise.cache.azure.net"
-             - name: REDIS_PASSWORD
-               value: "myaccesskey"
-             - name: REDIS_PORT
-               value: "10000"   # redis enterprise port
-             - name: HTTP_PORT
-               value: "8080"
-             - name: APP_LOCATION
-               value: "Seattle, WA" 
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: shoppingcart-svc
-      namespace: west
-    spec:
-      type: LoadBalancer
-      ports:
-      - protocol: TCP
-        port: 80
-        targetPort: 8080
-      selector:
+      labels:
         app: shoppingcart
-    ```
+    spec:
+      containers:
+      - name: demoapp
+        image: mcr.microsoft.com/azure-redis-cache/redisactivereplicationdemo:latest
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "250Mi"
+          requests:
+            cpu: "0.5"
+            memory: "128Mi"
+        env:
+         - name: REDIS_HOST
+           value: "DemoWest.westus2.redisenterprise.cache.azure.net"
+         - name: REDIS_PASSWORD
+           value: "myaccesskey"
+         - name: REDIS_PORT
+           value: "10000"   # redis enterprise port
+         - name: HTTP_PORT
+           value: "8080"
+         - name: APP_LOCATION
+           value: "Seattle, WA" 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shoppingcart-svc
+  namespace: west
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  selector:
+    app: shoppingcart
+```
 
 ### East namespace
 
-1. Save another copy of the same YAML file as _app_east.yaml_. This time, use the values that correspond with your second cache.
+Save another copy of the same YAML file as _app_east.yaml_. This time, use the values that correspond with your second cache.
 
-   1. Update the variable `REDIS_HOST` with the **Endpoint value** after removing the port suffix: 10000
-   1. Update `REDIS_PASSWORD` with the  **Access key** of your _East US_ cache.
-   1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to _New York_ to indicate this application instance is running in New York.
-   1. Verify that the variable `namespace` value is `east` in both places in the file.
+ 1. Update the variable `REDIS_HOST` with the **Endpoint value** after removing the port suffix: 10000
+ 1. Update `REDIS_PASSWORD` with the  **Access key** of your _East US_ cache.
+ 1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to _New York_ to indicate this application instance is running in New York.
+ 1. Verify that the variable `namespace` value is `east` in both places in the file.
 
 It should look like following code:
 
@@ -181,7 +181,7 @@ spec:
 In this section, you first install the Kubernetes CLI and then connect to an AKS cluster.
 
 > [!NOTE]
-> For this part of the tutorial, a Azure Kubernetes Service Cluster is required. For this tutorial, you deploy both instances of the application on the same AKS cluster.
+> An Azure Kubernetes Service Cluster is required for this tutorial. You deploy both instances of the application on the same AKS cluster.
 
 ### Install the Kubernetes CLI
 
