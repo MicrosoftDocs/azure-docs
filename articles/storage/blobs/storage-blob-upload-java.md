@@ -68,7 +68,7 @@ You can configure values in [ParallelTransferOptions](/java/api/com.azure.storag
 - `maxSingleUploadSize`: If the size of the data is less than or equal to this value, it's uploaded in a single put rather than broken up into chunks. If the data is uploaded in a single shot, the block size is ignored. You can set this value by using the [setMaxSingleUploadSizeLong](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setmaxsingleuploadsizelong(java-lang-long)) method.
 - `maxConcurrency`: The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.blob.models.paralleltransferoptions#com-azure-storage-blob-models-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
 
-Make sure you have the following `import` directive to use `ParallelTransferOptions`:
+Make sure you have the following `import` directive to use `ParallelTransferOptions` for an upload:
 
 ```java
 import com.azure.storage.blob.models.*;

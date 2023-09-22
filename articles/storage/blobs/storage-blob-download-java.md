@@ -68,7 +68,7 @@ You can configure values in [ParallelTransferOptions](/java/api/com.azure.storag
 - `blockSize`: The maximum block size to transfer for each request. You can set this value by using the [setBlockSizeLong](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setblocksizelong(java-lang-long)) method.
 - `maxConcurrency`: The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
 
-Add the following `import` directive to your file to use `ParallelTransferOptions`:
+Add the following `import` directive to your file to use `ParallelTransferOptions` for a download:
 
 ```java
 import com.azure.storage.common.*;

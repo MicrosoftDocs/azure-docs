@@ -63,7 +63,7 @@ The `maxConcurrency` value is the maximum number of parallel requests issued at 
 
 #### Code example
 
-Make sure you have the following `import` directive to use `ParallelTransferOptions`:
+Make sure you have the following `import` directive to use `ParallelTransferOptions` for an upload:
 
 ```java
 import com.azure.storage.blob.models.*;
@@ -109,7 +109,7 @@ The following values can be tuned for downloads based on the needs of your app:
 
 #### Code example
 
-Make sure you have the following `import` directive to use `ParallelTransferOptions`:
+Make sure you have the following `import` directive to use `ParallelTransferOptions` for a download:
 
 ```java
 import com.azure.storage.common.*;
