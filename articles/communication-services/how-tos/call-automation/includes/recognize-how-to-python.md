@@ -126,7 +126,7 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     initial_silence_timeout=30, 
     play_prompt=play_source, 
     operation_context="AppointmentReminderMenu",
-    # Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
     speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId")  
 ```
 
@@ -141,7 +141,7 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     end_silence_timeout=1, 
     play_prompt=play_source, 
     operation_context="OpenQuestionSpeech",
-    # Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
     speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId") 
 ```
 
@@ -160,7 +160,7 @@ call_automation_client.get_call_connection(call_connection_id).start_recognizing
     initial_silence_timeout=30, 
     interrupt_prompt=True, 
     operation_context="OpenQuestionSpeechOrDtmf",
-    # Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    # Only add the speech_recognition_model_endpoint_id if you have a custom speech model you would like to use
     speech_recognition_model_endpoint_id="YourCustomSpeechModelEndpointId")  
 app.logger.info("Start recognizing") 
 ```
