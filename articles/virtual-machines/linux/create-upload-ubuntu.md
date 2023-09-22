@@ -148,9 +148,7 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     sudo cat >> /etc/waagent.conf << EOF
     # For Azure Linux agent version >= 2.2.45, this is the option to configure,
     # enable, or disable the provisioning behavior of the Linux agent.
-
     # Accepted values are auto (default), waagent, cloud-init, or disabled.
-
     # A value of auto means that the agent will rely on cloud-init to handle
     # provisioning if it is installed and enabled, which in this case it will.
     Provisioning.Agent=auto
