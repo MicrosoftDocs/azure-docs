@@ -66,7 +66,7 @@ To configure and test Microsoft Entra SSO with Bynder, perform the following ste
 
 ## Сreate a new login configuration in your portal
 
-First you need to log in to your Bynder account and follow [these steps](https://support.bynder.com/hc/en-us/articles/6614562131474#UUID-4f8db699-3079-496d-d29e-706b28e4631a_section-idm4615912229660833479548407237) to create a new login configuration in your portal. This way you will generate all identifiers necessary to set up your connection with Azure AD. Save new config's identifier, you will need it to setup Azure SAML SSO.
+First you need to log in to your Bynder account and follow [these steps](https://support.bynder.com/hc/en-us/articles/6614562131474#UUID-4f8db699-3079-496d-d29e-706b28e4631a_section-idm4615912229660833479548407237) to create a new login configuration in your portal. This way you will generate all identifiers necessary to set up your connection with Azure AD. Save the new configuration's identifier, you will need it to set up Azure SAML SSO.
 
 <a name='configure-azure-ad-sso'></a>
 
@@ -155,9 +155,6 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 ## Configure Bynder SSO
 
 You may configure SSO on **Bynder** side by following this documentation [Configure SAML SSO](https://support.bynder.com/hc/en-us/articles/6614562131474#UUID-4f8db699-3079-496d-d29e-706b28e4631a_section-idm4615912229660833479548407237)
-
-If you would like let us to configure it for you, you need to send the downloaded **Metadata XML** and appropriate copied URLs from the application configuration to [Bynder support team](https://www.bynder.com/en/support/). They set this setting to have the SAML SSO connection set properly on both sides.
-
 
 ### Create Bynder test user
 
