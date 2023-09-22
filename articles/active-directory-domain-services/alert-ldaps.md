@@ -28,7 +28,7 @@ This article helps you understand and resolve common alerts with secure LDAP acc
 
 ### Resolution
 
-When you enable secure LDAP, it's recommended to create additional rules that restrict inbound LDAPS access to specific IP addresses. These rules protect the managed domain from brute force attacks. To update the network security group to restrict TCP port 636 access for secure LDAP, complete the following steps:
+When you enable secure LDAP, it's recommended to create extra rules that restrict inbound LDAPS access to specific IP addresses. These rules protect the managed domain from brute force attacks. To update the network security group to restrict TCP port 636 access for secure LDAP, complete the following steps:
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Network security groups**.
 1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*, then select **Inbound security rules**
@@ -56,7 +56,7 @@ Create a replacement secure LDAP certificate by following the steps to [create a
 
 ## Next steps
 
-If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+If you still have issues, [open an Azure support request][azure-support] for more troubleshooting help.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/how-to-get-support.md
