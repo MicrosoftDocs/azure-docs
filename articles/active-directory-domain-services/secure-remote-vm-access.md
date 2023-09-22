@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2023
+ms.date: 09/21/2023
 ms.author: justinha
 
 ---
 # Secure remote access to virtual machines in Microsoft Entra Domain Services
 
-To secure remote access to virtual machines (VMs) that run in a Microsoft Entra Domain Services managed domain, you can use Remote Desktop Services (RDS) and Network Policy Server (NPS). Domain Services authenticates users as they request access through the RDS environment. For enhanced security, you can integrate Microsoft Entra multifactor authentication to provide an additional authentication prompt during sign-in events. Microsoft Entra multifactor authentication uses an extension for NPS to provide this feature.
+To secure remote access to virtual machines (VMs) that run in a Microsoft Entra Domain Services managed domain, you can use Remote Desktop Services (RDS) and Network Policy Server (NPS). Domain Services authenticates users as they request access through the RDS environment. For enhanced security, you can integrate Microsoft Entra multifactor authentication to provide another authentication prompt during sign-in events. Microsoft Entra multifactor authentication uses an extension for NPS to provide this feature.
 
 > [!IMPORTANT]
 > The recommended way to securely connect to your VMs in a Domain Services managed domain is using Azure Bastion, a fully platform-managed PaaS service that you provision inside your virtual network. A bastion host provides secure and seamless Remote Desktop Protocol (RDP) connectivity to your VMs directly in the Azure portal over SSL. When you connect via a bastion host, your VMs don't need a public IP address, and you don't need to use network security groups to expose access to RDP on TCP port 3389.
@@ -44,7 +44,7 @@ To complete this article, you need the following resources:
 
 ## Deploy and configure the Remote Desktop environment
 
-To get started, create a minimum of two Azure VMs that run Windows Server 2016 or Windows Server 2019. For redundancy and high availability of your Remote Desktop (RD) environment, you can add and load balance additional hosts later.
+To get started, create a minimum of two Azure VMs that run Windows Server 2016 or Windows Server 2019. For redundancy and high availability of your Remote Desktop (RD) environment, you can add and load balance hosts later.
 
 A suggested RDS deployment includes the following two VMs:
 
@@ -66,15 +66,15 @@ With RD deployed into the managed domain, you can manage and use the service as 
 
 ## Deploy and configure NPS and the Microsoft Entra multifactor authentication NPS extension
 
-If you want to increase the security of the user sign-in experience, you can optionally integrate the RD environment with Microsoft Entra multifactor authentication. With this configuration, users receive an additional prompt during sign-in to confirm their identity.
+If you want to increase the security of the user sign-in experience, you can optionally integrate the RD environment with Microsoft Entra multifactor authentication. With this configuration, users receive another prompt during sign-in to confirm their identity.
 
-To provide this capability, an additional Network Policy Server (NPS) is installed in your environment along with the Microsoft Entra multifactor authentication NPS extension. This extension integrates with Microsoft Entra ID to request and return the status of multifactor authentication prompts.
+To provide this capability, a Network Policy Server (NPS) is installed in your environment along with the Microsoft Entra multifactor authentication NPS extension. This extension integrates with Microsoft Entra ID to request and return the status of multifactor authentication prompts.
 
-Users must be [registered to use Microsoft Entra multifactor authentication][user-mfa-registration], which may require additional Microsoft Entra ID licenses.
+Users must be [registered to use Microsoft Entra multifactor authentication][user-mfa-registration], which may require other Microsoft Entra ID licenses.
 
 To integrate Microsoft Entra multifactor authentication in to your Remote Desktop environment, create an NPS Server and install the extension:
 
-1. Create an additional Windows Server 2016 or 2019 VM, such as *NPSVM01*, that's connected to a *workloads* subnet in your Domain Services virtual network. Join the VM to the managed domain.
+1. Create another Windows Server 2016 or 2019 VM, such as *NPSVM01*, that's connected to a *workloads* subnet in your Domain Services virtual network. Join the VM to the managed domain.
 1. Sign in to NPS VM as account that's part of the *Microsoft Entra DC Administrators* group, such as *contosoadmin*.
 1. From **Server Manager**, select **Add Roles and Features**, then install the *Network Policy and Access Services* role.
 1. Use the existing how-to article to [install and configure the Microsoft Entra multifactor authentication NPS extension][nps-extension].
@@ -87,7 +87,7 @@ With the NPS server and Microsoft Entra multifactor authentication NPS extension
 
 To integrate the Microsoft Entra multifactor authentication NPS extension, use the existing how-to article to [integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Microsoft Entra ID][azure-mfa-nps-integration].
 
-The following additional configuration options are needed to integrate with a managed domain:
+The following configuration options are needed to integrate with a managed domain:
 
 1. Don't [register the NPS server in Active Directory][register-nps-ad]. This step fails in a managed domain.
 1. In [step 4 to configure network policy][create-nps-policy], also check the box to **Ignore user account dial-in properties**.
@@ -97,7 +97,7 @@ The following additional configuration options are needed to integrate with a ma
     sc sidtype IAS unrestricted
     ```
 
-Users are now prompted for an additional authentication factor when they sign in, such as a text message or prompt in the Microsoft Authenticator app.
+Users are now prompted for another authentication factor when they sign in, such as a text message or prompt in the Microsoft Authenticator app.
 
 ## Next steps
 
