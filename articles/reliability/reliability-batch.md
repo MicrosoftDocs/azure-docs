@@ -14,7 +14,7 @@ ms.date: 03/09/2023
 
 # Reliability in Azure Batch
 
-This article describes reliability support in Azure Batch and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). 
+This article describes reliability support in Azure Batch and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and links to information on [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 
 ## Availability zone support
@@ -62,7 +62,7 @@ To prepare for a possible availability zone failure, you should over-provision c
 
 You can't migrate an existing Batch pool to availability zone support. If you wish to recreate your Batch pool across availability zones, see [Create an Azure Batch pool across availability zones](/azure/batch/create-pool-availability-zones).
 
-## Disaster recovery and business continuity
+## Cross-region recovery and business continuity
 
 Azure Batch is available in all Azure regions. However, when a Batch account is created, it must be associated with one specific region. All subsequent operations for that Batch account only apply to that region. For example, pools and associated virtual machines (VMs) are created in the same region as the Batch account.
 

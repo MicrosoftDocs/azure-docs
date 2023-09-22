@@ -69,7 +69,7 @@ RTO and RPO are non-functional requirements of a system and should be dictated b
 
 Regions and Availability Zones are a big part of the reliability equation. Regions feature multiple, physically separate availability zones. These availability zones are connected by a high-performance network featuring less than 2ms latency between physical zones. Low latency helps your data stay synchronized and accessible when things go wrong. You can use this infrastructure strategically as you architect applications and data infrastructure that automatically replicate and deliver uninterrupted services between zones and across regions. 
 
-Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your disaster recovery and business continuity strategy needs. 
+Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your cross-region recovery and business continuity strategy needs. 
 
 For disaster recovery planning, regions that are paired with other regions offer [cross-region replication](cross-region-replication-azure.md) and provide protection by asynchronously replicating data across other Azure regions.  Regions without a pair follow [data residency guidelines](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview) and offer high availability with availability zones and locally redundant or zone-redundant storage. Customers will need to plan for their cross-region disaster recovery based on their RTO/RPO needs.   
 

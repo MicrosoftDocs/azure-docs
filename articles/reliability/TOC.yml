@@ -175,13 +175,13 @@
       - name: Azure App Configuration
         href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x
       - name: Azure App Service
-        href: reliability-app-service.md#disaster-recovery-and-business-continuity
+        href: reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity
       - name: Azure Application Gateway (V2)
         href: ../networking/disaster-recovery-dns-traffic-manager.md
       - name: Azure Backup
         href: ../backup/backup-overview.md
       - name: Azure Batch
-        href: reliability-batch.md#disaster-recovery-and-business-continuity
+        href: reliability-batch.md#cross-region-disaster-recovery-and-business-continuity
       - name: Azure Bastion
         href: ../bastion/bastion-faq.md
       - name: Azure Cache for Redis
@@ -195,7 +195,7 @@
       - name: Azure Database for MySQL - Flexible Server
         href: /azure/mysql/flexible-server/how-to-restore-server-portal#geo-restore-to-latest-restore-point
       - name: Azure Database for PostgreSQL - Flexible Server
-        href: reliability-postgresql-flexible-server.md#disaster-recovery-and-business-continuity
+        href: reliability-postgresql-flexible-server.md#cross-region-disaster-recovery-and-business-continuity
       - name: Azure Databox
         href: ../databox/data-box-disk-faq.yml#how-can-i-recover-my-data-if-an-entire-region-fails-
       - name: Azure Data Explorer
@@ -215,11 +215,11 @@
       - name: Azure ExpressRoute
         href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md
       - name: Azure Functions 
-        href: reliability-functions.md#disaster-recovery-and-business-continuity
+        href: reliability-functions.md#cross-region-disaster-recovery-and-business-continuity
       - name: Azure Guest Configuration
         href: ../governance/policy/concepts/guest-configuration.md#availability
       - name: Azure HDInsight
-        href: reliability-hdinsight.md#disaster-recovery-and-business-continuity
+        href: reliability-hdinsight.md#cross-region-disaster-recovery-and-business-continuity
       - name: Azure Health Data Services - Azure API for FHIR
         href: ../healthcare-apis/azure-api-for-fhir/disaster-recovery.md
       - name: Azure IoT Hub
@@ -269,7 +269,7 @@
       - name: Azure Stream Analytics
         href: ../stream-analytics/geo-redundancy.md
       - name: Azure Virtual Machines
-        href: reliability-virtual-machines.md#disaster-recovery-and-business-continuity
+        href: reliability-virtual-machines.md#cross-region-disaster-recovery-and-business-continuity
       - name: Azure Virtual Network
         href: ../virtual-network/virtual-network-disaster-recovery-guidance.md#business-continuity
       - name: Azure Virtual WAN

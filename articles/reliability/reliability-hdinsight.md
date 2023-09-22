@@ -12,7 +12,7 @@ CustomerIntent: As a cloud architect/engineer, I need general guidance on migrat
 
 # Reliability in Azure HDInsight 
 
-This article describes reliability support in [Azure HDInsight](../hdinsight/hdinsight-overview.md), and covers [availability zones](#availability-zone-support) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Azure HDInsight](../hdinsight/hdinsight-overview.md), and covers [availability zones](#availability-zone-support) and [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuityss-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 
 ## Availability zone support
@@ -111,7 +111,7 @@ When an availability zone goes down:
  - You still can submit new cluster creation request in a different region.
 
 
-## Disaster recovery and business continuity
+## Cross-region recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 

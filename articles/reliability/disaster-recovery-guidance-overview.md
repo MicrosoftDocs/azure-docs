@@ -36,7 +36,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure SQL](/azure/azure-sql/database/recovery-using-backups#geo-restore) |
 | [Azure SQL-Managed Instance](/azure/azure-sql/database/auto-failover-group-sql-db?tabs=azure-powershell) |
 | [Azure Storage-Disk Storage](../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md) |
-| [Azure Virtual Machines](reliability-virtual-machines.md#disaster-recovery-and-business-continuity) |
+| [Azure Virtual Machines](reliability-virtual-machines.md#cross-region-disaster-recovery-and-business-continuity) |
 | [Azure Virtual Network](../virtual-network/virtual-network-disaster-recovery-guidance.md#business-continuity) |
 | [Azure VPN and ExpressRoute Gateway](../vpn-gateway/vpn-gateway-highlyavailable.md?) |
 
@@ -48,21 +48,21 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure API Management](../api-management/api-management-howto-disaster-recovery-backup-restore.md) |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-replica-set.md) |
 | [Azure App Configuration](../azure-app-configuration/concept-disaster-recovery.md?&tabs=core2x)|
-| [Azure App Service](reliability-app-service.md#disaster-recovery-and-business-continuity)|
+| [Azure App Service](reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity)|
 | [Azure Backup](../backup/backup-overview.md) |
-| [Azure Batch](reliability-batch.md#disaster-recovery-and-business-continuity) |
+| [Azure Batch](reliability-batch.md#cross-region-disaster-recovery-and-business-continuity) |
 | [Azure Bastion](../bastion/bastion-faq.md?#dr) |
 | [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
 | [Azure Cognitive Search](../search/search-reliability.md) |
 | [Azure Data Explorer](/azure/data-explorer/business-continuity-overview) |
 | [Azure Database for MySQL](/azure/mysql/single-server/concepts-business-continuity?#recover-from-an-azure-regional-data-center-outage) |
 | [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-restore-server-portal?#geo-restore-to-latest-restore-point) |
-| [Azure Database for PostgreSQL - Flexible Server](reliability-postgre-flexible.md#disaster-recovery-and-business-continuity) |
+| [Azure Database for PostgreSQL - Flexible Server](reliability-postgre-flexible.md#cross-region-disaster-recovery-and-business-continuity) |
 | [Azure DDoS Protection](../ddos-protection/ddos-disaster-recovery-guidance.md?#business-continuity) |
 | [Azure Event Grid](../event-grid/custom-disaster-recovery.md) |
-| [Azure Functions](reliability-functions.md#disaster-recovery-and-business-continuity) |
+| [Azure Functions](reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) |
 | [Azure Guest Configuration](../governance/policy/concepts/guest-configuration.md?#availability) |
-| [Azure HDInsight](reliability-hdinsight.md#disaster-recovery-and-business-continuity) |
+| [Azure HDInsight](reliability-hdinsight.md#cross-region-disaster-recovery-and-business-continuity) |
 | [Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md) |
 | [Azure Media Services](/azure/media-services/latest/architecture-high-availability-encoding-concept) |
 | [Azure Migrate](../migrate/resources-faq.md?#does-azure-migrate-offer-backup-and-disaster-recovery) |
