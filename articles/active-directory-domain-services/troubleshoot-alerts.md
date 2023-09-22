@@ -16,7 +16,7 @@ ms.author: justinha
 ---
 # Known issues: Common alerts and resolutions in Microsoft Entra Domain Services
 
-As a central part of identity and authentication for applications, Microsoft Entra Domain Services sometimes has problems. If you run into issues, there are some common alerts and associated troubleshooting steps to help you get things running again. At any time, you can also [open an Azure support request][azure-support] for additional troubleshooting assistance.
+As a central part of identity and authentication for applications, Microsoft Entra Domain Services sometimes has problems. If you run into issues, there are some common alerts and associated troubleshooting steps to help you get things running again. At any time, you can also [open an Azure support request][azure-support] for more troubleshooting help.
 
 This article provides troubleshooting information for common alerts in Domain Services.
 
@@ -30,7 +30,7 @@ This article provides troubleshooting information for common alerts in Domain Se
 
 This error is usually caused when an Azure subscription is moved to a new Microsoft Entra directory and the old Microsoft Entra directory that's associated with Domain Services is deleted.
 
-This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it in your new directory. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it in your new directory. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for more troubleshooting help.
 
 ## AADDS101: Azure AD B2C is running in this directory
 
@@ -70,9 +70,9 @@ To resolve this alert, delete your existing managed domain and recreate it in a 
 1. [Delete the managed domain](delete-aadds.md) from your directory.
 1. To update the virtual network IP address range, search for and select *Virtual network* in the Microsoft Entra admin center. Select the virtual network for Domain Services that incorrectly has a public IP address range set.
 1. Under **Settings**, select *Address Space*.
-1. Update the address range by choosing the existing address range and editing it, or adding an additional address range. Make sure the new IP address range is in a private IP range. When ready, **Save** the changes.
+1. Update the address range by choosing the existing address range and editing it, or by adding an address range. Make sure the new IP address range is in a private IP range. When ready, **Save** the changes.
 1. Select **Subnets** in the left-hand navigation.
-1. Choose the subnet you wish to edit, or create an additional subnet.
+1. Choose the subnet you wish to edit, or create another subnet.
 1. Update or specify a private IP address range then **Save** your changes.
 1. [Create a replacement managed domain](tutorial-create-instance.md). Make sure you pick the updated virtual network subnet with a private IP address range.
 
@@ -125,7 +125,7 @@ Domain Services requires an active subscription, and can't be moved to a differe
 
 ### Resolution
 
-Domain Services creates additional resources to function properly, such as public IP addresses, virtual network interfaces, and a load balancer. If any of these resources are deleted, the managed domain is in an unsupported state and prevents the domain from being managed. For more information on these resources, see [Network resources used by Domain Services](network-considerations.md#network-resources-used-by-azure-ad-ds).
+Domain Services creates resources to function properly, such as public IP addresses, virtual network interfaces, and a load balancer. If any of these resources are deleted, the managed domain is in an unsupported state and prevents the domain from being managed. For more information on these resources, see [Network resources used by Domain Services](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 This alert is generated when one of these required resources is deleted. If the resource was deleted less than 4 hours ago, there's a chance that the Azure platform can automatically recreate the deleted resource. The following steps outline how to check the health status and timestamp for resource deletion:
 
@@ -145,9 +145,9 @@ This alert is generated when one of these required resources is deleted. If the 
 
 ### Resolution
 
-The virtual network subnet for Domain Services needs sufficient IP addresses for the automatically created resources. This IP address space includes the need to create replacement resources if there's a maintenance event. To minimize the risk of running out of available IP addresses, don't deploy additional resources, such as your own VMs, into the same virtual network subnet as the managed domain.
+The virtual network subnet for Domain Services needs sufficient IP addresses for the automatically created resources. This IP address space includes the need to create replacement resources if there's a maintenance event. To minimize the risk of running out of available IP addresses, don't deploy other resources, such as your own VMs, into the same virtual network subnet as the managed domain.
 
-This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for more help.
 
 ## AADDS111: Service principal unauthorized
 
@@ -170,16 +170,16 @@ Some automatically generated service principals are used to manage and create re
 
 ### Resolution
 
-The virtual network subnet for Domain Services needs enough IP addresses for the automatically created resources. This IP address space includes the need to create replacement resources if there's a maintenance event. To minimize the risk of running out of available IP addresses, don't deploy additional resources, such as your own VMs, into the same virtual network subnet as the managed domain.
+The virtual network subnet for Domain Services needs enough IP addresses for the automatically created resources. This IP address space includes the need to create replacement resources if there's a maintenance event. To minimize the risk of running out of available IP addresses, don't deploy other resources, such as your own VMs, into the same virtual network subnet as the managed domain.
 
 To resolve this alert, delete your existing managed domain and re-create it in a virtual network with a large enough IP address range. This process is disruptive as the managed domain is unavailable and any custom resources you've created like OUs or service accounts are lost.
 
 1. [Delete the managed domain](delete-aadds.md) from your directory.
 1. To update the virtual network IP address range, search for and select *Virtual network* in the Microsoft Entra admin center. Select the virtual network for the managed domain that has the small IP address range.
 1. Under **Settings**, select *Address Space*.
-1. Update the address range by choosing the existing address range and editing it, or adding an additional address range. Make sure the new IP address range is large enough for the managed domain's subnet range. When ready, **Save** the changes.
+1. Update the address range by choosing the existing address range and editing it, or by adding another address range. Make sure the new IP address range is large enough for the managed domain's subnet range. When ready, **Save** the changes.
 1. Select **Subnets** in the left-hand navigation.
-1. Choose the subnet you wish to edit, or create an additional subnet.
+1. Choose the subnet you wish to edit, or create another subnet.
 1. Update or specify a large enough IP address range then **Save** your changes.
 1. [Create a replacement managed domain](tutorial-create-instance.md). Make sure you pick the updated virtual network subnet with a large enough IP address range.
 
@@ -193,7 +193,7 @@ The managed domain's health automatically updates itself within two hours and re
 
 ### Resolution
 
-Domain Services creates additional resources to function properly, such as public IP addresses, virtual network interfaces, and a load balancer. If any of these resources are modified, the managed domain is in an unsupported state and can't be managed. For more information about these resources, see [Network resources used by Domain Services](network-considerations.md#network-resources-used-by-azure-ad-ds).
+Domain Services creates resources to function properly, such as public IP addresses, virtual network interfaces, and a load balancer. If any of these resources are modified, the managed domain is in an unsupported state and can't be managed. For more information about these resources, see [Network resources used by Domain Services](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 This alert is generated when one of these required resources is modified and can't automatically be recovered by Domain Services. To resolve the alert, [open an Azure support request][azure-support] to fix the instance.
 
@@ -205,7 +205,7 @@ This alert is generated when one of these required resources is modified and can
 
 ### Resolution
 
-This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+This error is unrecoverable. To resolve the alert, [delete your existing managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the managed domain, [open an Azure support request][azure-support] for more help.
 
 ## AADDS115: Resources are locked
 
@@ -329,7 +329,7 @@ When the managed domain is enabled again, the managed domain's health automatica
 
 ## Next steps
 
-If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+If you still have issues, [open an Azure support request][azure-support] for more troubleshooting help.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
