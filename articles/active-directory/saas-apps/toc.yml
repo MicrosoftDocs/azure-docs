@@ -1003,6 +1003,8 @@
         href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
+      - name: Flock Safety
+        href: flock-safety-tutorial.md
       - name: FloQast
         href: floqast-tutorial.md
       - name: Fluxx Labs
