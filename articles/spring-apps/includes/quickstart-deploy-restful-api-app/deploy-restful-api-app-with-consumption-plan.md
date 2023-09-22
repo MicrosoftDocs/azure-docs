@@ -174,8 +174,8 @@ Use the following steps to connect your service instances:
 
    The following list describes the command interactions:
 
-   - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press Enter.
-   - **Select an Azure location to use**: Use arrows to move, type to filter, then press Enter.
+   - **Select an Azure Subscription to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
+   - **Select an Azure location to use**: Use arrows to move, type to filter, then press <kbd>Enter</kbd>.
 
    The console outputs messages similar to the following example:
 
