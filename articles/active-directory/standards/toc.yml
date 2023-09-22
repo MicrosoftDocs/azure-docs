@@ -25,7 +25,7 @@
 - name: Achieving FedRAMP High compliance
   expanded: true
   items:
-  - name: Configure Azure Active Directory for FedRAMP High impact
+  - name: Configure Microsoft Entra ID for FedRAMP High impact
     href: configure-for-fedramp-high-impact.md
   - name: Configure FedRAMP access controls
     href: fedramp-access-controls.md
@@ -36,7 +36,7 @@
 - name: Achieving CMMC compliance
   expanded: true
   items:
-  - name: Configure Azure Active Directory for CMMC compliance 
+  - name: Configure Microsoft Entra ID for CMMC compliance 
     href: configure-for-cmmc-compliance.md
   - name: Configure CMMC Level 1 controls
     href: configure-cmmc-level-1-controls.md
@@ -59,7 +59,7 @@
     href: memo-22-09-authorization.md
   - name: Other areas of Zero Trust
     href: memo-22-09-other-areas-zero-trust.md
-- name: Configure Azure Active Directory for HIPAA
+- name: Configure Microsoft Entra ID for HIPAA
   expanded: true
   items:
   - name: Overview
@@ -70,10 +70,10 @@
     href: hipaa-audit-controls.md
   - name: Additional Controls Safeguard compliance
     href: hipaa-other-controls.md
-- name: Azure Active Directory and PCI-DSS compliance
+- name: Microsoft Entra ID and PCI-DSS compliance
   expanded: true
   items:
-  - name: Azure AD PCI-DSS guidance
+  - name: Microsoft Entra PCI-DSS guidance
     href: pci-dss-guidance.md
   - name: PCI-DSS Requirement 1
     href: pci-requirement-1.md
@@ -91,5 +91,5 @@
     href: pci-requirement-10.md
   - name: PCI-DSS Requirement 11
     href: pci-requirement-11.md
-  - name: Azure Active Directory PCI-DSS MFA guidance
+  - name: Microsoft Entra PCI-DSS MFA guidance
     href: pci-dss-mfa.md
