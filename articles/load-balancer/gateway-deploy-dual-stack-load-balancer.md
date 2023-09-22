@@ -26,9 +26,9 @@ You learn to:
 
 Along with the Gateway Load Balancer, this scenario includes the following already-deployed resources:
 
-- A dual stack virtual network and subnet
-- A standard Load Balancer with dual (IPv4 + IPv6) front-end configurations
-- A Gateway Load Balancer with IPv4 only
+- A dual stack virtual network and subnet.
+- A standard Load Balancer with dual (IPv4 + IPv6) front-end configurations.
+- A Gateway Load Balancer with IPv4 only.
 - A network interface with a dual-stack IP configuration, a network security group attached, and public IPv4 & IPv6 addresses.
 
 ## Prerequisites
