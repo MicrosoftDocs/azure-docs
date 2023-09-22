@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: best-practice
-ms.date: 08/30/2023
+ms.date: 09/22/2023
 ms.author: aahi
 ms.custom: language-service-clu
 ---
@@ -173,21 +173,18 @@ curl --request POST \
  }'
 ```
 
-## Best Practices for Copying Projects across language resources
+## Copy projects across language resources
 
-CLU projects can be easily copied from one resource to another using the Copy button in the UI. However in some cases, it might be easier to copy projects via the API. Here is how to do it. 
+Often you can copy conversational language understanding projects from one resource to another using the **copy** button in Azure Language Studio. However in some cases, it might be easier to copy projects using the API.
 
-### Step 1 
+First, identify the:  
+ * source project name 
+ * target project name 
+ * source language resource 
+ * target language resource, which is where you want to copy it to.
 
-Identify the  
+Call the API to authorize the copy action, and get the `accessTokens` for the actual copy operation later. 
 
-1. source-project-name 
-
-1. the target-project-name 
-
-1. the source-language-resource 
-
-1. the target-language-resource you want to copy it to. Call the authorize copy API as below to get the accessTokens for the actual Copy call (which is described in step 2) 
 ```console
 curl --request POST \ 
   --url 'https://<target-language-resource>.cognitiveservices.azure.com//language/authoring/analyze-conversations/projects/<source-project-name>/:authorize-copy?api-version=2023-04-15-preview' \ 
@@ -195,11 +192,9 @@ curl --request POST \
   --header 'Ocp-Apim-Subscription-Key: <Your-Subscription-Key>' \ 
   --data '{"projectKind":"Conversation","allowOverwrite":false}' 
 ```
- 
 
-### Step 2 
+Call the API to complete the copy operation. Use the response you got earlier as the payload. 
 
-Call the Copy API to complete the copy operation. Use the response you get in Step1 as the payload in Step2 as is. 
 ```console
 curl --request POST \ 
   --url 'https://<source-language-resource>.cognitiveservices.azure.com/language/authoring/analyze-conversations/projects/<source-project-name>/:copy?api-version=2023-04-15-preview' \ 
