@@ -12,6 +12,8 @@ items:
       items:
       - name: Overview
         href: deploy/overview-deploy-iot-operations.md
+      - name: Deploy MQTT broker
+        href: deploy/deploy-mqtt-broker.md
     - name: Manage devices and assets
       items:
       - name: Overview
@@ -20,6 +22,16 @@ items:
       items:
       - name: Overview
         href: route-messages/overview-route-messages.md
+      - name: How to
+        items:
+        - name: Configure listeners
+          href: route-messages/how-to/configure-listeners.md
+        - name: TLS auto cert management
+          href: route-messages/how-to/configure-tls-auto-cert.md
+        - name: TLS manual cert management
+          href: route-messages/how-to/configure-tls-manual-cert.md
+        - name: Store key value data
+          href: route-messages/how-to/store-key-value-data.md
     - name: Process messages
       items:
       - name: Overview
@@ -28,6 +40,8 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-connect-to-cloud.md
+      - name: Configure MQTT bridge
+        href: connect-to-cloud/configure-mqtt-bridge.md
     - name: Visualize and analyze telemetry
       items:
       - name: Overview
