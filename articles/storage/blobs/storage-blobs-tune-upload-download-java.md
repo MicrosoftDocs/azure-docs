@@ -1,17 +1,18 @@
 ---
-title: Performance tuning for uploads and downloads with Azure Storage client library for Java - Azure Storage
+title: Performance tuning for uploads and downloads with Azure Storage client library for Java
+titleSuffix: Azure Storage
 description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for Java. 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 09/22/2023
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-java
 ---
 
-# Performance tuning for uploads and downloads with the Azure Storage client library for Java
+# Performance tuning for uploads and downloads with Java
 
 When an application transfers data using the Azure Storage client library for Java, there are several factors that can affect speed, memory usage, and even the success or failure of the request. To maximize performance and reliability for data transfers, it's important to be proactive in configuring client library transfer options based on the environment your app runs in.
 
@@ -62,6 +63,12 @@ The `maxConcurrency` value is the maximum number of parallel requests issued at 
 
 #### Code example
 
+Make sure you have the following `import` directive to use `ParallelTransferOptions`:
+
+```java
+import com.azure.storage.blob.models.*;
+```
+
 The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.blob.models.paralleltransferoptions) and include the options as part of a [BlobUploadFromFileOptions](/java/api/com.azure.storage.blob.options.blobuploadfromfileoptions) instance. If you're not uploading from a file, you can set similar options using [BlobParallelUploadOptions](/java/api/com.azure.storage.blob.options.blobparalleluploadoptions). The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 ```java
@@ -100,9 +107,15 @@ The following values can be tuned for downloads based on the needs of your app:
 - `blockSize`: The maximum block size to transfer for each request. You can set this value by using the [setBlockSizeLong](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setblocksizelong(java-lang-long)) method.
 - `maxConcurrency`: The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
 
-The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.common.paralleltransferoptions) and include the options as part of a [BlobDownloadToFileOptions](/java/api/com.azure.storage.blob.options.blobdownloadtofileoptions) instance.
-
 #### Code example
+
+Make sure you have the following `import` directive to use `ParallelTransferOptions`:
+
+```java
+import com.azure.storage.common.*;
+```
+
+The following code example shows how to set values for [ParallelTransferOptions](/java/api/com.azure.storage.common.paralleltransferoptions) and include the options as part of a [BlobDownloadToFileOptions](/java/api/com.azure.storage.blob.options.blobdownloadtofileoptions) instance.
 
 ```java
 ParallelTransferOptions parallelTransferOptions = new ParallelTransferOptions()

@@ -78,6 +78,8 @@ The following code example shows how to set values for `ParallelTransferOptions`
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDownload.java" id="Snippet_DownloadBlobWithTransferOptions":::
 
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Java](storage-blobs-tune-upload-download-java.md).
+
 ## Resources
 
 To learn more about how to download blobs using the Azure Blob Storage client library for Java, see the following resources.
