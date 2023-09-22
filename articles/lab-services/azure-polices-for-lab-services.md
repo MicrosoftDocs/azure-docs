@@ -49,7 +49,7 @@ During policy assignment, lab administrators can choose the following effects:
 
 ### Lab Services requires non-admin user for labs 
 
-Use this policy to enforce using non-admin accounts while creating a lab. With the August 2022 Update, you can choose to add a non-admin account to the VM image.  This new feature allows you to keep separate credentials for VM admin and non-admin users. For more information to create a lab with a non-admin user, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md#create-a-lab). The tutorial shows how to give a student a non-administrator account rather than default administrator account on the **Virtual machine credentials** page in the new lab wizard.
+Use this policy to enforce using non-admin accounts while creating a lab. With lab plans, you can choose to add a non-admin account to the VM image.  This new feature allows you to keep separate credentials for VM admin and non-admin users. For more information to create a lab with a non-admin user, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md#create-a-lab). The tutorial shows how to give a student a non-administrator account rather than default administrator account on the **Virtual machine credentials** page in the new lab wizard.
 
 During the policy assignment, the lab administrator can choose the following effects:
 

@@ -26,7 +26,7 @@ When you reach the cores limit for your subscription, you can request a core lim
 
 Before you create a support request for a core limit increase, you need to gather additional information, such as the number and size of cores and the Azure regions. You might also have to perform some preparation steps before creating the request.
 
-## [Lab account - May 2019 version](#tab/LabAccounts/)
+## [Lab account](#tab/LabAccounts/)
 
 ### Determine the regions for your labs
 
@@ -46,7 +46,7 @@ To determine the total number of cores for your request: `total VM cores = (# co
 
 For example, you need more capacity for 20 *Medium* VMs. The number of additional VM cores for 20 Medium VMs is then 80 (4 cores per VM * 20).
 
-## [Lab plan - August 2022 version](#tab/Labplans/)
+## [Lab plan](#tab/Labplans/)
 
 ### Create a lab plan
 
@@ -120,7 +120,7 @@ When you request core limit increase, you must supply some information to help t
 
 Depending on whether you use lab accounts or lab plans, you need to provide different information on the **Quota details** page.
 
-## [Lab account - May 2019 version](#tab/LabAccounts/)
+## [Lab account](#tab/LabAccounts/)
 
 :::image type="content" source="./media/how-to-request-capacity-increase/lab-account-pane.png" alt-text="Screenshot of the Quota details page for Lab accounts.":::
 
@@ -136,7 +136,7 @@ Depending on whether you use lab accounts or lab plans, you need to provide diff
 | **What's the month-by-month usage plan for the requested cores?** | Enter the rate at which you want to add the extra cores, on a monthly basis. |
 | **Additional details** | Provide more information to make it easier for the Azure Lab Services team to process your request. For example, you could include your preferred date for the new cores to be available or if you plan to use GPU VM sizes. |
 
-#### [Lab plan - August 2022 version](#tab/Labplans/)
+#### [Lab plan](#tab/Labplans/)
 
 :::image type="content" source="./media/how-to-request-capacity-increase/lab-plan-pane.png" alt-text="Screenshot of the Quota details page for Lab Services v2.":::
 
