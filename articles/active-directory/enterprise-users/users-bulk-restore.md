@@ -1,6 +1,6 @@
 ---
 title: Bulk restore deleted users in the Azure portal
-description: Restore deleted users in bulk in the Azure portal in Azure Active Directory
+description: Restore deleted users in bulk in the Azure portal in Microsoft Entra ID
 services: active-directory 
 author: barclayn
 ms.author: barclayn
@@ -15,13 +15,13 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk restore deleted users in Azure Active Directory
+# Bulk restore deleted users in Microsoft Entra ID
 
-Azure Active Directory (Azure AD), part of Microsoft Entra, supports bulk user restore operations and supports downloading lists of users, groups, and group members.
+Microsoft Entra ID, part of Microsoft Entra, supports bulk user restore operations and supports downloading lists of users, groups, and group members.
 
 ## Understand the CSV template
 
-Download and fill in the CSV template to help you successfully restore Azure AD users in bulk. The CSV template you download might look like this example:
+Download and fill in the CSV template to help you successfully restore Microsoft Entra users in bulk. The CSV template you download might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-restore/understand-template.png)
 
@@ -45,7 +45,7 @@ The rows in a downloaded CSV template are as follows:
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Select **All users**  > **Users** > **Deleted**.
 1. On the **Deleted users** page, select **Bulk restore** to upload a valid CSV file of properties of the users to restore.
 
@@ -68,12 +68,12 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
 [![Check status in the Bulk Operations Results page.](./media/users-bulk-restore/bulk-center.png)](./media/users-bulk-restore/bulk-center.png#lightbox)
 
-Next, you can check to see that the users you restored exist in the Azure AD organization either in the Azure portal or by using PowerShell.
+Next, you can check to see that the users you restored exist in the Microsoft Entra organization via either the Azure portal or PowerShell.
 
 ## View restored users in the Azure portal
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Select **All users** Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** and verify that the users you restored are listed.
 

@@ -22,7 +22,7 @@ In this tutorial, learn to deploy BIG-IP Vitural Edition (VE) in Azure infrastru
 - A prepared BIG-IP virtual machine (VM) to model a secure hybrid access (SHA) proof-of-concept
 - A staging instance to test new BIG-IP system updates and hotfixes
 
-Learn more: [SHA: Secure legacy apps with Azure Active Directory](./secure-hybrid-access.md)
+Learn more: [SHA: Secure legacy apps with Microsoft Entra ID](./secure-hybrid-access.md)
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Deploying a BIG-IP in Azure for SHA requires:
   - Go to letsencrypt.org to see offers. Select [Get Started](https://letsencrypt.org/).
 - An SSL certificate to secure the BIG-IP management interface. You can use a certificate to publish web apps, if its subject corresponds to the BIG-IP fully qualified domain name (FQDN). For example, you can use a wildcard certificate with a subject `*.contoso.com` for `https://big-ip-vm.contoso.com:8443`.
 
-VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Azure Active Directory](f5-integration.md).
+VM deployment and base system configurations take approximately 30 minutes, then BIG-IP is to implement SHA scenarios in [Integrate F5 BIG-IP with Microsoft Entra ID](f5-integration.md).
 
 ### Testing scenarios
 
@@ -118,7 +118,7 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 20. For **Identity**:
  
 * **System assigned managed identity**: Off
-* **Azure Active Directory**: BIG-IP doesn’t support this option
+* **Microsoft Entra ID**: BIG-IP doesn’t support this option
  
 21. For **Autoshutdown**: Enable, or if testing, you can set the BIG-IP-VM to shut down daily
 22. Select **Next: Advanced**; leave the defaults.
@@ -208,7 +208,7 @@ To resolve your published SHA services to your BIG-IP-VM public IP(s), configure
 4. In the left-hand pane, below the **Settings** section, select **Configuration**. 
 5. The public IP and DNS properties menu appears.
 6. Select and **Create** alias record.
-7. From the drop-down menu, select your **DNS zone**. If there's no DNS zone, then it can be managed outside Azure, or create one for the domain suffix to verify in Azure AD.
+7. From the drop-down menu, select your **DNS zone**. If there's no DNS zone, then it can be managed outside Azure, or create one for the domain suffix to verify in Microsoft Entra ID.
 8. To create the first DNS alias record:
 
     * **Subscription**: Same subscription as the BIG-IP-VM
@@ -259,7 +259,7 @@ A BIG-IP system is administered with its web config UI. Access the UI from:
 
 - A machine in the BIG-IP internal network
 - A VPN client connected to the BIG-IP-VM internal network
-- Published via [Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md)
+- Published via [Microsoft Entra application proxy](../app-proxy/application-proxy-add-on-premises-application.md)
 
 >[!NOTE]
 >Select one of the three previous methods before you proceed with the remaining configurations. If necessary, connect directly to the web config from the internet by configuring the BIG-IP primary IP with a public IP. Then add an NSG rule to allow the 8443 traffic to that primary IP. Restrict the source to your own trusted IP, otherwise anyone can connect. 

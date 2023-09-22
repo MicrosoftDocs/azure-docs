@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Dining Sidekick'
-description: Learn how to configure single sign-on between Azure Active Directory and Dining Sidekick.
+title: 'Tutorial: Microsoft Entra SSO integration with Dining Sidekick'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Dining Sidekick.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,24 +14,24 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure AD SSO integration with Dining Sidekick
+# Tutorial: Microsoft Entra SSO integration with Dining Sidekick
 
-In this tutorial, you'll learn how to integrate Dining Sidekick with Azure Active Directory (Azure AD). When you integrate Dining Sidekick with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Dining Sidekick with Microsoft Entra ID. When you integrate Dining Sidekick with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Dining Sidekick.
-* Enable your users to be automatically signed-in to Dining Sidekick with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Dining Sidekick.
+* Enable your users to be automatically signed-in to Dining Sidekick with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Dining Sidekick single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Dining Sidekick supports **SP** initiated SSO.
 
@@ -40,7 +40,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Dining Sidekick from the gallery
 
-To configure the integration of Dining Sidekick into Azure AD, you need to add Dining Sidekick from the gallery to your list of managed SaaS apps.
+To configure the integration of Dining Sidekick into Microsoft Entra ID, you need to add Dining Sidekick from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -49,22 +49,26 @@ To configure the integration of Dining Sidekick into Azure AD, you need to add D
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Dining Sidekick
+<a name='configure-and-test-azure-ad-sso-for-dining-sidekick'></a>
 
-Configure and test Azure AD SSO with Dining Sidekick using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Dining Sidekick.
+## Configure and test Microsoft Entra SSO for Dining Sidekick
 
-To configure and test Azure AD SSO with Dining Sidekick, perform the following steps:
+Configure and test Microsoft Entra SSO with Dining Sidekick using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Dining Sidekick.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Dining Sidekick, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Dining Sidekick SSO](#configure-dining-sidekick-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Dining Sidekick test user](#create-dining-sidekick-test-user)** - to have a counterpart of B.Simon in Dining Sidekick that is linked to the Azure AD representation of user.
+    1. **[Create Dining Sidekick test user](#create-dining-sidekick-test-user)** - to have a counterpart of B.Simon in Dining Sidekick that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Dining Sidekick** > **Single sign-on**.
@@ -92,9 +96,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -106,9 +112,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Dining Sidekick.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Dining Sidekick.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Dining Sidekick**.
@@ -120,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Dining Sidekick SSO
 
-To configure single sign-on on **Dining Sidekick** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Dining Sidekick support team](mailto:support@gethangry.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Dining Sidekick** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the application configuration to [Dining Sidekick support team](mailto:support@gethangry.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Dining Sidekick test user
 
@@ -128,13 +136,13 @@ In this section, you create a user called Britta Simon in Dining Sidekick. Work 
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Dining Sidekick Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Dining Sidekick Sign-on URL where you can initiate the login flow. 
 
 * Open Dining Sidekick mobile app, choose **Sidekick University** and then initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Dining Sidekick tile in the My Apps, this will redirect to Dining Sidekick Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the Dining Sidekick tile in the My Apps, this will redirect to Dining Sidekick Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

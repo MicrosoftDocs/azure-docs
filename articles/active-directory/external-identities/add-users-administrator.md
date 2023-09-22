@@ -1,7 +1,7 @@
 ---
 
 title: Add B2B collaboration users in the Microsoft Entra admin center
-description: Shows how an admin can add guest users to their directory from a partner organization using Azure Active Directory (Azure AD) B2B collaboration.
+description: Shows how an admin can add guest users to their directory from a partner organization using Microsoft Entra B2B collaboration.
 
 services: active-directory
 ms.service: active-directory
@@ -15,16 +15,16 @@ manager: celestedg
 ms.collection: M365-identity-device-management
 ---
 
-# Add Azure Active Directory B2B collaboration users in the Microsoft Entra admin center
+# Add Microsoft Entra B2B collaboration users in the Microsoft Entra admin center
 
-As a user who is assigned any of the limited administrator directory roles, you can use the Microsoft Entra admin center to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources. An invitation of a user doesn't expire.
+As a user who is assigned any of the limited administrator directory roles, you can use the Microsoft Entra admin center to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Microsoft Entra ID, with a user type of *Guest*. The guest user must then redeem their invitation to access resources. An invitation of a user doesn't expire.
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can select the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 > [!IMPORTANT]
-> You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
+> You should follow the steps in [How-to: Add your organization's privacy info in Microsoft Entra ID](../fundamentals/properties-area.md) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
-The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
+The updated experience for creating new users covered in this article is available as a Microsoft Entra ID preview feature. This feature is enabled by default, but you can opt out by going to **Identity** > **Overview** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Universal License Terms for Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users.md) article.
 
@@ -62,7 +62,7 @@ Either select the **Review + invite** button to create the new user or **Next: P
 
 ### Properties
 
-There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
+There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Identity** > **Users** > **All users** and select a user to update.
 
 - **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. For more information about the difference between external guests and members, see [B2B collaboration user properties](user-properties.md)
 
@@ -78,7 +78,7 @@ Either select the **Review + invite** button to create the new user or **Next: A
 
 ### Assignments
 
-You can assign external users to a group, or Azure AD role when the account is created. You can assign the user to up to 20 groups or roles. Group and role assignments can be added after the user is created. The **Privileged Role Administrator** role is required to assign Azure AD roles.
+You can assign external users to a group, or Microsoft Entra role when the account is created. You can assign the user to up to 20 groups or roles. Group and role assignments can be added after the user is created. The **Privileged Role Administrator** role is required to assign Microsoft Entra roles.
 
 **To assign a group to the new user**:
 
@@ -105,7 +105,7 @@ The final tab captures several key details from the user creation process. Revie
 
 When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details. If they haven't redeemed their invitation, you can resend the invitation email.
 
-1. Go to **Azure AD** > **Users** and select the invited guest user.
+1. Go to **Identity** > **Users** > **All users** and select the invited guest user.
 1. In the **My Feed** section, locate the **B2B collaboration** tile. 
     - If the invitation state is **PendingAcceptance**, select the **Resend invitation** link to send another email and follow the prompts.
     - You can also select the **Properties** for the user and view the **Invitation state**.
@@ -113,7 +113,7 @@ When you invite an external guest user by sending an email invitation, you can c
 ![Screenshot of the My Feed section of the user overview page.](media/add-users-administrator/external-user-invitation-state.png)
 
    > [!NOTE]
-   > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
+   > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Microsoft Entra doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
 
 The user is added to your directory with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example: *john_contoso.com#EXT#\@fabrikam.onmicrosoft.com*, where fabrikam.onmicrosoft.com is the organization from which you sent the invitations. ([Learn more about B2B collaboration user properties](user-properties.md).)
 
@@ -134,7 +134,7 @@ If you need to manually add B2B collaboration users to a group after the user wa
        
        b. In the search results, choose the user, and then choose **Select**.
 
-You can also use dynamic groups with Azure AD B2B collaboration. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](use-dynamic-groups.md).
+You can also use dynamic groups with Microsoft Entra B2B collaboration. For more information, see [Dynamic groups and Microsoft Entra B2B collaboration](use-dynamic-groups.md).
 
 ## Add guest users to an application
 

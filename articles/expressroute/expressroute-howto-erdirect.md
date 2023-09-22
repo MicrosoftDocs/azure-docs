@@ -6,7 +6,7 @@ author: duongau
 ms.service: expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 09/20/2023
 ms.author: duau
 ---
 
@@ -277,7 +277,10 @@ There are more circuit bandwidths that can be utilized on ExpressRoute Direct to
 
 **SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** can only be MeteredData. Unlimited isn't supported on ExpressRoute Direct.
+**SkuFamily** can only be **MeteredData** at creation. To use **Unlimited** data, you'll need to update the *SkuFamily* after creation.
+
+> [!NOTE]
+> Once you change to **Unlimited** data, you won't be able to change it back without recreating the ExpressRoute circuit.
 
 Create a circuit on the ExpressRoute Direct resource.
 
@@ -393,7 +396,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
     ```powershell
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
     
-    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
+    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -ExpressRoutePort $ERPort -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
 ## Next steps
 
