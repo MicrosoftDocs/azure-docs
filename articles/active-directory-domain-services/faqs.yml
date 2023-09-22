@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 09/15/2023
+  ms.date: 09/23/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Microsoft Entra Domain Services
 summary: This page answers frequently asked questions about Microsoft Entra Domain Services.
@@ -62,7 +62,7 @@ sections:
       - question: |
           Can I enable Microsoft Entra Domain Services using a Resource Manager Template?
         answer: |
-          Yes, you can create a Microsoft Entra Domain Services managed domain using a Resource Manager template. A service principal and Microsoft Entra group for administration must be created using the Microsoft Entra admin center or Azure PowerShell before the template is deployed. For more information, see [Create a Microsoft Entra DS managed domain using an Azure Resource Manager template](template-create-instance.md). When you create a Microsoft Entra Domain Services managed domain in the Microsoft Entra admin center, there's also an option to export the template for use with additional deployments.
+          Yes, you can create a Microsoft Entra Domain Services managed domain using a Resource Manager template. A service principal and Microsoft Entra group for administration must be created using the Microsoft Entra admin center or Azure PowerShell before the template is deployed. For more information, see [Create a Domain Services managed domain using an Azure Resource Manager template](template-create-instance.md). When you create a Microsoft Entra Domain Services managed domain in the Microsoft Entra admin center, there's also an option to export the template for use with additional deployments.
           
       - question: |
           Can I add domain controllers to a Microsoft Entra Domain Services managed domain?
@@ -75,7 +75,7 @@ sections:
           No. Guest users invited to your Microsoft Entra directory using the [Microsoft Entra B2B](../active-directory/external-identities/what-is-b2b.md) invite process are synchronized into your Microsoft Entra Domain Services managed domain. However, passwords for these users aren't stored in your Microsoft Entra directory. Therefore, Microsoft Entra Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
           
       - question: |
-          Can a two-way forest trust be created between Microsoft Entra DS and an on-premises forest?
+          Can a two-way forest trust be created between Domain Services and an on-premises forest?
         answer: |
           No. A managed domain supports up to five one-way outbound forest trusts to on-premises forests. 
 
@@ -109,7 +109,7 @@ sections:
       - question: |
           Is there any quota for the number of machines that I can join to the domain?
         answer: |
-          There's no quota in Microsoft Entra DS for domain-joined machines.
+          There's no quota in Domain Services for domain-joined machines.
 
       - question: |
           Do I have domain administrator privileges for the managed domain provided by Microsoft Entra Domain Services?
@@ -189,7 +189,7 @@ sections:
       - question: |
           Can I fail over Microsoft Entra Domain Services to another region for a DR event?
         answer: |
-          Yes, to provide geographical resiliency for a managed domain, you can create an additional [replica set](tutorial-create-replica-set.md) to a peered virtual network in any Azure region that supports Microsoft Entra DS. Replica sets share the same namespace and configuration with the managed domain.
+          Yes, to provide geographical resiliency for a managed domain, you can create an additional [replica set](tutorial-create-replica-set.md) to a peered virtual network in any Azure region that supports Domain Services. Replica sets share the same namespace and configuration with the managed domain.
           
       - question: |
           Can I get Microsoft Entra Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Microsoft Entra ID P1 or P2 to use Microsoft Entra Domain Services?
