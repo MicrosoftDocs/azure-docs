@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 09/21/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to perform a disaster recovery drill by using replica sets in Microsoft Entra Domain Services to demonstrate resiliency for geographically distributed domain data.
@@ -17,12 +17,12 @@ ms.author: justinha
 
 # Tutorial: Perform a disaster recovery drill using replica sets in Microsoft Entra Domain Services
 
-This topic shows how to perform a disaster recovery (DR) drill for Microsoft Entra Domain Services (Microsoft Entra DS) using replica sets.  This will simulate one of the replica sets going offline by making changes to the network virtual network properties to block client access to it.  It is not a true DR drill in that the replica set will not be taken offline. 
+This topic shows how to perform a disaster recovery (DR) drill for Microsoft Entra Domain Services using replica sets.  This will simulate one of the replica sets going offline by making changes to the network virtual network properties to block client access to it.  It is not a true DR drill in that the replica set will not be taken offline. 
 
 The DR drill will cover: 
 
 1. A client machine is connected to a given replica set. It can authenticate to the domain and perform LDAP queries.
-1. The client’s connection to the replica set will be terminated. This will happen by restricting network access.
+1. The client's connection to the replica set will be terminated. This will happen by restricting network access.
 1. The client will then establish a new connection with the other replica set. Once that happens, the client will be able to authenticate to the domain and perform LDAP queries. 
 1. The domain member will be rebooted, and a domain user will be able to log in post reboot.
 1. The network restrictions will be removed, and the client will be able to connect to original replica set. 
@@ -31,8 +31,8 @@ The DR drill will cover:
 
 The following requirements must be in place to complete the DR drill: 
 
-- An active Microsoft Entra DS instance deployed with at least one extra replica set in place. The domain must be in a healthy state. 
-- A client machine that is joined to the Microsoft Entra DS hosted domain.  The client must be in its own virtual network, virtual network peering enabled with both replica set virtual networks, and the virtual network must have the IP addresses of all domain controllers in the replica sets listed in DNS. 
+- An active Domain Services instance deployed with at least one extra replica set in place. The domain must be in a healthy state. 
+- A client machine that is joined to the Domain Services hosted domain.  The client must be in its own virtual network, virtual network peering enabled with both replica set virtual networks, and the virtual network must have the IP addresses of all domain controllers in the replica sets listed in DNS. 
 
 ## Environment validation 
 
@@ -49,7 +49,7 @@ The following requirements must be in place to complete the DR drill:
 
 ## Perform the disaster recovery drill 
 
-You will be performing these operations for each replica set in the Microsoft Entra DS instance. This will simulate an outage for each replica set. When domain controllers are not reachable, the client will automatically fail over to a reachable domain controller and this experience should be seamless to the end user or workload. Therefore it is critical that applications and services don't point to a specific domain controller. 
+You will be performing these operations for each replica set in the Domain Services instance. This will simulate an outage for each replica set. When domain controllers are not reachable, the client will automatically fail over to a reachable domain controller and this experience should be seamless to the end user or workload. Therefore it is critical that applications and services don't point to a specific domain controller. 
 
 1. Identify the domain controllers in the replica set that you want to simulate going offline. 
 1. On the client machine, connect to one of the domain controllers using `nltest /sc_reset:[domain]\[domain controller name]`. 
@@ -63,11 +63,11 @@ You will be performing these operations for each replica set in the Microsoft En
 1. In the Azure portal, go to the client virtual network peering and update the properties so that all traffic is unblocked. This reverts the changes that were made in step 3. 
 1. On the client machine, attempt to reestablish a secure connection with the domain controllers from step 2 using the same nltest command. These operations should succeed as network connectivity has been unblocked. 
 
-These operations demonstrate that the domain is still available even though one of the replica sets is unreachable by the client. Perform this set of steps for each replica set in the Microsoft Entra DS instance. 
+These operations demonstrate that the domain is still available even though one of the replica sets is unreachable by the client. Perform this set of steps for each replica set in the Domain Services instance. 
 
 ## Summary 
 
-After you complete these steps, you will see domain members continue to access the directory if one of the replica sets in the Microsoft Entra DS is not reachable. You can simulate the same behavior by blocking all network access for a replica set instead of a client machine, but we don't recommend it. It won’t change the behavior from a client perspective, but it will impact the health of your Microsoft Entra DS instance until the network access is restored. 
+After you complete these steps, you will see domain members continue to access the directory if one of the replica sets in the Domain Services is not reachable. You can simulate the same behavior by blocking all network access for a replica set instead of a client machine, but we don't recommend it. It won’t change the behavior from a client perspective, but it will impact the health of your Domain Services instance until the network access is restored. 
 
 ## Next steps
 
@@ -78,7 +78,7 @@ In this tutorial, you learned how to:
 > * Block network traffic between the client and the replica set
 > * Validate client connectivity to domain controllers in another replica set
 
-For more conceptual information, learn how replica sets work in Microsoft Entra DS.
+For more conceptual information, learn how replica sets work in Domain Services.
 
 > [!div class="nextstepaction"]
 > [Replica sets concepts and features][concepts-replica-sets]
