@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page # Required
   author: msjasteppe #Required; your GitHub user alias, with correct capitalization.
   ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/11/2023 #Required; mm/dd/yyyy format.
+  ms.date: 09/27/2023 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   items:
@@ -26,7 +26,7 @@ highlightedContent:
           url: ./get-access-token.md
        -  title: Migrate your data from Azure API for FHIR
           itemType: how-to-guide
-          url: ./migration-strategies.md
+          url: ./fhir/migration-strategies.md    
        -  title: Azure Health Data Services 
           itemType: training
           url: https://learn.microsoft.com/training/browse/?term=iot&terms=health%20data%20services

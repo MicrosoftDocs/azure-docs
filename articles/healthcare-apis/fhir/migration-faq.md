@@ -10,36 +10,36 @@ author: evachen96
 ms.date: 9/27/2023
 ---
 
-# Migration from Azure API for FHIR FAQ
+# FAQ about migration from Azure API for FHIR
 
-**1. When will Azure API for FHIR be retired?**
+## When will Azure API for FHIR be retired?
 
 Azure API for FHIR will be retired on September 30, 2026.
 
-**2. Why is Microsoft retiring Azure API for FHIR?**
+## Why is Microsoft retiring Azure API for FHIR?
 
 Azure API for FHIR is a service that was purpose built for protected health information (PHI), meeting regional compliance requirements. In March 2022, we announced the general availability of Azure Health Data Services, which enables quick deployment of managed, enterprise-grade FHIR, DICOM, and MedTech services for diverse health data integration. See below for detailed benefits of migrating to Azure Health Data Services FHIR service. With this new experience, we’re retiring Azure API for FHIR.
 
-**3. What are the benefits of migrating to Azure Health Data Services FHIR service?**
+## What are the benefits of migrating to Azure Health Data Services FHIR service?
 
 AHDS FHIR service offers a rich set of capabilities such as:
 
-- Consumption-based pricing model where customers pay only for used storage & throughput
+- Consumption-based pricing model where customers pay only for used storage and throughput
 - Support for transaction bundles
 - Chained search improvements
-- Improved ingress & egress of data with \$import, \$export including new features such as incremental import (preview)
+- Improved ingress and egress of data with \$import, \$export including new features such as incremental import (preview)
 - Events to trigger new workflows when FHIR resources are created, updated or deleted
 - Connectors to Azure Synapse Analytics, Power BI and Azure Machine Learning for enhanced analytics
 
-**4. SMART on FHIR Proxy is planned for deprecation in Gen2. When we migrate from Gen1, what are the steps for enabling SMART on FHIR in Gen2?**
+## SMART on FHIR Proxy is planned for deprecation in Gen2. When we migrate from Gen1, what are the steps for enabling SMART on FHIR in Gen2?
 
 SMART on FHIR proxy will be retiring. Organizations need to transition to the SMART on FHIR (Enhanced), which uses Azure Health Data and AI OSS samples by **September 21, 2026**. After September 21, 2026, applications relying on SMART on FHIR proxy will report errors in accessing the FHIR service.
 
 SMART on FHIR (Enhanced) provides added capabilities than SMART on FHIR proxy and can be considered to meet requirements with SMART on FHIR Implementation Guide (v 1.0.0) and §170.315(g)(10) Standardized API for patient and population services criterion.
 
-**5. What will happen after the service is retired on September 30, 2026?**
+## What will happen after the service is retired on September 30, 2026?
 
-Customers won't be able to do the following:
+After September 20, 2026 customers won't be able to:
 
 - Create or manage Azure API for FHIR accounts
 - Access the data through the Azure portal or APIs/SDKs/client tools
@@ -49,13 +49,13 @@ Customers won't be able to do the following:
 
 Start with \<Link to Azure Docs migration guidance \> to learn more about Azure API for FHIR to Azure Health Data Services FHIR service migration. Please be advised that the migration from Azure API for FHIR to Azure Health Data Services FHIR service involves data migration as well updating the applications to use Azure Health Data Services FHIR service. You can find more documentation on the step-by-step approach to migrating your data and applications in this migration tool \<Link to github repo\>.
 
-**6.Where can customers go to get answers to their questions?**
+## Where can customers go to get answers to their questions?
 
 There are multiple ways to get your questions answered.
 
 - Get answers from community experts in Microsoft Q&A \<Link to Microsoft Q&A Page\>
 
-- If you have a support plan and require technical support, [contact us.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+- If you have a support plan and require technical support, [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 1. For **Issue type**, select **Technical**.
 
