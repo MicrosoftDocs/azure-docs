@@ -8,16 +8,16 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.workload: identity
+ms.custom: devx-track-dotnet
 ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/24/2023
-
 #Customer intent: As a dev, devops, I want to learn how to register and configure .NET browserless app authentication details in a customer tenant so as to sign in users using Device Code flow.
 ---
 
 # Tutorial: Register and configure .NET browserless app authentication details in a customer tenant
 
-In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. This tutorial is part of a series that guides you through the steps of building an app that authenticates users against Azure Active Directory (Azure AD) for Customers using the device code flow.
+In this article, you prepare your Microsoft Entra ID for customers tenant for authentication. This tutorial is part of a series that guides you through the steps of building an app that authenticates users against External ID for Customers using the device code flow.
 
 In this tutorial, you learn how to:
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
+Microsoft Entra ID for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl).
 
 ## Register the browserless app
 

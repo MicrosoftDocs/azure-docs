@@ -55,9 +55,13 @@ An applicable resource has a compliance state of exempt for a policy assignment 
 > [!NOTE]
 > _Exempt_ is different than _excluded_. For more details, see [scope](./scope.md).
 
-### Unknown (preview)
+### Unknown
 
  Unknown is the default compliance state for definitions with `manual` effect, unless the default has been explicitly set to compliant or non-compliant. This state indicates that an [attestation](./attestation-structure.md) of compliance is warranted. This compliance state only occurs for policy assignments with `manual` effect.
+
+ ### Protected
+
+ Protected state signifies that the resource is covered under an assignment with a [denyAction](./effects.md#denyaction) effect.
 
 ### Not registered
 
@@ -111,6 +115,7 @@ So how is the aggregate compliance state determined if multiple resources or pol
 1. Compliant
 1. Error
 1. Conflicting
+1. Protected (preview)
 1. Exempted
 1. Unknown (preview)
 

@@ -1,6 +1,6 @@
 ---
 title: Create or delete administrative units
-description: Create administrative units to restrict the scope of role permissions in Azure Active Directory.
+description: Create administrative units to restrict the scope of role permissions in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.date: 06/09/2023
 ms.author: rolyon
 ms.reviewer: anandy
-ms.custom: oldportal;it-pro;
+ms.custom: oldportal, it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -20,19 +20,19 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Restricted management administrative units are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Product Terms](https://aka.ms/EntraPreviewsTermsOfUse) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Administrative units let you subdivide your organization into any unit that you want, and then assign specific administrators that can manage only the members of that unit. For example, you could use administrative units to delegate permissions to administrators of each school at a large university, so they could control access, manage users, and set policies only in the School of Engineering.
 
-This article describes how to create or delete administrative units to restrict the scope of role permissions in Azure Active Directory (Azure AD).
+This article describes how to create or delete administrative units to restrict the scope of role permissions in Microsoft Entra ID.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Free licenses for administrative unit members
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID Free licenses for administrative unit members
 - Privileged Role Administrator role
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
-- AzureAD module when using PowerShell
+- Azure AD PowerShell module when using PowerShell
 - AzureADPreview module when using PowerShell and restricted management administrative units
 - Admin consent when using Graph explorer for Microsoft Graph API
 
@@ -40,15 +40,15 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Create an administrative unit
 
-You can create a new administrative unit by using either the Azure portal, PowerShell or Microsoft Graph.
+You can create a new administrative unit by using either the Microsoft Entra admin center, PowerShell or Microsoft Graph.
 
-### Azure portal
+### Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Administrative units**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
     ![Screenshot of the Administrative units page in Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
@@ -159,19 +159,21 @@ Body
 
 ## Delete an administrative unit
 
-In Azure AD, you can delete an administrative unit that you no longer need as a unit of scope for administrative roles. Before you delete the administrative unit, you should remove any role assignments with that administrative unit scope.
+In Microsoft Entra ID, you can delete an administrative unit that you no longer need as a unit of scope for administrative roles. Before you delete the administrative unit, you should remove any role assignments with that administrative unit scope.
 
-### Azure portal
+### Microsoft Entra admin center
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit you want to delete.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
+
+1. Select the administrative unit you want to delete.
 
 1. Select **Roles and administrators**, and then open a role to view the role assignments.
 
 1. Remove all the role assignments with the administrative unit scope.
 
-1. Select **Azure Active Directory** > **Administrative units**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
 1. Add a check mark next to the administrative unit you want to delete.
 
@@ -216,5 +218,5 @@ DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-uni
 ## Next steps
 
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
-- [Azure AD administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)
+- [Microsoft Entra administrative units: Troubleshooting and FAQ](admin-units-faq-troubleshoot.yml)

@@ -2,7 +2,7 @@
 title: Back up Windows machines by using the MARS agent
 description: Use the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 08/18/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy23
@@ -126,7 +126,11 @@ To run an on-demand backup, follow these steps:
 
     [ ![Screenshot shows the Back up now option in Windows Server.](./media/backup-configure-vault/backup-now.png) ](./media/backup-configure-vault/backup-now.png#lightbox)
 
-1. If the MARS agent version is 2.0.9169.0 or newer, then you can set a custom retention date. In the **Retain Backup Till** section, choose a date from the calendar.
+1. If the MARS agent version is *2.0.9254.0 or newer*, select a *subset of the volumes backed up periodically* for on-demand backup. Only the files/folders configured for periodic backup can be backed up on demand.
+
+   :::image type="content" source="./media/backup-configure-vault/select-subset-of-volumes-backed-up-periodically-for-mars-on-demand-backup.png" alt-text="Screenshot shows how to select a subset of volumes backed up periodically for on-demand backup.":::
+
+   If the MARS agent version is *2.0.9169.0 or newer*, set a custom retention date. In the **Retain Backup Till** section, choose a date from the calendar.
 
    [ ![Screenshot shows how to use the calendar to customize a retention date.](./media/backup-configure-vault/mars-ondemand.png) ](./media/backup-configure-vault/mars-ondemand.png#lightbox)
 

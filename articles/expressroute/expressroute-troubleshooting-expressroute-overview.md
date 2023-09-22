@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 06/15/2023
+ms.date: 08/23/2023
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
 ---
@@ -60,8 +60,8 @@ The following sections represent the logical steps in troubleshooting an Express
 
 Provisioning an ExpressRoute circuit establishes a redundant layer 2 connection between CEs/PE-MSEEs (2/4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
 
->[!TIP]
->A service key uniquely identifies an ExpressRoute circuit. If you need assistance from Microsoft or from an ExpressRoute partner to troubleshoot an ExpressRoute issue, provide the service key to readily identify the circuit.
+> [!TIP]
+> A service key uniquely identifies an ExpressRoute circuit. If you need assistance from Microsoft or from an ExpressRoute partner to troubleshoot an ExpressRoute issue, provide the service key to readily identify the circuit.
 
 ### Verification via the Azure portal
 
@@ -230,10 +230,13 @@ At line:1 char:1
 The Address Resolution Protocol (ARP) table provides a mapping of the IP address and MAC address for a particular peering. The ARP table for an ExpressRoute circuit peering provides the following information for each interface (primary and secondary):
 
 * Mapping of the IP address for the on-premises router interface to the MAC address
-* Mapping of the IP address for the ExpressRoute router interface to the MAC address
+* Mapping of the IP address for the ExpressRoute router interface to the MAC address (optional)
 * Age of the mapping
 
 ARP tables can help validate layer 2 configuration and troubleshoot basic layer 2 connectivity issues.
+
+>[!NOTE]
+> Depending on the hardware platform, the ARP results may vary and only display the *On-premises* interface.
 
 To learn how to view the ARP table of an ExpressRoute peering and how to use the information to troubleshoot layer 2 connectivity issues, see [Getting ARP tables in the Resource Manager deployment model][ARP].
 
@@ -316,15 +319,15 @@ Test your private peering connectivity by counting packets arriving at and leavi
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/diagnose-problems.png" alt-text="Screenshot of the button for diagnosing and solving problems from the ExpressRoute circuit.":::
 
-1. Select the **Connectivity issues** card under **Common problems**.
+1. Select  **Connectivity & Performance issues**.
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/connectivity-issues.png" alt-text="Screenshot of the option for connectivity issues.":::
 
-1. In the **Tell us more about the problem you are experiencing** dropdown list, select **Connectivity to Azure Private, Azure Public or Dynamics 365 Services**.
+1. In the **Tell us more about the problem you are experiencing** dropdown list, select **Issues with Private peering**.
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/tell-us-more.png" alt-text="Screenshot of the dropdown option for the problem that the user is experiencing.":::
 
-1. Scroll down to the **Test your private peering connectivity** section and expand it.
+1. Scroll down to the **Test private-peering connectivity** section and expand it.
 
     :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/test-private-peering.png" alt-text="Screenshot of the options for troubleshooting connectivity issues, with the option for private peering highlighted.":::
 
@@ -339,9 +342,14 @@ Test your private peering connectivity by counting packets arriving at and leavi
 When your results are ready, you have two sets of them for the primary and secondary MSEE devices. Review the number of matches in and out, and use the following scenarios to interpret the results:
 
 * **You see packet matches sent and received on both MSEEs**: This result indicates healthy traffic inbound to and outbound from the MSEEs on your circuit. If loss is occurring either on-premises or in Azure, it's happening downstream from the MSEEs.
+
 * **If you're testing PsPing from on-premises to Azure, received results show matches, but sent results show no matches**: This result indicates that traffic is coming in to Azure but isn't returning to on-premises. Check for return-path routing issues. For example, are you advertising the appropriate prefixes to Azure? Is a user-defined route (UDR) overriding prefixes?
+
 * **If you're testing PsPing from Azure to on-premises, sent results show matches, but received results show no matches**: This result indicates that traffic is coming in to on-premises but isn't returning to Azure. Work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+
 * **One MSEE shows no matches, but the other shows good matches**: This result indicates that one MSEE isn't receiving or passing any traffic. It might be offline (for example, BGP/ARP is down).
+  * You can run additional testing to confirm the unhealthy path by advertising a unique /32 on-premises route over the BGP session on this path. 
+  * Run "Test your private peering connectivity" using the unique /32 advertised as the on-premise destination address and reveiw the results to confirm the path health. 
 
 Your test results for each MSEE device look like the following example:
 

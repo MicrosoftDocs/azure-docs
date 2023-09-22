@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure Database for MySQL - ARM template'
 description: In this Quickstart, learn how to create an Azure Database for MySQL server with virtual network integration, by using an Azure Resource Manager template.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/20/2022

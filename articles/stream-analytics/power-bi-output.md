@@ -13,7 +13,7 @@ ms.date: 07/20/2023
 You can use [Power BI](/power-bi/fundamentals/power-bi-overview) as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. You can use this capability for operational dashboards, report generation, and metric-driven reporting.
 
 > [!NOTE]
-> Power BI output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
+> Power BI output from Stream Analytics is currently not available in Microsoft Azure operated by 21Vianet and Azure Germany (T-Systems International).
 
 ## Output configuration
 

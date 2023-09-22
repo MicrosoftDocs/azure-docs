@@ -279,7 +279,7 @@ Here are the steps to upload a file from your SharePoint site to Azure Blob Stor
 
 ##### Get file content
 
- 1. In the **Choose an operation** pop-up window enter **SharePoint**, then select the **Get file content** content. Power Automate automatically signs you into your SharePoint account.
+ 1. In the Choose an operation pop-up window, enter **SharePoint**, then select the **Get file content** content. Power Automate automatically signs you into your SharePoint account(s).
 
       :::image type="content" source="../media/connectors/get-file-content.png" alt-text="Screenshot of the SharePoint Get file content action.":::
 
@@ -442,7 +442,7 @@ In this step, you retrieve the translated document from Azure Blob Storage and u
 1. In the **File Content** field, from the **Dynamic content** list, under *Get Blob Metadata using path (V2)* select **File Content** .
 1. Select **Save**.
 
-   :::image type="content" source="../media/connectors/apply-to-each-complete.png" alt-text="Screenshot showing the apply-to-each step sequence.":::
+   :::image type="content" source="../media/connectors/apply-to-each-complete.png" alt-text="Screenshot showing the Apply to Each step sequence.":::
 
 ## Test your connector flow
 

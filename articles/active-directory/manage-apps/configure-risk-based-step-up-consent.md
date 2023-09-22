@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 11/17/2021
 ms.author: jomondi
 ms.reviewer: phsignor
-ms.custom: contperf-fy21q2, enterprise-apps
-
+ms.custom: contperf-fy21q2, enterprise-apps, has-azure-ad-ps-ref
 #customer intent: As an admin, I want to configure risk-based step-up consent.
 ---
 # Configure risk-based step-up consent using PowerShell
 
-In this article, you'll learn how to configure risk-based step-up consent in Azure Active Directory (Azure AD). Risk-based step-up consent helps reduce user exposure to malicious apps that make [illicit consent requests](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). 
+In this article, you'll learn how to configure risk-based step-up consent in Microsoft Entra ID. Risk-based step-up consent helps reduce user exposure to malicious apps that make [illicit consent requests](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). 
 
 For example, consent requests for newly registered multi-tenant apps that are not [publisher verified](../develop/publisher-verification-overview.md) and require non-basic permissions are considered risky. If a risky user consent request is detected, the request requires a "step-up" to admin consent instead. This step-up capability is enabled by default, but it results in a behavior change only when user consent is enabled.
 
@@ -39,7 +38,7 @@ To configure risk-based step-up consent, you need:
 You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), to disable the step-up to admin consent that's required in cases where a risk is detected, or to enable it if it was previously disabled.
 
 > [!IMPORTANT]
-> Make sure you're using the AzureADPreview module. This is important if you've installed both the [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the AzureADPreview module.
+> Make sure you're using the AzureADPreview module. This is important if you've installed both the [`AzureAD`](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the `AzureADPreview` module.
 1. Run the following commands:
 
     ```powershell

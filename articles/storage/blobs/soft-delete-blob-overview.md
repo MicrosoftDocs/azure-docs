@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Soft delete for blobs protects your data so that you can more easily recover your data when it's erroneously modified or deleted by an application or by another storage account user.
 author: normesta
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 02/14/2023
 ms.author: normesta

@@ -18,6 +18,9 @@ Customers also have the option of using rules that are defined based on the OWAS
 
 Rules can be disabled on a rule-by-rule basis, or you can set specific actions by individual rule. This article contains the current rules and rule sets offered. In the rare occasion that a published ruleset needs to be updated, it will be documented here.
 
+> [!NOTE]
+> When changing from one ruleset version to another all disabled and enabled rule settings will return to the default for the ruleset your are migrating to. This means that if you previously disabled or enabled a rule, you will need to disable or enable it again once you've moved to the new ruleset version.
+
 ## Default rule sets
 
 The Azure-managed Default Rule Set (DRS) includes rules against the following threat categories:
@@ -360,7 +363,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Blocklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated JavaScript|
@@ -383,7 +386,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941380|AngularJS client side template injection detected|
 
 >[!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### <a name="drs942-21"></a> SQLI - SQL Injection
 |RuleId|Description|

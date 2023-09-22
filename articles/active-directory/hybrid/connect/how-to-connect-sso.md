@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Seamless single sign-on'
-description: This topic describes Azure Active Directory (Azure AD) Seamless single sign-on and how it allows you to provide true single sign-on for corporate desktop users inside your corporate network.
+title: 'Microsoft Entra Connect: Seamless single sign-on'
+description: This topic describes Microsoft Entra seamless single sign-on and how it allows you to provide true single sign-on for corporate desktop users inside your corporate network.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -16,11 +16,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Seamless single sign-on
+# Microsoft Entra seamless single sign-on
 
-## What is Azure Active Directory Seamless single sign-on?
+<a name='what-is-azure-active-directory-seamless-single-sign-on'></a>
 
-Azure Active Directory Seamless single sign-on (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
+## What is Microsoft Entra seamless single sign-on?
+
+Microsoft Entra seamless single sign-on (Microsoft Entra seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Microsoft Entra ID, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -31,10 +33,10 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 ## SSO via primary refresh token vs. Seamless SSO
 
 For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via primary refresh token (PRT). For Windows 7 and Windows 8.1, it’s recommended to use Seamless SSO.
-Seamless SSO needs the user's device to be domain-joined, but it isn't used on Windows 10 [Azure AD joined devices](../../devices/concept-azure-ad-join.md) or [hybrid Azure AD joined devices](../../devices/concept-hybrid-join.md). SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md)
+Seamless SSO needs the user's device to be domain-joined, but it isn't used on Windows 10 [Microsoft Entra joined devices](../../devices/concept-directory-join.md) or [Microsoft Entra hybrid joined devices](../../devices/concept-hybrid-join.md). SSO on Microsoft Entra joined, Microsoft Entra hybrid joined, and Microsoft Entra registered devices works based on the [Primary Refresh Token (PRT)](../../devices/concept-primary-refresh-token.md)
 
-SSO via PRT works once devices are registered with Azure AD for hybrid Azure AD joined, Azure AD joined or personal registered devices via Add Work or School Account. 
-For more information on how SSO works with Windows 10 using PRT, see: [Primary Refresh Token (PRT) and Azure AD](../../devices/concept-primary-refresh-token.md)
+SSO via PRT works once devices are registered with Microsoft Entra ID for Microsoft Entra hybrid joined, Microsoft Entra joined or personal registered devices via Add Work or School Account. 
+For more information on how SSO works with Windows 10 using PRT, see: [Primary Refresh Token (PRT) and Microsoft Entra ID](../../devices/concept-primary-refresh-token.md)
 
 
 ## Key benefits
@@ -46,18 +48,18 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
   - No additional components needed on-premises to make this work.
   - Works with any method of cloud authentication - [Password Hash Synchronization](how-to-connect-password-hash-synchronization.md) or [Pass-through Authentication](how-to-connect-pta.md).
   - Can be rolled out to some or all your users using Group Policy.
-  - Register non-Windows 10 devices with Azure AD without the need for any AD FS infrastructure. This capability needs you to use version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
+  - Register non-Windows 10 devices with Microsoft Entra ID without the need for any AD FS infrastructure. This capability needs you to use version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
 ## Feature highlights
 
-- Sign-in username can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (`Alternate ID`). Both use cases work because Seamless SSO uses the `securityIdentifier` claim in the Kerberos ticket to look up the corresponding user object in Azure AD.
+- Sign-in username can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Microsoft Entra Connect (`Alternate ID`). Both use cases work because Seamless SSO uses the `securityIdentifier` claim in the Kerberos ticket to look up the corresponding user object in Microsoft Entra ID.
 - Seamless SSO is an opportunistic feature. If it fails for any reason, the user sign-in experience goes back to its regular behavior - i.e, the user needs to enter their password on the sign-in page.
-- If an application (for example,  `https://myapps.microsoft.com/contoso.com`) forwards a `domain_hint` (OpenID Connect) or `whr` (SAML) parameter - identifying your tenant, or `login_hint` parameter - identifying the user, in its Azure AD sign-in request, users are automatically signed in without them entering usernames or passwords.
-- Users also get a silent sign-on experience if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Azure AD's endpoints set up as tenants - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Azure AD's common endpoint - that is, `https://login.microsoftonline.com/common/<...>`.
-- Sign out is supported. This allows users to choose another Azure AD account to sign in with, instead of being automatically signed in using Seamless SSO automatically.
+- If an application (for example,  `https://myapps.microsoft.com/contoso.com`) forwards a `domain_hint` (OpenID Connect) or `whr` (SAML) parameter - identifying your tenant, or `login_hint` parameter - identifying the user, in its Microsoft Entra sign-in request, users are automatically signed in without them entering usernames or passwords.
+- Users also get a silent sign-on experience if an application (for example, `https://contoso.sharepoint.com`) sends sign-in requests to Microsoft Entra ID's endpoints set up as tenants - that is, `https://login.microsoftonline.com/contoso.com/<..>` or `https://login.microsoftonline.com/<tenant_ID>/<..>` - instead of Microsoft Entra ID's common endpoint - that is, `https://login.microsoftonline.com/common/<...>`.
+- Sign out is supported. This allows users to choose another Microsoft Entra account to sign in with, instead of being automatically signed in using Seamless SSO automatically.
 - Microsoft 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. For OneDrive, you'll have to activate the [OneDrive silent config feature](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) for a silent sign-on experience.
-- It can be enabled via Azure AD Connect.
-- It's a free feature, and you don't need any paid editions of Azure AD to use it.
+- It can be enabled via Microsoft Entra Connect.
+- It's a free feature, and you don't need any paid editions of Microsoft Entra ID to use it.
 - It's supported on web browser-based clients and Office clients that support [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on platforms and browsers capable of Kerberos authentication:
 
 | OS\Browser |Internet Explorer|Microsoft Edge\*\*\*\*|Google Chrome|Mozilla Firefox|Safari|
@@ -82,7 +84,7 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 
 ## Next steps
 
-- [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
+- [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Microsoft Entra seamless SSO.
 - [**Deployment Plan**](../../manage-apps/plan-sso-deployment.md) - Step-by-step deployment plan.
 - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
 - [**Frequently Asked Questions**](how-to-connect-sso-faq.yml) - Answers to frequently asked questions.

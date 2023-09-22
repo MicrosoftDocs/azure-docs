@@ -1,6 +1,6 @@
 ---
 title: Common scenarios in entitlement management
-description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
+description: Learn the high-level steps you should follow for common scenarios in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -111,6 +111,10 @@ There are several ways that you can configure entitlement management for your or
 
 ## Day-to-day management
 
+### Administrator: View the connected organziations that are proposed and configured
+
+1. [View the list of connected organizations](entitlement-management-organization.md)
+
 ### Access package manager: Update the resources for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
@@ -157,7 +161,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Programmatic administration
 
-You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages. And an application which only needs to operate within specific catalogs can be added to the **Catalog owner** or **Catalog reader** roles of a catalog to be authorized to update or read within that catalog.
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages. And an application that only needs to operate within specific catalogs can be added to the **Catalog owner** or **Catalog reader** roles of a catalog to be authorized to update or read within that catalog.
 
 ## Next steps
 

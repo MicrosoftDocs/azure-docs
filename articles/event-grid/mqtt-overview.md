@@ -91,6 +91,10 @@ Event Grid allows you to route your MQTT messages to Azure services or webhooks 
 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram of the MQTT message routing." border="false":::
 
+### MQTT Clients Life Cycle Events 
+
+Client Life Cycle events allow applications to react to events about the client connection status or the client resource operations. It allows you to keep track of your client's connection status, react with a mitigation action for client disconnections, and track the namespace that your clients are attached to during automated failovers.Learn more about [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).
+
 ## Next steps
 
 Use the following articles to learn more about the MQTT support in Event Grid and its main concepts.

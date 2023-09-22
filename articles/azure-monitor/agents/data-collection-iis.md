@@ -170,13 +170,6 @@ Open the IIS log file on the agent machine to verify that logs are in W3C format
 
 :::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log, showing the header, which specifies that the file is in W3C format.":::
 
-### Share logs with Microsoft
-If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
-
-1. Open an elevated PowerShell window.
-1. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
-1. Execute the script: `.\CollectAMALogs.ps1`.
-1. Share the `AMAFiles.zip` file generated on the desktop.
 
 ## Next steps
 

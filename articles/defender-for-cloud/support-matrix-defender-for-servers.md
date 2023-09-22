@@ -36,7 +36,7 @@ Validate the following endpoints are configured for outbound access so that Azur
 
 This table summarizes Azure cloud support for Defender for Servers features.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
+**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**<br/>**21Vianet**
 --- | --- | --- | ---
 [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA
@@ -146,7 +146,7 @@ The following table provides a matrix of supported endpoint protection solutions
 
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
-<sup><a name="footnote2"></a>2</sup> With the MDE unified solution on Server 2012 R2, it automatically installs Microsoft Defender Antivirus in Active mode. For Windows Server 2016, Microsoft Defender Antivirus is built into the OS.
+<sup><a name="footnote2"></a>2</sup> With the Defender for Endpoint unified solution on Server 2012 R2, it automatically installs Microsoft Defender Antivirus in Active mode. For Windows Server 2016, Microsoft Defender Antivirus is built into the OS.
 
 ## Next steps
 

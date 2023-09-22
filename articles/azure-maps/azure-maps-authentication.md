@@ -174,7 +174,7 @@ Shared access signature (SAS) tokens are authentication tokens created using the
 
 Functional key differences of SAS token from Azure AD Access tokens:
 
-- Lifetime of a token for a max expiration of one year (365 days).
+- Lifetime of a token for a max expiration of one day (24 hours).
 - Azure location and geography access control per token.
 - Rate limits per token for an approximate of 1 to 500 requests per second.
 - Private keys of the token are the primary and secondary keys of an Azure Maps account resource.
@@ -271,7 +271,7 @@ SAS token parameters:
 | regions          | `[ "eastus", "westus2", "westcentralus" ]` | Optional, the default value is `null`. The regions control which regions the SAS token can be used in the Azure Maps REST [data-plane] API. Omitting regions parameter allows the SAS token to be used without any constraints. When used in combination with an Azure Maps data-plane geographic endpoint like `us.atlas.microsoft.com` and `eu.atlas.microsoft.com` allows the application to control usage with-in the specified geography. This allows prevention of usage in other geographies. |
 | maxRatePerSecond | 500                                        | Required, the specified approximate maximum request per second which the SAS token is granted. Once the limit is reached, more throughput is rate limited with HTTP status code `429 (TooManyRequests)`. |
 | start            | `2021-05-24T10:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token becomes active. |
-| expiry           | `2021-05-24T11:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token expires. The duration between start and expiry can't be more than 365 days. |
+| expiry           | `2021-05-24T11:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token expires. The duration between start and expiry can't be more than 24 hours. |
 
 ### Configuring application with SAS token
 

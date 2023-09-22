@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: khdownie #Required; your GitHub user alias, with correct capitalization.
   ms.author: kendownie #Required; microsoft alias of author; optional team alias.
-  ms.date: 07/03/2023
+  ms.date: 08/02/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,7 +33,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Install Azure Container Storage for an Azure Kubernetes Service (AKS) cluster
+          - text: Use Azure Container Storage with Azure Kubernetes Service (AKS)
             url: container-storage-aks-quickstart.md
 
 # Card (optional)
@@ -41,6 +41,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Install Azure Container Storage
+            url: install-container-storage-aks.md
           - text: Use Azure Container Storage with Azure Disks
             url: use-container-storage-with-managed-disks.md
           - text: Use Azure Container Storage with Ephemeral Disk

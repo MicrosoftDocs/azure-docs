@@ -5,6 +5,7 @@ keywords: app service, azure app service, scale, app service plan, change, creat
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.author: msangapu
+author: msangapu-msft
 ms.date: 07/31/2023
 ms.custom: "UpdateFrequency3"
 
@@ -34,6 +35,15 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 6. Select **Review + create** to create the App Service Plan.
 
+> [!IMPORTANT]
+> When creating an new App Service Plan in an existing Resource Group, certain conditions with existing apps can trigger these errors:
+> - `The pricing tier is not allowed in this resource group`
+> - `<SKU_NAME> workers are not available in resource group <RESOURCE_GROUP_NAME>`
+> 
+> This can happen due to incompatibilities with pricing tiers, regions, operating systems, Availability Zones, existing Function apps, or existing web apps. If this error occurs, create your App Service Plan in a **new** Resource Group.
+>
+
+
 <a name="move"></a>
 
 ## Move an app to another App Service plan
@@ -49,7 +59,9 @@ You can move an app to another App Service plan, as long as the source plan and 
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App services** and select the app that you want to move.
 
-2. From the left menu, select **Change App Service plan**.
+2. From the left menu, under **App Service Plan**, select **Change App Service plan**.
+
+    :::image type="content" source="./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png" alt-text="Screenshot of App Service Plan selector.":::
 
 3. In the **App Service plan** dropdown, select an existing plan to move the app to. The dropdown shows only plans that are in the same resource group and geographical region as the current App Service plan. If no such plan exists, it lets you create a plan by default. You can also create a new plan manually by selecting **Create new**.
 
@@ -59,10 +71,9 @@ You can move an app to another App Service plan, as long as the source plan and 
    > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
    >
    > `Cannot update the site with hostname '<app_name>' because its current TLS/SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed TLS/SSL configuration is 'Disabled'.`
+   >
 
 5. When finished, select **OK**.
-   
-   ![App Service plan selector.][change] 
 
 ## Move an app to a different region
 
@@ -93,6 +104,5 @@ To avoid unexpected charges, when you delete the last app in an App Service plan
 > [!div class="nextstepaction"]
 > [Scale up an app in Azure](manage-scale-up.md)
 
-[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 [createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

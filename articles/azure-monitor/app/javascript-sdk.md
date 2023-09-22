@@ -2,7 +2,7 @@
 title: Microsoft Azure Monitor Application Insights JavaScript SDK
 description: Microsoft Azure Monitor Application Insights JavaScript SDK is a powerful tool for monitoring and analyzing web application performance.
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 09/12/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -12,10 +12,16 @@ ms.reviewer: mmcc
 
 The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
 
+The Application Insights JavaScript SDK has a base SDK and several plugins for additional capabilities.
+
+:::image type="content" source="media/javascript-sdk/conceptual-diagram-javascript-sdk.png" alt-text="Conceptual diagram that shows the Application Insights JavaScript SDK, its plugins/extensions, and their relationship to each other." lightbox="media/javascript-sdk/conceptual-diagram-javascript-sdk.png":::
+
 We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md): 
 
 - If you're adding a [framework extension](./javascript-framework-extensions.md), which you can [add](#optional-add-advanced-sdk-configuration) after you follow the steps to get started below, you'll have the option to add Click Analytics when you add the framework extension. 
 - If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md) after you follow the steps to get started.
+
+We provide the [Debug plugin](https://github.com/microsoft/ApplicationInsights-JS/blob/main/extensions/applicationinsights-debugplugin-js/README.md) and [Performance plugin](https://github.com/microsoft/ApplicationInsights-JS/blob/main/extensions/applicationinsights-perfmarkmeasure-js/README.md) for debugging/testing. In rare cases, it's possible to build your own extension by adding a [custom plugin](https://github.com/microsoft/ApplicationInsights-JS/blob/e4be62c0aa9318b540157118b729bb0c4d8b6c6e/API-reference.md#custom-extension).
 
 ## Prerequisites
 
@@ -43,7 +49,7 @@ Two methods are available to add the code to enable Application Insights via the
 
 1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
 
-   Preferably, you should add it as the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
+   Preferably, you should add it as the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies.
 
    ```html
    <script type="text/javascript">
@@ -70,7 +76,7 @@ Two methods are available to add the code to enable Application Insights via the
    |------|------|-----------|------------
    | src | string | Required | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
    | name | string | Optional | The global name for the initialized SDK. Use this setting if you need to initialize two different SDKs at the same time.<br><br>The default value is appInsights, so ```window.appInsights``` is a reference to the initialized instance.<br><br> Note: If you assign a name value or if a previous instance has been assigned to the global name appInsightsSDK, the SDK initialization code requires it to be in the global namespace as `window.appInsightsSDK=<name value>` to ensure the correct JavaScript (Web) SDK Loader Script skeleton, and proxy methods are initialized and updated.
-   | ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. Use this setting when the HTML page is failing to load because the JavaScript (Web) SDK Loader Script is loading at the wrong time.<br><br>The default value is 0ms after timeout. If you use a negative value, the script tag is immediately added to the <head> region of the page and blocks the page load event until the script is loaded or fails.
+   | ld | number in ms | Optional | Defines the load delay to wait before attempting to load the SDK. Use this setting when the HTML page is failing to load because the JavaScript (Web) SDK Loader Script is loading at the wrong time.<br><br>The default value is 0ms after timeout. If you use a negative value, the script tag is immediately added to the `<head>` region of the page and blocks the page load event until the script is loaded or fails.
    | useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. For example, this setting is useful when the JavaScript (Web) SDK Loader Script is preventing the HTML page from loading, causing fetch() to be unavailable.<br><br>Reporting first attempts to use fetch() if available and then fallback to XHR. Set this setting to `true` to bypass the fetch check. This setting is only required if your application is being used in an environment where fetch would fail to send the failure events such as if the JavaScript (Web) SDK Loader Script isn't loading successfully.
    | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. Use this setting when you need to provide support for CORS. When not defined (the default), no crossOrigin attribute is added. Recommended values are not defined (the default), "", or "anonymous". For all valid values, see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation.
    | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of JavaScript (Web) SDK Loader Script version 5--the sv:"5" value within the script). |
@@ -114,7 +120,7 @@ To paste the connection string in your environment, follow these steps:
 
    1. Replace the placeholder `"YOUR_CONNECTION_STRING"` in the JavaScript code with your [connection string](./sdk-connection-string.md) copied to the clipboard.
 
-      The connection string isn't considered a security token or key. For more information, see [Do new Azure regions require the use of connection strings?](../faq.yml#do-new-azure-regions-require-the-use-of-connection-strings-).
+      The connection string isn't considered a security token or key. For more information, see [Do new Azure regions require the use of connection strings?](./sdk-connection-string.md#do-new-azure-regions-require-the-use-of-connection-strings).
 
 ### (Optional) Add SDK configuration
 
@@ -142,7 +148,7 @@ If you want to use the extra features provided by plugins for specific framework
    - **Page View** for Azure Monitor Application Insights Real User Monitoring
    - **Custom Event** for the Click Analytics Auto-Collection plug-in.
 
-   It might take a few minutes for data to show up in the portal.
+   It might take a few minutes for data to show up in the portal. If the only data you see showing up is a load failure exception, see [Troubleshoot SDK load failure for JavaScript web apps](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting#troubleshoot-sdk-load-failure-for-javascript-web-apps).
 
    :::image type="content" source="media/javascript-sdk/confirm-data-flowing.png" alt-text="Screenshot of the Application Insights Transaction search pane in the Azure portal with the Page View option selected. The page views are highlighted." lightbox="media/javascript-sdk/confirm-data-flowing.png":::
 
@@ -158,10 +164,50 @@ If you want to use the extra features provided by plugins for specific framework
    
       For essential KQL operators, see [Learn common KQL operators](/azure/data-explorer/kusto/query/tutorials/learn-common-operators). 
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What are the user and session counts?
+
+* The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
+* If there's no client-side script, you can [set cookies at the server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
+* If one real user uses your site in different browsers, or by using in-private/incognito browsing, or different machines, they're counted more than once.
+* To identify a signed-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](./api-custom-events-metrics.md#authenticated-users).
+
+### What is the JavaScript SDK performance/overhead?
+
+The Application Insights JavaScript SDK has a minimal overhead on your website. At just 36 KB gzipped, and taking only ~15 ms to initialize, the SDK adds a negligible amount of load time to your website. The minimal components of the library are quickly loaded when you use the SDK, and the full script is downloaded in the background.
+
+Additionally, while the script is downloading from the CDN, all tracking of your page is queued, so you don't lose any telemetry during the entire life cycle of your page. This setup process provides your page with a seamless analytics system that's invisible to your users.
+
+### What browsers are supported by the JavaScript SDK?
+
+![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
+--- | --- | --- | --- | --- |
+Chrome Latest ✔ |  Firefox Latest ✔ | v3.x: IE 9+ & Microsoft Edge ✔<br>v2.x: IE 8+ Compatible & Microsoft Edge ✔ | Opera Latest ✔ | Safari Latest ✔ |
+
+### Where can I find code examples for the JavaScript SDK?
+
+For runnable examples, see [Application Insights JavaScript SDK samples](https://github.com/microsoft/ApplicationInsights-JS/tree/master/examples).
+
+### What is the ES3/Internet Explorer 8 compatibility with the JavaScript SDK?
+
+We need to take necessary measures to ensure that this SDK continues to "work" and doesn't break the JavaScript execution when loaded by an older browser. It would be ideal to not support older browsers, but numerous large customers can't control which browser their users choose to use.
+
+This statement doesn't mean that we only support the lowest common set of features. We need to maintain ES3 code compatibility. New features need to be added in a manner that wouldn't break ES3 JavaScript parsing and added as an optional feature.
+
+See GitHub for full details on [Internet Explorer 8 support](https://github.com/Microsoft/ApplicationInsights-JS#es3ie8-compatibility).
+      
+### Is the JavaScript SDK open-source?
+
+Yes, the Application Insights JavaScript SDK is open source. To view the source code or to contribute to the project, see the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS).
+      
+
 ## Support
 
 - If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
-- For common question about the JavaScript SDK, see the [FAQ](/azure/azure-monitor/faq#can-i-filter-out-or-modify-some-telemetry-).
+- For common question about the JavaScript SDK, see the [FAQ](#frequently-asked-questions).
 - For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For a list of open issues related to the Application Insights JavaScript SDK, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-JS/issues).
 - Use the [Telemetry Viewer extension](https://github.com/microsoft/ApplicationInsights-JS/tree/master/tools/chrome-debug-extension) to list out the individual events in the network payload and monitor the internal calls within Application Insights.

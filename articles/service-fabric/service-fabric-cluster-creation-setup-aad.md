@@ -51,7 +51,7 @@ Run `SetupApplications.ps1` and provide the tenant ID, cluster name, web applica
 - ClusterName_Client
 
 > [!NOTE]
-> For national clouds (for example Azure Government, Azure China), you should also specify the `-Location` parameter.
+> For national clouds (for example Azure Government, Microsoft Azure operated by 21Vianet), you should also specify the `-Location` parameter.
 
 #### Parameters
 

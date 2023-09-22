@@ -5,7 +5,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
 ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Service Bus bindings for Azure Functions
@@ -55,6 +55,8 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
@@ -76,7 +78,7 @@ Functions version 1.x doesn't support the isolated worker process.
 ---
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -164,7 +166,7 @@ Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview.
+The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Messaging.ServiceBus] is in preview. Current support does not yet include message settlement scenarios for triggers.
 
 **Service Bus trigger**
 

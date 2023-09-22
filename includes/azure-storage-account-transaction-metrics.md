@@ -1,6 +1,6 @@
 ---
  author: normesta
- ms.service: azure-storage
+ ms.service: storage
  ms.topic: include
  ms.date: 04/10/2023
  ms.author: normesta

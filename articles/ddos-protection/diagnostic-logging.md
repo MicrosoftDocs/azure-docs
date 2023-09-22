@@ -4,16 +4,21 @@ description: Learn how to configure Azure DDoS Protection diagnostic logs.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 03/14/2023
+ms.date: 08/07/2023
 ms.author: abell
 ---
 
 # Configure Azure DDoS Protection diagnostic logging through portal
 
-In this guide, you'll learn how to configure Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs. 
+Configure diagnostic logging for Azure DDoS Protection to gain visibility into DDoS attacks. 
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Configure diagnostic logs.
+> * Query logs in log analytics workspace.
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -96,5 +101,9 @@ For more information on log schemas, see [View diagnostic logs](ddos-view-diagno
 
 ## Next steps
 
-* [Test through simulations](test-through-simulations.md)
-* [View logs in Log Analytics workspace](ddos-view-diagnostic-logs.md)
+In this tutorial you learned how to configure diagnostic logging for DDoS Protection. To learn how to configure diagnostic logging alerts, continue to the next article.
+
+> [!div class="nextstepaction"]
+> [Configure diagnostic logging alerts](ddos-diagnostic-alert-templates.md)
+> [Test through simulations](test-through-simulations.md)
+> [View logs in Log Analytics workspace](ddos-view-diagnostic-logs.md)

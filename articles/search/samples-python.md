@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 08/02/2023
 ---
 
 # Python samples for Azure Cognitive Search
@@ -56,6 +56,7 @@ A demo repo provides proof-of-concept source code for examples or scenarios show
 
 | Repository | Description |
 |------------|-------------|
+| [**azure-search-vector-python-sample.ipynb**](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python/code/azure-search-vector-image-python-sample.ipynb) | Uses the latest beta release of the **azure.search.documents** library in the Azure SDK for Python to generate embeddings, create and load an index, and run several vector queries. For more vector search Python demos, see [cognitive-search-vector-pr/demo-python](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-python). |
 | [**ChatGPT + Enterprise data with Azure OpenAI and Cognitive Search**](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/README.md) | Python code showing how to use Cognitive Search with the large language models in Azure OpenAI. For background, see this Tech Community blog post: [Revolutionize your Enterprise Data with ChatGPT](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/revolutionize-your-enterprise-data-with-chatgpt-next-gen-apps-w/ba-p/3762087). |
 
 

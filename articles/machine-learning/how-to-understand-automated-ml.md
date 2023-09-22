@@ -8,7 +8,7 @@ ms.author: magoswam
 ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 07/20/2023
+ms.date: 08/01/2023
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl, event-tier1-build-2022
 ---
@@ -88,10 +88,7 @@ weighted_accuracy|Weighted accuracy is accuracy where each sample is weighted by
 
 ### Binary vs. multiclass classification metrics
 
-Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics is reported no matter if a dataset has two classes or more than two classes. Binary classification metrics is only reported when the data is binary, or the users activate the option. 
-
-> [!Note]
-> When a binary classification task is detected, we use `numpy.unique` to find the set of labels and the later label will be used as the `true` class. Since there is a sorting procedure in `numpy.unique`, the choice of `true` class will be stable.
+Automated ML automatically detects if the data is binary and also allows users to activate binary classification metrics even if the data is multiclass by specifying a `true` class. Multiclass classification metrics are reported if a dataset has two or more classes. Binary classification metrics are reported only when the data is binary.
 
 Note, multiclass classification metrics are intended for multiclass classification. When applied to a binary dataset, these metrics don't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`. For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
@@ -214,7 +211,25 @@ While there is no standard method of normalizing error metrics, automated ML tak
 >[!Note]
 >The range of data is not saved with the model. If you do inference with the same model on a holdout test set, `y_min` and `y_max` may change according to the test data and the normalized metrics may not be directly used to compare the model's performance on training and test sets. You can pass in the value of `y_min` and `y_max` from your training set to make the comparison fair.
 
-When evaluating a forecasting model on time series data, automated ML takes extra steps to ensure that normalization happens per time series ID (grain), because each time series likely has a different distribution of target values.
+### Forecasting metrics: normalization and aggregation
+
+Calculating metrics for forecasting model evaluation requires some special considerations when the data contains multiple time series. There are two natural choices for aggregating metrics over multiple series:
+
+1. A **macro average** wherein the evaluation metrics from _each series_ are given equal weight,
+2. A **micro average** wherein evaluation metrics for each prediction have equal weight.
+
+These cases have direct analogies to macro and micro averaging in [multi-class classification](#binary-vs-multiclass-classification-metrics). 
+
+The distinction between macro and micro averaging can be important when selecting a primary metric for model selection. For example, consider a retail scenario where you want to forecast demand for a selection of consumer products. Some products sell at much higher volumes than others. If you choose a micro-averaged RMSE as the primary metric, it's possible that the high-volume items will contribute a majority of the modeling error and, consequently, dominate the metric. The model selection algorithm may then favor models with higher accuracy on the high-volume items than on the low-volume ones. In contrast, a macro-averaged, normalized RMSE gives low-volume items approximately equal weight to the high-volume items.
+
+The following table shows which of AutoML's forecasting metrics use macro vs. micro averaging:  
+
+Macro averaged | Micro averaged
+-- | --
+`normalized_mean_absolute_error`, `normalized_median_absolute_error`, `normalized_root_mean_squared_error`, `normalized_root_mean_squared_log_error` | `mean_absolute_error`, `median_absolute_error`, `root_mean_squared_error`, `root_mean_squared_log_error`, `r2_score`, `explained_variance`, `spearman_correlation`, `mean_absolute_percentage_error`
+
+**Note that macro-averaged metrics normalize each series separately**. The normalized metrics from each series are then averaged to give the final result. The correct choice of macro vs. micro depends on the business scenario, but we generally recommend using `normalized_root_mean_squared_error`.
+
 ## Residuals
 
 The residuals chart is a histogram of the prediction errors (residuals) generated for regression and forecasting experiments. Residuals are calculated as `y_predicted - y_true` for all samples and then displayed as a histogram to show model bias.
@@ -318,13 +333,13 @@ The Azure Machine Learning Responsible AI dashboard provides a single interface 
 * Machine learning interpretability 
 * Error analysis 
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting you model’s fairness, viewing its explanations (also known as which dataset features a model used to make its predictions), inspecting its errors (what are the blindspots of the model) are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview)
+While model evaluation metrics and charts are good for measuring the general quality of a model, operations such as inspecting the model’s fairness, viewing its explanations (also known as which dataset features a model used to make its predictions), inspecting its errors and potential blind spots are essential when practicing responsible AI. That's why automated ML provides a Responsible AI dashboard to help you observe a variety of insights for your model. See how to view the Responsible AI dashboard in the [Azure Machine Learning studio.](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview)
 
 See how you can generate this [dashboard via the UI or the SDK.](how-to-responsible-ai-insights-sdk-cli.md)
 
 ## Model explanations and feature importances
 
-While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview).
+While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model uses to make predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#responsible-ai-dashboard-preview).
 
 > [!NOTE]
 > Interpretability, best model explanation, is not available for automated ML forecasting experiments that recommend the following algorithms as the best model or ensemble: 

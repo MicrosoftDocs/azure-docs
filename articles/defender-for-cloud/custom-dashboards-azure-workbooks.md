@@ -24,7 +24,7 @@ For pricing, check out the [pricing page](https://azure.microsoft.com/pricing/de
 
 **Required roles and permissions**: To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group
 
-**Cloud availability**: :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)
+**Cloud availability**: :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)
 
 ## Workbooks gallery in Microsoft Defender for Cloud
 

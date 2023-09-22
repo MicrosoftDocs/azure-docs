@@ -2,8 +2,8 @@
 title: Create a site - Azure portal
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/27/2022
@@ -107,7 +107,7 @@ If you decided not to configure diagnostics packet collection or use a user assi
   
     :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
 
-1. If you want to assign additional packet cores to the site, for each new packet core resource see LINK
+1. If you want to assign additional packet cores to the site, for each new packet core resource see [Create additional Packet Core instances for a site  using the Azure portal](create-additional-packet-core.md).
 
 ## Next steps
 

@@ -3,8 +3,8 @@ title: Deploy a private mobile network and site - ARM template
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 tags: azure-resource-manager
 ms.topic: quickstart
@@ -85,8 +85,7 @@ The following Azure resources are defined in the template.
     |**User Plane Access Interface Name**     | Enter the virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface.        |
     |**User Plane Data Interface Name**  | Enter the virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. |
     |**User Equipment Address Pool Prefix**  | Enter the network address of the subnet from which dynamic IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support dynamic IP address allocation. |
-    |**User Equipment Static Address Pool Prefix**  | Enter the network address of the subnet from which static IP addresses must be allocated to User Equipment (UEs) in CIDR notation. You can omit this if you don't want to support static IP address allocation. |
-    |**Data Network Name**  | Enter the name of the data network. |
+    |**Data Network Name**  | Enter the name of the data network. |    
     |**Core Network Technology**  | Enter *5GC* for 5G, or *EPC* for 4G. |
     |**Napt Enabled** | Set this field depending on whether Network Address and Port Translation (NAPT) should be enabled for the data network.|
     | **Dns Addresses** | Enter the DNS server addresses. You should only omit this if you don't need the UEs to perform DNS resolution, or if all UEs in the network will use their own locally configured DNS servers. |

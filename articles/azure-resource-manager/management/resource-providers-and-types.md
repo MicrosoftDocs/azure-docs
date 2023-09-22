@@ -3,7 +3,7 @@ title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
 ms.date: 07/14/2023 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
 ---

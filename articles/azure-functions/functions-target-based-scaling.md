@@ -27,6 +27,7 @@ The following considerations apply when using target-based scaling:
 
 + Target-based scaling is enabled by default for function apps on the Consumption plan or for Premium plans, but you can [opt-out](#opting-out). Event-driven scaling isn't supported when running on Dedicated (App Service) plans. 
 + Your [function app runtime version](set-runtime-version.md) must be 4.3.0 or a later version.
++ Target Based Scaling is enabled by default on function app runtime 4.19.0 or a later version.
 + When using target-based scaling, the `functionAppScaleLimit` site setting is still honored. For more information, see [Limit scale out](event-driven-scaling.md#limit-scale-out).
 + To achieve the most accurate scaling based on metrics, use only one target-based triggered function per function app.
 + When multiple functions in the same function app are all requesting to scale out at the same time, a sum across those functions is used to determine the change in desired instances. Functions requesting to scale-out override functions requesting to scale-in.
@@ -54,10 +55,12 @@ This table summarizes the `host.json` values that are used for the _target execu
 | Service Bus (Functions v2.x+, Single Dispatch)                 | extensions.serviceBus.messageHandlerOptions.maxConcurrentCalls    |       16      |
 | Service Bus (Functions v2.x+, Single Dispatch Sessions Based)  | extensions.serviceBus.sessionHandlerOptions.maxConcurrentSessions |       2000    |
 | Service Bus (Functions v2.x+, Batch Processing)                | extensions.serviceBus.batchOptions.maxMessageCount                |       1000    |
-| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       10      |
+| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       100<sup>1</sup>      |
 | Event Hubs (Extension v3.x+)                                   | extensions.eventHubs.eventProcessorOptions.maxBatchSize           |       10      |
 | Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
+
+<sup>1</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this was 10.
 
 For Azure Cosmos DB _target executions per instance_ is set in the function attribute:
 
@@ -228,7 +231,7 @@ Modify the `host.json` setting `maxEventBatchSize` to set _target executions per
     "version": "2.0",
     "extensions": {
         "eventHubs": {
-            "maxEventBatchSize" : 10
+            "maxEventBatchSize" : 100
         }
     }
 }
@@ -241,7 +244,7 @@ When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _targe
     "version": "2.0",
     "extensions": {
         "eventHubs": {
-            "targetUnprocessedEventThreshold": 23
+            "targetUnprocessedEventThreshold": 153
         }
     }
 }

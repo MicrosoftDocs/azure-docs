@@ -201,12 +201,14 @@ items:
           href: immutable-time-based-retention-policy-overview.md
         - name: Legal holds
           href: immutable-legal-hold-overview.md
-    - name: Redundancy and disaster recovery
+    - name: Disaster recovery
       items:
+      - name: Disaster recovery planning and failover
+        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Data redundancy
         href: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Customer-managed failover for disaster recovery
-        href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: How customer-managed failover works
+        href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Access tiers and lifecycle management
       items:
       - name: Access tiers overview
@@ -1129,6 +1131,8 @@ items:
       href: ../common/policy-reference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Resources
     items:
+    - name: FAQ
+      href: storage-blob-faq.yml
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=storage
     - name: Azure Storage Explorer

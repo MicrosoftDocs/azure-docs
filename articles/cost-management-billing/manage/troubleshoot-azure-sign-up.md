@@ -142,7 +142,7 @@ Complete the Agreement.
 
 ## Other issues
 
-### Can't activate Azure benefit plan like Visual Studio, BizSpark, BizSparkPlus, or Microsoft Cloud Partner Program
+### Can't activate Azure benefit plan like Visual Studio or Microsoft Cloud Partner Program
 
 Check that you're using the correct sign-in credentials. Then, check the benefit program and verify that you're eligible.
 - Visual Studio

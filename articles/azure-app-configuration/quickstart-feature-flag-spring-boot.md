@@ -58,12 +58,12 @@ To create a new Spring Boot project:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>5.2.0</version>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>5.2.0</version>
+        <version>5.4.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -77,12 +77,12 @@ To create a new Spring Boot project:
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-        <version>4.8.0</version>
+        <version>4.10.0</version>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>4.8.0</version>
+        <version>4.10.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
