@@ -11,7 +11,7 @@ ms.reviewer: mmcc
 # Set up Azure Monitor for your Python application
 
 > [!NOTE]
-> OpenTelemetry announced the [sunsetting of OpenCensus](https://opentelemetry.io/blog/2023/sunsetting-opencensus/). Azure continues to support the Python OpenCensus SDK and will not drop support for it without at least one year of advance notification. The [OpenTelemetry-based Python offering](opentelemetry-enable.md?tabs=python) is our current reccomended solution for Python applications.
+> [OpenCensus Python SDK is deprecated](https://opentelemetry.io/blog/2023/sunsetting-opencensus/), but Microsoft supports it until retirement on September 30, 2024. We now recommend the [OpenTelemetry-based Python offering](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable?tabs=python) and provide [migration guidance](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-python-opencensus-migrate?tabs=aspnetcore).
 
 Azure Monitor supports distributed tracing, metric collection, and logging of Python applications.
 

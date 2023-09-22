@@ -10,12 +10,12 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 ---
 # Join a SUSE Linux Enterprise virtual machine to a Microsoft Entra Domain Services managed domain
 
-To let users sign in to virtual machines (VMs) in Azure using a single set of credentials, you can join VMs to a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain. When you join a VM to a Microsoft Entra DS managed domain, user accounts and credentials from the domain can be used to sign in and manage servers. Group memberships from the managed domain are also applied to let you control access to files or services on the VM.
+To let users sign in to virtual machines (VMs) in Azure using a single set of credentials, you can join VMs to a Microsoft Entra Domain Services managed domain. When you join a VM to a Domain Services managed domain, user accounts and credentials from the domain can be used to sign in and manage servers. Group memberships from the managed domain are also applied to let you control access to files or services on the VM.
 
 This article shows you how to join a SUSE Linux Enterprise (SLE) VM to a managed domain.
 
