@@ -20,7 +20,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 |Subservice| Article | Description |
 |---|---|---|
-General|[Azure Monitor cost and usage](usage-estimated-costs.md)|Added section detailing billing meter names.|
+General|[Azure Monitor cost and usage](cost-usage.md)|Added section detailing billing meter names.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|A caution has been added about using community libraries with additional information on how to request we include them in our distro.|
 Application-Insights|[Add, modify, and filter OpenTelemetry](app/opentelemetry-add-modify.md)|Support and feedback options are now available across all of our OpenTelemetry pages.|
 Application-Insights|[How many Application Insights resources should I deploy?](app/separate-resources.md)|We added an important warning about additional network costs when monitoring across regions.|
@@ -632,7 +632,7 @@ Azure Monitor Workbooks documentation previously resided on an external GitHub r
 
 | Article | Description |
 |:---|:---|
-| [Azure Monitor cost and usage](usage-estimated-costs.md) | Added standard web tests to table.<br>Added explanation of billable GB calculation. |
+| [Azure Monitor cost and usage](cost-usage.md) | Added standard web tests to table.<br>Added explanation of billable GB calculation. |
 | [Azure Monitor overview](overview.md) | Updated overview diagram. |
 
 ### Agents

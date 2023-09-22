@@ -16,7 +16,7 @@ If you're not already familiar with monitoring concepts, start with the [Cloud m
 A core goal of your monitoring strategy will be minimizing costs. Some data collection and features in Azure Monitor have no cost while other have costs based on their particular configuration, amount of data collected, or frequency that they're run. The articles in this scenario will identify any recommendations that include a cost, but you should be familiar with Azure Monitor pricing as you design your implementation for cost optimization. See the following for details and guidance on Azure Monitor pricing:
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitor usage and estimated costs in Azure Monitor](usage-estimated-costs.md)
+- [Azure Monitor cost and usage](cost-usage.md)
 
 
 ## Define strategy
