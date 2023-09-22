@@ -25,16 +25,16 @@ This article assumes that you have already installed a SUSE or openSUSE Leap Lin
 ## SLES / openSUSE Leap installation notes
 
 * For more tips on preparing Linux images for Azure, see [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes)
-* The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+* The VHDX format isn't supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * Azure supports Gen1 (BIOS boot) and Gen2 (UEFI boot) virtual machines.
 * The `vfat` kernel module must be enabled in the kernel
 * When installing the Linux operating system, use standard partitions rather than logical volume manager (LVM) managed partitions, which is often the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
-* Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about configuring swap space can be found in the steps below.
+* Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about configuring swap space can be found in the steps below.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 
 > [!NOTE]
-> **_Cloud-init >= 21.2 removes the udf requirement_** however, without the udf module enabled the cdrom will not mount during provisioning preventing custom data from being applied.  A workaround for this would be to apply custom data using user data however, unlike custom data user data is not encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
+> **_Cloud-init >= 21.2 removes the udf requirement_**. However, without the udf module enabled, the cdrom won't mount during provisioning, preventing custom data from being applied.  A workaround for this is to apply custom data using user data. However, unlike custom data, user data isn't encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
 
 
 ## Use SUSE Studio
@@ -124,7 +124,8 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 14. Swap configuration
 
-    Do not create swap space on the operating system disk.
+    Don't create swap space on the operating system disk.
+
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this step is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
 
@@ -166,7 +167,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 > [!NOTE] 
-> If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step
+> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
 ```bash
     sudo rm -f /var/log/waagent.log
@@ -200,7 +201,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
     ```
 
-    You can then verify the repositories have been added by running the command '`zypper lr`' again. If one of the relevant update repositories is not enabled, enable it with following command:
+    You can then verify the repositories have been added by running the command '`zypper lr`' again. If one of the relevant update repositories isn't enabled, enable it with the following command:
 
     ```bash
     sudo zypper mr -e [NUMBER OF REPOSITORY]
@@ -250,7 +251,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     ```
 
 9. Ensure that the SSH server is installed and configured to start at boot time.
-10. Do not create swap space on the OS disk.
+10. Don't create swap space on the OS disk.
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in the "/etc/waagent.conf" as follows:
 
@@ -271,7 +272,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 > [!NOTE] 
-> If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step
+> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
 ```bash
     sudo rm -f ~/.bash_history # Remove current user history
@@ -286,4 +287,4 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 ## Next steps
 
-You are now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you are uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
+You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
