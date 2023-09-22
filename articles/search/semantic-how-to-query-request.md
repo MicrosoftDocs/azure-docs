@@ -34,7 +34,7 @@ To use semantic ranking:
 + Review [semantic ranking](semantic-search-overview.md) if you need an introduction to the feature.
 
 > [!NOTE]
-> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to determine what part of your content have the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking.
+> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to recognize what part of your content has the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking.
 
 ## 1 - Choose a client
 
@@ -42,22 +42,15 @@ Choose a search client that supports preview APIs on the query request. Here are
 
 + [Search explorer](search-explorer.md) in Azure portal, recommended for initial exploration.
 
-+ [Postman app](https://www.postman.com/downloads/) using the [2021-04-30-Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
++ [Postman app](https://www.postman.com/downloads/) using [Preview REST APIs](/rest/api/searchservice/preview-api/search-documents). See this [Quickstart](search-get-started-rest.md) for help with setting up your requests.
 
-+ [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5) in the Azure SDK for .NET Preview.
++ [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5) in the Azure SDK for .NET.
 
 + [Azure.Search.Documents 11.3.0b6](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.3.0b6/azure.search.documents.aio.html) in the Azure SDK for Python.
 
 ## 2 - Create a semantic configuration
 
-A *semantic configuration* establishes field inputs for semantic ranking. You can add or update a semantic configuration to an index definition at any time, no rebuild necessary. At query time, specify one on a query request.
-
-+ Fields must be `searchable` and `retrievable`.
-+ Fields must be a string: `Edm.String`, `Edm.ComplexType`,`Collection(Edm.String)`.
-
-  String subfields of `Collection(Edm.ComplexType)` fields aren't currently supported in semantic ranking, captions, or answers.
-
-A semantic configuration has a name and the following properties:
+A *semantic configuration* is a section in your index that establishes field inputs for semantic ranking. You can add or update a semantic configuration at any time, no rebuild necessary. At query time, specify one on a query request. A semantic configuration has a name and the following properties:
 
 | Property | Characteristics |
 |----------|-----------------|
@@ -66,6 +59,13 @@ A semantic configuration has a name and the following properties:
 | Keyword fields | Should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item.  | 
 
 You can only specify one title field, but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
+
+Across all configuration properties, fields must be:
+
++ Attributed as `searchable` and `retrievable`.
++ Strings of type `Edm.String`, `Edm.ComplexType`, or `Collection(Edm.String)`.
+
+  String subfields of `Collection(Edm.ComplexType)` fields aren't currently supported in semantic ranking, captions, or answers.
 
 ### [**Azure portal**](#tab/portal)
 
