@@ -298,6 +298,7 @@ az spring application-accelerator customized-accelerator create \
     --resource-group <resource-group-name> \
     --service <service-instance-name> \
     --name <fragment-accelerator-name> \
+    --display-name <display-name> \
     --type Fragment \
     [--git-sub-path <sub project path>] \
     --git-url <git-repo-URL>
