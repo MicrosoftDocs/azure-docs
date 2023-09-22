@@ -230,9 +230,9 @@ The following functionality isn't supported in the compatibility layer.
 
 ## Frequently asked questions
 
-#### How much time will migration take?
+#### How long will migration take?
 
-This table shows how long things take:
+The data migration and metadata migration processes run in parallel. The total time required to complete a migration is equal to whichever of these two processes complete last. The following table shows the approximate number of objects processed in an hour by each processing task. 
 
 | Processing task                        | Data processed per hour     |
 |----------------------------------------|-----------------------------|
@@ -242,9 +242,7 @@ This table shows how long things take:
 | Metadata processing                    | 25 million nodes            |
 | Metadata processing (data copy option) | 50 million nodes            |
 
-Data processing and metadata processing occur in parallel. Therefore, total processing time is equal to whichever took the longest.
-
-##### Example 1
+##### Example: Processing a large number of objects
 
 This example assumes that **300 TB** of data and **200 million** files and folders are being migrated.
 
@@ -260,7 +258,7 @@ This example assumes that **300 TB** of data and **200 million** files and folde
 | **Total time for data copy migration (higher of the two times)** | **62 hours** |
 | **Total time for a complete migration** | **62 - 4 = 58 hours** |
 
-##### Example 2
+##### Example: Processing a small number of objects
 
 This example assumes that **2 TB** of data and **56 thousand** files and folders are being migrated.
 
