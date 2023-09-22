@@ -14,7 +14,7 @@ The following release notes identify the new features, critical open issues, and
 
 This article applies to the AP5GC 2308 release (2308.0-4). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2303 and ASE 2309 releases and is supported by the 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
-For more details about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility). 
+For more details about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
 With this release, there's a new naming scheme and Packet Core versions are now called ‘2308.0-1’ rather than ‘PMN-2308.’
 
