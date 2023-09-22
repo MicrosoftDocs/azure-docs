@@ -1,6 +1,6 @@
 ---
 title: 'On-demand provisioning using cloud sync'
-description: This article describes how to use on-demand provisioning with Azure AD Connect cloud sync.
+description: This article describes how to use on-demand provisioning with Microsoft Entra Connect cloud sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # On-demand provisioning using cloud sync
 
-You can use cloud sync to test configuration changes by applying these changes to a single user. This on-demand provisioning helps you validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Azure AD.  This feature is only available in cloud sync and not Azure AD Connect.
+You can use cloud sync to test configuration changes by applying these changes to a single user. This on-demand provisioning helps you validate and verify that the changes made to the configuration were applied properly and are being correctly synchronized to Microsoft Entra ID.  This feature is only available in cloud sync and not Microsoft Entra Connect.
 
 ## Steps to use on-demand provisioning
 To use on-demand provisioning, follow these steps:
