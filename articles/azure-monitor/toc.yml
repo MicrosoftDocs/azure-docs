@@ -1625,8 +1625,10 @@ items:
     href: https://azure.microsoft.com/updates/?category=management-tools
   - name: Pricing 
     items:
-    - name: View and estimate charges
-      href: usage-estimated-costs.md
+    - name: Analyze usage and cost
+      href: cost-usage.md
+    - name: Estimate cost
+      href: cost-estimate.md
     - name: Azure Monitor Pricing page
       href: https://azure.microsoft.com/pricing/details/monitor/
     - name: Pricing calculator
