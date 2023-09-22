@@ -70,17 +70,17 @@ Follow the steps to create cache rule in the [Azure portal](https://portal.azure
      docker pull myregistry.azurecr.io/hello-world:latest
     ```
 
-### Create new credentials
+### Create new Credentials
 
-Before configuring a Credential Set, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+Before configuring the Credentials, you require to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
-1. Navigate to **Credentials** > **Add credential set** > **Create new credentials**.
-
-
-    :::image type="content" source="./media/container-registry-artifact-cache/add-credential-set-05.png" alt-text="Screenshot for adding credential set.":::
+1. Navigate to **Credentials** > **Create credentials**.
 
 
-    :::image type="content" source="./media/container-registry-artifact-cache/create-credential-set-06.png" alt-text="Screenshot for create new credential set.":::
+    :::image type="content" source="./media/container-registry-artifact-cache/add-credential-set-05.png" alt-text="Screenshot for adding credentials.":::
+
+
+    :::image type="content" source="./media/container-registry-artifact-cache/create-credential-set-06.png" alt-text="Screenshot for create new credentials.":::
 
 
 1. Enter **Name** for the new credentials for your source registry.

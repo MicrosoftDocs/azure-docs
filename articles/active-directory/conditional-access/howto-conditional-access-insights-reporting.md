@@ -134,11 +134,11 @@ When the volume of sign-ins exceeds the query capacity of Log Analytics, the wor
 
 ### Can I save my parameter selections?  
 
-You can save your parameter selections at the top of the workbook by going to **Microsoft Entra ID** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. 
+You can save your parameter selections at the top of the workbook by going to **Identity** > **Monitoring & health** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. 
 
 ### Can I edit and customize the workbook with other queries? 
 
-You can edit and customize the workbook by going to **Microsoft Entra ID** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. To start editing the queries, select **Edit** at the top of the workbook.  
+You can edit and customize the workbook by going to **Identity** > **Monitoring & health** > **Workbooks** > **Conditional Access Insights and reporting**. Here you find the workbook template, where you can edit the workbook and save a copy to your workspace, including the parameter selections, in **My reports** or **Shared reports**. To start editing the queries, select **Edit** at the top of the workbook.  
  
 ## Next steps
 
