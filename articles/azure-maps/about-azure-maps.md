@@ -67,6 +67,12 @@ For more information, see the [Geolocation service] documentation.
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service":::
 
+> [!NOTE]
+>
+> **Azure Maps Render v1 service retirement**
+>
+> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
+
 ### Route service
 
 The route service is used to calculate the estimated arrival times (ETAs) for each requested route. Factors such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day are considered. The route service returns the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. The service allows developers to calculate directions across several travel modes, such as car, truck, bicycle, or walking, and electric vehicle. The service also considers inputs, such as departure time, weight restrictions, or hazardous material transport.
