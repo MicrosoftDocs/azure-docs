@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 06/9/2023
+ms.date: 09/26/2023
 ---
 
 <!-- 
@@ -42,9 +42,9 @@ Use the following steps to initialize the web application from Azure Developer C
 
 1. Run the following command to initialize the project:
 
-    ```bash
-    azd init --template Azure-Samples/ASA-Samples-Restful-Application
-    ```
+   ```bash
+   azd init --template Azure-Samples/ASA-Samples-Restful-Application
+   ```
 
    The following list describes the command interactions:
 
@@ -53,18 +53,18 @@ Use the following steps to initialize the web application from Azure Developer C
 
    The console outputs messages similar to the following example:
 
-    ```text
-    Initializing a new project (azd init)
+   ```text
+   Initializing a new project (azd init)
 
-    Downloading template code to: <your-local-path>
-    (✓) Done: Initialized git repository
+   Downloading template code to: <your-local-path>
+   (✓) Done: Initialized git repository
 
-    Enter a new environment name: <your-env-name>
+   Enter a new environment name: <your-env-name>
 
-    SUCCESS: New project initialized!
-    You can view the template code in your directory: <your-local-path>
-    Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
-    ```
+   SUCCESS: New project initialized!
+   You can view the template code in your directory: <your-local-path>
+   Learn more about running 3rd party code on our DevHub: https://aka.ms/azd-third-party-code-notice
+   ```
 
 ---
 
@@ -88,26 +88,26 @@ Use the following steps to create a service instance:
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-service-instance.png" alt-text="Screenshot of the Azure portal that shows the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/create-service-instance.png":::
 
-1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended **Plan** value is **Standard consumption & dedicated (preview)**.
+1. Fill out the **Basics** form. Use the following table as a guide for completing the form. The recommended **Plan** value is **Standard consumption & dedicated (preview)**.   
 
-   | Setting                    | Suggested value                              | Description                                                                                                                                                                                                                                                                                        |
-   |----------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Subscription               | Your subscription name                       | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
-   | Resource group             | *myresourcegroup*                            | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | Name                       | *myasa*                                      | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan                       | *Standard consumption & dedicated (preview)* | The pricing tier determines the resource and cost associated with your instance.                                                                                                                                                                                                                   |
-   | Region                     | The region closest to your users             | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | Container Apps Environment | *myenvironment*                              | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
+   | Setting                        | Suggested value                                | Description                                                                                                                                                                                                                                                                                        |
+   |--------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Subscription**               | Your subscription name.                        | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
+   | **Resource group**             | *myresourcegroup*                              | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**                       | *myasa*                                        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Plan**                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                   |
+   | **Region**                     | The region closest to your users.              | The location that is closest to your users.                                                                                                                                                                                                                                                        |
+   | **Container Apps Environment** | *myenvironment*                                | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal showing the Create Azure Spring Apps consumption plan page." lightbox="../../media/quickstart-deploy-restful-api-app/create-consumption-service-basics.png":::
 
    Use the following table as a guide for the Container Apps Environment creation:
 
-   | Setting          | Suggested value | Description                                                                              |
-   |------------------|-----------------|------------------------------------------------------------------------------------------|
-   | Environment name | *myenvironment* | A unique name that identifies your Azure Container Apps Environment service.             |
-   | Plan             | *Consumption*   | The pricing tier determines the resource and cost associated with your instance.         |
-   | Zone Redundant   | *Disabled*      | Whether to create your Container Apps Environment service in an Azure availability zone. |
+   | Setting              | Suggested value | Description                                                                              |
+   |----------------------|-----------------|------------------------------------------------------------------------------------------|
+   | **Environment name** | *myenvironment* | A unique name that identifies your Azure Container Apps Environment service.             |
+   | **Plan**             | **Consumption** | The pricing plan determines the resource and cost associated with your instance.         |
+   | **Zone Redundant**   | Disabled        | Whether to create your Container Apps Environment service in an Azure availability zone. |
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/create-apps-container-env-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Container Apps page." lightbox="../../media/quickstart-deploy-restful-api-app/create-apps-container-env-basics.png":::
 
@@ -117,7 +117,7 @@ Use the following steps to create a service instance:
 
 1. Select **Go to resource** to open the service's **Overview** page.
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Notifications pane open." lightbox="../../media/quickstart-deploy-restful-api-app/notifications.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/notifications.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Notifications page open." lightbox="../../media/quickstart-deploy-restful-api-app/notifications.png":::
 
 > [!IMPORTANT]
 > The Consumption workload profile has a pay-as-you-go billing model, with no starting cost. You're billed for the dedicated workload profile based on the provisioned resources. For more information, see [Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)](../../../container-apps/workload-profiles-overview.md) and [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
@@ -132,7 +132,7 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation menu, open the **Apps** pane and select **Create App**.
+1. From the navigation menu, open **Apps**, and then select **Create App**.
 
 1. On the **Create App** page, fill in the app name *simple-todo-api* and select **Java artifacts** as the deployment type.
 
@@ -144,13 +144,13 @@ Use the following steps to connect your service instances:
 
 1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values you created previously.
 
-   ```shell
+   ```bash
    SPRING_DATASOURCE_URL=jdbc:postgresql://<your-PostgreSQL-server-name>:5432/<your-PostgreSQL-database-name>
    SPRING_DATASOURCE_USERNAME=<your-PostgreSQL-admin-user>
    SPRING_DATASOURCE_PASSWORD=<your-PostgreSQL-admin-password>
    ```
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection page for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png":::
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
@@ -198,7 +198,7 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID.
 
 1. If you have access to multiple tenants, use the **Directory + subscription** filter (:::image type="icon" source="../../media/quickstart-deploy-restful-api-app/portal-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
 
-1. Search for and select **Azure Active Directory**.
+1. Search for and select **Microsoft Entra ID**.
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
@@ -216,12 +216,12 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID.
 
 1. Under **Manage**, select **Expose an API** > **Add a scope**, and then enter the following information:
 
-    - For **Scope name**, enter `ToDo.Read`.
-    - For **Who can consent**, select **Admins only**.
-    - For **Admin consent display name**, enter `Read the ToDo data`.
-    - For **Admin consent description**, enter `Allows authenticated users to read the ToDo data.`.
-    - For **State**, keep **Enabled**.
-    - Select **Add scope**.
+   - For **Scope name**, enter *ToDo.Read*.
+   - For **Who can consent**, select **Admins only**.
+   - For **Admin consent display name**, enter *Read the ToDo data*.
+   - For **Admin consent description**, enter *Allows authenticated users to read the ToDo data.*.
+   - For **State**, keep **Enabled**.
+   - Select **Add scope**.
 
 1. Repeat the previous step to add the two other scopes: *ToDo.Write* and *ToDo.Delete*.
 
@@ -233,26 +233,26 @@ Use the following steps to update the YAML file to use with your Microsoft Entra
 
 1. Use the following YAML to update the `spring.cloud.azure.active-directory` configuration in the configuration file. Be sure to replace the placeholders with your own values that you created previously.
 
-```yaml
-spring:
-  cloud:
-    azure:
-      active-directory:
-        profile:
-          tenant-id: <your-Azure-AD-tenant-ID>
-        credential:
-          client-id: <your-application-ID-of-ToDo>
-        app-id-uri: <your-application-ID-URI-of-ToDo>
-```
+   ```yaml
+   spring:
+     cloud:
+       azure:
+         active-directory:
+           profile:
+             tenant-id: <your-Azure-AD-tenant-ID>
+           credential:
+             client-id: <your-application-ID-of-ToDo>
+           app-id-uri: <your-application-ID-URI-of-ToDo>
+   ```
 
    > [!NOTE]
    > In v1.0 tokens, the configuration requires the client ID of the API, while in v2.0 tokens, you can use the client ID or the application ID URI in the request. You can configure both to properly complete the audience validation.
 
 1. Use the following command to rebuild the sample project:
 
-```bash
-./mvnw clean package
-```
+   ```bash
+   ./mvnw clean package
+   ```
 
 ## 4. Deploy the app to Azure Spring Apps
 
@@ -271,9 +271,9 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    The following list describes the command interactions:
 
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
-    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press Enter directly.
-    - **Select Azure Spring Apps for deployment**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press Enter directly.
-    - **Input the app name(simple-todo-api)**: Input a name for your application deployment on Azure Spring Apps. If you use the default name, press Enter directly.
+    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
+    - **Select Azure Spring Apps for deployment**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd> directly.
+    - **Input the app name(simple-todo-api)**: Input a name for your application deployment on Azure Spring Apps. If you use the default name, press <kbd>Enter</kbd> directly.
     - **Expose public access for this app (RESTful API for SimpleTodo)?**: Enter *y*.
     - **Confirm to save all the above configurations (Y/n)**: Enter *y*. If you Enter *n*, the configuration won't be saved.
 
@@ -283,7 +283,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
    ./mvnw azure-spring-apps:deploy
    ```
 
-   The following list describes the command interactions:
+   The following list describes the command interaction:
 
     - **OAuth2 login**: You need to authorize the login to Azure based on the OAuth2 protocol.
 
