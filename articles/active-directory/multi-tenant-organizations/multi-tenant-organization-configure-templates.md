@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 09/22/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -25,7 +25,7 @@ This article describes how to configure a policy template for your multi-tenant 
 
 ## Prerequisites
 
-- Microsoft Entra ID P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
+- For license information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and templates for the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 

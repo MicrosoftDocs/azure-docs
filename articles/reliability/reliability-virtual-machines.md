@@ -11,13 +11,12 @@ ms.date: 07/18/2023
 
 # Reliability in Virtual Machines
 
-This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [disaster recovery and business continuity](#disaster-recovery-and-business-continuity). 
+This article contains [specific reliability recommendations for Virtual Machines](#reliability-recommendations), as well as detailed information on VM regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 
 ## Reliability recommendations
-This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machines.  
 
 [!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
  
@@ -471,7 +470,7 @@ Before you upgrade your next set of nodes in another zone, you should perform th
 To learn how to migrate a VM to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
 
 
-## Disaster recovery and business continuity
+## Cross-region disaster recovery and business continuity
 
 In the case of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
 
@@ -524,6 +523,6 @@ For deploying virtual machines, you can use [flexible orchestration](../virtual-
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/reliability/availability-zones-overview)
+> [Reliability in Azure](/azure/reliability/availability-zones-overview)
 
 

@@ -219,17 +219,7 @@ To create a certificate:
 
 ## Create a Microsoft Entra tenant
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-Now, create a Microsoft Entra tenant, so you can sync your users in Azure:
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator) using the account that's associated with your Azure subscription.
-1. Search for and then select **Microsoft Entra ID**.
-1. Select **Create**.
-
-   :::image type="content" source="media/tutorial-federation/create1.png" alt-text="Screenshot that shows how to create a Microsoft Entra tenant.":::
-1. Enter a name for the organization and an initial domain name. Then select **Create** to create your directory.
-1. To manage the directory, select the **here** link.
+If you dont have one, follow the steps in the article [Create a new tenant in Microsoft Entra ID](../../fundamentals/create-new-tenant.md) to create a new tenant.
 
 <a name='create-a-hybrid-identity-administrator-account-in-azure-ad'></a>
 
@@ -239,18 +229,15 @@ The next task is to create a Hybrid Identity Administrator account. This account
 
 To create the Hybrid Identity Administrator account:
 
-1. In the left menu under **Manage**, select **Users**.
-
-   :::image type="content" source="media/tutorial-federation/gadmin1.png" alt-text="Screenshot that shows Users selected under Manage in the resource menu to create a Hybrid Identity Administrator in Azure AD.":::
-1. Select **All users**, and then select **New user**.
-1. In the **User** pane, enter a name and a username for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
-
-   In the **Directory role** pane, select **Hybrid Identity Administrator**. Then select **Create**.
-
-   :::image type="content" source="media/tutorial-federation/gadmin2.png" alt-text="Screenshot that shows the Create button you select when you create a Hybrid Identity Administrator account in Azure AD.":::
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Users** > **All users**
+1. Select **New user** > **Create new user**.
+1. In the **Create new user** pane, enter a **Display name** and a **User principal name** for the new user. You're creating your Hybrid Identity Administrator account for the tenant. You can show and copy the temporary password.
+   1. Under **Assignments**, select **Add role**, and select **Hybrid Identity Administrator**. 
+1. Then select **Review + create** > **Create**.
 1. In a new web browser window, sign in to `myapps.microsoft.com` by using the new Hybrid Identity Administrator account and the temporary password.
-1. Choose a new password for the Hybrid Identity Administrator account and change the password.
 
+1. Choose a new password for the Hybrid Identity Administrator account and change the password.
 ## Add a custom domain name to your directory
 
 Now that you have a tenant and a Hybrid Identity Administrator account, add your custom domain so that Azure can verify it.
@@ -318,9 +305,8 @@ Now you'll verify that the users in your on-premises Active Directory tenant hav
 
 To verify that the users are synced:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator) using the account that's associated with your Azure subscription.
-1. In the portal menu, select **Microsoft Entra ID**.
-1. In the resource menu under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+1. Browse to **Identity** > **Users** > **All users**
 1. Verify that the new users appear in your tenant.
 
    :::image type="content" source="media/tutorial-federation/sync1.png" alt-text="Screenshot that shows verifying that users were synced in Microsoft Entra ID.":::
