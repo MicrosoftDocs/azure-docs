@@ -51,7 +51,7 @@ Follow these steps to add a lab to the lab plan you created earlier:
     | **Virtual machine size** | Select *Medium*. |
     | **Location** | Leave the default value. |
 
-    Some virtual machine sizes might not be available depending on the lab plan region and your [subscription core limit](./how-to-request-capacity-increase.md). Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
+    Some virtual machine sizes might not be available depending on the lab plan region and your subscription core limit. Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing) and how to [request additional capacity](./how-to-request-capacity-increase.md).
 
     You can [enable or disable specific virtual machine images](./specify-marketplace-images.md#enable-and-disable-images) by configuring the lab plan.
 
