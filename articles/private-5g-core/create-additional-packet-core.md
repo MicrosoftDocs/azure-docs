@@ -41,14 +41,15 @@ In this step, you'll create an additional packet core instance for a site in you
         > If a warning appears about an incompatibility between the selected packet core version and the current Azure Stack Edge version, you'll need to update ASE first. Select **Upgrade ASE** from the warning prompt and follow the instructions in [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md). Once you've finished updating your ASE, go back to the beginning of this step to create the packet core resource.
 
     - Ensure **AKS-HCI** is selected in the **Platform** field.
+:::zone pivot="ase-pro-gpu"
 
 1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
-
-:::zone pivot="ase-pro-gpu"
     > [!NOTE]
     > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro GPU device.
 :::zone-end
 :::zone pivot="ase-pro-2"
+
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the site to fill out the fields in the **Access network** section.
     > [!NOTE]
     > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 3 on your Azure Stack Edge Pro 2 device.
 :::zone-end
