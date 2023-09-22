@@ -222,12 +222,12 @@ Stay up to date on Azure Maps:
 [Azure Maps blog]
 
 <!---------   learn.microsoft.com links     --------------->
-[Azure Storage]: ../storage/common/storage-introduction
+[Azure Storage]: ../storage/common/storage-introduction.md
 [Get started with Azure Maps Power BI visual]: power-bi-visual-get-started.md
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
 [What is Azure Maps Creator?]: about-creator.md
-[v1]: /rest/api/maps/data-v1
+[v1]: /rest/api/maps/data
 [v2]: /rest/api/maps/data-v2
 [Data Registry service]: /rest/api/maps/data-registry
 [How to create data registry]: how-to-create-data-registries.md

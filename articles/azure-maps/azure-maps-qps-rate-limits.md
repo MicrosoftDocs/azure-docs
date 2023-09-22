@@ -50,7 +50,7 @@ When QPS limits are reached, an HTTP 429 error is returned. If you're using the 
 
 [Azure portal]: https://portal.azure.com/
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
-[v1]: /rest/api/maps/data-v1
+[v1]: /rest/api/maps/data
 [v2]: /rest/api/maps/data-v2
 [Data Registry service]: /rest/api/maps/data-registry
 [How to create data registry]: how-to-create-data-registries.md
