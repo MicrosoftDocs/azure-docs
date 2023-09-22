@@ -169,8 +169,6 @@ In addition to be used in the `type` statement, type expressions can also be use
     param mixedTypeArray ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
-## An example
-
 A typical Bicep file to create a storage account looks like:
 
 ```bicep
@@ -227,7 +225,7 @@ To declare a custom tagged union data type within a Bicep file, you can place a 
 
 The discriminator decorator takes a single parameter, which represents a shared property name among all union members. This property name must be a required string literal on all members and is case-sensitive. The values of the discriminated property on the union members must be unique in a case-insensitive manner.
 
-Here is an example:
+The following example shows how to declare a tagged union type:
 
 ```bicep
 type FooConfig = {
