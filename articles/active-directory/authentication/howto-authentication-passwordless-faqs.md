@@ -248,6 +248,9 @@ Microsoft Entra ID combines the encrypted client key and message buffer into the
 | tgt_key_type       | int    | The on-premises AD DS key type used for both the client key and the Kerberos session key included in the KERB_MESSAGE_BUFFER. |
 | tgt_message_buffer | string | Base64 encoded KERB_MESSAGE_BUFFER. |
 
+### Do users need to be a member of the Domain Users Active Directory group?
+Yes. A user must be in the Domain Users group to be able to sign-in using Azure AD Kerberos.
+
 ## Next steps
 
 To get started with FIDO2 security keys and hybrid access to on-premises resources, see the following articles:
