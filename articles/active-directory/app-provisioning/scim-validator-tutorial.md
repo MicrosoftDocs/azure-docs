@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/20/2023
+ms.date: 09/15/2023
 ms.custom: template-tutorial
 ms.reviewer: arvinh
 ---
@@ -53,7 +53,7 @@ Now that you've selected a testing method, the next step is to configure it.
 
 1. If you're using the default attributes option, then fill in all of the indicated fields.
 2. If you're using the discover schema option, then enter the SCIM endpoint URL and token.
-3. If you're uploading a schema, then select your .json file to upload. The option accepts a .json file exported from your sample app on the Azure portal. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). 
+3. If you're uploading a schema, then select your .json file to upload. The option accepts a .json file exported from your sample app on the Microsoft Entra admin center. To learn how to export a schema, see [How-to: Export provisioning configuration and roll back to a known good state](export-import-provisioning-configuration.md#export-your-provisioning-configuration). 
 > [!NOTE]
 > To test *group attributes*, make sure to select **Enable Group Tests**.
 

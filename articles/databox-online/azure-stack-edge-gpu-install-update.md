@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 09/21/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -24,23 +24,23 @@ The current update is Update 2309. This update installs two updates, the device 
 
 The associated versions for this update are:
 
-- Device software version: Azure Stack Edge 2309 (3.2.2380.1632)
-- Device Kubernetes version: Azure Stack Kubernetes Edge 2309 (3.2.2380.1632)
-- Kubernetes server version: v1.24.6
+- Device software version: Azure Stack Edge 2309 (3.2.2380.1652)
+- Device Kubernetes version: Azure Stack Kubernetes Edge 2309 (3.2.2380.1652)
+- Kubernetes server version: v1.25.5
 - IoT Edge version: 0.1.0-beta15
-- Azure Arc version: 1.10.6
-- GPU driver version: 515.65.01
-- CUDA version: 11.7
+- Azure Arc version: 1.11.7
+- GPU driver version: 530.30.02
+- CUDA version: 12.1
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2304-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2309-release-notes.md).
 
-**To apply the 2309 update, your device must be running version 2207 or later.**
+**To apply the 2309 update, your device must be running version 2203 or later.**
 
 - If you are not running the minimum required version, you'll see this error:
  
   *Update package cannot be installed as its dependencies are not met.*
 
-- You can update to 2207 from 2106 or later, and then install 2309.
+- You can update to 2203 from 2207 or later, and then install 2309.
 
 Supported update paths:
 
@@ -73,7 +73,7 @@ If you are running 2303, you can update both your device version and Kubernetes 
 
 In Azure portal, the process will require two clicks, the first update gets your device version to 2303 and your Kubernetes version to 2210, and the second update gets your Kubernetes version upgraded to 2309.
 
-From the local UI, you will have to run each update separately: update the device version to 2303, then update Kubernetes version to 2210, and then update Kubernetes version to 2303, and then the third update gets both the device and the Kubernetes version to 2309.
+From the local UI, you will have to run each update separately: update the device version to 2303, update Kubernetes version to 2210, update Kubernetes version to 2303, and then the third update gets both the device version and Kubernetes version to 2309.
 
 ### Updates for a single-node vs two-node
 

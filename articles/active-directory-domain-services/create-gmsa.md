@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 
 ---
@@ -18,7 +18,7 @@ ms.author: justinha
 
 Applications and services often need an identity to authenticate themselves with other resources. For example, a web service may need to authenticate with a database service. If an application or service has multiple instances, such as a web server farm, manually creating and configuring the identities for those resources gets time consuming.
 
-Instead, a group managed service account (gMSA) can be created in the Microsoft Entra Domain Services (Microsoft Entra DS) managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
+Instead, a group managed service account (gMSA) can be created in the Microsoft Entra Domain ServiceS managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
 
 This article shows you how to create a gMSA in a managed domain using Azure PowerShell.
 
@@ -32,7 +32,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Microsoft Entra DS managed domain.
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 
 ## Managed service accounts overview
@@ -45,7 +45,7 @@ For more information, see [group managed service accounts (gMSA) overview][gmsa-
 
 <a name='using-service-accounts-in-azure-ad-ds'></a>
 
-## Using service accounts in Microsoft Entra DS
+## Using service accounts in Domain Services
 
 As managed domains are locked down and managed by Microsoft, there are some considerations when using service accounts:
 
@@ -53,12 +53,12 @@ As managed domains are locked down and managed by Microsoft, there are some cons
     * You can't create a service account in the built-in *AADDC Users* or *AADDC Computers* OUs.
     * Instead, [create a custom OU][create-custom-ou] in the managed domain and then create service accounts in that custom OU.
 * The Key Distribution Services (KDS) root key is pre-created.
-    * The KDS root key is used to generate and retrieve passwords for gMSAs. In Microsoft Entra DS, the KDS root is created for you.
+    * The KDS root key is used to generate and retrieve passwords for gMSAs. In Domain Services, the KDS root is created for you.
     * You don't have privileges to create another, or view the default, KDS root key.
 
 ## Create a gMSA
 
-First, create a custom OU using the [New-ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet. For more information on creating and managing custom OUs, see [Custom OUs in Microsoft Entra DS][create-custom-ou].
+First, create a custom OU using the [New-ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet. For more information on creating and managing custom OUs, see [Custom OUs in Domain Services][create-custom-ou].
 
 > [!TIP]
 > To complete these steps to create a gMSA, [use your management VM][tutorial-create-management-vm]. This management VM should already have the required AD PowerShell cmdlets and connection to the managed domain.

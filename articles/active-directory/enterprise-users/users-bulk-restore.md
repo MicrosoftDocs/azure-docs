@@ -68,7 +68,7 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
 [![Check status in the Bulk Operations Results page.](./media/users-bulk-restore/bulk-center.png)](./media/users-bulk-restore/bulk-center.png#lightbox)
 
-Next, you can check to see that the users you restored exist in the Microsoft Entra organization either in the Azure portal or by using PowerShell.
+Next, you can check to see that the users you restored exist in the Microsoft Entra organization via either the Azure portal or PowerShell.
 
 ## View restored users in the Azure portal
 
