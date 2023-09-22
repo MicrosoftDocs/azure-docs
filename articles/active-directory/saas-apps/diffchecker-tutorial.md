@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Microsoft Entra SSO integration with Diffchecker
 
-In this tutorial, you'll learn how to integrate Diffchecker with Microsoft Entra ID. When you integrate Diffchecker with Microsoft Entra ID, you can:
+In this tutorial, you learn how to integrate Diffchecker with Microsoft Entra ID. When you integrate Diffchecker with Microsoft Entra ID, you can:
 
 * Control in Microsoft Entra ID who has access to Diffchecker.
 * Enable your users to be automatically signed-in to Diffchecker with their Microsoft Entra accounts.
@@ -99,7 +99,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 ### Create a Microsoft Entra ID test user
 
-In this section, you'll create a test user in the Microsoft Entra admin center called B.Simon.
+In this section, you create a test user in the Microsoft Entra admin center called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -113,14 +113,14 @@ In this section, you'll create a test user in the Microsoft Entra admin center c
 
 ### Assign the Microsoft Entra ID test user
 
-In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by granting access to Diffchecker.
+In this section, you enable B.Simon to use Microsoft Entra single sign-on by granting access to Diffchecker.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Diffchecker**.
 1. In the app's overview page, select **Users and groups**.
 1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
    1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
    1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Diffchecker SSO
@@ -145,7 +145,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
  
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Diffchecker for which you set up the SSO.
  
-You can also use Microsoft My Apps to test the application in any mode. When you click the Diffchecker tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Diffchecker for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Diffchecker tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Diffchecker for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next Steps
