@@ -41,28 +41,31 @@ In this tutorial, you learn how to:
 
 1. Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise) guide. On the **Advanced** page, make sure that you've added the **RediSearch** module and have chosen the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
-<!--Fran, we could use a screenshot here so that people don't skip over this.-->
-
    It will take a few minutes for the cache to create. You can move on to the next step in the meantime.
+
+<!--Fran, we could use a screenshot here so that people don't skip over this.-->
 
 ## Set up your development environment
 
 1. Create a folder on your local computer named *redis-vector* in the location where you typically save your projects.
 1. [Download the Jupyter notebook file named *tutorial.ipynb*](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/vector-similarity-search-open-ai) and save it into the new *redis-vector* folder.
 
-1. Open the *tutorial.ipynb* file and execute the first cell containing the `%pip install` command to install the required Python packages.
+1. Open the *tutorial.ipynb* file and execute the code cell containing the comment `Code cell 1`. This command installs the required Python packages.
 
 <!--Alternatively, you can use our [requirements.txt file](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/requirements.txt).-->
 <!-- A tutorial is a single path through the instructions to achieve a specific outcome. Asking them to go to a whole other repo to find a single requirements.txt file might complicate things. Providing multiple options is better suited for a How-To Guide type article. -->
 
-### Download the dataset
+## Download the dataset
 
 1. In a web browser, navigate to [https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots](https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots).
+
 1. Sign in or register with Kaggle. Registration is required to download the file.
+
 1. Select the **Download** link on Kaggle to download the *archive.zip* file.
+
 1. Extract the *archive.zip* file and move the *wiki_movie_plots_deduped.csv* into the *redis-vector* folder.
 
-### Connect to Azure Open AI service
+## Connect to Azure Open AI service
 
 To successfully make a call against Azure OpenAI, you'll need an **endpoint** and a **key**.
 
@@ -72,11 +75,10 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 
 1. Go to your Azure Open AI resource in the Azure portal.
-1. Locate **Endpoint and Keys** in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
-1. In the Jupyter notebook, update the following lines of code in the code cell below "Import libraries and set up Azure OpenaI service connection".
 
-<!-- Run the following code in your preferred Python IDE. While we strongly recommend using Jupyter Notebooks, if you chose not to, you'll need to modify any code that is returning a pandas dataframe by using print(dataframe_name) rather than just calling the dataframe_name directly as is often done at the end of a code block. -->
-<!-- Here again, we need to tell people exactly what to do. We're going to make an assumption that these are experienced Python / Pandas / Jupyter Notebook professionals. -->
+1. Locate **Endpoint and Keys** in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+
+1. In the Jupyter notebook, locate the cell containing the comment `Code cell 2`. Update the following lines of code in the code cell below "Import libraries and set up Azure OpenaI service connection".
 
    ```python
    API_KEY = "<your-azure-openai-key>"
@@ -89,7 +91,10 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
    > [!Important]
    > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
 
-1. Execute the entire cell you just edited. You should see your model returned, confirming that the API call is configured correctly:
+<!-- Run the following code in your preferred Python IDE. While we strongly recommend using Jupyter Notebooks, if you chose not to, you'll need to modify any code that is returning a pandas dataframe by using print(dataframe_name) rather than just calling the dataframe_name directly as is often done at the end of a code block. -->
+<!-- Here again, we need to tell people exactly what to do. We're going to make an assumption that these are experienced Python / Pandas / Jupyter Notebook professionals. -->
+
+1. Execute the code cell you just edited. You should see your model returned, confirming that the API call is configured correctly:
 
    ```output
    {
@@ -114,11 +119,11 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
 
    If no model is returned, check to make sure that you've [deployed a model](../ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model) and your key, endpoint, and deployment name are correct.
 
-### Import dataset into pandas and process data
+## Import dataset into pandas and process data
 
 Next, you will read the csv file into a pandas DataFrame.
 
-1. Excecute the cell below the section titled "Import Dataset":
+1. Excecute the code cell with the comment `Code cell 3`. This code reads the csv into a pandas DataFrame.
 
    ```python
    df=pd.read_csv(os.path.join(os.getcwd(),'wiki_movie_plots_deduped.csv'))
@@ -129,52 +134,11 @@ Next, you will read the csv file into a pandas DataFrame.
 
 <!--Fran, we could use a screenshot here-->
 
-1. To massage the datatypes and filter the data, execute the next cell in the Jupyter notebook:
+1. Excecute the code cell with the comment `Code cell 4`. This cell processes the data by adding an id index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from english speaking countries. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You are free to change or remove the filter parameters based on your preferences.
 
-   ```python
-   df.insert(0, 'id', range(0, len(df)))
-   df['year'] = df['Release Year'].astype(int)
-   df['origin'] = df['Origin/Ethnicity'].astype(str)
-   del df['Release Year']
-   del df['Origin/Ethnicity']
-   df = df[df.year > 1970] # only movies made after 1970
-   df = df[df.origin.isin(['American','British','Canadian'])] # only movies from English-speaking cinema
-   df
-   ```
+1. Execute the code cell with the comment `Code cell 5`. This code cell creates a function to clean the data by removing whitespace and punctuation, then uses it against the dataframe containing the plot.
 
-   This cell processes the data by adding an id index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from english speaking countries. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You are free to change or remove the filter parameters based on your preferences.
-
-1. To clean the data by removing whitespace and punctuation, execute the next cell in the Jupyter notebook:
-
-   ```python
-   pd.options.mode.chained_assignment = None
-
-   # s is input text
-   def normalize_text(s, sep_token = " \n "):
-       s = re.sub(r'\s+',  ' ', s).strip()
-       s = re.sub(r". ,","",s)
-       # remove all instances of multiple spaces
-       s = s.replace("..",".")
-       s = s.replace(". .",".")
-       s = s.replace("\n", "")
-       s = s.strip()
-    
-       return s
-
-   df['Plot']= df['Plot'].apply(lambda x : normalize_text(x))
-   ```
-
-1. To filter the data, execute the next cell in the Jupyter notebook:
-
-   ```python
-   tokenizer = tiktoken.get_encoding("cl100k_base")
-   df['n_tokens'] = df["Plot"].apply(lambda x: len(tokenizer.encode(x)))
-   df = df[df.n_tokens<8192]
-   print('Number of movies: ' + str(len(df))) # print number of movies remaining in dataset
-   print('Number of tokens required:' + str(df['n_tokens'].sum())) # print number of tokens
-   ```
-
-   This cell removes any entries that contain plot descriptions that are too long for the embeddings model. (In other words, they require more tokens than the 8192 token limit.)
+1. Execute the code cell with the commen `Code cell 6`. This cell removes any entries that contain plot descriptions that are too long for the embeddings model. (In other words, they require more tokens than the 8192 token limit.)
 
    You should see this output:
 
@@ -186,66 +150,35 @@ Next, you will read the csv file into a pandas DataFrame.
    > [!Important]
    > Refer to [Azure OpenAI Service pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) to caculate the cost of generating embeddings based on the number of tokens required.
 
-### Generate embeddings
+## Generate embeddings
 
-1. To generate embeddings for each plot entry, execute the following cell in the Jupyter notebook.
+Now that the data has been loaded and filtered, we will create embeddings so we can query on the plot for each movie.
 
-   ```python
-   df['embeddings'] = df["Plot"].apply(lambda x : get_embedding(x, engine = DEPLOYMENT_NAME))
-   df
-   ```
-
-   This can take up to 30 minutes to complete.
+1. Execute the code cell with the comment `Code cell 7`. This can take up to 30 minutes to complete.
 
    Upon completion, you should see a new column in the dataframe called `embeddings`, which contains the embeddings values:
 
 <!--Fran, we could use a screenshot here-->
 
-### Configure Redis for vector search
+## Configure Redis for vector search
 
-Update the Jupyter notebook with the connection information for your Azure Cache for Redit Enterprise endpoint.
+Next, you'll configure Redis to store the embedding vectors we created in the previous step. To do this, you'll need to update the Jupyter notebook with the connection information for your Azure Cache for Redit Enterprise endpoint.
 
 1. In the Azure portal, navigate to your cache instance's **Overview** page and copy endpoint of your Azure Cache for Redis Enterprise instance. The endpoint should resemble: `myredisinstance.eastus.redisenterprise.cache.azure.net`.
-1. In the next cell of the Jupyter notebook under "Set up Redis", update the line of code that sets the `REDIS_HOST` variable with the endpoint of your Azure Cache for Redis Enterprise instance that you copied in the previous step.
+
+1. In the code cell with the comment `Code cell 8`, update the line of code that sets the `REDIS_HOST` variable with the endpoint of your Azure Cache for Redis Enterprise instance that you copied in the previous step.
+
 1. In the Azure portal, navigating to the **Access keys** page and copy one of the access keys for the cache.
-1. In the Jupyter notebook two lines below your previous edit, update the line of code that sets the `REDIS_PASSWORD` variable with access key you copied in the previous step.
+
+1. Again in the code cell with the comment `Code cell 8`, update the line of code that sets the `REDIS_PASSWORD` variable with access key you copied in the previous step.
 1. Execute the cell you just edited. If the connection is sucessful, you will see `True` returned.
 
    > [!Important]
    > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview) to pass in the Redis key and hostname information. These variables are set in plaintext here for the sake of simplicity.
 
-Next, configure the Redis instance for vector search. In this example, you'll use `Cosine` as a distance metric, and a `FLAT` index method.  
+1. Execute the code cell with the comment `Code cell 9`. configure the Redis instance for vector search. In this example, you'll use `Cosine` as a distance metric, and a `FLAT` index method.  
 
-1. Execute the next cell in the Jupyter notebook that begins with the following code:
-
-   ```python
-   # Constants
-   VECTOR_DIM = 1536                               # length of the vectors for the text-embedding-ada-002 (Version 2) model
-   VECTOR_NUMBER = len(df)                         # initial number of vectors
-   INDEX_NAME = "embeddings-index"                 # name of the search index
-   PREFIX = "movie"                                # prefix for the document keys
-   DISTANCE_METRIC = "COSINE"                      # distance metric for the vectors (ex. COSINE, IP, L2)
-   ```
-
-1. Execute the next cell in the Jupyter notebook which load items into Redis. This can take 10+ minutes.
-
-   ```python
-   def index_documents(client: redis.Redis, prefix: str, documents: pd.DataFrame):
-       records = documents.to_dict("records")
-       for doc in records:
-           key = f"{prefix}:{str(doc['id'])}"
-
-           # create byte vectors for title and content
-           plot_embeddings = np.array(doc["embeddings"], dtype=np.float32).tobytes()
-
-           # replace list of floats with byte vectors
-           doc["embeddings"] = plot_embeddings
-
-           client.hset(key, mapping = doc)
-
-   index_documents(redis_client, PREFIX, df)
-   print(f"Loaded {redis_client.info()['db0']['keys']} documents in Redis search index with name: {INDEX_NAME}")
-   ```
+1. Execute the code cell with the comment `Code cell 10`. The `index_documents()` method loads items into Redis. This can take 10+ minutes.
 
    Upon completion, you should see the following output.
 
@@ -253,56 +186,21 @@ Next, configure the Redis instance for vector search. In this example, you'll us
    Loaded 11086 documents in Redis search index with name: embeddings-index
    ```
 
-## Execute searches
+## Execute basic vector similarity search
 
 Now that your dataset, Azure OpenAI service API, and Redis instance are set up, you can search for vectors.
 
-### Basic vector similarity search
+1. Execute the code cell with the comment `Code cell 11`. This code first creates an embedding vector for the user query, then prepares the query to be executed, and finally performs the vector search against the redis cache.
 
-First, define the vector search function.
+1. Execute the code cell with the comment `Code cell 12`. Here we call the `search_redis()` function defined in Code cell 11 and provide a natural language query.
 
-```python
-def search_redis(
-    redis_client: redis.Redis,
-    user_query: str,
-    index_name: str = "embeddings-index",
-    vector_field: str = "embeddings",
-    return_fields: list = ["Title", "Director", "Cast", "Genre", "vector_score"],
-    hybrid_fields = "*",
-    k: int = 20,
-) -> List[dict]:
-
-    # Creates embedding vector from user query
-    embedded_query = openai.Embedding.create(deployment_id=DEPLOYMENT_NAME, input=user_query,
-                                            model=DEPLOYMENT_NAME,
-                                            )["data"][0]['embedding']
-
-    # Prepare the Query
-    base_query = f'{hybrid_fields}=>[KNN {k} @{vector_field} $vector AS vector_score]'
-    query = (
-        Query(base_query)
-         .return_fields(*return_fields)
-         .sort_by("vector_score")
-         .paging(0, k)
-         .dialect(2)
-    )
-    params_dict = {"vector": np.array(embedded_query).astype(dtype=np.float32).tobytes()}
-
-    # perform vector search
-    results = redis_client.ft(index_name).search(query, params_dict)
-    for i, article in enumerate(results.docs):
-        score = 1 - float(article.vector_score)
-        print(f"{i}.{article.Title} (Score: {round(score ,3) })")
-    return results.docs
-```
-
-Then, you can use this function to search the vector database with keywords or natural language queries:
+1. Modify the code in `Code cell 12` to match the following change:
 
    ```python
    results = search_redis(redis_client, "Basketball comeback story with NBA players", k=10)
    ```
 
-   If successful, you should see the following output:
+1. Execute code cell 12 again. If successful, you should see the following output:
 
    ```output
    0.Celtic Pride (Score: 0.831)
@@ -317,58 +215,56 @@ Then, you can use this function to search the vector database with keywords or n
    9.Blue Chips (Score: 0.816)
    ```
 
-```python
-results = search_redis(redis_client, "spaceships, explosions, area 51, aliens, and America.", k=10)
-```
+1. Again, modify the code in `Code cell 12` to match the following change:
 
-```output
-0.Independence Day (Score: 0.849)
-1.Hangar 18 (Score: 0.824)
-2.UFO: Target Earth (Score: 0.823)
-3.Solar Crisis (Score: 0.821)
-4.Invaders from Mars (Score: 0.818)
-5.The Dark Side of the Moon (Score: 0.818)
-6.Mars Attacks! (Score: 0.817)
-7.The Flying Machine (Score: 0.817)
-8.Remote Control (Score: 0.817)
-9.Spaced Invaders (Score: 0.815)
-```
+   ```python
+   results = search_redis(redis_client, "spaceships, explosions, area 51, aliens, and America.", k=10)
+   ```
+
+   Notice that in this example, keywords are used instead of a natural language query.
+
+1. Execute code cell 12 again. If successful, you should see the following output:
+
+   ```output
+   0.Independence Day (Score: 0.849)
+   1.Hangar 18 (Score: 0.824)
+   2.UFO: Target Earth (Score: 0.823)
+   3.Solar Crisis (Score: 0.821)
+   4.Invaders from Mars (Score: 0.818)
+   5.The Dark Side of the Moon (Score: 0.818)
+   6.Mars Attacks! (Score: 0.817)
+   7.The Flying Machine (Score: 0.817)
+   8.Remote Control (Score: 0.817)
+   9.Spaced Invaders (Score: 0.815)
+   ```
+
 <!--TODO: Provide another example-->
-Note that the similarity score is returned along with the ordinal ranking of movies by similarity. You'll notice that more specific queries will have similarity scores decrease faster down the list. 
 
-### Hybrid searches
+   Note that the similarity score is returned along with the ordinal ranking of movies by similarity. You'll notice that more specific queries will have similarity scores decrease faster down the list.
 
-Since RediSearch also features rich search functionality on top of vector search, it's possible to filter results by the metadata in the data set, such as film genre, cast, release year, or director. 
+## Hybrid searches
 
-You can take the same query as above and filter for the Genre _drama_:
+Since RediSearch also features rich search functionality on top of vector search, it's possible to filter results by the metadata in the data set, such as film genre, cast, release year, or director.
 
-```python
-def create_hybrid_field(field_name: str, value: str) -> str:
-    return f'@{field_name}:"{value}"'
+1. Execute the code cell with the comment `Code cell 13`. Note how the `create_hybrid_field()` method filters for for the Genre _drama_.
 
-# search the content vector for movies with a specific genre
-results = search_redis(redis_client,
-                       "Basketball comeback story with NBA players",
-                       vector_field="embeddings",
-                       k=10,
-                       hybrid_fields=create_hybrid_field("Genre", "drama")
-                       )
-```
+   If successful, you should see the following output:
 
-```output
-0.Inside Moves (Score: 0.826)
-1.That Championship Season (Score: 0.823)
-2.Hurricane Season (Score: 0.819)
-3.Coach Carter (Score: 0.818)
-4.Blue Chips (Score: 0.816)
-5.Sunset Park (Score: 0.814)
-6.Home Run (Score: 0.814)
-7.One on One (Score: 0.813)
-8.That Championship Season (Score: 0.813)
-9.He Got Game (Score: 0.811)
-```
+   ```output
+   0.Inside Moves (Score: 0.826)
+   1.That Championship Season (Score: 0.823)
+   2.Hurricane Season (Score: 0.819)
+   3.Coach Carter (Score: 0.818)
+   4.Blue Chips (Score: 0.816)
+   5.Sunset Park (Score: 0.814)
+   6.Home Run (Score: 0.814)
+   7.One on One (Score: 0.813)
+   8.That Championship Season (Score: 0.813)
+   9.He Got Game (Score: 0.811)
+   ```
 
-With Azure Cache for Redis and Azure OpenAI Service, you can use embeddings and vector search to add powerful search capabilities to your application.  
+   With Azure Cache for Redis and Azure OpenAI Service, you can use embeddings and vector search to add powerful search capabilities to your application.
+ 
 <!--TODO: Provide another example also filtering for year-->
 <!--Optional TODO: clean metadata columns of spaces to make searching easier-->
 
