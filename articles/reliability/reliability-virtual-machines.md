@@ -17,7 +17,6 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 
 ## Reliability recommendations
-This section contains recommendations for achieving resiliency and availability for your Azure Virtual Machines.  
 
 [!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
  
