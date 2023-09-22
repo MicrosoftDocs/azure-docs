@@ -82,7 +82,7 @@ Next, export the certificate:
 > [!NOTE]
 > If more than one domain controller is LDAPS enabled, repeat the export procedure for each additional domain controller to export their corresponding certificates. Note that you can only reference two LDAPS servers in the `New-LDAPSIdentitySource` Run Command. If the certificate is a wildcard certificate, such as ***.avsdemo.net**, you only need to export the certificate from one of the domain controllers.
 
-## (Optional) Upload LDAPS certificate to blob storage and generate a SAS URL
+## (Optional) Upload the LDAPS certificate to blob storage and generate a SAS URL
 
 - Upload the certificate file (.cer format) you just exported to an Azure Storage account as blob storage. Then, [grant access to Azure Storage resources using a shared access signature (SAS)](../storage/common/storage-sas-overview.md).
 
