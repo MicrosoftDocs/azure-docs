@@ -5,7 +5,7 @@ summary: Azure API for FHIR is a managed, standards-based, compliant API for cli
 
 metadata:
   title: Azure API for FHIR Documentation - tutorials, how-to guides
-  description: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+  description: This service will be retired on September 30, 2026. 
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir
@@ -29,7 +29,10 @@ landingContent:
         links:
           - text: Migrate to Azure Health Data Services
             url: ../fhir/migration-strategies.md
-
+      - linkListType: learn
+        links:
+          - text: Migration FAQ
+            url: ../fhir/migration-faq.md
   - title: Access Azure API for FHIR
     linkLists:
       - linkListType: concept
