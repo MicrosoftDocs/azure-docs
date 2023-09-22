@@ -54,10 +54,11 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Bastion](../bastion/bastion-faq.md?#dr) |
 | [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
 | [Azure Cognitive Search](../search/search-reliability.md) |
-| [Azure Data Explorer](/azure/data-explorer/business-continuity-overview) |
+| [Azure Container Instances](reliability-container.md#disaster-recovery) |
 | [Azure Database for MySQL](/azure/mysql/single-server/concepts-business-continuity?#recover-from-an-azure-regional-data-center-outage) |
 | [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-restore-server-portal?#geo-restore-to-latest-restore-point) |
 | [Azure Database for PostgreSQL - Flexible Server](reliability-postgre-flexible.md#cross-region-disaster-recovery-and-business-continuity) |
+| [Azure Data Explorer](/azure/data-explorer/business-continuity-overview) |
 | [Azure DDoS Protection](../ddos-protection/ddos-disaster-recovery-guidance.md?#business-continuity) |
 | [Azure Event Grid](../event-grid/custom-disaster-recovery.md) |
 | [Azure Functions](reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) |
