@@ -238,11 +238,11 @@ The following table shows the speed of each migration processing task.
 
 | Processing task                        | Speed                                 |
 |----------------------------------------|---------------------------------------|
-| Data copy                              | 10 TB per hour                        |
+| Data copy                              | 9 TB per hour                        |
 | Data validation                        | 9 million files per hour              |
 | Metadata copy                          | 4 million files and folders per hour  |
 | Metadata processing                    | 25 million files and folders per hour |
-| Metadata processing (data copy option) | 50 million files and folders per hour |
+| Additional metadata processing (data copy option) | 50 million files and folders per hour |
 
 ##### Example: Processing a large number of objects
 
@@ -250,13 +250,13 @@ This example assumes **300 TB** of data and **200 million** objects.
 
 | Task | Estimated time |
 |--|--|
-| Copy data | 300 TB / 10 TB = 30 hours |
-| Validate data | 2 million / 9 million = 22.22 hours|
-| **Data processing time** | **30 + 22.2 = 52.2 hours** |   
-| Copy metadata | 2 million / 4 million = 50 hours |
-| Metadata processing | 2 million / 25 million = 8 hours |
-| Metadata processing - data copy option only | 200 million / 50 million = 4 hours |
-| **Metadata processing time** | **50 + 8 + 4 = 62 hours** |
+| Copy data | 300 TB / 9 TB = 33.33 hours |
+| Validate data | 200 million / 9 million = 22.22 hours|
+| **Total data migration time** | **33.33 + 22.2 = 55.55 hours** |   
+| Copy metadata | 200 million / 4 million = 50 hours |
+| Metadata processing | 200 million / 25 million = 8 hours |
+| Additional metadata processing - data copy option only | 200 million / 50 million = 4 hours |
+| **Total metadata migration time** | **50 + 8 + 4 = 62 hours** |
 | **Total time to perform a data-only migration** | **62 hours** |
 | **Total time to perform a complete migration**| **62 - 4 = 58 hours** |
 
@@ -266,15 +266,15 @@ This example assumes that **2 TB** of data and **56 thousand** files and folders
 
 | Task | Estimated time |
 |--|--|
-| Copy data | 2 TB / 10 TB = 12 minutes|
-| Validate data | (56,000 / 9 million) * 3,600 seconds = 22.22 seconds  |
-| **Data processing time** | **30 minutes + 22.2 seconds = approximately 13 minutes** |   
-| Copy metadata | (56,000 / 25 million) * 3,600 seconds  = 51 seconds |
-| Metadata processing | 56,000/ 25,000 = 8 seconds |
-| Metadata processing - data copy option only | (56,000 / 50 million) * 3,600 seconds = 4 seconds|
-| **Metadata processing time** | **51 + 8 + 4 = 63 seconds** |
-| **Total time to perform a data-only migration** | **13 minutes** |
-| **Total time to perform a complete migration** | **13 minutes** |
+| Copy data | (2 TB / 9 TB) * 60 minutes = 12 minutes|
+| Validate data | (56,000 / 9 million) * 3,600 seconds = 22.4 seconds  |
+| **Total data migration time** | **13.3 minutes + 22.4 seconds = approximately 14 minutes** |   
+| Copy metadata | (56,000 / 4 million) * 3,600 seconds  = approximately 51 seconds |
+| Metadata processing | 56,000/ 25 million = 8 seconds |
+| Additional metadata processing - data copy option only | (56,000 / 50 million) * 3,600 seconds = 4 seconds|
+| **Total metadata migration time** | **51 + 8 + 4 = 63 seconds** |
+| **Total time to perform a data-only migration** | **14 minutes** |
+| **Total time to perform a complete migration** | **14 minutes - 4 seconds = 13 minutes and 56 seconds (approximately 14 minutes)** |
 
 #### How much does the data migration cost?
 
