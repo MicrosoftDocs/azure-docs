@@ -225,7 +225,7 @@ Stay up to date on Azure Maps:
 [Geolocation service]: /rest/api/maps/geolocation
 [Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
-[Render v1]: /rest/api/maps/render-v1
+[Render v1]: /rest/api/maps/render
 [Render v2]: /rest/api/maps/render-v2
 [REST APIs]: /rest/api/maps/
 [Route service]: /rest/api/maps/route

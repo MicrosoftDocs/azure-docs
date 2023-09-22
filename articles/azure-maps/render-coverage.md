@@ -214,5 +214,5 @@ The render coverage tables below list the countries/regions that support Azure M
 > [Azure Maps routing coverage](routing-coverage.md)
 
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
-[Render v1]: /rest/api/maps/render-v1
+[Render v1]: /rest/api/maps/render
 [Render v2]: /rest/api/maps/render-v2
