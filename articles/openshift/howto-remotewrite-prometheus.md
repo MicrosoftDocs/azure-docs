@@ -46,7 +46,7 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 
 ## Create secret in the ARO cluster
 
-We are using the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack)
+We're using the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack)
 To facilitate this approach, create a secret with the client Id and client secret
 
 ```
