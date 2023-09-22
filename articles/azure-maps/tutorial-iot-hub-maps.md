@@ -116,7 +116,7 @@ When you successfully create your storage account, you then need to create a con
 
 The geofence defines the authorized geographical area for our rental vehicle. Use the geofence in your Azure function to determine whether a car has moved outside the geofence area.
 
-Follow the steps outlined in the [How to create data registry] article to upload the [geofence JSON data file] into your Azure storage account then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geofence you uploaded into your Azure storage account from your source code. For more information on geofence data files, see [Geofencing GeoJSON data].
+Follow the steps outlined in the [How to create data registry] article to upload the [geofence JSON data file] into your Azure storage account then register it in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you'll need it. The `udid` is how you reference the geofence you uploaded into your Azure storage account from your source code. For more information on geofence data files, see [Geofencing GeoJSON data].
 
 ## Create an IoT hub
 
