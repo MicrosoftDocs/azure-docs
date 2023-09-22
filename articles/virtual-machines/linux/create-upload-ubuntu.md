@@ -147,7 +147,8 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     ```bash
     sudo cat >> /etc/waagent.conf << EOF
     # For Azure Linux agent version >= 2.2.45, this is the option to configure,
-    # enable or disable the provisioning behavior of the Linux agent.
+    # enable, or disable the provisioning behavior of the Linux agent.
+
     # Accepted values are auto (default), waagent, cloud-init or disabled.
     # A value of auto means that the agent will rely on cloud-init to handle
     # provisioning if it is installed and enabled, which in this case it will.
@@ -171,7 +172,8 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
     > The `sudo waagent -force -deprovision+user` command generalizes the image by attempting to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
 
     > [!WARNING]
-    > Deprovisioning using the command above does not guarantee the image will be cleared of all sensitive information and is suitable for redistribution.
+    > Deprovisioning using the command above doesn't guarantee the image is cleared of all sensitive information and is suitable for redistribution.
+
 
     ```bash
      sudo waagent -force -deprovision+user
