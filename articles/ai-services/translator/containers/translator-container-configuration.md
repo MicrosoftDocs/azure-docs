@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 09/21/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -92,7 +92,7 @@ Translator containers support the following logging providers:
 The general command syntax for logging is as follows:
 
 ```bash
-    -Logging:{Provider}:LogLevel:{FilterSpecs=}
+    -Logging:LogLevel:{Provider}={FilterSpecs}
 ```
 
 Log level (lowest to highest)
