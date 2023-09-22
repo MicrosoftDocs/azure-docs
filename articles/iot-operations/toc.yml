@@ -18,6 +18,16 @@ items:
       items:
       - name: Overview
         href: manage-devices-assets/overview-manage-assets.md
+      - name: Concepts
+        items: 
+        - name: Akri overview
+          href: manage-devices-assets/concept-akri-overview.md
+        - name: OPC UA broker overview
+          href: manage-devices-assets/concept-opcua-broker-overview.md
+      - name: How to 
+        items: 
+        - name: Manage assets remotely
+          href: manage-devices-assets/howto-manage-assets-remotely.md
     - name: Route messages
       items:
       - name: Overview
