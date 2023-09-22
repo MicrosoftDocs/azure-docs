@@ -1,5 +1,5 @@
 ---
-title: Achieve NIST authenticator assurance levels with Azure Active Directory
+title: Achieve NIST authenticator assurance levels with Microsoft Entra ID
 description: An overview of 
 services: active-directory 
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Azure Active Directory to meet NIST authenticator assurance levels 
+# Configure Microsoft Entra ID to meet NIST authenticator assurance levels 
 
-If you provide services for federal agencies, there can be challenges meeting multiple standards. As a cloud service provider (CSP) or federal agency, you ensure compliance with all relevant standards. Azure and Azure Active Directory (Azure AD) make configuring requirements easier with our certifications. Azure is certified for more than 90 compliance offerings. For more details, see [Trust your cloud](https://azure.microsoft.com/overview/trusted-cloud/).
+If you provide services for federal agencies, there can be challenges meeting multiple standards. As a cloud service provider (CSP) or federal agency, you ensure compliance with all relevant standards. Azure and Microsoft Entra ID make configuring requirements easier with our certifications. Azure is certified for more than 90 compliance offerings. For more details, see [Trust your cloud](https://azure.microsoft.com/overview/trusted-cloud/).
 
-This article set has guidance on attaining the authenticator assurance levels (AALs) in NIST SP 800-63B by using Azure AD and other Microsoft solutions. See Next steps below.
+This article set has guidance on attaining the authenticator assurance levels (AALs) in NIST SP 800-63B by using Microsoft Entra ID and other Microsoft solutions. See Next steps below.
 
 ## Why meet NIST standards? 
 
@@ -42,7 +42,7 @@ NIST SP 800-63-3 digital identity guidelines encompass three areas:
 
 * [SP 800-63C](https://pages.nist.gov/800-63-3/sp800-63c.html) - federation and assertions
 
-Each area has assurance levels. Use the following links to help attain the authenticator assurance levels (AALs) in NIST SP 800-63B by using Azure AD and other Microsoft solutions.
+Each area has assurance levels. Use the following links to help attain the authenticator assurance levels (AALs) in NIST SP 800-63B by using Microsoft Entra ID and other Microsoft solutions.
 
 ## Next steps 
 
@@ -52,8 +52,8 @@ Each area has assurance levels. Use the following links to help attain the authe
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieve NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
+[Achieve NIST AAL1 with Microsoft Entra ID](nist-authenticator-assurance-level-1.md)
 
-[Achieve NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
+[Achieve NIST AAL2 with Microsoft Entra ID](nist-authenticator-assurance-level-2.md)
 
-[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 
+[Achieve NIST AAL3 with Microsoft Entra ID](nist-authenticator-assurance-level-3.md) 

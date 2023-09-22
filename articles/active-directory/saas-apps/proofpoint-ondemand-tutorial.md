@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Proofpoint on Demand'
-description: Learn how to configure single sign-on between Azure Active Directory and Proofpoint on Demand.
+title: 'Tutorial: Microsoft Entra SSO integration with Proofpoint on Demand'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Proofpoint on Demand.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,33 +12,33 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with Proofpoint on Demand
+# Tutorial: Microsoft Entra SSO integration with Proofpoint on Demand
 
-In this tutorial, you'll learn how to integrate Proofpoint on Demand with Azure Active Directory (Azure AD). When you integrate Proofpoint on Demand with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Proofpoint on Demand with Microsoft Entra ID. When you integrate Proofpoint on Demand with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Proofpoint on Demand.
-* Enable your users to be automatically signed-in to Proofpoint on Demand with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Proofpoint on Demand.
+* Enable your users to be automatically signed-in to Proofpoint on Demand with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Proofpoint on Demand single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> If you are using MFA or Passwordless authentication with Azure AD then switch off the AuthnContext value in the SAML Request. Otherwise Azure AD will throw the error on mismatch of the AuthnContext and will not send the token back to the application.
+> If you are using MFA or Passwordless authentication with Microsoft Entra ID then switch off the AuthnContext value in the SAML Request. Otherwise Microsoft Entra ID will throw the error on mismatch of the AuthnContext and will not send the token back to the application.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Proofpoint on Demand supports **SP** initiated SSO.
 
 ## Add Proofpoint on Demand from the gallery
 
-To configure the integration of Proofpoint on Demand into Azure AD, you need to add Proofpoint on Demand from the gallery to your list of managed SaaS apps.
+To configure the integration of Proofpoint on Demand into Microsoft Entra ID, you need to add Proofpoint on Demand from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of Proofpoint on Demand into Azure AD, you need to 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Proofpoint on Demand
+<a name='configure-and-test-azure-ad-sso-for-proofpoint-on-demand'></a>
 
-Configure and test Azure AD SSO with Proofpoint on Demand using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Proofpoint on Demand.
+## Configure and test Microsoft Entra SSO for Proofpoint on Demand
 
-To configure and test Azure AD SSO with Proofpoint on Demand, perform the following steps:
+Configure and test Microsoft Entra SSO with Proofpoint on Demand using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Proofpoint on Demand.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Proofpoint on Demand, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Proofpoint on Demand SSO](#configure-proofpoint-on-demand-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Proofpoint on Demand test user](#create-proofpoint-on-demand-test-user)** - to have a counterpart of B.Simon in Proofpoint on Demand that is linked to the Azure AD representation of user.
+    1. **[Create Proofpoint on Demand test user](#create-proofpoint-on-demand-test-user)** - to have a counterpart of B.Simon in Proofpoint on Demand that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Proofpoint on Demand** > **Single sign-on**.
@@ -83,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Proofpoint on Demand Client support team](https://www.proofpoint.com/us/support-services) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Proofpoint on Demand Client support team](https://www.proofpoint.com/us/support-services) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -93,9 +97,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user 
+
+In this section, you'll create a test user called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -107,9 +113,11 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Proofpoint on Demand.
+### Assign the Microsoft Entra test user
+
+In this section, you'll enable B.Simon to use single sign-on by granting access to Proofpoint on Demand.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Proofpoint on Demand**.
@@ -121,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Proofpoint on Demand SSO
 
-To configure single sign-on on **Proofpoint on Demand** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Proofpoint on Demand support team](https://www.proofpoint.com/us/support-services). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Proofpoint on Demand** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from the application configuration to [Proofpoint on Demand support team](https://www.proofpoint.com/us/support-services). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Proofpoint on Demand test user
 
@@ -129,13 +137,13 @@ In this section, you create a user called Britta Simon in Proofpoint on Demand. 
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Proofpoint on Demand Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Proofpoint on Demand Sign-on URL where you can initiate the login flow. 
 
 * Go to Proofpoint on Demand Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Proofpoint on Demand tile in the My Apps, this will redirect to Proofpoint on Demand Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the Proofpoint on Demand tile in the My Apps, this will redirect to Proofpoint on Demand Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

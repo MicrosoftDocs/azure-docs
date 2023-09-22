@@ -1,6 +1,6 @@
 ---
-title: Join a Windows Server VM to an Azure AD Domain Services managed domain | Microsoft Docs
-description: In this tutorial, learn how to join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain.
+title: Join a Windows Server VM to a Microsoft Entra Domain Services managed domain | Microsoft Docs
+description: In this tutorial, learn how to join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain.
 author: justinha
 manager: amycolannino
 
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/15/2023
 ms.author: justinha
 
-#Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
+#Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to a Microsoft Entra Domain Services managed domain to provide centralized identity and policy.
 ---
-# Tutorial: Join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain
+# Tutorial: Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain
 
-Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. With an Azure AD DS managed domain, you can provide domain join features and management to virtual machines (VMs) in Azure. This tutorial shows you how to create a Windows Server VM then join it to a managed domain.
+Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. With a Domain Services managed domain, you can provide domain join features and management to virtual machines (VMs) in Azure. This tutorial shows you how to create a Windows Server VM then join it to a managed domain.
 
 In this tutorial, you learn how to:
 
@@ -32,13 +32,13 @@ To complete this tutorial, you need the following resources:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
 * A user account that's a part of the managed domain.
-    * Make sure that Azure AD Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to managed domain.
-* An Azure Bastion host deployed in your Azure AD DS virtual network.
+    * Make sure that Microsoft Entra Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to managed domain.
+* An Azure Bastion host deployed in your Domain Services virtual network.
     * If needed, [create an Azure Bastion host][azure-bastion].
 
 If you already have a VM that you want to domain-join, skip to the section to [join the VM to the managed domain](#join-the-vm-to-the-managed-domain).
@@ -149,13 +149,13 @@ With the VM created and a web-based RDP connection established using Azure Basti
 
     ![Specify the managed domain to join](./media/join-windows-vm/join-domain.png)
 
-1. Enter domain credentials to join the domain. Provide credentials for a user that's a part of the managed domain. The account must be part of the managed domain or Azure AD tenant - accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
+1. Enter domain credentials to join the domain. Provide credentials for a user that's a part of the managed domain. The account must be part of the managed domain or Microsoft Entra tenant - accounts from external directories associated with your Microsoft Entra tenant can't correctly authenticate during the domain-join process.
 
     Account credentials can be specified in one of the following ways:
 
-    * **UPN format** (recommended) - Enter the user principal name (UPN) suffix for the user account, as configured in Azure AD. For example, the UPN suffix of the user *contosoadmin* would be `contosoadmin@aaddscontoso.onmicrosoft.com`. There are a couple of common use-cases where the UPN format can be used reliably to sign in to the domain rather than the *SAMAccountName* format:
+    * **UPN format** (recommended) - Enter the user principal name (UPN) suffix for the user account, as configured in Microsoft Entra ID. For example, the UPN suffix of the user *contosoadmin* would be `contosoadmin@aaddscontoso.onmicrosoft.com`. There are a couple of common use-cases where the UPN format can be used reliably to sign in to the domain rather than the *SAMAccountName* format:
         * If a user's UPN prefix is long, such as *deehasareallylongname*, the *SAMAccountName* may be autogenerated.
-        * If multiple users have the same UPN prefix in your Azure AD tenant, such as *dee*, their *SAMAccountName* format might be autogenerated.
+        * If multiple users have the same UPN prefix in your Microsoft Entra tenant, such as *dee*, their *SAMAccountName* format might be autogenerated.
     * **SAMAccountName format** - Enter the account name in the *SAMAccountName* format. For example, the *SAMAccountName* of user *contosoadmin* would be `AADDSCONTOSO\contosoadmin`.
 
 1. It takes a few seconds to join to the managed domain. When complete, the following message welcomes you to the domain:
@@ -183,7 +183,7 @@ In the next tutorial, you use this Windows Server VM to install the management t
 
 To remove the VM from the managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-managed-domain). Instead of joining the managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the managed domain.
 
-If you [delete the VM](#delete-the-vm) without unjoining from the domain, an orphaned computer object is left in Azure AD DS.
+If you [delete the VM](#delete-the-vm) without unjoining from the domain, an orphaned computer object is left in Domain Services.
 
 ### Delete the VM
 
@@ -204,7 +204,7 @@ If you don't receive a prompt that asks for credentials to join the domain, ther
 
 After trying each of these troubleshooting steps, try to join the Windows Server VM to the managed domain again.
 
-* Verify the VM is connected to the same virtual network that Azure AD DS is enabled in, or has a peered network connection.
+* Verify the VM is connected to the same virtual network that Domain Services is enabled in, or has a peered network connection.
 * Try to ping the DNS domain name of the managed domain, such as `ping aaddscontoso.com`.
     * If the ping request fails, try to ping the IP addresses for the managed domain, such as `ping 10.0.0.4`. The IP address for your environment is displayed on the *Properties* page when you select the managed domain from your list of Azure resources.
     * If you can ping the IP address but not the domain, DNS may be incorrectly configured. Confirm that the IP addresses of the managed domain are configured as DNS servers for the virtual network.
@@ -217,10 +217,10 @@ If you receive a prompt that asks for credentials to join the domain, but then a
 After trying each of these troubleshooting steps, try to join the Windows Server VM to the managed domain again.
 
 * Make sure that the user account you specify belongs to the managed domain.
-* Confirm that the account is part of the managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
+* Confirm that the account is part of the managed domain or Microsoft Entra tenant. Accounts from external directories associated with your Microsoft Entra tenant can't correctly authenticate during the domain-join process.
 * Try using the UPN format to specify credentials, such as `contosoadmin@aaddscontoso.onmicrosoft.com`. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the *SAMAccountName* for your account may be autogenerated. In these cases, the *SAMAccountName* format for your account may be different from what you expect or use in your on-premises domain.
 * Check that you have [enabled password synchronization][password-sync] to your managed domain. Without this configuration step, the required password hashes won't be present in the managed domain to correctly authenticate your sign-in attempt.
-* Wait for password synchronization to be completed. When a user account's password is changed, an automatic background synchronization from Azure AD updates the password in Azure AD DS. It takes some time for the password to be available for domain-join use.
+* Wait for password synchronization to be completed. When a user account's password is changed, an automatic background synchronization from Microsoft Entra ID updates the password in Domain Services. It takes some time for the password to be available for domain-join use.
 
 ## Next steps
 

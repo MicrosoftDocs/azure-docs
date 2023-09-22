@@ -48,6 +48,6 @@ You may see two types of errors on the dashboard:
 ## Next steps
 
 - [What are Lifecycle workflows?](what-are-lifecycle-workflows.md)
-- [What are Azure AD access reviews](access-reviews-overview.md)
+- [What are Microsoft Entra access reviews](access-reviews-overview.md)
 - [What is Microsoft Entra entitlement management?](entitlement-management-overview.md)
 - [What is Microsoft Entra Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
