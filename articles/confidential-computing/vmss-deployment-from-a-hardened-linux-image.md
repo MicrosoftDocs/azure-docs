@@ -50,7 +50,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     
 4.  Create a resource group.
 
-    Create a resource group with the [az group create](https://learn.microsoft.com/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup in the eastus location:
+    Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup in the eastus location:
     
    
     ```Azure CLI
@@ -64,7 +64,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
 
     Now create a Virtual Machine Scale Set with az vmss create az cli. The following example creates a scale set called myScaleSet with an instance count of 2.
    
-    If you are looking to set an admin username, ensure that it isn't part of the [reserved words](https://learn.microsoft.com/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss.
+    If you are looking to set an admin username, ensure that it isn't part of the [reserved words](/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss.
    In this case, the username is auto set to azureuser.
    For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 
