@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-# Enable file sharing using UI Library in Azure Communication Service Chat with Azure Blob Storage
+# Enable file sharing using UI Library in Azure Communication Service Chat with Azure Blob storage
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -55,13 +55,13 @@ The diagram shows a typical flow of a file sharing scenario for both upload and 
 
 ![Filesharing typical flow](./media/filesharing-typical-flow.png "Diagram that shows the the file sharing typical flow.")
 
-## Setup File Storage using Azure Blob
+## Set up file storage using Azure Blob
 
 You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Function](/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload) to write the backend code required for file sharing.
 
 Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked previously.
 
-### Securing your Azure Blob Storage Container
+### Securing your Azure Blob storage container
 
 This tutorial assumes that your Azure blob storage container allows public access to the files you upload. Making your Azure storage containers public isn't recommended for real world production applications.
 
@@ -71,7 +71,7 @@ The downloadable [GitHub sample](https://github.com/Azure-Samples/communication-
 
 UI Library requires a React environment to be set up. Next we do that. If you already have a React App, you can skip this section.
 
-### Set Up React App
+### Set up react app
 
 We use the create-react-app template for this quickstart. For more information, see: [Get Started with React](https://reactjs.org/docs/create-a-new-react-app.html)
 
@@ -86,7 +86,7 @@ cd ui-library-quickstart-composites
 At the end of this process, you should have a full application inside of the folder `ui-library-quickstart-composites`.
 For this quickstart, we're modifying files inside of the `src` folder.
 
-### Install the Package
+### Install the package
 
 Use the `npm install` command to install the beta Azure Communication Services UI Library for JavaScript.
 
@@ -106,7 +106,7 @@ npm install @azure/communication-chat@1.2.0
 
 ```
 
-### Run Create React App
+### Create React app
 
 Let's test the Create React App installation by running:
 
@@ -116,7 +116,7 @@ npm run start
 
 ```
 
-## Configuring Chat Composite to enable File Sharing
+## Configuring Chat Composite to enable file sharing
 
 You need to replace the variable values for both common variable required to initialize the chat composite.
 
@@ -223,7 +223,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 
 ```
 
-## Configure upload method to use Azure Blob Storage
+## Configure upload method to use Azure Blob storage
 
 To enable Azure Blob Storage upload, we modify the `uploadFileToAzureBlob` method we declared previously with the following code. You need to replace the Azure Function information to upload files.
 
@@ -275,7 +275,7 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
 
 ```
 
-## Error Handling
+## Error handling
     
 When an upload fails, the UI Library Chat Composite displays an error message. 
 
@@ -299,7 +299,7 @@ const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
 }
 ```
 
-## File Downloads - Advanced Usage
+## File downloads - advanced usage
 
 By default, the file `url` provided through `notifyUploadCompleted` method is used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Next, we modify the `fileDownloadHandler` that we declared previously to check for an authorized user before allowing to download the file.
 
@@ -324,7 +324,7 @@ const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
 }
 ```
 
-Download errors are be displayed to users in an error bar on top of the Chat Composite.
+Download errors are displayed to users in an error bar on top of the Chat Composite.
 
 ![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
 
