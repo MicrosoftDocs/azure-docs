@@ -119,7 +119,7 @@ sections:
       - question: |
           Can I modify group memberships using LDAP or other AD administrative tools on managed domains?
         answer: |
-          Users and groups that are synchronized from Microsoft Entra ID to Microsoft Entra Domain Services can't be modified because their source of origin is Microsoft Entra ID. This includes moving users or groups from the AADDC Users managed organizational unit to a custom organizational unit. Any user or group originating in the managed domain may be modified.  
+          Users and groups that are synchronized from Microsoft Entra ID to Microsoft Entra Domain Services can't be modified because their source of origin is Microsoft Entra ID. This includes moving users or groups from the **AADDC Users** managed organizational unit to a custom organizational unit. Any user or group originating in the managed domain may be modified.  
 
       - question: |
           How long does it take for changes I make to my Microsoft Entra directory to be visible in my managed domain?
@@ -139,7 +139,7 @@ sections:
       - question: |
           What is the password lifetime policy on a managed domain?
         answer: |
-          The default password lifetime on a Microsoft Entra Domain Services managed domain is 90 days. This password lifetime isn't synchronized with the password lifetime configured in Microsoft Entra ID. Therefore, you may have a situation where users' passwords expire in your managed domain, but are still valid in Microsoft Entra ID. In such scenarios, users need to change their password in Microsoft Entra ID and the new password will synchronize to your managed domain. If you want to change the default password lifetime in a managed domain, you can [create and configure custom password policies.](password-policy.md).
+          The default password lifetime on a Microsoft Entra Domain Services managed domain is 90 days. This password lifetime isn't synchronized with the password lifetime configured in Microsoft Entra ID. Therefore, you may have a situation where users' passwords expire in your managed domain, but are still valid in Microsoft Entra ID. In such scenarios, users need to change their password in Microsoft Entra ID and the new password will synchronize to your managed domain. If you want to change the default password lifetime in a managed domain, you can [create and configure custom password policies](password-policy.md).
           
           Additionally, the Azure AD password policy for *DisablePasswordExpiration* is synchronized to a managed domain. When *DisablePasswordExpiration* is applied to a user in Microsoft Entra ID, the *UserAccountControl* value for the synchronized user in the managed domain has *DONT_EXPIRE_PASSWORD* applied.
           
