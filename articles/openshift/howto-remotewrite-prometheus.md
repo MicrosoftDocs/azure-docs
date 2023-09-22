@@ -7,7 +7,7 @@ ms.date: 09/21/2023
 ---
 # Configure remote write to send data to Azure Monitor Workspace from the default Prometheus server in your Azure Red Hat OpenShift (ARO) cluster
 
-Azure Red Hat OpenShift comes preinstalled with a default Prometheus server which should not be removed as per the [support policy](support-policies-v4.md). There are scenarios where there is a need to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation.  you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from the in-cluster Prometheus servers into the Azure managed service.
+Azure Red Hat OpenShift comes preinstalled with a default Prometheus server that shouldn't be removed as per the [support policy](support-policies-v4.md). There are scenarios where there's a need to centralize data from self-managed Prometheus clusters for long-term data retention and to create a centralized view across your clusters. Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation.  you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from the in-cluster Prometheus servers into the Azure managed service.
 
 ## Prerequisites
 - Data for Azure Monitor managed service for Prometheus is stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). You must [create a new workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace) if you don't already have one.
@@ -46,8 +46,8 @@ The application requires the *Monitoring Metrics Publisher* role on the data col
 
 ## Create secret in the ARO cluster
 
-We will be using the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack)
-To facilitate this, create a secret with the client Id and client secret
+We are using the OAuth 2.0 authentication method from the [supported remote write authentication settings](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#supported_remote_write_authentication_settings_configuring-the-monitoring-stack)
+To facilitate this approach, create a secret with the client Id and client secret
 
 ```
 cat << EOF | oc apply -f -
@@ -65,15 +65,16 @@ EOF
 ## Configure remote write
 
 To [configure](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#configuring_remote_write_storage_configuring-the-monitoring-stack) remote write for default platform monitoring, we need to update the cluster-monitoring-config config map in the openshift-monitoring namespace
-1. Replace the INGESTION-URL in the configuration below with the **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace
-2. Replace the TENANT_ID in the configuration below with the tenat Id of the service principal
+1. Replace the INGESTION-URL in the configuration with the **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace
+2. Replace the TENANT_ID in the configuration with the tenant Id of the service principal
 
 Edit the configmap
 
 ```
 oc edit -n openshift-monitoring cm cluster-monitoring-config
 ```
-and update the configuration as below
+
+and update the configuration
 
 ```
 data:
@@ -99,7 +100,7 @@ The captured metrics can be visualized using community Grafana dashboards or cre
 
 1. Create an [Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md)
 2. [Link](../azure-monitor/essentials/azure-monitor-workspace-manage.md?tabs=azure-portal#link-a-grafana-workspace) the created Grafana workspace to the Azure Monitor workspace
-3. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashbord with id 3870 [Opensshift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
+3. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashboard with id 3870 [Opensshift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
 4. Specify the Azure Monitor Workspace as the datasource
 5. Save the dashboard
 6. Access the dashboard from **Home -> Dashboards**   
