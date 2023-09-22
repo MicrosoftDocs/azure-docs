@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 09/13/2023
+ms.date: 09/21/2023
 ms.service: network-access
 ms.custom: 
 
@@ -22,15 +22,12 @@ This article provides the steps to set up the other side of the communication ch
 To configure your customer premises equipment (CPE), you must have:
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID.
-- Sent an email to Global Secure Access onboarding according to the onboarding process in the **Remote network** area of Global Secure Access.
-- Received the connectivity information from Global Secure Access onboarding.
 - The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
-
-To onboard to Global Secure Access remote network connectivity, you must have completed the [onboarding process](how-to-create-remote-networks.md#onboard-your-tenant-for-remote-networks). In order to configure your CPE, you need the connectivity information provided by the Global Secure Access onboarding team.
+- To configure your CPE, you must have completed the Global Secure Access onboarding process.
 
 ## How to configure your customer premises equipment
 
-You can set up the CPE using the Microsoft Entra admin center or using the Microsoft Graph API.
+You can set up the CPE using the Microsoft Entra admin center or using the Microsoft Graph API. When you create a remote network and add your device link information, configuration details are generated. These details are needed to configure your CPE.
 
 ## [Microsoft Entra admin center](#tab/microsoft-entra-admin-center)
 
@@ -53,10 +50,15 @@ Follow these instructions to download the connectivity information for your remo
 1. Sign in to [Graph Explorer](https://aka.ms/ge).
 1. Select **GET** as the HTTP method from the dropdown.
 1. Set the API version to **beta**.
-1. Run the following query to use get the connectivity information, replacing `{GUID}` with the ID of the remote network you want to configure:
+1. Run the following query to list your remote networks and their device links:
 
-    ```http
-    https://graph.microsoft.com/beta/networkaccess/branches/{GUID}/downloadConnectivity
+    ```
+       GET https://graph.microsoft.com/beta/networkaccess/connectivity/branches
+    ```
+1. Run the following query to use get the connectivity information, replacing `{branchSiteId}` with the ID of your remote network and `{deviceLinkId}` with the ID of your device link:
+
+    ``` http
+    GET https://graph.microsoft.com/beta/networkAccess/connectivity/branches/{branchSiteId}/deviceLinks/{deviceLinkId}
     ```
 ---
 
