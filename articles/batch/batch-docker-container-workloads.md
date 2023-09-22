@@ -81,7 +81,7 @@ For Linux container workloads, Batch currently supports the following Linux imag
   - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc), the docker data root is unchanged from the Docker default which is `/var/lib/docker` on Linux and `C:\ProgramData\Docker` on Windows. These folders are usually located on the OS disk.
 
     When using non-Batch images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
-#### Potential Solutions for Customer
+#### Potential solutions for customer
 
 Change the docker data root in a start task when creating a pool in BatchExplorer. Here's an example of the Start Task command:
 ```csharp
