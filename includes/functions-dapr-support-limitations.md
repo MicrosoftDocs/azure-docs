@@ -7,4 +7,4 @@ ms.author: hannahhunter
 ---
 
 >[!IMPORTANT]
->The Dapr Binding for Azure Functions is currently in preview. 
+>The Dapr Extension for Azure Functions is currently in preview. 

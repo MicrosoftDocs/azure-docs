@@ -1,18 +1,18 @@
 ---
-title: Dapr Binding for Azure Functions
-description: Learn to use the Dapr trigger and bindings in Azure Functions.
+title: Dapr Extension for Azure Functions
+description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.date: 08/17/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Dapr trigger and bindings for Azure Functions
+# Dapr triggers and bindings for Azure Functions
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
-The Dapr Binding for Azure Functions is a set of tools and services that allow developers to easily integrate Azure Functions with the [Distributed Application Runtime (Dapr)](https://docs.dapr.io/) platform. 
+The Dapr Extension for Azure Functions is a set of tools and services that allow developers to easily integrate Azure Functions with the [Distributed Application Runtime (Dapr)](https://docs.dapr.io/) platform. 
 
 Azure Functions is an event-driven compute service that provides a set of [triggers and bindings](./functions-triggers-bindings.md) to easily connect with other Azure services. Dapr provides a set of building blocks and best practices for building distributed applications, including microservices, state management, pub/sub messaging, and more.
 
@@ -100,7 +100,7 @@ An isolated worker process class library compiled C# function runs in a process 
 
 ---
 
-The Dapr Binding supports parameter types according to the table below.
+The Dapr Extension supports parameter types according to the table below.
 
 | Binding | Parameter types |
 |-|-|-| 
@@ -123,14 +123,14 @@ For examples using these types, see [the GitHub repository for the extension](ht
 [daprPublish]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
 [daprBinding]: https://github.com/Azure/azure-functions-dapr-extension/blob/master/docs/output-bindings.md#topic-publish-output-binding
 
-## Try out the Dapr Binding for Azure Functions
+## Try out the Dapr Extension for Azure Functions
 
-Learn how to use the Dapr Binding for Azure Functions via the provided samples.
+Learn how to use the Dapr Extension for Azure Functions via the provided samples.
 
 | Samples | Description |
 |-|-| 
 | [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
-| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Binding with the Kafka bindings Dapr component. |
+| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Extension with the Kafka bindings Dapr component. |
 | [.NET In-process][dapr-in-proc] | Learn how to use Azure Functions in-process model to integrate with multiple Dapr components in .NET, like Service Invocation, Pub/sub, Bindings, and State Management. |
 | [.NET Isolated][dapr-isolated] | Integrate with Dapr components in .NET using the Azure Functions out-of-proc (OOP) execution model. |
 
@@ -143,13 +143,13 @@ Learn how to use the Dapr Binding for Azure Functions via the provided samples.
 
 ::: zone pivot="programming-language-java"
 
-## Try out the Dapr Binding for Azure Functions
+## Try out the Dapr Extension for Azure Functions
 
-Learn how to use the Dapr Binding for Azure Functions via the provided samples.
+Learn how to use the Dapr Extension for Azure Functions via the provided samples.
 
 | Samples | Description |
 |-|-| 
-| [Java Functions][dapr-java] | Learn how to use the Azure Functions Dapr Binding using Java. |
+| [Java Functions][dapr-java] | Learn how to use the Azure Functions Dapr Extension using Java. |
 
 [dapr-java]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/java-azurefunctions
 
@@ -157,14 +157,14 @@ Learn how to use the Dapr Binding for Azure Functions via the provided samples.
 
 ::: zone pivot="programming-language-javascript"
 
-## Try out the Dapr Binding for Azure Functions
+## Try out the Dapr Extension for Azure Functions
 
-Learn how to use the Dapr Binding for Azure Functions via the provided samples.
+Learn how to use the Dapr Extension for Azure Functions via the provided samples.
 
 | Samples | Description |
 |-|-| 
 | [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
-| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Binding with the Kafka bindings Dapr component. |
+| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Extension with the Kafka bindings Dapr component. |
 | [JavaScript][dapr-js] | Run a JavaScript Dapr function application and integrate with Dapr Service Invocation, Pub/sub, Bindings, and State Management using Azure Functions. |
 
 [dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
@@ -175,13 +175,13 @@ Learn how to use the Dapr Binding for Azure Functions via the provided samples.
 
 ::: zone pivot="programming-language-powershell"
 
-## Try out the Dapr Binding for Azure Functions
+## Try out the Dapr Extension for Azure Functions
 
-Learn how to use the Dapr Binding for Azure Functions via the provided samples.
+Learn how to use the Dapr Extension for Azure Functions via the provided samples.
 
 | Samples | Description |
 |-|-| 
-| [PowerShell Functions][dapr-powershell] | Learn how to use the Azure Functions Dapr Binding with PowerShell. |
+| [PowerShell Functions][dapr-powershell] | Learn how to use the Azure Functions Dapr Extension with PowerShell. |
 
 [dapr-powershell]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/powershell-azurefunction
 
@@ -189,14 +189,14 @@ Learn how to use the Dapr Binding for Azure Functions via the provided samples.
 
 ::: zone pivot="programming-language-python"
 
-## Try out the Dapr Binding for Azure Functions
+## Try out the Dapr Extension for Azure Functions
 
-Learn how to use the Dapr Binding for Azure Functions via the provided samples.
+Learn how to use the Dapr Extension for Azure Functions via the provided samples.
 
 | Samples | Description |
 |-|-| 
 | [Quickstart][dapr-quickstart] | Get started using the Dapr Pub/sub binding and `HttpTrigger`. |
-| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Binding with the Kafka bindings Dapr component. |
+| [Dapr Kafka][dapr-kafka] | Learn how to use the Azure Functions Dapr Extension with the Kafka bindings Dapr component. |
 | [Python v1][dapr-python] | Run a Dapr-ized Python application and use the Azure Functions Python v1 programming model to integrate with Dapr components. |
 | [Python v2][dapr-python-2] | Launch a Dapr application using the Azure Functions Python v2 programming model to integrate with Dapr components. |
 
