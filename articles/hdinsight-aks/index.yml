@@ -111,14 +111,23 @@ landingContent:
         links:
           - text: Configuration management
             url: ./flink/flink-configuration-management.md
+          - text: Flink job management
+            url: ./flink/flink-job-management.md
+          - text: Hive dialect in Flink
+            url: ./flink/hive-dialect-flink.md    
           - text: Using TableAPI
             url: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
       - linkListType: how-to-guide
         links:
-          - text: Using CLI
-            url: ./flink/use-flink-cli-to-submit-jobs.md
+          - text: ADLS Gen2 - Write with Flink DataStream API
+            url: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
           - text: Delta Lake Tables with Apache Flink
             url: ./flink/use-flink-delta-connector.md
+          - text: Hive Catalog and FlinkSQL
+            url: ./flink/use-hive-catalog.md
+          - text: Kafka table on FlinkSQL
+            url: ./flink/create-kafka-table-flink-kafka-sql-connector.md  
+          
   - title: Apache Spark
     linkLists:
       - linkListType: overview
