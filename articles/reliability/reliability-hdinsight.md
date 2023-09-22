@@ -111,7 +111,7 @@ When an availability zone goes down:
  - You still can submit new cluster creation request in a different region.
 
 
-## Cross-region recovery and business continuity
+## Cross-region disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 

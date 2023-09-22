@@ -54,7 +54,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Bastion](../bastion/bastion-faq.md?#dr) |
 | [Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-geo-replication.md) |
 | [Azure Cognitive Search](../search/search-reliability.md) |
-| [Azure Container Instances](reliability-container.md#disaster-recovery) |
+| [Azure Container Instances](reliability-containers.md#disaster-recovery) |
 | [Azure Database for MySQL](/azure/mysql/single-server/concepts-business-continuity?#recover-from-an-azure-regional-data-center-outage) |
 | [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-restore-server-portal?#geo-restore-to-latest-restore-point) |
 | [Azure Database for PostgreSQL - Flexible Server](reliability-postgre-flexible.md#cross-region-disaster-recovery-and-business-continuity) |
@@ -68,7 +68,7 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Media Services](/azure/media-services/latest/architecture-high-availability-encoding-concept) |
 | [Azure Migrate](../migrate/resources-faq.md?#does-azure-migrate-offer-backup-and-disaster-recovery) |
 | [Azure Monitor - Log Analytics](../azure-monitor/logs/logs-data-export.md?&tabs=portal#enable-data-export) | 
-| [Azure Monitor - Application Insights - Continuous export advanced storage configuration](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration) and [Move Application Insights resource to a new region](../azure-monitor/faq.yml?#how-do-i-move-an-application-insights-resource-to-a-new-region-) |
+| [Azure Monitor - Application Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration) |
 | [Azure SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates?preserve-view=true&view=sql-server-ver15#configure-regional-redundancy) |
 | [Azure Stream Analytics](../stream-analytics/geo-redundancy.md) |
 | [Azure Virtual WAN](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) |
