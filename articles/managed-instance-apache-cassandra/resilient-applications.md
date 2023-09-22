@@ -14,7 +14,7 @@ keywords: azure high availability disaster recovery cassandra resiliency
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. Apache Cassandra is a great choice for building highly resilient applications due to it's distributed nature and masterless architecture – any node in the database can provide the exact same functionality as any other node – contributing to Cassandra’s robustness and resilience. This article provides tips on how to optimize high availability and how to approach disaster recover.
 
-## Availability Zones
+## Availability zones
 
 Cassandra's masterless architecture brings fault tolerance from the ground up, and Azure Managed Instance for Apache Cassandra provides support for [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) in selected regions to enhance resiliency at the infrastructure level. Given a replication factor of 3, availability zone support ensures that each replica is in a different availability zone, thus preventing a zonal outage from impacting your database/application. We recommend enabling availability zones where possible.
 
@@ -28,7 +28,7 @@ In CAP theorem terms, Cassandra is by default an AP (Available Partition-toleran
 
 - In active-passive for writes there's a trade-off between reliability and performance: for reliability we recommend QUORUM_EACH but for most users LOCAL_QUORUM or QUORUM is a good compromise. Note however that in the case of a regional outage, some writes might be lost in LOCAL_QUORUM. 
 - In the case of an application being run in parallel QUORUM_EACH writes are preferred for most cases to ensure consistency between the two data centers.
-- If your goal is to favor consistency (lower RPO) rather than latency or availability (lower RTO), this should be reflected in your consistency settings and replication factor. As a rule of thumb, the number of quorum nodes required for a read plus the number of quorum nodes required for a write should be greater than the replication factor. For example, if you have a replication factor of 3, and quorum_one on reads (1 node), you should do quorum_all on writes (3 nodes), so that the total of 4 is greater then the replication factor of 3.
+- If your goal is to favor consistency (lower RPO) rather than latency or availability (lower RTO), this should be reflected in your consistency settings and replication factor. As a rule of thumb, the number of quorum nodes required for a read plus the number of quorum nodes required for a write should be greater than the replication factor. For example, if you have a replication factor of 3, and quorum_one on reads (1 node), you should do quorum_all on writes (3 nodes), so that the total of 4 is greater than the replication factor of 3.
 
 
 ## Replication
@@ -54,7 +54,7 @@ Backups are automatic in Azure Managed Instance for Apache Cassandra, but you ca
    > [!IMPORTANT]
    > The intention of backups is purely to mitigate accidental data loss or data corruption. We do **not** recommend backups as a disaster recovery strategy. Backups are not geo-redundant, and even if they were, it can take a very long time to recover a database from backups. Therefore, we strongly recommend a multi-region deployments, coupled with enabling availability zones where possible, to mitigate against disaster scenarios, and to be able to recover effectively from them. This is particularly important in the rare scenarios where the failed region cannot be covered, where without multi-region replication, all data may be lost.
 
-   :::image type="content" source="./media/resilient-applications/backup.png" alt-text="Backup schedule configuration page" lightbox="./media/resilient-applications/backup.png" border="true":::
+   :::image type="content" source="./media/resilient-applications/backup.png" alt-text="Backup schedule configuration page." lightbox="./media/resilient-applications/backup.png" border="true":::
 
 ## Next steps
 
