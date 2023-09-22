@@ -170,7 +170,7 @@ When you use the `Connection` property, the `topicEndpointUri` must be specified
   }
 }
 ```
-When deployed, you must add this same information to application settings for the function app.
+When deployed, you must add this same information to application settings for the function app. For more information, see [Identity-based authentication](#identity-based-authentication).
 
 # [Isolated process](#tab/isolated-process)
 
