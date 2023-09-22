@@ -15,7 +15,7 @@ ms.topic: overview
 > - [Automation Update Management](../automation/update-management/overview.md) relies on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (also called MMA agent), which is on a deprecation path and won't be supported after **August 31, 2024**.  
 > - Update Manager is a native service in Azure and doesn't rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) or the [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
 > - Follow [guidance](guidance-migration-automation-update-management-azure-update-manager.md) to migrate machines and schedules from Automation Update Management to Azure Update Manager.
-> - If you are using Automation Update Management, we recommend continuing to use the Log Analytics agent and *not* migrating to the Azure Monitor agent until machines and schedules are migrated to Azure Update Manager.
+> - If you are using Automation Update Management, we recommend that you continue to use the Log Analytics agent and *not* migrate to the Azure Monitor agent until machines and schedules are migrated to Azure Update Manager.
 > - The Log Analytics agent wouldn't be deprecated before moving all Automation Update Management customers to Update Manager.
 > - Update Manager doesn't store any customer data.
 

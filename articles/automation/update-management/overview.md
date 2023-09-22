@@ -13,7 +13,7 @@ ms.topic: conceptual
 > - Automation Update management relies on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) (aka MMA agent), which is on a deprecation path and won’t be supported after **August 31, 2024**. 
 > - [Azure Update Manager](../../update-center/overview.md) (AUM) is the v2 version of Automation Update management and the future of Update management in Azure. AUM is a native service in Azure and does not rely on [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) or [Azure Monitor agent](../../azure-monitor/agents/agents-overview.md).
 > - Follow [guidance](../../update-center/guidance-migration-automation-update-management-azure-update-manager.md) to migrate machines and schedules from Automation Update Management to Azure Update Manager.
-> - If you are using Automation Update Management, we recommend continuing to use the Log Analytics agent and *not* migrate to the Azure Monitor agent until machines and schedules are migrated to Azure Update Manager.
+> - If you are using Automation Update Management, we recommend that you continue to use the Log Analytics agent and *not* migrate to the Azure Monitor agent until machines and schedules are migrated to Azure Update Manager.
 > - The Log Analytics agent wouldn't be deprecated before moving all Automation Update Management customers to Update Manager.
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates and manage the process of installing required updates for your machines reporting to Update Management. 
