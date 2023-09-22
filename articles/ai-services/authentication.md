@@ -169,6 +169,9 @@ In the previous sections, we showed you how to authenticate against Azure AI ser
 
 In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a subdomain, assign roles, and obtain a bearer token to call the Azure AI services. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
+> [!IMPORTANT]
+> If your organization is doing authentication through Azure AD, you should [disable local authentication](./disable-local-auth.md) (authentication with keys) so that users in the organization must always use Azure AD.
+
 ### Create a resource with a custom subdomain
 
 The first step is to create a custom subdomain. If you want to use an existing Azure AI services resource which does not have custom subdomain name, follow the instructions in [Azure AI services custom subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) to enable custom subdomain for your resource.
