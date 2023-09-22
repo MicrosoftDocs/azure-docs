@@ -232,15 +232,17 @@ The following functionality isn't supported in the compatibility layer.
 
 #### How long will migration take?
 
-Data and metadata are migrated in parallel. The total time required to complete a migration is equal to whichever of these two processes complete last. The following table shows the number of objects (files or folders) processed by each processing task in one hour. 
+Data and metadata are migrated in parallel. The total time required to complete a migration is equal to whichever of these two processes complete last. 
 
-| Processing task                        | Objects per hour     |
-|----------------------------------------|-----------------------------|
-| Data copy                              | 10 TB                       |
-| Data validation                        | 9 million files             |
-| Metadata copy                          | 4 million files and folders |
-| Metadata processing                    | 25 million nodes            |
-| Metadata processing (data copy option) | 50 million nodes            |
+The following table shows the speed of each migration processing task. 
+
+| Processing task                        | Speed                                 |
+|----------------------------------------|---------------------------------------|
+| Data copy                              | 10 TB per hour                        |
+| Data validation                        | 9 million files per hour              |
+| Metadata copy                          | 4 million files and folders per hour  |
+| Metadata processing                    | 25 million files and folders per hour |
+| Metadata processing (data copy option) | 50 million files and folders per hour |
 
 ##### Example: Processing a large number of objects
 
