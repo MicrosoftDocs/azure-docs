@@ -18,8 +18,6 @@ This article describes how to collect the information and how to submit a suppor
 
 When you reach the cores limit for your subscription, you can request a core limit increase (sometimes called an increase in capacity, or a quota increase) to continue using Azure Lab Services. The request process allows the Azure Lab Services team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
-
 ### Prerequisites
 
 [!INCLUDE [Create support request](./includes/lab-services-prerequisite-create-support-request.md)]
@@ -194,4 +192,8 @@ To complete the support request, enter the following information:
  
 ## Next steps
 
-For more information about capacity limits, see [Capacity limits in Azure Lab Services](capacity-limits.md).
+- For more information about capacity limits, see [Capacity limits in Azure Lab Services](capacity-limits.md).
+
+- Learn more about the different [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
+
+- Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).

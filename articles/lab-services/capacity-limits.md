@@ -87,5 +87,5 @@ You can contact Azure support and create a support ticket to lift the region res
 
 ## Related content
 
-- As an admin, see [VM sizing](administrator-guide.md#vm-sizing).
+- As an admin, learn more about the different [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
 - As an admin, see [Request a capacity increase](./how-to-request-capacity-increase.md)
