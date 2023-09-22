@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 06/29/2023
 ms.custom: UpdateFrequency3
 ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Azure App Service Local Cache overview
@@ -32,7 +33,7 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 * They have fewer app restarts due to storage share changes.
 
 > [!NOTE]
-> If you are using Java (Java SE, Tomcat, or JBoss EAP), then by default the Java artifacts--.jar, .war, and .ear files--are copied locally to the worker. If your Java application depends on read-only access to other files as well, set `JAVA_COPY_ALL` to `true` for those files to also be copied. If Local Cache is enabled, it takes precendnce over this Java-specific enhancement.
+> If you are using Java (Java SE, Tomcat, or JBoss EAP), then by default the Java artifacts--.jar, .war, and .ear files--are copied locally to the worker. If your Java application depends on read-only access to other files as well, set `JAVA_COPY_ALL` to `true` for those files to also be copied. If Local Cache is enabled, it takes precedence over this Java-specific enhancement.
 
 ## How the local cache changes the behavior of App Service
 * _D:\home_ points to the local cache, which is created on the VM instance when the app starts up. _D:\local_ continues to point to the temporary VM-specific storage.

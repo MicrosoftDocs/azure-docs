@@ -96,7 +96,7 @@ The value of the ```fhirBundle``` should be provided as a reference with the con
 
 The following example shows how to provide patient information as a FHIR Bundle:
 
- ```json
+```json
 {
   "configuration": {
     "clinicalTrials": {

@@ -14,9 +14,15 @@ services: azure-maps
 
 When you use [Azure Maps Services], the API requests you make generate transactions. Your transaction usage is available for review in your [Azure portal] Metrics report. For more information, see [View Azure Maps API usage metrics]. These transactions can be either billable or nonbillable usage, depending on the service and the feature. It’s important to understand which usage generates a billable transaction and how it’s calculated so you can plan and budget for the costs associated with using Azure Maps. Billable transactions show up in your Cost Analysis report within the Azure portal.
 
-The following table summarizes the Azure Maps services that generate transactions, billable and nonbillable, along with any notable aspects that are helpful to understand in how the number of transactions are calculated.
+> [!NOTE]
+>
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 ## Azure Maps Transaction information by service
+
+The following table summarizes the Azure Maps services that generate transactions, billable and nonbillable, along with any notable aspects that are helpful to understand in how the number of transactions are calculated.
 
 | Azure Maps Service | Billable | Transaction Calculation | Meter |
 |--------------------|----------|-------------------------|-------|

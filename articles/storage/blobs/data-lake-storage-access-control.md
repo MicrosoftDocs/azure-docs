@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 05/09/2023
+ms.date: 08/30/2023
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
@@ -123,6 +123,18 @@ Every file and directory has distinct permissions for these identities:
 - All other users
 
 The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a *user*, in the context of Data Lake Storage Gen2, can refer to an Azure AD user, service principal, managed identity, or security group.
+
+### The super-user
+
+A super-user has the most rights of all the users. A super-user:
+
+- Has RWX Permissions to **all** files and folders.
+
+- Can change the permissions on any file or folder.
+
+- Can change the owning user or owning group of any file or folder.
+
+If a container, file, or directory is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to `$superuser`.
 
 ### The owning user
 

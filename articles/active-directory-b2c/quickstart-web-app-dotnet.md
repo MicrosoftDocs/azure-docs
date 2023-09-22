@@ -23,7 +23,7 @@ In this quickstart, you use an ASP.NET application to sign in using a social ide
 
 ## Prerequisites
 
-- [Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+- [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.
 - A social account from Facebook, Google, or Microsoft.
 - [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web application from GitHub.
 
@@ -83,7 +83,7 @@ Azure Active Directory B2C provides functionality to allow users to update their
 
     ![Screenshot of the sample web app in browser with To-Do List link and Add button highlighted.](./media/quickstart-web-app-dotnet/add-todo-item-web.png)
 
-    The ASP.NET web application includes an Azure AD access token in the request to the protected web API resource to perform operations on the user's to-do list items.
+    The ASP.NET web application includes a Microsoft Entra access token in the request to the protected web API resource to perform operations on the user's to-do list items.
 
 You've successfully used your Azure AD B2C user account to make an authorized call to an Azure AD B2C protected web API.
 

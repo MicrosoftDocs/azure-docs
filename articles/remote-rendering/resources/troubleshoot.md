@@ -327,7 +327,7 @@ models
 
 ## HoloLens2 'Take a Picture' (MRC) doesn't show any local or remote content
 
-This problem usually occurs if a project is updated from WMR to OpenXR and the project accessed the [HolographicViewConfiguration Class (Windows.Graphics.Holographic)](/uwp/api/windows.graphics.holographic.holographicviewconfiguration?view=winrt-22621) settings. This API isn't supported in OpenXR and must not be accessed.
+This problem usually occurs if a project is updated from WMR to OpenXR and the project accessed the [HolographicViewConfiguration Class (Windows.Graphics.Holographic)](/uwp/api/windows.graphics.holographic.holographicviewconfiguration?view=winrt-22621&preserve-view=true) settings. This API isn't supported in OpenXR and must not be accessed.
 
 ## Next steps
 

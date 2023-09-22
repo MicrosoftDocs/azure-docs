@@ -297,6 +297,30 @@ let callCompositeOptions = CallCompositeOptions(localization: localizationOption
 
 For more information about localization and for a list of supported languages, see the [localization guide](../../../../how-tos/ui-library-sdk/localization.md).
 
+### Subscribe to CallComposite call state changed event
+
+You can implement closures to act on composite events. The call states will be sent to the call state changed handler.
+
+The following example shows an event for a call state changed.
+
+```swift
+callComposite?.events.onCallStateChanged = { callStateEvent in
+   print("CallComposite call state changed:\(callStateEvent.requestString)")
+}
+```
+
+### Dismiss CallComposite and subscribe to dismissed event
+
+To dismiss CallComposite, call `dismiss`. The following dismiss event be sent on call composite dismissed:
+
+```swift
+callComposite?.events.onDismissed = { dismissed in
+   print("CallComposite dismissed:\(dismissed.errorCode)")
+}
+
+callComposite.dismiss()
+```
+
 ## Add notifications to your mobile app
 
 Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. You can use push notifications to send information from your application to users' mobile devices. A push notification can show a dialog, play a sound, or display an incoming call UI.
