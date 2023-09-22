@@ -119,7 +119,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Day-to-day management
 
-### Administrator: View the connected organziations that are proposed and configured
+### Administrator: View the connected organizations that are proposed and configured
 
 1. [View the list of connected organizations](entitlement-management-organization.md)
 
