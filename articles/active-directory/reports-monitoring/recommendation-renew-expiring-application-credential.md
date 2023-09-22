@@ -47,9 +47,9 @@ Applications that the recommendation identified appear in the list of **Impacted
  
 ## Known limitations
 
-- Currently in the list of **Impacted resources**, only the app name and resource ID are shown. The key ID for the credential that needs to be rotated is not shown. To find the key ID credential, navigate back to **App registrations** > **Certificates and Secrets** for the application. 
+- Currently in the list of **Impacted resources**, only the app name and resource ID are shown. The key ID for the credential that needs to be rotated isn't shown. To find the key ID credential, navigate back to **App registrations** > **Certificates and Secrets** for the application. 
 
-- An **Impacted resource** with credentials that expired recently will be marked as **Complete**. If that resource has more than one credential expiring soon, the status of the resource will be **Active**.
+- An **Impacted resource** with credentials that expired recently are as **Complete**. If that resource has more than one credential expiring soon, the status of the resource is **Active**.
 
 ## Next steps
 
