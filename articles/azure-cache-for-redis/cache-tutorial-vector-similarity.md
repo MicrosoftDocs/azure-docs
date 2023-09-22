@@ -125,11 +125,6 @@ Next, you will read the csv file into a pandas DataFrame.
 
 1. Excecute the code cell with the comment `Code cell 3`. This code reads the csv into a pandas DataFrame.
 
-   ```python
-   df=pd.read_csv(os.path.join(os.getcwd(),'wiki_movie_plots_deduped.csv'))
-   df
-   ```
-
    The output should look something like this:
 
 <!--Fran, we could use a screenshot here-->
