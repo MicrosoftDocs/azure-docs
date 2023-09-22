@@ -5,8 +5,9 @@ author: srpadala
 ms.topic: conceptual
 ms.date: 09/21/2023
 ---
+# Configure remote write to send data to Azure Monitor Workspace from the default Prometheus server in your Azure Red Hat OpenShift (ARO) cluster
 
-Azure Red Hat OpenShift comes preinstalled with a default Prometheus server which should not be removed as per the [support policy](./support-policies-v4). There are scenarios where there is a need to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation.  you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from the in-cluster Prometheus servers into the Azure managed service.
+Azure Red Hat OpenShift comes preinstalled with a default Prometheus server which should not be removed as per the [support policy](support-policies-v4.md). There are scenarios where there is a need to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Computing Foundation.  you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from the in-cluster Prometheus servers into the Azure managed service.
 
 ## Prerequisites
 - Data for Azure Monitor managed service for Prometheus is stored in an [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). You must [create a new workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace) if you don't already have one.
@@ -19,7 +20,7 @@ Copy the tenant ID and client ID of the created service principal
 2. On the app's overview page, copy the Directory (tenant) ID value and store it in your application code.
 3. Copy the Application (client) ID value and store it in your application code.
 
-Create a new application secret as described in [Create new application secret](../active-directory/develop/howto-create-service-principal-portal#option-3-create-a-new-application-secret) and copy the value of the created secret.
+Create a new application secret as described in [Create new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret) and copy the value of the created secret.
 
 set the values of the collected tenant Id, client Id and client secret
 ```
@@ -96,15 +97,15 @@ data:
 ## Visualize metrics using Azure Managed Grafana Workspace
 The captured metrics can be visualized using community Grafana dashboards or create contextual dashboards as required.
 
-1. Create an [Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal)
-2. [Link](../azure-monitor/essentials/azure-monitor-workspace-manage?tabs=azure-portal#link-a-grafana-workspace) the created Grafana workspace to the Azure Monitor workspace
-3. [Import](../managed-grafana/how-to-create-dashboard?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashbord with id 3870 [Opensshift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
+1. Create an [Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md)
+2. [Link](../azure-monitor/essentials/azure-monitor-workspace-manage.md?tabs=azure-portal#link-a-grafana-workspace) the created Grafana workspace to the Azure Monitor workspace
+3. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana Dashbord with id 3870 [Opensshift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) into the Grafana workspace
 4. Specify the Azure Monitor Workspace as the datasource
 5. Save the dashboard
 6. Access the dashboard from **Home -> Dashboards**   
 
 ## Troubleshooting
-See [Azure Monitor managed service for Prometheus remote write](../azure-monitor/containers/prometheus-remote-write#hitting-your-ingestion-quota-limit).
+See [Azure Monitor managed service for Prometheus remote write](../azure-monitor/containers/prometheus-remote-write.md#hitting-your-ingestion-quota-limit).
 
 ## Next steps
 
