@@ -154,7 +154,7 @@ var recognizeOptions = new CallMediaRecognizeChoiceOptions(targetParticipant, ch
   .setInitialSilenceTimeout(Duration.ofSeconds(30))
   .setPlayPrompt(playSource)
   .setOperationContext("AppointmentReminderMenu")
-  //Optional parameter if you have a custom speech model
+  //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
   .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID"); 
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId)
   .getCallMediaAsync()
@@ -172,7 +172,7 @@ var playSource = new TextSource()
 var recognizeOptions = new CallMediaRecognizeSpeechOptions(targetParticipant, Duration.ofMillis(1000)) 
     .setPlayPrompt(playSource) 
     .setOperationContext("OpenQuestionSpeech")
-    //Optional parameter if you have a custom speech model
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
     .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID");  
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId) 
     .getCallMediaAsync() 
@@ -193,7 +193,7 @@ var recognizeOptions = new CallMediaRecognizeSpeechOrDtmfOptions(targetParticipa
     .setInitialSilenceTimeout(Duration.ofSeconds(30)) 
     .setInterruptPrompt(true) 
     .setOperationContext("OpenQuestionSpeechOrDtmf")
-    //Optional parameter if you have a custom speech model
+    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
     .setSpeechRecognitionModelEndpointId("YourCustomSpeechModelEndpointID");  
 var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnectionId) 
     .getCallMediaAsync() 
