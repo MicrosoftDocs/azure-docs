@@ -1,33 +1,31 @@
 ---
 title: 'Tutorial: Get started using Azure Cache for Redis Enterprise active replication with an AKS-hosted application'
-description: In this tutorial, you learn how to connect your AKS hosted application to Azure Cache for Redis Enterprise instances and leverage active geo-replication.
+description: In this tutorial, you learn how to connect your AKS hosted application to a cache that uses active geo-replication.
 author: flang-msft
 
 ms.author: franlanglois
 ms.service: cache
 ms.topic: tutorial
 ms.date: 09/18/2023
-#CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis Enterprise instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
+#CustomerIntent: As a developer, I want to see how to use a Enterprise cache that uses active geo-replication to capture data from two apps running against different caches in separate geo-locations.
 
 ---
 
 # Get started using Azure Cache for Redis Enterprise active replication with an AKS-hosted application
 
-In this tutorial, you will host a simple inventory application on Azure Kubernetes Service (AKS) and find out how you can use active geo-replication to replicate data in your Azure Cache for Redis Enterprise instances across Azure regions.
+In this tutorial, you will host an inventory application on Azure Kubernetes Service (AKS) and find out how you can use active geo-replication to replicate data in your Azure Cache for Redis Enterprise instances across Azure regions.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Two Azure Kubernetes Service Clusters in different regions- For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternatively, you can host two instances of the demo application on the same AKS cluster.
-<!-- SP -->
-- One Azure Kubernetes Service Cluster - For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternately, you can host two instances of the demo application on the two different AKS clusters, which will how your production environment will be set up. However, for this tutorial, we will deploy both instances of the application on the same AKS cluster.
+- One Azure Kubernetes Service Cluster - For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternatively, you can host two instances of the demo application on the two different AKS clusters. In a production environment, you would use two different clusters located in the same regions as your clusters to deploy two versions of the application. For this tutorial, you deploy both instances of the application on the same AKS cluster.
 
 > [!IMPORTANT]
 > This tutorial assumes that you are familiar with basic Kubernetes concepts like containers, pods and service.
 
 ## Overview
 
-This tutorial uses a sample inventory page which shows three different T-shirt options. The user can "purchase" each T-shirt and see the inventory drop. The unique thing about this demo is that we run the inventory app in two different regions. Typically, you would have to run the database storing inventory data in a single region so that there are no consistency issues. That can result in unpleasant customer experience due to higher latency for calls across different Azure regions. By using Azure Cache for Redis Enterprise as the backend, however, you can link two caches together with active geo-replication so that the inventory remains consistent across both regions while enjoying low latency performance from Redis Enterprise in the same region.
+This tutorial uses a sample inventory page that shows three different T-shirt options. The user can "purchase" each T-shirt and see the inventory drop. The unique thing about this demo is that we run the inventory app in two different regions. Typically, you would have to run the database storing inventory data in a single region so that there are no consistency issues. With other database backends and synchronization, customers might have unpleasant experience due to higher latency for calls across different Azure regions. When you use Azure Cache for Redis Enterprise as the backend, you can link two caches together with active geo-replication so that the inventory remains consistent across both regions while enjoying low latency performance from Redis Enterprise in the same region.
 
 ## Set up two Azure Cache for Redis instances
 
@@ -48,14 +46,18 @@ This tutorial uses a sample inventory page which shows three different T-shirt o
 
 Create two .yml files using the following procedure. One file for each cache you created in the two regions.
 
-To demonstrate data replication across regions, we run two instances of the same application in different regions. Let's make one instance run in Seattle (west), while the second runs in New York (east).
+To demonstrate data replication across regions, we run two instances of the same application in different regions. Let's make one instance run in Seattle, west namespace, while the second runs in New York, east namespace.
 
-1. Update the following fields in the YAML file below and save it as _app_west.yaml_.
+### West namespace
 
-    1. Update environment variables `REDIS_HOST` and `REDIS_PASSWORD` with _hostname_ and _access key_ of your _West US 2_ cache.
-    1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to _Seattle_ to indicate this application instance is running in Seattle.
-    <!-- sp -->
-    1. Update environment variables REDIS_HOST and REDIS_PASSWORD with endpoint (remove the suffix ":10000") and access key of your Azure Cache for Redis Enterprise instance in West US 2 or one of the two regions your chose earlier.
+1. Update the following fields in the following YAML file and save it as _app_west.yaml_.
+
+   1. Update the variable `REDIS_HOST` with the **Endpoint value** URL after removing the port suffix: 10000
+   1. Update `REDIS_PASSWORD` with the  **Access key** of your _West US 2_ cache.
+   1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to `Seattle` to indicate this application instance is running in Seattle.
+   1. Verify that the variable `namespace` value is `west` in both places in the file.
+
+It should look like following code:
 
     ```YAML
     apiVersion: apps/v1
@@ -110,14 +112,16 @@ To demonstrate data replication across regions, we run two instances of the same
         app: shoppingcart
     ```
 
-1. Save another copy of the same YAML file as _app_east.yaml_. This time, use different values.
+### East namespace
 
-   1. Update environment variables `REDIS_HOST` and `REDIS_PASSWORD` with Eendpoint_ and _access key_ of your _East US_ cache.
+1. Save another copy of the same YAML file as _app_east.yaml_. This time, use the values that correspond with your second cache.
+
+   1. Update the variable `REDIS_HOST` with the **Endpoint value** after removing the port suffix: 10000
+   1. Update `REDIS_PASSWORD` with the  **Access key** of your _East US_ cache.
    1. Update `APP_LOCATION` to display the region where this application instance is running. For this cache, configure the `APP_LOCATION` to _New York_ to indicate this application instance is running in New York.
-   
-   1. +Save another copy of the same YAML file as app_east.yaml. This time, update the namespace, REDIS_HOST, REDIS_PASSWORD and APP_LOCATION to point to Redis Enterprise instance in East US or your second region of choice.
+   1. Verify that the variable `namespace` value is `east` in both places in the file.
 
-It should look like below: 
+It should look like following code:
 
 ```YAML
 apiVersion: apps/v1
@@ -176,9 +180,12 @@ spec:
 
 In this section, you first install the Kubernetes CLI and then connect to an AKS cluster.
 
+> [!NOTE]
+> For this part of the tutorial, a Azure Kubernetes Service Cluster is required. For this tutorial, you deploy both instances of the application on the same AKS cluster.
+
 ### Install the Kubernetes CLI
 
-Use the Kubernetes CLI, _kubectl_ , to connect to the Kubernetes cluster from your local computer. If you are running locally, then you can using the following command to install kubectl.
+Use the Kubernetes CLI, _kubectl, to connect to the Kubernetes cluster from your local computer. If you're running locally, then you can use the following command to install kubectl.
 
 ```bash
 az aks install-cli
@@ -194,7 +201,7 @@ Use the portal to copy the resource group and cluster name for your AKS cluster 
  az aks get-credentials --resource-group myResourceGroup --name myClusterName
  ```
 
-Verify that you are able to connect to your cluster by running the following command:
+Verify that you're able to connect to your cluster by running the following command:
 
 ```bash
 
@@ -209,7 +216,6 @@ aks-agentpool-21274953-vmss000001   Ready    agent   1d    v1.24.15
 aks-agentpool-21274953-vmss000003   Ready    agent   1d    v1.24.15
 aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.24.15
 ```
-
 
 ## Deploy and test your application
 
@@ -256,7 +262,7 @@ NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)    
 shoppingcart-svc       LoadBalancer   10.0.166.147   20.69.136.105   80:30390/TCP   90s
 ```
 
-Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running like below:
+Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running as follows:
 
 <!-- screenshot for Seattle -->
 
@@ -272,7 +278,7 @@ kubectl get pods -n east
 kubectl get service -n east
 ```
 
-With two services opened in your browser, you should see that changing the inventory in one region is virtually instantly reflected in the other region. The inventory data is stored in the Redis Enterprise instances which are replicating data across regions.
+With two services opened in your browser, you should see that changing the inventory in one region is almost instantly reflected in the other region. The inventory data is stored in the Redis Enterprise instances that are replicating data across regions.
 
 You did it! Click on the buttons and explore the demo. To reset the count, add `/reset` after the url:
 
@@ -283,11 +289,9 @@ You did it! Click on the buttons and explore the demo. To reset the count, add `
 To clean up your cluster, run the following commands:
 
 ```bash
-set kubeconfig=AKS_WestUS2
 kubectl delete deployment shoppingcart-app -n west
 kubectl delete service shoppingcart-svc -n west
 
-set kubeconfig=AKS_EastUS
 kubectl delete deployment shoppingcart-app -n east
 kubectl delete service shoppingcart-svc -n east
 ```
