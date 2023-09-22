@@ -51,20 +51,8 @@ Start with \<Link to Azure Docs migration guidance \> to learn more about Azure 
 
 ## Where can customers go to get answers to their questions?
 
-There are multiple ways to get your questions answered.
+Check out these resources if you need further assistance:
 
 - Get answers from community experts in Microsoft Q&A \<Link to Microsoft Q&A Page\>
 
 - If you have a support plan and require technical support, [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-1. For **Issue type**, select **Technical**.
-
-1. For **Subscription**, select your subscription.
-
-1. For **Service**, select **My services**, then **Azure API for FHIR**.
-
-1. For **Summary**, enter a description of your issue.
-
-1. For **Problem type**, select **Troubleshoot configuration issue**.
-
-1. For **Problem subtype**, select **My issue is not listed**.
