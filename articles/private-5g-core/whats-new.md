@@ -39,7 +39,7 @@ The 2308 release for the Azure Private 5G Core packet core is now available. For
 
 In this release, the number of supported data networks (DNs) increases from three to ten, including with layer 2 traffic separation. If more than 6 DNs are required, a shared switch for access and core traffic is needed.
 
-### Default MTU Values 
+### Default MTU values 
 
 **Type:** New feature
 
@@ -58,7 +58,7 @@ When the UE MTU is set to any valid value (see API Spec) then the other MTUs wil
   
 Rollbacks to Packet Core versions earlier than 2308 are not possible if the UE MTU field is changed following an upgrade.
 
-### MTU Interop Setting
+### MTU Interop setting
 
 **Type:** New feature
 

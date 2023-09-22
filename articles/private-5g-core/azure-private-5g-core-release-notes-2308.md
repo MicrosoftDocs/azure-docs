@@ -25,7 +25,7 @@ With this release, there's a new naming scheme and Packet Core versions are now 
 
 Packet core versions are supported until two subsequent versions have been released (unless otherwise noted), which is typically two months after the release date. You should plan to upgrade your packet core in this time frame to avoid losing support.
 
-### Currently Supported Packet Core Versions
+### Currently supported packet core versions
 The following table shows the support status for different Packet Core releases.
 
 | Release | Support Status |
@@ -41,7 +41,7 @@ In this release, the number of supported data networks (DNs) increases from thre
 
 To add a data network to your packet core, see [Modify a packet core instance](modify-packet-core.md).
 
-### Default MTU Values
+### Default MTU values
 In this release, the default MTU values are changed as follows:
 - UE MTU: 1440 (was 1300)
 -	Access MTU: 1500 (was 1500)
@@ -74,7 +74,7 @@ The following table provides a summary of issues fixed in this release.
   |No.  |Feature  | Issue | Workaround/comments |
   |-----|-----|-----|-----|
   | 1 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro2 with ASE-2309 for throughput higher than 3.0 Gbps. | None |
-  | 2 | Local distributed tracing | In Multi PDN session establishment/Release call flows with different DNs, the distributed tracing web GUI fails to display some of 4G NAS messages(Activate/deactivate Default EPS Bearer Context Request )and some S1AP messages(ERAB request, ERAB Release). | None |
+  | 2 | Local distributed tracing | In Multi PDN session establishment/Release call flows with different DNs, the distributed tracing web GUI fails to display some of 4G NAS messages (Activate/deactivate Default EPS Bearer Context Request) and some S1AP messages (ERAB request, ERAB Release). | None |
   | 3 | Local distributed tracing | When a web proxy is enabled on the Azure Stack Edge appliance that the packet core is running on and Azure Active Directory is used to authenticate access to AP5GC Local Dashboards, the traffic to Azure Active Directory does'nt transmit via the web proxy. If there's a firewall blocking traffic that does not go via the web proxy then enabling Azure Active Directory causes the packet core install to fail. | Disable Azure Active Directory and use password based authentication to authenticate access to AP5GC Local Dashboards instead. |
   | 4 | Packet Forwarding | In scenarios of sustained high load (for example, continuous setup of 100's of TCP flows per second) in 4G setups, AP5GC may encounter an internal error, leading to a short period of service disruption resulting in some call failures. | In most cases, the system will recover on its own and be able to handle new requests after a few seconds' disruption. For existing connections that are dropped the UEs need to re-establish the connection. |
 
