@@ -22,14 +22,22 @@ items:
       items:
       - name: Overview
         href: route-messages/overview-route-messages.md
+      - name: Concepts
+        items:
+        - name: Secure communications
+          href: route-messages/concepts/about-listeners.md
       - name: How to
         items:
-        - name: Configure listeners
-          href: route-messages/how-to/configure-listeners.md
         - name: TLS auto cert management
           href: route-messages/how-to/configure-tls-auto-cert.md
         - name: TLS manual cert management
           href: route-messages/how-to/configure-tls-manual-cert.md
+        - name: Configure authentication
+          href: route-messages/how-to/configure-authentication.md
+        - name: Configure authorization
+          href: route-messages/how-to/configure-authorization.md
+        - name: Availability and scale
+          href: route-messages/how-to/configure-availability-scale.md
         - name: Store key value data
           href: route-messages/how-to/store-key-value-data.md
     - name: Process messages
@@ -42,6 +50,10 @@ items:
         href: connect-to-cloud/overview-connect-to-cloud.md
       - name: Configure MQTT bridge
         href: connect-to-cloud/configure-mqtt-bridge.md
+      - name: Connect to Event Grid
+        href: connect-to-cloud/use-mqtt-bridge-event-grid.md
+      - name: Connect to Messaging services
+        href: connect-to-cloud/use-mqtt-bridge-messaging-services.md
     - name: Visualize and analyze telemetry
       items:
       - name: Overview
@@ -54,6 +66,18 @@ items:
       items:
       - name: Overview
         href: develop/overview-develop-customizations.md
+      - name: Concepts
+        items:
+        - name: Develop high available apps
+          href: develop/develop-ha-apps.md
+      - name: How to
+        items:
+        - name: Develop Dapr apps
+          href: develop/develop-dapr-apps.md
+        - name: Develop MQTTnet apps
+          href: develop/develop-mqttnet-apps.md
+        - name: Develop Node-RED apps
+          href: develop/develop-node-red-apps.md
     - name: Administrator guide
       items:
       - name: Overview
