@@ -25,7 +25,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this quickstart, you need:
 
-- A role that allows you to create users in your tenant directory, such as at least a [Guest Inviter role](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#guest-inviter).
+- A role that allows you to create users in your tenant directory, such as at least a [Guest Inviter role](../roles/permissions-reference.md#guest-inviter) or a [User administrator](../roles/permissions-reference.md#user-administrator).
 - Install the [Microsoft Graph Identity Sign-ins module](/powershell/module/microsoft.graph.identity.signins/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Identity.SignIns) and the [Microsoft Graph Users module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true) (Microsoft.Graph.Users). You can use the `#Requires` statement to prevent running a script unless the required PowerShell modules are met.
 
 ```powershell
