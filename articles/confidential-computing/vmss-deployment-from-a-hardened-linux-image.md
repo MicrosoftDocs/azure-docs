@@ -11,7 +11,7 @@ ms.author: satelsan
 ms.custom: devx-track-azurecli
 ---
 
-# VMSS confidential VM deployment from a hardened Linux image
+# Deploy a virtual machine scale set using a hardened Linux image
 
 **Applies to:** :heavy_check_mark: Hardened Linux Images
 
@@ -65,8 +65,12 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     Now create a Virtual Machine Scale Set with az vmss create az cli. The following example creates a scale set called myScaleSet with an instance count of 2.
    
     If you are looking to set an admin username, ensure that it isn't part of the [reserved words](/rest/api/compute/virtualmachines/createorupdate#osprofile) list for vmss.
-   In this case, the username is auto set to azureuser.
-   For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
+    In this case, the username is auto set to azureuser.
+    For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
+
+> [!NOTE]
+> For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
+> Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
 
     ```
     az vmss create \
@@ -88,13 +92,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     --admin-password ""
     ```
 
-> [!NOTE]
-
-> For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
-
-> Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
-
-6. Access the virtual machine scale set from the portal.
+5. Access the virtual machine scale set from the portal.
 
     You can access your cvm scale set and use the admin username and password set previously to log in. Please note that if you choose to update the admin credentials, do so directly in the scale set model using the cli.
 
