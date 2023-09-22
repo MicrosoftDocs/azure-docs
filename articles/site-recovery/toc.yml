@@ -534,28 +534,6 @@
       href: site-recovery-citrix-xenapp-and-xendesktop.md
     - name: Other workloads
       href: site-recovery-workload.md#workload-summary
-  - name: Disaster recovery to a secondary site
-    items:
-    - name: VMware VMs/physical servers
-      items:
-      - name: Walkthrough-Disaster recovery of VMware VMs and physical servers to a secondary site
-        href: vmware-physical-secondary-disaster-recovery.md
-    - name: Hyper-V VMs
-      items:
-      - name: Deprecation of site-to-site scenario for Hyper-V VMs
-        href: site-to-site-deprecation.md
-      - name: Walkthrough-Disaster recovery of Hyper-V VMs in VMM clouds to a secondary site
-        href: hyper-v-vmm-disaster-recovery.md
-      - name: Run a disaster recovery drill for Hyper-V VMs to a secondary site
-        href: hyper-v-vmm-test-failover.md
-      - name: Set up IP addressing for failover
-        href: hyper-v-vmm-networking.md
-      - name: Add VMM scripts to recovery plans
-        href: hyper-v-vmm-recovery-script.md
-      - name: Run a failover and failback between on-premises sites
-        href: hyper-v-vmm-failover-failback.md
-      - name: Performance scale tests for disaster recovery to a secondary site
-        href: hyper-v-vmm-performance-results.md
 - name: Automation
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
