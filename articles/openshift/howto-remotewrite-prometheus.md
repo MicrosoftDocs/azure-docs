@@ -54,6 +54,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: oauth2-credentials
+  namespace: openshift-monitoring
 stringData:
   id: "${CLIENT_ID}"
   secret: "${CLIENT_SECRET}"
@@ -63,7 +64,15 @@ EOF
 ## Configure remote write
 
 To [configure](https://docs.openshift.com/container-platform/4.11/monitoring/configuring-the-monitoring-stack.html#configuring_remote_write_storage_configuring-the-monitoring-stack) remote write for default platform monitoring, we need to update the cluster-monitoring-config config map in the openshift-monitoring namespace
-Replace the INGESTION-URL in the configuration below with the **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace
+1. Replace the INGESTION-URL in the configuration below with the **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace
+2. Replace the TENANT_ID in the configuration below with the tenat Id of the service principal
+
+Edit the configmap
+
+```
+oc edit -n openshift-monitoring cm cluster-monitoring-config
+```
+and update the configuration as below
 
 ```
 data:
@@ -79,7 +88,7 @@ data:
             clientSecret:
               name: oauth2-credentials
               key: secret
-            tokenUrl: "https://login.microsoftonline.com/$TENANT_ID/oauth2/v2.0/token"
+            tokenUrl: "https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/token"
             scopes:
               - "https://monitor.azure.com/.default"
 ```
