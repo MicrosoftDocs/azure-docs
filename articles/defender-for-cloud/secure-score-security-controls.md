@@ -16,7 +16,7 @@ Microsoft Defender for Cloud has two main goals:
 
 The central feature in Defender for Cloud that enables you to achieve those goals is the **secure score**.
 
-All Defender for Cloud customers automatically gain access to the secure score when they enable Defender for Cloud. Microsoft Cloud Security Benchmark (MCSB), formerly known as Microsoft Cloud Security Benchmark, is automatically applied to your environments and will generate all the built-in recommendations that are part of this default initiative.
+All Defender for Cloud customers automatically gain access to the secure score when they enable Defender for Cloud. Microsoft Cloud Security Benchmark (MCSB), formerly known as Azure Security Benchmark, is automatically applied to your environments and will generate all the built-in recommendations that are part of this default initiative.
 
 Defender for Cloud continually assesses your cross-cloud resources for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
