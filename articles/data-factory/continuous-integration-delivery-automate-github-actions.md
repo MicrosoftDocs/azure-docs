@@ -38,7 +38,7 @@ Follow the tutorial to [create a user-assigned managed identity](../active-direc
 
     Here is an example of a federated identity configuration:
    
-    :::image type="content" source="media/continuous-integration-delivery-github-actions/add-federated-credential.png" alt-text="Screenshot of adding Federated Credential in Azure Portal.":::
+    :::image type="content" source="media/continuous-integration-delivery-github-actions/add-federated-credential.png" lightbox="media/continuous-integration-delivery-github-actions/add-federated-credential.png"alt-text="Screenshot of adding Federated Credential in Azure Portal.":::
 
 2. After creating the credential, navigate to Azure Active Directory Overview page and take a note of the tenant ID. We need this value later. 
 
@@ -52,11 +52,11 @@ Follow the tutorial to [create a user-assigned managed identity](../active-direc
 You need to provide your application's Client ID, Tenant ID and Subscription ID to the login action. These values can be stored in GitHub secrets and referenced in your workflow. 
 1. Open your GitHub repository and go to Settings.
    
-   :::image type="content" source="media/continuous-integration-delivery-github-actions/github-settings.png" alt-text="Screenshot of navigating to GitHub Settings.":::
+   :::image type="content" source="media/continuous-integration-delivery-github-actions/github-settings.png" lightbox="media/continuous-integration-delivery-github-actions/github-settings.png" alt-text="Screenshot of navigating to GitHub Settings.":::
 
 2. Select Security -> Secrets and variables -> Actions.
    
-   :::image type="content" source="media/continuous-integration-delivery-github-actions/github-secrets.png" alt-text="Screenshot of navigating to GitHub Secrets.":::
+   :::image type="content" source="media/continuous-integration-delivery-github-actions/github-secrets.png" lightbox="media/continuous-integration-delivery-github-actions/github-secrets.png" alt-text="Screenshot of navigating to GitHub Secrets.":::
 
 3. Create secrets for AZURE_CLIENT_ID, AZURE_TENANT_ID, and AZURE_SUBSCRIPTION_ID. Use these values from your Azure Active Directory application for your GitHub secrets:
    
@@ -92,11 +92,11 @@ The workflow is composed of two jobs:
     
     The setup should look like:
    
-    :::image type="content" source="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" alt-text="Screenshot of saving the package.json file in GitHub.":::
+    :::image type="content" source="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" lightbox="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" alt-text="Screenshot of saving the package.json file in GitHub.":::
 
 2. Navigate to the Actions tab -> New workflow
    
-   :::image type="content" source="media/continuous-integration-delivery-github-actions/new-workflow.png" alt-text="Screenshot of creating a new workflow in GitHub.":::
+   :::image type="content" source="media/continuous-integration-delivery-github-actions/new-workflow.png" lightbox="media/continuous-integration-delivery-github-actions/new-workflow.png" alt-text="Screenshot of creating a new workflow in GitHub.":::
 
 3. Paste the workflow YAML. 
 
@@ -188,15 +188,15 @@ Let’s test the setup by making some changes in the development Data Factory in
 
 1. To check it, browse to the repository -> Actions -> and identify your workflow.
    
-   :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-workflow.png" alt-text="Screenshot showing monitoring a workflow in GitHub.":::
+   :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-workflow.png" lightbox="media/continuous-integration-delivery-github-actions/monitoring-workflow.png" alt-text="Screenshot showing monitoring a workflow in GitHub.":::
 
 2. You can further drill down into each run, see the jobs composing it and their statuses and duration, as well as the Artifact created by the run. In our scenario, this is the ARM template created in the build job.
     
-   :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-jobs.png" alt-text="Screenshot showing monitoring jobs in GitHub.":::
+   :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-jobs.png" lightbox="media/continuous-integration-delivery-github-actions/monitoring-jobs.png" alt-text="Screenshot showing monitoring jobs in GitHub.":::
 
 3. You can further drill down by navigating to a job and its steps.
    
-   :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-release-job.png" alt-text="Screenshot showing monitoring the release job in GitHub.":::
+   :::image type="content" source="media/continuous-integration-delivery-github-actions/monitoring-release-job.png" lightbox="media/continuous-integration-delivery-github-actions/monitoring-release-job.png" alt-text="Screenshot showing monitoring the release job in GitHub.":::
 
 4. You can also navigate to the target Data Factory instance to which you deployed changes to and make sure it reflects the latest changes.
 
