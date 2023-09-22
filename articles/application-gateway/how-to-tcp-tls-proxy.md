@@ -1,26 +1,33 @@
 ---
-title: Direct SQL traffic with Azure Application Gateway (Preview)
+title: Configure Azure Application Gateway TCP/TLS proxy (Preview)
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway's layer 4 proxy service for non-HTTP workloads.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/20/2023
+ms.date: 09/22/2023
 ms.author: greglin
 ---
 
-# Direct SQL traffic with Azure Application Gateway (Preview)
+# Configure Azure Application Gateway TCP/TLS proxy (Preview)
 
-To try out the layer 4 features of Azure Application Gateway, in this quick start article we use the Azure portal to create an Azure Application Gateway with SQL Server on Azure VMs as backend server. We also test the connectivity through an SQL client to make sure that the configuration works correctly. This simple setup guides you to create a listener with required port, a backend setting using layer 4 protocol, a routing rule, and add SQL VM to a backend pool. This article is divided into three parts.
+To try out the layer 4 features of Azure Application Gateway, this article shows how to use the Azure portal to create an Azure Application Gateway with a SQL Server virtual machine as the backend server. Connectivity through a SQL client is also tested to verify the configuration works correctly. The article guides you through the following procedures:
+
+- Create a SQL server Azure virtual machine
+- Create a new application gateway
+    - Configure basic settings and a frontend public IP address
+    - Add a backend pool and set the SQL server as a backend target
+    - Create a routing rule
+        - Create a listener with the required port (SQL 1433)
+        - Create a backend setting using layer 4 protocol
+
+    - Add a SQL server to the backend pool
+- Connect to the application gateway using a SQL client
 
 > [!IMPORTANT]
-> Application Gateway IPv6 frontend is currently in PREVIEW.<br>
+> Application Gateway TCP/TLS proxy is currently in PREVIEW.<br>
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-## Enable the preview in the Azure portal
-
-Select the [preview portal link](https://aka.ms/appgwl4proxyportalflight) for public preview of Application Gateway layer 4 proxy.
 
 ## Register to the preview
 
@@ -29,7 +36,7 @@ Select the [preview portal link](https://aka.ms/appgwl4proxyportalflight) for pu
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
-Use the following steps to enroll into the public preview for IPv6 Application Gateway using the Azure portal:
+Use the following steps to enroll into the public preview for Application Gateway TCP/TLS proxy using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
@@ -166,7 +173,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
 ## Connect to the SQL server
 
 1. Before connecting to the SQL server, verify that you have:
-    - The public IP address of the virtual machine
+    - The public IP address of the Application Gateway frontend
     - Configured the SQL server to accept SQL authentication
     - Created an admin account on the SQL server
 
