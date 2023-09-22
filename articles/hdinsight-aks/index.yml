@@ -115,8 +115,8 @@ landingContent:
             url: ./flink/flink-job-management.md
           - text: Hive dialect in Flink
             url: ./flink/hive-dialect-flink.md    
-          - text: Using TableAPI
-            url: ./flink/assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md
+          - text: Table API and SQL
+            url: ./flink/flink-table-api-and-sql.md
       - linkListType: how-to-guide
         links:
           - text: ADLS Gen2 - Write with Flink DataStream API
