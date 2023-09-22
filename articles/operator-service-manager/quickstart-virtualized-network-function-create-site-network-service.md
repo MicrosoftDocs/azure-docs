@@ -25,13 +25,13 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
 ### Create resource
 
-- In Azure portal, select Create resource.
-- Search for Site Network Service and select Create.
+1. In Azure portal, select **Create resource**.
+1. Search for **Site Network Service** and select **Create**.
 
    :::image type="content" source="media/create-site-network-service-virtual-network-function.png" alt-text="Screenshot showing the Create a resource page search for and select Site Network Service.":::
 
 
-- In the Basics tab, enter or select the following information. Accept the defaults for the remaining settings.
+1. In the **Basics** tab, enter or select the following information. Accept the defaults for the remaining settings.
 
 |Setting|Value| 
 |---|---| 
@@ -47,7 +47,7 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
 ### Choose Network Service Design
 
-- On the "Choose a Network Service Design" page, select the Publisher, Network Service Design Resource and Network Service Design Version that you published earlier.
+On the **Choose a Network Service Design** page, select the Publisher, Network Service Design Resource and Network Service Design Version that you published earlier.
 
 
 |Setting|Value| 
@@ -62,41 +62,41 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
 ### Set initial configuration
 
-- From the Set initial configuration tab, choose Create New.
-- Enter ubuntu-sns-cgvs into the name field.
+1. From the **Set initial configuration** tab, choose **Create New**.
+1. Enter ubuntu-sns-cgvs into the name field.
 
-:::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create.":::
+    :::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create.":::
 
-- Enter the following json configuration into the editor panel.
+1. Enter the following json configuration into the editor panel.
 
-```json
-{
-    "ubuntu-vm-nfdg": {
-        "deploymentParameters": {
-            "location": "uksouth",
-            "subnetName": "ubuntu-vm-subnet",
-            "virtualNetworkId": "/subscriptions/<subscription_id>/resourceGroups/<pre-requisites resource group>/providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
-            "sshPublicKeyAdmin": "<Your public ssh key>",
-            "ubuntuVmName": "myUbuntuVm"
+    ```json
+    {
+        "ubuntu-vm-nfdg": {
+            "deploymentParameters": {
+                "location": "uksouth",
+                "subnetName": "ubuntu-vm-subnet",
+                "virtualNetworkId": "/subscriptions/<subscription_id>/resourceGroups/<pre-requisites resource group>/providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
+                "sshPublicKeyAdmin": "<Your public ssh key>",
+                "ubuntuVmName": "myUbuntuVm"
+            },
+            "ubuntu_vm_nfdg_nfd_version": "1.0.0"
         },
-        "ubuntu_vm_nfdg_nfd_version": "1.0.0"
-    },
-    "managedIdentity": "`<managed-identity-resource-id>`"
-}
-``````
+        "managedIdentity": "`<managed-identity-resource-id>`"
+    }
+    ``````
+    
+    :::image type="content" source="media/editor-panel-virtual-network-function.png" alt-text="Screenshot showing the editor panel with the json information added.":::
 
-:::image type="content" source="media/editor-panel-virtual-network-function.png" alt-text="Screenshot showing the editor panel with the json information added.":::
-
-- Select Review + create.
-- Select Create.
+1. Select **Review + create**.
+1. Select **Create**.
 
 ### Wait for deployment
 
-Wait for the deployment to reach the 'Succeeded' state. After completion, your Virtual Network Function should be up and running.
+Wait for the deployment to reach the 'Succeeded' state. After completion, your Virtual Network Function (VNF) should be up and running.
 
 ### Access your Virtual Network Function (VNF)
 
-- To access your Virtual Network Function (VNF), go to the Site Network Service object in the Azure portal.
-- Select the link under "Current State -> Resources." The link takes you to the managed resource group created by Azure Operator Service Manager.
+1. To access your Virtual Network Function (VNF), go to the Site Network Service object in the Azure portal.
+1. Select the link under "Current State -> Resources." The link takes you to the managed resource group created by Azure Operator Service Manager.
 
-Congratulations! You have successfully created a Site Network Service for Ubuntu VM as a VNF in Azure. You can now manage and monitor your Virtual Network Function VNF through the Azure portal.
+Congratulations! You have successfully created a Site Network Service for Ubuntu VM as a Virtual Network Function (VNF) in Azure. You can now manage and monitor your Virtual Network Function (VNF) through the Azure portal.
