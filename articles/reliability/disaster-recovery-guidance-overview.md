@@ -24,13 +24,13 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure Application Gateway (V2)](../networking/disaster-recovery-dns-traffic-manager.md) |
 | [Azure Cosmos DB](../cosmos-db/how-to-multi-master.md?tabs=api-async) |
 | [Azure DNS - Azure DNS Private Resolver](../dns/dns-faq-private.yml#will-azure-private-dns-zones-work-across-azure-regions-) |
-| [Azure Event Hubs](../event-hubs/event-hubs-geo-dr.md?#availability-zones) |
+| [Azure Event Hubs](../event-hubs/event-hubs-geo-dr.md?s) |
 | [Azure ExpressRoute](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md) |
 | [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md) |
 | [Azure Kubernetes Service (AKS)](../aks/operator-best-practices-multi-region.md) |
 | [Azure Load Balancer](../load-balancer/tutorial-cross-region-portal.md) |
 | [Azure Public IP](../load-balancer/cross-region-overview.md) |
-| [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones) |
+| [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md) |
 | [Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md#availability-of-the-service-fabric-cluster) |
 | [Azure Site Recovery](../site-recovery/azure-to-azure-tutorial-enable-replication.md?) |
 | [Azure SQL](/azure/azure-sql/database/recovery-using-backups#geo-restore) |

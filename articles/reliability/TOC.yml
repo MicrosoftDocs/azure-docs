@@ -183,11 +183,13 @@
       - name: Azure Batch
         href: reliability-batch.md#cross-region-disaster-recovery-and-business-continuity
       - name: Azure Bastion
-        href: ../bastion/bastion-faq.md
+        href: ../bastion/bastion-faq.md#dr
       - name: Azure Cache for Redis
         href: ../azure-cache-for-redis/cache-how-to-geo-replication.md
       - name: Azure Cognitive Search
         href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Container Instances
+        href: reliability-container.md#disaster-recovery
       - name: Azure Cosmos DB
         href: ../cosmos-db/how-to-multi-master.md
       - name: Azure Database for MySQL
@@ -211,7 +213,7 @@
       - name: Azure Event Grid
         href: ../event-grid/custom-disaster-recovery-client-side.md
       - name: Azure Event Hubs
-        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones
+        href: ../event-hubs/event-hubs-geo-dr.md
       - name: Azure ExpressRoute
         href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md
       - name: Azure Functions 
@@ -250,8 +252,10 @@
         href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md
       - name: Azure Public IP
         href: ../load-balancer/cross-region-overview.md
+      - name: Azure Cache for Redis
+        href: ../azure-cache-for-redis/cache-how-to-geo-replication.md
       - name: Azure Service Bus
-        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones
+        href: ../service-bus-messaging/service-bus-geo-dr.md
       - name: Azure Service Fabric
         href: ../service-fabric/service-fabric-disaster-recovery.md#availability-of-the-service-fabric-cluster
       - name: Azure SignalR Service
