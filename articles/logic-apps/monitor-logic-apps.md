@@ -223,7 +223,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
 1. On the **Run History** tab, select the run that you want to review.
 
-   The run details view opens and shows the status for each step in the run.
+   The run details page opens and shows the status for each step in the run.
 
    > [!TIP]
    >
@@ -337,7 +337,17 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
 
 ### Rerun from a specific action (preview)
 
-You can rerun your workflow from a specific action using the same inputs and outputs from the actions that previously ran before the resubmitted action where you restarted the run. The resubmitted action and all subsequent actions run as usual. Completing this task creates and adds a new workflow run to your workflow's run history.
+You can rerun a previously finished workflow starting at a specific action using the same inputs and outputs from the preceding actions. The resubmitted action and all subsequent actions run as usual. When the resubmitted actions finish, a new workflow run appears in your workflow's run history.
+
+The resubmit capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
+
+| Actions | Resubmit available? |
+|---------|---------------------|
+| **Condition** action and actions in the **True** and **False** paths | - Yes for **Condition** action <br>- No for actions in the **True** and **False** paths |
+| **For each** action and all actions inside the loop | No for all actions |
+| **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
+| **Until** action and all actions inside the loop | No for all actions |
+| **Scope** | Yes, but only at the final  |
 
 > [!NOTE]
 >
@@ -345,19 +355,60 @@ You can rerun your workflow from a specific action using the same inputs and out
 > are in beta, preview, or otherwise not yet released into general availability, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this capability might change before general availability (GA).
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. If you haven't already, set up the following environment variables for your logic app resource:
+1. At the logic app resource level, set up the following environment variables if you haven't already completed this step:
 
-   1. On your logic app menu, under **Settings**, select **Environment variables**.
-   1. On the **App settings** tab, add the following setting:
+   1. On your logic app resource menu, under **Settings**, select **Environment variables**.
 
-      
+   1. On the **App settings** tab, add the following settings:
+
+      | Setting name | Value |
+      |---------------|-------|
+      | **FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI** | `https://cdnforlogicappsv2.blob.core.windows.net/logicapps-brbenn` |
+      | **AzureFunctionsJobHost_extensionBundle_version** | `[1.39.0.3]` |
+
+   1. When you're done, select **Apply**.
+
+   1. On your logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**, which opens the **Kudu** console.
+
+   1. On the **Kudu** toolbar, open the **Debug console** menu, and select **CMD**.
+
+   1. Browse to the following folder: **..\home\site\wwwroot**
+
+   1. Above the console window, in the directory table, next to the **host.json** file, select **Edit**.
+
+   1. In the **host.json** file, immediately under `"versions"`, add the following JSON object named `"extensions"`:
+
+      ```json
+      "extensions": {
+          "workflow": {
+              "settings": {
+                  "Runtime.IsResubmitActionsEnabled": "true"
+              }
+          }
+      }
+      ```
+
+   1. Remember to add a comma (**,**) immediately after `"versions"`.
+
+   1.	When you're done, on the toolbar, select **Save**.
+
+   1.	Return to your logic app resource menu, select **Overview**, and on the toolbar, select **Restart**.
 
 1. On the workflow menu, select **Overview**. On the **Overview** page, select **Run History**, which shows the run history for the current workflow.
 
 1. On the **Run History** tab, select the run that you want to resubmit.
 
+   The run details page opens and shows the status for each step in the run.
+
+1. In the run details page, find the action from where you want to resubmit the workflow run, open the shortcut menu, and select **Submit from this action**.
+
+   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually-colored status icons.
+
+   > [!TIP]
+   >
+   > If the run hasn't fully finished, on the run details page toolbar, select **Refresh**.
 
 ---
 
