@@ -2,13 +2,13 @@
 title: Transfer data with Azure Data Box Gateway | Microsoft Docs
 description: Learn how to add and connect to shares on your Azure Data Box Gateway, then your Data Box Gateway device can transfer data to Azure.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 07/06/2021
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data with Azure Data Box Gateway

@@ -23,12 +23,12 @@ This article describes how to apply Conditional Access policies to your Microsof
 * Administrators who interact with **Global Secure Access preview** features must have one or more of the following role assignments depending on the tasks they're performing.
    * [Global Secure Access Administrator role](/azure/active-directory/roles/permissions-reference)
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies.
-* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 * To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 ## Create a Conditional Access policy targeting the Microsoft 365 traffic profile
 
-The following example policy targets all users except for your break-glass accounts and guest/external users, requiring multifactor authentication, device compliance, or a hybrid Azure AD joined device when accessing Microsoft 365 traffic.
+The following example policy targets all users except for your break-glass accounts and guest/external users, requiring multifactor authentication, device compliance, or a Microsoft Entra hybrid joined device when accessing Microsoft 365 traffic.
 
 :::image type="content" source="media/how-to-target-resource-microsoft-365-profile/target-resource-traffic-profile.png" alt-text="Screenshot showing a Conditional Access policy targeting a traffic profile.":::
 
@@ -44,7 +44,7 @@ The following example policy targets all users except for your break-glass accou
 1. Under **Target resources** > **Network Access (Preview)***.
    1. Choose **Microsoft 365 traffic**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require hybrid Azure AD joined device**
+   1. Select **Require multifactor authentication**, **Require device to be marked as compliant**, and **Require Microsoft Entra hybrid joined device**
    1. **For multiple controls** select **Require one of the selected controls**.
    1. Select **Select**.
 

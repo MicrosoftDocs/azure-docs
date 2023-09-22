@@ -1,6 +1,6 @@
 ---
 title: Add app roles and get them from a token
-description: Learn how to add app roles to an application registered in Azure Active Directory. Assign users and groups to these roles, and receive them in the 'roles' claim in the token.
+description: Learn how to add app roles to an application registered in Microsoft Entra ID. Assign users and groups to these roles, and receive them in the 'roles' claim in the token.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -21,17 +21,17 @@ Role-based access control (RBAC) is a popular mechanism to enforce authorization
 
 By using RBAC with application role and role claims, developers can securely enforce authorization in their apps with less effort.
 
-Another approach is to use Azure Active Directory (Azure AD) groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Azure AD groups and application roles aren't mutually exclusive; they can be used together to provide even finer-grained access control.
+Another approach is to use Microsoft Entra groups and group claims as shown in the [active-directory-aspnetcore-webapp-openidconnect-v2](https://aka.ms/groupssample) code sample on GitHub. Microsoft Entra groups and application roles aren't mutually exclusive; they can be used together to provide even finer-grained access control.
 
 ## Declare roles for an application
 
-You define app roles by using the [Microsoft Entra admin center](https://entra.microsoft.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted. This can be used to implement [claim-based authorization](./claims-validation.md). App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+You define app roles by using the [Microsoft Entra admin center](https://entra.microsoft.com) during the [app registration process](quickstart-register-app.md). App roles are defined on an application registration representing a service, app or API. When a user signs in to the application, Microsoft Entra ID emits a `roles` claim for each role that the user or service principal has been granted. This can be used to implement [claim-based authorization](./claims-validation.md). App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
 
-Currently, if you add a service principal to a group, and then assign an app role to that group, Azure AD doesn't add the `roles` claim to tokens it issues.
+Currently, if you add a service principal to a group, and then assign an app role to that group, Microsoft Entra ID doesn't add the `roles` claim to tokens it issues.
 
 App roles are declared using App roles UI in the Microsoft Entra admin center:
 
-The number of roles you add counts toward application manifest limits enforced by Azure AD. For information about these limits, see the [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
+The number of roles you add counts toward application manifest limits enforced by Microsoft Entra ID. For information about these limits, see the [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Microsoft Entra app manifest reference](reference-app-manifest.md).
 
 ### App roles UI
 
@@ -139,7 +139,7 @@ Though you can use app roles or groups for authorization, key differences betwee
 
 | App roles                                                                                                    | Groups                                                     |
 | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| They're specific to an application and are defined in the app registration. They move with the application. | They aren't specific to an app, but to an Azure AD tenant. |
+| They're specific to an application and are defined in the app registration. They move with the application. | They aren't specific to an app, but to a Microsoft Entra tenant. |
 | App roles are removed when their app registration is removed.                                                | Groups remain intact even if the app is removed.           |
 | Provided in the `roles` claim.                                                                               | Provided in `groups` claim.                                |
 
@@ -154,5 +154,5 @@ Learn more about app roles with the following resources.
 - Code samples on GitHub
   - [Add authorization using app roles & roles claims to an ASP\.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-1-Roles/README.md)
 - Reference documentation
-  - [Azure AD app manifest](./reference-app-manifest.md)
+  - [Microsoft Entra app manifest](./reference-app-manifest.md)
 - Video: [Implement authorization in your applications with Microsoft identity platform](https://www.youtube.com/watch?v=LRoc-na27l0) (1:01:15)
