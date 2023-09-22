@@ -117,7 +117,7 @@ const recognizeOptions: CallMediaRecognizeChoiceOptions = {
     playPrompt: playSource, 
     operationContext: "AppointmentReminderMenu", 
     kind: "callMediaRecognizeChoiceOptions",
-    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    //Only add the speechRecognitionModelEndpointId if you have a custom speech model you would like to use
     speechRecognitionModelEndpointId: "YourCustomSpeechEndpointId"
 }; 
 
@@ -136,7 +136,7 @@ const recognizeOptions: CallMediaRecognizeSpeechOptions = {
     playPrompt: playSource, 
     operationContext: "OpenQuestionSpeech", 
     kind: "callMediaRecognizeSpeechOptions",
-    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    //Only add the speechRecognitionModelEndpointId if you have a custom speech model you would like to use
     speechRecognitionModelEndpointId: "YourCustomSpeechEndpointId"
 }; 
 
@@ -159,7 +159,7 @@ const recognizeOptions: CallMediaRecognizeSpeechOrDtmfOptions = {
     interruptPrompt: true, 
     operationContext: "OpenQuestionSpeechOrDtmf", 
     kind: "callMediaRecognizeSpeechOrDtmfOptions",
-    //Only add the SpeechModelEndpointId if you have a custom speech model you would like to use
+    //Only add the speechRecognitionModelEndpointId if you have a custom speech model you would like to use
     speechRecognitionModelEndpointId: "YourCustomSpeechEndpointId"
 }; 
 
