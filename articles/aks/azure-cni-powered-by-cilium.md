@@ -147,6 +147,12 @@ az aks update -n <clusterName> -g <resourceGroupName> \
 
     No, AKS doesn't configure CPU or memory limits on the Cilium `daemonset` because Cilium is a critical system component for pod networking and network policy enforcement.
 
+- **Does Azure CNI powered by Cilium use Kube-Proxy?**
+
+    No, AKS clusters created with network dataplane as Cilium don't use Kube-Proxy. 
+    If the AKS clusters are on [Azure CNI Overlay](./azure-cni-overlay.md) or [Azure CNI with dynamic IP allocation](./configure-azure-cni-dynamic-ip-allocation.md) and are upgraded to AKS clusters running Azure CNI powered by Cilium then new nodes workloads are created without kube-proxy. Older workloads are migrated to run without kube-proxy as a part of this upgrade process as well.
+
+
 ## Next steps
 
 Learn more about networking in AKS in the following articles:
