@@ -4,7 +4,7 @@ ms.topic: include
 ms.date: 09/25/2023
 ---
 
-The table below lists the subset of endpoints that must be available in order to onboard servers to Azure Arc only for the purposes of the Extended Security Update support.
+If you are using Azure Arc-enabled Servers only for the purpose of Extended Security Updates for Windows Server 2012, you can enable only the following subset of endpoints:
 
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|

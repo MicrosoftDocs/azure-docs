@@ -15,7 +15,7 @@ This topic describes the networking requirements for using the Connected Machine
 
 [!INCLUDE [network-requirements](./includes/network-requirements.md)]
 
-## Requirements for use limited to Extended Security Updates for Windows Server 2012
+## Subset of endpoints for ESU only
 
 [!INCLUDE [network-requirements](./includes/esu-network-requirements.md)]
 

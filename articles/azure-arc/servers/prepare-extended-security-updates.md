@@ -49,8 +49,6 @@ There are several at-scale onboarding options for Azure Arc-enabled servers, inc
 
 Connectivity options include public endpoint, proxy server, and private link or Azure Express Route. Review the [networking prerequisites](network-requirements.md) to prepare non-Azure environments for deployment to Azure Arc.
 
-While all endpoints required for Arc-enabled servers are listed in the [networking prerequisites](network-requirements.md), customers who would like to get started with Azure Arc-enabled Servers only for the purpose of receiving Extended Security Updates do not need all the endpoints listed.
-
 [!INCLUDE [network-requirements](./includes/esu-network-requirements.md)]
 
 ## Next steps
