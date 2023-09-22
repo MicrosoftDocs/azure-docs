@@ -56,16 +56,17 @@ Choose a search client that supports preview APIs on the query request. Here are
 A *semantic configuration* establishes field inputs for semantic ranking. You can add or update a semantic configuration to an index definition at any time, no rebuild necessary. At query time, specify one on a query request.
 
 + Fields must be `searchable` and `retrievable`.
-+ Fields must be a string data type: `Edm.String`, `Edm.ComplexType`,`Collection(Edm.String)`.
++ Fields must be a string: `Edm.String`, `Edm.ComplexType`,`Collection(Edm.String)`.
 
-  > [!NOTE]
-  > Subfields of `Collection(Edm.ComplexType)` fields aren't currently supported by semantic search and aren't used for semantic ranking, captions, or answers.
+  String subfields of `Collection(Edm.ComplexType)` fields aren't currently supported by semantic search and aren't used for semantic ranking, captions, or answers.
 
 A semantic configuration has a name and the following properties:
 
-+ **Title field** - A short string, ideally under 25 words. This field could be the title of a document, name of a product, or a unique identifier. If you don't have suitable field, leave it blank.
-+ **Content fields** - Should contain text in natural language form. Common examples include the body of a document, description of a product, or other free-form text.
-+ **Keyword fields** - Should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
+| Property | Characteristics |
+|----------|-----------------|
+| Title field | A short string, ideally under 25 words. This field could be the title of a document, name of a product, or a unique identifier. If you don't have suitable field, leave it blank. | 
+| Content fields | Should contain text in natural language form. Common examples include the body of a document, description of a product, or other free-form text. | 
+| Keyword fields | Should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item.  | 
 
 You can only specify one title field, but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
 
