@@ -65,7 +65,7 @@ Because the size and cost for sending logs to an endpoint is difficult to predic
 Other considerations for sending Microsoft Entra ID logs to Azure Monitor logs are covered in the following Azure Monitor cost details articles:
 
 - [Azure Monitor logs cost calculations and options](../../azure-monitor/logs/cost-logs.md)
-- [Azure Monitor cost and usage](../../azure-monitor/usage-estimated-costs.md)
+- [Azure Monitor cost and usage](../../azure-monitor/cost-usage.md)
 - [Optimize costs in Azure Monitor](../../azure-monitor/best-practices-cost.md)
 
 Azure Monitor provides the option to exclude whole events, fields, or parts of fields when ingesting logs from Microsoft Entra ID. Learn more about this cost saving feature in [Data collection transformation in Azure Monitor](../../azure-monitor/essentials/data-collection-transformations.md).

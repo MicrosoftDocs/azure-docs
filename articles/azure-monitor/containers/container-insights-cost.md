@@ -90,7 +90,7 @@ The following list is the cluster inventory data collected by default:
 - ContainerInventory – 1 per container per minute
 
 
-## Controlling ingestion to reduce cost
+## Control ingestion to reduce cost
 
 Consider a scenario where your organization's different business unit shares Kubernetes infrastructure and a Log Analytics workspace. With each business unit separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace using the **Data Usage** runbook which is available from the **View Workbooks** dropdown.
 
