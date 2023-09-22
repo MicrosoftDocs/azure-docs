@@ -1,5 +1,5 @@
 ---
-title: Build resilient applications
+title: Building resilient applications
 titleSuffix: Azure Managed Instance for Apache Cassandra
 description: Learn about best practices for high availability and disaster recovery for Azure Managed Instance for Apache Cassandra
 author: TheovanKraay

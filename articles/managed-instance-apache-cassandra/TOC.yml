@@ -33,7 +33,7 @@
   items:
     - name: Security overview
       href: security.md
-    - name: Build resilient applications
+    - name: Building resilient applications
       href: resilient-applications.md     
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
