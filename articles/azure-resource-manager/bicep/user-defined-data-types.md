@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/20/2023
+ms.date: 09/22/2023
 ---
 
 # User-defined data types in Bicep
@@ -215,6 +215,37 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
   kind: 'StorageV2'
 }
+```
+
+## Declare tagged union type
+
+To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declartion. [Bicep version 0.21.1 or newer](./install.md) is required to use this decorator. The syntax is: 
+
+```bicep
+@discriminator('<propertyName>')
+```
+
+The discriminator decorator takes a single parameter, which represents a shared property name among all union members. This property name must be a required string literal on all members and is case-sensitive. The values of the discriminated property on the union members must be unique in a case-insensitive manner.
+
+Here is an example:
+
+```bicep
+type FooConfig = {
+  type: 'foo'
+  value: int
+}
+
+type BarConfig = {
+  type: 'bar'
+  value: bool
+}
+
+@discriminator('type')
+type ServiceConfig = FooConfig | BarConfig | { type: 'baz', *: string }
+
+param serviceConfig ServiceConfig = { type: 'bar', value: true }
+
+output config object = serviceConfig
 ```
 
 ## Import types between Bicep files (Preview)
