@@ -402,7 +402,8 @@ The following code shows how to call a pretrigger using the Python SDK:
 ```python
 item = {'category': 'Personal', 'name': 'Groceries',
         'description': 'Pick up strawberries', 'isComplete': False}
-container.create_item(item, {'pre_trigger_include': 'trgPreValidateToDoItemTimestamp'})
+
+result = container.create_item(item, pre_trigger_include='trgPreValidateToDoItemTimestamp')
 ```
 
 ---
