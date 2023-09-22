@@ -17,7 +17,7 @@ ms.reviewer: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
-In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.X, 7.X and 8.X. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). For ways to automate building RHEL images, see [Azure Image Builder](../image-builder-overview.md).
+In this article, you'll learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. The versions of RHEL that are covered in this article are 6.X, 7.X, and 8.X. The hypervisors for preparation that are covered in this article are Hyper-V, kernel-based virtual machine (KVM), and VMware. For more information about eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). For ways to automate building RHEL images, see [Azure Image Builder](../image-builder-overview.md).
 > [!NOTE]
 > Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded images that are at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
 
@@ -27,29 +27,29 @@ In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL)
 This section shows you how to prepare a [RHEL 6](#rhel-6-using-hyper-v-manager), [RHEL 7](#rhel-7-using-hyper-v-manager), or [RHEL 8](#rhel-8-using-hyper-v-manager) virtual machine using Hyper-V Manager.
 
 ### Prerequisites
-This section assumes that you have already obtained an ISO file from the Red Hat website and installed the RHEL image to a virtual hard disk (VHD). For more details about how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
+This section assumes that you've already obtained an ISO file from the Red Hat website and installed the RHEL image to a virtual hard disk (VHD). For more details about how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 **RHEL installation notes**
 
-* Azure does not support the VHDX format. Azure supports only fixed VHD. You can use Hyper-V Manager to convert the disk to VHD format, or you can use the convert-vhd cmdlet. If you use VirtualBox, select **Fixed size** as opposed to the default dynamically allocated option when you create the disk.
+* Azure doesn't support the VHDX format. Azure supports only fixed VHD. You can use Hyper-V Manager to convert the disk to VHD format, or you can use the convert-vhd cmdlet. If you use VirtualBox, select **Fixed size** as opposed to the default dynamically allocated option when you create the disk.
 * Azure supports Gen1 (BIOS boot) & Gen2 (UEFI boot) Virtual machines.
-* The maximum size that is allowed for the VHD is 1,023 GB.
+* The maximum size that's allowed for the VHD is 1,023 GB.
 * The vfat kernel module must be enabled in the kernel.
-* Logical Volume Manager (LVM) is supported and may be used on the OS disk or data disks in Azure virtual machines. However, in general it is recommended to use standard partitions on the OS disk rather than LVM. This practice will avoid LVM name conflicts with cloned virtual machines, particularly if you ever need to attach an operating system disk to another identical virtual machine for troubleshooting. See also [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) and [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) documentation.
+* Logical Volume Manager (LVM) is supported and may be used on the OS disk or data disks in Azure virtual machines. However, in general, we recommend using standard partitions on the OS disk rather than LVM. This practice will avoid LVM name conflicts with cloned virtual machines, particularly if you ever need to attach an operating system disk to another identical virtual machine for troubleshooting. See the [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) and [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) documentation.
 * **Kernel support for mounting Universal Disk Format (UDF) file systems is required**. At first boot on Azure, the UDF-formatted media that is attached to the guest passes the provisioning configuration to the Linux virtual machine. The Azure Linux Agent must be able to mount the UDF file system to read its configuration and provision the virtual machine, without this, provisioning will fail!
-* Do not configure a swap partition on the operating system disk. More information about this can be found in the following steps.
+* Don't configure a swap partition on the operating system disk. More information about this can be found in the following steps.
 
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. More details can be found in the steps below. See also [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 
 > [!NOTE]
-> **_Cloud-init >= 21.2 removes the udf requirement_** however without the udf module enabled the cdrom will not mount during provisioning preventing custom data from being applied.  A workaround for this would be to apply custom data using user data however, unlike custom data user data is not encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
+> **_Cloud-init >= 21.2 removes the udf requirement_**. However, without the udf module enabled, the cdrom won't mount during provisioning, preventing custom data from being applied.  A workaround for this is to apply custom data using user data. However, unlike custom data, user data isn't encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
 
 
 ### RHEL 6 using Hyper-V Manager 
 
 > [!IMPORTANT]
-> Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, it is strongly recommended upgrading to Red Hat Enterprise Linux 7 or 8 or 9. If customers must stay on Red Hat Enterprise Linux 6, it is recommended to add the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
+> Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, we strongly recommend upgrading to Red Hat Enterprise Linux 7, 8, or 9. If customers must stay on Red Hat Enterprise Linux 6, we recommend adding the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -129,7 +129,7 @@ EOF
     rhgb quiet crashkernel=auto
     ```
     
-    Graphical and quiet boots are not useful in a cloud environment where we want all the logs to be sent to the serial port.  You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more. This configuration might be problematic on smaller virtual machine sizes.
+    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port.  You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more. This configuration might be problematic on smaller virtual machine sizes.
 
 
 11. Ensure that the secure shell (SSH) server is installed and configured to start at boot time, which is usually the default. Modify /etc/ssh/sshd_config to include the following line:
@@ -145,9 +145,9 @@ EOF
     sudo chkconfig waagent on
     ```
 
-    Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they were not already removed in step 3.
+    Installing the WALinuxAgent package removes the NetworkManager and NetworkManager-gnome packages if they weren't already removed in step 3.
 
-13. Do not create swap space on the operating system disk.
+13. Don't create swap space on the operating system disk.
 
     The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. Note that the local resource disk is a temporary disk and that it might be emptied if the virtual machine is deprovisioned. After you install the Azure Linux Agent in the previous step, modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -168,7 +168,7 @@ EOF
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
   > [!NOTE] 
-  > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step
+  > If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
 ```bash
     sudo waagent -force -deprovision
@@ -232,9 +232,9 @@ EOF
     rhgb quiet crashkernel=auto
     ```
    
-    Graphical and quiet boots are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
-8. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
+8. After you're done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -272,7 +272,7 @@ EOF
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
     > [!NOTE]
-    > If you are migrating a specific virtual machine and do not wish to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` config.
+    > If you are migrating a specific virtual machine and don't wish to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` config.
     
     1. Configure mounts:
 
@@ -319,7 +319,7 @@ EOF
     ```
 
 13. Swap configuration. 
-    Do not create swap space on the operating system disk.
+    Don't create swap space on the operating system disk.
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
 
@@ -363,7 +363,7 @@ EOF
     Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     > [!CAUTION]
-    > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
+    > If you are migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
 
     ```bash
     sudo rm -f /var/log/waagent.log
@@ -424,7 +424,7 @@ EOF
     rhgb quiet crashkernel=auto
     ```
    
-    Graphical and quiet boots are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 7. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
@@ -461,7 +461,7 @@ EOF
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
     > [!NOTE]
-    > If you are migrating a specific virtual machine and do not wish to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` config.
+    > If you're migrating a specific virtual machine and don't wish to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` config.
     
     1. Configure mounts:
 
@@ -508,7 +508,7 @@ EOF
     ```
 
 11. Swap configuration 
-    Do not create swap space on the operating system disk.
+    Don't create swap space on the operating system disk.
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
 
@@ -558,7 +558,7 @@ EOF
     sudo export HISTSIZE=0
     ```
     > [!CAUTION]
-    > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
+    > If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
 
 
 14. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
@@ -571,7 +571,7 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
 ### RHEL 6 using KVM
 
 > [!IMPORTANT]
-> Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, it is strongly recommended upgrading to Red Hat Enterprise Linux 7 or 8 or 9. If customers must stay on Red Hat Enterprise Linux 6, it is recommended to add the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
+> Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, we strongly recommend upgrading to Red Hat Enterprise Linux 7, 8, or 9. If customers must stay on Red Hat Enterprise Linux 6, we recommend adding the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
 
 1. Download the KVM image of RHEL 6 from the Red Hat website.
 
@@ -660,7 +660,7 @@ EOF
     rhgb quiet crashkernel=auto
     ```
 
-    Graphical and quiet boots are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 
 10. Add Hyper-V modules to initramfs:  
@@ -728,7 +728,7 @@ EOF
 17. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     > [!NOTE]
-    > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step
+    > If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step
 
     ```bash
     sudo rm -rf /var/lib/waagent/
@@ -846,7 +846,7 @@ EOF
     rhgb quiet crashkernel=auto
     ```
 
-    Graphical and quiet boots are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 9. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
@@ -910,7 +910,7 @@ Follow the steps in 'Prepare a RHEL 7 virtual machine from Hyper-V Manager', ste
 
 16. Swap configuration 
 
-    Do not create swap space on the operating system disk.
+    Don't create swap space on the operating system disk.
     Follow the steps in 'Prepare a RHEL 7 virtual machine from Hyper-V Manager', step 13, 'Swap configuration'
 
 
@@ -969,7 +969,7 @@ This section shows you how to prepare a [RHEL 6](#rhel-6-using-vmware) or [RHEL 
 This section assumes that you have already installed a RHEL virtual machine in VMware. For details about how to install an operating system in VMware, see [VMware Guest Operating System Installation Guide](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * When you install the Linux operating system, we recommend that you use standard partitions rather than LVM, which is often the default for many installations. This will avoid LVM name conflicts with cloned virtual machine, particularly if an operating system disk ever needs to be attached to another virtual machine for troubleshooting. LVM or RAID can be used on data disks if preferred.
-* Do not configure a swap partition on the operating system disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps that follow.
+* Don't configure a swap partition on the operating system disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps that follow.
 * When you create the virtual hard disk, select **Store virtual disk as a single file**.
 
 ### RHEL 6 using VMware
@@ -1050,7 +1050,7 @@ EOF
     rhgb quiet crashkernel=auto
     ```
    
-    Graphical and quiet boots are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 9. Add Hyper-V modules to initramfs:
 
@@ -1079,7 +1079,7 @@ EOF
     sudo chkconfig waagent on
     ```
 
-12. Do not create swap space on the operating system disk.
+12. Don't create swap space on the operating system disk.
 
     The Azure Linux Agent can automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. Note that the local resource disk is a temporary disk, and it might be emptied if the virtual machine is deprovisioned. After you install the Azure Linux Agent in the previous step, modify the following parameters in `/etc/waagent.conf` appropriately:
 
@@ -1100,7 +1100,7 @@ EOF
 14. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     > [!NOTE]
-    > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step
+    > If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
     ```bash
     sudo rm -rf /var/lib/waagent/
@@ -1190,7 +1190,7 @@ EOF
     rhgb quiet crashkernel=auto
     ```
 
-    Graphical and quiet boots are not useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
 
 6. After you are done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
@@ -1237,7 +1237,7 @@ EOF
 
 12. Swap configuration
 
-    Do not create swap space on the operating system disk.
+    Don't create swap space on the operating system disk.
     Follow the steps in 'Prepare a RHEL 7 virtual machine from Hyper-V Manager', step 13, 'Swap configuration'
 
 13. If you want to unregister the subscription, run the following command:
@@ -1302,7 +1302,7 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
     # Use graphical install
     text
 
-    # Do not run the Setup Agent on first boot
+    # Don't run the Setup Agent on first boot
     firstboot --disable
 
     # Keyboard layouts
@@ -1342,7 +1342,7 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
     # Enable SELinux
     selinux --enforcing
 
-    # Do not configure X
+    # Don't configure X
     skipx
 
     # Power down the machine after install
