@@ -1,5 +1,5 @@
 ---
-title: Compare Active Directory-based services in Azure | Microsoft Docs
+title: Compare Microsoft directory-based services | Microsoft Docs
 description: In this overview, you compare the different identity offerings for Active Directory Domain Services, Microsoft Entra ID, and Microsoft Entra Domain Services.
 services: active-directory-ds
 author: justinha
@@ -12,7 +12,7 @@ ms.topic: overview
 ms.date: 09/13/2023
 ms.author: justinha
 
-#Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Microsoft Entra ID, and Microsoft Entra DS so I can choose the most appropriate identity solution for my organization.
+#Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Microsoft Entra ID, and Domain Services so I can choose the most appropriate identity solution for my organization.
 ---
 
 # Compare self-managed Active Directory Domain Services, Microsoft Entra ID, and managed Microsoft Entra Domain Services
@@ -27,29 +27,29 @@ Although the three Active Directory-based identity solutions share a common name
 * **Microsoft Entra ID** - Cloud-based identity and mobile device management that provides user account and authentication services for resources such as Microsoft 365, the Microsoft Entra admin center, or SaaS applications.
     * Microsoft Entra ID can be synchronized with an on-premises AD DS environment to provide a single identity to users that works natively in the cloud.
     * For more information about Microsoft Entra ID, see [What is Microsoft Entra ID?][whatis-azuread]
-* **Microsoft Entra Domain Services (Microsoft Entra DS)** - Provides managed domain services with a subset of fully compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
-    * Microsoft Entra DS integrates with Microsoft Entra ID, which itself can synchronize with an on-premises AD DS environment. This ability extends central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.
+* **Microsoft Entra Domain Services** - Provides managed domain services with a subset of fully compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
+    * Domain Services integrates with Microsoft Entra ID, which itself can synchronize with an on-premises AD DS environment. This ability extends central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.
     * To learn more about synchronization with Microsoft Entra ID and on-premises, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 This overview article compares and contrasts how these identity solutions can work together, or would be used independently, depending on the needs of your organization.
 
 > [!div class="nextstepaction"]
-> [To get started, create a Microsoft Entra DS managed domain using the Microsoft Entra admin center][tutorial-create]
+> [To get started, create a Domain Services managed domain using the Microsoft Entra admin center][tutorial-create]
 
 <a name='azure-ad-ds-and-self-managed-ad-ds'></a>
 
-## Microsoft Entra DS and self-managed AD DS
+## Domain Services and self-managed AD DS
 
 If you have applications and services that need access to traditional authentication mechanisms such as Kerberos or NTLM, there are two ways to provide Active Directory Domain Services in the cloud:
 
-* A *managed domain* that you create using Microsoft Entra Domain Services (Microsoft Entra DS). Microsoft creates and manages the required resources.
+* A *managed domain* that you create using Microsoft Entra Domain Services. Microsoft creates and manages the required resources.
 * A *self-managed* domain that you create and configure using traditional resources such as virtual machines (VMs), Windows Server guest OS, and Active Directory Domain Services (AD DS). You then continue to administer these resources.
 
-With Microsoft Entra DS, the core service components are deployed and maintained for you by Microsoft as a *managed* domain experience. You don't deploy, manage, patch, and secure the AD DS infrastructure for components like the VMs, Windows Server OS, or domain controllers (DCs).
+With Domain Services, the core service components are deployed and maintained for you by Microsoft as a *managed* domain experience. You don't deploy, manage, patch, and secure the AD DS infrastructure for components like the VMs, Windows Server OS, or domain controllers (DCs).
 
-Microsoft Entra DS provides a smaller subset of features to traditional self-managed AD DS environment, which reduces some of the design and management complexity. For example, there are no AD forests, domain, sites, and replication links to design and maintain. You can still [create forest trusts between Microsoft Entra DS and on-premises environments][create-forest-trust].
+Domain Services provides a smaller subset of features to traditional self-managed AD DS environment, which reduces some of the design and management complexity. For example, there are no AD forests, domain, sites, and replication links to design and maintain. You can still [create forest trusts between Domain Services and on-premises environments][create-forest-trust].
 
-For applications and services that run in the cloud and need access to traditional authentication mechanisms such as Kerberos or NTLM, Microsoft Entra DS provides a managed domain experience with the minimal amount of administrative overhead. For more information, see [Management concepts for user accounts, passwords, and administration in Microsoft Entra DS][administration-concepts].
+For applications and services that run in the cloud and need access to traditional authentication mechanisms such as Kerberos or NTLM, Domain Services provides a managed domain experience with the minimal amount of administrative overhead. For more information, see [Management concepts for user accounts, passwords, and administration in Domain Services][administration-concepts].
 
 When you deploy and run a self-managed AD DS environment, you have to maintain all of the associated infrastructure and directory components. There's additional maintenance overhead with a self-managed AD DS environment, but you're then able to do additional tasks such as extend the schema or create forest trusts.
 
@@ -59,9 +59,9 @@ Common deployment models for a self-managed AD DS environment that provides iden
 * **Extend on-premises domain to Azure** - An Azure virtual network connects to an on-premises network using a VPN / ExpressRoute connection. Azure VMs connect to this Azure virtual network, which lets them domain-join to the on-premises AD DS environment.
     * An alternative is to create Azure VMs and promote them as replica domain controllers from the on-premises AD DS domain. These domain controllers replicate over a VPN / ExpressRoute connection to the on-premises AD DS environment. The on-premises AD DS domain is effectively extended into Azure.
 
-The following table outlines some of the features you may need for your organization, and the differences between a managed Microsoft Entra DS domain or a self-managed AD DS domain:
+The following table outlines some of the features you may need for your organization, and the differences between a managed domain or a self-managed AD DS domain:
 
-| **Feature** | **Microsoft Entra DS** | **Self-managed AD DS** |
+| **Feature** | **Managed domain** | **Self-managed AD DS** |
 | ----------- |:---------------:|:----------------------:|
 | **Managed service**                               | **&#x2713;** | **&#x2715;** |
 | **Secure deployments**                            | **&#x2713;** | Administrator secures the deployment |
@@ -81,7 +81,7 @@ The following table outlines some of the features you may need for your organiza
 
 <a name='azure-ad-ds-and-azure-ad'></a>
 
-## Microsoft Entra DS and Microsoft Entra ID
+## Domain Services and Microsoft Entra ID
 
 Microsoft Entra ID lets you manage the identity of devices used by the organization and control access to corporate resources from those devices. Users can also register their personal device (a bring-your-own (BYO) model) with Microsoft Entra ID, which provides the device with an identity. Microsoft Entra ID then authenticates the device when a user signs in to Microsoft Entra ID and uses the device to access secured resources. The device can be managed using Mobile Device Management (MDM) software like Microsoft Intune. This management ability lets you restrict access to sensitive resources to managed and policy-compliant devices.
 
@@ -105,26 +105,26 @@ Devices can be joined to Microsoft Entra ID with or without a hybrid deployment 
 
 On a Microsoft Entra joined or registered device, user authentication happens using modern OAuth / OpenID Connect based protocols. These protocols are designed to work over the internet, so are great for mobile scenarios where users access corporate resources from anywhere.
 
-With Microsoft Entra DS-joined devices, applications can use the Kerberos and NTLM protocols for authentication, so can support legacy applications migrated to run on Azure VMs as part of a lift-and-shift strategy. The following table outlines differences in how the devices are represented and can authenticate themselves against the directory:
+With Domain Services-joined devices, applications can use the Kerberos and NTLM protocols for authentication, so can support legacy applications migrated to run on Azure VMs as part of a lift-and-shift strategy. The following table outlines differences in how the devices are represented and can authenticate themselves against the directory:
 
-| **Aspect**                      | **Microsoft Entra joined**                                 | **Microsoft Entra DS-joined**                                                    |
+| **Aspect**                      | **Microsoft Entra joined**                                 | **Domain Services-joined**                                                    |
 |:--------------------------------| --------------------------------------------------- | ------------------------------------------------------------------------- |
-| Device controlled by            | Microsoft Entra ID                                            | Microsoft Entra DS managed domain                                                |
-| Representation in the directory | Device objects in the Microsoft Entra directory            | Computer objects in the Microsoft Entra DS managed domain                        |
+| Device controlled by            | Microsoft Entra ID                                            | Domain Services managed domain                                                |
+| Representation in the directory | Device objects in the Microsoft Entra directory            | Computer objects in the Domain Services managed domain                        |
 | Authentication                  | OAuth / OpenID Connect based protocols              | Kerberos and NTLM protocols                                               |
 | Management                      | Mobile Device Management (MDM) software like Intune | Group Policy                                                              |
 | Networking                      | Works over the internet                             | Must be connected to, or peered with, the virtual network where the managed domain is deployed |
 | Great for...                    | End-user mobile or desktop devices                  | Server VMs deployed in Azure                                              |
 
 
-If on-premises AD DS and Microsoft Entra ID are configured for federated authentication using AD FS, then there's no (current/valid) password hash available in Azure DS. Microsoft Entra user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-premises password. Hence Microsoft Entra DS won't be able to validate the users credentials
+If on-premises AD DS and Microsoft Entra ID are configured for federated authentication using AD FS, then there's no (current/valid) password hash available in Azure DS. Microsoft Entra user accounts created before fed auth was implemented might have an old password hash but this likely doesn't match a hash of their on-premises password. As a result, Domain Services won't be able to validate the users credentials
 
 ## Next steps
 
-To get started with using Microsoft Entra DS, [create a Microsoft Entra DS managed domain using the Microsoft Entra admin center][tutorial-create].
+To get started with using Domain Services, [create a Domain Services managed domain using the Microsoft Entra admin center][tutorial-create].
 
 You can also learn more about 
-[management concepts for user accounts, passwords, and administration in Microsoft Entra DS][administration-concepts] and [how objects and credentials are synchronized in a managed domain][synchronization].
+[management concepts for user accounts, passwords, and administration in Domain Services][administration-concepts] and [how objects and credentials are synchronized in a managed domain][synchronization].
 
 <!-- INTERNAL LINKS -->
 [manage-dns]: manage-dns.md
