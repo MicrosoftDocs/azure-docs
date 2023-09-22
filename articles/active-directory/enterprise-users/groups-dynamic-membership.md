@@ -398,6 +398,8 @@ You can also create a rule that selects device objects for membership in a group
 
 The following device attributes can be used.
 
+<!-- docutune:disable -->
+
  Device attribute  | Values | Example
  ----- | ----- | ----------------
  accountEnabled | true false | device.accountEnabled -eq true
@@ -411,7 +413,7 @@ The following device attributes can be used.
  deviceOSVersion | any string value | device.deviceOSVersion -eq "9.1"<br>device.deviceOSVersion -startsWith "10.0.1"
  deviceOwnership | Personal, Company, Unknown | device.deviceOwnership -eq "Company"
  devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | device.devicePhysicalIDs -any _ -contains "[ZTDId]"<br>(device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881"<br>(device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342"
- deviceTrustType | Microsoft Entra ID, ServerAD, Workplace | device.deviceTrustType -eq "Microsoft Entra ID"
+ deviceTrustType | AzureAD, ServerAD, Workplace | device.deviceTrustType -eq "AzureAD"
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | device.enrollmentProfileName -eq "DEP iPhones"
  extensionAttribute1 | any string value | device.extensionAttribute1 -eq "some string value"
  extensionAttribute2 | any string value | device.extensionAttribute2 -eq "some string value"
@@ -435,10 +437,12 @@ The following device attributes can be used.
  profileType | a valid [profile type](/graph/api/resources/device?view=graph-rest-1.0#properties&preserve-view=true) in Microsoft Entra ID | device.profileType -eq "RegisteredDevice"
  systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | device.systemLabels -contains "M365Managed"
 
+<!-- docutune:enable -->
+
 > [!NOTE]
-> When using deviceOwnership to create Dynamic Groups for devices, you need to set the value equal to "Company." On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
-> When using deviceTrustType to create Dynamic Groups for devices, you need to set the value equal to "Microsoft Entra ID" to represent Microsoft Entra joined devices, "ServerAD" to represent Microsoft Entra hybrid joined devices or "Workplace" to represent Microsoft Entra registered devices.
-> When using extensionAttribute1-15 to create Dynamic Groups for devices you need to set the value for extensionAttribute1-15 on the device. Learn more on [how to write extensionAttributes on a Microsoft Entra device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
+> When using `deviceOwnership` to create Dynamic Groups for devices, you need to set the value equal to `Company`. On Intune the device ownership is represented instead as Corporate. For more information, see [OwnerTypes](/intune/reports-ref-devices#ownertypes) for more details. 
+> When using `deviceTrustType` to create Dynamic Groups for devices, you need to set the value equal to `AzureAD` to represent Microsoft Entra joined devices, `ServerAD` to represent Microsoft Entra hybrid joined devices or `Workplace` to represent Microsoft Entra registered devices.
+> When using `extensionAttribute1-15` to create Dynamic Groups for devices you need to set the value for `extensionAttribute1-15` on the device. Learn more on [how to write `extensionAttributes` on a Microsoft Entra device object](/graph/api/device-update?view=graph-rest-1.0&tabs=http#example-2--write-extensionattributes-on-a-device&preserve-view=true)
 
 ## Next steps
 

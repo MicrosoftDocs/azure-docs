@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 # Quickstart: Get started with our guide to run a sample app and sign in your users (preview)
 
-In this quickstart, we'll guide you through customizing the look and feel of your apps in the  customer tenant, setting up a user and configuring a sample app in only a few minutes. With these built-in customer configuration features, Microsoft Entra External ID for customers can serve as the identity provider and access management service for your customers.
+In this quickstart, we'll guide you through customizing the look and feel of your apps in the  customer tenant, setting up a user and configuring a sample app in only a few minutes. With these built-in customer configuration features, Microsoft Entra ID for customers can serve as the identity provider and access management service for your customers.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ Follow the steps below, to download and run the sample app.
 
 <a name='explore-azure-ad-for-customers'></a>
 
-## Explore Microsoft Entra External ID for customers
+## Explore Microsoft Entra ID for customers
 
 Follow the articles below to learn more about the configuration the guide created for you or to configure your own apps. You can always come back to the [admin center](https://entra.microsoft.com/) to customize your tenant and explore the full range of configuration options for your tenant.
 
