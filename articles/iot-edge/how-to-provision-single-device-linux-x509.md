@@ -272,6 +272,8 @@ The steps in this section are for scenarios not covered by the standard installa
 
 Use the steps in this section if you want to install a specific version of the Azure IoT Edge runtime that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
+If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
 >[!NOTE]
@@ -298,7 +300,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-      To do
+        If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
       ---
 
    3. Find the **aziot-edge** file that matches your IoT Edge device's architecture. Right-click on the file link and copy the link address.
@@ -316,7 +318,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-      To do
+        If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
       ---
 
