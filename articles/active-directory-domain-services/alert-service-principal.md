@@ -16,7 +16,7 @@ ms.author: justinha
 ---
 # Known issues: Service principal alerts in Microsoft Entra Domain Services
 
-[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that the Azure platform uses to manage, update, and maintain a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain. If a service principal is deleted, functionality in the managed domain is impacted.
+[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that the Azure platform uses to manage, update, and maintain a Microsoft Entra Domain Services managed domain. If a service principal is deleted, functionality in the managed domain is impacted.
 
 This article helps you troubleshoot and resolve service principal-related configuration alerts.
 
@@ -80,7 +80,7 @@ The managed domain's health automatically updates itself within two hours and re
 
 *The service principal with the application ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" was deleted and then recreated. The recreation leaves behind inconsistent permissions on Microsoft Entra Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.*
 
-Microsoft Entra DS automatically synchronizes user accounts and credentials from Microsoft Entra ID. If there's a problem with the Microsoft Entra application used for this process, credential synchronization between Microsoft Entra DS and Microsoft Entra ID fails.
+Domain Services automatically synchronizes user accounts and credentials from Microsoft Entra ID. If there's a problem with the Microsoft Entra application used for this process, credential synchronization between Domain Services and Microsoft Entra ID fails.
 
 ### Resolution
 

@@ -1,6 +1,6 @@
 ---
 title: Create and manage custom attributes for Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how to create and manage custom attributes in a Microsoft Entra DS managed domain.
+description: Learn how to create and manage custom attributes in a Domain Services managed domain.
 services: active-directory-ds
 author: AlexCesarini
 manager: amycolannino
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 09/21/2023
 ms.author: justinha
 
 ---
@@ -18,7 +18,7 @@ ms.author: justinha
 
 For various reasons, companies often can’t modify code for legacy apps. For example, apps may use a custom attribute, such as a custom employee ID, and rely on that attribute for LDAP operations. 
 
-Microsoft Entra ID supports adding custom data to resources using [extensions](/graph/extensibility-overview). Microsoft Entra Domain Services (Microsoft Entra DS) can synchronize the following types of extensions from Microsoft Entra ID, so you can also use apps that depend on custom attributes with Microsoft Entra DS:  
+Microsoft Entra ID supports adding custom data to resources using [extensions](/graph/extensibility-overview). Microsoft Entra Domain Services can synchronize the following types of extensions from Microsoft Entra ID, so you can also use apps that depend on custom attributes with Domain Services:  
 
 - [onPremisesExtensionAttributes](/graph/extensibility-overview?tabs=http#extension-attributes) are a set of 15 attributes that can store extended user string attributes. 
 - [Directory extensions](/graph/extensibility-overview?tabs=http#directory-azure-ad-extensions) allow the schema extension of specific directory objects, such as users and groups, with strongly typed attributes through registration with an application in the tenant. 
@@ -66,9 +66,9 @@ Click **Select**, and then **Save** to confirm the change.
 
 :::image type="content" border="true" source="./media/concepts-custom-attributes/select.png" alt-text="Screenshot of how to save directory extension attributes.":::
 
-Microsoft Entra DS back fills all synchronized users and groups with the onboarded custom attribute values. The custom attribute values gradually populate for objects that contain the directory extension in Microsoft Entra ID. During the backfill synchronization process, incremental changes in Microsoft Entra ID are paused, and the sync time depends on the size of the tenant. 
+Domain Services back fills all synchronized users and groups with the onboarded custom attribute values. The custom attribute values gradually populate for objects that contain the directory extension in Microsoft Entra ID. During the backfill synchronization process, incremental changes in Microsoft Entra ID are paused, and the sync time depends on the size of the tenant. 
 
-To check the backfilling status, click **Microsoft Entra DS Health** and verify the **Synchronization with Microsoft Entra ID** monitor has an updated timestamp within an hour since onboarding. Once updated, the backfill is complete. 
+To check the backfilling status, click **Domain Services Health** and verify the **Synchronization with Microsoft Entra ID** monitor has an updated timestamp within an hour since onboarding. Once updated, the backfill is complete. 
 
 ## Next steps 
 
