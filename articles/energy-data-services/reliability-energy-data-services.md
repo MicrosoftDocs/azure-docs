@@ -29,6 +29,7 @@ The Azure Data Manager for Energy supports availability zones in the following r
 |------------------|----------------------|
 | South Central US | North Europe         |
 | East US          | West Europe          |
+| Brazil South     |                      |
 
 ### Zone down experience
 During a zone-wide outage, no action is required during zone recovery. There may be a brief degradation of performance until the service self-heals and rebalances underlying capacity to adjust to healthy zones. During this period, you may experience 5xx errors and you may have to retry API calls until the service is restored.
@@ -41,7 +42,7 @@ Azure Data Manager for Energy is a regional service and, therefore, is susceptib
 
 :::image type="content" source="media/reliability-energy-data-services/cross-region-disaster-recovery.png" alt-text="Diagram of Azure data manager for energy cross region disaster recovery workflow." lightbox="media/reliability-energy-data-services/cross-region-disaster-recovery.png":::
 
-Below is the list of primary and secondary regions:
+Below is the list of primary and secondary regions for regions where disaster recovery is supported:
 
 | Geography        | Primary              | Secondary        |
 |------------------|----------------------|------------------|
@@ -51,6 +52,10 @@ Below is the list of primary and secondary regions:
 |Europe            | West Europe          | North Europe     |
 
 Azure Data Manager for Energy uses Azure Storage, Azure Cosmos DB and Elasticsearch index as underlying data stores for persisting your data partition data. These data stores offer high durability, availability, and scalability. Azure Data Manager for Energy uses [geo-zone-redundant storage](../storage/common/storage-redundancy.md#geo-zone-redundant-storage) or GZRS to automatically replicate data to a secondary region that's hundreds of miles away from the primary region. The same security features enabled in the primary region (for example, encryption at rest using your encryption key) to protect your data are applicable to the secondary region. Similarly, Azure Cosmos DB is a globally distributed data service, which replicates the metadata (catalog) across regions. Elasticsearch index snapshots are taken at regular intervals and geo-replicated to the secondary region. All inflight data are ephemeral and therefore subject to loss. For example, in-transit data that is part of an on-going ingestion job that isn't persisted yet is lost, and you must restart the ingestion process upon recovery.
+
+> [!IMPORTANT]
+> In the following regions, disaster recovery is not available. For more information please contact your Microsoft sales or customer representative.
+> 1. Brazil South
 
 #### Set up disaster recovery and outage detection
 

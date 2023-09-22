@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 09/21/2023
 ms.author: justinha
 
 ---
 # Review security audit events in Microsoft Entra Domain Services using Azure Monitor Workbooks
 
-To help you understand the state of your Microsoft Entra Domain Services (Microsoft Entra DS) managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Microsoft Entra DS includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
+To help you understand the state of your Microsoft Entra Domain Services managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Domain Services includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
 
-This article shows you how to use Azure Monitor Workbooks to review security audit events in Microsoft Entra DS.
+This article shows you how to use Azure Monitor Workbooks to review security audit events in Domain Services.
 
 ## Before you begin
 
@@ -29,15 +29,15 @@ To complete this article, you need the following resources and privileges:
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
 * Security audit events enabled for your managed domain that stream data to a Log Analytics workspace.
-    * If needed, [enable security audits for Microsoft Entra DS][enable-security-audits].
+    * If needed, [enable security audits for Domain Services][enable-security-audits].
 
 ## Azure Monitor Workbooks overview
 
-When security audit events are turned on in Microsoft Entra DS, it can be hard to analyze and identify issues in the managed domain. Azure Monitor lets you aggregate these security audit events and query the data. With Azure Monitor Workbooks, you can visualize this data to make it quicker and easier to identify issues.
+When security audit events are turned on in Domain Services, it can be hard to analyze and identify issues in the managed domain. Azure Monitor lets you aggregate these security audit events and query the data. With Azure Monitor Workbooks, you can visualize this data to make it quicker and easier to identify issues.
 
 Workbook templates are curated reports that are designed for flexible reuse by multiple users and teams. When you open a workbook template, the data from your Azure Monitor environment is loaded. You can use templates without an impact on other users in your organization, and can save your own workbooks based on the template.
 
-Microsoft Entra DS includes the following two workbook templates:
+Domain Services includes the following two workbook templates:
 
 * Security overview report
 * Account activity report
@@ -97,7 +97,7 @@ As with the security overview report, you can drill down into the different tile
 
 ## Save and edit workbooks
 
-The two template workbooks provided by Microsoft Entra DS are a good place to start with your own data analysis. If you need to get more granular in the data queries and investigations, you can save your own workbooks and edit the queries.
+The two template workbooks provided by Domain Services are a good place to start with your own data analysis. If you need to get more granular in the data queries and investigations, you can save your own workbooks and edit the queries.
 
 1. To save a copy of one of the workbook templates, select **Edit > Save as > Shared reports**, then provide a name and save it.
 1. From your own copy of the template, select **Edit** to enter the edit mode. You can choose the blue **Edit** button next to any part of the report and change it.
