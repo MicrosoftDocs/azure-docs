@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 Runbook input parameters increase the flexibility of a runbook by allowing data to be passed to it when it's started. These parameters allow runbook actions to be targeted for specific scenarios and environments. This article describes the configuration and use of input parameters in your runbooks.
 
-You can configure input parameters for PowerShell, PowerShell Workflow, graphical, and Python runbooks. A runbook can have multiple parameters with different data types, or no parameters. Input parameters can be mandatory or optional, and you can use default values for optional parameters.
+You can configure input parameters for PowerShell, PowerShell Workflow, graphical, and Python runbooks. A runbook can have multiple parameters with different data types or no parameters. Input parameters can be mandatory or optional, and you can use default values for optional parameters.
 
 You assign values to the input parameters for a runbook when you start it. You can start a runbook from the Azure portal, a web service, or PowerShell. You can also start one as a child runbook that is called inline in another runbook.
 
@@ -24,7 +24,8 @@ Azure Automation supports various input parameter values across the different ru
 |---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | PowerShell          | - String - Security.SecureString - INT32 - Boolean - DateTime - Array - Collections.Hashtable - Management.Automation.SwitchParameter |
 | PowerShell Workflow | - String - Security.SecureString - INT32 - Boolean - DateTime - Array - Collections.Hashtable - Management.Automation.SwitchParameter |
-| Python              | - String                                                                                                                              |
+| Graphical PowerShell| - String -INT32 - INT64 - Boolean - Decimal - DateTime - Object                                                                       |
+| Python              | - String                                                                                                                                                                                        |                                                               |
 
 ## Configure input parameters in PowerShell runbooks
 
