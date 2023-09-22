@@ -47,7 +47,7 @@ One clear sign of a procedural article would be the use of a numbered list. With
 
 -->
 
-# [\<noun phrase\> concept(s)]
+# Azure IoT Akri overview
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph
@@ -90,13 +90,13 @@ Required: In a series of H2 sections, the article body should discuss the ideas 
 
 -->
 
-## [Section 1 heading]
+## Section 1 heading
 TODO: add your content
 
-## [Section 2 heading]
+## Section 2 heading
 TODO: add your content
 
-## [Section n heading]
+## Section 3 heading
 TODO: add your content
 
 <!-- 5. Next step/Related content ------------------------------------------------------------------------ 
@@ -111,42 +111,12 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 TODO: Add your next step link(s)
 
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
 <!-- OR -->
 
 ## Related content
 
 TODO: Add your next step link(s)
 
-- [Write concepts](article-concept.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
-
-
-<!-- 6. Next step/Related content ------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related
-content. You don't have to use either, but don't use both. For Next step, provide one link to the
-next step in a sequence. Use the blue box format For Related content provide 1-3 links. Include some
-context so the customer can determine why they would click the link. Add a context sentence for the
-following links.
-
--->
-
-## Next step
-TODO: Add your next step link(s)
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-<!-- OR -->
-
-## Related content
-TODO: Add your next step link(s)
-- [Write concepts](article-concept.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 

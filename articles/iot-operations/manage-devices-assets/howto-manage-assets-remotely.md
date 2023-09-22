@@ -33,7 +33,7 @@ For example: "Migrate data from regular tables to ledger tables" or "Create a ne
 
 -->
 
-# "<verb> * <noun>"
+# Manage assets remotely
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
@@ -89,7 +89,7 @@ For portal-based procedures, minimize bullets and numbering.
 
 -->
 
-## "\<verb\> * \<noun\>"
+## Task 1
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -97,7 +97,7 @@ TODO: Add ordered list of procedure steps
 1. Step 2
 1. Step 3
 
-## "\<verb\> * \<noun\>"
+## Task 2
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -105,7 +105,7 @@ TODO: Add ordered list of procedure steps
 1. Step 2
 1. Step 3
 
-## "\<verb\> * \<noun\>"
+## Task 3
 TODO: Add introduction sentence(s)
 [Include a sentence or two to explain only what is needed to complete the procedure.]
 TODO: Add ordered list of procedure steps
@@ -125,8 +125,6 @@ Optional: You have two options for manually curated links in this pattern: Next 
 
 TODO: Add your next step link(s)
 
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
 
 <!-- OR -->
 
@@ -134,7 +132,6 @@ TODO: Add your next step link(s)
 
 TODO: Add your next step link(s)
 
-- [Write concepts](article-concept.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the main branch.
