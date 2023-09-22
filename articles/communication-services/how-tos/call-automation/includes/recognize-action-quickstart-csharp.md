@@ -100,7 +100,7 @@ var recognizeResult = await callAutomationClient.GetCallConnection(callConnectio
   .GetCallMedia()
   .StartRecognizingAsync(recognizeOptions);
 ```
-For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](https://learn.microsoft.com/azure/ai-services/speech-service/how-to-custom-speech-create-project?pivots=speech-studio).
+For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
 ### Speech-to-Text Choices (Public Preview)
 ``` csharp
