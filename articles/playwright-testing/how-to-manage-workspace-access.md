@@ -28,9 +28,9 @@ Microsoft Playwright Testing workspaces uses three Azure built-in roles. To gran
 
 | Role | Access level |
 | --- | --- |
-| **Reader** | Have read-only access to the workspace in the Microsoft Playwright Testing portal. Readers can view test results for the workspace. Readers can't [create or delete workspace access keys](./how-to-manage-access-keys.md). |
-| **Contributor** | Have full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC. Contributors have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access keys in the workspace. |
-| **Owner** | Have full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC. Owners have full access to the workspace in the Microsoft Playwright Testing portal and can create and revoke access keys in the workspace. |
+| **Reader** | - Read-only access to the workspace in the Playwright portal.<br/>- View test results for the workspace.<br/>- Can't [create or delete workspace access tokens](./how-to-manage-access-tokens.md).<br/>Can't run Playwright tests on the service. |
+| **Contributor** | - Full access to manage the workspace in the Azure portal but can't assign roles in Azure RBAC.<br/>- Full access to the workspace in the Playwright portal.<br/>- [Create and delete their access tokens](./how-to-manage-access-tokens.md).<br/>- Run Playwright tests on the service. |
+| **Owner** | - Full access to manage the workspace in the Azure portal, including assigning roles in Azure RBAC.<br/>- Full access to the workspace in the Playwright portal.<br/>- [Create and delete their access tokens](./how-to-manage-access-tokens.md).<br/>- Run Playwright tests on the service. |
 
 > [!IMPORTANT]
 > Before you assign an Azure RBAC role, determine the scope of access that is needed. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them. For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
@@ -96,6 +96,24 @@ To use Azure AD security groups:
 1. Assign the group an RBAC role on the workspace, such as Reader or Contributor.
 
 1. [Add group members](/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal). The added members can now access to the workspace.
+
+## Create a custom role for restricted tenants
+
+If you're using Azure Active Directory [tenant restrictions](/azure/active-directory/external-identities/tenant-restrictions-v2) and users with temporary access, you can create a custom role in Azure RBAC to manage permissions and grant access to run tests.
+
+Perform the following steps to manage permissions with a custom role:
+
+1. Follow these steps to [create an Azure custom role](/azure/role-based-access-control/custom-roles-portal).
+
+1. Select **Add permissions**, and enter *Playwright* in the search box, and then select **Microsoft.AzurePlaywrightService**.
+
+1. Select the `microsoft.playwrightservice/accounts/write` permission, and then select **Add**.
+
+    :::image type="content" source="media/how-to-manage-workspace-access/custom-role-permissions.png" alt-text="Screenshot that shows the list of permissions for adding to the custom role in the Azure portal, highlighting the permission record to add.":::
+
+1. Follow these steps to [add a role assignment](/azure/role-based-access-control/role-assignments-portal) for the custom role to the user account.
+
+    The user can now continue to run tests in the workspace.
 
 ## Troubleshooting
 

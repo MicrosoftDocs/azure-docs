@@ -26,19 +26,19 @@ To get started with running your Playwright tests at scale on cloud browsers, yo
 
 [!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
-## Create an access key for service authentication
+## Create an access token for service authentication
 
-Microsoft Playwright Testing uses access keys to authorize users to run Playwright tests with the service. You first generate a service access key in the Playwright portal, and then store the value in an environment variable.
+Microsoft Playwright Testing uses access token to authorize users to run Playwright tests with the service. You first generate a service access token in the Playwright portal, and then store the value in an environment variable.
 
-To generate the access key, perform the following steps:
+To generate the access token, perform the following steps:
 
-1. In the [Playwright portal](https://aka.ms/mpt/portal), select **Generate key**, and then copy the shell command for your environment.
+1. In the [Playwright portal](https://aka.ms/mpt/portal), select **Generate token**, and then copy the shell command for your environment.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-generate-key.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate key' button.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button.":::
 
-1. Copy the access key for the workspace.
+1. Copy the access token for the workspace.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-copy-access-key.png" alt-text="Screenshot that shows how to copy the generated access key in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal.":::
 
 ## Configure the service region endpoint
 
@@ -54,6 +54,8 @@ To get the service endpoint URL, perform the following steps:
 
     The endpoint URL matches the Azure region that you selected when creating the workspace.
 
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal.":::
+
 ## Set up your environment
 
 Ensure that the `PLAYWRIGHT_SERVICE_ACCESS_KEY` and `PLAYWRIGHT_SERVICE_URL` environment variables that you obtained in the previous steps are available in your environment.
@@ -66,10 +68,10 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     npm i --save-dev dotenv
     ```
 
-1. Create a `.env` file and replace the `{MY-ACCESS-KEY}` and `{MY-REGION-ENDPOINT}` text placeholders:
+1. Create a `.env` file and replace the `{MY-ACCESS-TOKEN}` and `{MY-REGION-ENDPOINT}` text placeholders:
 
     ```
-    PLAYWRIGHT_SERVICE_ACCESS_KEY={MY-ACCESS-KEY}
+    PLAYWRIGHT_SERVICE_ACCESS_KEY={MY-ACCESS-TOKEN}
     PLAYWRIGHT_SERVICE_URL={MY-REGION-ENDPOINT}
     ```
 
@@ -159,6 +161,8 @@ Once your tests are running smoothly with the service, experiment with varying t
 Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
 
 ## Troubleshooting
+
+[!INCLUDE [include-troubleshooting-unauthorized](includes/include-troubleshooting-unauthorized.md)]
 
 [!INCLUDE [include-troubleshooting-slow-tests](includes/include-troubleshooting-slow-tests.md)]
 

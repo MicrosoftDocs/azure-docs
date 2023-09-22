@@ -26,6 +26,7 @@ While the service is in preview, the following limits apply on a per-subscriptio
 |---------|---------|
 | Workspaces per subscription | 2 |
 | Parallel workers per workspace | 50 |
+| Access tokens per user per workspace | 10 |
 
 ## Test code limitations
 

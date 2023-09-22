@@ -30,9 +30,9 @@ items:
       href: how-to-optimize-regional-latency.md
     - name: Manage workspaces
       href: how-to-manage-playwright-workspace.md
-    - name: Manage access keys
+    - name: Manage access tokens
       displayName: permissions, access, security, authentication, authorization, keys, secrets, revoke
-      href: how-to-manage-access-keys.md
+      href: how-to-manage-access-tokens.md
     - name: Manage workspace access
       displayName: RBAC, permissions, access, role-based access control, users, roles, security, authorization, authentication, grant, revoke
       href: how-to-manage-workspace-access.md
