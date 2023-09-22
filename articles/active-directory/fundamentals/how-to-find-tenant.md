@@ -1,6 +1,6 @@
 ---
 title: How to find your tenant ID
-description: Instructions about how to find and Azure Active Directory tenant ID to an existing Azure subscription.
+description: Instructions about how to find and Microsoft Entra tenant ID to an existing Azure subscription.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.author: barclayn
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ---
-# How to find your Azure Active Directory tenant ID
+# How to find your Microsoft Entra tenant ID
 
-Azure subscriptions have a trust relationship with Azure Active Directory (Azure AD). Azure AD is trusted to authenticate the subscription's users, services, and devices. Each subscription has a tenant ID associated with it, and there are a few ways you can find the tenant ID for your subscription.
+Azure subscriptions have a trust relationship with Microsoft Entra ID. Microsoft Entra ID is trusted to authenticate the subscription's users, services, and devices. Each subscription has a tenant ID associated with it, and there are a few ways you can find the tenant ID for your subscription.
 
 ## Find tenant ID through the Microsoft Entra admin center
 
@@ -30,13 +30,13 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Reader](../roles/permissions-reference.md#global-reader).
  
-1. Browse to **Azure Active Directory** > **Properties**.
+1. Browse to **Identity** > **Overview** > **Properties**.
 
 1. Scroll down to the **Tenant ID** section and you can find your tenant ID in the box.
 
-:::image type="content" source="media/how-to-find-tenant/portal-tenant-id.png" alt-text="Azure Active Directory - Properties - Tenant ID - Tenant ID field":::
+:::image type="content" source="media/how-to-find-tenant/portal-tenant-id.png" alt-text="Microsoft Entra ID - Properties - Tenant ID - Tenant ID field":::
 
 ## Find tenant ID with PowerShell
 
@@ -76,8 +76,8 @@ For more information, see the Microsoft 365 [tenant ID get](https://pnp.github.i
 
 ## Next steps
 
-- To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](./create-new-tenant.md).
+- To create a new Microsoft Entra tenant, see [Quickstart: Create a new tenant in Microsoft Entra ID](./create-new-tenant.md).
 
-- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](./how-subscriptions-associated-directory.md).
+- To learn how to associate or add a subscription to a tenant, see [Associate or add an Azure subscription to your Microsoft Entra tenant](./how-subscriptions-associated-directory.md).
 
 - To learn how to find the object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id).

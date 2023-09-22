@@ -1145,7 +1145,7 @@ Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/c
 
 ### Example of StringJoin
 
-The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
+The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in an Azure AD B2C user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
 
 ```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">

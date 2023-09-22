@@ -1,5 +1,5 @@
 ---
-title: Recover from deletions in Azure Active Directory
+title: Recover from deletions in Microsoft Entra ID
 description: Learn how to recover from unintended deletions.
 services: active-directory
 author: janicericketts
@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 
 # Recover from deletions
 
-This article addresses recovering from soft and hard deletions in your Azure Active Directory (Azure AD) tenant. If you haven't already done so, read [Recoverability best practices](recoverability-overview.md) for foundational knowledge.
+This article addresses recovering from soft and hard deletions in your Microsoft Entra tenant. If you haven't already done so, read [Recoverability best practices](recoverability-overview.md) for foundational knowledge.
 
 ## Monitor for deletions
 
-The [Azure AD Audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. Export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md).
+The [Microsoft Entra audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. Export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md).
 
 You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on how to find deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0](/graph/api/directory-deleteditems-list?tabs=http).
 
@@ -71,7 +71,7 @@ The most frequent scenarios for user deletion are:
 
 * An administrator intentionally deletes a user in the Azure portal in response to a request or as part of routine user maintenance.
 * An automation script in Microsoft Graph or PowerShell triggers the deletion. For example, you might have a script that removes users who haven't signed in for a specified time.
-* A user is moved out of scope for synchronization with Azure AD Connect.
+* A user is moved out of scope for synchronization with Microsoft Entra Connect.
 * A user is removed from an HR system and is deprovisioned via an automated workflow.
 
 ### Microsoft 365 Groups
@@ -89,7 +89,7 @@ The most frequent scenarios for application deletion are:
 * An administrator intentionally deletes the application, for example, in response to a support request.
 * An automation script in Microsoft Graph or PowerShell triggers the deletion. For example, you might want a process for deleting abandoned applications that are no longer used or managed. In general, create an offboarding process for applications rather than scripting to avoid unintentional deletions.
 
-When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](../develop/app-objects-and-service-principals.md).
+When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Microsoft Entra ID - Microsoft identity platform](../develop/app-objects-and-service-principals.md).
 
 ### Administrative units
 
@@ -133,7 +133,7 @@ For more information on how to restore soft-deleted Microsoft 365 Groups, see th
 
 ### Applications and service principals
 
-Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD](../develop/app-objects-and-service-principals.md).
+Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Microsoft Entra ID](../develop/app-objects-and-service-principals.md).
 
 To restore an application from the Azure portal, select **App registrations** > **Deleted applications**. Select the application registration to restore, and then select **Restore app registration**.
 
@@ -147,7 +147,7 @@ AUs can be listed, viewed, or restored via the deletedItems Microsoft Graph API.
 
 ## Hard deletions
 
-A hard deletion is the permanent removal of an object from your Azure AD tenant. Objects that don't support soft delete are removed in this way. Similarly, soft-deleted objects are hard deleted after a deletion time of 30 days. The only object types that support a soft delete are:
+A hard deletion is the permanent removal of an object from your Microsoft Entra tenant. Objects that don't support soft delete are removed in this way. Similarly, soft-deleted objects are hard deleted after a deletion time of 30 days. The only object types that support a soft delete are:
 
 * Users
 * Microsoft 365 Groups

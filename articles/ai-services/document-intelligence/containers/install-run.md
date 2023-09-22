@@ -562,7 +562,7 @@ http {
 
 2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Studio and Custom template containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
- ```yml
+```yml
 version: '3.3'
 services:
   nginx:
@@ -1040,7 +1040,7 @@ http {
 
 2. The following code sample is a self-contained `docker compose` example to run Document Intelligence Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
- ```yml
+```yml
 version: '3.3'
 services:
  nginx:

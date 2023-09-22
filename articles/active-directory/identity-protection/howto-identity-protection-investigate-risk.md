@@ -1,6 +1,6 @@
 ---
-title: Investigate risk Azure Active Directory Identity Protection
-description: Learn how to investigate risky users, detections, and sign-ins in Azure Active Directory Identity Protection
+title: Investigate risk Microsoft Entra ID Protection
+description: Learn how to investigate risky users, detections, and sign-ins in Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
@@ -134,9 +134,11 @@ Organizations may use the following frameworks to begin their investigation into
       1. Location 
       1. IP address 
 
-### Investigate Azure AD threat intelligence detections
+<a name='investigate-azure-ad-threat-intelligence-detections'></a>
 
-To investigate an Azure AD Threat Intelligence risk detection, follow these steps: 
+### Investigate Microsoft Entra threat intelligence detections
+
+To investigate a Microsoft Entra Threat Intelligence risk detection, follow these steps: 
 
 If more information is shown for the detection:
 
@@ -178,7 +180,7 @@ For more information about these alerts and their structure, see the article [Un
 
 When security personnel investigate risks in Microsoft 365 Defender and Defender for Identity the following states and reasons are returned to Identity Protection in the portal and APIs.
 
-| Microsoft 365 Defender status | [Microsoft 365 Defender classification](/defender-for-identity/understanding-security-alerts#security-alert-classifications) | Azure AD Identity Protection risk state |  Risk detail in Azure AD Identity Protection |
+| Microsoft 365 Defender status | [Microsoft 365 Defender classification](/defender-for-identity/understanding-security-alerts#security-alert-classifications) | Microsoft Entra ID Protection risk state |  Risk detail in Microsoft Entra ID Protection |
 | --- | --- | --- | --- |
 | New | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
 | New | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |

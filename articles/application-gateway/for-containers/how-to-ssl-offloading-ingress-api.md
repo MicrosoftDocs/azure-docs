@@ -7,13 +7,19 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 08/09/2023
+ms.date: 09/20/2023
 ms.author: greglin
 ---
 
 # SSL offloading with Application Gateway for Containers - Ingress API (preview)
 
 This document helps set up an example application that uses the _Ingress_ resource from [Ingress API](https://kubernetes.io/docs/concepts/services-networking/ingress/):
+
+## Background
+
+Application Gateway for Containers enables SSL [offloading](/azure/architecture/patterns/gateway-offloading) for better backend performance. See the following example scenario:
+
+![A figure showing SSL offloading with Application Gateway for Containers.](./media/how-to-ssl-offloading-ingress-api/ssl-offloading.png)
 
 ## Prerequisites
 

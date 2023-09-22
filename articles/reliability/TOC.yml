@@ -46,7 +46,7 @@
         href: migrate-storage.md
       - name: Azure SQL managed instance
         href: migrate-sql-managed-instance.md
-      - name: Azure Virtual Machines and virtual machine scale sets
+      - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
@@ -252,12 +252,23 @@
       - name: Azure Virtual Machines Image Builder
         href: reliability-image-builder.md
       - name: Azure Virtual Machine Scale Sets
-        href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-
+        href: reliability-virtual-machine-scale-sets.md
       - name: Azure Virtual Network
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
         href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Test reliability
+      items: 
+      - name: Chaos engineering
+        href: /azure/well-architected/resiliency/chaos-engineering?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Chaos Studio overview
+        href: ../chaos-studio/chaos-studio-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Create and run a chaos experiment
+        href: ../chaos-studio/chaos-studio-quickstart-azure-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Resource types
+        href: ../chaos-studio/chaos-studio-fault-providers.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Fault library
+        href: ../chaos-studio/chaos-studio-fault-library.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name:  Azure Service Manager retirement
       items:
       - name: Overview

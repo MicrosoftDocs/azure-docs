@@ -16,7 +16,7 @@ ms.custom: fasttrack-edit
 
 # Web sign in with OpenID Connect in Azure Active Directory B2C
 
-OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
+OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Microsoft Entra ID. This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 > [!NOTE]
 > Most of the open-source authentication libraries acquire and validate the JWT tokens for your application. We recommend exploring those options, rather than implementing your own code. For more information, see [Overview of the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md), and [Microsoft Identity Web authentication library](../active-directory/develop/microsoft-identity-web.md).
@@ -133,7 +133,7 @@ There are also several more validations that you should perform. The validations
 
 - Ensuring that the user/organization has signed up for the application.
 - Ensuring that the user has proper authorization/privileges.
-- Ensuring that a certain strength of authentication has occurred, such as Azure AD Multi-Factor Authentication.
+- Ensuring that a certain strength of authentication has occurred, such as Microsoft Entra multifactor authentication.
 
 After the ID token is validated, you can begin a session with the user. You can use the claims in the ID token to obtain information about the user in your application. Uses for this information include display, records, and authorization.
 
