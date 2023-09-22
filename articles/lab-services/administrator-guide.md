@@ -1,8 +1,8 @@
 ---
-title: Administrator guide | Microsoft Docs
+title: Lab Services administrator guide
 description: This guide helps administrators who create and manage lab plans by using Azure Lab Services. 
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 07/04/2023
 ms.custom: devdivchpfy22
 ---
 
@@ -15,9 +15,9 @@ ms.custom: devdivchpfy22
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they have set up a lab plan, administrators or educators create the labs that are associated with the lab plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
-Depending on settings chosen when creating lab plans, some resources will be hosted in your subscription and some will be hosted in a subscription managed by Azure Lab Services.
+Depending on the settings for creating a lab plan, some resources are either hosted in your subscription or in a subscription managed by Azure Lab Services.
 
-- Lab VMs are hosted within an Azure subscription that is owned by Azure Lab Services.
+- Lab VMs are hosted in an Azure subscription that is owned by Azure Lab Services.
 - Lab plans, labs, compute galleries, and image versions and are hosted within your subscription.
 - If using advanced networking, the virtual network and network-related resources for lab VMs are hosted within your subscription. Otherwise, the virtual network is hosted in a subscription managed by Azure Lab Services.
 - You can have your lab plans, labs, and the compute galleries in the same or different resource group.
@@ -43,7 +43,7 @@ When you create a lab plan, you must configure the resource group that contains 
 
 A resource group is also required when you create an [Azure Compute Gallery](#azure-compute-gallery). You can place your lab plan and compute gallery in the same resource group or in two separate resource groups. You might want to take this second approach if you plan to share the compute gallery across various solutions.
 
-We recommend that you invest time up front to plan the structure of your resource groups.  It's *not* possible to change a lab plan or compute gallery resource group once it's created. If you need to change the resource group for these resources, you'll need to delete and re-create them.
+We recommend that you invest time up front to plan the structure of your resource groups.  It's *not* possible to change a lab plan or compute gallery resource group once it's created. If you need to change the resource group for these resources, you need to delete and re-create them.
 
 ## Lab plan
 
@@ -85,7 +85,7 @@ When you're determining how to structure your labs, consider the following point
 
     Similar to quota setting, if you need to set different schedules for users, you need to create a separate lab for each schedule.
 
-By default, each lab has its own virtual network.  If you have [advanced networking enabled](how-to-connect-vnet-injection.md), each lab will use the specified network.
+By default, each lab has its own virtual network.  If you have [advanced networking enabled](how-to-connect-vnet-injection.md), each lab uses the specified network.
 
 ## Azure Compute Gallery
 
@@ -114,7 +114,7 @@ To logically group compute gallery images, you can do either of the following me
 
 ## Naming
 
-As you get started with Azure Lab Services, we recommend that you establish naming conventions for Azure and Azure Lab Services related resources. For resource naming restrictions, see [Microsoft.LabServices naming rules and restrictions](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices).  Although the naming conventions that you establish will be unique to the needs of your organization, the following table provides general guidelines:
+As you get started with Azure Lab Services, we recommend that you establish naming conventions for Azure and Azure Lab Services related resources. For resource naming restrictions, see [Microsoft.LabServices naming rules and restrictions](../azure-resource-manager/management/resource-name-rules.md#microsoftlabservices).  Although the naming conventions that you establish is unique to the needs of your organization, the following table provides general guidelines:
 
 | Resource type | Role | Suggested pattern | Examples |
 | ------------- | ---- | ----------------- | -------- |
@@ -142,10 +142,10 @@ For more information about naming other Azure resources, see [Naming conventions
 
 ## Regions
 
-When you set up your Azure Lab Services resources, you're required to provide a region or location of the data center that will host the resources. Lab plans can enable one or more regions in which labs may be created. The next sections describe how a region or location might affect each resource that is involved with setting up a lab.
+When you set up your Azure Lab Services resources, you're required to provide a region or location of the data center that hosts the resources. Lab plans can enable one or more regions in which labs may be created. The next sections describe how a region or location might affect each resource that is involved with setting up a lab.
 
-- **Resource group**. The region specifies the datacenter where information about a resource group is stored. Azure resources contained within the resource group can be in a different region from that of their parent.
-- **Lab plan**. A lab plan's location indicates the region that a resource exists in.  When a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. Also, labs will be created in the same Azure region as that virtual network.
+- **Resource group**. The region specifies the datacenter where information about a resource group is stored. Azure resources can be in a different region than the resource group they're in.
+- **Lab plan**. A lab plan's location indicates the region that a resource exists in.  When a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. Also, labs are created in the same Azure region as that virtual network.
 - **Lab**.  The location that a lab exists in varies, and doesn't need to be in the same location as the lab plan. Administrators control which regions labs can be created in through the lab plan settings. A general rule is to set a resource's region to one that is closest to its users. For labs, this means creating the lab that is closest to your students. For online courses whose students are located all over the world, use your best judgment to create a lab that is centrally located. Or you can split a class into multiple labs according to your students' regions.
 
 > [!NOTE]
@@ -206,8 +206,8 @@ Schools typically approach content filtering by installing third-party software 
 
 There are a few key points to highlight as part of this solution:
 
-- If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you'll need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
-- You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  Adding a non-admin account must be done when creating the lab.
+- If you plan to use the [autoshutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you need to unblock several Azure host names with the third party software.  The autoshutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the autoshutdown settings fail to enable for the lab.
+- You may also want to have each student use a nonadmin account on their VM so that they can't uninstall the content filtering software.  Adding a nonadmin account must be done when creating the lab.
 
 Learn more about the [supported networking scenarios in Azure Lab Services](./concept-lab-services-supported-networking-scenarios.md), such as content filtering.
 
@@ -215,9 +215,9 @@ If your school needs to do content filtering, contact us via the [Azure Lab Serv
 
 ## Endpoint management
 
-Many endpoint management tools, such as [Microsoft Configuration Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine will have a new, unique machine SID generated when the VM boots from the image.
+Many endpoint management tools, such as [Microsoft Configuration Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs).  Using SysPrep to create a *generalized* image typically ensures that each Windows machine has a new, unique machine SID generated when the VM boots from the image.
 
-With Lab Services, if you create a lab with a template, the lab VMs will have the same SID. Even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
+With Lab Services, if you create a lab with a template, the lab VMs have the same SID. Even if you use a *generalized* image to create a lab, the template VM and lab user VMs all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
 
 To obtain lab VMs with unique SID, create a lab without a template VM.  You must use a *generalized* image from the Azure Marketplace or an attached Azure Compute Gallery.  To use your own Azure Compute Gallery, see [Attach or detach a compute gallery in Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
 
@@ -244,7 +244,7 @@ Creating a compute gallery and attaching it to your lab plan is free. No cost is
 
 To store image versions, a compute gallery uses standard hard disk drive (HDD) managed disks by default.  We recommend using HDD-managed disks when using compute gallery with Lab Services.  The size of the HDD-managed disk that is used depends on the size of the image version that is being stored.  Lab Services supports image and disk sizes up to 128 GB.  To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Azure Lab Services doesn't support attaching additional disks to a lab template or lab VM.
+Azure Lab Services doesn't support attaching extra disks to a lab template or lab VM.
 
 #### Replication and network egress charges
 
