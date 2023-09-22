@@ -16,7 +16,7 @@ ms.author: justinha
 ---
 # Deploy Microsoft Entra application proxy for secure access to internal applications in a Microsoft Entra Domain Services managed domain
 
-With Microsoft Entra Domain Services (Microsoft Entra DS), you can lift-and-shift legacy applications running on-premises into Azure. Microsoft Entra application proxy then helps you support remote workers by securely publishing those internal applications part of a Microsoft Entra DS managed domain so they can be accessed over the internet.
+With Microsoft Entra Domain Services, you can lift-and-shift legacy applications running on-premises into Azure. Microsoft Entra application proxy then helps you support remote workers by securely publishing those internal applications part of a Domain Services managed domain so they can be accessed over the internet.
 
 If you're new to the Microsoft Entra application proxy and want to learn more, see [How to provide secure remote access to internal applications](../active-directory/app-proxy/application-proxy.md).
 
@@ -113,7 +113,7 @@ If you deploy multiple Microsoft Entra application proxy connectors, you must co
 
 ## Next steps
 
-With the Microsoft Entra application proxy integrated with Microsoft Entra DS, publish applications for users to access. For more information, see [publish applications using Microsoft Entra application proxy](../active-directory/app-proxy/application-proxy-add-on-premises-application.md).
+With the Microsoft Entra application proxy integrated with Domain Services, publish applications for users to access. For more information, see [publish applications using Microsoft Entra application proxy](../active-directory/app-proxy/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
