@@ -27,7 +27,7 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/select-storage.png" alt-text="Screenshot showing the Usage and quotas page, with Storage highlighted." lightbox="media/how-to-determine-your-quota-usage/select-dev-box.png":::    
  
-1. In this example, you can see the **Quota name**, the **Region**, the **Subscription** the quota is assigned to, the **Current Usage**, and whether or not the limit is **Adjustable**.
+1. In this example, you can see the **Quota name**, the **Region**, the **Subscription** the quota is assigned to, and the **Current Usage**.
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/example-subscription.png" alt-text="Screenshot showing the Usage and quotas page, with column headings highlighted." lightbox="media/how-to-determine-your-quota-usage/example-subscription.png":::    
 
@@ -39,7 +39,7 @@ Keeping track of how your quota of VM cores is being used across your subscripti
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/select-regions.png"  lightbox="media/how-to-determine-your-quota-usage/select-regions.png" alt-text="Screenshot showing the Usage and quotas page, with Regions drop down highlighted.":::
  
-1. To view only the items that are using part of your quota, select the **Usage:** filter, and then select **Only items with usage**. 
+1. To view only the items that are using any part of your quota, select the **Usage:** filter, and then select **Only items with usage**. 
 
    :::image type="content" source="media/how-to-determine-your-quota-usage/select-items-with-usage.png" lightbox="media/how-to-determine-your-quota-usage/select-items-with-usage.png" alt-text="Screenshot showing the Usage and quotas page, with Usage drop down and Only show items with usage option highlighted.":::
  

@@ -11,11 +11,11 @@ ms.date: 08/22/2023
 
 # Request a quota limit increase
 
-This article describes how to submit a support request for increasing the number of resources for Azure Deployment Environments in your Azure subscription. 
+This article describes how to submit a support request for increasing the number of resources available to Azure Deployment Environments in your Azure subscription. 
 
 When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-The time it takes to increase your quota varies depending on the number of resources requested in which region. You won't have to go through the process of requesting extra capacity often, but to ensure you have the resources you require when you need them, you should:
+The time it takes to increase your quota varies depending on the number of resources requested in which region. You won't go through the process of requesting extra capacity often, but to ensure you have the resources when you need them, you should:
 
 - Request capacity as far in advance as possible.
 - If possible, be flexible on the region where you're requesting capacity.
@@ -31,7 +31,7 @@ Learn more about the general [process for creating Azure support requests](/azur
 
 ## Gather information for your request
 
-You'll find submitting a support request for additional quota is quicker if you gather the required information before you begin the request process. 
+Submitting a support request for additional quota is quicker if you gather the required information before you begin the request process. 
 
 - **Determine your current quota usage**
 
@@ -43,7 +43,7 @@ You'll find submitting a support request for additional quota is quicker if you 
 
 - **Choose the quota type of the additional quota.**
 
-   The following Deployment Environments resources are limited by subscription. You can request an increase in the number of resources for each of these types.
+   The following Deployment Environments resources are limited by subscription. You can request increases in the number of resources for each of these types.
 
    - Runtime limit per month (mins)
    - Runtime limit per deployment (mins)
@@ -65,7 +65,6 @@ Follow these steps to request a limit increase:
 
     | Name              | Value   |
     | ----------------- | ------- |
-    | **What is your issue related to?** | *Azure services* |
     | **Issue type**    | *Service and subscription limits (quotas)* |
     | **Subscription**  | Select the subscription to which the request applies. |
     | **Quota type**    | *Azure Deployment Environments* |
