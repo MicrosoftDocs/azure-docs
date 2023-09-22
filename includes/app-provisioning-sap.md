@@ -262,26 +262,16 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
     | Azure Active Directory Attribute | ScimOnPremises Attribute | Matching precedence | Apply this mapping |
     | --- | --- | --- | --- |
     | ToUpper(Word([userPrincipalName], 1, "@"), ) | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userName | 1 | Only during object creation |
-    | Redact("Pass@w0rd1") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:export\_password |
-    | Only during object creation |
-    | city | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:city |
-    | Always |
-    | companyName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:company |
-    | Always |
-    | department | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:department |
-    | Always |
-    | mail | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:email |
-    | Always |
-    | Switch([IsSoftDeleted], , "False", "9999-12-31", "True", "1990-01-01") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:expirationTime |
-    | Always |
-    | givenName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:firstName |
-    | Always |
-    | surname | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:lastName |
-    | Always |
-    | telephoneNumber | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:telephoneNumber |
-    | Always |
-    | jobTitle | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:jobTitle |
-    | Always |
+    | Redact("Pass@w0rd1") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:export\_password|| Only during object creation |
+    | city | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:city || Always |
+    | companyName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:company || Always |
+    | department | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:department || Always |
+    | mail | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:email || Always |
+    | Switch([IsSoftDeleted], , "False", "9999-12-31", "True", "1990-01-01") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:expirationTime || Always |
+    | givenName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:firstName || Always |
+    | surname | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:lastName || Always |
+    | telephoneNumber | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:telephoneNumber ||Always |
+    | jobTitle | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:jobTitle || Always |
 
  
  9. Once all of the mappings have been added, select **Save**.
