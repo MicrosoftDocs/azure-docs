@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Microsoft Entra SSO integration with Glia Hub
 
-In this tutorial, you'll learn how to integrate Glia Hub with Microsoft Entra ID. When you integrate Glia Hub with Microsoft Entra ID, you can:
+In this tutorial, you learn how to integrate Glia Hub with Microsoft Entra ID. When you integrate Glia Hub with Microsoft Entra ID, you can:
 
 * Control in Microsoft Entra ID who has access to Glia Hub.
 * Enable your users to be automatically signed-in to Glia Hub with their Microsoft Entra accounts.
@@ -98,7 +98,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
 
-1. In addition to above, Glia Hub application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Glia Hub application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
@@ -110,7 +110,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 ### Create a Microsoft Entra ID test user
 
-In this section, you'll create a test user in the Microsoft Entra admin center called B.Simon.
+In this section, you create a test user in the Microsoft Entra admin center called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -124,7 +124,7 @@ In this section, you'll create a test user in the Microsoft Entra admin center c
 
 ### Assign the Microsoft Entra ID test user
 
-In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by granting access to Glia Hub.
+In this section, you enable B.Simon to use Microsoft Entra single sign-on by granting access to Glia Hub.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Glia Hub**.
@@ -156,7 +156,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
  
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Glia Hub for which you set up the SSO.
  
-You can also use Microsoft My Apps to test the application in any mode. When you click the Glia Hub tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glia Hub for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Glia Hub tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glia Hub for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
