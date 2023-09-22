@@ -77,7 +77,7 @@ items:
     href: device-update-security.md
   - name: Network security
     href: network-security.md
-  - name: Data Encryption for Device Update for IoT Hub
+  - name: Data encryption for Device Update for IoT Hub
     href: device-update-data-encryption.md
   - name: Data privacy
     href: device-update-data-privacy.md
