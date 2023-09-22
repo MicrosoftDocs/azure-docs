@@ -90,7 +90,7 @@ In this example, we set the maximum number of parallel transfer workers to 2 usi
 During an upload, the Storage client libraries split a given upload stream into multiple subuploads based on the configuration options defined by `ParallelTransferOptions`. Each subupload has its own dedicated call to the REST operation. For a `BlobClient` object, this operation is [Put Block](/rest/api/storageservices/put-block). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
 
 > [!NOTE]
-> Block blobs have a maximum block count of 50,000 blocks. The maximum size of your block blob, then, is 50,000 times `max_block_size`.
+> Block blobs have a maximum block count of 50,000 blocks. The maximum size of your block blob, then, is 50,000 times `block_size`.
 
 #### Buffering during uploads
 
