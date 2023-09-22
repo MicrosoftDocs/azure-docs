@@ -20,9 +20,9 @@ Application Gateway for Containers allows you to rewrite the URL of a client req
 URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
 
 ## Background
-URL rewrite 
+URL rewrite enables you to translate an incoming request to a different URL when initiated to a backend target.
 
-See the following figure:
+See the following figure, which illustrates an example of a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_ when the request is initiated to the backend target by Application Gateway for Containers:
 
 [ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
 
