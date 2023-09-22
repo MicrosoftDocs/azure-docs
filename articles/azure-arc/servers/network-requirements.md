@@ -17,7 +17,7 @@ This topic describes the networking requirements for using the Connected Machine
 
 ## Subset of endpoints for ESU only
 
-[!INCLUDE [network-requirements](./includes/esu-network-requirements.md)]
+[!INCLUDE [esu-network-requirements](./includes/esu-network-requirements.md)]
 
 ## Next steps
 

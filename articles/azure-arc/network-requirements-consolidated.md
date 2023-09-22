@@ -45,6 +45,10 @@ Connectivity to Arc-enabled server endpoints is required for:
 
 [!INCLUDE [network-requirements](servers/includes/network-requirements.md)]
 
+### Subset of endpoints for ESU only
+
+[!INCLUDE [esu-network-requirements](servers/includes/esu-network-requirements.md)]
+
 For more information, see [Connected Machine agent network requirements](servers/network-requirements.md).
 
 ## Azure Arc resource bridge (preview)
