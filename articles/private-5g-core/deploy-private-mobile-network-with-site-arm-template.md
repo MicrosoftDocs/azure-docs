@@ -63,7 +63,7 @@ The following Azure resources are defined in the template.
 
 :::zone pivot="ase-pro-gpu"
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     |Field  |Value  |
     |---------|---------|
@@ -96,7 +96,7 @@ The following Azure resources are defined in the template.
 :::zone-end
 :::zone pivot="ase-pro-2"
 
-1. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
+2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).
 
     |Field  |Value  |
     |---------|---------|
@@ -128,12 +128,12 @@ The following Azure resources are defined in the template.
 
 :::zone-end
 
-1. Select **Review + create**.
-1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
+3. Select **Review + create**.
+4. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
 
      If the validation fails, you'll see an error message and the **Configuration** tab(s) containing the invalid configuration will be flagged. Select the flagged tab(s) and use the error messages to correct invalid configuration before returning to the **Review + create** tab.
 
-1. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
+5. Once your configuration has been validated, you can select **Create** to deploy the resources. The Azure portal will display a confirmation screen when the deployment is complete.
 
 ## Review deployed resources
 
