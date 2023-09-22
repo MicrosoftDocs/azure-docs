@@ -12,8 +12,6 @@ ms.custom: deprecation announcement
 
 # What's happening to Azure Database for MariaDB?
 
-[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
-
 Azure Database for MariaDB is on the retirement path, and **Azure Database for MariaDB is scheduled for retirement by September 19, 2025**.
 
 As part of this retirement, there is no extended support for creating new MariaDB server instances from the Azure portal beginning **December 19, 2023**, if you still need to create MariaDB instances to meet business continuity needs, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
