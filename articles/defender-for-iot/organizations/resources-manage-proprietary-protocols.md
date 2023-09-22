@@ -14,8 +14,6 @@ If your devices use proprietary protocols not supported [out-of-the-box](concept
 - A tool that exponentially expands OT visibility and control, without the need to upgrade to new versions.
 - The security of allowing proprietary development without divulging sensitive information.
 
-For more information, contact [ms-horizon-support@microsoft.com](mailto:ms-horizon-support@microsoft.com).
-
 ## Prerequisites
 
 Before performing the steps described in this article, make sure that you have:

@@ -29,7 +29,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 > This quickstart uses the Azure Communication Services Calling SDK version `latest`.
 
 ```console
-npm install @azure/communication-common@next --save
+npm install @azure/communication-common@latest --save
 npm install @azure/communication-calling@latest --save
 ```
 
@@ -238,6 +238,10 @@ subscribeToCall = (call) => {
             });
         });
         
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         // Inspect the call's current remote participants and subscribe to them.
         call.remoteParticipants.forEach(remoteParticipant => {
             subscribeToRemoteParticipant(remoteParticipant);

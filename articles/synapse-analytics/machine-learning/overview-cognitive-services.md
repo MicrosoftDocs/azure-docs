@@ -49,14 +49,14 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tuto
 - Group: divides a group of faces into disjoint groups based on similarity ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/GroupFaces.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.GroupFaces))
 
 ### Speech
-[**Speech Services**](https://azure.microsoft.com/services/cognitive-services/speech-services/)
+[**Speech Services**](https://azure.microsoft.com/products/ai-services/ai-speech)
 - Speech-to-text: transcribes audio streams ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/SpeechToText.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.SpeechToText))
 - Conversation Transcription: transcribes audio streams into live transcripts with identified speakers. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/ConversationTranscription.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.ConversationTranscription))
 - Text to Speech: Converts text to realistic audio ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/TextToSpeech.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.TextToSpeech))
 
 
 ### Language
-[**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
+[**Text Analytics**](https://azure.microsoft.com/products/ai-services/text-analytics)
 - Language detection: detects language of the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/LanguageDetector.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.LanguageDetector))
 - Key phrase extraction: identifies the key talking points in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/KeyPhraseExtractor.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.KeyPhraseExtractor))
 - Named entity recognition: identifies known entities and general named entities in the input text ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/NER.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.NER))
@@ -65,7 +65,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tuto
 
 
 ### Translation
-[**Translator**](https://azure.microsoft.com/services/cognitive-services/translator/)
+[**Translator**](https://azure.microsoft.com/products/ai-services/translator)
 - Translate: Translates text. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/Translate.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.Translate))
 - Transliterate: Converts text in one language from one script to another script. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/Transliterate.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.Transliterate))
 - Detect: Identifies the language of a piece of text. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/Detect.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.Detect))
@@ -75,7 +75,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tuto
 - Document Translation: Translates documents across all supported languages and dialects while preserving document structure and data format. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/DocumentTranslator.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.DocumentTranslator))
 
 ### Document Intelligence
-[**Document Intelligence**](https://azure.microsoft.com/services/form-recognizer/) (formerly known as Azure AI Document Intelligence)
+[**Document Intelligence**](https://azure.microsoft.com/products/ai-services/ai-document-intelligence) (formerly known as Azure AI Document Intelligence)
 - Analyze Layout: Extract text and layout information from a given document. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/AnalyzeLayout.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AnalyzeLayout))
 - Analyze Receipts: Detects and extracts data from receipts using optical character recognition (OCR) and our receipt model, enabling you to easily extract structured data from receipts such as merchant name, merchant phone number, transaction date, transaction total, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/AnalyzeReceipts.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AnalyzeReceipts))
 - Analyze Business Cards: Detects and extracts data from business cards using optical character recognition (OCR) and our business card model, enabling you to easily extract structured data from business cards such as contact names, company names, phone numbers, emails, and more. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/AnalyzeBusinessCards.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AnalyzeBusinessCards))
@@ -86,12 +86,12 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](tuto
 - List Custom Models: Get information about all custom models. ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/ListCustomModels.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.ListCustomModels))
 
 ### Decision
-[**Anomaly Detector**](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/)
+[**Anomaly Detector**](https://azure.microsoft.com/products/ai-services/ai-anomaly-detector)
 - Anomaly status of latest point: generates a model using preceding points and determines whether the latest point is anomalous ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/DetectLastAnomaly.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.DetectLastAnomaly))
 - Find anomalies: generates a model using an entire series and finds anomalies in the series ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/DetectAnomalies.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.DetectAnomalies))
 
 ### Search
-- [Bing Image search](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.BingImageSearch))
+- [Bing Image search](https://www.microsoft.com/bing/apis/bing-image-search-api) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/com/microsoft/azure/synapse/ml/cognitive/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.BingImageSearch))
 - [Azure Cognitive Search](../../search/search-what-is-azure-search.md) ([Scala](https://mmlspark.blob.core.windows.net/docs/0.10.2/scala/index.html#com.microsoft.azure.synapse.ml.cognitive.search.AzureSearchWriter$), [Python](https://mmlspark.blob.core.windows.net/docs/0.10.2/pyspark/synapse.ml.cognitive.html#module-synapse.ml.cognitive.AzureSearchWriter))
 
 ## Prerequisites

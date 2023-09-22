@@ -6,8 +6,9 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/17/2023
 ms.author: danlep
-ms.custom: 
+ms.custom:
 ---
+
 # Compute platform for Azure API Management
 
 As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. You can create, manage, and scale most aspects of your API Management instance without needing to know about its underlying resources.
@@ -22,14 +23,15 @@ The following table summarizes the compute platforms currently used for instance
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2` | Single-tenant v2 | Azure-allocated compute infrastructure that supports added resiliency and security features. See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) in this article. | Developer, Basic, Standard, Premium<sup>1</sup> |
-| `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium | 
+| `stv2` or `stv2.1`<sup>1</sup>| Single-tenant v2 | Azure-allocated compute infrastructure that supports added resiliency and security features. See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) in this article. | Developer, Basic, Standard, Premium<sup>2</sup> |
+| `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium |
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
-<sup>1</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
+<sup>1</sup> `stv2.1` infrastructure provides higher performing CPU, increased RAM, and greater API Management capacity. Instances hosted on `stv2` platform may migrate automatically to `stv2.1` based on regional infrastructure availability. Customers cannot initiate migration from `stv2` to `stv2.1`.<br/>
+<sup>2</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 > [!NOTE]
-> Currently, the `stv2` platform isn't available in the US Government cloud or in the following Azure regions: China East, China East 2, China North, China North 2.
+> Currently, the `stv2` platform isn't available in the following Azure regions: China East, China East 2, China North, China North 2.
 > 
 > Also, as Qatar Central is a recently established Azure region, only the `stv2` platform is supported for API Management services deployed in this region.
 
@@ -66,3 +68,4 @@ Migration steps depend on features enabled in your API Management instance. If t
 
 * [Migrate an API Management instance to the stv2 platform](migrate-stv1-to-stv2.md).
 * Learn more about [upcoming breaking changes](breaking-changes/overview.md) in API Management.
+

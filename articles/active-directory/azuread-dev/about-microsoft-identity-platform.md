@@ -26,7 +26,7 @@ With the unified Microsoft identity platform (v2.0), you can write code once and
 
 With Microsoft identity platform, expand your reach to these kinds of users:
 
-- Work and school accounts (Azure AD provisioned accounts)
+- Work and school accounts (Microsoft Entra ID provisioned accounts)
 - Personal accounts (such as Outlook.com or Hotmail.com)
 - Your customers who bring their own email or social identity (such as LinkedIn, Facebook, Google) via MSAL and Azure AD B2C
 

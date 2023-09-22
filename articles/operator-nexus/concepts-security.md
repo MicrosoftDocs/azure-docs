@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Security concepts"
-description: Security overview for Azure Operator Nexus. 
+description: Security overview for Azure Operator Nexus 
 author: rgendreau
 ms.author: rgendreau
 ms.service: azure-operator-nexus
@@ -19,7 +19,7 @@ security architecture:
 * **Security by default** - Security resiliency is an inherent part of the platform with little to no configuration changes needed to use it securely.
 * **Assume breach** - The underlying assumption is that any system can be compromised, and as such the goal is to minimize the impact of a security breach if one occurs. 
 
-Azure Operator Nexus realizes the above by leveraging Microsoft cloud-native security tools that give you the ability to improve your cloud security posture while allowing you to protect your Operator workloads.
+Azure Operator Nexus realizes the above by leveraging Microsoft cloud-native security tools that give you the ability to improve your cloud security posture while allowing you to protect your operator workloads.
 
 ## Platform-wide protection via Microsoft Defender for Cloud
 
@@ -31,17 +31,17 @@ Azure Operator Nexus realizes the above by leveraging Microsoft cloud-native sec
 * **Compliance assessment against a variety of security standards** - Defender for Cloud continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in Azure Security Benchmark. When you enable the advanced security features, you can apply a range of other industry standards, regulatory standards, and benchmarks according to your organization’s needs. Add standards and track your compliance with them from the regulatory compliance dashboard.
 * **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments.
 
-There are enhanced security options that let you protect your on-premises host servers as well as the Kubernetes clusters that run your Operator workloads. These options are described below.
+There are enhanced security options that let you protect your on-premises host servers as well as the Kubernetes clusters that run your operator workloads. These options are described below.
 
-## BMM host operating system protection via Microsoft Defender for Endpoint
+## Bare metal machine host operating system protection via Microsoft Defender for Endpoint
 
 Azure Operator Nexus bare-metal machines (BMMs), which host the on-premises infrastructure compute servers, are protected when you elect to enable the [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) solution. Microsoft Defender for Endpoint provides preventative antivirus (AV), endpoint detection and response (EDR), and vulnerability management capabilities.
 
-You have the option to enable Microsoft Defender for Endpoint protection once you have selected and activated a [Microsoft Defender for Servers](../defender-for-cloud/tutorial-enable-servers-plan.md) plan, as Defender for Servers plan activation is a pre-requisite for Microsoft Defender for Endpoint. Once enabled, the Microsoft Defender for Endpoint configuration is managed by the platform to ensure optimal security and performance, and to reduce the risk of misconfigurations.
+You have the option to enable Microsoft Defender for Endpoint protection once you have selected and activated a [Microsoft Defender for Servers](../defender-for-cloud/tutorial-enable-servers-plan.md) plan, as Defender for Servers plan activation is a prerequisite for Microsoft Defender for Endpoint. Once enabled, the Microsoft Defender for Endpoint configuration is managed by the platform to ensure optimal security and performance, and to reduce the risk of misconfigurations.
 
-## Workload Kubernetes cluster protection via Microsoft Defender for Containers
+## Kubernetes cluster workload protection via Microsoft Defender for Containers
 
-On-premises Kubernetes clusters that run your Operator workloads are protected when you elect to enable the Microsoft Defender for Containers solution. [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) provides run-time threat protection for clusters and Linux nodes as well as cluster environment hardening against misconfigurations.
+On-premises Kubernetes clusters that run your operator workloads are protected when you elect to enable the Microsoft Defender for Containers solution. [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) provides run-time threat protection for clusters and Linux nodes as well as cluster environment hardening against misconfigurations.
 
 You have the option to enable Defender for Containers protection within Defender for Cloud by activating the Defender for Containers plan.
 

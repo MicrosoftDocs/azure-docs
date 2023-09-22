@@ -106,6 +106,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/planview-id-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/planview-admin-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/postman-provisioning-tutorialy.md",
+      "redirect_url": "/azure/active-directory/saas-apps/postman-provisioning-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
       "redirect_document_id": false
@@ -1173,6 +1183,11 @@
     {
       "source_path_from_root": "/articles/active-directory/role-based-access-control-access-change-history-report.md",
       "redirect_url": "/azure/role-based-access-control/change-history-report",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/concept-fundamentals-mfa-get-started.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-mfa-licensing",
       "redirect_document_id": true
     },
     {
@@ -3056,6 +3071,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/conditional-access/policy-migration.md",
+      "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/best-practices.md",
       "redirect_url": "/azure/active-directory/conditional-access/overview",
       "redirect_document_id": true
@@ -3073,7 +3093,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-migration-mfa.md",
       "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-policy-connected-applications.md",
@@ -5274,6 +5294,11 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-filter-audit-log.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-customize-filter-logs",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-stream-logs-to-event-hub",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-basic-info-sign-in-logs.md",
