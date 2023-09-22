@@ -636,6 +636,9 @@
       - name: Enable Defender for SQL servers on machines
         href: defender-for-sql-usage.md
         displayName: hybrid, arc, Azure Defender
+      - name: Migrate to SQL server-targeted Azure Monitoring Agent's autoprovisioning process
+        href: defender-for-sql-autoprovisioning.md
+        displayName: defender for sql, autoprovisioning, auto provisioning, auto-provisioning
       - name: Scan your SQL resources for vulnerabilities
         href: defender-for-sql-on-machines-vulnerability-assessment.md
         displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
@@ -697,6 +700,8 @@
         href: defender-for-storage-configure-malware-scan.md
       - name: Test and run a proof of concept
         href: defender-for-storage-test.md
+      - name: Understanding malware scanning results
+        href: understand-malware-scan-results.md  
     - name: List of security threats and security alerts
       href: defender-for-storage-threats-alerts.md
     - name: Common questions about Defender for Storage

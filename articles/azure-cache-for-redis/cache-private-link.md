@@ -21,7 +21,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 >[!Important]
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+> You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. Neither the Enterprise nor Enterprise Flash tier supports the `publicNetworkAccess` flag. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 
 >[!Important]
 > Private endpoint is supported on cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.

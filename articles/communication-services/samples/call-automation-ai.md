@@ -10,6 +10,7 @@ ms.date: 08/11/2023
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: call-automation
+ms.custom: devx-track-extended-java
 zone_pivot_groups: acs-csharp-java
 ---
 

@@ -811,6 +811,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.scvmm/virtualnetworks
 - microsoft.ScVmm/vmmServers (SCVMM management servers)
 - microsoft.Search/searchServices (Search services)
+- microsoft.security/apicollections
+- microsoft.security/apicollections/apiendpoints
 - microsoft.security/assignments
 - microsoft.security/automations
 - microsoft.security/customassessmentautomations

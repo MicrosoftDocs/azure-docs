@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/10/2022
 ms.author: dmwendia
-ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-other
+ms.custom: aaddev, 'scenarios:getting-started', 'languages:Java', devx-track-java, mode-other, devx-track-extended-java
 #Customer intent: As an application developer, I want to learn how my Java app can get an access token and call an API that's protected by Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -102,7 +102,7 @@ From your shell or command line:
 $ mvn clean compile assembly:single
 ```
 
-This will generate a msal-client-credential-secret-1.0.0.jar file in your /targets directory. Run this using your Java executable like below:
+This will generate a `msal-client-credential-secret-1.0.0.jar` file in your `/targets` directory. Run this using your Java executable like below:
 
 ```
 $ java -jar msal-client-credential-secret-1.0.0.jar
@@ -111,7 +111,7 @@ $ java -jar msal-client-credential-secret-1.0.0.jar
 After running, the application should display the list of users in the configured tenant.
 
 > [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) in the same GitHub repository for this sample, but in the second folder **msal-client-credential-certificate**.
+> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) in the same GitHub repository for this sample, but in the second folder **MSAL-client-credential-certificate**.
 
 ## More information
 

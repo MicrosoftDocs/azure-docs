@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -66,7 +66,7 @@ In this final example, the items are sorted using two fields, in a specific orde
 - The ``ORDER BY`` clause requires that the indexing policy includes an index for the fields being sorted. The query runtime supports sorting against a property name or [computed properties](./computed-properties.md). The runtime also supports multiple ``ORDER BY`` properties. In order to run a query with multiple ``ORDER BY`` properties, define a [composite index](../../index-policy.md#composite-indexes) on the fields being sorted.
 - If the properties being sorted might be ``undefined`` for some items and you want to retrieve them in an ``ORDER BY`` query, you must explicitly include this path in the index. The default indexing policy doesn't allow for the retrieval of the items where the sort property is ``undefined``.
 
-## Next steps
+## Related content
 
 - [``GROUP BY`` clause](group-by.md)
 - [``OFFSET LIMIT`` clause](offset-limit.md)

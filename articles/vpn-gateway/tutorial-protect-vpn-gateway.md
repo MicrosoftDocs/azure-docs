@@ -30,7 +30,8 @@ In this tutorial, you learn how to:
 
 The following diagram shows the virtual network and the VPN gateway created as part of this tutorial.
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-expand.png":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+
 
 ## Prerequisites
 

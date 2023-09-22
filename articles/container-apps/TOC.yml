@@ -58,6 +58,8 @@
   items:
     - name: Deploy an app with containerapp up
       href: containerapp-up.md
+    - name: Scale a container app
+      href: tutorial-scaling.md
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
     - name: Connect to apps & services
@@ -273,6 +275,8 @@
       href: /rest/api/containerapps/
     - name: Supported regions
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
+    - name: Hardware reference
+      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET

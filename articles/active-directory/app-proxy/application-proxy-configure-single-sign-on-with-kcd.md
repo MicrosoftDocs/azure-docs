@@ -1,6 +1,6 @@
 ---
-title: Kerberos-based single sign-on (SSO) in Azure Active Directory with Application Proxy
-description: Covers how to provide single sign-on using Azure Active Directory Application Proxy.
+title: Kerberos-based single sign-on (SSO) in Microsoft Entra ID with Application Proxy
+description: Covers how to provide single sign-on using Microsoft Entra application proxy.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: contperf-fy21q2
@@ -25,10 +25,10 @@ You can enable single sign-on to your applications using integrated Windows auth
 ## How single sign-on with KCD works
 This diagram explains the flow when a user attempts to access an on premises application that uses IWA.
 
-![Microsoft AAD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
+![Microsoft Entra authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
 1. The user enters the URL to access the on premises application through Application Proxy.
-2. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
+2. Application Proxy redirects the request to Microsoft Entra authentication services to preauthenticate. At this point, Microsoft Entra ID applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Microsoft Entra ID creates a token and sends it to the user.
 3. The user passes the token to Application Proxy.
 4. Application Proxy validates the token and retrieves the User Principal Name (UPN) from it, and then the Connector pulls the UPN, and the Service Principal Name (SPN) through a dually authenticated secure channel.
 5. The Connector performs Kerberos Constrained Delegation (KCD) negotiation with the on premises AD, impersonating the user to get a Kerberos token to the application.
@@ -82,7 +82,7 @@ The Active Directory configuration varies, depending on whether your Application
    ```
 
 ## Configure single sign-on 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). Make sure to select **Microsoft Entra ID** as the **Preauthentication Method**.
 2. After your application appears in the list of enterprise applications, select it and click **Single sign-on**.
 3. Set the single sign-on mode to **Integrated Windows authentication**.  
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is `http/www.contoso.com`. This SPN needs to be in the list of services to which the connector can present delegated credentials.
@@ -92,11 +92,11 @@ The Active Directory configuration varies, depending on whether your Application
 
 ## SSO for non-Windows apps
 
-The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). 
+The Kerberos delegation flow in Microsoft Entra application proxy starts when Microsoft Entra authenticates the user in the cloud. Once the request arrives on-premises, the Microsoft Entra application proxy connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). 
 
 In the next phase, a request is sent to the backend application with this Kerberos ticket. 
 
-There are several mechanisms that define how to send the Kerberos ticket in such requests. Most non-Windows servers expect to receive it in form of SPNEGO token. This mechanism is supported on Azure AD Application Proxy, but is disabled by default. A connector can be configured for SPNEGO or standard Kerberos token, but not both.
+There are several mechanisms that define how to send the Kerberos ticket in such requests. Most non-Windows servers expect to receive it in form of SPNEGO token. This mechanism is supported on Microsoft Entra application proxy, but is disabled by default. A connector can be configured for SPNEGO or standard Kerberos token, but not both.
 
 If you configure a connector machine for SPNEGO, make sure that all other connectors in that Connector group are also configured with SPNEGO. Applications expecting standard Kerberos token should be routed through other connectors that are not configured for SPNEGO. Some web applications accept both formats without requiring any change in configuration. 
  
@@ -132,7 +132,7 @@ If delegated login identity is used, the value might not be unique across all th
 If **On-premises SAM account name** is used for the logon identity, the computer hosting the connector must be added to the domain in which the user account is located.
 
 ### Configure SSO for different identities
-1. Configure Azure AD Connect settings so the main identity is the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. These settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
+1. Configure Microsoft Entra Connect settings so the main identity is the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. These settings also determine how users log in to Office365, Windows10 devices, and other applications that use Microsoft Entra ID as their identity store.  
    ![Identifying users screenshot - User Principal Name dropdown](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
 

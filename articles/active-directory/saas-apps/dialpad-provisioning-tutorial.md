@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Dialpad for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Dialpad.
+title: 'Tutorial: Configure Dialpad for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Dialpad.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,10 +15,10 @@ ms.author: thwimmer
 
 # Tutorial: Configure Dialpad for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Dialpad and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Dialpad.
+The objective of this tutorial is to demonstrate the steps to be performed in Dialpad and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users and/or groups to Dialpad.
 
 > [!NOTE]
->  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+>  This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 > This connector is currently in Preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
@@ -26,26 +26,26 @@ The objective of this tutorial is to demonstrate the steps to be performed in Di
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant.
+* A Microsoft Entra tenant.
 * [A Dialpad tenant](https://www.dialpad.com/pricing/).
 * A user account in Dialpad with Admin permissions.
 
 ## Assign Users to Dialpad
-Azure Active Directory uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Microsoft Entra ID are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Dialpad. Once decided, you can assign these users and/or groups to Dialpad by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Microsoft Entra ID need access to Dialpad. Once decided, you can assign these users and/or groups to Dialpad by following the instructions here:
  
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md) 
 
  ## Important tips for assigning users to Dialpad
 
- * It is recommended that a single Azure AD user is assigned to Dialpad to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+ * It is recommended that a single Microsoft Entra user is assigned to Dialpad to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Dialpad, you must select any valid application-specific role (if available) in the assignment dialog. Users with the Default Access role are excluded from provisioning.
 
 ## Setup Dialpad for provisioning
 
-Before configuring Dialpad for automatic user provisioning with Azure AD, you will need to retrieve some provisioning information from Dialpad.
+Before configuring Dialpad for automatic user provisioning with Microsoft Entra ID, you will need to retrieve some provisioning information from Dialpad.
 
 1. Sign in to your [Dialpad Admin Console](https://dialpadbeta.com/login) and select **Admin settings**. Ensure that **My Company** is selected from the dropdown. Navigate to **Authentication > API Keys**.
 
@@ -57,29 +57,19 @@ Before configuring Dialpad for automatic user provisioning with Azure AD, you wi
 
 	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot of the Edit A P I key page in the Dialpad admin console. The Save button is highlighted." border="false":::
 
-3. Click the **Click to show value** button for your recently created API key and copy the value shown. This value will be entered in the **Secret Token** field in the Provisioning tab of your Dialpad application in the Azure portal. 
+3. Click the **Click to show value** button for your recently created API key and copy the value shown. This value will be entered in the **Secret Token** field in the Provisioning tab of your Dialpad application. 
 
 	![Dialpad Create Token](media/dialpad-provisioning-tutorial/dialpad04.png)
 
 ## Add Dialpad from the gallery
 
-To configuring Dialpad for automatic user provisioning with Azure AD, you need to add Dialpad from the Azure AD application gallery to your list of managed SaaS applications.
+To configuring Dialpad for automatic user provisioning with Microsoft Entra ID, you need to add Dialpad from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add Dialpad from the Azure AD application gallery, perform the following steps:**
+**To add Dialpad from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Dialpad**, select **Dialpad** in the results panel.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Dialpad**, select **Dialpad** in the results panel.
 	![Dialpad in the results list](common/search-new-app.png)
 
 5. Navigate to the **URL** highlighted below in a separate browser. 
@@ -100,15 +90,18 @@ To configuring Dialpad for automatic user provisioning with Azure AD, you need t
 
  ## Configure automatic user provisioning to Dialpad
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Dialpad based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in Dialpad based on user and/or group assignments in Microsoft Entra ID.
 
-### To configure automatic user provisioning for Dialpad in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-dialpad-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for Dialpad in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Dialpad**.
+1. In the applications list, select **Dialpad**.
 
 	![The Dialpad link in the Applications list](common/all-applications.png)
 
@@ -120,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://dialpad.com/scim` in **Tenant URL**. Input the value that you retrieved and saved earlier from Dialpad in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Dialpad. If the connection fails, ensure your Dialpad account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://dialpad.com/scim` in **Tenant URL**. Input the value that you retrieved and saved earlier from Dialpad in **Secret Token**. Click **Test Connection** to ensure Microsoft Entra ID can connect to Dialpad. If the connection fails, ensure your Dialpad account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -130,17 +123,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Dialpad**.
+8. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Dialpad**.
 
 	![Dialpad User Mappings](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Dialpad in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Dialpad for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Microsoft Entra ID to Dialpad in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Dialpad for update operations. Select the **Save** button to commit any changes.
 
 	![Dialpad User Attributes](media/dialpad-provisioning-tutorial/dialpad07.png)
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Dialpad, change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Microsoft Entra provisioning service for Dialpad, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -152,16 +145,16 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Dialpad.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Dialpad.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 ## 	Connector limitations
-* Dialpad does not support group renames today. This means that any changes to the **displayName** of a group in Azure AD will not be updated and reflected in Dialpad.
+* Dialpad does not support group renames today. This means that any changes to the **displayName** of a group in Microsoft Entra ID will not be updated and reflected in Dialpad.
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
