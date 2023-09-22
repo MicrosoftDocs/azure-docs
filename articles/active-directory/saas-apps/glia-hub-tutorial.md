@@ -33,9 +33,7 @@ To integrate Microsoft Entra ID with Glia Hub, you need:
 
 In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
-* Glia Hub supports **SP and IDP** initiated SSO
-
-* Glia Hub supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial)
+* Glia Hub supports **SP and IDP** initiated SSO.
 
 ## Adding Glia Hub from the gallery
 
@@ -140,7 +138,7 @@ To configure single sign-on on **Glia Hub** side, you need to send the **App Fed
 
 ### Create Glia Hub test user
 
-In this section, you create a user called B.Simon in Glia Hub. Work with [Glia Hub support team](mailto:support@prosci.com) to add the users in the Glia Hub platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Glia Hub. Work with [Glia Hub support team](mailto:support@glia.com) to add the users in the Glia Hub platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
