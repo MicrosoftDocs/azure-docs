@@ -67,6 +67,7 @@ Redis has a wide range of vector search capabilities through the [RediSearch mod
 - Multiple distance metrics, including `Euclidean`, `Cosine`, and `Internal Product`.
 - Support for both KNN (using `FLAT`) and ANN (using`HNSW`) indexing methods.
 - Vector storage in hash or JSON data structures
+- Top K queries
 - [Vector range queries](https://redis.io/docs/interact/search-and-query/search/vectors/#creating-a-vss-range-query) (i.e. find all items within a specific vector distance) 
 - Hybrid search with [powerful query features](https://redis.io/docs/interact/search-and-query/) such as 
   - Geospatial filtering
@@ -77,21 +78,15 @@ Redis has a wide range of vector search capabilities through the [RediSearch mod
     
 Additionally, Redis is often an economical choice because it is already so commonly used for caching or session store applications. In these scenarios, it can pull double-duty by serving a typical caching role while simultaneously handling vector search applications.
 
-> [!IMPORTANT]
-> The best way to get started with embeddings and vector search is to try it yourself: [Tutorial: Conduct  vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis](cache-tutorial-vector-similarity.md)
->
+## What are my other options for storing and searching for vectors?
 
-### What are my other options for storing and searching for vectors?
+There are multiple other solutions on Azure for vector storage and search. These include:
+- [Azure Cognitive Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
+- [Azure Cosmos DB](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/vcore/vector-search) using the MongoDB vCore API
+- [Aure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-use-pgvector) using `pgvector`
 
-I personally believe that one of the most difficult things about Azure (and Microsoft
-all up) is the *paradox of choice*. With so many technology options at your disposal
-that can perform a similar role in a system architecture, which stack of technologies 
-should I use? In the previous section, you told the reader why Redis makes the most
-sense. But to be even handed, its not always the right decision. So, if you can
-help the reader find other solutions, you've done them a great service.
+## Next Steps
+The best way to get started with embeddings and vector search is to try it yourself!
 
-### Troubleshooting
-
-You may want to just point out the top one or two scenarios you've come across
-in testing that trip up users. Point them to most extensive documentation on Redis'
-site.
+> [!div class="nextstepaction"]
+> [Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis](cache-tutorial-vector-similarity.md)
