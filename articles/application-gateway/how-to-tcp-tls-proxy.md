@@ -63,7 +63,7 @@ Use the following steps to enroll into the public preview for Application Gatewa
 
 First, create a SQL Server virtual machine (VM) using the Azure portal.
 
-1. From the Azure portal Home page, search for **SQL Virtual Machines** and then selectf **SQL virtual machines** under **Services**.
+1. From the Azure portal Home page, search for **SQL Virtual Machines** and then select **SQL virtual machines** under **Services**.
 
     ![A screenshot of selecting SQL virtual machines in the Azure portal.](./media/how-to-tcp-tls-proxy/select-sql-virtual-machines.png)
 
@@ -118,10 +118,10 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     | Subscription | Select the same subscription where you deployed the SQL server. |
     | Resource group | Select the same resource group where you deployed the SQL server. |
     | Application gateway name | You can provide any name for easy identification. |
-    | Region | The regions is auto-selected based on the resource group that you choose. |
-    | Tier | For TCP/TLS proxy, you can select either Standard v2 or WAF v2. The WAF functions will only apply to HTTP(S) when using a gateway in hybrid mode (HTTP, HTTPS along with TCP or TLS). |
-    | Enable autoscaling | This setting allows your gateway to scale-out and scale-in based on loads. This is applicable for both Layer 7 as well as Layer 4 proxy. The default setting is **Yes**. |
-    | Min/Max instance counts | For more information see [Scaling Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md). |
+    | Region | The region is automatically selected based on the resource group that you choose. |
+    | Tier | For TCP/TLS proxy, you can select either Standard v2 or WAF v2. The WAF functions only apply to HTTP(S) when using a gateway in hybrid mode (HTTP, HTTPS along with TCP or TLS). |
+    | Enable autoscaling | This setting allows your gateway to scale out and scale in based on loads. This is applicable for both Layer 7 and Layer 4 proxy. The default setting is **Yes**. |
+    | Min/Max instance counts | For more information, see [Scaling Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md). |
     | Availability zone | For more information, see [What are Azure regions and availability zones?](/azure/reliability/availability-zones-overview). |
     | HTTP2 | The default setting of disabled can be used for this test. |
     | Virtual network and subnet | You can choose an existing VNet under the region or create a new VNet. Application Gateway requires its own dedicated subnet with no other services deployed in it. |

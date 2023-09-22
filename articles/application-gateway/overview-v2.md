@@ -34,10 +34,10 @@ The new v2 SKU includes the following enhancements:
 
 ## Unsupported regions
 
-The Standard_v2 and WAF_v2 SKU is not currently available in the following regions:
+The Standard_v2 and WAF_v2 SKU isn't currently available in the following regions:
 
 - UK North
-- UK South2
+- UK South 2
 - China East
 - China North
 - US DOD East

@@ -37,7 +37,7 @@ Process flow:
 
 ## Limitations
 
-- A WAF v2 SKU gateway allows the creation of TLS or TCP listeners and backends to support HTTP and non-HTTP traffic through the same resource. However, it will not inspect traffic on TLS and TCP listeners for exploits and vulnerabilities. 
+- A WAF v2 SKU gateway allows the creation of TLS or TCP listeners and backends to support HTTP and non-HTTP traffic through the same resource. However, it does not inspect traffic on TLS and TCP listeners for exploits and vulnerabilities. 
 - Advanced features like path-based routing, redirections, rewrite Headers, and URLs are only available with Layer 7 (HTTP & HTTPS) protocols.
 
 ## Next steps
