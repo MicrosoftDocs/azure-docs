@@ -400,6 +400,18 @@
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
         href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Test reliability
+      items: 
+      - name: Chaos engineering
+        href: /azure/well-architected/resiliency/chaos-engineering?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Chaos Studio overview
+        href: ../chaos-studio/chaos-studio-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Create and run a chaos experiment
+        href: ../chaos-studio/chaos-studio-quickstart-azure-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Resource types
+        href: ../chaos-studio/chaos-studio-fault-providers.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Fault library
+        href: ../chaos-studio/chaos-studio-fault-library.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name:  Azure Service Manager retirement
       items:
       - name: Overview
