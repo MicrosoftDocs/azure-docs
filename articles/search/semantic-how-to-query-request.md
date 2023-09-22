@@ -51,29 +51,23 @@ Choose a search client that supports preview APIs on the query request. Here are
 ## 2 - Create a semantic configuration
 
 > [!IMPORTANT]
-> A semantic configuration is required for the 2021-04-30-Preview and later REST APIs, Search explorer, and some versions of the beta SDKs. In 2020-06-30-Preview REST API, you had to use `searchFields` to specify field inputs. This approach only worked in 2020-06-30-Preview and is superceded by semantic configuration in later API versions.
+> A semantic configuration is required for the 2021-04-30-Preview and later REST APIs, Search explorer, and some beta SDKs. In 2020-06-30-Preview REST API, you had to use `searchFields` for field inputs. This approach only worked in 2020-06-30-Preview and is now obsolete.
 
 A *semantic configuration* establishes field inputs for semantic ranking. You can add or update a semantic configuration to an index definition at any time, no rebuild necessary. At query time, specify one on a query request.
 
 + Fields must be `searchable` and `retrievable`.
-+ Fields must be a string data type.
-
-  | Data type | Example from hotels-sample-index |
-  |-----------|----------------------------------|
-  | `Edm.String` | HotelName, Category, Description |
-  | `Edm.ComplexType` | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
-  | `Collection(Edm.String)` | Tags (a comma-delimited list of strings) |
++ Fields must be a string data type: `Edm.String`, `Edm.ComplexType`,`Collection(Edm.String)`.
 
   > [!NOTE]
   > Subfields of `Collection(Edm.ComplexType)` fields aren't currently supported by semantic search and aren't used for semantic ranking, captions, or answers.
 
-A semantic configuration has a name and at least one each of the following properties:
+A semantic configuration has a name and the following properties:
 
-+ **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This field could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
-+ **Content fields** - Content fields should contain text in natural language form. Common examples of content are the body of a document, the description of a product, or other free-form text.
-+ **Keyword fields** - Keyword fields should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
++ **Title field** - A short string, ideally under 25 words. This field could be the title of a document, name of a product, or a unique identifier. If you don't have suitable field, leave it blank.
++ **Content fields** - Should contain text in natural language form. Common examples include the body of a document, description of a product, or other free-form text.
++ **Keyword fields** - Should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
 
-You can only specify one title field but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
+You can only specify one title field, but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
 
 ### [**Azure portal**](#tab/portal)
 
