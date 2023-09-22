@@ -28,7 +28,7 @@ Primary/secondary keys provide access to all the administrative resources for th
 
 To see your account keys, navigate to Keys from the left menu. Then, click on the “view” icon at the right of each key. Click on the copy button to copy the selected key. You can hide them afterwards by clicking the same icon per key, which will be updated as a “hide” button.
 
-:::image type="content" source="./media/database-security/view-account-key.png" alt-text="View account key for Azure Cosmos DB":::
+:::image type="content" source="./media/database-security/view-account-key.png" alt-text="Screenshot of view account key for Azure Cosmos DB.":::
 
 ### <a id="key-rotation"></a> Key rotation and regeneration
 
