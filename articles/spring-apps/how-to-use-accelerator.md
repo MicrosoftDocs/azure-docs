@@ -328,11 +328,11 @@ engine:
       reference: <fragment-accelerator-name>
 ```
 
-3. Create or update your customized accelerator using the Azure portal or Azure CLI to refresh the change.
+3. Synchronize the change to your customized accelerator by using the Azure portal or Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
-The open the **Accelerators** section and then select **Sync certificate**.
+There are two ways to sync the change to your customized acceleratory: Create or update your customized accelerator or open the **Accelerators** section and then select **Sync certificate**.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
