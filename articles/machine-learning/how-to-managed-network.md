@@ -313,7 +313,7 @@ To configure a managed VNet that allows internet outbound communications, use th
     
         :::image type="content" source="./media/how-to-managed-network/update-managed-network-internet-outbound.png" alt-text="Screenshot of updating a workspace to managed VNet with internet outbound." lightbox="./media/how-to-managed-network/update-managed-network-internet-outbound.png":::
 
-        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the same information as used when creating a workspace in the previous section.
+        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the same information as used when creating a workspace in the 'Create a new workspace' section.
 
             :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating a managed VNet by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
@@ -635,7 +635,7 @@ To configure a managed VNet that allows only approved outbound communications, u
     
         :::image type="content" source="./media/how-to-managed-network/update-managed-network-approved-outbound.png" alt-text="Screenshot of updating a workspace to managed VNet with approved outbound." lightbox="./media/how-to-managed-network/update-managed-network-approved-outbound.png":::
 
-        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the same information as when creating a workspace in the previous section.
+        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the same information as when creating a workspace in the previous 'Create a new workspace' section.
 
         * To __delete__ an outbound rule, select __delete__ for the rule.
 
