@@ -357,7 +357,7 @@ The following list is of reasons you might run into this error only when using K
 * [azureml-fe for kubernetes online endpoint isn't ready](#azureml-fe-not-ready)
 
 
-#### Subscription doesn't exist
+#### Subscription does not exist
 
 The Azure subscription that is entered must be existing. This error occurs when we can't find the Azure subscription that was referenced. This error is likely due to a typo in the subscription ID. Double-check that the subscription ID was correctly typed and that it's currently active.
 
@@ -481,7 +481,7 @@ The following list is of reasons you might run into this error only when using e
 * [Azure Resource Manager can't find a required resource](#resource-manager-cannot-find-a-resource)
 * [Azure Container Registry is private or otherwise inaccessible](#container-registry-authorization-error)
 
-#### Resource Manager can't find a resource
+#### Resource Manager cannot find a resource
 
 This error occurs when Azure Resource Manager can't find a required resource. For example, you can receive this error if a storage account was referred to but can't be found at the path on which it was specified. Be sure to double check resources that might have been supplied by exact path or the spelling of their names.
 
