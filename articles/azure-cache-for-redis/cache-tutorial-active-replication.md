@@ -176,7 +176,7 @@ spec:
     app: shoppingcart
 ```
 
-## Install and connect to your AKS cluster
+## Install Kubernetes CLI and connect to your AKS cluster
 
 In this section, you first install the Kubernetes CLI and then connect to an AKS cluster.
 
