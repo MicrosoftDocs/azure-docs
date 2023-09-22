@@ -407,7 +407,7 @@ To learn more about Azure Notebooks, see
 [Azure Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
-[Azure storage account]: ../azure/storage/common/storage-account-create.md
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [Get Map Image API]: /rest/api/maps/render-v2/get-map-static-image
 [Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
 [Get Route Directions API]: /rest/api/maps/route/getroutedirections
