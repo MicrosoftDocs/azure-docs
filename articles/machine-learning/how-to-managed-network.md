@@ -32,13 +32,13 @@ There are two different configuration modes for outbound traffic from the manage
 | ----- | ----- | ----- |
 | Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | You want unrestricted access to machine learning resources on the internet, such as python packages or pretrained models.<sup>1</sup> |
 | Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | * You want to minimize the risk of data exfiltration, but you need to prepare all required machine learning artifacts in your private environment.</br>* You want to configure outbound access to an approved list of services, service tags, or FQDNs. |
-| Disabled | Inbound and outbound traffic aren't restricted or you are using your own Azure Virtual Network to protect resources. | You want public inbound and outbound from the workspace, or you are handling network isolation with your own Azure VNet. |
+| Disabled | Inbound and outbound traffic isn't restricted or you're using your own Azure Virtual Network to protect resources. | You want public inbound and outbound from the workspace, or you're handling network isolation with your own Azure VNet. |
 
 1: You can use outbound rules with _allow only approved outbound_ mode to achieve the same result as using allow internet outbound. The differences are:
 
 * You must add rules for each outbound connection you need to allow.
 * Adding FQDN outbound rules increase your costs as this rule type uses Azure Firewall.
-* The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any additional outbound rules you add may increase your risk.
+* The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add may increase your risk.
 
 The managed VNet is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace, workspace's default storage, container registry and key vault __if they're configured as private__ or __the workspace isolation mode is set to allow only approved outbound__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
@@ -126,7 +126,7 @@ Before following the steps in this article, make sure you have the following pre
 ## Configure a managed VNet to allow internet outbound
 
 > [!TIP]
-> The creation of the managed VNet is deferred until a compute resource is created or provisioning is manually started. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. For more information, see [Manually provision the network](#manually-provision-a-managed-virtual-network).
+> The creation of the managed VNet is deferred until a compute resource is created or provisioning is manually started. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
 
 > [!IMPORTANT]
 > __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
@@ -337,7 +337,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 ## Configure a managed VNet to allow only approved outbound
 
 > [!TIP]
-> The managed VNet is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. For more information, see [Manually provision the network](#manually-provision-a-managed-virtual-network).
+> The managed VNet is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
 
 > [!IMPORTANT]
 > __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
@@ -815,7 +815,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 ## Manually provision a managed VNet
 
-The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. 
+The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. 
 
 To reduce the wait time when someone attempts to create the first compute, you can manually provision the managed VNet after creating the workspace without creating a compute resource:
 
