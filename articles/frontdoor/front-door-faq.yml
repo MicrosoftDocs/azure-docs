@@ -89,7 +89,7 @@ sections:
           Azure Front Door isn't limited to any Azure region, but operates globally. The only location you have to choose when you create a Front Door is the location of the resource group, which determines where the resource group's metadata get stored. The Front Door profile is a global resource and its configuration is distributed to all edge locations worldwide.
 
       - question: |
-          What are the locations of the Azure Front Door POPs (points-of-presences)?
+          What are the locations of the Azure Front Door POPs (points-of-presence)?
         answer: |
           For the complete list of points of presence (POPs) that provide global load balancing and content delivery for Azure Front Door, see [Azure Front Door POP locations](edge-locations-by-region.md). This list is updated regularly as new POPs are added or removed. You can also use the Azure Resource Manager API to query the current list of POPs programmatically.
           
