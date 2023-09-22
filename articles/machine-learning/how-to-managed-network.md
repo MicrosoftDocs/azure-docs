@@ -19,7 +19,7 @@ ms.custom: build-2023, devx-track-azurecli
 
 Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet.
 
-## managed VNet architecture
+## managed virtual network architecture
 
 When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources you create for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
@@ -123,7 +123,7 @@ Before following the steps in this article, make sure you have the following pre
 
 ---
 
-## Configure a managed VNet to allow internet outbound
+## Configure a managed virtual network to allow internet outbound
 
 > [!TIP]
 > The creation of the managed VNet is deferred until a compute resource is created or provisioning is manually started. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
@@ -334,7 +334,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 ---
 
-## Configure a managed VNet to allow only approved outbound
+## Configure a managed virtual network to allow only approved outbound
 
 > [!TIP]
 > The managed VNet is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
