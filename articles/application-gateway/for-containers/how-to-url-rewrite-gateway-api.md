@@ -12,7 +12,7 @@ ms.author: greglin
 
 # URL Rewrite for Azure Application Gateway for Containers - Gateway API (preview)
 
-Application Gateway for Containers allows you to rewrite the URL of a client request, including the requests' hostname and/or path.  When Application Gateway for Containers initiates the request to the backend target, the request will contain the newly rewritten URL to initiate the request.
+Application Gateway for Containers allows you to rewrite the URL of a client request, including the requests' hostname and/or path.  When Application Gateway for Containers initiates the request to the backend target, the request contains the newly rewritten URL to initiate the request.
 
 
 ## Usage details
@@ -165,7 +165,8 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create a HTTPRoute resources for `contoso.com`.  This example will ensure traffic sent to `contoso.com/shop` is initiated as `contoso.com/ecommerce` to the backend target.
+Once the gateway has been created, create an HTTPRoute resources for `contoso.com`.  This example ensures traffic sent to `contoso.com/shop` is initiated as `contoso.com/ecommerce` to the backend target.
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: gateway.networking.k8s.io/v1beta1
