@@ -14,7 +14,7 @@ ms.topic: how-to
 | Requirement | Description |
 |:--------|:-----------|
 | Access to Create Alerts | Users who are creating Alert should have [Access to Create Alert](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview#azure-role-based-access-control-for-alerts) |
-| Managed Identity | When utilizing an existing Managed Identity, ensure it has **Subscription Reader** access for accessing usage data. In cases where a new Managed Identity is generated, the Subscription **Owner** is responsible for **granting** Subscription **Reader** access to this newly created Managed Identity. |
+| [Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) | When utilizing an existing Managed Identity, ensure it has **Subscription Reader** access for accessing usage data. In cases where a new Managed Identity is generated, the Subscription **Owner** is responsible for **granting** Subscription **Reader** access to this newly created Managed Identity. |
 
 
 ### Create Alerts from Portal
@@ -27,12 +27,12 @@ Step-by-Step instructions to create an alert rule for your quota in the Azure po
 
 2.	When the Create usage alert rule page appears, **populate the fields** with data as shown in the table below.  Make sure you have the **right access** to the subscriptions and Quotas to **create alerts**. 
 
-    :::image type="content" source="media/monitoring-alerting/quota-details-create-rule.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+    :::image type="content" source="media/monitoring-alerting/quota-details-create-rule.png" alt-text="Screenshot showing create Alert rule screen with required fields":::
 
     | **Fields** | **Description** |
     |:--------|:-----------|
     | Alert Rule Name | Alert rule name must be distinct and cannot be duplicated, even across different resource groups |
-    | Alert me when the usage % reaches | Drag the ruler to specify the usage percentage that triggers an alert. For instance, at the default setting of 80%, you'll receive an alert when your quota reaches 80% of its capacity.|
+    | Alert me when the usage % reaches | Adjust the slider to select your desired usage percentage for triggering alerts. For example, at the default 80%, you'll receive an alert when your quota reaches 80% capacity.|
     | Severity | Select the severity of the alert when the rule’s condition is met.|
     | [Frequency of evaluation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview#stateful-alerts) | Choose how often the alert rule should run, by selecting 5, 10, or 15 minutes.  If the frequency is smaller than the aggregation granularity, this will result in sliding window evaluation. |
     | [Resource Group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) | Select a resource group similar to other quotas in your subscription, or create a new resource group.  This is a collection of resources that share the same lifecycles, permissions, and policies. |
@@ -118,6 +118,9 @@ Use existing **Alerts** blade to [create alerts by adding below query](https://l
 
 For Quota alerts, make sure Scope is scelected as the Log analytics workspace that is created and the signal type is Customer Query log. Add below Query for Quota usages. Follow the remianing steps as mentioned in the [create alerts]((https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log)). 
 
+>[!Note]
+>Our **recommendation** for creating alerts in the Portal is to use the **Quota Alerts page**, as it offers the simplest and most user-friendly approach. 
+
 #### Sample Query to create Alerts
 ```kusto
 arg("").QuotaResources 
@@ -138,28 +141,28 @@ arg("").QuotaResources
 
 Select **Quotas** | **Alert Rules** to see all the rules create for a given subscription. Here, you will have the option to edit, enable, or disable them as needed.
 
-  :::image type="content" source="media/monitoring-alerting/view-alert-rules.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+  :::image type="content" source="media/monitoring-alerting/view-alert-rules.png" alt-text="Screenshot showing how to navigate to Alert rule screen":::
 
 ### View Fired Alerts
 
 Select **Quotas** | **Fired Alert Rules** to see all the alerts that have been fired create for a given subscription. This page displays an overview of all the alert rules that have been triggered. You can click on each alert to view its details, including the history of how many times it was triggered and the status of each occurrence.
 
-  :::image type="content" source="media/monitoring-alerting/view-fired-alerts.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+  :::image type="content" source="media/monitoring-alerting/view-fired-alerts.png" alt-text="Screenshot showing how to navigate to Fired Alert screen":::
 
 ### Edit, Update, Enable, Disable Alerts
 
 Mutliple ways we can manage the create alerts 
 1. Expand the options below the dots and select appropriate action.
 
-   :::image type="content" source="media/monitoring-alerting/edit-enable-disable-delete.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+   :::image type="content" source="media/monitoring-alerting/edit-enable-disable-delete.png" alt-text="Screenshot showing how to edit , enable, disable or delete alert rules":::
 
    When using the 'Edit' action, users can also add multiple quotas or locations for the same alert rule.
 
-   :::image type="content" source="media/monitoring-alerting/edit-dimension.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+   :::image type="content" source="media/monitoring-alerting/edit-dimension.png" alt-text="Screenshot showing how to add dimensions while editing a quota rule":::
 
 2. Go to **Alert Rules**, then click on the specific alert rule you want to change. 
 
-   :::image type="content" source="media/monitoring-alerting/alert-rule-edit.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+   :::image type="content" source="media/monitoring-alerting/alert-rule-edit.png" alt-text="Screenshot showing how to edit rules from Alert Rule screen":::
   
 
 ## Respond to Alerts
@@ -185,14 +188,14 @@ As a **prerequisite**, users must have at least a **Contributor** role for the s
 
 ```kusto
 QuotaResources
-|where type == "microsoft.compute/locations/usages"
-|where subscriptionId in~ ("c1a24fcd-16ab-441b-882c-f90560a72600","c1a24fcd-16ab-441b-882c-f90560a72600")
-|where location == "eastus2"
+| where type =~ "microsoft.compute/locations/usages"
+| where location =~ "eastus2"
+| where subscriptionId in~ ("<Subscription1>","<Subscription2>") 
 | extend json = parse_json(properties)  
-|mv-expand propertyJson = json.value limit 400  
-| extend usagevCPUs = propertyJson.currentValue, QuotaLimit = propertyJson.['limit'],quotaName = tostring(propertyJson.['name'].localizedValue
-| extend usagePercent = toint(usagevCPUs)*100 / toint(QuotaLimit)
-| order by ['usagePercent'] desc
+| mv-expand propertyJson = json.value limit 400 
+| extend usagevCPUs = propertyJson.currentValue, QuotaLimit = propertyJson['limit'], quotaName = tostring(propertyJson['name'].localizedValue)
+|extend usagePercent = toint(usagevCPUs)*100 / toint(QuotaLimit)
+|sort by usagePercent desc
 ```
 
 2. Query to Summarize total vCPUs (On-demand, Low Priority/Spot) per subscription per region
@@ -200,26 +203,22 @@ QuotaResources
 ```kusto
 QuotaResources
 |where type == "microsoft.compute/locations/usages"
-|where subscriptionId in~ ("c1a24fcd-16ab-441b-882c-f90560a72600","c1a24fcd-16ab-441b-882c-f90560a72600")
+|where subscriptionId in~ ("<Subscription1>","<Subscription2>")
 |where location == "eastus2"
-| extend json = parse_json(properties)  
-|mv-expand propertyJson = json.value limit 400  
-| extend usagevCPUs = propertyJson.currentValue, QuotaLimit = propertyJson.['limit'],quotaName = tostring(propertyJson.['name'].localizedValue
-| extend usagePercent = toint(usagevCPUs)*100 / toint(QuotaLimit)
-| order by ['usagePercent'] desc
+
 ```
 
 ## Feedback 
 
 User can find Feedback Button on every page. they can leverage this to share  thoughts, questions, or concerns with our team. Additionally, Users can submit a support ticket if they encounter any issues while creating alert rules for quotas.
 
-:::image type="content" source="media/monitoring-alerting/quota-details-create-rule.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
+:::image type="content" source="media/monitoring-alerting/alert-feedback.png" alt-text="Screenshot showing user can provide feedback":::
 
 ## Troubleshoot
 
 Do we need this?
 
-## Next steps
+## Next steps  
 
 - Learn about [Monitoring and Alerting](monitoring-alerting.md)
 - Learn more about [Quota overview](quotas-overview.md) and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
