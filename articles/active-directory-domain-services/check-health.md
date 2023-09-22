@@ -1,6 +1,6 @@
 ---
 title: Check the health of Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how to check the health of a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain and understand status messages.
+description: Learn how to check the health of a Microsoft Entra Domain Services managed domain and understand status messages.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -16,9 +16,9 @@ ms.author: justinha
 ---
 # Check the health of a Microsoft Entra Domain Services managed domain
 
-Microsoft Entra Domain Services (Microsoft Entra DS) runs some background tasks to keep the managed domain healthy and up-to-date. These tasks include taking backups, applying security updates, and synchronizing data from Microsoft Entra ID. If there are issues with the Microsoft Entra DS managed domain, these tasks may not successfully complete. To review and resolve any issues, you can check the health status of a managed domain using the Microsoft Entra admin center.
+Microsoft Entra Domain Services runs some background tasks to keep the managed domain healthy and up-to-date. These tasks include taking backups, applying security updates, and synchronizing data from Microsoft Entra ID. If there are issues with the Domain Services managed domain, these tasks may not successfully complete. To review and resolve any issues, you can check the health status of a managed domain using the Microsoft Entra admin center.
 
-This article shows you how to view the Microsoft Entra DS health status and understand the information or alerts shown.
+This article shows you how to view the Domain Services health status and understand the information or alerts shown.
 
 ## View the health status
 
@@ -27,7 +27,7 @@ The health status for a managed domain is viewed using the Microsoft Entra admin
 1. Sign in to [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator). 
 1. Search for and select **Microsoft Entra Domain Services**.
 1. Select your managed domain, such as *aaddscontoso.com*.
-1. On the left-hand side of the Microsoft Entra DS resource window, select **Health**. The following example screenshot shows a healthy managed domain and the status of the last backup and Azure AD synchronization:
+1. On the left-hand side of the Domain Services resource window, select **Health**. The following example screenshot shows a healthy managed domain and the status of the last backup and Azure AD synchronization:
 
     ![Health page overview showing the Microsoft Entra Domain Services status](./media/check-health/health-page.png)
 
@@ -48,7 +48,7 @@ The health status for a managed domain show two types of information - *monitors
 
 ### Monitors
 
-Monitors are areas of a managed domain that are checked on a regular basis. If there are any active alerts for the managed domain, it may cause one of the monitors to report an issue. Microsoft Entra DS currently has monitors for the following areas:
+Monitors are areas of a managed domain that are checked on a regular basis. If there are any active alerts for the managed domain, it may cause one of the monitors to report an issue. Domain Services currently has monitors for the following areas:
 
 * Backup
 * Synchronization with Microsoft Entra ID

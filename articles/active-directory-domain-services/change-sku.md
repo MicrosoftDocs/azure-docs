@@ -17,11 +17,11 @@ ms.author: justinha
 
 # Change the SKU for an existing Microsoft Entra Domain Services managed domain
 
-In Microsoft Entra Domain Services (Microsoft Entra DS), the available performance and features are based on the SKU type. These feature differences include the backup frequency or maximum number of one-way outbound forest trusts.
+In Microsoft Entra Domain Services, the available performance and features are based on the SKU type. These feature differences include the backup frequency or maximum number of one-way outbound forest trusts.
 
-You select a SKU when you create the managed domain, and you can switch SKUs up or down as your business needs change after the managed domain has been deployed. Changes in business requirements could include the need for more frequent backups or to create additional forest trusts. For more information on the limits and pricing of the different SKUs, see [Microsoft Entra DS SKU concepts][concepts-sku] and [Microsoft Entra DS pricing][pricing] pages.
+You select a SKU when you create the managed domain, and you can switch SKUs up or down as your business needs change after the managed domain has been deployed. Changes in business requirements could include the need for more frequent backups or to create additional forest trusts. For more information on the limits and pricing of the different SKUs, see [Domain Services SKU concepts][concepts-sku] and [Domain Services pricing][pricing] pages.
 
-This article shows you how to change the SKU for an existing Microsoft Entra DS managed domain using the [Microsoft Entra admin center](https://entra.microsoft.com).
+This article shows you how to change the SKU for an existing Domain Services managed domain using the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Before you begin
 
@@ -40,16 +40,16 @@ You can change SKUs up or down after the managed domain has been deployed. Howev
 
 For example, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
 
-For more information on these limits, see [Microsoft Entra DS SKU features and limits][concepts-sku].
+For more information on these limits, see [Domain Services SKU features and limits][concepts-sku].
 
 ## Select a new SKU
 
 To change the SKU for a managed domain using the [Microsoft Entra admin center](https://entra.microsoft.com), complete the following steps:
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Microsoft Entra Domain Services**. Choose your managed domain from the list, such as *aaddscontoso.com*.
-1. In the menu on the left-hand side of the Microsoft Entra DS page, select **Settings > SKU**.
+1. In the menu on the left-hand side of the Domain Services page, select **Settings > SKU**.
 
-    ![Select the SKU menu option for your Microsoft Entra DS managed domain in the Microsoft Entra admin center](media/change-sku/overview-change-sku.png)
+    ![Select the SKU menu option for your Domain Services managed domain in the Microsoft Entra admin center](media/change-sku/overview-change-sku.png)
 
 1. From the drop-down menu, select the SKU you wish for your managed domain. If you have a resource forest, you can't select *Standard* SKU as forest trusts are only available on the *Enterprise* SKU or higher.
 
@@ -61,7 +61,7 @@ It can take a minute or two to change the SKU type.
 
 ## Next steps
 
-If you have a resource forest and want to create additional trusts after the SKU change, see [Create an outbound forest trust to an on-premises domain in Microsoft Entra DS][create-trust].
+If you have a resource forest and want to create additional trusts after the SKU change, see [Create an outbound forest trust to an on-premises domain in Domain Services][create-trust].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
