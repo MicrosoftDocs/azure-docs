@@ -35,7 +35,6 @@ Add the extension to your project by installing [this NuGet package](https://www
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Kusto --prerelease
 ```
 
-<!-- awaiting bundle support
 # [In-process](#tab/in-process)
 
 Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
@@ -45,7 +44,7 @@ Add the extension to your project by installing [this NuGet package](https://www
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
 ```
-
+<!-- awaiting bundle support
 # [C# script](#tab/csharp-script)
 
 Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].

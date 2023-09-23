@@ -94,7 +94,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.InputBinding
 }
 ```
 
-<!-- Uncomment to support C# script examples.
 # [In-process](#tab/in-process)
 
 More samples for the Azure Data Explorer input binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/blob/main/samples/samples-csharp).
@@ -209,7 +208,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.InputBindingSamples
       }
 }
 ```
-
+<!-- Uncomment to support C# script examples.
 # [C# Script](#tab/csharp-script)
 
 -->
