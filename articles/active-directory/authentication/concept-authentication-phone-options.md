@@ -54,8 +54,6 @@ Android users can enable RCS on their devices. RCS offers encryption and other i
 
 Some users with phone numbers that have country codes belonging to India, Indonesia, and New Zealand may receive their verification codes in WhatsApp. Like RCS, these messages are similar to SMS, but have more Microsoft branding and a verified checkmark. Only users that have WhatsApp receive verification codes via this channel. To check if a user has WhatsApp, we silently try to deliver them a message in the app by using the phone number they registered for text message verification. If users don't have any internet connectivity or uninstall WhatsApp, they'll receive SMS verification codes. The phone number associated with Microsoft's WhatsApp Business Agent is: *+1 (217) 302 1989*.
 
-:::image type="content" border="true" source="media/concept-authentication-methods/verification.png" alt-text="Screenshot of confirmation.":::
-
 :::image type="content" border="true" source="media/concept-authentication-methods/code.png" alt-text="Screenshot of confirmation.":::
 
 ### Phone call verification
