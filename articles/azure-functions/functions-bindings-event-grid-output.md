@@ -3,7 +3,7 @@ title: Azure Event Grid output binding for Azure Functions
 description: Learn to send an Event Grid event in Azure Functions.
 
 ms.topic: reference
-ms.date: 08/10/2023
+ms.date: 09/22/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
@@ -706,7 +706,7 @@ There are two ways of authenticating to an Event Grid topic when using the Event
 | Authentication method | Description |
 | ----- | ----- |
 | Using a topic key | Set the `TopicEndpointUri` and `TopicKeySetting` properties, as described in [Use a topic key](#use-a-topic-key). | 
-| Using an identity | Set the `Connection` property to the name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connection). This method is supported when using version 3.3.x or higher of the extension. | 
+| Using an identity | Set the `Connection` property to the name of a shared prefix for multiple application settings, together defining [identity-based authentication](#identity-based-authentication). This method is supported when using version 3.3.x or higher of the extension. | 
 
 ### Use a topic key
 
