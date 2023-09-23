@@ -56,6 +56,7 @@ Some users with phone numbers that have country codes belonging to India, Indone
 
 :::image type="content" border="true" source="media/concept-authentication-methods/verification.png" alt-text="Screenshot of confirmation.":::
 
+:::image type="content" border="true" source="media/concept-authentication-methods/code.png" alt-text="Screenshot of confirmation.":::
 
 ### Phone call verification
 
