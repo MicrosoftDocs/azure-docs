@@ -80,6 +80,16 @@ The following example creates a cluster named *myAKSCluster* with one node and e
     ```azurecli-interactive
     az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --generate-ssh-keys
     ```
+    or
+    ```PowerShell-interactive
+    az aks create `
+     --resource-group myResourceGroup `
+     --name myAKSCluster `
+     --enable-managed-identy `
+     --node-count 1 `
+     --enable-addons monitoring `
+     --generate-ssh-keys
+    ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
