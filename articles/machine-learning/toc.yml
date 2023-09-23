@@ -873,6 +873,8 @@
             - name: Deploy MLflow models to online endpoints
               displayName: ncd, no code deploy, no-code deployment
               href: how-to-deploy-mlflow-models-online-endpoints.md
+            - name: Deploy model packages to online endpoints
+              href: how-to-package-models.md
             - name: Use a custom container to deploy a model to an online endpoint
               href: how-to-deploy-custom-container.md
             - name: Use online endpoints in studio
@@ -943,8 +945,12 @@
               href: how-to-use-batch-azure-data-factory.md
             - name: Run batch endpoints from Event Grid events in storage
               href: how-to-use-event-grid-batch.md
-    - name: Model portability (ONNX)
-      href: concept-onnx.md
+    - name: Package and deploy models outside Azure Machine Learning
+      href: how-to-package-models-app-service.md
+    - name: Model optimization
+      items:
+        name: Accelerate inference with ONNX 
+        href: concept-onnx.md
     - name: Prebuilt Docker images for inference
       href: concept-prebuilt-docker-images-inference.md
     # v1
@@ -1051,7 +1057,9 @@
           href: how-to-share-data-across-workspaces-with-registries.md
     - name: Model Deployment
       items:
-        - name: Endpoints
+        - name: Package models for inference
+          href: package-models.md
+        - name: Deploy models to endpoints
           href: concept-endpoints.md
     - name: Automation
       items:
