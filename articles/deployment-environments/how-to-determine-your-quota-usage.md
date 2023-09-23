@@ -25,7 +25,7 @@ Keeping track of how your quota of VM cores is being used across your subscripti
  
 1. To view Usage + quotas information about Storage used by Azure Deployment Environments, select **Storage**.  
 
-   :::image type="content" source="media/how-to-determine-your-quota-usage/select-storage.png" alt-text="Screenshot showing the Usage and quotas page, with Storage highlighted." lightbox="media/how-to-determine-your-quota-usage/select-dev-box.png":::    
+   :::image type="content" source="media/how-to-determine-your-quota-usage/select-storage.png" alt-text="Screenshot showing the Usage and quotas page, with Storage highlighted." lightbox="media/how-to-determine-your-quota-usage/select-storage.png":::    
  
 1. In this example, you can see the **Quota name**, the **Region**, the **Subscription** the quota is assigned to, and the **Current Usage**.
 
