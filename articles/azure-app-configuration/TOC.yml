@@ -303,6 +303,8 @@
   items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-configuration/
+    - name: Roadmap
+      href: https://github.com/Azure/AppConfiguration/projects/1
     - name: Videos
       items:
         - name: Getting started with App Configuration
