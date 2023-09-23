@@ -40,16 +40,14 @@ Anonymous access to your data is always prohibited by default. There are two sep
 
     When anonymous access is permitted at the account level, blob data is not available for anonymous read access unless the user takes the additional step to explicitly configure the container's anonymous access setting.
 
-    From August 31, 2023, new Azure Resource Manager storage accounts created using the Azure portal have anonymous access disallowed by default. For Azure Resource Manager storage accounts created prior to August 31, 2023, anonymous access is allowed by default.
-
 1. **Configure the container's anonymous access setting.** By default, a container's anonymous access setting is disabled, meaning that authorization is required for every request to the container or its data. A user with the appropriate permissions can modify a container's anonymous access setting to enable anonymous access only if anonymous access is allowed for the storage account.
 
 The following table summarizes how the two settings together affect anonymous access for a container.
 
 |  | Anonymous access level for the container is set to Private (default setting) | Anonymous access level for the container is set to Container | Anonymous access level for the container is set to Blob |
 |--|--|--|--|
-| **Anonymous access is disallowed for the storage account (default setting in the Azure portal for accounts created after August 31, 2023)** | No anonymous access to any container in the storage account. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. |
-| **Anonymous access is allowed for the storage account (default setting in the Azure portal for accounts created prior to August 31, 2023)** | No anonymous access to this container (default configuration). | Anonymous access is permitted to this container and its blobs. | Anonymous access is permitted to blobs in this container, but not to the container itself. |
+| **Anonymous access is disallowed for the storage account** | No anonymous access to any container in the storage account. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. | No anonymous access to any container in the storage account. The storage account setting overrides the container setting. |
+| **Anonymous access is allowed for the storage account** | No anonymous access to this container (default configuration). | Anonymous access is permitted to this container and its blobs. | Anonymous access is permitted to blobs in this container, but not to the container itself. |
 
 When anonymous access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
 

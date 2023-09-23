@@ -157,7 +157,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
+> When using a service endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 ---
 

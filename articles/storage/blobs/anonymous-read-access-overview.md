@@ -27,9 +27,7 @@ To remediate anonymous access, first determine whether your storage account uses
 
 ### Azure Resource Manager accounts
 
-From August 31, 2023, new Azure Resource Manager storage accounts created using the Azure portal have anonymous access disallowed by default. For Azure Resource Manager storage accounts created prior to that date, anonymous access is allowed by default. You should disallow anonymous access for these accounts for optimal security.
-
-If your storage account is using the Azure Resource Manager deployment model and was created prior to August 31, 2023, then you can remediate anonymous access for that account at any time by setting the account's **AllowBlobPublicAccess** property to **False**. After you set the **AllowBlobPublicAccess** property to **False**, all requests for blob data to that storage account will require authorization, regardless of the anonymous access setting for any individual container.
+If your storage account is using the Azure Resource Manager deployment model, then you can remediate anonymous access for an account at any time by setting the account's **AllowBlobPublicAccess** property to **False**. After you set the **AllowBlobPublicAccess** property to **False**, all requests for blob data to that storage account will require authorization, regardless of the anonymous access setting for any individual container.
 
 To learn more about how to remediate anonymous access for Azure Resource Manager accounts, see [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md).
 
