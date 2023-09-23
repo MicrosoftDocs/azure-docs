@@ -667,7 +667,7 @@ If not, then a deployment to enable is executed.
     "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "DeployIfNotExists",
+    "effect": "deployIfNotExists",
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
