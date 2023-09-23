@@ -196,123 +196,104 @@ movie_list = loader.load()
 
 ## Generate embeddings and load them into Redis
 
-Now that the data has been filtered and loaded, we will create embeddings so we can query on the plot for each movie.
+Now that the data has been filtered and loaded into LangChain, we will create embeddings so we can query on the plot for each movie. The following code configures Azure OpenAI, generates embeddings, and loads the embeddings vectors into Azure Cache for Redis.
 
 ```python
+embedding = OpenAIEmbeddings(
+    deployment=DEPLOYMENT_NAME,
+    model=MODEL_NAME,
+    openai_api_base=RESOURCE_ENDPOINT,
+    openai_api_type="azure",
+    openai_api_key=API_KEY,
+    openai_api_version="2023-05-15",
+    chunk_size=16 # current limit with Azure OpenAI service. This will likely increase in the future.
+    )
 
-1. Execute the code cell with the comment `Code cell 7`. This can take up to 30 minutes to complete.
+# name of the Redis search index to create
+index_name = "movieindex"
 
-   Upon completion, you should see a new column in the dataframe called `embeddings`, which contains the embeddings values:
+# create a connection string for the Redis Vector Store. Uses Redis-py format: https://redis-py.readthedocs.io/en/stable/connections.html#redis.Redis.from_url
+# This example assumes TLS is enabled. If not, use "redis://" instead of "rediss://
+redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
 
-<!--Fran, we could use a screenshot here-->
+# create and load redis with documents
+vectorstore = RedisVectorStore.from_documents(
+    documents=movie_list,
+    embedding=embedding,
+    index_name=index_name,
+    redis_url=redis_url
+)
 
-## Configure Redis for vector search
+# save index schema so you can reload in the future without re-generating embeddings
+vectorstore.write_schema("redis_schema.yaml")
+```
 
-Next, you'll configure Redis to store the embedding vectors we created in the previous step. To do this, you'll need to update the Jupyter notebook with the connection information for your Azure Cache for Redit Enterprise endpoint.
+This can take up to 10 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
 
-1. In the Azure portal, navigate to your cache instance's **Overview** page and copy endpoint of your Azure Cache for Redis Enterprise instance. The endpoint should resemble: `myredisinstance.eastus.redisenterprise.cache.azure.net`.
 
-1. In the code cell with the comment `Code cell 8`, update the line of code that sets the `REDIS_HOST` variable with the endpoint of your Azure Cache for Redis Enterprise instance that you copied in the previous step.
+## Run vector search queries
 
-1. In the Azure portal, navigating to the **Access keys** page and copy one of the access keys for the cache.
+Now that your dataset, Azure OpenAI service API, and Redis instance are set up, you can search using vectors. In this example, the top 10 results for a given query are returned:
 
-1. Again in the code cell with the comment `Code cell 8`, update the line of code that sets the `REDIS_PASSWORD` variable with access key you copied in the previous step.
-1. Execute the cell you just edited. If the connection is sucessful, you will see `True` returned.
+```python
+query = "Spaceships, aliens, and heroes saving America"
+results = vectorstore.similarity_search_with_score(query, k=10)
 
-   > [!Important]
-   > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview) to pass in the Redis key and hostname information. These variables are set in plaintext here for the sake of simplicity.
-
-1. Execute the code cell with the comment `Code cell 9`. configure the Redis instance for vector search. In this example, you'll use `Cosine` as a distance metric, and a `FLAT` index method.  
-
-1. Execute the code cell with the comment `Code cell 10`. The `index_documents()` method loads items into Redis. This can take 10+ minutes.
-
-   Upon completion, you should see the following output.
-
-   ```output
-   Loaded 11086 documents in Redis search index with name: embeddings-index
-   ```
-
-## Execute basic vector similarity search
-
-Now that your dataset, Azure OpenAI service API, and Redis instance are set up, you can search for vectors.
-
-1. Execute the code cell with the comment `Code cell 11`. This code first creates an embedding vector for the user query, then prepares the query to be executed, and finally performs the vector search against the redis cache.
-
-1. Execute the code cell with the comment `Code cell 12`. Here we call the `search_redis()` function defined in Code cell 11 and provide a natural language query.
-
-1. Modify the code in `Code cell 12` to match the following change:
-
-   ```python
-   results = search_redis(redis_client, "Basketball comeback story with NBA players", k=10)
-   ```
-
-1. Execute code cell 12 again. If successful, you should see the following output:
+for i, j in enumerate(results):
+    movie_title = str(results[i][0].metadata['Title'])
+    similarity_score = str(round((1 - results[i][1]),4))
+    print(movie_title + ' (Score: ' + similarity_score + ')')
+```
+ You should see the following output:
 
    ```output
-   0.Celtic Pride (Score: 0.831)
-   1.Inside Moves (Score: 0.826)
-   2.Space Jam (Score: 0.826)
-   3.Thunderstruck (Score: 0.824)
-   4.That Championship Season (Score: 0.823)
-   5.BASEketball (Score: 0.822)
-   6.Hurricane Season (Score: 0.819)
-   7.Like Mike (Score: 0.819)
-   8.Coach Carter (Score: 0.818)
-   9.Blue Chips (Score: 0.816)
+Independence Day (Score: 0.8348)
+The Flying Machine (Score: 0.8332)
+Remote Control (Score: 0.8301)
+Bravestarr: The Legend (Score: 0.83)
+Xenogenesis (Score: 0.8291)
+Invaders from Mars (Score: 0.8291)
+Apocalypse Earth (Score: 0.8287)
+Invasion from Inner Earth (Score: 0.8287)
+Thru the Moebius Strip (Score: 0.8283)
+Solar Crisis (Score: 0.828)
    ```
 
-1. Again, modify the code in `Code cell 12` to match the following change:
-
-   ```python
-   results = search_redis(redis_client, "spaceships, explosions, area 51, aliens, and America.", k=10)
-   ```
-
-   Notice that in this example, keywords are used instead of a natural language query.
-
-1. Execute code cell 12 again. If successful, you should see the following output:
-
-   ```output
-   0.Independence Day (Score: 0.849)
-   1.Hangar 18 (Score: 0.824)
-   2.UFO: Target Earth (Score: 0.823)
-   3.Solar Crisis (Score: 0.821)
-   4.Invaders from Mars (Score: 0.818)
-   5.The Dark Side of the Moon (Score: 0.818)
-   6.Mars Attacks! (Score: 0.817)
-   7.The Flying Machine (Score: 0.817)
-   8.Remote Control (Score: 0.817)
-   9.Spaced Invaders (Score: 0.815)
-   ```
-
-<!--TODO: Provide another example-->
-
-   Note that the similarity score is returned along with the ordinal ranking of movies by similarity. You'll notice that more specific queries will have similarity scores decrease faster down the list.
+Note that the similarity score is returned along with the ordinal ranking of movies by similarity. You'll notice that more specific queries will have similarity scores decrease faster down the list.
 
 ## Hybrid searches
 
-Since RediSearch also features rich search functionality on top of vector search, it's possible to filter results by the metadata in the data set, such as film genre, cast, release year, or director.
+Since RediSearch also features rich search functionality on top of vector search, it's possible to filter results by the metadata in the data set, such as film genre, cast, release year, or director. In this case, filter based on the genre `comedy`:
 
-1. Execute the code cell with the comment `Code cell 13`. Note how the `create_hybrid_field()` method filters for for the Genre _drama_.
+```python
+from langchain.vectorstores.redis import RedisText
 
-   If successful, you should see the following output:
+query = "Spaceships, aliens, and heroes saving America"
+genre_filter = RedisText("Genre") == "comedy"
+results = vectorstore.similarity_search_with_score(query, filter=genre_filter, k=10)
+for i, j in enumerate(results):
+    movie_title = str(results[i][0].metadata['Title'])
+    similarity_score = str(round((1 - results[i][1]),4))
+    print(movie_title + ' (Score: ' + similarity_score + ')')
+```
+
+you should see the following output:
 
    ```output
-   0.Inside Moves (Score: 0.826)
-   1.That Championship Season (Score: 0.823)
-   2.Hurricane Season (Score: 0.819)
-   3.Coach Carter (Score: 0.818)
-   4.Blue Chips (Score: 0.816)
-   5.Sunset Park (Score: 0.814)
-   6.Home Run (Score: 0.814)
-   7.One on One (Score: 0.813)
-   8.That Championship Season (Score: 0.813)
-   9.He Got Game (Score: 0.811)
+Remote Control (Score: 0.8301)
+Meet Dave (Score: 0.8236)
+Elf-Man (Score: 0.8208)
+Fifty/Fifty (Score: 0.8167)
+Mars Attacks! (Score: 0.8165)
+Strange Invaders (Score: 0.8143)
+Amanda and the Alien (Score: 0.8136)
+Suburban Commando (Score: 0.8129)
+Coneheads (Score: 0.8129)
+Morons from Outer Space (Score: 0.8121)
    ```
 
-   With Azure Cache for Redis and Azure OpenAI Service, you can use embeddings and vector search to add powerful search capabilities to your application.
+With Azure Cache for Redis and Azure OpenAI Service, you can use embeddings and vector search to add powerful search capabilities to your application.
  
-<!--TODO: Provide another example also filtering for year-->
-<!--Optional TODO: clean metadata columns of spaces to make searching easier-->
 
 ## Clean up resources
 
