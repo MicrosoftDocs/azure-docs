@@ -51,9 +51,15 @@ Use the Azure Maps Android SDK to create mobile mapping applications.
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.
 
-### Data service
+### Data registry service
 
-Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  By bringing customer data closer to the Azure Maps service, you reduce latency and increase productivity. For more information on this service, see [Data service].
+Data is imperative for maps. Use the Data registry service to access geospatial data, used with spatial operations or image composition, previously uploaded to your [Azure Storage].  By bringing customer data closer to the Azure Maps service, you reduce latency and increase productivity. For more information on this service, see [Data registry service].
+
+> [!NOTE]
+>
+> **Azure Maps Data service retirement**
+>
+> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data Registry service] by 9/16/24. For more information, see [How to create data registry].
 
 ### Geolocation service
 
@@ -216,12 +222,17 @@ Stay up to date on Azure Maps:
 [Azure Maps blog]
 
 <!---------   learn.microsoft.com links     --------------->
+[Azure Storage]: ../storage/common/storage-introduction.md
 [Get started with Azure Maps Power BI visual]: power-bi-visual-get-started.md
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
 [What is Azure Maps Creator?]: about-creator.md
+[v1]: /rest/api/maps/data
+[v2]: /rest/api/maps/data-v2
+[Data Registry service]: /rest/api/maps/data-registry
+[How to create data registry]: how-to-create-data-registries.md
 <!---------   REST API Links     --------------->
-[Data service]: /rest/api/maps/data-v2
+[Data registry service]: /rest/api/maps/data-registry
 [Geolocation service]: /rest/api/maps/geolocation
 [Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
