@@ -58,7 +58,7 @@ To get the service endpoint URL, perform the following steps:
 
 ## Set up your environment
 
-Ensure that the `PLAYWRIGHT_SERVICE_ACCESS_KEY` and `PLAYWRIGHT_SERVICE_URL` environment variables that you obtained in the previous steps are available in your environment.
+Ensure that the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` and `PLAYWRIGHT_SERVICE_URL` environment variables that you obtained in the previous steps are available in your environment.
 
 We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
 
@@ -71,7 +71,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 1. Create a `.env` file and replace the `{MY-ACCESS-TOKEN}` and `{MY-REGION-ENDPOINT}` text placeholders:
 
     ```
-    PLAYWRIGHT_SERVICE_ACCESS_KEY={MY-ACCESS-TOKEN}
+    PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
     PLAYWRIGHT_SERVICE_URL={MY-REGION-ENDPOINT}
     ```
 
@@ -112,7 +112,7 @@ Use playwright.service.config.ts as a starting point:
                 })}`,
                 timeout: 30000,
                 headers: {
-                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
+                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_TOKEN!
                 },
                 // Allow service to access the localhost.
                 exposeNetwork: '<loopback>'
