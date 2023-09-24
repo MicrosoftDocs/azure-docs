@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 02/27/2023
+ms.date: 09/22/2023
 
 #Customer intent: As a cluster operator or developer, I want to create and manage static IP address resources in Azure that I can use beyond the lifecycle of an individual Kubernetes service deployed in an AKS cluster.
 ---
@@ -91,6 +91,7 @@ This article shows you how to create a static public IP address and assign it to
       annotations:
         service.beta.kubernetes.io/azure-load-balancer-resource-group: <node resource group>
         service.beta.kubernetes.io/azure-load-balancer-ipv4: <public IP address>
+        service.beta.kubernetes.io/azure-pip-name: <public IP Name>
       name: azure-load-balancer
     spec:
       type: LoadBalancer
@@ -99,6 +100,9 @@ This article shows you how to create a static public IP address and assign it to
       selector:
         app: azure-load-balancer
     ```
+
+    > [!NOTE]
+    > Adding the `service.beta.kubernetes.io/azure-pip-name` annotation ensures the most efficient LoadBalancer creation and is highly recommended to avoid potential throttling. 
 
 3. Set a public-facing DNS label to the service using the `service.beta.kubernetes.io/azure-dns-label-name` service annotation. This publishes a fully qualified domain name (FQDN) for your service using Azure's public DNS servers and top-level domain. The annotation value must be unique within the Azure location, so we recommend you use a sufficiently qualified label. Azure automatically appends a default suffix in the location you selected, such as `<location>.cloudapp.azure.com`, to the name you provide, creating the FQDN.
 
@@ -112,6 +116,7 @@ This article shows you how to create a static public IP address and assign it to
       annotations:
         service.beta.kubernetes.io/azure-load-balancer-resource-group: <node resource group>
         service.beta.kubernetes.io/azure-load-balancer-ipv4: <public IP address>
+        service.beta.kubernetes.io/azure-pip-name: <public IP Name>
         service.beta.kubernetes.io/azure-dns-label-name: <unique-service-label>
       name: azure-load-balancer
     spec:

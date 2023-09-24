@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 09/23/2023
 
 ms.author: justinha
 author: justinha
@@ -40,7 +40,7 @@ If users don't want their mobile phone number to be visible in the directory but
 Microsoft doesn't guarantee consistent text message or voice-based Microsoft Entra multifactor authentication prompt delivery by the same number. In the interest of our users, we may add or remove short codes at any time as we make route adjustments to improve text message deliverability. Microsoft doesn't support short codes for countries/regions besides the United States and Canada.
 
 > [!NOTE]
-> Starting July 2023, we will apply delivery method optimizations such that tenants with a free or trial subscription may receive a text message or voice call.
+> We apply delivery method optimizations such that tenants with a free or trial subscription may receive a text message or voice call.
 
 ### Text message verification
 
@@ -52,7 +52,9 @@ Android users can enable RCS on their devices. RCS offers encryption and other i
 
 :::image type="content" source="media/concept-authentication-methods/brand.png" alt-text="Screenshot of Microsoft branding in RCS messages.":::
 
-Some users with phone numbers that have country codes belonging to India, Indonesia and New Zealand may receive their verification codes via WhatsApp. Like RCS, these messages are similar to SMS, but have more Microsoft branding and a verified checkmark. Only users that have WhatsApp will receive verification codes via this channel. To determine whether a user has WhatsApp, we silently attempt delivering them a message via the app using the phone number they already registered for text message verification and see if it's successfully delivered. If users don't have any internet connectivity or uninstall WhatsApp, they'll receive their verification codes via SMS. The phone number associated with Microsoft's WhatsApp Business Agent is: *+1 (217) 302 1989*.
+Some users with phone numbers that have country codes belonging to India, Indonesia, and New Zealand may receive their verification codes in WhatsApp. Like RCS, these messages are similar to SMS, but have more Microsoft branding and a verified checkmark. Only users that have WhatsApp receive verification codes via this channel. To check if a user has WhatsApp, we silently try to deliver them a message in the app by using the phone number they registered for text message verification. If users don't have any internet connectivity or uninstall WhatsApp, they'll receive SMS verification codes. The phone number associated with Microsoft's WhatsApp Business Agent is: *+1 (217) 302 1989*.
+
+:::image type="content" border="true" source="media/concept-authentication-methods/code.png" alt-text="Screenshot of confirmation.":::
 
 ### Phone call verification
 
@@ -69,9 +71,9 @@ With office phone call verification during SSPR or Microsoft Entra multifactor a
 If you have problems with phone authentication for Microsoft Entra ID, review the following troubleshooting steps:
 
 * "You've hit our limit on verification calls" or "You've hit our limit on text verification codes" error messages during sign-in
-   * Microsoft may limit repeated authentication attempts that are performed by the same user or organization in a short period of time. This limitation does not apply to Microsoft Authenticator or verification codes. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
+   * Microsoft may limit repeated authentication attempts that are performed by the same user or organization in a short period of time. This limitation doesn't  apply to Microsoft Authenticator or verification codes. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
 * "Sorry, we're having trouble verifying your account" error message during sign-in
-   * Microsoft may limit or block voice or text message authentication attempts that are performed by the same user, phone number, or organization due to high number of voice or text message authentication attempts. If you are experiencing this error, you can try another method, such as Authenticator App or verification code, or reach out to your admin for support.
+   * Microsoft may limit or block voice or text message authentication attempts that are performed by the same user, phone number, or organization due to high number of voice or text message authentication attempts. If you experience this error, you can try another method, such as Authenticator or verification code, or reach out to your admin for support.
 * Blocked caller ID on a single device.
    * Review any blocked numbers configured on the device.
 * Wrong phone number or incorrect country/region code, or confusion between personal phone number versus work phone number.

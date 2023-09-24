@@ -1043,6 +1043,10 @@
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova"
       },
+      "search.appverid": {
+        "articles/sentinel/**/*.md": "met150",
+        "articles/sentinel/**/*yml": "met150"
+      },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",

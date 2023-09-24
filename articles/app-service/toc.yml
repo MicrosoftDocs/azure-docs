@@ -2,14 +2,14 @@
   href: index.yml
 - name: Get started
   items:
-    - name: Getting started
-      href: getting-started.md
-    - name: About App Service
-      href: overview.md
-    - name: About App Service Environments
-      href: environment/overview.md
-    - name: Compare web hosting options
-      href: /azure/architecture/guide/technology-choices/compute-decision-tree
+  - name: Getting started
+    href: getting-started.md
+  - name: About App Service
+    href: overview.md
+  - name: About App Service Environments
+    href: environment/overview.md
+  - name: Compare web hosting options
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
@@ -383,13 +383,13 @@
           href: app-service-sql-github-actions.md
         - name: Deploy a multi-container WordPress app
           href: tutorial-multi-container-app.md
-- name: Resiliency
+- name: Reliability
   items:
-  - name: About availability zones
-    href: ../availability-zones/migrate-app-service.md
-  - name: About disaster recovery
-    href: overview-disaster-recovery.md
-  - name: About DR backup region
+  - name: Reliability in Azure App Service
+    href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Migrate to availability zones
+    href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Move an App Service app to another region
     href: manage-disaster-recovery.md
 - name: Samples
   items:
