@@ -24,7 +24,7 @@ While the service is in preview, the following limits apply on a per-subscriptio
 
 | Resource  | Limit |
 |---------|---------|
-| Workspaces per subscription | 2 |
+| Workspaces per region per subscription | 2 |
 | Parallel workers per workspace | 50 |
 | Access tokens per user per workspace | 10 |
 
