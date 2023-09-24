@@ -67,7 +67,7 @@ Two important metrics to consider are the recovery time objective and recovery p
 RTO and RPO are non-functional requirements of a system and should be dictated by business requirements. To derive these values, it's a good idea to conduct a risk assessment, and clearly understanding the cost of downtime or data loss.   
 ## Regions and availability zones
 
-Regions and Availability Zones are a big part of the reliability equation. Regions feature multiple, physically separate availability zones. These availability zones are connected by a high-performance network featuring less than 2ms latency between physical zones. Low latency helps your data stay synchronized and accessible when things go wrong. You can use this infrastructure strategically as you architect applications and data infrastructure that automatically replicate and deliver uninterrupted services between zones and across regions. 
+Regions and availability zones are a big part of the reliability equation. Regions feature multiple, physically separate availability zones. These availability zones are connected by a high-performance network featuring less than 2ms latency between physical zones. Low latency helps your data stay synchronized and accessible when things go wrong. You can use this infrastructure strategically as you architect applications and data infrastructure that automatically replicate and deliver uninterrupted services between zones and across regions. 
 
 Microsoft Azure services support availability zones and are enabled to drive your cloud operations at optimum high availability while supporting your cross-region recovery and business continuity strategy needs. 
 
