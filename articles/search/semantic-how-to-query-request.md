@@ -34,7 +34,7 @@ To use semantic ranking:
 + Review [semantic ranking](semantic-search-overview.md) if you need an introduction to the feature.
 
 > [!NOTE]
-> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to recognize what part of your content has the characteristics of a caption or answer, but it doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking.
+> Captions and answers are extracted verbatim from text in the search document. The semantic subsystem uses language understanding to recognize content having the characteristics of a caption or answer, but doesn't compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic ranking. If you want chat-style interaction with generated responses, see [Retrieval Augmented Generation (RAG)](retrieval-augmented-generation-overview.md).
 
 ## 1 - Choose a client
 
@@ -50,13 +50,13 @@ Choose a search client that supports preview APIs on the query request. Here are
 
 ## 2 - Create a semantic configuration
 
-A *semantic configuration* is a section in your index that establishes field inputs for semantic ranking. You can add or update a semantic configuration at any time, no rebuild necessary. At query time, specify one on a query request. A semantic configuration has a name and the following properties:
+A *semantic configuration* is a section in your index that establishes field inputs for semantic ranking. You can add or update a semantic configuration at any time, no rebuild necessary. At query time, specify one on a [query request](#4---set-up-the-query). A semantic configuration has a name and the following properties:
 
 | Property | Characteristics |
 |----------|-----------------|
 | Title field | A short string, ideally under 25 words. This field could be the title of a document, name of a product, or a unique identifier. If you don't have suitable field, leave it blank. | 
-| Content fields | Should contain text in natural language form. Common examples include the body of a document, description of a product, or other free-form text. | 
-| Keyword fields | Should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item.  | 
+| Content fields | Longer chunks of text in natural language form, subject to [maximum token input limits](semantic-search-overview.md#how-inputs-are-prepared) on the machine learning models. Common examples include the body of a document, description of a product, or other free-form text. | 
+| Keyword fields | A list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. | 
 
 You can only specify one title field, but you can specify as many content and keyword fields as you like. For content and keyword fields, list the fields in priority order because lower priority fields may get truncated.
 
