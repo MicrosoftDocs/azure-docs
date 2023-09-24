@@ -60,7 +60,7 @@ To generate an access token and store it as a CI workflow secret, perform the fo
     
         | Parameter | Value |
         | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |  
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* |  
         | **Value** | Paste the workspace access token you copied previously. |
     
     1. Select **OK** to create the workflow secret.
@@ -75,7 +75,7 @@ To generate an access token and store it as a CI workflow secret, perform the fo
     
         | Parameter | Value |
         | ----------- | ------------ |
-        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_KEY* |
+        | **Name** | *PLAYWRIGHT_SERVICE_ACCESS_TOKEN* |
         | **Value** | Paste the workspace access token you copied previously. |
         | **Keep this value secret** | Check this value |
     
@@ -141,7 +141,7 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
                 })}`,
                 timeout: 30000,
                 headers: {
-                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_KEY!
+                    'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_TOKEN!
                 },
                 // Allow service to access the localhost.
                 exposeNetwork: '<loopback>'
@@ -172,7 +172,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
       working-directory: path/to/playwright/folder # update accordingly
       env:
         # Access token and regional endpoint for Microsoft Playwright Testing
-        PLAYWRIGHT_SERVICE_ACCESS_KEY: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_KEY }}
+        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
         PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
       run: npx playwright test -c playwright.service.config.ts --workers=20
     ```
@@ -192,7 +192,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
       enabled: true
       displayName: "Run Playwright tests"
       env:
-        PLAYWRIGHT_SERVICE_ACCESS_KEY: $(PLAYWRIGHT_SERVICE_ACCESS_KEY)
+        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN)
         PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
       inputs:
         targetType: 'inline'
