@@ -96,7 +96,5 @@ items:
         href: administer/overview-manage-solution.md
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
-    - name: Troubleshoot MQ
-      href: troubleshoot/troubleshoot-mq.md
     - name: Reference # supporting information like APIs, tools, code libraries
     - name: Resources # could include links to related libraries
