@@ -35,7 +35,7 @@ It is recommended to rotate access keys or secrets periodically.
     ```
 
 
-1. Create Managed Airflow [enable with Azure Key Vault to store and manage your sensitive information in a secure and centralized manner](/azure/data-factory/enable-azure-key-vault-for-managed-airflow). By doing this, you can use variables and connections, and they will automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hilo-variables then for a variable key of hello, you would want to store your Variable at hilo-variable -hello. 
+1. Create Managed Airflow [enable with Azure Key Vault to store and manage your sensitive information in a secure and centralized manner](/azure/data-factory/enable-azure-key-vault-for-managed-airflow). By doing this, you can use variables and connections, and they automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hilo-variables then for a variable key of hello, you would want to store your Variable at hilo-variable -hello. 
 
     - Add the following settings for the Airflow configuration overrides in integrated runtime properties: 
 
@@ -45,7 +45,7 @@ It is recommended to rotate access keys or secrets periodically.
       - AIRFLOW__SECRETS__BACKEND_KWARGS:  
       `"{"connections_prefix": "airflow-connections", "variables_prefix": "hilo-variables", "vault_url": <your keyvault uri>}”` 
 
-    - Add the following for the Environment variables configuration in the Airflow integrated runtime properties: 
+    - Add the following setting for the Environment variables configuration in the Airflow integrated runtime properties: 
 
       - AZURE_CLIENT_ID = `<App Id from Create Azure AD Service Principal>` 
 
@@ -58,7 +58,6 @@ It is recommended to rotate access keys or secrets periodically.
       :::image type="content" source="./media/flink-job-orchestration/airflow-configuration-environment-variable.png" alt-text="Screenshot shows airflow configuration and environment variables." lightbox="./media/flink-job-orchestration/airflow-configuration-environment-variable.png":::
 
  
-
 1. Create [Azure AD Service Principal](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) to access Azure – Grant permission to access HDInsight AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response. 
 
     `az ad sp create-for-rbac -n <sp name> --role Contributor --scopes <Flink Cluster Resource ID>` 
@@ -88,19 +87,19 @@ A DAG (Directed Acyclic Graph) is the core concept of Airflow, collecting Tasks 
 
 There are three ways to declare a DAG: 
 
-  1. You can use a context manager, which will add the DAG to anything inside it implicitly 
+  1. You can use a context manager, which adds the DAG to anything inside it implicitly 
 
   1. You can use a standard constructor, passing the DAG into any operators you use 
 
   1. You can use the @dag decorator to turn a function into a DAG generator (from airflow.decorators import dag) 
 
-DAGs are nothing without Tasks to run, and those will usually come in the form of either Operators, Sensors or TaskFlow. 
+DAGs are nothing without Tasks to run, and those are usually come in the form of either Operators, Sensors or TaskFlow. 
 
 You can read more details about DAGs, Control Flow, SubDAGs, TaskGroups, etc. directly from [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html).   
 
 ## DAG execution 
 
-Example code is available on the git; download the code locally on your computer and upload the wordcount.py to a blob storage. Please follow the [steps](/azure/data-factory/how-does-managed-airflow-work#steps-to-import) to import DAG into your Managed Airflow created during setup. 
+Example code is available on the git; download the code locally on your computer and upload the wordcount.py to a blob storage. Follow the [steps](/azure/data-factory/how-does-managed-airflow-work#steps-to-import) to import DAG into your Managed Airflow created during setup. 
 
 The wordcount.py is an example of orchestrating a Flink job submission using Apache Airflow with HDInsight on AKS. The example is based on the wordcount example provided on [Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/dataset/examples/).  
 
@@ -147,7 +146,7 @@ The DAG expects to have setup for the Service Principal, as described during the
     } 
     ```
 
-1. Click on “Trigger” button, will start the execution of the DAG. 
+1. Click on “Trigger” button, it starts the execution of the DAG. 
 
 1. You can visualize the status of DAG tasks from the DAG run 
 
