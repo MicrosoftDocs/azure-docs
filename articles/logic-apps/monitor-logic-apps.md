@@ -348,10 +348,9 @@ You can rerun a previously finished workflow starting at a specific action using
 The resubmit capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
 
 | Actions | Resubmit availability and limitations |
-|---------|-------------------------------------------|
+|---------|---------------------------------------|
 | **Condition** action and actions in the **True** and **False** paths | - Yes for **Condition** action <br>- No for actions in the **True** and **False** paths |
 | **For each** action and all actions inside the loop | No for all actions |
-| **Scope** | Yes, but only at the final  |
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
 | **Until** action and all actions inside the loop | No for all actions |
 
