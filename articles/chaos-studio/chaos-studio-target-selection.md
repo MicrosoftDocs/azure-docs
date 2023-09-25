@@ -17,7 +17,7 @@ Every chaos experiment is made up of a different combination of faults and targe
 
 List-based manual target selection allows you to select a fixed set of onboarded targets for a particular fault in your chaos experiment. Depending on the selected fault, you may select one or more onboarded resources to target. The aforementioned resources are added to the experiment upon creation time. In order to modify the list, you must navigate to the experiment's page and add or remove fault targets manually. An example of manual target selection is shown below.
 
-![Screenshot that shows the list-based manual target selection option in the Azure portal.](images/manual-target-selection.png)
+[ ![Screenshot that shows the list-based manual target selection option in the Azure portal.](images/manual-target-selection.png) ](images/manual-target-selection.png)
 
 ## Query-based dynamic target selection
 
