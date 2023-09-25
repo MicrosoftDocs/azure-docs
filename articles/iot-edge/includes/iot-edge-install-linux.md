@@ -130,11 +130,11 @@ sudo snap install --edge azure-iot-identity
 
 ---
 
-By default, the Moby container engine doesn't set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
+By default, the container engine doesn't set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
 
 The following steps show you how to configure your container to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
-1. Create (if the file's not there already) or open the Docker [daemon's config file](https://docs.docker.com/config/daemon/) at `/etc/docker/daemon.json`.
+1. Create (if the file's not there already) or open the Docker [daemon's config file](https://docs.docker.com/config/daemon/) at `/etc/docker/daemon.json`. If you're using a snap, the file is located at `/var/snap/docker/current/config/daemon.json`.
 
 1. Set the default logging driver to the `local` logging driver as shown in the example below.   
    
