@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -80,7 +80,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     `https://api.getguru.com/samlsso/<TeamID>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. You can get `TeamID` from **[Configure Guru SSO](#configure-guru-sso)** section. If you have any queries, please contact [Guru support team](mailto:support@getguru.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. You can get `TeamID` from **[Configure Guru SSO](#configure-guru-sso)** section. If you have any queries, please contact [Guru support team](mailto:support@getguru.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
 1. Guru application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -93,7 +93,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 	| firstName | user.givenname |
 	| lastName | user.surname |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
@@ -139,15 +139,15 @@ In this section, you enable B.Simon to use Microsoft Entra single sign-on by gra
 
     1. Copy **Team ID** and save it to your computer.
 
-    1. Copy **Single Sign On Url**, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy **Single Sign On Url**, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
-    1. Copy **Audience URI**, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Azure portal.
+    1. Copy **Audience URI**, paste this value into the **Identifier** text box in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
-    1. In the **Identity Provider Single Sign-On Url** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+    1. In the **Identity Provider Single Sign-On Url** textbox, paste the **Login URL** value, which you have copied from the Microsoft Entra admin center.
 
-    1. In the **Identity Provider Issuer** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+    1. In the **Identity Provider Issuer** textbox, paste the **Microsoft Entra ID Identifier** value, which you have copied from the Microsoft Entra admin center.
 
-    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the  **X.509 Certificate** textbox.
+    1. Open the downloaded **Certificate (Base64)** from the Microsoft Entra admin center into Notepad and paste the content into the  **X.509 Certificate** textbox.
 
     1. Click **Enable SSO**.
 
@@ -157,12 +157,12 @@ In this section, a user called B.Simon is created in Guru. Guru supports just-in
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on Test this application in Azure portal and you should be automatically signed in to the Guru for which you set up the SSO.
+* Click on Test this application in Microsoft Entra admin center and you should be automatically signed in to the Guru for which you set up the SSO.
  
 * You can use Microsoft My Apps. When you click the Guru tile in the My Apps, you should be automatically signed in to the Guru for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure Guru you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Guru you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
