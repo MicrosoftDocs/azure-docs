@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -78,19 +78,19 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     1. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<CustomerName>.app.glia.com/saml/acs`
 
-1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
-
-	1. In the **Sign on URL** textbox, type a URL using the following pattern:
-	`https://<CustomerName>.app.glia.com`
-
-	1. In the **Relay State** textbox, type a URL using the following pattern:
+    1. In the **Relay State** textbox, type a URL using the following pattern:
 	`https://<CustomerName>.app.glia.com`
 
 	1. In the **Logout Url** textbox, type a URL using the following pattern:
 	`https://<CustomerName>.app.glia.com/saml/logout`
 
+1. Perform the following step, if you wish to configure the application in **SP** initiated mode:
+
+	1. In the **Sign on URL** textbox, type a URL using the following pattern:
+	`https://<CustomerName>.app.glia.com`
+
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL, Relay State and Logout Url. Contact [Glia Hub support team](mailto:support@glia.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL, Relay State and Logout Url. Contact [Glia Hub support team](mailto:support@glia.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
 1. Glia Hub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -142,21 +142,20 @@ In this section, you create a user called B.Simon in Glia Hub. Work with [Glia 
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
 #### SP initiated:
  
-* Click on **Test this application** in Azure portal. This will redirect to Glia Hub Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Glia Hub Sign on URL where you can initiate the login flow.  
  
 * Go to Glia Hub Sign-on URL directly and initiate the login flow from there.
  
 #### IDP initiated:
  
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Glia Hub for which you set up the SSO.
+* Click on **Test this application** in Microsoft Entra admin center and you should be automatically signed in to the Glia Hub for which you set up the SSO.
  
 You can also use Microsoft My Apps to test the application in any mode. When you click the Glia Hub tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Glia Hub for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure Glia Hub you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
-
+Once you configure Glia Hub you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
