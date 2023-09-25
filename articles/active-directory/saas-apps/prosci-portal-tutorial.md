@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -112,15 +112,15 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up Prosci Portal** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot shows to Copy configuration URLs.](common/copy-configuration-urls.png "Metadata")
 
 ### Create a Microsoft Entra ID test user
 
-In this section, you'll create a test user in the Microsoft Entra admin center called B.Simon.
+In this section, you create a test user in the Microsoft Entra admin center called B.Simon.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 1. Browse to **Identity** > **Users** > **All users**.
@@ -154,9 +154,9 @@ In this section, you create a user called B.Simon in Prosci Portal. Work with [
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on **Test this application** in Azure portal. This will redirect to Prosci Portal Sign-on URL where you can initiate the login flow.
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Prosci Portal Sign-on URL where you can initiate the login flow.
  
 * Go to Prosci Portal Sign-on URL directly and initiate the login flow from there.
  
@@ -164,4 +164,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next Steps
 
-Once you configure Prosci Portal you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Prosci Portal you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
