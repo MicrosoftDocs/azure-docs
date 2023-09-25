@@ -96,10 +96,6 @@ Autoinstrumentation is available for [Azure App Service](azure-web-apps-nodejs.m
 
 The [Application Insights SDK](nodejs.md) is an alternative. We also have an [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
 
-### [JavaScript](#tab/javascript)
-
-JavaScript requires the [Application Insights SDK](javascript.md).
-
 ### [Python](#tab/python)
 
 Python applications can be monitored by using the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md?tabs=python).
