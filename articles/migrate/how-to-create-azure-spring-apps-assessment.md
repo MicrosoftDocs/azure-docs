@@ -47,9 +47,9 @@ Run an assessment as follows:
 3. In **Create assessment**, you'll see the assessment type pre-selected as **Web apps on Azure**, the scenario pre-selected as **Spring Boot to Azure Spring Apps**, and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 4. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-spring-apps.png" alt-text="Edit button from where assessment properties can be customized.":::
+    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized.":::
 
-1. Here's what's included in Azure Spring Apps assessment properties:
+1. The following are included in Azure Spring Apps assessment properties:
 
     | **Property** | **Details** |
     | --- | --- |
@@ -70,7 +70,7 @@ Run an assessment as follows:
 
      :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/tile-refresh.png" alt-text="Refresh discovery and assessment tool data.":::
 
-1. Select the number next to Azure Spring Apps assessment.
+1. Select the number next to **Azure Spring Apps** assessment.
      :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-navigation.png" alt-text="Navigation to created assessment.":::
 
 1. Select the assessment name that you wish to view.
@@ -79,24 +79,24 @@ Run an assessment as follows:
 
 **To view an assessment**:
 
-1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**,  select the number next to Azure Spring Apps assessment.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**,  select the number next to Azure Spring Apps assessment.
 2. Select the assessment name that you wish to view.
-3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.
+3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment. The assessment summary consists of the **Overview** and the **Azure Spring apps** sections.
 
 
-#### Overview
+### Overview
 
 This card shows the distribution of assessed apps based on their readiness. In addition, it estimates the monthly costs for apps marked with **Ready** or **Ready with conditions** status, and the cost estimation is based upon the current memory consumption and estimated CPU consumption of your apps.
 
-#### Azure Spring Apps
+### Azure Spring Apps
 
 This card shows the list of assessed apps with the average memory consumption and estimated CPU consumption for each app instance. You can drill down to understand details around migration issues/warnings that you can remediate before migration to Azure Spring Apps. [Learn more](concepts-azure-spring-apps-assessment-calculation.md).
 
 ### Review cost estimates
 
-The assessment summary shows the estimated monthly costs for hosting your apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. Whatever apps you put into this Azure Spring Apps service instance are all up to you.
+The assessment summary shows the estimated monthly costs for hosting your apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. You can chhose the apps to be included in the Azure Spring apps service instance..
 
-For estimating cost, we assume you would put all your accessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/). The monthly cost on this card assumes each month has 744 hours instead of 730 hours.
+For estimating cost, we assume you would put all your assessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/). The monthly cost on this card assumes each month has 744 hours instead of 730 hours.
 
 The estimated cost applies for both Azure Spring Apps Standard Tier and Enterprise Tier. For Enterprise Tier, there is an additional cost on [software IP](https://azuremarketplace.microsoft.com/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which aren't included in cost estimation.
 
