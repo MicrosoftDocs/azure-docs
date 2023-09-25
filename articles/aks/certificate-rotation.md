@@ -33,7 +33,9 @@ AKS generates and uses the following certificates, Certificate Authorities (CA),
 All certificates mentioned in this section, except for the cluster certificate, are maintained by Microsoft.
 
 > [!NOTE]
-> AKS clusters created prior to May 2019 have certificates that expire after two years. Any cluster created after May 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other AKS certificates, which use the Cluster CA for signing, expired after two years and were automatically rotated during an AKS version upgrade which occurred after 8/1/2021.
+>
+> * **AKS clusters created *before* May 2019** have certificates that expire after two years.
+> * **AKS clusters created *after* May 2019** have Cluster CA certificates that expire after 30 years.
 >
 > You can verify when your cluster was created using the `kubectl get nodes` command, which shows you the *Age* of your node pools.
 
