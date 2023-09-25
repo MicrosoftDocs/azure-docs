@@ -101,14 +101,14 @@ If the CBA-enabled user can't use an MF cert, such as on mobile device without s
 Microsoft Entra CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
 Some of the supported combinations are
 
-1. CBA (first factor) + passwordless phone sign-in (PSI as second factor)
-1. CBA (first factor) + FIDO2 security keys (second factor) 
-1. Password (first factor) + CBA (second factor) 
+1. CBA (first factor) and passwordless phone sign-in (PSI as second factor)
+1. CBA (first factor) and FIDO2 security keys (second factor) 
+1. Password (first factor) and CBA (second factor) 
 
 Users need to have another way to get MFA and register passwordless sign-in or FIDO2 in advance to signing in with Microsoft Entra CBA.
 
 >[!IMPORTANT]
->A user will be considered MFA capable when a user is in scope for Certificate-based authentication auth method. This means user will not be able to use proof up as part of their authentication to registerd other available methods. Make sure users who do not have a valid certificate are not part of CBA auth method scope. More info on [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md)
+>A user is considered MFA capable when they are included in the CBA method settings. This means the user can't use proof up as part of their authentication to register other available methods. Make sure users without a valid certificate aren't included in the CBA method settings. For more information about how authentication works, see [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 **Steps to set up passwordless phone signin(PSI) with CBA**
 
@@ -119,7 +119,7 @@ For passwordless sign-in to work, users should disable legacy notification throu
 1. Follow the steps at [Enable passwordless phone sign-in authentication](../authentication/howto-authentication-passwordless-phone.md#enable-passwordless-phone-sign-in-authentication-methods)
 
    >[!IMPORTANT]
-   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA + PSI will not work.
+   >In the above configuration under step 4, please choose **Passwordless** option. Change the mode for each groups added for PSI for **Authentication mode**, choose **Passwordless** for passwordless sign-in to work with CBA. If the admin configures "Any", CBA and PSI don't work.
 
 1. Select **Protection** > **multifactor authentication** > **Additional cloud-based multifactor authentication settings**.
 
