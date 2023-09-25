@@ -13,7 +13,7 @@ ms.author: sudhirsneha
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 > [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
+> For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
 
 You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed.
 
@@ -58,7 +58,7 @@ To schedule recurring updates on a single VM:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Azure Update Manager** | **Overview** page, select your subscription and select **Schedule updates**.
+1. On the **Azure Update Manager** | **Overview** page, select your subscription, and then select **Schedule updates**.
 
 1. On the **Create new maintenance configuration** page, you can create a schedule for a single VM.
 
@@ -66,7 +66,7 @@ To schedule recurring updates on a single VM:
 
 1. On the **Basics** page, select **Subscription**, **Resource Group**, and all options in **Instance details**.
     - Select **Maintenance scope** as **Guest (Azure VM, Azure Arc-enabled VMs/servers)**.
-	- Select **Add a schedule** and in **Add/Modify schedule**, specify the schedule details, such as:
+	- Select **Add a schedule**. In **Add/Modify schedule**, specify the schedule details, such as:
 	
 		- **Start on**
 		- **Maintenance window** (in hours). The upper maintenance window is 3 hours 55 minutes.
@@ -83,19 +83,19 @@ To schedule recurring updates on a single VM:
 	- Repeat on a calendar date (optionally run on the last date of the month).
 	- Repeat on nth (first, second, etc.) x day (for example, Monday, Tuesday) of the month. You can also specify an offset from the day set. It could be +6/-6. For example, if you want to patch on the first Saturday after a patch on Tuesday, set the recurrence as the second Tuesday of the month with a +4 day offset. Optionally, you can also specify an end date when you want the schedule to expire.
 
-1. On the **Machines** tab, select your machine and select **Next**.
+1. On the **Machines** tab, select your machine, and then select **Next**.
 
    Update Manager doesn't support driver updates.
 
 1. On the **Tags** tab, assign tags to maintenance configurations.
 
-1. On the **Review + create** tab, verify your update deployment options and select **Create**.
+1. On the **Review + create** tab, verify your update deployment options, and then select **Create**.
 
-# [From Machines pane](#tab/schedule-updates-single-machine)
+# [From the Machines pane](#tab/schedule-updates-single-machine)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Azure Update Manager** | **Machines** page, select your subscription, select your machine, and select **Schedule updates**.
+1. On the **Azure Update Manager** | **Machines** page, select your subscription, select your machine, and then select **Schedule updates**.
 
 1. In **Create new maintenance configuration**, you can create a schedule for a single VM and assign a machine and tags. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
@@ -119,14 +119,14 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Azure Update Manager** | **Overview** page, select your subscription and select **Schedule updates**.
+1. On the **Azure Update Manager** | **Overview** page, select your subscription, and then select **Schedule updates**.
 
 1. On the **Create new maintenance configuration** page, you can create a schedule for multiple machines.
 
 	Currently, VMs and maintenance configuration in the same subscription are supported.
 
 1. On the **Basics** tab, select **Subscription**, **Resource Group**, and all options in **Instance details**.
-	- Select **Add a schedule** and in **Add/Modify schedule**, specify the schedule details, such as:
+	- Select **Add a schedule**. In **Add/Modify schedule**, specify the schedule details, such as:
 	
 		- **Start on**
 		- **Maintenance window** (in hours)
@@ -144,13 +144,13 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. On the **Tags** tab, assign tags to maintenance configurations.
 
-1. On the **Review + create** tab, verify your update deployment options and select **Create**.
+1. On the **Review + create** tab, verify your update deployment options, and then select **Create**.
 
-# [From Machines pane](#tab/schedule-updates-scale-machine)
+# [From the Machines pane](#tab/schedule-updates-scale-machine)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Azure Update Manager** | **Machines** page, select your subscription, select your machines, and select **Schedule updates**.
+1. On the **Azure Update Manager** | **Machines** page, select your subscription, select your machines, and then select **Schedule updates**.
 
 On the **Create new maintenance configuration** page, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
@@ -161,12 +161,12 @@ A notification confirms that the deployment was created.
 
  A maintenance configuration can be attached to multiple machines. It can be attached to machines at the time of creating a new maintenance configuration or even after you create one.
 
- 1. On the **Azure Update Manager** page, select **Machines** and select your subscription.
+ 1. On the **Azure Update Manager** page, select **Machines**, and then select your subscription.
  1. Select your machine, and on the **Updates** pane, select **Scheduled updates** to create a maintenance configuration or attach an existing maintenance configuration to the scheduled recurring updates.
 1. On the **Scheduling** tab, select **Attach maintenance configuration**.
-1. Select the maintenance configuration that you want to attach and select **Attach**.
+1. Select the maintenance configuration that you want to attach, and then select **Attach**.
 1. On the **Updates** pane, select **Scheduling** > **Attach maintenance configuration**.
-1. On the **Attach existing maintenance configuration** page, select the maintenance configuration that you want to attach and select **Attach**.
+1. On the **Attach existing maintenance configuration** page, select the maintenance configuration that you want to attach, and then select **Attach**.
 
     :::image type="content" source="./media/scheduled-updates/scheduled-patching-attach-maintenance-inline.png" alt-text="Screenshot that shows Scheduled patching attach maintenance configuration." lightbox="./media/scheduled-updates/scheduled-patching-attach-maintenance-expanded.png":::
 
@@ -202,7 +202,7 @@ You can create a new guest OS update maintenance configuration or modify an exis
 ### Change update selection criteria
 
 1. On the **Install one-time updates** pane, select the resources and machines to install the updates.
-1. On the **Machines** tab, select **Add machine** to add machines that weren't previously selected and select **Add**.
+1. On the **Machines** tab, select **Add machine** to add machines that weren't previously selected, and then select **Add**.
 1. On the **Updates** tab, specify the updates to include in the deployment.
 1. Select **Include KB ID/package** and **Exclude KB ID/package**, respectively, to select updates like **Critical**, **Security**, and **Feature updates**.
 
@@ -228,7 +228,7 @@ Azure Policy allows you to assign standards and assess compliance at scale. For 
 
 	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-defintion.png" alt-text="Screenshot that shows how to select the definition.":::
 	
-	- Ensure that **Policy enforcement** is set to **Enabled** and select **Next**.
+	- Ensure that **Policy enforcement** is set to **Enabled**, and then select **Next**.
 1. On the **Parameters** tab, by default, only the **Maintenance configuration ARM ID** is visible.
 
    If you don't specify any other parameters, all machines in the subscription and resource group that you selected on the **Basics** tab are covered under scope. If you want to scope further based on resource group, location, OS, tags, and so on, clear **Only show parameters that need input or review** to view all parameters:
@@ -246,7 +246,7 @@ Azure Policy allows you to assign standards and assess compliance at scale. For 
 
    If you select **Remediation**, the policy is in effect on all the existing machines in the scope or else it's assigned to any new machine that's added to the scope.
 
-1. On the **Review + create** tab, verify your selections and select **Create** to identify the noncompliant resources to understand the compliance state of your environment.
+1. On the **Review + create** tab, verify your selections, and then select **Create** to identify the noncompliant resources to understand the compliance state of your environment.
 
 ### View compliance
 
