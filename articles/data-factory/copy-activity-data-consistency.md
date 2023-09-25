@@ -29,7 +29,10 @@ When you move data from source to destination store, the copy activity provides 
 The following example provides a JSON definition to enable data consistency verification in Copy Activity: 
 
 ```json
-"typeProperties": { 
+{
+  "name":"CopyActivityDataConsistency",
+  "type":"Copy",
+  "typeProperties": { 
 "source": { 
         "type": "BinarySource", 
         "storeSettings": { 
