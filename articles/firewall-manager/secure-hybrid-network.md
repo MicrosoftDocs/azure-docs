@@ -67,9 +67,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
-3. On the Azure Firewall Manager page, select **View Azure firewall policies**.
+3. On the Azure Firewall Manager page, under **Security**, select **Azure firewall policies**.
 
-   ![Firewall policy](media/tutorial-hybrid-portal/firewall-manager-policy.png)
+   :::image type="content" source="media/secure-hybrid-network/firewall-manager-policy.png" alt-text="Screenshot showing Firewall Manager main page."lightbox="media/secure-hybrid-network/firewall-manager-policy.png":::
 
 1. Select **Create Azure Firewall Policy**.
 1. Select your subscription, and for Resource group, select **Create new** and create a resource group named **FW-Hybrid-Test**.
@@ -114,12 +114,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For **Resource group**, select **FW-Hybrid-Test**.
 1. For **Name**, type **VNet-hub**.
 1. For **Region**, select **East US**.
-1. Select **Next : IP Addresses**.
+1. Select **Next**.
+1. On the **Security**, select **Next**.
 
 1. For **IPv4 address space**, type **10.5.0.0/16**.
-1. Under **Subnet name**, select **default**.
-1.  Change the **Subnet name** to **AzureFirewallSubnet**. The firewall is in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-1. For **Subnet address range**, type **10.5.0.0/26**.
+1. Under **Subnets**, select **default**.
+1. For Subnet template, select **Azure Firewall**.
+1. For **Starting address**, type **10.5.0.0/26**.
 1. Accept the other default settings, and then select **Save**.
 1. Select **Review + create**.
 1. Select **Create**.
@@ -133,12 +134,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. For **Resource group**, select **FW-Hybrid-Test**.
 1. For **Name**, type **VNet-Spoke**.
 1. For **Region**, select **East US**.
+1. Select **Next**.
+1. On the **Security** page, select **Next**.
 1. Select **Next : IP Addresses**.
-
 1. For **IPv4 address space**, type **10.6.0.0/16**.
-1. Under **Subnet name**, select **default**.
-1. Change the **Subnet name** to **SN-Workload**.
-1. For **Subnet address range**, type **10.6.0.0/24**.
+1. Under **Subnets**, select **default**.
+1. Change the **Name** to **SN-Workload**.
+1. For **Starting address**, type **10.6.0.0/24**.
 1. Accept the other default settings, and then select **Save**.
 1. Select **Review + create**.
 1. Select **Create**.
@@ -151,19 +153,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Select **Create**.
 1. For **Subscription**, select your subscription.
 1. For **Resource group**, select **FW-Hybrid-Test**.
-1. For **Name**, type **VNet-OnPrem**.
+1. For **Virtual network name**, type **VNet-OnPrem**.
 1. For **Region**, select **East US**.
-1. Select **Next : IP Addresses**.
+1. Select **Next**.
+1. On the **Security** page, select **Next**.
 
 1. For **IPv4 address space**, type **192.168.0.0/16**.
-1. Under **Subnet name**, select **default**.
-1. Change the **Subnet name** to **SN-Corp**.
-1. For **Subnet address range**, type **192.168.1.0/24**.
+1. Under **Subnets**, select **default**.
+1. Change the **Name** to **SN-Corp**.
+1. For **Starting address**, type **192.168.1.0/24**.
 1. Accept the other default settings, and then select **Save**.
-2. Select **Add Subnet**.
-3. For **Subnet name**, type **GatewaySubnet**.
-4. For **Subnet address range** type **192.168.2.0/24**.
-5. Select **Add**.
+2. Select **Add a subnet**.
+1. For **Subnet template**, select **Virtual Network Gateway**.
+1. For **Starting address** type **192.168.2.0/29**.
+1. Select **Add**.
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -177,10 +180,11 @@ When security policies are associated with a hub, it's referred to as a *hub vir
 Convert the **VNet-Hub** virtual network into a *hub virtual network* and secure it with Azure Firewall.
 
 1. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
-3. On the Azure Firewall Manager page, under **Add security to virtual networks**, select **View hub virtual networks**.
+1. In the right pane, select **Overview**.
+1. On the Azure Firewall Manager page, under **Add security to virtual networks**, select **View hub virtual networks**.
 1. Under **Virtual Networks**, select the check box for **VNet-hub**.
 1. Select **Manage Security**, and then select **Deploy a Firewall with Firewall Policy**.
-1. On the **Convert virtual networks** page, under **Firewall Policy**, select the check box for **Pol-Net01**.
+1. On the **Convert virtual networks** page, under **Azure Firewall tier**, select **Premium**. Under **Firewall Policy**, select the check box for **Pol-Net01**.
 1. Select **Next : Review + confirm**
 1. Review the details and then select **Confirm**.
 
@@ -204,7 +208,7 @@ Now create the VPN gateway for the hub virtual network. Network-to-network confi
 5. For **Region**, select **(US) East US**.
 6. For **Gateway type**, select **VPN**.
 7. For **VPN type**, select **Route-based**.
-8. For **SKU**, select **Basic**.
+8. For **SKU**, select **VpnGw1**.
 9. For **Virtual network**, select **VNet-hub**.
 10. For **Public IP address**, select **Create new**, and type **VNet-hub-GW-pip** for the name.
 11. Accept the remaining defaults and then select **Review + create**.
