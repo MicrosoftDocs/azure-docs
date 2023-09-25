@@ -85,6 +85,20 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
 
 Open a command prompt window and run the cURL command.
 
+The below fields must be included in the url:
+
+| Name      |Required  |  Description | Type   |
+| :------- |-------- |:--------------- | ------ |
+| **API Version** |Required |This is the API version to be checked. Current version is: api-version=2023-10-01. Example: `<endpoint>/contentsafety/image:analyze?api-version=2023-10-01` | String |
+
+The parameters in the request body are defined in this table:
+
+| Name        | Required     | Description  | Type    |
+| :---------- | ----------- | :------------ | ------- |
+| **content**    | Required | 	The content or blob url of image, could be base64 encoding bytes or blob url. You can choose only one of them. If both are given, the request will be refused. The maximum size of the image is 2048 pixels * 2048 pixels, no larger than 4MB at the same time. The minimum size of the image is 50 pixels * 50 pixels. | String  |
+| **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We will use multiple categories to get scores in a single request. | String  |
+| **outputType** | Optional | `"FourSeverityLevels"` or `"EightSeverityLevels"`. Output severities in four or eight levels, the value can be `0,2,4,6` or `0,1,2,3,4,5,6,7`. | String|
+
 ### Interpret the API response
 
 You should see the image moderation results displayed as JSON data in the console. For example:
