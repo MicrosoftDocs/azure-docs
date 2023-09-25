@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ExactCare SSO'
-description: Learn how to configure single sign-on between Azure Active Directory and ExactCare SSO.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with ExactCare SSO'
+description: Learn how to configure single sign-on between Microsoft Entra ID and ExactCare SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,32 +13,32 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with ExactCare SSO
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with ExactCare SSO
 
-In this tutorial, you'll learn how to integrate ExactCare SSO with Azure Active Directory (Azure AD). When you integrate ExactCare SSO with Azure AD, you can:
+In this tutorial, you'll learn how to integrate ExactCare SSO with Microsoft Entra ID. When you integrate ExactCare SSO with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to ExactCare SSO.
-* Enable your users to be automatically signed-in to ExactCare SSO with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to ExactCare SSO.
+* Enable your users to be automatically signed-in to ExactCare SSO with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * ExactCare SSO single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * ExactCare SSO supports **SP** initiated SSO
 
 ## Adding ExactCare SSO from the gallery
 
-To configure the integration of ExactCare SSO into Azure AD, you need to add ExactCare SSO from the gallery to your list of managed SaaS apps.
+To configure the integration of ExactCare SSO into Microsoft Entra ID, you need to add ExactCare SSO from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of ExactCare SSO into Azure AD, you need to add Exa
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD single sign-on for ExactCare SSO
+<a name='configure-and-test-azure-ad-single-sign-on-for-exactcare-sso'></a>
 
-Configure and test Azure AD SSO with ExactCare SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ExactCare SSO.
+## Configure and test Microsoft Entra single sign-on for ExactCare SSO
 
-To configure and test Azure AD SSO with ExactCare SSO, complete the following building blocks:
+Configure and test Microsoft Entra SSO with ExactCare SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in ExactCare SSO.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with ExactCare SSO, complete the following building blocks:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    * **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    * **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure ExactCare SSO](#configure-exactcare-sso)** - to configure the single sign-on settings on application side.
-    * **[Create ExactCare SSO test user](#create-exactcare-sso-test-user)** - to have a counterpart of B.Simon in ExactCare SSO that is linked to the Azure AD representation of user.
+    * **[Create ExactCare SSO test user](#create-exactcare-sso-test-user)** - to have a counterpart of B.Simon in ExactCare SSO that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **ExactCare SSO** > **Single sign-on**.
@@ -90,7 +94,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -104,7 +110,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to ExactCare SSO.
 
@@ -132,14 +140,14 @@ In this section, you create a user called B.Simon in ExactCare SSO. Work with [
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration using the Access Panel.
 
 When you click the ExactCare SSO tile in the Access Panel, you should be automatically signed in to the ExactCare SSO for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

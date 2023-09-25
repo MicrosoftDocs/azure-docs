@@ -63,7 +63,7 @@ Collect all the values in the following table to define the packet core instance
 
 ## Collect data network values
 
-You can configure up to three data networks per site. During site creation, you'll be able to choose whether to attach an existing data network or create a new one.
+You can configure up to ten data networks per site. During site creation, you'll be able to choose whether to attach an existing data network or create a new one.
 
 For each data network that you want to configure, collect all the values in the following table. These values define the packet core instance's connection to the data network over the user plane interface, so you need to collect them whether you're creating the data network or using an existing one.
 

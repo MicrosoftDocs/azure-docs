@@ -1,6 +1,6 @@
 ---
-title: Azure AD on-premises app provisioning to Azure Databricks with Private Link Workspace
-description: This article describes how to use the Azure AD provisioning service to provision users into Azure Databricks with Private Link Workspace.
+title: Microsoft Entra on-premises app provisioning to Azure Databricks with Private Link Workspace
+description: This article describes how to use the Microsoft Entra provisioning service to provision users into Azure Databricks with Private Link Workspace.
 author: billmath
 manager: amycolannino
 ms.service: active-directory
@@ -12,24 +12,26 @@ ms.author: billmath
 ms.reviewer: owinoakelo
 ---
 
-# Microsoft Entra ID Application Provisioning to Azure Databricks with Private Link Workspace
+# Microsoft Entra Application Provisioning to Azure Databricks with Private Link Workspace
 
-The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This article outlines how you can use the Azure AD provisioning service to provision users into Azure Databricks workspaces with no public access.
+The Microsoft Entra provisioning service supports a [SCIM 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) client that can be used to automatically provision users into cloud or on-premises applications. This article outlines how you can use the Microsoft Entra provisioning service to provision users into Azure Databricks workspaces with no public access.
 
 [ ![Diagram that shows SCIM architecture.](media/azure-databricks-with-private-link-workspace-provisioning-tutorial/scim-architecture.png)](media/azure-databricks-with-private-link-workspace-provisioning-tutorial/scim-architecture.png#lightbox)
 
 ## Prerequisites
-* An Azure AD tenant with Microsoft Entra ID Governance and Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/microsoft-entra-pricing).
-* Administrator role for installing the agent. This task is a one-time effort and should be an Azure account that's either a hybrid administrator or a global administrator. 
+* A Microsoft Entra tenant with Microsoft Entra ID Governance and Microsoft Entra ID P1 or Premium P2 (or EMS E3 or E5). To find the right license for your requirements, see [Compare generally available features of Microsoft Entra ID](https://www.microsoft.com/security/business/microsoft-entra-pricing).
+* Administrator role for installing the agent. This task is a one-time effort and should be an Azure account that's either a Hybrid Identity Administrator or a global administrator. 
 * Administrator role for configuring the application in the cloud (application administrator, cloud application administrator, global administrator, or a custom role with permissions).
 * A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target application, and with outbound connectivity to login.microsoftonline.com, other Microsoft Online Services and Azure domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
 
-## Download, install, and configure the Azure AD Connect Provisioning Agent Package
+<a name='download-install-and-configure-the-azure-ad-connect-provisioning-agent-package'></a>
+
+## Download, install, and configure the Microsoft Entra Connect Provisioning Agent Package
 
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
-1. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Cloud sync**.
+1. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Cloud sync**.
 
    [![Screenshot of new UX screen.](media/azure-databricks-with-private-link-workspace-provisioning-tutorial/azure-active-directory-connect-new-ux.png)](media/azure-databricks-with-private-link-workspace-provisioning-tutorial/azure-active-directory-connect-new-ux.png#lightbox)
 
@@ -37,12 +39,12 @@ If you have already downloaded the provisioning agent and configured it for anot
 1.  Select **Download on-premises agent**, and select **Accept terms & download**.  
 
    > [!NOTE]
-   > Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent.
+   > Please use different provisioning agents for on-premises application provisioning and Microsoft Entra Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent.
   
 1.  Open the provisioning agent installer, agree to the terms of service, and select **next**.
 1.  When the provisioning agent wizard opens, continue to the **Select Extension** tab and select **On-premises application provisioning** when prompted for the extension you want to enable.
-1.  The provisioning agent uses the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you're using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
-1.  Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
+1.  The provisioning agent uses the operating system's web browser to display a popup window for you to authenticate to Microsoft Entra ID, and potentially also your organization's identity provider.  If you're using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
+1.  Provide credentials for a Microsoft Entra administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
 1.  Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
  
 ## Provisioning to SCIM-enabled Workspace
@@ -54,7 +56,7 @@ Once the agent is installed, no further configuration is necessary on-premises, 
 1. From the left hand menu, navigate to the **Provisioning** option and select **Get started**.
 1. Select **Automatic** from the dropdown list and expand the **On-Premises Connectivity** option.
 1. Select the agent that you installed from the dropdown list and select **Assign Agent(s)**.
-1. Now either wait 10 minutes or restart the **Microsoft Azure AD Connect Provisioning Agent** before proceeding to the next step & testing the connection.
+1. Now either wait 10 minutes or restart the **Microsoft Entra Connect Provisioning Agent** before proceeding to the next step & testing the connection.
 1. In the **Tenant URL** field, provide the SCIM endpoint URL for your application. The URL is typically unique to each target application and must be resolvable by DNS. An example for a scenario where the agent is installed on the same host as the application is `https://localhost:8585/scim`
 
    ![Screenshot that shows assigning an agent.](media/azure-databricks-with-private-link-workspace-provisioning-tutorial//on-premises-assign-agents.png)
@@ -76,8 +78,8 @@ The following video provides an overview of on-premises provisioning.
 > [!VIDEO https://www.youtube.com/embed/QdfdpaFolys]
 
 ## More requirements
-* Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](../app-provisioning/use-scim-to-provision-users-and-groups.md).  
-  Azure AD offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation.
+* Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Microsoft Entra SCIM requirements](../app-provisioning/use-scim-to-provision-users-and-groups.md).  
+  Microsoft Entra ID offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation.
 * Support the /schemas endpoint to reduce configuration required. 
 
 ## Next steps

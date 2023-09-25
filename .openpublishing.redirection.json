@@ -911,6 +911,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/databox-online/azure-stack-edge-gpu-2307-release-notes.md",
+            "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2309-release-notes",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
             "redirect_url": "/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/access-policies",
             "redirect_document_id": false
@@ -23600,6 +23605,11 @@
         {
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-prescriptive-adoption.md",
             "redirect_url": "/azure/devtest-labs/deliver-proof-of-concept",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-orchestrate-implementation.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-scale",
             "redirect_document_id": false
         },        
         {

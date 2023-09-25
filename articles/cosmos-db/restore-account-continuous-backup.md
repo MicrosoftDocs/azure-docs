@@ -203,7 +203,7 @@ To restore Customer Managed Key (CMK) continuous account, please refer to the st
 
 ### <a id="get-the-restore-details-powershell"></a>Get the restore details from the restored account
 
-Import the `Az.CosmosDB` module version 1.10.0 and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
+Import the `Az.CosmosDB` module version 1.12.0 and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
 
 ```azurepowershell
 Get-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount 
@@ -397,8 +397,8 @@ Before restoring the account, install Azure CLI with the following steps:
 
 1. Install the latest version of Azure CLI
 
-   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.46.0.
-   * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.46.0. If you have an earlier version, use the above link to install the latest version.
+   * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli) or version higher than 2.52.0.
+   * If you have already installed CLI, run `az upgrade` command to update to the latest version. This command will only work with CLI version higher than 2.52.0. If you have an earlier version, use the above link to install the latest version.
 
 1. Sign in and select your subscription
 

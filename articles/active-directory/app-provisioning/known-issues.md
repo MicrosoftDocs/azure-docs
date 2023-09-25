@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/21/2023
+ms.date: 09/21/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -32,9 +32,7 @@ This article discusses known issues to be aware of when you work with app provis
 
 ### Microsoft Teams
 
-* Microsoft Teams does not support converting the [userType](../external-identities/user-properties.md) property on a B2B user from `member` to `guest` or `guest` to `member`.
-* External / B2B users of type `member` cannot be added to a shared channel in Microsoft Teams. If your organization uses shared channels, please ensure that you update your synchronization configuration to create users as type `guest`. At that point, you will be able to add the native identity (the original account in the source tenant) to the shared channel. If a user is already created as type `member`, you can convert the user to type `guest` in this scenario and add the native identity to the shared channel.
-* External / B2B users will need to switch tenants in Teams to receive messages. This experience does not change for users created by cross-tenant synchronization.
+External / B2B users of type `member` created by cross-tenant synchronization can be added to a shared channel in Microsoft Teams. However, external member users created outside of cross-tenant sync cannot be added to a Teams shared channel.  
 
  ### Provisioning users
 
@@ -157,7 +155,7 @@ If a user and their manager are both in scope for provisioning, the service prov
 
 #### Global Reader
 
-The Global Reader role is unable to read the provisioning configuration. Create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure portal. 
+The Global Reader role is unable to read the provisioning configuration. Create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Microsoft Entra admin center. 
 
 #### Microsoft Azure Government Cloud
 Credentials, including the secret token, notification email, and SSO certificate notification emails together have a 1KB limit in the Microsoft Azure Government Cloud. 
@@ -197,7 +195,7 @@ The following attributes and objects aren't supported:
    The Microsoft Entra ECMA Connector Host currently doesn't support anchor attribute changes (renames) or target systems, which require multiple attributes to form an anchor. 
 
 #### Attribute discovery and mapping
-   The attributes that the target application supports are discovered and surfaced in the Azure portal in **Attribute Mappings**. Newly added attributes will continue to be discovered. If an attribute type has changed, for example, string to Boolean, and the attribute is part of the mappings, the type won't change automatically in the Azure portal. Customers will need to go into advanced settings in mappings and manually update the attribute type.
+   The attributes that the target application supports are discovered and surfaced in the Microsoft Entra admin center in **Attribute Mappings**. Newly added attributes will continue to be discovered. If an attribute type has changed, for example, string to Boolean, and the attribute is part of the mappings, the type won't change automatically in the Microsoft Entra admin center. Customers will need to go into advanced settings in mappings and manually update the attribute type.
 
 #### Provisioning agent
 - The agent doesn't currently support auto update for the on-premises application provisioning scenario. We're actively working to close this gap and ensure that auto update is enabled by default and required for all customers. 

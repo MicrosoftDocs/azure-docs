@@ -3124,6 +3124,8 @@
         href: concur-provisioning-tutorial.md
       - name: Cornerstone OnDemand
         href: cornerstone-ondemand-provisioning-tutorial.md
+      - name: Cybozu
+        href: cybozu-provisioning-tutorial.md
       - name: CybSafe
         href: cybsafe-provisioning-tutorial.md
       - name: Dagster Cloud

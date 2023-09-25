@@ -265,9 +265,8 @@ services:
   ports:
     - "5001:5001"
   user: "1000:1000" # echo $(id -u):$(id -g)
+```
 
-
- ```
 ::: moniker-end
 
 ## Other parameters and commands

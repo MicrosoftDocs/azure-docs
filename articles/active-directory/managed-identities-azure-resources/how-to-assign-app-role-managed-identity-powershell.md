@@ -20,7 +20,7 @@ ms.custom: has-azure-ad-ps-ref
 
 # Assign a managed identity access to an application role using PowerShell
 
-Managed identities for Azure resources provide Azure services with an identity in Azure Active Directory. They work without needing credentials in your code. Azure services use this identity to authenticate to services that support Azure AD authentication. Application roles provide a form of role-based access control, and allow a service to implement authorization rules.
+Managed identities for Azure resources provide Azure services with an identity in Microsoft Entra ID. They work without needing credentials in your code. Azure services use this identity to authenticate to services that support Microsoft Entra authentication. Application roles provide a form of role-based access control, and allow a service to implement authorization rules.
 
 > [!NOTE]
 > The tokens that your application receives are cached by the underlying infrastructure, which means that any changes to the managed identity's roles can take significant time to take effect. For more information, see [Limitation of using managed identities for authorization](managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
@@ -55,9 +55,9 @@ In this article, you learn how to assign a managed identity to an application ro
      (Get-AzResource -ResourceId $userManagedIdentityResourceId).Properties.PrincipalId
      ```
 
-1. Create a new application registration to represent the service that your managed identity will send a request to. If the API or service that exposes the app role grant to the managed identity already has a service principal in your Azure AD tenant, skip this step. For example, if you want to grant the managed identity access to the Microsoft Graph API, you can skip this step.
+1. Create a new application registration to represent the service that your managed identity will send a request to. If the API or service that exposes the app role grant to the managed identity already has a service principal in your Microsoft Entra tenant, skip this step. For example, if you want to grant the managed identity access to the Microsoft Graph API, you can skip this step.
 
-1. Find the object ID of the service application's service principal. You can find this using the Azure portal. Go to Azure Active Directory and open the **Enterprise applications** page, then find the application and look for the **Object ID**. You can also find the service principal's object ID by its display name using the following PowerShell script:
+1. Find the object ID of the service application's service principal. You can find this using the Azure portal. Go to Microsoft Entra ID and open the **Enterprise applications** page, then find the application and look for the **Object ID**. You can also find the service principal's object ID by its display name using the following PowerShell script:
 
     ```powershell
     $serverServicePrincipalObjectId = (Get-MgServicePrincipal -Filter "DisplayName eq '$applicationName'").Id

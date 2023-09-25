@@ -10,8 +10,11 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up Microsoft Dev Box
+    - name: Set up Dev Box with Azure portal
       href: quickstart-configure-dev-box-service.md
+    - name: Set up Dev Box with an ARM template
+      displayName: Resource Manager
+      href: quickstart-configure-dev-box-arm-template.md  
     - name: Create a dev box
       href: quickstart-create-dev-box.md
 - name: Tutorials

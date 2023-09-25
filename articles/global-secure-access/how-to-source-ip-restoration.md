@@ -16,18 +16,18 @@ ms.reviewer: mamkumar
 
 With a cloud based network proxy between users and their resources, the IP address that the resources see doesn't match the actual source IP address. In place of the end-users’ source IP, the resource endpoints see the cloud proxy as the source IP address. Customers with these cloud proxy solutions can't use this source IP information. 
 
-Source IP restoration in Global Secure Access (preview) allows backward compatibility for Microsoft Entra ID customers to continue using original user Source IP. Administrators can benefit from the following capabilities:
+Source IP restoration in Global Secure Access (preview) allows backward compatibility for Microsoft Entra customers to continue using original user Source IP. Administrators can benefit from the following capabilities:
 
 - Continue to enforce Source IP-based location policies across both [Conditional Access](/azure/active-directory/conditional-access/overview) and [continuous access evaluation](/azure/active-directory/conditional-access/concept-continuous-access-evaluation)
 - [Identity Protection risk detections](/azure/active-directory/identity-protection/concept-identity-protection-risks) get a consistent view of original user Source IP address for assessing various risk scores.
-- Original user Source IP is also made available in [Microsoft Entra ID sign-in logs](/azure/active-directory/reports-monitoring/concept-all-sign-ins).
+- Original user Source IP is also made available in [Microsoft Entra sign-in logs](/azure/active-directory/reports-monitoring/concept-all-sign-ins).
 
 ## Prerequisites
 
 * Administrators who interact with **Global Secure Access preview** features must have both of the following role assignments depending on the tasks they're performing.
    * A **Global Secure Access Administrator** role to manage the Global Secure Access preview features
    * [Conditional Access Administrator](/azure/active-directory/roles/permissions-reference#conditional-access-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) to create and interact with Conditional Access policies and named locations.
-* The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+* The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
  
 ### Known limitations
 

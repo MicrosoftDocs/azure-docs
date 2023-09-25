@@ -58,11 +58,11 @@ Unless your packet core has Network Address Translation (NAT) enabled, a local l
 There are multiple ways to set up your network for use with AP5GC. The exact setup varies depending on your needs and hardware. This section provides some sample network topologies on ASE Pro GPU hardware.
 
 - Layer 3 network with N6 Network Address Translation (NAT)  
-  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This solution is commonly used because it supports layer 3 routing when required.  
+  This network topology has your ASE connected to a layer 2 device that provides connectivity to the mobile network core and access gateways (routers connecting your ASE to your data and access networks respectively). This topology supports up to six data networks. This solution is commonly used because it simplifies layer 3 routing.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png" alt-text="Diagram of a layer 3 network with N6 Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-n6-nat.png":::
 
 - Layer 3 network without Network Address Translation (NAT)  
-  This network topology is a similar solution, but UE IP address ranges must be configured as static routes in the data network router with the N6 NAT IP address as the next hop address.  
+  This network topology is a similar solution, but UE IP address ranges must be configured as static routes in the data network router with the N6 NAT IP address as the next hop address. As with the previous solution, this topology supports up to six data networks.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png" alt-text="Diagram of a layer 3 network without Network Address Translation (N A T)." lightbox="media/private-mobile-network-design-requirements/layer-3-network-without-n6-nat.png":::
 
 - Flat layer 2 network  
@@ -70,16 +70,18 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support up to three attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
-- Layer 3 network with VLAN separation
+- Layer 3 network with VLAN and physical access/core separation
   - You can also separate ASE traffic into VLANs, whether or not you choose to add layer 3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
   - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
   - VLANs must be configured on the local layer 2 or layer 3 network equipment. Multiple VLANs will be carried on a single link from ASE port 5 (access network) and/or 6 (core network), so you must configure each of those links as a VLAN trunk.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png" alt-text="Diagram of layer 3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
-  
+  - If you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 5. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-additional-dns.png" alt-text="Diagram of layer 3 network topology with 10 data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
+
 ### Subnets and IP addresses
 
 You may have existing IP networks at the enterprise site that the private cellular network will have to integrate with. This might mean, for example:
@@ -118,9 +120,15 @@ To avoid transmission issues caused by IPv4 fragmentation, a 4G or 5G packet cor
 
 IP packets from UEs are tunneled through from the RAN, which adds overhead from encapsulation. The MTU value for the UE should therefore be smaller than the MTU value used between the RAN and the packet core to avoid transmission issues.
 
-RANs typically come pre-configured with an MTU of 1500. The packet core’s default UE MTU is 1300 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation and that may be dropped by the network.
+RANs typically come pre-configured with an MTU of 1500. The packet core’s default UE MTU is 1440 bytes to allow for encapsulation overhead. These values maximize RAN interoperability, but risk that certain UEs will not observe the default MTU and will generate larger packets that require IPv4 fragmentation and that may be dropped by the network. If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher, which allows a sufficient overhead for the encapsulation and avoids fragmentation with a UE using a standard MTU of 1500.
 
-If you are affected by this issue, it is strongly recommended to configure the RAN to use an MTU of 1560 or higher, which allows a sufficient overhead for the encapsulation and avoids fragmentation with a UE using a standard MTU of 1500.
+You can also change the UE MTU signaled by the packet core. We recommend setting the MTU to a value within the range supported by your UEs and 60 bytes below the MTU signaled by the RAN. Note that:
+
+- The data network (N6) is automatically updated to match the UE MTU.
+- The access network (N3) is automatically updated to match the UE MTU plus 60.
+- You can configure a value between 1280 and 1930 bytes.
+
+To change the UE MTU signaled by the packet core, see [Modify a packet core instance](modify-packet-core.md).
 
 ### Signal coverage
 

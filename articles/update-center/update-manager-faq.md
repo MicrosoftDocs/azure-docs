@@ -24,9 +24,9 @@ Following are few benefits:
 - Support for Azure Policy. 
 
 
-## LA agent (also known as MMA) is retiring and will be replaced with AMA, can customers continue to use Automation Update Management with AMA?
+## LA agent (also known as MMA) is retiring and will be replaced with AMA, can I continue to use Automation Update Management with AMA?
 
-Azure Update Manager doesn't rely on MMA or AMA. Customers need to move from Automation Update Management to Azure Update Manager as LA agent is retiring. However, note that customers shouldn't remove MMA agent from machines using Automation Update Management before migrating to Azure Update Manager or else Automation Update Management solution will not work.
+You need to move from Automation Update Management to Azure Update Manager as LA agent is retiring (Automation Update Management won't work with AMA either). Azure Update Manager doesn't rely on MMA or AMA. However, ensure that you don't remove MMA agent from machines using Automation Update Management before migrating to Azure Update Manager or else Automation Update Management solution will not work.
  
 
 ## Will I be charged if I migrate to Azure Update Manager? 

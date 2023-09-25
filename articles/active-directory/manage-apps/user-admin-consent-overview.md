@@ -1,6 +1,6 @@
 ---
 title: Overview of user and admin consent
-description: Learn about the fundamental concepts of user and admin consent in Azure AD
+description: Learn about the fundamental concepts of user and admin consent in Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: celesteDG
@@ -15,9 +15,9 @@ ms.collection: M365-identity-device-management
 ms.custom: enterprise-apps
 ---
 
-# User and admin consent in Azure Active Directory
+# User and admin consent in Microsoft Entra ID
 
-In this article, you’ll learn the foundational concepts and scenarios around user and admin consent in Azure Active Directory (Azure AD).
+In this article, you’ll learn the foundational concepts and scenarios around user and admin consent in Microsoft Entra ID.
 
 Consent is a process where users can grant permission for an application to access a protected resource. To indicate the level of access required, an application requests the API permissions it requires. For example, an application can request the permission to see a signed-in user's profile and read the contents of the user's mailbox.
 
@@ -71,7 +71,7 @@ Instead of granting consent for an entire organization, an admin can also use th
 
 User access to applications can still be limited, even when tenant-wide admin consent has been granted. Configure the application’s properties to require user assignment to limit user access to the application. For more information, see [Methods for assigning users and groups](assign-user-or-group-access-portal.md).
 
-For a broader overview, including how to handle other complex scenarios, see [Use Azure AD for application access management](what-is-access-management.md).
+For a broader overview, including how to handle other complex scenarios, see [Use Microsoft Entra ID for application access management](what-is-access-management.md).
 
 ## Admin consent workflow
 

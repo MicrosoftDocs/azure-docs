@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # View activity and audit history for Azure resource roles in Privileged Identity Management
 
-Privileged Identity Management (PIM) in Microsoft Entra ID (Azure AD), enables you to view activity, activations, and audit history for Azure resources roles within your organization. This includes subscriptions, resource groups, and even virtual machines. Any resource within the Microsoft Entra admin center that leverages the Azure role-based access control functionality can take advantage of the security and lifecycle management capabilities in Privileged Identity Management. If you want to retain audit data for longer than the default retention period, you can use Azure Monitor to route it to an Azure storage account. For more information, see [Archive Azure AD logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
+Privileged Identity Management (PIM) in Microsoft Entra ID, enables you to view activity, activations, and audit history for Azure resources roles within your organization. This includes subscriptions, resource groups, and even virtual machines. Any resource within the Microsoft Entra admin center that leverages the Azure role-based access control functionality can take advantage of the security and lifecycle management capabilities in Privileged Identity Management. If you want to retain audit data for longer than the default retention period, you can use Azure Monitor to route it to an Azure storage account. For more information, see [Archive Microsoft Entra ID logs to an Azure storage account](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
@@ -140,4 +140,4 @@ Typically, the log event immediately above the approval event is an event for "A
 
 ## Next steps
 
-- [View audit history for Azure AD roles in Privileged Identity Management](pim-how-to-use-audit-log.md)
+- [View audit history for Microsoft Entra roles in Privileged Identity Management](pim-how-to-use-audit-log.md)
