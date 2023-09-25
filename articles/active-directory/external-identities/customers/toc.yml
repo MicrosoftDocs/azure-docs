@@ -1,10 +1,10 @@
 items:  
-- name: Microsoft Entra External ID for customers documentation  
+- name: Microsoft Entra ID for customers documentation  
   href: index.yml  
 - name: Overview  
   expanded: true  
   items:   
-    - name: What is Microsoft Entra External ID for customers?  
+    - name: What is Microsoft Entra ID for customers?  
       href: overview-customers-ciam.md 
     - name: Demo overview
       href: overview-solutions-customers.md

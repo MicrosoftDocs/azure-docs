@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Prepare an ASP.NET web app for authentication in a customer tenant
-description: Learn how to prepare an ASP.NET web app for authentication with your Microsoft Entra External ID for customers tenant.
+description: Learn how to prepare an ASP.NET web app for authentication with your Microsoft Entra ID for customers tenant.
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -11,12 +11,12 @@ ms.subservice: ciam
 ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 05/23/2023
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Microsoft Entra External ID for customers tenant.
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Prepare an ASP.NET web app for authentication in a customer tenant
 
-In the [previous article](./tutorial-web-app-dotnet-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Microsoft Entra External ID for customers tenant.
+In the [previous article](./tutorial-web-app-dotnet-sign-in-prepare-tenant.md), you registered an application and configured user flows in your Microsoft Entra ID for customers tenant.
 
 In this tutorial you'll;
 

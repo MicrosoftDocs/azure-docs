@@ -128,21 +128,21 @@ Next, set up single-sign on in Palo Alto Networks Captive Portal:
 
 2. Select the **Device** tab.
 
-	![The Palo Alto Networks website Device tab](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
+   ![The Palo Alto Networks website Device tab](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
 3. In the menu, select **SAML Identity Provider**, and then select **Import**.
 
-	![The Import button](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
+   ![The Import button](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
 
 4. In the **SAML Identity Provider Server Profile Import** dialog box, complete the following steps:
 
-	![Configure Palo Alto Networks single sign-on](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
+   ![Configure Palo Alto Networks single sign-on](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-	1. For **Profile Name**, enter a name, like **Microsoft Entra ID-CaptivePortal**.
-	
-	2. Next to **Identity Provider Metadata**, select **Browse**. Select the metadata.xml file that you downloaded.
-	
-	3. Select **OK**.
+   1. For **Profile Name**, enter a name, like `AzureAD-CaptivePortal`.
+
+   2. Next to **Identity Provider Metadata**, select **Browse**. Select the metadata.xml file that you downloaded.
+
+   3. Select **OK**.
 
 ### Create a Palo Alto Networks Captive Portal test user
 

@@ -164,9 +164,9 @@ If you have received a notification for an alert (such as an email or an SMS) mo
     ![Screenshot of multiple action groups in an alert.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
 ## Action or notification has an unexpected content
-Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are recieving a degraded experience, if there is a note at the top of your email notification that says: 
+Action Groups uses two different email providers to ensure email notification delivery. The primary email provider is very resilient and quick but occasionally suffers outages. In this case, the secondary email provider handles email requests. The secondary provider is only a fallback solution. Due to provider differences, an email sent from our secondary provider may have a degraded email experience. The degradation results in slightly different email formatting and content. Since email templates differ in the two systems, maintaining parity across the two systems is not feasible. You can know that you are receiving a degraded experience, if there is a note at the top of your email notification that says: 
 
-"This is a degraded email experience. That means the formatting may be off or details could be missing. For more infomration on the degraded email experience, read here."
+"This is a degraded email experience. That means the formatting may be off or details could be missing. For more information on the degraded email experience, read here."
 
 If your notification does not contain this note and you have received the alert, but believe some of its fields are missing or incorrect, follow these steps: 
 
@@ -246,58 +246,6 @@ If you received an error while trying to create, update or delete an [alert proc
 1. **Did you verify the alert processing rule parameters?**  
 
     Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azalertprocessingrule) command. 
-
-## How to Migrate the Get alert summary API to ARG query
-
-Get alert summary API return the summary of alerts using API, today once we opened the option to use ARG query everywhere (including alerts) you can use ARG query directly and by that to have an option to be more flexible. 
-If you are using “GetAlertSummary” API, we recommend using ARG query API and list out the benefits 
-* Ability to add new fields to the query that returns the alert summary.  
-* Ability to be more flexible in the query that returns the alert summary. 
-This is an example of how today we use “GetAlertSummary” API: 
-
-GET https://management.azure.com/subscriptions/{subId}/providers/Microsoft.AlertsManagement/alertsSummary?groupby=severity,alertState&api-version=2019-03-01 
-Response: AlertSummary_Sev_Alertstate 
-
-Instead of “GetAlertSummary” API you can create a query via ARG, examples for 2 uses of ARG query that can be used instead of “GetAlertSummary” API using different parameters. You can use this as a baseline for your query and build it exactly according to your needs. 
-* Query to ARG by Severity, AlertState: 
-    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
-    {
-      query: "alertsmanagementresources  
-        | where type =~ 'microsoft.alertsmanagement/alerts'   
-        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
-        | project Severity = tostring(properties.essentials.severity), 
-        AlertState= tostring(properties.essentials.alertState) 
-        | summarize AlertsCount = count() by Severity, AlertState" 
-    } 
-* Query to ARG by Severity: 
-    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
-    { 
-        query: "alertsmanagementresources  
-        | where type =~ 'microsoft.alertsmanagement/alerts'   
-        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
-        | project Severity = tostring(properties.essentials.severity) 
-        | summarize AlertsCount = count() by Severity" 
-    } 
-* Query to ARG by Severity, monitorService, TargetResourceType 
-    Post  https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview 
-    { 
-        query: "alertsmanagementresources  
-        | where type =~ 'microsoft.alertsmanagement/alerts'   
-        | where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
-        | project Severity = tostring(properties.essentials.severity),  
-        MonitorCondition = tostring(properties.essentials.monitorCondition),  
-        ObjectState = tostring(properties.essentials.alertState),  
-        MonitorService = tostring(properties.essentials.monitorService),  
-        AlertRuleId = tostring(properties.essentials.alertRule),  
-        SignalType = tostring(properties.essentials.signalType),  
-        TargetResource = tostring(properties.essentials.targetResourceName), 
-        TargetResourceType = tostring(properties.essentials.targetResourceName), 
-        id   
-        | summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType" 
-    } 
-
- 
-
 
 ## Next steps
 - If using a log alert, also see [Troubleshooting Log Alerts](./alerts-troubleshoot-log.md).

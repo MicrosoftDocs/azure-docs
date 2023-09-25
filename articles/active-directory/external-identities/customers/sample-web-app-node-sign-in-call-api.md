@@ -17,7 +17,7 @@ ms.custom: developer, devx-track-js
 
 # Sign in users and call an API in sample Node.js web application 
 
-This how-to guide uses a sample Node.js web application to show you how to add authentication and authorization. The sample application sign in users to a Node.js web app, which then calls a .NET API. You enable authentication and authorization by using your Microsoft Entra External ID for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Node.js web application to show you how to add authentication and authorization. The sample application sign in users to a Node.js web app, which then calls a .NET API. You enable authentication and authorization by using your Microsoft Entra ID for customers tenant details. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
 In this article, you complete the following tasks:
 

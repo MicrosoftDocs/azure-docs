@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Governing Microsoft Entra service accounts
 
-There are three types of service accounts in Microsoft Entra ID (Microsoft Entra ID): managed identities, service principals, and user accounts employed as service accounts. When you create service accounts for automated use, they're granted permissions to access resources in Azure and Microsoft Entra ID. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Microsoft Entra service account is managing creation, permissions, and lifecycle to ensure security and continuity.
+There are three types of service accounts in Microsoft Entra ID: managed identities, service principals, and user accounts employed as service accounts. When you create service accounts for automated use, they're granted permissions to access resources in Azure and Microsoft Entra ID. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Microsoft Entra service account is managing creation, permissions, and lifecycle to ensure security and continuity.
 
 Learn more:
 

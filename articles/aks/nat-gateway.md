@@ -181,8 +181,8 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
         az provider register --namespace Microsoft.ContainerService
         ```
 
-* Your clusters must have a managed NAT gateway (which may increase the overall cost).
 * If you're using Kubernetes version 1.25 or older, you need to [update your deployment configuration][upgrade-kubernetes].
+* Cluster outbound type can't be set to load balancer.
 * If you need to switch from a load balancer to NAT gateway, you can either add a NAT gateway into the VNet or run [`az aks upgrade`][aks-upgrade] to update the outbound type.
 
 ### Manually disable OutboundNAT for Windows

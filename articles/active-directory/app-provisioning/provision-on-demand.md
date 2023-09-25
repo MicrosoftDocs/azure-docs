@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
@@ -26,16 +26,18 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
 ::: zone pivot="app-provisioning"
-2. Go to **Microsoft Entra ID** > **Enterprise applications** > **All applications**.
+
+2. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 
 3. Select your application, and then go to the provisioning configuration page.
 ::: zone-end
 
 ::: zone pivot="cross-tenant-synchronization"
-2. Go to **Microsoft Entra ID** > **Cross-tenant Synchronization** > **Configurations**
+
+2. Browse to **Identity** > **External Identities** > **Cross-tenant Synchronization** > **Configurations**
 
 3. Select your configuration, and then go to the **Provisioning** configuration page.
 ::: zone-end
@@ -52,7 +54,7 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
  
 7. Select **Provision** at the bottom of the page.
 
-    :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
+    :::image type="content" source="media/provision-on-demand/on-demand-provision-user.png" alt-text="Screenshot that shows the Microsoft Entra admin center UI for provisioning a user on demand." lightbox="media/provision-on-demand/on-demand-provision-user.png":::
 
 
 ## Understand the provisioning steps

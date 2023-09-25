@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -150,7 +150,7 @@ To facilitate Microsoft Entra provisioning workflows between the cloud HR app an
 
 For example, the following image lists the Workday connector apps that are available in the Microsoft Entra app gallery.
 
-![Azure portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+![Microsoft Entra admin center app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
 ### Decision flow chart
 
@@ -491,7 +491,7 @@ Microsoft Entra ID can provide more insights into your organization's user provi
 
 After a successful [initial cycle](../app-provisioning/how-provisioning-works.md#initial-cycle), the Microsoft Entra provisioning service continues to run back-to-back incremental updates indefinitely, at intervals defined in the tutorials specific to each app, until one of the following events occurs:
 
-- The service is manually stopped. A new initial cycle is triggered by using the [Azure portal](https://portal.azure.com/) or the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
+- The service is manually stopped. A new initial cycle is triggered by using the [Microsoft Entra admin center](https://entra.microsoft.com) or the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 - A new initial cycle is triggered owing to a change in attribute mappings or scoping filters.
 - The provisioning process goes into quarantine because of a high error rate. It stays in quarantine for more than four weeks, at which time it's automatically disabled.
 
@@ -521,7 +521,7 @@ To troubleshoot any issues that might turn up during provisioning, see the follo
 - [No users are being provisioned to a Microsoft Entra Gallery application](application-provisioning-config-problem-no-users-provisioned.md)
 - [Wrong set of users are being provisioned to a Microsoft Entra Gallery application](../manage-apps/add-application-portal-assign-users.md)
 - [Setting up Windows Event Viewer for agent troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
-- [Setting up Azure portal Audit Logs for service troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
+- [Setting up Audit Logs for service troubleshooting](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 - [Understanding logs for AD User Account create operations](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
 - [Understanding logs for Manager update operations](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
 - [Resolving commonly encountered errors](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)

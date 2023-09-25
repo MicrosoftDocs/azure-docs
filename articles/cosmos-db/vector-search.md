@@ -96,7 +96,7 @@ Implement RAG-patterns with Azure Cosmos DB for NoSQL and Azure Cognitive Search
 
 ### Code samples
 
-- [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/cognitive-search-vector)
+- [.NET retail chatbot reference solution](https://github.com/Azure/Vector-Search-AI-Assistant/tree/cognitive-search-vector)
 - [.NET samples - Hackathon project](https://github.com/AzureCosmosDB/OpenAIHackathon)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch)
 - [.NET tutorial - recipe chatbot w/ Semantic Kernel](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch_SemanticKernel)
@@ -108,7 +108,7 @@ RAG can be applied using the native vector search feature in Azure Cosmos DB for
 
 ### Code samples
 
-- [.NET retail chatbot demo](https://github.com/AzureCosmosDB/VectorSearchAiAssistant/tree/mongovcorev2)
+- [.NET retail chatbot sample](https://github.com/Azure/Vector-Search-AI-Assistant/tree/mongovcorev2)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-MongoDBvCore)
 - [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-MongoDB-vCore)
 
@@ -129,6 +129,7 @@ You can employ RAG by utilizing native vector search within Azure Cosmos DB for 
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
 - Learn more about [Azure OpenAI embeddings](../ai-services/openai/concepts/understand-embeddings.md)
 - Learn how to [generate embeddings using Azure OpenAI](../ai-services/openai/tutorials/embeddings.md)
+
 
 
 
