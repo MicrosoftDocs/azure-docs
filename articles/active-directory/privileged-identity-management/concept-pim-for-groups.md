@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Privileged Identity Management (PIM) for Groups
 
-Microsoft Entra ID, formerly known as Azure AD, allows you to grant users just-in-time membership and ownership of groups through Privileged Identity Management (PIM) for Groups. Groups can be used to control access to a variety of scenarios, including Microsoft Entra roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
+Microsoft Entra ID allows you to grant users just-in-time membership and ownership of groups through Privileged Identity Management (PIM) for Groups. Groups can be used to control access to a variety of scenarios, including Microsoft Entra roles, Azure roles, Azure SQL, Azure Key Vault, Intune, other application roles, and third-party applications.
 
 ## What is PIM for Groups?
 

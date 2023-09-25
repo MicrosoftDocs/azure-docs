@@ -1,5 +1,5 @@
 ---
-title: Register an app in Microsoft Entra External ID for customers
+title: Register an app in Microsoft Entra ID for customers
 description: Learn about how to register an app in the customer tenant.
 services: active-directory
 author: csmulligan
@@ -17,7 +17,7 @@ ms.custom: it-pro
 ---
 # Register your app in the customer tenant
 
-Microsoft Entra External ID for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
+Microsoft Entra ID for customers enables your organization to manage customers’ identities, and securely control access to your public facing applications and APIs. Applications where your customers can buy your products, subscribe to your services, or access their account and data.  Your customers only need to sign in on a device or a web browser once and have access to all your applications you granted them permissions.
 
 To enable your application to sign in with External ID for customers, you need to register your app with External ID for customers. The app registration establishes a trust relationship between the app and External ID for customers.
 During app registration, you specify the redirect URI. The redirect URI is the endpoint to which users are redirected by External ID for customers after they authenticate. The app registration process generates an application ID, also known as the client ID, that uniquely identifies your app.
@@ -29,7 +29,7 @@ In this article, you learn how to register an application in your customer tenan
 ## Prerequisites
 
 - An Azure account that has an active subscription. <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">Create an account for free</a>.
-- Your Microsoft Entra External ID for customers tenant. If you don't already have one, sign up for a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>.
+- Your Microsoft Entra ID for customers tenant. If you don't already have one, sign up for a <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">free trial</a>.
 
 ## Choose your app type
 

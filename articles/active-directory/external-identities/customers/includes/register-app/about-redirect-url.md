@@ -9,7 +9,7 @@ ms.author: kengaderdus
 
 ## About redirect URI
 
-The redirect URI is the endpoint where the user is sent to by the authorization server (Microsoft Entra ID, in this case) after completing its interaction with the user, and to which an access token or authorization code is sent to upon successful authorization. 
+The redirect URI is the endpoint where the user is sent to by the authorization server (in this case, Microsoft Entra ID) after completing its interaction with the user, and to which an access token or authorization code is sent to upon successful authorization. 
 
 In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`.
 

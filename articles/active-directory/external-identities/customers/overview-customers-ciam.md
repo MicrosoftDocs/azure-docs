@@ -15,9 +15,9 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to learn about identity solutions for customer-facing apps
 ---
 
-# What is Microsoft Entra External ID for customers?
+# What is Microsoft Entra ID for customers?
 
-Microsoft Entra External ID for customers, also known as Microsoft Entra ID for customers, is Microsoft’s new customer identity and access management (CIAM) solution. For organizations and businesses that want to make their public-facing applications available to consumers, Microsoft Entra ID makes it easy to add CIAM features like self-service registration, personalized sign-in experiences, and customer account management. Because these CIAM capabilities are built into Microsoft Entra ID, you also benefit from platform features like enhanced security, compliance, and scalability.
+Microsoft Entra ID for customers is Microsoft’s new customer identity and access management (CIAM) solution. For organizations and businesses that want to make their public-facing applications available to consumers, Microsoft Entra ID makes it easy to add CIAM features like self-service registration, personalized sign-in experiences, and customer account management. Because these CIAM capabilities are built into Microsoft Entra ID, you also benefit from platform features like enhanced security, compliance, and scalability.
 
 :::image type="content" source="media/overview-customers-ciam/overview-ciam.png" alt-text="Diagram showing an overview customer identity and access management." border="false":::
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Handle authentication flows in a Vanilla JavaScript single-page app
-description: Learn how to configure authentication for a Vanilla JavaScript single-page app (SPA) with your Microsoft Entra External ID for customers tenant.
+description: Learn how to configure authentication for a Vanilla JavaScript single-page app (SPA) with your Microsoft Entra ID for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 08/17/2023
-#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Microsoft Entra External ID for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Handle authentication flows in a Vanilla JavaScript single-page app

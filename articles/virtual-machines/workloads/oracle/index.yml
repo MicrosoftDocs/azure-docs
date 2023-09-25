@@ -97,7 +97,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Oracle on Azure VMs landing zone accelerator
-            url: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/oracle-iaas/
+            url: /azure/cloud-adoption-framework/scenarios/oracle-iaas/introduction-oracle-landing-zone
           - text: Cloud Adoption Framework for Azure
             url: https://azure.microsoft.com/solutions/cloud-enablement/cloud-adoption-framework/
           - text: Azure Architecture Center

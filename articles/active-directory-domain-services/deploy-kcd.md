@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 
 ---
@@ -18,9 +18,9 @@ ms.author: justinha
 
 As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user.
 
-Microsoft Entra Domain Services (Microsoft Entra DS) managed domains are more securely locked down than traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
+Microsoft Entra Domain Services managed domains are more securely locked down than traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
 
-This article shows you how to configure resource-based Kerberos constrained delegation in a Microsoft Entra DS managed domain.
+This article shows you how to configure resource-based Kerberos constrained delegation in a Domain Services managed domain.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ To complete this article, you need the following resources:
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Microsoft Entra DS managed domain.
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm] then [install the AD DS management tools][tutorial-create-management-vm].
 * A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
@@ -84,7 +84,7 @@ In this scenario, let's assume you have a web app that runs as a service account
 1. Create the service account (for example, *appsvc*) used to run the web app within the custom OU.
 
     > [!NOTE]
-    > Again, the computer account for the web API VM, and the service account for the web app, must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for accounts in the built-in *Microsoft Entra DC Computers* or *Microsoft Entra DC Users* containers. This also means that you can't use user accounts synchronized from Microsoft Entra ID to set up resource-based KCD. You must create and use service accounts specifically created in Microsoft Entra DS.
+    > Again, the computer account for the web API VM, and the service account for the web app, must be in a custom OU where you have permissions to configure resource-based KCD. You can't configure resource-based KCD for accounts in the built-in *Microsoft Entra DC Computers* or *Microsoft Entra DC Users* containers. This also means that you can't use user accounts synchronized from Microsoft Entra ID to set up resource-based KCD. You must create and use service accounts specifically created in Domain Services.
 
 1. Finally, configure resource-based KCD using the [Set-ADUser][Set-ADUser] PowerShell cmdlet.
 

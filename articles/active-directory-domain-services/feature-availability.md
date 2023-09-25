@@ -1,6 +1,6 @@
 ---
-title: Microsoft Entra Domain Services (Microsoft Entra DS) feature availability in Azure Government
-description: Learn which Microsoft Entra DS features are available in Azure Government. 
+title: Microsoft Entra Domain Services feature availability in Azure Government
+description: Learn which Domain Services features are available in Azure Government. 
 
 ms.service: active-directory
 ms.subservice: domain-services
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 <!---Jeremy said there are additional features that don't fit nicely in this list that we need to add later--->
 
-This following table lists Microsoft Entra Domain Services (Microsoft Entra DS) feature availability in Azure Government.
+This following table lists Microsoft Entra Domain Services feature availability in Azure Government.
 
 
 | Feature | Availability |

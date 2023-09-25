@@ -38,7 +38,7 @@ To configure risk-based step-up consent, you need:
 You can use the Azure AD PowerShell Preview module, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), to disable the step-up to admin consent that's required in cases where a risk is detected, or to enable it if it was previously disabled.
 
 > [!IMPORTANT]
-> Make sure you're using the AzureADPreview module. This is important if you've installed both the [Microsoft Entra ID](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the AzureADPreview module.
+> Make sure you're using the AzureADPreview module. This is important if you've installed both the [`AzureAD`](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) module and the `AzureADPreview` module.
 1. Run the following commands:
 
     ```powershell

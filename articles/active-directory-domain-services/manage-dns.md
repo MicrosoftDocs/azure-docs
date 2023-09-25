@@ -15,16 +15,16 @@ ms.author: justinha
 ---
 # Administer DNS and create conditional forwarders in a Microsoft Entra Domain Services managed domain
 
-Microsoft Entra DS includes a Domain Name System (DNS) server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
+Microsoft Entra Domain Services includes a Domain Name System (DNS) server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
 
-As you run your own applications and services, you may need to create DNS records for machines that aren't joined to the domain, configure virtual IP addresses for load balancers, or set up external DNS forwarders. Users who belong to the *AAD DC Administrators* group are granted DNS administration privileges on the Microsoft Entra DS managed domain and can create and edit custom DNS records.
+As you run your own applications and services, you may need to create DNS records for machines that aren't joined to the domain, configure virtual IP addresses for load balancers, or set up external DNS forwarders. Users who belong to the *AAD DC Administrators* group are granted DNS administration privileges on the Domain Services managed domain and can create and edit custom DNS records.
 
 In a hybrid environment, DNS zones and records configured in other DNS namespaces, such as an on-premises AD DS environment, aren't synchronized to the managed domain. To resolve named resources in other DNS namespaces, create and use conditional forwarders that point to existing DNS servers in your environment.
 
-This article shows you how to install the DNS Server tools then use the DNS console to manage records and create conditional forwarders in Microsoft Entra DS.
+This article shows you how to install the DNS Server tools then use the DNS console to manage records and create conditional forwarders in Domain Services.
 
 >[!NOTE]
->Creating or changing root hints or server-level DNS forwarders is not supported and will cause issues for the Microsoft Entra DS managed domain. 
+>Creating or changing root hints or server-level DNS forwarders is not supported and will cause issues for the Domain Services managed domain. 
 
 ## Before you begin
 
@@ -36,7 +36,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
-* Connectivity from your Microsoft Entra DS virtual network to where your other DNS namespaces are hosted.
+* Connectivity from your Domain Services virtual network to where your other DNS namespaces are hosted.
     * This connectivity can be provided with an [Azure ExpressRoute][expressroute] or [Azure VPN Gateway][vpn-gateway] connection.
 * A Windows Server management VM that is joined to the managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
@@ -77,11 +77,11 @@ With the DNS Server tools installed, you can administer DNS records on the manag
     ![DNS Console - administer domain](./media/manage-dns/dns-manager.png)
 
 > [!WARNING]
-> When you manage records using the DNS Server tools, make sure that you don't delete or modify the built-in DNS records that are used by Microsoft Entra DS. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
+> When you manage records using the DNS Server tools, make sure that you don't delete or modify the built-in DNS records that are used by Domain Services. Built-in DNS records include domain DNS records, name server records, and other records used for DC location. If you modify these records, domain services are disrupted on the virtual network.
 
 ## Create conditional forwarders
 
-A Microsoft Entra DS DNS zone should only contain the zone and records for the managed domain itself. Don't create additional zones in the managed domain to resolve named resources in other DNS namespaces. Instead, use conditional forwarders in the managed domain to tell the DNS server where to go in order to resolve addresses for those resources.
+A Domain Services DNS zone should only contain the zone and records for the managed domain itself. Don't create additional zones in the managed domain to resolve named resources in other DNS namespaces. Instead, use conditional forwarders in the managed domain to tell the DNS server where to go in order to resolve addresses for those resources.
 
 A conditional forwarder is a configuration option in a DNS server that lets you define a DNS domain, such as *contoso.com*, to forward queries to. Instead of the local DNS server trying to resolve queries for records in that domain, DNS queries are forwarded to the configured DNS for that domain. This configuration makes sure that the correct DNS records are returned, as you don't create a local a DNS zone with duplicate records in the managed domain to reflect those resources.
 

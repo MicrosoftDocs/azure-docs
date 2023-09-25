@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Authenticate users in your Node.js CLI application - Build app"
-description: Learn how to authenticate users in a Node.js CLI application registered in a Microsoft Entra External ID for customers tenant
+description: Learn how to authenticate users in a Node.js CLI application registered in a Microsoft Entra ID for customers tenant
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 08/04/2023
 ms.custom: developer, devx-track-js
 
-#Customer intent: As a dev, devops, I want to learn how to authenticate users in a Node.js CLI application registered in a Microsoft Entra External ID for customers tenant
+#Customer intent: As a dev, devops, I want to learn how to authenticate users in a Node.js CLI application registered in a Microsoft Entra ID for customers tenant
 ---
 
 # Authenticate users in a Node.js CLI application - Build app 

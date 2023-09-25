@@ -1,7 +1,7 @@
 ---
 
 title: Invitation redemption in B2B collaboration
-description: Describes the Azure AD B2B collaboration invitation redemption experience for end users, including the agreement to privacy terms.
+description: Describes the Microsoft Entra B2B collaboration invitation redemption experience for end users, including the agreement to privacy terms.
 
 services: active-directory
 ms.service: active-directory
@@ -17,15 +17,15 @@ ms.collection: engagement-fy23, M365-identity-device-management
 # Customer intent: As a tenant administrator, I want to make sure that guest users can access resources and the consent process.
 ---
 
-# Azure Active Directory B2B collaboration invitation redemption
+# Microsoft Entra B2B collaboration invitation redemption
 
 This article describes the ways guest users can access your resources and the consent process they'll encounter. If you send an invitation email to the guest, the invitation includes a link the guest can redeem to get access to your app or portal. The invitation email is just one of the ways guests can get access to your resources. As an alternative, you can add guests to your directory and give them a direct link to the portal or app you want to share. Regardless of the method they use, guests are guided through a first-time consent process. This process ensures that your guests agree to privacy terms and accept any [terms of use](../conditional-access/terms-of-use.md) you've set up.
 
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
 > [!IMPORTANT]
-> - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting July 12, 2021**,  if Microsoft Entra B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 > - The [email one-time passcode feature](one-time-passcode.md) is now turned on by default for all new tenants and for any existing tenants where you haven't explicitly turned it off. When this feature is turned off, the fallback authentication method is to prompt invitees to create a Microsoft account.
 
 ## Redemption process and sign-in through a common endpoint
@@ -78,25 +78,25 @@ To unblock users who can't redeem an invitation due to a conflicting [Contact ob
 
 ## Invitation redemption flow
 
-When a user selects the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
+When a user selects the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Microsoft Entra ID automatically redeems the invitation based on the redemption flow as shown below:
 
 :::image type="content" source="media/redemption-experience/invitation-redemption.png" alt-text="Screenshot showing the redemption flow diagram.":::
 
-1. Azure AD performs user-based discovery to determine if the user already exists in a managed Azure AD tenant. (Unmanaged Azure AD accounts can no longer be used for the redemption flow.) If the user’s User Principal Name ([UPN](../hybrid/connect/plan-connect-userprincipalname.md#what-is-userprincipalname)) matches both an existing Azure AD account and a personal MSA, the user is prompted to choose which account they want to redeem with.
+1. Microsoft Entra ID performs user-based discovery to determine if the user already exists in a managed Microsoft Entra tenant. (Unmanaged Microsoft Entra accounts can no longer be used for the redemption flow.) If the user’s User Principal Name ([UPN](../hybrid/connect/plan-connect-userprincipalname.md#what-is-userprincipalname)) matches both an existing Microsoft Entra account and a personal MSA, the user is prompted to choose which account they want to redeem with.
 
-2. If an admin has enabled [SAML/WS-Fed IdP federation](direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+2. If an admin has enabled [SAML/WS-Fed IdP federation](direct-federation.md), Microsoft Entra ID checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
-3. If an admin has enabled [Google federation](google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com, or googlemail.com and redirects the user to Google.
+3. If an admin has enabled [Google federation](google-federation.md), Microsoft Entra ID checks if the user’s domain suffix is gmail.com, or googlemail.com and redirects the user to Google.
 
 4. The redemption process checks if the user has an existing personal [MSA](microsoft-account.md). If the user already has an existing MSA, they'll sign in with their existing MSA.
 
 5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
 
-6. If no home directory is found and the email one-time passcode feature is *enabled* for guests, a [passcode is sent](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) to the user through the invited email. The user retrieves and enters this passcode in the Azure AD sign-in page.
+6. If no home directory is found and the email one-time passcode feature is *enabled* for guests, a [passcode is sent](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) to the user through the invited email. The user retrieves and enters this passcode in the Microsoft Entra sign-in page.
 
-7. If no home directory is found and email one-time passcode for guests is *disabled*, the user is prompted to create a consumer MSA with the invited email. We support creating an MSA with work emails in domains that aren't verified in Azure AD.
+7. If no home directory is found and email one-time passcode for guests is *disabled*, the user is prompted to create a consumer MSA with the invited email. We support creating an MSA with work emails in domains that aren't verified in Microsoft Entra ID.
 
-8. After authenticating to the right identity provider, the user is redirected to Azure AD to complete the [consent experience](#consent-experience-for-the-guest).  
+8. After authenticating to the right identity provider, the user is redirected to Microsoft Entra ID to complete the [consent experience](#consent-experience-for-the-guest).  
 
 ## Consent experience for the guest
 
@@ -107,7 +107,7 @@ When a guest signs in to a resource in a partner organization for the first time
    :::image type="content" source="media/redemption-experience/new-review-permissions.png" alt-text="Screenshot showing the Review permissions page.":::
 
    > [!NOTE]
-   > For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/properties-area.md).
+   > For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Microsoft Entra ID](../fundamentals/properties-area.md).
 
 2. If terms of use are configured, the guest opens and reviews the terms of use, and then selects **Accept**. 
 
@@ -119,7 +119,7 @@ When a guest signs in to a resource in a partner organization for the first time
 
    :::image type="content" source="media/redemption-experience/myapps.png" alt-text="Screenshot showing the Apps access panel." lightbox="media/redemption-experience/myapps.png":::
 
-In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
+In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of a Microsoft Entra B2B collaboration user](user-properties.md). 
 If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
 
 ### Automatic redemption process setting
@@ -132,6 +132,6 @@ For information about how to automatically redeem invitations, see [cross-tenant
 
 ## Next steps
 
-- [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [What is Microsoft Entra B2B collaboration?](what-is-b2b.md)
 - [B2B collaboration user properties](user-properties.md)
 - [Invitation email](invitation-email-elements.md)

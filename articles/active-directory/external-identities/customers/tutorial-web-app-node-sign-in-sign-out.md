@@ -12,7 +12,7 @@ ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
 ms.custom: developer, devx-track-js
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Microsoft Entra External ID for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Microsoft Entra ID for customers tenant
 ---
 
 # Tutorial: Add add sign-in and sign-out in your Node.js web application

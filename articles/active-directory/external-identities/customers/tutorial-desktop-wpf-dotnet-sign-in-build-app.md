@@ -15,7 +15,7 @@ ms.date: 07/26/2023
 
 # Tutorial: Authenticate users to your WPF desktop application
 
-In this tutorial, you build your Windows Presentation Form (WPF) desktop app and sign in and sign out a user using Microsoft Entra External ID for customers.
+In this tutorial, you build your Windows Presentation Form (WPF) desktop app and sign in and sign out a user using Microsoft Entra ID for customers.
 
 In this tutorial, you learn how to:
 
@@ -444,6 +444,6 @@ Run your app and sign in to test the application
 
 ## See also
 
-- [Sign in users in a sample Electron desktop application by using Microsoft Entra External ID for customers](./how-to-desktop-app-electron-sample-sign-in.md)
-- [Sign in users in a sample .NET MAUI desktop application by using Microsoft Entra External ID for customers](./how-to-desktop-app-maui-sample-sign-in.md)
+- [Sign in users in a sample Electron desktop application by using Microsoft Entra ID for customers](./how-to-desktop-app-electron-sample-sign-in.md)
+- [Sign in users in a sample .NET MAUI desktop application by using Microsoft Entra ID for customers](./how-to-desktop-app-maui-sample-sign-in.md)
 - [Customize branding for your sign-in experience](./how-to-customize-branding-customers.md)

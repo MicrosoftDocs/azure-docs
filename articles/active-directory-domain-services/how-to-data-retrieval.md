@@ -1,6 +1,6 @@
 ---
 title: Instructions for data retrieval from Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how to retrieve data from Microsoft Entra Domain Services (Microsoft Entra DS).
+description: Learn how to retrieve data from Microsoft Entra Domain Services.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.author: justinha
 ms.reviewer: manthanm
 ---
 
-# Microsoft Entra DS instructions for data retrieval
+# Microsoft Entra Domain Services instructions for data retrieval
 
-This document describes how to retrieve data from Microsoft Entra Domain Services (Microsoft Entra DS).
+This document describes how to retrieve data from Microsoft Entra Domain Services.
 
 [!INCLUDE [active-directory-app-provisioning.md](../../includes/gdpr-intro-sentence.md)]
 

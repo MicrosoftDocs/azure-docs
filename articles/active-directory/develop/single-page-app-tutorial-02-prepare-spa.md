@@ -76,7 +76,7 @@ Identity related **npm** packages must be installed in the project to enable use
 1. Ensure that the correct directory is selected (*reactspalocal*) then enter the following into the terminal to install the relevant `msal` and `bootstrap` packages.
 
     ```powershell
-    npm install @azure/msal-browser @azure/msal-react
+    npm install @azure/msal-browser @azure/msal-react @azure/msal-common
     npm install react-bootstrap bootstrap
     ```
 ---
