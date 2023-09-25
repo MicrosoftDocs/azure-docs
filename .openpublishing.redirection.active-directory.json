@@ -156,7 +156,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/global-secure-access/index.yml.md",
+      "source_path_from_root": "/articles/global-secure-access/index.yml",
       "redirect_url": "/entra/index.yml",
       "redirect_document_id": true
     },
@@ -176,12 +176,12 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/global-secure-access/resource-faq.yml.md",
+      "source_path_from_root": "/articles/global-secure-access/resource-faq.yml",
       "redirect_url": "/entra/resource-faq.yml",
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/global-secure-access/toc.yml.md",
+      "source_path_from_root": "/articles/global-secure-access/toc.yml",
       "redirect_url": "/entra/toc.yml",
       "redirect_document_id": true
     },
