@@ -517,7 +517,9 @@ items:
           href: containers/container-insights-agent-config.md
         - name: Enable ContainerLogv2
           href: containers/container-insights-logging-v2.md
-        - name: Enable cost optimization settings (preview)
+        - name: Migrate from ContainerLog to ContainerLogV2
+          name: containers/container-insights-v2-migration.md
+        - name: Enable cost optimization settings
           href: containers/container-insights-cost-config.md
         - name: Authentication
           href: containers/container-insights-authentication.md
