@@ -108,7 +108,7 @@ A single deployment of Azure Communications Gateway is designed to handle your O
 
 - Select from the list of available Azure regions. You can see the Azure regions that can be selected as service regions on the [Products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) page.
 - Choose regions near to your own premises and the peering locations between your network and Microsoft to reduce call latency.
-- Prefer [regional pairs](../reliability/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to minimize the recovery time if a multi-region outage occurs.
+- Prefer [regional pairs](../reliability/cross-region-replication-azure.md#azure-paired-regions) to minimize the recovery time if a multi-region outage occurs.
 
 Choose a management region from the following list:
 

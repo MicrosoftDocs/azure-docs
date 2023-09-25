@@ -30,7 +30,7 @@ This article walks you through the process of migrating your function app to run
 
 Update your `.csproj` project file to use the latest extension version for your process model. The following `.csproj` file uses version 4 of the Azure Cosmos DB extension.
 
-### [In-process model](#tab/in-process)
+### [In-process](#tab/in-process)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -54,7 +54,7 @@ Update your `.csproj` project file to use the latest extension version for your 
 </Project>
 ```
 
-### [Isolated worker model](#tab/isolated-worker)
+### [Isolated process](#tab/isolated-process)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

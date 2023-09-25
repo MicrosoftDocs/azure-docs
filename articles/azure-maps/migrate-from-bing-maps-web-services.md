@@ -393,7 +393,6 @@ The `iconType` value specifies the type of pin to create and can have the follow
 * `default` – The default pin icon.
 * `none` – No icon is displayed, only labels are rendered.
 * `custom` – Specifies a custom icon is to be used. A URL pointing to the icon image can be added to the end of the `pins` parameter after the pin location information.
-* `{udid}` – A Unique Data ID (UDID) for an icon stored in the Azure Maps Data Storage platform.
 
 Pin styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (`|`) characters like this `iconType|optionName1Value1|optionName2Value2`. Note the option names and values aren't separated. The following style option names can be used to style pushpins in Azure Maps:
 
@@ -446,7 +445,7 @@ In Azure Maps, lines and polygons can also be added to a static map image by spe
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma separating** longitude and latitude in Azure Maps. Azure Maps doesn't support encoded paths currently. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API. For more information, see [Upload pins and path data](./how-to-render-custom-data.md#upload-pins-and-path-data).
+When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma separating** longitude and latitude in Azure Maps. Azure Maps doesn't support encoded paths currently.
 
 Path styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (`|`) characters like this `optionName1Value1|optionName2Value2`. Note the option names and values aren't separated. The following style option names can be used to style paths in Azure Maps:
 
@@ -707,7 +706,7 @@ Learn more about the Azure Maps REST services.
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Map image render]: /rest/api/maps/render/getmapimagerytile
 [Map imagery tile]: /rest/api/maps/render/getmapimagerytile
-[Map Tiles]: /rest/api/maps/render/getmaptile
+[Map Tiles]: /rest/api/maps/render-v2/get-map-tile
 [nearby search]: /rest/api/maps/search/getsearchnearby
 [NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
 [POI category search]: /rest/api/maps/search/get-search-poi-category
@@ -715,7 +714,7 @@ Learn more about the Azure Maps REST services.
 [POST Route directions]: /rest/api/maps/route/postroutedirections
 [quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
 [Render custom data on a raster map]: how-to-render-custom-data.md
-[Render]: /rest/api/maps/render/getmapimage
+[Render]: /rest/api/maps/render-v2/get-map-static-image
 [Route directions]: /rest/api/maps/route/getroutedirections
 [Route Matrix]: /rest/api/maps/route/postroutematrixpreview
 [Route Range]: /rest/api/maps/route/getrouterange
