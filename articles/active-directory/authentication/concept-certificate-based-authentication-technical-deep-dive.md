@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/13/2023
+ms.date: 09/25/2023
 
 
 ms.author: justinha
@@ -163,7 +163,7 @@ Let's look at an example of a user who has single factor certificates and has co
 
 ## Understanding the authentication binding policy
 
-The authentication binding policy helps determine the strength of authentication as either single-factor or multifactor. An administrator can change the default value from single factor to multifactor, or set up custom policy configurations either by using issuer subject or policy OID fields in the certificate.
+The authentication binding policy helps determine the strength of authentication as either single-factor or multifactor. An administrator can change the default value from single-factor to multifactor, or set up custom policy configurations either by using issuer subject or policy OID fields in the certificate.
 
 ### Certificate strengths
 
@@ -192,14 +192,14 @@ The username binding policy helps validate the certificate of the user. By defau
 
 ### Achieve higher security with certificate bindings
 
-There are four supported methods. In general, mapping types are considered high-affinity if they're based on identifiers that you can't reuse (Such as Subject Key Identifiers or SHA1 Public Key). These identifiers convey a higher assurance that only a single certificate can be used to authenticate the respective user. Therefore, all mapping types based on usernames and email addresses are considered low-affinity. Therefore, Microsoft Entra ID implements two mappings considered low-affinity (based on reusable identifiers), and the other two are considered high-affinity bindings. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
+There are four supported methods for certificate bindings. In general, mapping types are considered high-affinity if they're based on identifiers that you can't reuse, such as Subject Key Identifiers or SHA1 Public Key. These identifiers convey a higher assurance that only a single certificate can be used to authenticate the respective user. All mapping types based on usernames and email addresses are considered low-affinity. Microsoft Entra ID implements two mappings considered low-affinity based on reusable identifiers. The other two are considered high-affinity bindings. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
 
-|Certificate mapping Field | Examples of values in certificateUserIds | User object attributes | Type | 
+|Certificate mapping field | Examples of values in certificateUserIds | User object attributes | Type | 
 |--------------------------|--------------------------------------|------------------------|----------|
-|PrincipalName | “X509:\<PN>bob@woodgrove.com” | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
-|RFC822Name	| “X509:\<RFC822>user@woodgrove.com” | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
-|X509SKI | “X509:\<SKI>123456789abcdef”| certificateUserIds | high-affinity |
-|X509SHA1PublicKey |“X509:\<SHA1-PUKEY>123456789abcdef” | certificateUserIds | high-affinity |
+|PrincipalName | X509:\<PN>bob@woodgrove.com | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
+|RFC822Name	| X509:\<RFC822>user@woodgrove.com | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
+|X509SKI | X509:\<SKI>123456789abcdef| certificateUserIds | high-affinity |
+|X509SHA1PublicKey |X509:\<SHA1-PUKEY>123456789abcdef | certificateUserIds | high-affinity |
 
 <a name='how-azure-ad-resolves-multiple-username-policy-binding-rules'></a>
 
