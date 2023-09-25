@@ -5,7 +5,7 @@ author: shlipsey3
 ms.author: sarahlipsey
 manager: amycolannino
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 09/22/2023
 ms.service: network-access
 ms.custom: 
 
@@ -35,13 +35,27 @@ You can set up the CPE using the Microsoft Entra admin center or using the Micro
 1. Browse to **Global Secure Access** > **Devices** > **Remote network**.
 1. Select **View configuration** for the remote network you need to configure.
 
-    ![Screenshot of the View configuration option in the remote networks list.](media/how-to-configure-customer-premises-equipment/remote-network-view-configuration.png)
+    :::image type="content" source="media/how-to-configure-customer-premises-equipment/remote-network-view-configuration.png" alt-text="Screenshot of the configuration details with the Microsoft information highlighted." lightbox="media/how-to-configure-customer-premises-equipment/remote-network-view-configuration-expanded.png":::
 
 1. Locate and save Microsoft's public IP address from the panel that opens.
+
+    ![Screenshot of the view configuration details panel.](media/how-to-configure-customer-premises-equipment/view-configuration-details-panel.png)
+
 1. In the preferred interface for *your CPE*, enter the IP address you saved in the previous step. This step completes the IPSec tunnel configuration.
 
+The following diagram highlights each of the major sections of the device configuration details. Text descriptions of each section follow the diagram. 
+
+:::image type="content" source="media/how-to-configure-customer-premises-equipment/device-configuration-map.png" alt-text="Diagram of the configuration details with each section highlighted." lightbox="media/how-to-configure-customer-premises-equipment/device-configuration-map-expanded.png":::
+
+- The `branchId` and `branchName` represent the remote network details.
+- The `displayName` is the device link name.
+- The `endpoint`, `asn`, `bdpAddress`, and `region` represent the Microsoft connectivity details. Enter these details on your CPE.
+- For zone redundant device links, a second set of details are generated.
+- `PeerConfiguration` and the subsequent details represent the CPE connectivity details. 
+- If you've configured more devices, their details follow.
+ 
 > [!IMPORTANT]
->The crypto profile you specified for the device link should match with what you specify on your CPE. If you chose the "default" IKE policy when configuring the device link, use the configurations described in the [Remote network configurations](reference-remote-network-configurations.md) article.
+>The crypto profile you specified for the device link should match with what you specify on your CPE. If you chose the "default" IKE policy when configuring the device link, use the configurations described in the **[Remote network configurations](reference-remote-network-configurations.md)** article.
 
 ## [Microsoft Graph API](#tab/microsoft-graph-api)
 
@@ -61,6 +75,8 @@ Follow these instructions to download the connectivity information for your remo
     GET https://graph.microsoft.com/beta/networkAccess/connectivity/branches/{branchSiteId}/deviceLinks/{deviceLinkId}
     ```
 ---
+
+The details in the response are similar to the device configuration details found in the Microsoft Entra admin center. 
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
