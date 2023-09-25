@@ -8,11 +8,9 @@ ms.date: 09/23/2023
 
 # Flink job orchestration using azure data factory managed airflow 
 
-This article covers using [Azure REST API](/rest/api/azure/) to access HDInsight Flink Cluster using [Cluster Job APIs](/rest/api/documentation-preview/cluster-jobs?view=azure-rest-preview&branch=result_8a0992dd-4756-46f5-9a8a-40e419f5d7b4) and orchestration data pipeline with Azure Data Factory Managed Airflow. [Azure Data Factory Managed Airflow](/azure/data-factory/concept-managed-airflow) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily. 
+This article covers using [Azure REST API](/rest/api/azure/) to access HDInsight Flink Cluster using [Cluster Job APIs](https://review.learn.microsoft.com/en-us/rest/api/documentation-preview/cluster-jobs?view=azure-rest-preview&branch=result_8a0992dd-4756-46f5-9a8a-40e419f5d7b4) and orchestration data pipeline with Azure Data Factory Managed Airflow. [Azure Data Factory Managed Airflow](/azure/data-factory/concept-managed-airflow) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily. 
 
 Apache Airflow is an open-source platform that programmatically creates, schedules, and monitors complex data workflows. It allows you to define a set of tasks, called operators, that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. 
-
-The best way to authenticate to Azure services is by using a managed identity. Still, there are some scenarios where that isn't an option, including Azure Data Factory Managed Airflow. In those cases, access keys or secrets are used. It is recommended to [rotate access keys or secrets](/azure/key-vault/secrets/tutorial-rotation) periodically. 
 
 The following diagram shows the placement of Airflow, Key Vault, and HDInsight on AKS in Azure. 
 
@@ -22,13 +20,13 @@ Multiple Azure Service Principals are created based on the scope to limit the ac
 
 ## Setup steps 
 
-1. [Setup Flink Cluster](/hdinsight-hilo/flink-create-cluster-portal?branch=master)
+1. [Setup Flink Cluster](./flink-create-cluster-portal.md)
 
 1. Upload your Flink Job jar to the storage account -  It can be the primary storage account associated with the Flink cluster or any other storage account where Assign the “Storage Blob Data Owner” role to the user-assigned MSI used for the cluster to this storage account. 
 
 1. Azure Key Vault - You can follow [this tutorial to create a new Azure Key Vault](/azure/key-vault/general/quick-create-portal) if you don't have one. 
 
-1. Create [Azure AD Service Principal](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) to access Key Vault – Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role, and make a note of ‘appId’, ‘password’, and ‘tenant’ from the response. We need to use the same for Airflow to use Key Vault storage as backends for storing sensitive information. 
+1. Create [Azure AD Service Principal](https://learn.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) to access Key Vault – Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role, and make a note of ‘appId’, ‘password’, and ‘tenant’ from the response. We need to use the same for Airflow to use Key Vault storage as backends for storing sensitive information. 
 
     ```
     az ad sp create-for-rbac -n <sp name> --role “Key Vault Secrets Officer” --scopes <key vault Resource ID> 
