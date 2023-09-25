@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 
-ms.date: 09/13/2023
+ms.date: 09/25/2023
 ms.author: henrymbugua
 ms.reviewer: j-mantu
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
@@ -18,8 +18,6 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 # Quickstart: Sign in users in a single-page app (SPA) and call the Microsoft Graph API using Angular
 
 This quickstart uses a sample Angular single-page app (SPA) to show you how to sign in users by using the [authorization code flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow) with Proof Key for Code Exchange (PKCE) and call the Microsoft Graph API. The sample uses the [Microsoft Authentication Library for JavaScript](/javascript/api/@azure/msal-react) to handle authentication.
-
-In this article you'll register a SPA in the Microsoft Entra admin center, and download a sample Angular SPA. Next, you'll run the sample application, sign in with your personal Microsoft account or a work/school account, and sign out.
 
 ## Prerequisites
 
@@ -56,8 +54,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-docs-code-javascript.git
     ```
-
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/archive/refs/heads/main.zip)
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Configure the project
 

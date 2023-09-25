@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to build, label, and train a custom model.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: lajanuar

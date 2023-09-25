@@ -226,7 +226,7 @@ Choose one of these tabs to learn about permissions for each component:
 
 # [Event Grid extension](#tab/eventgrid)
 
-[!INCLUDE [functions-event-grid-connections](../../includes/functions-event-grid-connections.md)]
+[!INCLUDE [functions-event-grid-permissions](../../includes/functions-event-grid-permissions.md)]
 
 # [Azure Cosmos DB extension](#tab/cosmos)
 
