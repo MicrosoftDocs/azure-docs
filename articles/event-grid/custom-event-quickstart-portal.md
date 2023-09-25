@@ -199,7 +199,7 @@ If you plan to continue working with this event, don't clean up the resources cr
 
 1. Select **Resource Groups** on the left menu. If you don't see it on the left menu, select **All Services** on the left menu, and select **Resource Groups**. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/delete-resource-groups.png" alt-text="Screenshot that shows the "Resource Groups page." :::
+    :::image type="content" source="./media/custom-event-quickstart-portal/delete-resource-groups.png" alt-text="Screenshot that shows the Resource Groups page." :::
 1. Select the resource group to launch the **Resource Group** page. 
 1. Select **Delete resource group** on the toolbar. 
 1. Confirm deletion by entering the name of the resource group, and select **Delete**. 
