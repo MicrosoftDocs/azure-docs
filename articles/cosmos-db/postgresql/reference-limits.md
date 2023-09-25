@@ -107,28 +107,10 @@ By default this database is called `citus`. Azure Cosmos DB for PostgreSQL suppo
 ## Backup and restore
 
 ### Geo-redundant backup and restore
-* Geo-redundant backup is supported in the following Azure regions.
-
-| Cluster's region      | Geo-backup stored in           |
-|-----------------------|--------------------------------|
-| Canada Central        | Canada East                    |
-| Central US            | East US 2                      |
-| East Asia             | Southeast Asia                 |
-| East US               | West US                        |
-| East US 2             | Central US                     |
-| Japan East            | Japan West                     |
-| Japan West            | Japan East                     |
-| North Central US      | South Central US               |
-| North Europe          | West Europe                    |
-| South Central US      | North Central US               |
-| Southeast Asia        | East Asia                      |
-| Switzerland North     | Switzerland West               |
-| Switzerland West      | Switzerland North              |
-| West Central US       | West US 2                      |
-| West Europe           | North Europe                   |
-| West US               | East US                        |
-| West US 2             | West Central US                |
-
+* Geo-redundant backup can be enabled only during cluster creation.
+    * You can enabled geo-redundant backup when you perform a cluster restore.
+    * You can enable geo-redundant backup when you [promote a cluster read-replica to an independent cluster](./howto-read-replicas-portal.md#promote-a-read-replica).
+* Geo-redundant backup can't be disabled once cluster is created.
 * [Customer managed key (CMK)](./concepts-customer-managed-keys.md) are not supported for cluster restore in a remote region.
 * Azure Cosmos DB for PostgreSQL cluster with geo-redundant backup enabled can't have a [cluster read replica](./concepts-read-replicas.md) in the region where geo-redundant backup is stored.
 

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/17/2023
 ---
 
-# Point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
+# Backup and point-in-time restore of a cluster in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -20,7 +20,7 @@ ms.date: 09/17/2023
 > for production workloads. Certain features might not be supported or might have constrained 
 > capabilities.
 
-This article provides step-by-step procedures to perform [point-in-time
+This article provides step-by-step procedures to select backup type and to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
