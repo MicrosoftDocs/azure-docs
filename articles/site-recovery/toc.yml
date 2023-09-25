@@ -566,37 +566,37 @@
   items:
   - name: Troubleshoot Azure VMs
     items:
-    - name: Troubleshoot Azure VM replication
+    - name: Azure VM replication errors
       href: azure-to-azure-troubleshoot-errors.md
-    - name: Troubleshoot Azure VM connectivity issues
+    - name: Azure VM connectivity issues
       href: azure-to-azure-troubleshoot-network-connectivity.md
-    - name: Troubleshoot ongoing replication
+    - name: Azure VM disaster recovery replication errors
       href: azure-to-azure-troubleshoot-replication.md
-    - name: Troubleshoot Mobility service issues
+    - name: Azure VM extension issues
       href: site-recovery-extension-troubleshoot.md
   - name: Troubleshoot VMware VMs/physical servers
     items:
-    - name: Troubleshoot VMware VM/physical server replication
+    - name: VMware VM/physical server replication errors
       href: vmware-azure-troubleshoot-replication.md
-    - name: Troubleshoot configuration servers
+    - name: Configuration server errors
       href: vmware-azure-troubleshoot-configuration-server.md
-    - name: Troubleshoot process servers
+    - name: Process server errors
       href: vmware-physical-azure-troubleshoot-process-server.md
-    - name: Troubleshoot push installation of the Mobility service
+    - name: Mobility service - push installation errors
       href: vmware-azure-troubleshoot-push-install.md
-    - name: Troubleshoot failover to Azure
+    - name: Failover to Azure errors
       href: site-recovery-failover-to-azure-troubleshoot.md
-    - name: Troubleshoot reprotection and failback of VMware VMs
+    - name: Reprotection and failback of VMware VMs errors
       href: vmware-azure-troubleshoot-failback-reprotect.md
-    - name: Troubleshoot Provider upgrade failures
+    - name: Azure Site Recovery Provider upgrade failures
       href: vmware-azure-troubleshoot-upgrade-failures.md
-    - name: Troubleshoot vCenter discovery failures
+    - name: VMware vCenter discovery failures
       href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Troubleshoot Hyper-V
     items:
-    - name: Troubleshoot Hyper-V replication
+    - name: Hyper-V replication errors
       href: hyper-v-azure-troubleshoot.md
-    - name: Troubleshoot failover to Azure
+    - name: Failover VMware VM/ physical machine to Azure errors
       href: site-recovery-failover-to-azure-troubleshoot.md
 - name: Reference
   items:
