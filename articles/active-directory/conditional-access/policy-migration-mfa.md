@@ -1,6 +1,6 @@
 ---
 title: Migrate a classic Conditional Access policy 
-description: This article shows how to migrate a classic Conditional Access policy in the Azure portal.
+description: This article shows how to migrate a classic Conditional Access policy.
 
 services: active-directory
 ms.service: active-directory
