@@ -83,9 +83,9 @@ mssparkutils.fs.mount(
 > from notebookutils import mssparkutils 
 > ```
 > Mount parameters:
-> 1. fileCacheTimeout: Blobs will be cached in the local temp folder for 120 seconds by default. During this time, blobfuse will not check whether the file is up to date or not. The parameter could be set to change the default timeout time. When multiple clients modify files at the same time, in order to avoid inconsistencies between local and remote files, It's recommended to shorten the cache time, or even change it to 0, and always get the latest files from the server.
-> 2. timeout: The mount operation timeout in 120 seconds by default. The parameter could be set to change the default timeout time. When there are too many executors or when mount times out, It's recommended to increase the value.
-> 3. scope: The scope parameter is used to specify the scope of the mount. The default value is "job". If the scope is set to "job", the mount will be visible only to the current cluster. If the scope is set to "workspace", the mount will be visible to all notebooks in current workspace, and the mount point will be automatically created if it doesn't exist, and you should add the same parameters to unmount api to unmount the mount point. The workspace level mount is only supported for linked service authentication.
+> - fileCacheTimeout: Blobs will be cached in the local temp folder for 120 seconds by default. During this time, blobfuse won't check whether the file is up to date or not. The parameter could be set to change the default timeout time. When multiple clients modify files at the same time, in order to avoid inconsistencies between local and remote files, we recommend shortening the cache time, or even changing it to 0, and always getting the latest files from the server.
+> - timeout: The mount operation timeout is 120 seconds by default. The parameter could be set to change the default timeout time. When there are too many executors or when the mount times out, we recommend increasing the value.
+> - scope: The scope parameter is used to specify the scope of the mount. The default value is "job." If the scope is set to "job," the mount is visible only to the current cluster. If the scope is set to "workspace," the mount is visible to all notebooks in the current workspace, and the mount point is automatically created if it doesn't exist. Add the same parameters to the unmount API to unmount the mount point. The workspace level mount is only supported for linked service authentication.
 >
 > You can use these parameters like this:
 > ```python
@@ -222,7 +222,7 @@ df.show()
 ``` 
 
 > [!NOTE]  
-> When you mount the storage using linked service, you should always explicitly set spark linked service configuration before using synfs schema to access the data. Please refer to this link for details: [ADLS Gen2 storage with linked services](./apache-spark-secure-credentials-with-tokenlibrary.md#adls-gen2-storage-without-linked-services)
+> When you mount the storage using a linked service, you should always explicitly set spark linked service configuration before using synfs schema to access the data. Refer to [ADLS Gen2 storage with linked services](./apache-spark-secure-credentials-with-tokenlibrary.md#adls-gen2-storage-without-linked-services) for details. 
 
 ### Read a file from a mounted Blob Storage account 
 
