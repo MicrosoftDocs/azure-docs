@@ -138,10 +138,6 @@
   items:
     - name: Scale an app
       href: scale-app.md
-    - name: Resiliency
-      items:
-        - name: Overview
-          href: resiliency-overview.md
 - name: Domains & certificates
   items:
     - name: Custom domains & certificates
@@ -181,6 +177,12 @@
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
+- name: Resiliency
+  items:
+    - name: Container app resiliency
+      href: resiliency-overview.md
+    - name: Dapr component resiliency
+      href: dapr-resiliency-overview.md
 - name: Dedicated hardware
   items:
     - name: Workload profiles
@@ -201,6 +203,8 @@
       href: microservices-dapr-bindings.md
     - name: Microservices communication using Dapr Service Invocation
       href: microservices-dapr-service-invoke.md
+    - name: Dapr component resiliency
+      href: dapr-resiliency-overview.md
     - name: Scale Dapr apps with KEDA using Bicep
       href: dapr-keda-scaling.md
     - name: Connect to Azure services via Dapr components
