@@ -116,9 +116,9 @@ Create an AKS cluster using the [az aks create][az-aks-create] command and speci
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
-    ```azurecli-interactive
-    az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.24.0 and above> --os-sku AzureLinux –-node-vm-size <VM sizes capable of nested SNP VM> --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
-    ```
+   ```azurecli-interactive
+   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.24.0 and above> --os-sku AzureLinux –-node-vm-size <VM sizes capable of nested SNP VM> --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+   ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
@@ -325,5 +325,5 @@ kubectl delete pod pod-name
 <!-- INTERNAL LINKS -->
 [pod-sandboxing-overview]: use-pod-sandboxing.md
 [azure-key-vault-managed-hardware-security-module]: ../key-vault/managed-hsm/overview.md
-[create-managed-hsm]: ../azure/key-vault/managed-hsm/quick-create-cli.md
+[create-managed-hsm]: ../key-vault/managed-hsm/quick-create-cli.md
 [upgrade-cluster-enable-workload-identity]: workload-identity-deploy-cluster.md#update-an-existing-aks-cluster
