@@ -53,7 +53,7 @@ You can also use Azure Active Directory authentication with cluster connect. For
 
 With cluster connect, you can choose to authenticate via [service accounts](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens).
 
-For more information, see [Service account token authentication option](cluster-connect.md#option-2-service-account-token-authenticationn).
+For more information, see [Service account token authentication option](cluster-connect.md#option-2-service-account-token-authentication).
 
 ## Authorization options
 
