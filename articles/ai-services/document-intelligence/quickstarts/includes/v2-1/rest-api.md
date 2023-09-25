@@ -3,8 +3,7 @@ title: "Get started: Azure AI Document Intelligence (formerly Form Recognizer) R
 description: Use the Document Intelligence REST API v2.1 to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar

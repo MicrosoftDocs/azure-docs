@@ -1,8 +1,7 @@
 ---
 title: Network isolation and Private Link -question answering
 description: Users can restrict public access to question answering resources.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback

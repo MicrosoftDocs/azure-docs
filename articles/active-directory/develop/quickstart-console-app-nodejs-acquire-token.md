@@ -35,10 +35,9 @@ Follow the steps below to get started.
 
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Microsoft Entra ID**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application, for example `msal-node-cli`. Users of your app might see this name, and you can change it later.
 1. Select **Register**.
 1. Under **Manage**, select **Certificates & secrets**.
@@ -56,31 +55,32 @@ To register your application and add the app's registration information to your 
 1. Extract the zip file to a local folder close to the root of the disk, for example, *C:/Azure-Samples*.
 1. Edit *.env* and replace the values of the fields `TENANT_ID`, `CLIENT_ID`, and `CLIENT_SECRET` with the following snippet:
 
-  ```
-  "TENANT_ID": "Enter_the_Tenant_Id_Here",
+   ```
+   "TENANT_ID": "Enter_the_Tenant_Id_Here",
    "CLIENT_ID": "Enter_the_Application_Id_Here",
    "CLIENT_SECRET": "Enter_the_Client_Secret_Here"
    ```
+
    Where:
-   - `Enter_the_Application_Id_Here` - is the **Application (client) ID** of the application you registered earlier. Find this ID on the app registration's **Overview** pane in the Azure portal.
-   - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview** pane in the Azure portal.
-   - `Enter_the_Client_Secret_Here` - replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
+   - `Enter_the_Application_Id_Here` - is the **Application (client) ID** of the application you registered earlier. Find this ID on the app registration's **Overview**.
+   - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com).  Find these values on the app registration's **Overview**.
+   - `Enter_the_Client_Secret_Here` - replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings.
    
    Using a plaintext secret in the source code poses an increased security risk for your application. Although the sample in this quickstart uses a plaintext client secret, it's only for simplicity. We recommend using [certificate credentials](./certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
-3. Edit *.env* and replace the Microsoft Entra ID and Microsoft Graph endpoints with the following values:
+1. Edit *.env* and replace the Microsoft Entra ID and Microsoft Graph endpoints with the following values:
    - For the Microsoft Entra endpoint, replace `Enter_the_Cloud_Instance_Id_Here` with `https://login.microsoftonline.com`.
    - For the Microsoft Graph endpoint, replace `Enter_the_Graph_Endpoint_Here` with `https://graph.microsoft.com/`.
 
 #### Step 4: Admin consent
 
-If you try to run the application at this point, you'll receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This error happens because any *app-only permission* requires **admin consent**: a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
+If you try to run the application at this point, you'll receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This error happens because any *app-only permission* requires **admin consent**: an [Application Administrator](../roles/permissions-reference.md#application-administrator) or [Global Administrator](../roles/permissions-reference.md#global-administrator) must give consent to your application. Select one of the options below depending on your role:
 
-##### Global tenant administrator
+##### Administrators
 
-If you're a global tenant administrator, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
+If you're assigned the [Application Administrator](../roles/permissions-reference.md#application-administrator) or [Global Administrator](../roles/permissions-reference.md#global-administrator) roles, go to **API Permissions** page in the Azure portal's Application Registration and select **Grant admin consent for {Tenant Name}** (where {Tenant Name} is the name of your directory).
 
-##### Standard user
+##### Standard users
 
 If you're a standard user of your tenant, then you need to ask a global administrator to grant **admin consent** for your application. To do this, give the following URL to your administrator:
 
