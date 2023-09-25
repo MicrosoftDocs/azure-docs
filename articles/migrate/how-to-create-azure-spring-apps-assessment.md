@@ -96,9 +96,9 @@ This card shows the list of assessed apps with the average memory consumption an
 
 The assessment summary shows the estimated monthly costs for hosting your apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. You can chhose the apps to be included in the Azure Spring apps service instance..
 
-For estimating cost, we assume you would put all your assessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/). The monthly cost on this card assumes each month has 744 hours instead of 730 hours.
+For estimating cost, we assume you add all your assessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/). The monthly cost on this card assumes each month has 744 hours instead of 730 hours.
 
-The estimated cost applies for both Azure Spring Apps Standard Tier and Enterprise Tier. For Enterprise Tier, there is an additional cost on [software IP](https://azuremarketplace.microsoft.com/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which aren't included in cost estimation.
+The estimated cost applies for both Azure Spring Apps Standard tier and Enterprise tier. For Enterprise tier, there is an additional cost on [software IP](https://azuremarketplace.microsoft.com/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which aren't included in cost estimation.
 
    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost.png" alt-text="Screenshot of Cost details.":::
 
