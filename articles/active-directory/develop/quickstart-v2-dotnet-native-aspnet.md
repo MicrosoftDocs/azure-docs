@@ -53,9 +53,9 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > 
 > Register your web API in **App registrations** in the Azure portal.
 > 
-> 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
-> 1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
+> 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+> 1. Browse to **Identity** > **Applications** > **App registrations**.
+> 1. Select **New registration**.
 > 1. Enter a **Name** for your application, for example `AppModelv2-NativeClient-DotNet-TodoListService`. Users of your app might see this name, and you can change it later.
 > 1. For **Supported account types**, select **Accounts in any organizational directory**.
 > 1. Select **Register** to create the application.

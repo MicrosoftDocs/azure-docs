@@ -6,8 +6,8 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 zone_pivot_groups: programming-languages-set-face
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: quickstart
 ms.date: 07/04/2023
 ms.author: pafarley

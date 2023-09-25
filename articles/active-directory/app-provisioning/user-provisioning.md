@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/14/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -70,7 +70,7 @@ Some common motivations for using automatic provisioning include:
 - Easily importing a large number of users into a particular SaaS application or system.
 - A single set of policies to determine provisioned users that can sign in to an app.
 
-Microsoft Entra user provisioning can help address these challenges. To learn more about how customers have been using Microsoft Entra user provisioning, read the [ASOS case study](https://aka.ms/asoscasestudy). The following video provides an overview of user provisioning in Microsoft Entra ID.
+Microsoft Entra user provisioning can help address these challenges. To learn more about how customers have been using Microsoft Entra user provisioning, read the [ASOS case study](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/asos-better-protects-its-data-with-azure-ad-automated-user/ba-p/827846). The following video provides an overview of user provisioning in Microsoft Entra ID.
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 

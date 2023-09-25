@@ -26,7 +26,7 @@ This section lists the device join state parameters. The criteria that are requi
 | ---	| ---	| ---	| ---	|
 | YES | NO | NO | Microsoft Entra joined |
 | NO | NO | YES | Domain Joined |
-| YES | NO | YES | Hybrid AD Joined |
+| YES | NO | YES | Microsoft Entra hybrid joined |
 | NO | YES | YES | On-premises DRS Joined |
 
 > [!NOTE]

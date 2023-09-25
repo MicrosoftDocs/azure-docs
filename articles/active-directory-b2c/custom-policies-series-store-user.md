@@ -109,12 +109,12 @@ You need to configure two [Microsoft Entra Technical Profile](active-directory-t
         </TechnicalProfile>
     ```
 
-    We've added a new Microsoft Entra technical profile, *AAD-UserWrite*. You need to take note of the following important parts of the technical profile: 
-    
+    We've added a new Microsoft Entra technical profile, `AAD-UserWrite`. You need to take note of the following important parts of the technical profile: 
+
     -  *Operation*: The operation specifies the action to be performed, in this case, *Write*. Learn more about other [operations in a Microsoft Entra technical provider](active-directory-technical-profile.md#azure-ad-technical-profile-operations). 
-    
+
     - *Persisted claims*: The *PersistedClaims* element contains all of the values that should be stored into Microsoft Entra storage.
-    
+
     - *InputClaims*: The *InputClaims* element contains a claim, which is used to look up an account in the directory, or create a new one. There must be exactly one input claim element in the input claims collection for all Microsoft Entra technical profiles. This technical profile uses the *email* claim, as the key identifier for the user account. Learn more about [other key identifiers you can use uniquely identify a user account](active-directory-technical-profile.md#inputclaims).
     
 
@@ -276,7 +276,7 @@ After the policy finishes execution, and you receive your ID token, check that t
     :::image type="content" source="media/custom-policies-series-store-user/screenshot-of-create-users-custom-policy.png" alt-text="A screenshot of creating a user account in Azure AD.":::   
 
 
-In our *Microsoft Entra ID-UserWrite* Microsoft Entra Technical Profile, we specify that if the user already exists, we raise an error message.
+In our `AAD-UserWrite` Microsoft Entra Technical Profile, we specify that if the user already exists, we raise an error message.
 
 Test your custom policy again by using the same **Email Address**. Instead of the policy executing to completion to issue an ID token, you should see an error message similar to the screenshot below. 
 
