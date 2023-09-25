@@ -38,6 +38,6 @@ See samples for the older .NET and Java client libraries here:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - See the **Deferral** sample. 
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
 
-## Related Resources
+## Related resources
 
 - [Tutorial showing the use of message deferral as a part of a workflow, using NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/2-timeouts/)
