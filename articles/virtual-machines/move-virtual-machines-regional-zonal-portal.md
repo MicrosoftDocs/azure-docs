@@ -135,4 +135,4 @@ To manually remove the move collection that was made, follow these steps:
 
 ## Next steps
 
-- Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell](./move-virtual-machines-regional-zonal-powershell.md).
+Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell](./move-virtual-machines-regional-zonal-powershell.md).

@@ -1131,12 +1131,12 @@
       href: ../availability-zones/migrate-vm.md
     - name: Regional to zonal move guides
       items:
-      - name: PowerShell and CLI
-        displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
-        href: ./move-virtual-machines-regional-zonal-powershell.md
       - name: Portal
         displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
         href: ./move-virtual-machines-regional-zonal-portal.md
+      - name: PowerShell and CLI
+        displayName: availability and scale, availability, single instance virtual machines, autoscale, availability zones, AV zones
+        href: ./move-virtual-machines-regional-zonal-powershell.md
       - name: FAQ
         displayName: availability and scale, availability, scale, single instance virtual machines, availability zones, AV zones
         href: ./move-virtual-machines-regional-zonal-faq.md
