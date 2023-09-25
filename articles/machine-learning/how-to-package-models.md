@@ -279,7 +279,11 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
     endpoint = ManagedOnlineEndpoint(name=endpoint_name)
     endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint).result()
     ```
+
+    # [Studio](#tab/studio)
     
+    TODO
+
 1. Create a deployment to host the model we just packaged:
 
     # [Azure CLI](#tab/cli)

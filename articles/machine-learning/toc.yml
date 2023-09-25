@@ -949,8 +949,8 @@
       href: how-to-package-models-app-service.md
     - name: Model optimization
       items:
-        name: Accelerate inference with ONNX 
-        href: concept-onnx.md
+        - name: Accelerate inference with ONNX 
+          href: concept-onnx.md
     - name: Prebuilt Docker images for inference
       href: concept-prebuilt-docker-images-inference.md
     # v1
