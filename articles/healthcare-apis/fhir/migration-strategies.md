@@ -46,7 +46,7 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 
 - **Sync agent is being deprecated**. If you're using sync agent to connect to Dataverse, see [Overview of data integration toolkit](/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json)
 
-- **FHIR Proxy is being deprecated**. If you're using FHIR Proxy for events, refer to the built-in [eventing](../events/events-overview.md/) feature. Alternatives can be customized and built using the [Azure Health Data Services toolkit](https://github.com/microsoft/azure-health-data-services-toolkit).
+- **FHIR Proxy is being deprecated**. If you're using FHIR Proxy for events, refer to the built-in [eventing](../events/events-overview.md) feature. Alternatives can be customized and built using the [Azure Health Data Services toolkit](https://github.com/microsoft/azure-health-data-services-toolkit).
 
 - **SMART on FHIR proxy is being deprecated**. You need to use the new SMART on FHIR capability. More information: [SMART on FHIR](smart-on-fhir.md)
 
@@ -102,3 +102,6 @@ Migrate applications that were pointing to the old FHIR server.
 ## Step 5: Cut over to Azure Health Data Services FHIR services
 
 After you’re confident that your Azure Health Data Services FHIR Service server is stable, you can begin using Azure Health Data Services FHIR Service to satisfy your business scenarios. Turn off any remaining pipelines that are running on Azure API for FHIR, delete data from the intermediate storage account that was used in the migration tool if necessary, delete data from your Azure API for FHIR server, and decommission your Azure API for FHIR account.
+
+
+[def]: https://learn.microsoft.com/azure/healthcare-apis/events/events-overview
