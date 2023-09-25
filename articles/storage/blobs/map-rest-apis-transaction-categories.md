@@ -73,14 +73,14 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Put Block from URL](/rest/api/storageservices/put-block-from-url)                        | Write                     | Write                       | Write                       |
 | [Put Block List](/rest/api/storageservices/put-block-list)                                | Write                     | Write                       | Write                       |
 | [Get Block List](/rest/api/storageservices/get-block-list)                                | Other                     | Other                       | Read                        |
-| [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read<sup>2</sup>          | Read<sup>2</sup>            | N/A                         |
+| [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read<sup>1</sup>          | Read<sup>1</sup>            | N/A                         |
 | [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)                  | Other                     | Other                       | Write                       |
 | [Append Block](/rest/api/storageservices/append-block)                                    | Write                     | Write                       | Write                       |
 | [Append Block from URL](/rest/api/storageservices/append-block-from-url)                  | Write                     | Write                       | Write                       |
 | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
 | [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       | 
 
-<sup>2</sup>    In addition to a read charge, charges are incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
+<sup>1</sup>    In addition to a read charge, charges are incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
 ## Operation type of each Data Lake Storage Gen2 REST operation
 
