@@ -401,10 +401,6 @@ Modify settings as follows:
     ```azurepowershell-interactive
     Update-AzResourceMoverMoveResource -ResourceGroupName " RegionToZone-DemoMCRG " -MoveCollectionName " RegionToZone-DemoMC -SourceId "/subscriptions/<Subscription-d>/resourceGroups/PSDemoRM/providers/Microsoft.Compute/virtualMachines/PSDemoVM" -Name "PSDemoVM" -ResourceSetting $TargetResourceSettingObj
     ```
-    
-    **Output**
-        
-    :::image type="content" source="./media/tutorial-move-regional-zonal/modify-settings.png" alt-text="Output text after modifying move settings.":::
 
 
 ## Resolve dependencies
@@ -543,8 +539,20 @@ After the initial move, you can decide whether you want to commit the move or di
     Invoke-AzResourceMover-VMZonalMoveCommit -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -MoveResource $('psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg', ‘PSDemoVM’) -MoveResourceInputType "MoveResourceId"
     ```
 
-    **Output**
-    **IMAGE**
+    **Output**:
+
+    ```powershell
+    AdditionalInfo : 
+    Code           : 
+    Detail         : 
+    EndTime        : 9/22/2023 5:26:55 AM 
+    Id             : /subscriptions/e80eb9fa-c996-4435-aa32-5af6f3d3077c/resourceGroups/RegionToZone-DemoMCRG/providers/Microsoft.Migrate/moveCollections/RegionToZone-DemoMC/operations/35dd1d93-ba70-4dc9-a17f-7d8ba48678d8 
+    Message        : 
+    Name           : 35dd1d93-ba70-4dc9-a17f-7d8ba48678d8 
+    Property       : Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Any 
+    StartTime      : 9/22/2023 5:26:54 AM 
+    Status         : Succeeded 
+    ```    
 
    # [CLI](#tab/CLI)
 
