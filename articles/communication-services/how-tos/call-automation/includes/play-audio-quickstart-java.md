@@ -138,7 +138,7 @@ If you wish to enhance your prompts more and include custom voice models, the pl
 // Provide VoiceName and  to select a specific voice.
 var playSource = new TextSource() 
     .setText(textToPlay) 
-    .setVoiceName("en-US-ElizabethNeural")
+    .setCustomVoiceName("en-US-ElizabethNeural")
     .setCustomVoiceEndpointId("YourCustomVoiceEndpointId");
 ```
 **Custom voice names SSML example**
