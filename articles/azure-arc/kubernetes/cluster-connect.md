@@ -275,7 +275,7 @@ Now it is possible to access the cluster from a different client. Execute the fo
    kubectl get pods -A
    ```
 
-   You should now see a response from the cluster containing the list of all pods under the all namespaces.
+   You should now see a response from the cluster containing the list of all pods under all namespaces.
 
 ### [PowerShell](#tab/PowerShell)
 
@@ -312,7 +312,7 @@ Now it is possible to access the cluster from a different client. Execute the fo
    kubectl get pods -A
    ```
 
-   You should now see a response from the cluster containing the list of all pods under the all namespaces.
+   You should now see a response from the cluster containing the list of all pods under all namespaces.
 
 ## Known limitations
 
