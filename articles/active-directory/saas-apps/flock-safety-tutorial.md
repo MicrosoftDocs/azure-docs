@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -35,7 +35,6 @@ In this tutorial, you configure and test Microsoft Entra SSO in a test environme
 
 * Flock Safety supports **SP** initiated SSO.
 * Flock Safety supports **Just In Time** user provisioning.
-
 
 ## Adding Flock Safety from the gallery
 
@@ -75,7 +74,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** textbox, type a value using the following pattern:
-    `urn:auth0:prod-flock:*`
+    `urn:auth0:prod-flock:<ID>`
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://login.flocksafety.com/login/callback?connection=<ID>`
@@ -84,9 +83,9 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     `https://users.flocksafety.com/sso-login/<CustomName>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Flock Safety support team](mailto:support@flocksafety.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Flock Safety support team](mailto:support@flocksafety.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
@@ -130,9 +129,9 @@ In this section, a user called Britta Simon is created in Flock Safety. Flock Sa
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on **Test this application** in Azure portal. This will redirect to Flock Safety Sign-on URL where you can initiate the login flow.
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Flock Safety Sign-on URL where you can initiate the login flow.
  
 * Go to Flock Safety Sign-on URL directly and initiate the login flow from there.
  
@@ -140,4 +139,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next Steps
 
-Once you configure Flock Safety you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Flock Safety you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
