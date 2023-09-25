@@ -19,6 +19,8 @@
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
+  - name: Enable replication - Modernized
+    href: quickstart-enable-replication.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
