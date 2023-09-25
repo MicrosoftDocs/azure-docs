@@ -2,7 +2,7 @@
 title: Monitor Azure App Service performance | Microsoft Docs
 description: Application performance monitoring for Azure App Service. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 08/11/2023
 ms.custom:
 ---
 
@@ -17,6 +17,8 @@ There are two ways to enable monitoring for applications hosted on App Service:
 - **Autoinstrumentation application monitoring** (ApplicationInsightsAgent).
 
   This method is the easiest to enable, and no code change or advanced configurations are required. It's often referred to as "runtime" monitoring. For App Service, we recommend that at a minimum you enable this level of monitoring. Based on your specific scenario, you can evaluate whether more advanced monitoring through manual instrumentation is needed.
+
+  When you enable auto-instrumentation it enables Application Insights with a default setting (it includes sampling as well). Even if you set in Azure AppInsights: Sampling: **All Data 100%** this setting will be ignored.
 
   For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
@@ -136,6 +138,30 @@ To find which version of the extension you're currently using, go to `https://<y
 #### 2.8.10
 
 - Fix for incomplete HTML response for ASP.NET Core apps.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### What does Application Insights modify in my project?
+
+The details depend on the type of project. For a web application:
+          
+* Adds these files to your project:
+  * ApplicationInsights.config
+  * ai.js
+* Installs these NuGet packages:
+  * Application Insights API: The core API
+  * Application Insights API for Web Applications: Used to send telemetry from the server
+  * Application Insights API for JavaScript Applications: Used to send telemetry from the client
+* The packages include these assemblies:
+  * Microsoft.ApplicationInsights
+  * Microsoft.ApplicationInsights.Platform
+* Inserts items into:
+  * Web.config
+  * packages.config
+* (For new projects only, you [add Application Insights to an existing project manually](./app-insights-overview.md).) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the main page *Views/Shared/\_Layout.cshtml*.
+          
 
 ## Next steps
 

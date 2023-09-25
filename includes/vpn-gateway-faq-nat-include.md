@@ -32,6 +32,7 @@ Only static 1:1 NAT and Dynamic NAT are supported. NAT64 is NOT supported.
 ### Does NAT work on active-active VPN gateways?
 
 Yes. NAT works on both active-active and active-standby VPN gateways.
+Each NAT rule is applied to a single instance of the VPN gateway. In active-active gateways, create a separate NAT rule for each gateway instance through the "IP configuration ID" field.
 
 ### Does NAT work with BGP connections?
 

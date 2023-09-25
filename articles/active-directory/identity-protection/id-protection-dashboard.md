@@ -29,16 +29,16 @@ This dashboard is designed to empower organizations with rich insights and actio
 
 To access this new dashboard, you need: 
 
-- Azure Active Directory Free, or Azure AD Premium P1, or Azure AD Premium P2 licenses for your users.
+- Microsoft Entra ID Free, or Microsoft Entra ID P1, or Microsoft Entra ID P2 licenses for your users.
 - Users must have at least the [Security Reader](../roles/permissions-reference.md#security-reader) role assigned.
-- To view a comprehensive list of recommendations and select the recommended action links, you need Azure AD Premium P2 licenses.
+- To view a comprehensive list of recommendations and select the recommended action links, you need Microsoft Entra ID P2 licenses.
 
 ## Access the dashboard
 
 Organizations can access the new dashboard by:
 
 1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Browse to **Identity** > **Protection** > **Identity Protection** > **Dashboard (Preview)**.
+1. Browse to **Protection** > **Identity Protection** > **Dashboard (Preview)**.
 
 ### Metric cards
  
@@ -50,7 +50,7 @@ As you implement more security measures such as risk-based policies, your tenant
 | --- | --- | --- | --- |
 | Number of attacks blocked | Number of attacks blocked for this tenant on each day. <br><br> An attack is considered blocked if the risky sign-in was interrupted by any access policy. The access control required by the policy should block the attacker from signing in, therefore blocking the attack. | Every 24 hours. | View the risk detections that determined the attacks in the **Risk detections report**, filter “Risk state” by: <br><br>- **Remediated** <br>- **Dismissed** <br>-** Confirmed safe** |
 | Number of users protected | Number of users in this tenant whose risk state changed from **At risk** to **Remediated** or **Dismissed** on each day. <br><br> A **Remediated** risk state indicates that the user has self-remediated their user risk by completing MFA or secure password change, and their account is therefore protected. <br><br> A **Dismissed** risk state indicates that an admin has dismissed the user’s risk because they identified the user’s account to be safe. | Every 24 hours. | View users protected in the **Risky users report**, filter “Risk state” by: <br><br>- **Remediated** <br>- **Dismissed** |
-| Mean time your users take to self-remediate their risks | Average time for the Risk state of risky users in your tenant to change from **At risk** to **Remediated**. <br><br> A user’s risk state changes to **Remediated** when they self-remediated their user risk through MFA or secure password change. <br><br> To reduce the self-remediation time in your tenant, deploy risk-based CA policies. | Every 24 hours. | View remediated users in the Risky users report, filter “Risk state” by: <br><br>- Remediated |
+| Mean time your users take to self-remediate their risks | Average time for the Risk state of risky users in your tenant to change from **At risk** to **Remediated**. <br><br> A user’s risk state changes to **Remediated** when they self-remediated their user risk through MFA or secure password change. <br><br> To reduce the self-remediation time in your tenant, deploy risk-based Conditional Access policies. | Every 24 hours. | View remediated users in the Risky users report, filter “Risk state” by: <br><br>- Remediated |
 | Number of new high-risk users detected | Number of new risky users with risk level **High** detected on each day. | Every 24 hours. | View high-risk users in the Risky users report, filter risk level by <br><br>- “High” |
 
 Data aggregation for the following three metrics started on June 22, 2023, so these metrics are available from that date. We're working on updating the graph to reflect that.
@@ -106,8 +106,8 @@ Two filters can be applied to the graph:
 | MCAS Anonymous IP | T1078 | Access using a valid account (Detected Offline) |
 | Verified Threat Actor IP | T1078 | Access using a valid account (Detected Offline) |
 | Suspicious browser | T1078 | Access using a valid account (Detected Offline) |
-| Azure AD threat intelligence (user) | T1078 | Access using a valid account (Detected Offline) |
-| Azure AD threat intelligence (sign-in) | T1078 | Access using a valid account (Detected Offline) |
+| Microsoft Entra threat intelligence (user) | T1078 | Access using a valid account (Detected Offline) |
+| Microsoft Entra threat intelligence (sign-in) | T1078 | Access using a valid account (Detected Offline) |
 | Anomalous User activity | T1098 | Account Manipulation |
 | Password spray | T1110.003 | Brute Force: Password Spraying |
 | Mass access to sensitive files | TA0009 | Collection |
@@ -160,10 +160,10 @@ Customers with P2 licenses can view a comprehensive list of recommendations that
 
 Recent Activity provides a summary of recent risk-related activities in your tenant. Possible activity types are:
 
-1.	Attack Activity 
-1.	Admin Remediation Activity 
-1.	Self-Remediation Activity 
-1.	New High-Risk Users 
+1. Attack Activity 
+1. Admin Remediation Activity 
+1. Self-Remediation Activity 
+1. New High-Risk Users 
 
 [![Screenshot showing recent activities in the dashboard.](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)](./media/id-protection-dashboard/microsoft-entra-id-protection-dashboard-recent-activities.png)
 

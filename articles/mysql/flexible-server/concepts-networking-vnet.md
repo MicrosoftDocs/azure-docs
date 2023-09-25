@@ -1,8 +1,8 @@
 ---
 title: Private Network Access overview - Azure Database for MySQL - Flexible Server
 description: Learn about private access networking option in the Flexible Server deployment option for Azure Database for MySQL
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -109,7 +109,7 @@ To configure correctly, you need the following resources:
 You can then use the flexible servername (FQDN) to connect from the client application in peered virtual network or on-premises network to flexible server.
 
 > [!NOTE]  
-> We recommend you use the fully qualified domain name (FQDN) '<servername>.mysql.database.azure.com' in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+> We recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
 
 ## Unsupported virtual network scenarios
 

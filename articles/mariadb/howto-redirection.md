@@ -2,13 +2,16 @@
 title: Connect with redirection - Azure Database for MariaDB
 description: This article describes how you can configure your application to connect to Azure Database for MariaDB with redirection.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+ms.custom: devx-track-linux
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 04/19/2023
 ---
 
 # Connect to Azure Database for MariaDB with redirection
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 This topic explains how to connect an application your Azure Database for MariaDB server with redirection mode. Redirection aims to reduce network latency between client applications and MariaDB servers by allowing applications to connect directly to backend server nodes.
 

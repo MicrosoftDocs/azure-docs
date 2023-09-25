@@ -51,9 +51,15 @@ Use the Azure Maps Android SDK to create mobile mapping applications.
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.
 
-### Data service
+### Data registry service
 
-Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  By bringing customer data closer to the Azure Maps service, you reduce latency and increase productivity. For more information on this service, see [Data service].
+Data is imperative for maps. Use the Data registry service to access geospatial data, used with spatial operations or image composition, previously uploaded to your [Azure Storage].  By bringing customer data closer to the Azure Maps service, you reduce latency and increase productivity. For more information on this service, see [Data registry service].
+
+> [!NOTE]
+>
+> **Azure Maps Data service retirement**
+>
+> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data Registry service] by 9/16/24. For more information, see [How to create data registry].
 
 ### Geolocation service
 
@@ -63,9 +69,15 @@ For more information, see the [Geolocation service] documentation.
 
 ### Render service
 
-[Render V2 service] introduces a new version of the [Get Map Tile V2 API] that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. It's recommended that you use Render V2 service instead of Render service V1. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render V2 service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
+[Render service] introduces a new version of the [Get Map Tile] API that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render V2 service":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service":::
+
+> [!NOTE]
+>
+> **Azure Maps Render v1 service retirement**
+>
+> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
 
 ### Route service
 
@@ -157,29 +169,9 @@ The Weather service offers API to retrieve weather information for a particular 
 
 Developers can use the [Get Weather along route API] to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints affected by weather hazards, such as flooding or heavy rain.
 
-The [Get Map Tile V2 API] allows you to request past, current, and future radar and satellite tiles.
+The [Get Map Tile] API allows you to request past, current, and future radar and satellite tiles.
 
 ![Example of map with real-time weather radar tiles](media/about-azure-maps/intro_weather.png)
-
-### Maps Creator service
-
-Maps Creator service is a suite of web services that developers can use to create applications with map features based on indoor map data.
-
-Maps Creator provides the following services:
-
-* [Dataset service]. Use the Dataset service to create a dataset from a converted drawing package data. For information about drawing package requirements, see drawing package requirements.
-
-* [Conversion service]. Use the Conversion service to convert a DWG design file into drawing package data for indoor maps.
-
-* [Tileset service]. Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
-
-* [Custom styling service] (preview). Use the [style service] or [visual style editor] to customize the visual elements of an indoor map.
-
-* [Feature State service]. Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
-
-* [WFS service]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API] standards for querying a single dataset.
-
-* [Wayfinding service] (preview). Use the [wayfinding API] to generate a path between two points within a facility. Use the [routeset API] to create the data that the wayfinding service needs to generate paths.
 
 ## Programming model
 
@@ -217,6 +209,10 @@ Verify that the location of your current IP address is in a supported country/re
 
 ## Next steps
 
+Learn about indoor maps:
+
+[What is Azure Maps Creator?]
+
 Try a sample app that showcases Azure Maps:
 
 [Quickstart: Create a web app]
@@ -226,32 +222,28 @@ Stay up to date on Azure Maps:
 [Azure Maps blog]
 
 <!---------   learn.microsoft.com links     --------------->
-[Conversion service]: creator-indoor-maps.md#convert-a-drawing-package
-[Custom styling service]: creator-indoor-maps.md#custom-styling-preview
-[Dataset service]: creator-indoor-maps.md#datasets
-[Feature State service]: creator-indoor-maps.md#feature-statesets
+[Azure Storage]: ../storage/common/storage-introduction.md
 [Get started with Azure Maps Power BI visual]: power-bi-visual-get-started.md
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
-[Tileset service]: creator-indoor-maps.md#tilesets
-[Wayfinding service]: creator-indoor-maps.md#wayfinding-preview
-[WFS service]: creator-indoor-maps.md#web-feature-service-api
+[What is Azure Maps Creator?]: about-creator.md
+[v1]: /rest/api/maps/data
+[v2]: /rest/api/maps/data-v2
+[Data Registry service]: /rest/api/maps/data-registry
+[How to create data registry]: how-to-create-data-registries.md
 <!---------   REST API Links     --------------->
-[Data service]: /rest/api/maps/data-v2
+[Data registry service]: /rest/api/maps/data-registry
 [Geolocation service]: /rest/api/maps/geolocation
-[Get Map Tile V2 API]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
-[Render V2 service]: /rest/api/maps/render-v2
+[Render service]: /rest/api/maps/render-v2
 [REST APIs]: /rest/api/maps/
 [Route service]: /rest/api/maps/route
-[routeset API]: /rest/api/maps/v20220901preview/routeset
 [Search service]: /rest/api/maps/search
 [Spatial service]: /rest/api/maps/spatial
-[style service]: /rest/api/maps/v20220901preview/style
 [TilesetID]: /rest/api/maps/render-v2/get-map-tile#tilesetid
 [Time zone service]: /rest/api/maps/timezone
 [Traffic service]: /rest/api/maps/traffic
-[wayfinding API]: /rest/api/maps/v20220901preview/wayfinding
 <!---------   JavaScript API Links     --------------->
 [JavaScript map control]: /javascript/api/azure-maps-control
 <!---------   External Links     --------------->
@@ -260,7 +252,5 @@ Stay up to date on Azure Maps:
 [Azure portal]: https://portal.azure.com
 [IANA ID]: https://www.iana.org/
 [Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy
-[Open Geospatial Consortium API]: https://docs.opengeospatial.org/is/17-069r3/17-069r3.html
 [reverse geocode]: https://en.wikipedia.org/wiki/Reverse_geocoding
 [Subprocessor List]: https://servicetrust.microsoft.com/DocumentPage/aead9e68-1190-4d90-ad93-36418de5c594
-[visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor

@@ -22,7 +22,7 @@ To learn more about AU10TIX and its complete set of solutions, visit https://www
 
 Before you can continue with the steps below you need to meet the following requirements:
 
-- A tenant [configured](verifiable-credentials-configure-tenant.md) for Entra Verified ID service.
+- A tenant [configured](verifiable-credentials-configure-tenant.md) for Microsoft Entra Verified ID service.
     - If you don't have an existing tenant, you can [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - You need to have completed the onboarding process with Au10tix.
     - To create a AU10TIX account, submit the form on this [page](https://www.au10tix.com/solutions/microsoft-azure-active-directory-verifiable-credentials-program/).
@@ -48,7 +48,7 @@ For incorporating identity verification into your Apps, using AU10TIX  “Govern
 
 As a developer you can share these steps with your tenant administrator to obtain the verification request URL, and body for your application or website to request Verified IDs from your users.
 
-1. Go to [Microsoft Entra portal -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade). 
+1. Go to [Microsoft Entra admin center -> Verified ID](https://entra.microsoft.com/#view/Microsoft_AAD_DecentralizedIdentity/ResourceOverviewBlade). 
 
    >[!NOTE]
    > Make sure this is the tenant you set up for Verified ID per the pre-requisites.

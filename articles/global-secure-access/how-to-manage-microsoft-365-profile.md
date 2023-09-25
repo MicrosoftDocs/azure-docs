@@ -22,7 +22,7 @@ With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 - To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 ### Known limitations
@@ -31,8 +31,8 @@ To enable the Microsoft 365 traffic forwarding profile for your tenant, you must
 - For details on limitations for the Microsoft 365 traffic profile, see [Windows Client known limitations](how-to-install-windows-client.md#known-limitations)
 ## Enable the Microsoft 365 traffic profile
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)**.
-1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Traffic forwarding**.
 1. Select the checkbox for **Microsoft 365 access profile**.
 
 ![Screenshot of the traffic forwarding page with the Private access profile enabled.](media/how-to-manage-microsoft-365-profile/microsoft-365-traffic-profile.png)
@@ -65,7 +65,7 @@ If the Global Secure Access client isn't able to connect to the service (for exa
 
 ## Linked Conditional Access policies
 
-[Conditional Access policies](../active-directory/conditional-access/overview.md) are created and applied to the traffic forwarding profile in the Conditional Access area of Microsoft Entra ID. For example, you can create a policy that requires using compliant devices when accessing Microsoft 365 services.
+[Conditional Access policies](/azure/active-directory/conditional-access/overview) are created and applied to the traffic forwarding profile in the Conditional Access area of Microsoft Entra ID. For example, you can create a policy that requires using compliant devices when accessing Microsoft 365 services.
 
 If you see "None" in the **Linked Conditional Access policies** section, there isn't a Conditional Access policy linked to the traffic forwarding profile. To create a Conditional Access policy, see [Universal Conditional Access through Global Secure Access.](how-to-target-resource-microsoft-365-profile.md).
 
@@ -87,7 +87,8 @@ Traffic profiles can be assigned to remote networks, so that the network traffic
 
 **To assign a remote network to the Microsoft 365 profile**:
 
-1. Go to **Microsoft Entra ID** > **Global Secure Access** > **Traffic forwarding**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1. Browse to **Global Secure Access (preview)** > **Traffic forwarding**.
 1. Select the **Add assignments** button for the profile. 
     - If you're editing the remote network assignments, select the **Add/edit assignments** button.
 1. Select a remote network from the list and select **Add**.

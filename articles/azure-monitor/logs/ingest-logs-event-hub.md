@@ -78,7 +78,7 @@ To create a custom table into which to ingest events, in the Azure portal:
     :::image type="content" source="media/ingest-logs-event-hub/create-custom-table-open-cloud-shell.png" lightbox="media/ingest-logs-event-hub/create-custom-table-open-cloud-shell.png" alt-text="Screenshot showing how to open Cloud Shell.":::
 
 
-1. Run this PowerShell command to create the table, providing the table name (`<table_name>`) in the JSON, and setting the `<subscription_id>`, `<resource_group_name>`, `<workspace_name>`, and `<table_name>` values in the `Invoke-AzRestMethod -Path` command:
+1. Run this PowerShell command to create the table, providing the table name (`<table_name>`) in the JSON (that too with suffix *_CL* in case of custom table), and setting the `<subscription_id>`, `<resource_group_name>`, `<workspace_name>`, and `<table_name>` values in the `Invoke-AzRestMethod -Path` command:
 
     ```PowerShell
     $tableParams = @'
@@ -112,7 +112,7 @@ To create a custom table into which to ingest events, in the Azure portal:
     ```
 
 > [!IMPORTANT]
-> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and the characters `_` and `-`. 
+> - Column names must start with a letter and can consist of up to 45 alphanumeric characters and underscores (`_`). 
 > - The following are reserved column names: `Type`, `TenantId`, `resource`, `resourceid`, `resourcename`, `resourcetype`, `subscriptionid`, `tenanted`. 
 > - Column names are case-sensitive. Make sure to use the correct case in your data collection rule. 
 

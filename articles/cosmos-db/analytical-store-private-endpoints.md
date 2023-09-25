@@ -34,7 +34,7 @@ The following access restrictions are applicable when data-exfiltration protecti
 
 ### Add a managed private endpoint for Azure Cosmos DB analytical store
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the Azure portal, navigate to your Synapse Analytics workspace and open the **Overview** pane.
 

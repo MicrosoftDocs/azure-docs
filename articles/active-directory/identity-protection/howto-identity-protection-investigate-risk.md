@@ -1,6 +1,6 @@
 ---
-title: Investigate risk Azure Active Directory Identity Protection
-description: Learn how to investigate risky users, detections, and sign-ins in Azure Active Directory Identity Protection
+title: Investigate risk Microsoft Entra ID Protection
+description: Learn how to investigate risky users, detections, and sign-ins in Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
@@ -19,11 +19,11 @@ ms.collection: M365-identity-device-management
 
 Identity Protection provides organizations with three reports they can use to investigate identity risks in their environment. These reports are the **risky users**, **risky sign-ins**, and **risk detections**. Investigation of events is key to better understanding and identifying any weak points in your security strategy.
 
-All three reports allow for downloading of events in .CSV format for further analysis outside of the Azure portal. The risky users and risky sign-ins reports allow for downloading the most recent 2500 entries, while the risk detections report allows for downloading the most recent 5000 records.
+All three reports allow for downloading of events in .CSV format for further analysis. The risky users and risky sign-ins reports allow for downloading the most recent 2500 entries, while the risk detections report allows for downloading the most recent 5000 records.
 
 Organizations can take advantage of the Microsoft Graph API integrations to aggregate data with other sources they may have access to as an organization.
 
-The three reports are found in the **Azure portal** > **Azure Active Directory** > **Security**.
+The three reports are found in the [Microsoft Entra admin center](https://entra.microsoft.com) > **Protection** > **Identity Protection**.
 
 ## Navigating the reports
 
@@ -52,7 +52,7 @@ To view and investigate risks on a user’s account, select the “Detections no
 
 The Risk history tab also shows all the events that have led to a user risk change in the last 90 days. This list includes risk detections that increased the user’s risk and admin remediation actions that lowered the user’s risk. View it to understand how the user’s risk has changed. 
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Risky users report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-users-without-details.png" alt-text="Screenshot of the Risky users report." lightbox="media/howto-identity-protection-investigate-risk/risky-users-with-details.png":::
 
 With the information provided by the risky users report, administrators can find:
 
@@ -71,7 +71,7 @@ Administrators can then choose to take action on these events. Administrators ca
 
 ## Risky sign-ins
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-sign-ins-without-details.png" alt-text="Risky sign-ins report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risky-sign-ins-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risky-sign-ins-without-details.png" alt-text="Screenshot of the Risky sign-ins report." lightbox="media/howto-identity-protection-investigate-risk/risky-sign-ins-with-details.png":::
 
 The risky sign-ins report contains filterable data for up to the past 30 days (one month).
 
@@ -96,7 +96,7 @@ Administrators can then choose to take action on these events. Administrators ca
 
 ## Risk detections
 
-:::image type="content" source="media/howto-identity-protection-investigate-risk/risk-detections-without-details.png" alt-text="Risk detections report in the Azure portal" lightbox="media/howto-identity-protection-investigate-risk/risk-detections-with-details.png":::
+:::image type="content" source="media/howto-identity-protection-investigate-risk/risk-detections-without-details.png" alt-text="Screenshot of the Risk detections report." lightbox="media/howto-identity-protection-investigate-risk/risk-detections-with-details.png":::
 
 The risk detections report contains filterable data for up to the past 90 days (three months).
 
@@ -134,9 +134,11 @@ Organizations may use the following frameworks to begin their investigation into
       1. Location 
       1. IP address 
 
-### Investigate Azure AD threat intelligence detections
+<a name='investigate-azure-ad-threat-intelligence-detections'></a>
 
-To investigate an Azure AD Threat Intelligence risk detection, follow these steps: 
+### Investigate Microsoft Entra threat intelligence detections
+
+To investigate a Microsoft Entra Threat Intelligence risk detection, follow these steps: 
 
 If more information is shown for the detection:
 
@@ -178,7 +180,7 @@ For more information about these alerts and their structure, see the article [Un
 
 When security personnel investigate risks in Microsoft 365 Defender and Defender for Identity the following states and reasons are returned to Identity Protection in the portal and APIs.
 
-| Microsoft 365 Defender status | [Microsoft 365 Defender classification](/defender-for-identity/understanding-security-alerts#security-alert-classifications) | Azure AD Identity Protection risk state |  Risk detail in Azure AD Identity Protection |
+| Microsoft 365 Defender status | [Microsoft 365 Defender classification](/defender-for-identity/understanding-security-alerts#security-alert-classifications) | Microsoft Entra ID Protection risk state |  Risk detail in Microsoft Entra ID Protection |
 | --- | --- | --- | --- |
 | New | False positive | Confirmed safe | `M365DAdminDismissedDetection` |
 | New | Benign true positive | Confirmed safe | `M365DAdminDismissedDetection` |

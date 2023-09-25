@@ -6,11 +6,11 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 12/14/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
-
 ---
 # Prepare a SLES or openSUSE Leap virtual machine for Azure
 
@@ -34,7 +34,7 @@ This article assumes that you have already installed a SUSE or openSUSE Leap Lin
 
 
 > [!NOTE]
-> **(_Cloud-init >= 21.2 removes the udf requirement._)** however without the udf module enabled the cdrom will not mount during provisioning preventing custom data from being applied.  A workaround for this would be to apply custom data using user data however, unlike custom data user data is not encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
+> **_Cloud-init >= 21.2 removes the udf requirement_**. However, without the udf module enabled, the cdrom won't mount during provisioning, preventing custom data from being applied.  A workaround for this is to apply custom data using user data. However, unlike custom data, user data isn't encrypted. https://cloudinit.readthedocs.io/en/latest/topics/format.html
 
 
 ## Use SUSE Studio
@@ -66,7 +66,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 6. Enable waagent & cloud-init to start on boot
 
     ```bash
-    sudo -i
     sudo chkconfig waagent on
     sudo systemctl enable cloud-init-local.service
     sudo systemctl enable cloud-init.service
@@ -104,7 +103,6 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 10. Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
     ```bash
-    sudo -i
     sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
@@ -128,22 +126,21 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     Don't create swap space on the operating system disk.
 
-    Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this step is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
+
+    Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this step is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
 
     ```bash
-    sudo -i    
     sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
 
     For more information on the waagent.conf configuration options, see the [Linux agent configuration](../extensions/agent-linux.md#configuration) documentation.
 
-    If you want to mount, format and create a swap partition you can either:
+    If you want to mount, format, and create a swap partition you can either:
     * Pass this configuration in as a cloud-init config every time you create a VM.
     * Use a cloud-init directive baked into the image that configures swap space every time the VM is created:
 
         ```bash
-        sudo -i
         sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
         cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
         #cloud-config
@@ -159,18 +156,18 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
           - device: ephemeral0.2
             filesystem: swap
         mounts:
-          - ["ephemeral0.1", "/mnt/ressource"]
+          - ["ephemeral0.1", "/mnt"]
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
         ```
 > [!NOTE]
-> Make sure the **'udf'** module is enabled. Blocklisting or removing it will cause a provisioning failure.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+> Make sure the **'udf'** module is enabled. Removing/disabling them will cause a provisioning/boot failure. **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
 
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 > [!NOTE] 
-> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step
+> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
 ```bash
     sudo rm -f /var/log/waagent.log
@@ -204,7 +201,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
     ```
 
-    You can then verify the repositories have been added by running the command '`zypper lr`' again. If one of the relevant update repositories isn't enabled, enable it with following command:
+    You can then verify the repositories have been added by running the command '`zypper lr`' again. If one of the relevant update repositories isn't enabled, enable it with the following command:
 
     ```bash
     sudo zypper mr -e [NUMBER OF REPOSITORY]
@@ -256,7 +253,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 9. Ensure that the SSH server is installed and configured to start at boot time.
 10. Don't create swap space on the OS disk.
 
-    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in the "/etc/waagent.conf" as follows:
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in the "/etc/waagent.conf" as follows:
 
     ```config-conf
     ResourceDisk.Format=y
@@ -275,11 +272,10 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 > [!NOTE] 
-> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step
+> If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step.
 
 ```bash
     sudo rm -f ~/.bash_history # Remove current user history
-    sudo -i
     sudo rm -rf /var/lib/waagent/
     sudo rm -f /var/log/waagent.log
     sudo waagent -force -deprovision+user

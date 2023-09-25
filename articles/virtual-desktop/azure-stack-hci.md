@@ -7,7 +7,7 @@ ms.date: 06/12/2023
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 
@@ -69,6 +69,9 @@ Follow these steps for the automated deployment process:
 1. Select the Azure region for the host pool that’s right for you and your customers.
 
 1. Enter a unique name for your host pool.
+
+    > [!NOTE]
+    > The host pool name must not contain spaces.
 
 1. In **Location**, enter a region where Host Pool, Workspace, and VMs machines will be created. The metadata for these objects is stored in the geography associated with the region. For example: East US.
 

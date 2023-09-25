@@ -129,7 +129,7 @@ Here's how to create a host pool using the Azure portal.
    | Host pool name | Enter a name for the host pool, for example *hostpool01*. |
    | Location | Select the Azure region where your host pool will be deployed. |
    | Validation environment | Select **Yes** to create a host pool that is used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
-   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *Remote App*. |   
+   | Preferred app group type | Select the preferred [application group type](environment-setup.md#app-groups) for this host pool from *Desktop* or *RemoteApp*. |   
    | Host pool type | Select whether your host pool will be Personal or Pooled.<br /><br />If you select **Personal**, a new option will appear for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options will appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host. |
 
    > [!TIP]

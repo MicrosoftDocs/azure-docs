@@ -1,0 +1,51 @@
+### YamlMime:FAQ
+metadata:
+  title: "Frequently asked questions - Azure AI Vision"
+  titleSuffix: Azure AI services
+  description: Get answers to frequently asked questions about the Azure AI Vision Service in Azure AI services.
+  services: cognitive-services
+  author: PatrickFarley
+  manager: nitinme
+
+  ms.service: azure-ai-vision
+  ms.topic: faq
+  ms.date: 05/09/2022
+  ms.author: pafarley
+  ms.custom: seodec18, cogserv-non-critical-vision, ignite-2022
+title: Azure AI Vision API Frequently Asked Questions
+summary: |
+  > [!TIP]
+  > If you can't find answers to your questions in this FAQ, ask the Azure AI Vision API community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) or contact Help and Support on [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
+
+
+sections:
+  - name: Azure AI Vision API frequently asked questions
+    questions:
+      - question: |
+          How can I increase the transactions-per-second (TPS) allowed by the service?
+        answer: |
+          The free (S0) tier only allows 20 transactions per minute. Upgrade to the S1 tier to get up to 30 transactions per second. If you're seeing the error code 429 and the "Too many requests" error message, [submit an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) to raise your TPS to 50 or higher with a brief business justification. [Azure AI Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+
+      - question: |
+          The service is throwing an error because my image file is too large. How can I work around this?
+        answer: |
+          The file size limit for most Azure AI Vision features is 4 MB for the 3.2 version of the API and 20MB for the 4.0 preview version, and the client library SDKs can handle files up to 6 MB. For more information, see the [Image Analysis input limits](overview-image-analysis.md#image-requirements).
+
+      - question: |
+          Can I send multiple images in a single API call to the Azure AI Vision service?
+        answer: |
+          This function isn't currently available.
+      - question: |
+          How many languages are supported for Azure AI Vision services?
+        answer: |
+          See the [Language support](language-support.md) page for the list of languages covered by Image Analysis and OCR.
+
+      - question: |
+          Can I deploy the OCR (Read) capability on-premises?
+        answer: |
+          Yes, the Azure AI Vision 3.2 OCR (Read) cloud API is also available as a Docker container for on-premises deployment. Learn [how to deploy](computer-vision-how-to-install-containers.md) 
+
+      - question: |
+          Can I train Azure AI Vision API to use custom tags?  For example, I would like to feed in pictures of cat breeds to 'train' the AI, then receive the breed value on an AI request.
+        answer: |
+          This function is currently not available. You can use [Custom Vision](../custom-vision-service/overview.md) to train a model to detect user-defined visual features.

@@ -1,0 +1,174 @@
+{
+	"redirections": [
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-business-cards.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/concept-business-card",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-identification-cards.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/concept-id-document",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-invoices.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/concept-invoice",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-receipts.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/concept-receipt",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/generate-sas-tokens.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/create-sas-tokens",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/managed-identity-byos.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/managed-identities",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/client-library.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-sdk-rest-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-sample-label-tool",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/try-sdk-rest-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/tutorial-ai-builder.md",
+            "redirect_url": "/ai-builder/create-form-processing-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/try-v2-1-sdk-rest-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-csharp-sdk.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-java-sdk.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-javascript-sdk.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-v2.1-sdk-rest-api",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/preview-error-guide.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/v3-error-guide",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/compose-custom-models-preview.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/compose-custom-models-v3",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/compose-custom-models.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/compose-custom-models-v2-1",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/try-v2-1-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-v2-1-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=form-recog-2.1.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/get-started-v3-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/compose-custom-models-v3.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/compose-custom-models-v2-1.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=form-recog-2.1.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/build-custom-model-v3.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model?view=form-recog-3.0.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/build-training-data-set.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model?view=form-recog-2.1.0&preserve-view=true",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-form-recognizer-studio",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/form-recognizer-studio-overview.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/studio-overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/project-share-custom-classifier.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/how-to-guides/project-share-custom-models",
+            "redirect_document_id": false
+          }
+     ]
+}

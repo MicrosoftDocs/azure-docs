@@ -38,6 +38,8 @@ The following versions of macOS support Storage Explorer:
 
 * macOS 10.13 High Sierra and later versions
 
+Starting with Storage Explorer version 1.31.0, both x64 (Intel) and ARM64 (Apple Silicon) versions of Storage Explorer are available for download.
+
 # [Ubuntu](#tab/linux-ubuntu)
 
 Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.

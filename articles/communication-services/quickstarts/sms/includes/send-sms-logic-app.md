@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: chpalm
+author: tophpalmer
 manager: anvalent
 
 ms.service: azure-communication-services

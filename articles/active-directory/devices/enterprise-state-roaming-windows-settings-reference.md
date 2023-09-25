@@ -52,4 +52,4 @@ For Windows 10 version 1803 or later, Internet Explorer setting group (favorites
 
 ## Next steps
 
-For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md).
+For an overview, see [enterprise state roaming overview](./enterprise-state-roaming-enable.md).

@@ -8,7 +8,7 @@ ms.date: 04/11/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
 # Create a Linux image and distribute it to an Azure Compute Gallery

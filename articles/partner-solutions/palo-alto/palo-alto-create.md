@@ -1,6 +1,6 @@
 ---
-title: Create a Cloud NGFW by Palo Alto Networks Preview resource
-description: This article describes how to use the Azure portal to create a Cloud NGFW by Palo Alto Networks Preview resource.
+title: Create a Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource
+description: This article describes how to use the Azure portal to create a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks - an Azure Native ISV Service resource.
 
 ms.custom: references_regions
 ms.topic: quickstart
@@ -8,9 +8,9 @@ ms.date: 04/26/2023
 
 ---
 
-# QuickStart: Get started with Cloud NGFW by Palo Alto Networks Preview
+# QuickStart: Get started with Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource
 
-In this quickstart, you use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks Preview**.
+In this quickstart, you use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service resource**.
 
 ## Create a new Cloud NGFW by Palo Alto Networks resource
 

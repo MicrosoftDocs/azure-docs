@@ -1,49 +1,47 @@
 ---
-title: RAND in Azure Cosmos DB query language
-description: Learn about SQL system function RAND in Azure Cosmos DB.
-author: ginamr
+title: RAND
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a randomly generated numeric value from zero to one.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/16/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# RAND (Azure Cosmos DB)
+
+# RAND (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a randomly generated numeric value from [0,1).
- 
+Returns a randomly generated numeric value from zero to one.
+
 ## Syntax
-  
+
 ```sql
-RAND ()  
-```  
+RAND()
+```
 
 ## Return types
 
-  Returns a numeric expression.
+Returns a numeric expression.
+
+## Examples
+
+The following example returns randomly generated numeric values.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/rand/query.novalidate.sql" highlight="2-3":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/rand/result.novalidate.json":::
 
 ## Remarks
 
-  `RAND` is a nondeterministic function. Repetitive calls of `RAND` do not return the same results. This system function will not utilize the index.
+- This function doesn't use the index.
+- This function is nondeterministic. Repetitive calls of this function don't return the same results.
 
+## Related content
 
-## Examples
-  
-  The following example returns a randomly generated numeric value.
-  
-```sql
-SELECT RAND() AS rand 
-```  
-  
- Here is the result set.  
-  
-```json
-[{"rand": 0.87860053195618093}]  
-``` 
-
-## Next steps
-
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`IS_NUMBER`](is-number.md)

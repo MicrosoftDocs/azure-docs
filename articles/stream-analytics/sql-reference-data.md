@@ -19,9 +19,11 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 1. Create a Stream Analytics job.
 
-2. Create a storage account to be used by the Stream Analytics job.
+2. Create a storage account to be used by the Stream Analytics job.   
+   > [!IMPORTANT]
+   > The Azure Stream Analytics retains snapshots within this storage account. When configuring the retention policy, it is imperative to ensure that the chosen timespan effectively encompasses the desired recovery duration for your Stream Analytics job.
 
-3. Create your Azure SQL Database with a data set to be used as reference data by the Stream Analytics job.
+4. Create your Azure SQL Database with a data set to be used as reference data by the Stream Analytics job.
 
 ### Define SQL Database reference data input
 
@@ -61,6 +63,8 @@ Use the following steps to add Azure SQL Database as a reference input source us
 2. Become familiar with the [Stream Analytics tools for Visual Studio](stream-analytics-quick-create-vs.md) quickstart.
 
 3. Create a storage account.
+   > [!IMPORTANT]
+   > The Azure Stream Analytics retains snapshots within this storage account. When configuring the retention policy, it is imperative to ensure that the chosen timespan effectively encompasses the desired recovery duration for your Stream Analytics job.
 
 ### Create a SQL Database table
 

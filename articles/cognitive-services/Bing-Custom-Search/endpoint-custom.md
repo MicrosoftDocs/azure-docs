@@ -1,6 +1,6 @@
 ---
 title: Bing Custom Search endpoint
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Create tailored search experiences for topics that you care about. Users see search results tailored to the content they care about.
 services: cognitive-services
 author: aahill
@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Custom Search
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. Your users see search results tailored to the content they care about instead of having to page through search results that have irrelevant content.
 
 ## Custom Search Endpoint
@@ -59,4 +59,4 @@ For information about configuring a Custom Search instance, see [Configure your 
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Custom Search API, see [Custom Search Quick-starts](/azure/cognitive-services/bing-custom-search/)
+For examples of basic requests using the Custom Search API, see [Custom Search Quick-starts](/azure/cognitive-services/bing-custom-search/quick-start)

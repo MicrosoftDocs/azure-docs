@@ -3,14 +3,14 @@ title: Azure App Configuration best practices | Microsoft Docs
 description: Learn best practices while using Azure App Configuration. Topics covered include key groupings, key-value compositions, App Configuration bootstrap, and more.
 services: azure-app-configuration
 documentationcenter: ''
-author: mcleanbyron
+author: zhenlan
 editor: ''
 
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 09/21/2022
-ms.author: mcleans
+ms.date: 09/08/2023
+ms.author: zhenlwa
 ms.custom: "devx-track-csharp, mvc"
 ---
 
@@ -89,7 +89,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 * Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Use Event Grid for App Configuration data change notifications](./howto-app-configuration-event.md).
 
-* Spread your requests across multiple App Configuration stores. For example, use a different store from each geographic region for a globally deployed application. Each App Configuration store has its own request quota. This setup gives you a model for scalability and avoids the single point of failure.
+* [Enable geo-replication](./howto-geo-replication.md) of your App Configuration store and spread your requests across multiple replicas. For example, use a different replica from each geographic region for a globally deployed application. Each App Configuration replica has its separate request quota. This setup gives you a model for scalability and enhanced resiliency against transient and regional outages.
 
 ## Importing configuration data into App Configuration
 
@@ -97,7 +97,7 @@ App Configuration offers the option to bulk [import](./howto-import-export-data.
 
 ## Multi-region deployment in App Configuration
 
-App Configuration is regional service. For applications with different configurations per region, storing these configurations in one instance can create a single point of failure. Deploying one App Configuration instances per region across multiple regions may be a better option. It can help with regional disaster recovery, performance, and security siloing. Configuring by region also improves latency and uses separated throttling quotas, since throttling is per instance. To apply disaster recovery mitigation, you can use [multiple configuration stores](./concept-disaster-recovery.md). 
+If your application is deployed in multiple regions, we recommend that you [enable geo-replication](./howto-geo-replication.md) of your App Configuration store. You can let your application primarily connect to the replica matching the region where instances of your application are deployed and allow them to fail over to replicas in other regions. This setup minimizes the latency between your application and App Configuration, spreads the load as each replica has separate throttling quotas, and enhances your application's resiliency against transient and regional outages. See [Resiliency and Disaster Recovery](./concept-disaster-recovery.md) for more information.
 
 ## Client applications in App Configuration 
 

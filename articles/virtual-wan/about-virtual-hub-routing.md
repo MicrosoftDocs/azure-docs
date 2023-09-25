@@ -51,7 +51,7 @@ You can set up the routing configuration for a virtual network connection during
 
 ### <a name="association"></a>Association
 
-Each connection is associated to one route table. Associating a connection to a route table allows the traffic to be sent to the destination indicated as routes in the route table. The routing configuration of the connection will show the associated route table.  Multiple connections can be associated to the same route table. All VPN, ExpressRoute, and User VPN connections are associated to the same (default) route table.
+Each connection is associated to one route table. Associating a connection to a route table allows the traffic (from that connection) to be sent to the destination indicated as routes in the route table. The routing configuration of the connection will show the associated route table.  Multiple connections can be associated to the same route table. All VPN, ExpressRoute, and User VPN connections are associated to the same (default) route table.
 
 By default, all connections are associated to a **Default route table** in a virtual hub. Each virtual hub has its own Default route table, which can be edited to add a static route(s). Routes added statically take precedence over dynamically learned routes for the same prefixes.
 
@@ -71,7 +71,7 @@ Labels provide a mechanism to logically group route tables. This is especially h
 
 ### <a name="static"></a>Configuring static routes in a virtual network connection
 
-Configuring static routes provides a mechanism to steer traffic through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
+Configuring static routes provides a mechanism to steer traffic from the hub through a next hop IP, which could be of a Network Virtual Appliance (NVA) provisioned in a Spoke VNet attached to a virtual hub. The static route is composed of a route name, list of destination prefixes, and a next hop IP.
 
 ## <a name="route"></a>Route tables for pre-existing routes
 

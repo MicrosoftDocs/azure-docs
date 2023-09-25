@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 04/04/2022
+ms.date: 09/15/2023
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference

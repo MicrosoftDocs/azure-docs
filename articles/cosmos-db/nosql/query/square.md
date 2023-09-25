@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -38,32 +38,16 @@ Returns a numeric expression.
 
 The following example returns the squares of various numbers.
 
-```sql
-SELECT VALUE {
-    squareZero: SQUARE(0),
-    squareOne: SQUARE(1),
-    squareTwo: SQUARE(2),
-    squareThree: SQUARE(3),
-    squareNull: SQUARE(null)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/square/query.sql" highlight="2-6":::
 
-```json
-[
-  {
-    "squareZero": 0,
-    "squareOne": 1,
-    "squareTwo": 4,
-    "squareThree": 9
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/square/result.json":::
 
 ## Remarks
 
-- This system function doesn't utilize the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`SQRT`](sqrt.md)
+- [`POWER`](power.md)

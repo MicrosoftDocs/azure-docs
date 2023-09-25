@@ -2,9 +2,8 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 04/03/2023
-ms.custom: subject-rbac-steps
-
+ms.date: 07/18/2023
+ms.custom: subject-rbac-steps, devx-track-linux
 ---
 
 # Create a Batch account in the Azure portal
@@ -121,12 +120,13 @@ For detailed steps, see [Assign Azure roles by using the Azure portal](../role-b
 
 ### Create a key vault
 
-User subscription mode requires [Azure Key Vault](/azure/key-vault/general/overview). The key vault must be in the same subscription and region as the Batch account.
+User subscription mode requires [Azure Key Vault](/azure/key-vault/general/overview). The key vault must be in the same subscription and region as the Batch account and use a [Vault Access Policy](/azure/key-vault/general/assign-access-policy).
 
 To create a new key vault:
 
 1. Search for and select **key vaults** from the Azure Search box, and then select **Create** on the **Key vaults** page.
 1. On the **Create a key vault** page, enter a name for the key vault, and choose an existing resource group or create a new one in the same region as your Batch account.
+1. On the **Access configuration** tab, select **Vault access policy** under **Permission model**.
 1. Leave the remaining settings at default values, select **Review + create**, and then select **Create**.
 
 ### Create a Batch account in user subscription mode

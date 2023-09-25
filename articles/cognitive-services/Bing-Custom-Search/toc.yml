@@ -1,12 +1,12 @@
 - name: Bing Custom Search Documentation
-  href: ../Bing-Web-Search/index.yml
+  href: ../bing-web-search/index.yml
 - name: Overview
   expanded: true
   items:
     - name: What is the Bing Custom Search API?
       href: overview.md
     - name: Compare the Bing Search APIs
-      href: ../Bing-Web-Search/bing-api-comparison.md
+      href: ../bing-web-search/bing-api-comparison.md
       maintainContext: true
 - name: Quickstarts
   expanded: true
@@ -54,10 +54,10 @@
     - name: Configure a custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Handle hit highlighting
-      href: ../Bing-Web-Search/hit-highlighting.md
+      href: ../bing-web-search/hit-highlighting.md
       maintainContext: true
     - name: Page through search results
-      href: ../Bing-Web-Search/paging-search-results.md
+      href: ../bing-web-search/paging-search-results.md
       maintainContext: true
 - name: Reference
   items:
@@ -70,7 +70,7 @@
     - name: Bing Custom Video Search API Reference
       href: /rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
     - name: Bing Search API use and display requirements
-      href: ../Bing-Web-Search/use-display-requirements.md
+      href: ../bing-web-search/use-display-requirements.md
       maintainContext: true
     - name: SDKs
       items:

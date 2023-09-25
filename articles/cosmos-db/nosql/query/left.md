@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -38,34 +38,16 @@ Returns a string expression.
 ## Examples
   
 The following example returns the left part of the string `Microsoft` for various length values.  
-  
-```sql
-SELECT VALUE {
-    firstZero: LEFT("AdventureWorks", 0),
-    firstOne: LEFT("AdventureWorks", 1),
-    firstFive: LEFT("AdventureWorks", 5),
-    fullLength: LEFT("AdventureWorks", LENGTH("AdventureWorks")),
-    beyondMaxLength: LEFT("AdventureWorks", 100)
-}
-```  
-  
-```json
-[
-  {
-    "firstZero": "",
-    "firstOne": "A",
-    "firstFive": "Adven",
-    "fullLength": "AdventureWorks",
-    "beyondMaxLength": "AdventureWorks"
-  }
-]
-```  
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/left/query.sql" highlight="2-6":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/left/result.json":::
 
 ## Remarks
 
-- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`RIGHT`](right.md)

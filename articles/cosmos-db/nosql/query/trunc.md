@@ -1,53 +1,52 @@
 ---
-title: TRUNC in Azure Cosmos DB query language
-description: Learn about SQL system function TRUNC in Azure Cosmos DB.
-author: ginamr
+title: TRUNC
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a truncated numeric value.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 06/22/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# TRUNC (Azure Cosmos DB)
+
+# TRUNC (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a numeric value, truncated to the closest integer value.  
-  
+Returns a numeric value truncated to the closest integer value.  
+
 ## Syntax
-  
+
 ```sql
-TRUNC(<numeric_expr>)  
-```  
-  
-## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
-## Return types
-  
-  Returns a numeric expression.  
-  
-## Examples
-  
-  The following example truncates the following positive and negative numbers to the nearest integer value.  
-  
-```sql
-SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, TRUNC(-2.6) AS t5  
-```  
-  
- Here is the result set.  
-  
-```json
-[{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
+TRUNC(<numeric_expr>)
 ```
+
+## Arguments
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
+## Return types
+
+Returns a numeric expression.
+
+## Examples
+
+This example illustrates various ways to truncate a number to the closest integer.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/trunc/query.sql" highlight="2-6":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/trunc/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`TRIM`](trim.md)

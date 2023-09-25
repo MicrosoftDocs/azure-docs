@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 08/24/2023
 ms.author: victorh 
 ---
 # Resource logs for Azure Web Application Firewall
@@ -51,7 +51,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
     ```
 
 > [!TIP]
->Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+>Activity logs do not *require* a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ### Enable logging through the Azure portal
 
@@ -63,13 +63,12 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    * Performance log
    * Firewall log
 
-2. To start collecting data, select **Turn on diagnostics**.
+2. Select **Add diagnostic setting**.
 
-   ![Turning on diagnostics][1]
 
-3. The **Diagnostics settings** page provides the settings for the resource logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the resource logs.
+3. The **Diagnostic setting** page provides the settings for the resource logs. In this example, Log Analytics stores the logs. You can also use an event hub, a storage account, or a partner solution to save the resource logs.
 
-   ![Starting the configuration process][2]
+   :::image type="content" source="../media/web-application-firewall-logs/figure2.png" alt-text="Screenshot showing Diagnostic settings.":::
 
 5. Type a name for the settings, confirm the settings, and select **Save**.
 
@@ -213,7 +212,7 @@ The performance log is generated only if you have enabled it on each Application
 
 ## Firewall log
 
-The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:
+The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the destination that you specified when you enabled the logging. The following data is logged:
 
 
 |Value  |Description  |
@@ -302,13 +301,3 @@ We have published a Resource Manager template that installs and runs the popular
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
-[1]: ../media/web-application-firewall-logs/figure1.png
-[2]: ../media/web-application-firewall-logs/figure2.png
-[3]: ./media/application-gateway-diagnostics/figure3.png
-[4]: ./media/application-gateway-diagnostics/figure4.png
-[5]: ./media/application-gateway-diagnostics/figure5.png
-[6]: ./media/application-gateway-diagnostics/figure6.png
-[7]: ./media/application-gateway-diagnostics/figure7.png
-[8]: ./media/application-gateway-diagnostics/figure8.png
-[9]: ./media/application-gateway-diagnostics/figure9.png
-[10]: ./media/application-gateway-diagnostics/figure10.png

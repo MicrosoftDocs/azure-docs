@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/29/2023
 ms.author: cynthn
 ms.subservice: cloud-init
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ---
 # Use cloud-init to update and install packages in a Linux VM in Azure
 

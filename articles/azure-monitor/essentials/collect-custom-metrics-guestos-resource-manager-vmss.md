@@ -5,15 +5,15 @@ services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/09/2019
+ms.date: 07/30/2023
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-By using the Azure Monitor [Windows Azure Diagnostics (WAD) extension](../agents/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
+By using the Azure Monitor [Azure Diagnostics extension for Windows (WAD)](../agents/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
 
-This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with Windows Azure Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. By storing them in this location, you can access the same actions that are available for platform metrics. Actions include near real-time alerting, charting, routing, access from the REST API, and more. In the past, the Windows Azure Diagnostics extension wrote to Azure Storage but not the Azure Monitor data store.  
+This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with Microsoft Azure Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. By storing them in this location, you can access the same actions that are available for platform metrics. Actions include near real-time alerting, charting, routing, access from the REST API, and more. In the past, the Microsoft Azure Diagnostics extension wrote to Azure Storage but not the Azure Monitor data store.  
 
 If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/management/overview.md) and their structure and syntax.  
 
@@ -37,17 +37,18 @@ For this example, you can use a publicly available [sample template](https://git
 
 Download and save both files locally. 
 
-###  Modify azuredeploy.parameters.json
+### Modify azuredeploy.parameters.json
+
 Open the **azuredeploy.parameters.json** file:  
- 
+
 - Provide a **vmSKU** you want to deploy. We recommend Standard_D2_v3. 
-- Specify a **windowsOSVersion** you want for your virtual machine scale set. We recommend 2016-Datacenter. 
-- Name the virtual machine scale set resource to be deployed by using a **vmssName** property. An example is **VMSS-WAD-TEST**.    
+- Specify a **windowsOSVersion** you want for your virtual machine scale set. We recommend 2016-Datacenter.  
+- Name the virtual machine scale set resource to be deployed by using a **vmssName** property. An example is **VMSS-WAD-TEST**.  
 - Specify the number of VMs you want to run on the virtual machine scale set by using the **instanceCount** property.
-- Enter values for **adminUsername** and **adminPassword** for the virtual machine scale set. These parameters are used for remote access to the VMs in the scale set. To avoid having your VM hijacked, **do not** use the ones in this template. Bots scan the internet for usernames and passwords in public GitHub repositories. They're likely to be testing VMs with these defaults. 
+- Enter values for **adminUsername** and **adminPassword** for the virtual machine scale set. These parameters are used for remote access to the VMs in the scale set. To avoid having your VM hijacked, **do not** use the ones in this template. Bots scan the internet for usernames and passwords in public GitHub repositories. They're likely to be testing VMs with these defaults.  
 
+### Modify azuredeploy.json
 
-###  Modify azuredeploy.json
 Open the **azuredeploy.json** file. 
 
 Add a variable to hold the storage account information in the Resource Manager template. Any logs or performance counters specified in the diagnostics config file are written to both the Azure Monitor metric store and the storage account you specify here: 
@@ -270,19 +271,20 @@ To deploy the Resource Manager template, use Azure PowerShell:
 
 1. On the **Monitor** page, select **Metrics**. 
 
-   ![Monitor - Metrics page](media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png) 
+   :::image source="media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png" alt-text="A screenshot showing the metrics menu item on the Azure Monitor menu page." lightbox="media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png":::
 
 1. Change the aggregation period to **Last 30 minutes**.  
 
 1. In the resource drop-down menu, select the virtual machine scale set you created.  
 
-1. In the namespaces drop-down menu, select **azure.vm.windows.guest**. 
+1. In the namespaces drop-down menu, select **Virtual Machine Guest**.  
 
 1. In the metrics drop-down menu, select **Memory\%Committed Bytes in Use**.  
+   :::image source="media/collect-custom-metrics-guestos-resource-manager-vmss/create-metrics-chart.png" alt-text="A screenshot showing the selection of namespace metric and aggregation for a metrics chart." lightbox="media/collect-custom-metrics-guestos-resource-manager-vmss/create-metrics-chart.png":::
 
 You can then also choose to use the dimensions on this metric to chart it for a particular VM or to plot each VM in the scale set. 
 
 
-
 ## Next steps
+
 - Learn more about [custom metrics](./metrics-custom-overview.md).

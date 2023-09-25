@@ -3,6 +3,7 @@ title: Prepare Linux for imaging
 description: Learn to prepare a Linux system to be used for an image in Azure.
 author: srijang
 ms.service: virtual-machines
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/14/2022
@@ -35,7 +36,7 @@ This article focuses on general guidance for running your Linux distribution on 
 
 6. Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
 
-7. Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
+7. Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 
 8. Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
 
@@ -43,7 +44,7 @@ This article focuses on general guidance for running your Linux distribution on 
 
 11. Use the most up-to-date distribution version, packages, and software.
 
-12. Remove users and system accounts, public keys, sensitive data, unnecessary software and application.
+12. Remove users and system accounts, public keys, sensitive data, unnecessary software, and application.
 
 
 > [!NOTE]
@@ -59,7 +60,7 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 1. Back up the existing initrd image:
 
     ```bash
-    sudo cd /boot
+    cd /boot
     sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
     ```
 
@@ -121,11 +122,11 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 
 ## Linux Kernel Requirements
 
-The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (such as 3.x) have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible we recommend running an [endorsed distribution](endorsed-distros.md) that includes these fixes and updates.
+The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (such as 3.x) have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible, we recommend running an [endorsed distribution](endorsed-distros.md) that includes these fixes and updates.
 
-If you're running a variant of Red Hat Enterprise Linux versions 6.0 to 6.3, then you'll need to install the [latest LIS drivers for Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Beginning with RHEL 6.4+ (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed.
+If you're running a variant of Red Hat Enterprise Linux versions 6.0 to 6.3, then you'll need to install the [latest LIS drivers for Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Beginning with RHEL 6.4+ (and derivatives), the LIS drivers are already included with the kernel so no additional installation packages are needed.
 
-If a custom kernel is required, we recommend a recent kernel version (such as 3.8+). For distributions or vendors who maintain their own kernel, you'll need to regularly backport the LIS drivers from the upstream kernel to your custom kernel.  Even if you're already running a relatively recent kernel version, we highly recommend keeping track of any upstream fixes in the LIS drivers and backport them as needed. The locations of the LIS driver source files are specified in the [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) file in the Linux kernel source tree:
+If a custom kernel is required, we recommend a recent kernel version (such as 3.8+). For distributions or vendors who maintain their own kernel, you'll need to regularly backport the LIS drivers from the upstream kernel to your custom kernel.  Even if you're already running a relatively recent kernel version, we highly recommend keeping track of any upstream fixes in the LIS drivers and backporting them as needed. The locations of the LIS driver source files are specified in the [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) file in the Linux kernel source tree:
 ```
     F:    arch/x86/include/asm/mshyperv.h
     F:    arch/x86/include/uapi/asm/hyperv.h
@@ -173,7 +174,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     ```config
     rhgb quiet crashkernel=auto
     ```
-    Graphical and quiet boot isn't useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed, but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
+    Graphical and quiet boot isn't useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
 
 2.	After you are done editing /etc/default/grub, run the following command to rebuild the grub configuration:
     ```bash
@@ -184,7 +185,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    **Initramfs**
 
    ```bash
-   sudo cd /boot
+   cd /boot
    sudo cp initramfs-<kernel-version>.img <kernel-version>.img.bak 
    sudo dracut -f -v initramfs-<kernel-version>.img <kernel-version> --add-drivers "hv_vmbus hv_netvsc hv_storvsc"
    sudo grub-mkconfig -o /boot/grub/grub.cfg 
@@ -194,18 +195,18 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    **Initrd**
 
    ```bash
-   sudo cd /boot
+   cd /boot
    sudo cp initrd.img-<kernel-version>  initrd.img-<kernel-version>.bak
    sudo mkinitramfs -o initrd.img-<kernel-version> <kernel-version>  --with=hv_vmbus,hv_netvsc,hv_storvsc
    sudo update-grub 
    ```
-4. Ensure that the SSH server is installed, and configured to start at boot time. This configuration is usually the default.
+4. Ensure that the SSH server is installed and configured to start at boot time. This configuration is usually the default.
 
 5. Install the Azure Linux Agent.
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
    
    > [!NOTE]
-   > Make sure 'udf' and 'vfat' modules are enable. `Blocklisting` or removing the udf module will cause a provisioning failure.  `Blocklisting` or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+   > Make sure 'udf' and 'vfat' modules are enabled. Removing/disabling them will cause a provisioning/boot failure.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
@@ -230,7 +231,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 
 6. Swap: Do not create swap space on the OS disk.
 
-   The Azure Linux Agent or Cloud-init can be used to configure swap space using the local resource disk.  This resource disk is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. The following blocks show how to configure this swap.
+   The Azure Linux Agent or Cloud-init can be used to configure swap space using the local resource disk.  This resource disk is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk and might be emptied when the VM is deprovisioned. The following blocks show how to configure this swap.
 
    Azure Linux Agent 
    Modify the following parameters in /etc/waagent.conf
@@ -333,14 +334,14 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 	
 8. Deprovision.
    > [!CAUTION]
-   > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command waagent -force -deprovision+user will render the source machine unusable, this step is intended only to create a generalized image.
+   > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command waagent -force -deprovision+user will render the source machine unusable. This step is intended only to create a generalized image.
 
    Run the following commands to deprovision the virtual machine.
   
    ```bash
    sudo rm -f /var/log/waagent.log
    sudo cloud-init clean
-   sudo  -force -deprovision+user
+   sudo waagent -force -deprovision+user
    sudo rm -f ~/.bash_history
    sudo export HISTSIZE=0
    ```  

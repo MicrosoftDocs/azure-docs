@@ -1,6 +1,6 @@
 ---
 title: Identity synchronization and duplicate attribute resiliency
-description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect.
+description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,6 +11,7 @@ ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/26/2023
 ms.subservice: hybrid
@@ -19,37 +20,37 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Identity synchronization and duplicate attribute resiliency
-Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and SMTP **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
+Duplicate Attribute Resiliency is a feature in Microsoft Entra ID that will eliminate friction caused by **UserPrincipalName** and SMTP **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
 
-These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Azure Active Directory tenant.
+These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Microsoft Entra tenant.
 
 > [!NOTE]
 > Only Users can have UPNs.
 > 
 > 
 
-The new behavior that this feature enables is in the cloud portion of the sync pipeline, therefore it is client agnostic and relevant for any Microsoft synchronization product including Azure AD Connect, DirSync and MIM + Connector. The generic term “sync client” is used in this document to represent any one of these products.
+The new behavior that this feature enables is in the cloud portion of the sync pipeline, therefore it is client agnostic and relevant for any Microsoft synchronization product including Microsoft Entra Connect, DirSync and MIM + Connector. The generic term “sync client” is used in this document to represent any one of these products.
 
 ## Current behavior
-If there is an attempt to provision a new object with a UPN or ProxyAddress value that violates this uniqueness constraint, Azure Active Directory blocks that object from being created. Similarly, if an object is updated with a non-unique UPN or ProxyAddress, the update fails. The provisioning attempt or update is retried by the sync client upon each export cycle, and continues to fail until the conflict is resolved. An error report email is generated upon each attempt and an error is logged by the sync client.
+If there is an attempt to provision a new object with a UPN or ProxyAddress value that violates this uniqueness constraint, Microsoft Entra ID blocks that object from being created. Similarly, if an object is updated with a non-unique UPN or ProxyAddress, the update fails. The provisioning attempt or update is retried by the sync client upon each export cycle, and continues to fail until the conflict is resolved. An error report email is generated upon each attempt and an error is logged by the sync client.
 
 ## Behavior with Duplicate Attribute Resiliency
-Instead of completely failing to provision or update an object with a duplicate attribute, Azure Active Directory “quarantines” the duplicate attribute which would violate the uniqueness constraint. If this attribute is required for provisioning, like UserPrincipalName, the service assigns a placeholder value. The format of these temporary values is  
+Instead of completely failing to provision or update an object with a duplicate attribute, Microsoft Entra ID “quarantines” the duplicate attribute which would violate the uniqueness constraint. If this attribute is required for provisioning, like UserPrincipalName, the service assigns a placeholder value. The format of these temporary values is  
 _**\<OriginalPrefix>+\<4DigitNumber>\@\<InitialTenantDomain>.onmicrosoft.com**_.
 
 The attribute resiliency process handles only UPN and SMTP **ProxyAddress** values.
 
-If the attribute is not required, like a  **ProxyAddress**, Azure Active Directory simply quarantines the conflict attribute and proceeds with the object creation or update.
+If the attribute is not required, like a  **ProxyAddress**, Microsoft Entra ID simply quarantines the conflict attribute and proceeds with the object creation or update.
 
 Upon quarantining the attribute, information about the conflict is sent in the same error report email used in the old behavior. However, this info only appears in the error report one time, when the quarantine happens, it does not continue to be logged in future emails. Also, since the export for this object has succeeded, the sync client does not log an error and does not retry the create / update operation upon subsequent sync cycles.
 
 To support this behavior a new attribute has been added to the User, Group, and Contact object classes:  
 **DirSyncProvisioningErrors**
 
-This is a multi-valued attribute that is used to store the conflicting attributes that would violate the uniqueness constraint should they be added normally. A background timer task has been enabled in Azure Active Directory that  runs every hour to look for duplicate attribute conflicts that have been resolved, and automatically removes the attributes in question from quarantine.
+This is a multi-valued attribute that is used to store the conflicting attributes that would violate the uniqueness constraint should they be added normally. A background timer task has been enabled in Microsoft Entra ID that  runs every hour to look for duplicate attribute conflicts that have been resolved, and automatically removes the attributes in question from quarantine.
 
 ### Enabling Duplicate Attribute Resiliency
-Duplicate Attribute Resiliency will be the new default behavior across all Azure Active Directory tenants. It will be on by default for all tenants that enabled synchronization for the first time on August 22nd, 2016 or later. Tenants that enabled sync prior to this date will have the feature enabled in batches. This rollout will begin in September 2016, and an email notification will be sent to each tenant's technical notification contact with the specific date when the feature will be enabled.
+Duplicate Attribute Resiliency will be the new default behavior across all Microsoft Entra tenants. It will be on by default for all tenants that enabled synchronization for the first time on August 22nd, 2016 or later. Tenants that enabled sync prior to this date will have the feature enabled in batches. This rollout will begin in September 2016, and an email notification will be sent to each tenant's technical notification contact with the specific date when the feature will be enabled.
 
 > [!NOTE]
 > Once Duplicate Attribute Resiliency has been turned on it cannot be disabled.
@@ -61,7 +62,7 @@ To check if the feature is enabled for your tenant, you can do so by downloading
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
 > [!NOTE]
-> You can no longer use Set-MsolDirSyncFeature cmdlet to proactively enable the Duplicate Attribute Resiliency feature before it is turned on for your tenant. To be able to test the feature, you will need to create a new Azure Active Directory tenant.
+> You can no longer use Set-MsolDirSyncFeature cmdlet to proactively enable the Duplicate Attribute Resiliency feature before it is turned on for your tenant. To be able to test the feature, you will need to create a new Microsoft Entra tenant.
 
 ## Identifying Objects with DirSyncProvisioningErrors
 There are currently two methods to identify objects that have these errors due to duplicate property conflicts, Azure Active Directory PowerShell and the [Microsoft 365 admin center](https://admin.microsoft.com). There are plans to extend to additional portal based reporting in the future.
@@ -171,6 +172,6 @@ The link for *steps on how to resolve this issue* is incorrect:
 It should point to [https://aka.ms/duplicateattributeresiliency]().
 
 ## See also
-* [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)
 * [Identify directory synchronization errors in Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

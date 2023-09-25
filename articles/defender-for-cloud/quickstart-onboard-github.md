@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect your GitHub repositories to Microsoft Defender for Cloud'
+title: Connect your GitHub repositories
 description: Learn how to connect your GitHub repositories to Defender for Cloud.
 ms.date: 01/24/2023
 ms.topic: quickstart
@@ -35,11 +35,8 @@ To complete this quickstart, you need:
 | Required permissions: | **Account Administrator** with permissions to sign in to the Azure portal. <br> **Contributor** on the Azure subscription where the connector will be created.  <br> **Security Admin** in Defender for Cloud. <br> **Organization Administrator** in GitHub. |
 | GitHub supported versions: | GitHub Free, Pro, Team, and Enterprise Cloud |
 | Regions: | Australia East, Central US, West Europe |
-| Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Azure China 21Vianet) |
+| Clouds: | :::image type="icon" source="media/quickstart-onboard-github/check-yes.png" border="false"::: Commercial <br> :::image type="icon" source="media/quickstart-onboard-github/x-no.png" border="false"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
-During the preview, the maximum number of GitHub repositories that you can onboard to Microsoft Defender for Cloud is 2,000. If you try to connect more than 2,000 GitHub repositories, only the first 2,000 repositories, sorted alphabetically, will be onboarded.  
-
-If your organization is interested in onboarding more than 2,000 GitHub repositories, please complete [this survey](https://aka.ms/dfd-forms/onboarding).
 
 ## Connect your GitHub account
 

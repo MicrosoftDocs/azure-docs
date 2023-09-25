@@ -46,7 +46,7 @@ Ensure the region for the new private endpoint is the same as the region for you
 
 [![Screen image of the Azure portal Basics Tab.](media/private-link/private-link-basics.png)](media/private-link/private-link-basics.png#lightbox)
 
-For the resource type, search and select **Microsoft.HealthcareApis/services** from the drop-down list. For the resource, select the workspace in the resource group. The target subresource, **healthcareworkspace**, is automatically populated.
+For the resource type, search and select **Microsoft.HealthcareApis/workspaces** from the drop-down list. For the resource, select the workspace in the resource group. The target subresource, **healthcareworkspace**, is automatically populated.
 
 [![Screen image of the Azure portal Resource tab.](media/private-link/private-link-resource.png)](media/private-link/private-link-resource.png#lightbox)
 

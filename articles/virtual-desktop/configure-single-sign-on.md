@@ -32,7 +32,7 @@ Single sign-on is available on session hosts using the following operating syste
 - Windows 10 Enterprise single or multi-session, versions 20H2 or later with the [2022-10 Cumulative Updates for Windows 10 (KB5018410)](https://support.microsoft.com/kb/KB5018410) or later installed.
 - Windows Server 2022 with the [2022-10 Cumulative Update for Microsoft server operating system (KB5018421)](https://support.microsoft.com/kb/KB5018421) or later installed.
 
-Session hosts must be Azure AD-joined or [hybrid Azure AD-Joined](../active-directory/devices/hybrid-azuread-join-plan.md).
+Session hosts must be Azure AD-joined or [hybrid Azure AD-Joined](../active-directory/devices/hybrid-join-plan.md).
 
 > [!NOTE]
 > Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services or Active Directory only joined session hosts.

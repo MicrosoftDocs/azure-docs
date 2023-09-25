@@ -6,7 +6,7 @@ ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 06/26/2023
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot VMware Spring Cloud Gateway
@@ -21,11 +21,13 @@ This article shows you how to troubleshoot Spring Cloud Gateway for VMware Tanzu
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
-
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or later. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
+
+## Check Gateway metrics
+
+For more information on how to check metrics on the Azure portal, see the [Common metrics page](./concept-metrics.md#common-metrics-page) section of [Metrics for Azure Spring Apps](concept-metrics.md).
+
+For more information on each supported metric, see the [Gateway](./concept-metrics.md#gateway) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 ## Check Gateway logs
 
@@ -90,9 +92,26 @@ Use the following steps to adjust the log levels:
 1. Select **Save** to save your changes.
 1. After the change is successful, you can find more detailed logs for troubleshooting, such as information about how requests are routed.
 
+## Setup alert rules
+
+You can create alert rules based on logs and metrics. For more information, see [Create or edit an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+
+Use the following steps to directly create alert rules from the Azure portal for Azure Spring Apps:
+
+1. Open your Azure Spring Apps instance.
+1. Navigate to **Logs** or **Metrics**.
+1. Write the log query in the **Logs** pane, or add a metrics chart.
+1. Select **New alert rule**. This action takes you to the **Create an alert rule** pane, and the log query or the metrics is filled out automatically.
+
+You can now configure the alert rule details.
+
+## Monitor Gateway with application performance monitor
+
+ For more information on supported application performance monitors and how to configure them, see the [Configure application performance monitoring](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-application-performance-monitoring) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
+
 ## Restart Gateway
 
-For some errors, a restart might help solve the issue. For more information, see the [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-spring-cloud-gateway) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
+For some errors, a restart might help solve the issue. For more information, see the [Restart Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md#restart-vmware-spring-cloud-gateway) section of [Configure VMware Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md).
 
 ## Next steps
 

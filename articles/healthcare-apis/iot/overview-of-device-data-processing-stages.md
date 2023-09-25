@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 07/12/2023
+ms.date: 07/19/2023
 ms.author: jasteppe
 ---
 
@@ -103,7 +103,7 @@ Persist is the final stage where the FHIR Observations from the transform stage 
 
 ## Next steps
 
-In this article, you learned about the MedTech service device message processing and persistence in the FHIR service.
+In this article, you learned about the MedTech service device message processing stages.
 
 For an overview of the MedTech service deployment methods, see
 
@@ -119,5 +119,10 @@ For an overview of the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
 > [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
+
+For an overview of the MedTech service scenario-based mappings samples, see
+
+> [!div class="nextstepaction"]
+> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

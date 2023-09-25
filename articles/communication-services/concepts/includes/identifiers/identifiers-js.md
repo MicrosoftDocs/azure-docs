@@ -96,7 +96,7 @@ const gcchBotIdentifier = { botId: id, cloud: "gcch", isResourceAccountConfigure
 
 #### API reference
 
-[MicrosoftBotIdentifier](/javascript/api/@azure/communication-common/microsoftbotidentifier?view=azure-node-preview)
+[MicrosoftBotIdentifier](/javascript/api/@azure/communication-common/microsoftbotidentifier?view=azure-node-preview&preserve-view=true)
 
 ### Unknown
 

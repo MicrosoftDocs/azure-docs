@@ -24,7 +24,7 @@ There are multiple ways to assign a remote network to the traffic forwarding pro
 To assign a remote network to a traffic forwarding profile to, you must have:
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID. 
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 - To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 ### Known limitations
@@ -33,8 +33,8 @@ To assign a remote network to a traffic forwarding profile to, you must have:
 
 ## Assign the Microsoft 365 traffic profile to a remote network
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](../active-directory/roles/permissions-reference.md).
-1. Go to **Global Secure Access (preview)** > **Devices** > **Remote network**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Secure Access Administrator](/azure/active-directory/roles/permissions-reference#global-secure-access-administrator).
+1. Browse to **Global Secure Access (preview)** > **Devices** > **Remote network**.
 1. Select a remote network. 
 1. Select **Traffic profiles**. 
 1. Select (or unselect) the checkbox for **Microsoft 365 traffic forwarding profile**. 
@@ -44,7 +44,7 @@ To assign a remote network to a traffic forwarding profile to, you must have:
 
 ## Assign a remote network to the Microsoft 365 traffic forwarding profile
 
-1. Go to **Global Secure Access** > **Connect** > **Traffic forwarding**.
+1. Browse to **Global Secure Access (preview)** > **Connect** > **Traffic forwarding**.
 1. Select the **Add/edit assignments** button for **Microsoft 365 traffic profile**. 
 
 ![Screenshot of the add/edit assignment button on the Microsoft 365 traffic profile.](media/how-to-assign-traffic-profile-to-remote-network/microsoft-365-traffic-profile-remote-network-button.png)

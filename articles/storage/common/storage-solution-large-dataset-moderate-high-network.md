@@ -4,7 +4,8 @@ description: Learn how to choose an Azure solution for data transfer when you ha
 services: storage
 author: stevenmatthew
 
-ms.service: storage
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 06/28/2022
 ms.author: shaas

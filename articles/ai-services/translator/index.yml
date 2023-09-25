@@ -1,0 +1,151 @@
+### YamlMime:Landing
+
+title: Azure AI Translator documentation
+summary: Azure AI Translator is a cloud-based machine translation service you can use to translate text and documents with a simple REST API call. The service uses modern neural machine translation technology. The Custom Translator interface allows you to use your translation memory to create customized neural translation systems. The customized translation system can be used to translate text and documents with the Translator service.
+metadata:
+  title: Azure AI Translator documentation - quickstarts, tutorials, API reference
+  titleSuffix: Azure AI services
+  description: Azure AI Translator is a cloud-based machine translation service you can use to translate text through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
+  services: cognitive-services
+  author: laujan
+  manager: nitinme
+  ms.service: azure-ai-translator
+  ms.topic: landing-page
+  ms.date: 12/17/2022
+  ms.author: lajanuar
+
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card 1
+  - title: About Translator Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Translator Service?
+            url: translator-overview.md
+          - text: Language support
+            url:  language-support.md
+          - text: Pricing
+            url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+          - text: FAQ
+            url: https://www.microsoft.com/translator/faq.aspx
+      - linkListType: whats-new
+        links:
+         - text: What's new in Translator Service?
+           url: whats-new.md
+
+  # Card 2
+  - title: Features and quickstarts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Text Translation
+            url: text-translation-overview.md
+          - text: Document Translation
+            url:  document-translation/overview.md
+          - text: Custom Translator
+            url: custom-translator/overview.md
+      - linkListType: get-started
+        links:
+          - text: Text Translation quickstart
+            url: quickstart-text-rest-api.md
+          - text: Document Translation quickstart
+            url: document-translation/quickstarts/document-translation-rest-api.md
+          - text: Custom Translator quickstart
+            url: custom-translator/quickstart.md
+            
+  # Card 3
+  - title: Text Translation
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Text Translation REST API
+            url: reference/v3-0-reference.md
+          - text: Text Translation reference (v3)
+            url: reference/v3-0-reference.md
+          - text: Request limits
+            url: service-limits.md
+      - linkListType: how-to-guide
+        links:
+          - text: Use the Text Translation APIs
+            url: translator-text-apis.md
+          - text: Migrate from Translator v2.0 to v3.0
+            url: migrate-to-v3.md
+          - text: Translate behind firewalls
+            url:  firewalls.md
+          - text: Use the Translator Service container
+            url: containers/translator-how-to-install-container.md
+
+   # Card 4
+  - title: Document Translation
+    linkLists:
+      - linkListType: reference
+        links:
+         - text: Client-library SDKs
+           url: document-translation/document-sdk-overview.md
+         - text: Document Translation REST APIs
+           url: document-translation/reference/rest-api-guide.md
+         - text: Document Translation FAQ
+           url: document-translation/faq.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create SAS tokens
+            url: document-translation/how-to-guides/create-sas-tokens.md
+          - text: Create and use managed identities
+            url: document-translation/how-to-guides/create-use-managed-identities.md
+
+  # Card 5
+  - title: Custom Translator
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Key terms
+          url: custom-translator/key-terms.md
+        - text: FAQ
+          url: custom-translator/faq.md
+      - linkListType: how-to-guide
+        links:
+          - text: Custom Translation for beginners
+            url: custom-translator/beginners-guide.md
+          - text: Create a manage a workspace
+            url: custom-translator/how-to/create-manage-workspace.md
+          - text: Create and manage a project
+            url: custom-translator/how-to/create-manage-project.md
+          - text: Build and manage training documents
+            url: custom-translator/how-to/create-manage-training-documents.md
+          - text: Train a custom model
+            url: custom-translator/how-to/train-custom-model.md
+          - text: View custom model details and test translation
+            url: custom-translator/how-to/test-your-model.md
+          - text: Publish a custom model
+            url: custom-translator/how-to/publish-model.md
+          - text: Translate text with a custom model
+            url: custom-translator/how-to/translate-with-custom-model.md
+
+
+  # Card 6
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Translator Service in sovereign clouds
+            url: sovereign-clouds.md
+          - text: Text translation code samples on GitHub
+            url: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-translator
+
+  # Card 7
+  - title: Help and support
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Support and help options
+            url: ../cognitive-services-support-options.md?context=/azure/ai-services/translator/context/context
+          - text: Compliance
+            url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+          - text: Confidentiality
+            url: https://www.microsoft.com/translator/business/notrace/

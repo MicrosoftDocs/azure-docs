@@ -4,6 +4,7 @@ description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Ent
 author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom: devx-track-linux
 ms.collection: linux
 ms.topic: article
 ms.date: 04/06/2023
@@ -105,7 +106,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Get the EUS repository `config` file.
 
    ```bash
-   sudo wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+   curl -O https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
    ```
 
 1. Add EUS repositories.
@@ -150,7 +151,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Get the regular repositories `config` file.
 
     ```bash
-    sudo wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+    curl -O https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
     ```
 
 1. Add non-EUS repository.

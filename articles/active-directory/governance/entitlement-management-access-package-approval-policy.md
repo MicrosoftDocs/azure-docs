@@ -22,7 +22,9 @@ ms.collection: M365-identity-device-management
 ---
 # Change approval and requestor information settings for an access package in entitlement management
 
-As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy for requesting access.
+Each access package must have one or more access package assignment policies, before a user can be assigned access.  When an access package is created in the Microsoft Entra admin center, the Microsoft Entra admin center automatically creates the first access package assignment policy for that access package.  The policy determines who can request access, and who if anyone must approve access.
+
+As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new additional policy for requesting access.
 
 This article describes how to change the approval and requestor information settings for an existing access package, through an access package's policy.
 
@@ -46,13 +48,17 @@ For a demonstration of how to add a multi-stage approval to a request policy, wa
 
 ## Change approval settings of an existing access package assignment policy
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to specify the approval settings for requests for the access package through a policy:
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance Administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Access packages** and then open the access package.
+1. Browse to **Identity governance** > **Entitlement management** > **Access packages**.
+
+1. On the **Access packages** page open an access package.
 
 1. Either select a policy to edit or add a new policy to the access package
     1. Select **Policies** and then **Add policy** if you want to create a new policy.
@@ -60,7 +66,7 @@ Follow these steps to specify the approval settings for requests for the access 
 
 1. Go to the **Request** tab.
 
-1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
+1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**. If the policy allows external users from outside your organization to request access, you should require approval, so there is oversight on who is being added to your organization's directory.
 
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
     
@@ -85,7 +91,7 @@ Use the following steps to add approvers after selecting how many stages you req
     
 1. If you selected **Manager** as the first approver, select **Add fallback to select one, or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
 
-    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).
+    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Microsoft Entra ID. For more information, see [Add or update a user's profile information using Microsoft Entra ID](../fundamentals/how-to-manage-user-profile-info.md).
 
 1. If you selected **Choose specific approvers**, select **Add approvers** to choose one, or more, users or groups in your directory to be approvers.
 
@@ -171,7 +177,7 @@ For example, if you listed Alice and Bob as the first stage approver(s), list Ca
 
 ## Collect additional requestor information for approval
 
-In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. There's a limit of 20 questions per policy and a limit of 25 answers for Multiple Choice questions. The questions will then be shown to approvers to help them make a decision.
+In order to make sure users are getting access to the right access packages, you can require requestors to answer custom text field or Multiple Choice questions at the time of request. The questions will then be shown to approvers to help them make a decision.
 
 1. Go to the **Requestor information** tab and select the **Questions** sub tab.
  

@@ -507,7 +507,7 @@ Controls the timeout, in seconds, when connected to streaming logs. The default 
 |-|-|
 |SCM_LOGSTREAM_TIMEOUT|`1800`|
 
-The above sample value of `1800` sets a timeout of 30 minutes. To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
+The above sample value of `1800` sets a timeout of 30 minutes. For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -517,7 +517,7 @@ Connection string for storage account where the function app code and configurat
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-This setting is required for Consumption plan apps on Windows and for Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+This setting is required for Consumption plan apps on Windows and for Elastic Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions. 
 
 Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 

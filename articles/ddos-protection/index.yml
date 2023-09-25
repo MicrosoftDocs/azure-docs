@@ -23,7 +23,7 @@ landingContent:
         links:
           - text: What is Azure DDoS Protection?
             url: ddos-protection-overview.md
-          - text: Azure DDoS Protection SKU comparison
+          - text: Azure DDoS Protection tier comparison
             url: ddos-protection-sku-comparison.md
           - text: Pricing
             url: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/

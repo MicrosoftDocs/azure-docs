@@ -5,8 +5,8 @@ ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 02/03/2023
-author: lauradolan
-ms.author: ladolan
+author: sagarkeswani
+ms.author: sagarkeswani
 #Customer intent: As a SAP Basis Admin, I want to view and manage my SAP systems using Virtual Instance for SAP solutions resource where I can find SAP system properties.
 ---
 

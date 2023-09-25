@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 06/30/2023
+ms.date: 08/03/2023
 ms.author: jasteppe
 ---
 
@@ -31,7 +31,7 @@ The `$convert-data` operation is integrated into the FHIR service as a REST API 
 
 `POST {{fhirurl}}/$convert-data`
 
-The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service returns a [FHIR Bundle](https://www.hl7.org/fhir/R4/bundle.html) response with the data converted to FHIR R4.
+The health data for conversion is delivered to the FHIR service in the body of the `$convert-data` request. If the request is successful, the FHIR service returns a [FHIR bundle](https://www.hl7.org/fhir/R4/bundle.html) response with the data converted to FHIR R4.
 
 ###  Parameters
 
@@ -112,20 +112,25 @@ A `$convert-data` operation call packages the health data for conversion inside 
 }
 ```
 
-The outcome of FHIR conversion is a FHIR Bundle as a batch. 
-* The FHIR Bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
+The outcome of FHIR conversion is a FHIR bundle as a batch. 
+* The FHIR bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
 * If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
 
 ## Next steps
 
 In this article, you learned about the `$convert-data` operation and how to use the endpoint for converting health data to FHIR R4 by using the FHIR service in the Azure Health Data Service. 
 
-To learn how to configure settings for `$convert-data` using the Azure portal, see:
+To learn how to configure settings for `$convert-data` using the Azure portal, see
  
 > [!div class="nextstepaction"]
 > [Configure settings for $convert-data using the Azure portal](configure-settings-convert-data.md)
 
-To learn about the frequently asked questions (FAQs) for the `$convert-data` operation, see
+To learn how to troubleshoot `$convert-data`, see 
+
+> [!div class="nextstepaction"]
+> [Troubleshoot $convert-data](troubleshoot-convert-data.md)
+
+To learn about the frequently asked questions (FAQs) for `$convert-data`, see
  
 > [!div class="nextstepaction"]
 > [Frequently asked questions about $convert-data](frequently-asked-questions-convert-data.md)

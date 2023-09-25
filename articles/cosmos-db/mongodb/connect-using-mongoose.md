@@ -27,7 +27,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 ## Create an Azure Cosmos DB account
 
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to Set up your Node.js application. If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](../local-emulator.md) to set up the emulator and skip ahead to Set up your Node.js application.
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to Set up your Node.js application. If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](../emulator.md) to set up the emulator and skip ahead to Set up your Node.js application.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../includes/cosmos-db-create-dbaccount-mongodb.md)]
 

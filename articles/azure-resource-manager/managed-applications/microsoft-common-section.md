@@ -11,7 +11,7 @@ A control that groups one or more elements under a heading.
 
 ## UI sample
 
-![Microsoft.Common.Section](./media/managed-application-elements/microsoft-common-section.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-section.png" alt-text="Screenshot of Microsoft.Common.Section UI element with a heading and grouped elements.":::
 
 ## Schema
 

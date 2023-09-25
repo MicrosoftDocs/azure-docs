@@ -84,15 +84,15 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
 
 ## Identity
 
-To access virtual desktops and remote apps from your session hosts, your users need to be able to authenticate. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) is Microsoft's centralized cloud identity service that enables this capability. Azure AD is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Azure AD tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) (Azure AD DS), providing you with a choice of flexible configuration options.
+To access desktops and applications from your session hosts, your users need to be able to authenticate. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) is Microsoft's centralized cloud identity service that enables this capability. Azure AD is always used to authenticate users for Azure Virtual Desktop. Session hosts can be joined to the same Azure AD tenant, or to an Active Directory domain using [Active Directory Domain Services](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (AD DS) or [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) (Azure AD DS), providing you with a choice of flexible configuration options.
 
 ### Session hosts
 
-You need to join session hosts that provide virtual desktops and remote apps to the same Azure AD tenant as your users, or an Active Directory domain (either AD DS or Azure AD DS).
+You need to join session hosts that provide desktops and applications to the same Azure AD tenant as your users, or an Active Directory domain (either AD DS or Azure AD DS).
 
 To join session hosts to Azure AD or an Active Directory domain, you need the following permissions:
 
-- For Azure Active Directory (Azure AD), you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/device-management-azure-portal.md#configure-device-settings). To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md).
+- For Azure Active Directory (Azure AD), you need an account that can join computers to your tenant. For more information, see [Manage device identities](../active-directory/devices/manage-device-identities.md#configure-device-settings). To learn more about joining session hosts to Azure AD, see [Azure AD-joined session hosts](azure-ad-joined-session-hosts.md).
 
 - For an Active Directory domain, you need a domain account that can join computers to your domain. For Azure AD DS, you would need to be a member of the [*AAD DC Administrators* group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
@@ -139,7 +139,7 @@ You'll need to enter the following identity parameters when deploying session ho
 
 ## Operating systems and licenses
 
-You have a choice of operating systems (OS) that you can use for session hosts to provide virtual desktops and remote apps. You can use different operating systems with different host pools to provide flexibility to your users. We support the following 64-bit versions of these operating systems, where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/).
+You have a choice of operating systems (OS) that you can use for session hosts to provide desktops and applications. You can use different operating systems with different host pools to provide flexibility to your users. We support the following 64-bit versions of these operating systems, where supported versions and dates are inline with the [Microsoft Lifecycle Policy](/lifecycle/).
 
 |Operating system |User access rights|
 |---|---|
@@ -148,7 +148,8 @@ You have a choice of operating systems (OS) that you can use for session hosts t
 
 > [!IMPORTANT]
 > - The following items are not supported:
->   - 32-bit operating systems, or SKUs not listed in the previous table.
+>   - 32-bit operating systems.
+>   - N, KN, LTSC, and other editions of Windows operating systems not listed in the previous table.
 >   - [Ultra disks](../virtual-machines/disks-types.md#ultra-disks) for the OS disk type.
 >   - [Ephemeral OS disks for Azure VMs](../virtual-machines/ephemeral-os-disks.md).
 >   - [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
@@ -174,7 +175,7 @@ If your license entitles you to use Azure Virtual Desktop, you don't need to ins
 
 ## Network
 
-There are several network requirements you'll need to meet to successfully deploy Azure Virtual Desktop. This lets users connect to their virtual desktops and remote apps while also giving them the best possible user experience.
+There are several network requirements you'll need to meet to successfully deploy Azure Virtual Desktop. This lets users connect to their desktops and applications while also giving them the best possible user experience.
 
 Users connecting to Azure Virtual Desktop securely establish a reverse connection to the service, which means you don't need to open any inbound ports. Transmission Control Protocol (TCP) on port 443 is used by default, however RDP Shortpath can be used for [managed networks](shortpath.md) and [public networks](shortpath-public.md) that establishes a direct User Datagram Protocol (UDP)-based transport.
 
@@ -207,7 +208,7 @@ Consider the following when managing session hosts:
 
 - Don't enable any policies or configurations that disable *Windows Installer*. If you disable Windows Installer, the service won't be able to install agent updates on your session hosts, and your session hosts won't function properly.
 
-- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-azuread-join-plan.md).
+- If you're joining session hosts to an AD DS domain and you want to manage them using [Intune](/mem/intune/fundamentals/what-is-intune), you'll need to configure [Azure AD Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) to enable [hybrid Azure AD join](../active-directory/devices/hybrid-join-plan.md).
 
 - If you're joining session hosts to an Azure AD DS domain, you can't manage them using [Intune](/mem/intune/fundamentals/what-is-intune).
 
@@ -215,7 +216,7 @@ Consider the following when managing session hosts:
 
 ## Remote Desktop clients
 
-Your users will need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to virtual desktops and remote apps. The following clients support Azure Virtual Desktop:
+Your users will need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to desktops and applications. The following clients support Azure Virtual Desktop:
 
 - [Windows Desktop client](./users/connect-windows.md)
 - [Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)

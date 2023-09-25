@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -48,8 +48,8 @@ A tumbling window has the following trigger type properties:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime": <<datetime – optional>>,
-            "delay": <<timespan – optional>>,
+            "endTime": <<datetime - optional>>,
+            "delay": <<timespan - optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
@@ -58,8 +58,8 @@ A tumbling window has the following trigger type properties:
             "dependsOn": [
                 {
                     "type": "TumblingWindowTriggerDependencyReference",
-                    "size": <<timespan – optional>>,
-                    "offset": <<timespan – optional>>,
+                    "size": <<timespan - optional>>,
+                    "offset": <<timespan - optional>>,
                     "referenceTrigger": {
                         "referenceName": "MyTumblingWindowDependency1",
                         "type": "TriggerReference"
@@ -67,7 +67,7 @@ A tumbling window has the following trigger type properties:
                 },
                 {
                     "type": "SelfDependencyTumblingWindowTriggerReference",
-                    "size": <<timespan – optional>>,
+                    "size": <<timespan - optional>>,
                     "offset": <<timespan>>
                 }
             ]

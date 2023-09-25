@@ -9,7 +9,7 @@ ms.date: 06/28/2023
 ms.custom: template-reference
 ---
 
-# Nexus Limits and Quotas
+# Azure Operator Nexus limits and quotas
 
 This document provides an overview of the resource limits that apply to the components used in the Nexus solution, encompassing the resources created within Azure cloud and in on-premises instance. It outlines the specific limitations and restrictions that operators should be aware of when deploying and managing the Nexus instance across these environments.
 
@@ -41,6 +41,7 @@ The creation of the Network Fabric related resources is subject to the following
 | Layer 2 Isolation domains   | 3500 isolation domains per Nexus instance |
 | Layer 3 Isolation domains   | 200 isolation domains per Nexus instance |
 | Route policies              | 400 route policies per Nexus instance |
+| Isolation domain MTU | 1500 - 9200 |
 
 > [!NOTE]
 > * The number of Nexus instances a pair of NFC + CM can handle has been set to 20 based on some theoretical study for ExpressRoute. These numbers will be refined after more testing. 
@@ -52,11 +53,11 @@ The creation of the Network Cloud specific resources is subject to the following
 | Resource Type               | Notes |
 | --------------------------- | -------------------------|
 | Cluster Manager             |	1:1 mapping with Network Fabric Controller |
-| Cluster                     |	Up to 20 Nexus Cluster instances per Cluster Manager (within same region) [To be updated] |
+| Cluster                     |	Up to 20 Nexus Cluster instances per Cluster Manager (within same region) |
 | Racks                       |	Up to BOM-specified Compute Racks per Nexus Cluster |
 | Bare Metal Machines         |	Up to BOM-specified BareMetal machines per Rack |
 | Storage Appliances          |	Up to BOM-specified Storage appliances per Nexus Cluster instance |
-| NAKS Cluster                |	Depends on selection of VM flavor and number of nodes per NAKS cluster |
+| NKS Cluster                |	Depends on selection of VM flavor and number of nodes per NKS cluster |
 | Layer 2 Networks            | 3500 per Nexus instance |
 | Layer 3 Networks            | 200 per Nexus instance |
 | Trunked Networks            | 3500 per Nexus instance |
@@ -81,7 +82,7 @@ The table here briefly mentions other Azure resources that are necessary. Howeve
 | Resource Type                | Notes |
 | ---------------------------- | -------------------------|
 | Subscription	               | [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md) |
-| Resource Group               | [Resource Group Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). There's a max limit for RG per subscription. Operators need to make appropriate consideration for how they want to manage Resource Groups for NAKS clusters vs Virtual machines per Nexus instance. |
+| Resource Group               | [Resource Group Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). There's a max limit for RG per subscription. Operators need to make appropriate consideration for how they want to manage Resource Groups for NKS clusters vs Virtual machines per Nexus instance. |
 | VM Flavors	               | Customer generally has VM flavor quota in each region within subscription. You need to ensure that you can still create VMs per the requirements. |
 | AKS Clusters	               | [AKS Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-kubernetes-service-limits) |
 | Virtual Networks	           | [Virtual Network Limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits) |

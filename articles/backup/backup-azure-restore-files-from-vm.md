@@ -3,10 +3,10 @@ title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
 ms.date: 06/30/2023
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-linux
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Recover files from Azure virtual machine backup
 
@@ -134,7 +134,7 @@ If you run the script on a computer with restricted access, ensure there's acces
 - `download.microsoft.com` or `AzureFrontDoor.FirstParty` service tag in NSG on port 443 (outbound)
 - Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides) on port 3260 (outbound)
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions) or `AzureBackup` service tag in NSG
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet) or `AzureBackup` service tag in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Microsoft Azure operated by 21Vianet) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany) or `AzureBackup` service tag in NSG
 - Public DNS resolution on port 53 (outbound)

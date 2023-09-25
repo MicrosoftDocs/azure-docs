@@ -1,11 +1,12 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/29/2022
+ms.date: 08/15/2023
 ms.topic: conceptual
 ms.author: davidsmatlak
 author: davidsmatlak
 ---
+
 # Azure Policy definition structure
 
 Azure Policy establishes conventions for resources. Policy definitions describe resource compliance
@@ -137,7 +138,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. 
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
@@ -186,10 +187,11 @@ always stay the same, however their values change based on the individual fillin
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
 
-> [!NOTE]
-> Parameters may be added to an existing and assigned definition. The new parameter must include the
-> **defaultValue** property. This prevents existing assignments of the policy or initiative from
-> indirectly being made invalid.
+Parameters may be added to an existing and assigned definition. The new parameter must include the
+**defaultValue** property. This prevents existing assignments of the policy or initiative from
+indirectly being made invalid.
+
+Parameters can't be removed from a policy definition because there may be an assignment that sets the parameter value, and that reference would become broken. Instead of removing, you can classify the parameter as deprecated in the parameter metadata.
 
 ### Parameter properties
 
@@ -403,7 +405,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | denyAction | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
