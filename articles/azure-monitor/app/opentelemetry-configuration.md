@@ -123,7 +123,7 @@ Use one of the following two ways to configure the connection string:
     ```typescript
    const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
     const options: AzureMonitorOpenTelemetryOptions = {
-        azureMonitorExporterConfig: {
+        azureMonitorExporterOptions: {
             connectionString: "<your connection string>"
         }
     };
@@ -601,7 +601,7 @@ For example:
 const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
 
 const options: AzureMonitorOpenTelemetryOptions = {
-    azureMonitorExporterConfig = {
+    azureMonitorExporterOptions = {
         connectionString: "<Your Connection String>",
         storageDirectory: "C:\\SomeDirectory",
         disableOfflineStorage: false

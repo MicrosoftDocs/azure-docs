@@ -27,7 +27,7 @@ This scenario, in which a protected web API calls other web APIs, builds on [Sce
 ## Overview
 
 - A web, desktop, mobile, or single-page application client (not represented in the accompanying diagram) calls a protected web API and provides a JSON Web Token (JWT) bearer token in its "Authorization" HTTP header.
-- The protected web API validates the token and uses the Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` method to request another token from Azure Active Directory (Azure AD) so that the protected web API can call a second web API, or downstream web API, on behalf of the user. `AcquireTokenOnBehalfOf` refreshes the token when needed.
+- The protected web API validates the token and uses the Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` method to request another token from Microsoft Entra ID so that the protected web API can call a second web API, or downstream web API, on behalf of the user. `AcquireTokenOnBehalfOf` refreshes the token when needed.
 
 ![Diagram of a web app calling a web API.](media/scenarios/web-api.svg)
 

@@ -704,7 +704,7 @@ The following conditions are necessary to successfully restore a periodic backup
 
 ### How do customer-managed keys affect continuous backups?
 
-Azure Cosmos DB gives you the option to configure [continuous backups](./continuous-backup-restore-introduction.md) on your account. With continuous backups, you can restore your data to any point in time within the past 30 days. To use continuous backups on an account where customer-managed keys are enabled, you must use a user-assigned managed identity in the Key Vault access policy. Azure Cosmos DB first-party identities or system-assigned managed identities aren't currently supported on accounts using continuous backups.
+Azure Cosmos DB gives you the option to configure [continuous backups](./continuous-backup-restore-introduction.md) on your account. With continuous backups, you can restore your data to any point in time within the past 30 days. To use continuous backups on an account where customer-managed keys are enabled, you must use a system-assigned or user-assigned managed identity in the Key Vault access policy. Azure Cosmos DB first-party identities is not currently supported on accounts using continuous backups.
 
 The following conditions are necessary to successfully perform a point-in-time restore:
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 09/05/2023
+ms.date: 09/20/2023
 ms.author: lajanuar
 monikerRange: '<=doc-intel-3.1.0'
 ---

@@ -18,10 +18,10 @@ The Global Secure Access Client acquires traffic using a lightweight filter (LWF
 ## Prerequisites
 
 - The Global Secure Access Client is supported on 64-bit versions of Windows 11 or Windows 10.
-- Devices must be either Azure AD joined or hybrid Azure AD joined. 
-   - Azure AD registered devices aren't supported.
+- Devices must be either Microsoft Entra joined or Microsoft Entra hybrid joined. 
+   - Microsoft Entra registered devices aren't supported.
 - Local administrator credentials are required for installation.
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 ### Known limitations
 
@@ -57,7 +57,7 @@ Organizations can install the client interactively, silently with the `/quiet` s
 
 1. Copy the Global Secure Access Client setup file to your client machine.
 1. Run the setup file, like *GlobalSecureAccessInstaller 1.5.527*. Accept the software license terms.
-1. After the client is installed, users are prompted to sign in with their Microsoft Entra ID credentials.
+1. After the client is installed, users are prompted to sign in with their Microsoft Entra credentials.
 
    :::image type="content" source="media/how-to-install-windows-client/client-install-first-sign-in.png" alt-text="Screenshot showing the sign-in box appears after client installation completes." lightbox="media/how-to-install-windows-client/client-install-first-sign-in.png":::
 

@@ -31,7 +31,7 @@ For applications you build, you can create user flows that allow a user to sign 
 
 ### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
+Microsoft Entra ID is the default identity provider for self-service sign-up. This means that users are able to sign up by default with a Microsoft Entra account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account, and the email one-time passcode feature. For more information, see these articles:
 
 - [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
@@ -40,7 +40,7 @@ Azure AD is the default identity provider for self-service sign-up. This means t
 
 ### Define custom attributes (optional)
 
-User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
+User attributes are values collected from the user during self-service sign-up. Microsoft Entra External ID comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
 
 ## Enable self-service sign-up for your tenant
 

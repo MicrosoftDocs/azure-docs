@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 03/02/2023
+ms.date: 09/19/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -213,11 +213,12 @@ If you are creating or updating a Kubernetes online deployment, you can see [Com
 
 ### ERROR: ImageBuildFailure
 
-This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"The build log is available in the workspace blob store '[storage-account-name]' under the path '/azureml/ImageLogs/your-image-id/build.log'"`. In this case, "azureml" is the name of the blob container in the storage account.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"the build log under the storage account '[storage-account-name]' in the container '[container-name]' at the path '[path-to-the-log]'"`.
 
 This is a list of common image build failure scenarios:
 
 * [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
+* [Image build compute not set in a private workspace with VNet](#image-build-compute-not-set-in-a-private-workspace-with-vnet)
 * [Generic or unknown failure](#generic-image-build-failure)
 
 We also recommend reviewing the default [probe settings](reference-yaml-deployment-managed-online.md#probesettings) in case of ImageBuild timeouts. 
@@ -229,6 +230,10 @@ The desynchronization of a workspace resource's keys can cause this error and it
 However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which may resolve the authorization failure.
 
 Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network that you have set up properly.
+
+#### Image build compute not set in a private workspace with VNet
+
+If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the the workspace's Azure Container Registry is private and configured with a private endpoint, you will need to [enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) to allow building images in the virtual network. 
 
 #### Generic image build failure
 

@@ -1,6 +1,6 @@
 ---
 title: 'Phase 4: Plan management and insights'
-description: This article describes phase 4 of planning migration of applications from AD FS to Azure Active Directory
+description: This article describes phase 4 of planning migration of applications from AD FS to Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -43,7 +43,7 @@ Once you've migrated the apps, consider applying the following suggestions to en
 
 ## Secure app access
 
-Azure AD provides a centralized access location to manage your migrated apps. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and enable the following capabilities:
+Microsoft Entra ID provides a centralized access location to manage your migrated apps. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and enable the following capabilities:
 
 - **Secure user access to apps.** Enable [Conditional Access policies](../conditional-access/overview.md)or [Identity Protection](../identity-protection/overview-identity-protection.md)to secure user access to applications based on device state, location, and more.
 - **Automatic provisioning.** Set up [automatic provisioning of users](../app-provisioning/user-provisioning.md) with various third-party SaaS apps that users need to access. In addition to creating user identities, it includes the maintenance and removal of user identities as status or roles change.
@@ -55,10 +55,10 @@ Azure AD provides a centralized access location to manage your migrated apps. Si
 
 You can also use the [Microsoft Entra admin center](https://entra.microsoft.com) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Microsoft Entra ID Reporting API](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md) to integrate into your favorite tools.
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth/OpenID Connect.
-- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Azure AD Reporting API.](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-- **Visualize your app’s usage** from the [Azure AD Power BI content pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
+- **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Microsoft Entra ID Reporting API.](../reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
+- **Visualize your app’s usage** from the [Microsoft Entra ID Power BI content pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## Exit criteria
 
@@ -69,7 +69,7 @@ You're successful in this phase when you:
 
 ## Do even more with deployment plans
 
-Deployment plans walk you through the business value, planning, implementation steps, and management of Azure AD solutions, including app migration scenarios. They bring together everything that you need to start deploying and getting value out of Azure AD capabilities. The deployment guides include content such as Microsoft recommended best practices, end-user communications, planning guides, implementation steps, test cases, and more.
+Deployment plans walk you through the business value, planning, implementation steps, and management of Microsoft Entra solutions, including app migration scenarios. They bring together everything that you need to start deploying and getting value out of Microsoft Entra capabilities. The deployment guides include content such as Microsoft recommended best practices, end-user communications, planning guides, implementation steps, test cases, and more.
 
 Many [deployment plans](../architecture/deployment-plans.md) are available for your use, and we’re always making more!
 
@@ -78,7 +78,7 @@ Many [deployment plans](../architecture/deployment-plans.md) are available for y
 Visit the following support links to create or track support ticket and monitor health.
 
 - **Azure Support:** You can call [Microsoft Support](https://azure.microsoft.com/support) and open a ticket for any Azure Identity deployment issue depending on your Enterprise Agreement with Microsoft.
-- **FastTrack**: If you've purchased Enterprise Mobility and Security (EMS) or Azure AD Premium licenses, you're eligible to receive deployment assistance from the [FastTrack program.](/enterprise-mobility-security/solutions/enterprise-mobility-fasttrack-program)
+- **FastTrack**: If you've purchased Enterprise Mobility and Security (EMS) or Microsoft Entra ID P1 or P2 licenses, you're eligible to receive deployment assistance from the [FastTrack program.](/enterprise-mobility-security/solutions/enterprise-mobility-fasttrack-program)
 - **Engage the Product Engineering team:** If you're working on a major customer deployment with millions of users, you're entitled to support from the Microsoft account team or your Cloud Solutions Architect. Based on the project’s deployment complexity, you can work directly with the [Azure Identity Product Engineering team.](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/solutionProviders)
 
 ## Next steps

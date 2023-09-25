@@ -2719,3 +2719,18 @@ groups:
     title: Includes templates
   - id: templates-extends
     title: Extends templates
+# Owner: sidandrews
+- id: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
+  title: Azure Cosmos DB APIs
+  prompt: Choose an API
+  pivots:
+  - id: api-nosql
+    title: NoSQL
+  - id: api-mongodb
+    title: MongoDB
+  - id: api-apache-cassandra
+    title: Apache Cassandra
+  - id: api-apache-gremlin
+    title: Apache Gremlin
+  - id: api-table
+    title: Table

@@ -24,9 +24,9 @@ Following are few benefits:
 - Support for Azure Policy. 
 
 
-## LA agent (also known as MMA) is retiring and will be replaced with AMA, can customers continue to use Automation Update Management with AMA?
+## LA agent (also known as MMA) is retiring and will be replaced with AMA, can I continue to use Automation Update Management with AMA?
 
-Azure Update Manager doesn't rely on MMA or AMA. Customers need to move from Automation Update Management to Azure Update Manager as LA agent is retiring. However, note that customers shouldn't remove MMA agent from machines using Automation Update Management before migrating to Azure Update Manager or else Automation Update Management solution will not work.
+You need to move from Automation Update Management to Azure Update Manager as LA agent is retiring (Automation Update Management won't work with AMA either). Azure Update Manager doesn't rely on MMA or AMA. However, ensure that you don't remove MMA agent from machines using Automation Update Management before migrating to Azure Update Manager or else Automation Update Management solution will not work.
  
 
 ## Will I be charged if I migrate to Azure Update Manager? 
@@ -97,7 +97,7 @@ You can resolve machines manually for those saved searches, Arc-enable them and 
 
 If you have purchased a Defender for Servers Plan 2, then you won't have to pay to remediate the unhealthy resources for the above two recommendations. But if you're using any other Defender for server plan for your Arc machines, then you would be charged for those machines at the daily prorated $0.167/server by Azure Update Manager.
 
-## I have been using Automation Update Management for free on Arc machines, would I have to pay to use UMC on those machines? 
+## I have been using Automation Update Management for free on Arc machines, would I have to pay to use Azure Update Manager on those machines? 
 
 We'll provide Azure Update Manager for free for one year (starting from when Azure Update Manager goes GA) to all subscriptions that were using Automation Update Management on Arc-enabled machines for free. Post this period, machines are charged. 
 

@@ -14,7 +14,7 @@ ms.reviewer: phsignor, yuhko
 ms.custom: contperf-fy21q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-portal-aad
 
-#customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
+#customer intent: As an admin, I want to manage app consent policies for enterprise applications in Microsoft Entra ID
 ---
 
 # Manage app consent policies
@@ -223,7 +223,7 @@ The following table provides the list of supported conditions for app consent po
 | ResourceApplication | The **AppId** of the resource application (for example, the API) for which a permission is being granted, or "any" to match with any resource application or API. Default is "any". |
 | Permissions | The list of permission IDs for the specific permissions to match with, or a list with the single value "all" to match with any permission. Default is the single value "all". <br> - Delegated permission IDs can be found in the **OAuth2Permissions** property of the API's ServicePrincipal object. <br> - Application permission IDs can be found in the **AppRoles** property of the API's ServicePrincipal object. |
 | ClientApplicationIds | A list of **AppId** values for the client applications to match with, or a list with the single value "all" to match any client application. Default is the single value "all". |
-| ClientApplicationTenantIds | A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value "all" to match with client apps registered in any tenant. Default is the single value "all". |
+| ClientApplicationTenantIds | A list of Microsoft Entra tenant IDs in which the client application is registered, or a list with the single value "all" to match with client apps registered in any tenant. Default is the single value "all". |
 | ClientApplicationPublisherIds | A list of Microsoft Partner Network (MPN) IDs for [verified publishers](../develop/publisher-verification-overview.md) of the client application, or a list with the single value "all" to match with client apps from any publisher. Default is the single value "all". |
 | ClientApplicationsFromVerifiedPublisherOnly | Set this switch to only match on client applications with a [verified publishers](../develop/publisher-verification-overview.md). Disable this switch (`-ClientApplicationsFromVerifiedPublisherOnly:$false`) to match on any client app, even if it doesn't have a verified publisher. Default is `$false`. |
 |scopeType| The resource scope type the preapproval applies to. Possible values: `group` for [groups](/graph/api/resources/group) and [teams](/graph/api/resources/team), `chat` for [chats](/graph/api/resources/chat?view=graph-rest-1.0&preserve-view=true),  or `tenant` for tenant-wide access. Required.|
@@ -235,4 +235,4 @@ The following table provides the list of supported conditions for app consent po
 
 To get help or find answers to your questions:
 
-* [Azure AD on Microsoft Q&A](/answers/products/)
+* [Microsoft Entra ID on Microsoft Q&A](/answers/products/)

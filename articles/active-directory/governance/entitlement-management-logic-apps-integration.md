@@ -129,7 +129,7 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
     > [!NOTE]  
     > Select **New access package** if you want to create a new access package.
-    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
+    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
 1. Change to the policy tab, select the policy and select **Edit**.
 

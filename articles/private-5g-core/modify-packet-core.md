@@ -46,6 +46,7 @@ The following changes will trigger the packet core to reinstall, during which yo
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
 - Changing the N2, N3 or N6 interface configuration on an attached data network.
+- Changing the UE Maximum Transmission Unit (MTU).
 
 The following changes require you to manually perform a reinstall, during which your service will be unavailable for up to two hours, before they take effect:
 
