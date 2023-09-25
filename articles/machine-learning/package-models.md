@@ -17,7 +17,11 @@ After you train a machine learning model, you need to deploy it so others can co
 
 ## What's a model package?
 
-In general, before deploying a model you want to collect all the dependencies it requires for running successfuly so you can deploy it in a reproducible and robut approach. Typically, model's dependencies include:
+In general, before deploying a model you want to collect all the dependencies it requires for running successfuly so you can deploy it in a reproducible and robut approach.
+
+:::image type="content" source="media/model-packaging/model-package-dependencies.png" alt-text="Screenshot that shows the dependencies that are collected by a model package operation." width=:::
+
+Typically, model's dependencies include:
 
 * The base image or environment where your model executes on.
 * The list of packages and dependencies that the model depends on to function properly.
@@ -27,7 +31,6 @@ In general, before deploying a model you want to collect all the dependencies it
 
 All these elements need to be collected to then be deployed in the serving infrastructure. The resulting asset generated after all the dependencies are collected is called a **model package**.
 
-:::image type="content" source="media/model-packaging/model-package-dependencies.png" alt-text="Screenshot that shows the dependencies that are collected by a model package operation.":::
 
 ## Benefitis of packaging models
 
