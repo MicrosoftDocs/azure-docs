@@ -82,7 +82,7 @@ For a detailed view of all autoinstrumentation supported environments, languages
 
 For other scenarios, the [Application Insights SDK](/dotnet/api/overview/azure/insights) is required.
 
-A preview [OpenTelemetry](opentelemetry-enable.md?tabs=net) offering is also available.
+An [OpenTelemetry](opentelemetry-enable.md?tabs=net) offering is also available.
 
 ### [Java](#tab/java)
 
@@ -94,7 +94,7 @@ Autoinstrumentation is available for any environment by using [Azure Monitor Ope
 
 Autoinstrumentation is available for [Azure App Service](azure-web-apps-nodejs.md).
 
-The [Application Insights SDK](nodejs.md) is an alternative. We also have a preview [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
+The [Application Insights SDK](nodejs.md) is an alternative. We also have an [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
 
 ### [JavaScript](#tab/javascript)
 
@@ -106,7 +106,7 @@ Python applications can be monitored by using [OpenCensus Python SDK via the Azu
 
 An extension is available for monitoring [Azure Functions](opencensus-python.md#integrate-with-azure-functions).
 
-A preview [OpenTelemetry](opentelemetry-enable.md?tabs=python) offering is also available.
+An [OpenTelemetry](opentelemetry-enable.md?tabs=python) offering is also available.
 
 ---
 
@@ -148,7 +148,7 @@ This section lists all supported platforms and frameworks.
   * [Angular](./javascript-framework-extensions.md)
 
 > [!NOTE]
-> OpenTelemetry-based instrumentation is available in preview for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
+> OpenTelemetry-based instrumentation is available for [C#, Node.js, and Python](opentelemetry-enable.md). Review the limitations noted at the beginning of each language's official documentation. If you require a full-feature experience, use the existing Application Insights SDKs.
 
 ### Logging frameworks
 * [ILogger](./ilogger.md)

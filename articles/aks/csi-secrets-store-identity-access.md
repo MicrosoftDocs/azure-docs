@@ -237,7 +237,7 @@ Before you begin, you must have the following prerequisites:
       name: busybox-secrets-store-inline-user-msi
     spec:
       containers:
-          name: busybox
+        - name: busybox
           image: registry.k8s.io/e2e-test-images/busybox:1.29-4
           command:
             - "/bin/sleep"

@@ -61,7 +61,7 @@ public async Task<IActionResult> Profile()
 
  // Use the access token to call a protected web API.
  HttpClient client = new HttpClient();
- client.DefaultRequestHeaders.Add("Authorization", authorizationHeader);
+ client.DefaultRequestHeaders.Add("Authorization", accessToken);
  string json = await client.GetStringAsync(url);
 }
 ```

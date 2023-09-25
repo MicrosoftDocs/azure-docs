@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Active Directory reports FAQ
-  description: Frequently asked questions around Azure Active Directory reports.
+  title: Microsoft Entra monitoring and health FAQ
+  description: Frequently asked questions around Microsoft Entra monitoring and health, including logs and reports.
   services: active-directory
   author: shlipsey3
   manager: amycolannino
@@ -12,9 +12,9 @@ metadata:
   ms.date: 09/08/2023
   ms.author: sarahlipsey
   ms.reviewer: besiler
-title: Frequently asked questions around Azure Active Directory reports
+title: Frequently asked questions around Microsoft Entra monitoring and health
 summary: |
-  This article includes answers to frequently asked questions about Azure Active Directory (Azure AD) reporting. For more information, see [Azure Active Directory reporting](overview-reports.md). 
+  This article includes answers to frequently asked questions about Microsoft Entra monitoring and health. For more information, see [Microsoft Entra monitoring and health overview](overview-monitoring-health.md). 
   
 
 sections:
@@ -23,7 +23,7 @@ sections:
       - question: |
           How do I get a premium license?
         answer: |
-          See [Getting started with Azure Active Directory Premium](../fundamentals/get-started-premium.md) to upgrade your Azure Active Directory edition.
+          See [Getting started with Microsoft Entra ID P1 or P2](../fundamentals/get-started-premium.md) to upgrade your Microsoft Entra edition.
           
       - question: |
           How soon should I see activities data after getting a premium license?
@@ -31,14 +31,14 @@ sections:
           If you already have activities data as a free license, then you can see it immediately. If you don't have any data, then it takes up to three days for the data to show up in the reports.
 
       - question: |
-          Can I see last month's data after getting an Azure AD premium license?
+          Can I see last month's data after getting a Microsoft Entra ID P1 or P2 license?
         answer: |
           If you've recently switched to a Premium version (including a trial version), you can see data up to seven days initially. When data accumulates, you can see data for the past 30 days.
  
       - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
         answer: |
-          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data. The format includes advanced filtering and field selection and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data. The format includes advanced filtering and field selection and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Microsoft Entra ID. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
   - name: Activity logs
     questions:
@@ -50,10 +50,10 @@ sections:
       - question: |
           What logs can I integrate with Azure Monitor?
         answer: |
-          Sign-in and audit logs are both available for routing through Azure Monitor. B2C-related audit events are currently not included. For more information, see [Azure AD activity log integrations](concept-activity-logs-azure-monitor.md) and the [Graph API activity log overview](/graph/api/resources/azure-ad-auditlog-overview)
+          Sign-in and audit logs are both available for routing through Azure Monitor. B2C-related audit events are currently not included. For more information, see [Microsoft Entra activity log integrations](concept-activity-logs-azure-monitor.md) and the [Graph API activity log overview](/graph/api/resources/azure-ad-auditlog-overview)
 
       - question: |
-          What SIEM tools are currently supported for integrating Azure AD activity logs?
+          What SIEM tools are currently supported for integrating Microsoft Entra activity logs?
         answer: |
           For a current list of the supported SIEM tools, see [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
@@ -65,7 +65,7 @@ sections:
       - question: |
           Can I get Microsoft 365 activity log information through the Azure portal?
         answer: |
-          Microsoft 365 and Azure AD activity logs share many directory resources. If you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
+          Microsoft 365 and Microsoft Entra activity logs share many directory resources. If you want a full view of the Microsoft 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
           
       - question: |
           Which APIs do I use to get information about Microsoft 365 Activity logs?
@@ -75,12 +75,12 @@ sections:
       - question: |
           How many records I can download from the Azure portal?
         answer: |
-          How many logs you can download from the Azure portal is determined by a few factors, including browser memory size, network speeds, and current load on Azure AD Reporting APIs. In general, you can expect to download up to 250,000 records from the Azure portal. Depending on the number of fields you included, this number could vary. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data. The specific set of logs you download is determined by the filters active in the Azure portal when you begin the download (for example, filtering to a specific user in the Azure portal will mean your download pulls logs for that specific user). 
+          How many logs you can download from the Azure portal is determined by a few factors, including browser memory size, network speeds, and current load on Microsoft Entra reporting APIs. In general, you can expect to download up to 250,000 records from the Azure portal. Depending on the number of fields you included, this number could vary. To download data sets larger than 250,000 records, use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data. The specific set of logs you download is determined by the filters active in the Azure portal when you begin the download (for example, filtering to a specific user in the Azure portal will mean your download pulls logs for that specific user). 
 
       - question: |
-          How long does Azure AD store activity logs? What is the data retention?
+          How long does Microsoft Entra ID store activity logs? What is the data retention?
         answer: |
-          Depending on your license, Azure AD stores activity logs for between 7 and 30 days. For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+          Depending on your license, Microsoft Entra ID stores activity logs for between 7 and 30 days. For more information, see [Microsoft Entra report retention policies](reference-reports-data-retention.md).  
 
       - question: |
           What happens if an Administrator changes the retention period of a diagnostic setting?
@@ -97,22 +97,22 @@ sections:
       - question: |
           I used the signInActivity resource to look up a user's last sign-in time, but it hasn't updated after a few hours. When will it be updated with the latest sign in time? 
         answer: |
-          The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It does not update in near real time; you should expect up to 6 hours before the property is updated for a given user. If you need to find the user's last sign-in activity more quickly than that, you can use the Azure AD sign-ins blade to see near real time sign-in activity for all your users. 
+          The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It does not update in near real time; you should expect up to 6 hours before the property is updated for a given user. If you need to find the user's last sign-in activity more quickly than that, you can use the Microsoft Entra sign-ins blade to see near real time sign-in activity for all your users. 
 
       - question: |
-          What data is included in the CSV file I can download from the Azure AD sign-in logs?
+          What data is included in the CSV file I can download from the Microsoft Entra sign-in logs?
         answer: |
           The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign-in logs isn't included. For example, Conditional Access policies and report-only information aren't included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
 
       - question: |
           I see .XXX in part of the IP address from a user in my sign-in logs. Why is that happening?
         answer: |
-          Azure AD may redact part of an IP address in the sign-in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This action happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service wasn't able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
+          Microsoft Entra ID may redact part of an IP address in the sign-in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This action happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service wasn't able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
 
       - question: |
           I see "PII Removed" in the Device Details of a user in my sign-in logs. Why is that happening?
         answer: |
-          Azure AD redacts Personally Identifiable Information (PII) generated by devices that don't belong to your tenant to ensure customer data doesn't spread beyond tenant boundaries without user and data owner consent.
+          Microsoft Entra ID redacts Personally Identifiable Information (PII) generated by devices that don't belong to your tenant to ensure customer data doesn't spread beyond tenant boundaries without user and data owner consent.
 
       - question: |
           I see duplicate sign-in entries / multiple sign-in events per requestID. Why is that happening?
@@ -138,12 +138,12 @@ sections:
       - question: |
           I see a 90025 error in the sign in logs. Does this mean my user failed to sign in? Has my tenant hit a throttling limit?
         answer: |
-          No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Azure AD subservice hits its retry allowance and doesn't indicate your tenant is being throttled. These errors are usually resolved by Azure AD internally without any user impact. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
+          No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Microsoft Entra subservice hits its retry allowance and doesn't indicate your tenant is being throttled. These errors are usually resolved by Microsoft Entra ID internally without any user impact. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
 
       - question: |
           In the Service Principal sign-in logs, what does it mean if I see “00000000-0000-0000-0000-000000000000” or “” for Service Principal ID or Resource Service Principal ID in my sign-in logs?
         answer: |
-          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the client application in that instance of authentication. Azure AD no longer issues access tokens without a client Service Principal, except for a few Microsoft and third party applications.
+          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the client application in that instance of authentication. Microsoft Entra no longer issues access tokens without a client Service Principal, except for a few Microsoft and third party applications.
 
           If the Resource Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the resource application in that instance of authentication.
 
@@ -161,7 +161,7 @@ sections:
             ```
           You can also find these sign-in logs in Azure AD Portal.
 
-          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Active Directory**.
+          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Microsoft Entra ID**.
           - Navigate to Sign in Logs under **Monitoring**,
           - Select the **Service Principal Sign-ins**. 
           - Select an appropriate time frame in the Date field (last 24 hours, 7 days etc.).
@@ -190,7 +190,7 @@ sections:
 
           To get started:
           
-          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Active Directory** then select **Sign-ins log**.
+          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Microsoft Entra ID** then select **Sign-ins log**.
           - Select the sign-in that you want to troubleshoot.
           - Navigate to the **Conditional Access** tab.
           Here, you can view all the policies that impacted the sign-in and the result for each policy. 
@@ -227,14 +227,14 @@ sections:
   - name: Microsoft Graph APIs
     questions:
       - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
         answer: |
-          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](./howto-configure-prerequisites-for-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
+          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](./howto-configure-prerequisites-for-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Microsoft Entra ID P1 or P2 license that you can use to get app usage, device usage, and user sign-in information.
           
       - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Microsoft Entra security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
         answer: |
-          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Microsoft Entra ID. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
 
       - question: |
           I keep getting permissions errors when running queries. I thought I had the appropriate role.

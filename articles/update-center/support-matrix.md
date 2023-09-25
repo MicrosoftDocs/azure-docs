@@ -4,7 +4,7 @@ description: Provides a summary of supported regions and operating system settin
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/11/2023
+ms.date: 09/18/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -67,16 +67,16 @@ Update Manager will scale to all regions for both Azure VMs and Azure Arc-enable
 
 # [Azure virtual machine](#tab/azurevm)
 
-Update Manager is available in all Azure public regions where compute virtual machines are available.
+Azure Update Manager is available in all Azure public regions where compute virtual machines are available.
 
 # [Azure Arc-enabled servers](#tab/azurearc)
-Update Manager is supported in the following regions currently. It implies that VMs must be in below regions:
+Azure Update Manager is supported in the following regions currently. It implies that VMs must be in below regions:
 
 **Geography** | **Supported Regions**
 --- | ---
 Africa | South Africa North
 Asia Pacific | East Asia </br> South East Asia
-Australia | Australia East
+Australia | Australia East </br> Australia Southeast
 Brazil | Brazil South
 Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
@@ -84,6 +84,7 @@ France | France Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
+Norway | Norway East
 Sweden | Sweden Central
 Switzerland | Switzerland North
 United Kingdom | UK South </br> UK West
@@ -100,7 +101,7 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 # [Azure VMs](#tab/azurevm-os)
 
 > [!NOTE]
-> Currently, Update Manager has the following limitation regarding the operating system support: 
+> Currently, Azure Update Manager has the following limitation regarding the operating system support: 
 > - [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) and **VMs created by Azure Migrate, Azure Backup, Azure Site Recovery** aren't fully supported for now. However, you can **use on-demand operations such as one-time update and check for updates** in Update Manager. 
 >
 > For the above limitation, we recommend that you use [Automation Update management](../automation/update-management/overview.md) till the support is available in Update Manager.
@@ -166,7 +167,7 @@ The following table lists the operating systems for marketplace images that aren
 We support [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images. Table below lists the operating systems that we support for generalized images. Refer to [custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update Manager to manage updates on custom images.
 
    |**Windows Operating System**|
-   |-- |
+   |---|
    |Windows Server 2022|
    |Windows Server 2019|
    |Windows Server 2016|
@@ -176,7 +177,7 @@ We support [generalized](../virtual-machines/linux/imaging.md#generalized-images
 
 
    |**Linux Operating System**|
-   |-- |
+   |---|
    |CentOS 7, 8|
    |Oracle Linux 7.x, 8x|
    |Red Hat Enterprise 7, 8, 9|
@@ -190,6 +191,7 @@ The table lists the operating systems supported on [Azure Arc-enabled servers](.
 
    |**Operating System**|
    |-------------|
+   | Amazon Linux 2023 |
    | Windows Server 2012 R2 and higher (including Server Core) |
    | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
    | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
@@ -214,7 +216,7 @@ The following table lists the operating systems that aren't supported:
    | Azure Kubernetes Nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
 
 
-As the Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager, or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [configure Windows Update settings](configure-wu-agent.md).
+As the Azure Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager, or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [configure Windows Update settings](configure-wu-agent.md).
  
 
 ## Next steps
