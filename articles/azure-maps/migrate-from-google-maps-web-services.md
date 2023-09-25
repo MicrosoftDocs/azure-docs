@@ -322,7 +322,7 @@ Add markers to a static map image by specifying the `pins` parameter in the URL.
 
 To use other styles, add extra `pins` parameters to the URL with a different style and set of locations.
 
-In Azure Maps, the pin location needs to be in the "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format.
+In Azure Maps, the pin location needs to be in the "longitude,latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format.
 
 The `iconType` specifies the type of pin to create. It can have the following values:
 
@@ -396,7 +396,7 @@ Add lines and polygons to a static map image by specifying the `path` parameter 
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points.
+When it comes to path locations, Azure Maps requires the coordinates to be in "longitude,latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points.
 
 Add path styles with the `optionNameValue` format. Separate multiple styles by pipe (\|) characters, like this `optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style paths in Azure Maps:
 
