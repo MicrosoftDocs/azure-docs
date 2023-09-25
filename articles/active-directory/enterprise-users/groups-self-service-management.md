@@ -48,6 +48,9 @@ Groups created in | Security group default behavior | Microsoft 365 group defaul
 
 2. Select **All groups** > **Groups**, and then select **General** settings.
 
+ > [!NOTE]
+ > This setting only restricts access of group information in **My Groups**. Group information is still accessible via other methods like Microsoft Graph API calls or the Entra Admin Center.
+
  ![Microsoft Entra groups general settings.](./media/groups-self-service-management/groups-settings-general.png)
    > [!NOTE]
    > In June 2024, the setting **Restrict users access to My Groups** will change to **Restrict users ability to see and edit security groups in My Groups.** If the setting is currently set to ‘Yes,’ end users will be able to access My Groups in June 2024, but will not be able to see security groups.
