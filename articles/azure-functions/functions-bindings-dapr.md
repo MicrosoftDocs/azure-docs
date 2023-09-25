@@ -151,7 +151,7 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 |-|-| 
 | [Java Functions][dapr-java] | Learn how to use the Azure Functions Dapr Extension using Java. |
 
-[dapr-java]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/java-azurefunctions
+[dapr-java]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/java-azurefunction
 
 ::: zone-end
 
