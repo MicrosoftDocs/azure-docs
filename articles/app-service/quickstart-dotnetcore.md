@@ -212,7 +212,7 @@ Retrieve and initialize [the ASP.NET web app template](tbd) for this quickstart 
 1. Open a terminal window on your machine to an empty working directory. Initialize the `azd` template using the `azd init` command.
 
     ```bash
-    azd init --template <tbd-template-name>
+    azd init --template https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git
     ```
     When prompted for an environment name, enter `dev`.
     
