@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 09/25/2023
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -20,7 +20,7 @@ To determine the price of each operation, you must first determine how that oper
 
 ## Operation type of each Blob Storage REST operation
 
-The following table maps each Blob Storage REST operation to a operation type.
+The following table maps each Blob Storage REST operation to an operation type.
 
 The price of each type appears in the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page.
 
@@ -78,13 +78,13 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | [Append Block](/rest/api/storageservices/append-block)                                    | Write                     | Write                       | Write                       |
 | [Append Block from URL](/rest/api/storageservices/append-block-from-url)                  | Write                     | Write                       | Write                       |
 | [Append Blob Seal](/rest/api/storageservices/append-blob-seal)                            | Write                     | Write                       | Write                       |
-| [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       | Write                       |
+| [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       | 
 
 <sup>2</sup>    In addition to a read charge, charges for incurred for the **Query Acceleration - Data Scanned**, and **Query Acceleration - Data Returned** transaction categories that appear on the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
 ## Operation type of each Data Lake Storage Gen2 REST operation
 
-The following table maps each Data Lake Storage Gen2 REST operation to a operation type. 
+The following table maps each Data Lake Storage Gen2 REST operation to an operation type. 
 
 The price of each type appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
