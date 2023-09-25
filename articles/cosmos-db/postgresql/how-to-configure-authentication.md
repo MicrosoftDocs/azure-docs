@@ -210,7 +210,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO "user@tenant.onmicrosoft.com";
 
 ## Next steps
 
-- Learn about [authentication in Azure Cosmos DB for PostgreSQL](./concepts-authentication.md).
+- Learn about [authentication in Azure Cosmos DB for PostgreSQL](./concepts-authentication.md)
 - Check out [Azure AD limits and limitations in Azure Cosmos DB for PostgreSQL](./reference-limits.md#azure-active-directory-authentication)
-- Review [Azure Active Directory fundamentals](./../../active-directory/fundamentals/active-directory-whatis.md).
-- [Learn more about SQL GRANT in PostgreSQL](https://www.postgresql.org/docs/current/sql-grant.html).
+- Review [Azure Active Directory fundamentals](./../../active-directory/fundamentals/active-directory-whatis.md)
+- [Learn more about SQL GRANT in PostgreSQL](https://www.postgresql.org/docs/current/sql-grant.html)
