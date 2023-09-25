@@ -133,7 +133,9 @@ Next, you will read the csv file into a pandas DataFrame.
 
 1. Execute code cell 3. You should see the following output:
 
-   <!--Fran, we could use a screenshot here-->
+   
+   :::image type="content" source="media/cache-tutorial-vector-similarity/code-cell-3.png" alt-text="Screenshot of results from executing code cell 3, displaying eight columns and a sampling of 10 rows of data.":::
+
 
 1. Next, process the data by adding an `id` index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from english speaking countries. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You are free to change or remove the filter parameters based on your preferences.
 
