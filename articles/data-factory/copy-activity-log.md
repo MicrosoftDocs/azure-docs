@@ -58,42 +58,46 @@ See below for details of the log output format.
 The following example provides a JSON definition to enable session log in Copy Activity: 
 
 ```json
-"typeProperties": {
+{
+  "name": "CopyActivityLog",
+  "type": "Copy",
+  "typeProperties": {
     "source": {
-        "type": "BinarySource",
-        "storeSettings": {
-            "type": "AzureDataLakeStoreReadSettings",
-            "recursive": true
-        },
-        "formatSettings": {
-            "type": "BinaryReadSettings"
-        }
+      "type": "BinarySource",
+      "storeSettings": {
+        "type": "AzureDataLakeStoreReadSettings",
+        "recursive": true
+      },
+      "formatSettings": {
+        "type": "BinaryReadSettings"
+      }
     },
     "sink": {
-        "type": "BinarySink",
-        "storeSettings": {
-            "type": "AzureBlobFSWriteSettings"
-        }
-    },                    
+      "type": "BinarySink",
+      "storeSettings": {
+        "type": "AzureBlobFSWriteSettings"
+      }
+    },
     "skipErrorFile": {
-        "fileForbidden": true,
-        "dataInconsistency": true
+      "fileForbidden": true,
+      "dataInconsistency": true
     },
     "validateDataConsistency": true,
     "logSettings": {
-        "enableCopyActivityLog": true,
-        "copyActivityLogSettings": {
-            "logLevel": "Warning",
-            "enableReliableLogging": false
+      "enableCopyActivityLog": true,
+      "copyActivityLogSettings": {
+        "logLevel": "Warning",
+        "enableReliableLogging": false
+      },
+      "logLocationSettings": {
+        "linkedServiceName": {
+          "referenceName": "ADLSGen2",
+          "type": "LinkedServiceReference"
         },
-        "logLocationSettings": {
-            "linkedServiceName": {
-               "referenceName": "ADLSGen2",
-               "type": "LinkedServiceReference"
-            },
-            "path": "sessionlog/"
-        }
+        "path": "sessionlog/"
+      }
     }
+  }
 }
 ```
 

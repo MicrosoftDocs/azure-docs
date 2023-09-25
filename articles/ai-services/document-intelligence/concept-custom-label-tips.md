@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Label tips and tricks for Document Intelligence Studio
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: vikurpad
