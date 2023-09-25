@@ -4,7 +4,7 @@ description: Move single instance Azure virtual machines from a regional configu
 author: ankitaduttaMSFT
 ms.service: virtual-machines
 ms.topic: tutorial
-ms.date: 09/21/2023
+ms.date: 09/25/2023
 ms.author: ankitadutta
 ---
 
@@ -73,6 +73,8 @@ The MoveCollection object stores metadata and configuration information about th
 
 Use the following cmdlet to create a resource group for the move collection metadata and configuration information with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
+# [PowerShell](#tab/PowerShell)
+
 ```powershell-interactive
 New-AzResourceGroup -Name "RegionToZone-DemoMCRG" -Location "EastUS"
 ```
@@ -81,6 +83,19 @@ New-AzResourceGroup -Name "RegionToZone-DemoMCRG" -Location "EastUS"
 The output shows that the managed disk is in the same availability zone as the VM:
 
 :::image type="content" source="./media/tutorial-move-regional-zonal/create-resource-group.png" alt-text="Output text after creating resource group":::
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az group create --location eastus2 --name clidemo-RG
+```
+
+**Output**:
+The output shows that the managed disk is in the same availability zone as the VM:
+
+:::image type="content" source="./media/tutorial-move-regional-zonal/create-resource-group.png" alt-text="Output text after creating resource group":::
+
+---
 
 ## Register the resource provider
 
@@ -104,6 +119,8 @@ The output shows that the managed disk is in the same availability zone as the V
 
 Create a MoveCollection object, and assign a managed identity to it, as follows:
 
+# [PowerShell](#tab/PowerShell)
+
 ```azurepowershell-interactive
 New-AzResourceMoverMoveCollection -Name "RegionToZone-DemoMC"  -ResourceGroupName "RegionToZone-DemoMCRG" -MoveRegion "eastus" -Location "eastus2euap" -IdentityType "SystemAssigned" -MoveType "RegionToZone"
 ```
@@ -111,6 +128,14 @@ New-AzResourceMoverMoveCollection -Name "RegionToZone-DemoMC"  -ResourceGroupNam
 **Output**:
 
 :::image type="content" source="./media/tutorial-move-regional-zonal/create-move-collection.png" alt-text="Output text after creating move collection":::
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource-mover move-collection create --identity type=SystemAssigned --location eastus2 --move-region uksouth --name cliDemo-zonalMC --resource-group clidemo-RG --move-type RegionToZone
+```
+
+---
 
 >[!NOTE]
 > For Regional to zonal move, the `MoveType` parameter should be set as *RegionToZone* and `MoveRegion` parameter should be set as the location where resources undergoing zonal move reside. Ensure that the parameters `SourceRegion` and `TargetRegion` are not required and should be set to *null*. 
@@ -128,10 +153,23 @@ Grant the managed identity access to the Resource Mover subscription as follows.
 
 2. Assign the required roles to the identity so Azure Resource Mover can access your subscription to help move resources. Review the list of [required permissions](../resource-mover/common-questions.md#what-managed-identity-permissions-does-resource-mover-need) for the move.
 
+    # [PowerShell](#tab/PowerShell)
+
+
     ```azurepowershell-interactive
     New-AzRoleAssignment -ObjectId $identityPrincipalId -RoleDefinitionName Contributor -Scope "/subscriptions/<subscription-id>""
     New-AzRoleAssignment -ObjectId $identityPrincipalId -RoleDefinitionName "User Access Administrator" -Scope "/subscriptions/<subscription-id>"
     ```
+
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    az role assignment create --assignee-object-id 45bc279c-3353-4f6a-bb4f-8efb48faba59 --assignee-principal-type ServicePrincipal --role Contributor --scope /subscriptions/<Subscription-id>
+    az role assignment create --assignee-object-id 45bc279c-3353-4f6a-bb4f-8efb48faba59 --assignee-principal-type ServicePrincipal --role "User Access Administrator" --scope /subscriptions/<Subscription-id>
+
+    ```
+
+    ---
 
 ## Add regional VMs to the move collection
 
@@ -140,23 +178,21 @@ Retrieve the IDs for existing source resources that you want to move. Create the
 > [!NOTE]
 > Resources added to a move collection must be in the same subscription but can be in different resource groups.
 
-### Create target resource setting object
+1. Create target resource setting object as follows:
 
-Create the target resource setting object as follows:
-
-```azurepowershell-interactive
-$targetResourceSettingsObj = New-Object Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Api20230801.VirtualMachineResourceSettings 
-$targetResourceSettingsObj.ResourceType = "Microsoft.Compute/virtualMachines" 
-$targetResourceSettingsObj.TargetResourceName = "RegionToZone-demoTargetVm" 
-$targetResourceSettingsObj.TargetAvailabilityZone = "2" 
-```
-**Output**
-:::image type="content" source="./media/tutorial-move-regional-zonal/create-target-resources.png" alt-text="Output text after creating target regions the move collection.":::
+    ```azurepowershell-interactive
+    $targetResourceSettingsObj = New-Object Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Api20230801.VirtualMachineResourceSettings 
+    $targetResourceSettingsObj.ResourceType = "Microsoft.Compute/virtualMachines" 
+    $targetResourceSettingsObj.TargetResourceName = "RegionToZone-demoTargetVm" 
+    $targetResourceSettingsObj.TargetAvailabilityZone = "2" 
+    ```
+    **Output**
+    :::image type="content" source="./media/tutorial-move-regional-zonal/create-target-resources.png" alt-text="Output text after creating target regions the move collection.":::
 
 
-### Add resources
+1. Add resources
 
-1. Get the source resource ID:
+    # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell-interactive
     Add-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" -SourceId "/subscriptions/<Subscription-id>/resourcegroups/PS-demo-RegionToZone-RG/providers/Microsoft.Compute/virtualMachines/RegionToZone-demoSourceVm" -Name "demoVM-MoveResource" -ResourceSetting $targetResourceSettingsObj
@@ -166,8 +202,18 @@ $targetResourceSettingsObj.TargetAvailabilityZone = "2"
 
     :::image type="content" source="./media/tutorial-move-regional-zonal/add-regional-machines.png" alt-text="Output text after adding regional virtual machines to the move collection.":::
 
+    # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    az resource-mover move-resource add --resource-group clidemo-RG --move-collection-name cliDemo-zonalMC --name vm-demoMR --source-id "/subscriptions/<Subscription-id>/resourceGroups/regionToZone-bugBash/providers/Microsoft.Compute/virtualMachines/regionToZone-test-LRS" --resource-settings '{ "resourceType": "Microsoft.Compute/virtualMachines", "targetResourceName": "regionToZone-test-LRS", "targetAvailabilityZone": "2", "targetVmSize": "Standard_B2s" }'
+    ```
+    **Output**
+
+    :::image type="content" source="./media/tutorial-move-regional-zonal/add-regional-machines.png" alt-text="Output text after adding regional virtual machines to the move collection.":::
+    
+    ---
   
-### Modify settings
+## Modify settings
 
 You can modify destination settings when moving Azure VMs and associated resources. We recommend that you only change destination settings before you validate the move collection.
 
@@ -215,6 +261,8 @@ Modify settings as follows:
 Check whether the regional VMs you added have any dependencies on other resources, and add as needed.
 
 Resolve dependencies as follows:
+
+# [PowerShell](#tab/PowerShell)
     
 ```
 Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC"
@@ -224,19 +272,41 @@ Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RegionToZone
 
 :::image type="content" source="./media/tutorial-move-regional-zonal/resolve-dependencies.png" alt-text="Output text after resolving move dependencies.":::
 
+# [CLI](#tab/CLI)
 
->[!NOTE]
->
-> - To get a list of resources added to the move collection, you can call: <br>
->`$list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" $list.Name`
-> <br>
->**Output:** <br>
->:::image type="content" source="./media/tutorial-move-regional-zonal/call-move-collection.png" alt-text="Output text after retrieving the move collection.":::
->
-> - To remove resources from the resource collection, follow these [instructions](../resource-mover/remove-move-resources.md).
+```azurecli-interactive
+az resource-mover move-collection resolve-dependency --name cliDemo-zonalMC --resource-group clidemo-RG 
+```
+**Output (when dependencies exist)**
+
+:::image type="content" source="./media/tutorial-move-regional-zonal/resolve-dependencies.png" alt-text="Output text after resolving move dependencies.":::
+
+---
+
+
+- To get a list of resources added to the move collection, you can call:
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell-interactive
+    $list = Get-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" $list.Name
+    ```
+
+    **Output:**
+    :::image type="content" source="./media/tutorial-move-regional-zonal/call-move-collection.png" alt-text="Output text after retrieving the move collection.":::
+
+    # [CLI](#tab/CLI)
+    
+    ```azurecli-interactive
+    az resource-mover move-resource list --move-collection-name cliDemo-zonalMC --resource-group clidemo-RG
+    ```
+    ---
+
+- To remove resources from the resource collection, follow these [instructions](../resource-mover/remove-move-resources.md).
     
 
 ## Initiate move of VM resources
+
+# [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
 Invoke-AzResourceMoverInitiateMove -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" -MoveResource $("demoVM-MoveResource") -MoveResourceInputType "MoveResourceId"
@@ -246,6 +316,18 @@ Invoke-AzResourceMoverInitiateMove -ResourceGroupName "RegionToZone-DemoMCRG" -M
 
 :::image type="content" source="./media/tutorial-move-regional-zonal/initiate-move-resources.png" alt-text="Output text after initiating the move.":::
 
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az resource-mover move-collection initiate-move --move-resources "/subscriptions/<Subscription-id>/resourceGroups/clidemo-RG/providers/Microsoft.Migrate/moveCollections/cliDemo-zonalMC/moveResources/vm-demoMR" --validate-only false --name cliDemo-zonalMC --resource-group clidemo-RG
+```
+
+**Output**
+
+:::image type="content" source="./media/tutorial-move-regional-zonal/initiate-move-resources.png" alt-text="Output text after initiating the move.":::
+
+---
+
 ## Commit
 
 After the initial move, you can decide whether you want to commit the move or discard it. Commit completes the move to the target region. After committing, a source regional VM will be in a state of *Delete source pending* and you can decide if you want to delete it.
@@ -254,12 +336,25 @@ After the initial move, you can decide whether you want to commit the move or di
 
 1. Commit the move as follows:
 
+    # [PowerShell](#tab/PowerShell)
+
     ```
     Invoke-AzResourceMover-VMZonalMoveCommit -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -MoveResource $('psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg', ‘PSDemoVM’) -MoveResourceInputType "MoveResourceId"
     ```
 
     **Output**
     **IMAGE**
+
+   # [CLI](#tab/CLI)
+
+    ```azurecli-interactive
+    az resource-mover move-collection commit --move-resources "/subscriptions/<Subscription-id>/resourceGroups/clidemo-RG/providers/Microsoft.Migrate/moveCollections/cliDemo-zonalMC/moveResources/vm-demoMR" --validate-only false --name cliDemo-zonalMC --resource-group clidemo-RG
+    ``` 
+
+    **Output**
+    **IMAGE**
+
+    ---
 
 2. Verify that all regional VMs have moved to the target region:
     
