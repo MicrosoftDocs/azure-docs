@@ -234,7 +234,10 @@ The following functionality isn't supported in the compatibility layer.
 
 Data and metadata are migrated in parallel. The total time required to complete a migration is equal to whichever of these two processes complete last. 
 
-The following table shows the speed of each migration processing task. 
+The following table shows the approximate speed of each migration processing task. 
+
+> [!NOTE]
+> These time estimates are approximate and can vary. For example, copying a large number of small files can slow performance. 
 
 | Processing task                        | Speed                                 |
 |----------------------------------------|---------------------------------------|
@@ -242,7 +245,9 @@ The following table shows the speed of each migration processing task.
 | Data validation                        | 9 million files per hour              |
 | Metadata copy                          | 4 million files and folders per hour  |
 | Metadata processing                    | 25 million files and folders per hour |
-| Additional metadata processing (data copy option) | 50 million files and folders per hour |
+| Additional metadata processing (data copy option)<sup>1</sup> | 50 million files and folders per hour |
+
+<sup>1</sup>    The additional metadata processing time applies only if you choose the **Copy data to a new Gen2 account** option. This processing time does not apply if you choose the **Complete migration to a new gen2 account** option.
 
 ##### Example: Processing a large number of objects
 
