@@ -7,9 +7,7 @@ ms.topic: conceptual
 
 # Connect Windows Server machines to Azure through Azure Arc Setup
 
-Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Arc onboarding and fetching and installing the latest version of the Connected Machine agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, now successfully onboarded to Azure Arc.
-
-The Azure Arc Setup wizard is launched from a dialog window of the Server Manager when the Azure Arc Setup feature is enabled. This feature is enabled by default.
+Windows Server machines can be onboarded directly to Azure Arc through a graphical wizard included in Windows Server. The wizard automates the onboarding process by checking the necessary prerequisites for successful Arc onboarding and fetching and installing the latest version of the Connected Machine agent. Once the wizard process completes, you're directed to your Window Server machine in the Azure portal, where it can be viewed and managed like any other Arc-enabled resource.
 
 ## Prerequisites
 
@@ -19,13 +17,13 @@ The Azure Arc Setup wizard is launched from a dialog window of the Server Manage
 
 ## Launch Arc Server Setup and connect to Azure Arc
 
-1. Select the Azure Arc system tray icon at the bottom of the screen, then select Launch Azure Arc Setup.
+The Azure Arc Setup wizard is launched from a system tray icon at the bottom of the Windows Server machine when the Azure Arc Setup feature is enabled. This feature is enabled by default. Alternatively, you can launch the wizard from a pop-up window in the Server Manager.
+
+1. Select the Azure Arc system tray icon, then select **Launch Azure Arc Setup**.
 
     :::image type="content" source="media/onboard-windows-server/system-tray-icon.png" alt-text="Screenshot showing Arc system tray icon and window to launch Arc setup process.":::
    
-    Alternatively, you can launch the Azure Arc setup process from a pop-up window that appears in the Server Manager.
-
-1. The Azure Arc Setup wizard starts by explaining the benefits of onboarding your machine to Azure Arc. When you're ready to proceed, click **Next**.
+1. The introduction window of the Azure Arc Setup wizard explains the benefits of onboarding your machine to Azure Arc. When you're ready to proceed, click **Next**.
 
     :::image type="content" source="media/onboard-windows-server/get-started-with-arc.png" alt-text="Screenshot of the intro page of the wizard.":::
 
