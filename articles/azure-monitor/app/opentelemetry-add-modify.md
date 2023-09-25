@@ -152,7 +152,8 @@ Dependencies
 - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
 - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Auto instrumentation of Logs is currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+Automatic instrumentation of Logs is currently only supported when using `applicationinsights` v3 Beta package. (https://www.npmjs.com/package/applicationinsights/v/beta)
+
 Logs
 - [Node.js console](https://nodejs.org/api/console.html)
 - [Bunyan](https://github.com/trentm/node-bunyan#readme)
@@ -268,21 +269,23 @@ To add a community instrumentation library (not officially supported/included in
 > Instrumenting a [supported instrumentation library](.\opentelemetry-add-modify.md?tabs=python#included-instrumentation-libraries) manually with `instrument()` in conjunction with the distro `configure_azure_monitor()` is not recommended. This is not a supported scenario and you may get undesired behavior for your telemetry.
 
 ```python
+# Import the `configure_azure_monitor()`, `SQLAlchemyInstrumentor`, `create_engine`, and `text` functions from the appropriate packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry.instrumentation.sqlalchemy import SQLAlchemyInstrumentor
 from sqlalchemy import create_engine, text
 
+# Configure OpenTelemetry to use Azure Monitor.
 configure_azure_monitor()
 
+# Create a SQLAlchemy engine.
 engine = create_engine("sqlite:///:memory:")
-# SQLAlchemy instrumentation is not officially supported by this package
-# However, you can use the OpenTelemetry instrument() method manually in
-# conjunction with configure_azure_monitor
+
+# SQLAlchemy instrumentation is not officially supported by this package, however, you can use the OpenTelemetry `instrument()` method manually in conjunction with `configure_azure_monitor()`.
 SQLAlchemyInstrumentor().instrument(
     engine=engine,
 )
 
-# Database calls using the SqlAlchemy library will be automatically captured
+# Database calls using the SQLAlchemy library will be automatically captured.
 with engine.connect() as conn:
     result = conn.execute(text("select 'hello world'"))
     print(result.all())
@@ -489,19 +492,26 @@ public class Program {
 #### [Python](#tab/python)
 
 ```python
+# Import the `configure_azure_monitor()` and `metrics` functions from the appropriate packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Get a meter provider and a meter with the name "otel_azure_monitor_histogram_demo".
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_histogram_demo")
 
+# Record three values to the histogram.
 histogram = meter.create_histogram("histogram")
 histogram.record(1.0, {"test_key": "test_value"})
 histogram.record(100.0, {"test_key2": "test_value"})
 histogram.record(30.0, {"test_key": "test_value2"})
 
+# Wait for background execution.
 input()
 ```
 
@@ -639,19 +649,30 @@ public class Program {
 #### [Python](#tab/python)
 
 ```python
+# Import the `configure_azure_monitor()` and `metrics` functions from the appropriate packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+# Get a meter provider and a meter with the name "otel_azure_monitor_counter_demo".
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_counter_demo")
 
+# Create a counter metric with the name "counter".
 counter = meter.create_counter("counter")
+
+# Add three values to the counter.
+# The first argument to the `add()` method is the value to add.
+# The second argument is a dictionary of dimensions.
+# Dimensions are used to group related metrics together.
 counter.add(1.0, {"test_key": "test_value"})
 counter.add(5.0, {"test_key2": "test_value"})
 counter.add(3.0, {"test_key": "test_value2"})
 
+# Wait for background execution.
 input()
 ```
 
@@ -796,17 +817,25 @@ public class Program {
 #### [Python](#tab/python)
 
 ```python
+# Import the necessary packages.
 from typing import Iterable
 
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 from opentelemetry.metrics import CallbackOptions, Observation
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Get a meter provider and a meter with the name "otel_azure_monitor_gauge_demo".
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_gauge_demo")
 
+# Define two observable gauge generators.
+# The first generator yields a single observation with the value 9.
+# The second generator yields a sequence of 10 observations with the value 9 and a different dimension value for each observation.
 def observable_gauge_generator(options: CallbackOptions) -> Iterable[Observation]:
     yield Observation(9, {"test_key": "test_value"})
 
@@ -818,9 +847,11 @@ def observable_gauge_sequence(options: CallbackOptions) -> Iterable[Observation]
         )
     return observations
 
+# Create two observable gauges using the defined generators.
 gauge = meter.create_observable_gauge("gauge", [observable_gauge_generator])
 gauge2 = meter.create_observable_gauge("gauge2", [observable_gauge_sequence])
 
+# Wait for background execution.
 input()
 ```
 
@@ -966,16 +997,22 @@ You can use `opentelemetry-api` to update the status of a span and record except
 The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown are automatically captured and recorded. See the following code sample for an example of this behavior.
 
 ```python
+# Import the necessary packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Get a tracer for the current module.
 tracer = trace.get_tracer("otel_azure_monitor_exception_demo")
 
 # Exception events
 try:
+    # Start a new span with the name "hello".
     with tracer.start_as_current_span("hello") as span:
         # This exception will be automatically recorded
         raise Exception("Custom exception message.")
@@ -989,8 +1026,10 @@ within the context manager and use `record_exception()` directly as shown in the
 
 ```python
 ...
+# Start a new span with the name "hello" and disable exception recording.
 with tracer.start_as_current_span("hello", record_exception=False) as span:
     try:
+        # Raise an exception.
         raise Exception("Custom exception message.")
     except Exception as ex:
         # Manually record exception
@@ -1165,15 +1204,20 @@ The code example shows how to use the `tracer.start_as_current_span()` method to
 
 ```python
 ...
+# Import the necessary packages.
 from opentelemetry import trace
 
+# Get a tracer for the current module.
 tracer = trace.get_tracer(__name__)
 
+# Start a new span with the name "my first span" and make it the current span.
 # The "with" context manager starts, makes the span current, and ends the span within it's context
 with tracer.start_as_current_span("my first span") as span:
     try:
-        # Do stuff within the context of this
+        # Do stuff within the context of this span.
+        # All telemetry generated within this scope will be attributed to this span.
     except Exception as ex:
+        # Record the exception on the span.
         span.record_exception(ex)
 ...
 
@@ -1185,11 +1229,16 @@ If your method represents a background job not already captured by autoinstrumen
 
 ```python
 ...
+# Import the necessary packages.
 from opentelemetry import trace
 from opentelemetry.trace import SpanKind
 
+# Get a tracer for the current module.
 tracer = trace.get_tracer(__name__)
+
+# Start a new span with the name "my request span" and the kind set to SpanKind.SERVER.
 with tracer.start_as_current_span("my request span", kind=SpanKind.SERVER) as span:
+    # Do stuff within the context of this span.
 ...
 ```
 
@@ -1329,7 +1378,7 @@ Not available in .NET.
 
 If you want to add custom events or access the Application Insights API, replace the @azure/monitor-opentelemetry package with the `applicationinsights` [v3 Beta package](https://www.npmjs.com/package/applicationinsights/v/beta). It offers the same methods and interfaces, and all sample code for @azure/monitor-opentelemetry applies to the v3 Beta package.
 
-To send custom telemetry with the Application Insights Classic API, use the `applicationinsights` [v3 Beta package](https://www.npmjs.com/package/applicationinsights/v/beta).
+You need to use the `applicationinsights` v3 Beta package to send custom telemetry using the Application Insights classic API. (https://www.npmjs.com/package/applicationinsights/v/beta)
 
 ```javascript
     const { TelemetryClient } = require("applicationinsights");
@@ -1575,14 +1624,20 @@ Use a custom processor:
 
 ```python
 ...
+# Import the necessary packages.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
+# Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+# Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
 configure_azure_monitor(
     connection_string="<your-connection-string>",
 )
+
+# Create a SpanEnrichingProcessor instance.
 span_enrich_processor = SpanEnrichingProcessor()
-# Add the processor shown below to the current `TracerProvider`
+
+# Add the span enrich processor to the current TracerProvider.
 trace.get_tracer_provider().add_span_processor(span_enrich_processor)
 ...
 ```
@@ -1590,13 +1645,17 @@ trace.get_tracer_provider().add_span_processor(span_enrich_processor)
 Add `SpanEnrichingProcessor.py` to your project with the following code:
 
 ```python
+# Import the SpanProcessor class from the opentelemetry.sdk.trace module.
 from opentelemetry.sdk.trace import SpanProcessor
 
 class SpanEnrichingProcessor(SpanProcessor):
 
     def on_end(self, span):
+        # Prefix the span name with the string "Updated-".
         span._name = "Updated-" + span.name
+        # Add the custom dimension "CustomDimension1" with the value "Value1".
         span._attributes["CustomDimension1"] = "Value1"
+         # Add the custom dimension "CustomDimension2" with the value "Value2".
         span._attributes["CustomDimension2"] = "Value2"
 ```
 
@@ -1652,6 +1711,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `SpanEnrichingProcessor.py`:
 
 ```python
+# Set the `http.client_ip` attribute of the span to the specified IP address.
 span._attributes["http.client_ip"] = "<IP Address>"
 ```
 
@@ -1726,6 +1786,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
 ```python
+# Set the `enduser.id` attribute of the span to the specified user ID.
 span._attributes["enduser.id"] = "<User ID>"
 ```
 
@@ -1777,6 +1838,7 @@ The Python [logging](https://docs.python.org/3/howto/logging.html) library is [a
 
 ```python
 ...
+# Create a warning log message with the properties "key1" and "value1".
 logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 ...
 
@@ -1945,17 +2007,21 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```python
     ...
+    # Import the Flask and Azure Monitor OpenTelemetry SDK libraries.
     import flask
     from azure.monitor.opentelemetry import configure_azure_monitor
     
-    # Configure Azure monitor collection telemetry pipeline
+    # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+    # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
     )
+    
+    # Create a Flask application.
     app = flask.Flask(__name__)
 
-    # Requests sent to this endpoint will not be tracked due to
-    # flask_config configuration
+    # Define a route. Requests sent to this endpoint will not be tracked due to
+    # flask_config configuration.
     @app.route("/ignore")
     def ignore():
         return "Request received but not tracked."
@@ -1966,12 +2032,17 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```python
     ...
+    # Import the necessary libraries.
     from azure.monitor.opentelemetry import configure_azure_monitor
     from opentelemetry import trace
 
+    # Configure OpenTelemetry to use Azure Monitor with the specified connection string.
+    # Replace `<your-connection-string>` with the connection string to your Azure Monitor Application Insights resource.
     configure_azure_monitor(
         connection_string="<your-connection-string>",
     )
+    
+    # Add a SpanFilteringProcessor to the tracer provider.
     trace.get_tracer_provider().add_span_processor(SpanFilteringProcessor())
     ...
     ```
@@ -1979,14 +2050,23 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     Add `SpanFilteringProcessor.py` to your project with the following code:
     
     ```python
+    # Import the necessary libraries.
     from opentelemetry.trace import SpanContext, SpanKind, TraceFlags
     from opentelemetry.sdk.trace import SpanProcessor
     
+    # Define a custom span processor called `SpanFilteringProcessor`.
     class SpanFilteringProcessor(SpanProcessor):
     
-        # prevents exporting spans from internal activities
+        # Prevents exporting spans from internal activities.
         def on_start(self, span):
+            # Check if the span is an internal activity.
             if span._kind is SpanKind.INTERNAL:
+                # Create a new span context with the following properties:
+                #   * The trace ID is the same as the trace ID of the original span.
+                #   * The span ID is the same as the span ID of the original span.
+                #   * The is_remote property is set to `False`.
+                #   * The trace flags are set to `DEFAULT`.
+                #   * The trace state is the same as the trace state of the original span.
                 span._context = SpanContext(
                     span.context.trace_id,
                     span.context.span_id,
@@ -2072,12 +2152,14 @@ Get the request trace ID and the span ID in your code:
 
 Get the request trace ID and the span ID in your code:
 
-   ```python
-   from opentelemetry import trace
+```python
+# Import the necessary libraries.   
+from opentelemetry import trace
 
-   trace_id = trace.get_current_span().get_span_context().trace_id
-   span_id = trace.get_current_span().get_span_context().span_id
-   ```
+# Get the trace ID and span ID of the current span.
+trace_id = trace.get_current_span().get_span_context().trace_id
+span_id = trace.get_current_span().get_span_context().span_id
+```
 
 ---
 
