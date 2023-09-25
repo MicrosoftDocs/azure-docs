@@ -42,24 +42,21 @@ az eventgrid event-subscription create \
 
 ### Azure portal
 
-While creating an event subscription to a system topic, use the drop-down list to select the event types as shown in the following image. 
+While creating an event subscription to a **system topic**, use the drop-down list to select the event types as shown in the following image. 
 
 :::image type="content" source="./media/how-to-filter-events/filter-create-subscription-system-topic.png" alt-text="Screenshot showing the Create Subscription page with event types selected.":::
 
 For an existing subscription to a system topic, use the **Filters** tab of the **Event Subscription** page as shown in the following image. 
 
-:::image type="content" source="./media/how-to-filter-events/filter-existing-subscription-system-topic
-.png" alt-text="Screenshot showing the Event Subscription page with the Filters tab selected.":::
+:::image type="content" source="./media/how-to-filter-events/filter-existing-subscription-system-topic.png" alt-text="Screenshot showing the Event Subscription page with the Filters tab selected.":::
 
-To specify a filter for an existing subscription to a custom topic, follow these steps: 
+You can specify filters while creating a **custom topic** by selecting **Add Event Type** link as shown in the following image.
 
-1. On the **Event Subscription** page, switch to the **Filters** tab. 
-1. Select **Add Event Type** next to **Filter to Event Types**. 
+:::image type="content" source="./media/how-to-filter-events/custom-topic-subscription-create-filter.png" alt-text="Screenshot showing the Create Event Subscription page for a custom topic.":::
 
-    :::image type="content" source="./media/how-to-filter-events/add-event-type-button.png" alt-text="Screenshot of the Event Subscription page with Add Event Type button selected.":::    
-1. Type the event type and press ENTER. In the following example, the event type is `Microsoft.Resources.ResourceWriteSuccess`. 
+To specify a filter for an existing subscription to a custom topic, use the **Filters** tab in the **Event Subscription** page. 
 
-    :::image type="content" source="./media/how-to-filter-events/sample-event-type.png" alt-text="Screenshot of the Event Subscription page with a sample event type.":::    
+:::image type="content" source="./media/how-to-filter-events/add-event-type-button.png" alt-text="Screenshot of the Event Subscription page with Add Event Type button selected.":::    
       
 ### Azure Resource Manager template
 For a Resource Manager template, use the `includedEventTypes` property.
@@ -150,11 +147,18 @@ az eventgrid event-subscription create \
 
 ### Azure portal
 
+For an existing event subscription: 
+
 1. On the **Event Subscription** page, select **Enable subject filtering**. 
 1. Enter values for one or more of the following fields: **Subject begins with** and **Subject ends with**. In the following options both options are selected. 
 
     :::image type="content" source="./media/how-to-filter-events/subject-filter-example.png" alt-text="Screenshot of Event Subscription page with subject filtering example.":::
 1. Select **Case-sensitive subject matching** option if you want the subject of the event to match the case of the filters specified. 
+
+When creating an event subscription, use the **Filters** tab on the creation wizard. 
+
+:::image type="content" source="./media/how-to-filter-events/create-subscription-custom-topic-subject-filter.png" alt-text="Screenshot of Create Event Subscription page with the Filters tab selected.":::
+
 
 ### Azure Resource Manager template
 In the following Resource Manager template example, you create an event subscription that filters by the beginning of the subject. You use the `subjectBeginsWith` property to limit events to ones for a specific resource. You pass the resource ID of a network security group.
