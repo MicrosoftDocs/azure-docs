@@ -115,6 +115,7 @@ For **server connections**, the failover and recovery work the same way as it do
 > [!NOTE]
 > *  This failover mechanism is for Azure SignalR service. Regional outages of app server are beyond the scope of this document.
 
+## Drain
 ## Impact on performance after adding replicas
 
 After replicas are enabled, clients will naturally distribute based on their geographical locations. While SignalR takes on the responsibility to synchronize data across these replicas, you'll be pleased to know that the associated overhead on [Server Load](signalr-concept-performance.md#quick-evaluation-using-metrics) is minimal for most common use cases. 
