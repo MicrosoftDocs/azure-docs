@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -73,19 +73,19 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a value using the following pattern:
+    a. In the **Identifier** textbox, type a URL using the following pattern:
     `https://sso.eu.micgtm.com/auth/realms/<INSTANCE>`
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://sso.eu.micgtm.com/auth/realms/<INSTANCE>/broker/<PROVIDER>/endpoint`
 
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
-	 `https://sso.eu.micgtm.com/auth/realms/<INSTANCE>/broker/<PROVIDER>/endpoint`
+	`https://gtmportal.eu.micgtm.com/?idp=<INSTANCE>`
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [MIC SAAS Portal support team](mailto:support@mic-cust.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [MIC SAAS Portal support team](mailto:support@mic-cust.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
@@ -129,9 +129,9 @@ In this section, a user called Britta Simon is created in MIC SAAS Portal. MIC S
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on **Test this application** in Azure portal. This will redirect to MIC SAAS Portal Sign-on URL where you can initiate the login flow.
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to MIC SAAS Portal Sign-on URL where you can initiate the login flow.
  
 * Go to MIC SAAS Portal Sign-on URL directly and initiate the login flow from there.
  
@@ -139,4 +139,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next Steps
 
-Once you configure MIC SAAS Portal you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure MIC SAAS Portal you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
