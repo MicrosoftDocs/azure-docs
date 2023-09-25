@@ -139,7 +139,7 @@ If you wish to enhance your prompts more and include custom voice models, the pl
 text_to_play = "Welcome to Contoso"
 
 # Provide VoiceName to select a specific voice. 
-play_source = TextSource(text=text_to_play, voice_name="custom_voiceName", custom_voice_endpoint_id = "Your-custom-endpoint-id")
+play_source = TextSource(text=text_to_play, voice_name="custom_voiceName", custom_voice_endpoint_id = "Your_custom_endpoint_id")
 play_to = [target_participant]
 call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
@@ -149,7 +149,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 ``` python
 ssmlToPlay = '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US"><voice name="custom_voiceName">Hello World!</voice></speak>'
 
-play_source = SsmlSource(ssml_text=ssmlToPlay, custom_voice_endpoint_id= "Your-custom-endpoint-id")
+play_source = SsmlSource(ssml_text=ssmlToPlay, custom_voice_endpoint_id= "Your_custom_endpoint_id")
 
 play_to = [target_participant]
 
