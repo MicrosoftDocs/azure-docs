@@ -60,6 +60,6 @@ Another user wants to access their organizational email on their personal Androi
 
 ## Next steps
 
-- [Manage device identities using the Azure portal](manage-device-identities.md)
+- [Manage device identities](manage-device-identities.md)
 - [Manage stale devices in Microsoft Entra ID](manage-stale-devices.md)
 - [Register your personal device on your work or school network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8)

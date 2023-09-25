@@ -1,6 +1,6 @@
 ---
-title: Manage devices in Microsoft Entra ID using the Azure portal
-description: This article describes how to use the Azure portal to manage device identities and monitor related event information.
+title: Manage devices in Microsoft Entra ID using the Microsoft Entra admin center
+description: This article describes how to use the Microsoft Entra admin center to manage device identities and monitor related event information.
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: myra-ramdenbourg
 
 ms.collection: M365-identity-device-management
 ---
-# Manage device identities by using the Azure portal
+# Manage device identities using the Microsoft Entra admin center
 
 Microsoft Entra ID provides a central place to manage device identities and monitor related event information.
 
@@ -149,7 +149,7 @@ The exported list includes these device identity attributes:
 
 ## Configure device settings
 
-If you want to manage device identities by using the Azure portal, the devices need to be either [registered or joined](overview.md) to Microsoft Entra ID. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
+If you want to manage device identities by using the Microsoft Entra admin center, the devices need to be either [registered or joined](overview.md) to Microsoft Entra ID. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
 
 You must be assigned one of the following roles to view device settings:
 
