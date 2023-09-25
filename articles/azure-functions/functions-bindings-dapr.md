@@ -203,7 +203,7 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 [dapr-quickstart]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/quickstart
 [dapr-kafka]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dapr-kafka
 [dapr-python]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
-[dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-azurefunction
+[dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunctions
 
 ::: zone-end
 
