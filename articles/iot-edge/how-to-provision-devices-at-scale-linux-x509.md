@@ -1,10 +1,11 @@
 ---
-title: Create and provision IoT Edge devices at scale using X.509 certificates on Linux - Azure IoT Edge | Microsoft Docs 
+title: Create IoT Edge devices at scale using X.509 certificates on Linux
+titleSuffix: Azure IoT Edge
 description: Use X.509 certificates to test provisioning devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/17/2022
-ms.topic: conceptual
+ms.date: 09/25/2023
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
@@ -89,8 +90,6 @@ Have the following information ready:
    sudo nano /etc/aziot/config.toml
    ```
 
-Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom provisioning instructions for snaps.
-
 1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with X.509 certificate, and make sure any other provisioning lines are commented out.
 
    ```toml
@@ -141,8 +140,6 @@ Do we need a tabbed experience here? One tab for snaps and one for all other dis
 ## Verify successful installation
 
 If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.
-
-Do we need a tabbed experience here? One tab for snaps and one for all other distributions? It looks like there's custom verification instructions for snaps.
 
 # [Individual enrollment](#tab/individual-enrollment)
 
