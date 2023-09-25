@@ -347,8 +347,8 @@ You can rerun a previously finished workflow starting at a specific action using
 
 The resubmit capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
 
-| Actions | Resubmit available? |
-|---------|---------------------|
+| Actions | Resubmit availability and limitations |
+|---------|-------------------------------------------|
 | **Condition** action and actions in the **True** and **False** paths | - Yes for **Condition** action <br>- No for actions in the **True** and **False** paths |
 | **For each** action and all actions inside the loop | No for all actions |
 | **Scope** | Yes, but only at the final  |
@@ -378,7 +378,7 @@ The resubmit capability is available for all actions except for non-sequential a
 
    1. Above the console window, in the directory table, next to the **host.json** file, select **Edit**.
 
-   1. In the **host.json** file, following the `"versions"` attribute, add the following JSON object named `"extensions"`:
+   1. In the **host.json** file, following the `"versions"` attribute, add the following JSON object named `"extensions"`, for example:
 
       ```json
       "version": "[1.*, 2.0.0)",
