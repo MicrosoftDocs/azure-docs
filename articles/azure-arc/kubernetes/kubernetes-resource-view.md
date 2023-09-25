@@ -21,7 +21,7 @@ The Azure portal includes a Kubernetes resource view for easy access to the Kube
    az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
    ```
 
-  - If using [cluster connect with service account token authentication](cluster-connect.md#service-account-token-authentication-option), ensure that the account uses a Kubernetes cluster role that can authenticate to the cluster, such as `cluster-admin`:
+  - If using [cluster connect with service account token authentication](cluster-connect.md#option-2-service-account-token-authentication), ensure that the account uses a Kubernetes cluster role that can authenticate to the cluster, such as `cluster-admin`:
   
    ```console
    kubectl create clusterrolebinding demo-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID`
