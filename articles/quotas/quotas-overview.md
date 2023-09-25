@@ -43,6 +43,6 @@ Different entry points, data views, actions, and programming options are availab
 ## Next steps
 
 - Learn more about [viewing quotas in the Azure portal](view-quotas.md).
-- Learn more about [Monitoring & Creating Alerts](how-to-guide-monitoring-alerting.md) for Quotas.
+- Learn more about [Monitoring & Creating Alerts](how-to-guide-monitoring-alerting.md) for Quota usages.
 - Learn how to request increases for [VM-family vCPU quotas](per-vm-quota-requests.md), [vCPU quotas by region](regional-quota-requests.md), and [spot vCPU quotas](spot-quota.md).
 - Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
