@@ -808,6 +808,10 @@
               href: single-sign-out-saml-protocol.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
+        - name: WS-Federation
+          items:
+          - name: Federation metadata
+            href: federation-metadata.md
     - name: App registration reference
       items:
         - name: Application manifest
