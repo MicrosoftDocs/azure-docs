@@ -363,7 +363,7 @@ The resubmit capability is available for all actions except for non-sequential a
    1. On the **App settings** tab, add the following settings:
 
       | Setting name | Value |
-      |---------------|-------|
+      |--------------|-------|
       | **FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI** | `https://cdnforlogicappsv2.blob.core.windows.net/logicapps-brbenn` |
       | **AzureFunctionsJobHost_extensionBundle_version** | `[1.39.0.3]` |
 
@@ -404,7 +404,7 @@ The resubmit capability is available for all actions except for non-sequential a
 
 1. In the run details page, find the action from where you want to resubmit the workflow run, open the shortcut menu, and select **Submit from this action**.
 
-   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually-colored status icons.
+   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-runs-history).
 
    > [!TIP]
    >
