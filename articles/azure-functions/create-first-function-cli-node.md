@@ -41,7 +41,7 @@ Before you begin, you must have the following prerequisites:
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ::: zone pivot="nodejs-model-v4" 
-+ Make sure you install version v4.0.5095 of the Core Tools, or a later version.  
++ Make sure you install version v4.0.5382 of the Core Tools, or a later version.  
 ::: zone-end
 
 ## Create a local function project

@@ -872,7 +872,7 @@ Below are some of the new exported types:
 
 ## Troubleshooting
 
-If you see the following error when running your orchestration code, make sure you are running on at least `v4.16.5` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5095` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
+If you see the following error when running your orchestration code, make sure you are running on at least `v4.25` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5382` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
 
 ```bash
 Exception: The orchestrator can not execute without an OrchestratorStarted event.
