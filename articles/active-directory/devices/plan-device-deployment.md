@@ -23,7 +23,7 @@ This article helps you evaluate the methods to integrate your device with Micros
 
 The landscape of your user's devices is constantly expanding. Organizations may provide desktops, laptops, phones, tablets, and other devices. Your users may bring their own array of devices, and access information from varied locations. In this environment, your job as an administrator is to keep your organizational resources secure across all devices.
 
-Microsoft Entra ID enables your organization to meet these goals with device identity management. You can now get your devices in Microsoft Entra ID and control them from a central location in the [Azure portal](https://portal.azure.com/). This process gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
+Microsoft Entra ID enables your organization to meet these goals with device identity management. You can now get your devices in Microsoft Entra ID and control them from a central location in the [Microsoft Entra admin center](https://entra.microsoft.com). This process gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
 
 There are multiple methods to integrate your devices into Microsoft Entra ID, they can work separately or together based on the operating system and your requirements:
 
@@ -47,7 +47,7 @@ The key benefits of giving your devices a Microsoft Entra identity:
 
 * Improve user experience – Provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](./enterprise-state-roaming-enable.md) for a unified experience across all Windows devices.
 
-* Simplify deployment and management – Simplify the process of bringing devices to Microsoft Entra ID with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), or [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Manage devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in the [Azure portal](https://portal.azure.com/).
+* Simplify deployment and management – Simplify the process of bringing devices to Microsoft Entra ID with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), or [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Manage devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Plan the deployment project
 
@@ -220,7 +220,7 @@ You may determine that Microsoft Entra hybrid join is the best solution for a de
 
 ## Manage your devices
 
-Once you've registered or joined your devices to Microsoft Entra ID, use the [Azure portal](https://portal.azure.com/) as a central place to manage your device identities. The Microsoft Entra devices page enables you to:
+Once you've registered or joined your devices to Microsoft Entra ID, use the [Microsoft Entra admin center](https://entra.microsoft.com) as a central place to manage your device identities. The Microsoft Entra devices page enables you to:
 
 * [Configure your device settings](manage-device-identities.md#configure-device-settings).
 * You need to be a local administrator to manage Windows devices. [Microsoft Entra ID updates this membership for Microsoft Entra joined devices](assign-local-admin.md), automatically adding users with the device manager role as administrators to all joined devices.
