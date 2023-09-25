@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -85,15 +85,15 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 	`https://api.role-mapper.com/sso/<CustomerName>`
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [RoleMapper support team](mailto:support@rolemapper.tech) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [RoleMapper support team](mailto:support@rolemapper.tech) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Screenshot shows the Certificate download link](common/metadataxml.png "Certificate")
+	![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up RoleMapper** section, copy the appropriate URL(s) based on your requirement.
 
-	![Screenshot shows to copy configuration URLs](common/copy-configuration-urls.png "Metadata")
+	![Screenshot shows to copy configuration URLs.](common/copy-configuration-urls.png "Metadata")
 
 ### Create a Microsoft Entra ID test user
 
@@ -131,21 +131,20 @@ In this section, a user called Britta Simon is created in RoleMapper. RoleMapper
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
 #### SP initiated:
  
-* Click on **Test this application** in Azure portal. This will redirect to RoleMapper Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to RoleMapper Sign on URL where you can initiate the login flow.  
  
 * Go to RoleMapper Sign-on URL directly and initiate the login flow from there.
  
 #### IDP initiated:
  
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the RoleMapper for which you set up the SSO.
+* Click on **Test this application** in Microsoft Entra admin center and you should be automatically signed in to the RoleMapper for which you set up the SSO.
  
 You can also use Microsoft My Apps to test the application in any mode. When you click the RoleMapper tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the RoleMapper for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## Next Steps
 
-Once you configure RoleMapper you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure RoleMapper you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
