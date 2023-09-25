@@ -297,7 +297,7 @@ spec:
 
 When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. It's common to update multiple key-values, but you don't want the cluster to pick up a change midway through the update. To maintain configuration consistency, you can use a key-value to signal the completion of your update. This key-value is known as the sentinel key. The Kubernetes provider can monitor this key-value, and the ConfigMap and Secret will only be regenerated with updated data once a change is detected in the sentinel key.
 
-In the following sample, a key-value named `sentinelKey` is polled every minute, and the configuration is refreshed whenever changes are detected in the sentinel key.
+In the following sample, a key-value named `app1_sentinel` is polled every minute, and the configuration is refreshed whenever changes are detected in the sentinel key.
 
 ``` yaml
 apiVersion: azconfig.io/v1beta1
@@ -316,7 +316,7 @@ spec:
       interval: 1m
       monitoring:
         keyValues:
-          - key: sentinelKey
+          - key: app1_sentinel
             label: common
 ```
 
