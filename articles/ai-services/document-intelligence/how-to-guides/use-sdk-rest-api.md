@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to use Document Intelligence SDKs or REST API and create apps to extract key data from documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 08/21/2023
