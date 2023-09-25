@@ -46,7 +46,7 @@ Name | Description | Supported in Azure Diagnostics | Supported in AZMSArchiveLo
 `durationInSeconds` | Duration of failure | Yes | Yes
 `message` | Error message | Yes | Yes
 `category` | Log Category | Yes | No
- `Provider`|Name of Service emitting the logs e.g., EventHub | No | Yes 
+ `Provider`|Name of Service emitting the logs e.g., Event Hubs | No | Yes 
  `Type`  | Type of log emitted| No | Yes
 
 The following code is an example of an archive log JSON string:
@@ -104,7 +104,7 @@ Name | Description | Supported in AzureDiagnostics | Supported in AZMSOperationa
 `Status` | Operation status. The value can be either **Succeeded** or **Failed**.  | Yes | Yes
 `Caller` | Caller of operation (Azure portal or management client) | Yes | Yes
 `Category` | Log Category | Yes | No
-`Provider`|Name of Service emitting the logs e.g., EventHub | No | Yes 
+`Provider`|Name of Service emitting the logs e.g., Event Hubs | No | Yes 
  `Type`  | Type of logs emitted | No | Yes
 
 The following code is an example of an operational log JSON string:
@@ -146,9 +146,10 @@ Example:
 #### Event names
 Event name is populated as operation type + resource type from the following enumerations. For example, `Create Queue`, `Retrieve Event Hub`, or `Delete Rule`. 
 
-| Operation type | Resource type | 
-| -------------- | ------------- | 
-| <ul><li>Create</li><li>Update</li><li>Delete</li><li>Retrieve</li><li>Unknown</li></ul> | <ul><li>Namespace</li><li>Queue</li><li>Topic</li><li>Subscription</li><li>EventHub</li><li>SharedAccessPolicy</li><li>UsageCredit</li>Rule</li>ConsumerGroup</li> |
+| Operation type | Resource type |
+| -------------- | ------------- |
+|- Create<br>- Update<br>- Delete<br>- Retrieve<br>- Unknown | - Namespace<br>- Queue<br>- Topic<br>- Subscription<br>- EventHub<br>- SharedAccessPolicy<br>- UsageCredit<br>- Rule<br>- ConsumerGroup |
+
 
 ### Autoscale logs schema
 Autoscale log JSON includes elements listed in the following table:
@@ -159,7 +160,7 @@ Autoscale log JSON includes elements listed in the following table:
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
 | `Message` | Informational message, which provides details about auto-inflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. | Yes | Yes
 |`Time Generated (UTC)` | Timestamp of operation | No | Yes
-|`Provider`|Name of Service emitting the logs e.g., EventHub | No | Yes 
+|`Provider`|Name of Service emitting the logs e.g., Event Hubs | No | Yes 
 |`Type`  | Type of logs emitted | No | Yes
 
 Here's an example autoscale event: 
@@ -238,7 +239,7 @@ Resource Specific table entry:
 
 Kafka user error log JSON includes elements listed in the following table:
 
-| Name | Description | Supported in Azure Diagnostics | Supported in AZMSKafkaUserErrorLogs ( Resource specific table)
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSKafkaUserErrorLogs (Resource specific table)
 | ---- | ----------- |----| ----| 
 | `TrackingId` | Tracking ID, which is used for tracing purposes. | Yes | Yes 
 | `NamespaceName` | Namespace name | Yes | Yes
@@ -249,7 +250,7 @@ Kafka user error log JSON includes elements listed in the following table:
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes 
 | `Message` | Informational message, which provides details about an error | Yes | Yes 
 |`TimeGenerated (UTC)` | Timestamp for executed operation | No | Yes 
-|`Provider` | Name of service emitting the logs e.g., Eventhub | No | Yes 
+|`Provider` | Name of service emitting the logs e.g., Event Hubs | No | Yes 
 | `Type` | Type of log emitted | NO | Yes 
 
 ### Event Hubs virtual network connection event schema
