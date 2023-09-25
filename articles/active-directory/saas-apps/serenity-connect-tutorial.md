@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -82,7 +82,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 	`https://app.serenityconnect.com/sso-sign-in`
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier. Contact [Granite support team](mailto:support@granitegrc.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > This value is not real. Update this value with the actual Identifier. Contact [Granite support team](mailto:support@granitegrc.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -124,15 +124,14 @@ In this section, you create a user called B.Simon in Serenity Connect. Work with
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on **Test this application** in Azure portal. This will redirect to Serenity Connect Sign-on URL where you can initiate the login flow.
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Serenity Connect Sign-on URL where you can initiate the login flow.
  
 * Go to Serenity Connect Sign-on URL directly and initiate the login flow from there.
  
 * You can use Microsoft My Apps. When you click the Serenity Connect tile in the My Apps, this will redirect to Serenity Connect Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## Next Steps
 
-Once you configure Serenity Connect you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app)
+Once you configure Serenity Connect you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app)
