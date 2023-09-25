@@ -27,7 +27,7 @@ Before you begin, ensure that you have the following prerequisite.
 
    If you don't already have an agent, you can install it.
 
-   1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
+   1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../../roles/permissions-reference.md#hybrid-identity-administrator).
    1. Download the latest Auth Agent.
    1. Install the feature by running either of the following commands.
       * `.\AADConnectAuthAgentSetup.exe`  

@@ -51,7 +51,7 @@ Use the steps outlined in [Create the Facebook key](identity-provider-facebook.m
 To configure sign in with Facebook, you need to perform the following steps:
 
 - Declare more claims
-- Define more claims transformations to help with claims manipulations such as creating *AlternativeSecurityId*.
+- Define more claims transformations to help with claims manipulations such as creating `AlternativeSecurityId`.
 - Configure Facebook claims provider
 - Configure Microsoft Entra technical profiles to read and write the social account from and to the Microsoft Entra database.
 - Configure a self-asserted technical profile (for accepting additional input from user or updating user details) and its content definition. 
@@ -59,7 +59,7 @@ To configure sign in with Facebook, you need to perform the following steps:
 
 ### Step 3.1 - Declare more claims 
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then declare more claims by using the following code:
+In the `ContosoCustomPolicy.XML` file, locate the `ClaimsSchema` section, and then declare more claims by using the following code:
 
 ```xml
     <!--<ClaimsSchema>-->
@@ -114,7 +114,7 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and th
 
 ### Step 3.2 - Define claims transformations 
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsTransformations* element, and add claims transformations by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the `ClaimsTransformations` element, and add claims transformations by using the following code: 
 
  ```xml
     <!--<ClaimsTransformations>-->
@@ -152,13 +152,13 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsTransformations* elemen
     <!--</ClaimsTransformations>-->
  ```
 
-We've defined three Claims Transformations, which we use to generate values for *alternativeSecurityId* and *userPrincipalName* claims. These ClaimsTransformations are invoked in the OAuth2 technical profile in [step 3.3](#step-33---configure-facebook-claims-provider).   
+We've defined three Claims Transformations, which we use to generate values for `alternativeSecurityId` and `userPrincipalName` claims. These ClaimsTransformations are invoked in the OAuth2 technical profile in [step 3.3](#step-33---configure-facebook-claims-provider).   
 
 ### Step 3.3 - Configure Facebook claims provider
 
 To enable users to sign in using a Facebook account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. You can define a Facebook account as a claims provider. 
 
-In the `ContosoCustomPolicy.XML` file, locate *ClaimsProviders* element, add a new claims provider by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate `ClaimsProviders` element, add a new claims provider by using the following code: 
 
 ```xml
     <!--<ClaimsProviders>-->
@@ -210,10 +210,10 @@ In the `ContosoCustomPolicy.XML` file, locate *ClaimsProviders* element, add a n
 ```
 
 Replace:
-- `facebook-app-id` with the value of Facebook *appID* you obtained in [step 1](#step-1---create-facebook-application). 
+- `facebook-app-id` with the value of Facebook `appID` you obtained in [step 1](#step-1---create-facebook-application). 
 - `facebook-policy-key` with the name of the Facebook policy key you obtained in [step 2](#step-2---create-facebook-policy-key).
 
-Notice the claims transformations we defined in [step 3.2](#step-32---define-claims-transformations) in the *OutputClaimsTransformations* collection.   
+Notice the claims transformations we defined in [step 3.2](#step-32---define-claims-transformations) in the `OutputClaimsTransformations` collection.   
 
 <a name='step-34---create-azure-ad-technical-profiles'></a>
 
@@ -221,7 +221,7 @@ Notice the claims transformations we defined in [step 3.2](#step-32---define-cla
 
 Just like in sign-in with a local account, you need to configure the [Microsoft Entra Technical Profiles](active-directory-technical-profile.md), which you use to connect to Microsoft Entra storage, to store or read a user social account. 
 
-1. In the `ContosoCustomPolicy.XML` file, locate the *Microsoft Entra ID-UserUpdate* technical profile and then add a new technical profile by using the following code: 
+1. In the `ContosoCustomPolicy.XML` file, locate the `AAD-UserUpdate` technical profile and then add a new technical profile by using the following code: 
 
     ```xml
         <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
@@ -257,11 +257,11 @@ Just like in sign-in with a local account, you need to configure the [Microsoft 
     
         </TechnicalProfile>
     ```
-    We've added a new Microsoft Entra Technical Profile *AAD-UserWriteUsingAlternativeSecurityId* that writes a new social account into Microsoft Entra ID. 
+    We've added a new Microsoft Entra Technical Profile `AAD-UserWriteUsingAlternativeSecurityId` that writes a new social account into Microsoft Entra ID.
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).  
  
-1. In the `ContosoCustomPolicy.XML` file, add another Microsoft Entra technical profile after the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile by using the following code:   
+1. In the `ContosoCustomPolicy.XML` file, add another Microsoft Entra technical profile after the `AAD-UserWriteUsingAlternativeSecurityId` Technical Profile by using the following code:   
 
      ```xml
         <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
@@ -290,7 +290,7 @@ Just like in sign-in with a local account, you need to configure the [Microsoft 
         </TechnicalProfile>
      ```
 
-    We've added a new Microsoft Entra Technical Profile *AAD-UserReadUsingAlternativeSecurityId* that reads a new social account from Microsoft Entra ID. It uses `alternativeSecurityId` as a unique identifier for the social account. 
+    We've added a new Microsoft Entra Technical Profile `AAD-UserReadUsingAlternativeSecurityId` that reads a new social account from Microsoft Entra ID. It uses `alternativeSecurityId` as a unique identifier for the social account. 
 
 1. Replace *B2C_1A_TokenSigningKeyContainer* with the token signing key you created in [Configure the signing](custom-policies-series-hello-world.md#step-1---configure-the-signing-and-encryption-keys).
 
@@ -298,7 +298,7 @@ Just like in sign-in with a local account, you need to configure the [Microsoft 
 
 After a user signs in, you can collect some information from them by using a self-asserted technical profile. So, you need to configure content definition for the self-asserted technical profile.  
 
-In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* element, and then add a new content definition in the `ContentDefinitions` collection by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the `ContentDefinitions` element, and then add a new content definition in the `ContentDefinitions` collection by using the following code: 
 
 ```xml
     <ContentDefinition Id="socialAccountsignupContentDefinition">
@@ -316,7 +316,7 @@ We use this content definition as a metadata in a self-asserted technical profil
 
 The self-asserted technical profile you configure in this step is used to collect more information from the user or update similar information obtained from the social account. 
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and then add a new claims provider by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, and then add a new claims provider by using the following code: 
 
 ```xml
     <!--<ClaimsProviders>-->
@@ -374,9 +374,9 @@ In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and
     <!--</ClaimsProviders>-->
 ```
 
-The claims provider we've added contains a self-asserted technical profile, *SelfAsserted-Social*. The self-asserted technical profile uses the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile as a validation technical profile. So, the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
+The claims provider we've added contains a self-asserted technical profile, `SelfAsserted-Social`. The self-asserted technical profile uses the `AAD-UserWriteUsingAlternativeSecurityId` Technical Profile as a validation technical profile. So, the `AAD-UserWriteUsingAlternativeSecurityId` Technical Profile executes when the user selects the **Continue** button (see screenshot in [step 7](#step-7---test-policy)).     
 
-Also, notice that we've added the content definition, *socialAccountsignupContentDefinition*, that we configured in [step 3.5](#step-35---configure-content-definition) in the metadata section.  
+Also, notice that we've added the content definition, `socialAccountsignupContentDefinition`, that we configured in [step 3.5](#step-35---configure-content-definition) in the metadata section.  
 
 ## Step 4 - Update the User journey orchestration steps
 
@@ -438,21 +438,21 @@ In the orchestration, we've used make reference to technical profiles that enabl
 
 When the custom policy runs:
 
-- **Orchestration Step 1** - This step includes a *ClaimsProviderSelections* element, which lists the available sign-in options a user can choose from. In this case, we've only have one option, *FacebookExchange*, so when the policy runs, users are taken directly to Facebook.com in step 2 as shown by the `TargetClaimsExchangeId` attribute. 
+- **Orchestration Step 1** - This step includes a `ClaimsProviderSelections` element, which lists the available sign-in options a user can choose from. In this case, we've only have one option, `FacebookExchange`, so when the policy runs, users are taken directly to Facebook.com in step 2 as shown by the `TargetClaimsExchangeId` attribute. 
 
--  **Orchestration Step 2** - The *Facebook-OAUTH* technical profile executes, so the user is redirected to Facebook to sign in. 
+- **Orchestration Step 2** - The `Facebook-OAUTH` technical profile executes, so the user is redirected to Facebook to sign in. 
 
-- **Orchestration Step 3** - In step 3, the *AAD-UserReadUsingAlternativeSecurityId* technical profile executes to try to read the user social account from Microsoft Entra storage. If the social account is found, `objectId` is returned as an output claim.    
+- **Orchestration Step 3** - In step 3, the `AAD-UserReadUsingAlternativeSecurityId` technical profile executes to try to read the user social account from Microsoft Entra storage. If the social account is found, `objectId` is returned as an output claim.    
 
 - **Orchestration Step 4** - This step runs if the user doesn't already exist (`objectId` doesn't exist). It shows the form that collects more information from the user or updates similar information obtained from the social account.
 
--  **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the *AAD-UserWriteUsingAlternativeSecurityId* Technical Profile executes to write the social account into Microsoft Entra ID.  
+- **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the `AAD-UserWriteUsingAlternativeSecurityId` Technical Profile executes to write the social account into Microsoft Entra ID.  
 
 - **Orchestration Step 6** - Finally, step 6 assembles and returns the JWT token at the end of the policy’s execution.
 
 ## Step 5 - Update relying party output claims 
 
-In the `ContosoCustomPolicy.XML` file, locate the *RelyingParty* element, and then replace all the output claims collection with the following code:
+In the `ContosoCustomPolicy.XML` file, locate the `RelyingParty` element, and then replace all the output claims collection with the following code:
 
 ```xml
     <OutputClaim ClaimTypeReferenceId="displayName" />
@@ -514,7 +514,7 @@ Use the following steps to add a combined local and social account:
         <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localIdpAuthentication" AlwaysUseDefaultValue="true" />
     ```
 
-1. In the `UserJourneys` section, add a new user journey, *LocalAndSocialSignInAndSignUp* by using the following code: 
+1. In the `UserJourneys` section, add a new user journey, `LocalAndSocialSignInAndSignUp` by using the following code: 
 
     ```xml
         <!--<UserJourneys>-->
@@ -527,7 +527,7 @@ Use the following steps to add a combined local and social account:
         <!--</UserJourneys>-->
     ```
 
-1. In the user journey you've created, *LocalAndSocialSignInAndSignUp*, add orchestration steps by using the following code:
+1. In the user journey you've created, `LocalAndSocialSignInAndSignUp`, add orchestration steps by using the following code:
  
     ```xml
         <!--<UserJourneys>

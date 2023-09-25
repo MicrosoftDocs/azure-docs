@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Use this article to import and use your data in Azure OpenAI.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
