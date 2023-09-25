@@ -91,7 +91,8 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 [!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
 
-## Azure Active Directory authentication option
+On the existing Arc-enabled cluster, create the ClusterRoleBinding with either Azure Active Directory authentication, or a Service Account token:
+
 
 ### [Azure CLI](#tab/azure-cli)
 
