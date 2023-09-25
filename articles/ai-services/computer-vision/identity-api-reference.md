@@ -6,8 +6,8 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: reference
 ms.date: 02/17/2021
 ms.author: nitinme
