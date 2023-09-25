@@ -28,6 +28,9 @@ In this tutorial, you learn how to:
 > * Use cosine similarity to rank search results.
 > * Use hybrid query functionality through [RediSearch](https://redis.io/docs/interact/search-and-query/) to prefilter the data and make the vector search even more powerful.
 
+>[!IMPORTANT]
+>This tutorial will walk you through building a Jupyter Notebook. You can follow this tutorial with a Python code file (.py) and get *similar* results, but you will need to add all of the code blocks in this tutorial into the `.py` file and execute once to see results. In other words, Jupyter Notebooks provides intermediate results as you execute cells, but this is not behavior you should expect when working in a Python code file.
+
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
@@ -57,8 +60,8 @@ In this tutorial, you learn how to:
    pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
    ```
 
->[!IMPORTANT]
->If you would like to follow along in a completed Jupyter notebook instead, [download the Jupyter notebook file named *tutorial.ipynb*](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/vector-similarity-search-open-ai) and save it into the new *redis-vector* folder.
+   >[!IMPORTANT]
+   >If you would like to follow along in a completed Jupyter notebook instead, [download the Jupyter notebook file named *tutorial.ipynb*](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/vector-similarity-search-open-ai) and save it into the new *redis-vector* folder.
 
 ## Download the dataset
 
@@ -72,31 +75,21 @@ In this tutorial, you learn how to:
 
 ## Import libraries and set up connection information
 
-To successfully make a call against Azure OpenAI, you'll need an **endpoint** and a **key**.
-
-|Variable name | Value |
-|--------------------------|-------------|
-| `RESOURCE_ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com`.|
-| `API_KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+To successfully make a call against Azure OpenAI, you'll need an **endpoint** and a **key**. You'll also need an **endpoint** and a **key** to connect to Azure Cache for Redis.
 
 1. Go to your Azure Open AI resource in the Azure portal.
 
-1. Locate **Endpoint and Keys** in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
-
-   To connect to Azure Cache for Redis, you'll also need an **endpoint** and a **password**.
-
-|Variable name | Value |
-|--------------------------|-------------|
-| `REDIS_ENDPOINT`               | This value can be found in the **Overview** section when examining your resource from the Azure portal. An example endpoint is: `https://docs-test-001.eastus.redisenterprise.cache.azure.net:10000`. The numbers at the end of the endpoint specify the port to be used. Make sure this is included.|
-| `REDIS_PASSWORD` | This value can be found in the **Access keys** section when examining your resource from the Azure portal. You can use either `Primary` or `Secondary`.|
+1. Locate **Endpoint and Keys** in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. An example endpoint is: `https://docs-test-001.openai.azure.com`. You can use either `KEY1` or `KEY2`.
 
 1. Go to the **Overview** blade of your Azure Cache for Redis resource in the Azure portal. Copy your endpoint
 
-1. Locate **Access keys** in the **Settings** section. Copy your access key. You can use either `Primary` or `Secondary`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+1. Locate **Access keys** in the **Settings** section. Copy your access key. You can use either `Primary` or `Secondary`.
 
-1. Add the following code to your python code file:
+1. Add the following code to a new code cell:
 
    ```python
+   # Code cell 2
+
    import re
    from num2words import num2words
    import os
@@ -116,31 +109,39 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
    REDIS_PASSWORD = "<your-azure-redis-password>"
    ```
 
-1. Update the value of `API_KEY` and `RESOURCE_ENDPOINT` with the key and endpoint values from your Azure OpenAI deployment. `DEPLOYMENT_NAME` should be set to the name of your deployment using the `text-embedding-ada-002 (Version 2)` embeddings model, and `MODEL_NAME` should be the specific embeddings model used. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
+1. Update the value of `API_KEY` and `RESOURCE_ENDPOINT` with the key and endpoint values from your Azure OpenAI deployment. `DEPLOYMENT_NAME` should be set to the name of your deployment using the `text-embedding-ada-002 (Version 2)` embeddings model, and `MODEL_NAME` should be the specific embeddings model used.
+
+1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
 
    > [!Important]
    > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
+
+1. Execute code cell 2.
 
 ## Import dataset into pandas and process data
 
 Next, you will read the csv file into a pandas DataFrame.
 
-1. Add the following code to your Python code file:
+1. Add the following code to a new code cell:
 
    ```python
+   # Code cell 3
+
    df=pd.read_csv(os.path.join(os.getcwd(),'wiki_movie_plots_deduped.csv'))
    df
    ```
 
-   If you execute the file now, the output should look something like this:
+1. Execute code cell 3. You should see the following output:
 
    <!--Fran, we could use a screenshot here-->
 
-1. Next, Process the data by adding an `id` index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from english speaking countries. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You are free to change or remove the filter parameters based on your preferences.
+1. Next, process the data by adding an `id` index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from english speaking countries. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You are free to change or remove the filter parameters based on your preferences.
 
-   Add the following code to your Python code file:
+   To accomplish this, add the following code to a new code cell:
 
    ```python
+   # Code cell 4
+
    df.insert(0, 'id', range(0, len(df)))
    df['year'] = df['Release Year'].astype(int)
    df['origin'] = df['Origin/Ethnicity'].astype(str)
@@ -151,11 +152,17 @@ Next, you will read the csv file into a pandas DataFrame.
    df
    ```
 
+1. Execute code cell 4. You should see the following results:
+
+<!-- screenshot -->
+
 1. Create a function to clean the data by removing whitespace and punctuation, then uses it against the dataframe containing the plot.
 
-   Add the following code to your Python code file:
+   Add the following code to a new code cell and execute it:
 
    ```python
+   # Code cell 5
+
    pd.options.mode.chained_assignment = None
 
    # s is input text
@@ -175,9 +182,11 @@ Next, you will read the csv file into a pandas DataFrame.
 
 1. Finally, remove any entries that contain plot descriptions that are too long for the embeddings model. (In other words, they require more tokens than the 8192 token limit.) and then calculate the numbers of tokens required to generate embeddings. This also indicates how expensive the embeddings generation will be.
 
-   Add the following code to your Python code file:
+   Add the following code to a new code cell:
 
    ```python
+   # Code cell 6
+
    tokenizer = tiktoken.get_encoding("cl100k_base")
    df['n_tokens'] = df["Plot"].apply(lambda x: len(tokenizer.encode(x)))
    df = df[df.n_tokens<8192]
@@ -185,7 +194,7 @@ Next, you will read the csv file into a pandas DataFrame.
    print('Number of tokens required:' + str(df['n_tokens'].sum()))
    ```
 
-1. Execute your Python code file. You should see this output:
+1. Execute code cell 6. You should see this output:
 
    ```output
    Number of movies: 11125
@@ -199,9 +208,11 @@ Next, you will read the csv file into a pandas DataFrame.
 
 Load the DataFrame into LangChain using the `DataFrameLoader` class. Once the data is in LangChain documents, it's far easier to use LangChain libraries to generate embeddings and conduct similarity searches. Set *Plot* as the `page_content_column` so that embeddings are generated on this column.
 
-1. Add the following code to your Python code file:
+1. Add the following code to a new code cell and execute it:
 
    ```python
+   # Code cell 7
+
    loader = DataFrameLoader(df, page_content_column="Plot" )
    movie_list = loader.load()
    ```
@@ -210,9 +221,11 @@ Load the DataFrame into LangChain using the `DataFrameLoader` class. Once the da
 
 Now that the data has been filtered and loaded into LangChain, we will create embeddings so we can query on the plot for each movie. The following code configures Azure OpenAI, generates embeddings, and loads the embeddings vectors into Azure Cache for Redis.
 
-1. Add the following code to your Python code file:
+1. Add the following code a new code cell:
 
    ```python
+   # Code cell 8
+
    embedding = OpenAIEmbeddings(
        deployment=DEPLOYMENT_NAME,
        model=MODEL_NAME,
@@ -242,9 +255,9 @@ Now that the data has been filtered and loaded into LangChain, we will create em
    vectorstore.write_schema("redis_schema.yaml")
    ```
 
-1. Execute your Python code file. You should see this output:
+1. Execute code cell 8. You should see the following output:
 
-<!-- ??? -->
+<!-- screenshot -->
 
    This can take up to 10 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
 
@@ -255,6 +268,8 @@ Now that your dataset, Azure OpenAI service API, and Redis instance are set up, 
 1. Add the following code to your Python code file:
 
    ```python
+   # Code cell 9
+
    query = "Spaceships, aliens, and heroes saving America"
    results = vectorstore.similarity_search_with_score(query, k=10)
 
@@ -264,7 +279,7 @@ Now that your dataset, Azure OpenAI service API, and Redis instance are set up, 
        print(movie_title + ' (Score: ' + similarity_score + ')')
    ```
 
-1. Execute your Python code file. You should see the following output:
+1. Execute code cell 9. You should see the following output:
 
    ```output
    Independence Day (Score: 0.8348)
@@ -285,9 +300,11 @@ Now that your dataset, Azure OpenAI service API, and Redis instance are set up, 
 
 1. Since RediSearch also features rich search functionality on top of vector search, it's possible to filter results by the metadata in the data set, such as film genre, cast, release year, or director. In this case, filter based on the genre `comedy`.
 
-   Add the following code to your Python code file:
+   Add the following code to a new code cell:
 
    ```python
+   # Code cell 10
+
    from langchain.vectorstores.redis import RedisText
 
    query = "Spaceships, aliens, and heroes saving America"
@@ -299,7 +316,7 @@ Now that your dataset, Azure OpenAI service API, and Redis instance are set up, 
        print(movie_title + ' (Score: ' + similarity_score + ')')
    ```
 
-1. Execute your Python code file. Uou should see the following output:
+1. Execute code cell 10. Uou should see the following output:
 
    ```output
    Remote Control (Score: 0.8301)
