@@ -354,47 +354,7 @@ The resubmit capability is available for all actions except for non-sequential a
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
 | **Until** action and all actions inside the loop | No for all actions |
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
-
-1. At the logic app resource level, set up the following environment variables if you haven't already completed this step:
-
-   1. On your logic app resource menu, under **Settings**, select **Environment variables**.
-
-   1. On the **App settings** tab, add the following settings:
-
-      | Setting name | Value |
-      |--------------|-------|
-      | **FUNCTIONS_EXTENSIONBUNDLE_SOURCE_URI** | `https://cdnforlogicappsv2.blob.core.windows.net/logicapps-brbenn` |
-      | **AzureFunctionsJobHost_extensionBundle_version** | `[1.39.0.3]` |
-
-   1. When you're done, select **Apply**.
-
-   1. On your logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**, which opens the **Kudu** console.
-
-   1. On the **Kudu** toolbar, open the **Debug console** menu, and select **CMD**.
-
-   1. Browse to the following folder: **..\home\site\wwwroot**
-
-   1. Above the console window, in the directory table, next to the **host.json** file, select **Edit**.
-
-   1. In the **host.json** file, following the `"versions"` attribute, add the following JSON object named `"extensions"`, for example:
-
-      ```json
-      "version": "[1.*, 2.0.0)",
-      "extensions": {
-          "workflow": {
-              "settings": {
-                  "Runtime.IsResubmitActionsEnabled": "true"
-              }
-          }
-      }
-      ```
-
-   1. Remember to add a comma (**,**) immediately following `"versions"`.
-
-   1.	When you're done, on the toolbar, select **Save**.
-
-   1.	Return to your logic app resource menu, select **Overview**, and on the toolbar, select **Restart**.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow.
 
 1. On the workflow menu, select **Overview**. On the **Overview** page, select **Run History**, which shows the run history for the current workflow.
 
