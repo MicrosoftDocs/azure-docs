@@ -33,7 +33,7 @@ In this tutorial, you will:
 
 * An [Azure Maps account]
 * A [subscription key]
-- An [Azure storage account]
+* An [Azure storage account]
 
 > [!NOTE]
 > For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
@@ -168,6 +168,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 It's helpful to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle on a map. Follow the steps outlined in the [How to create data registry] article to upload the boundary data and charging stations data as geojson objects to your [Azure storage account] then register them in your Azure Maps account. Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is is how you reference the geojson objects you uploaded into your Azure storage account from your source code.
 
+<!---------------------------------------------------------------------------
 To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
 
 ```python
@@ -229,6 +230,7 @@ while True:
         time.sleep(0.2)
 poiUdid = getPoiUdid["udid"]
 ```
+------------------------------------------------------------>
 
 ## Render the charging stations and reachable range on a map
 
@@ -262,7 +264,7 @@ pins = "custom|an15 53||udid-{}||https://raw.githubusercontent.com/Azure-Samples
 encodedPins = urllib.parse.quote(pins, safe='')
 
 # Render the range and electric vehicle charging points on the map.
-staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=2022-08-01&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 poiRangeMap = await staticMapResponse.content.read()
 
@@ -369,7 +371,7 @@ minLat -= latBuffer
 maxLat += latBuffer
 
 # Render the route on the map.
-staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=2022-08-01&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
 
 staticMapImage = await staticMapResponse.content.read()
 
@@ -406,13 +408,13 @@ To learn more about Azure Notebooks, see
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
 [Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
-[How to create data registry]: how-to-create-data-registries.md
-[Get Map Image API]: /rest/api/maps/render/getmapimage
-[Get Map Image service]: /rest/api/maps/render/getmapimage
+[Get Map Image API]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
 [Get Route Directions API]: /rest/api/maps/route/getroutedirections
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Get Route Range API]: /rest/api/maps/route/getrouterange
 [Get Route Range]: /rest/api/maps/route/getrouterange
+[How to create data registry]: how-to-create-data-registries.md
 [Jupyter Notebook document file]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing API]: /rest/api/maps/route/postroutematrix
@@ -420,7 +422,7 @@ To learn more about Azure Notebooks, see
 [Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry
 [Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry
 [Quickstart: Sign in and set a user ID]: https://notebooks.azure.com
-[Render - Get Map Image]: /rest/api/maps/render/getmapimage
+[Render - Get Map Image]: /rest/api/maps/render-v2/get-map-static-image
 [*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt
 [routing APIs]: /rest/api/maps/route
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/07/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: saumadan
-ms.collection: M365-identity-device-management
 ---
 # Microsoft Entra recommendation: Renew expiring service principal credentials (preview)
 
@@ -21,7 +20,7 @@ This article covers the recommendation to renew expiring service principal crede
 
 ## Description
 
-A Microsoft Entra service principal is the local representation of an application object in a single tenant or directory. The service principal defines who can access an application and what resources the application can access. Authentication of service principals is often completed using certificate credentials, which have a lifespan. If the credentials expire, the application won't be able to authenticate with your tenant. 
+A Microsoft Entra service principal is the local representation of an application object in a single tenant or directory. The service principal defines who can access an application and what resources the application can access. Authentication of service principals is often completed using certificate credentials, which have a lifespan. If the credentials expire, the application can't authenticate with your tenant. 
 
 This recommendation shows up if your tenant has service principals with credentials that will expire soon.
 
@@ -73,9 +72,9 @@ When renewing service principal credentials using Microsoft Graph, you need to r
 
 ## Known limitations
 
-- This recommendation identifies service principal credentials that are about to expire, so if they do expire, the recommendation doesn't distinguish between the credential expiring on its own or being addressed by the user.
+- This recommendation identifies service principal credentials that are about to expire. If they do expire, the recommendation doesn't distinguish between the credential expiring on its own or if you addressed it.
 
-- Service principal credentials that expire before the recommendation is completed will be marked complete by the system.
+- Service principal credentials that expire before the recommendation is completed are complete by the system.
 
 - The recommendation currently doesn't display the password secret credential in service principal when you select an **Impacted resource** from the list.
 

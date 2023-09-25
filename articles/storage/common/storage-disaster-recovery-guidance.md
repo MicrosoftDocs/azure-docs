@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/21/2023
+ms.date: 09/22/2023
 ms.author: jammart
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -33,7 +33,7 @@ With locally redundant storage (LRS), three copies of your storage account are a
 
 Recovery of a single copy of a storage account occurs automatically with LRS and ZRS.
 
-### globally redundant storage and failover
+### Globally redundant storage and failover
 
 With globally redundant storage (GRS, GZRS, and RA-GZRS), Azure copies your data asynchronously to a secondary geographic region at least hundreds of miles away. This allows you to recover your data if there's an outage in the primary region. A feature that distinguishes globally redundant storage from LRS and ZRS is the ability to fail over to the secondary region if there's an outage in the primary region. The process of failing over updates the DNS entries for your storage account service endpoints such that the endpoints for the secondary region become the new primary endpoints for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoints.
 
