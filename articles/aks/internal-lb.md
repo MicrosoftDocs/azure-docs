@@ -14,8 +14,7 @@ ms.date: 02/22/2023
 
 # Use an internal load balancer with Azure Kubernetes Service (AKS)
 
-You can create and use an internal load balancer to restrict access to your applications in Azure Kubernetes Service (AKS).
-An internal load balancer does not have a public IP and makes a Kubernetes service accessible only to applications that can reach the private IP. These applications can be within the same VNET or in another VNET through VNET peering. This article shows you how to create and use an internal load balancer with AKS.
+You can create and use an internal load balancer to restrict access to your applications in Azure Kubernetes Service (AKS). An internal load balancer doesn't have a public IP and makes a Kubernetes service accessible only to applications that can reach the private IP. These applications can be within the same VNET or in another VNET through VNET peering. This article shows you how to create and use an internal load balancer with AKS.
 
 > [!NOTE]
 > Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. When you create a *LoadBalancer* service type, you'll get the same load balancer type as when you provisioned the cluster. For more information, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
@@ -162,7 +161,7 @@ For more information on configuring your load balancer in a different subnet, se
         app: internal-app
     ```
 
-2. Deploy the internal load balancer using the [`kubectl apply`][kubectl-apply] command. This command creates an Azure load balancer in the node resource group connected to the same virtual network as your AKS cluster and a Private Link Service object that connects to the frontend IP configuration of the load balancer associated with the Kubernetes service.
+2. Deploy the internal load balancer using the [`kubectl apply`][kubectl-apply] command. This command creates an Azure load balancer in the node resource group connected to the same virtual network as your AKS cluster. It also creates a Private Link Service object that connects to the frontend IP configuration of the load balancer associated with the Kubernetes service.
 
     ```azurecli-interactive
     kubectl apply -f internal-lb-pls.yaml
@@ -193,7 +192,7 @@ For more information on configuring your load balancer in a different subnet, se
     az network private-link-service list -g $AKS_MC_RG --query "[].{Name:name,Alias:alias}" -o table
     ```
 
-    Your output will look similar to the following example output:
+    Your output should look similar to the following example output:
 
     ```output
     Name      Alias
@@ -263,7 +262,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 
 ## Delete the load balancer
 
-The load balancer will be deleted when all of its services are deleted.
+The load balancer is deleted when all of its services are deleted.
 
 As with any Kubernetes resource, you can directly delete a service, such as `kubectl delete service internal-app`, which also deletes the underlying Azure load balancer.
 
