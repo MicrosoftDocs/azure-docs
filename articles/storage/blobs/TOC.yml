@@ -751,6 +751,8 @@ items:
           items:
           - name: Performance tuning for uploads and downloads
             href: storage-blobs-tune-upload-download-java.md
+          - name: Configure logging
+            href: /azure/developer/java/sdk/logging-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: JavaScript
         items:
         - name: Get started

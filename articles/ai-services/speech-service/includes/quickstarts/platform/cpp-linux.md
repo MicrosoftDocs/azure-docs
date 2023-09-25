@@ -8,11 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/11/2022
+ms.date: 09/05/2023
 ms.author: eur
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for Linux.
 
 [!INCLUDE [linux-install-sdk](linux-install-sdk.md)]
-

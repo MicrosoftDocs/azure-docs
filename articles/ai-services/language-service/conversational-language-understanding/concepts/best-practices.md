@@ -5,10 +5,9 @@ description: Apply best practices when using conversational language understandi
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: best-practice
-ms.date: 08/30/2023
+ms.date: 09/22/2023
 ms.author: aahi
 ms.custom: language-service-clu
 ---
@@ -171,4 +170,41 @@ curl --request POST \
          }
      }
  }'
+```
+
+## Copy projects across language resources
+
+Often you can copy conversational language understanding projects from one resource to another using the **copy** button in Azure Language Studio. However in some cases, it might be easier to copy projects using the API.
+
+First, identify the:  
+ * source project name 
+ * target project name 
+ * source language resource 
+ * target language resource, which is where you want to copy it to.
+
+Call the API to authorize the copy action, and get the `accessTokens` for the actual copy operation later. 
+
+```console
+curl --request POST \ 
+  --url 'https://<target-language-resource>.cognitiveservices.azure.com//language/authoring/analyze-conversations/projects/<source-project-name>/:authorize-copy?api-version=2023-04-15-preview' \ 
+  --header 'Content-Type: application/json' \ 
+  --header 'Ocp-Apim-Subscription-Key: <Your-Subscription-Key>' \ 
+  --data '{"projectKind":"Conversation","allowOverwrite":false}' 
+```
+
+Call the API to complete the copy operation. Use the response you got earlier as the payload. 
+
+```console
+curl --request POST \ 
+  --url 'https://<source-language-resource>.cognitiveservices.azure.com/language/authoring/analyze-conversations/projects/<source-project-name>/:copy?api-version=2023-04-15-preview' \ 
+  --header 'Content-Type: application/json' \ 
+  --header 'Ocp-Apim-Subscription-Key: <Your-Subscription-Key>\ 
+  --data '{ 
+"projectKind": "Conversation", 
+"targetProjectName": "<target-project-name>", 
+"accessToken": "<access-token>", 
+"expiresAt": "<expiry-date>", 
+"targetResourceId": "<target-resource-id>", 
+"targetResourceRegion": "<target-region>" 
+}'
 ```
