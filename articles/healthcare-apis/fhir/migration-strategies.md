@@ -33,7 +33,8 @@ To migrate your data, follow these steps:
 
 Compare the differences between Azure API for FHIR and Azure Health Data Services. Also review your architecture and assess if any changes need to be made.
 
-|---**Capabilities**               |---**Azure API for FHIR**                                                                                                                                             |---**Azure Health Data Services** |
+|**Capabilities**               |**Azure API for FHIR**                                                                                                                                             |**Azure Health Data Services** |
+|---|---|---|
 | **Settings**            | Supported:   Local RBAC   • SMART on FHIR Proxy                                                                                                                  | Planned deprecation - Local RBAC (9/6/23)  - SMART on FHIR Proxy (9/21/26)                                                                                                                |   |   |
 | **Data storage Volume** | More than 4 TB                                                                                                                                                       | Current support is 4 TB. Reach out to CSS team if you need more than 4 TB.                                                                                                                |   |   |
 | **Data ingress**        | Tools available in OSS                                                                                                                                             | $import operation                                                                                                                                                                         |   |   |
@@ -77,9 +78,9 @@ Identify data to migrate.
 Deploy a new Azure Health Data Services FHIR Service server.
 - First, deploy an Azure Health Data Services workspace.
   
-- Then deploy an Azure Health Data Services FHIR Service server ([Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
+- Then deploy an Azure Health Data Services FHIR Service server. More information: [Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
   
-- Configure your new Azure Health Data Services FHIR Service server. If you need to use the same configurations as you have in Azure API for FHIR for your new server, see the recommended list of what to check for in [migration tool documentation](https://microsoft.sharepoint.com/:w:/t/msh/Eb7WohSv_6JNlG1xAI8TyvoBbAPfhxnPzr4wv9py1InEww?e=QeSbo3&nav=eyJoIjoiMTUwODIzNzMifQ)). Configure the settings before you migrate.
+- Configure your new Azure Health Data Services FHIR Service server. If you need to use the same configurations as you have in Azure API for FHIR for your new server, see the recommended list of what to check for in the [migration tool documentation](https://microsoft.sharepoint.com/:w:/t/msh/Eb7WohSv_6JNlG1xAI8TyvoBbAPfhxnPzr4wv9py1InEww?e=QeSbo3&nav=eyJoIjoiMTUwODIzNzMifQ). Configure the settings before you migrate.
 
 ## Step 3: Migrate data
 
