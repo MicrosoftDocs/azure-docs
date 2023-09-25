@@ -295,6 +295,9 @@ When annotations are enabled as shown in the code snippet below, the following i
 
 Annotations are currently in preview for Completions and Chat Completions (GPT models); the following code snippet shows how to use annotations in preview:
 
+# [Python](#tab/python)
+
+
 ```python
 # Note: The openai-python library support for Azure OpenAI is in preview.
 # os.getenv() for the endpoint and key assumes that you are using environment variables.
@@ -413,6 +416,72 @@ except openai.error.InvalidRequestError as e:
             print(f"{category}:\n filtered={details['filtered']}\n severity={details['severity']}")
 
 ```
+
+# [JavaScript](#tab/javascrit)
+
+[Azure OpenAI JavaScript SDK source code & samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/openai/openai)
+
+```javascript
+
+import { OpenAIClient, AzureKeyCredential } from "@azure/openai";
+
+// Load the .env file if it exists
+import * as dotenv from "dotenv";
+dotenv.config();
+
+// You will need to set these environment variables or edit the following values
+const endpoint = process.env["ENDPOINT"] || "<endpoint>";
+const azureApiKey = process.env["AZURE_API_KEY"] || "<api key>";
+
+const messages = [
+  { role: "system", content: "You are a helpful assistant. You will talk like a pirate." },
+  { role: "user", content: "Can you help me?" },
+  { role: "assistant", content: "Arrrr! Of course, me hearty! What can I do for ye?" },
+  { role: "user", content: "What's the best way to train a parrot?" },
+];
+
+export async function main() {
+  console.log("== Get completions Sample ==");
+
+  const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
+  const deploymentId = "text-davinci-003";
+  const events = await client.listChatCompletions(deploymentId, messages, { maxTokens: 128 });
+
+  for await (const event of events) {
+    for (const choice of event.choices) {
+      console.log(choice.message);
+      if (!choice.contentFilterResults) {
+        console.log("No content filter is found");
+        return;
+      }
+      if (choice.contentFilterResults.error) {
+        console.log(
+          `Content filter ran into the error ${choice.contentFilterResults.error.code}: ${choice.contentFilterResults.error.message}`
+        );
+      } else {
+        const { hate, sexual, selfHarm, violence } = choice.contentFilterResults;
+        console.log(
+          `Hate category is filtered: ${hate?.filtered} with ${hate?.severity} severity`
+        );
+        console.log(
+          `Sexual category is filtered: ${sexual?.filtered} with ${sexual?.severity} severity`
+        );
+        console.log(
+          `Self-harm category is filtered: ${selfHarm?.filtered} with ${selfHarm?.severity} severity`
+        );
+        console.log(
+          `Violence category is filtered: ${violence?.filtered} with ${violence?.severity} severity`
+        );
+      }
+    }
+  }
+}
+
+main().catch((err) => {
+  console.error("The sample encountered an error:", err);
+});
+```
+---
 
 For details on the inference REST API endpoints for Azure OpenAI and how to create Chat and Completions please follow [Azure OpenAI Service REST API reference guidance](../reference.md). Annotations are returned for all scenarios when using `2023-06-01-preview`.
 
