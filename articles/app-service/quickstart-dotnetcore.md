@@ -865,6 +865,11 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
 
+:::zone target="docs" pivot="development-environment-azd"
+> [!div class="nextstepaction"]
+> [Learn more about the Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
+:::zone-end
+
 ### [.NET Framework 4.8](#tab/netframework48)
 
 Advance to the next article to learn how to create a .NET Framework app and connect it to a SQL Database:
