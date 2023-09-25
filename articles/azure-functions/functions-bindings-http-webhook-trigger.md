@@ -978,6 +978,7 @@ TypeScript samples are not documented for model v3.
     "type": "table",
     "direction": "in",
     "name": "product",
+    "connection": "MyStorageConnectionAppSetting",
     "partitionKey": "products",
     "tableName": "products",
     "rowKey": "{id}"

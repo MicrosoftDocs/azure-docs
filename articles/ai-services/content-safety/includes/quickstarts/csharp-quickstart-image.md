@@ -4,8 +4,7 @@ description: In this quickstart, get started using the Content Safety .NET SDK t
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
 ms.date: 07/04/2023

@@ -65,7 +65,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Effective security rules
 
-**Effective security rules** allows you to view the effective security rules applied to a network interface. It shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. For more information, see [Effective security rules overview](network-watcher-security-group-view-overview.md) and [View details of a security rule](diagnose-vm-network-traffic-filtering-problem.md#view-details-of-a-security-rule).
+**Effective security rules** allows you to view the effective security rules applied to a network interface. It shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. For more information, see [Effective security rules overview](effective-security-rules-overview.md) and [View details of a security rule](diagnose-vm-network-traffic-filtering-problem.md#view-details-of-a-security-rule).
 
 ### Connection troubleshoot
 

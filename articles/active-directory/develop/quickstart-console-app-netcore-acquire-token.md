@@ -35,7 +35,10 @@ The application can be built using either an automatic or manual configuration.
 
 To register and automatically configure the app and then download the code sample, follow these steps:
 
-1. Go to the [Microsoft Entra admin center page for app registration](https://entra.microsoft.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application in one click.
 
@@ -49,9 +52,9 @@ To manually configure your application and code sample, use the following proced
 
 To register the application and add the registration information to the solution manually, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-1. Browse to **Identity** > **Applications** > **App registrations**, select **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **Daemon-console**. Users of the app will see this name, and can be changed later.
 1. Select **Register** to create the application.
 1. Under **Manage**, select **Certificates & secrets**.
@@ -123,7 +126,7 @@ In that code:
 
 - `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
-The number of users in Azure Active Directory should be displayed as a result.
+The number of users in Microsoft Entra ID should be displayed as a result.
 
 This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to the project files. For security reasons, it's recommended to use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates).
 

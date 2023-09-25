@@ -266,7 +266,7 @@ Submit flow run to cloud will return the portal url of the run. You can open the
 
 You can also use following command to view results for runs.
 
-#### Steam the logs
+#### Stream the logs
 
 # [Azure CLI](#tab/cli)
 

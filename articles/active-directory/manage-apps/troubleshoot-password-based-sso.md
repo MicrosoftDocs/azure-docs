@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot password-based single sign-on
-description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
+description: Troubleshoot issues with a Microsoft Entra app that's configured for password-based single sign-on.
 author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
@@ -19,7 +19,7 @@ To use password-based single sign-on (SSO) in My Apps, the browser extension mus
 
 ## My Apps browser extension not installed
 
-Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](./myapps-overview.md).
+Make sure the browser extension is installed. To learn more, see [Plan a Microsoft Entra My Apps deployment](./myapps-overview.md).
 
 ## Single sign-on not configured
 
@@ -35,7 +35,7 @@ This problem typically happens if the application vendor has changed their sign-
 
 While Microsoft has technologies to automatically detect when integrations break, it might not be possible to find the issues right away, or the issues take some time to fix. In the case when one of these integrations does not work correctly, open a support case so it can be fixed as quickly as possible.
 
-**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
+**If you are in contact with this application’s vendor,** send them our way so Microsoft can work with them to natively integrate their application with Microsoft Entra ID. You can send the vendor to the [Listing your application in the Microsoft Entra application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Credentials are filled in and submitted, but the page indicates the credentials are incorrect
 
@@ -57,11 +57,11 @@ To resolve this issue, first try these things:
 
 - Ensure that your users are not trying to sign in to the application from My Apps while in **incognito, inPrivate, or Private mode**. The My Apps extension is not supported in these modes.
 
-In case the previous suggestions do not work, it could be the case that a change has occurred on the application side that has temporarily broken the application’s integration with Azure AD. For example, this can occur when the application vendor introduces a script on their page which behaves differently for manual vs automated input, which causes automated integration, like our own, to break. Fortunately, in many instances, Microsoft can work with application vendors to rapidly resolve these issues.
+In case the previous suggestions do not work, it could be the case that a change has occurred on the application side that has temporarily broken the application’s integration with Microsoft Entra ID. For example, this can occur when the application vendor introduces a script on their page which behaves differently for manual vs automated input, which causes automated integration, like our own, to break. Fortunately, in many instances, Microsoft can work with application vendors to rapidly resolve these issues.
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Microsoft Entra ID. You can send the vendor to the [Listing your application in the Microsoft Entra application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Check if the application’s login page has changed recently or requires an additional field
 
@@ -69,7 +69,7 @@ If the application’s login page has changed drastically, sometimes this causes
 
 While Microsoft has technologies to automatically detect when application integrations break, it might not be possible to find the issues right away, or the issues might take some time to fix. When an integration does not work correctly, you can open a support case to get it fixed as quickly as possible.
 
-In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
+In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Microsoft Entra ID. You can send the vendor to the [Listing your application in the Microsoft Entra application gallery](../manage-apps/v2-howto-app-gallery-listing.md) to get them started.
 
 ## Capture sign-in fields for an app
 
@@ -79,7 +79,7 @@ There are two ways to capture sign-in fields for your custom apps:
 
 - **Automatic sign-in field capture** works well with most HTML-enabled sign-in pages, *if they use well-known DIV IDs* for the user name and password fields. The HTML on the page is scraped to find DIV IDs that match certain criteria. That metadata is saved so that it can be replayed to the app later.
 
-- **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Azure Active Directory (Azure AD) can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
+- **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Microsoft Entra ID can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
 
 In general, if automatic sign-in field capture doesn't work, try the manual option.
 
@@ -96,7 +96,7 @@ To configure password-based SSO by using automatic sign-in field capture, follow
 1. Select **Password-based Sign-on** mode.
 1. Enter the **Sign-on URL**, which is the URL of the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
 1. Select **Save**.
-    The page is automatically scraped for the user name and password input boxes. You can now use Azure AD to securely transmit passwords to that app by using the My Apps browser extension.
+    The page is automatically scraped for the user name and password input boxes. You can now use Microsoft Entra ID to securely transmit passwords to that app by using the My Apps browser extension.
 
 ### Manually capture sign-in fields for an app
 

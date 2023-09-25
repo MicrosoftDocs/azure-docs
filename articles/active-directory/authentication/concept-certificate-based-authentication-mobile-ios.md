@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory certificate-based authentication on Apple devices
-description: Learn about Azure Active Directory certificate-based authentication on Apple devices that run macOS or iOS
+title: Microsoft Entra certificate-based authentication on Apple devices
+description: Learn about Microsoft Entra certificate-based authentication on Apple devices that run macOS or iOS
 
 services: active-directory
 ms.service: active-directory
@@ -16,13 +16,15 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on iOS and macOS
+# Microsoft Entra certificate-based authentication on iOS and macOS
 
-This topic covers Azure Active Directory (Azure AD) certificate-based authentication (CBA) support for macOS and iOS devices.
+This topic covers Microsoft Entra certificate-based authentication (CBA) support for macOS and iOS devices.
 
-## Azure Active Directory certificate-based authentication on macOS devices
+<a name='azure-active-directory-certificate-based-authentication-on-macos-devices'></a>
 
-Devices that run macOS can use CBA to authenticate against Azure AD by using their X.509 client certificate. Azure AD CBA is supported with certificates on-device and external hardware protected security keys. On macOS, Azure AD CBA is supported on all browsers and on Microsoft first-party applications.
+## Microsoft Entra certificate-based authentication on macOS devices
+
+Devices that run macOS can use CBA to authenticate against Microsoft Entra ID by using their X.509 client certificate. Microsoft Entra CBA is supported with certificates on-device and external hardware protected security keys. On macOS, Microsoft Entra CBA is supported on all browsers and on Microsoft first-party applications.
 
 ### Browsers supported on macOS
 
@@ -30,17 +32,21 @@ Devices that run macOS can use CBA to authenticate against Azure AD by using the
 |--------|---------|------|-------|
 |&#x2705; |&#x2705; | &#x2705; |&#x2705; |
 
-### macOS device sign-in with Azure AD CBA
+<a name='macos-device-sign-in-with-azure-ad-cba'></a>
 
-Azure AD CBA today isn't supported for device-based sign-in to macOS machines. The certificate used to sign in to the device can be the same certificate used to authenticate to Azure AD from a browser or desktop application, but the device sign-in itself isn't supported against Azure AD yet. 
+### macOS device sign-in with Microsoft Entra CBA
 
-## Azure Active Directory certificate-based authentication on iOS devices
-Devices that run iOS can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
+Microsoft Entra CBA today isn't supported for device-based sign-in to macOS machines. The certificate used to sign in to the device can be the same certificate used to authenticate to Microsoft Entra ID from a browser or desktop application, but the device sign-in itself isn't supported against Microsoft Entra ID yet. 
+
+<a name='azure-active-directory-certificate-based-authentication-on-ios-devices'></a>
+
+## Microsoft Entra certificate-based authentication on iOS devices
+Devices that run iOS can use certificate-based authentication (CBA) to authenticate to Microsoft Entra ID using a client certificate on their device when connecting to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
 
-Azure AD CBA is supported for certificates on-device on native browsers and on Microsoft first-party applications on iOS devices. 
+Microsoft Entra CBA is supported for certificates on-device on native browsers and on Microsoft first-party applications on iOS devices. 
 
 ### Prerequisites
 
@@ -84,14 +90,14 @@ On-device certificates are provisioned on the device. Customers can use Mobile D
 
 On iOS 9 or later, the native iOS mail client is supported. 
 
-To determine if your email application supports Azure AD CBA, contact your application developer.
+To determine if your email application supports Microsoft Entra CBA, contact your application developer.
 
 ## Support for certificates on hardware security key
 
 Certificates can be provisioned in external devices like hardware security keys along with a PIN to protect private key access. 
 Microsoft's mobile certificate-based solution coupled with the hardware security keys is a simple, convenient, FIPS (Federal Information Processing Standards) certified phishing-resistant MFA method. 
 
-As for iOS 16/iPadOS 16.1, Apple devices provide native driver support for USB-C or Lightning connected CCID-compliant smart cards. This means Apple devices on iOS 16/iPadOS 16.1 see a USB-C or Lightning connected CCID-compliant device as a smart card without the use of additional drivers or third-party apps. Azure AD CBA works on these USB-A, USB-C, or Lightning connected CCID-compliant smart cards. 
+As for iOS 16/iPadOS 16.1, Apple devices provide native driver support for USB-C or Lightning connected CCID-compliant smart cards. This means Apple devices on iOS 16/iPadOS 16.1 see a USB-C or Lightning connected CCID-compliant device as a smart card without the use of additional drivers or third-party apps. Microsoft Entra CBA works on these USB-A, USB-C, or Lightning connected CCID-compliant smart cards. 
 
 
 ### Advantages of certificates on hardware security key 
@@ -104,7 +110,9 @@ Security keys with certificates:
 - Satisfy the industry requirement to have MFA on separate device 
 - Help in future proofing where multiple credentials can be stored including Fast Identity Online 2 (FIDO2) keys 
 
-### Azure AD CBA on iOS mobile with YubiKey 
+<a name='azure-ad-cba-on-ios-mobile-with-yubikey-'></a>
+
+### Microsoft Entra CBA on iOS mobile with YubiKey 
 
 Even though the native Smartcard/CCID driver is available on iOS/iPadOS for Lightning connected CCID-compliant smart cards, the YubiKey 5Ci Lightning connector isn't seen as a connected smart card on these devices without the use of PIV (Personal Identity Verification) middleware like the Yubico Authenticator.  
 
@@ -141,7 +149,9 @@ The iOS certificate picker shows all the certificates on both iOS device and the
 
 This issue happens because of certificate caching. We're working on an update to clear the cache. As a workaround, click **Cancel**, retry sign-in, and choose a new certificate. 
 
-#### Azure AD CBA with YubiKey is failing. What information would help debug the issue? 
+<a name='azure-ad-cba-with-yubikey-is-failing-what-information-would-help-debug-the-issue-'></a>
+
+#### Microsoft Entra CBA with YubiKey is failing. What information would help debug the issue? 
 
 1. Open Microsoft Authenticator app, click the three dots icon in the top right corner and select **Send Feedback**.
 1. Click **Having Trouble?**.
@@ -179,11 +189,11 @@ On iOS, users see a "double prompt", where they must click the option to use cer
 
 ## Next steps
 
-- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-- [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
-- [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Overview of Microsoft Entra CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Microsoft Entra CBA](concept-certificate-based-authentication-technical-deep-dive.md)
+- [How to configure Microsoft Entra CBA](how-to-certificate-based-authentication.md)
+- [Microsoft Entra CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
+- [Windows smart card logon using Microsoft Entra CBA](concept-certificate-based-authentication-smartcard.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 09/20/2023
 ms.custom: ignite-fall-2021
 
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -122,7 +122,7 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing workflow state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
+   | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. |
 
 1. On the **Networking** tab, you can leave the default options for this example.
@@ -338,84 +338,6 @@ In this example, the workflow runs when the Request trigger receives an inbound 
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
-<a name="review-run-history"></a>
-
-## Review run history
-
-For a stateful workflow, after each workflow run, you can view the run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, run history and trigger histories appear at the workflow level, not the logic app level. To review the trigger histories outside the run history context, see [Review trigger histories](#review-trigger-history).
-
-1. In the Azure portal, on the workflow menu, select **Overview**.
-
-1. On the **Overview** pane, select **Run History**, which shows the run history for that workflow.
-
-   ![Screenshot that shows the workflow's "Overview" pane with "Run History" selected.](./media/create-single-tenant-workflows-azure-portal/find-run-history.png)
-
-   > [!TIP]
-   > If the most recent run status doesn't appear, on the **Overview** pane toolbar, select **Refresh**. 
-   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
-
-   The following table shows the possible final statuses that each workflow run can have and show in the portal:
-  
-   | Run status | Description |
-   |------------|-------------|
-   | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The run was triggered and started but received a cancel request. |
-   | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
-   | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
-   | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
-
-1. To review the status for each step in a run, select the run that you want to review.
-
-   The run details view opens and shows the status for each step in the run.
-
-   ![Screenshot that shows the run details view with the status for each step in the workflow.](./media/create-single-tenant-workflows-azure-portal/review-run-details.png)
-
-   The following table shows the possible statuses that each workflow action can have and show in the portal:
-
-   | Action status | Description |
-   |---------------|-------------|
-   | **Aborted** | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | **Cancelled** | The action was running but received a cancel request. |
-   | **Failed** | The action failed. |
-   | **Running** | The action is currently running. |
-   | **Skipped** | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
-   | **Succeeded** | The action succeeded. |
-   | **Succeeded with retries** | The action succeeded but only after a single or multiple retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | The action stopped due to the timeout limit specified by that action's settings. |
-   | **Waiting** | Applies to a webhook action that's waiting for an inbound request from a caller. |
-
-   [aborted-icon]: ./media/create-single-tenant-workflows-azure-portal/aborted.png
-   [canceled-icon]: ./media/create-single-tenant-workflows-azure-portal/cancelled.png
-   [failed-icon]: ./media/create-single-tenant-workflows-azure-portal/failed.png
-   [running-icon]: ./media/create-single-tenant-workflows-azure-portal/running.png
-   [skipped-icon]: ./media/create-single-tenant-workflows-azure-portal/skipped.png
-   [succeeded-icon]: ./media/create-single-tenant-workflows-azure-portal/succeeded.png
-   [succeeded-with-retries-icon]: ./media/create-single-tenant-workflows-azure-portal/succeeded-with-retries.png
-   [timed-out-icon]: ./media/create-single-tenant-workflows-azure-portal/timed-out.png
-   [waiting-icon]: ./media/create-single-tenant-workflows-azure-portal/waiting.png
-
-1. To review the inputs and outputs for a specific step, select that step.
-
-   ![Screenshot that shows the inputs and outputs in the selected "Send an email" action.](./media/create-single-tenant-workflows-azure-portal/review-step-inputs-outputs.png)
-
-1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
-
-<a name="review-trigger-history"></a>
-
-## Review trigger history
-
-For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [run history context](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. To find this historical data, follow these steps:
-
-1. In the Azure portal, on the workflow menu, select **Overview**.
-
-1. On the **Overview** page, select **Trigger Histories**.
-
-   The **Trigger Histories** pane shows the trigger histories for your workflow's runs.
-
-1. To review a specific trigger history, select the ID for that run.
-
 ## Best practices and recommendations
 
 For optimal designer responsiveness and performance, review and follow these guidelines:
@@ -426,28 +348,29 @@ For optimal designer responsiveness and performance, review and follow these gui
 
 - Have no more than 10-15 workflows per logic app resource.
 
-<a name="enable-open-application-insights"></a>
+<a name="review-run-history"></a>
 
-## Enable or open Application Insights after deployment
+## Review workflow run history
 
-During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
+After a stateful workflow finishes running, you can view the workflow's run history, including the status for the overall run, for the trigger, and for each action along with their inputs and outputs. In the Azure portal, workflow run history and trigger history appear at the workflow level, not at the logic app resource level. For more information, see [Review workflow run history](monitor-logic-apps.md?tabs=standard#review-runs-history) and [Review trigger history](monitor-logic-apps.md?tabs=standard#review-trigger-history).
 
-If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+For this example workflow, the workflow run history looks similar to the following sample:
 
-To enable Application Insights on a deployed logic app or open the Application Insights dashboard if already enabled, follow these steps:
+![Screenshot shows run details view with the status for each step in the workflow.](./media/create-single-tenant-workflows-azure-portal/review-run-details.png)
 
-1. In the Azure portal, find your deployed logic app.
+![Screenshot shows inputs and outputs in the selected action named Send an email.](./media/create-single-tenant-workflows-azure-portal/review-step-inputs-outputs.png)
 
-1. On the logic app menu, under **Settings**, select **Application Insights**.
+<a name="resubmit-workflow-run"></a>
 
-1. If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply** > **Yes**.
+## Resubmit workflow run with same inputs
 
-   If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
+For an existing stateful workflow run, you can rerun the entire workflow with the same inputs that were previously used for that run. For more information, see [Rerun a workflow with same inputs](monitor-logic-apps.md?tabs=standard#resubmit-workflow-run).
 
-After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
+<a name="review-trigger-history"></a>
 
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
+## Review trigger history
+
+For a stateful workflow, you can review the trigger history for each run, including the trigger status along with inputs and outputs, separately from the [workflow run history](#review-run-history). In the Azure portal, trigger history and run history appear at the workflow level, not the logic app level. For more information, see [Review trigger history](monitor-logic-apps.md?tabs=standard#review-trigger-history).
 
 <a name="enable-run-history-stateless"></a>
 
@@ -472,6 +395,29 @@ To debug a stateless workflow more easily, you can enable the run history for th
 1. To finish this task, select **OK**. On the **Configuration** pane toolbar, select **Save**.
 
 1. To disable the run history when you're done, either set the property named **Workflows.{*your-workflow-name*}.OperationOptions** to **None**, or delete the property and its value.
+
+<a name="enable-open-application-insights"></a>
+
+## Enable or open Application Insights after deployment
+
+During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
+
+If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+
+To enable Application Insights on a deployed logic app or open the Application Insights dashboard if already enabled, follow these steps:
+
+1. In the Azure portal, find your deployed logic app.
+
+1. On the logic app menu, under **Settings**, select **Application Insights**.
+
+1. If Application Insights isn't enabled, on the **Application Insights** pane, select **Turn on Application Insights**. After the pane updates, at the bottom, select **Apply** > **Yes**.
+
+   If Application Insights is enabled, on the **Application Insights** pane, select **View Application Insights data**.
+
+After Application Insights opens, you can review various metrics for your logic app. For more information, review these topics:
+
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="view-connections"></a>
 
@@ -762,7 +708,4 @@ To fix this problem, follow these steps to delete the outdated version so that t
 
 ## Next steps
 
-We'd like to hear from you about your experiences with this scenario!
-
-* For bugs or problems, [create your issues in GitHub](https://github.com/Azure/logicapps/issues).
-* For questions, requests, comments, and other feedback, [use this feedback form](https://aka.ms/lafeedback).
+* [Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps](monitor-logic-apps.md?tabs=standard)

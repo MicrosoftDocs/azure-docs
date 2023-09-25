@@ -1,6 +1,6 @@
 ---
 title: Service limits and restrictions
-description: Usage constraints and other service limits for the Azure Active Directory service
+description: Usage constraints and other service limits for the Microsoft Entra service
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -18,13 +18,13 @@ ms.reviewer: vincesm
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD service limits and restrictions
+# Microsoft Entra service limits and restrictions
 
-This article contains the usage constraints and other service limits for the Azure Active Directory (Azure AD), part of Microsoft Entra, service. If you’re looking for the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+This article contains the usage constraints and other service limits for the Microsoft Entra ID, part of Microsoft Entra, service. If you’re looking for the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
 ## Next steps
 
 * [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md)
-* [How Azure subscriptions are associated with Azure AD](../fundamentals/how-subscriptions-associated-directory.md)
+* [How Azure subscriptions are associated with Microsoft Entra ID](../fundamentals/how-subscriptions-associated-directory.md)

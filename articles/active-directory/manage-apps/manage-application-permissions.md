@@ -1,6 +1,6 @@
 ---
 title: Review permissions granted to applications
-description: Learn how to review and revoke permissions, and invalidate refresh tokens for an application in Azure Active Directory.
+description: Learn how to review and revoke permissions, and invalidate refresh tokens for an application in Microsoft Entra ID.
 services: active-directory
 author: Jackson-Woods
 manager: CelesteDG
@@ -19,9 +19,9 @@ ms.custom: enterprise-apps, has-azure-ad-ps-ref
 
 # Review permissions granted to enterprise applications
 
-In this article, you learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary. You learn how to revoke permissions granted to the application using Microsoft Graph API and existing versions of PowerShell.
+In this article, you learn how to review permissions granted to applications in your Microsoft Entra tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary. You learn how to revoke permissions granted to the application using Microsoft Graph API and existing versions of PowerShell.
 
-The steps in this article apply to all applications that were added to your Azure AD tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
+The steps in this article apply to all applications that were added to your Microsoft Entra tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
 
 ## Prerequisites
 
@@ -224,7 +224,7 @@ Run the following queries to remove appRoleAssignments of users or groups to the
     ```http
     GET https://graph.microsoft.com/v1.0/servicePrincipals/57443554-98f5-4435-9002-852986eea510
     ```
-1. Get Azure AD App role assignments using objectID of the Service Principal.
+1. Get Microsoft Entra App role assignments using objectID of the Service Principal.
 
     ```http
     GET https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo
