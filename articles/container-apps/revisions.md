@@ -24,7 +24,7 @@ Key characteristics of revisions include:
 
 - **Automatically provisioned**: When you deploy a container app for the first time, an initial revision is automatically created.
 
-- **Scoped changes**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes, create a new revision.
+- **Scoped changes**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes create a new revision.
 
 - **Historical record**: Azure Container Apps allow you to retain up to 100 revisions. This history gives you a comprehensive historical record of your app's updates.
 
@@ -50,14 +50,12 @@ After a container app is successfully provisioned, a revision enters its operati
 
 | Status | Description |
 |---|---|
-| Scale to 0 | Zero running replicas, and not provisioning any new replicas. |
+| Scale to 0 | Zero running replicas, and not provisioning any new replicas. The container app can create new replicas if scale rules are triggered. |
 | Activating | Zero running replicas, one replica being provisioned.  |
 | Processing | Scaling in or out is occurring. One or more running replicas, while other replicas are being provisioned. |
-| Running | One or more replicas running, with replicas either being provisioned or  deprovisioned. There are no issues to report. |
-| Degraded | Have at least one failed replica. |
-| Unhealthy | The revision isn't operating properly. Use the revision state details for details. Common issues include:<br>• Container crashes<br>• Resource quota exceeded<br>• Image access issues, including [*ImagePullBackOff* errors](/troubleshoot/azure/azure-kubernetes/cannot-pull-image-from-acr-to-aks-cluster) |
+| Running | One or more replicas running. There are no issues to report. |
+| Degraded | At least one replica in the revision is failed. View running state details for specific issues. |
 | Failed | Critical errors caused revisions to fail. The *running state* provides details. Common causes include:<br>• Termination<br>• Exit code `137` |
-| N/A | The revision can't create replicas. The revision is either provisioning, failed to provision, or is inactive and has no resources. |
 
 ### Inactive status
 
@@ -69,8 +67,8 @@ Azure Container Apps support two revision modes. Your choice of mode determines 
 
 | Revision modes | Description | Default |
 |---|---|---|
-| Single | When you create a new revision, it automatically becomes active, replacing the previous active revision. This mode ensures that only the latest version of your app is in operation. | Yes |
-| Multiple | Allows more than one revision of your app to run concurrently. This mode is useful when you want to manage multiple versions or test new features without disrupting the main app. For apps with external HTTP ingress, you can even define the [percentage of traffic each active revision receives](traffic-splitting.md). | No |
+| Single | Deploying updates are managed, ensuring that your new revision is active, provisioned, and running at scale before switching traffic to the new revision. Traffic and deprovisioning old revisions are automatic. | Yes |
+| Multiple | You can have multiple active revisions, split traffic between revisions, and choose when to deprovision old revisions. This is helpful for testing multiple versions of an app, blue-green testing, or having full control of app updates. [View more on traffic splitting](traffic-splitting.md).
 
 In *single revision mode*, new revisions are automatically provisioned, activated, and scaled to the desired size. Once all the replicas are running as defined by the [scale rule](scale-app.md), then traffic is diverted from the old version to the new one. If an update fails, traffic remains pointed to the old revision.  
 
@@ -80,7 +78,10 @@ In *single revision mode*, Container Apps ensures your app doesn't experience do
 
 If ingress is enabled, the existing revision continues to receive 100% of the traffic until the new revision is ready.
 
-A new revision is considered ready when one of its replicas starts and becomes ready. A replica is ready when all of its containers start and pass their [startup and readiness probes](./health-probes.md).
+A new revision is considered ready when:
+- The revision has provisioned successfully
+- The revision has scaled up to match the previous revisions replica count (respecting the new revision's min and max replica count)
+- All the replicas have passed their startup and readiness probes 
 
 In *multiple revision* mode, you can control when revisions are activated or deactivated and which revisions receive ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, traffic doesn't switch to the latest revision until it's ready.
 
