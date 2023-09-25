@@ -112,14 +112,14 @@ String textToPlay = "Welcome to Contoso";
 // Provide VoiceName and CustomVoiceEndpointId to select custom voice. 
 var playSource = new TextSource(textToPlay)
     {
-        VoiceName = "custom_voiceName",
-        CustomVoiceEndpointId = "YourCustomVoiceEndpointId"
+        VoiceName = "YourCustomVoiceName",
+        CustomVoiceEndpointId = "YourCustomEndpointId"
     };
 ```
 **Custom voice names SSML example**
-``` javascriptString ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"custom_voiceName\">Hello World!</voice></speak>"; 
+``` javascriptString ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"YourCustomVoiceName\">Hello World!</voice></speak>"; 
 
-var playSource = new SsmlSource(ssmlToPlay,"YourCustomVoiceEndpointId");
+var playSource = new SsmlSource(ssmlToPlay,"YourCustomEndpointId");
 ```
 
 Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
