@@ -50,14 +50,6 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 Functions 1.x doesn't support running in an isolated worker process.
 
-# [Functions v2.x+](#tab/functionsv2/csharp-script)
-
-This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
-
 ---
 
 ::: zone-end  

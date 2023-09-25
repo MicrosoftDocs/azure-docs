@@ -339,13 +339,7 @@ param($todoChanges)
 $changesJson = $todoChanges | ConvertTo-Json -Compress
 Write-Host "SQL Changes: $changesJson"
 ```
-
-
 ::: zone-end
-
-
-
-
 ::: zone pivot="programming-language-javascript"
 ## Example usage
 <a id="example"></a>

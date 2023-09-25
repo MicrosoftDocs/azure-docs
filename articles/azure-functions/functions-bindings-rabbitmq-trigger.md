@@ -151,7 +151,7 @@ def main(myQueueItem) -> None:
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
 The attribute's constructor takes the following parameters:
 

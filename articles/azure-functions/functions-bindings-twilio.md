@@ -50,14 +50,6 @@ There is currently no support for Twilio for an isolated worker process app.
 
 Functions 1.x doesn't support running in an isolated worker process.
 
-# [Functions v2.x+](#tab/functionsv2/csharp-script)
-
-This version of the extension should already be available to your function app with [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-You can add the extension to your project by explicitly installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 1.x. To learn more, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
-
 ---
 
 ::: zone-end  
@@ -261,7 +253,7 @@ public class TwilioOutput {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a [function.json configuration file](#configuration).  
 
 # [In-process model](#tab/in-process)
 

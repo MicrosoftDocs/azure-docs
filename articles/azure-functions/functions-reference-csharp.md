@@ -2417,8 +2417,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The [configuration](#input---configuration) section explains these properties.
-
 Here's the C# script code:
 
 ```cs
@@ -2452,8 +2450,6 @@ Here's the binding data in the *function.json* file:
     "connection": "CosmosDBConnection"
 }
 ```
-
-The [configuration](#input---configuration) section explains these properties.
 
 Here's the C# script code:
 
@@ -2774,8 +2770,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The [configuration](#output---configuration) section explains these properties.
-
 Here's the C# script code:
 
 ```cs
@@ -2869,7 +2863,7 @@ The example refers to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-[Change tracking](#set-up-change-tracking-required) is enabled on the database and on the table:
+[Change tracking](./functions-bindings-azure-sql-trigger.md#set-up-change-tracking-required) is enabled on the database and on the table:
 
 ```sql
 ALTER DATABASE [SampleDatabase]
@@ -2972,8 +2966,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
-
 Here's the C# script code:
 
 ```cs
@@ -3030,8 +3022,6 @@ Here's the binding data in the *function.json* file:
 ```
 
 :::code language="csharp" source="~/functions-sql-todo-sample/DeleteToDo.cs" range="4-30":::
-
-The [configuration](#configuration) section explains these properties.
 
 Here's the C# script code:
 
@@ -3096,8 +3086,6 @@ The following is binding data in the function.json file:
     "connectionStringSetting": "SqlConnectionString"
 }
 ```
-
-The [configuration](#configuration) section explains these properties.
 
 The following is sample C# script code:
 
@@ -3167,8 +3155,6 @@ The following is binding data in the function.json file:
     "connectionStringSetting": "SqlConnectionString"
 }
 ```
-
-The [configuration](#configuration) section explains these properties.
 
 The following is sample C# script code:
 
@@ -3270,8 +3256,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
-
 Here's the C# script code:
 
 ```csharp
@@ -3363,7 +3347,7 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 }
 ```
 
-You can set the `userId` property of the binding to the value from either header using a [binding expression](#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
+You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-signalr-service-input.md#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
 Example function.json:
 
