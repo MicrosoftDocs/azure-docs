@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI - embeddings and cosine similarity
 description: Learn more about Azure OpenAI embeddings API for document search and cosine similarity
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: tutorial
 ms.date: 09/12/2023
 author: mrbullwinkle

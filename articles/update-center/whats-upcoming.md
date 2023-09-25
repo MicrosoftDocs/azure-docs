@@ -18,10 +18,7 @@ Expanded support for [specialized images](../virtual-machines/linux/imaging.md#s
 
 ## Prescript and postscript 
 
-The prescript and postscript will be available soon.
-
-## SQL Server patching
-SQL Server patching using Update Manager will be available soon.
+The ability to execute Azure Automation runbook scripts before or after deploying scheduled updates to machines will be available by Q4, CY2023.
 
 ## Next steps
 

@@ -5,8 +5,7 @@ description: This article will show you how to summarize chat logs with the conv
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 01/31/2023
 ms.author: jboback
