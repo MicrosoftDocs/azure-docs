@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.author: owenrichards
 ms.topic: tutorial
-ms.date: 02/27/2023
+ms.date: 09/25/2023
 #Customer intent: As a React developer, I want to know how to create a new React project in an IDE and add authentication.
 ---
 
@@ -45,6 +45,25 @@ Use the following tabs to create a React project within the IDE.
 1. Choose a location for the project or accept the default option, and then select **Next**.
 1. In **Additional information**, select **Create**.
 1. From the toolbar, select **Start Without Debugging** to launch the application. A web browser will open with the address `http://localhost:3000/` by default. The browser remains open and re-renders for every saved change.
+1. Create additional folders and files to achieve the following folder structure:
+
+    ```console
+    ├─── public
+    │   └─── index.html
+    └───src
+        ├─── components
+        │   └─── PageLayout.jsx
+        │   └─── ProfileData.jsx
+        │   └─── SignInButton.jsx
+        │   └─── SignOutButton.jsx
+        └── App.css
+        └── App.jsx
+        └── authConfig.js
+        └── graph.js
+        └── index.css
+        └── index.js
+    ```
+
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -57,7 +76,6 @@ Use the following tabs to create a React project within the IDE.
     cd reactspalocal
     npm start
     ```
----
 
 1. Create additional folders and files to achieve the following folder structure:
 
@@ -77,6 +95,10 @@ Use the following tabs to create a React project within the IDE.
         └── index.css
         └── index.js
     ```
+
+---
+
+
 
 
 ## Install identity and bootstrap packages
