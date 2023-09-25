@@ -14,7 +14,7 @@ zone_pivot_groups: functions-nodejs-model
 This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you have already read the [Azure Functions developer guide](functions-reference.md).
 
 > [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [upgrade guide](./functions-node-upgrade-v4.md).
+> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [migration guide](./functions-node-upgrade-v4.md).
 
 As a Node.js developer, you might also be interested in one of the following articles:
 

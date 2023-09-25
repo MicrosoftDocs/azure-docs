@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Node.js apps in Azure Functions
-description: Learn how to troubleshoot Node.js apps in Azure Functions.
+description: Learn how to troubleshoot common errors when you deploy or run a Node.js app in Azure Functions.
 ms.service: azure-functions
 ms.date: 09/20/2023
 ms.devlang: javascript, typescript
@@ -33,11 +33,9 @@ If those resources didn't solve your problem, the following sections provide adv
 
 ## No functions found
 
-If you see this error in your deployment logs:
+If you see any of the following errors in your logs:
 
 > No HTTP triggers found.
-
-Or this error in your function app logs:
 
 > No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
 
@@ -48,7 +46,8 @@ Try the following fixes:
 - When running in Azure:
     - Make sure you're using [Azure Functions Runtime Version](./functions-versions.md) 4.25 or higher.
     - Make sure you're using Node.js v18 or higher.
-    - Check your function app logs for entry point errors. First, set the app setting `FUNCTIONS_NODE_BLOCK_ON_ENTRY_POINT_ERROR` to `1` to ensure all errors are tracked in yours logs. The following example query shows how to view entry point errors for your app in the past day:
+    - Set the app setting `FUNCTIONS_NODE_BLOCK_ON_ENTRY_POINT_ERROR` to `1`. This setting is recommended for all model v4 apps and ensures that all entry point errors are visible in your application insights logs.
+    - Check your function app logs for entry point errors. The following example query shows how to view entry point errors for your app in the past day:
 
         ```kusto
         let myAppName = "<your app name>";

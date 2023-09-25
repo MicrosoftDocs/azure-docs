@@ -1,5 +1,5 @@
 ---
-title: Upgrade your Durable Functions app to version 4 of the Node.js programming model
+title: Migrate your Durable Functions app to version 4 of the Node.js programming model
 description: This article shows you how to upgrade your existing Durable Functions apps running on v3 of the Node.js programming model to v4.
 author: hossam-nasr
 ms.service: azure-functions
@@ -11,7 +11,7 @@ ms.topic: how-to
 zone_pivot_groups: programming-languages-set-functions-nodejs
 ---
 
-# Upgrade your Durable Functions app to version 4 of the Node.js programming model
+# Migrate your Durable Functions app to version 4 of the Node.js programming model
 
 This article provides a guide to upgrade your existing Durable Functions app to version 4 of the Node.js programming model. Note that this article uses "TIP" banners to summarize the key steps needed to upgrade your app.
 
