@@ -45,7 +45,7 @@ The tiles on the Advisor score page show the different categories of recommendat
 
 * You can filter the display using the buttons at the top of the page:
    * **Subscription**: Choose *All* for Advisor recommendations on all subscriptions. Alternatively, select specific subscriptions. Apply changes by clicking outside of the button.
-   * **Recommendation Status**: **Active** (the default, recommendations that you haven't postponed or dismissed), **Postponed or Dismissed**. Apply changes by clicking outside of the button.
+   * **Recommendation Status**: *Active* (the default, recommendations that you haven't postponed or dismissed), *Postponed* or *Dismissed*. Apply changes by clicking outside of the button.
    * **Resource Group**: Choose *All* (the default) or specific resource groups. Apply changes by clicking outside of the button.
    * **Type**: Choose *All* (the default) or specific resources. Apply changes by clicking outside of the button.
    * **Commitments**: Applicable only to cost recommendations. Adjust your subscription **Cost** recommendations to reflect your committed **Term (years)** and chosen **Look-back period (days)**. Apply changes by clicking **Apply**.
@@ -90,7 +90,8 @@ From any Azure Advisor page, click **Configuration** in the left navigation pane
 
 * **VM/VMSS right sizing**: You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge.
 
-  1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing.
+  1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing and certain privileges are required; for more information on permissions, see [Permissions in Azure Advisor](permissions.md).
+
     
   1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
