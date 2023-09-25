@@ -78,7 +78,7 @@ The following differences apply depending on whether your app is running on a sh
 | --------------------------- | ------------------ | --------------------------------------------------------------------------------------------------- |
 | **Accounts**                | Single account     | Multiple accounts                                                                                   |
 | **Sign-in**                 | Global             | Global                                                                                              |
-| **Sign-out**                | Global             | Each application can control if the sign-out is local to the app or for the family of applications. |
+| **Sign-out**                | Global             | Each application can control if the sign-out is local to the app. |
 | **Supported account types** | Work accounts only | Personal and work accounts supported                                                                |
 
 ## Why you may want to only support single-account mode

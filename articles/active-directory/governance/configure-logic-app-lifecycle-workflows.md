@@ -260,7 +260,7 @@ If the security token type is **Normal** for your custom task extension, you'd s
 
     Policy name: AzureADLifecycleWorkflowsAuthPolicy 
 
-    Policy type: Microsoft Entra ID  
+    Policy type: AAD 
     
     |Claim  |Value  |
     |---------|---------|
@@ -270,7 +270,7 @@ If the security token type is **Normal** for your custom task extension, you'd s
 
     Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App 
 
-    Policy type: Microsoft Entra ID   
+    Policy type: AAD   
  
     |Claim  |Value  |
     |---------|---------|

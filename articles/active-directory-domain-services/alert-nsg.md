@@ -1,5 +1,5 @@
 ---
-title: Resolve network security group alerts in Microsoft Entra DS | Microsoft Docs
+title: Resolve network security group alerts in Microsoft Entra Domain Services | Microsoft Docs
 description: Learn how to troubleshoot and resolve network security group configuration alerts for Microsoft Entra Domain Services
 services: active-directory-ds
 author: justinha
@@ -16,7 +16,7 @@ ms.author: justinha
 ---
 # Known issues: Network configuration alerts in Microsoft Entra Domain Services
 
-To let applications and services correctly communicate with a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain, specific network ports must be open to allow traffic to flow. In Azure, you control the flow of traffic using network security groups. The health status of a Microsoft Entra DS managed domain shows an alert if the required network security group rules aren't in place.
+To let applications and services correctly communicate with a Microsoft Entra Domain Services managed domain, specific network ports must be open to allow traffic to flow. In Azure, you control the flow of traffic using network security groups. The health status of a Domain Services managed domain shows an alert if the required network security group rules aren't in place.
 
 This article helps you understand and resolve common alerts for network security group configuration issues.
 
@@ -26,11 +26,11 @@ This article helps you understand and resolve common alerts for network security
 
 *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
-Invalid network security group rules are the most common cause of network errors for Microsoft Entra DS. The network security group for the virtual network must allow access to specific ports and protocols. If these ports are blocked, the Azure platform can't monitor or update the managed domain. The synchronization between the Microsoft Entra directory and Microsoft Entra DS is also impacted. Make sure you keep the default ports open to avoid interruption in service.
+Invalid network security group rules are the most common cause of network errors for Domain Services. The network security group for the virtual network must allow access to specific ports and protocols. If these ports are blocked, the Azure platform can't monitor or update the managed domain. The synchronization between the Microsoft Entra directory and Domain Services is also impacted. Make sure you keep the default ports open to avoid interruption in service.
 
 ## Default security rules
 
-The following default inbound and outbound security rules are applied to the network security group for a managed domain. These rules keep Microsoft Entra DS secure and allow the Azure platform to monitor, manage, and update the managed domain.
+The following default inbound and outbound security rules are applied to the network security group for a managed domain. These rules keep Domain Services secure and allow the Azure platform to monitor, manage, and update the managed domain.
 
 ### Inbound security rules
 
@@ -57,7 +57,7 @@ The following default inbound and outbound security rules are applied to the net
 | 65500    | DenyAllOutBound | Any | Any | Any | Any | Deny |
 
 >[!NOTE]
-> Microsoft Entra DS needs unrestricted outbound access from the virtual network. We don't recommend that you create any additional rules that restrict outbound access for the virtual network.
+> Domain Services needs unrestricted outbound access from the virtual network. We don't recommend that you create any additional rules that restrict outbound access for the virtual network.
 
 ## Verify and edit existing security rules
 
