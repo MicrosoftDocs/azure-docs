@@ -138,15 +138,15 @@ If you wish to enhance your prompts more and include custom voice models, the pl
 // Provide VoiceName and  to select a specific voice.
 var playSource = new TextSource() 
     .setText(textToPlay) 
-    .setCustomVoiceName("en-US-ElizabethNeural")
-    .setCustomVoiceEndpointId("YourCustomVoiceEndpointId");
+    .setCustomVoiceName("YourCustomVoiceName")
+    .setCustomVoiceEndpointId("YourCustomEndpointId");
 ```
 **Custom voice names SSML example**
 ``` java
-String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"custom_VoiceName\">Hello World!</voice></speak>"; 
+String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"YourCustomVoiceName\">Hello World!</voice></speak>"; 
 var playSource = new SsmlSource() 
     .setSsmlText(ssmlToPlay)
-    .setCustomVoiceEndpointId("YourCustomVoiceEndpointId");
+    .setCustomVoiceEndpointId("YourCustomEndpointId");
 ```
 
 Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
