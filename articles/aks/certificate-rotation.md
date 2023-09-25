@@ -158,4 +158,4 @@ This article showed you how to automatically rotate your cluster certificates, C
 [az-aks-rotate-certs]: /cli/azure/aks#az_aks_rotate_certs
 
 <!-- LINKS - external -->
-[kubectl-get]: /docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
