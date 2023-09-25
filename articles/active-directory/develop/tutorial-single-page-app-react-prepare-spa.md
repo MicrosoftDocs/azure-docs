@@ -95,11 +95,7 @@ Use the following tabs to create a React project within the IDE.
         └── index.css
         └── index.js
     ```
-
 ---
-
-
-
 
 ## Install identity and bootstrap packages
 

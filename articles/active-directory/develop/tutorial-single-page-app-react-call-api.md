@@ -16,7 +16,7 @@ ms.date: 09/25/2023
 
 Before being able to interact with the single-page app (SPA), we need to initiate an API call to Microsoft Graph and create the user interface (UI) for the application. After this is added, we can sign in to the application and get profile data information from the Microsoft Graph API.
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 > * Create the API call to Microsoft Graph
@@ -58,7 +58,7 @@ The following code snippet imports the UI components that were created previousl
     import Button from 'react-bootstrap/Button';
    ```
 
-### Adding the `ProfileContent` function
+### Add the `ProfileContent` function
 
 The `ProfileContent` function is used to render the user's profile information after the user has signed in. This function will be called when the user selects the **Request Profile Information** button.
 
@@ -100,7 +100,7 @@ The `ProfileContent` function is used to render the user's profile information a
     };
     ```
 
-### Replacing the default function to render authenticated information
+### Add the `MainContent` function
 
 The `MainContent` function is used to render the user's profile information after the user has signed in. This function will be called when the user selects the **Request Profile Information** button.
 
@@ -139,7 +139,7 @@ The `MainContent` function is used to render the user's profile information afte
     }
     ```
 
-## Calling the API from the application
+## Call the Microsoft Graph API from the application
 
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
