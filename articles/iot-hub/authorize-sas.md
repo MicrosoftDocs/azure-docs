@@ -26,6 +26,15 @@ This article introduces:
 
 You must have appropriate permissions to access any of the IoT Hub endpoints. For example, a device must include a token containing security credentials along with every message it sends to IoT Hub. However, the signing keys, like the device symmetric keys, are never sent over the wire.
 
+## Authorization in IoT Hub
+
+*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*. Authorization is separate from *authentication*, which is the process of proving that you are who you say you are. For more information about authentication, see [Authentication overview](authenticate-overview.md).
+
+This article describes authorization using **Shared access signatures** lets you group permissions and grant them to applications using access keys and signed security tokens. For other authorization options, see [Authorize access with Azure Active Directory](authorize-azure-ad.md).
+
+> [!TIP]
+> You can enable a lock on your IoT resources to prevent them being accidentally or maliciously deleted. To learn more about Azure Resource locks, please visit, [Lock your resources to protect your infrastructure](../azure-resource-manager/management/lock-resources.md?tabs=json)
+
 ## Access control and permissions
 
 Use shared access policies for IoT hub-level access, and use the individual device credentials to scope access to that device only.

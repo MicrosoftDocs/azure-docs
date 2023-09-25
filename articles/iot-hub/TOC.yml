@@ -191,19 +191,28 @@
           href: ../iot-edge/iot-edge-as-gateway.md
     - name: Security
       items:
+        - name: Authentication
+          items:
+          - name: Azure Active Directory
+            displayName: authenticate, authentication, auth, authn
+            href: authenticate-azure-ad.md
+          - name: Shared access signatures
+            displayName: authenticate, authentication, auth, authn
+            href: authenticate-sas.md
+          - name: X.509 certificates
+            displayName: authenticate, authentication, auth, authn
+            href: authenticate-x509.md
+        - name: Authorization
+          items:
+          - name: Authorize with Azure Active Directory
+            displayName: authorization, authorize, auth, authz
+            href: authorize-azure-ad.md
+          - name: Authorize with shared access signatures
+            displayName: authorization, authorize, auth, authz
+            href: authorize-sas.md
         - name: TLS support
           displayName: security, Transport Layer Security
           href: iot-hub-tls-support.md
-        - name: Secure using X.509 CA certificates
-          items:
-            - name: X.509 certificate concepts
-              displayName: Public Key Cryptography, X.509 certificates, public key infrastructure (PKI), certificates, Certification Authorities, encryption, ciphertext 
-              href: iot-hub-x509-certificate-concepts.md
-            - name: X.509 CA certificate security concepts
-              displayName: Device Provisioning Service, DPS, Hardware Secure Modules, HSM, self-signed certificate, Public Key Infrastructure, PKI
-              href: iot-hub-x509ca-concept.md
-            - name: X.509 CA certificates for IoT Hub
-              href: iot-hub-x509ca-overview.md
         - name: Virtual networks support
           displayName: Security, Private Link, network isolation, private endpoint
           href: virtual-network-support.md

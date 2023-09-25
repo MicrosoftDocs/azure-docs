@@ -13,6 +13,14 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Archite
 
 # Authenticate with a shared access signature
 
+## Authentication in IoT Hub
+
+*Authentication* is the process of proving that you are who you say you are. This is achieved by verification of the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*. Authentication is separate from *authorization*, which is the process of confirming permissions for an authenticated user or device on IoT Hub.
+
+This article describes authentication that uses **Shared access signatures** lets you group permissions and grant them to applications using access keys and signed security tokens. You can also use symmetric keys or shared access keys to authenticate a device with IoT Hub.
+
+## Shared access signature authentication
+
 Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to it. Before a device or module can connect, there must be an entry for that device or module in the IoT hub's identity registry. A device or module authenticates with the IoT hub based on credentials stored in the identity registry.
 
 We support two methods of authentication between the device and the IoT hub. You can use SAS token-based authentication or X.509 certificate authentication.
