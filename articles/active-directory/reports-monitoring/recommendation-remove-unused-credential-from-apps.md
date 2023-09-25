@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/07/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: saumadan
-ms.collection: M365-identity-device-management
 ---
 # Microsoft Entra recommendation: Remove unused credentials from apps (preview)
 [Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.

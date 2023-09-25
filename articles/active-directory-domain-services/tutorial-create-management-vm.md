@@ -16,9 +16,9 @@ ms.author: justinha
 
 # Tutorial: Create a management VM to configure and administer a Microsoft Entra Domain Services managed domain
 
-Microsoft Entra Domain Services (Microsoft Entra DS) provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You administer this managed domain using the same Remote Server Administration Tools (RSAT) as with an on-premises Active Directory Domain Services domain. As Microsoft Entra DS is a managed service, there are some administrative tasks that you can't perform, such as using remote desktop protocol (RDP) to connect to the domain controllers.
+Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You administer this managed domain using the same Remote Server Administration Tools (RSAT) as with an on-premises Active Directory Domain Services domain. As Domain Services is a managed service, there are some administrative tasks that you can't perform, such as using remote desktop protocol (RDP) to connect to the domain controllers.
 
-This tutorial shows you how to configure a Windows Server VM in Azure and install the required tools to administer a Microsoft Entra DS managed domain.
+This tutorial shows you how to configure a Windows Server VM in Azure and install the required tools to administer a Domain Services managed domain.
 
 In this tutorial, you learn how to:
 
@@ -42,7 +42,7 @@ To complete this tutorial, you need the following resources and privileges:
 * A Windows Server VM that is joined to the managed domain.
     * If needed, see the previous tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
-* An Azure Bastion host deployed in your Microsoft Entra DS virtual network.
+* An Azure Bastion host deployed in your Domain Services virtual network.
     * If needed, [create an Azure Bastion host][azure-bastion].
 
 ## Sign in to the Microsoft Entra admin center
@@ -51,9 +51,9 @@ In this tutorial, you create and configure a management VM using the Microsoft E
 
 <a name='available-administrative-tasks-in-azure-ad-ds'></a>
 
-## Available administrative tasks in Microsoft Entra DS
+## Available administrative tasks in Domain Services
 
-Microsoft Entra DS provides a managed domain for your users, applications, and services to consume. This approach changes some of the available management tasks you can do, and what privileges you have within the managed domain. These tasks and permissions may be different than what you experience with a regular on-premises Active Directory Domain Services environment. You also can't connect to domain controllers on the managed domain using Remote Desktop.
+Domain Services provides a managed domain for your users, applications, and services to consume. This approach changes some of the available management tasks you can do, and what privileges you have within the managed domain. These tasks and permissions may be different than what you experience with a regular on-premises Active Directory Domain Services environment. You also can't connect to domain controllers on the managed domain using Remote Desktop.
 
 ### Administrative tasks you can perform on a managed domain
 
@@ -133,11 +133,11 @@ With the administrative tools installed, let's see how to use them to administer
 
     In the following example output, a user account named *Contoso Admin* and a group for *AAD DC Administrators* are shown in this container.
 
-    ![View the list of Microsoft Entra DS domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
+    ![View the list of Domain Services domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. To see the computers that are joined to the managed domain, select the **AADDC Computers** container. An entry for the current virtual machine, such as *myVM*, is listed. Computer accounts for all devices that are joined to the managed domain are stored in this *AADDC Computers* container.
 
-Common Active Directory Administrative Center actions such as resetting a user account password or managing group membership are available. These actions only work for users and groups created directly in the managed domain. Identity information only synchronizes *from* Microsoft Entra ID to Microsoft Entra DS. There's no write back from Microsoft Entra DS to Microsoft Entra ID. You can't change passwords or managed group membership for users synchronized from Microsoft Entra ID and have those changes synchronized back.
+Common Active Directory Administrative Center actions such as resetting a user account password or managing group membership are available. These actions only work for users and groups created directly in the managed domain. Identity information only synchronizes *from* Microsoft Entra ID to Domain Services. There's no write back from Domain Services to Microsoft Entra ID. You can't change passwords or managed group membership for users synchronized from Microsoft Entra ID and have those changes synchronized back.
 
 You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your managed domain.
 

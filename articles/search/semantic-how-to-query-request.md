@@ -1,7 +1,7 @@
 ---
-title: Configure semantic search
+title: Configure semantic ranking
 titleSuffix: Azure Cognitive Search
-description: Set a semantic query type to attach the deep learning models of semantic search. 
+description: Set a semantic query type to attach the deep learning models of semantic ranking. 
 
 manager: nitinme
 author: HeidiSteen

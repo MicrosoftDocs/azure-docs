@@ -146,12 +146,12 @@ $Department = "Sales"
 $UPN_manager = "bsimon@<your tenant name here>"
 
 Install-Module -Name AzureAD
-Connect-AzureAD -Confirm
+Connect-MgGraph -Confirm
 
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
 $PasswordProfile.Password = "<Password>"
-New-AzureADUser -DisplayName $Displayname_manager  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_manager -AccountEnabled $true -MailNickName $Name_manager -Department $Department
-New-AzureADUser -DisplayName $Displayname_employee  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_employee -AccountEnabled $true -MailNickName $Name_employee -Department $Department
+New-MgUser -DisplayName $Displayname_manager  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_manager -AccountEnabled $true -MailNickName $Name_manager -Department $Department
+New-MgUser -DisplayName $Displayname_employee  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_employee -AccountEnabled $true -MailNickName $Name_employee -Department $Department
 ```
 
 Once your user(s) has been successfully created in Microsoft Entra ID, you may proceed to follow the Lifecycle workflow tutorials for your workflow creation.  

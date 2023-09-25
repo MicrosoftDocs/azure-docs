@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 ---
 
 # Replica sets concepts and features for Microsoft Entra Domain Services
 
-When you create a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain, you define a unique namespace. This namespace is the domain name, such as *aaddscontoso.com*, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set.
+When you create a Microsoft Entra Domain Services managed domain, you define a unique namespace. This namespace is the domain name, such as *aaddscontoso.com*, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set.
 
-You can expand a managed domain to have more than one replica set per Microsoft Entra tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Microsoft Entra DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
+You can expand a managed domain to have more than one replica set per Microsoft Entra tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Domain Services. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline.
 
 > [!NOTE]
 > Replica sets don't let you deploy multiple unique managed domains in a single Azure tenant. Each replica set contains the same data.
 
 ## How replica sets work
 
-When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created. Additional replica sets share the same namespace and configuration. Changes to Microsoft Entra DS, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using AD DS replication.
+When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created. Additional replica sets share the same namespace and configuration. Changes to Domain Services, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using AD DS replication.
 
 You create each replica set in a virtual network. Each virtual network must be peered to every other virtual network that hosts a managed domain's replica set. This configuration creates a mesh network topology that supports directory replication. A virtual network can support multiple replica sets, provided that each replica set is in a different virtual subnet.
 
@@ -76,7 +76,7 @@ Changes within the managed domain work just like they previously did. You [creat
 
 ## Next steps
 
-To get started with replica sets, [create and configure a Microsoft Entra DS managed domain][tutorial-create-advanced]. When deployed, [create and use additional replica sets][create-replica-set].
+To get started with replica sets, [create and configure a Domain Services managed domain][tutorial-create-advanced]. When deployed, [create and use additional replica sets][create-replica-set].
 
 <!-- LINKS - INTERNAL -->
 [tutorial-create-advanced]: tutorial-create-instance-advanced.md

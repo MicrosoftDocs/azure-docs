@@ -707,7 +707,7 @@ Learn more about the Azure Maps REST services.
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Map image render]: /rest/api/maps/render/getmapimagerytile
 [Map imagery tile]: /rest/api/maps/render/getmapimagerytile
-[Map Tiles]: /rest/api/maps/render/getmaptile
+[Map Tiles]: /rest/api/maps/render-v2/get-map-tile
 [nearby search]: /rest/api/maps/search/getsearchnearby
 [NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
 [POI category search]: /rest/api/maps/search/get-search-poi-category
@@ -715,7 +715,7 @@ Learn more about the Azure Maps REST services.
 [POST Route directions]: /rest/api/maps/route/postroutedirections
 [quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
 [Render custom data on a raster map]: how-to-render-custom-data.md
-[Render]: /rest/api/maps/render/getmapimage
+[Render]: /rest/api/maps/render-v2/get-map-static-image
 [Route directions]: /rest/api/maps/route/getroutedirections
 [Route Matrix]: /rest/api/maps/route/postroutematrixpreview
 [Route Range]: /rest/api/maps/route/getrouterange
