@@ -76,22 +76,22 @@ Now we'll walk through each step:
 
 ## Certificate-based authentication is MFA capable
 
-Microsoft Entra CBA is an MFA (multifactor authentication) capable method, that is Microsoft Entra CBA can be either Single (SF) or multifactor (MF) depending on the tenant configuration. Enabling CBA for a user indicates the user is potentially capable of MFA. This means a user may need additional configuration to get MFA and proof up to register other authentication methods when the user is in scope for CBA.
+Microsoft Entra CBA is capable of multifactor authentication (MFA) method. Microsoft Entra CBA can be either single-factor (SF) or multifactor (MF) depending on the tenant configuration. Enabling CBA makes a user potentially capable to complete MFA. A user may need more configuration to complete MFA, and proof up to register other authentication methods when the user is in scope for CBA.
 
-If CBA enabled user only has a Single Factor (SF) certificate and need MFA
-   1. Use Password + SF certificate.
-   1. Issue Temporary Access Pass (TAP)
-   1. Admin adds Phone Number to user account and allows Voice/text message method for user.
+If the CBA-enabled user only has a Single Factor (SF) certificate and needs to complete MFA:
+   1. Use a password and SF certificate.
+   1. Issue a Temporary Access Pass.
+   1. Authentication Policy Administrator adds a phone number and allows voice/text message authentication for the user account.
 
-If CBA enabled user has not yet been issued a certificate and need MFA
-   1. Issue Temporary Access Pass (TAP)
-   1. Admin adds Phone Number to user account and allows Voice/text message method for user.
+If the CBA-enabled user hasn't yet been issued a certificate and needs to complete MFA:
+   1. Issue a Temporary Access Pass.
+   1. Authentication Policy Administrator adds a phone number and allows voice/text message authentication for the user account.
 
-If CBA enabled user cannot use MF cert (such as on mobile device without smart card support) and need MFA
-   1. Issue Temporary Access Pass (TAP)
-   1. User Register another MFA method (when user can use MF cert)
-   1. Use Password + MF cert (when user can use MF cert)
-   1. Admin adds Phone Number to user account and allows Voice/text message method for user
+If the CBA-enabled user can't use an MF cert, such as on mobile device without smart card support, and needs to complete MFA:
+   1. Issue a Temporary Access Pass.
+   1. User needs to register another MFA method (when user can use MF cert).
+   1. Use password and MF cert (when user can use MF cert).
+   1. Authentication Policy Administrator adds a phone number and allows voice/text message authentication for the user account.
 
 
 ## MFA with Single-factor certificate-based authentication
