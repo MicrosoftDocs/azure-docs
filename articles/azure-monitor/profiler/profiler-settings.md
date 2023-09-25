@@ -3,7 +3,7 @@ title: Configure Application Insights Profiler | Microsoft Docs
 description: Use the Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 09/22/2023
 ---
 
 # Configure Application Insights Profiler
@@ -20,13 +20,13 @@ To open the Application Insights Profiler settings pane, select **Performance** 
 
 You can view Profiler traces across your Azure resources via two methods:
 
-- By the **Profiler** button:
+- The **Profiler** button:
 
    Select **Profiler**.
 
   :::image type="content" source="./media/profiler-overview/profiler-button-inline.png" alt-text="Screenshot that shows the Profiler button on the Performance pane." lightbox="media/profiler-settings/profiler-button.png":::
 
-- By operation:
+- Operations:
 
    1. Select an operation from the **Operation name** list. **Overall** is highlighted by default.
    1. Select **Profiler traces**.
@@ -49,6 +49,7 @@ Within Profiler, you can configure and view Profiler. The **Application Insights
 **Recent profiling sessions** | Displays information about past profiling sessions, which you can sort by using the filters at the top of the page.
 
 ## Profile now
+
 Select **Profile now** to start a profiling session on demand. When you select this link, all Profiler agents that are sending data to this Application Insights instance start to capture a profile. After 5 to 10 minutes, the profile session is shown in the list.
 
 To manually trigger a Profiler session, you need, at minimum, *write* access on your role for the Application Insights component. In most cases, you get write access automatically. If you're having issues, you need the **Application Insights Component Contributor** subscription scope role added. For more information, see [Resources, roles, and access control in Application Insights](../app/resources-roles-access-control.md).
@@ -98,6 +99,7 @@ CPU % | Percentage of CPU used while Profiler was running.
 Memory % | Percentage of memory used while Profiler was running.
 
 ## Next steps
+
 [Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/profiler-on-demand.png

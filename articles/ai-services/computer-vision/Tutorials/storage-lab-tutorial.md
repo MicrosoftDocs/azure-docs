@@ -5,8 +5,7 @@ description: In this tutorial, you'll learn how to integrate the Azure AI Vision
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: tutorial 
 ms.date: 12/29/2022
 ms.author: pafarley
