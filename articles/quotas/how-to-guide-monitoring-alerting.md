@@ -2,7 +2,7 @@
 title: Monitoring & Alerting - How-To Guide
 description: Learn how to Create Alerts for Quotas
 ms.date: 10/01/2023
-ms.topic: how-to
+ms.topic: how-to create alerts for Quota usages
 ---
 
 # Monitoring & Alerting: How-To Guide
@@ -25,7 +25,7 @@ Step-by-Step instructions to create an alert rule for your quota in the Azure po
 
     :::image type="content" source="media/monitoring-alerting/myquotas-create-rule-navigation.png" alt-text="Screenshot showing how to select Quotas to navigate to create Alert rule screen":::
 
-2.	When the Create usage alert rule page appears, **populate the fields** with data as shown in the table below.  Make sure you have the **right access** to the subscriptions and Quotas to **create alerts**. 
+2.	When the Create usage alert rule page appears, **populate the fields** with data as shown in the table.  Make sure you have the **right access** to the subscriptions and Quotas to **create alerts**. 
 
     :::image type="content" source="media/monitoring-alerting/quota-details-create-rule.png" alt-text="Screenshot showing create Alert rule screen with required fields":::
 
@@ -69,18 +69,18 @@ Monitoring API helps to **create or update log search rule**.
     "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/ca8d68bb-8fd2-4a59-860d-765161f3db81/resourcegroups/argintrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testmi": {}
+            "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<ManagedIdentityName>": {}
         }
     },
     "properties": {
         "severity": 4,
         "enabled": true,
         "evaluationFrequency": "PT15M",
-        "scopes": ["/subscriptions/<SubID>/resourcegroups/<rg>/providers/microsoft.operationalinsights/workspaces/mahshidmtestws"],
+        "scopes": ["/subscriptions/<SubscriptionID>/resourcegroups/<rg>/providers/microsoft.operationalinsights/workspaces/<LogAnalyticsWorkspace>"],
         "windowSize": "PT15M",
         "criteria": {
             "allOf": [{
-                "query": "arg(\"\").QuotaResources \n| where subscriptionId =~ 'ca8d68bb-8fd2-4a59-860d-765161f3db81'\n| where type =~ 'microsoft.compute/locations/usages'\n| where isnotempty(properties)\n| mv-expand propertyJson = properties.value limit 400\n| extend\n    usage = propertyJson.currentValue,\n    quota = propertyJson.['limit'],\n    quotaName = tostring(propertyJson.['name'].value)\n| extend usagePercent = toint(usage)*100 / toint(quota)| project-away properties| where location in~ ('westus2')| where quotaName in~ ('cores')",
+                "query": "arg(\"\").QuotaResources \n| where subscriptionId =~ '<SubscriptionId'\n| where type =~ 'microsoft.compute/locations/usages'\n| where isnotempty(properties)\n| mv-expand propertyJson = properties.value limit 400\n| extend\n    usage = propertyJson.currentValue,\n    quota = propertyJson.['limit'],\n    quotaName = tostring(propertyJson.['name'].value)\n| extend usagePercent = toint(usage)*100 / toint(quota)| project-away properties| where location in~ ('westus2')| where quotaName in~ ('cores')",
                 "timeAggregation": "Maximum",
                 "metricMeasureColumn": "usagePercent",
                 "operator": "GreaterThanOrEqual",
@@ -105,7 +105,7 @@ Monitoring API helps to **create or update log search rule**.
             }]
         },
         "actions": {
-            "actionGroups": ["/subscriptions/ca8d68bb-8fd2-4a59-860d-765161f3db81/resourcegroups/argintrg/providers/microsoft.insights/actiongroups/quotaalertrules-ag-22"]
+            "actionGroups": ["/subscriptions/<SubscriptionId>/resourcegroups/argintrg/providers/microsoft.insights/actiongroups/<ActionGroupName>"]
         }
     }
 }
@@ -114,7 +114,7 @@ Monitoring API helps to **create or update log search rule**.
 
 ### Create Alerts using ARG Query
 
-Use existing **Alerts** blade to [create alerts by adding below query](../azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log).  To learn on how to create Alerts using Alerts page visit this [tutorial](/training/modules/configure-azure-alerts/?source=recommendations).
+Use existing **Alerts** blade to [create alerts using query](../azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log). **Resource Graph Explorer** allows you to run and test queries before using them to create an alert. To learn on how to create Alerts using Alerts page visit this [Tutorial](/training/modules/configure-azure-alerts/?source=recommendations).
 
 For Quota alerts, make sure Scope is selected as the Log analytics workspace that is created and the signal type is Customer Query log. Add **Sample Query** for Quota usages. Follow the remaining steps as mentioned in the [create alerts](../azure-monitor/alerts/alerts-create-new-alert-rule?tabs=log). 
 
@@ -124,7 +124,7 @@ For Quota alerts, make sure Scope is selected as the Log analytics workspace tha
 #### Sample Query to create Alerts
 ```kusto
 arg("").QuotaResources 
-| where subscriptionId =~ 'ca8d68bb-8fd2-4a59-860d-7651656f3db8241'
+| where subscriptionId =~ '<SubscriptionId>'
 | where type =~ 'microsoft.compute/locations/usages'
 | where isnotempty(properties)
 | mv-expand propertyJson = properties.value limit 400
@@ -177,7 +177,7 @@ Use `Test_SetQuota()` code to write a Azure function to set the Quota.
 
 ## Query using Resource Graph Explorer
 
-Using [Azure Resource Graph](../governance/resource-graph/overview), Alerts can be [Managed programatically]()../azure-monitor/alerts/alerts-manage-alert-instances#manage-your-alerts-programmatically) where you can query your alerts instances and analyze your alerts to identify patterns and trends. 
+Using [Azure Resource Graph](../governance/resource-graph/overview), Alerts can be [Managed programatically](../azure-monitor/alerts/alerts-manage-alert-instances#manage-your-alerts-programmatically) where you can query your alerts instances and analyze your alerts to identify patterns and trends. 
 For Usages, the **QuotaResources** table in [Azure Resource Graph](../governance/resource-graph/overview) explorer provides **usage and limit/quota data** for a given resource x region x subscription. Customers can query usage and quota data across multiple subscriptions with Azure Resource Graph queries. 
 
 As a **prerequisite**, users must have at least a **Contributor** role for the subscription.
@@ -202,21 +202,23 @@ QuotaResources
 
 ```kusto
 QuotaResources
-|where type == "microsoft.compute/locations/usages"
-|where subscriptionId in~ ("<Subscription1>","<Subscription2>")
-|where location == "eastus2"
-
+| where type =~ "microsoft.compute/locations/usages"
+| where subscriptionId in~ ("<Subscription1>","<Subscription2>")
+| extend json = parse_json(properties) 
+| mv-expand propertyJson = json.value limit 400 
+| extend usagevCPUs = toint(propertyJson.currentValue), QuotaLimit = propertyJson['limit'], quotaName = tostring(propertyJson['name'].localizedValue)
+|extend usagePercent = toint(usagevCPUs)*100 / toint(QuotaLimit)
+|where quotaName =~ "Total Regional vCPUs" or quotaName =~ "Total Regional Low-priority vCPUs"
+|project quotaName,usagevCPUs,QuotaLimit,usagePercent,location,['json']
+|sort by usagevCPUs desc 
 ```
 
 ## Feedback 
 
-User can find Feedback Button on every page. they can use this to share  thoughts, questions, or concerns with our team. Additionally, Users can submit a support ticket if they encounter any concerns while creating alert rules for quotas.
+User can find **Feedback** button on every Quota page and can use this to share thoughts, questions, or concerns with our team. Additionally, Users can submit a support ticket if they encounter any problem while creating alert rules for quotas.
 
 :::image type="content" source="media/monitoring-alerting/alert-feedback.png" alt-text="Screenshot showing user can provide feedback":::
 
-## Troubleshoot
-
-Do we need this?
 
 ## Next steps  
 
