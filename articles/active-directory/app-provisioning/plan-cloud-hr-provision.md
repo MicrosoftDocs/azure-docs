@@ -80,8 +80,8 @@ You also need a valid Microsoft Entra ID P1 or higher subscription license for e
 
 ### Prerequisites
 
-- Microsoft Entra ID [hybrid identity administrator](../roles/permissions-reference.md#hybrid-identity-administrator)  to configure the Microsoft Entra Connect provisioning agent.
-- Microsoft Entra ID [application administrator](../roles/permissions-reference.md#application-administrator) role to configure the provisioning app in the Azure portal
+- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure the Connect provisioning agent.
+- [Application Administrator](../roles/permissions-reference.md#application-administrator) role to configure the provisioning app.
 - A test and production instance of the cloud HR app.
 - Administrator permissions in the cloud HR app to create a system integration user and make changes to test employee data for testing purposes.
 - For user provisioning to Active Directory, a server running Windows Server 2016 or greater is required to host the Microsoft Entra Connect provisioning agent. This server should be a tier 0 server based on the Active Directory administrative tier model.

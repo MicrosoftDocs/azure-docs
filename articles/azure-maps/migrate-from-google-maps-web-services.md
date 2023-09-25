@@ -329,8 +329,6 @@ The `iconType` specifies the type of pin to create. It can have the following va
 * `default` – The default pin icon.
 * `none` – No icon is displayed, only labels are rendered.
 * `custom` – Specifies a custom icon is to be used. A URL pointing to the icon image can be added to the end of the `pins` parameter after the pin location information.
-* `{udid}` – A Unique Data ID (UDID) for an icon stored in the Azure
-    Maps Data Storage platform.
 
 Add pin styles with the `optionNameValue` format. Separate multiple styles with the pipe (\|) characters. For example: `iconType|optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style markers:
 
@@ -398,7 +396,7 @@ Add lines and polygons to a static map image by specifying the `path` parameter 
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. For more information on how to Upload larger data sets as a GeoJSON file into the Azure Maps Data Storage API, see [Upload pins and path data].
+When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points.
 
 Add path styles with the `optionNameValue` format. Separate multiple styles by pipe (\|) characters, like this `optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style paths in Azure Maps:
 
@@ -516,14 +514,14 @@ Learn more about Azure Maps REST services:
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Map image render]: /rest/api/maps/render/getmapimagerytile
 [Map imagery tile]: /rest/api/maps/render/getmapimagerytile
-[Map tile]: /rest/api/maps/render/getmaptile
+[Map tile]: /rest/api/maps/render-v2/get-map-tile
 [Nearby search]: /rest/api/maps/search/getsearchnearby
 [npm package]: https://www.npmjs.com/package/azure-maps-rest
 [NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit
 [POI category search]: /rest/api/maps/search/getsearchpoicategory
 [POI search]: /rest/api/maps/search/getsearchpoi
 [Render custom data on a raster map]: how-to-render-custom-data.md
-[Render]: /rest/api/maps/render/getmapimage
+[Render]: /rest/api/maps/render-v2/get-map-static-image
 [Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
 [Route Matrix]: /rest/api/maps/route/postroutematrixpreview
 [Route]: /rest/api/maps/route
@@ -543,4 +541,3 @@ Learn more about Azure Maps REST services:
 [Time zone Windows to IANA]: /rest/api/maps/timezone/gettimezonewindowstoiana
 [Time Zone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
-[Upload pins and path data]: how-to-render-custom-data.md#upload-pins-and-path-data

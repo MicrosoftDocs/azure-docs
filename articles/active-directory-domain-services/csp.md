@@ -33,25 +33,25 @@ For more information, see the [Azure CSP overview](/partner-center/azure-plan-lp
 
 <a name='benefits-of-using-azure-ad-ds-in-an-azure-csp-subscription'></a>
 
-## Benefits of using Microsoft Entra DS in an Azure CSP subscription
+## Benefits of using Domain Services in an Azure CSP subscription
 
-Microsoft Entra Domain Services (Microsoft Entra DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory Domain Services. Over the decades, many applications have been built to work against AD using these capabilities. Many independent software vendors (ISVs) have built and deployed applications at their customers' premises. These applications are hard to support since you often require access to the different environments where the applications are deployed. With Azure CSP subscriptions, you have a simpler alternative with the scale and flexibility of Azure.
+Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory Domain Services. Over the decades, many applications have been built to work against AD using these capabilities. Many independent software vendors (ISVs) have built and deployed applications at their customers' premises. These applications are hard to support since you often require access to the different environments where the applications are deployed. With Azure CSP subscriptions, you have a simpler alternative with the scale and flexibility of Azure.
 
-Microsoft Entra DS supports Azure CSP subscriptions. You can deploy your application in an Azure CSP subscription tied to your customer's Microsoft Entra tenant. As a result, your employees (support staff) can manage, administer, and service the VMs on which your application is deployed using your organization's corporate credentials.
+Domain Services supports Azure CSP subscriptions. You can deploy your application in an Azure CSP subscription tied to your customer's Microsoft Entra tenant. As a result, your employees (support staff) can manage, administer, and service the VMs on which your application is deployed using your organization's corporate credentials.
 
-You can also deploy a Microsoft Entra DS managed domain in your customer's Microsoft Entra tenant. Your application is then connected to your customer's managed domain. Capabilities within your application that rely on Kerberos / NTLM, LDAP, or the [System.DirectoryServices API](/dotnet/api/system.directoryservices) work seamlessly against your customer's domain. End customers benefit from consuming your application as a service, without needing to worry about maintaining the infrastructure the application is deployed on.
+You can also deploy a Domain Services managed domain in your customer's Microsoft Entra tenant. Your application is then connected to your customer's managed domain. Capabilities within your application that rely on Kerberos / NTLM, LDAP, or the [System.DirectoryServices API](/dotnet/api/system.directoryservices) work seamlessly against your customer's domain. End customers benefit from consuming your application as a service, without needing to worry about maintaining the infrastructure the application is deployed on.
 
-All billing for Azure resources you consume in that subscription, including Microsoft Entra DS, is charged back to you. You maintain full control over the relationship with the customer when it comes to sales, billing, technical support etc. With the flexibility of the Azure CSP platform, a small team of support agents can service many such customers who have instances of your application deployed.
+All billing for Azure resources you consume in that subscription, including Domain Services, is charged back to you. You maintain full control over the relationship with the customer when it comes to sales, billing, technical support etc. With the flexibility of the Azure CSP platform, a small team of support agents can service many such customers who have instances of your application deployed.
 
 <a name='csp-deployment-models-for-azure-ad-ds'></a>
 
-## CSP deployment models for Microsoft Entra DS
+## CSP deployment models for Domain Services
 
-There are two ways in which you can use Microsoft Entra DS with an Azure CSP subscription. Pick the right one based on the security and simplicity considerations your customers have.
+There are two ways in which you can use Domain Services with an Azure CSP subscription. Pick the right one based on the security and simplicity considerations your customers have.
 
 ### Direct deployment model
 
-In this deployment model, Microsoft Entra DS is enabled within a virtual network that belongs to the Azure CSP subscription. The CSP partner's admin agents have the following privileges:
+In this deployment model, Domain Services is enabled within a virtual network that belongs to the Azure CSP subscription. The CSP partner's admin agents have the following privileges:
 
 * *Global administrator* privileges in the customer's Microsoft Entra tenant.
 * *Subscription owner* privileges on the Azure CSP subscription.
@@ -64,7 +64,7 @@ This deployment model may be suited for smaller organizations that don't have a 
 
 ### Peered deployment model
 
-In this deployment model, Microsoft Entra DS is enabled within a virtual network belonging to the customer - a direct Azure subscription paid for by the customer. The CSP partner can deploy applications within a virtual network belonging to the customer's CSP subscription. The virtual networks can then be connected using Azure virtual network peering.
+In this deployment model, Domain Services is enabled within a virtual network belonging to the customer - a direct Azure subscription paid for by the customer. The CSP partner can deploy applications within a virtual network belonging to the customer's CSP subscription. The virtual networks can then be connected using Azure virtual network peering.
 
 With this deployment, the workloads or applications deployed by the CSP partner in the Azure CSP subscription can connect to the customer's managed domain provisioned in the customer's direct Azure subscription.
 
@@ -76,15 +76,15 @@ This deployment model may be suited to scenarios where an ISV provides a hosted 
 
 <a name='administer-azure-ad-ds-in-csp-subscriptions'></a>
 
-## Administer Microsoft Entra DS in CSP subscriptions
+## Administer Domain Services in CSP subscriptions
 
 The following important considerations apply when administering a managed domain in an Azure CSP subscription:
 
-* **CSP admin agents can provision a managed domain using their credentials:** Microsoft Entra DS supports Azure CSP subscriptions. Users belonging to a CSP partner's admin agents group can provision a new managed domain.
+* **CSP admin agents can provision a managed domain using their credentials:** Domain Services supports Azure CSP subscriptions. Users belonging to a CSP partner's admin agents group can provision a new managed domain.
 
-* **CSPs can script creation of new managed domains for their customers using PowerShell:** See [how to enable Microsoft Entra DS using PowerShell](powershell-create-instance.md) for details.
+* **CSPs can script creation of new managed domains for their customers using PowerShell:** See [how to enable Domain Services using PowerShell](powershell-create-instance.md) for details.
 
-* **CSP admin agents can't perform ongoing management tasks on the managed domain using their credentials:** CSP admin users can't perform routine management tasks within the managed domain using their credentials. These users are external to the customer's Microsoft Entra tenant and their credentials aren't available within the customer's Microsoft Entra tenant. Microsoft Entra DS doesn't have access to the Kerberos and NTLM password hashes for these users, so users can't be authenticated on managed domains.
+* **CSP admin agents can't perform ongoing management tasks on the managed domain using their credentials:** CSP admin users can't perform routine management tasks within the managed domain using their credentials. These users are external to the customer's Microsoft Entra tenant and their credentials aren't available within the customer's Microsoft Entra tenant. Domain Services doesn't have access to the Kerberos and NTLM password hashes for these users, so users can't be authenticated on managed domains.
 
   > [!WARNING]
   > You must create a user account within the customer's directory to perform ongoing administration tasks on the managed domain.

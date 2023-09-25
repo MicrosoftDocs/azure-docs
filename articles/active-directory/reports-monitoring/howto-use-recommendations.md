@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: hafowler
 ---
@@ -41,10 +41,10 @@ Some recommendations may require a P2 or other license. For more information, se
 
 ## How to read a recommendation
 
-To view the details of a recommendation:
+Most recommendations follow the same pattern. You're provided information about how the recommendation work, its value, and some action steps to address the recommendation. This section provides an overview of the details provided in a recommendation, but aren't specific to one recommendation.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
-1. Browse to **Identity** > **Overview** > **Recommendations tab**
+1. Browse to **Identity** > **Overview** > **Recommendations tab**.
 1. Select a recommendation from the list.
 
     ![Screenshot of the list of recommendations.](./media/howto-use-recommendations/recommendations-list.png)
