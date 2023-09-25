@@ -44,27 +44,6 @@ Azure Cosmos DB for PostgreSQL supports the following backup redundancy options.
 * Cross-region backup (in preview)
     * Geo-redundant backup storage: You can choose this option at the time of cluster creation. When the backups are stored in another region, in addition to three copies of data stored within the region where your server is hosted, the data is replicated to a geo-paired region.
 
-Geo-redundant backup is supported in the following Azure regions.
-
-| Cluster's region      | Geo-backup stored in           |
-|-----------------------|--------------------------------|
-| Canada Central        | Canada East                    |
-| Central US            | East US 2                      |
-| East Asia             | Southeast Asia                 |
-| East US               | West US                        |
-| East US 2             | Central US                     |
-| Japan East            | Japan West                     |
-| Japan West            | Japan East                     |
-| North Central US      | South Central US               |
-| North Europe          | West Europe                    |
-| South Central US      | North Central US               |
-| Southeast Asia        | East Asia                      |
-| Switzerland North     | Switzerland West               |
-| Switzerland West      | Switzerland North              |
-| West Central US       | West US 2                      |
-| West Europe           | North Europe                   |
-| West US               | East US                        |
-| West US 2             | West Central US                |
 
 > [!IMPORTANT]
 > Geo-redundant backup and restore in Azure Cosmos DB for PostgreSQL is currently in preview.
@@ -113,4 +92,5 @@ In most cases, cluster restore takes up to 1 hour.
 
 * See the steps to [restore a cluster](howto-restore-portal.md)
   in the Azure portal.
+* See [backup and restore limits and limitations](./reference-limits.md#backup-and-restore).
 * Learn about [Azure availability zones](../../availability-zones/az-overview.md).

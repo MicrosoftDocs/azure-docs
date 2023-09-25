@@ -62,7 +62,7 @@ be scaled down (decreased).
 
 ### Storage size
 
-Up to 16 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
+Up to 32 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
 for various node and cluster sizes.
 
 ## Compute
@@ -103,6 +103,34 @@ cluster. Creating another database is currently not allowed, and the CREATE DATA
 with an error.
 
 By default this database is called `citus`. Azure Cosmos DB for PostgreSQL supports custom database names at cluster provisioning time only.  
+
+## Backup and restore
+
+### Geo-redundant backup and restore
+* Geo-redundant backup is supported in the following Azure regions.
+
+| Cluster's region      | Geo-backup stored in           |
+|-----------------------|--------------------------------|
+| Canada Central        | Canada East                    |
+| Central US            | East US 2                      |
+| East Asia             | Southeast Asia                 |
+| East US               | West US                        |
+| East US 2             | Central US                     |
+| Japan East            | Japan West                     |
+| Japan West            | Japan East                     |
+| North Central US      | South Central US               |
+| North Europe          | West Europe                    |
+| South Central US      | North Central US               |
+| Southeast Asia        | East Asia                      |
+| Switzerland North     | Switzerland West               |
+| Switzerland West      | Switzerland North              |
+| West Central US       | West US 2                      |
+| West Europe           | North Europe                   |
+| West US               | East US                        |
+| West US 2             | West Central US                |
+
+* [Customer managed key (CMK)](./concepts-customer-managed-keys.md) are not supported for cluster restore in a remote region.
+* Azure Cosmos DB for PostgreSQL cluster with geo-redundant backup enabled can't have a [cluster read replica](./concepts-read-replicas.md) in the region where geo-redundant backup is stored.
 
 ## Next steps
 

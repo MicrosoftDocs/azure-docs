@@ -93,4 +93,5 @@ back up and running:
 
 * Learn more about [backup and restore](concepts-backup.md) in
   Azure Cosmos DB for PostgreSQL.
+* See [backup and restore limits and limitations](./reference-limits.md#backup-and-restore).
 * Set [suggested alerts](./howto-alert-on-metric.md#suggested-alerts) on clusters.
