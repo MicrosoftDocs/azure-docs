@@ -153,7 +153,7 @@ export default function App() {
 
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
-1. Navigate to the browser previously opened in [Tutorial: Prepare an application for authentication](./single-page-app-tutorial-02-prepare-spa.md). If your browser is closed, open a new window with the address `http://localhost:3000/`.
+1. Navigate to the browser previously opened in [Tutorial: Prepare an application for authentication](./tutorial-single-page-app-react-prepare-spa.md). If your browser is closed, open a new window with the address `http://localhost:3000/`.
 
 1. Select the **Sign In** button. For the purposes of this tutorial, choose the **Sign in using Popup** option.
 

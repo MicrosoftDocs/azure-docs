@@ -28,7 +28,7 @@ In this tutorial:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](single-page-app-tutorial-02-prepare-spa.md).
+* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](tutorial-single-page-app-react-prepare-spa.md).
 
 ## Adding components to the application
 
