@@ -110,7 +110,11 @@ If you wish to enhance your prompts more and include custom voice models, the pl
 String textToPlay = "Welcome to Contoso"; 
  
 // Provide VoiceName and CustomVoiceEndpointId to select custom voice. 
-var playSource = new TextSource(textToPlay, "custom_voiceName", "YourCustomVoiceEndpointId");
+var playSource = new TextSource(textToPlay)
+    {
+        VoiceName = "custom_voiceName",
+        CustomVoiceEndpointId = "YourCustomVoiceEndpointId"
+    };
 ```
 **Custom voice names SSML example**
 ``` javascriptString ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"custom_voiceName\">Hello World!</voice></speak>"; 
