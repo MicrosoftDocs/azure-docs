@@ -1,13 +1,13 @@
 ---
-title: Confidential containers (preview) with Azure Kubernetes Service (AKS)
-description: Learn about and deploy confidential containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
+title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
+description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
 ms.date: 09/25/2023
 ---
 
-# Confidential containers (preview) with Azure Kubernetes Service (AKS)
+# Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 
-To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero trust cloud architecture, AKS includes confidential containers (preview) on Azure Kubernetes Service. Confidential containers is based on Kata confidential containers to encrypt container memory, and prevent data in memory during computation from being in clear text, readable format. Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads at this isolation level in Azure to achieve the following security goals:
+To help secure and protect your container workloads from untrusted or potentially malicious code, as part of our Zero trust cloud architecture, AKS includes Confidential Containers (preview) on Azure Kubernetes Service. Confidential Containers is based on Kata Confidential Containers to encrypt container memory, and prevent data in memory during computation from being in clear text, readable format. Together with [Pod Sandboxing][pod-sandboxing-overview], you can run sensitive workloads at this isolation level in Azure to achieve the following security goals:
 
 * Helps application owners protect data by enforcing application security requirements (for example, deny access to Azure tenant admin, Kubernetes admin, etc).
 * Help protects your data from Cloud Service Providers (CSPs)
@@ -20,11 +20,11 @@ This article helps you understand this new feature, and how to implement and con
 * Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account.
 * Configure the managed identity for token federation.
 * Grant access to the Azure Key Vault Managed HSM and secret
-* Configure an application to be deployed as a Confidential Container.
+* Configure an application to be deployed as a Confidential container.
 
 ## Supported scenarios
 
-Confidential containers (preview) are appropriate for deployment scenarios that involve sensitive data, for instance, personally identifiable information (PII) or any data with strong security needed for regulatory compliance. Some examples of common scenarios with containers are:
+Confidential Containers (preview) are appropriate for deployment scenarios that involve sensitive data, for instance, personally identifiable information (PII) or any data with strong security needed for regulatory compliance. Some examples of common scenarios with containers are:
 
 - Privacy preserving big data analytics using Apache Spark analytics job for fraud pattern recognition in the financial sector.
 - Running self-hosted GitHub runners to secure code signing as part of Continuous Integration and Continuous Deployment (CI/CD) DevOps practices.
@@ -130,7 +130,7 @@ To use this feature with an existing AKS cluster, the following requirements mus
 * Verify the cluster is running Kubernetes version 1.24.0 and higher.
 * [Enable workload identity][upgrade-cluster-enable-workload-identity] on the cluster if it isn't already.
 
-Use the following command to enable Confidential containers (preview) by creating a node pool to host it.
+Use the following command to enable Confidential Containers (preview) by creating a node pool to host it.
 
 1. Add a node pool to your AKS cluster using the [az aks nodepool add][az-aks-nodepool-add] command. Specify the following parameters:
 
