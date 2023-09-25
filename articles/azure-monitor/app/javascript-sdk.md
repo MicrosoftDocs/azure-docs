@@ -10,15 +10,15 @@ ms.reviewer: mmcc
 
 # Enable Azure Monitor Application Insights Real User Monitoring
 
-The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
+The Microsoft Azure Monitor Application Insights JavaScript SDK collects usage data, which allows you to monitor and analyze the performance of JavaScript web applications. This is commonly referred to as Real User Monitoring or RUM.
 
-The Application Insights JavaScript SDK has a base SDK and several plugins for additional capabilities.
+The Application Insights JavaScript SDK has a base SDK and several plugins for more capabilities.
 
 :::image type="content" source="media/javascript-sdk/conceptual-diagram-javascript-sdk.png" alt-text="Conceptual diagram that shows the Application Insights JavaScript SDK, its plugins/extensions, and their relationship to each other." lightbox="media/javascript-sdk/conceptual-diagram-javascript-sdk.png":::
 
 We collect page views by default. But if you want to also collect clicks by default, consider adding the [Click Analytics Auto-Collection plug-in](./javascript-feature-extensions.md): 
 
-- If you're adding a [framework extension](./javascript-framework-extensions.md), which you can [add](#optional-add-advanced-sdk-configuration) after you follow the steps to get started below, you'll have the option to add Click Analytics when you add the framework extension. 
+- If you're adding a [framework extension](./javascript-framework-extensions.md), which you can [add](#optional-add-advanced-sdk-configuration) after you follow the steps to get started below, you can optionally add Click Analytics when you add the framework extension. 
 - If you're not adding a framework extension, [add the Click Analytics plug-in](./javascript-feature-extensions.md) after you follow the steps to get started.
 
 We provide the [Debug plugin](https://github.com/microsoft/ApplicationInsights-JS/blob/main/extensions/applicationinsights-debugplugin-js/README.md) and [Performance plugin](https://github.com/microsoft/ApplicationInsights-JS/blob/main/extensions/applicationinsights-perfmarkmeasure-js/README.md) for debugging/testing. In rare cases, it's possible to build your own extension by adding a [custom plugin](https://github.com/microsoft/ApplicationInsights-JS/blob/e4be62c0aa9318b540157118b729bb0c4d8b6c6e/API-reference.md#custom-extension).
@@ -62,6 +62,7 @@ Two methods are available to add the code to enable Application Insights via the
    // useXhr: 1,
    crossOrigin: "anonymous",
    // onInit: null,
+   // cr: 0,
    cfg: { // Application Insights Configuration
     connectionString: "YOUR_CONNECTION_STRING"
    }});
@@ -82,6 +83,7 @@ Two methods are available to add the code to enable Application Insights via the
    | useXhr | boolean | Optional | This setting is used only for reporting SDK load failures. For example, this setting is useful when the JavaScript (Web) SDK Loader Script is preventing the HTML page from loading, causing fetch() to be unavailable.<br><br>Reporting first attempts to use fetch() if available and then fallback to XHR. Set this setting to `true` to bypass the fetch check. This setting is only required if your application is being used in an environment where fetch would fail to send the failure events such as if the JavaScript (Web) SDK Loader Script isn't loading successfully.
    | crossOrigin | string  | Optional | By including this setting, the script tag added to download the SDK includes the crossOrigin attribute with this string value. Use this setting when you need to provide support for CORS. When not defined (the default), no crossOrigin attribute is added. Recommended values are not defined (the default), "", or "anonymous". For all valid values, see the [cross origin HTML attribute](https://developer.mozilla.org/docs/Web/HTML/Attributes/crossorigin) documentation.
    | onInit | function(aiSdk) { ... } | Optional | This callback function is called after the main SDK script has been successfully loaded and initialized from the CDN (based on the src value). This callback function is useful when you need to insert a telemetry initializer. It's passed one argument, which is a reference to the SDK instance that's being called for and is also called before the first initial page view. If the SDK has already been loaded and initialized, this callback is still called. NOTE: During the processing of the sdk.queue array, this callback is called. You CANNOT add any more items to the queue because they're ignored and dropped. (Added as part of JavaScript (Web) SDK Loader Script version 5--the sv:"5" value within the script). |
+   | cr | boolean | Optional | If the SDK fails to load and the endpoint value defined for `src` is the public CDN location, this configuration option attempts to immediately load the SDK from one of the following backup CDN endpoints:<ul><li>js.monitor.azure.com</li><li>js.cdn.applicationinsights.io</li><li>js.cdn.monitor.azure.com</li><li>js0.cdn.applicationinsights.io</li><li>js0.cdn.monitor.azure.com</li><li>js2.cdn.applicationinsights.io</li><li>js2.cdn.monitor.azure.com</li><li>az416426.vo.msecnd.net</li></ul>NOTE: az416426.vo.msecnd.net is partially supported, so it's not recommended.<br><br>If the SDK successfully loads from a backup CDN endpoint, it loads from the first available one, which is determined when the server performs a successful load check. If the SDK fails to load from any of the backup CDN endpoints, the SDK Failure error message appears.<br><br>When not defined, the default value is `true`. If you don’t want to load the SDK from the backup CDN endpoints, set this configuration option to `false`.<br><br>If you’re loading the SDK from your own privately hosted CDN endpoint, this configuration option is not applicable.
 
 #### [npm package](#tab/npmpackage)
 
