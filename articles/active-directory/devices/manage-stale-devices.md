@@ -51,7 +51,7 @@ If the delta between the existing value of the activity timestamp and the curren
 
 You have two options to retrieve the value of the activity timestamp:
 
-- The **Activity** column on the [devices page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+- The **Activity** column on the all devices page.
 
     :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot listing the name, owner, and other information of devices. One column lists the activity time stamp." border="false":::
 
@@ -129,9 +129,9 @@ Disable or delete Microsoft Entra registered devices in the Microsoft Entra ID.
 > - Deleting a Microsoft Entra registered device in Microsoft Entra ID does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. Conditional Access).
 > - Read more on [how to remove a registration on the client](faq.yml)
 
-## Clean up stale devices in the Azure portal  
+## Clean up stale devices  
 
-While you can clean up stale devices in the Azure portal, it's more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V2 module to use the timestamp filter and to filter out system-managed devices such as Autopilot.
+While you can clean up stale devices in the Microsoft Entra admin center, it's more efficient to handle this process using a PowerShell script. Use the latest PowerShell V2 module to use the timestamp filter and to filter out system-managed devices such as Autopilot.
 
 A typical routine consists of the following steps:
 
@@ -222,4 +222,4 @@ Any authentication where a device is being used to authenticate to Microsoft Ent
 
 Devices managed with Intune can be retired or wiped, for more information see the article [Remove devices by using wipe, retire, or manually unenrolling the device](/mem/intune/remote-actions/devices-wipe).
 
-To get an overview of how to manage devices, see [managing devices using the Azure portal](manage-device-identities.md)
+To get an overview of how to manage devices, see [managing device identities](manage-device-identities.md)
