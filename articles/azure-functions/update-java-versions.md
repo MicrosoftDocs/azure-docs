@@ -37,7 +37,7 @@ Use these steps to determine your Functions runtime version:
 
 1. Select the **Function runtime settings** tab and check the **Runtime version** value to see if your function app is running on version 4.x of the Functions runtime (`~4`). 
 
-    :::image type="content" source="media/update-java-versions/update-functions-version-portal.png" alt-text="Screenshot of how to view the Functions runtime version for your app in the Azure portal"::: 
+    :::image type="content" source="media/update-java-versions/update-functions-version-portal.png" alt-text="Screenshot of how to view the Functions runtime version for your app in the Azure portal."::: 
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -71,7 +71,7 @@ Use the following steps to update the Java version:
 
 1. In the **General settings** tab, update the **Java version** to `Java 17`. 
 
-    :::image type="content" source="media/update-java-versions/update-java-version-portal.png" alt-text="Screenshot of how to set the desired Java version for a function app in the Azure portal"::: 
+    :::image type="content" source="media/update-java-versions/update-java-version-portal.png" alt-text="Screenshot of how to set the desired Java version for a function app in the Azure portal."::: 
 
 1. When notified about a restart, select **Continue**, and then **Save**. 
 
