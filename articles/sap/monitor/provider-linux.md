@@ -80,7 +80,7 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
     1. For **Type**, select **OS (Linux)**.
     1. For **Name**, enter a unique name of the provider.
     1. (Optional) Select **Enable secure communication**, choose a certificate type.
-    1. For **Node Exporter Endpoint**, enter `http://IP:9100/metrics`. if default port 9100 is used. If a custom port is used, enter `http://IP:PORT/metrics`. Replace `IP` with the IP address of the Linux host and `PORT` with the custom port number.
+    1. For **Node Exporter Endpoint**, enter `http://IP:9100/metrics` if default port 9100 is used. If a custom port is used, enter `http://IP:PORT/metrics`. Replace `IP` with the IP address of the Linux host and `PORT` with the custom port number.
     1. For the IP address, use the private IP address of the Linux host. Make sure the host and Azure Monitor for SAP solutions resource are in the same virtual network.
 1. Open firewall port 9100 on the Linux host.
     1. If you're using `firewall-cmd`, run `_firewall-cmd_ _--permanent_ _--add-port=9100/tcp_ ` and then run `_firewall-cmd_ _--reload_`.
