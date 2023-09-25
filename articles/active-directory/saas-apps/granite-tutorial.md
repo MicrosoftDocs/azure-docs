@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -73,17 +73,17 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a value using the following pattern:
-    `<Customer_Name>.granitegrc.com`
+   a. In the **Identifier** textbox, type a value using the following pattern:
+   `<Customer_Name>.granitegrc.com`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern:
-    `https://<Customer_Name>.granitegrc.com/simplesaml/module.php/saml/sp/saml2-acs.php/default`
+   b. In the **Reply URL** textbox, type a URL using the following pattern:
+   `https://<Customer_Name>.granitegrc.com/simplesaml/module.php/saml/sp/saml2-acs.php/default`
 
-    c. In the **Sign on URL** textbox, type a URL using the following pattern:
-	 `https://<Customer_Name>.granitegrc.com`
+   c. In the **Sign on URL** textbox, type a URL using the following pattern:
+	`https://<Customer_Name>.granitegrc.com`
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Granite support team](mailto:support@granitegrc.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Granite support team](mailto:support@granitegrc.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
 1. Granite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -140,9 +140,9 @@ In this section, a user called B.Simon is created in Granite. Granite supports j
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on **Test this application** in Azure portal. This will redirect to Granite Sign on URL where you can initiate the login flow.
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Granite Sign on URL where you can initiate the login flow.
  
 * Go to Granite Sign-on URL directly and initiate the login flow from there.
  
@@ -150,4 +150,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next Steps
 
-Once you configure Granite you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Granite you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
