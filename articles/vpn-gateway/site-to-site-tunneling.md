@@ -1,28 +1,28 @@
 ---
-title: 'Configure forced tunneling for site-to-site connections: PowerShell'
-description: Learn how to split or force tunnel traffic for VPN Gateway site-to-site connections using PowerShell.
+title: 'Configure forced tunneling for S2S connections - Default Site: PowerShell'
+description: Learn how to force tunnel traffic for VPN Gateway site-to-site connections by specifying the Default Site setting - PowerShell. Also learn how to specify Internet-bound traffic routing for specific subnets.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/04/2023
+ms.date: 09/22/2023
 ms.author: cherylmc
 ---
-# Configure forced tunneling for site-to-site connections
+# Configure forced tunneling using Default Site for site-to-site connections
 
-The steps in this article help you configure forced tunneling for site-to-site (S2S) IPsec connections. For more information, see [About forced tunneling for VPN Gateway](about-site-to-site-tunneling.md).
+The steps in this article help you configure forced tunneling for site-to-site (S2S) IPsec connections by specifying a Default Site. For information about configuration methods for forced tunneling, including configuring forced tunneling via BGP, see [About forced tunneling for VPN Gateway](about-site-to-site-tunneling.md).
 
 By default, Internet-bound traffic from your VMs goes directly to the Internet. If you want to force all Internet-bound traffic through the VPN gateway to an on-premises site for inspection and auditing, you can do so by configuring **forced tunneling**. After you configure forced tunneling, if desired, you can route Internet-bound traffic directly to the Internet for specified subnets using custom user-defined routes (UDRs).
 
 :::image type="content" source="./media/about-site-to-site-tunneling/tunnel-user-defined-routing.png" alt-text="Diagram shows split tunneling." lightbox="./media/about-site-to-site-tunneling/tunnel-user-defined-routing-high-res.png":::
 
-The following steps help you configure a forced tunneling scenario by specifying a default site. Optionally, using custom UDR, you can route traffic by specifying that Internet-bound traffic from the Frontend subnet goes directly to the Internet, rather than to the on-premises site.
+The following steps help you configure a forced tunneling scenario by specifying a Default Site. Optionally, using custom UDR, you can route traffic by specifying that Internet-bound traffic from the Frontend subnet goes directly to the Internet, rather than to the on-premises site.
 
 * The VNet you create has three subnets: Frontend, Mid-tier, and Backend with four cross-premises connections: DefaultSiteHQ, and three branches.
-* You specify the default site for your VPN gateway using PowerShell, which forces all Internet traffic back to the on-premises location. The default site can't be configured using the Azure portal.
+* You specify the Default Site for your VPN gateway using PowerShell, which forces all Internet traffic back to the on-premises location. The Default Site can't be configured using the Azure portal.
 * The Frontend subnet is assigned a UDR to send Internet traffic directly to the Internet, bypassing the VPN gateway. Other traffic is routed normally.
-* The Mid-tier and Backend subnets continue to have Internet traffic force tunneled back to the on-premises site via the VPN gateway because a default site is specified.
+* The Mid-tier and Backend subnets continue to have Internet traffic force tunneled back to the on-premises site via the VPN gateway because a Default Site is specified.
 
 ## Create a VNet and subnets
 
@@ -114,31 +114,35 @@ In this section, you request a public IP address and create a VPN gateway that's
    New-AzVirtualNetworkGateway -Name "VNet1GW" -ResourceGroupName "TestRG1" -Location "EastUS" -IpConfigurations $gwipconfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
    ```
 
-## Configure forced tunneling
+## Configure forced tunneling - Default Site
 
-Configure forced tunneling by assigning a default site to the virtual network gateway. If you don't specify a default site, Internet traffic isn't forced through the VPN gateway and will, instead, traverse directly out to the Internet for all subnets (by default).
+Configure forced tunneling by assigning a Default Site to the virtual network gateway. If you don't specify a Default Site, Internet traffic isn't forced through the VPN gateway and will, instead, traverse directly out to the Internet for all subnets (by default).
 
-To assign a default site for the gateway, you use the **-GatewayDefaultSite** parameter. Be sure to assign this properly.
+To assign a Default Site for the gateway, you use the **-GatewayDefaultSite** parameter. Be sure to assign this properly.
 
-1. First, declare the variables that specify the virtual network gateway information and the local network gateway for the default site, in this case, DefaultSiteHQ.
+1. First, declare the variables that specify the virtual network gateway information and the local network gateway for the Default Site, in this case, DefaultSiteHQ.
 
    ```azurepowershell-interactive
    $LocalGateway = Get-AzLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "TestRG1"
    $VirtualGateway = Get-AzVirtualNetworkGateway -Name "VNet1GW" -ResourceGroupName "TestRG1"
    ```
 
-1. Next, set the virtual network gateway default site using [Set-AzVirtualNetworkGatewayDefaultSite](/powershell/module/az.network/set-azvirtualnetworkgatewaydefaultsite).
+1. Next, set the virtual network gateway Default Site using [Set-AzVirtualNetworkGatewayDefaultSite](/powershell/module/az.network/set-azvirtualnetworkgatewaydefaultsite).
 
    ```azure-powershell-interactive
    Set-AzVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
    ```
 
-At this point, all Internet-bound traffic is now configured to be force tunneled to *DefaultSiteHQ*. Note that the on-premises VPN device must be configured using 0.0.0.0/0 as traffic selectors.
+At this point, all Internet-bound traffic is now configured to be force tunneled to *DefaultSiteHQ*. The on-premises VPN device must be configured using 0.0.0.0/0 as traffic selectors.
 
 * If you want to only configure forced tunneling, and not route Internet traffic directly to the Internet for specific subnets, you can skip to the [Establish Connections](#establish-s2s-vpn-connections) section of this article to create your connections.
 * If you want specific subnets to send Internet-bound traffic directly to the Internet, continue with the next sections to configure custom UDRs and assign routes.
 
-## Create route tables and routes
+## <a name="udr"></a>Route Internet-bound traffic for specific subnets
+
+As an option, if you want Internet-bound traffic to be sent directly to the Internet for specific subnets (rather than to your on-premises network), use the following steps. These steps apply to forced tunneling that has been configured either by specifying a Default Site, or that has been configured via BGP.
+
+### Create route tables and routes
 
 To specify that Internet-bound traffic should go directly to the Internet, create the necessary route table and route. You'll later assign the route table to the Frontend subnet.
 
@@ -164,7 +168,7 @@ To specify that Internet-bound traffic should go directly to the Internet, creat
       | Set-AzRouteTable
    ```
 
-## Assign routes
+### Assign routes
 
 In this section, you assign the route table and routes to the Frontend subnet using the following PowerShell commands: [GetAzRouteTable](/powershell/module/az.network/get-azroutetable), [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig), and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
 
@@ -183,7 +187,7 @@ In this section, you assign the route table and routes to the Frontend subnet us
    Set-AzVirtualNetwork
    ```
   
-## Establish S2S VPN connections
+### Establish S2S VPN connections
 
 Use [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) to establish the S2S connections.
 
