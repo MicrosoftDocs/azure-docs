@@ -17,13 +17,13 @@ Every chaos experiment is made up of a different combination of faults and targe
 
 List-Based Manual Target Selection allows you to select a fixed set of onboarded targets for a particular fault in your chaos experiment. Depending on the selected fault, you may select one or more onboarded resources to target. The aforementioned resources are added to the experiment upon creation time. In order to modify the list, you must navigate to the experiment's page and add or remove fault targets manually. An example of manual target selection is shown below.
 
-![Screenshot that shows the List-Based Manual Target Selection option in the Azure portal.](chaos-studio/images/manual-target-selection.png)
+![Screenshot that shows the List-Based Manual Target Selection option in the Azure portal.](images/manual-target-selection.png)
 
 ## Query-Based Dynamic Target Selection
 
 Query-Based Dynamic Target Selection allows you to input a KQL query that will select all onboarded targets that match the query result set. Using your query, you may filter targets based on common Azure resource parameters including type, region, name, and more. Upon experiment creation time, only the query itself will be added to your chaos experiment. The inputted query will run and add onboarded targets that match its result set upon experiment execution time. Thus, any resources onboarded to Chaos Studio after experiment creation time that match the query result set upon experiment execution time will be targeted by your experiment. You may preview your query's result set when adding it to your experiment, but be aware that it may not match the result set at experiment execution time. An example of a possible dynamic target query is shown below.
 
-![Screenshot that shows the Query-Based Dynamic Target Selection option in the Azure portal.](chaos-studio/images/dynamic-target-selection-preview.png)
+![Screenshot that shows the Query-Based Dynamic Target Selection option in the Azure portal.](images/dynamic-target-selection-preview.png)
 
 ## Next steps
 Now that you understand both ways to select targets within a chaos experiment, you're ready to:
