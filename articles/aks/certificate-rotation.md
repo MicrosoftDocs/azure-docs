@@ -25,12 +25,12 @@ AKS generates and uses the following certificates, Certificate Authorities (CA),
 
 * The AKS API server creates a CA called the Cluster CA.
 * The API server has a Cluster CA, which signs certificates for one-way communication from the API server to kubelets.
-* Each kubelet creates a Certificate Signing Request (CSR), which is signed by the Cluster CA, for communication from the kubelet to the API server.
+* Each kubelet creates a Certificate Signing Request (CSR), which the Cluster CA signs, for communication from the kubelet to the API server.
 * The API aggregator uses the Cluster CA to issue certificates for communication with other APIs. The API aggregator can also have its own CA for issuing those certificates, but it currently uses the Cluster CA.
-* Each node uses an SA token, which is signed by the Cluster CA.
+* Each node uses an SA token, which the Cluster CA signs.
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
 
-All certificates mentioned in this section, except for the cluster certificate, are maintained by Microsoft.
+Microsoft maintains all certificates mentioned in this section, except for the cluster certificate.
 
 > [!NOTE]
 >
@@ -87,7 +87,7 @@ For any AKS clusters created or upgraded after March 2022, Azure Kubernetes Serv
 
 ### How to check whether current agent node pool is TLS Bootstrapping enabled?
 
-1. Verify if TLS Bootstrapping is enabled on your cluster by browsing to one to the following paths:
+1. Verify if your cluster has TLS Bootstrapping enabled by browsing to one to the following paths:
 
    * On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig* or */host/var/lib/kubelet/bootstrap-kubeconfig*
    * On a Windows node: *C:\k\bootstrap-config*
