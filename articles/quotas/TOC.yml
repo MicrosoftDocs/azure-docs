@@ -28,8 +28,8 @@
         href: networking-quota-requests.md
       - name: Increase storage account quotas
         href: storage-account-quota-requests.md
-      - name: How-to-Guide - Monitoring & Alerting
-        href: how-to-guide-monitoring-alerting.md
+    - name: How-to-Guide - Monitoring & Alerting
+      href: how-to-guide-monitoring-alerting.md
 - name: Reference
   items:
   - name: Azure CLI
