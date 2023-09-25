@@ -177,7 +177,7 @@ The application deployment step has been integrated in the process of the `Deplo
 az spring app deploy \
     --service ${AZURE_SPRING_APPS_INSTANCE} \
     --name ${APP_NAME} \
-    --artifact-path target/simple-event-driven-app-0.0.1-SNAPSHOT.jar
+    --artifact-path target/simple-event-driven-app-0.0.2-SNAPSHOT.jar
 ```
 
 ---
