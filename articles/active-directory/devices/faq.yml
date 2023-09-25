@@ -139,7 +139,7 @@ sections:
           
           
           
-      - question: Can my users' sign in to Microsoft Entra joined devices that are deleted or disabled in Microsoft Entra ID?
+      - question: Can my users sign in to Microsoft Entra joined devices that are deleted or disabled in Microsoft Entra ID?
         answer: |
           Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. 
           
@@ -254,7 +254,7 @@ sections:
           
       - question: What happens if a user changes their password and tries to sign in to their Windows 10/11 Microsoft Entra hybrid joined device outside the corporate network?
         answer: |
-          If a password is changed outside the corporate network (for example, by using Microsoft Entra SSPR), then the user sign in with the new password fails. For Microsoft Entra hybrid joined devices, on-premises Active Directory is the primary authority. When a device doesn't have line of sight to the domain controller, it's unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Microsoft Entra ID during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
+          If a password is changed outside the corporate network (for example, by using Microsoft Entra SSPR), then the user sign-in with the new password fails. For Microsoft Entra hybrid joined devices, on-premises Active Directory is the primary authority. When a device doesn't have line of sight to the domain controller, it's unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign-in capability in Windows. However, the old password is invalidated by Microsoft Entra ID during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
           
           
   - name: Microsoft Entra register FAQ

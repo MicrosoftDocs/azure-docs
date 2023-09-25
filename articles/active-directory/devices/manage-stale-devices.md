@@ -131,7 +131,7 @@ Disable or delete Microsoft Entra registered devices in the Microsoft Entra ID.
 
 ## Clean up stale devices  
 
-While you can clean up stale devices in the Microsoft Entra admin center, it's more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V2 module to use the timestamp filter and to filter out system-managed devices such as Autopilot.
+While you can clean up stale devices in the Microsoft Entra admin center, it's more efficient to handle this process using a PowerShell script. Use the latest PowerShell V2 module to use the timestamp filter and to filter out system-managed devices such as Autopilot.
 
 A typical routine consists of the following steps:
 
