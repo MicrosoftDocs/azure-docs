@@ -16,16 +16,15 @@ This article explains how to check the status of available updates on a single V
 
 ## Check updates on a single VM
 
-> [!NOTE]
-> You can check the updates from the **Overview** or **Machines** pane on the **Update Manager** page or from the selected VM.
+You can check the updates from the **Overview** or **Machines** pane on the **Update Manager** page or from the selected VM.
 
-# [From Overview pane](#tab/singlevm-overview)
+# [From the Overview pane](#tab/singlevm-overview)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Azure Update Manager** | **Overview** page, select your subscription to view all your machines and select **Check for updates**.
+1. On the **Azure Update Manager** | **Overview** page, select your subscription to view all your machines, and then select **Check for updates**.
 
-1. On the **Select resources and check for updates** pane, choose the machine that you want to check for updates and select **Check for updates**.
+1. On the **Select resources and check for updates** pane, choose the machine that you want to check for updates, and then select **Check for updates**.
 
     An assessment is performed and a notification appears as a confirmation.
 
@@ -33,13 +32,13 @@ This article explains how to check the status of available updates on a single V
     
     The **Update status of machines**, **Patch orchestration configuration** of Azure VMs, and **Total installation runs** tiles are refreshed and display the results.
 
-# [From Machines pane](#tab/singlevm-machines)
+# [From the Machines pane](#tab/singlevm-machines)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the **Azure Update Manager** | **Machines** page, select your subscription to view all your machines.
 
-1. Select the checkbox for your machine and select **Check for updates** > **Assess now**. Alternatively, you can select your machine and in **Updates**, select **Assess updates**. In **Trigger assess now**, select **OK**.
+1. Select the checkbox for your machine, and then select **Check for updates** > **Assess now**. Alternatively, you can select your machine and in **Updates**, select **Assess updates**. In **Trigger assess now**, select **OK**.
 
     An assessment is performed and a notification appears first that says **Assessment is in progress**. After a successful assessment, you see **Assessment successful**. Otherwise, you see the notification **Assessment Failed**. For more information, see [Update assessment scan](assessment-options.md#update-assessment-scan).
 
@@ -67,7 +66,7 @@ To check the updates on your machines at scale, follow these steps.
 
 You can check the updates from the **Overview** or **Machines** pane.
 
-# [From Overview pane](#tab/at-scale-overview)
+# [From the Overview pane](#tab/at-scale-overview)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -79,13 +78,13 @@ You can check the updates from the **Overview** or **Machines** pane.
     
     The **Update status of machines**, **Patch orchestration configuration** of Azure virtual machines, and **Total installation runs** tiles are refreshed and display the results.
 
-# [From Machines pane](#tab/at-scale-machines)
+# [From the Machines pane](#tab/at-scale-machines)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the **Azure Update Manager** | **Machines** page, select your subscription to view all your machines.
 
-1. Choose **Select all** to select all your machines and select **Check for updates**.
+1. Choose **Select all** to select all your machines, and then select **Check for updates**.
 
 1. Select **Assess now** to perform the assessment.
 
