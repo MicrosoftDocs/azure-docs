@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -75,14 +75,14 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a value using the following pattern:
+    a. In the **Identifier** textbox, type one of the following URLs:
 
     | Environment | URL |
     |----|----|
     | Production| `https://microsoft-v20.spsinc.net/microsoft-v20` |
     | Staging | `https://microsoft-v20.spsinc.net/microsoft-staging1-v20` |
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type one of the following URLs:
     
     | Environment | URL |
     |----|----|
@@ -137,13 +137,12 @@ In this section, you create a user called B.Simon in SPS|Production Manager. Wor
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on Test this application in Azure portal and you should be automatically signed in to the SPS|Production Manager for which you set up the SSO.
+* Click on Test this application in Microsoft Entra admin center and you should be automatically signed in to the SPS|Production Manager for which you set up the SSO.
  
 * You can use Microsoft My Apps. When you click the SPS|Production Manager tile in the My Apps, you should be automatically signed in to the SPS|Production Manager for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure SPS|Production Manager you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
-
+Once you configure SPS|Production Manager you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
