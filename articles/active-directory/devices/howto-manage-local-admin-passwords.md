@@ -119,11 +119,11 @@ You can also use Microsoft Graph API [Get deviceLocalCredentialInfo](/graph/api/
 
 ## List all Windows LAPS enable devices
 
-To list all Windows LAPS enabled devices in Microsoft Entra ID, you can browse to **Microsoft Entra ID** > **Devices** > **Local administrator password recovery (Preview)** or use the Microsoft Graph API.
+To list all Windows LAPS enabled devices, you can browse to  **Identity** > **Devices** > **Overview** > **Local administrator password recovery (Preview)** or use the Microsoft Graph API.
 
 ## Auditing local administrator password update and recovery
 
-To view audit events, you can browse to **Microsoft Entra ID** > **Devices** >  **Audit logs**, then use the **Activity** filter and search for **Update device local administrator password** or **Recover device local administrator password** to view the audit events.
+To view audit events, you can browse to  **Identity** > **Devices** > **Overview** > **Audit logs**, then use the **Activity** filter and search for **Update device local administrator password** or **Recover device local administrator password** to view the audit events.
 
 ## Conditional Access policies for local administrator password recovery
 
