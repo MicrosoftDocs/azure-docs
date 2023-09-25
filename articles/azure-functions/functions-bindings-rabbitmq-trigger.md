@@ -70,36 +70,6 @@ namespace Company.Function
 
 Like with Json objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it's then bound to the variable pocObj, which can be used for what whatever it's needed for.
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a RabbitMQ trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads and logs the RabbitMQ message.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{​​
-    "bindings": [
-        {​​
-            "name": "myQueueItem",
-            "type": "rabbitMQTrigger",
-            "direction": "in",
-            "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnectionAppSetting"
-        }​​
-    ]
-}​​
-```
-
-Here's the C# script code:
-
-```C#
-using System;
-
-public static void Run(string myQueueItem, ILogger log)
-{​​
-    log.LogInformation($"C# Script RabbitMQ trigger function processed: {​​myQueueItem}​​");
-}​​
-```
 ---
 
 ::: zone-end
@@ -216,24 +186,6 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes. 
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** |  Must be set to `RabbitMQTrigger`.|
-|**direction** | Must be set to "in".|
-|**name** | The name of the variable that represents the queue in function code. |
-|**queueName**| See the **QueueName** attribute above.| 
-|**hostName**|See the **HostName** attribute above.| 
-|**userNameSetting**|See the **UserNameSetting** attribute above.| 
-|**passwordSetting**|See the **PasswordSetting** attribute above.|
-|**connectionStringSetting**|See the **ConnectionStringSetting** attribute above.|
-|**port**|See the **Port** attribute above.|
-
 ---
 
 ::: zone-end  
@@ -296,15 +248,6 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 * `string`
 * `byte[]`
 * `POCO` - The message is formatted as a C# object. For complete code, see C# [example](#example).
-
-# [C# script](#tab/csharp-script)
-
-The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
-
-* `An object serializable as JSON` - The message is delivered as a valid JSON string.
-* `string`
-* `byte[]`
-* `POCO` - The message is formatted as a C# object. For a complete example, see C# Script [example](#example).
 
 ---
 

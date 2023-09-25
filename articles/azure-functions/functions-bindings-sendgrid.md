@@ -28,10 +28,6 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-# [C# script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
 ---
 
 The functionality of the extension varies depending on the extension version:
@@ -163,64 +159,6 @@ public class OutgoingEmail
 
 You can omit setting the attribute's `ApiKey` property if you have your API key in an app setting named "AzureWebJobsSendGridApiKey".
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a SendGrid output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
-
-Here's the binding data in the *function.json* file:
-
-```json 
-{
-    "bindings": [
-        {
-          "type": "queueTrigger",
-          "name": "mymsg",
-          "queueName": "myqueue",
-          "connection": "AzureWebJobsStorage",
-          "direction": "in"
-        },
-        {
-          "type": "sendGrid",
-          "name": "$return",
-          "direction": "out",
-          "apiKey": "SendGridAPIKeyAsAppSetting",
-          "from": "{FromEmail}",
-          "to": "{ToEmail}"
-        }
-    ]
-}
-```
-
-The [configuration](#configuration) section explains these properties.
-
-Here's the C# script code:
-
-```csharp
-#r "SendGrid"
-
-using System;
-using SendGrid.Helpers.Mail;
-using Microsoft.Azure.WebJobs.Host;
-
-public static SendGridMessage Run(Message mymsg, ILogger log)
-{
-    SendGridMessage message = new SendGridMessage()
-    {
-        Subject = $"{mymsg.Subject}"
-    };
-    
-    message.AddContent("text/plain", $"{mymsg.Content}");
-
-    return message;
-}
-public class Message
-{
-    public string ToEmail { get; set; }
-    public string FromEmail { get; set; }
-    public string Subject { get; set; }
-    public string Content { get; set; }
-}
-```
 ---
 
 ::: zone-end
@@ -408,21 +346,6 @@ In [isolated worker process](dotnet-isolated-process-guide.md) function apps, th
 | **From** | (Optional) The sender's email address. |  
 | **Subject** | (Optional) The subject of the email. | 
 | **Text** | (Optional) The email content. | 
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the trigger configuration properties that you set in the *function.json* file:
-
-| *function.json* property |  Description | 
-|--------------------------|---------------------|
-| **type** | Must be set to `sendGrid`.| 
-| **direction** | Must be set to `out`.| 
-| **name** | The variable name used in function code for the request or request body. This value is `$return` when there is only one return value. | 
-| **apiKey** |  The name of an app setting that contains your API key. If not set, the default app setting name is *AzureWebJobsSendGridApiKey*.|
-| **to**| (Optional) The recipient's email address. | 
-| **from**| (Optional) The sender's email address. |  
-| **subject**|  (Optional) The subject of the email. | 
-| **text**| (Optional) The email content. | 
 
 ---
 

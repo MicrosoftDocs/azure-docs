@@ -43,36 +43,6 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a SignalR connection info input binding in a *function.json* file and a [C# Script function](functions-reference-csharp.md) that uses the binding to return the connection information.
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-    "type": "signalRConnectionInfo",
-    "name": "connectionInfo",
-    "hubName": "chat",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "direction": "in"
-}
-```
-
-Here's the C# Script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
-{
-    return connectionInfo;
-}
-```
-
 ---
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
@@ -184,36 +154,6 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-You can set the `userId` property of the binding to the value from either header using a [binding expression](#binding-expressions-for-http-trigger): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
-
-Example function.json:
-
-```json
-{
-    "type": "signalRConnectionInfo",
-    "name": "connectionInfo",
-    "hubName": "chat",
-    "userId": "{headers.x-ms-client-principal-id}",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "direction": "in"
-}
-```
-
-Here's the C# Script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
-{
-    // connectionInfo contains an access key token with a name identifier
-    // claim set to the authenticated user
-    return connectionInfo;
-}
-```
 ---
 
 ::: zone-end
@@ -334,21 +274,6 @@ The following table explains the properties of the `SignalRConnectionInfoInput` 
 |**UserId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
 |**IdToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **ClaimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
 |**ClaimTypeList**| Optional. A list of claim types, which filter the claims in **IdToken** . |
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|--------|
-|**type**|  Must be set to `signalRConnectionInfo`.|
-|**direction**|  Must be set to `in`.|
-|**name**|  Variable name used in function code for connection info object. |
-|**hubName**| Required. The hub name.  |
-|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
-|**userId**| Optional. The user identifier of a SignalR connection. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query.  |
-|**idToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **claimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
-|**claimTypeList**| Optional. A list of claim types, which filter the claims in **idToken** . |
 
 ---
 

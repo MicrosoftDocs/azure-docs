@@ -44,13 +44,6 @@ Add the extension to your project by installing [this NuGet package](https://www
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Kusto --prerelease
 ```
-<!-- awaiting bundle support
-# [C# script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 4.x, or a later version.
--->
 
 ---
 

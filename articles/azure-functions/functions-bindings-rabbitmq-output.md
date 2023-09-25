@@ -82,48 +82,6 @@ namespace Company.Function
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a RabbitMQ output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads in the message from an HTTP trigger and outputs it to the RabbitMQ queue.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "httpTrigger",
-            "direction": "in",
-            "authLevel": "function",
-            "name": "input",
-            "methods": [
-                "get",
-                "post"
-            ]
-        },
-        {
-            "type": "rabbitMQ",
-            "name": "outputMessage",
-            "queueName": "outputQueue",
-            "connectionStringSetting": "rabbitMQConnectionAppSetting",
-            "direction": "out"
-        }
-    ]
-}
-```
-
-Here's the C# script code:
-
-```C#
-using System;
-using Microsoft.Extensions.Logging;
-
-public static void Run(string input, out string outputMessage, ILogger log)
-{
-    log.LogInformation(input);
-    outputMessage = input;
-}
-```
 ---
 
 ::: zone-end
@@ -274,24 +232,6 @@ ILogger log)
 }
 ```
 
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes. 
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** |  Must be set to `RabbitMQ`.|
-|**direction** | Must be set to `out`.|
-|**name** | The name of the variable that represents the queue in function code. |
-|**queueName**| See the **QueueName** attribute above.| 
-|**hostName**|See the **HostName** attribute above.| 
-|**userNameSetting**|See the **UserNameSetting** attribute above.| 
-|**passwordSetting**|See the **PasswordSetting** attribute above.|
-|**connectionStringSetting**|See the **ConnectionStringSetting** attribute above.|
-|**port**|See the **Port** attribute above.|
-
 ---
 
 ::: zone-end   
@@ -356,18 +296,6 @@ Use the following parameter types for the output binding:
 * `POCO` - The message is formatted as a C# object.
 
 When working with C# functions:
-
-* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
-
-# [C# script](#tab/csharp-script)
-
-Use the following parameter types for the output binding:
-
-* `byte[]` - If the parameter value is null when the function exits, Functions doesn't create a message.
-* `string` - If the parameter value is null when the function exits, Functions doesn't create a message.
-* `POCO` - If the parameter value isn't formatted as a C# object, an error will be received. For a complete example, see C# Script [example](#example).
-
-When working with C# Script functions:
 
 * Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 

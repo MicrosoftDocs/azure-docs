@@ -28,10 +28,6 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
-# [C# script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
 ---
 
 The functionality of the extension varies depending on the extension version:
@@ -128,92 +124,6 @@ namespace TwilioQueueOutput
 ```
 
 This example uses the `TwilioSms` attribute with the method return value. An alternative is to use the attribute with an `out CreateMessageOptions` parameter or an `ICollector<CreateMessageOptions>` or `IAsyncCollector<CreateMessageOptions>` parameter.
-
-# [C# Script](#tab/csharp-script)
-
-The following example shows a Twilio output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses an `out` parameter to send a text message.
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-  "type": "twilioSms",
-  "name": "message",
-  "accountSidSetting": "TwilioAccountSid",
-  "authTokenSetting": "TwilioAuthToken",
-  "from": "+1425XXXXXXX",
-  "direction": "out",
-  "body": "Azure Functions Testing"
-}
-```
-
-Here's C# script code:
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio"
-#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
-
-using System;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Microsoft.Azure.WebJobs.Extensions.Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
-
-public static void Run(string myQueueItem, out CreateMessageOptions message,  ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a JSON string representing an order that contains the name of a
-    // customer and a mobile number to send text updates to.
-    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
-    string msg = "Hello " + order.name + ", thank you for your order.";
-
-    // You must initialize the CreateMessageOptions variable with the "To" phone number.
-    message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
-
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message.
-    message.Body = msg;
-}
-```
-
-You can't use out parameters in asynchronous code. Here's an asynchronous C# script code example:
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio"
-#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
-
-using System;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Microsoft.Azure.WebJobs.Extensions.Twilio;
-using Twilio.Rest.Api.V2010.Account;
-using Twilio.Types;
-
-public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a JSON string representing an order that contains the name of a
-    // customer and a mobile number to send text updates to.
-    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
-    string msg = "Hello " + order.name + ", thank you for your order.";
-
-    // You must initialize the CreateMessageOptions variable with the "To" phone number.
-    CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
-
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message.
-    smsText.Body = msg;
-
-    await message.AddAsync(smsText);
-}
-```
 
 ---
 
@@ -369,8 +279,6 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [Twili
 # [Isolated worker model](#tab/isolated-process)
 
 The Twilio binding isn't currently supported for a function app running in an isolated worker process.
-
-# [C# Script](#tab/csharp-script)
 
 ---
 

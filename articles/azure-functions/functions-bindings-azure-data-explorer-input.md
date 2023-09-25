@@ -208,10 +208,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.InputBindingSamples
       }
 }
 ```
-<!-- Uncomment to support C# script examples.
-# [C# Script](#tab/csharp-script)
 
--->
 ---
 
 ::: zone-end

@@ -38,13 +38,6 @@ Functions execute in the same process as the Functions host. To learn more, see 
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kafka).
 
-<!--
-# [C# script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
-
-The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 2.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
--->
 
 ---
 

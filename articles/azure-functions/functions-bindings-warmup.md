@@ -65,33 +65,6 @@ namespace WarmupSample
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that runs on each new instance when it's added to your app.
-
-Here's the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-For more information, see [Attributes](#attributes).
-
-```cs
-public static void Run(WarmupContext warmupContext, ILogger log)
-{
-    log.LogInformation("Function App instance is warm 🌞🌞🌞");  
-}
-```
-
 ---
 
 ::: zone-end
@@ -202,18 +175,6 @@ Use the `WarmupTrigger` attribute to define the function. This attribute has no 
 
 Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.   
 
-# [C# script](#tab/csharp-script)
-
-C# script uses a function.json file for configuration instead of attributes.
-
-The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
-
-|function.json property |Description |
-|---------|----------------------|
-| **type** | Required - must be set to `warmupTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the name of the binding parameter, which is usually `warmupContext`. |
-
 ---
 
 ::: zone-end  
@@ -256,10 +217,6 @@ The following considerations apply to using a warmup function in C#:
 - A return value attribute isn't required.
 - You must be using version `3.0.5` of the `Microsoft.Azure.WebJobs.Extensions` package, or a later version. 
 - You can pass a `WarmupContext` instance to the function.
-
-# [C# script](#tab/csharp-script)
-
-Not supported for version 1.x of the Functions runtime.
 
 ---
 

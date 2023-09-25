@@ -64,39 +64,6 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
 
-# [C# script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing.  The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-
-This extension is available from the extension bundle v4, which is specified in your `host.json` file by:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-
-You can add the preview extension bundle to use the [SQL trigger](functions-bindings-azure-sql-trigger.md) by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the extension bundle.
-
-
 ---
 
 ::: zone-end

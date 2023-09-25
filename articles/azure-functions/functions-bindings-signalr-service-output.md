@@ -54,41 +54,6 @@ public static Task SendMessage(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
-
-Here's the C# Script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    object message,
-    IAsyncCollector<SignalRMessage> signalRMessages)
-{
-    return signalRMessages.AddAsync(
-        new SignalRMessage
-        {
-            Target = "newMessage",
-            Arguments = new [] { message }
-        });
-}
-```
-
 ---
 
 ::: zone-end
@@ -181,41 +146,6 @@ You can send a message only to connections that have been authenticated to a use
 public static Task SendMessage(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
     [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
-{
-    return signalRMessages.AddAsync(
-        new SignalRMessage
-        {
-            // the message will only be sent to this user ID
-            UserId = "userId1",
-            Target = "newMessage",
-            Arguments = new [] { message }
-        });
-}
-```
-
-# [C# Script](#tab/csharp-script)
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
-
-Here's the C# script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    object message,
-    IAsyncCollector<SignalRMessage> signalRMessages)
 {
     return signalRMessages.AddAsync(
         new SignalRMessage
@@ -335,41 +265,6 @@ public static Task SendMessage(
         });
 }
 ```
-# [C# Script](#tab/csharp-script)
-
-Example function.json:
-
-```json
-{
-  "type": "signalR",
-  "name": "signalRMessages",
-  "hubName": "<hub_name>",
-  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-  "direction": "out"
-}
-```
-
-Here's the C# Script code:
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    object message,
-    IAsyncCollector<SignalRMessage> signalRMessages)
-{
-    return signalRMessages.AddAsync(
-        new SignalRMessage
-        {
-            // the message will be sent to the group with this name
-            GroupName = "myGroup",
-            Target = "newMessage",
-            Arguments = new [] { message }
-        });
-}
-```
-
 ---
 
 ::: zone-end
@@ -480,80 +375,6 @@ public static Task AddToGroup(
             UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Add
-        });
-}
-```
-
-# [C# Script](#tab/csharp-script)
-
-The following example adds a user to a group.
-
-Example *function.json*
-
-```json
-{
-    "type": "signalR",
-    "name": "signalRGroupActions",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "hubName": "chat",
-    "direction": "out"
-}
-```
-
-*Run.csx*
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    HttpRequest req,
-    ClaimsPrincipal claimsPrincipal,
-    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
-{
-    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
-    return signalRGroupActions.AddAsync(
-        new SignalRGroupAction
-        {
-            UserId = userIdClaim.Value,
-            GroupName = "myGroup",
-            Action = GroupAction.Add
-        });
-}
-```
-
-The following example removes a user from a group.
-
-Example *function.json*
-
-```json
-{
-    "type": "signalR",
-    "name": "signalRGroupActions",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "hubName": "chat",
-    "direction": "out"
-}
-```
-
-*Run.csx*
-
-```cs
-#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
-using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-
-public static Task Run(
-    HttpRequest req,
-    ClaimsPrincipal claimsPrincipal,
-    IAsyncCollector<SignalRGroupAction> signalRGroupActions)
-{
-    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
-    return signalRGroupActions.AddAsync(
-        new SignalRGroupAction
-        {
-            UserId = userIdClaim.Value,
-            GroupName = "myGroup",
-            Action = GroupAction.Remove
         });
 }
 ```
@@ -709,19 +530,6 @@ The following table explains the properties of the `SignalROutput` attribute.
 |---------|----------------------|
 |**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
-
-# [C# Script](#tab/csharp-script)
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type**|  Must be set to `signalR`.|
-|**direction**|Must be set to `out`.|
-|**name**|  Variable name used in function code for connection info object. |
-|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
-
 ---
 
 ::: zone-end
