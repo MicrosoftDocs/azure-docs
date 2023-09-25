@@ -58,8 +58,8 @@ To configure and test Microsoft Entra SSO with SPS|Production Manager, perform t
 1. **[Configure Microsoft Entra SSO](#configure-microsoft-entra-sso)** - to enable your users to use this feature.
     1. **[Create a Microsoft Entra ID test user](#create-a-microsoft-entra-id-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
     1. **[Assign the Microsoft Entra ID test user](#assign-the-microsoft-entra-id-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
-1. **[Configure SPS|Production Manager SSO](#configure-sps-production-manager-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create SPS|Production Manager test user](#create-sps-production-manager-test-user)** - to have a counterpart of B.Simon in SPS|Production Manager that is linked to the Microsoft Entra ID representation of user.
+1. **[Configure SPS|Production Manager SSO](#configure-spsproduction-manager-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create SPS|Production Manager test user](#create-spsproduction-manager-test-user)** - to have a counterpart of B.Simon in SPS|Production Manager that is linked to the Microsoft Entra ID representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Microsoft Entra SSO
@@ -83,6 +83,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     | Staging | `https://microsoft-v20.spsinc.net/microsoft-staging1-v20` |
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
+    
     | Environment | URL |
     |----|----|
     | Production| `https://microsoft-v20.spsinc.net/microsoft-v20/saml-auth/AssertionConsumerService` |
