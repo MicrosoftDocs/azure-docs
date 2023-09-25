@@ -75,7 +75,7 @@ If you have not already done so, you'll need to assign yourself as the applicati
 
 ## Assign app roles to applications
 
-Once you've added app roles in your application, you can assign an app role to a client app by using the Microsoft Entra admin center or programmatically by using [Microsoft Graph](/graph/api/user-post-approleassignments). This is not to be confused with [assigning roles to users](../roles/manage-roles-portal).
+Once you've added app roles in your application, you can assign an app role to a client app by using the Microsoft Entra admin center or programmatically by using [Microsoft Graph](/graph/api/user-post-approleassignments). This is not to be confused with [assigning roles to users](../roles/manage-roles-portal.md).
 
 When you assign app roles to an application, you create _application permissions_. Application permissions are typically used by daemon apps or back-end services that need to authenticate and make authorized API call as themselves, without the interaction of a user.
 
@@ -127,7 +127,7 @@ App roles are preferred by developers when they want to describe and control the
 
 ## Assign users and groups to Microsoft Entra roles
 
-Once you've added app roles in your application, you can assign users and groups to [Microsoft Entra roles](../roles/permissions-reference). Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
+Once you've added app roles in your application, you can assign users and groups to [Microsoft Entra roles](../roles/permissions-reference.md). Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/api/user-post-approleassignments). When the users assigned to the various roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
 
 To assign users and groups to roles by using the Microsoft Entra admin center:
 
