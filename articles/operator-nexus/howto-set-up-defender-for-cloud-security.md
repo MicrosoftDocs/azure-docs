@@ -15,7 +15,7 @@ This guide provides you with instructions on how to enable Microsoft Defender fo
 
 ## Before you begin
 
-To aid your understanding of Defender for Cloud and its many security features, there's a wide variety of material available on the [Microsoft Defender for Cloud documentation](https://learn.microsoft.com/azure/defender-for-cloud/) site that you might find helpful.
+To aid your understanding of Defender for Cloud and its many security features, there's a wide variety of material available on the [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/) site that you might find helpful.
 
 ## Prerequisites
 

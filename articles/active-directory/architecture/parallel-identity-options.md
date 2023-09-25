@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Microsoft delivers a range of technologies and solutions to integrate between their different on-premises and cloud components of their identity infrastructure. Often customers are unclear on which technologies are most right and may incorrectly think "the most recent release covers all scenarios of earlier technology releases."
 
-This article covers scenarios when your company is going through a complex scenario outlined below and looking to combine your identity information. Ideally, an organization with a single HR source, a single Active Directory forest, and a single Azure Active Directory (Azure AD) tenant, all integrated with the same people in each, will have the best identity experience for their Microsoft Online Services. However, in practice, an enterprise customer may not always be in a situation where that is possible. For example, the customer may be going through a merger, or have a need for isolation for some users or applications. A customer who has multiple HR, multiple AD, or multiple Azure AD tenants must decide on whether to combine to fewer instances of each or keep them in parallel.
+This article covers scenarios when your company is going through a complex scenario outlined below and looking to combine your identity information. Ideally, an organization with a single HR source, a single Active Directory forest, and a single Microsoft Entra tenant, all integrated with the same people in each, will have the best identity experience for their Microsoft Online Services. However, in practice, an enterprise customer may not always be in a situation where that is possible. For example, the customer may be going through a merger, or have a need for isolation for some users or applications. A customer who has multiple HR, multiple AD, or multiple Microsoft Entra tenants must decide on whether to combine to fewer instances of each or keep them in parallel.
 
 Based on our customer feedback, the following are some of the common scenarios and requirements.
 
@@ -26,7 +26,7 @@ Based on our customer feedback, the following are some of the common scenarios a
 
 - Mergers and acquisitions (M&A) – refers to a situation where, usually Company A buys Company B.
 - Rebranding – A company name or brand change and typically an e-mail domain name change.
-- Azure AD or Office 365 tenant consolidation - Companies with more than one Office 365 tenant may want to combine because of compliance or historic requirements.
+- Microsoft Entra ID or Office 365 tenant consolidation - Companies with more than one Office 365 tenant may want to combine because of compliance or historic requirements.
 - Active Directory Domain or forest consolidation - Companies evaluating to perform Active Directory domain or forest consolidation.
 - Divestitures – Where a division or business group of a company is sold or becomes independent.
 - User information privacy – Where companies have requirements to keep certain data (attributes) from not being publicly visible and only right delegated groups or users can read, change, and update it.
@@ -53,7 +53,7 @@ This article outlines various multicloud or multi-org identity environments incl
 
 The following sections cover four main scenarios for a hypothetical M&A scenario:
 
-Suppose Contoso is an enterprise customer, and their IT has a single (on-premises) HR system, single Active Directory forest, single tenant Azure AD for their apps, running as expected. Users are brought in from their HR system into Active Directory and projected into Azure AD and from there into SaaS apps. This scenario is illustrated with the diagram below, with the arrows showing the flow of identity information. The same model is also applicable to customers with cloud HR system such as Workday or SuccessFactors provisioning Active Directory, not just customers using Microsoft Identity Manager (MIM).
+Suppose Contoso is an enterprise customer, and their IT has a single (on-premises) HR system, single Active Directory forest, single tenant Microsoft Entra ID for their apps, running as expected. Users are brought in from their HR system into Active Directory and projected into Microsoft Entra ID and from there into SaaS apps. This scenario is illustrated with the diagram below, with the arrows showing the flow of identity information. The same model is also applicable to customers with cloud HR system such as Workday or SuccessFactors provisioning Active Directory, not just customers using Microsoft Identity Manager (MIM).
 
 ![single instance of each component](media/parallel-identity-options/identity-combined-1.png)
   
@@ -61,16 +61,16 @@ Next, Contoso has begun to merge with Litware, which has previously been running
 
 The first IT decision is how much they wish to combine infrastructure. They could choose to not rely upon any of Litware's identity infrastructure. Or they could consider using Litware's infrastructure and converging over time while minimizing disruption to Litware's environment. In some cases, the customer may wish to keep Litware's existing identity infrastructure independent and not converging it, while still using it to give Litware employee access to Contoso apps.
 
-If the customer chooses to keep some or all Litware's identity infrastructure, then there are tradeoffs on how much of Litware's Active Directory Domain Services or Azure AD are used to give Litware users access to Contoso resources. This section looks at workable options, based on what Contoso would use for Litware's users:
+If the customer chooses to keep some or all Litware's identity infrastructure, then there are tradeoffs on how much of Litware's Active Directory Domain Services or Microsoft Entra ID are used to give Litware users access to Contoso resources. This section looks at workable options, based on what Contoso would use for Litware's users:
 
 - Scenario A - Don't use *any* of Litware's identity infrastructure.
-- Scenario B - Use Litware's Active Directory forests, but not Litware's Azure AD (if they've one)
-- Scenario C - Use Litware's Azure AD.
+- Scenario B - Use Litware's Active Directory forests, but not Litware's Microsoft Entra ID (if they've one)
+- Scenario C - Use Litware's Microsoft Entra ID.
 - Scenario D - Use Litware's non-Microsoft identity infrastructure (if Litware isn't using Active Directory/Azure AD) 
 
 The following table summarizes each option with the technologies for how the customer could achieve those outcomes, the constraints, and benefits of each.
 
-| Considerations | A1: Single HR, single IAM & tenant | A2: Separate HR, single IAM, and tenant | B3: Active Directory forest trust, single Azure AD Connect | B4: Azure AD Connect their Active Directory to the single tenant | B5: Azure AD Connect cloud sync their Active Directory | C6: parallel provision multiple tenants into apps | C7: read from their tenant and B2B invite their users | C8: single IAM and B2B users as needed | D9: DF with their non-Azure AD IDP |
+| Considerations | A1: Single HR, single IAM & tenant | A2: Separate HR, single IAM, and tenant | B3: Active Directory forest trust, single Microsoft Entra Connect | B4: Microsoft Entra Connect their Active Directory to the single tenant | B5: Microsoft Entra Connect cloud sync their Active Directory | C6: parallel provision multiple tenants into apps | C7: read from their tenant and B2B invite their users | C8: single IAM and B2B users as needed | D9: DF with their non-Azure AD IDP |
 |:-|:-|:-|:-|:-|:-|:-|:-|:-|:-|
 | Migration effort | High | Medium effort | Lower effort | Low effort | Low effort | None | None | None | None |
 | Deployment effort | Less effort | Medium effort | Medium effort | Medium effort | Low | Low | High | High | Very High |
@@ -114,7 +114,7 @@ Sometimes converging the HR systems may not be possible, at least not in the sho
 
 ![Retain Litware HR system](media/parallel-identity-options/identity-combined-2.png)
 
-The same scenario would also be possible using Azure AD Workday or SuccessFactors inbound – Contoso could bring in users from Litware's Workday HR source alongside existing Contoso employees.
+The same scenario would also be possible using Microsoft Entra Workday or SuccessFactors inbound – Contoso could bring in users from Litware's Workday HR source alongside existing Contoso employees.
 
 ### Outcomes of consolidating all identity infrastructure
 
@@ -124,59 +124,75 @@ The same scenario would also be possible using Azure AD Workday or SuccessFactor
 ### Constraints of consolidating all identity infrastructure
 
 - Any data that is needed by Contoso employees that originated in Litware must be migrated to the Contoso environment.
-- Any Active Directory or Azure AD-integrated apps from Litware that will be needed for Contoso must be reconfigured to the Contoso environment. This reconfiguration may require changes to the configuration, which groups it uses for access, or potentially to the apps themselves.
+- Any Active Directory or Microsoft Entra integrated apps from Litware that will be needed for Contoso must be reconfigured to the Contoso environment. This reconfiguration may require changes to the configuration, which groups it uses for access, or potentially to the apps themselves.
 
-## Scenario B - If Contoso wishes to keep Litware's Active Directory forests, but not use Litware's Azure AD
+<a name='scenario-b---if-contoso-wishes-to-keep-litwares-active-directory-forests-but-not-use-litwares-azure-ad'></a>
 
-Litware may have many existing Active Directory-based apps that they rely on, and so Contoso may wish to continue to have Litware employees keep their own identities in their existing AD. A Litware employee would then use their existing identity for their authentication of their existing resources and authentication of Contoso resources. In this scenario, Litware doesn't have any cloud identities in Microsoft Online Services – either Litware wasn't an Azure AD customer, nothing of Litware's cloud assets were to be shared with Contoso, or Contoso migrated Litware's cloud assets to be part of Contoso's tenant.
+## Scenario B - If Contoso wishes to keep Litware's Active Directory forests, but not use Litware's Microsoft Entra ID
+
+Litware may have many existing Active Directory-based apps that they rely on, and so Contoso may wish to continue to have Litware employees keep their own identities in their existing AD. A Litware employee would then use their existing identity for their authentication of their existing resources and authentication of Contoso resources. In this scenario, Litware doesn't have any cloud identities in Microsoft Online Services – either Litware wasn't a Microsoft Entra customer, nothing of Litware's cloud assets were to be shared with Contoso, or Contoso migrated Litware's cloud assets to be part of Contoso's tenant.
 
 ### Option 3 - Forest trust with the acquired forest
 
-Using an [Active Directory forest trust](/windows-server/identity/ad-ds/plan/forest-design-models), Contoso and Litware can connect their Active Directory domains. This trust enables Litware users to authenticate Contoso's Active Directory-integrated apps. Also [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) can also read from Litware's Active Directory forest so that Litware users authenticate with Contoso's Azure AD integrated apps. This deployment topology requires a network route set up between the two domains, and TCP/IP network connectivity between any Litware user and Contoso Active Directory-integrated app. It's also straightforward to set up bidirectional trusts, so that Contoso users can access Litware AD-integrated apps (if any).
+Using an [Active Directory forest trust](/windows-server/identity/ad-ds/plan/forest-design-models), Contoso and Litware can connect their Active Directory domains. This trust enables Litware users to authenticate Contoso's Active Directory-integrated apps. Also [Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect.md) can also read from Litware's Active Directory forest so that Litware users authenticate with Contoso's Microsoft Entra integrated apps. This deployment topology requires a network route set up between the two domains, and TCP/IP network connectivity between any Litware user and Contoso Active Directory-integrated app. It's also straightforward to set up bidirectional trusts, so that Contoso users can access Litware AD-integrated apps (if any).
 
 ![forest trust with single tenant](media/parallel-identity-options/identity-combined-3.png)
 
 ### Outcome of setting up a forest trust
 
-- All Litware employees can authenticate Contoso's Active Directory or Azure AD-integrated apps, and Contoso can use current AD-based tools to manage authorization.
+- All Litware employees can authenticate Contoso's Active Directory or Microsoft Entra integrated apps, and Contoso can use current AD-based tools to manage authorization.
 
 ### Constraints of setting up a forest trust
 
 - Requires TCP/IP connectivity between users who are domain joined to one forest and resources joined to the other forest.
 - Requires the Active Directory-based apps in the Contoso forest to be multi-forest-aware
 
-### Option 4 - Configure Azure AD Connect to the acquired forest without forest trust
+<a name='option-4---configure-azure-ad-connect-to-the-acquired-forest-without-forest-trust'></a>
 
-A customer can also configure Azure AD Connect to read from another forest. This configuration enables the Litware users to authenticate to Contoso's Azure AD integrated apps but doesn't supply access to Contoso's Active Directory integrated apps to the Litware user – those Contoso apps don't recognize Litware users. This deployment topology requires TCP/IP network connectivity between Azure AD Connect and Litware's domain controllers. For example, if Azure AD Connect is on a Contoso IaaS VM, they would need to establish a tunnel also to Litware's network as well.
+### Option 4 - Configure Microsoft Entra Connect to the acquired forest without forest trust
 
-![Azure AD Connect two forests](media/parallel-identity-options/identity-combined-4.png)
+A customer can also configure Microsoft Entra Connect to read from another forest. This configuration enables the Litware users to authenticate to Contoso's Microsoft Entra integrated apps but doesn't supply access to Contoso's Active Directory integrated apps to the Litware user – those Contoso apps don't recognize Litware users. This deployment topology requires TCP/IP network connectivity between Microsoft Entra Connect and Litware's domain controllers. For example, if Microsoft Entra Connect is on a Contoso IaaS VM, they would need to establish a tunnel also to Litware's network as well.
 
-### Outcome of using Azure AD Connect to provision one tenant
+![Microsoft Entra Connect two forests](media/parallel-identity-options/identity-combined-4.png)
 
-- All Litware employees can authenticate Contoso's Azure AD integrated apps.
+<a name='outcome-of-using-azure-ad-connect-to-provision-one-tenant'></a>
 
-### Constraints of using Azure AD Connect to provision one tenant
+### Outcome of using Microsoft Entra Connect to provision one tenant
 
-- Requires TCP/IP connectivity between Contoso's Azure AD Connect and Litware's Active Directory domains.
+- All Litware employees can authenticate Contoso's Microsoft Entra integrated apps.
+
+<a name='constraints-of-using-azure-ad-connect-to-provision-one-tenant'></a>
+
+### Constraints of using Microsoft Entra Connect to provision one tenant
+
+- Requires TCP/IP connectivity between Contoso's Microsoft Entra Connect and Litware's Active Directory domains.
 - Doesn't permit Litware users to have access to Contoso's Active Directory based applications
 
-### Option 5 - Deploy Azure AD Connect cloud sync in the acquired forest
+<a name='option-5---deploy-azure-ad-connect-cloud-sync-in-the-acquired-forest'></a>
 
-[Azure AD Connect cloud provisioning](../hybrid/cloud-sync/what-is-cloud-sync.md) removes the network connectivity requirement, but you can only have one Active Directory to Azure AD linking for a given user with cloud sync. Litware users can authenticate Contoso's Azure AD integrated apps, but not Contoso's Active Directory-integrated apps. This topology doesn't require any TCP/IP connectivity between Litware and Contoso's on-premises environments.
+### Option 5 - Deploy Microsoft Entra Connect cloud sync in the acquired forest
 
-![Deploy Azure AD Connect cloud sync in the acquired forest](media/parallel-identity-options/identity-combined-5.png)
+[Microsoft Entra Connect cloud provisioning](../hybrid/cloud-sync/what-is-cloud-sync.md) removes the network connectivity requirement, but you can only have one Active Directory to Microsoft Entra ID linking for a given user with cloud sync. Litware users can authenticate Contoso's Microsoft Entra integrated apps, but not Contoso's Active Directory-integrated apps. This topology doesn't require any TCP/IP connectivity between Litware and Contoso's on-premises environments.
 
-### Outcome of deploying Azure AD Connect cloud sync in the acquired forest
+![Deploy Microsoft Entra Connect cloud sync in the acquired forest](media/parallel-identity-options/identity-combined-5.png)
 
-- All Litware employees can authenticate Contoso's Azure AD-integrated apps.
+<a name='outcome-of-deploying-azure-ad-connect-cloud-sync-in-the-acquired-forest'></a>
 
-### Constraints of using Azure AD Connect cloud sync in the acquired forest
+### Outcome of deploying Microsoft Entra Connect cloud sync in the acquired forest
+
+- All Litware employees can authenticate Contoso's Microsoft Entra integrated apps.
+
+<a name='constraints-of-using-azure-ad-connect-cloud-sync-in-the-acquired-forest'></a>
+
+### Constraints of using Microsoft Entra Connect cloud sync in the acquired forest
 
 - Doesn't permit Litware users to have access to Contoso's AD-based applications
 
-## Scenario C - If Contoso wants to keep Litware's Azure AD
+<a name='scenario-c---if-contoso-wants-to-keep-litwares-azure-ad'></a>
 
-Litware may be a Microsoft Online Services or Azure customer or may have one or more Azure AD-based apps that they rely on. So, Contoso may want to continue to have Litware employees keep their own identities for access to those resources. A Litware employee would then use their existing identity for their authentication of their existing resources and authentication of Contoso resources.
+## Scenario C - If Contoso wants to keep Litware's Microsoft Entra ID
+
+Litware may be a Microsoft Online Services or Azure customer or may have one or more Microsoft Entra ID-based apps that they rely on. So, Contoso may want to continue to have Litware employees keep their own identities for access to those resources. A Litware employee would then use their existing identity for their authentication of their existing resources and authentication of Contoso resources.
 
 This scenario is suitable in cases where:
 
@@ -184,9 +200,11 @@ This scenario is suitable in cases where:
 - Litware may be spun out in future or is a partnership that will run independently.
 - Litware doesn't have on-premises infrastructure
 
-### Option 6 - Maintain parallel provisioning and SSO for apps in each Azure AD
+<a name='option-6---maintain-parallel-provisioning-and-sso-for-apps-in-each-azure-ad'></a>
 
-One option is for each Azure AD to independently provide SSO and [provision](../app-provisioning/user-provisioning.md) users from their directory into the target app. For example, if Contoso IT are using an app such as Salesforce, they would provide Litware with administrative rights to create users in the same Salesforce subscription.
+### Option 6 - Maintain parallel provisioning and SSO for apps in each Microsoft Entra ID
+
+One option is for each Microsoft Entra ID to independently provide SSO and [provision](../app-provisioning/user-provisioning.md) users from their directory into the target app. For example, if Contoso IT are using an app such as Salesforce, they would provide Litware with administrative rights to create users in the same Salesforce subscription.
 
 ![parallel provisioning for apps](media/parallel-identity-options/identity-combined-6.png)
 
@@ -198,11 +216,11 @@ One option is for each Azure AD to independently provide SSO and [provision](../
 
 - If using federation, it requires applications to support multiple federation providers for the same subscription.
 - Not possible for Microsoft apps such as Office or Azure
-- Contoso doesn't have visibility in their Azure AD of application access for Litware users
+- Contoso doesn't have visibility in their Microsoft Entra ID of application access for Litware users
 
 ### Option 7 - Configure B2B accounts for users from the acquired tenant
 
-If Litware has been running its own tenant, then Contoso can read the users from that tenant, and through the B2B API, invite each of those users into the Contoso tenant. (This bulk invite process can be done through the [MIM graph connector](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), for example.) If Contoso also has AD-based apps that they wish to make available to Litware users, then MIM could also create users in Active Directory that would map to the UPNs of Azure AD users, so that the app proxy could perform KCD on behalf of a representation of a Litware user in Contoso's Active Directory.
+If Litware has been running its own tenant, then Contoso can read the users from that tenant, and through the B2B API, invite each of those users into the Contoso tenant. (This bulk invite process can be done through the [MIM graph connector](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), for example.) If Contoso also has AD-based apps that they wish to make available to Litware users, then MIM could also create users in Active Directory that would map to the UPNs of Microsoft Entra users, so that the app proxy could perform KCD on behalf of a representation of a Litware user in Contoso's Active Directory.
 
 Then when a Litware employee wishes to access a Contoso app, they can do so by authenticating to their own directory, with access assignment to the resource tenant.
 
@@ -227,7 +245,7 @@ In some situations, after acquisition the organization may converge on a single 
 
 - Litware users can authenticate to Contoso apps, and Contoso control that access in their tenant.
 - Litware and Contoso have a unified GAL.
-- No change to Litware's Active Directory or Azure AD
+- No change to Litware's Active Directory or Microsoft Entra ID
 
 ### Constraints of setting up B2B guest users from a common HR system feed
 
@@ -246,13 +264,13 @@ In this scenario, Litware is assumed to have:
 - An identity provider that supports SAML, such as PingFederate or OKTA.
 - A publicly routed DNS domain such as Litware.com and users with email addresses in that domain
 
-In this approach, Contoso would configure a [direct federation](../external-identities/direct-federation.md) relationship from their tenant for that domain to Litware's identity provider, and then regularly read updates to Litware users from their directory to invite the Litware users into Contoso's Azure AD. This update can be done with a MIM Graph connector. If Contoso also has Active Directory-based apps that they wish to make available to Litware users, then MIM could also create users in Active Directory that would map to the UPNs of Azure AD users, so that the app proxy could perform KCD on behalf of a representation of a Litware user in Contoso's Active Directory.
+In this approach, Contoso would configure a [direct federation](../external-identities/direct-federation.md) relationship from their tenant for that domain to Litware's identity provider, and then regularly read updates to Litware users from their directory to invite the Litware users into Contoso's Microsoft Entra ID. This update can be done with a MIM Graph connector. If Contoso also has Active Directory-based apps that they wish to make available to Litware users, then MIM could also create users in Active Directory that would map to the UPNs of Microsoft Entra users, so that the app proxy could perform KCD on behalf of a representation of a Litware user in Contoso's Active Directory.
 
 ![Use B2B direct federation](media/parallel-identity-options/identity-combined-9.png)
 
 ### Outcome of using B2B direct federation
 
-- Litware users authenticate to Contoso's Azure AD with their existing identity provider and access Contoso's cloud and on-premises web apps,
+- Litware users authenticate to Contoso's Microsoft Entra ID with their existing identity provider and access Contoso's cloud and on-premises web apps,
 
 ### Constraints of using B2B direct federation
 
@@ -260,8 +278,8 @@ In this approach, Contoso would configure a [direct federation](../external-iden
 
 ## Next steps
 
-- [What is Azure AD Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md)
-- [Setup Inbound provisioning for Azure AD](../app-provisioning/plan-cloud-hr-provision.md)
+- [What is Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/what-is-cloud-sync.md)
+- [Setup Inbound provisioning for Microsoft Entra ID](../app-provisioning/plan-cloud-hr-provision.md)
 - [Setup B2B direct federation](../external-identities/direct-federation.md)
 - [Multi-tenant user management options](multi-tenant-user-management-introduction.md)
 - [What is application provisioning?](../app-provisioning/user-provisioning.md)

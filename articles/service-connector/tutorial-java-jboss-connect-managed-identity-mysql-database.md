@@ -7,7 +7,7 @@ ms.date: 08/14/2023
 ms.service: service-connector
 author: xfz11
 ms.author: xiaofanzhou
-ms.custom: passwordless-java, service-connector
+ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java
 ---
 
 # Tutorial: Connect to a MySQL Database from Java JBoss EAP App Service with passwordless connection

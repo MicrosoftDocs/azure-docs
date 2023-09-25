@@ -29,8 +29,8 @@ sections:
       questions:
         - question: Where does Azure Data Manager for Energy store customer data?
           answer: >
-            Azure Data Manager for Energy stores/process customer data. By default, customer data is replicated to the paired region. For region with data residency requirements, customer data is always kept within the same region
-
+            Azure Data Manager for Energy stores/process customer data. By default, customer data is replicated to the other paired regions for resiliency, but Microsoft doesn't replicate or move data outside the geography. For region with data residency requirements, customer data is always kept within the same region. Please check the [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md) for more details on the regions which support disaster recovery and cross region data replication.
+            
     - name: Pricing and Billing
       questions:
         - question: Where can I learn about the pricing for Azure Data Manager for Energy?
@@ -39,7 +39,7 @@ sections:
           
         - question: How is Azure Data Manager for Energy priced?
           answer: >
-            Azure Data Manager for Energy includes a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
+            Azure Data Manager for Energy includes a fixed instance fee for each base instance and for each additional data partition greater than 1. The fixed instance pricing includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
 
         - question: Does Azure Data Manager for Energy charge even if the instance is idle and not being used?
           answer: >

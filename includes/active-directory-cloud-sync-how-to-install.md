@@ -26,6 +26,7 @@ ms.custom: include file
    >When installing for the US Government Cloud use:  
    >*AADConnectProvisioningAgentSetup.exe ENVIRONMENTNAME=AzureUSGovernment*  
    >See "[Install an agent in the US government cloud](../articles/active-directory/hybrid/cloud-sync/how-to-install.md#install-an-agent-in-the-us-government-cloud)" for more information.
+
  7. On the splash screen, select **I agree to the license and conditions**, and then select **Install**.
 
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-splash-screen.png" alt-text="Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package splash screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-2.png":::

@@ -2,11 +2,11 @@
 title: Pull settings from App Configuration with Azure Pipelines
 description: Learn how to use Azure Pipelines to pull key-values from an App Configuration Store
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.author: mcleans
+ms.author: malev
 ---
 
 # Pull settings from App Configuration with Azure Pipelines

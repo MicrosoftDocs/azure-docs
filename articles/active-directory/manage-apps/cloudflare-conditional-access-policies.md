@@ -16,48 +16,47 @@ ms.custom: not-enterprise-apps
 
 # Tutorial: Configure Conditional Access policies in Cloudflare Access
 
-With Conditional Access, administrators enforce policies on application and user policies in Azure Active Directory (Azure AD). Conditional Access brings together identity-driven signals, to make decisions, and enforce organizational policies. Cloudflare Access creates access to self-hosted, software as a service (SaaS), or nonweb applications.
+With Conditional Access, administrators enforce policies on application and user policies in Microsoft Entra ID. Conditional Access brings together identity-driven signals, to make decisions, and enforce organizational policies. Cloudflare Access creates access to self-hosted, software as a service (SaaS), or nonweb applications.
 
 Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 ## Prerequisites
 
-* An Azure AD subscription
+* A Microsoft Entra subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-* An Azure AD tenant linked to the Azure AD subscription
-  * See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
-* Global Administrator permissions
-* Configured users in the Azure AD subscription  
+* A Microsoft Entra tenant linked to the Microsoft Entra subscription
+  * See, [Quickstart: Create a new tenant in Microsoft Entra ID](../fundamentals/create-new-tenant.md)
+* One of the following roles: Global Administrator, Cloud Application Administrator, or Application Administrator.
+* Configured users in the Microsoft Entra subscription  
 * A Cloudflare account
   * Go to dash.cloudflare.com to [Get started with Cloudflare](https://dash.cloudflare.com/sign-up?https%3A%2F%2Fone.dash.cloudflare.com%2F)
 
 ## Scenario architecture
 
-* **Azure AD** - Identity Provider (IdP) that verifies user credentials and Conditional Access
+* **Microsoft Entra ID** - Identity Provider (IdP) that verifies user credentials and Conditional Access
 * **Application** - You created for IdP integration
 * **Cloudflare Access** - Provides access to applications
 
 ## Set up an identity provider
 
-Go to developers.cloudflare.com to [set up Azure AD as an IdP](https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/azuread/#set-up-azure-ad-as-an-identity-provider).
+Go to developers.cloudflare.com to [set up Microsoft Entra ID as an IdP](https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/azuread/#set-up-azure-ad-as-an-identity-provider).
 
    > [!NOTE]
-   > It's recommended you name the IdP integration in relation to the target application. For example, **Azure AD - Customer management portal**.
+   > It's recommended you name the IdP integration in relation to the target application. For example, **Microsoft Entra ID - Customer management portal**.
 
 ## Configure Conditional Access
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory**.
-3. Under **Manage**, select **App registrations**.
-4. Select the application you created.
-5. Go to **Branding & properties**.
-6. For **Home page URL**, enter the application hostname.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+2. Browse to **Identity** > **Applications** > **App registrations** > **All applications**
+3. Select the application you created.
+4. Go to **Branding & properties**.
+5. For **Home page URL**, enter the application hostname.
 
    ![Screenshot of options and entries for branding and properties.](./media/cloudflare-conditional-access-policies/branding-properties.png)
 
-7. Under **Manage**, select **Enterprise applications**.
+7. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 8. Select your application.
 9. Select **Properties**.
 10. For **Visible to users**, select **Yes**. This action enables the app to appear in App Launcher and in [My Apps](https://myapplications.microsoft.com/).
@@ -88,5 +87,5 @@ Enforce Conditional Access policies on a Cloudflare Access application.
 ## Next steps
 
 * [What is Conditional Access?](../conditional-access/overview.md)
-* [Secure Hybrid Access with Azure AD partner integrations](secure-hybrid-access-integrations.md)
-* [Tutorial: Configure Cloudflare with Azure AD for secure hybrid access](cloudflare-integration.md)
+* [Secure Hybrid Access with Microsoft Entra ID partner integrations](secure-hybrid-access-integrations.md)
+* [Tutorial: Configure Cloudflare with Microsoft Entra ID for secure hybrid access](cloudflare-integration.md)

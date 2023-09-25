@@ -15,7 +15,7 @@ The Virtual Machine (VM) console service provides managed access to a VM hosted 
 
 :::image type="content" source="media/vm-console-service.png" alt-text="Diagram of VM Console service." lightbox="media/vm-console-service.png":::
 
-For more information about networking resources that enables private connectivity to an Operator Nexus Instance, see [Introduction to Azure Private Link](https://learn.microsoft.com/training/modules/introduction-azure-private-link/).
+For more information about networking resources that enables private connectivity to an Operator Nexus Instance, see [Introduction to Azure Private Link](/training/modules/introduction-azure-private-link/).
 
 This document provides guided instructions of how to use the VM Console service to establish a session with a Virtual Machine in an Operator Nexus Instance.
 

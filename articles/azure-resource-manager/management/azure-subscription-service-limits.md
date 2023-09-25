@@ -63,7 +63,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
-
 ## API Management limits
 
 [!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
@@ -127,6 +126,8 @@ Azure Communications Gateway also has limits on the SIP signaling.
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
+[!INCLUDE [container-apps-limits](../../../includes/container-apps/container-apps-limits.md)]
 
 ## Azure Cosmos DB limits
 

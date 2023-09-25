@@ -5,8 +5,7 @@ description: Use this article to learn how to deploy models for conversational l
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 10/12/2022
 ms.author: aahi

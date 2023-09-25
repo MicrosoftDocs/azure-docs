@@ -16,9 +16,11 @@ PolicyResources
 | summarize count() by tostring(properties.policyAssignmentId)
 ```
 
+For more information about using scopes with Azure CLI or Azure PowerShell, go to [Count Azure resources](../../resource-graph/samples/starter.md#count-resources).
+
 # [Azure CLI](#tab/azure-cli)
 
-Use the `--management-groups` parameter with your Azure Tenant ID to get data for tenant scope. In this example, the `tenantid` variable is used to store the Tenant ID.
+Use the `--management-groups` parameter with an Azure management group ID or tenant ID. In this example, the `tenantid` variable stores the tenant ID.
 
 ```azurecli-interactive
 tenantid="$(az account show --query tenantId --output tsv)"

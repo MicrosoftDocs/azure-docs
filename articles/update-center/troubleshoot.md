@@ -1,17 +1,18 @@
 ---
-title: Troubleshoot known issues with Azure Update Manager (preview)
-description: The article provides details on the known issues and troubleshooting any problems with Azure Update Manager (preview).
+title: Troubleshoot known issues with Azure Update Manager
+description: The article provides details on the known issues and troubleshooting any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 05/30/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
 
-# Troubleshoot issues with Azure Update Manager (preview)
+# Troubleshoot issues with Azure Update Manager
 
-This article describes the errors that might occur when you deploy or use Update Manager (preview), how to resolve them and the known issues and limitations of scheduled patching.  
+This article describes the errors that might occur when you deploy or use Update Manager, how to resolve them and the known issues and limitations of scheduled patching.  
 
+This article describes the errors that might occur when you deploy or use Update Manager, how to resolve them and the known issues and limitations of scheduled patching.  
 
 ## General troubleshooting
 
@@ -108,7 +109,7 @@ To review the logs related to all actions performed by the extension, on Windows
 
 - For concurrent/conflicting schedule, only one schedule will be triggered. The other schedule will be triggered once a schedule is finished.
 - If a machine is newly created, the schedule might have 15 minutes of schedule trigger delay in case of Azure VMs.
-- Policy definition *[Preview]: Schedule recurring updates using Update Manager* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
+- Policy definition *Schedule recurring updates using Azure Update Manager* with version 1.0.0-preview successfully remediates resources however, it will always show them as non-compliant. The current value of the existence condition is a placeholder that will always evaluate to false.
 
 ### Scenario: Unable to apply patches for the shutdown machines 
 
@@ -151,5 +152,5 @@ Setting a longer time range for maximum duration when triggering an [on-demand u
 
 ## Next steps
 
-* To learn more about Azure Update Manager (preview), see the [Overview](overview.md).
-* To view logged results from all your machines, see [Querying logs and results from update Manager (preview)](query-logs.md).
+* To learn more about Azure Update Manager, see the [Overview](overview.md).
+* To view logged results from all your machines, see [Querying logs and results from Update Manager](query-logs.md).

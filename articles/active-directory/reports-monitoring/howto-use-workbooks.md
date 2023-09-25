@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor workbooks for Azure Active Directory
-description: Learn how to use Azure Monitor workbooks for analyzing identity logs in Azure Active Directory reports.
+title: Azure Monitor workbooks for Microsoft Entra ID
+description: Learn how to use Azure Monitor workbooks for analyzing identity logs in Microsoft Entra ID reports.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.author: sarahlipsey
 ms.reviewer: sarbar
 ---
 
-# How to use Azure Active Directory Workbooks
+# How to use Microsoft Entra Workbooks
 
-Workbooks are found in Azure AD and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks, however, workbooks for Azure Active Directory (AD) cover only those identity management scenarios that are associated with Azure AD.
+Workbooks are found in Microsoft Entra ID and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks, however, workbooks for Microsoft Entra ID cover only those identity management scenarios that are associated with Microsoft Entra ID.
 
 When using workbooks, you can either start with an empty workbook, or use an existing template. Workbook templates enable you to quickly get started using workbooks without needing to build from scratch. 
 
@@ -24,15 +24,15 @@ When using workbooks, you can either start with an empty workbook, or use an exi
 
 ## Prerequisites
 
-To use Azure Workbooks for Azure AD, you need:
+To use Azure Workbooks for Microsoft Entra ID, you need:
 
-- An Azure AD tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
+- A Microsoft Entra tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
 - A Log Analytics workspace *and* access to that workspace
-- The appropriate roles for Azure Monitor *and* Azure AD
+- The appropriate roles for Azure Monitor *and* Microsoft Entra ID
 
 ### Log Analytics workspace
 
-You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) *before* you can use Azure AD Workbooks. There are a combination of factors that determine access to Log Analytics workspaces. You need the right roles for the workspace *and* the resources sending the data.
+You must create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) *before* you can use Microsoft Entra Workbooks. There are a combination of factors that determine access to Log Analytics workspaces. You need the right roles for the workspace *and* the resources sending the data.
 
 For more information, see [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md).
 
@@ -52,9 +52,11 @@ For more information on the Azure Monitor built-in roles, see [Roles, permission
 
 For more information on the Log Analytics RBAC roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
-### Azure AD roles
+<a name='azure-ad-roles'></a>
 
-Read only access allows you to view Azure AD log data inside a workbook, query data from Log Analytics, or read logs in the Azure AD portal. Update access adds the ability to create and edit diagnostic settings to send Azure AD data to a Log Analytics workspace.
+### Microsoft Entra roles
+
+Read only access allows you to view Microsoft Entra ID log data inside a workbook, query data from Log Analytics, or read logs in the Microsoft Entra admin center. Update access adds the ability to create and edit diagnostic settings to send Microsoft Entra data to a Log Analytics workspace.
 
 - **Read**:
   - Reports Reader
@@ -64,9 +66,11 @@ Read only access allows you to view Azure AD log data inside a workbook, query d
 - **Update**:
     - Security Administrator
 
-For more information on Azure AD built-in roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
+For more information on Microsoft Entra built-in roles, see [Microsoft Entra built-in roles](../roles/permissions-reference.md).
 
-## How to access Azure Workbooks for Azure AD
+<a name='how-to-access-azure-workbooks-for-azure-ad'></a>
+
+## How to access Azure Workbooks for Microsoft Entra ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -77,9 +81,9 @@ For more information on Azure AD built-in roles, see [Azure AD built-in roles](.
     - **My Templates**: Templates you've created
 1. Select a report or template from the list. Workbooks may take a few moments to populate. 
     - Search for a template by name.
-    - Select the **Browse across galleries** to view templates that aren't specific to Azure AD.
+    - Select the **Browse across galleries** to view templates that aren't specific to Microsoft Entra ID.
 
-    ![Find the Azure Monitor workbooks in Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
+    ![Find the Azure Monitor workbooks in Microsoft Entra ID](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## Create a new workbook
 

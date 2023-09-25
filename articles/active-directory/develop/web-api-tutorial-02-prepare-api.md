@@ -10,7 +10,7 @@ ms.author: cwerner
 manager: CelesteDG
 ms.topic: tutorial
 ms.date: 11/1/2022
-#Customer intent: As an application developer, I want to create an ASP.NET Core project in an IDE, then configure it in such a way that I can add authentication with Azure AD.
+#Customer intent: As an application developer, I want to create an ASP.NET Core project in an IDE, then configure it in such a way that I can add authentication with Microsoft Entra ID.
 ---
 
 # Tutorial: Create and configure an ASP.NET Core project for authentication

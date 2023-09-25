@@ -47,7 +47,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 | Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md).|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - MSAL provides the feature][y]|![Proactively refresh and revoke tokens based on policy or critical events for Microsoft Graph and other APIs that support Continuous Access Evaluation (CAE) - ADAL doesn't provide the feature][n]|
 | Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) |![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - MSAL provides the feature][y]|![Standards compliant with OAuth v2.0 and OpenID Connect (OIDC) - ADAL doesn't provide the feature][n]|
 |**User accounts and experiences**|||
-|Azure Active Directory (Azure AD) accounts|![Azure Active Directory (Azure AD) accounts - MSAL provides the feature][y]|![Azure Active Directory (Azure AD) accounts - ADAL provides the feature][y]|
+|Microsoft Entra accounts|![Microsoft Entra accounts - MSAL provides the feature][y]|![Microsoft Entra accounts - ADAL provides the feature][y]|
 | Microsoft account (MSA) |![Microsoft account (MSA) - MSAL provides the feature][y]|![Microsoft account (MSA) - ADAL doesn't provide the feature][n]|
 | Azure AD B2C accounts |![Azure AD B2C accounts - MSAL provides the feature][y]|![Azure AD B2C accounts - ADAL doesn't provide the feature][n]|
 | Best single sign-on experience |![Best single sign-on experience - MSAL provides the feature][y]|![Best single sign-on experience - ADAL doesn't provide the feature][n]|
@@ -61,7 +61,7 @@ MSAL provides multiple benefits over ADAL, including the following features:
 ## Additional capabilities of MSAL over ADAL
 
 - Proof of possession tokens
-- Azure AD certificate-based authentication (CBA) on mobile
+- Microsoft Entra certificate-based authentication (CBA) on mobile
 - System browsers on mobile devices
 - Where ADAL had only authentication context class, MSAL exposes the notion of a collection of client apps (public client and confidential client).
 
@@ -85,11 +85,11 @@ MSAL Supports a wide range of application types and scenarios. Refer to [Microso
 ADAL to MSAL migration guide for different platforms are available in the following links:
 
 - [Migrate to MSAL iOS and macOS](migrate-objc-adal-msal.md)
-- [Migrate to MSAL Java](migrate-adal-msal-java.md)
+- [Migrate to MSAL Java](/entra/msal/java/advanced/migrate-adal-msal-java)
 - [Migrate to MSAL.js](msal-compare-msal-js-and-adal-js.md)
 - [Migrate to MSAL .NET](msal-net-migration.md)
 - [Migrate to MSAL Node](msal-node-migration.md)
-- [Migrate to MSAL Python](migrate-python-adal-msal.md)   
+- [Migrate to MSAL Python](/entra/msal/python/advanced/migrate-python-adal-msal)   
 
 ## Migration help
 

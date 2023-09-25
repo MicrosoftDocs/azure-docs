@@ -76,7 +76,7 @@ Identity related **npm** packages must be installed in the project to enable use
 1. Ensure that the correct directory is selected (*reactspalocal*) then enter the following into the terminal to install the relevant `msal` and `bootstrap` packages.
 
     ```powershell
-    npm install @azure/msal-browser @azure/msal-react
+    npm install @azure/msal-browser @azure/msal-react @azure/msal-common
     npm install react-bootstrap bootstrap
     ```
 ---
@@ -93,7 +93,7 @@ To learn more about these packages refer to the documentation in [msal-browser](
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
 
-1. Replace the following values with the values from the Azure portal.
+1. Replace the following values with the values from the Microsoft Entra admin center.
     - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     - `authority` - This is composed of two parts:
         - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
@@ -106,7 +106,7 @@ To learn more about these packages refer to the documentation in [msal-browser](
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
 
-1. Replace the following values with the values from the Azure portal.
+1. Replace the following values with the values from the Microsoft Entra admin center.
     - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     - `authority` - This is composed of two parts:
         - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).

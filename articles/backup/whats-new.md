@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 08/30/2023
+ms.date: 09/14/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -16,6 +16,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- September 2023
+  - [Support for selective disk backup with enhanced policy for Azure VM is now generally available](whats-new.md#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-is-now-generally-available)
 - August 2023
   - [Save your MARS backup passphrase securely to Azure Key Vault (preview)](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-preview)
   - [Cross Region Restore for MARS Agent (preview)](#cross-region-restore-for-mars-agent-preview)
@@ -27,7 +29,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - March 2023
   - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
   - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
-  - [Support for selective disk backup with enhanced policy for Azure VM (preview)](#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-preview)
+  - [Support for selective disk backup with enhanced policy for Azure VM (preview)](whats-new.md#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-is-now-generally-available)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
   - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
@@ -113,7 +115,7 @@ Azure Backup now supports immutable vaults that help you ensure that recovery po
 
 For more information, see the [concept of Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 
-## Support for selective disk backup with enhanced policy for Azure VM (preview)
+## Support for selective disk backup with enhanced policy for Azure VM is now generally available
 
 Azure Backup now provides *Selective Disk backup and restore* capability to Enhanced policy. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier.
 
