@@ -27,7 +27,7 @@ sections:
       - question: | 
           Does Global Secure Access allow B2B logins?
         answer: |
-          At this time, B2B logins are only supported when the user is accessing the service from a device that is Azure AD joined to the tenant that matches their sign-in credentials.
+          At this time, B2B logins are only supported when the user is accessing the service from a device that is Microsoft Entra joined to the tenant that matches their sign-in credentials.
           For example, Bob works at Fabrikam and is working on a project for Contoso. Contoso provided Bob a device and a Contoso identity, such as v-Bob@contoso.com. To access Contoso's Global Secure Access using the Contoso device, Bob can use either Bob@Fabrikam.com or v-Bob@Contoso.com.
           However, Bob can't use the Fabrikam device that is joined to the Fabrikam tenant to access Contoso's Global Secure Access.
       - question: | 

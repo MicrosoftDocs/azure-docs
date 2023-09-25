@@ -22,7 +22,7 @@ With the Microsoft 365 profile enabled, Microsoft Entra Internet Access acquires
 To enable the Microsoft 365 traffic forwarding profile for your tenant, you must have:
 
 - A **Global Secure Access Administrator** role in Microsoft Entra ID
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 - To use the Microsoft 365 traffic forwarding profile, a Microsoft 365 E3 license is recommended.
 
 ### Known limitations

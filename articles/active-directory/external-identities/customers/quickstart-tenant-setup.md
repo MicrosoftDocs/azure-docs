@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 # Quickstart: Create a tenant (preview)
 
-Azure Active Directory (Azure AD) offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. You'll need to create a tenant with customer configurations in the Microsoft Entra admin center to get started. Once the tenant with customer configurations is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+Microsoft Entra External ID offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. You'll need to create a tenant with customer configurations in the Microsoft Entra admin center to get started. Once the tenant with customer configurations is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
 In this quickstart, you'll learn how to create a tenant with customer configurations if you already have an Azure subscription. If you don't have an Azure subscription, you can create a customer tenant free trial. For more information about the free trial, see [Set up a free trial](quickstart-trial-setup.md).
 

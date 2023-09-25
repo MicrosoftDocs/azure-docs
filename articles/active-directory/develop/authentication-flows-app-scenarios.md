@@ -124,7 +124,7 @@ For a desktop app to call a web API that signs in users, use the interactive tok
 
 ![A desktop app calling a web API](media/scenarios/desktop-app.svg)
 
-There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
+There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Microsoft Entra ID. These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
 
 Applications running on a device without a browser can still call an API on behalf of a user. To authenticate, the user must sign in on another device that has a web browser. This scenario requires that you use the [device code flow](v2-oauth2-device-code.md).
 
@@ -132,7 +132,7 @@ Applications running on a device without a browser can still call an API on beha
 
 Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token-username-password.md) is available in public client applications. This flow is still needed in some scenarios like DevOps.
 
-Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
+Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Microsoft Entra ID. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
 In desktop apps, if you want the token cache to persist, you can customize the [token cache serialization](msal-net-token-cache-serialization.md). By implementing dual token cache serialization, you can use backward-compatible and forward-compatible token caches.
 
@@ -153,7 +153,7 @@ For more information, see [Mobile app that calls web APIs](scenario-mobile-overv
 > [!NOTE]
 > A mobile app that uses MSAL.iOS, MSAL.Android, or MSAL.NET on Xamarin can have app protection policies applied to it. For instance, the policies might prevent a user from copying protected text. The mobile app is managed by Intune and is recognized by Intune as a managed app. For more information, see [Microsoft Intune App SDK overview](/intune/app-sdk).
 >
-> The [Intune App SDK](/intune/app-sdk-get-started) is separate from MSAL libraries and interacts with Azure AD on its own.
+> The [Intune App SDK](/intune/app-sdk-get-started) is separate from MSAL libraries and interacts with Microsoft Entra ID on its own.
 
 ### Protected web API
 
@@ -175,7 +175,7 @@ For more information, see [Web API that calls web APIs](scenario-web-api-call-ap
 
 Apps that have long-running processes or that operate without user interaction also need a way to access secure web APIs. Such an app can authenticate and get tokens by using the app's identity. The app proves its identity by using a client secret or certificate.
 
-You can write such daemon apps that acquire a token for the calling app by using the [client credential](scenario-daemon-acquire-token.md#acquiretokenforclient-api) acquisition methods in MSAL. These methods require a client secret that you add to the app registration in Azure AD. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
+You can write such daemon apps that acquire a token for the calling app by using the [client credential](scenario-daemon-acquire-token.md#acquiretokenforclient-api) acquisition methods in MSAL. These methods require a client secret that you add to the app registration in Microsoft Entra ID. The app then shares the secret with the called daemon. Examples of such secrets include application passwords, certificate assertion, and client assertion.
 
 ![A daemon app called by other apps and APIs](media/scenarios/daemon-app.svg)
 
@@ -259,7 +259,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
    <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls web APIs" src="media/scenarios/daemon-app.svg"></a></td>
    <td><a href="scenario-daemon-overview.md">Daemon app that calls web APIs</a></td>
    <td><a href="v2-oauth2-client-creds-grant-flow.md">Client credentials</a></td>
-   <td>App-only permissions that have no user and are used only in Azure AD organizations</td>
+   <td>App-only permissions that have no user and are used only in Microsoft Entra organizations</td>
  </tr>
 
   <tr>

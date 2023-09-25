@@ -2,7 +2,7 @@
 title: Check update compliance in Azure Update Manager
 description: The article details how to use Azure Update Manager in the Azure portal to assess update compliance for supported machines.
 ms.service: azure-update-manager
-ms.date: 05/31/2023
+ms.date: 09/18/2023
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -24,7 +24,7 @@ This article details how to check the status of available updates on a single VM
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In Update Manager, **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
+1. In **Azure Update Manager**, **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
 
 1. In **Select resources and check for updates**, choose the machine for which you want to check the updates and select **Check for updates**.
 
@@ -39,9 +39,9 @@ This article details how to check the status of available updates on a single VM
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In Update Manager, **Machines**, select your **Subscription** to view all your machines.
+1. In **Azure Update Manager**, **Machines**, select your **Subscription** to view all your machines.
 
-1. Select your machine from the checkbox and select **Check for updates**, **Assess now** or alternatively, you can select your machine, in **Updates Preview**, select **Assess updates**, and in **Trigger assess now**, select **OK**.
+1. Select your machine from the checkbox and select **Check for updates**, **Assess now** or alternatively, you can select your machine, in **Updates**, select **Assess updates**, and in **Trigger assess now**, select **OK**.
 
     An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful* else, you will see the notification *Assessment Failed*. For more information, see [update assessment scan](assessment-options.md#update-assessment-scan).
 
@@ -54,7 +54,7 @@ This article details how to check the status of available updates on a single VM
 
       :::image type="content" source="./media/view-updates/resources-check-updates.png" alt-text="Screenshot showing selection of updates from Home page.":::
 
-1. In **Updates (Preview)**, select **Check for updates**, in **Trigger assess now**, select **OK**.
+1. In **Updates**, select **Check for updates**, in **Trigger assess now**, select **OK**.
 
    An assessment is performed and a notification appears first that the *Assessment is in progress* and after a successful assessment, you will see *Assessment successful* else, you will see the notification *Assessment Failed*.
 
@@ -75,7 +75,7 @@ To check the updates on your machines at scale, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In Update Manager, **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
+1. In **Azure Update Manager**, **Overview**, select your **Subscription** to view all your machines and select **Check for updates**.
 
 1. In **Select resources and check for updates**, choose your machines for which you want to check the updates and select **Check for updates**.
 
@@ -88,7 +88,7 @@ To check the updates on your machines at scale, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In Update Manager, **Machines**, select your **Subscription** to view all your machines.
+1. In **Azure Update Manager**, **Machines**, select your **Subscription** to view all your machines.
 
 1. Select the **Select all** to choose all your machines and select **Check for updates**.
 
@@ -99,7 +99,7 @@ To check the updates on your machines at scale, follow these steps:
 ---
 
 > [!NOTE]
-> In Update Manager, you can initiate a software updates compliance scan on the machine to get the current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
+> In Azure Update Manager, you can initiate a software updates compliance scan on the machine to get the current list of operating system (guest) updates including the security and critical updates. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
 
 
  

@@ -5,8 +5,7 @@ description: Learn how to set up and use Vision Studio to test features of Azure
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: overview
 ms.date: 12/27/2022
 ms.author: pafarley

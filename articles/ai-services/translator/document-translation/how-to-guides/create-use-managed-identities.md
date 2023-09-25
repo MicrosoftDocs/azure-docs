@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Understand how to create and use managed identities in the Azure portal
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: how-to
 ms.date: 07/18/2023

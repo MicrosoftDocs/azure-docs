@@ -27,7 +27,7 @@ The following tables describe the policy settings available.
 
 ## MDM settings
 
-The MDM policy settings apply to Windows 10 or newer. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD-based syncing.
+The MDM policy settings apply to Windows 10 or newer. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Microsoft Entra ID-based syncing.
 
 | Name | Description |
 | --- | --- |
