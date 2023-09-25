@@ -2,11 +2,11 @@
 title: Authentication and authorization
 description: This article provides an overview of the authentication and authorization of Azure Health Data Services.
 services: healthcare-apis
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.topic: overview
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: chrupa
 ---
 
 # Authentication and authorization for Azure Health Data Services
