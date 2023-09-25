@@ -14,7 +14,7 @@ ms.author: shaas
 
 # Doc scores:
 #    11/18/22: 75 (2456/62)
-#    09/01/23: 100 ()
+#    09/01/23: 100 (2159/0)
 ---
 
 <!--
@@ -73,7 +73,7 @@ Review the following considerations before you copy the data to the disks:
 - Ensure that virtual hard disks (VHDs) uploaded to the precreated folders have unique names within resource groups. Managed disks must have unique names within a resource group across all the precreated folders on the Data Box Disk. If you're using multiple Data Box Disks, managed disk names must be unique across all folder and disks. When VHDs with duplicate names are found, only one is converted to a managed disk with that name. The remaining VHDs are uploaded as page blobs into the staging storage account.
 - Always copy the VHDs to one of the precreated folders. VHDs placed outside of these folders or in a folder that you created are uploaded to Azure Storage accounts as page blobs instead of managed disks.
 - Only fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs and VHDX files aren't supported.
-- The Data Box Disk Split Copy and Validation tools, `DataBoxDiskSplitCopy.exe` and `DataBoxDiskValidation.cmd`, report failures when long paths are processed. These failures are common when long paths aren't enabled on the client, and your data copy's paths and file names exceed 256 characters. To avoid ththese failures, follow the guidance within the [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later) article.
+- The Data Box Disk Split Copy and Validation tools, `DataBoxDiskSplitCopy.exe` and `DataBoxDiskValidation.cmd`, report failures when long paths are processed. These failures are common when long paths aren't enabled on the client, and your data copy's paths and file names exceed 256 characters. To avoid these failures, follow the guidance within the [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later) article.
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
