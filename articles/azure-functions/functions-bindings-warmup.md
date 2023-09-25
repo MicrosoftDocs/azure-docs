@@ -59,7 +59,7 @@ namespace WarmupSample
         {
             //Initialize shared dependencies here
             
-            log.LogInformation("Function App instance is warm 🌞🌞🌞");
+            log.LogInformation("Function App instance is warm.");
         }
     }
 }
@@ -75,7 +75,7 @@ The following example shows a warmup trigger that runs when each new instance is
 ```java
 @FunctionName("Warmup")
 public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext context) {
-    context.getLogger().info("Function App instance is warm 🌞🌞🌞");
+    context.getLogger().info("Function App instance is warm.");
 }
 ```
 
@@ -104,7 +104,7 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, warmupContext) {
-    context.log('Function App instance is warm 🌞🌞🌞');
+    context.log('Function App instance is warm.');
 };
 ```
 
@@ -158,7 +158,7 @@ import azure.functions as func
 
 
 def main(warmupContext: func.Context) -> None:
-    logging.info('Function App instance is warm 🌞🌞🌞')
+    logging.info('Function App instance is warm.')
 ```
 
 ::: zone-end  
