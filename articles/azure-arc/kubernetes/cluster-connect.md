@@ -93,6 +93,7 @@ Before you begin, review the [conceptual overview of the cluster connect feature
 
 On the existing Arc-enabled cluster, create the ClusterRoleBinding with either Azure Active Directory authentication, or a Service Account token:
 
+## Option 1: Azure Active Directory authentication
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -157,7 +158,7 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either A
 
 ---
 
-## Service account token authentication option
+## Option 2: Service account token authentication
 
 ### [Azure CLI](#tab/azure-cli)
 
