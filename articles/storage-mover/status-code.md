@@ -70,5 +70,3 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM2069"></a>**AZSM2069** |Failed to read target file due to permission issues.  | Verify that the agent has been granted permissions to the target location. |
 | <a name="AZSM2070"></a>**AZSM2070** |Cannot write blob because it has an active lease. | This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
 | <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error.  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bmRZi9iGsK0?si=5aARcKekphfvtnVn&amp;controls=0" title="How to mount an Azure Files share in Windows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
