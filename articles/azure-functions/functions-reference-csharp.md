@@ -3661,8 +3661,6 @@ Here's the *function.json* file:
 }
 ```
 
-For more information, see [Attributes](#attributes).
-
 ```cs
 public static void Run(WarmupContext warmupContext, ILogger log)
 {
