@@ -157,7 +157,7 @@
     },
     {
       "source_path_from_root": "/articles/global-secure-access/index.yml",
-      "redirect_url": "/entra/global-secure-access/index.yml",
+      "redirect_url": "/entra/global-secure-access/index",
       "redirect_document_id": false
     },
     {
@@ -177,7 +177,7 @@
     },
     {
       "source_path_from_root": "/articles/global-secure-access/resource-faq.yml",
-      "redirect_url": "/entra/global-secure-access/resource-faq.yml",
+      "redirect_url": "/entra/global-secure-access/resource-faq",
       "redirect_document_id": false
     },
     {
