@@ -165,31 +165,33 @@ For web applications that use Access Control for user authentication, Access Con
     - Adding additional custom claims.
     - Simple if-then logic to issue claims under certain conditions.
 
-Unfortunately, there isn't one service that offers all of these equivalent capabilities. You should evaluate which capabilities of Access Control you need, and then choose between using [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/), [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) (Azure AD B2C), or another cloud authentication service.
+Unfortunately, there isn't one service that offers all of these equivalent capabilities. You should evaluate which capabilities of Access Control you need, and then choose between using [Microsoft Entra ID](https://azure.microsoft.com/develop/identity/signin/), [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) (Azure AD B2C), or another cloud authentication service.
 
-#### Migrate to Azure Active Directory
+<a name='migrate-to-azure-active-directory'></a>
 
-A path to consider is integrating your apps and services directly with Azure AD. Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Microsoft 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
+#### Migrate to Microsoft Entra ID
 
-The primary example is federation with social identity providers, such as Facebook, Google, and Yahoo. If your users sign in with these types of credentials, Azure AD is not the solution for you. 
+A path to consider is integrating your apps and services directly with Microsoft Entra ID. Microsoft Entra ID is the cloud-based identity provider for Microsoft work or school accounts. Microsoft Entra ID is the identity provider for Microsoft 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
 
-Azure AD also doesn't necessarily support the exact same authentication protocols as Access Control. For example, although both Access Control and Azure AD support OAuth, there are subtle differences between each implementation. Different implementations require you to modify code as part of a migration.
+The primary example is federation with social identity providers, such as Facebook, Google, and Yahoo. If your users sign in with these types of credentials, Microsoft Entra ID is not the solution for you. 
 
-However, Azure AD does provide several potential advantages to Access Control customers. It natively supports Microsoft work or school accounts hosted in the cloud, which are commonly used by Access Control customers. 
+Microsoft Entra ID also doesn't necessarily support the exact same authentication protocols as Access Control. For example, although both Access Control and Microsoft Entra ID support OAuth, there are subtle differences between each implementation. Different implementations require you to modify code as part of a migration.
 
-An Azure AD tenant can also be federated to one or more instances of on-premises Active Directory via AD FS. This way, your app can authenticate cloud-based users and users that are hosted on-premises. It also supports the WS-Federation protocol, which makes it relatively straightforward to integrate with a web application by using WIF.
+However, Microsoft Entra ID does provide several potential advantages to Access Control customers. It natively supports Microsoft work or school accounts hosted in the cloud, which are commonly used by Access Control customers. 
 
-The following table compares the features of Access Control that are relevant to web applications with those features that are available in Azure AD. 
+A Microsoft Entra tenant can also be federated to one or more instances of on-premises Active Directory via AD FS. This way, your app can authenticate cloud-based users and users that are hosted on-premises. It also supports the WS-Federation protocol, which makes it relatively straightforward to integrate with a web application by using WIF.
 
-At a high level, *Azure Active Directory is probably the best choice for your migration if you let users sign in only with their Microsoft work or school accounts*.
+The following table compares the features of Access Control that are relevant to web applications with those features that are available in Microsoft Entra ID. 
 
-| Capability | Access Control support | Azure AD support |
+At a high level, *Microsoft Entra ID is probably the best choice for your migration if you let users sign in only with their Microsoft work or school accounts*.
+
+| Capability | Access Control support | Microsoft Entra ID support |
 | ---------- | ----------- | ---------------- |
 | **Types of accounts** | | |
 | Microsoft work or school accounts | Supported | Supported |
-| Accounts from Windows Server Active Directory and AD FS |- Supported via federation with an Azure AD tenant <br />- Supported via direct federation with AD FS | Only supported via federation with an Azure AD tenant | 
-| Accounts from other enterprise identity management systems |- Possible via federation with an Azure AD tenant <br />- Supported via direct federation | Possible via federation with an Azure AD tenant |
-| Microsoft accounts for personal use | Supported | Supported via the Azure AD v2.0 OAuth protocol, but not over any other protocols | 
+| Accounts from Windows Server Active Directory and AD FS |- Supported via federation with a Microsoft Entra tenant <br />- Supported via direct federation with AD FS | Only supported via federation with a Microsoft Entra tenant | 
+| Accounts from other enterprise identity management systems |- Possible via federation with a Microsoft Entra tenant <br />- Supported via direct federation | Possible via federation with a Microsoft Entra tenant |
+| Microsoft accounts for personal use | Supported | Supported via the Microsoft Entra v2.0 OAuth protocol, but not over any other protocols | 
 | Facebook, Google, Yahoo accounts | Supported | Not supported whatsoever |
 | **Protocols and SDK compatibility** | | |
 | WIF | Supported | Supported, but limited instructions are available |
@@ -204,25 +206,25 @@ At a high level, *Azure Active Directory is probably the best choice for your mi
 | **Customizations** | | |
 | Customizable home realm discovery/account-picking UI | Downloadable code that can be incorporated into apps | Not supported |
 | Upload custom token-signing certificates | Supported | Supported |
-| Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Cannot pass through claims from federated identity providers<br />- Cannot get access token from identity provider as a claim<br />- Cannot issue output claims based on values of input claims<br />- Can issue output claims with constant values<br />- Can issue output claims based on properties of users synced to Azure AD |
+| Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Cannot pass through claims from federated identity providers<br />- Cannot get access token from identity provider as a claim<br />- Cannot issue output claims based on values of input claims<br />- Can issue output claims with constant values<br />- Can issue output claims based on properties of users synced to Microsoft Entra ID |
 | **Automation** | | |
 | Automate configuration and management tasks | Supported via Access Control Management Service | Supported using the Microsoft Graph API |
 
-If you decide that Azure AD is the best migration path for your applications and services, you should be aware of two ways to integrate your app with Azure AD.
+If you decide that Microsoft Entra ID is the best migration path for your applications and services, you should be aware of two ways to integrate your app with Microsoft Entra ID.
 
-To use WS-Federation or WIF to integrate with Azure AD, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](../develop/single-sign-on-saml-protocol.md). The article refers to configuring Azure AD for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires an Azure AD Premium license. This approach has two advantages:
+To use WS-Federation or WIF to integrate with Microsoft Entra ID, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](../develop/single-sign-on-saml-protocol.md). The article refers to configuring Microsoft Entra ID for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires a Microsoft Entra ID P1 or P2 license. This approach has two advantages:
 
-- You get the full flexibility of Azure AD token customization. You can customize the claims that are issued by Azure AD to match the claims that are issued by Access Control. This especially includes the user ID or Name Identifier claim. To continue to receive consistent user IDentifiers for your users after you change technologies, ensure that the user IDs issued by Azure AD match those issued by Access Control.
+- You get the full flexibility of Microsoft Entra token customization. You can customize the claims that are issued by Microsoft Entra ID to match the claims that are issued by Access Control. This especially includes the user ID or Name Identifier claim. To continue to receive consistent user IDentifiers for your users after you change technologies, ensure that the user IDs issued by Microsoft Entra ID match those issued by Access Control.
 - You can configure a token-signing certificate that is specific to your application, and with a lifetime that you control.
 
 > [!NOTE]
-> This approach requires an Azure AD Premium license. If you are an Access Control customer and you require a premium license for setting up single-sign on for an application, contact us. We'll be happy to provide developer licenses for you to use.
+> This approach requires a Microsoft Entra ID P1 or P2 license. If you are an Access Control customer and you require a premium license for setting up single-sign on for an application, contact us. We'll be happy to provide developer licenses for you to use.
 
-An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions for setting up WS-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and don't require an Azure AD Premium license. 
+An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions for setting up WS-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and don't require a Microsoft Entra ID P1 or P2 license. 
 
-If you choose this approach, you need to understand [signing key rollover in Azure AD](../develop/signing-key-rollover.md). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
+If you choose this approach, you need to understand [signing key rollover in Microsoft Entra ID](../develop/signing-key-rollover.md). This approach uses the Microsoft Entra global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Microsoft Entra ID rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Microsoft Entra ID](/previous-versions/azure/dn641920(v=azure.100)).
 
-If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](../develop/index.yml).
+If you can integrate with Microsoft Entra ID via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Microsoft Entra ID into your web application available in our [Microsoft Entra developer guide](../develop/index.yml).
 
 #### Migrate to Azure Active Directory B2C
 
@@ -267,12 +269,12 @@ If you decide that Azure AD B2C is the best migration path for your applications
 
 #### Migrate to Ping Identity or Auth0
 
-In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
+In some cases, you might find that Microsoft Entra ID and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
 
 - Web applications that use WIF or WS-Federation for sign-in with social identity providers such as Google or Facebook.
 - Web applications that perform direct federation to an enterprise identity provider over the WS-Federation protocol.
 - Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
-- Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
+- Web applications with complex token transformation rules that Microsoft Entra ID or Azure AD B2C can't reproduce.
 - Multi-tenant web applications that use ACS to centrally manage federation to many different identity providers
 
 In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
@@ -310,16 +312,18 @@ For web services that are secured with tokens issued by Access Control, Access C
 
 Service identities in Access Control are typically used to implement server-to-server authentication. 
 
-#### Migrate to Azure Active Directory
+<a name='migrate-to-azure-active-directory'></a>
 
-Our recommendation for this type of authentication flow is to migrate to [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Microsoft 365, Azure, and much more. 
+#### Migrate to Microsoft Entra ID
 
-You can also use Azure AD for server-to-server authentication by using the Azure AD implementation of the OAuth client credentials grant. The following table compares the capabilities of Access Control in server-to-server authentication with those that are available in Azure AD.
+Our recommendation for this type of authentication flow is to migrate to [Microsoft Entra ID](https://azure.microsoft.com/develop/identity/signin/). Microsoft Entra ID is the cloud-based identity provider for Microsoft work or school accounts. Microsoft Entra ID is the identity provider for Microsoft 365, Azure, and much more. 
 
-| Capability | Access Control support | Azure AD support |
+You can also use Microsoft Entra ID for server-to-server authentication by using the Microsoft Entra implementation of the OAuth client credentials grant. The following table compares the capabilities of Access Control in server-to-server authentication with those that are available in Microsoft Entra ID.
+
+| Capability | Access Control support | Microsoft Entra ID support |
 | ---------- | ----------- | ---------------- |
-| How to register a web service | Create a relying party in the Access Control management portal | Create an Azure AD web application in the Azure portal |
-| How to register a client | Create a service identity in Access Control management portal | Create another Azure AD web application in the Azure portal |
+| How to register a web service | Create a relying party in the Access Control management portal | Create a Microsoft Entra web application in the Azure portal |
+| How to register a client | Create a service identity in Access Control management portal | Create another Microsoft Entra web application in the Azure portal |
 | Protocol used |- OAuth WRAP protocol<br />- OAuth 2.0 Draft 13 client credentials grant | OAuth 2.0 client credentials grant |
 | Client authentication methods |- Simple password<br />- Signed SWT<br />- SAML token from a federated identity provider |- Simple password<br />- Signed JWT |
 | Token formats |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT only |
@@ -328,17 +332,17 @@ You can also use Azure AD for server-to-server authentication by using the Azure
 
 For guidance about implementing server-to-server scenarios, see the following resources:
 
-- Service-to-Service section of the [Azure AD developer guide](../develop/index.yml)
+- Service-to-Service section of the [Microsoft Entra developer guide](../develop/index.yml)
 - [Daemon code sample by using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Daemon code sample by using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### Migrate to Ping Identity or Auth0
 
-In some cases, you might find that the Azure AD client credentials and the OAuth grant implementation aren't sufficient to replace Access Control in your architecture without major code changes. Some common examples might include:
+In some cases, you might find that the Microsoft Entra client credentials and the OAuth grant implementation aren't sufficient to replace Access Control in your architecture without major code changes. Some common examples might include:
 
 - Server-to-server authentication using token formats other than JWTs.
 - Server-to-server authentication using an input token provided by an external identity provider.
-- Server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
+- Server-to-server authentication with token transformation rules that Microsoft Entra ID cannot reproduce.
 
 In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 

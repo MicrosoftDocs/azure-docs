@@ -49,7 +49,7 @@
         href: ../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Sign-out
         href: ../develop/single-sign-out-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-      - name: How Azure AD uses the SAML protocol
+      - name: How Microsoft Entra ID uses the SAML protocol
         href: ../develop/saml-protocol-reference.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: WS-Federation
       items:
@@ -69,7 +69,7 @@
     items:
     - name: Applications and service principals
       href: ../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-    - name: How and why apps are added to Azure AD
+    - name: How and why apps are added to Microsoft Entra ID
       href: ../develop/how-applications-are-added.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: Single tenant and multi-tenant apps
       href: ../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
@@ -167,7 +167,7 @@
     href: videos.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Azure AD blog
+  - name: Microsoft Entra blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
   - name: Microsoft identity platform developer blog
     href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/

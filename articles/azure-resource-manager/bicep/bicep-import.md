@@ -3,7 +3,7 @@ title: Import Bicep namespaces
 description: Describes how to import Bicep namespaces.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/14/2023
+ms.date: 09/21/2023
 ---
 
 # Import Bicep namespaces
@@ -29,7 +29,7 @@ import * as <namespace> from '<bicep-file-name>'
 
 You can mix and match the two preceding syntaxes.
 
-Only user-defined data types that bear the [@export() decorator](./user-defined-data-types.md#decorator) can be imported. Currently, this decorator can only be used on [`type`](./user-defined-data-types.md) statements.
+Only user-defined data types that bear the [@export() decorator](./user-defined-data-types.md#import-types-between-bicep-files-preview) can be imported. Currently, this decorator can only be used on [`type`](./user-defined-data-types.md) statements.
 
 Imported types can be used anywhere a user-defined type might be, for example, within the type clauses of type, param, and output statements.
 

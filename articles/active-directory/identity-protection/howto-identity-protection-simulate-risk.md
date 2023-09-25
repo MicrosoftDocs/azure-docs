@@ -1,5 +1,5 @@
 ---
-title: Simulating risk detections in Azure AD Identity Protection
+title: Simulating risk detections in Microsoft Entra ID Protection
 description: Learn how to simulate risk detections in Identity Protection
 
 services: active-directory
@@ -38,7 +38,7 @@ More information about each risk detection can be found in the article, What is 
 Completing the following procedure requires you to use:
 
 - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) to simulate anonymous IP addresses. You might need to use a virtual machine if your organization restricts using the Tor browser.
-- A test account that isn't yet registered for Azure AD multifactor authentication.
+- A test account that isn't yet registered for Microsoft Entra multifactor authentication.
 
 **To simulate a sign-in from an anonymous IP, perform the following steps**:
 
@@ -59,18 +59,18 @@ The procedure below uses a newly created:
 Completing the following procedure requires you to use a user account that has:
 
 - At least a 30-day sign-in history.
-- Azure AD multifactor authentication enabled.
+- Microsoft Entra multifactor authentication enabled.
 
 **To simulate a sign-in from an unfamiliar location, perform the following steps**:
 
 1. Using your new VPN, navigate to [https://myapps.microsoft.com](https://myapps.microsoft.com) and enter the credentials of your test account.
-2. When signing in with your test account, fail the multifactor authentication (MFA) challenge by not passing the MFA challenge.
+2. When signing in with your test account, fail the multifactor authentication challenge by not passing the MFA challenge.
 
 The sign-in shows up on the Identity Protection dashboard within 10 - 15 minutes.
 
 ## Atypical travel
 
-Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days or 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there's a chance that the following steps won't lead to a risk detection. You might want to replicate these steps for multiple Azure AD accounts to simulate this detection.
+Simulating the atypical travel condition is difficult because the algorithm uses machine learning to weed out false-positives such as atypical travel from familiar devices, or sign-ins from VPNs that are used by other users in the directory. Additionally, the algorithm requires a sign-in history of 14 days or 10 logins of the user before it begins generating risk detections. Because of the complex machine learning models and above rules, there's a chance that the following steps won't lead to a risk detection. You might want to replicate these steps for multiple Microsoft Entra accounts to simulate this detection.
 
 **To simulate an atypical travel risk detection, perform the following steps**:
 
@@ -105,7 +105,7 @@ This risk detection indicates that the application's valid credentials have been
      "AadTenantDomain": "XXXX.onmicrosoft.com",
      "AadTenantId": "99d4947b-XXX-XXXX-9ace-abceab54bcd4",
    ```
-1. In about 8 hours, you'll be able to view a leaked credential detection under **Azure Active Directory** > **Security** > **Risk Detection** > **Workload identity detections** where the additional info will contain the URL of your GitHub commit.
+1. In about 8 hours, you'll be able to view a leaked credential detection under **Protection** > **Identity Protection** > **Risk Detection** > **Workload identity detections** where the additional info will contain the URL of your GitHub commit.
 
 ## Testing risk policies
 
@@ -136,4 +136,4 @@ To test a sign-in risk policy, perform the following steps:
 
 - [How To: Configure and enable risk policies](howto-identity-protection-configure-risk-policies.md)
 
-- [Azure Active Directory Identity Protection](overview-identity-protection.md)
+- [Microsoft Entra ID Protection](overview-identity-protection.md)

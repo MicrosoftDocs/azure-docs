@@ -90,6 +90,8 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 
 File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) aren't compatible with Gen2. You need to rename these files or directories before you migrate.
 
+For the better performance, consider delaying the migration for at least seven days from the time of the last delete operation. In a Gen1 account, deleted files become _soft_ deleted files, and the Garbage Collector won't remove them permanently until approximately seven days. All files, including soft deleted files, are processed during migration. If you wait until the Garbage Collector has permanently removed deleted files, your wait time can improve.  
+
 ## Step 5: Perform the migration
 
 Before you begin, review the two migration options below, and decide whether to only copy data from Gen1 to Gen2 (recommended) or perform a complete migration.
@@ -257,6 +259,20 @@ When you copy the data over to your Gen2-enabled account, two factors that can a
 #### Will WebHDFS File System APIs supported on Gen2 account post migration?
 
 WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibility layer. Customers should plan to leverage Gen2-specific APIs for better performance and features.
+
+#### What happens to my Gen1 account after the retirement date?
+
+The account becomes inaccessible. You won't be able to:
+
+- Manage the account
+
+- Access data in the account 
+
+- Receive service updates to Gen1 or Gen1 APIs, SDKs, or client tools
+
+- Access Gen1 customer support online, by phone or by email
+
+See [Action required: Switch to Azure Data Lake Storage Gen2 by 29 February 2024](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
 ## Next steps
 

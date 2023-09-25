@@ -1,6 +1,6 @@
 ---
 title: Add and manage admin accounts
-description: Learn how to add and manage admin accounts in your customer tenant with Microsoft Entra for customers.
+description: Learn how to add and manage admin accounts in your customer tenant with Microsoft Entra ID for customers.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -15,12 +15,12 @@ ms.custom: it-pro
 ---
 # Add and manage admin accounts
 
-In Azure Active Directory (Azure AD) for customers, a customer tenant represents your directory of consumer and guest accounts. With an administrator role, work and guest accounts can manage the tenant.
+In Microsoft Entra ID for customers, a customer tenant represents your directory of consumer and guest accounts. With an administrator role, work and guest accounts can manage the tenant.
 
 ## Prerequisites
 
-- If you haven't already created your own Azure AD customer tenant, create one now. <!--(how-to-create-customer-tenant-portal.md)-->
-- Understand user accounts in Azure AD for customers.
+- If you haven't already created your own Microsoft Entra customer tenant, create one now. <!--(how-to-create-customer-tenant-portal.md)-->
+- Understand user accounts in Microsoft Entra ID for customers.
 - Understand user roles to control resource access.
 
 ## Add an admin account
@@ -38,7 +38,7 @@ To create a new admin account, follow these steps:
    - **First name**. The first name of the new user. For example, *Mary*.
    - **Last name**. The last name of the new user. For example, *Parker*.
    - **Groups**. *Optional*. You can add the user to one or more existing groups. You can also add the user to groups at a later time.
-   - **Roles**: To add administrative permissions for the user, add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD.
+   - **Roles**: To add administrative permissions for the user, add them to a Microsoft Entra role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Microsoft Entra ID.
    - **Settings**: Use the yes or no toggle to set **Block sign in**, and the select the admin's primary location in the **Usage location** list.
    - **Job info**: You can add more information about the user here, or do it later.
 
@@ -61,7 +61,7 @@ You can also invite a new guest user to manage your tenant. To invite an admin, 
    - **Email address**. *Required*. The email address of the user you would like to invite.
    - **Personal message**: You add a personal message that will be included in the invite email.
    - **Groups**. *Optional*. You can add the user to one or more existing groups. You can also add the user to groups at a later time.
-   - **Roles**: To add administrative permissions for the user, add them to an Azure AD role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Azure AD.
+   - **Roles**: To add administrative permissions for the user, add them to a Microsoft Entra role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Microsoft Entra ID.
    - **Settings**: Use the yes or no toggle to set **Block sign in**, and the select the admin's primary location in the **Usage location** list.
    - **Job info**: You can add more information about the user here, or do it later.
 
@@ -108,7 +108,7 @@ To delete an existing user, you must have a *Global administrator* role assignme
 1. Select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Azure AD](../../fundamentals/users-restore.md).
+The user is deleted and no longer appears on the **All users** page. The user can be seen on the **Deleted users** page for the next 30 days and can be restored during that time. For more information about restoring a user, see [Restore or remove a recently deleted user using Microsoft Entra ID](../../fundamentals/users-restore.md).
 
 ## Protect administrative accounts
 
