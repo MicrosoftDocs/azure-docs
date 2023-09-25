@@ -154,7 +154,7 @@ Learn more:
 
 * [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
 * [Create a group in the Microsoft 365 admin center](/microsoft-365/admin/create-groups/create-groups?view=o365-worldwide&preserve-view=true)
-* [Azure portal](https://portal.azure.com/)
+* [Microsoft Entra admin center](https://entra.microsoft.com)
 * [Microsoft 365 admin center](https://admin.microsoft.com/)
 
 ### Microsoft 365 Groups roles
