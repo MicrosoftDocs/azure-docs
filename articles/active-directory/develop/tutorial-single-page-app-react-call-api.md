@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Create components for sign in and sign out in a React single-page app](single-page-app-tutorial-03-sign-in-users.md).
+* Completion of the prerequisites and steps in [Tutorial: Create components for sign in and sign out in a React single-page app](tutorial-single-page-app-react-sign-in-users.md).
 
 ## Creating a helper the Microsoft Graph client
 

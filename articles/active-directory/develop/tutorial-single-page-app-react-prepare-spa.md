@@ -27,7 +27,7 @@ In this tutorial:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Register an application](single-page-app-tutorial-01-register-app.md).
+* Completion of the prerequisites and steps in [Tutorial: Register an application](tutorial-single-page-app-react-register-app.md).
 * Although any IDE that supports React applications can be used, the following Visual Studio IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page. For macOS users, it's recommended to use Visual Studio Code.
   - Visual Studio 2022
   - Visual Studio Code
@@ -125,4 +125,4 @@ All parts of the app that require authentication must be wrapped in the [`MsalPr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create components for sign in and sign out in a React single-page app](single-page-app-tutorial-03-sign-in-users.md)
+> [Tutorial: Create components for sign in and sign out in a React single-page app](tutorial-single-page-app-react-sign-in-users.md)

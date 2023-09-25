@@ -134,7 +134,7 @@
         - name: React
           items:
           - name: Register your app
-            href: tutorial-single-page-app-react-prepare-app.md
+            href: tutorial-single-page-app-react-register-app.md
           - name: Prepare your app
             href: tutorial-single-page-app-react-prepare-spa.md
           - name: Sign in users
