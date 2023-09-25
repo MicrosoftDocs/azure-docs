@@ -4,7 +4,7 @@ description: FAQs for single instance Azure virtual machines from a regional con
 author: ankitaduttaMSFT
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 09/06/2023
+ms.date: 09/25/2023
 ms.author: ankitadutta
 ---
 
@@ -129,4 +129,3 @@ Review the following scenarios where you can or can't retain Public IP addresses
 ## Next steps
 
 - Learn more about [moving single instance Azure VMs from regional to zonal configuration](../reliability/migrate-vm.md#migration-option-2-vm-regional-to-zonal-move).
-    
