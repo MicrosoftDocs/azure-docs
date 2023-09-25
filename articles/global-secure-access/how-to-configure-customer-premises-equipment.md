@@ -37,7 +37,7 @@ You can set up the CPE using the Microsoft Entra admin center or using the Micro
 
     :::image type="content" source="media/how-to-configure-customer-premises-equipment/remote-network-view-configuration.png" alt-text="Screenshot of the configuration details with the Microsoft information highlighted." lightbox="media/how-to-configure-customer-premises-equipment/remote-network-view-configuration-expanded.png":::
 
-1. Locate and save Microsoft's public IP address from the panel that opens.
+1. Locate and save Microsoft's public IP address `endpoint` from the panel that opens.
 
     ![Screenshot of the view configuration details panel.](media/how-to-configure-customer-premises-equipment/view-configuration-details-panel.png)
 
@@ -66,17 +66,19 @@ Follow these instructions to download the connectivity information for your remo
 1. Set the API version to **beta**.
 1. Run the following query to list your remote networks and their device links:
 
+    ``` http
+    GET https://graph.microsoft.com/beta/networkaccess/connectivity/branches
     ```
-       GET https://graph.microsoft.com/beta/networkaccess/connectivity/branches
-    ```
-1. Run the following query to use get the connectivity information, replacing `{branchSiteId}` with the ID of your remote network and `{deviceLinkId}` with the ID of your device link:
+1. Run the following query to get the connectivity information, replacing `{branchSiteId}` with the ID of your remote network and `{deviceLinkId}` with the ID of your device link:
 
     ``` http
     GET https://graph.microsoft.com/beta/networkAccess/connectivity/branches/{branchSiteId}/deviceLinks/{deviceLinkId}
     ```
----
 
 The details in the response are similar to the device configuration details found in the Microsoft Entra admin center. 
+
+---
+
 
 [!INCLUDE [Public preview important note](./includes/public-preview-important-note.md)]
 
