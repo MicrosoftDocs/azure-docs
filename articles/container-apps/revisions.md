@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 09/25/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
 ---
 
 # Update and deploy changes in Azure Container Apps
 
-Change management can be challenging as you develop containerized applications in the cloud. Ultimately, you need support to track changes, ensure uptime, and have mechanisms to handle smooth rollbacks.
+Change management can be challenging as you develop containerized applications in the cloud. Ultimately, you need the support to track changes, ensure uptime, and have mechanisms to handle smooth rollbacks.
 
 Change management in Azure Container Apps is powered by revisions, which are a snapshot of each version of your container app.
 
@@ -59,7 +59,7 @@ After a container app is successfully provisioned, a revision enters its operati
 
 ### Inactive status
 
-Revisions can also enter an inactive state. These revisions don't possess provisioning or running states. However, Azure Container Apps maintains a list of these revisions, accommodating up to 100 inactive entries.
+Revisions can also enter an inactive state. These revisions don't possess provisioning or running states. However, Azure Container Apps maintains a list of these revisions, accommodating up to 100 inactive entries. You can activate a revision at any time.
 
 ## Revision modes
 
@@ -67,10 +67,43 @@ Azure Container Apps support two revision modes. Your choice of mode determines 
 
 | Revision modes | Description | Default |
 |---|---|---|
-| Single | Deploying updates are managed, ensuring that your new revision is active, provisioned, and running at scale before switching traffic to the new revision. Traffic and deprovisioning old revisions are automatic. | Yes |
+| Single | New revisions are automatically provisioned, activated, and scaled to the desired size. Once all the replicas are running as defined by the [scale rule](scale-app.md), then traffic is diverted from the old version to the new one. If an update fails, traffic remains pointed to the old revision. Old revisions are automatically deprovisioned. | Yes |
 | Multiple | You can have multiple active revisions, split traffic between revisions, and choose when to deprovision old revisions. This is helpful for testing multiple versions of an app, blue-green testing, or having full control of app updates. [View more on traffic splitting](traffic-splitting.md).
 
-In *single revision mode*, new revisions are automatically provisioned, activated, and scaled to the desired size. Once all the replicas are running as defined by the [scale rule](scale-app.md), then traffic is diverted from the old version to the new one. If an update fails, traffic remains pointed to the old revision.  
+### Labels
+
+For container apps with external HTTP traffic, labels direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned.
+
+To switch traffic between revisions, you can move the label from one revision to another.
+
+- Labels keep the same URL when moved from one revision to another.
+- A label can be applied to only one revision at a time.
+- Allocation for traffic splitting isn't required for revisions with labels.
+- Labels are most useful when the app is in *multiple revision mode*.
+- You can enable labels, traffic splitting or both.
+
+Labels are useful for testing new revisions.  For example, when you want to give access to a set of test users, you can give them the label's URL. Then when you want to move your users to a different revision, you can move the label to that revision.
+
+Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  When traffic is directed to a label's URL, the traffic is routed to one specific revision.
+
+A label name must:
+
+- Consist of lower case alphanumeric characters or dashes (`-`)
+- Start with an alphabetic character
+- End with an alphanumeric character
+
+Labels must not:
+
+- Have two consecutive dashes (`--`)
+- Be more than 64 characters
+
+You can manage labels from your container app's **Revision management** page in the Azure portal.
+
+:::image type="content" source="media/revisions/screen-shot-revision-mgmt-labels.png" alt-text="Screenshot of Container Apps revision management.":::
+
+The label URL is available in the revision details pane.
+
+:::image type="content" source="media/revisions/screen-shot-revision-mgmt-revision-details.png" alt-text="Screenshot of Container Apps revision details.":::
 
 ### Zero downtime deployment
 
@@ -79,6 +112,7 @@ In *single revision mode*, Container Apps ensures your app doesn't experience do
 If ingress is enabled, the existing revision continues to receive 100% of the traffic until the new revision is ready.
 
 A new revision is considered ready when:
+
 - The revision has provisioned successfully
 - The revision has scaled up to match the previous revisions replica count (respecting the new revision's min and max replica count)
 - All the replicas have passed their startup and readiness probes 
@@ -91,6 +125,8 @@ While single revision mode is the default, sometimes you may want to have full c
 
 The multiple revision mode gives you the flexibility to manage your revision manually. For instance, using multiple revision mode allows you to decide exactly how much traffic is allocated to each revision.
 
+### Traffic splitting
+
 The following diagram shows a container app with two revisions.
 
 :::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
@@ -101,6 +137,10 @@ This scenario presumes the container app is in the following state:
 - The first revision was deployed as *Revision 1*.
 - After the container was updated, a new revision was activated as *Revision 2*.
 - [Traffic splitting](traffic-splitting.md) rules are configured so that *Revision 1* receives 80% of the requests, and *Revision 2* receives the remaining 20%.
+
+### Direct revision access
+
+Rather than using a routing rule to divert traffic to a revision, you may want to make a revision available to requests for a specific URL. Multiple revision mode can allow you to send all requests coming in to your domain to the latest revision, while requests for an older revision are available via [labels](#labels) for direct access.
 
 ### Activation state
 
@@ -173,41 +213,6 @@ Names must not have:
 
 You can set the revision suffix in the [ARM template](azure-resource-manager-api-spec.md#propertiestemplate), through the Azure CLI `az containerapp create` and `az containerapp update` commands, or when creating a revision via the Azure portal.
 
-### Labels
-
-For container apps with external HTTP traffic, labels direct traffic to specific revisions. A label provides a unique URL that you can use to route traffic to the revision that the label is assigned.
-
-To switch traffic between revisions, you can move the label from one revision to another.
-
-- Labels keep the same URL when moved from one revision to another.
-- A label can be applied to only one revision at a time.
-- Allocation for traffic splitting isn't required for revisions with labels.
-- Labels are most useful when the app is in *multiple revision mode*.
-- You can enable labels, traffic splitting or both.
-
-Labels are useful for testing new revisions.  For example, when you want to give access to a set of test users, you can give them the label's URL. Then when you want to move your users to a different revision, you can move the label to that revision.
-
-Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  When traffic is directed to a label's URL, the traffic is routed to one specific revision.
-
-A label name must:
-
-- Consist of lower case alphanumeric characters or dashes (`-`)
-- Start with an alphabetic character
-- End with an alphanumeric character
-
-Labels must not:
-
-- Have two consecutive dashes (`--`)
-- Be more than 64 characters
-
-You can manage labels from your container app's **Revision management** page in the Azure portal.
-
-:::image type="content" source="media/revisions/screen-shot-revision-mgmt-labels.png" alt-text="Screenshot of Container Apps revision management.":::
-
-The label URL is available in the revision details pane.
-
-:::image type="content" source="media/revisions/screen-shot-revision-mgmt-revision-details.png" alt-text="Screenshot of Container Apps revision details.":::
-
 ## Use cases
 
 The following are common use cases for using revisions in container apps. This list isn't an exhaustive list of the purpose or capabilities of using Container Apps revisions.
@@ -226,7 +231,7 @@ When you want to test different versions of your app, revisions can support [A/B
 
 ### Blue-green deployments
 
-Revisions support the [blue-green deployment](blue-green-deployment.md) strategy. By having two parallel environments (blue for the live version and green for the new one), you can gradually phase in a new revision. Once you're confident in the new version's stability and performance, you can switch traffic entirely to the green environment.
+Revisions support the [blue-green deployment](blue-green-deployment.md) strategy. By having two parallel revisions (blue for the live version and green for the new one), you can gradually phase in a new revision. Once you're confident in the new version's stability and performance, you can switch traffic entirely to the green environment.
 
 ## Next steps
 
