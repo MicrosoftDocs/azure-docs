@@ -43,7 +43,7 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 
 ## Install extension
 
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
@@ -53,7 +53,7 @@ Add the extension to your project by installing [this NuGet package](https://www
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prerelease
 ```
 
-### [In-process](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 

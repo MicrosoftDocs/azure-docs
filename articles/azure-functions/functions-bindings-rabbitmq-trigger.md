@@ -26,11 +26,11 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23" :::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
@@ -194,7 +194,7 @@ The attribute's constructor takes the following parameters:
 |**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
 |**Port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
 
@@ -202,7 +202,7 @@ Here's a `RabbitMQTrigger` attribute in a method signature for an isolated worke
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
 
@@ -284,11 +284,11 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the RabbitMQ trigger depends on the C# modality used.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The RabbitMQ bindings currently support only string and serializable object types when running in an isolated process.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 

@@ -31,11 +31,11 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 
 The following sample polls the key `listTest` at a localhost Redis instance at `127.0.0.1:6379`:
 
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 The isolated process examples aren't available in preview.
 
-### [In-process](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 ```csharp
 [FunctionName(nameof(ListsTrigger))]

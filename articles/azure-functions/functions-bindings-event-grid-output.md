@@ -45,13 +45,13 @@ The type of the output parameter used with an Event Grid output binding depends 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
 * [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 
@@ -525,7 +525,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 The attribute's constructor takes the name of an application setting that contains the name of the custom topic, and the name of an application setting that contains the topic key. 
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following table explains the parameters for the `EventGridAttribute`.
 
@@ -535,7 +535,7 @@ The following table explains the parameters for the `EventGridAttribute`.
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 |**Connection**<sup>*</sup> | The name of the app setting that contains the connection string when using an [identity-based connection](#connections) to the topic.  | 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following table explains the parameters for the `EventGridOutputAttribute`.
 

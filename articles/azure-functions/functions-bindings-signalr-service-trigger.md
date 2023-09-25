@@ -27,14 +27,14 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following sample shows a C# function that receives a message event from clients and logs the message content.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
 
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 SignalR Service trigger binding for C# has two programming models. Class based model and traditional model. Class based model provides a consistent SignalR server-side programming experience. Traditional model provides more flexibility and is similar to other function bindings.
 
@@ -170,7 +170,7 @@ def main(invocation) -> None:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `SignalRTrigger` attribute to define the function. C# script instead uses a function.json configuration file.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following table explains the properties of the `SignalRTrigger` attribute.
 
@@ -182,7 +182,7 @@ The following table explains the properties of the `SignalRTrigger` attribute.
 |**ParameterNames**| (Optional) A list of names that binds to the parameters. |
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following table explains the properties of the `SignalRTrigger` attribute.
 

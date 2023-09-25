@@ -20,11 +20,11 @@ For information on setup and configuration details, see the [overview](./functio
 
 The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
    
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -545,7 +545,7 @@ With this simple binding, you can't programmatically handle a case in which no r
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#table-input).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute` supports the following properties:
 
@@ -586,7 +586,7 @@ public static void Run(
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
 
@@ -646,11 +646,11 @@ The following table explains the binding configuration properties that you set i
 
 The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 An in-process class library is a compiled C# function that runs in the same process as the Functions runtime.
  

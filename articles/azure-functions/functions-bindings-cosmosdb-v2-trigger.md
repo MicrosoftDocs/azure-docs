@@ -40,11 +40,11 @@ This article supports both programming models.
 
 The usage of the trigger depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  

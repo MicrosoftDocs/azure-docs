@@ -32,13 +32,13 @@ The following considerations apply when using a warmup trigger:
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when it's added to your app. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that runs on each new instance when it's added to your app. 
 
@@ -194,11 +194,11 @@ def main(warmupContext: func.Context) -> None:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTrigger` attribute to define the function. C# script instead uses a *function.json* configuration file.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Use the `WarmupTrigger` attribute to define the function. This attribute has no parameters.   
 
@@ -243,14 +243,14 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The following considerations apply to using a warmup function in C#:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 - Your function must be named `warmup` (case-insensitive) using the `Function` attribute.
 - A return value attribute isn't required.
 - Use the `Microsoft.Azure.Functions.Worker.Extensions.Warmup` package
 - You can pass an object instance to the function.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 - Your function must be named `warmup` (case-insensitive) using the `FunctionName` attribute.
 - A return value attribute isn't required.

@@ -16,7 +16,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. For the **Create a new Azure Functions application** settings, use the values in the following table:
 
-    # [In-process](#tab/in-process) 
+    # [In-process model](#tab/in-process) 
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -28,7 +28,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     
     ![Azure Functions project settings](./media/functions-vs-tools-create/functions-project-settings.png)
 
-    # [Isolated process](#tab/isolated-process)
+    # [Isolated worker model](#tab/isolated-process)
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |

@@ -23,13 +23,13 @@ Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.servicebus).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
 
@@ -112,7 +112,7 @@ Functions 1.x apps automatically have a reference to the extension.
 
 The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
    
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
 

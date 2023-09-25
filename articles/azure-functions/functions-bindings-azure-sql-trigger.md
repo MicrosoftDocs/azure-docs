@@ -46,7 +46,7 @@ For more information on change tracking and how it's used by applications such a
 <a id="example"></a>
 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-outofproc).
 
@@ -106,7 +106,7 @@ namespace AzureSQL.ToDo
 ```
 
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 

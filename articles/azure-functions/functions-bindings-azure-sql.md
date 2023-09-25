@@ -26,7 +26,7 @@ This set of articles explains how to work with [Azure SQL](/azure/azure-sql/inde
 
 The extension NuGet package you install depends on the C# mode you're using in your function app:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
@@ -45,7 +45,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL trigger for Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 

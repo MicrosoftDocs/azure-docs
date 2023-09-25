@@ -44,7 +44,7 @@ Unless otherwise noted, examples in this article target version 3.x of the [Azur
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 This section contains examples that require version 3.x of Azure Cosmos DB extension and 5.x of Azure Storage extension. If not already present in your function app, add reference to the following NuGet packages:
 
@@ -65,7 +65,7 @@ The following example shows a function that retrieves a single document. The fun
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosInputBindingFunctions.cs" range="244-264":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 This section contains the following examples for using [in-process C# class library functions](functions-dotnet-class-library.md) with extension version 3.x:
 

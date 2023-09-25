@@ -9,7 +9,7 @@ ms.custom: devdivchpfy22
 
 In a C# project, the bindings are defined as binding attributes on the function method. Specific definitions depend on whether your app runs in-process (C# class library) or in an isolated worker process.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
 
@@ -21,7 +21,7 @@ The Run method definition must now look like the following code:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-18":::
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Open the *HttpExample.cs* project file and add the following `MultiResponse` class:
 

@@ -40,7 +40,7 @@ Unless otherwise noted, examples in this article target version 3.x of the [Azur
 
 ::: zone pivot="programming-language-csharp"
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following code defines a `MyDocument` type:
 
@@ -50,7 +50,7 @@ In the following example, the return type is an [`IReadOnlyList<T>`](/dotnet/api
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 This section contains the following examples:
 

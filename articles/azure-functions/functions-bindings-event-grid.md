@@ -27,11 +27,11 @@ This reference shows how to connect to Azure Event Grid using Azure Functions tr
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
@@ -115,11 +115,11 @@ The Event Grid output binding is only available for Functions 2.x and higher. Ev
 
 The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
    
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  

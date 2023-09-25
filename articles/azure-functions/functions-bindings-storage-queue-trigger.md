@@ -40,13 +40,13 @@ Use the queue trigger to start a function when a new item is received on a queue
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that polls the `input-queue` queue and writes several messages to an output queue each time a queue item is processed.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -272,7 +272,7 @@ def main(msg: func.QueueMessage):
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#queue-trigger).
 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 In [C# class libraries](dotnet-isolated-process-guide.md), the attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 
@@ -280,7 +280,7 @@ In [C# class libraries](dotnet-isolated-process-guide.md), the attribute's const
 
 This example also demonstrates setting the [connection string setting](#connections) in the attribute itself. 
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 
@@ -415,7 +415,7 @@ See the [Example section](#example) for complete examples.
 
 The usage of the Queue trigger depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.   
 

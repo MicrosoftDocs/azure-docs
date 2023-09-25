@@ -20,11 +20,11 @@ This article explains how to send email by using [SendGrid](https://sendgrid.com
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
@@ -88,11 +88,11 @@ You can add the extension to your project by explicitly installing the [NuGet pa
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 We don't currently have an example for using the SendGrid binding in a function app running in an isolated worker process. 
 
-# [In-process](#tab/in-process)    
+# [In-process model](#tab/in-process)    
 
 The following examples shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
 
@@ -385,7 +385,7 @@ public class HttpTriggerSendGrid {
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [in-process](functions-dotnet-class-library.md) function apps, use the [SendGridAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), which supports the following parameters.
 
@@ -397,7 +397,7 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [SendG
 | **Subject** | (Optional) The subject of the email. | 
 | **Text** | (Optional) The email content. | 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `SendGridOutputAttribute` supports the following parameters:
 

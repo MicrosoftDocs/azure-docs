@@ -20,11 +20,11 @@ This article explains how to send text messages by using [Twilio](https://www.tw
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
@@ -90,11 +90,11 @@ Unless otherwise noted, these examples are specific to version 2.x and later ver
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 
-# [In-process](#tab/in-process)    
+# [In-process model](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a text message when triggered by a queue message.
 
@@ -353,7 +353,7 @@ public class TwilioOutput {
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [in-process](functions-dotnet-class-library.md) function apps, use the [TwilioSmsAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), which supports the following parameters.
 
@@ -366,7 +366,7 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [Twili
 | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 

@@ -50,7 +50,7 @@ This article supports both programming models.
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following example shows an HTTP trigger that returns a "hello world" response as an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object:
 
@@ -69,7 +69,7 @@ public IActionResult Run(
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 
-# [In-process](#tab/in-process)    
+# [In-process model](#tab/in-process)    
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that looks for a `name` parameter either in the query string or the body of the HTTP request. Notice that the return value is used for the output binding, but a return value attribute isn't required.
 
@@ -501,7 +501,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `HttpTriggerAttribute` to define the trigger binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-trigger).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAttribute` supports the following parameters:
 
@@ -512,7 +512,7 @@ In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAt
 | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](#webhook-type).|
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
 
@@ -645,7 +645,7 @@ The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger
 
 ### Payload
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The trigger input type is declared as one of the following types:
 
@@ -679,7 +679,7 @@ namespace AspNetIntegration
 }
 ```
 
-# [In-process](#tab/in-process)   
+# [In-process model](#tab/in-process)   
 
 The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
@@ -699,7 +699,7 @@ You can customize this route using the optional `route` property on the HTTP tri
 
 ::: zone pivot="programming-language-csharp"
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
 
@@ -721,7 +721,7 @@ FunctionContext executionContext)
 }
 ```
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
 
@@ -1011,11 +1011,11 @@ You can also read this information from binding data. This capability is only av
 ::: zone pivot="programming-language-csharp"
 Information regarding authenticated clients is available as a [ClaimsPrincipal], which is available as part of the request context as shown in the following example:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 ```csharp
 using System.Net;

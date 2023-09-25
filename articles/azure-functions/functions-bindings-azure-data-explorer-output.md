@@ -22,7 +22,7 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure Data Explorer output binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-outofproc).
 
@@ -134,7 +134,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindin
     }
 }
 ```
-### [In-process](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 More samples for the Azure Data Explorer output binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-csharp).
 

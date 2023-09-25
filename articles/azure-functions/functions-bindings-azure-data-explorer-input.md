@@ -20,7 +20,7 @@ The Azure Data Explorer input binding retrieves data from a database.
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure Data Explorer input binding (out of process) are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-outofproc).
 
@@ -94,7 +94,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.InputBinding
 }
 ```
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 More samples for the Azure Data Explorer input binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/blob/main/samples/samples-csharp).
 

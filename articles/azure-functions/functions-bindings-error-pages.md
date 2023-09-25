@@ -102,7 +102,7 @@ This behavior means that the maximum retry count is a best effort. In some rare 
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process/fixed-delay)
+# [In-process model](#tab/in-process/fixed-delay)
 
 Retries require NuGet package [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
@@ -120,7 +120,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 |MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
 
-# [Isolated process](#tab/isolated-process/fixed-delay)
+# [Isolated worker model](#tab/isolated-process/fixed-delay)
 
 Function-level retries are supported with the following NuGet packages:
 
@@ -163,7 +163,7 @@ Here's the retry policy in the *function.json* file:
 |maxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |delayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
 
-# [In-process](#tab/in-process/exponential-backoff)
+# [In-process model](#tab/in-process/exponential-backoff)
 
 Retries require NuGet package [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
@@ -182,7 +182,7 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 |MinimumInterval|The minimum retry delay. Specify it as a string with the format `HH:mm:ss`.|
 |MaximumInterval|The maximum retry delay. Specify it as a string with the format `HH:mm:ss`.|
 
-# [Isolated process](#tab/isolated-process/exponential-backoff)
+# [Isolated worker model](#tab/isolated-process/exponential-backoff)
 
 Function-level retries are supported with the following NuGet packages:
 

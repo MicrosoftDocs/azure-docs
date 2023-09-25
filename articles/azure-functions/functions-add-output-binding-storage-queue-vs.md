@@ -46,11 +46,11 @@ Because you're using a Queue storage output binding, you need the Storage bindin
 
 1. In the console, run the following [Install-Package](/nuget/tools/ps-ref-install-package) command to install the Storage extensions:
 
-    # [Isolated process](#tab/isolated-process)
+    # [Isolated worker model](#tab/isolated-process)
     ```bash
     Install-Package /dotnet/api/microsoft.azure.webjobs.blobattribute.Queues -IncludePrerelease
     ```
-    # [In-process](#tab/in-process) 
+    # [In-process model](#tab/in-process) 
     ```bash
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage 
     ```

@@ -29,13 +29,13 @@ For information on setup and configuration details, see the [overview](functions
 
 ### Broadcast to all clients
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following example shows a function that sends a message using the output binding to all connected clients. The *newMessage* is the name of the method to be invoked on each client.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_broadcast_to_all":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following example shows a function that sends a message using the output binding to all connected clients. The *target* is the name of the method to be invoked on each client. The *Arguments* property is an array of zero or more objects to be passed to the client method.
 
@@ -170,11 +170,11 @@ public SignalRMessage sendMessage(
 
 You can send a message only to connections that have been authenticated to a user by setting the *user ID* in the SignalR message.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_user":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -313,11 +313,11 @@ public SignalRMessage sendMessage(
 
 You can send a message only to connections that have been added to a group by setting the *group name* in the SignalR message.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_group":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 ```cs
 [FunctionName("SendMessage")]
@@ -455,13 +455,13 @@ public SignalRMessage sendMessage(
 
 SignalR Service allows users or connections to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage groups.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Specify `SignalRGroupActionType` to add or remove a member. The following example removes a user from a group.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_remove_from_group":::
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Specify `GroupAction` to add or remove a member. The following example adds a user to a group.
 
@@ -691,7 +691,7 @@ public SignalRGroupAction removeFromGroup(
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following table explains the properties of the `SignalR` output attribute.
 
@@ -701,7 +701,7 @@ The following table explains the properties of the `SignalR` output attribute.
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following table explains the properties of the `SignalROutput` attribute.
 

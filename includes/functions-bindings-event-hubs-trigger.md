@@ -34,7 +34,7 @@ This article supports both programming models.
 
 ::: zone pivot="programming-language-csharp"
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the Event Hubs trigger.
 
@@ -85,7 +85,7 @@ public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConn
     }
 }
 ```
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
 
@@ -335,7 +335,7 @@ public class EventHubReceiver {
 
 Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](../articles/azure-functions/functions-reference-csharp.md#event-hubs-trigger).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](../articles/azure-functions/functions-dotnet-class-library.md), use the [EventHubTriggerAttribute], which supports the following properties.
 
@@ -345,7 +345,7 @@ In [C# class libraries](../articles/azure-functions/functions-dotnet-class-libra
 |**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. When omitted, the `$Default` consumer group is used. |
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Use the `EventHubTriggerAttribute` to define a trigger on an event hub, which supports the following properties.
 

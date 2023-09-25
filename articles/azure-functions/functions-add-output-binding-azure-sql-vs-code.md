@@ -89,11 +89,11 @@ Because you're using an Azure SQL output binding, you must have the correspondin
 
 With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Azure SQL extension package to your project.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
 ```
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
 ```
@@ -131,7 +131,7 @@ Open the *HttpExample.cs* project file and add the following `ToDoItem` class, w
 
 In a C# class library project, the bindings are defined as binding attributes on the function method. The *function.json* file required by Functions is then auto-generated based on these attributes.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Open the *HttpExample.cs* project file and add the following output type class, which defines the combined objects that will be output from our function for both the HTTP response and the SQL output:
 
@@ -150,7 +150,7 @@ Add a using statement to the `Microsoft.Azure.Functions.Worker.Extensions.Sql` l
 using Microsoft.Azure.Functions.Worker.Extensions.Sql;
 ```
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 Open the *HttpExample.cs* project file and add the following parameter to the `Run` method definition:
 
 :::code language="csharp" source="~/functions-sql-todo-sample/PostToDo.cs" range="25":::
@@ -247,7 +247,7 @@ In this code, `arg_name` identifies the binding parameter referenced in your cod
 
 ::: zone pivot="programming-language-csharp"  
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Replace the existing Run method with the following code:
 
@@ -280,7 +280,7 @@ public static OutputType Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "
 }
 ```
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Add code that uses the `toDoItems` output binding object to create a new `ToDoItem`. Add this code before the method returns.
 

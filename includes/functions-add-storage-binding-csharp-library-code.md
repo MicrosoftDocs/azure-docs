@@ -7,7 +7,7 @@ ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Add code that uses the `msg` output binding object to create a queue message. Add this code before the method returns.
 
@@ -17,7 +17,7 @@ At this point, your function must look as follows:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-36":::
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Replace the existing `HttpExample` class with the following code:
 

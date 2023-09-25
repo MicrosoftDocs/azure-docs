@@ -19,11 +19,11 @@ You can use the Apache Kafka trigger in Azure Functions to run your function cod
 
 The usage of the trigger depends on the C# modality used in your function app, which can be one of the following modes:
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -439,11 +439,11 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp"
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Kafka events are currently supported as strings and string arrays that are JSON payloads.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 Kafka events are passed to the function as `KafkaEventData<string>` objects or arrays. Strings and string arrays that are JSON payloads are also supported.
  

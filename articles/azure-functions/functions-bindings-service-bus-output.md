@@ -39,13 +39,13 @@ This article supports both programming models.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message, logs the message, and sends a message to different Service Bus queue:
 
 
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
@@ -293,7 +293,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#service-bus-output).
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -332,7 +332,7 @@ For a complete example, see [Example](#example).
 
 You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Attributes](functions-bindings-service-bus-trigger.md#attributes) in the trigger reference.
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 In [C# class libraries](dotnet-isolated-process-guide.md), use the [ServiceBusOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.ServiceBus/src/ServiceBusOutputAttribute.cs) to define the queue or topic written to by the output.
 

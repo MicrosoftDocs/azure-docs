@@ -120,13 +120,13 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Use the following command in the Package Manager Console to install a specific package:
 
-    # [Isolated process](#tab/isolated-process)
+    # [Isolated worker model](#tab/isolated-process)
 
     ```powershell
     Install-Package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
     ```
     
-    # [In-process](#tab/in-process)
+    # [In-process model](#tab/in-process)
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
@@ -229,7 +229,7 @@ The way you attach the debugger depends on your execution mode. When debugging a
 
 When you're done, you should [disable remote debugging](#disable-remote-debugging).
 
-# [Isolated process](#tab/isolated-process) 
+# [Isolated worker model](#tab/isolated-process) 
 
 To attach a remote debugger to a function app running in a process separate from the Functions host:
 
@@ -263,7 +263,7 @@ To attach a remote debugger to a function app running in a process separate from
 
 1. Check **Show process from all users** and then choose **dotnet.exe** and select **Attach**. When the operation completes, you're attached to your C# class library code running in an isolated worker process. At this point, you can debug your function app as normal.
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 To attach a remote debugger to a function app running in-process with the Functions host:
 

@@ -23,7 +23,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-outofproc).
 
@@ -141,7 +141,7 @@ namespace AzureSQL.ToDo
 }
 ```
 
-# [In-process](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 More samples for the Azure SQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
