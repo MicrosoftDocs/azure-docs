@@ -32,10 +32,10 @@ The following four tabs help you organize workbook types.
 
    | Tab              | Description                                       |
    |------------------|---------------------------------------------------|
-   | All | Shows the top four items for **Workbooks**, **Public Templates**, and **My Templates**. Workbooks are sorted by modified date, so you see the most recent eight modified workbooks.|
-   | Workbooks | Shows the list of all the available workbooks that you created or are shared with you. |
-   | Public Templates | Shows the list of all the available ready-to-use, get-started functional workbook templates published by Microsoft. Grouped by category. |
-   | My Templates | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
+   | **All** | Shows the top four items for **Workbooks**, **Public Templates**, and **My Templates**. Workbooks are sorted by modified date, so you see the most recent eight modified workbooks.|
+   | **Workbooks** | Shows the list of all the available workbooks that you created or are shared with you. |
+   | **Public Templates** | Shows the list of all the available ready-to-use, get-started functional workbook templates published by Microsoft. Grouped by category. |
+   | **My Templates** | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
 
 - On the **Quick start** tile, you can create new workbooks.
 
