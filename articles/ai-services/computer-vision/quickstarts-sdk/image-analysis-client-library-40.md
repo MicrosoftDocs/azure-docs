@@ -5,8 +5,7 @@ description: Learn how to tag images in your application using Image Analysis 4.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: quickstart
 ms.date: 01/24/2023
 ms.author: pafarley
