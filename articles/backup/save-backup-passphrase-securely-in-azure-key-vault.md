@@ -143,9 +143,9 @@ To assign the permissions, follow these steps:
 
    :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-assign-permissions.png" alt-text="Screenshot shows how to review and assign permissions." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/review-and-assign-permissions.png":::
 
-7.	Go to **Access control (IAM)** in the Key Vault, select **Role assignments** and ensure that the Recovery Services vault is listed.
+7. Go to **Access control (IAM)** in the Key Vault, select **Role assignments** and ensure that the Recovery Services vault is listed.
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png" alt-text="Screenshot shows the Recovery Services vault is listed in access control." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png":::
+     :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png" alt-text="Screenshot shows the Recovery Services vault is listed in access control." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/recovery-services-vault-listed-in-access-control.png":::
  
 
 # [PowerShell](#tab/powershell)
