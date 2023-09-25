@@ -63,7 +63,7 @@ items:
       - name: Connect to Event Grid
         href: connect-to-cloud/use-mqtt-bridge-event-grid.md
       - name: Connect to Messaging services
-        href: connect-to-cloud/use-mqtt-bridge-messaging-services.md
+        href: connect-to-cloud/use-mqtt-bridge-messaging-service.md
     - name: Visualize and analyze telemetry
       items:
       - name: Overview
@@ -72,6 +72,8 @@ items:
       items:
       - name: Overview
         href: monitor/overview-monitor-health.md
+      - name: Monitor Azure MQ
+        href: monitor/monitor-mq.md
     - name: Developer guide
       items:
       - name: Overview
@@ -94,5 +96,7 @@ items:
         href: administer/overview-manage-solution.md
     - name: Troubleshoot
       href: troubleshoot/troubleshoot.md
+    - name: Troubleshoot MQ
+      href: troubleshoot/troubleshoot-mq.md
     - name: Reference # supporting information like APIs, tools, code libraries
     - name: Resources # could include links to related libraries
