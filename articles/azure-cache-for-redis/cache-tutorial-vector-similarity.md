@@ -48,16 +48,17 @@ In this tutorial, you learn how to:
 ## Set up your development environment
 
 1. Create a folder on your local computer named *redis-vector* in the location where you typically save your projects.
+
 1. Create a new python file (*tutorial.py*) or Jupyter notebook (*tutorial.ipynb*) in the folder.
+
 1. Install the required Python packages:
-```python
-pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
-```
-<!--Code cell 1-->
+
+   ```python
+   pip install openai num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
+   ```
 
 >[!IMPORTANT]
 >If you would like to follow along in a completed Jupyter notebook instead, [download the Jupyter notebook file named *tutorial.ipynb*](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/vector-similarity-search-open-ai) and save it into the new *redis-vector* folder.
->
 
 ## Download the dataset
 
@@ -82,7 +83,7 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
 
 1. Locate **Endpoint and Keys** in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-To connect to Azure Cache for Redis, you'll also need an **endpoint** and a **password**.
+   To connect to Azure Cache for Redis, you'll also need an **endpoint** and a **password**.
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -93,89 +94,98 @@ To connect to Azure Cache for Redis, you'll also need an **endpoint** and a **pa
 
 1. Locate **Access keys** in the **Settings** section. Copy your access key. You can use either `Primary` or `Secondary`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-```python
-import re
-from num2words import num2words
-import os
-import pandas as pd
-from openai.embeddings_utils import get_embedding
-import tiktoken
-from typing import List
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.vectorstores.redis import Redis as RedisVectorStore
-from langchain.document_loaders import DataFrameLoader
+1. Add the following code to your python code file:
 
+   ```python
+   import re
+   from num2words import num2words
+   import os
+   import pandas as pd
+   from openai.embeddings_utils import get_embedding
+   import tiktoken
+   from typing import List
+   from langchain.embeddings import OpenAIEmbeddings
+   from langchain.vectorstores.redis import Redis as RedisVectorStore
+   from langchain.document_loaders import DataFrameLoader
 
-API_KEY = "<your-azure-openai-key>"
-RESOURCE_ENDPOINT = "<your-azure-openai-endpoint>"
-DEPLOYMENT_NAME = "<name-of-your-model-deployment>"
-MODEL_NAME = "text-embedding-ada-002"
-REDIS_ENDPOINT = "<your-azure-redis-endpoint>"
-REDIS_PASSWORD = "<your-azure-redis-password>"
+   API_KEY = "<your-azure-openai-key>"
+   RESOURCE_ENDPOINT = "<your-azure-openai-endpoint>"
+   DEPLOYMENT_NAME = "<name-of-your-model-deployment>"
+   MODEL_NAME = "text-embedding-ada-002"
+   REDIS_ENDPOINT = "<your-azure-redis-endpoint>"
+   REDIS_PASSWORD = "<your-azure-redis-password>"
+   ```
 
-```
-Make sure to update the value of `API_KEY` and `RESOURCE_ENDPOINT` with the key and endpoint values from your Azure OpenAI deployment. `DEPLOYMENT_NAME` should be set to the name of your deployment using the `text-embedding-ada-002 (Version 2)` embeddings model, and `MODEL_NAME` should be the specific embeddings model used. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
+1. Update the value of `API_KEY` and `RESOURCE_ENDPOINT` with the key and endpoint values from your Azure OpenAI deployment. `DEPLOYMENT_NAME` should be set to the name of your deployment using the `text-embedding-ada-002 (Version 2)` embeddings model, and `MODEL_NAME` should be the specific embeddings model used. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
 
    > [!Important]
    > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
-
 
 ## Import dataset into pandas and process data
 
 Next, you will read the csv file into a pandas DataFrame.
 
-```python
-df=pd.read_csv(os.path.join(os.getcwd(),'wiki_movie_plots_deduped.csv'))
-df
-```
+1. Add the following code to your Python code file:
 
-The output should look something like this:
+   ```python
+   df=pd.read_csv(os.path.join(os.getcwd(),'wiki_movie_plots_deduped.csv'))
+   df
+   ```
 
-<!--Fran, we could use a screenshot here-->
+   If you execute the file now, the output should look something like this:
 
-Processes the data by adding an id index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from english speaking countries. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You are free to change or remove the filter parameters based on your preferences.
+   <!--Fran, we could use a screenshot here-->
 
-```python
-df.insert(0, 'id', range(0, len(df)))
-df['year'] = df['Release Year'].astype(int)
-df['origin'] = df['Origin/Ethnicity'].astype(str)
-del df['Release Year']
-del df['Origin/Ethnicity']
-df = df[df.year > 1970] # only movies made after 1970
-df = df[df.origin.isin(['American','British','Canadian'])] # only movies from English-speaking cinema
-df
-```
+1. Next, Process the data by adding an `id` index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from english speaking countries. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You are free to change or remove the filter parameters based on your preferences.
 
-Next, create a function to clean the data by removing whitespace and punctuation, then uses it against the dataframe containing the plot.
-```python
-pd.options.mode.chained_assignment = None
+   Add the following code to your Python code file:
 
-# s is input text
-def normalize_text(s, sep_token = " \n "):
-    s = re.sub(r'\s+',  ' ', s).strip()
-    s = re.sub(r". ,","",s)
-    # remove all instances of multiple spaces
-    s = s.replace("..",".")
-    s = s.replace(". .",".")
-    s = s.replace("\n", "")
-    s = s.strip()
+   ```python
+   df.insert(0, 'id', range(0, len(df)))
+   df['year'] = df['Release Year'].astype(int)
+   df['origin'] = df['Origin/Ethnicity'].astype(str)
+   del df['Release Year']
+   del df['Origin/Ethnicity']
+   df = df[df.year > 1970] # only movies made after 1970
+   df = df[df.origin.isin(['American','British','Canadian'])] # only movies from English-speaking cinema
+   df
+   ```
+
+1. Create a function to clean the data by removing whitespace and punctuation, then uses it against the dataframe containing the plot.
+
+   Add the following code to your Python code file:
+
+   ```python
+   pd.options.mode.chained_assignment = None
+
+   # s is input text
+   def normalize_text(s, sep_token = " \n "):
+       s = re.sub(r'\s+',  ' ', s).strip()
+       s = re.sub(r". ,","",s)
+       # remove all instances of multiple spaces
+       s = s.replace("..",".")
+       s = s.replace(". .",".")
+       s = s.replace("\n", "")
+       s = s.strip()
     
-    return s
+       return s
 
-df['Plot']= df['Plot'].apply(lambda x : normalize_text(x))
-```
+   df['Plot']= df['Plot'].apply(lambda x : normalize_text(x))
+   ```
 
-Finally, remove any entries that contain plot descriptions that are too long for the embeddings model. (In other words, they require more tokens than the 8192 token limit.) and then calculate the numbers of tokens required to generate embeddings. This also indicates how expensive the embeddings generation will be.
+1. Finally, remove any entries that contain plot descriptions that are too long for the embeddings model. (In other words, they require more tokens than the 8192 token limit.) and then calculate the numbers of tokens required to generate embeddings. This also indicates how expensive the embeddings generation will be.
 
-```python
-tokenizer = tiktoken.get_encoding("cl100k_base")
-df['n_tokens'] = df["Plot"].apply(lambda x: len(tokenizer.encode(x)))
-df = df[df.n_tokens<8192]
-print('Number of movies: ' + str(len(df)))
-print('Number of tokens required:' + str(df['n_tokens'].sum()))
-```
+   Add the following code to your Python code file:
 
-   You should see this output:
+   ```python
+   tokenizer = tiktoken.get_encoding("cl100k_base")
+   df['n_tokens'] = df["Plot"].apply(lambda x: len(tokenizer.encode(x)))
+   df = df[df.n_tokens<8192]
+   print('Number of movies: ' + str(len(df)))
+   print('Number of tokens required:' + str(df['n_tokens'].sum()))
+   ```
+
+1. Execute your Python code file. You should see this output:
 
    ```output
    Number of movies: 11125
@@ -187,114 +197,125 @@ print('Number of tokens required:' + str(df['n_tokens'].sum()))
 
 ## Load DataFrame into LangChain
 
-Load the DataFrame into LangChain using the `DataFrameLoader` class. Once the data is in LangChain documents, it's far easier to use LangChain libraries to generate embeddings and conduct similarity searches. Set *Plot* as the `page_content_column` so that embeddings are generated on this column. 
+Load the DataFrame into LangChain using the `DataFrameLoader` class. Once the data is in LangChain documents, it's far easier to use LangChain libraries to generate embeddings and conduct similarity searches. Set *Plot* as the `page_content_column` so that embeddings are generated on this column.
 
-```python
-loader = DataFrameLoader(df, page_content_column="Plot" )
-movie_list = loader.load()
-```
+1. Add the following code to your Python code file:
+
+   ```python
+   loader = DataFrameLoader(df, page_content_column="Plot" )
+   movie_list = loader.load()
+   ```
 
 ## Generate embeddings and load them into Redis
 
 Now that the data has been filtered and loaded into LangChain, we will create embeddings so we can query on the plot for each movie. The following code configures Azure OpenAI, generates embeddings, and loads the embeddings vectors into Azure Cache for Redis.
 
-```python
-embedding = OpenAIEmbeddings(
-    deployment=DEPLOYMENT_NAME,
-    model=MODEL_NAME,
-    openai_api_base=RESOURCE_ENDPOINT,
-    openai_api_type="azure",
-    openai_api_key=API_KEY,
-    openai_api_version="2023-05-15",
-    chunk_size=16 # current limit with Azure OpenAI service. This will likely increase in the future.
-    )
+1. Add the following code to your Python code file:
 
-# name of the Redis search index to create
-index_name = "movieindex"
+   ```python
+   embedding = OpenAIEmbeddings(
+       deployment=DEPLOYMENT_NAME,
+       model=MODEL_NAME,
+       openai_api_base=RESOURCE_ENDPOINT,
+       openai_api_type="azure",
+       openai_api_key=API_KEY,
+       openai_api_version="2023-05-15",
+       chunk_size=16 # current limit with Azure OpenAI service. This will likely increase in the future.
+       )
 
-# create a connection string for the Redis Vector Store. Uses Redis-py format: https://redis-py.readthedocs.io/en/stable/connections.html#redis.Redis.from_url
-# This example assumes TLS is enabled. If not, use "redis://" instead of "rediss://
-redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
+   # name of the Redis search index to create
+   index_name = "movieindex"
 
-# create and load redis with documents
-vectorstore = RedisVectorStore.from_documents(
-    documents=movie_list,
-    embedding=embedding,
-    index_name=index_name,
-    redis_url=redis_url
-)
+   # create a connection string for the Redis Vector Store. Uses Redis-py format: https://redis-py.readthedocs.io/en/stable/connections.html#redis.Redis.from_url
+   # This example assumes TLS is enabled. If not, use "redis://" instead of "rediss://
+   redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
 
-# save index schema so you can reload in the future without re-generating embeddings
-vectorstore.write_schema("redis_schema.yaml")
-```
+   # create and load redis with documents
+   vectorstore = RedisVectorStore.from_documents(
+       documents=movie_list,
+       embedding=embedding,
+       index_name=index_name,
+       redis_url=redis_url
+   )
 
-This can take up to 10 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
+   # save index schema so you can reload in the future without re-generating embeddings
+   vectorstore.write_schema("redis_schema.yaml")
+   ```
 
+1. Execute your Python code file. You should see this output:
+
+<!-- ??? -->
+
+   This can take up to 10 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
 
 ## Run vector search queries
 
-Now that your dataset, Azure OpenAI service API, and Redis instance are set up, you can search using vectors. In this example, the top 10 results for a given query are returned:
+Now that your dataset, Azure OpenAI service API, and Redis instance are set up, you can search using vectors. In this example, the top 10 results for a given query are returned.
 
-```python
-query = "Spaceships, aliens, and heroes saving America"
-results = vectorstore.similarity_search_with_score(query, k=10)
+1. Add the following code to your Python code file:
 
-for i, j in enumerate(results):
-    movie_title = str(results[i][0].metadata['Title'])
-    similarity_score = str(round((1 - results[i][1]),4))
-    print(movie_title + ' (Score: ' + similarity_score + ')')
-```
- You should see the following output:
+   ```python
+   query = "Spaceships, aliens, and heroes saving America"
+   results = vectorstore.similarity_search_with_score(query, k=10)
 
-   ```output
-Independence Day (Score: 0.8348)
-The Flying Machine (Score: 0.8332)
-Remote Control (Score: 0.8301)
-Bravestarr: The Legend (Score: 0.83)
-Xenogenesis (Score: 0.8291)
-Invaders from Mars (Score: 0.8291)
-Apocalypse Earth (Score: 0.8287)
-Invasion from Inner Earth (Score: 0.8287)
-Thru the Moebius Strip (Score: 0.8283)
-Solar Crisis (Score: 0.828)
+   for i, j in enumerate(results):
+       movie_title = str(results[i][0].metadata['Title'])
+       similarity_score = str(round((1 - results[i][1]),4))
+       print(movie_title + ' (Score: ' + similarity_score + ')')
    ```
 
-Note that the similarity score is returned along with the ordinal ranking of movies by similarity. You'll notice that more specific queries will have similarity scores decrease faster down the list.
+1. Execute your Python code file. You should see the following output:
+
+   ```output
+   Independence Day (Score: 0.8348)
+   The Flying Machine (Score: 0.8332)
+   Remote Control (Score: 0.8301)
+   Bravestarr: The Legend (Score: 0.83)
+   Xenogenesis (Score: 0.8291)
+   Invaders from Mars (Score: 0.8291)
+   Apocalypse Earth (Score: 0.8287)
+   Invasion from Inner Earth (Score: 0.8287)
+   Thru the Moebius Strip (Score: 0.8283)
+   Solar Crisis (Score: 0.828)
+   ```
+
+   Note that the similarity score is returned along with the ordinal ranking of movies by similarity. You'll notice that more specific queries will have similarity scores decrease faster down the list.
 
 ## Hybrid searches
 
-Since RediSearch also features rich search functionality on top of vector search, it's possible to filter results by the metadata in the data set, such as film genre, cast, release year, or director. In this case, filter based on the genre `comedy`:
+1. Since RediSearch also features rich search functionality on top of vector search, it's possible to filter results by the metadata in the data set, such as film genre, cast, release year, or director. In this case, filter based on the genre `comedy`.
 
-```python
-from langchain.vectorstores.redis import RedisText
+   Add the following code to your Python code file:
 
-query = "Spaceships, aliens, and heroes saving America"
-genre_filter = RedisText("Genre") == "comedy"
-results = vectorstore.similarity_search_with_score(query, filter=genre_filter, k=10)
-for i, j in enumerate(results):
-    movie_title = str(results[i][0].metadata['Title'])
-    similarity_score = str(round((1 - results[i][1]),4))
-    print(movie_title + ' (Score: ' + similarity_score + ')')
-```
+   ```python
+   from langchain.vectorstores.redis import RedisText
 
-you should see the following output:
+   query = "Spaceships, aliens, and heroes saving America"
+   genre_filter = RedisText("Genre") == "comedy"
+   results = vectorstore.similarity_search_with_score(query, filter=genre_filter, k=10)
+   for i, j in enumerate(results):
+       movie_title = str(results[i][0].metadata['Title'])
+       similarity_score = str(round((1 - results[i][1]),4))
+       print(movie_title + ' (Score: ' + similarity_score + ')')
+   ```
+
+1. Execute your Python code file. Uou should see the following output:
 
    ```output
-Remote Control (Score: 0.8301)
-Meet Dave (Score: 0.8236)
-Elf-Man (Score: 0.8208)
-Fifty/Fifty (Score: 0.8167)
-Mars Attacks! (Score: 0.8165)
-Strange Invaders (Score: 0.8143)
-Amanda and the Alien (Score: 0.8136)
-Suburban Commando (Score: 0.8129)
-Coneheads (Score: 0.8129)
-Morons from Outer Space (Score: 0.8121)
+   Remote Control (Score: 0.8301)
+   Meet Dave (Score: 0.8236)
+   Elf-Man (Score: 0.8208)
+   Fifty/Fifty (Score: 0.8167)
+   Mars Attacks! (Score: 0.8165)
+   Strange Invaders (Score: 0.8143)
+   Amanda and the Alien (Score: 0.8136)
+   Suburban Commando (Score: 0.8129)
+   Coneheads (Score: 0.8129)
+   Morons from Outer Space (Score: 0.8121)
    ```
 
 With Azure Cache for Redis and Azure OpenAI Service, you can use embeddings and vector search to add powerful search capabilities to your application.
  
-
 ## Clean up resources
 
 If you created an OpenAI or Redis resource solely for completing this tutorial and want to clean up and remove the resources, you'll need to delete your cache instance along with your deployed AI model. You can then delete the Azure OpenAI resource or associated resource group if it's dedicated to your test resource. Deleting the resource group also deletes any other resources associated with it.
