@@ -5,8 +5,7 @@ description: Get started using Content Safety to analyze image and text content 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023, devx-track-python, devx-track-dotnet
 ms.topic: quickstart
 ms.date: 07/18/2023

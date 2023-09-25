@@ -7,8 +7,7 @@ ms.author: mbullwin
 manager: nitinme
 ms.date: 11/07/2022
 ms.topic: quickstart
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.custom: mode-ui
 ---
 

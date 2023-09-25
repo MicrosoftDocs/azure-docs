@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn the latest changes to the Document Intelligence API.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
 ms.date: 07/18/2023
 ms.author: lajanuar
