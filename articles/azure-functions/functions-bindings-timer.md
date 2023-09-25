@@ -65,6 +65,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="11-17":::
 
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"

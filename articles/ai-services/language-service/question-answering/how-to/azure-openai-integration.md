@@ -2,8 +2,7 @@
 title: Connect Custom Question Answering with Azure OpenAI on your data 
 titleSuffix: Azure AI services
 description: Learn how to use Custom Question Answering with Azure OpenAI.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: how-to
