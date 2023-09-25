@@ -51,13 +51,13 @@ The following table lists the property names and their description for creating 
  
 | Property name                | Description                                                                                                             |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Input/Output Alias            | A friendly name used in queries to reference your input or output                                                       |
+| Input/Output Alias            | A friendly name used in queries to reference your input or output                                                      |
 | Bootstrap server addresses   | A list of host/port pairs to use for establishing the connection to the Kafka cluster.                                  |
 | Kafka topic                  | A unit of your Kafka cluster you want to write events to.                                                               |
 | Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports: mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro) of the outgoing data stream.                                        |
 | Partition key                | Azure Stream Analytics assigns partitions using round partitioning.                                                     |
-| Kafka event compression type | The compression type used for outgoing data stream, such as Gzip, Snappy, Lz4, Zstd or None.                            |                                       |
+| Kafka event compression type | The compression type used for outgoing data stream, such as Gzip, Snappy, Lz4, Zstd or None.                            |            
 
 ### Limitations
 * When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with a minimum of six (6) streaming units. 
