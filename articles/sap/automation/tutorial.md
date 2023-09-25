@@ -258,14 +258,20 @@ If you don't assign the User Access Administrator role to the service principal,
     management_bastion_subnet_address_prefix = "10.10.20.128/26"
     bastion_deployment = true
 
-
+    # deployer_enable_public_ip controls if the deployer Virtual machines will have Public IPs
     deployer_enable_public_ip = true
 
+    # deployer_count defines how many deployer VMs will be deployed
     deployer_count = 1
     
+    # use_service_endpoint defines that the management subnets have service endpoints enabled
     use_service_endpoint = true
+
+    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
     use_private_endpoint = false
-    enable_firewall_for_keyvaults_and_storage = true
+
+    # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
+    enable_firewall_for_keyvaults_and_storage = false
     
     ```
 
@@ -279,8 +285,10 @@ If you don't assign the User Access Administrator role to the service principal,
     # The location/region value is a mandatory field, it is used to control where the resources are deployed
     location = "westeurope"
 
+    #Defines the DNS suffix for the resources
     dns_label = "azure.contoso.net"
 
+    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
     use_private_endpoint = false
     ```
 
@@ -368,7 +376,7 @@ Here are some troubleshooting tips:
     The file must contain the environment attribute!!
     ```
 
-- The following error is transient. Rerun the same command, `prepare_controlplane.sh`.
+- The following error is transient. Rerun the same command, `deploy_controlplane.sh`.
 
     ```text
     Error: file provisioner error
@@ -376,7 +384,7 @@ Here are some troubleshooting tips:
     timeout - last error: dial tcp
     ```
 
-- If you have authentication issues directly after you run the script `prepare_controlplane.sh`, run this command:
+- If you have authentication issues directly after you run the script `deploy_controlplane.sh`, run this command:
 
     ```azurecli
     az logout
@@ -441,25 +449,12 @@ To connect to the deployer:
 
 1. Connect to the virtual machine.
 
-To configure the deployer, run the following script:
-
-```bash
-
-mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
-
-git clone https://github.com/Azure/sap-automation.git sap-automation
-
-git clone https://github.com/Azure/sap-automation-samples.git samples
-
-cd sap-automation/deploy/scripts
-
-./configure_deployer.sh
-```
-
-The script installs Terraform and Ansible and configures the deployer.
 
 The rest of the tasks must be executed on the deployer.
 
+## Securing the control plane
+
+The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
 ## Get SAP software by using the Bill of Materials
 
 The automation framework gives you tools to download software from SAP by using the SAP BOM. The software is downloaded to the SAP library, which acts as the archive for all media required to deploy SAP.
