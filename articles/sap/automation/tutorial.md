@@ -260,7 +260,28 @@ If you don't assign the User Access Administrator role to the service principal,
 
 
     deployer_enable_public_ip = true
+
+    deployer_count = 1
     
+    use_service_endpoint = true
+    use_private_endpoint = false
+    enable_firewall_for_keyvaults_and_storage = true
+    
+    ```
+
+    Note the Terraform variable file locations for future edits during deployment.
+
+1. Find the Terraform variable files for the SAP Library in the appropriate subfolder. For example, the `LIBRARY` Terraform variable file might look like this example:
+
+    ```terraform
+    # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
+    environment = "MGMT"
+    # The location/region value is a mandatory field, it is used to control where the resources are deployed
+    location = "westeurope"
+
+    dns_label = "azure.contoso.net"
+
+    use_private_endpoint = false
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
