@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn how to use Azure OpenAI's REST API. In this article, you'll learn about authorization options,  how to structure a request and receive a response.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 09/15/2023
 author: mrbullwinkle

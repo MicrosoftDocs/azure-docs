@@ -5,8 +5,7 @@ description: Use the Translator C#/.NET or Python client library (SDK) for cloud
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.custom: build-2023, devx-track-dotnet, devx-track-python
 ms.topic: reference
 ms.date: 07/18/2023
