@@ -88,7 +88,7 @@ If the original reservation purchase was made from an overage, the refund is ret
 
 ### Microsoft Customer Agreement customers
 
-For customers pay by wire transfer, the refunded amount is automatically applied to the next month’s invoice. The return or refund doesn't generate a new invoice.
+For customers that pay by wire transfer, the refunded amount is automatically applied to the next month’s invoice. The return or refund doesn't generate a new invoice.
 
 For customers that pay by credit card, the refunded amount is returned to the credit card that was used for the original purchase. If you've changed your card, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
