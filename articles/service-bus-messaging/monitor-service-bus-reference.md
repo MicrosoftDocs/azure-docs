@@ -98,7 +98,7 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Virtual network and IP filtering logs
 - Runtime Audit logs
 
-Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics.You could use the toggle available on Azure Portal to choose destination tables. 
+Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
 
 :::image type="content" source="media/monitor-service-bus-reference/DestinationTableToggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-service-bus-reference/DestinationTableToggle.png":::
 
@@ -169,12 +169,13 @@ Operational logs capture all management operations that are performed on the Azu
 
 The following management operations are captured in operational logs: 
 
-| Scope | Operation|
-|-------| -------- |
-| `Namespace` | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace </li> <li> Retrieve Namespace</li> <li> SharedAccess Policy </li> </ul> |
-| `Queue` | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> <li> Retrieve Queue </li> </ul> |
-| `Topic` | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> <li> Retrieve Topic </li> </ul> |
-| `Subscription` | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> <li> Retrieve Subscription </li> </ul> |
+| Scope | Operation |
+|-------|-----------|
+| Namespace | - Create Namespace<br>- Update Namespace<br>- Delete Namespace<br>- Update Namespace<br>- Retrieve Namespace<br>- SharedAccess Policy |
+| Queue | - Create Queue<br>- Update Queue<br>- Delete Queue<br>- AutoDelete Delete Queue<br>- Retrieve Queue |
+| Topic | - Create Topic<br>- Update Topic<br>- Delete Topic<br>- AutoDelete Delete Topic<br>- Retrieve Topic |
+| Subscription | - Create Subscription<br>- Update Subscription<br>- Delete Subscription<br>- AutoDelete Delete Subscription<br>- Retrieve Subscription |
+
 
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
@@ -189,7 +190,7 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | `IPAddress` | IP address of a client connecting to the Service Bus service | Yes | Yes 
 | `AddressIP` | IP address of client connecting to service bus | Yes | Yes
 | `TimeGenerated [UTC]`|Time of executed operation (in UTC) | Yes | Yes 
-| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and Deny Connection**. | Yes | Yes 
+| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. | Yes | Yes 
 | `Reason` | Provides a reason why the action was done | Yes | Yes
 | `Count` | Number of occurrences for the given action | Yes | Yes
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
