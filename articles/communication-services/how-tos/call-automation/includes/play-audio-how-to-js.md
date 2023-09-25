@@ -98,12 +98,12 @@ If you wish to enhance your prompts more and include custom voice models, the pl
 ``` javascript
 const textToPlay = "Welcome to Contoso";
 // Provide VoiceName and CustomVoiceEndpointID to play your custom voice
-const playSource: TextSource = { text: textToPlay, voiceName: "custom_voiceName", customVoiceEndpointId: "Your-Custom-Endpoint-Id"}
+const playSource: TextSource = { text: textToPlay, voiceName: "YourCustomVoiceName", customVoiceEndpointId: "YourCustomEndpointId"}
 ```
 **Custom voice names SSML example**
 ``` javascript
-const ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"custom_voiceName\">Hello World!</voice></speak>"; 
-const playSource: SsmlSource = { ssmlText: ssmlToPlay, kind: "ssmlSource", customVoiceEndpointId: "Your-Custom-Endpoint-Id"}; 
+const ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"YourCustomVoiceName\">Hello World!</voice></speak>"; 
+const playSource: SsmlSource = { ssmlText: ssmlToPlay, kind: "ssmlSource", customVoiceEndpointId: "YourCustomEndpointId"}; 
 ```
 
 Once you've decided on which playSource you wish to use for playing audio, you can then choose whether you want to play it to a specific participant or to all participants.
