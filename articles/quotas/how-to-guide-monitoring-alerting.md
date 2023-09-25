@@ -34,7 +34,7 @@ Step-by-Step instructions to create an alert rule for your quota in the Azure po
     | Alert Rule Name | Alert rule name must be distinct and can't be duplicated, even across different resource groups |
     | Alert me when the usage % reaches | Adjust the slider to select your desired usage percentage for triggering alerts. For example, at the default 80%, you receive an alert when your quota reaches 80% capacity.|
     | Severity | Select the severity of the alert when the rule’s condition is met.|
-    | [Frequency of evaluation](../azure-monitor/alerts/alerts-overview#stateful-alerts) | Choose how often the alert rule should run, by selecting 5, 10, or 15 minutes.  If the frequency is smaller than the aggregation granularity, this results in sliding window evaluation. |
+    | [Frequency of evaluation](../azure-monitor/alerts/alerts-overview#stateful-alerts) | Choose how often the alert rule should run, by selecting 5, 10, or 15 minutes.  If the frequency is smaller than the aggregation granularity, frequency of evaluation results in sliding window evaluation. |
     | [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal) | Resource Group is a collection of resources that share the same lifecycles, permissions, and policies. Select a resource group similar to other quotas in your subscription, or create a new resource group. |
     | [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace?tabs=azure-portal) | A workspace within the subscription that is being monitored and is used as the scope for rule execution. Select from the dropdown or create a new workspace. If you create a new workspace, use it for all alerts in your subscription. |
     | [Managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) | Select from the dropdown, or Create New. Managed Identity should have read permissions to the Subscription (to read Usage data from ARG) and Log Analytics workspace that is chosen(to read the log alerts). |
@@ -173,7 +173,7 @@ Refer the following link for detailed instructions on how to utilize functions t
 
 GitHub link to call [Quota API](https://github.com/allison-inman/azure-sdk-for-net/blob/main/sdk/quota/Microsoft.Azure.Management.Quota/tests/ScenarioTests/QuotaTests.cs)
 
-Use `Test_SetQuota()` code to write a Azure function to set the Quota. 
+Use `Test_SetQuota()` code to write an Azure function to set the Quota. 
 
 ## Query using Resource Graph Explorer
 
@@ -215,7 +215,7 @@ QuotaResources
 
 ## Feedback 
 
-User can find **Feedback** button on every Quota page and can use this to share thoughts, questions, or concerns with our team. Additionally, Users can submit a support ticket if they encounter any problem while creating alert rules for quotas.
+User can find **Feedback** button on every Quota page and can use to share thoughts, questions, or concerns with our team. Additionally, Users can submit a support ticket if they encounter any problem while creating alert rules for quotas.
 
 :::image type="content" source="media/monitoring-alerting/alert-feedback.png" alt-text="Screenshot showing user can provide feedback":::
 
