@@ -3071,6 +3071,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/conditional-access/policy-migration.md",
+      "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/best-practices.md",
       "redirect_url": "/azure/active-directory/conditional-access/overview",
       "redirect_document_id": true
@@ -3088,7 +3093,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-migration-mfa.md",
       "redirect_url": "/azure/active-directory/conditional-access/policy-migration-mfa",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-conditional-access-policy-connected-applications.md",

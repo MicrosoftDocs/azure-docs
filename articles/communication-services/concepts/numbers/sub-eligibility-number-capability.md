@@ -35,6 +35,7 @@ Numbers can be purchased on eligible Azure subscriptions and in geographies wher
 > - [Ireland](../numbers/phone-number-management-for-ireland.md)
 > - [Israel](../numbers/phone-number-management-for-israel.md)
 > - [Italy](../numbers/phone-number-management-for-italy.md)
+> - [Japan](../numbers/phone-number-management-for-japan.md)
 > - [Latvia](../numbers/phone-number-management-for-latvia.md)
 > - [Lithuania](../numbers/phone-number-management-for-lithuania.md)
 > - [Luxembourg](../numbers/phone-number-management-for-luxembourg.md)

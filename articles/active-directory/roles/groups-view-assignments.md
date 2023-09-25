@@ -1,5 +1,5 @@
 ---
-title: View roles assigned to a group in Azure Active Directory
+title: View roles assigned to a group in Microsoft Entra ID
 description: Learn how the roles assigned to a group can be viewed using the Microsoft Entra admin center. Viewing groups and assigned roles are default user permissions.
 services: active-directory
 author: rolyon
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# View roles assigned to a group in Azure Active Directory
+# View roles assigned to a group in Microsoft Entra ID
 
 This section describes how the roles assigned to a group can be viewed using the Microsoft Entra admin center. Viewing groups and assigned roles are default user permissions.
 
 ## Prerequisites
 
-- AzureAD module when using PowerShell
+- Azure AD PowerShell module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -38,7 +38,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 1. Select a role-assignable group that you are interested in.
 
-1. Select **Assigned roles**. You can now see all the Azure AD roles assigned to this group.
+1. Select **Assigned roles**. You can now see all the Microsoft Entra roles assigned to this group.
 
    ![View all roles assigned to a selected group](./media/groups-view-assignments/view-assignments.png)
 
@@ -76,5 +76,5 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments?$f
 
 ## Next steps
 
-- [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)
+- [Use Microsoft Entra groups to manage role assignments](groups-concept.md)
+- [Troubleshoot Microsoft Entra roles assigned to groups](groups-faq-troubleshooting.yml)

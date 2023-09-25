@@ -26,7 +26,7 @@ It's not a good practice to store the endpoint URI and sensitive read-write keys
 
 Azure Key Vault iterates on this best practice further by allowing you to store these credentials securely while giving services like Azure App Service managed access to the credentials. Azure App Service will securely read your credentials from Azure Key Vault and inject those credentials into your running application.
 
-With this best practice, developers can store the credentials for tools like the [Azure Cosmos DB emulator](local-emulator.md) or [Try Azure Cosmos DB free](try-free.md) during development. Then, the operations team can ensure that the correct production settings are injected at runtime.
+With this best practice, developers can store the credentials for tools like the [Azure Cosmos DB emulator](emulator.md) or [Try Azure Cosmos DB free](try-free.md) during development. Then, the operations team can ensure that the correct production settings are injected at runtime.
 
 In this tutorial, you learn how to:
 

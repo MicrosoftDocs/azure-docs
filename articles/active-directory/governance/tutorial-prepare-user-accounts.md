@@ -26,14 +26,16 @@ The off-boarding tutorials only require one account that has group and Teams mem
 ## Prerequisites
 
 [!INCLUDE [Microsoft Entra ID Governance license](../../../includes/active-directory-entra-governance-license.md)]
-- An Azure AD tenant
-- A global administrator account for the Azure AD tenant.  This account is used to create our users and workflows.
+- A Microsoft Entra tenant
+- A global administrator account for the Microsoft Entra tenant.  This account is used to create our users and workflows.
 
 ## Before you begin
 
-In most cases, users are going to be provisioned to Azure AD either from an on-premises solution (such as Azure AD Connect or Cloud sync) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../hybrid/cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Azure AD tenant](../hybrid/cloud-sync/tutorial-single-forest.md)
+In most cases, users are going to be provisioned to Microsoft Entra ID either from an on-premises solution (such as Microsoft Entra Connect or Cloud sync) or with an HR solution. These users have the attributes and values populated at the time of creation. Setting up the infrastructure to provision users is outside the scope of this tutorial. For information, see [Tutorial: Basic Active Directory environment](../hybrid/cloud-sync/tutorial-basic-ad-azure.md) and [Tutorial: Integrate a single forest with a single Microsoft Entra tenant](../hybrid/cloud-sync/tutorial-single-forest.md)
 
-## Create users in Azure AD
+<a name='create-users-in-azure-ad'></a>
+
+## Create users in Microsoft Entra ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
@@ -50,7 +52,7 @@ First we create our employee, Melva Prince.
  2. Sign-in to Graph Explorer with the global administrator account for your tenant.
  3. At the top, change **GET** to **POST** and add `https://graph.microsoft.com/v1.0/users/` to the box. 
  4. Copy the following code in to the **Request body** 
- 5. Replace `<your tenant here>` in the following code with the value of your Azure AD tenant.
+ 5. Replace `<your tenant here>` in the following code with the value of your Microsoft Entra tenant.
  6. Select **Run query**
  7. Copy the ID that is returned in the results.  This is used later to assign a manager.
 
@@ -76,7 +78,7 @@ Next, we create Britta Simon.  This is the account that is used as our manager.
  1. Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
  2. Make sure the top is still set to **POST** and `https://graph.microsoft.com/v1.0/users/` is in the box.  
  3. Copy the following code in to the **Request body** 
- 4.  Replace `<your tenant here>` in the following code with the value of your Azure AD tenant.
+ 4.  Replace `<your tenant here>` in the following code with the value of your Microsoft Entra tenant.
  5. Select **Run query**
  6. Copy the ID that is returned in the results. This is used later to assign a manager.
     ```json
@@ -96,7 +98,7 @@ Next, we create Britta Simon.  This is the account that is used as our manager.
     ```
 
 >[!NOTE]
-> You need to change the &lt;your tenant name here&gt; section of the code to match your Azure AD tenant.
+> You need to change the &lt;your tenant name here&gt; section of the code to match your Microsoft Entra tenant.
 
 As an alternative, the following PowerShell script may also be used to quickly create two users needed execute a lifecycle workflow.  One user represents our new employee and the second represents the new employee's manager.
 
@@ -111,9 +113,9 @@ You need to do perform this action for both $UPN_employee and $UPN_manager
 
 After editing the script, save it and follow these steps:
 
- 1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Microsoft Entra admin center.
+1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Microsoft Entra admin center.
 1. Navigate to the saved PowerShell script location and run it.
-1. If prompted select **Yes to all** when installing the Azure AD module.
+1. If prompted select **Yes to all** when installing the Azure AD PowerShell module.
 1. When prompted, sign in to the Microsoft Entra admin center with a global administrator for your tenant.
 
 ```powershell
@@ -144,15 +146,15 @@ $Department = "Sales"
 $UPN_manager = "bsimon@<your tenant name here>"
 
 Install-Module -Name AzureAD
-Connect-AzureAD -Confirm
+Connect-MgGraph -Confirm
 
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
 $PasswordProfile.Password = "<Password>"
-New-AzureADUser -DisplayName $Displayname_manager  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_manager -AccountEnabled $true -MailNickName $Name_manager -Department $Department
-New-AzureADUser -DisplayName $Displayname_employee  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_employee -AccountEnabled $true -MailNickName $Name_employee -Department $Department
+New-MgUser -DisplayName $Displayname_manager  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_manager -AccountEnabled $true -MailNickName $Name_manager -Department $Department
+New-MgUser -DisplayName $Displayname_employee  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_employee -AccountEnabled $true -MailNickName $Name_employee -Department $Department
 ```
 
-Once your user(s) has been successfully created in Azure AD, you may proceed to follow the Lifecycle workflow tutorials for your workflow creation.  
+Once your user(s) has been successfully created in Microsoft Entra ID, you may proceed to follow the Lifecycle workflow tutorials for your workflow creation.  
 
 ## Additional steps for pre-hire scenario
 
@@ -184,7 +186,7 @@ For the tutorial, the **mail** attribute only needs to be set on the manager acc
 
 ### Edit employeeHireDate
 
-The employeeHireDate attribute is new to Azure AD.  It isn't exposed through the UI and must be updated using Graph.  To edit this attribute, we can use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+The employeeHireDate attribute is new to Microsoft Entra ID.  It isn't exposed through the UI and must be updated using Graph.  To edit this attribute, we can use [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 >[!NOTE]
 >Be aware that a workflow will not trigger when the employee hire date (Days from event) is prior to the workflow creation date. You must set an employeeHiredate in the future by design. The dates used in this tutorial are a snapshot in time. Therefore, you should change the dates accordingly to accommodate for this situation.
@@ -210,7 +212,7 @@ In order to do this, we must get the object ID for our user Melva Prince.
     :::image type="content" source="media/tutorial-lifecycle-workflows/update-3.png" alt-text="Screenshot of the GET employeeHireDate." lightbox="media/tutorial-lifecycle-workflows/update-3.png":::
 
 ### Edit the manager attribute on the employee account
-The manager attribute is used for email notification tasks.  It's used by the lifecycle workflow to email the manager a temporary password for the new employee.   Use the following steps to ensure your Azure AD users have a value for the manager attribute.
+The manager attribute is used for email notification tasks.  It's used by the lifecycle workflow to email the manager a temporary password for the new employee.   Use the following steps to ensure your Microsoft Entra users have a value for the manager attribute.
 
 1. Still in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Make sure the top is still set to **PUT** and `https://graph.microsoft.com/v1.0/users/<id>/manager/$ref` is in the box. Change `<id>` to the ID of Melva Prince. 
@@ -237,9 +239,9 @@ For more information about updating manager information for a user in Graph API,
 
 A Temporary Access Pass is a time-limited pass issued by an admin that satisfies strong authentication requirements.  
 
-In this scenario, we use this feature of Azure AD to generate a temporary access pass for our new employee.  It's then mailed to the employee's manager.
+In this scenario, we use this feature of Microsoft Entra ID to generate a temporary access pass for our new employee.  It's then mailed to the employee's manager.
 
-To use this feature, it must be enabled on our Azure AD tenant.  To do this, use the following steps.
+To use this feature, it must be enabled on our Microsoft Entra tenant.  To do this, use the following steps.
 
 1. Sign in to the [Microsoft Entra admin Center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator). 
 1. Browse to **Protection** > **Authentication methods** > **Temporary Access Pass**

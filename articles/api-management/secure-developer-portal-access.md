@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 09/12/2023
 ms.author: danlep
 ---
 
@@ -36,7 +36,15 @@ API Management has a fully customizable, standalone, managed [developer portal](
 ## Developer portal test console
 In addition to providing configuration for developer users to sign up for access and sign in, the developer portal includes a test console where the developers can send test requests through API Management to the backend APIs. This test facility also exists for contributing users of API Management who manage the service using the Azure portal. 
 
-If the API exposed through Azure API Management is secured with OAuth 2.0 - that is, a calling application (*bearer*) needs to obtain and pass a valid access token - you can configure API Management to generate a valid token on behalf of an Azure portal or developer portal test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md). 
+If the API exposed through Azure API Management is secured with OAuth 2.0 - that is, a calling application (*bearer*) needs to obtain and pass a valid access token - you can configure API Management to generate a valid token on behalf of an Azure portal or developer portal test console user. For more information, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
+
+To enable the test console to acquire a valid OAuth 2.0 token for API testing:
+
+1. Add an OAuth 2.0 user authorization server to your instance. You can use any OAuth 2.0 provider, including Azure AD, Azure AD B2C, or a third-party identity provider. 
+
+2. Then, configure the API with settings for that authorization server. In the portal, configure OAuth 2.0 authorization on the API's **Settings** page > **Security** > **User authorization**.
+
+    :::image type="content" source="media/secure-developer-portal-access/oauth-settings-for-testing.png" alt-text="Screenshot of OAuth settings for an API in the portal." lightbox="media/secure-developer-portal-access/oauth-settings-for-testing.png":::
 
 This OAuth 2.0 configuration for API testing is independent of the configuration required for user access to the developer portal. However, the identity provider and user could be the same. For example, an intranet application could require user access to the developer portal using SSO with their corporate identity. That same corporate identity could obtain a token, through the test console, for the backend service being called with the same user context. 
 

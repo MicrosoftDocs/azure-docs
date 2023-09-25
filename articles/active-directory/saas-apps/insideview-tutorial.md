@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with InsideView'
-description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and InsideView.
+title: 'Tutorial: Microsoft Entra integration with InsideView'
+description: In this tutorial, you'll learn how to configure single sign-on between Microsoft Entra ID and InsideView.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,41 +12,38 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with InsideView
+# Tutorial: Microsoft Entra integration with InsideView
 
-In this tutorial, you'll learn how to integrate InsideView with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate InsideView with Microsoft Entra ID.
 This integration provides these benefits:
 
-* You can use Azure AD to control who has access to InsideView.
-* You can enable your users to be automatically signed in to InsideView (single sign-on) with their Azure AD accounts.
+* You can use Microsoft Entra ID to control who has access to InsideView.
+* You can enable your users to be automatically signed in to InsideView (single sign-on) with their Microsoft Entra accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Microsoft Entra ID, see [Single sign-on to applications in Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-To configure Azure AD integration with InsideView, you need to have:
+To configure Microsoft Entra integration with InsideView, you need to have:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/).
 * An InsideView subscription that has single sign-on enabled.
 
 ## Scenario description
 
-In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra single sign-on in a test environment.
 
 * InsideView supports IdP-initiated SSO.
 
 ## Add InsideView from the gallery
 
-To set up the integration of InsideView into Azure AD, you need to add InsideView from the gallery to your list of managed SaaS apps.
+To set up the integration of InsideView into Microsoft Entra ID, you need to add InsideView from the gallery to your list of managed SaaS apps.
 
-1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
-
-	![Select Azure Active Directory](common/select-azuread.png)
-
-2. Go to **Enterprise applications** > **All applications**:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
@@ -58,62 +55,66 @@ To set up the integration of InsideView into Azure AD, you need to add InsideVie
 
 	![Search results](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+<a name='configure-and-test-azure-ad-single-sign-on'></a>
 
-In this section, you'll configure and test Azure AD single sign-on with InsideView by using a test user named Britta Simon.
-To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in InsideView.
+## Configure and test Microsoft Entra single sign-on
 
-To configure and test Azure AD single sign-on with InsideView, you need to complete these steps:
+In this section, you'll configure and test Microsoft Entra single sign-on with InsideView by using a test user named Britta Simon.
+To enable single sign-on, you need to establish a relationship between a Microsoft Entra user and the corresponding user in InsideView.
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
+To configure and test Microsoft Entra single sign-on with InsideView, you need to complete these steps:
+
+1. **[Configure Microsoft Entra single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
 2. **[Configure InsideView single sign-on](#configure-insideview-single-sign-on)** on the application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create an InsideView test user](#create-an-insideview-test-user)** that's linked to the Azure AD representation of the user.
+3. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on.
+4. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable Microsoft Entra single sign-on for the user.
+5. **[Create an InsideView test user](#create-an-insideview-test-user)** that's linked to the Microsoft Entra representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
-### Configure Azure AD single sign-on
+<a name='configure-azure-ad-single-sign-on'></a>
 
-In this section, you'll enable Azure AD single sign-on in the Azure portal.
+### Configure Microsoft Entra single sign-on
 
-To configure Azure AD single sign-on with InsideView, take these steps:
+In this section, you'll enable Microsoft Entra single sign-on.
 
-1. In the [Azure portal](https://portal.azure.com/), on the InsideView application integration page, select **Single sign-on**:
+To configure Microsoft Entra single sign-on with InsideView, take these steps:
 
-    ![Select single sign-on](common/select-sso.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **InsideView**
+1. Select **Single sign-on**:
 
-2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
+   ![Select single sign-on](common/select-sso.png)
 
-    ![Select a single sign-on method](common/select-saml-option.png)
+1. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
 
-3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
+   ![Select a single sign-on method](common/select-saml-option.png)
 
-	![Edit icon](common/edit-urls.png)
+1. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-4. In the **Basic SAML Configuration** dialog box, take the following steps.
+   ![Edit icon](common/edit-urls.png)
 
-    ![Basic SAML Configuration dialog box](common/idp-reply.png)
+1. In the **Basic SAML Configuration** dialog box, take the following steps.
 
-    In the **Reply URL** box, enter a URL in this pattern:
+   ![Basic SAML Configuration dialog box](common/idp-reply.png)
 
-    `https://my.insideview.com/iv/<STS Name>/login.iv`
+   In the **Reply URL** box, enter a URL in this pattern:
+
+   `https://my.insideview.com/iv/<STS Name>/login.iv`
 
 	> [!NOTE]
-	> This value is a placeholder. You need to use the actual reply URL. Contact the [InsideView support team](mailto:support@insideview.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
+	> This value is a placeholder. You need to use the actual reply URL. Contact the [InsideView support team](mailto:support@insideview.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Raw)**, per your requirements, and save the certificate on your computer:
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Raw)**, per your requirements, and save the certificate on your computer:
 
 	![Certificate download link](common/certificateraw.png)
 
-6. In the **Set up InsideView** section, copy the appropriate URLs, based on your requirements:
+1. In the **Set up InsideView** section, copy the appropriate URLs, based on your requirements:
 
-	![Copy the configuration URLs](common/copy-configuration-urls.png)
+   ![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-	1. **Login URL**.
-
-    1. **Azure AD Identifier**.
-
-    1. **Logout URL**.
+   1. **Login URL**.
+   1. **Microsoft Entra Identifier**.
+   1. **Logout URL**.
 
 ### Configure InsideView single sign-on
 
@@ -129,9 +130,9 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
 	1. In the **STS Name** box, enter a name for your configuration.
 
-	1. In the **SamlP/WS-Fed Unsolicited EndPoint** box, paste the **Login URL** value that you copied from the Azure portal.
+	1. In the **SamlP/WS-Fed Unsolicited EndPoint** box, paste the **Login URL** value that you copied.
 
-	1. Open the Raw certificate that you downloaded from the Azure portal. Copy the contents of the certificate to the clipboard, and then paste the contents into the **STS Certificate** box.
+	1. Open the Raw certificate that you downloaded. Copy the contents of the certificate to the clipboard, and then paste the contents into the **STS Certificate** box.
 
 	1. In the **Crm User Id Mapping** box, enter **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
@@ -143,75 +144,66 @@ To configure Azure AD single sign-on with InsideView, take these steps:
 
 	1. Select **Save**.
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user named Britta Simon in the Azure portal.
+### Create a Microsoft Entra test user
 
-1. In the Azure portal, select **Azure Active Directory** in the left pane, select **Users**, and then select **All users**:
+In this section, you'll create a test user named Britta Simon.
 
-    ![Select All users](common/users.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-2. Select **New user** at the top of the window:
+<a name='assign-the-azure-ad-test-user'></a>
 
-    ![Select New user](common/new-user.png)
-
-3. In the **User** dialog box, take the following steps.
-
-    ![User dialog box](common/user-properties.png)
-
-    1. In the **Name** box, enter **BrittaSimon**.
-  
-    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
-
-    1. Select **Show Password**, and then write down the value that's in the **Password** box.
-
-    1. Select **Create**.
-
-### Assign the Azure AD test user
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to InsideView.
 
-1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **InsideView**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **InsideView**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+   ![List of applications](common/all-applications.png)
 
-2. In the list of applications, select **InsideView**.
+1. In the left pane, select **Users and groups**:
 
-	![List of applications](common/all-applications.png)
+   ![Select Users and groups](common/users-groups-blade.png)
 
-3. In the left pane, select **Users and groups**:
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
-    ![Select Users and groups](common/users-groups-blade.png)
+   ![Select Add user](common/add-assign-user.png)
 
-4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
+1. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the window.
 
-    ![Select Add user](common/add-assign-user.png)
+1. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the window.
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the window.
-
-6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the window.
-
-7. In the **Add Assignment** dialog box, select **Assign**.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
 ### Create an InsideView test user
 
-To enable Azure AD users to sign in to InsideView, you need to add them to InsideView. You need to add them manually.
+To enable Microsoft Entra users to sign in to InsideView, you need to add them to InsideView. You need to add them manually.
 
 To create users or contacts in InsideView, contact the [InsideView support team](mailto:support@insideview.com).
 
 > [!NOTE]
-> You can use any user account creation tool or API provided by InsideView to provision Azure AD user accounts.
+> You can use any user account creation tool or API provided by InsideView to provision Microsoft Entra user accounts.
 
 ### Test single sign-on
 
-Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
+Now you need to test your Microsoft Entra single sign-on configuration by using the Access Panel.
 
 When you select the InsideView tile in the Access Panel, you should be automatically signed in to the InsideView instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
+- [Tutorials for integrating SaaS applications with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)
