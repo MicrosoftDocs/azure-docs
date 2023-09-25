@@ -1,6 +1,6 @@
 ---
 title: Conditions in Conditional Access policy
-description: What are conditions in an Azure AD Conditional Access policy
+description: What are conditions in a Microsoft Entra Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
@@ -62,7 +62,7 @@ When administrators configure location as a condition, they can choose to includ
 
 When including **any location**, this option includes any IP address on the internet not just configured named locations. When administrators select **any location**, they can choose to exclude **all trusted** or **selected locations**.
 
-Administrators can create policies that target specific locations along with other conditions. More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
+Administrators can create policies that target specific locations along with other conditions. More information about locations can be found in the article, [What is the location condition in Microsoft Entra Conditional Access](location-condition.md).
 
 ## Client apps
 

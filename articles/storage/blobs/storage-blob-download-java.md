@@ -68,7 +68,7 @@ You can configure values in [ParallelTransferOptions](/java/api/com.azure.storag
 - `blockSize`: The maximum block size to transfer for each request. You can set this value by using the [setBlockSizeLong](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setblocksizelong(java-lang-long)) method.
 - `maxConcurrency`: The maximum number of parallel requests issued at any given time as a part of a single parallel transfer. You can set this value by using the [setMaxConcurrency](/java/api/com.azure.storage.common.paralleltransferoptions#com-azure-storage-common-paralleltransferoptions-setmaxconcurrency(java-lang-integer)) method.
 
-Add the following `import` directive to your file to use `ParallelTransferOptions`:
+Add the following `import` directive to your file to use `ParallelTransferOptions` for a download:
 
 ```java
 import com.azure.storage.common.*;
@@ -77,6 +77,8 @@ import com.azure.storage.common.*;
 The following code example shows how to set values for `ParallelTransferOptions` and include the options as part of a `BlobDownloadToFileOptions` instance. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobDownload.java" id="Snippet_DownloadBlobWithTransferOptions":::
+
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Java](storage-blobs-tune-upload-download-java.md).
 
 ## Resources
 

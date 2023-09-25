@@ -5,8 +5,7 @@ description: Deploy the Anomaly Detector module to IoT Edge.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: mbullwin

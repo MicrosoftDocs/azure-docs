@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect cloud sync expressions and function reference
+title: Microsoft Entra Connect cloud sync expressions and function reference
 description: reference
 services: active-directory
 author: billmath
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Writing expressions for attribute mappings in Azure Active Directory
+# Writing expressions for attribute mappings in Microsoft Entra ID
 When you configure cloud sync, one of the types of attribute mappings that you can specify is an expression mapping. 
 
 The expression mapping allows you to customize attributes using a script-like expression.  This allows you to transform the on-premises data into a new or different value.  For example, you may want to combine two attributes into a single attribute because this single attribute is used by one of your cloud applications.
@@ -170,7 +170,7 @@ The ConvertToUTF8Hex function converts a string to a UTF8 Hex encoded value.
 `str ConvertToUTF8Hex(str source)`
 
 **Remarks:**  
-The output format of this function is used by Azure Active Directory as DN attribute format.
+The output format of this function is used by Microsoft Entra ID as DN attribute format.
 
 **Example:**  
 `ConvertToUTF8Hex("Hello world!")`  
@@ -728,7 +728,7 @@ NormalizeDiacritics([givenName])
 * **OUTPUT**:  "Zoe"
 
 ### Split a string into a multi-valued array
-You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
+You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Microsoft Entra ID.
 
 **Expression:** <br>
 Split([extensionAttribute5], ",")
@@ -753,7 +753,7 @@ For example, you want to format dates for ServiceNow.
 
 ### Replace a value based on predefined set of options
 
-You need to define the time zone of the user based on the state code stored in Azure AD. <br>
+You need to define the time zone of the user based on the state code stored in Microsoft Entra ID. <br>
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
 **Expression:** <br>
@@ -812,4 +812,4 @@ Based on the user's first name, middle name and last name, you need to generate 
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)

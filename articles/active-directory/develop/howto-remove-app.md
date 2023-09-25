@@ -28,7 +28,7 @@ In the following sections, you learn how to:
 
 ## Prerequisites
 
-- An [application registered in your Azure AD tenant](quickstart-register-app.md)
+- An [application registered in your Microsoft Entra tenant](quickstart-register-app.md)
 
 ## Remove an application authored by you or your organization
 
@@ -48,7 +48,7 @@ Applications that you or your organization have registered are represented by bo
 
 ## Remove an application authored by another organization
 
-If you're viewing **App registrations** in the context of a tenant, a subset of the applications that appear under the **All apps** tab are from another tenant and were registered into your tenant during the consent process. More specifically, they're represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](./app-objects-and-service-principals.md).
+If you're viewing **App registrations** in the context of a tenant, a subset of the applications that appear under the **All apps** tab are from another tenant and were registered into your tenant during the consent process. More specifically, they're represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Microsoft Entra ID](./app-objects-and-service-principals.md).
 
 In order to remove an application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have Global Administrator access. To learn how to delete a service principal, see [Delete an enterprise application](../manage-apps/delete-application-portal.md).
 

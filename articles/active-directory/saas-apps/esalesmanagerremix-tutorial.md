@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with E Sales Manager Remix'
-description: Learn how to configure single sign-on between Azure Active Directory and E Sales Manager Remix.
+title: 'Tutorial: Microsoft Entra integration with E Sales Manager Remix'
+description: Learn how to configure single sign-on between Microsoft Entra ID and E Sales Manager Remix.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,23 +12,23 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Integrate Azure Active Directory with E Sales Manager Remix
+# Integrate Microsoft Entra ID with E Sales Manager Remix
 
-In this tutorial, you learn how to integrate Azure Active Directory (Azure AD) with E Sales Manager Remix.
+In this tutorial, you learn how to integrate Microsoft Entra ID with E Sales Manager Remix.
 
-By integrating Azure AD with E Sales Manager Remix, you get the following benefits:
+By integrating Microsoft Entra ID with E Sales Manager Remix, you get the following benefits:
 
-- You can control in Azure AD who has access to E Sales Manager Remix.
-- You can enable your users to get signed in automatically to E Sales Manager Remix (single sign-on, or SSO) with their Azure AD accounts.
+- You can control in Microsoft Entra ID who has access to E Sales Manager Remix.
+- You can enable your users to get signed in automatically to E Sales Manager Remix (single sign-on, or SSO) with their Microsoft Entra accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Microsoft Entra ID, see [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with E Sales Manager Remix, you need the following items:
+To configure Microsoft Entra integration with E Sales Manager Remix, you need the following items:
 
-- An Azure AD subscription
+- A Microsoft Entra subscription
 - An E Sales Manager Remix SSO-enabled subscription
 
 > [!NOTE]
@@ -37,18 +37,18 @@ To configure Azure AD integration with E Sales Manager Remix, you need the follo
 To test the steps in this tutorial, follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have a Microsoft Entra trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Microsoft Entra single sign-on in a test environment. 
 
 The scenario outlined in this tutorial consists of two main building blocks:
 
 * Adding E Sales Manager Remix from the gallery
-* Configuring and testing Azure AD single sign-on
+* Configuring and testing Microsoft Entra single sign-on
 
 ## Add E Sales Manager Remix from the gallery
-To configure the integration of Azure AD with E Sales Manager Remix, add E Sales Manager Remix from the gallery to your list of managed SaaS apps by doing the following:
+To configure the integration of Microsoft Entra ID with E Sales Manager Remix, add E Sales Manager Remix from the gallery to your list of managed SaaS apps by doing the following:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
@@ -63,17 +63,21 @@ To configure the integration of Azure AD with E Sales Manager Remix, add E Sales
 
 	![E Sales Manager Remix in the results list](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
-## Configure and test Azure AD single sign-on
+<a name='configure-and-test-azure-ad-single-sign-on'></a>
 
-In this section, you configure and test Azure AD single sign-on with E Sales Manager Remix, based on a test user called "Britta Simon."
+## Configure and test Microsoft Entra single sign-on
 
-For single sign-on to work, Azure AD needs to identify the E Sales Manager Remix user and its counterpart in Azure AD. In other words, a link relationship between an Azure AD user and the same user in E Sales Manager Remix must be established.
+In this section, you configure and test Microsoft Entra single sign-on with E Sales Manager Remix, based on a test user called "Britta Simon."
 
-To configure and test Azure AD single sign-on with E Sales Manager Remix, complete the building blocks in the next five sections:
+For single sign-on to work, Microsoft Entra ID needs to identify the E Sales Manager Remix user and its counterpart in Microsoft Entra ID. In other words, a link relationship between a Microsoft Entra user and the same user in E Sales Manager Remix must be established.
 
-### Configure Azure AD single sign-on
+To configure and test Microsoft Entra single sign-on with E Sales Manager Remix, complete the building blocks in the next five sections:
 
-Enable Azure AD single sign-on in the Azure portal and configure single sign-on in your E Sales Manager Remix application by doing the following:
+<a name='configure-azure-ad-single-sign-on'></a>
+
+### Configure Microsoft Entra single sign-on
+
+Enable Microsoft Entra single sign-on in the Azure portal and configure single sign-on in your E Sales Manager Remix application by doing the following:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **E Sales Manager Remix** application integration page, select **Single sign-on**.
@@ -158,10 +162,12 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 	h. Select **Setting complete**.
 
 > [!TIP]
-> As you're setting up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you've added the app in the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation in the **Configuration** section at the bottom. For more information about the embedded documentation feature, see [Azure AD embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985).
+> As you're setting up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you've added the app in the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation in the **Configuration** section at the bottom. For more information about the embedded documentation feature, see [Microsoft Entra ID embedded documentation](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you create test user.
 
@@ -203,7 +209,9 @@ In this section, you create test user.
 
 	![The "To Administrator Menu" command](./media/esalesmanagerremix-tutorial/configure4.png)
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you enable user Britta Simon to use Azure single sign-on by granting access to E Sales Manager Remix. To do so, do the following: 
 
@@ -234,7 +242,7 @@ In this section, you enable user Britta Simon to use Azure single sign-on by gra
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
+In this section, you test your Microsoft Entra single sign-on configuration by using the Access Panel.
 
 When you select the E Sales Manager Remix tile in the Access Panel, you should be signed in automatically to your E Sales Manager Remix application.
 
@@ -242,8 +250,8 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 ## Additional resources
 
-* [List of tutorials about integrating SaaS apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [List of tutorials about integrating SaaS apps with Microsoft Entra ID](tutorial-list.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

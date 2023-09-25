@@ -6,9 +6,9 @@ ms.topic: include
 ms.date: 06/09/2023
 ---
 
-Build a Jupyter Notebook using the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to add semantic search to an existing index. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart-Semantic-Search) or follow these steps to create your own.
+Build a Jupyter Notebook using the [**azure-search-documents**](/python/api/overview/azure/search-documents-readme) library to add semantic ranking to an existing index. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart-Semantic-Search) or follow these steps to create your own.
 
-Semantic search is in public preview and available in beta versions of the Azure SDK for Python.
+Semantic ranking is in public preview and available in beta versions of the Azure SDK for Python.
 
 #### Set up your environment
 
@@ -289,7 +289,7 @@ In this task, create the notebook, load the libraries, and set up your clients.
 
 1. In this final query, return semantic answers.
 
-   Semantic search can generate answers to a query string that has the characteristics of a question. The generated answer is extracted verbatim from your content. To get a semantic answer, the question and answer must be closely aligned, and the model must find content that clearly answers the question. If potential answers fail to meet a confidence threshold, the model won't return an answer. For demonstration purposes, the question in this example is designed to get a response so that you can see the syntax.
+   Semantic ranking can generate answers to a query string that has the characteristics of a question. The generated answer is extracted verbatim from your content. To get a semantic answer, the question and answer must be closely aligned, and the model must find content that clearly answers the question. If potential answers fail to meet a confidence threshold, the model won't return an answer. For demonstration purposes, the question in this example is designed to get a response so that you can see the syntax.
 
    ```python
    results =  search_client.search(query_type='semantic', query_language='en-us', semantic_configuration_name='my-semantic-config',

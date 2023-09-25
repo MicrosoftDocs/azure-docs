@@ -1,6 +1,6 @@
 ---
-title: Quickstart guide to analyze a failed Azure AD sign-in
-description: In this quickstart, you learn how you can use the sign-ins log to determine the reason for a failed sign-in to Azure AD.
+title: Quickstart guide to analyze a failed Microsoft Entra sign-in
+description: In this quickstart, you learn how you can use the sign-ins log to determine the reason for a failed sign-in to Microsoft Entra ID.
 services: active-directory
 ms.service: active-directory
 ms.subservice: report-monitor
@@ -13,22 +13,22 @@ ms.reviewer: besiler
 
 #Customer intent: As an IT admin, you need to know how to use the sign-ins log so that you can fix sign-in issues.
 ---
-# Quickstart: Analyze sign-ins with the Azure AD sign-ins log 
+# Quickstart: Analyze sign-ins with the Microsoft Entra sign-ins log 
 
-With the information in the Azure AD sign-ins log, you can figure out what happened if a sign-in of a user failed. This quickstart shows how to you can locate failed sign-in using the sign-ins log.
+With the information in the Microsoft Entra sign-ins log, you can figure out what happened if a sign-in of a user failed. This quickstart shows how to you can locate failed sign-in using the sign-ins log.
 
 
 ## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
-- An Azure AD tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
+- A Microsoft Entra tenant with a [Premium P1 license](../fundamentals/get-started-premium.md)
 - A user with the **Reports Reader**, **Security Reader**, **Security Administrator**, or **Global Administrator** role for the tenant.
 - **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users.md#add-a-new-user).
 
 ## Perform a failed sign-in
 
-The goal of this step is to create a record of a failed sign-in in the Azure AD sign-ins log.
+The goal of this step is to create a record of a failed sign-in in the Microsoft Entra sign-ins log.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as Isabella Simonsen using an incorrect password.
 
@@ -77,7 +77,7 @@ Now, that you know how to find an entry in the sign-in log by name, you should a
 
 ## Clean up resources
 
-When no longer needed, delete the test user. If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users.md#delete-a-user). 
+When no longer needed, delete the test user. If you don't know how to delete a Microsoft Entra user, see [Delete users from Microsoft Entra ID](../fundamentals/add-users.md#delete-a-user). 
 
 ## Next step
 

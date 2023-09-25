@@ -23,7 +23,7 @@ Permissions Management provides a summary of key statistics and data about your 
 
 The data provided by Permissions Management includes metrics related to avoidable risk. These metrics allow the Permissions Management administrator to identify areas where they can reduce risks related to the principle of least permissions.
 
-You can view the following information in Entra:
+You can view the following information in Microsoft Entra:
 
 - The **Permission Creep Index (PCI)** heat map on the Permissions Management **Dashboard** identifies:
     - The number of users who have been granted high-risk permissions but aren't using them.

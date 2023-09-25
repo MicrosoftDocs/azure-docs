@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory SSO integration with Cloud Academy'
-description: In this tutorial, you learn how to configure single sign-on between Azure Active Directory and Cloud Academy.
+title: 'Tutorial: Microsoft Entra SSO integration with Cloud Academy'
+description: In this tutorial, you learn how to configure single sign-on between Microsoft Entra ID and Cloud Academy.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 03/15/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory SSO integration with Cloud Academy
+# Tutorial: Microsoft Entra SSO integration with Cloud Academy
 
-In this tutorial, you learn how to integrate Cloud Academy with Azure Active Directory (Azure AD). When you integrate Cloud Academy with Azure AD, you can:
+In this tutorial, you learn how to integrate Cloud Academy with Microsoft Entra ID. When you integrate Cloud Academy with Microsoft Entra ID, you can:
 
-* Use Azure AD to control who can access Cloud Academy.
-* Enable your users to be automatically signed in to Cloud Academy with their Azure AD accounts.
+* Use Microsoft Entra ID to control who can access Cloud Academy.
+* Enable your users to be automatically signed in to Cloud Academy with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Cloud Academy subscription with single sign-on (SSO) enabled.
 
 ## Tutorial description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Cloud Academy supports **SP** initiated SSO.
 * Cloud Academy supports **Just In Time** user provisioning.
@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add Cloud Academy from the gallery
 
-To configure the integration of Cloud Academy into Azure AD, you need to add Cloud Academy from the gallery to your list of managed SaaS apps:
+To configure the integration of Cloud Academy into Microsoft Entra ID, you need to add Cloud Academy from the gallery to your list of managed SaaS apps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -47,22 +47,26 @@ To configure the integration of Cloud Academy into Azure AD, you need to add Clo
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Cloud Academy
+<a name='configure-and-test-azure-ad-sso-for-cloud-academy'></a>
 
-You'll configure and test Azure AD SSO with Cloud Academy by using a test user named **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in Cloud Academy.
+## Configure and test Microsoft Entra SSO for Cloud Academy
 
-To configure and test Azure AD SSO with Cloud Academy, you'll complete these high-level steps:
+You'll configure and test Microsoft Entra SSO with Cloud Academy by using a test user named **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the corresponding user in Cloud Academy.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Cloud Academy, you'll complete these high-level steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on.
+    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Microsoft Entra single sign-on.
 1. **[Configure single sign-on for Cloud Academy](#configure-single-sign-on-for-cloud-academy)** on the application side.
-    1. **[Create a Cloud Academy test user](#create-a-cloud-academy-test-user)** as a counterpart to the Azure AD representation of the user.
+    1. **[Create a Cloud Academy test user](#create-a-cloud-academy-test-user)** as a counterpart to the Microsoft Entra representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal:
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO in the Azure portal:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cloud Academy** application integration page, in the **Manage** section, select **single sign-on**.
@@ -103,7 +107,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
    ![Screenshot that shows the copy button for the login U R L.](common/copy_configuration_urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you create a test user called B.Simon.
 
@@ -147,7 +153,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting that
 
     ![Screenshot that shows integrations in general settings.](./media/cloud-academy-sso-tutorial/general-settings.png)
 
-    1. In the **SSO URL (Location)** box, paste the login URL value that you copied, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
+    1. In the **SSO URL (Location)** box, paste the login URL value that you copied, in step 9 of [Configure Microsoft Entra SSO](#configure-azure-ad-sso).
 
     1. Open the downloaded Base64 certificate in Notepad. Paste its contents into the **Certificate** box.
 
@@ -164,7 +170,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting that
 
     1. In the **Security Settings** section, select the **Authentication Requests Signed?** check box to set this value to **True**.
 
-    1. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied, in step 9 of [Configure Azure AD SSO](#configure-azure-ad-sso).
+    1. In the **Extra Settings(Optional)** section, fill the **Logout URL** box with the logout URL value that you copied, in step 9 of [Configure Microsoft Entra SSO](#configure-azure-ad-sso).
 
 1. Select **Save and Test**.
 
@@ -204,7 +210,7 @@ Cloud Academy also supports automatic user provisioning. For more information, s
 
 ## Test SSO
 
-In this section, you test your Azure AD SSO configuration by using one of the following options:
+In this section, you test your Microsoft Entra SSO configuration by using one of the following options:
 
 * In the Azure portal, select **Test this application**. You're redirected to the Cloud Academy sign-on URL and you can initiate the sign-in flow.
 
