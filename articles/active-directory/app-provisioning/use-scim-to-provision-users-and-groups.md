@@ -1329,11 +1329,7 @@ Applications that support the SCIM profile described in this article can be conn
 1. In the app management screen, select **Provisioning** in the left panel.
 1. In the **Provisioning Mode** menu, select **Automatic**.
     
-<<<<<<< HEAD
-    The following screenshot shows how to configure provisioning settings:
-=======
     The following screenshot shows the configuring provisioning settings in the Microsoft Entra admin center:
->>>>>>> 89ae6f906bf2a9742f18c04ce327dd16860ba801
 
    ![Screenshot of app provisioning page in the Microsoft Entra admin center.](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)
 
@@ -1419,7 +1415,6 @@ It's recommended, but not required, that you support multiple secrets for easy r
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
 
-<<<<<<< HEAD
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 1. Select your application and go to **Provisioning**.
@@ -1432,15 +1427,6 @@ It's recommended, but not required, that you support multiple secrets for easy r
    1. The third party app redirects user back and provides the grant code 
 
    1. The Provisioning Service calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
-=======
-   1. Microsoft Entra admin center redirects user to the Authorization URL (sign in page for the third party app).
-
-   1. Admin provides credentials to the third party application. 
-
-   1. Third party app redirects user back to Microsoft Entra admin center and provides the grant code 
-
-   1. Microsoft Entra provisioning service calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
->>>>>>> 89ae6f906bf2a9742f18c04ce327dd16860ba801
 
 1. When the provisioning cycle begins, the service checks if the current access token is valid and exchanges it for a new token if needed. The access token is provided in each request made to the app and the validity of the request is checked before each request.
 
