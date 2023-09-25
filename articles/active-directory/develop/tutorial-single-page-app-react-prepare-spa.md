@@ -59,6 +59,26 @@ Use the following tabs to create a React project within the IDE.
     ```
 ---
 
+1. Create additional folders and files to achieve the following folder structure:
+
+    ```console
+    ├─── public
+    │   └─── index.html
+    └───src
+        ├─── components
+        │   └─── PageLayout.jsx
+        │   └─── ProfileData.jsx
+        │   └─── SignInButton.jsx
+        │   └─── SignOutButton.jsx
+        └── App.css
+        └── App.jsx
+        └── authConfig.js
+        └── graph.js
+        └── index.css
+        └── index.js
+    ```
+
+
 ## Install identity and bootstrap packages
 
 Identity related **npm** packages must be installed in the project to enable user  authentication. For project styling, **Bootstrap** will be used.
@@ -85,11 +105,7 @@ To learn more about these packages refer to the documentation in [msal-browser](
 
 ## Creating the authentication configuration file
 
-### [Visual Studio](#tab/visual-studio)
-
-1. In the **Solution Explorer**, right-click the *src* folder and select **Add** > **New Item**.
-1. Name the file *authConfig.js*, and select **Add**.
-1. Open *authConfig.js* and replace the code with the following code snippet.
+1. In the *src* folder, open *authConfig.js* and add the following code snippet:
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
 
@@ -99,28 +115,18 @@ To learn more about these packages refer to the documentation in [msal-browser](
         - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
         - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
 
-### [Visual Studio Code](#tab/visual-studio-code)
-
-1. In the *src* folder, create a new file called *authConfig.js*.
-1. Open *authConfig.js* and add the following code snippet:
-
-   :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
-
-1. Replace the following values with the values from the Microsoft Entra admin center.
-    - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    - `authority` - This is composed of two parts:
-        - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
-        - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
-
+1. Save the file.
 ---
 
 ## Modify *index.js* to include the authentication provider
 
 All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/@azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/@azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
 
-1. In the *src* folder, open the *index.js* file and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
+1. In the *src* folder, open *index.js* and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
 
     :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/index.js" :::
+
+1. Save the file.
 
 ## Next steps
 
