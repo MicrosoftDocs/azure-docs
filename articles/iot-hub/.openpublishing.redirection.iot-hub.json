@@ -1350,32 +1350,32 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-x509-certificate-concepts.md",
-      "redirect_url": "/azure/iot-hub/authenticate-x509.md",
+      "redirect_url": "/azure/iot-hub/authenticate-x509",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-x509ca-overview.md",
-      "redirect_url": "/azure/iot-hub/authenticate-x509.md",
+      "redirect_url": "/azure/iot-hub/authenticate-x509",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-x509ca-concept.md",
-      "redirect_url": "/azure/iot-hub/authenticate-x509.md",
+      "redirect_url": "/azure/iot-hub/authenticate-x509",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md",
-      "redirect_url": "/azure/iot-hub/authenticate-azure-ad.md",
+      "redirect_url": "/azure/iot-hub/authenticate-azure-ad",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-dev-guide-sas.md",
-      "redirect_url": "/azure/iot-hub/authenticate-sas.md",
+      "redirect_url": "/azure/iot-hub/authenticate-sas",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-security.md",
-      "redirect_url": "/azure/iot-hub/authenticate-overview.md",
+      "redirect_url": "/azure/iot-hub/authenticate-overview",
       "redirect_document_id": false
     },
     {

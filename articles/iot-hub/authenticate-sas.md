@@ -43,7 +43,7 @@ Use shared access policies for IoT hub-level access, and use the individual devi
 ### IoT hub-level shared access policies
 
 Shared access policies can grant any combination of permissions. You can define policies in the [Azure portal](https://portal.azure.com), programmatically by using the [IoT Hub Resource REST APIs](/rest/api/iothub/iothubresource), or using the [az iot hub policy](/cli/azure/iot/hub/policy) CLI. A newly created IoT hub has the following default policies:
-
+  
 | Shared Access Policy | Permissions |
 | -------------------- | ----------- |
 | iothubowner | All permission |
@@ -205,7 +205,7 @@ The following code generates a SAS token using the resource URI and signing key.
 
         String token = "SharedAccessSignature sr=" + URLEncoder.encode(resourceUri, StandardCharsets.UTF_8)
                 + "&sig=" + URLEncoder.encode(signature, StandardCharsets.UTF_8.name()) + "&se=" + expiry;
-
+            
         return token;
     }
 ```
