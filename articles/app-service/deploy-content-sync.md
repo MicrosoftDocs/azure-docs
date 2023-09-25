@@ -86,7 +86,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName <group-name> -ResourceType Micro
 On September 30th, 2023 the integrations for Microsoft OneDrive and Dropbox for Azure App Service and Azure Functions will be retired. If you are using OneDrive or Dropbox, you should [disable content sync deployments](#disable-content-sync-deployment) from OneDrive and Dropbox. Then, you can set up deployments from any of the following alternatives
 
 - [GitHub Actions](deploy-github-actions.md)
-- [Azure DevOps Pipelines](/azure/devops/pipelines/targets/webapp?view=azure-devops)
+- [Azure DevOps Pipelines](/azure/devops/pipelines/targets/webapp)
 - [Azure CLI](./deploy-zip.md?tabs=cli)
 - [VS Code](./deploy-zip.md?tabs=cli)
 - [Local Git Repository](./deploy-local-git.md?tabs=cli)

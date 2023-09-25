@@ -1,8 +1,8 @@
 ---
 title: Integrate the Azure Cosmos DB for Apache Gremlin with Service Connector
 description: Integrate the Azure Cosmos DB for Apache Gremlin into your application with Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 09/19/2022

@@ -246,7 +246,8 @@ Use Language service containers to deploy API features on-premises. These Docker
 
 * [Sentiment analysis](sentiment-opinion-mining/how-to/use-containers.md)
 * [Language detection](language-detection/how-to/use-containers.md)
-* [Key phrase extraction](key-phrase-extraction/how-to/use-containers.md) 
+* [Key phrase extraction](key-phrase-extraction/how-to/use-containers.md)
+* [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/use-containers.md)
 * [Text Analytics for health](text-analytics-for-health/how-to/use-containers.md)
 
 

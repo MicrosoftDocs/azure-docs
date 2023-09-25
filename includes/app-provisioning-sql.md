@@ -373,7 +373,7 @@ If you are connecting to a new database or one that is empty and has no users, t
 
     |Property|Value|
     |-----|-----|
-    |Tenant URL| `https://localhost:8585/ecma2host_SQL/scim`|
+    |Tenant URL| `https://localhost:8585/ecma2host_{connectorName}/scim`|
 
  5. Enter the **Secret Token** value that you defined when you created the connector.
      >[!NOTE]

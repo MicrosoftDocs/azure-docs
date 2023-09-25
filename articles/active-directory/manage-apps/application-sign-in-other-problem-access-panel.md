@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot problems signing in to an application from My Apps portal
-description: Troubleshoot problems signing in to an application from Azure AD My Apps
+description: Troubleshoot problems signing in to an application from Microsoft Entra My Apps
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -16,11 +16,11 @@ ms.custom: contperf-fy21q2, enterprise-apps
 
 # Troubleshoot application sign-in
 
-My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+My Apps is a web-based portal that enables a user with a work or school account in Microsoft Entra ID to view and start cloud-based applications that the Microsoft Entra administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-To learn more about using Azure AD as an identity provider for an app, see the [What is Application Management in Azure AD](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
+To learn more about using Microsoft Entra ID as an identity provider for an app, see the [What is Application Management in Microsoft Entra ID](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
 
-These applications are configured on behalf of the user in the Azure portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps.
+These applications are configured on behalf of the user in the Microsoft Entra admin center. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps.
 
 The type of apps a user may be seeing fall in the following categories:
 
@@ -31,7 +31,7 @@ The type of apps a user may be seeing fall in the following categories:
 
 Here are some things to check if an app is appearing or not appearing:
 
-- Make sure the app is added to Azure AD and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](add-application-portal.md).
+- Make sure the app is added to Microsoft Entra ID and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](add-application-portal.md).
 - If an app was recently added, have the user sign out and back in again.
 - If the app requires a license, such as Office, then make sure the user is assigned the appropriate license.
 - The time it takes for licensing changes can vary depending on the size and complexity of the group.
@@ -53,7 +53,7 @@ Here are some things to check if an app is appearing or not appearing:
 
 Access to My Apps can be blocked due to a problem with the user’s account. Following are some ways you can troubleshoot and solve problems with users and their account settings:
 
-- [Check if a user account exists in Azure Active Directory](#check-if-a-user-account-exists-in-azure-active-directory)
+- [Check if a user account exists in Microsoft Entra ID](#check-if-a-user-account-exists-in-azure-active-directory)
 - [Check a user’s account status](#check-a-users-account-status)
 - [Reset a user’s password](#reset-a-users-password)
 - [Enable self-service password reset](#enable-self-service-password-reset)
@@ -66,22 +66,24 @@ Access to My Apps can be blocked due to a problem with the user’s account. Fol
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
 
-### Check if a user account exists in Azure Active Directory
+<a name='check-if-a-user-account-exists-in-azure-active-directory'></a>
+
+### Check if a user account exists in Microsoft Entra ID
 
 To check if a user’s account is present, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
-1. Search for the user you're interested in and **select the row** to view the details of the user.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row to view the details of the user.
 1. Check the properties of the user object to be sure that they look as you expect and no data is missing.
 
 ### Check a user’s account status
 
 To check a user’s account status, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
-1. **Search** for the user you're interested in and **select the row** to select.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
 1. Select **Profile**.
 1. Under **Settings** ensure that **Block sign in** is set to **No**.
 
@@ -89,27 +91,27 @@ To check a user’s account status, follow these steps:
 
 To reset a user’s password, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
-1. **Search** for the user you're interested in and **select the row** to select.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
 1. Select the **Reset password** button at the top of the user pane.
 1. Select the **Reset password** button on the **Reset password** pane that appears.
 1. Copy the **temporary password** or **enter a new password** for the user.
-1. Communicate this new password to the user, they be required to change this password during their next sign-in to Azure Active Directory.
+1. Communicate this new password to the user, they be required to change this password during their next sign-in to Microsoft Entra ID.
 
 ### Enable self-service password reset
 
 To enable self-service password reset, follow these deployment steps:
 
-- [Enable users to reset their Azure Active Directory passwords](../authentication/tutorial-enable-sspr.md)
+- [Enable users to reset their Microsoft Entra passwords](../authentication/tutorial-enable-sspr.md)
 - [Enable users to reset or change their Active Directory on-premises passwords](../authentication/tutorial-enable-sspr.md)
 
 ### Check a user’s multi-factor authentication status
 
 To check a user’s multi-factor authentication status, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 1. Select the **Per-user MFA** button at the top of the pane.
 1. Once the **Multi-Factor Authentication** administration portal loads, ensure you are on the **Users** tab.
 1. Find the user in the list of users by searching, filtering, or sorting.
@@ -121,9 +123,9 @@ To check a user’s multi-factor authentication status, follow these steps:
 
 To check a user’s authentication contact info used for Multi-factor authentication, Conditional Access, Identity Protection, and Password Reset, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
-1. **Search** for the user you're interested in and **select the row** to select.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
 1. Select **Authentication method** under **Manage**.
 1. **Review** the data registered for the user and update as needed.
 
@@ -131,9 +133,9 @@ To check a user’s authentication contact info used for Multi-factor authentica
 
 To check a user’s group memberships, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
-1. **Search** for the user you're interested in and **select the row** to select.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
 1. Select **Groups** to see which groups the user is a member of.
 
 ### Check if a user has more than 999 app role assignments
@@ -145,7 +147,7 @@ This is because My Apps currently reads up to 999 app role assignments to determ
 To check if a user has more than 999 app role assignments, follow these steps:
 
 1. Install the [**Microsoft.Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell module.
-2. Run `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`and sign in as at least a [User Administrator](../roles/permissions-reference.md#user-administrator)..
+1. Run `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`and sign in as at least a [User Administrator](../roles/permissions-reference.md#user-administrator)..
 1. Run `(Get-MgUserAppRoleAssignment -UserId "<user-id>" -PageSize 999).Count` to determine the number of app role assignments the user currently has granted.
 1. If the result is 999, the user likely has more than 999 app roles assignments.
 
@@ -153,18 +155,18 @@ To check if a user has more than 999 app role assignments, follow these steps:
 
 To check a user’s assigned licenses, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
-1. **Search** for the user you're interested in and **select the row** to select.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
 1. Select **Licenses** to see which licenses the user currently has assigned.
 
 ### Assign a user a license
 
 To assign a license to a user, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). 
-1. Browse to **Identity** > **Users** > **All users** >
-1. **Search** for the user you're interested in and **select the row** to select.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [user administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Search for the user you're interested in and select the row with the user's details.
 1. Select **Licenses** to see which licenses the user currently has assigned.
 1. Select the **Assignments** button.
 1. Select one or more licenses from the list of available products.
@@ -179,7 +181,7 @@ Deep links or User access URLs are links your users may use to access their pass
 
 To check if you have the correct deep link, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. Find the label **User Access URL**. Your deep link should match this URL.

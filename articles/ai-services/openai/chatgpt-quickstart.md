@@ -61,3 +61,9 @@ Use this article to get started using Azure OpenAI.
 [!INCLUDE [REST API quickstart](includes/chatgpt-rest.md)]
 
 ::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/chatgpt-powershell.md)]
+
+::: zone-end

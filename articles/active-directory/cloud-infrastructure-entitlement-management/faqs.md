@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management
-description: Frequently asked questions (FAQs) about Microsoft Permissions Management.
+description: Frequently asked questions (FAQs) about Microsoft Entra Permissions Management.
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -22,9 +22,11 @@ Microsoft Entra Permissions Management (Permissions Management) is a cloud infra
 
 ## What are the prerequisites to use Permissions Management?
 
-Permissions Management supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use Permissions Management.
+Permissions Management supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have a Microsoft Entra account to use Permissions Management.
 
-## Can a customer use Permissions Management if they have other identities with access to their IaaS platform that aren't yet in Azure AD?
+<a name='can-a-customer-use-permissions-management-if-they-have-other-identities-with-access-to-their-iaas-platform-that-arent-yet-in-azure-ad'></a>
+
+## Can a customer use Permissions Management if they have other identities with access to their IaaS platform that aren't yet in Microsoft Entra ID?
 
 Yes, a customer can detect, mitigate, and monitor the risk for AWS IAM or GCP accounts, or from other identity providers such as Okta or AWS IAM.
 
@@ -44,9 +46,11 @@ Yes, non-Azure customers can use our solution. Permissions Management is a multi
 
 Yes, Permissions Management is currently for tenants hosted in the European Union (EU).
 
-## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
+<a name='if-im-already-using-azure-ad--privileged-identity-management-pim-for-azure-what-value-does-permissions-management-provide'></a>
 
-Permissions Management complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure and Microsoft Online Services and apps that use groups. Permissions Management allows multicloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
+## If I'm already using Microsoft Entra ID  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
+
+Permissions Management complements Microsoft Entra PIM. Microsoft Entra PIM provides just-in-time access for admin roles in Azure and Microsoft Online Services and apps that use groups. Permissions Management allows multicloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
 
 ## What public cloud infrastructures does Permissions Management support?
 
@@ -111,7 +115,7 @@ Integration with ITMS tools, such as ServiceNow, is in the future roadmap.
 
 ## How is Permissions Management being deployed?
 
-Customers with Global Administrator role have first to onboard Permissions Management on their Azure AD tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
+Customers with Global Administrator role have first to onboard Permissions Management on their Microsoft Entra tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
 
 ## How long does it take to deploy Permissions Management?
 
@@ -143,7 +147,9 @@ If you're a self-service customer (you set up a trial or paid license in the Mic
 
 Learn more about [Azure Data Subject Requests](https://go.microsoft.com/fwlink/?linkid=2245178).
 
-## Do I require a license to use Entra Permissions Management? 
+<a name='do-i-require-a-license-to-use-entra-permissions-management-'></a>
+
+## Do I require a license to use Microsoft Entra Permissions Management? 
 
 Yes, as of July 1, 2022, new customers must acquire a free 45-day trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
 
@@ -153,23 +159,25 @@ Permissions Management is $125 per resources/year ($10.40 per resource/month). P
 
 ## Do I need to pay for all resources?
 
-Although Permissions Management supports all resources, Microsoft only requires licenses for certain resources per cloud. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
+Although Permissions Management supports all resources, Microsoft only requires licenses for billable resources per cloud environment. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
 
-## How do I figure out how many resources I have? 
+## How do I calculate the number of billable resources I have? 
 
-To find out how many resources you have across your multicloud infrastructure, select Settings (gear icon) and view the Billable Resources tab in Permissions Management. 
+To calculate the billable resources you have across your multicloud infrastructure, you must first activate a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management or [purchase a paid license](https://aka.ms/BuyPermissionsManagement). In Permissions Management, select **Settings** (gear icon), then click the **Billable Resources** tab. View the amount of billable resources in the **Total Number of Licenses** column.
 
 ## What do I do if I’m using the legacy version of the CloudKnox service?  
 
-We are currently working on developing a migration plan to help customers on the original CloudKnox service move to the new Entra Permissions Management service later in 2022.   
+We are currently working on developing a migration plan to help customers on the original CloudKnox service move to the new Microsoft Entra Permissions Management service later in 2022.   
 
-## Can I use Entra Permissions Management in the EU?  
+<a name='can-i-use-entra-permissions-management-in-the-eu--'></a>
+
+## Can I use Microsoft Entra Permissions Management in the EU?  
 
 Yes, the product is compliant.  
 
 ## How to I enable one of the new 18 languages supported in the GA release? 
 
-We are now localized in 18 languages. We respect your browser setting or you can manually enable your language of choice by adding a query string suffix to your Entra Permissions Management URL:  
+We are now localized in 18 languages. We respect your browser setting or you can manually enable your language of choice by adding a query string suffix to your Microsoft Entra Permissions Management URL:  
 
 `?lang=xx-XX` 
 
@@ -177,7 +185,7 @@ Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-
 
 ## Resources
 
-- [Microsoft Entra (Azure AD) blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity)
+- [Microsoft Entra (`Azure AD`) blog](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/bg-p/Identity)
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
 - For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
 - For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).
