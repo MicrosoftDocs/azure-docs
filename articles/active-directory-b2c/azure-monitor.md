@@ -38,7 +38,7 @@ Watch this video to learn how to configure monitoring for Azure AD B2C using Azu
 
 ## Deployment overview
 
-Azure AD B2C uses [Microsoft Entra ID monitoring](../active-directory/reports-monitoring/overview-monitoring-health.md). Unlike Microsoft Entra tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we send the logs.
+Azure AD B2C uses [Microsoft Entra monitoring](../active-directory/reports-monitoring/overview-monitoring-health.md). Unlike Microsoft Entra tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we send the logs.
 To enable _Diagnostic settings_ in Microsoft Entra ID within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage a Microsoft Entra ID (the **Customer**) resource.
 
 > [!TIP]
@@ -365,4 +365,4 @@ To stop collecting logs to your Log Analytics workspace, delete the diagnostic s
 
 - For more information about adding and configuring diagnostic settings in Azure Monitor, see [Tutorial: Collect and analyze resource logs from an Azure resource](../azure-monitor/essentials/monitor-azure-resource.md).
 
-- For information about streaming Microsoft Entra ID logs to an event hub, see [Tutorial: Stream Microsoft Entra ID logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+- For information about streaming Microsoft Entra logs to an event hub, see [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

@@ -102,6 +102,6 @@ If the accounts you're migrating have weaker password strength than the [strong 
 
 ## Next steps
 
-The [azure-ad-b2c/user-migration](https://github.com/azure-ad-b2c/user-migration) repository on GitHub contains a seamless migration custom policy example and REST API code sample:
+The [`azure-ad-b2c/user-migration`](https://github.com/azure-ad-b2c/user-migration) repository on GitHub contains a seamless migration custom policy example and REST API code sample:
 
-[Seamless user migration custom policy & REST API code sample](https://aka.ms/b2c-account-seamless-migration)
+[Seamless user migration custom policy and REST API code sample](https://aka.ms/b2c-account-seamless-migration)
