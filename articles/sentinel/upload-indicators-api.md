@@ -28,6 +28,10 @@ An upload indicators API call has five components:
 
 In order to authenticate to Microsoft Sentinel, the request to the upload indicators API requires a valid Azure AD access token. For more information on application registration, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) or see the basic steps as part of the [upload indicators API data connector](connect-threat-intelligence-upload-api.md#register-an-azure-ad-application) setup.
 
+## Permissions
+
+This API requires the calling Azure AD application to be granted the Microsoft Sentinel contributor role at the workspace level.
+
 ## Create the request
 
 This section covers the first three of the five components discussed earlier. You first need to acquire the access token from Azure AD, which you use to assemble your request message header.
