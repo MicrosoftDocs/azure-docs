@@ -64,8 +64,6 @@ items:
       href: monitor-private-5g-core-workbooks.md
     - name: Cloud monitoring of UE usage with Event Hubs (preview)
       href: ue-usage-event-hub.md
-    - name: Cloud monitring with alerts
-      href: monitor-private-5g-core-alerts.md  
     - name: Local monitoring with packet core dashboards
       href: packet-core-dashboards.md
     - name: Local monitoring with distributed tracing
@@ -84,6 +82,8 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
+    - name: Create custom alerts
+      href: monitor-private-5g-core-alerts.md  
   - name: Request support
     items:
     - name: How to open a support request 

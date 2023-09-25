@@ -49,7 +49,7 @@ Example: In this article, you will migrate your user databases from IBM Db2 to S
 
 -->
 
-In this article, you will create an alert for a packet core control/data plane.
+Alerts help track important events in your network by notifying you with an email containing diagnostic information when certain, user-defined conditions are met. Alerts can be customized to represent the severity of incidents on your network and can be viewed in the [**Monitor** service under **Azure Services**(https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/overview)]. In this article, you will create a custom alert for a packet core control/data plane.
 
 <!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
 
@@ -67,7 +67,8 @@ Required: Make Prerequisites the first H2 after the H1.
 
 ## Prerequisites
 
-1. Have a packet core control/data plane created correctly
+1. Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the build-in Contributor or Owner role at the subscription scope.
+1. You must have [deployed your private mobile network(#how-to-guide-deploy-a-private-mobile-network-azure-portal)]
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
@@ -89,9 +90,7 @@ For portal-based procedures, minimize bullets and numbering.
 -->
 
 ## Create an alert rule for your packet core control/data plane
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
+
 1. Navigate to the packet core control/data plane you want to create an alert for:
   - You can do this by searching for it under **All resources** or from the **Overview** page of the site that contains the packet core you want to add alerts for.
 1. Select **Alerts** from the **Monitoring** tab on the resource menu.
@@ -107,6 +106,8 @@ TODO: Add ordered list of procedure steps
       :::image type="content" source="media/alert3.png" alt-text="Screenshot of Azure portal showing alert signal selection menu.":::
 
 1. Select the signal you want the alert to be based on and follow the rest of the create instructions.
+1. Once you've reached the end of the create instructions, select **Review + create** to create your alert.
+1. Verify that your alert rule was created by navigating to the alerts page for your packet core (see steps 1 and 2) and finding it in the list of alert rules on the page.
 
 <!-- 5. Next step/Related content------------------------------------------------------------------------
 
