@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -72,14 +72,14 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a value using the following pattern:
+    a. In the **Identifier** textbox, type a URL using one of the following patterns:
 
     | **Identifier** |
     |------------|
     | `https://crm.na1.insightly.com/user/saml?instanceId=<ID>` |
     | `https://crm.au1.insightly.com/user/saml?instanceId=<ID>` |
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type a URL using one of the following patterns:
 
     | **Reply URL** |
     |------------|
@@ -87,9 +87,9 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     | `https://crm.au1.insightly.com/user/saml?instanceId=<ID>` |
 
 	> [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Insightly SAML support team](mailto:support@insight.ly) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Insightly SAML support team](mailto:support@insight.ly) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
@@ -129,17 +129,16 @@ To configure single sign-on on **Insightly SAML** side, you need to send the dow
 
 ### Create Insightly SAML test user
 
-In this section, you create a user called B.Simon in Glia Hub. Work with [Glia Hub support team](mailto:support@glia.com) to add the users in the Glia Hub platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Insightly SAML. Work with [Insightly SAML support team](mailto:support@insight.ly) to add the users in the Insightly SAML platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on Test this application in Azure portal and you should be automatically signed in to the Insightly SAM for which you set up the SSO.
+* Click on Test this application in Microsoft Entra admin center and you should be automatically signed in to the Insightly SAML for which you set up the SSO.
  
-* You can use Microsoft My Apps. When you click the Insightly SAM tile in the My Apps, you should be automatically signed in to the Insightly SAM for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the Insightly SAML tile in the My Apps, you should be automatically signed in to the Insightly SAML for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure Insightly SAML you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Insightly SAML you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
