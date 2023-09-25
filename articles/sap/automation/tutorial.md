@@ -260,7 +260,28 @@ If you don't assign the User Access Administrator role to the service principal,
 
 
     deployer_enable_public_ip = true
+
+    deployer_count = 1
     
+    use_service_endpoint = true
+    use_private_endpoint = false
+    enable_firewall_for_keyvaults_and_storage = true
+    
+    ```
+
+    Note the Terraform variable file locations for future edits during deployment.
+
+1. Find the Terraform variable files for the SAP Library in the appropriate subfolder. For example, the `LIBRARY` Terraform variable file might look like this example:
+
+    ```terraform
+    # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
+    environment = "MGMT"
+    # The location/region value is a mandatory field, it is used to control where the resources are deployed
+    location = "westeurope"
+
+    dns_label = "azure.contoso.net"
+
+    use_private_endpoint = false
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
@@ -334,7 +355,7 @@ The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 
     The Terraform state file is now placed in the storage account whose name contains `tfstate`. The storage account has a container named `tfstate` with the deployer and library state files. The contents of the `tfstate` container after a successful control plane deployment are shown here.
 
-    :::image type="content" source="media/tutorial/terraform-state-files.png" alt-text="Screenshot that shows the control plane tfstate files.":::
+    :::image type="content" source="media/tutorial/terraform-state-files.png" alt-text="Screenshot that shows the control plane terraform state files.":::
 
 ### Common issues and solutions
 

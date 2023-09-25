@@ -15,6 +15,7 @@ ms.custom: fasttrack-edit, mvc
 To better understand regions and availability zones in Azure, it helps to understand key terms or concepts.
 
 
+
 | Term | Definition |
 |-|-|
 | Region | A geographic perimeter that contains a set of datacenters. |
@@ -30,3 +31,4 @@ To better understand regions and availability zones in Azure, it helps to unders
 | Synchronous replication | A data replication approach in which data is written and committed to multiple locations. Each location must acknowledge completion of the write operation before the overall write operation is considered complete. |
 | Active-active | An architecture in which multiple instances of a solution actively process requests at the same time. |
 | Active-passive | An architecture in which one instance of a solution is designated as the *primary* and processes traffic, and one or more *secondary* instances are deployed to serve traffic if the primary is unavailable. |
+

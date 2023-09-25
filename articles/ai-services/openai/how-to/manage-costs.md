@@ -4,8 +4,7 @@ description: Learn how to plan for and manage costs for Azure OpenAI by using co
 author: mrbullwinkle
 ms.author: mbullwin
 ms.custom: subject-cost-optimization
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 08/22/2023
 ---
