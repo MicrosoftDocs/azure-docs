@@ -33,7 +33,8 @@ To migrate your data, follow these steps:
 
 Compare the differences between Azure API for FHIR and Azure Health Data Services. Also review your architecture and assess if any changes need to be made.
 
-|---**Capabilities**               |---**Azure API for FHIR**                                                                                                                                             |---**Azure Health Data Services** |
+|**Capabilities**               |**Azure API for FHIR**                                                                                                                                             |**Azure Health Data Services** |
+|-------|-------|-------|
 | **Settings**            | Supported:   Local RBAC   • SMART on FHIR Proxy                                                                                                                  | Planned deprecation - Local RBAC (9/6/23)  - SMART on FHIR Proxy (9/21/26)                                                                                                                |   |   |
 | **Data storage Volume** | More than 4 TB                                                                                                                                                       | Current support is 4 TB. Reach out to CSS team if you need more than 4 TB.                                                                                                                |   |   |
 | **Data ingress**        | Tools available in OSS                                                                                                                                             | $import operation                                                                                                                                                                         |   |   |
