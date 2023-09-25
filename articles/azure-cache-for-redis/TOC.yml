@@ -43,7 +43,7 @@
       href: cache-tutorial-functions-getting-started.md
     - name: Using Azure Functions to create a write-behind cache
       href: cache-tutorial-write-behind.md
-  - name: Connect from apps hosted on Azure Kubernetes Service
+  - name: Use Azure Kubernetes Service with a cache
     items:
     - name: Connect an AKS application to a cache
       href: cache-tutorial-aks-get-started.md
