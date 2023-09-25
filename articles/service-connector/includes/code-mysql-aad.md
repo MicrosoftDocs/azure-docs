@@ -355,7 +355,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
      db, err := sql.Open("mysql", connectionString)
    }
    ```
-::zone-end
+:::zone-end
 
 :::zone pivot="system-identity"
 
@@ -386,7 +386,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
      db, err := sql.Open("mysql", connectionString)
    }
    ```
-::zone-end
+:::zone-end
 
 :::zone pivot="service-principal"
 
@@ -420,7 +420,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
      db, err := sql.Open("mysql", connectionString)
    }
    ```
-::zone-end
+:::zone-end
 
 ### [NodeJS](#tab/node)
 1. Install dependencies
