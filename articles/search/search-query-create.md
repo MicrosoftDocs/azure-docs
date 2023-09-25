@@ -1,25 +1,31 @@
 ---
-title: Create a query
+title: Full-text query
 titleSuffix: Azure Cognitive Search
-description: Learn how to construct a query request in Cognitive Search, which tools and APIs to use for testing and code, and how query decisions start with index design.
+description: Learn how to construct a query request for full text search in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 03/22/2023
+ms.topic: how-to
+ms.date: 09/25/2023
 ---
 
-# Creating queries in Azure Cognitive Search
+# Create a full-text query in Azure Cognitive Search
 
-If you're building a query for the first time, this article describes approaches and methods for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
+If you're building a query for [full text search](search-lucene-query-architecture.md), this article provides steps for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
 
-## What's a query request?
+## Prerequisites
 
-A query is a read-only request against the docs collection of a single search index. It specifies a 'search' parameter, which contains the query expression consisting of terms, quote-enclosed phrases, and operators.
++ A [search index](search-how-to-create-search-index.md) with string fields attributed as `searchable`.
 
-Other parameters on the request provide more definition to the query and response. For example, 'searchFields' scopes query execution to specific fields, 'select' specifies which fields are returned in results, and 'count' returns the number of matches found in the index.
++ Read permissions on the documents collection of a search index. To send a query, include a [query API key](search-security-api-keys.md) on the request, or give the caller [Search Index Data Reader](search-security-rbac.md) permissions.
+
+## Example of a basic query request
+
+In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index. The query expression is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators.
+
+Other parameters on the request add definition to the query and response. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
 
 The following example gives you a general idea of a query request by showing some of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
@@ -37,15 +43,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Choose a client
 
-For early development and proof-of-concept testing, we recommend starting with an interactive tool like Azure portal, or the Postman app for making REST API calls. With these approaches, you can test a query request in isolation and assess the effects of different properties without having to write any code.
+For early development and proof-of-concept testing, start with Azure portal or the Postman app for making REST API calls. These approaches are interactive, useful for targeted testing, and help you assess the effects of different properties without having to write any code.
 
-To call search from within an app, we recommend the Azure.Document.Search client libraries in the Azure SDKs for .NET, Java, JavaScript, and Python.
-
-### Permissions
-
-A query request requires read permissions, granted via an API key passed in the header. Any operation, including query requests, will work under an [admin API key](search-security-api-keys.md), but query requests can optionally use a [query API key](search-security-api-keys.md#create-query-keys). Query API keys are strongly recommended. You can create up to 50 per service and assign different keys to different applications.
-
-In Azure portal, access to the built-in tools, wizards, and objects require membership in the Contributor role or higher on the search service. 
+To call search from within an app, use the **Azure.Document.Search** client libraries in the Azure SDKs for .NET, Java, JavaScript, and Python.
 
 ### Use Azure portal to query an index
 
@@ -96,9 +96,9 @@ Search is fundamentally a user-driven exercise, where terms or phrases are colle
 
 ## Effect of field attributes on queries
 
-If you're familiar with [query types and composition](search-query-overview.md), you might remember that the parameters on a query request depend on field attributes in an index. For example, only fields marked as *searchable* and *retrievable* can be used in queries and search results. When setting the `search`, `filter`, and `orderby` parameters in your request, you should check attributes to avoid unexpected results.
+If you're familiar with [query types and composition](search-query-overview.md), you might remember that the parameters on a query request depend on field attributes in an index. For example, only fields marked as `searchable` and `retrievable` can be used in queries and search results. When setting the `search`, `filter`, and `orderby` parameters in your request, you should check attributes to avoid unexpected results.
 
-In the portal screenshot below of the [hotels sample index](search-get-started-portal.md), only the last two fields "LastRenovationDate" and "Rating" can be used in an `"$orderby"` only clause.
+In the portal screenshot below of the [hotels sample index](search-get-started-portal.md), only the last two fields "LastRenovationDate" and "Rating" are `sortable`, a requirement for use in an `"$orderby"` only clause.
 
 ![Index definition for the hotel sample](./media/search-query-overview/hotel-sample-index-definition.png "Index definition for the hotel sample")
 

@@ -8,8 +8,9 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 09/25/2023
 ---
+
 # Querying in Azure Cognitive Search
 
 Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article describes query requests and the kinds of queries you can create.
