@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 
-ms.date: 09/13/2023
+ms.date: 09/25/2023
 ms.author: henrymbugua
 ms.reviewer: j-mantu
 ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js
@@ -56,8 +56,7 @@ To obtain the sample application, you can either clone it from GitHub or downloa
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-docs-code-javascript.git
     ```
-
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/archive/refs/heads/main.zip)
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Configure the project
 
