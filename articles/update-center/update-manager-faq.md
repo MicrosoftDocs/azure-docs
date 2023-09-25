@@ -93,13 +93,13 @@ You can rebuild custom dashboards/reports on updates data from Azure Resource Gr
 Arc-enabling of machines is a prerequisite for management with Update Manager. To move the saved searches. You can Arc-enable them and then use dynamic scoping feature to define the same scope of machines. [Learn more](manage-dynamic-scoping.md).
 
 
-### If I have been using pre and post-script or alerting capability in Automation Update management, How can I move to Azure Update Manager? 
+### If I have been using pre and post-script or alerting capability in Automation Update management, how can I move to Azure Update Manager? 
 
 These capabilities will be added to Azure Update Manager. For more information, see [guidance for moving from Automation Update management to Azure Update Manager](guidance-migration-automation-update-management-azure-update-manager.md).
 
 ### I'm using Automation Update Management on sovereign clouds; will I get region support in the new Azure Update Manager? 
 
-Yes, Automation Update Manager will be rolled out to sovereign clouds in the coming months. 
+Yes, Automation Update Manager will be rolled out to sovereign clouds soon. 
 
 ## Pricing
 
@@ -109,7 +109,7 @@ Azure Update Manager is available at no extra charge for managing Azure VMs and 
 
 ### How is Azure Update Manager price calculated for Arc-enabled servers? 
 
-For Arc-enabled servers, Azure update manager is charged $5/server/month (assuming 31 days of connected usage). It's charged at a daily prorated value of 0.16/server/day. An Arc-enabled machine would only be charged for the days when it's connected and managed by Azure Update Manager.
+For Arc-enabled servers, Azure Update Manager is charged $5/server/month (assuming 31 days of connected usage). It's charged at a daily prorated value of 0.16/server/day. An Arc-enabled machine would only be charged for the days when it's connected and managed by Azure Update Manager.
 
 ### When is an Arc-enabled server considered managed by Azure Update Manager?
 
@@ -145,7 +145,7 @@ Azure Update Manager doesn't currently support Azure Lighthouse integration.
 
 Yes, Azure Update Manager supports update features via policies. For more information, see [how to enable periodic assessment at scale using policy](periodic-assessment-at-scale.md) and [how to enable schedules on your machines at scale using Policy](scheduled-patching.md#onboarding-to-schedule-using-policy).
 
-### I have machines across multiple subscriptions in Automation Update Management, is this scenario supported in Azure Update Manager?
+### I have machines across multiple subscriptions in Automation Update Management. Is this scenario supported in Azure Update Manager?
 
 Yes, Azure Update Manager supports multi-subscription scenarios. 
 
