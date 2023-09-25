@@ -72,7 +72,7 @@ In this article, you use Terraform to deploy an Azure Application Gateway v2 and
 
 1. When you apply the execution plan, Terraform displays the frontend public IP address. If you've cleared the screen, you can retrieve that value with the following Terraform command:
 
-    ```hcl
+    ```console
     echo $(terraform output -raw gateway_frontend_ip)
     ```
 
