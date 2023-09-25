@@ -71,4 +71,4 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM2070"></a>**AZSM2070** |Cannot write blob because it has an active lease. | This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
 | <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error.  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 
-<iframe src="https://www.youtube.com/watch?v=bmRZi9iGsK0"></iframe>
+<iframe src="https://www.youtube.com/embed/bmRZi9iGsK0?si=5aARcKekphfvtnVn"></iframe>
