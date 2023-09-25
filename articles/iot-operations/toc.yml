@@ -79,15 +79,15 @@ items:
       - name: Concepts
         items:
         - name: Develop high available apps
-          href: develop/develop-ha-apps.md
+          href: develop/concepts/develop-ha-apps.md
       - name: How to
         items:
         - name: Develop Dapr apps
-          href: develop/develop-dapr-apps.md
+          href: develop/how-to/develop-dapr-apps.md
         - name: Develop MQTTnet apps
-          href: develop/develop-mqttnet-apps.md
+          href: develop/how-to/develop-mqttnet-apps.md
         - name: Develop Node-RED apps
-          href: develop/develop-node-red-apps.md
+          href: develop/how-to/develop-node-red-apps.md
     - name: Administrator guide
       items:
       - name: Overview
