@@ -5,8 +5,7 @@ description: This tutorial simulates a Personalizer loop _system in an Azure Not
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom:

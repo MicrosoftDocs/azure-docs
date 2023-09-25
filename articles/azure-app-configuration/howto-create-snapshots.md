@@ -94,7 +94,7 @@ If you have an application using Azure App Configuration, you can update it with
 
 ### [.NET](#tab/dotnet)
 
-Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application. If you don't have an application, you can reference any of the .NET quickstart guides, like [creating an ASP.NET core app with Azure App Configuration](./quickstart-aspnet-core-app.md).
+Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `Program.cs` file of your application. If you don't have an application, you can reference any of the .NET quickstart guides, like [creating an ASP.NET core app with Azure App Configuration](./quickstart-aspnet-core-app.md).
 
 **Add snapshots to your configuration**
 
@@ -143,6 +143,9 @@ spring:
 > - `spring-cloud-azure-starter-appconfiguration-config`
 
 ---
+
+> [!NOTE]
+> Only snapshots created with composition type `Key` can be loaded using the code samples shown above.
 
 ## Manage active snapshots
 

@@ -1,6 +1,6 @@
 ---
-title: Export Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory
-description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory.
+title: Export Application Provisioning configuration and roll back to a known good state for disaster recovery in Microsoft Entra ID
+description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -44,7 +44,7 @@ Some things to consider when rolling back to a previous configuration:
 
 ## Export and import your provisioning configuration by using the Microsoft Graph API
 
-You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD. You can also use the steps captured here to create a backup of your provisioning configuration.
+You can use the Microsoft Graph API and the Microsoft Graph Explorer to export your User Provisioning attribute mappings and schema to a JSON file and import it back into Microsoft Entra ID. You can also use the steps captured here to create a backup of your provisioning configuration.
 
 ### Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
@@ -56,7 +56,7 @@ You can use the Microsoft Graph API and the Microsoft Graph Explorer to export y
 ### Step 2: Sign into Microsoft Graph Explorer
 
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Administrator or App Admin credentials.
+1. Click on the "Sign-In with Microsoft" button and sign-in using Microsoft Entra Global Administrator or App Admin credentials.
 
     ![Microsoft Graph Sign-in](./media/export-import-provisioning-configuration/wd_export_02.png)
 

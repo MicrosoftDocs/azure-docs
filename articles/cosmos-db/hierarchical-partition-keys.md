@@ -224,7 +224,7 @@ You can test the subpartitioning feature by using the latest version of the loca
 > - Using the Data Explorer to navigate to and interact with items using hierarchical partition keys
 >   
 
-For more information, see [Azure Cosmos DB emulator](./emulator.md).
+For more information, see [Azure Cosmos DB emulator](emulator.md).
 
 <a name="use-the-sdks-to-work-with-containers-with-hierarchical-partition-keys"></a>
 

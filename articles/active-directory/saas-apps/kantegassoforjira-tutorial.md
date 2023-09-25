@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory with Kantega SSO for JIRA'
-description: Learn how to configure single sign-on between Azure Active Directory and Jira using Kantega SSO.
+title: 'Tutorial: Integrate Microsoft Entra ID with Kantega SSO for JIRA'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Jira using Kantega SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Integrate Azure Active Directory with Kantega SSO for JIRA
+# Tutorial: Integrate Microsoft Entra ID with Kantega SSO for JIRA
 
-This tutorial will walk you through the steps of configuring single sign-on for your Azure AD users in Jira. To achieve this, we will be using the Kantega SSO app. Using this configuration, you will be able to:
+This tutorial will walk you through the steps of configuring single sign-on for your Microsoft Entra users in Jira. To achieve this, we will be using the Kantega SSO app. Using this configuration, you will be able to:
 
-* Control which users have Jira access from Azure AD.
-* Automatically sign in to Jira when you have an active Azure AD session.
+* Control which users have Jira access from Microsoft Entra ID.
+* Automatically sign in to Jira when you have an active Microsoft Entra session.
 * Manage your accounts in one central location.
 
 Read more on the official [Kantega SSO documentation](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/895844483/Azure+AD).
@@ -26,13 +26,13 @@ Read more on the official [Kantega SSO documentation](https://kantega-sso.atlass
 
 To follow this tutorial, you need:
 
-* An active Azure AD subscription. You can set up a [free account](https://azure.microsoft.com/free/).
+* An active Microsoft Entra subscription. You can set up a [free account](https://azure.microsoft.com/free/).
 * A Jira Data Center instance. You can [try it for free](https://www.atlassian.com/software/jira/download/data-center).
 * Kantega SSO app for Jira from Atlassian Marketplace. You can [try it for free](https://marketplace.atlassian.com/apps/1211923/k-sso-saml-kerberos-openid-oidc-oauth-for-jira?tab=overview&hosting=datacenter).
 
 ## Scenario description
 
-In this tutorial, you will configure and test single sign-on with Azure AD in a Jira test environment.
+In this tutorial, you will configure and test single sign-on with Microsoft Entra ID in a Jira test environment.
 
 * Kantega SSO supports **SAML and OIDC**.
 * Kantega SSO supports **SP and IDP** initiated SSO.
@@ -41,7 +41,7 @@ In this tutorial, you will configure and test single sign-on with Azure AD in a 
 
 ## Add Kantega SSO for JIRA from the gallery
 
-To configure the integration of Kantega SSO for JIRA into Azure AD, you need to add Kantega SSO for JIRA from the gallery to your list of managed SaaS apps.
+To configure the integration of Kantega SSO for JIRA into Microsoft Entra ID, you need to add Kantega SSO for JIRA from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -50,22 +50,26 @@ To configure the integration of Kantega SSO for JIRA into Azure AD, you need to 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Kantega SSO for JIRA
+<a name='configure-and-test-azure-ad-sso-for-kantega-sso-for-jira'></a>
 
-Configure and test Azure AD SSO with Kantega SSO for JIRA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Kantega SSO for JIRA.
+## Configure and test Microsoft Entra SSO for Kantega SSO for JIRA
 
-To configure and test Azure AD SSO with Kantega SSO for JIRA, perform the following steps:
+Configure and test Microsoft Entra SSO with Kantega SSO for JIRA using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Kantega SSO for JIRA.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Kantega SSO for JIRA, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Kantega SSO for JIRA SSO](#configure-kantega-sso-for-jira-sso)** - to configure the single sign-on settings on the application side.
-    1. **[Create Kantega SSO for JIRA test user](#create-kantega-sso-for-jira-test-user)** - to have a counterpart of B.Simon in Kantega SSO for JIRA linked to the Azure AD representation of the user.
+    1. **[Create Kantega SSO for JIRA test user](#create-kantega-sso-for-jira-test-user)** - to have a counterpart of B.Simon in Kantega SSO for JIRA linked to the Microsoft Entra representation of the user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kantega SSO for JIRA** > **Single sign-on**.
@@ -98,7 +102,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -112,7 +118,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Kantega SSO for JIRA.
 
@@ -128,16 +136,16 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 Kantega SSO can be configured to use either SAML or OIDC as SSO protocol. Choose one of the following guides: 
 
-* [Kantega SSO setup guide for Azure AD with SAML](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/896696394/Azure+AD+SAML)
-* [Kantega SSO setup guide for Azure AD with OIDC](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/896598077/Azure+AD+OIDC)
+* [Kantega SSO setup guide for Microsoft Entra ID with SAML](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/896696394/Azure+AD+SAML)
+* [Kantega SSO setup guide for Microsoft Entra ID with OIDC](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/896598077/Azure+AD+OIDC)
 
 ### Create Kantega SSO for JIRA test user
 
-To enable Azure AD users to sign in to Kantega SSO for JIRA, you must provision them. The application supports Just-in-Time user provisioning, automatic user provisioning using SCIM, or you can set up users manually. Read more about the [different provisioning options](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/1769694/User+provisioning).
+To enable Microsoft Entra users to sign in to Kantega SSO for JIRA, you must provision them. The application supports Just-in-Time user provisioning, automatic user provisioning using SCIM, or you can set up users manually. Read more about the [different provisioning options](https://kantega-sso.atlassian.net/wiki/spaces/KSE/pages/1769694/User+provisioning).
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with the following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with the following options. 
 
 #### SP initiated:
 

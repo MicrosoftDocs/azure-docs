@@ -20,11 +20,7 @@ Update Manager will be declared generally available soon.
 
 ## Prescript and postscript
 
-The prescript and postscript will be available soon.
-
-## SQL Server patching
-
-SQL Server patching by using Update Manager will be available soon.
+The ability to execute Azure Automation runbook scripts before or after deploying scheduled updates to machines will be available by the fourth quarter of 2023.
 
 ## Next steps
 

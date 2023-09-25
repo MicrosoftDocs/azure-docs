@@ -267,7 +267,7 @@ The query language used in Log Analytics is expressive and can contain sensitive
 
 With the considerations mentioned for [Customer-managed key for saved queries and log alerts](#customer-managed-key-for-saved-queries-and-log-alerts), Azure Monitor enables you to store Workbook queries encrypted with your key in your own Storage Account, when selecting **Save content to an Azure Storage Account** in Workbook 'Save' operation.
 
-[ ![Screenshot of Workbook save.](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png) ](media/customer-managed-keys/grant-key-vault-permissions-rbac-8bit.png#lightbox)
+[ ![Screenshot of Workbook save.](media/customer-managed-keys/cmk-workbook.png) ](media/customer-managed-keys/cmk-workbook.png#lightbox)
 
 > [!NOTE]
 > Queries remain encrypted with Microsoft key ("MMK") in the following scenarios regardless Customer-managed key configuration: Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.

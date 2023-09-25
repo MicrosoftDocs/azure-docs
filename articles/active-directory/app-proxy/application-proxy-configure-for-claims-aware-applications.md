@@ -1,5 +1,5 @@
 ---
-title: Claims-aware apps - Azure Active Directory Application Proxy
+title: Claims-aware apps - Microsoft Entra application proxy
 description: How to publish on-premises ASP.NET applications that accept AD FS claims for secure remote access by your users. 
 services: active-directory
 author: kenwith
@@ -23,7 +23,7 @@ Make sure that the STS that the claims-aware app redirects to is available outsi
 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
 2. Navigate to the application page in the portal and select **Single sign-on**.
-3. If you chose **Azure Active Directory** as your **Preauthentication Method**, select **Azure AD single sign-on disabled** as your **Internal Authentication Method**. If you chose **Passthrough** as your **Preauthentication Method**, you don't need to change anything.
+3. If you chose **Microsoft Entra ID** as your **Preauthentication Method**, select **Microsoft Entra single sign-on disabled** as your **Internal Authentication Method**. If you chose **Passthrough** as your **Preauthentication Method**, you don't need to change anything.
 
 ## Configure ADFS
 

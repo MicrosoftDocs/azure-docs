@@ -20,12 +20,12 @@ With Global Secure Access, you can define specific fully qualified domain names 
 To configure Quick Access, you must have:
 
 - The **Global Secure Access Administrator** and **Application Administrator** roles in Microsoft Entra ID
-- The preview requires a Microsoft Entra ID Premium P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
+- The preview requires a Microsoft Entra ID P1 license. If needed, you can [purchase licenses or get trial licenses](https://aka.ms/azureadlicense).
 
 To manage App Proxy connector groups, which is required for Quick Access, you must have:
 
 - An **Application Administrator** role in Microsoft Entra ID
-- Microsoft Entra P1 or P2 licenses
+- Microsoft Entra ID P1 or P2 licenses
 
 ### Known limitations
 
@@ -37,7 +37,7 @@ To manage App Proxy connector groups, which is required for Quick Access, you mu
 
 Configuring your Quick Access settings is a major component to utilizing Microsoft Entra Private Access. When you configure Quick Access for the first time, Private Access creates a new enterprise application. The properties of this new app are automatically configured to work with Private Access. 
 
-To configure Quick Access, you need to have a connector group with at least one active [Microsoft Entra ID Application Proxy](/azure/active-directory/app-proxy/application-proxy) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
+To configure Quick Access, you need to have a connector group with at least one active [Microsoft Entra application proxy](/azure/active-directory/app-proxy/application-proxy) connector. The connector group handles the traffic to this new application. Once you have Quick Access and an App proxy connector group configured, you need to grant access to the app.
 
 To summarize, the overall process is as follows:
 
@@ -164,4 +164,3 @@ The next step for getting started with Microsoft Entra Private Access is to [ena
 For more information about Private Access, see the following articles:
 - [Learn about traffic profiles](concept-traffic-forwarding.md)
 - [Configure per-app access](how-to-configure-per-app-access.md)
-
