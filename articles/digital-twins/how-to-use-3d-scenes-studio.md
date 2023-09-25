@@ -36,7 +36,6 @@ To use 3D Scenes Studio, you'll need the following resources.
     * A data access role of *Storage Blob Data Owner* or *Storage Blob Data Contributor*
 
     You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role). 
-
 * Configure CORS for your storage account (see details in the following sub-section).
 
 ### Configure CORS
