@@ -19,11 +19,11 @@ The Azure Arc Setup wizard is launched from a dialog window of the Server Manage
 
 ## Launch Arc Server Setup and connect to Azure Arc
 
-1. From the Server Manager pop-up window, select **Launch Setup**.
+1. Select the Azure Arc system tray icon at the bottom of the screen, then select Launch Azure Arc Setup.
 
-    :::image type="content" source="media/onboard-windows-server/server-manager-popup.png" alt-text="Screenshot of Server Manager pop-up window showing Launch Setup link.":::
-    
-    Alternatively you can launch the Azure Arc setup wizard by running the file `AzureArcSetup.exe` on the machine you're onboarding.
+    :::image type="content" source="media/onboard-windows-server/system-tray-icon.png" alt-text="Screenshot showing Arc system tray icon and window to launch Arc setup process.":::
+   
+    Alternatively, you can launch the Azure Arc setup process from a pop-up window that appears in the Server Manager.
 
 1. The Azure Arc Setup wizard starts by explaining the benefits of onboarding your machine to Azure Arc. When you're ready to proceed, click **Next**.
 
@@ -51,23 +51,9 @@ The Azure Arc Setup wizard is launched from a dialog window of the Server Manage
 
     :::image type="content" source="media/onboard-windows-server/server-manager-enabled.png" alt-text="Screenshot of Server Manager local server pane showing machine status is enabled.":::
 
+## Viewing the connected machine
 
-
-
-
-
-
-## Verify the connection with Azure Arc
-
-
-
-
-
-
-
-
-
-
+The Azure Arc system tray icon at the bottom of your Windows Server machine indicates if the machine is connected to Azure Arc; a red symbol means the machine is not connected. To view a connected machine is Azure Arc, select the icon and then select **View Machine in Azure**. You can then view the machine in the [Azure portal](https://portal.azure.com/), just as you would other Arc-enabled resources.
 
 ## Next steps
 
