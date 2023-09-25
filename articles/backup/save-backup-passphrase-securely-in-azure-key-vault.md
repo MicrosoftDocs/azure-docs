@@ -129,7 +129,7 @@ To assign the permissions, follow these steps:
  
    :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/view-permission-details.png" alt-text="Screenshot shows how to view the permission details." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/view-permission-details.png":::
 
-   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission=availability-on-secret.png" alt-text="Screenshot shows how to check the Set permission availability." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission=availability-on-secret.png":::
+   :::image type="content" source="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission-availability-on-secret.png" alt-text="Screenshot shows how to check the Set permission availability." lightbox="./media/save-backup-passphrase-securely-in-azure-key-vault/check-set-permission-availability-on-secret.png":::
 
 4. Select **Next** to proceed to select Members for assignment. 
 
