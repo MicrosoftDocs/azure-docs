@@ -32,22 +32,21 @@ To migrate your data, follow these steps:
 ## Step 1: Assess readiness
 
 Compare the differences between Azure API for FHIR and Azure Health Data Services. Also review your architecture and assess if any changes need to be made.
-|---**Capabilities**               |---**Azure API for FHIR**                                                                                                                                             |---**Azure Health Data Services**                                                                                                                                                            |   |   |
-|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
+
+|---**Capabilities**               |---**Azure API for FHIR**                                                                                                                                             |---**Azure Health Data Services** |
 | **Settings**            | Supported:   Local RBAC   • SMART on FHIR Proxy                                                                                                                  | Planned deprecation - Local RBAC (9/6/23)  - SMART on FHIR Proxy (9/21/26)                                                                                                                |   |   |
 | **Data storage Volume** | More than 4 TB                                                                                                                                                       | Current support is 4 TB. Reach out to CSS team if you need more than 4 TB.                                                                                                                |   |   |
 | **Data ingress**        | Tools available in OSS                                                                                                                                             | $import operation                                                                                                                                                                         |   |   |
 | **Autoscaling**         | Supported on request and incurs charge                                                                                                                             | Enabled by default at no extra charge                                                                                                                                                |   |   |
 | **Search parameters**   | - Bundle type supported: Batch - Include and revinclude, iterate modifier not supported  - Sorting supported by first name, last name, birthdate and clinical date | - Bundle Type supported: Batch and transaction  - Selectable search parameters  - Include, revinclude, and iterate modifier is supported - Sorting supported by string and dateTime fields |   |   |
 | **Events**              | Not Supported                                                                                                                                                      | Supported                                                                                                                                                                                 |   |   |
-| **Infrastructure**      | Supported: - Customer managed keys  - AZ support and PITR  - Cross region DR                                                                                       | Supported - Data recovery - Upcoming: AZ support for customer managed keys                                                                                                              |   |   |
-
+| **Infrastructure**      | Supported: - Customer managed keys  - AZ support and PITR  - Cross region DR                                                                                       | Supported - Data recovery - Upcoming: AZ support for customer managed keys                                                                                                                              |   |   |
 
 ### Things to consider that may affect your architecture
 
 - **Sync agent is being deprecated**. If you're using sync agent to connect to Dataverse, see [Overview of data integration toolkit](/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json)
 
-- **FHIR Proxy is being deprecated**. If you're using FHIR Proxy for events, refer to the built-in [eventing](../events//events-overview.md/) feature. Alternatives can be customized and built using the [Azure Health Data Services toolkit](https://github.com/microsoft/azure-health-data-services-toolkit).
+- **FHIR Proxy is being deprecated**. If you're using FHIR Proxy for events, refer to the built-in [eventing](../events/events-overview.md/) feature. Alternatives can be customized and built using the [Azure Health Data Services toolkit](https://github.com/microsoft/azure-health-data-services-toolkit).
 
 - **SMART on FHIR proxy is being deprecated**. You need to use the new SMART on FHIR capability. More information: [SMART on FHIR](smart-on-fhir.md)
 
@@ -96,10 +95,10 @@ Migrate applications that were pointing to the old FHIR server.
 
 - Reconfigure any remaining settings in the new Azure Health Data Services FHIR Service server after migration.
 
-- If you’d like to double check to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](use-postman#get-capability-statement) to compare and contrast the two servers.
+- If you’d like to double check to make sure that the Azure Health Data Services FHIR Service and Azure API for FHIR servers have the same configurations, you can check both [metadata endpoints](use-postman.md#get-capability-statement) to compare and contrast the two servers.
 
 - Set up any jobs that were previously running in your old Azure API for FHIR server (for example, \$export jobs)
 
-## Step 5: Cut over to Azure Health Data Services FHIR Services
+## Step 5: Cut over to Azure Health Data Services FHIR services
 
 After you’re confident that your Azure Health Data Services FHIR Service server is stable, you can begin using Azure Health Data Services FHIR Service to satisfy your business scenarios. Turn off any remaining pipelines that are running on Azure API for FHIR, delete data from the intermediate storage account that was used in the migration tool if necessary, delete data from your Azure API for FHIR server, and decommission your Azure API for FHIR account.
