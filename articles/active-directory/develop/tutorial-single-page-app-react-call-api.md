@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.author: owenrichards
 ms.topic: tutorial
-ms.date: 11/28/2022
+ms.date: 09/25/2023
 #Customer intent: As a React developer, I want to know how to create a user interface and access the Microsoft Graph API
 ---
 
@@ -37,40 +37,41 @@ To allow the SPA to request access to Microsoft Graph, a reference to the `graph
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/graph.js" :::
 
-## Change filename and add required imports
+## Update imports to use components in the application
 
-By default, the application runs via a JavaScript file called *App.js*. It needs to be changed to *App.jsx* file, which is an extension that allows a developer to write HTML in React.
+The following code snippet imports the UI components that were created previously to the application. It also imports the required components from the `@azure/msal-react` package. These components will be used to render the user interface and call the API.
 
 1. In the *src* folder, open *App.jsx* and replace the contents of the file with the following code snippet to request access.
 
    ```javascript
-   import React, { useState } from 'react';
-
-   import { PageLayout } from './components/PageLayout';
-   import { loginRequest } from './authConfig';
-   import { callMsGraph } from './graph';
-   import { ProfileData } from './components/ProfileData';
-
-   import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
-
-   import './App.css';
-
-   import Button from 'react-bootstrap/Button';
+    import React, { useState } from 'react';
+    
+    import { PageLayout } from './components/PageLayout';
+    import { loginRequest } from './authConfig';
+    import { callMsGraph } from './graph';
+    import { ProfileData } from './components/ProfileData';
+    
+    import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
+    
+    import './App.css';
+    
+    import Button from 'react-bootstrap/Button';
    ```
 
 ### Adding the `ProfileContent` function
 
-The `ProfileContent` function is used to render the user's profile information. In the *App.jsx* file, add the following code below your imports:
+The `ProfileContent` function is used to render the user's profile information after the user has signed in. This function will be called when the user selects the **Request Profile Information** button.
 
-    ```javascript
-    
+1. In the *App.jsx* file, add the following code below your imports:
+
+    ```JavaScript
     /**
     * Renders information about the signed-in user or a button to retrieve data about the user
     */
     const ProfileContent = () => {
         const { instance, accounts } = useMsal();
         const [graphData, setGraphData] = useState(null);
-        
+            
         function RequestProfileData() {
             // Silently acquires an access token which is then attached to a request for MS Graph data
             instance
@@ -82,7 +83,7 @@ The `ProfileContent` function is used to render the user's profile information. 
                     callMsGraph(response.accessToken).then((response) => setGraphData(response));
                 });
         }
-        
+            
         return (
             <>
                 <h5 className="card-title">Welcome {accounts[0].name}</h5>
@@ -101,9 +102,11 @@ The `ProfileContent` function is used to render the user's profile information. 
 
 ### Replacing the default function to render authenticated information
 
-The following code will render based on whether the user is authenticated or not. Replace the default function `App()` to render authenticated information with the following code:
+The `MainContent` function is used to render the user's profile information after the user has signed in. This function will be called when the user selects the **Request Profile Information** button.
 
-    ```javascript
+1. In the *App.jsx* file, replace the `App()` function with the following code:
+
+    ```JavaScript
     /**
     * If a user is authenticated the ProfileContent component above is rendered. Otherwise a message indicating a user is not authenticated is rendered.
     */
@@ -113,7 +116,7 @@ The following code will render based on whether the user is authenticated or not
                 <AuthenticatedTemplate>
                     <ProfileContent />
                 </AuthenticatedTemplate>
-        
+            
                 <UnauthenticatedTemplate>
                     <h5>
                         <center>
@@ -124,7 +127,7 @@ The following code will render based on whether the user is authenticated or not
             </div>
         );
     };
-        
+            
     export default function App() {
         return (
             <PageLayout>
@@ -134,7 +137,7 @@ The following code will render based on whether the user is authenticated or not
             </PageLayout>
         );
     }
-```
+    ```
 
 ## Calling the API from the application
 

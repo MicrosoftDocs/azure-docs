@@ -116,7 +116,6 @@ To learn more about these packages refer to the documentation in [msal-browser](
         - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
 
 1. Save the file.
----
 
 ## Modify *index.js* to include the authentication provider
 
