@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 09/25/2023
 ms.author: jeedes
 
 ---
@@ -81,7 +81,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     | **Identifier** |
     |------------|
     | `https://insightsfirst-implementation.evalueserve.com` |
-    | ` https://insightsfirst.evalueserve.com/` |
+    | `https://insightsfirst.evalueserve.com/` |
 
     b. In the **Reply URL** textbox, type one of the following URLs:
 
@@ -155,9 +155,9 @@ In this section, a user called Britta Simon is created in Insightsfirst. Insight
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on **Test this application** in Azure portal. This will redirect to Insightsfirst Sign-on URL where you can initiate the login flow.
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Insightsfirst Sign-on URL where you can initiate the login flow.
  
 * Go to Insightsfirst Sign-on URL directly and initiate the login flow from there.
  
@@ -165,4 +165,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next Steps
 
-Once you configure Insightsfirst you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Insightsfirst you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
