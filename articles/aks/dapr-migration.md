@@ -93,9 +93,9 @@ Learn more about [Dapr][dapr-overview] and [how to use it][dapr-howto].
 <!-- LINKS INTERNAL -->
 [dapr-overview]: ./dapr-overview.md
 [dapr-howto]: ./dapr.md
-[dapr-extension-aks]: ./dapr-extension-aks.md
-[az-k8s-extension-create]: /cli/azure/k8s-extension/k8s-extension#az-k8s-extension-create
-[az-k8s-extension-update]: /cli/azure/k8s-extension/k8s-extension#az-k8s-extension-update
+[dapr-extension-aks]: ./dapr-overview.md
+[az-k8s-extension-create]: /cli/azure/k8s-extension#az-k8s-extension-create
+[az-k8s-extension-update]: /cli/azure/k8s-extension#az-k8s-extension-update
 
 <!-- LINKS EXTERNAL -->
 [dapr-prod-guidelines]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production/#enabling-high-availability-in-an-existing-dapr-deployment
