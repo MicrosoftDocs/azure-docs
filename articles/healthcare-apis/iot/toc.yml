@@ -1,39 +1,41 @@
 items:
-- name: MedTech service
+- name: MedTech service documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the MedTech service?
-    href: overview.md
-  - name: Overview of the device data processing stages
-    href: overview-of-device-data-processing-stages.md
+    - name: What is the MedTech service?
+      href: overview.md
+    - name: Device data processing stages overview
+      href: overview-of-device-data-processing-stages.md
+    - name: Samples overview
+      href: overview-of-samples.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
-  - name: Get started with the MedTech service
-    href: get-started.md
-  - name: Deploy the MedTech service
-    expanded: true
-    items:    
-    - name: Choose a deployment method
-      href: deploy-choose-method.md
-    - name: ARM template
-      href: deploy-arm-template.md
-    - name: Azure PowerShell or the Azure CLI
-      href: deploy-json-powershell-cli.md
-    - name: Bicep
-      href: deploy-bicep-powershell-cli.md
-    - name: Azure portal
-      href: deploy-manual-portal.md
+    - name: Get started with the MedTech service
+      href: get-started.md
+    - name: Deploy the MedTech service
+      expanded: false
+      items:
+        - name: Choose a deployment method
+          href: deploy-choose-method.md
+        - name: ARM template
+          href: deploy-arm-template.md
+        - name: Azure PowerShell or the Azure CLI
+          href: deploy-json-powershell-cli.md
+        - name: Bicep
+          href: deploy-bicep-powershell-cli.md
+        - name: Azure portal
+          href: deploy-manual-portal.md
 - name: Tutorials
-  expanded: true
+  expanded: false
   items:
   - name: Receive device messages through Azure IoT Hub
     href: device-messages-through-iot-hub.md 
-- name: How-to guides
-  expanded: true
-  items: 
+- name: How-tos
+  expanded: false
+  items:
   - name: Map
     expanded: false
     items:
@@ -42,7 +44,7 @@ items:
     - name: Device
       expanded: false
       items:
-      - name: Overview of the device mapping
+      - name: Overview of device mapping
         href: overview-of-device-mapping.md
       - name: Use CalculatedContent templates
         href: how-to-use-calculatedcontent-templates.md
@@ -71,9 +73,6 @@ items:
       href: troubleshoot-errors-deployment.md
     - name: Service log errors
       href: troubleshoot-errors-logs.md
-- name: Samples
-  expanded: false
-  href: overview-of-samples.md     
 - name: Concepts
   expanded: false
   items:
@@ -86,8 +85,7 @@ items:
 - name: Resources
   expanded: false
   items:
-  - name: FAQs - MedTech service
+  - name: FAQ - MedTech service
     href: frequently-asked-questions.md
   - name: Open-source projects
-    href: git-projects.md     
-           
+    href: git-projects.md

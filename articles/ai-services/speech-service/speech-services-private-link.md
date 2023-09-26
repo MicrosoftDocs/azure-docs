@@ -5,8 +5,7 @@ description: Learn how to use Speech service with private endpoints provided by 
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: alexeyo
@@ -62,7 +61,7 @@ Use these parameters instead of the parameters in the article that you chose:
 | Resource            | **\<your-speech-resource-name>**         |
 | Target sub-resource | **account**                              |
 
-**DNS for private endpoints:** Review the general principles of [DNS for private endpoints in Azure AI services resources](../cognitive-services-virtual-networks.md#dns-changes-for-private-endpoints). Then confirm that your DNS configuration is working correctly by performing the checks described in the following sections.
+**DNS for private endpoints:** Review the general principles of [DNS for private endpoints in Azure AI services resources](../cognitive-services-virtual-networks.md#apply-dns-changes-for-private-endpoints). Then confirm that your DNS configuration is working correctly by performing the checks described in the following sections.
 
 ### Resolve DNS from the virtual network
 
@@ -326,10 +325,14 @@ Follow these steps to modify your code:
       ```
       ```python
       import azure.cognitiveservices.speech as speechsdk
-      speech_config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=speechKey)
+      config = speechsdk.SpeechConfig(endpoint=endPoint, subscription=speechKey)
       ```
       ```objectivec
-      SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:speechKey];
+      SPXSpeechConfiguration *config = [[SPXSpeechConfiguration alloc] initWithEndpoint:endPoint subscription:speechKey];
+      ```
+      ```javascript
+      import * as sdk from "microsoft.cognitiveservices.speech.sdk";
+      config: sdk.SpeechConfig = sdk.SpeechConfig.fromEndpoint(new URL(endPoint), speechKey);
       ```
 
 > [!TIP]

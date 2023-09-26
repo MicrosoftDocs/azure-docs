@@ -4,6 +4,7 @@ description: Learn how to control pod admissions using PodSecurityPolicy in Azur
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 08/01/2023
+ROBOTS: NOINDEX
 ---
 
 # Secure your cluster using pod security policies in Azure Kubernetes Service (AKS) (preview)

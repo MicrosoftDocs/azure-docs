@@ -31,8 +31,8 @@ The following steps make an existing Conditional Access policy require an approv
 
 Organizations can choose to update their policies using the following steps.
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select a policy that uses the approved client app grant.
 1. Under **Access controls** > **Grant**, select **Grant access**.
    1. Select **Require approved client app** and **Require app protection policy**
@@ -55,8 +55,8 @@ The following steps help create a Conditional Access policy requiring an approve
 
 Organizations can choose to deploy this policy using the following steps.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.

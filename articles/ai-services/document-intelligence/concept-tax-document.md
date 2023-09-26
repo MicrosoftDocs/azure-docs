@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Automate tax document data extraction with Document Intelligence's tax document models
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -55,13 +54,13 @@ See how data, including customer information, vendor details, and line items, is
 
 ## Document Intelligence Studio
 
-1. On the Document Intelligence Studio home page, select **Tax Documents**
+1. On the [Document Intelligence Studio home page](https://formrecognizer.appliedai.azure.com/studio), select the supported tax document model.
 
-1. You can analyze the sample tax documents or select the **+ Add** button to upload your own sample.
+1. You can analyze a sample tax document or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot of the analyze invoice menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
 > [!div class="nextstepaction"]
 > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)

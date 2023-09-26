@@ -1,6 +1,6 @@
 ---
 title: Device identity and desktop virtualization
-description: Learn how VDI and Azure AD device identities can be used together
+description: Learn how VDI and Microsoft Entra device identities can be used together
 
 services: active-directory
 ms.service: active-directory
@@ -45,21 +45,21 @@ This article will cover Microsoft's guidance to administrators on support for de
 
 ## Supported scenarios
 
-Before configuring device identities in Azure AD for your VDI environment, familiarize yourself with the supported scenarios. The table below illustrates which provisioning scenarios are supported. Provisioning in this context implies that an administrator can configure device identities at scale without requiring any end-user interaction.
+Before configuring device identities in Microsoft Entra ID for your VDI environment, familiarize yourself with the supported scenarios. The table below illustrates which provisioning scenarios are supported. Provisioning in this context implies that an administrator can configure device identities at scale without requiring any end-user interaction.
 
 | Device identity type | Identity infrastructure | Windows devices | VDI platform version | Supported |
 | --- | --- | --- | --- | --- |
-| Hybrid Azure AD joined | Federated<sup>3</sup> | Windows current and Windows down-level | Persistent | Yes |
+| Microsoft Entra hybrid joined | Federated<sup>3</sup> | Windows current and Windows down-level | Persistent | Yes |
 |   |   | Windows current | Non-Persistent | Yes<sup>5</sup> |
 |   |   | Windows down-level | Non-Persistent | Yes<sup>6</sup> |
 |   | Managed<sup>4</sup> | Windows current and Windows down-level | Persistent | Yes |
 |   |   | Windows current | Non-Persistent | No |
 |   |   | Windows down-level | Non-Persistent | Yes<sup>6</sup> |
-| Azure AD joined | Federated | Windows current | Persistent | Limited<sup>7</sup> |
+| Microsoft Entra joined | Federated | Windows current | Persistent | Limited<sup>7</sup> |
 |   |   |   | Non-Persistent | No |
 |   | Managed | Windows current | Persistent | Limited<sup>7</sup> |
 |   |   |   | Non-Persistent | No |
-| Azure AD registered | Federated/Managed | Windows current/Windows down-level | Persistent/Non-Persistent | Not Applicable |
+| Microsoft Entra registered | Federated/Managed | Windows current/Windows down-level | Persistent/Non-Persistent | Not Applicable |
 
 <sup>1</sup> **Windows current** devices represent Windows 10 or newer, Windows Server 2016 v1803 or higher, and Windows Server 2019.
 
@@ -67,28 +67,28 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 
 <sup>3</sup> A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP. In a federated identity infrastructure environment, computers follow the [managed device registration flow](device-registration-how-it-works.md#hybrid-azure-ad-joined-in-managed-environments) based on the [AD Service Connection Point (SCP) settings](hybrid-join-manual.md#configure-a-service-connection-point).
 
-<sup>4</sup> A **Managed** identity infrastructure environment represents an environment with Azure AD as the identity provider deployed with either [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md).
+<sup>4</sup> A **Managed** identity infrastructure environment represents an environment with Microsoft Entra ID as the identity provider deployed with either [password hash sync (PHS)](../hybrid/connect/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/connect/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/connect/how-to-connect-sso.md).
 
 <sup>5</sup> **Non-Persistence support for Windows current** requires other consideration as documented below in guidance section. This scenario requires Windows 10 1803 or newer, Windows Server 2019, or Windows Server (Semi-annual channel) starting version 1803
 
 <sup>6</sup> **Non-Persistence support for Windows down-level** requires other consideration as documented below in guidance section.
 
-<sup>7</sup> **Azure AD join support** is only available with Azure Virtual Desktop and Windows 365
+<sup>7</sup> **Microsoft Entra join support** is only available with Azure Virtual Desktop and Windows 365
 
 ## Microsoft’s guidance
 
-Administrators should reference the following articles, based on their identity infrastructure, to learn how to configure hybrid Azure AD join.
+Administrators should reference the following articles, based on their identity infrastructure, to learn how to configure Microsoft Entra hybrid join.
 
-- [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
-- [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
+- [Configure Microsoft Entra hybrid join for federated environment](./how-to-hybrid-join.md)
+- [Configure Microsoft Entra hybrid join for managed environment](./how-to-hybrid-join.md)
 
 ### Non-persistent VDI
 
-When deploying non-persistent VDI, Microsoft recommends organizations implement the guidance below. Failure to do so will result in your directory having lots of stale Hybrid Azure AD joined devices that were registered from your non-persistent VDI platform resulting in increased pressure on your tenant quota and risk of service interruption because of running out of tenant quota.
+When deploying non-persistent VDI, Microsoft recommends organizations implement the guidance below. Failure to do so will result in your directory having lots of stale Microsoft Entra hybrid joined devices that were registered from your non-persistent VDI platform resulting in increased pressure on your tenant quota and risk of service interruption because of running out of tenant quota.
 
-- If you're relying on the System Preparation Tool (sysprep.exe) and if you're using a pre-Windows 10 1809 image for installation, make sure that image isn't from a device that is already registered with Azure AD as hybrid Azure AD joined.
-- If you're relying on a Virtual Machine (VM) snapshot to create more VMs, make sure that snapshot isn't from a VM that is already registered with Azure AD as Hybrid Azure AD join.
-- Active Directory Federation Services (AD FS) supports instant join for non-persistent VDI and Hybrid Azure AD Join.
+- If you're relying on the System Preparation Tool (sysprep.exe) and if you're using a pre-Windows 10 1809 image for installation, make sure that image isn't from a device that is already registered with Microsoft Entra ID as Microsoft Entra hybrid joined.
+- If you're relying on a Virtual Machine (VM) snapshot to create more VMs, make sure that snapshot isn't from a VM that is already registered with Microsoft Entra ID as Microsoft Entra hybrid join.
+- Active Directory Federation Services (AD FS) supports instant join for non-persistent VDI and Microsoft Entra hybrid join.
 - Create and use a prefix for the display name (for example, NPVDI-) of the computer that indicates the desktop as non-persistent VDI-based.
 - For Windows down-level:
    - Implement **autoworkplacejoin /leave** command as part of logoff script. This command should be triggered in the context of the user, and should be executed before the user has logged off completely and network connectivity exists.
@@ -96,7 +96,7 @@ When deploying non-persistent VDI, Microsoft recommends organizations implement 
    - Implement **dsregcmd /join** as part of VM boot sequence/order and before user signs in.
    - **DO NOT** execute dsregcmd /leave as part of VM shutdown/restart process.
 - Define and implement process for [managing stale devices](manage-stale-devices.md).
-   - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices (such as using computer display name prefix), you should be more aggressive on the cleanup of these devices to ensure your directory doesn't get consumed with lots of stale devices.
+   - Once you have a strategy to identify your non-persistent Microsoft Entra hybrid joined devices (such as using computer display name prefix), you should be more aggressive on the cleanup of these devices to ensure your directory doesn't get consumed with lots of stale devices.
    - For non-persistent VDI deployments on Windows current and down-level, you should delete devices that have **ApproximateLastLogonTimestamp** of older than 15 days.
 
 > [!NOTE]
@@ -122,11 +122,11 @@ When deploying non-persistent VDI, Microsoft recommends organizations implement 
 
 When deploying persistent VDI, Microsoft recommends that IT administrators implement the guidance below. Failure to do so will result in deployment and authentication issues. 
 
-- If you're relying on the System Preparation Tool (sysprep.exe) and if you're using a pre-Windows 10 1809 image for installation, make sure that image isn't from a device that is already registered with Azure AD as hybrid Azure AD joined.
-- If you're relying on a Virtual Machine (VM) snapshot to create more VMs, make sure that snapshot isn't from a VM that is already registered with Azure AD as Hybrid Azure AD join.
+- If you're relying on the System Preparation Tool (sysprep.exe) and if you're using a pre-Windows 10 1809 image for installation, make sure that image isn't from a device that is already registered with Microsoft Entra ID as Microsoft Entra hybrid joined.
+- If you're relying on a Virtual Machine (VM) snapshot to create more VMs, make sure that snapshot isn't from a VM that is already registered with Microsoft Entra ID as Microsoft Entra hybrid join.
 
 We recommend you to implement process for [managing stale devices](manage-stale-devices.md). This process will ensure your directory doesn't get consumed with lots of stale devices if you periodically reset your VMs.
  
 ## Next steps
 
-[Configuring hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
+[Configuring Microsoft Entra hybrid join for federated environment](./how-to-hybrid-join.md)

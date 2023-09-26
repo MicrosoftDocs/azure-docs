@@ -6,8 +6,7 @@ services: cognitive-services
 author: rwallerms
 manager: nitinme
 zone_pivot_groups: programming-languages-set-twenty
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: quickstart
 ms.date: 03/08/2021
 ms.author: rwaller

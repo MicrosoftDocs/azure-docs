@@ -7,22 +7,30 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/29/2021
+ms.date: 08/15/2023
 ---
 
 # Exchange EDIFACT messages using workflows in Azure Logic Apps
 
-To send and receive EDIFACT messages in workflows that you create using Azure Logic Apps, use the **EDIFACT** connector, which provides triggers and actions that support and manage EDIFACT communication.
+To send and receive EDIFACT messages in workflows that you create using Azure Logic Apps, use the **EDIFACT** connector, which provides operations that support and manage EDIFACT communication.
 
-This article shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger. For more information about the **EDIFACT** connector's triggers, actions, and limits version, review the [connector's reference page](/connectors/edifact/) as documented by the connector's Swagger file.
+This how-to guide shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. The **EDIFACT** connector doesn't include any triggers, so you can use any trigger to start your workflow. The examples in this guide use the [Request trigger](../connectors/connectors-native-reqres.md).
 
-![Overview screenshot showing the "Decode EDIFACT message" operation with the message decoding properties.](./media/logic-apps-enterprise-integration-edifact/overview-edifact-message-consumption.png)
+## Connector technical reference
 
-## EDIFACT encoding and decoding
+The **EDIFACT** connector has one version across workflows in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences). For technical information about the **EDIFACT** connector, see the following documentation:
 
-The following sections describe the tasks that you can complete using the EDIFACT encoding and decoding actions.
+* [Connector reference page](/connectors/edifact/), which describes the triggers, actions, and limits as documented by the connector's Swagger file
+
+* [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits)
+
+  For example, in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE version uses the [B2B message limits for ISE](logic-apps-limits-and-config.md#b2b-protocol-limits).
+
+The following sections provide more information about the tasks that you can complete using the EDIFACT encoding and decoding actions.
 
 ### Encode to EDIFACT message action
+
+This action performs the following tasks:
 
 * Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier and identifier.
 
@@ -45,6 +53,8 @@ The following sections describe the tasks that you can complete using the EDIFAC
   * As a functional acknowledgment, the CONTRL message indicates the acceptance or rejection for the received interchange, group, or message, including a list of errors or unsupported functionality.
 
 ### Decode EDIFACT message action
+
+This action performs the following tasks:
 
 * Validate the envelope against the trading partner agreement.
 
@@ -88,31 +98,29 @@ The following sections describe the tasks that you can complete using the EDIFAC
 
   * A functional acknowledgment that acknowledges the acceptance or rejection for the received interchange or group.
 
-## Connector reference
-
-For technical information about the **EDIFACT** connector, review the [connector's reference page](/connectors/edifact/), which describes the triggers, actions, and limits as documented by the connector's Swagger file. Also, review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences). For example, in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE version uses the [B2B message limits for ISE](logic-apps-limits-and-config.md#b2b-protocol-limits).
-
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
-  * Is associated with the same Azure subscription as your logic app resource.
+  * Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-  * Exists in the same location or Azure region as your logic app resource.
+  * Defines at least two [trading partners](logic-apps-enterprise-integration-partners.md) that participate in the **EDIFACT** operation used in your workflow. The definitions for both partners must use the same *business identity* qualifier, which is **ZZZ - Mutually Defined** for this scenario.
 
-  * When you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences) and the **EDIFACT** operations, your logic app resource doesn't need a link to your integration account. However, you still need this account to store artifacts, such as partners, agreements, and certificates, along with using the EDIFACT, [X12](logic-apps-enterprise-integration-x12.md), or [AS2](logic-apps-enterprise-integration-as2.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+  * Defines an [EDIFACT agreement](logic-apps-enterprise-integration-agreements.md) between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type. For information about agreement settings to use when receiving and sending messages, see [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md).
 
-  * When you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences) and the **EDIFACT** operations, your workflow requires a connection to your integration account that you create directly from your workflow when you add the AS2 operation.
+    > [!IMPORTANT]
+    >
+    > The EDIFACT connector supports only UTF-8 characters. If your output contains 
+    > unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
 
-* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is **ZZZ - Mutually Defined** for this scenario.
+* Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource might require a link to your integration account:
 
-* An [EDIFACT agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type.
-
-  > [!IMPORTANT]
-  > The EDIFACT connector supports only UTF-8 characters. If your output contains 
-  > unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
+  | Logic app workflow | Link required? |
+  |--------------------|----------------|
+  | Consumption | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
+  | Standard | Connection to integration account required, but no link required. You can create the connection when you add the **EDIFACT** operation to your workflow. |
 
 * The logic app resource and workflow where you want to use the EDIFACT operations.
 
@@ -130,25 +138,22 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the EDIFACT action, select **New step**.
-
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter `edifact encode`. For this example, select the action named **Encode to EDIFACT message by agreement name**.
-
-   ![Screenshot showing the Azure portal, workflow designer, and "Encode to EDIFACT message by agreement name" action selected.](./media/logic-apps-enterprise-integration-edifact/select-encode-edifact-message-consumption.png)
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    > [!NOTE]
-   > You can choose to select the **Encode to EDIFACT message by identities** action instead, but you later have to 
-   > provide different values, such as the **Sender identifier** and **Receiver identifier** that's specified by 
-   > your EDIFACT agreement. You also have to specify the **XML message to encode**, which can be the output from 
-   > the trigger or a preceding action.
+   >
+   > If you want to use **Encode to EDIFACT message by identities** action instead, 
+   > you later have to provide different values, such as the **Sender identifier** 
+   > and **Receiver identifier** that's specified by your EDIFACT agreement. 
+   > You also have to specify the **XML message to encode**, which can be the output 
+   > from the trigger or a preceding action.
 
-1. When prompted to create a connection to your integration account, provide the following information:
+1. When prompted, provide the following connection information for your integration account:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for the connection |
    | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
-   ||||
 
    For example:
 
@@ -156,14 +161,13 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. When you're done, select **Create**.
 
-1. After the EDIFACT operation appears on the designer, provide information for the following properties specific to this operation:
+1. In the EDIFACT action information box, provide the following property values:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
    | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
    | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
-   ||||
 
    For example, the XML message payload can be the **Body** content output from the Request trigger:
 
@@ -173,25 +177,22 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the EDIFACT action, select **Insert a new step** (plus sign), and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter `edifact encode`. Select the action named **Encode to EDIFACT message by agreement name**.
-
-   ![Screenshot showing the Azure portal, workflow designer, and "Encode to EDIFACT message by agreement name" operation selected.](./media/logic-apps-enterprise-integration-edifact/select-encode-edifact-message-standard.png)
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Encode to EDIFACT message by agreement name** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    > [!NOTE]
-   > You can choose to select the **Encode to EDIFACT message by identities** action instead, but you later have to 
-   > provide different values, such as the **Sender identifier** and **Receiver identifier** that's specified by 
-   > your EDIFACT agreement. You also have to specify the **XML message to encode**, which can be the output from 
-   > the trigger or a preceding action.
+   >
+   > If you want to use **Encode to EDIFACT message by identities** action instead, 
+   > you later have to provide different values, such as the **Sender identifier** 
+   > and **Receiver identifier** that's specified by your EDIFACT agreement. 
+   > You also have to specify the **XML message to encode**, which can be the output 
+   > from the trigger or a preceding action.
 
-1. When prompted to create a connection to your integration account, provide the following information:
+1. When prompted, provide the following connection information for your integration account:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for the connection |
    | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
-   ||||
 
    For example:
 
@@ -199,14 +200,13 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. When you're done, select **Create**.
 
-1. After the EDIFACT details pane appears on the designer, provide information for the following properties:
+1. In the EDIFACT action information box, provide the following property values:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
    | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
    | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
-   ||||
 
    For example, the message payload is the **Body** content output from the Request trigger:
 
@@ -222,17 +222,14 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the EDIFACT action, select **New step**.
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter `edifact encode`. Select the action named **Decode EDIFACT message**.
-
-1. When prompted to create a connection to your integration account, provide the following information:
+1. When prompted, provide the following connection information for your integration account:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for the connection |
    | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
-   ||||
 
    For example:
 
@@ -240,13 +237,12 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. When you're done, select **Create**.
 
-1. After the EDIFACT operation appears on the designer, provide information for the following properties specific to this operation:
+1. In the EDIFACT action information box, provide the following property values:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **EDIFACT flat file message to decode** | Yes | The XML flat file message to decode. |
    | Other parameters | No | This operation includes the following other parameters: <p>- **Component separator** <br>- **Data element separator** <br>- **Release indicator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <br>- **Payload character set** <br>- **Segment terminator suffix** <br>- **Preserve Interchange** <br>- **Suspend Interchange On Error** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
-   ||||
 
    For example, the XML message payload to decode can be the **Body** content output from the Request trigger:
 
@@ -256,19 +252,14 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
-1. On the designer, under the trigger or action where you want to add the EDIFACT action, select **Insert a new step** (plus sign), and then select **Add an action**.
+1. In the designer, [follow these general steps to add the **EDIFACT** action named **Decode EDIFACT message** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter `edifact encode`. Select the action named **Decode EDIFACT message**.
-
-   ![Screenshot showing the Azure portal, workflow designer, and "Decode EDIFACT message" operation selected.](./media/logic-apps-enterprise-integration-edifact/select-decode-edifact-message-standard.png)
-
-1. When prompted to create a connection to your integration account, provide the following information:
+1. When prompted, provide the following connection information for your integration account:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for the connection |
    | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
-   ||||
 
    For example:
 
@@ -276,14 +267,13 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 1. When you're done, select **Create**.
 
-1. After the EDIFACT details pane appears on the designer, provide information for the following properties:
+1. In the EDIFACT action information box, provide the following property values:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
    | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
    | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <p>For more information, review [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
-   ||||
 
    For example, the message payload is the **Body** content output from the Request trigger:
 
@@ -293,7 +283,7 @@ For technical information about the **EDIFACT** connector, review the [connector
 
 ## Handle UNH2.5 segments in EDIFACT documents
 
-In an EDIFACT document, the [UNH2.5 segment](logic-apps-enterprise-integration-edifact-message-settings.md#receive-settings-schemas) is used for used for schema lookup. For example, in this sample EDIFACT message, the UNH field is `EAN008`:
+In an EDIFACT document, the [UNH2.5 segment](logic-apps-enterprise-integration-edifact-message-settings.md#receive-settings-schemas) is used for schema lookup. For example, in this sample EDIFACT message, the UNH field is `EAN008`:
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
@@ -303,7 +293,7 @@ To handle an EDIFACT document or process an EDIFACT message that has a UN2.5 seg
 
    For example, suppose the schema root name for the sample UNH field is `EFACT_D03B_ORDERS_EAN008`. For each `D03B_ORDERS` that has a different UNH2.5 segment, you have to deploy an individual schema.
 
-1. In the [Azure portal](https://portal.azure.com), add the schema to your integration account resource or logic app resource, which is based on whether you're working with the **Logic App (Consumption)** or **Logic App (Standard)** resource type respectively.
+1. In the [Azure portal](https://portal.azure.com), add the schema to your integration account resource or logic app resource, based on whether you have a Consumption or Standard logicapp workflow respectively.
 
 1. Whether you're using the EDIFACT decoding or encoding action, upload your schema and set up the schema settings in your EDIFACT agreement's **Receive Settings** or **Send Settings** sections respectively.
 

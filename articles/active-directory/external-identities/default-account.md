@@ -1,7 +1,7 @@
 ---
 
-title: Add Azure AD Account as an identity provider
-description: Use Azure Active Directory to enable an external user (guest) to sign in to your Azure AD apps with their Azure AD work or school account.
+title: Add Microsoft Entra account as an identity provider
+description: Use Microsoft Entra ID to enable an external user (guest) to sign in to your Microsoft Entra apps with their Microsoft Entra work or school account.
 
 services: active-directory
 ms.service: active-directory
@@ -13,41 +13,47 @@ author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
 ms.custom: engagement-fy23
-# Customer intent: As a tenant administrator, I want to add Azure AD as an identity provider for external guest users.
+# Customer intent: As a tenant administrator, I want to add Microsoft Entra ID as an identity provider for external guest users.
 ---
 
-# Add Azure Active Directory (Azure AD) as an identity provider for External Identities
+# Add Microsoft Entra ID as an identity provider for External ID
 
-Azure Active Directory is available as an identity provider option for B2B collaboration by default. If an external guest user has an Azure AD account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Azure AD account.
+Microsoft Entra ID is available as an identity provider option for B2B collaboration by default. If an external guest user has a Microsoft Entra account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Microsoft Entra account.
 
-## Guest sign-in using Azure Active Directory accounts
+<a name='guest-sign-in-using-azure-active-directory-accounts'></a>
 
-If you want to enable guest users to sign in with their Azure AD account, you can use either the invitation flow or a self-service sign-up user flow. No additional configuration is required.
+## Guest sign-in using Microsoft Entra accounts
 
-:::image type="content" source="media/default-account/default-account-identity-provider.png" alt-text="Screenshot of Azure AD account in the identity provider list." lightbox="media/default-account/default-account-identity-provider.png":::
+If you want to enable guest users to sign in with their Microsoft Entra account, you can use either the invitation flow or a self-service sign-up user flow. No additional configuration is required.
 
-### Azure AD account in the invitation flow
+:::image type="content" source="media/default-account/default-account-identity-provider.png" alt-text="Screenshot of Microsoft Entra account in the identity provider list." lightbox="media/default-account/default-account-identity-provider.png":::
 
-When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Azure AD account as the **Email address** they'll use to sign in.
+<a name='azure-ad-account-in-the-invitation-flow'></a>
 
-:::image type="content" source="media/default-account/default-account-invite.png" alt-text="Screenshot of inviting a guest user using the Azure AD account." lightbox="media/default-account/default-account-invite.png":::
+### Microsoft Entra account in the invitation flow
 
-### Azure AD account in self-service sign-up user flows
+When you [invite a guest user](add-users-administrator.md) to B2B collaboration, you can specify their Microsoft Entra account as the **Email address** they'll use to sign in.
 
-Azure AD account is an identity provider option for your self-service sign-up user flows. Users can sign up for your applications using their own Azure AD accounts. First, you'll need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. Then you can set up a user flow for the application and select Azure Active Directory as one of the sign-in options.
+:::image type="content" source="media/default-account/default-account-invite.png" alt-text="Screenshot of inviting a guest user using the Microsoft Entra account." lightbox="media/default-account/default-account-invite.png":::
 
-:::image type="content" source="media/default-account/default-account-user-flow.png" alt-text="Screenshot of Azure Ad account in a self-service sign-up user flow." lightbox="media/default-account/default-account-user-flow.png":::
+<a name='azure-ad-account-in-self-service-sign-up-user-flows'></a>
+
+### Microsoft Entra account in self-service sign-up user flows
+
+Microsoft Entra account is an identity provider option for your self-service sign-up user flows. Users can sign up for your applications using their own Microsoft Entra accounts. First, you'll need to [enable self-service sign-up](self-service-sign-up-user-flow.md) for your tenant. Then you can set up a user flow for the application and select Microsoft Entra ID as one of the sign-in options.
+
+:::image type="content" source="media/default-account/default-account-user-flow.png" alt-text="Screenshot of Microsoft Entra account in a self-service sign-up user flow." lightbox="media/default-account/default-account-user-flow.png":::
 
 ## Verifying the application's publisher domain
-As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md), ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../develop/publisher-verification-overview.md) about this change.) For Azure AD user flows, the publisher’s domain appears only when using a [Microsoft account](microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, follow these steps:
+As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../develop/howto-configure-publisher-domain.md), ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../develop/publisher-verification-overview.md) about this change.) For Microsoft Entra user flows, the publisher’s domain appears only when using a [Microsoft account](microsoft-account.md) or other Microsoft Entra tenant as the identity provider. To meet these new requirements, follow these steps:
 
 1. [Verify your company identity using your Microsoft Partner Network (MPN) account](/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
 1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:
-   - If the app registration for the Microsoft account identity provider is in an Azure AD tenant, [verify your app in the App Registration portal](../develop/mark-app-as-publisher-verified.md).
+   - If the app registration for the Microsoft account identity provider is in a Microsoft Entra tenant, [verify your app in the App Registration portal](../develop/mark-app-as-publisher-verified.md).
    - If your app registration for the Microsoft account identity provider is in an Azure AD B2C tenant, [mark your app as publisher verified using Microsoft Graph APIs](../develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (for example, using Graph Explorer).
 
 ## Next steps
 
 - [Microsoft account](microsoft-account.md)
-- [Add Azure Active Directory B2B collaboration users](add-users-administrator.md)
+- [Add Microsoft Entra B2B collaboration users](add-users-administrator.md)
 - [Add self-service sign-up to an app](self-service-sign-up-user-flow.md)

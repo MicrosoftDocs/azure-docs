@@ -36,18 +36,18 @@ The following section uses a simple application that runs under a managed identi
 1. Run RoleBasedAccessControl.exe on the Azure VM as per instructions from the [README document](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol#rolebasedaccesscontrol-hybrid-connection-sample). 
 
     > [!NOTE]
-    > Follow the same steps above to run the [console application for WCF Relays](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl).
+    > Follow the same steps to run the [console application for WCF Relays](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl).
 
 #### Highlighted code from the sample
 Here's the code from the sample that shows how to use Azure AD authentication to connect to the Azure Relay service.  
 
 1. Create a [TokenProvider](/dotnet/api/microsoft.azure.relay.tokenprovider) object by using the `TokenProvider.CreateManagedIdentityTokenProvider` method. 
     
-    - If you are using a **system-assigned managed identity:**
+    - If you're using a **system-assigned managed identity:**
         ```csharp
         TokenProvider.CreateManagedIdentityTokenProvider();
         ```
-    - If you are using a **user-assigned managed identity**, get the **Client ID** for the user-assigned identity from the **Managed Identity** page in the Azure portal. For instructions, see [List user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#list-user-assigned-managed-identities).
+    - If you're using a **user-assigned managed identity**, get the **Client ID** for the user-assigned identity from the **Managed Identity** page in the Azure portal. For instructions, see [List user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#list-user-assigned-managed-identities).
         ```csharp
         var managedCredential = new ManagedIdentityCredential(clientId);
         tokenProvider = TokenProvider.CreateManagedIdentityTokenProvider(managedCredential);    
@@ -70,7 +70,7 @@ Here's the code from the sample that shows how to use Azure AD authentication to
 - WCF Relay: [.NET](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay/RoleBasedAccessControl)
 
 ## Next steps
-To learn more about Azure Relay, see the following topics.
+To learn more about Azure Relay, see the following articles.
 - [What is Relay?](relay-what-is-it.md)
 - [Get started with Azure Relay Hybrid connections WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 - [Get stated with Azure Relay Hybrid connections HTTP requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)

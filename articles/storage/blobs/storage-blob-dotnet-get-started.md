@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/12/2023
 ms.devlang: csharp
@@ -14,6 +14,8 @@ ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
 
 # Get started with Azure Blob Storage and .NET
+
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 

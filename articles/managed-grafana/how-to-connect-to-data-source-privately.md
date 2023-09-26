@@ -3,8 +3,8 @@ title: How to connect to a data source privately in Azure Managed Grafana
 description: Learn how to connect an Azure Managed Grafana instance to a data source using Managed Private Endpoint
 ms.service: managed-grafana
 ms.topic: how-to
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 5/18/2023
 --- 
 

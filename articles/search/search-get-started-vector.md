@@ -23,7 +23,7 @@ Get started with vector search in Azure Cognitive Search using the **2023-07-01-
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md), as shown in the last two examples, your search service must be Basic tier or higher, with [semantic search enabled](semantic-search-overview.md#enable-semantic-search).
++ Azure Cognitive Search, in any region and on any tier. However, if you want to also use [semantic search](semantic-search-overview.md), as shown in the last two examples, your search service must be Basic tier or higher, with [semantic search enabled](semantic-how-to-enable-disable.md).
 
   Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
 
@@ -446,7 +446,7 @@ api-key: {{admin-api-key}}
 
 ### Semantic hybrid search
 
-Assuming that you've [enabled semantic search](semantic-search-overview.md#enable-semantic-search) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
+Assuming that you've [enabled semantic search](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search, plus keyword search with semantic ranking, caption, answers, and spell check. 
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version={{api-version}}

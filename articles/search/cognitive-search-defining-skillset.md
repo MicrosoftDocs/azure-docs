@@ -1,12 +1,12 @@
 ---
 title: Create a skillset
 titleSuffix: Azure Cognitive Search
-description: A skillset defines content extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure Cognitive Search.
+description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure Cognitive Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 07/14/2022
 ---
 
 # Create a skillset in Azure Cognitive Search

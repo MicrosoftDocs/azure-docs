@@ -329,7 +329,11 @@ sections:
       - question: |
           Can I switch from Azure Disk Encryption to server-side encryption with customer-managed keys?
         answer: |
-          For Windows VMs, yes. For Linux VMs, maybe. If you encrypted the OS disk of a Linux VM with ADE, you can't disable ADE on either the OS or data disks. First [disable encryption and remove the encryption extension](windows/disk-encryption-windows.md#disable-encryption-and-remove-the-encryption-extension), then make a new managed disk using the current disk as a source, and encrypt that new disk with customer-managed keys.
+          It is not possible to switch in-place, but it is possible to create copies of the disks and attach them to a new VM encrypted with server-side encryption. However, for Linux VMs if you encrypted the OS disk of a Linux VM with ADE, you can't disable ADE on Linux when the OS disk is encrypted. To migrate Windows VMs with ADE enabled or Linux VMs with only the data disks ADE encrypted,
+          - [Disable encryption and remove the encryption extension on Windows](windows/disk-encryption-windows.md#disable-encryption-and-remove-the-encryption-extension) or [on Linux](linux/disk-encryption-linux.md#disable-encryption-and-remove-the-encryption-extension).
+          - Then make a new managed disk using the current disk as a source. 
+          - Attach the new disk to a new VM that has never enabled ADE.
+          - Encrypt that new disk with customer-managed keys.
 
       - question: |
           Can I switch from server-side encryption with customer-managed keys to Azure Disk Encryption?

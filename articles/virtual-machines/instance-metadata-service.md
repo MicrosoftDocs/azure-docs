@@ -443,7 +443,7 @@ Data | Description | Version introduced |
 | `diskSizeGB` | Size of the disk in GB | 2019-06-01
 | `encryptionSettings` | Encryption settings for the disk | 2019-06-01
 | `image` | Source user image virtual hard disk | 2019-06-01
-| `isSharedDisk`†† | Identifies if the disk is shared between resources | 2021-05-01
+| `isSharedDisk`* | Identifies if the disk is shared between resources | 2021-05-01
 | `isUltraDisk` | Identifies if the data disk is an Ultra Disk | 2021-05-01
 | `lun`     | Logical unit number of the disk | 2019-06-01
 | `managedDisk` | Managed disk parameters | 2019-06-01
@@ -453,7 +453,7 @@ Data | Description | Version introduced |
 | `vhd` | Virtual hard disk | 2019-06-01
 | `writeAcceleratorEnabled` | Whether or not writeAccelerator is enabled on the disk | 2019-06-01
 
-†† These fields are only populated for Ultra Disks; they are empty strings from non-Ultra Disks.
+*These fields are only populated for Ultra Disks; they are empty strings from non-Ultra Disks.
 
 The encryption settings blob contains data about how the disk is encrypted (if it's encrypted):
 

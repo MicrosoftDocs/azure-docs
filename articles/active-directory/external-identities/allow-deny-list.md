@@ -1,7 +1,7 @@
 ---
 
 title: Allow or block invites to specific organizations
-description: Shows how an administrator can use the Azure portal or PowerShell to set an access or blocklist to allow or block B2B users from certain domains.
+description: Shows how an administrator can use the Microsoft Entra admin center or PowerShell to set an access or blocklist to allow or block B2B users from certain domains.
 
 services: active-directory
 ms.service: active-directory
@@ -46,8 +46,8 @@ This is the most typical scenario, where your organization wants to work with al
 
 To add a blocklist:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Users** > **User settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
 4. Under **Collaboration restrictions**, select **Deny invitations to the specified domains**.
 5. Under **Target domains**, enter the name of one of the domains that you want to block. For multiple domains, enter each domain on a new line. For example:
@@ -67,8 +67,8 @@ If you want to use an allowlist, make sure that you spend time to fully evaluate
 
 To add an allowlist:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **Users** > **User settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
 4. Under **Collaboration restrictions**, select **Allow invitations only to the specified domains (most restrictive)**.
 5. Under **Target domains**, enter the name of one of the domains that you want to allow. For multiple domains, enter each domain on a new line. For example:
@@ -90,12 +90,12 @@ If you switch from one policy to the other, this discards the existing policy co
 > [!Note]
 > The AzureADPreview Module is not a fully supported module as it is in preview. 
 
-To set the allow or blocklist by using PowerShell, you must install the preview version of the Azure Active Directory Module for Windows PowerShell. Specifically, install the AzureADPreview module version 2.0.0.98 or later.
+To set the allow or blocklist by using PowerShell, you must install the preview version of the Azure AD PowerShell module. Specifically, install the AzureADPreview module version 2.0.0.98 or later.
 
 To check the version of the module (and see if it's installed):
  
 1. Open Windows PowerShell as an elevated user (Run as Administrator). 
-2. Run the following command to see if you have any versions of the Azure Active Directory Module for Windows PowerShell installed on your computer:
+2. Run the following command to see if you have any versions of the Azure AD PowerShell module installed on your computer:
 
    ```powershell  
    Get-Module -ListAvailable AzureAD*
@@ -103,25 +103,25 @@ To check the version of the module (and see if it's installed):
 
 If the module is not installed, or you don't have a required version, do one of the following:
 
-- If no results are returned, run the following command to install the latest version of the AzureADPreview module:
+- If no results are returned, run the following command to install the latest version of the `AzureADPreview` module:
   
    ```powershell
    Install-Module AzureADPreview
    ```
-- If only the AzureAD module is shown in the results, run the following commands to install the AzureADPreview module: 
+- If only the `AzureAD` module is shown in the results, run the following commands to install the `AzureADPreview` module:
 
    ```powershell
-   Uninstall-Module AzureAD 
-   Install-Module AzureADPreview 
+   Uninstall-Module AzureAD
+   Install-Module AzureADPreview
    ```
-- If only the AzureADPreview module is shown in the results, but the version is less than 2.0.0.98, run the following commands to update it: 
+- If only the `AzureADPreview` module is shown in the results, but the version is less than `2.0.0.98`, run the following commands to update it: 
 
    ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
    ```
 
-- If both the AzureAD and AzureADPreview modules are shown in the results, but the version of the AzureADPreview module is less than 2.0.0.98, run the following commands to update it: 
+- If both the `AzureAD` and `AzureADPreview` modules are shown in the results, but the version of the `AzureADPreview` module is less than `2.0.0.98`, run the following commands to update it: 
 
    ```powershell 
    Uninstall-Module AzureAD 
@@ -141,13 +141,13 @@ New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Typ
 
 The following shows the same example, but with the policy definition inline.
 
-```powershell  
+```powershell
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
 To set the allow or blocklist policy, use the [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet. For example:
 
-```powershell   
+```powershell
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 

@@ -2,11 +2,11 @@
 title: Logging for Azure Health Data Services
 description: This article explains how logging works and how to enable logging for the Azure Health Data Services
 services: healthcare-apis
-author: mikaelweave
+author: chachachachami
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 10/10/2022
-ms.author: mikaelw
+ms.author: chrupa
 ---
 
 # Logging for Azure Health Data Services

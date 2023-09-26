@@ -4,7 +4,7 @@ description: This document helps you use adaptive application control in Microso
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 06/14/2023
+ms.date: 08/09/2023
 
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
@@ -114,14 +114,16 @@ To edit the rules for a group of machines:
 
       ![Add a custom rule.](./media/adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path.
+   1. If you're defining a known safe path, change the **Rule type** to 'Path' and enter a single path. You can include wildcards in the path. The following screens show some examples of how to use wildcards.
+
+       :::image type="content" source="media/adaptive-application/wildcard-examples.png" alt-text="Screenshot that shows examples of using wildcards." lightbox="media/adaptive-application/wildcard-examples.png":::
 
       > [!TIP]
       > Some scenarios for which wildcards in a path might be useful:
       >
       > - Using a wildcard at the end of a path to allow all executables within this folder and sub-folders.
       > - Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (for example, personal user folders containing a known executable, automatically generated folder names, etc).
-  
+
    1. Define the allowed users and protected file types.
 
    1. When you've finished defining the rule, select **Add**.
@@ -214,4 +216,4 @@ On this page, you learned how to use adaptive application control in Microsoft D
 
 - [Understanding just-in-time (JIT) VM access](just-in-time-access-overview.md)
 - [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)
--  View common question about [Adaptive application controls](faq-defender-for-servers.yml)
+- View common question about [Adaptive application controls](faq-defender-for-servers.yml)

@@ -1,43 +1,49 @@
 ---
-title: Azure Virtual Desktop host pool load-balancing - Azure
-description: Learn about host pool load-balancing algorithms for a Azure Virtual Desktop environment.
-author: Heidilohr
+title: Host pool load balancing algorithms in Azure Virtual Desktop - Azure
+description: Learn about the host pool load balancing algorithms available for pooled host pools in Azure Virtual Desktop.
+author: dknappettmsft
 ms.topic: conceptual
-ms.date: 09/19/2022
-ms.author: helohr
-manager: femila
+ms.date: 08/25/2023
+ms.author: daknappe
 ---
-# Host pool load-balancing algorithms
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
+# Host pool load balancing algorithms in Azure Virtual Desktop
 
-Azure Virtual Desktop supports two load-balancing algorithms. Each algorithm determines which session host will host a user's session when they connect to a resource in a pooled host pool. The information in this article only applies to pooled host pools.
+Azure Virtual Desktop supports two load balancing algorithms for pooled host pools. Each algorithm determines which session host is used when a user starts a remote session. Load balancing doesn't apply to personal host pools because users always have a 1:1 mapping to a session host within the host pool.
 
-The following load-balancing algorithms are available in Azure Virtual Desktop:
+The following load balancing algorithms are available for pooled host pools:
 
-- Breadth-first load balancing allows you to evenly distribute user sessions across the session hosts in a host pool. You don't have to specify a maximum session limit for the number of sessions.
-- Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. You have to specify a maximum session limit for the number of sessions. Once the first session host reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.
+- **Breadth-first**, which aims to evenly distribute new user sessions across the session hosts in a host pool. You don't have to specify a maximum session limit for the number of sessions.
 
-Each host pool can only configure one type of load-balancing specific to it. However, both load-balancing algorithms share the following behaviors no matter which host pool they're in:
+- **Depth-first**, which keeps starting new user sessions on one session host until the maximum session limit is reached. Once the session limit is reached, any new user connections are directed to the next session host in the host pool until it reaches its session limit, and so on.
 
-- If a user already has an active or disconnected session in the host pool and signs in again, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host's AllowNewConnections property is set to False (drain mode is enabled).
-- If a user doesn't already have a session in the host pool, then the load balancer won't consider session hosts whose AllowNewConnections property is set to False during load balancing.
-- If you lower the maximum session limit on a session host while it has active user sessions, the change won't affect the active user sessions.
+You can only configure one of the load balancing at a time per pooled host pool, but you can change which one is used after a host pool is created. However, both load balancing algorithms share the following behaviors:
 
-## Breadth-first load-balancing algorithm
+- If a user already has an active or disconnected session in the host pool and signs in again, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if [drain mode](drain-mode.md) has been enabled for that session host.
 
-The breadth-first load-balancing algorithm allows you to distribute user sessions across session hosts to optimize for session performance. This algorithm is ideal for organizations that want to provide the best experience for users connecting to their pooled virtual desktop environment.
+- If a user doesn't already have a session on a session host in the host pool, the load balancer doesn't consider a session host where drain mode has been enabled.
 
-The breadth-first algorithm first queries session hosts that allow new connections. The algorithm then selects a session host randomly from half the set of session hosts with the least number of sessions. For example, if there are nine machines with 11, 12, 13, 14, 15, 16, 17, 18, and 19 sessions, a new session you create won't automatically go to the first machine. Instead, it can go to any of the first five machines with the lowest number of sessions (11, 12, 13, 14, 15).
+- If you lower the maximum session limit on a session host while it has active user sessions, the change doesn't affect existing user sessions.
 
-## Depth-first load-balancing algorithm
+## Breadth-first load balancing algorithm
 
-The depth-first load-balancing algorithm allows you to saturate one session host at a time to optimize for scale down scenarios. This algorithm is ideal for cost-conscious organizations that want more granular control on the number of virtual machines they've allocated for a host pool.
+The breadth-first load balancing algorithm aims to distribute user sessions across session hosts to optimize for session performance. Breadth-first is ideal for organizations that want to provide the best experience for users connecting to their remote resources as session host resources, such as CPU, memory, and disk, are generally less contended.
 
-The depth-first algorithm first queries session hosts that allow new connections and haven't gone over their maximum session limit. The algorithm then selects the session host with highest number of sessions. If there's a tie, the algorithm selects the first session host in the query.
+The breadth-first algorithm first queries session hosts in a host pool that allow new connections. The algorithm then selects a session host randomly from half the set of available session hosts with the fewest sessions. For example, if there are nine session hosts with 11, 12, 13, 14, 15, 16, 17, 18, and 19 sessions, a new session doesn't automatically go to the session host with the fewest sessions. Instead, it can go to any of the first five session hosts with the fewest sessions at random. Due to the randomization, some sessions may not be evenly distributed across all session hosts.
+
+## Depth-first load balancing algorithm
+
+The depth-first load balancing algorithm aims to saturate one session host at a time. This algorithm is ideal for cost-conscious organizations that want more granular control on the number of session hosts available in a host pool, enabling you to more easily scale down when there are fewer users.
+
+The depth-first algorithm first queries session hosts that allow new connections and haven't reached their maximum session limit. The algorithm then selects the session host with most sessions. If there's a tie, the algorithm selects the first session host from the query.
+
+You must [set a maximum session limit](configure-host-pool-load-balancing.md#configure-depth-first-load-balancing) when using the depth-first algorithm. You can use Azure Virtual Desktop Insights to monitor [the number of sessions on each session host](insights-use-cases.md#session-host-utilization) and [session host performance](insights-use-cases.md#session-host-performance) to help determine the best maximum session limit for your environment.
 
 > [!IMPORTANT]
-> The maximum session limit parameter is required when you use the depth-first load balancing algorithm. For the best possible user experience, make sure to change the maximum session host limit parameter to a number that best suits your environment.
->
-> Once all session hosts have reached the maximum session limit, you will need to increase the limit or deploy more session hosts.
+> Once all session hosts have reached the maximum session limit, you need to increase the limit or [add more session hosts to the host pool](add-session-hosts-host-pool.md).
+
+## Next steps
+
+- Learn how to [configure load balancing for a host pool](configure-host-pool-load-balancing.md).
+
+- Understand how [autoscale](autoscale-scenarios.md) can automatically scale the number of available session hosts in a host pool.

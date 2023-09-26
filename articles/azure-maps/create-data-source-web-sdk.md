@@ -80,7 +80,7 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. 
 * [Road tiles]
 * [Traffic incidents]
 * [Traffic flow]
-* Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API]
+* Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
 > When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
@@ -131,10 +131,7 @@ For a complete working sample of how to display data from a vector tile source o
 <!---------------------------------------------------------------------------------------
 <br/>
 
-<iframe height="500" scrolling="no" title="Vector tile line layer" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>Vector tile line layer</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true]
 --------------------------------------------------------------------------------------->
 
 
@@ -274,7 +271,7 @@ See the following articles for more code samples to add to your maps:
 [Line layer]: map-add-line-layer.md
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
 [Polygon layer]: map-add-shape.md
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [Road tiles]: /rest/api/maps/render-v2/get-map-tile
 [SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
 [Symbol layer]: map-add-pin.md

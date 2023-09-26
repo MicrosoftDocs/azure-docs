@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
+  - name: What is Azure Maps Creator?
+    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
@@ -177,6 +179,8 @@ items:
       href: how-to-dev-guide-java-sdk.md
   - name: Develop with the Web SDK
     items:
+    - name: Web SDK v1 migration guide
+      href: web-sdk-migration-guide.md
     - name: Map control
       items:
       - name: Use the Azure Maps map control

@@ -4,7 +4,7 @@ description: This tutorial shows you how to deploy Azure Virtual Desktop with a 
 ms.topic: tutorial
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/03/2023
+ms.date: 08/14/2023
 ---
 
 # Tutorial: Create and connect to a Windows 11 desktop with Azure Virtual Desktop
@@ -29,7 +29,7 @@ You'll need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- The account must be assigned the *Owner* or *Contributor* built-in [role-based access control (RBAC) roles](../role-based-access-control/role-assignments-portal.md) on the subscription.
+- The account must be assigned the *Owner* or *Contributor* built-in role-based access control (RBAC) role on the subscription, or on an resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 - A [virtual network](../virtual-network/quick-create-portal.md) in the same Azure region you want to deploy your session hosts to.
 
@@ -64,7 +64,7 @@ To create a personal host pool, workspace, application group, and session host V
 
    Once you've completed this tab, select **Next: Networking**.
 
-1. On the **Networking** tab, select **Enable public access from all networks**, where end users can access the feed and session hosts securely over the public internet or the private endpoints. Once you've completed this tab, select **Next: Virtual Machines**.
+1. On the **Networking** tab, select **Enable public access from all networks**, where end users can access the feed and session hosts securely over the public internet. Once you've completed this tab, select **Next: Virtual Machines**.
 
 1. On the **Virtual machines** tab, complete the following information:
 
@@ -75,16 +75,16 @@ To create a personal host pool, workspace, application group, and session host V
    | Name prefix | Enter a name for your session hosts, for example **aad-hp01-sh**.<br /><br />This will be used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **aad-hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where your session host VMs will be deployed. This must be the same region that your virtual network is in. |
    | Availability options | Select **No infrastructure dependency required**. This means that your session host VMs won't be deployed in an availability set or in availability zones. |
-   | Security type | Select **Standard**. |
+   | Security type | Select **Trusted launch virtual machines**. Leave the subsequent defaults of **Enable secure boot** and **Enable vTPM** checked, and **Integrity monitoring** unchecked. For more information, see [Trusted launch](security-guide.md#trusted-launch). |
    | Image | Select **Windows 11 Enterprise, version 22H2**. |
    | Virtual machine size | Accept the default SKU. If you want to use a different SKU, select **Change size**, then select from the list. |
    | Number of VMs | Enter **1** as a minimum. You can deploy up to 400 session host VMs at this point if you wish, or you can add more later.<br /><br />With a personal host pool, each session host can only be assigned to one user, so you'll need one session host for each user connecting to this host pool. Once you've completed this tutorial, you can create a pooled host pool, where multiple users can connect to the same session host. |
    | OS disk type | Select **Premium SSD** for best performance. |
    | Boot Diagnostics | Select **Enable with managed storage account (recommended)**. |
    | **Network and security** |  |
-   | Virtual network | Select your virtual network. |
+   | Virtual network | Select your virtual network and subnet to connect session hosts to. |
    | Network security group | Select **Basic**. |
-   | Public inbound ports | Select **No**. |
+   | Public inbound ports | Select **No** as you don't need to open inbound ports to connect to Azure Virtual Desktop. Learn more at [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md). |
    | **Domain to join** |  |
    | Select which directory you would like to join | Select **Azure Active Directory**. |
    | Enroll VM with Intune | Select **No.** |
@@ -93,8 +93,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Password | Enter a password for the local administrator account. |
    | Confirm password | Re-enter the password. |
    | **Custom configuration** |  |
-   | ARM template file URL | Leave this blank. |
-   | ARM template parameter file URL | Leave this blank. |
+   | Custom configuration script URL | Leave this blank. |
 
    Once you've completed this tab, select **Next: Workspace**.
 
@@ -105,7 +104,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Register desktop app group | Select **Yes**. This registers the default desktop application group to the selected workspace. |
    | To this workspace | Select **Create new** and enter a name, for example **aad-ws01**. |
 
-   Once you've completed this tab, select **Next: Review + create**.
+   Once you've completed this tab, select **Next: Review + create**. You don't need to complete the other tabs.
 
 1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
 

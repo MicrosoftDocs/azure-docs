@@ -313,7 +313,7 @@ Virtual tables refer to the data in the real table, enabling the driver to acces
 You can use the [Copy Wizard](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) to intuitively view the list of tables in MongoDB database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
 
 ### Example
-For example, “ExampleTable” below is a MongoDB table that has one column with an array of Objects in each cell – Invoices, and one column with an array of Scalar types – Ratings.
+For example, “ExampleTable” below is a MongoDB table that has one column with an array of Objects in each cell - Invoices, and one column with an array of Scalar types - Ratings.
 
 | _id | Customer Name | Invoices | Service Level | Ratings |
 | --- | --- | --- | --- | --- |

@@ -5,7 +5,8 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.topic: conceptual
-ms.date: 07/25/2023
+ms.date: 08/10/2023
+ms.custom: AppServiceIdentity
 ---
 # Authentication scenarios and recommendations
 
@@ -37,7 +38,7 @@ The following table lists authentication scenarios and the authentication soluti
 | Even if you can use a code solution, would you rather *not* use libraries? Don't want the maintenance burden?  | ✅ | ❌ | ❌ |
 | Does your web app need to provide incremental consent?  | ❌ | ✅ | ✅ |
 | Do you need conditional access in your web app? | ❌ | ❌ | ✅ |
-| Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ❌ | ✅ | ✅ |
+| Your app need to handle the access token expiring without making the user sign in again (use a refresh token)? | ✅  | ✅ | ✅ |
 | Need custom authorization logic or info about the signed-in user? | ❌ | ✅ | ✅ |
 | Need to sign in users from external or social identity providers?  | ✅ | ✅ | ✅ |
 | You have an ASP.NET Core app? | ✅ | ❌ | ✅ |

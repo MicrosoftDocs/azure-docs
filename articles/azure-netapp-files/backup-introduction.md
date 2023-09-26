@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/01/2023
+ms.date: 09/13/2023
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -37,8 +37,11 @@ Azure NetApp Files backup expands the data protection capabilities of Azure NetA
 Azure NetApp Files backup is supported for the following regions:   
 
 * Australia Central
+* Australia Central 2
 * Australia East
+* Australia Southeast
 * Brazil South
+* Canada Central
 * Canada East
 * East Asia
 * East US
@@ -46,10 +49,18 @@ Azure NetApp Files backup is supported for the following regions:
 * France Central
 * Germany West Central
 * Japan East
+* Japan West
+* Korea Central
+* North Central US
 * North Europe
+* Norway East
+* Qatar Central
 * South Africa North
 * South Central US
+* South India
 * Southeast Asia
+* Sweden Central
+* UAE North
 * UK South
 * West Europe
 * West US

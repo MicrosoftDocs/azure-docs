@@ -92,7 +92,7 @@ Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the n
 * Check the version of your AKS cluster using the [`Get-AzAksCluster`][get-azakscluster] cmdlet.
 
     ```azurepowershell
-    Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).KubernetesVersion
+    (Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster).KubernetesVersion
     ```
 
 ---

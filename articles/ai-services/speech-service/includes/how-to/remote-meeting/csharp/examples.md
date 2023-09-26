@@ -67,7 +67,7 @@ async Task UploadAudio()
     // Create the speech config object
     // Substitute real information for "YourSubscriptionKey" and "Region"
     SpeechConfig speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "Region");
-    speechConfig.SetProperty("MeetingTranscriptionInRoomAndOnline", "true");
+    speechConfig.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
     // Set the property for asynchronous transcription
     speechConfig.SetServiceProperty("transcriptionMode", "async", ServicePropertyChannel.UriQueryParameter);

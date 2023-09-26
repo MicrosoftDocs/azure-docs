@@ -1,6 +1,6 @@
 ---
-title: Access on-premises APIs with Azure Active Directory Application Proxy
-description: Azure Active Directory's Application Proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
+title: Access on-premises APIs with Microsoft Entra application proxy
+description: Microsoft Entra application proxy lets native apps securely access APIs and business logic you host on-premises or on cloud VMs.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: has-adal-ref
 ---
-# Secure access to on-premises APIs with Azure Active Directory Application Proxy
+# Secure access to on-premises APIs with Microsoft Entra application proxy
 
-You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
+You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Microsoft Entra application proxy and the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) let your native apps securely access your on-premises APIs. Microsoft Entra application proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
 
-This article walks you through setting up an Azure AD Application Proxy solution for hosting a web API service that native apps can access.
+This article walks you through setting up a Microsoft Entra application proxy solution for hosting a web API service that native apps can access.
 
 ## Overview
 
@@ -25,13 +25,13 @@ The following diagram shows a traditional way to publish on-premises APIs. This 
 
 ![Traditional API access](./media/application-proxy-secure-api-access/overview-publish-api-open-ports.png)
 
-The following diagram shows how you can use Azure AD Application Proxy to securely publish APIs without opening any incoming ports:
+The following diagram shows how you can use Microsoft Entra application proxy to securely publish APIs without opening any incoming ports:
 
-![Azure AD Application Proxy API access](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
+![Microsoft Entra application proxy API access](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) libraries.
+The Microsoft Entra application proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) libraries.
 
-Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD Conditional Access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure AD Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
+Since Microsoft Entra application proxy authentication and authorization are built on top of Microsoft Entra ID, you can use Microsoft Entra Conditional Access to ensure only trusted devices can access APIs published through Application Proxy. Use Microsoft Entra join or Microsoft Entra hybrid joined for desktops, and Intune Managed for devices. You can also take advantage of Microsoft Entra ID P1 or P2 features like Microsoft Entra multifactor authentication, and the machine learning-backed security of [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
 
 ## Prerequisites
 
@@ -42,19 +42,19 @@ To follow this walkthrough, you need:
 
 ## Publish the API through Application Proxy
 
-To publish an API outside of your intranet through Application Proxy, you follow the same pattern as for publishing web apps. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
+To publish an API outside of your intranet through Application Proxy, you follow the same pattern as for publishing web apps. For more information, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](application-proxy-add-on-premises-application.md).
 
 To publish the SecretAPI web API through Application Proxy:
 
 1. Build and publish the sample SecretAPI project as an ASP.NET web app on your local computer or intranet. Make sure you can access the web app locally.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
-1. Select **Azure Active Directory**, then select **Enterprise applications**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
 
-1. On the **Browse Azure AD Gallery** page, locate section **On-premises applications** and select **Add an on-premises application**. The **Add your own on-premises application** page appears.
+1. On the **Browse Microsoft Entra Gallery** page, locate section **On-premises applications** and select **Add an on-premises application**. The **Add your own on-premises application** page appears.
 
 1. If you don't have an Application Proxy Connector installed, you'll be prompted to install it. Select **Download Application Proxy Connector** to download and install the connector.
 
@@ -64,7 +64,7 @@ To publish the SecretAPI web API through Application Proxy:
 
    1. Next to **Internal Url**, enter the URL you use to access the API from within your intranet.
 
-   1. Make sure **Pre-Authentication** is set to **Azure Active Directory**.
+   1. Make sure **Pre-Authentication** is set to **Microsoft Entra ID**.
 
    1. Select **Add** at the top of the page, and wait for the app to be created.
 
@@ -78,7 +78,7 @@ To publish the SecretAPI web API through Application Proxy:
 
    ![Not visible to users](./media/application-proxy-secure-api-access/5-not-visible-to-users.png)
 
-You've published your web API through Azure AD Application Proxy. Now, add users who can access the app.
+You've published your web API through Microsoft Entra application proxy. Now, add users who can access the app.
 
 1. On the **SecretAPI - Overview** page, select **Users and groups** in the left navigation.
 
@@ -97,11 +97,14 @@ You've published your web API through Azure AD Application Proxy. Now, add users
 
 ## Register the native app and grant access to the API
 
-Native apps are programs developed to use on a particular platform or device. Before your native app can connect and access an API, you must register it in Azure AD. The following steps show how to register a native app and give it access to the web API you published through Application Proxy.
+Native apps are programs developed to use on a particular platform or device. Before your native app can connect and access an API, you must register it in Microsoft Entra ID. The following steps show how to register a native app and give it access to the web API you published through Application Proxy.
 
 To register the AppProxyNativeAppSample native app:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 
-1. On the Azure Active Directory **Overview** page, select **App registrations**, and at the top of the **App registrations** pane, select **New registration**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **App registrations**.
+
+1. Select **New registration**.
 
 1. On the **Register an application** page:
 
@@ -115,9 +118,9 @@ To register the AppProxyNativeAppSample native app:
 
       ![New application registration](./media/application-proxy-secure-api-access/8-create-reg-ga.png)
 
-You've now registered the AppProxyNativeAppSample app in Azure Active Directory. To give your native app access to the SecretAPI web API:
+You've now registered the AppProxyNativeAppSample app in Microsoft Entra ID. To give your native app access to the SecretAPI web API:
 
-1. On the Azure Active Directory **Overview** > **App Registrations** page, select the **AppProxyNativeAppSample** app.
+1. On the **App registrations** page, select the **AppProxyNativeAppSample** app.
 
 1. On the **AppProxyNativeAppSample** page, select **API permissions** in the left navigation.
 
@@ -179,7 +182,7 @@ To configure the native app code:
    }
    ```
 
-To configure the native app to connect to Azure Active Directory and call the API App Proxy, update the placeholder values in the *App.config* file of the NativeClient sample app with values from Azure AD:
+To configure the native app to connect to Microsoft Entra ID and call the API App Proxy, update the placeholder values in the *App.config* file of the NativeClient sample app with values from Microsoft Entra ID:
 
 1. Paste the **Directory (tenant) ID** in the `<add key="ida:Tenant" value="" />` field. You can find and copy this value (a GUID) from the **Overview** page of either of your apps.
 
@@ -200,6 +203,6 @@ After you configure the parameters, build and run the native app. When you selec
 
 ## Next steps
 
-- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Microsoft Entra ID](application-proxy-add-on-premises-application.md)
 - [Quickstart: Configure a client application to access web APIs](../develop/quickstart-configure-app-access-web-apis.md)
 - [How to enable native client applications to interact with proxy applications](application-proxy-configure-native-client-application.md)

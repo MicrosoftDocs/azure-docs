@@ -214,7 +214,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/java/api/overview/azure/communication.jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Java SDK reference](/azure/developer/java/sdk/) or [REST API reference](/rest/api/communication/jobrouter/job-router).
 
 <!-- LINKS -->
 

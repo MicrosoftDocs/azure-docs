@@ -67,7 +67,7 @@ If you want to use different display settings to those specified by your admin, 
 
 1. Open the **Remote Desktop** application on your device.
 
-1. Right-click the name of a desktop or app, for example **SessionDesktop**, then select **Settings**.
+1. Right-click the name of a desktop connection, for example **SessionDesktop**, then select **Settings**.
 
 1. Toggle **Use default settings** to off.
 
@@ -222,7 +222,7 @@ Insider releases are made available in the Remote Desktop client once you've con
 
 1. Open the Remote Desktop client. The title in the top left-hand corner should be **Remote Desktop (Insider)**:
 
-   :::image type="content" source="../media/remote-desktop-client-windows-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/remote-desktop-client-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
 
 If you already have configured the Remote Desktop client to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the client](#update-the-client).
 

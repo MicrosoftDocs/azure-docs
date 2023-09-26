@@ -1,5 +1,5 @@
 ---
-title: Require phishing-resistant multifactor authentication for Azure AD administrator roles
+title: Require phishing-resistant multifactor authentication for Microsoft Entra administrator roles
 description: Create a Conditional Access policy requiring stronger authentication methods for highly privileged roles in your organization.
 
 services: active-directory
@@ -48,8 +48,8 @@ Organizations can choose to include or exclude roles as they see fit.
 
 ## Create a Conditional Access policy
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.

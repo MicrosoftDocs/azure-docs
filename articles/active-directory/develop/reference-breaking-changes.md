@@ -141,7 +141,7 @@ If a request fails the validation check, the application API for create/update w
 
 **Endpoints impacted**: v2.0
 
-**Protocol impacted**: All flows using [dynamic consent](v2-permissions-and-consent.md#requesting-individual-user-consent)
+**Protocol impacted**: All flows using [dynamic consent](./permissions-consent-overview.md#requesting-individual-user-consent)
 
 Applications using dynamic consent today are given all the permissions they have consent for, even if they weren't requested by name in the `scope` parameter. An app requesting only `user.read` but with consent to `files.read` can be forced to pass the Conditional Access requirement assigned for `files.read`, for example.
 

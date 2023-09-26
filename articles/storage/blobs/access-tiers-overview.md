@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 07/13/2023
+ms.date: 08/10/2023
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: fryu
@@ -19,11 +19,6 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 - **Cool tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of **30** days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
 - **Cold tier** - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cold tier should be stored for a minimum of **90** days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
-
-> [!IMPORTANT]
-> The cold tier is currently in PREVIEW and is available in all public regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To enroll, see [Cold tier (preview)](#cold-tier-preview).
 
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
@@ -136,7 +131,7 @@ Blob storage lifecycle management offers a rule-based policy that you can use to
 
 The following table summarizes the features of the hot, cool, cold, and archive access tiers.
 
-|  | **Hot tier** | **Cool tier** | **Cold tier (preview)** |**Archive tier** |
+|  | **Hot tier** | **Cool tier** | **Cold tier** |**Archive tier** |
 |--|--|--|--|--|
 | **Availability** | 99.9% | 99% | 99% | 99% |
 | **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.9% | 99.9% | 99.9% |
@@ -198,13 +193,9 @@ The following table summarizes how tier changes are billed.
 
 Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, might result in more charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
 
-## Cold tier (preview)
+## Cold tier
 
-The cold tier is currently in PREVIEW and is available in all public regions except Poland Central and Qatar Central.
-
-### Enrolling in the preview 
-
-You can validate cold tier on a general-purpose v2 storage account from any subscription in Azure public cloud. It's still recommended to share your scenario in the [preview form](https://forms.office.com/r/788B1gr3Nq).
+The cold tier is now generally available in all public and Azure Government regions except Poland Central and Qatar Central.
 
 ### Limitations and known issues
 
