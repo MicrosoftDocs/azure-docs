@@ -1,5 +1,5 @@
 ---
-title: Microsoft Entra SSO integration with Insightly SAML.
+title: Microsoft Entra SSO integration with Insightly SAML
 description: Learn how to configure single sign-on between Microsoft Entra ID and Insightly SAML.
 services: active-directory
 author: jeevansd
@@ -139,6 +139,6 @@ In this section, you test your Microsoft Entra single sign-on configuration with
  
 * You can use Microsoft My Apps. When you click the Insightly SAML tile in the My Apps, you should be automatically signed in to the Insightly SAML for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## Next Steps
+## Next steps
 
 Once you configure Insightly SAML you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
