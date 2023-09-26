@@ -372,15 +372,7 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes, outputblob: func.Out[byt
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#blob-output).
 
-# [Isolated worker model](#tab/isolated-process)
-
-The `BlobOutputAttribute` constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**BlobPath** | The path to the blob.|
-|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-# [In-process model](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 The [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute) attribute's constructor takes the following parameters:
 
@@ -404,6 +396,14 @@ public static void Run(
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
+# [Isolated worker model](#tab/isolated-process)
+
+The `BlobOutputAttribute` constructor takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**BlobPath** | The path to the blob.|
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
 ---
 

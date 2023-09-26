@@ -255,10 +255,7 @@ public class TwilioOutput {
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a [function.json configuration file](#configuration).  
 
-# [Isolated worker model](#tab/isolated-process)
-
-The Twilio binding isn't currently supported for a function app running in an isolated worker process.
-# [In-process model](#tab/in-process)
+# [In-process model](#tab/in-process)
 
 In [in-process](functions-dotnet-class-library.md) function apps, use the [TwilioSmsAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs), which supports the following parameters.
 
@@ -271,6 +268,9 @@ In [in-process](functions-dotnet-class-library.md) function apps, use the [Twili
 | **Body**| This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
 
+# [Isolated worker model](#tab/isolated-process)
+
+The Twilio binding isn't currently supported for a function app running in an isolated worker process.
 
 ---
 
