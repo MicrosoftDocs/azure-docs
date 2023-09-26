@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 05/03/2023
+ms.date: 09/26/2023
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -125,7 +125,7 @@ IoT Edge has dependencies on Docker and IoT Identity Service. Install the depend
 
 ```bash
 sudo snap install docker
-sudo snap install --edge azure-iot-identity
+sudo snap install azure-iot-identity
 ```
 
 ---
@@ -147,6 +147,10 @@ The following steps show you how to configure your container to use [`local` log
 
     ```bash
     sudo systemctl restart docker
+
+    # If you're using a snap, restart the docker service using the following command:
+    # sudo systemctl restart snap.docker.dockerd.service
+
     ```
 
    > [!TIP]
@@ -214,7 +218,7 @@ The optional defender-iot-micro-agent-edge package includes the Microsoft Defend
 Install IoT Edge from the snap store:
 
 ```bash
-sudo snap install --edge azure-iot-edge
+sudo snap install azure-iot-edge
 ```
 
 ### Connect snaps
