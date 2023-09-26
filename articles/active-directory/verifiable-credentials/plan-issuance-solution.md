@@ -61,7 +61,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 ### Microsoft Entra Verified ID service
 
-![Diagram of Microsoft Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-verifiable-credentials-vc-services.png)
+![Diagram of Microsoft Entra Verified ID service](media/plan-issuance-solution/plan-for-issuance-solution-verifiable-credentials-vc-services.png)
 
 The Microsoft Entra Verified ID service enables you to issue and revoke VCs based on your configuration. The service:
 

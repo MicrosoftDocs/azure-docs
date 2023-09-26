@@ -149,7 +149,7 @@ Once a password expiration policy has been set, you must also configure force pa
 
 ### Password expiry duration
 
-By default, the password is set not to expire. However, the value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure AD Module for Windows PowerShell. This command updates the tenant, so that all users' passwords expire after number of days you configure.
+By default, the password is set not to expire. However, the value is configurable by using the [Set-MsolPasswordPolicy](/powershell/module/msonline/set-msolpasswordpolicy) cmdlet from the Azure AD PowerShell module. This command updates the tenant, so that all users' passwords expire after number of days you configure.
 
 ## Next steps
 

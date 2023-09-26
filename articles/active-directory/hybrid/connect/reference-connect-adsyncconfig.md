@@ -13,8 +13,8 @@ ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Entra Connect:  ADSyncConfig PowerShell Reference
-The following documentation provides reference information for the ADSyncConfig.psm1 PowerShell Module that is included with Microsoft Entra Connect.
 
+The following documentation provides reference information for the `ADSyncConfig.psm1` PowerShell module included with Microsoft Entra Connect.
 
 ## Get-ADSyncADConnectorAccount
 

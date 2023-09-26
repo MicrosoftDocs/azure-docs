@@ -14,7 +14,7 @@ ms.custom:
 ---
 # Microsoft Entra Connect:  ADConnectivityTools PowerShell Reference
 
-The following documentation provides reference information for the ADConnectivityTools PowerShell Module that is included with Microsoft Entra Connect in `C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1`.
+The following documentation provides reference information for the `ADConnectivityTools` PowerShell module included with Microsoft Entra Connect in `C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ADConnectivityTool.psm1`.
 
 ## Confirm-DnsConnectivity
 

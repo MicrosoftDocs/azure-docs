@@ -58,4 +58,4 @@ To complete registration, provide the application a name, specify the supported 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Prepare an application for authentication](single-page-app-tutorial-02-prepare-spa.md)
+> [Tutorial: Prepare an application for authentication](tutorial-single-page-app-react-prepare-spa.md)

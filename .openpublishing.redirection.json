@@ -24550,6 +24550,26 @@
             "source_path_from_root": "/articles/orbital/space-partner-program-overview.md",
             "redirect_url": "/azure/orbital/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-01-register-app.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-register-app.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-02-prepare-spa.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-prepare-spa.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-03-sign-in-users.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-sign-in-users.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/develop/single-page-app-tutorial-04-call-api.md",
+            "redirect_url": "/azure/active-directory/develop/tutorial-single-page-app-react-call-api.md",
+            "redirect_document_id": false
         }
     ]
 }

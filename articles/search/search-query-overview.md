@@ -8,11 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 09/25/2023
 ---
+
 # Querying in Azure Cognitive Search
 
-Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly-specified query patterns. This article describes query requests and the kinds of queries you can create.
+Azure Cognitive Search offers a rich query language to support a broad range of scenarios, from free text search, to highly specified query patterns. This article describes query requests and the kinds of queries you can create.
 
 In Cognitive Search, a query is a full specification of a round-trip **`search`** operation, with parameters that both inform query execution and shape the response coming back. To illustrate, the following query example calls the [Search Documents (REST API)](/rest/api/searchservice/search-documents). It's a parameterized, free text query with a boolean operator, targeting the [hotels-sample-index](search-get-started-portal.md) documents collection. It also selects which fields are returned in results.
 
@@ -56,13 +57,13 @@ The above list is representative but not exhaustive. For the full list of parame
 
 ## Types of queries
 
-With a few notable exceptions, a query request iterates over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. In Cognitive Search, the primary methodology for finding matches is either full text search or filters, but you can also implement other well-known search experiences like autocomplete, or geo-location search. The rest of this article summarizes queries in Cognitive Search and provides links to more information and examples.
+With a few notable exceptions, a full text query request iterates over inverted indexes that are structured for fast scans, where a match can be found in potentially any field, within any number of search documents. In Cognitive Search, the primary methodology for finding matches is either full text search or filters, but you can also implement other well-known search experiences like autocomplete, or geo-location search. The rest of this article summarizes queries in Cognitive Search and provides links to more information and examples.
 
 ## Full text search
 
-If your search app includes a search box that collects term inputs, then full text search is probably the query operation backing that experience. Full text search accepts terms or phrases passed in a **`search`** parameter in all "searchable" fields in your index. Optional boolean operators in the query string can specify inclusion or exclusion criteria. Both the simple parser and full parser support full text search.
+Full text search accepts terms or phrases passed in a **`search`** parameter in all "searchable" fields in your index. Optional boolean operators in the query string can specify inclusion or exclusion criteria. Both the simple parser and full parser support full text search.
 
-In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis to make scans more efficient. Analysis includes lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. The default analyzer is Standard Lucene.
+In Cognitive Search, full text search is built on the Apache Lucene query engine. Query strings in full text search undergo lexical analysis to make scans more efficient. Analysis includes lower-casing all terms, removing stop words like "the" and reducing terms to primitive root forms. The default analyzer is Standard Lucene.
 
 When matching terms are found, the query engine reconstitutes a search document containing the match using the document key or ID to assemble field values, ranks the documents in order of relevance, and returns the top 50 (by default) in the response or a different number if you specified **`top`**.
 
@@ -73,7 +74,7 @@ If you're implementing full text search, understanding how your content is token
 
 ## Autocomplete and suggested queries
 
-[Autocomplete or suggested results](search-add-autocomplete-suggestions.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you cannot use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine will never return a string or suggestion that is non-existent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
+[Autocomplete or suggested results](search-add-autocomplete-suggestions.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you can't use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine never returns a string or suggestion that is nonexistent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
 
 ## Filter search
 
@@ -118,7 +119,7 @@ An advanced query form depends on the Full Lucene parser and operators that trig
 
 ## Next steps
 
-For a closer look at query implementation, review the examples for each syntax. If you are new to full text search, a closer look at what the query engine does might be an equally good choice.
+For a closer look at query implementation, review the examples for each syntax. If you're new to full text search, a closer look at what the query engine does might be an equally good choice.
 
 + [Simple query examples](search-query-simple-examples.md)
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
