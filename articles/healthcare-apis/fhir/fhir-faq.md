@@ -140,8 +140,9 @@ There are two basic Delete types supported within the FHIR service. These are [D
 
 ### Can I perform health checks on FHIR service?
 
-To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is successful.
-In case of errors, you will receive error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
+To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see status of FHIR service. HTTP Status code response with 200 and OverallStatus as **Healthy** in response means your health check is successful.
+
+In case of errors, you may receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
 
 ## Next steps
 
