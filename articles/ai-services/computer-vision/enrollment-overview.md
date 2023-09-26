@@ -5,8 +5,8 @@ description: Learn about the process of Face enrollment to register users in a f
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: best-practice
 ms.date: 09/27/2021
 ms.author: pafarley

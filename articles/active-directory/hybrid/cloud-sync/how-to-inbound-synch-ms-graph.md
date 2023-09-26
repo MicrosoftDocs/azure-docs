@@ -34,7 +34,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Review status](#review-status)
   - [Next steps](#next-steps)
 
-Use these [Azure AD PowerShell Module for Windows PowerShell](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
+Use these [Azure AD PowerShell module](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
 
 ## Basic setup
 

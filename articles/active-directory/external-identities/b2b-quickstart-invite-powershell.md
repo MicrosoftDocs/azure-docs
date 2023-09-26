@@ -23,6 +23,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
+
 To complete the scenario in this quickstart, you need:
 
 - A role that allows you to create users in your tenant directory, such as at least a [Guest Inviter role](../roles/permissions-reference.md#guest-inviter) or a [User administrator](../roles/permissions-reference.md#user-administrator).

@@ -171,7 +171,7 @@ There are several endpoints defined in the SCIM RFC. You can start with the `/Us
 The Microsoft Entra provisioning service is designed to support a SCIM 2.0 user management API.
 
 > [!IMPORTANT]
-> The behavior of the Microsoft Entra SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Microsoft Entra User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
+> The behavior of the Microsoft Entra SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Microsoft Entra user provisioning service](application-provisioning-config-problem-scim-compatibility.md).
 
 Within the SCIM 2.0 protocol specification, your application must support these requirements:
 
@@ -195,7 +195,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Values sent should be stored in the same format they were sent. Invalid values should be rejected with a descriptive, actionable error message. Transformations of data shouldn't happen between data from Microsoft Entra ID and data stored in the SCIM application. (for example. A phone number sent as 55555555555 shouldn't be saved/returned as +5 (555) 555-5555)
 * It isn't necessary to include the entire resource in the **PATCH** response.
 * Don't require a case-sensitive match on structural elements in SCIM, in particular **PATCH** `op` operation values, as defined in [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Microsoft Entra ID emits the values of `op` as **Add**, **Replace**, and **Remove**.
-* Microsoft Entra ID makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
+* Microsoft Entra ID makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow. 
 * Support HTTPS on your SCIM endpoint.
 * Custom complex and multivalued attributes are supported but Microsoft Entra ID doesn't have many complex data structures to pull data from in these cases. Name/value attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes isn't supported.
 * The "type" subattribute values of multivalued complex attributes must be unique. For example, there can't be two different email addresses with the "work" subtype.
@@ -204,8 +204,8 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 ### Retrieving Resources:
 
 * Response to a query/filter request should always be a `ListResponse`.
-* Microsoft Azure AD only uses the following operators: `eq`, `and`
-* The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Microsoft Entra admin center](https://entra.microsoft.com), see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
+* Microsoft Entra-only uses the following operators: `eq`, `and`
+* The attribute that the resources can be queried on should be set as a matching attribute on the application, see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md).
 
 ### /Users:
 
@@ -224,7 +224,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * If a value isn't present, don't send null values.
 * Property values should be camel cased (for example, readWrite).
 * Must return a list response.
-* The Microsoft Entra provisioning service makes the /schemas request when you save the provisioning configuration in the Azure portal. The request is also made when you open the edit provisioning page in the Azure portal. Other attributes discovered are surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. Attributes aren't removed. 
+* The Microsoft Entra provisioning service makes the /schemas request when you save the provisioning configuration. The request is also made when you open the edit provisioning page. Other attributes discovered are surfaced to customers in the attribute mappings under the target attribute list. Schema discovery only leads to more target attributes being added. Attributes aren't removed. 
 
 ### User provisioning and deprovisioning
 
@@ -1415,13 +1415,18 @@ It's recommended, but not required, that you support multiple secrets for easy r
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application** > **Provisioning** and select **Authorize**.
 
-   1. Microsoft Entra admin center redirects user to the Authorization URL (sign in page for the third party app).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select your application and go to **Provisioning**.
+1. Select **Authorize**.
+
+   1. Users are redirected to the Authorization URL (sign in page for the third party app).
 
    1. Admin provides credentials to the third party application. 
 
-   1. Third party app redirects user back to Microsoft Entra admin center and provides the grant code 
+   1. The third party app redirects user back and provides the grant code 
 
-   1. Microsoft Entra provisioning service calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
+   1. The Provisioning Service calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
 
 1. When the provisioning cycle begins, the service checks if the current access token is valid and exchanges it for a new token if needed. The access token is provided in each request made to the app and the validity of the request is checked before each request.
 

@@ -40,10 +40,9 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > 
 > First, register the web API in your Microsoft Entra tenant and add a scope by following these steps:
 > 
-> 1. Sign in to the [Azure portal](https://portal.azure.com/).
-> 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-> 1. Search for and select **Microsoft Entra ID**.
-> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
+> 1. Browse to **Identity** > **Applications** > **App registrations**.
+> 1. Select **New registration**.
 > 1. For **Name**, enter a name for the application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of the app will see this name, and can be changed later.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Expose an API** > **Add a scope**. For **Application ID URI**, accept the default by selecting  **Save and continue**, and then enter the following details:
@@ -154,12 +153,11 @@ This quickstart will be deprecated in the near future and will be updated to use
 > 
 > The line that contains `.AddMicrosoftIdentityWebApi` adds the Microsoft identity platform authorization to the web API. It's then configured to validate access tokens issued by the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 > 
-> | *appsettings.json* key | Description                                                                                                                         
-|
-> |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | `ClientId`             | Application (client) ID of the application registered in the Azure portal.                                                                                       |
-> | `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
-> | `TenantId`             | Name of your tenant or its tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts.                             |
+> |*appsettings.json* key | Description |
+> | --------- | ----------------- |
+> | `ClientId` | Application (client) ID of the application registered. |
+> | `Instance` | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
+> | `TenantId` | Name of your tenant or its tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts. |
 > 
 > The `Configure()` method contains two important methods, `app.UseAuthentication()` and `app.UseAuthorization()`, that enable their named functionality:
 > 

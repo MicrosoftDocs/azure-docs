@@ -18,7 +18,7 @@
     href: quickstart-on-demand.md
 - name: Tutorials
   items:
-  - name: Schedule updates dynamically and at scale using dynamic scope (preview)
+  - name: Schedule updates dynamically and at scale using dynamic scope
     href: tutorial-dynamic-grouping-for-scheduled-patching.md
   - name: Schedule updates and enable periodic assessment at scale using policy
     href: tutorial-assessment-deployment-using-policy.md

@@ -5,8 +5,7 @@ description: In this tutorial, you will build an iOS app from scratch and add th
 services: cognitive-services
 author: rwallerms
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: rwaller
