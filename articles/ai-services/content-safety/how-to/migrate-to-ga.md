@@ -13,9 +13,11 @@ ms.author: pafarley
 
 # Migrate from Content Safety public preview to GA
 
-This guide shows how to upgrade your existing code from the public preview version of Azure AI Content Safety to the GA version.
+This guide shows you how to upgrade your existing code from the public preview version of Azure AI Content Safety to the GA version.
 
-## Operations
+#### [REST API](#tab/rest)
+
+## REST API calls
 
 In all API calls, be sure to change the _api-version_ parameter in your code:
 
@@ -23,55 +25,149 @@ In all API calls, be sure to change the _api-version_ parameter in your code:
 |--|--|
 `api-version=2023-04-30-preview` | `api-version=2023-10-01` |
 
-### Blocklist operations
+Note the following REST endpoint name changes:
 
-The **addBlockItems** API has been renamed to **addOrUpdateBlocklistItems**. The return format has changed. The following table shows the changes.
+| Public preview term          | GA term                  |  
+|-------------------|---------------------------|  
+| **addBlockItems**     | **addOrUpdateBlocklistItems** |  
+| **blockItems**        | **blocklistItems**            |  
+| **removeBlockItems**  | **removeBlocklistItems**       |  
 
-The blockItems API has been renamed to blocklistItems.
-The RemoveBlockItems API has been renamed to RemoveBlocklistItems.
-The TextBlockItemInfo type has been renamed to TextblocklistItemInfo
-The method AddBlockItems API has been renamed to addedblocklistItems
-THe AddblocklistItemsOptions type has been renamed to AddBlocklistItemsOptions
-The RemoveBlockItemsOptions type has been renamed to RemoveBlocklistItemsOptions
 
-The `blockItems` JSON field has been renamed to `blocklistItems`.
-The `BlockItemId` JSON field has been renamed to `blocklistItemId`.
-The `blockItemIds` JSON field has been renamed to `blocklistItemIds`.
+## JSON fields
 
-The TextBlockItemInfo type has been renamed to TextblocklistItemInfo
-The AddBlockItemsOptions type has been renamed to AddBlocklistItemsOptions
-The RemoveBlockItemsOptions type has been renamed to RemoveBlocklistItemsOptions
-The TextBlockItemInfo type has been renamed to TextblocklistItemInfo
-The AddBlockItemsOptions type has been renamed to AddBlocklistItemsOptions
-The RemoveBlockItemsOptions type has been renamed to RemoveBlocklistItemsOptions
+The following JSON fields have been renamed. Be sure to change them when you send data to a REST call:
 
-The `blocklistMatchResults` JSON field has been renamed to `blocklistsMatch`.
+| Public preview Term                | GA Term                      |  
+|-------------------------|-------------------------------|  
+| `blockItems`            | `blocklistItems`              |  
+| `BlockItemId`           | `blocklistItemId`             |  
+| `blockItemIds`          | `blocklistItemIds`            |  
+| `blocklistMatchResults` | `blocklistsMatch`             |  
+| `breakByBlocklists`     | `haltOnBlocklistHit`           |
 
-## Analyze operations
 
-new format 
+## Return formats
+
+Some of the JSON return formats have changed. See the following updated JSON return examples.
+
+The **text:analyze** API call with category analysis:
 
 ```json
 {
- "categoriesAnalysis": [
-        {
-            "category": "Hate",
-            "severity": 2
-        },
-        {
-            "category": "SelfHarm",
-            "severity": 0
-        },
-        {
-            "category": "Sexual",
-            "severity": 0
-        },
-        {
-            "category": "Violence",
-            "severity": 0
-        }
-    ]
+  "categoriesAnalysis": [
+    {
+      "category": "Hate",
+      "severity": 2
+    },
+    {
+      "category": "SelfHarm",
+      "severity": 0
+    },
+    {
+      "category": "Sexual",
+      "severity": 0
+    },
+    {
+      "category": "Violence",
+      "severity": 0
+    }
+ ]
 }
 ```
 
-parameter breakByBlocklists has been renamed to haltOnBlocklistHit
+The **text:analyze** API call with a blocklist:
+```json
+{
+  "blocklistsMatch": [
+    {
+      "blocklistName": "string",
+      "blocklistItemId": "string",
+      "blocklistItemText": "bleed"
+    }
+  ],
+  "categoriesAnalysis": [
+    {
+      "category": "Hate",
+      "severity": 0
+    }
+  ]
+}
+```
+
+The **addOrUpdateBlocklistItems** API call:
+
+```json
+{
+  "blocklistItems:"[
+    {
+      "blocklistItemId": "string",
+      "description": "string",
+      "text": "bleed"
+    }
+  ]
+}
+```
+
+The **blocklistItems** API call (list all block list items):
+```json
+{
+  "values": [
+    {
+      "blocklistItemId": "string",
+      "description": "string",
+      "text": "bleed",
+    }
+  ]
+}
+```
+
+The **blocklistItems** API call with an item ID (retrieve a single item):
+
+```json
+{
+  "blocklistItemId": "string",
+  "description": "string",
+  "text": "string"
+}
+```
+
+#### [C#](#tab/csharp)
+
+## Data types
+
+The following data types have been renamed:
+
+| Public preview term                | GA term            |  
+|-------------------------|-------------------------------|  
+| **TextBlockItemInfo**   | **TextblocklistItemInfo**     |  
+| **BlockItemId**         | **blocklistItemId**           |  
+| **AddblocklistItemsOptions** | **AddBlocklistItemsOptions** |  
+| **RemoveBlockItemsOptions** | **RemoveBlocklistItemsOptions**|
+
+## Methods
+
+The following client methods have been renamed:
+
+| Public preview term                 | GA term              |  
+|--------------------------|----------------------------------|  
+| **AddBlockItems**      | **AddblocklistItems**       |  
+| **RemoveblocklistItems** | **RemoveBlocklistItems** |
+
+#### [Python](#tab/python)
+
+## Data types
+
+The following data types have been renamed:
+
+| Public preview term    | GA term              |  
+|-------------------------------|-------------------------------------|  
+| **TextBlockItemInfo**         | **TextblocklistItemInfo**           |  
+| **AddBlockItemsOptions**      | **AddBlocklistItemsOptions**        |  
+| **RemoveBlockItemsOptions**   | **RemoveblocklistItemsOptions**     |
+
+---
+
+## Next steps
+
+- [Quickstart: Analyze text content](../quickstart-text.md)
