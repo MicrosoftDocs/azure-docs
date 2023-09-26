@@ -12,7 +12,7 @@ Apache Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (
 
 ## Installation Steps
 
-To install Flink CLI on Linux, you'll need a **Linux VM** to execute the installation script. You need to run a bash environment if you are on **Windows**. 
+To install Flink CLI on Linux, you need a **Linux VM** to execute the installation script. You need to run a bash environment if you are on **Windows**. 
 
 > [!NOTE]
 > This does NOT work on Windows **GIT BASH**, you need to install [WSL](/windows/wsl/install) to make this work on Windows. 
@@ -53,7 +53,7 @@ This command installs Flink CLI in the user's home directory (`$HOME/flink-cli`)
    bin/flink list
    ```
 
-   You should output like the following:
+   You should see output like the following:
 
    ```output
    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code E4LW35GFD to authenticate.
