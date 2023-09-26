@@ -321,18 +321,18 @@ The following major runtime version values are supported:
 
 ## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
 
-This app setting is a temporary way for Node.js apps to enable a breaking change that makes entry point errors easier to troubleshoot. It's highly recommended to set this to `true` on Node.js v18 or lower, especially for programming model v4 apps which always use entry point files. The behavior without the breaking change treats entry point errors as warnings and will not log them in Application Insights.
+This app setting is a temporary way for Node.js apps to enable a breaking change that makes entry point errors easier to troubleshoot on Node.js v18 or lower. It's highly recommended to use `true`, especially for programming model v4 apps, which always use entry point files. The behavior without the breaking change (`false`) ignores entry point errors and doesn't log them in Application Insights.
 
 Starting with Node.js v20, the app setting has no effect and the breaking change behavior is always enabled.
 
 For Node.js v18 or lower, the app setting can be used and the default behavior depends on if the error happens before or after a model v4 function has been registered:
-- If the error is thrown before, the default behavior matches `false`. For example, if you are using model v3 or your entry point file doesn't exist.
-- If the error is thrown after, the default behavior matches `true`. For example, if you try to register duplicate functions.
+- If the error is thrown before (for example if you're using model v3 or your entry point file doesn't exist), the default behavior matches `false`.
+- If the error is thrown after (for example if you try to register duplicate model v4 functions), the default behavior matches `true`.
 
 |Key|Value|Description|
 |---|-----|-----------|
-|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Treat entry point errors as blocking errors and log them in App Insights.|
-|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Treat entry point errors as ignore-able warnings and don't log them in App Insights.|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Block on entry point errors and log them in Application Insights.|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Ignore entry point errors and don't log them in Application Insights.|
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
