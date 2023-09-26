@@ -161,17 +161,17 @@
       - name: High availability and disaster recovery
         displayName: HA, DR, availability zone, failover, failback
         href: iot-hub-ha-dr.md
-    - name: Control access to IoT Hub
+    - name: Authentication and authorization
       items:
-        - name: Overview
-          displayName: access control, permissions, Azure Active Directory, Azure AD, identity registry
-          href: iot-hub-devguide-security.md
-        - name: Control access with Azure AD
-          displayName: Active Directory, permissions, security principal, RBAC
-          href: iot-hub-dev-guide-azure-ad-rbac.md
-        - name: Control access with SAS
-          displayName: Shared Access Signatures, permissions, MQTT, AMQP, HTTPS, SASL PLAIN
-          href: iot-hub-dev-guide-sas.md
+      - name: Azure Active Directory
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-azure-ad.md
+      - name: Shared access signatures
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-sas.md
+      - name: X.509 certificates
+        displayName: authenticate, authentication, auth, authn, authz
+        href: authenticate-authorize-x509.md
     - name: IoT Hub SDKs
       items:
         - name: SDK overview
@@ -191,25 +191,6 @@
           href: ../iot-edge/iot-edge-as-gateway.md
     - name: Security
       items:
-        - name: Authentication
-          items:
-          - name: Azure Active Directory
-            displayName: authenticate, authentication, auth, authn
-            href: authenticate-azure-ad.md
-          - name: Shared access signatures
-            displayName: authenticate, authentication, auth, authn
-            href: authenticate-sas.md
-          - name: X.509 certificates
-            displayName: authenticate, authentication, auth, authn
-            href: authenticate-x509.md
-        - name: Authorization
-          items:
-          - name: Azure Active Directory
-            displayName: authorization, authorize, auth, authz
-            href: authorize-azure-ad.md
-          - name: Shared access signatures
-            displayName: authorization, authorize, auth, authz
-            href: authorize-sas.md
         - name: TLS support
           displayName: security, Transport Layer Security
           href: iot-hub-tls-support.md
