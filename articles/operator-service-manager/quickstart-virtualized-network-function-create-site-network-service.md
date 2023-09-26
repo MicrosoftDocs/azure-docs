@@ -3,7 +3,7 @@ title: Create a Site Network Service for Ubuntu Virtual Machine (VM) as Virtual 
 description: Learn how to create a Site Network Service (SNS) for Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF)
 author: sherrygonz
 ms.author: sherryg
-ms.date: 09/14/2023
+ms.date: 09/26/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
 ---
@@ -35,13 +35,13 @@ This quickstart assumes you followed the prerequisites in these quickstarts:
 
 |Setting|Value| 
 |---|---| 
-|Subscription| Select your subscription.| 
-|Resource group| Create a resource group *operatorresourcegroup*.| 
-|Name| Enter *ubuntu-sns*.| 
-|Region| Select **UK South**.| 
-|Site| Enter *ubuntu-vm-site*.|
-|Managed Identity Type | User Assigned |
-|User Assigned Identity |Select “identity-for-ubuntu-vm-sns”|
+|**Subscription**| Select your subscription| 
+|**Resource group**| Create a resource group *operatorresourcegroup*.| 
+|**Name**| Enter *ubuntu-sns*| 
+|**Region**| Select **UK South**| 
+|**Site**| Enter *ubuntu-vm-site*|
+|**Managed Identity Type** | User Assigned |
+|**User Assigned Identity** |Select **identity-for-ubuntu-vm-sns**|
 
 :::image type="content" source="media/basics-tab-virtual-network-function.png" alt-text="Screenshot showing the Basics page where the details for the Site Network Service are input.":::
 
@@ -52,10 +52,10 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
 
 |Setting|Value| 
 |---|---| 
-|Publisher Offering Location| Select “UK South.”| 
-|Publisher| Select *ubuntu-publisher*.| 
-|Network Service Design resource| Select *ubuntu-nsdg*.| 
-|Network Service Design version| Select *1.0.0*.| 
+|**Publisher Offering Location**| Select **UK South**| 
+|**Publisher**| Select **ubuntu-publisher**| 
+|**Network Service Design resource**| Select **ubuntu-nsdg**| 
+|**Network Service Design version**| Select **1.0.0**| 
 
 
 :::image type="content" source="media/choose-network-service-design-virtual-network-function.png" alt-text="Screenshot showing the Choose a Network Service Design tab and Network Service Design resource.":::
@@ -67,6 +67,7 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
 
     :::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create.":::
 
+1. Select a **Configuration Group Value** resource for each schema listed in the selected network service design. The dropdown options include only the configuration group resources that conform to the given schema and are available in your subscription (selected on the **Basics** tab).
 1. Enter the following json configuration into the editor panel.
 
     ```json
@@ -83,10 +84,9 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
         },
         "managedIdentity": "`<managed-identity-resource-id>`"
     }
-    ``````
-    
-    :::image type="content" source="media/editor-panel-virtual-network-function.png" alt-text="Screenshot showing the editor panel with the json information added.":::
-
+    ```
+    > [!NOTE]
+> Refer to the [Resource ID for the managed identity](quickstart-virtualized-network-function-operator.md#locate-resource-id-for-managed-identity)section to see how to retrieve the `managedIdentity` resource ID. Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub`.
 1. Select **Review + create**.
 1. Select **Create**.
 
