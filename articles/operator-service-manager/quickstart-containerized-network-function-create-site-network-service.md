@@ -10,7 +10,7 @@ ms.service: azure-operator-service-manager
 
 # Quickstart: Create a Containerized Network Function (CNF) Site Network Service (SNS) with Nginx  
 
- This article walks you through the process of creating a Site Network Service (SNS) using the Azure portal. SNS is an essential part of a Network Service Instance and is associated with a specific site. Each SNS instance references a particular version of a Network Service Design (NSDV). 
+ This article walks you through the process of creating a Site Network Service (SNS) using the Azure portal. Site Networks Services is an essential part of a Network Service Instance and is associated with a specific site. Each Site Network Service instance references a particular version of a Network Service Design (NSD). 
 
 ## Prerequisites
 
@@ -24,7 +24,18 @@ ms.service: azure-operator-service-manager
 1. Select **Create a resource**.
 1. Search for **Site network service**, then select **Create**.
      :::image type="content" source="media/create-site-network-service-main.png" alt-text="Screenshot shows the Marketplace screen with site network service in the search bar. Options beneath the search bar include Site Network Service are shown.":::
-1. On the **Basics** tab, select your **Subscription**, enter *operator-rg.* as the **Resource group** , and *ngnix-sns.* as the **Name**. Select **UK South** as the **Region**, enter *ngnix-site* for the **site**, and select  **System Assigned** for the **Managed Identity Type** of your instance. 
+1. On the **Basics** tab, enter for select the information in the table and accept the default values for the remaining settings.
+
+
+    |Setting  |Value  |
+    |---------|---------|
+    |Subscription     |   Select your subscription.      |
+    |Resource group     |     Create resource group **operator-rg**.   |
+    |Name     |  Enter **ngnix-sns**.       |
+    |Region     |  Select **UK South**.       |
+    |Site    |  Enter **ngnix-site**.       |
+    |Managed Identity Type    |    Select **System Assigned**.     |
+ 
     :::image type="content" source="media/create-site-network-service-basic.png" alt-text="Screenshot shows the Basics tab where you enter project and instance details for your site network service.":::
 1. Select **Next: Choose a Network Site Design >**.
 1. On this screen, select the **Publisher**, **Network Service Design Resource**, and the **Network Service Design Version** you published earlier.
@@ -53,9 +64,9 @@ ms.service: azure-operator-service-manager
 ```
 
    > [!NOTE]
-   > Refer to the Retrieve Custom Location section for config group value for the customlocationID. 
+   > Refer to the Retrieve Custom Location section for config group value for the customlocationID. For more information, see [Quickstart: Prerequisites for Operator and Containerized Network Function (CNF)](quickstart-containerized-network-function-operator.md).
 
-10. Allow the deployment state to reach **Succeeded**. This status indicates your CNF is up and running.
+10. Allow the deployment state to reach a state of **Succeeded**. This status indicates your CNF is up and running.
 1. Access your CNF by navigating to the **Site Network Service Object** in the Azure portal. Select the **Current State -> Resources** to view the managed resource group created by Azure Operator Service Manager (AOSM).
     :::image type="content" source="media/site-network-service-preview.png" alt-text="Screenshot shows an overview of the site network service created.":::
 
