@@ -15,8 +15,8 @@ Azure Resource Notifications - Health Resources supports the following event typ
 
 | Event type | Description |
 | ---------- | ----------- |
-| `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged`` | Raised when the availability status of a virtual machine (VM) changes. |
-| `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated`` | Raised when the health of a VM is impacted by availability impacting disruptions (see [Resource types and health checks](../service-health/resource-health-checks-resource-types.md)). The platform emits context as to why the disruption has occurred to assist you in responding appropriately.|
+| `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged` | Raised when the availability status of a virtual machine (VM) changes. |
+| `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated` | Raised when the health of a VM is impacted by availability impacting disruptions (see [Resource types and health checks](../service-health/resource-health-checks-resource-types.md)). The platform emits context as to why the disruption has occurred to assist you in responding appropriately.|
 
 These events are emitted for standalone VMs and VMs that are a part of Virtual Machine Scale Sets in the Azure subscription in which the system topic is created. By default, the scope of these notifications is at Azure subscription level, which means that the user receives availability status notifications on all VMs (standalone or part of Virtual Machine Scale Sets) in the Azure subscription.
 
