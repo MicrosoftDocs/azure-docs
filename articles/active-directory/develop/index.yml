@@ -3,7 +3,7 @@
 ## FRONT MATTER START
 title: Microsoft identity platform documentation
 summary: >
-  Use the Microsoft identity platform and our open-source authentication libraries to sign in users with Microsoft Entra ID accounts, Microsoft accounts, and social accounts like Facebook and Google.
+  Use the Microsoft identity platform and our open-source authentication libraries to sign in users with Microsoft Entra accounts, Microsoft accounts, and social accounts like Facebook and Google.
   Protect your web APIs and access protected APIs like Microsoft Graph to work with your users' and organization's data.
 brand: azure
 
