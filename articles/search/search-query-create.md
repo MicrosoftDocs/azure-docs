@@ -23,9 +23,9 @@ If you're building a query for [full text search](search-lucene-query-architectu
 
 ## Example of a full text query request
 
-In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index. A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators.
+In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index. 
 
-Other parameters add more definition. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
+A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
 
 The following [Search Documents REST API](/rest/api/searchservice/search-documents) call illustrates a query request using the aforementioned parameters.
 
@@ -55,11 +55,11 @@ In the portal, when you open an index, you can work with Search Explorer alongsi
 
 1. Open **Indexes** and select an index.
 
-1. An index opens to the **Search explorer** tab so that you can query right away. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on).
+1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). Here's a full text search query expression that works for the Hotels sample index:
 
-   [Search explorer (portal)](search-explorer.md) is a query interface in the Azure portal that runs queries against indexes on the underlying search service. Internally, the portal makes [Search Documents](/rest/api/searchservice/search-documents) requests, but can't invoke Autocomplete, Suggestions, or Document Lookup. 
+   `search=pool spa +airport&$searchFields=Description,Tags&$select=HotelName,Description,Category&$count=true`
 
-1. Change the REST API version if you require search behaviors from a specific version. 
+Notice that you can change the REST API version if you require search behaviors from a specific version, or switch to **JSON view** if you want to paste in the JSON definition of a query. For more information about what a JSON definition looks like, see [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
 ### [**REST API**](#tab/rest-text-query)
 
@@ -79,6 +79,8 @@ The following Azure SDKs provide a **SearchClient** that has methods for formula
 | Java | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample.java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |
 | JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [SDK examples](/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest#examples&preserve-view=true) |
 | Python | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query.py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
+
+---
 
 ## Choose a query type: simple | full
 
