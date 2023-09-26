@@ -69,7 +69,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [JavaScript quickstart](includes/use-your-data-python.md)]
+[!INCLUDE [Python quickstart](includes/use-your-data-python.md)]
 
 ::: zone-end
 
