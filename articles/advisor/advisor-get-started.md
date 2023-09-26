@@ -22,12 +22,12 @@ To access Azure Advisor, sign in to the [Azure portal](https://portal.azure.com)
 
 You can also use the search bar at the top, or the left navigation pane, to find Advisor.
 
-:::image type="content" source="./media/advisor-get-started/advisor-score-page-border.png" alt-text="Access Azure Advisor using the Azure portal." lightbox="./media/advisor-get-started/advisor-score-page-border.png":::
+:::image type="content" source="./media/advisor-get-started/advisor-score-page.png" alt-text="Screenshot of the Azure Advisor opening score page." lightbox="./media/advisor-get-started/advisor-score-page.png":::
 
 ## Read your score
 See how your system configuration measures against Azure best practices.
 
-:::image type="content" source="./media/advisor-get-started/advisor-score-detail-border.png" alt-text="Optimize Azure workloads by using Advisor score." lightbox="./media/advisor-get-started/advisor-score-detail-border.png":::
+:::image type="content" source="./media/advisor-get-started/advisor-score-page-graphs-detail.png" alt-text="Screenshot detail of Azure Advisor workloads score graphs." lightbox="./media/advisor-get-started/advisor-score-page-graphs-detail.png":::
 
 * The far-left graphic is your overall system Advisor score against Azure best practices. The **Learn more** link opens the [Optimize Azure workloads by using Advisor score](azure-advisor-score.md) page. 
 
@@ -59,7 +59,7 @@ View recommendation details – such as the recommended actions and impacted res
 
 1. To review details of a recommendation, including the affected resources, open the recommendation list for a category and then click the **Description** or the **Impacted resources** link for a specific recommendation. The following screenshot shows a **Reliability** recommendation details page.
 
-   :::image type="content" source="./media/advisor-get-started/advisor-score-reliability-recommendation-page-border.png" alt-text="View Advisor recommendation details." lightbox="./media/advisor-get-started/advisor-score-reliability-recommendation-page-border.png":::
+   :::image type="content" source="./media/advisor-get-started/advisor-score-reliability-recommendation-page.png" alt-text="Screenshot of Azure Advisor reliability recommendation details example." lightbox="./media/advisor-get-started/advisor-score-reliability-recommendation-page.png":::
 
 1. To see action details, click a **Recommended actions** link. The Azure page where you can act opens. Alternatively, open a page to the affected resources to take the recommended action (the two pages may be the same).
   
@@ -67,7 +67,7 @@ View recommendation details – such as the recommended actions and impacted res
 
 1.   You can postpone the recommendation.
    
-   :::image type="content" source="./media/advisor-get-started/advisor-recommendation-postpone-border.png" alt-text="Postpone an Advisor recommendation." lightbox="./media/advisor-get-started/advisor-recommendation-postpone-border.png":::
+   :::image type="content" source="./media/advisor-get-started/advisor-recommendation-postpone.png" alt-text="Sreenshot of Azure Advisor recommendation postpone option." lightbox="./media/advisor-get-started/advisor-recommendation-postpone.png":::
 
    You can't dismiss the recommendation without certain privileges. For information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
@@ -84,18 +84,17 @@ You can exclude subscriptions or resources, such as 'test' resources, from Advis
 
 From any Azure Advisor page, click **Configuration** in the left navigation pane. The Advisor Configuration page opens with the **Resources** tab selected, by default. 
 
-:::image type="content" source="./media/advisor-get-started/advisor-configure-resources-no-wsp-border.png" alt-text="Configure Advisor resources." lightbox="./media/advisor-get-started/advisor-configure-resources-no-wsp-border.png":::
+:::image type="content" source="./media/advisor-get-started/advisor-configure-resources.png" alt-text="Screenshot of Azure Advisor configuration option for resources." lightbox="./media/advisor-get-started/advisor-configure-resources.png":::
 
 * **Resources**: Uncheck any subscriptions you don't want to receive Advisor recommendations for, click **Apply**. The page refreshes.
 
 * **VM/VMSS right sizing**: You can adjust the average CPU utilization rule and the look back period on a per-subscription basis. Doing virtual machine (VM) right sizing requires specialized knowledge.
 
   1. Select the subscriptions you’d like to adjust the average CPU utilization rule for, and then click **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing and certain privileges are required; for more information on permissions, see [Permissions in Azure Advisor](permissions.md).
-
     
   1. Select the desired average CPU utilization value and click **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
-  :::image type="content" source="./media/advisor-get-started/advisor-configure-rules-border.png" alt-text="Configure Advisor recommendation rules." lightbox="./media/advisor-get-started/advisor-configure-rules-border.png":::
+  :::image type="content" source="./media/advisor-get-started/advisor-configure-rules.png" alt-text="Screenshot of Azure Advisor configuration option for VM/VMSS sizing rules." lightbox="./media/advisor-get-started/advisor-configure-rules.png":::
 
 ## Next steps
 
