@@ -117,7 +117,7 @@ The player will automatically mark the detected object with a bounding box. The 
  
 Filter the bounding boxes around objects by selecting bounding box icon on the player.
 
-:::image type="content" source="media/object-detection/object-filtering-icon.png" alt-text="screenshot of object filtering detected objects in the player interface":::
+:::image type="content" source="media/object-detection/object-filtering-icon.png" alt-text="screenshot of object filtering icon player interface":::
 
 Then, select or deselect the detected objects checkboxes.
 
@@ -131,4 +131,10 @@ Use [Get Artifacts by type](https://api-portal.videoindexer.ai/api-details#api=O
 
 ---
 
+## Limitations
+
+- Up to 20 detections per frame for standard and advanced processing.
+- The video area should not exceed 1920 x 1080 pixels.
+- Object size should not be greater than 90 percent of the frame.
+- 
 
