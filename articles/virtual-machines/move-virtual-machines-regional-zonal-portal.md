@@ -44,6 +44,9 @@ To select the VMs for the move, follow these steps:
  
 2.	In the DemoTestVM1 resource pane, select **Availability + scaling** > **edit**. 
     :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling.png" alt-text="Screenshot of Availability + scaling option."::: 
+
+    Alternatively, in the **DemoTestVM1** overview plane, you can select **Availability + scale** > **Availability + scaling**.
+    :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling-home.png" alt-text="Screenshot of Availability + scaling homepage."::: 
  
 ### Select the target availability zones
 
@@ -135,4 +138,4 @@ To manually remove the move collection that was made, follow these steps:
 
 ## Next steps
 
-Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell](./move-virtual-machines-regional-zonal-powershell.md).
+Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell or CLI](./move-virtual-machines-regional-zonal-powershell.md).
