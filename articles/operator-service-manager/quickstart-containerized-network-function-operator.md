@@ -12,6 +12,9 @@ ms.service: azure-operator-service-manager
 
  This quickstart contains the prerequisite tasks for Operator and Containerized Network Function (CNF). While it's possible to automate these tasks within your NSD (Network Service Definition), in this quickstart, the actions are performed manually.
 
+> [!NOTE]
+> The tasks presented in this article may require some time to complete.
+
 ## Set environment variables
 
 Adapt the environment variable settings and references as needed for your particular environment. For example, in Windows PowerShell, you would set the environment variables as follows:
@@ -95,11 +98,11 @@ Create a custom location:
 az customlocation create -g ${resourceGroup} -n ${customlocationId} --namespace "azurehybridnetwork" --host-resource-id $ConnectedClusterResourceId --cluster-extension-ids $ClusterExtensionResourceId
 ``````
 
-### Retrieve custom location value
+## Retrieve custom location value
 
-Retrieve the Custom location value. You'll need this information when filling in the Configuration Group values for your Site Network Service (SNS).
+Retrieve the Custom location value. You need this information to fill in the Configuration Group values for your Site Network Service (SNS).
 
-Search for the name of the Custom location (ARC_LOCATION) in the Azure portal, then select Properties. Locate the full Resource ID under the Essentials information area and look for field name Id. The following image provides an example of where the Resource ID information is located.
+Search for the name of the Custom location (ARC_LOCATION) in the Azure portal, then select Properties. Locate the full Resource ID under the Essentials information area and look for field name ID. The following image provides an example of where the Resource ID information is located.
 
 :::image type="content" source="media/retrieve-azure-arc-custom-location-value.png" alt-text="Screenshot showing the search field and Properties  information.":::
 
