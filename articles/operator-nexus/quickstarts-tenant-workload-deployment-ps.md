@@ -136,11 +136,12 @@ New-AzNetworkCloudVirtualMachine -Name $VM_NAME `
 -NetworkData $NETWORKDATA `
 -OSDiskCreateOption $OS_DISK_CREATE_OPTION `
 -OSDiskDeleteOption $OS_DISK_DELETE_OPTION `
--SshPublicKey $SSH_PUBLIC_KEY -UserData $USERDATA `
+-SshPublicKey $SSH_PUBLIC_KEY `
+-UserData $USERDATA `
 -VMDeviceModel $VMDEVICEMODEL `
 -VMImageRepositoryCredentialsUsername $ACR_USERNAME `
 -VMImageRepositoryCredentialsPassword $SECUREPASSWORD `
--VMImageRepositoryCredentialsRegistryUrl $ACR_URL -Debug
+-VMImageRepositoryCredentialsRegistryUrl $ACR_URL
 ```
 
 After a few minutes, the command completes and returns information about the virtual machine. You've created the virtual machine. You're now ready to use them.
