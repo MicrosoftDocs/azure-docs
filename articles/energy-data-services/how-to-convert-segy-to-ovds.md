@@ -51,7 +51,7 @@ Next, set up Postman:
 
    1. Select **Import** in Postman.
 
-    [![Screenshot that shows the import button in Postman.](media/tutorial-ddms/postman-import-button.png)](media/tutorial-ddms/postman-import-button.png#lightbox).
+    [![Screenshot that shows the import button in Postman.](media/tutorial-ddms/postman-import-button.png)](media/tutorial-ddms/postman-import-button.png#lightbox)
 
    2. Paste the URL of each file into the search box.
 
