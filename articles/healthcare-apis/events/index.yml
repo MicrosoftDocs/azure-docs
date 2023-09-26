@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 09/13/2023
+  ms.date: 09/26/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What are events?
             url: events-overview.md
+          - text: Events message structures
+            url: events-message-structure.md 
             
   - title: Deploy events
     linkLists:
@@ -33,19 +35,10 @@ landingContent:
           - text: Deploy events using the Azure portal
             url: events-deploy-portal.md
                    
-  - title: Events message structures
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What are events?
-            url: events-overview.md
-          - text: Events message structures
-            url: events-message-structure.md 
-   
   - title: Disable events and delete events enabled workspaces
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: How to disable events and delete event enabled workspaces
+          - text: How to disable events and delete events enabled workspaces
             url: events-disable-delete-workspace.md
    

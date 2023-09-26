@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 09/26/2023
 ms.author: jasteppe
 ---
 
@@ -43,17 +43,6 @@ To avoid errors and successfully delete events enabled workspaces, follow these 
 1. Delete all workspace associated child resources (for example: DICOM services, FHIR services, and MedTech services).
 2. Delete all workspace associated **Event Subscriptions**.
 3. Delete workspace.
-
-## Events enabled workspaces with errors post deletion
-
-If you didn't follow the [Delete events enabled workspaces](#delete-events-enabled-workspaces) procedure step-by-step, you may receive an error and have an events enabled workspace that you're unable to delete. You can follow these steps to place your workspace back into a status that allows for deletion to complete without errors.
-
-1. Recreate the **Event Subscription** again using the exact same name you used to create the original **Event Subscription**.
-2. Delete the **Event Subscription**.
-3. Delete the workspace.
-
-> [!NOTE]
-> When choosing an endpoint for the Event Subscription, select any pre-existing endpoint (for example, an event hub) so that you can complete the creation of the Event Subscription. If you don't have an endpoint, create one for the purposes of this procedure and delete it after your workspace is successfully deleted.
 
 ## Next steps
 
