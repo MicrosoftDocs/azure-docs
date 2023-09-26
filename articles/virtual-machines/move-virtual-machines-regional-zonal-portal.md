@@ -58,7 +58,7 @@ To select the target availability zones, follow these steps:
     >[!Important]
     >If you select an unsupported VM to move, the validation fails. In this case, you must restart the workflow with the correct selection of VM. Refer to the [Support Matrix](../reliability/migrate-vm.md#support-matrix) to learn more about unsupported VMs type.
 
-1. If Azure recommends to optimize the VM size, you must select the appropriate VM size that can increase the chances of successful deployment in the selected zone. Alternatively, you can also change the zone while keeping the same source VM size. 
+1. If Azure recommends optimizing the VM size, you must select the appropriate VM size that can increase the chances of successful deployment in the selected zone. Alternatively, you can also change the zone while keeping the same source VM size. 
    
     :::image type="content" source="./media/tutorial-move-regional-zonal/aure-recommendation.png" alt-text="Screenshot showing Azure recommendation to increase virtual machine size.":::
 
