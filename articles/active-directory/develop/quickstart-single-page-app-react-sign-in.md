@@ -95,4 +95,4 @@ Run the project with a web server by using Node.js:
 
 - [Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform](./quickstart-web-api-aspnet-core-protect-api.md)
 
-- Learn more by building this React SPA from scratch with the following series - [Tutorial: Sign in users and call Microsoft Graph](./single-page-app-tutorial-01-register-app.md)
+- Learn more by building this React SPA from scratch with the following series - [Tutorial: Sign in users and call Microsoft Graph](./tutorial-single-page-app-react-register-app.md)
