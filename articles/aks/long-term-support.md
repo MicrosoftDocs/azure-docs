@@ -8,7 +8,7 @@ ms.author: juda
 ---
 
 # Long Term Support
-The Kubernetes community releases a new minor version approximately every four months, with a support window for each version for one year.  This support in terms of AKS is called "Community Support".
+The Kubernetes community releases a new minor version approximately every four months, with a support window for each version for one year.  This support in terms of AKS is called "Community Support."
 
 AKS supports versions of Kubernetes that are within this Community Support window, to push bug fixes and security updates from community releases.
 
@@ -16,11 +16,9 @@ While innovation delivered with this release cadence provides huge benefits for 
 
 
 ## AKS support types
-Once a Kubernetes version is out of Community Support, bug fixes and security updates won't be made available. This leaves unsupported Kubernetes clusters at-risk. The AKS team maintains a version of Kubernetes for a period of two years and work with the upstream LTS (Long Term Support) working group to define LTS for upstream Kubernetes. 
+Once a Kubernetes version is out of Community Support (approximately one year), bug fixes and security updates aren't made available, leaving unsupported Kubernetes clusters at-risk.  
 
-:::image type="content" source="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png" alt-text="Gantt chart showing the lifecycle of all Kubernetes versions currently active in AKS." lightbox="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png":::
-
-AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS work group will contribute efforts back to the community to provide our customers with a longer support window.
+AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group will contribute efforts back to the community to provide our customers with a longer support window.
 
 LTS intends to give you an extended period of time to plan and test for upgrades over a two-year period from the General Availability of the Kubernetes version.
 
@@ -33,7 +31,7 @@ LTS intends to give you an extended period of time to plan and test for upgrades
 
 ## Enabling Long Term Support
 
-LTS will be enabled on one version of Kubernetes, and this is currently version 1.27.  There is a running cost associated with enabling LTS of $0.60 per hour and is enabled as part of the Premium tier of AKS.
+LTS is enabled on one version of Kubernetes, currently version 1.27.  There is a running cost associated with enabling LTS of $0.60 per hour and is enabled as part of the Premium tier of AKS.
 
 > [!NOTE]
 > While it's possible to enable LTS when the cluster is in Community Support, you'll be charged once you enable the Premium tier.
@@ -59,34 +57,34 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --tier [free|
 ## Long Term Support, Addons and Features
 The AKS team currently maintains the Kubernetes 1.27 codebase, but once it leaves Community Support, we rely on Open Source projects for managed add-ons provided to customers. Due to various external factors, some add-ons and features may not support Kubernetes versions within the upstream Community Support windows.
 
-As the list of managed add-ons is quite large, we will list the addons / features that aren't supported and the reason why.
+As the list of managed add-ons is large, we list the addons / features that aren't supported and the reason why.
 
 |  Add On / Feature | Reason it is unsupported |
 ---|---|
-| Istio |  The Istio support cycle is very short (6 months), and there will not be maintenance releases for K8S 1.27 |
+| Istio |  The Istio support cycle is short (six months), and there will not be maintenance releases for K8S 1.27 |
  | Keda | Unable to guarantee future version compatibility with K8S 1.27 |
-| Calico  |  Will require Calico Enterprise agreement past community support |
-| Cillium  |  Will require Cillium Enterprise agreement past community support |
-| Azure Linux | Support timeframe for AZL 2 will end during this LTS cycle |
-| KMS | KMSv2 will replace KMS during this LTS cycle |
+| Calico  |  Requires Calico Enterprise agreement past community support |
+| Cillium  |  Requires Cillium Enterprise agreement past community support |
+| Azure Linux | Support timeframe for AZL 2 ends during this LTS cycle |
+| KMS | KMSv2 replaces KMS during this LTS cycle |
 
 > [!NOTE]
 > Only Generally Available addons (i.e. not Preview or announced as deprecated) will be supported outside of this list.
 
-You will not be able to move a cluster to Long Term support if any of these add-ons are enabled in your cluster.  
+You can't move a cluster to Long Term support if any of these add-ons / features are enabled in your cluster.  
 
-Whilst these AKS managed add-ons will not be supported by Microsoft, you will be able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
+Whilst these AKS managed add-ons will not be supported by Microsoft, you are able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
 
 ## How we decide the next LTS version
 Versions of Kubernetes LTS are available for two years from General Availability, we will then mark a later version of Kubernetes as LTS based on the following:
 
-* The previous version has had a 2 year support window
+* The previous version has had a two year support window
 * Sufficient time for customers to migrate from the prior LTS version to the current
 
 Read the AKS release notes to stay informed of when you're able to plan your migration.
 
 ### Migrating from LTS to Community support
-Using LTS is a way to extend your planning to upgrade Kubernetes versions. It is likely you will want to migrate to a version of Kubernetes that is within the standard support window, something we call N-2 on AKS.  N being the latest Kubernetes.  
+Using LTS is a way to extend your planning to upgrade Kubernetes versions. You may want to migrate to a version of Kubernetes that is within the standard support window, something we call N-2 on AKS.  N being the latest Kubernetes.  
 
 To move from an LTS enabled cluster to a version of Kubernetes that is within N-2, you first need to disable LTS on the cluster:
 
@@ -102,10 +100,10 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 > [!NOTE]
 > Kubernetes 1.28.3 is used as an example here, please check for available releases in the portal or using the get-version parameter in the azure CLI.
 
-There are approximately 2 years between one LTS version and the next.  In lieu of upstream support for migrating more than 2 minor versions there is a high likelihood your application will be reliant on Kubernetes APIs that have been deprecated.  We recommend you thorougly test your application on the target LTS Kubernetes version and carry out a blue/green deployment from one version to another.
+There are approximately two years between one LTS version and the next.  In lieu of upstream support for migrating more than two minor versions, there is a high likelihood your application depends on Kubernetes APIs that have been deprecated.  We recommend you thoroughly test your application on the target LTS Kubernetes version and carry out a blue/green deployment from one version to another.
 
 ### Migrating from LTS to the next LTS release
-The upstream Kubernetes community supports a two minor version upgrade path.  This will migrate the objects in your Kubernetes cluster as part of the upgrade process, and provides a tested, and accredited migration path.
+The upstream Kubernetes community supports a two minor version upgrade path.  The process migrates the objects in your Kubernetes cluster as part of the upgrade process, and provides a tested, and accredited migration path.
 
 For customers that wish to carry out an in-place migration, the AKS service attempts to migrate your control plane from the previous LTS version to the latest, and then migrate your data plane.
 
