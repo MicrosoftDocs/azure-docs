@@ -124,7 +124,8 @@ dns_label = "azure.contoso.net"
 use_private_endpoint = false
 ```
 
-    Note the Terraform variable file locations for future edits during deployment.
+
+Note the Terraform variable file locations for future edits during deployment.
 
 Run the following command to create the deployer and the SAP library. The command adds the service principal details to the deployment key vault.
 
