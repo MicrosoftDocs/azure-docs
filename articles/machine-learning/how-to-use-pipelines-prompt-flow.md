@@ -14,9 +14,12 @@ ms.custom: prompt
 ---
 
 
-# Use Azure Machine Learning pipelines with no code to construct RAG pipelines (preview)
+# Use Azure Machine Learning pipelines to construct RAG pipelines (preview)
 
-This tutorial walks you through how to create an RAG pipeline. For advanced scenarios, you can build your own custom Azure Machine Learning pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. Azure Machine Learning provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in Azure Machine Learning in LangChain. 
+This tutorial walks you through how to create an RAG pipeline. The pipeline pulls a Git Repo, creates a Vector Index, automatically generates a test dataset, finds the best prompt for dataset, generates a Prompt flow and uses the test dataset to perform bulk evaluation. For advanced scenarios, you can build your own custom Azure Machine Learning pipelines from code (typically notebooks) that allows you granular control of the RAG workflow. Azure Machine Learning provides several in-built pipeline components for data chunking, embeddings generation, test data creation, automatic prompt generation, prompt evaluation. These components can be used as per your needs using notebooks. You can even use the Vector Index created in Azure Machine Learning in LangChain. 
+
+The next step is to use a Vector Index with a Large Language Model, retrieving relevant documents to augment what the model generates, while also testing multiple prompts to find the best and evaluating the performance using Prompt flow and a generated test dataset.
+
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -30,6 +33,15 @@ This tutorial walks you through how to create an RAG pipeline. For advanced scen
 * Enable prompt flow in your Azure Machine Learning workspace
 
 In your Azure Machine Learning workspace, you can enable prompt flow by turn-on **Build AI solutions with Prompt flow** in the **Manage preview features** panel.
+
+## Productionize Vector Index with Test Data Generation, Auto Prompt, Evaluations and Prompt Flow
+
+1. install dependencies.
+
+   ```python
+   %pip install azure-ai-ml
+   %pip install -U 'azureml-rag[faiss]>=0.1.14'
+   ```
 
 ## Prompt Flow pipeline notebook sample repository
 
