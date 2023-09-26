@@ -20,7 +20,7 @@ ms.custom: contperf-fy22q2, mode-other, enterprise-apps
 
 In this article, you use the Microsoft Entra admin center to enable single sign-on (SSO) for an enterprise application that you added to your Microsoft Entra tenant. After you configure SSO, your users can sign in by using their Microsoft Entra credentials. 
 
-Microsoft Entra ID has a gallery that contains thousands of pre-integrated applications that use SSO. This article uses an enterprise application named **Azure AD SAML toolkit 1** as an example, but the concepts apply for most pre-configured enterprise applications in the gallery.
+Microsoft Entra ID has a gallery that contains thousands of pre-integrated applications that use SSO. This article uses an enterprise application named **Azure AD SAML Toolkit 1** as an example, but the concepts apply for most pre-configured enterprise applications in the gallery.
 
 It is recommended that you use a non-production environment to test the steps in this article.
 
@@ -40,14 +40,14 @@ To enable SSO for an application:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**. 
-1. Enter the name of the existing application in the search box, and then select the application from the search results. For example, **Azure AD SAML toolkit 1**.
+1. Enter the name of the existing application in the search box, and then select the application from the search results. For example, **Azure AD SAML Toolkit 1**.
 1. In the **Manage** section of the left menu, select **Single sign-on** to open the **Single sign-on** pane for editing.
 1. Select **SAML** to open the SSO configuration page. After the application is configured, users can sign in to it by using their credentials from the Microsoft Entra tenant.
-1. The process of configuring an application to use Microsoft Entra ID for SAML-based SSO varies depending on the application. For any of the enterprise applications in the gallery, use the **configuration guide** link to find information about the steps needed to configure the application. The steps for the **Azure AD SAML toolkit 1** are listed in this article.
+1. The process of configuring an application to use Microsoft Entra ID for SAML-based SSO varies depending on the application. For any of the enterprise applications in the gallery, use the **configuration guide** link to find information about the steps needed to configure the application. The steps for the **Azure AD SAML Toolkit 1** are listed in this article.
 
     :::image type="content" source="media/add-application-portal-setup-sso/saml-configuration.png" alt-text="Configure single sign-on for an enterprise application.":::
 
-1. In the **Set up Azure AD SAML toolkit 1** section, record the values of the **Login URL**, **Microsoft Entra Identifier**, and **Logout URL** properties to be used later.
+1. In the **Set up Azure AD SAML Toolkit 1** section, record the values of the **Login URL**, **Microsoft Entra Identifier**, and **Logout URL** properties to be used later.
 
 ## Configure single sign-on in the tenant
 
@@ -69,10 +69,10 @@ Using single sign-on in the application requires you to register the user accoun
 
 To register a user account with the application:
 
-1. Open a new browser window and browse to the sign-in URL for the application. For the **Azure AD SAML toolkit** application, the address is `https://samltoolkit.azurewebsites.net`.
+1. Open a new browser window and browse to the sign-in URL for the application. For the **Azure AD SAML Toolkit** application, the address is `https://samltoolkit.azurewebsites.net`.
 1. Select **Register** in the upper right corner of the page.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/toolkit-register.png" alt-text="Register a user account in the Azure AD SAML toolkit application.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/toolkit-register.png" alt-text="Register a user account in the Azure AD SAML Toolkit application.":::
 
 1. For **Email**, enter the email address of the user that will access the application. Ensure that the user account is already assigned to the application.
 1. Enter a **Password** and confirm it.
@@ -106,7 +106,7 @@ You can test the single sign-on configuration from the **Set up single sign-on**
 
 To test SSO:
 
-1. In the **Test single sign-on with Azure AD SAML toolkit 1** section, on the **Set up single sign-on with SAML** pane, select **Test**.
+1. In the **Test single sign-on with Azure AD SAML Toolkit 1** section, on the **Set up single sign-on with SAML** pane, select **Test**.
 1. Sign in to the application using the Microsoft Entra credentials of the user account that you assigned to the application.
 
 
