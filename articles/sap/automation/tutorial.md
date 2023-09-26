@@ -549,7 +549,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010ms
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
 
     ```
 
@@ -559,7 +559,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010ms
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
     kv_name:                       <Deployer KeyVault Name>
 
     ```
@@ -570,9 +570,9 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
     kv_name:                       <Deployer KeyVault Name>
-    check_storage_account:         false
+    BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
 
     ```
 
@@ -733,14 +733,15 @@ Deploy the SAP system.
 export             sap_env_code="DEV"
 export              region_code="<region_code>"
 export                vnet_code="SAP01"
+export                      SID="X00"
 
 export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
-cd ${CONFIG_REPO_PATH}/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-X00
+cd ${CONFIG_REPO_PATH}/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-${SID}
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh                          \
-    --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-X00.tfvars" \
+    --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-${SID}.tfvars" \
     --type sap_system
 ```
 
@@ -750,8 +751,8 @@ The deployment command for the `northeurope` example looks like:
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-    --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
-    --type sap_system                                  \
+    --parameterfile DEV-NOEU-SAP01-X00.tfvars        \
+    --type sap_system                                \
     --auto-approve
 ```
 
