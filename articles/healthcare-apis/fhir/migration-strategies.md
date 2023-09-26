@@ -68,7 +68,7 @@ First, create a migration plan. We recommend the migration patterns described in
 
 ### OSS migration tool considerations
 
-If you decide to use the OSS migration tool, review and understand the migration tool’s [capabilities and limitations](https://github.com/Azure/apiforfhir-migration-tool/incremental-copy-docs/appendix.md).
+If you decide to use the OSS migration tool, review and understand the migration tool’s [capabilities and limitations](https://go.microsoft.com/fwlink/?linkid=2248324).
 
 #### Prepare Azure API for FHIR server
 
