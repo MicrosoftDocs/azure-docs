@@ -1,24 +1,24 @@
 ---
-title: Azure Storage Tasks as Event Grid source
-description: Describes the properties that are provided for Azure Storage Tasks events with Azure Event Grid
+title: Azure Storage Actions as Event Grid source
+description: Describes the properties that are provided for Azure Storage Actions events with Azure Event Grid
 ms.topic: conceptual
 author: normesta
 ms.author: normesta
 ms.date: 08/30/2023
 ---
 
-# Azure Storage Tasks as an Event Grid source
+# Azure Storage Actions as an Event Grid source
 
-This article provides the properties and schema for Azure Storage Tasks events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). To learn more about Azure Storage Tasks, see [What is Azure Storage Tasks?](../storage-tasks/overview.md).
+This article provides the properties and schema for Azure Storage Actions events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). To learn more about Azure Storage Actions, see [What is Azure Storage Actions?](../azure-storage-actions/overview.md).
 
 > [!IMPORTANT]
-> Azure Storage Tasks is currently in PREVIEW and is available these [regions](../storage-tasks/overview.md#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../azure-storage-actions/overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
 ## Available event types
 
-## Storage Tasks events
+## Storage Actions events
 
 These events are triggered when a storage task is queued and when a storage task run completes.
 
@@ -125,7 +125,7 @@ An event has the following top-level data:
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
 | `eventType` | string | One of the registered event types for this event source. |
 | `id` | string | Unique identifier for the event. |
-| `data` | object | Storage Tasks event data. |
+| `data` | object | Storage task event data. |
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
@@ -139,7 +139,7 @@ An event has the following top-level data:
 | `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
 | `id` | string | Unique identifier for the event. |
-| `data` | object | Storage Tasks event data. |
+| `data` | object | Storage task event data. |
 | `specversion` | string | CloudEvents schema specification version. |
 
 ---
