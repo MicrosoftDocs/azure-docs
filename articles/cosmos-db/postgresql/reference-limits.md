@@ -111,7 +111,7 @@ By default this database is called `citus`. Azure Cosmos DB for PostgreSQL suppo
     * You can enable geo-redundant backup when you perform a cluster restore.
     * You can enable geo-redundant backup when you [promote a cluster read-replica to an independent cluster](./howto-read-replicas-portal.md#promote-a-read-replica).
 * Geo-redundant backup can't be disabled once cluster is created.
-* [Customer managed key (CMK)](./concepts-customer-managed-keys.md) aren't supported for cluster restore in a remote region.
+* [Customer managed key (CMK)](./concepts-customer-managed-keys.md) isn't supported for cluster restore in a remote region.
 * Azure Cosmos DB for PostgreSQL cluster with geo-redundant backup enabled can't have a [cluster read replica](./concepts-read-replicas.md) in the region where geo-redundant backup is stored.
 
 ## Next steps
