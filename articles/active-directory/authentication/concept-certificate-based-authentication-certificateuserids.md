@@ -102,7 +102,7 @@ Content-Type: application/json
 
 For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/microsoftgraph/installation):
 
-1. Start Windows PowerShell with administrator privileges.
+1. Start PowerShell with administrator privileges.
 1. Install and Import the Microsoft Graph PowerShell SDK
 
    ```powershell

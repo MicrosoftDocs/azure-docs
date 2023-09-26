@@ -15,7 +15,7 @@ This  FAQ is a list of commonly asked questions about Azure Update Manager. If y
 
 ## Fundamentals
 
-### What are the benefits of using Azure Update Manager over Automation Update Management?
+### What are the benefits of using Azure Update Manager?
 
 Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multi-cloud environments.
 Following are the benefits of using Azure Update Manager:
@@ -143,7 +143,7 @@ Azure Update Manager doesn't currently support Azure Lighthouse integration.
 
 ### Does Azure Update Manager support Azure Policy? 
 
-Yes, Azure Update Manager supports update features via policies. For more information, see [how to enable periodic assessment at scale using policy](periodic-assessment-at-scale.md) and [how to enable schedules on your machines at scale using Policy](scheduled-patching.md#onboarding-to-schedule-using-policy).
+Yes, Azure Update Manager supports update features via policies. For more information, see [how to enable periodic assessment at scale using policy](periodic-assessment-at-scale.md) and [how to enable schedules on your machines at scale using Azure Policy](scheduled-patching.md#onboard-to-schedule-by-using-azure-policy).
 
 ### I have machines across multiple subscriptions in Automation Update Management. Is this scenario supported in Azure Update Manager?
 

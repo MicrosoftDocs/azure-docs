@@ -52,19 +52,19 @@ The connector provides a bridge between the capabilities of the ECMA Connector H
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).
-1. Browse to **Identity** > **Hybrid management** > **Azure AD Connect** > **Cloud Sync** > **Agents**.
+1. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect** > **Cloud Sync** > **Agents**.
  
  :::image type="content" source="../../../includes/media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="../../../includes/media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
 
 1. Select **Download on-premises agent**, review the terms of service, then select **Accept terms & download**.
 
    > [!NOTE]
-   > Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
+   > Please use different provisioning agents for on-premises application provisioning and Microsoft Entra Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
 
 1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
 1. When the provisioning agent wizard opens, continue to the **Select Extension** tab and select **On-premises application provisioning** when prompted for the extension you want to enable.
-1. The provisioning agent uses the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
-1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
+1. The provisioning agent uses the operating system's web browser to display a popup window for you to authenticate to Microsoft Entra ID, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
+1. Provide credentials for a Microsoft Entra administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
 1. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
 
 ## Configure the On-premises ECMA app
@@ -286,7 +286,7 @@ Follow these steps to confirm that the connector host has started and has identi
 1. Enter the **Secret Token** value that you defined when you created the connector.
 
    > [!NOTE]
-   > If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent** service, right-click the service, and restart.
+   > If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Microsoft Entra Connect Provisioning Agent** service, right-click the service, and restart.
 
 1. Select **Test Connection**, and wait one minute.
 1. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
@@ -312,7 +312,7 @@ Return to the web browser window where you were configuring the application prov
 1. Enter the **Secret Token** value that you defined when you created the connector.
 
    > [!NOTE]
-   > If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
+   > If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Microsoft Entra Connect Provisioning Agent Service**, right-click the service, and restart.
 
 1. Select **Test Connection**, and wait one minute.
 1. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
@@ -329,8 +329,8 @@ You'll use the Azure portal to configure the mapping between the Microsoft Entra
 1. Select the **On-premises ECMA app** application.
 1. Select **Provisioning**.
 1. Select **Edit provisioning**, and wait 10 seconds.
-1. Expand **Mappings** and select **Provision Azure Active Directory Users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
-1. To confirm that the schema is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
+1. Expand **Mappings** and select **Provision Microsoft Entra users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
+1. To confirm that the schema is available in Microsoft Entra ID, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
 1. Now, on the click on the **userPrincipalName** PLACEHOLDER mapping.  This mapping is added by default when you first configure on-premises provisioning. Change the value to match the following:
  
    |Mapping type|Source attribute|Target attribute|

@@ -53,7 +53,7 @@ To continue with the tutorial and build the application yourself, move on to the
 
 ## Create your project
 
-Once you have [Node.js](https://nodejs.org/en/download/) installed, create a folder to host your application, for example *msal-spa-tutorial*.
+Once you have [Node.js](https://nodejs.org/en/download/) installed, create a folder to host your application, such as `msal-spa-tutorial`.
 
 Next, implement a small [Express](https://expressjs.com/) web server to serve your *index.html* file.
 
