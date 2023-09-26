@@ -91,7 +91,7 @@ Two notable exceptions might lead to provisioning one or more search services in
 
 + [Outbound connections from Cognitive Search to Azure Storage](search-indexer-securing-resources.md). You might want storage in a different region if you're enabling a firewall.
 
-+ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
++ Business continuity and disaster recovery (BCDR) requirements dictate creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions). For example, if you're operating in North America, you might choose East US and West US, or North Central US and South Central US, for each search service.
 
 Some features are subject to regional availability. If you require any of following features, choose a region that provides them:
 

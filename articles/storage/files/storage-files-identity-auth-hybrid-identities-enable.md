@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/03/2023
+ms.date: 09/25/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -208,14 +208,15 @@ Changes are not instant, and require a policy refresh or a reboot to take effect
 
 If you want to enable client machines to connect to storage accounts that are configured for AD DS as well as storage accounts configured for Azure AD Kerberos, follow these steps. If you're only using Azure AD Kerberos, skip this section.
 
-Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings:
+Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings. Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
 - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
 - Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
-- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <realmname>`
-  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
+- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <REALMNAME>`
+  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net CONTOSO.LOCAL`
 
-Changes aren't instant, and require a policy refresh or a reboot to take effect.
+> [!IMPORTANT]
+> In Kerberos, realm names are case sensitive and upper case. Your Kerberos realm name is usually the same as your domain name, in upper-case letters.
 
 ## Undo the client configuration to retrieve Kerberos tickets
 

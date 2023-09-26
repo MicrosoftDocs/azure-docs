@@ -4,11 +4,10 @@ titleSuffix: Azure AI services
 description: Learn of the latest changes to the Translator Service API.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.custom: event-tier1-build-2022, build-2023
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 09/12/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -22,6 +21,31 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+## September 2023
+
+* Translator service has [text, document translation, and container language support](language-support.md) for the following 18 languages:
+
+|Language|Code|Cloud – Text Translation and Document Translation|Containers – Text Translation|Description
+|:----|:----|:----|:----|
+|chiShona|`sn`|✔|✔|The official language of Zimbabwe with more than 8 million native speakers.|
+|Hausa|`ha`|✔|✔|The most widely used language in West Africa with more than 150 million speakers worldwide.|
+|Igbo|`ig`|✔|✔|The principal native language of the Igbo people of Nigeria with more than 44 million speakers.|
+|Kinyarwanda|`rw`|✔|✔|The national language of Rwanda with more than 12 million speakers primarily in East and Central Africa.|
+|Lingala|`ln`|✔|✔|One of four official languages of the Democratic Republic of the Congo with more than 60 million speakers.|
+|Luganda|`lug`|✔|✔|A major language of Uganda with more than 5 million speakers.|
+|Nyanja|`nya`|✔|✔| Nynaja, also known as Chewa, is spoken mainly in Malawi and has more than 2 million native speakers.|
+|Rundi|`run`|✔|✔| Rundi, also known as Kirundi, is the national language of Burundi and has more than 6 million native speakers.|
+|Sesotho|`st`|✔|✔| Sesotho, also know as Sotho, is the national and official language of Lesotho, one of 12 official languages of South Africa, and one of 16 official languages of Zimbabwe. It has more than 5.6 native speakers.
+|Sesotho sa Leboa|`nso`|✔|✔|Sesotho, also known as Northern Sotho, is the native language of more than 4.6 million people in South Africa.|
+|Setswana|`tn`|✔|✔|Setswana, also known as Tswana, is an official language of Botswana and South Africa and has more than 5 million speakers.|
+|Xhosa|`xh`|✔|✔|An official language of South Africa and Zimbabwe, Xhosa has more than 20 million speakers.|
+|Yoruba|`yo`|✔|✔|The principal native language of the Yoruba people of West Africa, it has more than 50 million speakers.|
+|Konkani|`gom`|✔|✔|The official language of the Indian state of Goa with more than 7 million speakers worldwide.|
+|Maithili|`mai`|✔|✔|One of the 22 officially recognized languages of India and the second most spoken language in Nepal. It has more than 20 million speakers.|
+|Sindhi|`sd`|✔|✔|Sindhi is an official language of the Sindh province of Pakistan and the Rajasthan state in India. It has more than 33 million speakers worldwide.|
+|Sinhala|`si`|✔|✔|One of the official and national languages of Sri Lanka, Sinhala has more than 16 million native speakers.|
+|Lower Sorbian|`dsb`|✔|Currently, not supported in containers |A West Slavic language spoken primarily in eastern Germany. It has approximately 7,000 speakers.|
 
 ## July 2023
 

@@ -33,14 +33,14 @@ This article describes how to reprocess assignments in an existing access packag
 
 To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
 - Enterprise Mobility + Security (EMS) E5 license
 
 ## Open an existing access package and reprocess user assignments
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role**: Global Administrator, Identity Governance Administrator, Catalog owner, Access package manager or Access package assignment manager
 
 If you have users who are in the "Delivered" state but don't have access to resources that are a part of the access package, you'll likely need to reprocess the assignments to reassign those users to the access package's resources. Follow these steps to reprocess assignments for an existing access package:
 
@@ -52,7 +52,7 @@ If you have users who are in the "Delivered" state but don't have access to reso
 
 1. Underneath **Manage** on the left side, select **Assignments**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-reprocess-access-package-assignments/reprocess-access-package-assignment.png)
+    ![Entitlement management in the Microsoft Entra admin center](./media/entitlement-management-reprocess-access-package-assignments/reprocess-access-package-assignment.png)
 
 1. Select all users whose assignments you wish to reprocess.
 

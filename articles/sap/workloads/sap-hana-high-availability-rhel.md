@@ -9,7 +9,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 08/23/2023
+ms.custom: devx-track-python
+ms.date: 09/08/2023
 ms.author: radeltch
 ---
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
@@ -524,7 +525,7 @@ This is important step to optimize the integration with the cluster and improve 
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-5. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+5. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.
 
     ```bash
      cdtrace
@@ -606,7 +607,7 @@ sudo pcs property set maintenance-mode=false
 To configure priority-fencing-delay for SAP HANA (applicable only as of pacemaker-2.0.4-6.el8 or higher), following commands needs to be executed.
 
 > [!NOTE]
-> If you have two-node cluster, you have option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Pacemaker cluster properties](https://access.redhat.com/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_controlling-cluster-behavior-configuring-and-managing-high-availability-clusters).
+> If you have two-node cluster, you have option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
 >
 > The property priority-fencing-delay is applicable for pacemaker-2.0.4-6.el8 version or higher. If you are setting up priority-fencing-delay on existing cluster, make sure to unset `pcmk_delay_max` option in fencing device.  
 

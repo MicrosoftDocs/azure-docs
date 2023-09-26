@@ -2,13 +2,13 @@
 title: 'Tutorial: Create a passwordless connection with Service Connector'
 description: Create a passwordless connection with Service Connector
 titleSuffix: Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 07/17/2023
 ms.devlang: azurecli
-ms.custom: passwordless-dotnet, passwordless-java
+ms.custom: passwordless-dotnet, passwordless-java, devx-track-azurecli
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
 zone_pivot_groups: passwordless
 ---

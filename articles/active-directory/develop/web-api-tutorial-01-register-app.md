@@ -15,7 +15,7 @@ ms.date: 11/1/2022
 
 # Tutorial: Register a web API with the Microsoft identity platform
 
-To interact with the Microsoft identity platform, Azure Active Directory (Azure AD) must be made aware of the application you create. This tutorial shows you how to register an application in a tenant on the Azure portal.
+To interact with the Microsoft identity platform, Microsoft Entra ID must be made aware of the application you create. This tutorial shows you how to register an application in a tenant on the Azure portal.
 
 In this tutorial:
 

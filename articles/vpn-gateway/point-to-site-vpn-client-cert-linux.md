@@ -113,15 +113,17 @@ This section walks you through the configuration using the strongSwan CLI.
 
 1. From the VPN client profile configuration files **Generic** folder, copy or move the **VpnServerRoot.cer** to **/etc/ipsec.d/cacerts**.
 
-1. Copy or move the p12 file you generated to **/etc/ipsec.d/private/**. This file is the client certificate for the VPN gateway. Use the following command:
+1. Copy or move the files you generated to **/etc/ipsec.d/certs** and **/etc/ipsec.d/private/** respectively. These files are the client certificate and the private key, they need to be located in their corresponding directories. Use the following commands:
 
-   ```
-   sudo cp "${USERNAME}.p12"  /etc/ipsec.d/private/
+   ```cli
+   sudo cp ${USERNAME}Cert.pem /etc/ipsec.d/certs/
+   sudo cp ${USERNAME}Key.pem /etc/ipsec.d/private/
+   sudo chmod -R go-rwx /etc/ipsec.d/private /etc/ipsec.d/certs
    ```
 
 1. Run the following command to take note of your hostname. You’ll use this value in the next step.
 
-   ```
+   ```cli
    hostnamectl --static
    ```
 
@@ -135,25 +137,26 @@ This section walks you through the configuration using the strongSwan CLI.
          type=tunnel
          leftfirewall=yes
          left=%any
-         leftauth=eap-tls
+         # Replace ${USERNAME}Cert.pem with the key filename inside /etc/ipsec.d/certs  directory. 
+         leftcert=${USERNAME}Cert.pem
+         leftauth=pubkey
          leftid=%client # use the hostname of your machine with % character prepended. Example: %client
          right= #Azure VPN gateway address. Example: azuregateway-xxx-xxx.vpn.azure.com
          rightid=% #Azure VPN gateway FQDN with % character prepended. Example: %azuregateway-xxx-xxx.vpn.azure.com
          rightsubnet=0.0.0.0/0
          leftsourceip=%config
          auto=add
+         esp=aes256gcm16
    ```
    
    
 
 1. Add the secret values to **/etc/ipsec.secrets**.
 
-   The name of the p.12 file must match what you have used earlier.
-   The password must also match the password chosen when generating the certificates.
-   
-   This is an example command to run on a machine which hostname is "client" and certificate password is "password"
+   The name of the PEM file must match what you have used earlier as your client key file.
+      
    ```cli
-   : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
+   : RSA ${USERNAME}Key.pem  # Replace ${USERNAME}Key.pem with the key filename inside /etc/ipsec.d/private directory. 
    ```
 
 1. Finally run the following commands:

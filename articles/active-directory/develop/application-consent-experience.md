@@ -1,6 +1,6 @@
 ---
-title: Azure AD app consent experiences
-description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
+title: Microsoft Entra app consent experiences
+description: Learn more about the Microsoft Entra consent experiences to see how you can use it when managing and developing applications on Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -14,9 +14,9 @@ ms.author: jomondi
 ms.reviewer: jesakowi, asteen, jawoods
 ---
 
-# Consent experience for applications in Azure Active Directory
+# Consent experience for applications in Microsoft Entra ID
 
-In this article, you'll learn about the Azure Active Directory (Azure AD) application consent user experience. You'll then be able to intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
+In this article, you'll learn about the Microsoft Entra application consent user experience. You'll then be able to intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
 
 Consent is the process of a user granting authorization to an application to access protected resources on their behalf. An admin or user can be asked for consent to allow access to their organization/individual data.
 
@@ -42,7 +42,7 @@ The following diagram and table provide information about the building blocks of
 | 5 | Publisher name and verification | The blue "verified" badge means that the app publisher has verified their identity using a Microsoft Partner Network account and has completed the verification process. If the app is publisher verified, the publisher name is displayed.  If the app isn't publisher verified, "Unverified" is displayed instead of a publisher name. For more information, read about [Publisher Verification](publisher-verification-overview.md). Selecting the publisher name displays more app info as available, such as the publisher name, publisher domain, date created, certification details, and reply URLs. |
 | 6 |  Microsoft 365 Certification | The Microsoft 365 Certification logo means that an app has been vetted against controls derived from leading industry standard frameworks, and that strong security and compliance practices are in place to protect customer data.  For more information, read about [Microsoft 365 Certification](/microsoft-365-app-certification/docs/enterprise-app-certification-guide).|
 | 7 | Publisher information  | Displays whether the application is published by Microsoft. |
-| 8 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it's best to request access, to the permissions with the least privilege. |
+| 8 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer, it's best to request access to the permissions with the least privilege. |
 | 9 | Permission description | This value is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
 | 10 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
 | 11 | Report it here | This link is used to report a suspicious app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
@@ -92,7 +92,7 @@ In this scenario, an administrator consents to all of the permissions that an ap
 
  :::image type="content" source="./media/consent-framework/grant-consent.png" alt-text="Screenshot of explicit admin consent through the Azure portal." lightbox="./media/consent-framework/grant-consent.png":::
 
-All users in that tenant won't see the consent dialog unless the application requires new permissions. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+All users in that tenant won't see the consent dialog unless the application requires new permissions. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Microsoft Entra ID](../roles/permissions-reference.md).
 
    > [!IMPORTANT]
    > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use MSAL.js. Otherwise, the application fails when the access token is requested.
@@ -122,6 +122,6 @@ This section outlines the common issues with the consent experience and possible
 For troubleshooting steps, see [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 ## Next steps
 
-- Get a step-by-step overview of [how the Azure AD consent framework implements consent](./quickstart-register-app.md).
+- Get a step-by-step overview of [how the Microsoft Entra consent framework implements consent](./quickstart-register-app.md).
 - For more depth, learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - Learn [how to configure the app's publisher domain](howto-configure-publisher-domain.md).

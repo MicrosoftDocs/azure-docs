@@ -130,7 +130,7 @@
       - name: Confidential containers overview
         href: confidential-containers.md
       - name: Confidential containers with Azure Container Instances (ACI)
-        href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci---public-preview
+        href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci
       - name: Confidential containers with Intel SGX enclaves
         href: confidential-containers-enclaves.md
     - name: Confidential node pools on AKS
@@ -165,6 +165,8 @@
 #  - name: Confidential AI #done was# href: https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-data #broken link
 #    href: https://github.com/microsoft/confidential-ai
 # temp removed 
+      - name: Deploy a virtual machine scale set using hardened image
+        href: vmss-deployment-from-hardened-linux-image.md
   - name: Secure Key Release (SKR) with Azure Key Vault
     items:
     - name: SKR with Azure Confidential Computing Concept

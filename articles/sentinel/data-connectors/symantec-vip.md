@@ -64,12 +64,9 @@ Configure the facilities you want to collect and their severities.
  2. Select **Apply below configuration to my machines** and select the facilities and severities.
  3.  Click **Save**.
 
+3. Connect the Symantec VIP
 
-3. Configure and connect the Symantec VIP
-
-[Follow these instructions](https://help.symantec.com/cs/VIP_EG_INSTALL_CONFIG/VIP/v134652108_v128483142/Configuring-syslog) to configure the Symantec VIP Enterprise Gateway to forward syslog. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
-
-
+Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
 
 ## Next steps
 

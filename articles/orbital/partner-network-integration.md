@@ -16,7 +16,7 @@ This article describes how to integrate partner network ground stations for cust
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Contributor permissions](https://learn.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) at the subscription level.
+- [Contributor permissions](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) at the subscription level.
 - A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 - A spacecraft license is required for private spacecraft.
 - An active contract with the partner network(s) you wish to integrate with Azure Orbital Ground Station:
@@ -80,4 +80,4 @@ After the authorization request is generated, our regulatory team will investiga
 
 - [Configure a contact profile](./contact-profile.md)
 - [Learn more about the contact profile object](./concepts-contact-profile.md)
-- [Overview of the Azure Space Partner Community](./space-partner-program-overview.md)
+

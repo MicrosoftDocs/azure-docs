@@ -136,8 +136,10 @@
       href: alerts.md
 - name: Scaling and performance
   items:
-    - name: Scale an app
+    - name: Overview
       href: scale-app.md
+    - name: Scale a container app
+      href: tutorial-scaling.md
 - name: Domains & certificates
   items:
     - name: Custom domains & certificates
@@ -273,6 +275,8 @@
       href: /rest/api/containerapps/
     - name: Supported regions
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
+    - name: Hardware reference
+      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET

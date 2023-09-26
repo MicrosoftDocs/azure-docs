@@ -1,5 +1,5 @@
 ---
-title: Control external access to resources in Azure Active Directory with sensitivity labels 
+title: Control external access to resources in Microsoft Entra ID with sensitivity labels 
 description: Use sensitivity labels as a part of your overall security plan for external access
 services: active-directory
 author: janicericketts
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Control external access to resources in Azure Active Directory with sensitivity labels 
+# Control external access to resources in Microsoft Entra ID with sensitivity labels 
 
 Use sensitivity labels to help control access to your content in Office 365 applications, and in containers like Microsoft Teams, Microsoft 365 Groups, and SharePoint sites. They protect content without hindering user collaboration. Use sensitivity labels to send organization-wide content across devices, apps, and services, while protecting data. Sensitivity labels help organizations meet compliance and security policies. 
  
@@ -109,7 +109,7 @@ Learn more:
 
 * [Enable sensitivity labels for Office files in SharePoint and OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide&preserve-view=true).
 * [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 Groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
-* [Assign sensitivity labels to Microsoft 365 groups in Azure AD](../enterprise-users/groups-assign-sensitivity-labels.md)
+* [Assign sensitivity labels to Microsoft 365 groups in Microsoft Entra ID](../enterprise-users/groups-assign-sensitivity-labels.md)
 
 ### Implement sensitivity labels
 
@@ -123,22 +123,22 @@ After you determine use of sensitivity labels, see the following documentation f
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md) 
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md) 
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md) 
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) (You're here)
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) 
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

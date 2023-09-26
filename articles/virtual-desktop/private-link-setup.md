@@ -30,10 +30,24 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 ## Enable the feature
 
-To use Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
+To use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider on each each subscription you want to use Private Link with Azure Virtual Desktop.
 
 > [!IMPORTANT]
-> You need to re-register the resource provider and register the feature for each subscription you want to use Private Link with Azure Virtual Desktop.
+> For Azure US Gov and Azure operated by 21Vianet, you also need to register the feature for each subscription.
+
+### Register the feature (Azure US Gov and Azure operated by 21Vianet only)
+
+To register the *Azure Virtual Desktop Private Link* feature:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter **Subscriptions** and select the matching service entry.
+
+1. Select the name of your subscription, then in the **Settings** section, select **Preview features**.
+
+1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
+
+1. Select **Azure Virtual Desktop Private Link**, then select **Register**.
 
 ### Re-register the resource provider
 
@@ -48,20 +62,6 @@ To re-register the *Microsoft.DesktopVirtualization* resource provider:
 1. Search for and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
 1. Verify that the status of *Microsoft.DesktopVirtualization* is **Registered**.
-
-### Register the feature
-
-To register the *Azure Virtual Desktop Private Link* feature:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search bar, enter **Subscriptions** and select the matching service entry.
-
-1. Select the name of your subscription, then in the **Settings** section, select **Preview features**.
-
-1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
-
-1. Select **Azure Virtual Desktop Private Link**, then select **Register**.
 
 ## Create private endpoints
 

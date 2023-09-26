@@ -4,7 +4,7 @@ description: Learn how to return HTTP responses in Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 03/04/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions HTTP output bindings
@@ -41,7 +41,29 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 + [name](/java/api/com.microsoft.azure.functions.annotation.httpoutput.name)
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+
+## Configuration
+
+# [Model v4](#tab/nodejs-v4)
+
+The `options` object passed to the `output.http()` method currently doesn't support any properties for model v4.
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|---------|
+| **type** |Must be set to `http`. |
+| **direction** | Must be set to `out`. |
+| **name** | The variable name used in function code for the response, or `$return` to use the return value. |
+
+---
+
+::: zone-end 
+::: zone pivot="programming-language-python,programming-language-powershell"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.

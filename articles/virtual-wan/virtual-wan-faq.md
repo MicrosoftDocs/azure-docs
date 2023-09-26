@@ -434,13 +434,11 @@ Azure-wide Cloud Services-based infrastructure is deprecating. As a result, the 
 
 You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Please make sure all your spoke virtual networks are in active/enabled subscriptions and that your spoke virtual networks aren't deleted. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of 1-2 minutes for VNet-to-VNet traffic through the same hub and 5-7 minutes for all other traffic flows through the hub. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update. 
 
-There are several limitations with the virtual hub router upgrade
+There are several things to note with the virtual hub router upgrade:
 
 * If you have already configured BGP peering between your Virtual WAN hub and an NVA in a spoke VNet, then you'll have to [delete and then recreate the BGP peer](create-bgp-peering-hub-portal.md). Since the virtual hub router's IP addresses change after the upgrade, you'll also have to reconfigure your NVA to peer with the virtual hub router's new IP addresses. These IP addresses are represented as the "virtualRouterIps" field in the Virtual Hub's Resource JSON.
 
-* Your Virtual WAN hub router can not currently be upgraded if you have a network virtual appliance in the virtual hub. We're actively working on removing this limitation. 
-
-* If your Virtual WAN hub is connected to more than 100 spoke virtual networks, then the upgrade may fail. 
+* If you have a network virtual appliance (NVA) in the virtual hub, you will have to work with your NVA partner to obtain instructions on how to upgrade your Virtual WAN hub. 
 
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there's still a working setup.
 

@@ -30,7 +30,7 @@ Dynamic routing (BGP) is supported. For more information, please see [Dynamic Ro
 ## ExpressRoute connection concepts 
 | Concept| Description| Notes|
 | --| --| --|
-| Propagate Default Route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route, this setting controls whether the 0.0.0.0/0 route is advertised to connecting users. The default route doesn't originate in the Virtual WAN hub. The route can be a static route in the default route table or 0.0.0.0/0 advertised from on-premises. | This field can be set to enabled or disabled.|
+| Propagate Default Route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route, this setting controls whether the 0.0.0.0/0 route is advertised to your ExpressRoute-connected site. The default route doesn't originate in the Virtual WAN hub. The route can be a static route in the default route table or 0.0.0.0/0 advertised from on-premises. | This field can be set to enabled or disabled.|
 | Routing Weight|If the Virtual WAN hub learns the same prefix from multiple connected ExpressRoute circuits, then the ExpressRoute connection with the higher weight will be preferred for traffic destined for this prefix.  | This field can be set to a number between 0 and 32000.|
 
 ## ExpressRoute circuit concepts 

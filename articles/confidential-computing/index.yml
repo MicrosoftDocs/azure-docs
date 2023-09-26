@@ -90,6 +90,8 @@ landingContent:
             url: guest-attestation-example.md
           - text: Create a custom image for a confidential VM
             url: how-to-create-custom-image-confidential-vm.md
+          - text: Deploy a virtual machine scale set using hardened image
+            url: vmss-deployment-from-hardened-linux-image.md
       - linkListType: reference
         links:
           - text: AMD confidential VMs FAQ 
