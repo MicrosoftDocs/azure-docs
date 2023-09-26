@@ -87,7 +87,7 @@ After you create a vector index, you can add it to a prompt flow from the prompt
 
 ## Supported File Types
 
-Supported file types for creating a vector index job: .md, .txt, .html, .py, .doc, .ppt, .pdf, .xls. Any other file types will be ignored during creation.
+Supported file types for creating a vector index job: `.txt`, `.md`, `.html`, `.htm`, `.py`, `.pdf`, `.ppt`, `.pptx`, `.doc`, `.docx`, `.xls`, `.xlsx`. Any other file types will be ignored during creation.
 
 ## Next steps
 
