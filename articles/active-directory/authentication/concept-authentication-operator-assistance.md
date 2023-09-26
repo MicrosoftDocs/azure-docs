@@ -27,7 +27,7 @@ For example, let's say a customer in U.S has an office phone number 425-555-1234
 
 If the setting is **Off**, the system will automatically dial extensions as part of the phone number. Your admin can still specify individual users who should be enabled for operator assistance by prefixing the extension with ‘@’. For example, 425-555-1234x@5678 would indicate that operator assistance should be used, even though the setting is **Off**.
 
-To check the status of this feature in your own tenant, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator), then click **Protection** > **multifactor authentication** > **Phone call settings**. Check **Operator required to transfer extensions** to see if the setting is **On** or **Off**. 
+To check the status of this feature in your own tenant, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator), then click **Protection** > **Multifactor authentication** > **Phone call settings**. Check **Operator required to transfer extensions** to see if the setting is **On** or **Off**. 
 
 ![Screenshot of operator assistance settings](./media/concept-authentication-operator-assistance/settings.png)
 

@@ -130,7 +130,7 @@ There are two policies that determine which authentication methods can be used t
 
   :::image type="content" border="true" source="./media/concept-authentication-strengths/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
-- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** is a legacy way to control multifactor authentication methods for all of the users in the tenant. 
+- **Security** > **Multifactor authentication** > **Additional cloud-based multifactor authentication settings** is a legacy way to control multifactor authentication methods for all of the users in the tenant. 
 
   :::image type="content" border="true" source="./media/concept-authentication-strengths/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 

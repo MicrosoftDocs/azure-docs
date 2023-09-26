@@ -20,6 +20,35 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Microsoft Entra Verified ID service.
 
+## September 2023
+
+Verified ID is retiring old Request Service API endpoints that were available before Verified ID was General Available. These APIs should not have been used since GA in August 2022, but if they are used in your app, you need to migrate. The API endpoints being retired are:
+
+```http
+POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/request
+GET https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/request/:requestId
+POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/present
+POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/issuance
+```
+
+The first API was for creating an issuance or presentation request. The second API was for retrieving a request and the last two APIs was for a wallet completing issuance or presentation. The API endpoints to use since preview are the following.
+
+```http
+POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/createPresentationRequest
+POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/createIssuanceRequest
+GET https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/presentationRequests/:requestId
+POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/completeIssuance
+POST https://verifiedid.did.msidentity.com/v1.0/:tenant/verifiablecredentials/verifyPresentation
+```
+
+Please note that the `/request` API is split into two depending on if you are creating an issuance or presentation request.
+
+The retired API endpoints will not work after October 2023, 2023.
+
+## August 2023
+
+The `presentation_verified` callback from the Request Service API now returns when a Verified ID credential was issued and when it expires. Business rules can use these values to see the time windoww of when the presented Verified ID credential is valid. An example of this is that it expires in an hour while the business required in needs to be valid until the end of the day.
+
 ## June 2023
 
 Tutorial for getting started with the Wallet Library demo on Android and iOS available [here](using-wallet-library.md).

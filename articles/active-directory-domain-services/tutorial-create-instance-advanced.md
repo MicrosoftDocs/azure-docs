@@ -16,9 +16,9 @@ ms.author: justinha
 
 # Tutorial: Create and configure a Microsoft Entra Domain Services managed domain with advanced configuration options
 
-Microsoft Entra Domain Services (Microsoft Entra DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Microsoft Entra DS integrates with your existing Microsoft Entra tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
+Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Domain Services integrates with your existing Microsoft Entra tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
 
-You can [create a managed domain using default configuration options][tutorial-create-instance] for networking and synchronization, or manually define these settings. This tutorial shows you how to define those advanced configuration options to create and configure a Microsoft Entra DS managed domain using the Microsoft Entra admin center.
+You can [create a managed domain using default configuration options][tutorial-create-instance] for networking and synchronization, or manually define these settings. This tutorial shows you how to define those advanced configuration options to create and configure a Domain Services managed domain using the Microsoft Entra admin center.
 
 In this tutorial, you learn how to:
 
@@ -38,10 +38,10 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Microsoft Entra DS.
-* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Microsoft Entra DS resources.
+* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Domain Services resources.
 
-Although not required for Microsoft Entra DS, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Microsoft Entra tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
+Although not required for Domain Services, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Microsoft Entra tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
 
 > [!IMPORTANT]
 > After you create a managed domain, you can't move it to a different subscription, resource group, or region. Take care to select the most appropriate subscription, resource group, and region when you deploy the managed domain.
@@ -86,14 +86,14 @@ The following DNS name restrictions also apply:
 Complete the fields in the *Basics* window of the Microsoft Entra admin center to create a managed domain:
 
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
-1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Availability Zones, the Microsoft Entra DS resources are distributed across zones for additional redundancy.
+1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Availability Zones, the Domain Services resources are distributed across zones for additional redundancy.
 
     > [!TIP]
     > Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
     >
-    > There's nothing for you to configure for Microsoft Entra DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
+    > There's nothing for you to configure for Domain Services to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
 
-1. The **SKU** determines the performance and backup frequency. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Microsoft Entra DS SKU concepts][concepts-sku].
+1. The **SKU** determines the performance and backup frequency. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Domain Services SKU concepts][concepts-sku].
 
     For this tutorial, select the *Standard* SKU.
 1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. 
@@ -108,35 +108,35 @@ Complete the fields in the *Basics* window of the Microsoft Entra admin center t
 
 ## Create and configure the virtual network
 
-To provide connectivity, an Azure virtual network and a dedicated subnet are needed. Microsoft Entra DS is enabled in this virtual network subnet. In this tutorial, you create a virtual network, though you could instead choose to use an existing virtual network. In either approach, you must create a dedicated subnet for use by Microsoft Entra DS.
+To provide connectivity, an Azure virtual network and a dedicated subnet are needed. Domain Services is enabled in this virtual network subnet. In this tutorial, you create a virtual network, though you could instead choose to use an existing virtual network. In either approach, you must create a dedicated subnet for use by Domain Services.
 
 Some considerations for this dedicated virtual network subnet include the following areas:
 
-* The subnet must have at least 3-5 available IP addresses in its address range to support the Microsoft Entra DS resources.
-* Don't select the *Gateway* subnet for deploying Microsoft Entra DS. It's not supported to deploy Microsoft Entra DS into a *Gateway* subnet.
+* The subnet must have at least 3-5 available IP addresses in its address range to support the Domain Services resources.
+* Don't select the *Gateway* subnet for deploying Domain Services. It's not supported to deploy Domain Services into a *Gateway* subnet.
 * Don't deploy any other virtual machines to the subnet. Applications and VMs often use network security groups to secure connectivity. Running these workloads in a separate subnet lets you apply those network security groups without disrupting connectivity to your managed domain.
 
 For more information on how to plan and configure the virtual network, see [networking considerations for Microsoft Entra Domain Services][network-considerations].
 
 Complete the fields in the *Network* window as follows:
 
-1. On the **Network** page, choose a virtual network to deploy Microsoft Entra DS into from the drop-down menu, or select **Create new**.
+1. On the **Network** page, choose a virtual network to deploy Domain Services into from the drop-down menu, or select **Create new**.
     1. If you choose to create a virtual network, enter a name for the virtual network, such as *myVnet*, then provide an address range, such as *10.0.1.0/24*.
     1. Create a dedicated subnet with a clear name, such as *DomainServices*. Provide an address range, such as *10.0.1.0/24*.
 
     [ ![Create a virtual network and subnet for use with Microsoft Entra Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
-    Make sure to pick an address range that is within your private IP address range. IP address ranges you don't own that are in the public address space cause errors within Microsoft Entra DS.
+    Make sure to pick an address range that is within your private IP address range. IP address ranges you don't own that are in the public address space cause errors within Domain Services.
 
 1. Select a virtual network subnet, such as *DomainServices*.
 1. When ready, choose **Next - Administration**.
 
 ## Configure an administrative group
 
-A special administrative group named *AAD DC Administrators* is used for management of the Microsoft Entra DS domain. Members of this group are granted administrative permissions on VMs that are domain-joined to the managed domain. On domain-joined VMs, this group is added to the local administrators group. Members of this group can also use Remote Desktop to connect remotely to domain-joined VMs.
+A special administrative group named *AAD DC Administrators* is used for management of the Domain Services domain. Members of this group are granted administrative permissions on VMs that are domain-joined to the managed domain. On domain-joined VMs, this group is added to the local administrators group. Members of this group can also use Remote Desktop to connect remotely to domain-joined VMs.
 
 > [!IMPORTANT]
-> You don't have *Domain Administrator* or *Enterprise Administrator* permissions on a managed domain using Microsoft Entra DS. These permissions are reserved by the service and aren't made available to users within the tenant.
+> You don't have *Domain Administrator* or *Enterprise Administrator* permissions on a managed domain using Domain Services. These permissions are reserved by the service and aren't made available to users within the tenant.
 >
 > Instead, the *AAD DC Administrators* group lets you perform some privileged operations. These operations include belonging to the administration group on domain-joined VMs, and configuring Group Policy.
 
@@ -152,7 +152,7 @@ The wizard automatically creates the *AAD DC Administrators* group in your Micro
 
 ## Configure synchronization
 
-Microsoft Entra DS lets you synchronize *all* users and groups available in Microsoft Entra ID, or a *scoped* synchronization of only specific groups. You can change the synchronize scope now, or once the managed domain is deployed. For more information, see [Microsoft Entra Domain Services scoped synchronization][scoped-sync].
+Domain Services lets you synchronize *all* users and groups available in Microsoft Entra ID, or a *scoped* synchronization of only specific groups. You can change the synchronize scope now, or once the managed domain is deployed. For more information, see [Microsoft Entra Domain Services scoped synchronization][scoped-sync].
 
 1. For this tutorial, choose to synchronize **All** users and groups. This synchronization choice is the default option.
 
@@ -164,8 +164,8 @@ Microsoft Entra DS lets you synchronize *all* users and groups available in Micr
 
 On the **Summary** page of the wizard, review the configuration settings for your managed domain. You can go back to any step of the wizard to make changes. To redeploy a managed domain to a different Microsoft Entra tenant in a consistent way using these configuration options, you can also **Download a template for automation**.
 
-1. To create the managed domain, select **Create**. A note is displayed that certain configuration options like DNS name or virtual network can't be changed once the Microsoft Entra DS managed has been created. To continue, select **OK**.
-1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Microsoft Entra DS deployment. Select the notification to see detailed progress for the deployment.
+1. To create the managed domain, select **Create**. A note is displayed that certain configuration options like DNS name or virtual network can't be changed once the Domain Services managed has been created. To continue, select **OK**.
+1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Domain Services deployment. Select the notification to see detailed progress for the deployment.
 
     ![Notification in the Microsoft Entra admin center of the deployment in progress](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
@@ -178,11 +178,11 @@ On the **Summary** page of the wizard, review the configuration settings for you
     ![Domain Services status once successfully provisioned](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
 > [!IMPORTANT]
-> The managed domain is associated with your Microsoft Entra tenant. During the provisioning process, Microsoft Entra DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in the Microsoft Entra tenant. These Enterprise Applications are needed to service your managed domain. Don't delete these applications.
+> The managed domain is associated with your Microsoft Entra tenant. During the provisioning process, Domain Services creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in the Microsoft Entra tenant. These Enterprise Applications are needed to service your managed domain. Don't delete these applications.
 
 ## Update DNS settings for the Azure virtual network
 
-With Microsoft Entra DS successfully deployed, now configure the virtual network to allow other connected VMs and applications to use the managed domain. To provide this connectivity, update the DNS server settings for your virtual network to point to the two IP addresses where the managed domain is deployed.
+With Domain Services successfully deployed, now configure the virtual network to allow other connected VMs and applications to use the managed domain. To provide this connectivity, update the DNS server settings for your virtual network to point to the two IP addresses where the managed domain is deployed.
 
 1. The **Overview** tab for your managed domain shows some **Required configuration steps**. The first configuration step is to update DNS server settings for your virtual network. Once the DNS settings are correctly configured, this step is no longer shown.
 
@@ -197,16 +197,16 @@ With Microsoft Entra DS successfully deployed, now configure the virtual network
 
 <a name='enable-user-accounts-for-azure-ad-ds'></a>
 
-## Enable user accounts for Microsoft Entra DS
+## Enable user accounts for Domain Services
 
-To authenticate users on the managed domain, Microsoft Entra DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Microsoft Entra ID doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Microsoft Entra DS for your tenant. For security reasons, Microsoft Entra ID also doesn't store any password credentials in clear-text form. Therefore, Microsoft Entra ID can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
+To authenticate users on the managed domain, Domain Services needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Microsoft Entra ID doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Domain Services for your tenant. For security reasons, Microsoft Entra ID also doesn't store any password credentials in clear-text form. Therefore, Microsoft Entra ID can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
 > [!NOTE]
 > Once appropriately configured, the usable password hashes are stored in the managed domain. If you delete the managed domain, any password hashes stored at that point are also deleted.
 >
 > Synchronized credential information in Microsoft Entra ID can't be re-used if you later create a managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Microsoft Entra ID needs to generate and store the password hashes in the new managed domain.
 >
-> For more information, see [Password hash sync process for Microsoft Entra DS and Microsoft Entra Connect][password-hash-sync-process].
+> For more information, see [Password hash sync process for Domain Services and Microsoft Entra Connect][password-hash-sync-process].
 
 The steps to generate and store these password hashes are different for cloud-only user accounts created in Microsoft Entra ID versus user accounts that are synchronized from your on-premises directory using Microsoft Entra Connect.
 
@@ -217,7 +217,7 @@ In this tutorial, let's work with a basic cloud-only user account. For more info
 > [!TIP]
 > If your Microsoft Entra tenant has a combination of cloud-only users and users from your on-premises AD, you need to complete both sets of steps.
 
-For cloud-only user accounts, users must change their passwords before they can use Microsoft Entra DS. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Microsoft Entra ID. The account isn't synchronized from Microsoft Entra ID to Microsoft Entra DS until the password is changed. Either expire the passwords for all cloud users in the tenant who need to use Microsoft Entra DS, which forces a password change on next sign-in, or instruct cloud users to manually change their passwords. For this tutorial, let's manually change a user password.
+For cloud-only user accounts, users must change their passwords before they can use Domain Services. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Microsoft Entra ID. The account isn't synchronized from Microsoft Entra ID to Domain Services until the password is changed. Either expire the passwords for all cloud users in the tenant who need to use Domain Services, which forces a password change on next sign-in, or instruct cloud users to manually change their passwords. For this tutorial, let's manually change a user password.
 
 Before a user can reset their password, the Microsoft Entra tenant must be [configured for self-service password reset][configure-sspr].
 
@@ -232,7 +232,7 @@ To change the password for a cloud-only user, the user must complete the followi
 1. On the **Change password** page, enter your existing (old) password, then enter and confirm a new password.
 1. Select **Submit**.
 
-It takes a few minutes after you've changed your password for the new password to be usable in Microsoft Entra DS and to successfully sign in to computers joined to the managed domain.
+It takes a few minutes after you've changed your password for the new password to be usable in Domain Services and to successfully sign in to computers joined to the managed domain.
 
 ## Next steps
 
@@ -242,7 +242,7 @@ In this tutorial, you learned how to:
 > * Configure DNS and virtual network settings for a managed domain
 > * Create a managed domain
 > * Add administrative users to domain management
-> * Enable user accounts for Microsoft Entra DS and generate password hashes
+> * Enable user accounts for Domain Services and generate password hashes
 
 To see this managed domain in action, create and join a virtual machine to the domain.
 

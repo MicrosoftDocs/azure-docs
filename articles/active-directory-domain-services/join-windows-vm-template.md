@@ -1,5 +1,5 @@
 ---
-title: Use a template to join a Windows VM to Microsoft Entra DS | Microsoft Docs
+title: Use a template to join a Windows VM to Microsoft Entra Domain Services | Microsoft Docs
 description: Learn how to use Azure Resource Manager templates to join a new or existing Windows Server VM to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
@@ -11,15 +11,15 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 09/23/2023
 ms.author: justinha
 ---
 
 # Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain using a Resource Manager template
 
-To automate the deployment and configuration of Azure virtual machines (VMs), you can use a Resource Manager template. These templates let you create consistent deployments each time. Extensions can also be included in templates to automatically configure a VM as part of the deployment. One useful extension joins VMs to a domain, which can be used with Microsoft Entra Domain Services (Microsoft Entra DS) managed domains.
+To automate the deployment and configuration of Azure virtual machines (VMs), you can use a Resource Manager template. These templates let you create consistent deployments each time. Extensions can also be included in templates to automatically configure a VM as part of the deployment. One useful extension joins VMs to a domain, which can be used with Microsoft Entra Domain Services managed domains.
 
-This article shows you how to create and join a Windows Server VM to a Microsoft Entra DS managed domain using Resource Manager templates. You also learn how to join an existing Windows Server VM to a Microsoft Entra DS domain.
+This article shows you how to create and join a Windows Server VM to a Domain Services managed domain using Resource Manager templates. You also learn how to join an existing Windows Server VM to a Domain Services domain.
 
 ## Prerequisites
 

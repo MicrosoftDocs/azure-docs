@@ -396,7 +396,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
     ```powershell
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
     
-    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
+    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -ExpressRoutePort $ERPort -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
 ## Next steps
 

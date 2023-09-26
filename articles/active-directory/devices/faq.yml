@@ -71,7 +71,7 @@ sections:
         answer: |
           This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost, or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you need to re-enable or re-register the device using the steps that follow:
           
-          - If the device was disabled in Microsoft Entra ID, an administrator with sufficient privileges can enable it from the Azure portal  
+          - If the device was disabled in Microsoft Entra ID, an administrator with sufficient privileges can enable it in the Microsoft Entra admin center  
             > [!NOTE]
             > If you're syncing devices using Azure AD Connect, hybrid Azure AD joined devices will be automatically re-enabled during the next  sync cycle. So, if you need to disable a Microsoft Entra hybrid joined device, you need to disable it from your on-premises AD
           
@@ -139,7 +139,7 @@ sections:
           
           
           
-      - question: Can my users' sign in to Microsoft Entra joined devices that are deleted or disabled in Microsoft Entra ID?
+      - question: Can my users sign in to Microsoft Entra joined devices that are deleted or disabled in Microsoft Entra ID?
         answer: |
           Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. 
           
@@ -195,7 +195,7 @@ sections:
           
       - question: How can users change their temporary or expired password on Microsoft Entra joined devices?
         answer: |
-              Currently, Microsoft Entra joined devices don't force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires a Microsoft Entra token) after they login to Windows.
+              Currently, Microsoft Entra joined devices don't force users to change password on the lock screen. So, users with temporary or expired passwords will be forced to change passwords only when they access an application (that requires a Microsoft Entra token) after they log in to Windows.
           
       - question: Why do I see the 'Oops… an error occurred!' dialog when I try to Azure AD join my PC?
         answer: |
@@ -254,7 +254,7 @@ sections:
           
       - question: What happens if a user changes their password and tries to sign in to their Windows 10/11 Microsoft Entra hybrid joined device outside the corporate network?
         answer: |
-          If a password is changed outside the corporate network (for example, by using Microsoft Entra SSPR), then the user sign in with the new password fails. For Microsoft Entra hybrid joined devices, on-premises Active Directory is the primary authority. When a device doesn't have line of sight to the domain controller, it's unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Microsoft Entra ID during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
+          If a password is changed outside the corporate network (for example, by using Microsoft Entra SSPR), then the user sign-in with the new password fails. For Microsoft Entra hybrid joined devices, on-premises Active Directory is the primary authority. When a device doesn't have line of sight to the domain controller, it's unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign-in capability in Windows. However, the old password is invalidated by Microsoft Entra ID during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
           
           
   - name: Microsoft Entra register FAQ
