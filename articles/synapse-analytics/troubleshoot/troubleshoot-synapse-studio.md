@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Synapse Studio
 description: Troubleshoot Synapse Studio
-author: WilliamDAssafMSFT
+author: JeneZhang
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: troubleshooting
 ms.date: 04/15/2020 
-ms.author: wiassaf
+ms.author: jingzh
 ms.reviewer: sngun
 ---
 
@@ -135,6 +135,22 @@ wss://{workspace}.dev.azuresynapse.net/{path}
 + **{path}** indicates any sub-path (i.e., slash character is included) in URI. 
 
 This URL pattern is looser than the one shown in “Root Cause” section because it allows for us adding new WebSocket-dependent features to Synapse without any potential connectivity issue in the future. 
+
+##  Pipeline run notebook activity issue
+
+### Symptom
+
+Add a notebook which contains more than 128 code cells to a pipeline. Pipeline runs failed.
+
+![symptom](media/troubleshooting-synapse-studio/pipeline-run-notebook-activity-issue.png)
+
+### Root cause: 
+
+There is a limitation of running cells(cannot be more than 128) when executing a Synapse notebook activity from a pipeline.
+
+### Action: 
+
+You could merge cells in order to reduce the number of cells below 128.
 
 
 ## Next steps
