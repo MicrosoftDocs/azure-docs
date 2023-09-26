@@ -27,7 +27,7 @@ In all API calls, be sure to change the _api-version_ parameter in your code:
 
 Note the following REST endpoint name changes:
 
-| Public preview term          | GA term                  |  
+| Public preview term          | GA term                 |  
 |-------------------|---------------------------|  
 | **addBlockItems**     | **addOrUpdateBlocklistItems** |  
 | **blockItems**        | **blocklistItems**            |  
@@ -38,7 +38,7 @@ Note the following REST endpoint name changes:
 
 The following JSON fields have been renamed. Be sure to change them when you send data to a REST call:
 
-| Public preview Term                | GA Term                      |  
+| Public preview Term        | GA Term                    |  
 |-------------------------|-------------------------------|  
 | `blockItems`            | `blocklistItems`              |  
 | `BlockItemId`           | `blocklistItemId`             |  
