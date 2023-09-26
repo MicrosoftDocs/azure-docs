@@ -47,7 +47,7 @@ Run an assessment as follows:
 3. In **Create assessment**, you'll see the assessment type pre-selected as **Web apps on Azure**, the scenario pre-selected as **Spring Boot to Azure Spring Apps**, and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 4. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-inline.png" alt-text="Screenshot of Edit button from where assessment properties can be customized. lightbox="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-expanded.png":::
+    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-inline.png" alt-text="Screenshot of Edit button from where assessment properties can be customized." lightbox="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-expanded.png":::
 
 1. The following are included in Azure Spring Apps assessment properties:
 
@@ -102,13 +102,13 @@ For estimating cost, we assume you add all your assessed apps into the same Azur
 
 The estimated cost applies for both Azure Spring Apps Standard tier and Enterprise tier. For Enterprise tier, there is an additional cost on [software IP](https://azuremarketplace.microsoft.com/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which aren't included in cost estimation.
 
-   :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost-inline.png" alt-text="Screenshot of Cost details. lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost-expanded.png":::
+   :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost-inline.png" alt-text="Screenshot of Cost details." lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost-expanded.png":::
 
 ### Review readiness
 
 1. Select **Azure Spring Apps**.
 
-    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-readiness-inline.png" alt-text="Screenshot of Azure Spring Apps readiness details. lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-readiness-expanded.png":::
+    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-readiness-inline.png" alt-text="Screenshot of Azure Spring Apps readiness details." lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-readiness-expanded.png":::
 
 1. Review Azure Spring Apps readiness column in table, for the assessed apps:
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
