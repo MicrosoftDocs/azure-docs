@@ -116,22 +116,19 @@ For **server connections**, the failover and recovery work the same way as it do
 > *  This failover mechanism is for Azure SignalR service. Regional outages of app server are beyond the scope of this document.
 
 ## Disable or enable the regional endpoint
-When setting up a replication, you have the option to enable or disable its endpoint. If it's disabled, the primary FQDN's DNS resolution won't include the replica, and therefore, won't direct traffic to it.
+When setting up a replica, you have the option to enable or disable its endpoint. If it's disabled, the primary FQDN's DNS resolution won't include the replica, and therefore, traffic won't be directed to it.
 
-![Alt text](image-1.png)
+![Diagram of Azure SignalR replica endpoint setting. ](./media/howto-enable-geo-replication/signalr-replica-endpoint-setting.png "Replica Endpoint Setting")
 
 You can also enable of disable the endpoint after it's been created.
 
-On the primary resource's replica tab:
+On the primary resource's replica blade:
 
-![Alt text](image.png)
+![Diagram of Azure SignalR replica endpoint modification. ](./media/howto-enable-geo-replication/signalr-replica-endpoint-modify.png "Replica Endpoint Modify")
 
-This could be helpful when you are debugging some regional issues.
-Before deleting a replication, it's a good idea to disable the replicaton endpoint first. After some while, the existing connections will gradually disconnect. Since no new connections are coming, this replication becomes idle finally. Then deleting it will be smooth.
-
- Before deleting a replication, consider disabling its endpoint first. Over time, existing connections will disconnect. As no new connections are coming, the replication becomes inactive. This ensures a seamless deletion process.
+Before deleting a replication, consider disabling its endpoint first. Over time, existing connections will disconnect. As no new connections are coming, the replication becomes idle finally. This ensures a seamless deletion process.
  
- This feature is also useful for troubleshooting regional issues.
+This feature is also useful for troubleshooting regional issues.
 
 > [!NOTE]
 > * Due to the DNS cache, it may take several minutes for the DNS update to take effect. 
