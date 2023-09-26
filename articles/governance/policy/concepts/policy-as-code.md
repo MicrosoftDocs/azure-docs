@@ -43,7 +43,6 @@ The file names correspond with certain portions of policy or initiative definiti
 | `policy.rules.json`           | The `properties.policyRule` portion of the policy definition               |
 | `policyset.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
 | `exemptionName.json`          | The exemption that targets a particular resource or scope | 
-| `trigger-remediation.json`    | The template or script that triggers a remediation task |
 
 Examples of these file formats are available in the
 [Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
@@ -51,7 +50,7 @@ Examples of these file formats are available in the
 - Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
-Other Policy resources such as exemptions and remediation task should also be stored as code to ensure continuity and centrally managability.  
+
 
 ## Workflow overview
 
@@ -63,7 +62,7 @@ The recommended general workflow of Azure Policy as Code looks like this diagram
 
 ### Source control
 
-Existing policy and initiative definitions can be exported through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
+Existing [policy and initiative definitions can be exported](../how-to/exportresources.md) different ways such as through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
 
 ### Create and update policy definitions
 
@@ -82,12 +81,17 @@ in source control.
 |     |- policy.rules.json ___________ # Policy rule
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
+|
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 ```
 
@@ -111,6 +115,8 @@ definitions in source control:
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
@@ -118,6 +124,8 @@ definitions in source control:
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
+|     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 ```
 
@@ -128,7 +136,7 @@ definition comes in a later step.
 > [!NOTE]
 > It's recommended to use a centralized deployment mechanism like GitHub workflows or Azure
 > Pipelines to deploy policies. This helps to ensure only reviewed policy resources are deployed
-> to your environment and that a central deployment mechanism is used. _Write_ permissions
+> to your environment and that a graudal and central deployment mechanism is used. _Write_ permissions
 > to policy resources can be restricted to the identity used in the deployment.
 
 ### Test and validate the updated definition
