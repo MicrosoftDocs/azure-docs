@@ -146,6 +146,8 @@
         href: harden-the-linux-image-to-remove-sudo-users.md
       - name: Harden a Linux image to remove Azure guest agent
         href: harden-a-linux-image-to-remove-azure-guest-agent.md
+      - name: Deploy a virtual machine scale set using hardened image
+        href: vmss-deployment-from-hardened-linux-image.md
     - name: Secure Key Release (SKR) with Azure Key Vault
       items:
       - name: SKR with Azure Confidential Computing Concept
