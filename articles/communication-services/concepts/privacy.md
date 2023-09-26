@@ -75,7 +75,7 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Chat threads and messages are kept for 90 days unless explicitly deleted by the customer sooner due to their internal policies. Customers that require the option of keeping messages longer need to submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
+Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. Chat thread participants can use ListMessages to view message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidentally deleted messages are not recoverable by the system.
 
 Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
