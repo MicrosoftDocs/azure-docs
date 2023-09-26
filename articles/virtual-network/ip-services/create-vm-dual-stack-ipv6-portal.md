@@ -102,7 +102,7 @@ You create two public IP addresses in this section, IPv4 and IPv6.
 
 3. Enter or select the following information in **Create public IP address**.
 
-| Setting | Value |
+    | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
