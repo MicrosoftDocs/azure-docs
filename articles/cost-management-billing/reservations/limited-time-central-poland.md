@@ -145,7 +145,7 @@ These terms and conditions (hereinafter referred to as "terms") govern the limit
 |`F8s`|`F8s v2`|`Fsv2 Type2`|`Fsv2 Type3`|
 |`Fsv2 Type4`|`SQLG7_AMD_IaaS`|`SQLG7_AMD_NVME`| |
  
-The 67 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Central region running for 36 months at a pay-as-you-go rate of about **\$0.0748 per hour**; reduced rate for a three-year reserved instance of about **\$0.0248** per hour. Azure pricing as of September 2023. Prices subject to change. Actual savings may vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs.
+The 67 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Central region running for 36 months at a pay-as-you-go rate as of September 2023. Actual savings may vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs.
 
 **Eligibility** - The Offer is open to individuals who meet the following criteria:
 
