@@ -109,7 +109,8 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="passport"></a>Web applications / APIs protecting resources using Node.js passport-azure-ad module
+### <a name="passport"></a>Web applications / APIs protecting resources using Node.js `passport-azure-ad` module
+
 If your application is using the Node.js passport-ad module, it already has the necessary logic to handle key rollover automatically.
 
 You can confirm that your application passport-ad by searching for the following snippet in your application's app.js
@@ -292,9 +293,9 @@ If the key is being stored somewhere or hardcoded in your application, you can m
 
 You can validate whether your application supports automatic key rollover by using the following PowerShell scripts.
 
-To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module.
 
-1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module:
 
     ```powershell
     Install-Module -Name MSIdentityTools
@@ -333,9 +334,9 @@ To check and update signing keys with PowerShell, you'll need the [MSIdentityToo
 ## How to perform a manual rollover if your application does not support automatic rollover
 If your application doesn't support automatic rollover, you need to establish a process that periodically monitors Microsoft identity platform's signing keys and performs a manual rollover accordingly.
 
-To check and update signing keys with PowerShell, you'll need the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module.
+To check and update signing keys with PowerShell, you'll need the [`MSIdentityTools`](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module.
 
-1. Install the [MSIdentityTools](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell Module:
+1. Install the [`MSIdentityTools`](https://www.powershellgallery.com/packages/MSIdentityTools) PowerShell module:
 
     ```powershell
     Install-Module -Name MSIdentityTools
