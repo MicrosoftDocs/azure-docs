@@ -315,18 +315,6 @@ public class HttpTriggerSendGrid {
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the output binding. C# script instead uses a function.json configuration file.  
 
-# [In-process model](#tab/in-process)
-
-In [in-process](functions-dotnet-class-library.md) function apps, use the [SendGridAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), which supports the following parameters.
-
-| Attribute/annotation property | Description | 
-|-------------------------------|-------------|
-| **ApiKey** | The name of an app setting that contains your API key. If not set, the default app setting name is `AzureWebJobsSendGridApiKey`.|
-| **To** | (Optional) The recipient's email address. | 
-| **From** | (Optional) The sender's email address. |  
-| **Subject** | (Optional) The subject of the email. | 
-| **Text** | (Optional) The email content. | 
-
 # [Isolated worker model](#tab/isolated-process)
 
 In [isolated worker process](dotnet-isolated-process-guide.md) function apps, the `SendGridOutputAttribute` supports the following parameters:
@@ -338,6 +326,18 @@ In [isolated worker process](dotnet-isolated-process-guide.md) function apps, th
 | **From** | (Optional) The sender's email address. |  
 | **Subject** | (Optional) The subject of the email. | 
 | **Text** | (Optional) The email content. | 
+# [In-process model](#tab/in-process)
+
+In [in-process](functions-dotnet-class-library.md) function apps, use the [SendGridAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), which supports the following parameters.
+
+| Attribute/annotation property | Description | 
+|-------------------------------|-------------|
+| **ApiKey** | The name of an app setting that contains your API key. If not set, the default app setting name is `AzureWebJobsSendGridApiKey`.|
+| **To** | (Optional) The recipient's email address. | 
+| **From** | (Optional) The sender's email address. |  
+| **Subject** | (Optional) The subject of the email. | 
+| **Text** | (Optional) The email content. | 
+
 
 ---
 

@@ -320,7 +320,15 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#blob-input).
 
-# [In-process](#tab/in-process)
+# [Isolated process](#tab/isolated-process)
+
+isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**BlobPath** | The path to the blob.|
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+# [In-process](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute), which takes the following parameters:
 
@@ -346,14 +354,6 @@ public static void Run(
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
-# [Isolated process](#tab/isolated-process)
-
-isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**BlobPath** | The path to the blob.|
-|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
 ---
 
