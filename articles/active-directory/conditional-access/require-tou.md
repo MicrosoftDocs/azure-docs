@@ -87,7 +87,7 @@ The scenario in this quickstart uses:
 
 In the previous section, you created a Conditional Access policy requiring terms of use be accepted. 
 
-To test your policy, try to sign in to the [Azure portal](https://portal.azure.com) using your test account. You should see a dialog that requires you to accept your terms of use.
+To test your policy, try to sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) using your test account. You should see a dialog that requires you to accept your terms of use.
 
 :::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot of a dialog box titled Identity Security Protection terms of use, with Decline and Accept buttons and a button labeled My TOU." border="false":::
 

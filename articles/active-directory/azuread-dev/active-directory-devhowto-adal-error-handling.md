@@ -26,7 +26,7 @@ In this article, we explore the specific cases for each platform supported by AD
 - **AcquireToken**: Client can attempt silent acquisition, but can also perform interactive requests that require sign-in.
 
 > [!TIP]
-> It's a good idea to log all errors and exceptions when using ADAL and Azure AD. Logs are not only helpful for understanding the overall health of your application, but are also important when debugging broader problems. While your application may recover from certain errors, they may hint at broader design problems that require code changes in order to resolve. 
+> It's a good idea to log all errors and exceptions when using ADAL. Logs are not only helpful for understanding the overall health of your application, but are also important when debugging broader problems. While your application may recover from certain errors, they may hint at broader design problems that require code changes in order to resolve. 
 > 
 > When implementing the error conditions covered in this document, you should log the error code and description for the reasons discussed earlier. See the [Error and logging reference](#error-and-logging-reference) for examples of logging code. 
 >
@@ -575,18 +575,19 @@ window.Logging = {
 
 ## Related content
 
-* [Azure AD Authentication Libraries][AAD-Auth-Libraries]
-* [Azure AD Authentication Scenarios][AAD-Auth-Scenarios]
-* [Integrating Applications with Azure AD Authentication][AAD-Integrating-Apps]
+* [Azure AD Authentication Library][Auth-Libraries]
+* [Authentication scenarios][Auth-Scenarios]
+* [Register an application with the Microsoft identity platform][Integrating-Apps]
 
 Use the comments section that follows, to provide feedback and help us refine and shape our content.
 
-[![Shows the "Sign in with Microsoft" button][AAD-Sign-In]][AAD-Sign-In]
+[![Shows the "Sign in with Microsoft" button][Sign-In]][Sign-In]
+
 <!--Reference style links -->
 
-[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
-[AAD-Integrating-Apps]:../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+[Auth-Libraries]: ./active-directory-authentication-libraries.md
+[Auth-Scenarios]:v1-authentication-scenarios.md
+[Integrating-Apps]:../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 
 <!--Image references-->
-[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
