@@ -44,8 +44,8 @@ Next, set up Postman:
 
 2. Import the following files in Postman:
 
-   - [Converter Postman collection]()<!-- TODO -->
-   - [Converter Postman environment]()<!-- TODO -->
+   - [Converter Postman collection](https://github.com/microsoft/adme-samples/blob/main/postman/SEGYtoZGY.postman_collection.json)
+   - [Converter Postman environment](https://github.com/microsoft/adme-samples/blob/main/postman/SEGYtoZGY.postman_environment.json)
 
    To import the files:
 

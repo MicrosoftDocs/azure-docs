@@ -44,8 +44,8 @@ Next, set up Postman:
 
 2. Import the following files in Postman:
 
-   - [Converter Postman collection]()<!-- TODO -->
-   - [Converter Postman environment]()<!-- TODO -->
+   - [Converter Postman collection](https://github.com/microsoft/adme-samples/blob/main/postman/SEGYtoVDS.postman_collection.json)
+   - [Converter Postman environment](https://github.com/microsoft/adme-samples/blob/main/postman/SEGYtoVDS.postman_environment.json)
 
    To import the files:
 
@@ -77,7 +77,7 @@ The Postman collection provided has all of the sample calls to serve as a guide.
 
 ### Prepare dataset files
 
-This file contains the sample Vector Header Mapping (admesample URL to be included) and this file contains the sample Storage records (admesample URL to be included) for the VDS conversion.
+This file contains the sample [Vector Header Mapping](https://github.com/microsoft/adme-samples/blob/main/postman/CreateVectorHeaderMappingKeys_SEGYtoVDS.json) and this file contains the sample [Storage Records](https://github.com/microsoft/adme-samples/blob/main/postman/StorageRecord_SEGYtoVDS.json) for the VDS conversion.
 
 ### User Access
 
