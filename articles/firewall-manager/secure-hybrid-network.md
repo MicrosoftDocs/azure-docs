@@ -125,6 +125,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Select **Review + create**.
 1. Select **Create**.
 
+Add another subnet named **GatewaySubnet** with an address space of 10.5.1.0/27. This subnet is used for the VPN gateway. 
+
 ## Create the spoke virtual network
 
 1. From the Azure portal home page, select **Create a resource**.
