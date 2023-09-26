@@ -1,17 +1,17 @@
 ---
 title: '[Resolved] Trouble signing into Playwright portal'
-description: 'How to resolve the issue with signing into the Playwright portal, which results in error message: AADSTS7000112.'
+description: 'How to resolve the issue with signing into the Playwright portal, which results in error code AADSTS7000112.'
 ms.topic: troubleshooting-problem-resolution
 ms.date: 09/26/2023
 ---
 
-# [Resolved] Message: AADSTS7000112: Application 'b1fd4ebf-2bed-4162-be84-97e0fe523f64'(PlaywrightServiceAADLogin) is disabled.
+# [Resolved] AADSTS7000112: Application 'b1fd4ebf-2bed-4162-be84-97e0fe523f64'(PlaywrightServiceAADLogin) is disabled.
 
 ## Symptoms
 
-When using Microsoft Playwright Testing, you fail to sign into the Playwright portal. Youreceive the following error message:
+When using Microsoft Playwright Testing, you fail to sign into the Playwright portal. You receive the following error message:
 
-**Message: AADSTS7000112: Application 'b1fd4ebf-2bed-4162-be84-97e0fe523f64'(PlaywrightServiceAADLogin) is disabled.**
+**AADSTS7000112: Application 'b1fd4ebf-2bed-4162-be84-97e0fe523f64'(PlaywrightServiceAADLogin) is disabled.**
 
 ## Cause
 
