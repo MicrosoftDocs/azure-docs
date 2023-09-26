@@ -17,10 +17,10 @@ There are two ways to authenticate to Azure SignalR Service resources: Microsoft
 With Microsoft Entra ID, you don't need to store tokens in your code, which reduces the risk of potential security vulnerabilities. We highly recommend using Microsoft Entra ID for your Azure SignalR Service resources whenever possible.
 
 > [!IMPORTANT]
-> Disabling local authentication can have following consequences:
+> Disabling local authentication can have the following consequences:
 >
-> - The current set of access keys will be permanently deleted.
-> - Tokens signed with the current set of access keys will become unavailable.
+> - The current set of access keys is permanently deleted.
+> - Tokens signed with the current set of access keys become unavailable.
 
 ## Use the Azure portal
 

@@ -15,7 +15,7 @@ In Azure SignalR Service, you can use a managed identity from Microsoft Entra ID
 - Obtain access tokens.
 - Access secrets in Azure Key Vault.
 
-The service supports only one managed identity. You can create either a system-assigned or user-assigned identity. A system-assigned identity is dedicated to your Azure SignalR Service instance and is deleted when you delete the instance. A user-assigned identity is managed independently of your Azure SignalR Service resource.
+The service supports only one managed identity. You can create either a system-assigned or a user-assigned identity. A system-assigned identity is dedicated to your Azure SignalR Service instance and is deleted when you delete the instance. A user-assigned identity is managed independently of your Azure SignalR Service resource.
 
 This article shows you how to create a managed identity for Azure SignalR Service and how to use it in serverless scenarios.
 
@@ -26,7 +26,7 @@ To use a managed identity, you must have the following items:
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure SignalR Service resource.
 - Upstream resources that you want to access, such as an Azure Key Vault resource.
-- An Azure Functions app.
+- An Azure Functions app (function app).
 
 ## Add a managed identity to Azure SignalR Service
 
@@ -77,7 +77,7 @@ After you add a [system-assigned identity](#add-a-system-assigned-identity) or [
 
    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="Screenshot of upstream settings for Azure SignalR Service.":::
 
-1. In the managed identity authentication settings, for **Resource**, you can specify the target resource. The resource will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be one of the following formats:
+1. In the managed identity authentication settings, for **Resource**, you can specify the target resource. The resource will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be in one of the following formats:
 
    - Empty.
    - Application (client) ID of the service principal.
@@ -85,7 +85,7 @@ After you add a [system-assigned identity](#add-a-system-assigned-identity) or [
    - Resource ID of an Azure service. For more information, see [Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
    > [!NOTE]
-   > If you manually validate an access token for your service, you can choose any one of the resource formats. Make sure that the **Resource** value in **Auth** settings and the validation are consistent. When you use role-based access control (RBAC) for a data plane, you must use the resource format that the service provider requests.
+   > If you manually validate an access token for your service, you can choose any one of the resource formats. Make sure that the **Resource** value in **Auth** settings and the validation are consistent. When you use Azure role-based access control (RBAC) for a data plane, you must use the resource format that the service provider requests.
 
 ### Validate access tokens
 
@@ -97,42 +97,42 @@ The Microsoft Entra ID middleware has built-in capabilities for validating acces
 
 Libraries and code samples that show how to handle token validation are available. Several open-source partner libraries are also available for JSON Web Token (JWT) validation. There's at least one option for almost every platform and language. For more information about Microsoft Entra authentication libraries and code samples, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
-#### Authentication in Function App
+#### Authentication in a function app
 
-You can easily set access validation for a Function App without code changes using the Azure portal.
+You can easily set access validation for a function app without code changes by using the Azure portal:
 
-1. Go to the Function App in the Azure portal.
+1. In the Azure portal, go to the function app.
 1. Select **Authentication** from the menu.
 1. Select **Add identity provider**.
-1. In the **Basics** tab, select **Microsoft** from the **Identity provider** dropdown.
-1. Select **Log in with Microsoft Entra ID** in **Action to take when request is not authenticated**.
-1. Select **Microsoft** in the identity provider dropdown. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling Microsoft Entra ID provider, see [Configure your App Service or Azure Functions app to login with Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
-   :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Microsoft Entra ID":::
-1. Navigate to SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
-1. go to **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
+1. On the **Basics** tab, in the **Identity provider** dropdown list, select **Microsoft**.
+1. In **Action to take when request is not authenticated**, select **Log in with Microsoft Entra ID**.
+1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra ID provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
+   :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
+1. Go to Azure SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
+1. In Azure SignalR Service, go to **Upstream settings**, and then select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.
 
-After you configure these settings, the Function App will reject requests without an access token in the header.
+After you configure these settings, the function app will reject requests without an access token in the header.
 
 > [!IMPORTANT]
-> To pass the authentication, the _Issuer Url_ must match the _iss_ claim in token. Currently, we only support v1 endpoint (see [v1.0 and v2.0](../active-directory/develop/access-tokens.md)).
+> To pass the authentication, the issuer URL must match the `iss` claim in the token. Currently, we support only v1.0 endpoints. See [Access tokens in the Microsoft identity platform](../active-directory/develop/access-tokens.md).
 
-To verify the _Issuer Url_ format in your Function app:
+To verify the issuer URL format in your function app:
 
-1. Go to the Function app in the portal.
+1. In the portal, go to the function app.
 1. Select **Authentication**.
 1. Select **Identity provider**.
 1. Select **Edit**.
 1. Select **Issuer Url**.
-1. Verify that the _Issuer Url_ has the format `https://sts.windows.net/<tenant-id>/`.
+1. Verify that the issuer URL has the format `https://sts.windows.net/<tenant-id>/`.
 
-## Use a managed identity for Key Vault reference
+## Use a managed identity for a Key Vault reference
 
-SignalR Service can access Key Vault to get secrets using the managed identity.
+Azure SignalR Service can access Key Vault to get secrets by using the managed identity.
 
-1. Add a [system-assigned identity](#add-a-system-assigned-identity) or [user-assigned identity](#add-a-user-assigned-identity) to your SignalR instance.
-1. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
+1. Add a [system-assigned identity](#add-a-system-assigned-identity) or [user-assigned identity](#add-a-user-assigned-identity) to your Azure SignalR Service instance.
+1. Grant secret read permission for the managed identity in the access policies in Key Vault. See [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
 
-Currently, this feature can be used to [Reference secret in Upstream URL Pattern](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
+Currently, you can use this feature to [reference a secret in the upstream URL pattern](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings).
 
 ## Next steps
 
