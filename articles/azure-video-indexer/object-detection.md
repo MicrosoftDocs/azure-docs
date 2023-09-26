@@ -1,6 +1,6 @@
 ---
 title: Azure AI Video Indexer object detection overview
-description: An introduction to Azure AI Video Indexer object detection overview
+description: An introduction to Azure AI Video Indexer object detection overview.
 ms.service: azure-video-indexer
 ms.date: 09/26/2023
 ms.topic: article
@@ -10,7 +10,7 @@ author: IngridAtMicrosoft
 
 # Azure Video Indexer object detection
 
-Azure Video Indexer can detect objects in videos. The insight in part of all standard and advanced presets. This article discusses the object detection insight.
+Azure Video Indexer can detect objects in videos. The insight is part of all standard and advanced presets.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 ## JSON response
 
-Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request. Detected objects will appear in the downloaded *insights.json* file under “detected Objects”. Every time the object is detected, it is given an id. In this example, a cup was detected twice.
+Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request. Detected objects will appear in the downloaded *insights.json* file under “detected Objects”. Every time the object is detected, it is given an id. In this example, a cup was detected twice, but the id indicates that it was the 23rd object detected in the video.
 
 ```json
 detectedObjects: [
@@ -54,7 +54,7 @@ detectedObjects: [
     ]
     },
     {
-    id: 2,
+    id: 23,
     type: "Cup",
     thumbnailId: "1c0b9fbb-6e05-42e3-96c1-abe2cd48t34",
     displayName: "cup",
@@ -168,7 +168,7 @@ Download the insights by selecting **Download** and then **Insights (JSON)**.
 
 Object detection is part of the [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) process.
 
-Use [Get Artifacts by type](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url) to download the artifacts.
+To get the resulting JSON, use [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
 
 ---
 
