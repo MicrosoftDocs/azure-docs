@@ -180,5 +180,5 @@ If you continue to have issues, [open an Azure support request][azure-support] f
 [password-policy]: password-policy.md
 [check-health]: check-health.md
 [troubleshoot-alerts]: troubleshoot-alerts.md
-[Remove-MsolUser]: /powershell/module/MSOnline/Remove-MsolUser
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[Remove-MsolUser]: /powershell/module/msonline/remove-msoluser
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
