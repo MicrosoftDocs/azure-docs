@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/22/2023
+ms.date: 09/26/2023
 ---
 
 # User-defined data types in Bicep
@@ -245,6 +245,8 @@ param serviceConfig ServiceConfig = { type: 'bar', value: true }
 
 output config object = serviceConfig
 ```
+
+The parameter value is validated based on the discriminated property value.  In the preceeding example, if the *serviceConfig* parameter value is of type *foo*, it undersoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed usin the *BarConfig* type, and this pattern continues for other types as well.  
 
 ## Import types between Bicep files (Preview)
 
