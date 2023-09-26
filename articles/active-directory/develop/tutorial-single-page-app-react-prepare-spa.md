@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.author: owenrichards
 ms.topic: tutorial
-ms.date: 02/27/2023
+ms.date: 09/25/2023
 #Customer intent: As a React developer, I want to know how to create a new React project in an IDE and add authentication.
 ---
 
@@ -27,7 +27,7 @@ In this tutorial:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Register an application](single-page-app-tutorial-01-register-app.md).
+* Completion of the prerequisites and steps in [Tutorial: Register an application](tutorial-single-page-app-react-register-app.md).
 * Although any IDE that supports React applications can be used, the following Visual Studio IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page. For macOS users, it's recommended to use Visual Studio Code.
   - Visual Studio 2022
   - Visual Studio Code
@@ -45,6 +45,25 @@ Use the following tabs to create a React project within the IDE.
 1. Choose a location for the project or accept the default option, and then select **Next**.
 1. In **Additional information**, select **Create**.
 1. From the toolbar, select **Start Without Debugging** to launch the application. A web browser will open with the address `http://localhost:3000/` by default. The browser remains open and re-renders for every saved change.
+1. Create additional folders and files to achieve the following folder structure:
+
+    ```console
+    ├─── public
+    │   └─── index.html
+    └───src
+        ├─── components
+        │   └─── PageLayout.jsx
+        │   └─── ProfileData.jsx
+        │   └─── SignInButton.jsx
+        │   └─── SignOutButton.jsx
+        └── App.css
+        └── App.jsx
+        └── authConfig.js
+        └── graph.js
+        └── index.css
+        └── index.js
+    ```
+
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -56,6 +75,25 @@ Use the following tabs to create a React project within the IDE.
     npx create-react-app reactspalocal
     cd reactspalocal
     npm start
+    ```
+
+1. Create additional folders and files to achieve the following folder structure:
+
+    ```console
+    ├─── public
+    │   └─── index.html
+    └───src
+        ├─── components
+        │   └─── PageLayout.jsx
+        │   └─── ProfileData.jsx
+        │   └─── SignInButton.jsx
+        │   └─── SignOutButton.jsx
+        └── App.css
+        └── App.jsx
+        └── authConfig.js
+        └── graph.js
+        └── index.css
+        └── index.js
     ```
 ---
 
@@ -85,11 +123,7 @@ To learn more about these packages refer to the documentation in [msal-browser](
 
 ## Creating the authentication configuration file
 
-### [Visual Studio](#tab/visual-studio)
-
-1. In the **Solution Explorer**, right-click the *src* folder and select **Add** > **New Item**.
-1. Name the file *authConfig.js*, and select **Add**.
-1. Open *authConfig.js* and replace the code with the following code snippet.
+1. In the *src* folder, open *authConfig.js* and add the following code snippet:
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
 
@@ -99,30 +133,19 @@ To learn more about these packages refer to the documentation in [msal-browser](
         - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
         - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
 
-### [Visual Studio Code](#tab/visual-studio-code)
-
-1. In the *src* folder, create a new file called *authConfig.js*.
-1. Open *authConfig.js* and add the following code snippet:
-
-   :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
-
-1. Replace the following values with the values from the Microsoft Entra admin center.
-    - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    - `authority` - This is composed of two parts:
-        - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
-        - The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
-
----
+1. Save the file.
 
 ## Modify *index.js* to include the authentication provider
 
 All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/@azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/@azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
 
-1. In the *src* folder, open the *index.js* file and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
+1. In the *src* folder, open *index.js* and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
 
     :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/index.js" :::
+
+1. Save the file.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create components for sign in and sign out in a React single-page app](single-page-app-tutorial-03-sign-in-users.md)
+> [Tutorial: Create components for sign in and sign out in a React single-page app](tutorial-single-page-app-react-sign-in-users.md)

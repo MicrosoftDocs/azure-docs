@@ -349,7 +349,7 @@ Detailed information on using automated or manual processes and tools to monitor
 
 Some environments might have regulatory requirements that limit which data (if any) can leave a given environment. If centralized monitoring across environments isn't possible, teams should have operational procedures to correlate activities of identities across environments for auditing and forensics purposes such as cross-environment lateral movement attempts. It's recommended that the object unique identifiers human identities belonging to the same person is discoverable, potentially as part of the identity provisioning systems.
 
-The log strategy must include the following Microsoft Entra ID logs for each tenant used in the organization:
+The log strategy must include the following Microsoft Entra logs for each tenant used in the organization:
 
 * Sign-in activity
 
