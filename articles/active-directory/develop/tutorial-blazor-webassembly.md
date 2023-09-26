@@ -14,13 +14,13 @@ ms.reviewer: janicericketts
 
 # Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app
 
-In this tutorial, you build a Blazor WebAssembly app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
+In this tutorial, you build a Blazor WebAssembly app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Microsoft Entra ID.
 
 In this tutorial:
 
 > [!div class="checklist"]
 >
-> - Create a new Blazor WebAssembly app configured to use Azure AD for [authentication and authorization](authentication-vs-authorization.md)
+> - Create a new Blazor WebAssembly app configured to use Microsoft Entra ID for [authentication and authorization](authentication-vs-authorization.md)
 > - Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
 
 This tutorial uses .NET Core 7.0.
@@ -30,11 +30,11 @@ We also have a [tutorial for Blazor Server](tutorial-blazor-server.md).
 ## Prerequisites
 
 - [.NET Core 7.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/7.0)
-- An Azure AD tenant where you can register an app. If you don't have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
+- A Microsoft Entra tenant where you can register an app. If you don't have access to a Microsoft Entra tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
 
 ## Register the app
 
-Every app that uses Azure AD for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these specifications:
+Every app that uses Microsoft Entra ID for authentication must be registered with Microsoft Entra ID. Follow the instructions in [Register an application](quickstart-register-app.md) with these specifications:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Set the **Redirect URI** drop down to **Single-page application (SPA)** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
@@ -61,9 +61,9 @@ You can now build and run the app. In your terminal, run the following command:
 dotnet run
 ```
 
-In your browser, navigate to `https://localhost:<port number>`, and log in using an Azure AD user account to see the app running and logging users in with the Microsoft identity platform.
+In your browser, navigate to `https://localhost:<port number>`, and log in using a Microsoft Entra user account to see the app running and logging users in with the Microsoft identity platform.
 
-The components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this article](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
+The components of this template that enable logins with Microsoft Entra ID using the Microsoft identity platform are explained in the [ASP.NET doc on this article](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
 ## Retrieving data from a protected API (Microsoft Graph)
 
@@ -75,7 +75,7 @@ Before you start, log out of your app since you'll be making changes to the requ
 
 Now you'll update your app's registration and code to pull a user's emails and display the messages within the app.
 
-First, add the `Mail.Read` API permission to the app's registration so that Azure AD is aware that the app will request to access its users' email.
+First, add the `Mail.Read` API permission to the app's registration so that Microsoft Entra ID is aware that the app will request to access its users' email.
 
 1. In the Microsoft Entra admin center, select your app in **App registrations**.
 1. Under **Manage**, select **API permissions**.

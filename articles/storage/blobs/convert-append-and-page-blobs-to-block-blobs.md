@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to convert an append blob or a page blob into a block blob in Azure Blob Storage.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: normesta

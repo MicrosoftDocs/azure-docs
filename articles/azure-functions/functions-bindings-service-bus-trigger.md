@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Service Bus trigger for Azure Functions
@@ -18,6 +18,9 @@ For information on setup and configuration details, see the [overview](functions
 
 Service Bus scaling decisions for the Consumption and Premium plans are made based on target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -102,7 +105,30 @@ Java functions can also be triggered when a message is added to a Service Bus to
     }
 ```
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a Service Bus trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusTrigger1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a Service Bus trigger [JavaScript function](functions-reference-node.md). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusTrigger1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
@@ -133,6 +159,8 @@ module.exports = async function(context, myQueueItem) {
     context.log('MessageId =', context.bindingData.messageId);
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -385,7 +413,7 @@ The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subs
 See the trigger [example](#example) for more detail.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -393,7 +421,45 @@ See the trigger [example](#example) for more detail.
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `app.serviceBusQueue()` or `app.serviceBusTopic()` methods.
+
+| Property | Description |
+|---------|----------------------|
+|**queueName**| Name of the queue to monitor. Set only if monitoring a queue, not for a topic.
+|**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|----------------------|
+|**type** |  Must be set to `serviceBusTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | The name of the variable that represents the queue or topic message in function code. |
+|**queueName**| Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+
+---
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+::: zone-end  
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -478,8 +544,18 @@ When the `Connection` property isn't defined, Functions looks for an app setting
 The incoming Service Bus message is available via a `ServiceBusQueueMessage` or `ServiceBusTopicMessage` parameter.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+Access the queue or topic message as the first argument to your function. The Service Bus message is passed into the function as either a string or JSON object.
+
+# [Model v3](#tab/nodejs-v3)
+
 Access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 The Service Bus instance is available via the parameter configured in the *function.json* file's name property.

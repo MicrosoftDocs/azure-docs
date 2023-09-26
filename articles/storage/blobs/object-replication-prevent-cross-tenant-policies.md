@@ -5,7 +5,7 @@ description: Prevent cross-tenant object replication
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 04/06/2023
 ms.author: normesta

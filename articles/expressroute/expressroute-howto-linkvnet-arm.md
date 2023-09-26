@@ -20,6 +20,8 @@ ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 
 This tutorial helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This tutorial also shows you how to update a virtual network link.
 
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Connect a virtual network in the same subscription to a circuit

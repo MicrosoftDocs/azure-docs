@@ -5,7 +5,7 @@ description: Learn how to use the .NET client library to create a previous versi
 author: akashdubey-ms
 
 ms.author: akashdubey
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/14/2023
 ms.devlang: csharp

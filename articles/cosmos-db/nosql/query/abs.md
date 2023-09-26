@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/17/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -46,7 +46,7 @@ The following example shows the results of using this function on three differen
 
 - This function benefits from the use of a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`IS_NUMBER`](is-number.md)

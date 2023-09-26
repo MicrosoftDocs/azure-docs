@@ -2,13 +2,13 @@
 title: Using Azure App Configuration in Python apps with the Azure SDK for Python | Microsoft Learn
 description: This document shows examples of how to use the Azure SDK for Python to access your data in Azure App Configuration.
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: sample
 ms.custom: devx-track-python, mode-other, engagement-fy23, py-fresh-zinc
 ms.date: 11/17/2022
-ms.author: mcleans
+ms.author: malev
 #Customer intent: As a Python developer, I want to use the Azure SDK for Python to access my data in Azure App Configuration.
 ---
 # Create a Python app with the Azure SDK for Python

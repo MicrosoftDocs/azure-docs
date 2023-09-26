@@ -1,8 +1,8 @@
 ---
 title: Service Connector internals
 description: Learn about Service Connector internals, the architecture, the connections and how data is transmitted.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, engagement-fy23
 ms.topic: conceptual

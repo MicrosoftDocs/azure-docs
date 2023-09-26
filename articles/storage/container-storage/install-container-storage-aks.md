@@ -4,7 +4,7 @@ description: Learn how to install Azure Container Storage Preview for use with A
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 09/19/2023
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -51,10 +51,7 @@ An Azure resource group is a logical group that holds your Azure resources that 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
 
-> [!IMPORTANT]
-> Azure Container Storage Preview is only available in *eastus*, *westus2*, *westus3*, and *westeurope* regions.
-
-Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with *eastus*, *westus2*, *westus3*, or *westeurope*.
+Create a resource group using the `az group create` command. Replace `<resource-group-name>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*.
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -179,12 +176,11 @@ Azure Container Service is a separate service from AKS, so you'll need to grant 
 
 # [Azure CLI](#tab/cli)
 
-Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>` and `<cluster-name>` with your own values.
+Run the following commands to assign Contributor role to AKS managed identity. Remember to replace `<resource-group>`, `<cluster-name>`, and `<azure-subscription-id>` with your own values. You can also narrow the scope to your resource group, for example `/subscriptions/<azure-subscription-id>/resourceGroups/<resource-group>`.
 
 ```azurecli-interactive
 export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
-export AKS_NODE_RG=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "nodeResourceGroup" -o tsv)
-az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --resource-group "$AKS_NODE_RG"
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Contributor" --scope "/subscriptions/<azure-subscription-id>"
 ```
 ---
 

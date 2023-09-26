@@ -111,7 +111,7 @@ Assign the API Management Configuration API Access Validator Service Role to the
 
 Create a new Azure AD app. For steps, see [Create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). This app will be used by the self-hosted gateway to authenticate to the API Management instance.
 
-* Generate a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret) 
+* Generate a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret) 
 * Take note of the following application values for use in the next section when deploying the self-hosted gateway: application (client) ID, directory (tenant) ID, and client secret
 
 #### Step 2: Assign API Management Gateway Configuration Reader Service Role

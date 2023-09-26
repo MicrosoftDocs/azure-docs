@@ -12,4 +12,4 @@ ms.custom: include file, has-azure-ad-ps-ref
 ---
 
 > [!IMPORTANT]
-> [Azure AD PowerShell](/powershell/azure/active-directory/overview) is planned to be deprecated on June 30, 2023. Microsoft recommends that you use [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview). For more information, see [Upgrade from Azure AD PowerShell to Microsoft Graph PowerShell](/powershell/microsoftgraph/migration-steps).
+> [Azure AD PowerShell](/powershell/azure/active-directory/overview) is planned to be deprecated on March 30, 2024. Microsoft recommends that you use [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview). For more information, see [Upgrade from Azure AD PowerShell to Microsoft Graph PowerShell](/powershell/microsoftgraph/migration-steps).

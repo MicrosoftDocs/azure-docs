@@ -33,7 +33,7 @@ Semantic search is a premium feature that's billed by usage. We recommend this a
 
 Semantic search is a collection of query-related capabilities that improve the quality of an initial BM25-ranked search result for text-based queries. When you enable it on your search service, semantic search extends the query execution pipeline in two ways: 
 
-* First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, using language understanding models to promote the most semantically relevant results. 
+* First, it adds secondary ranking over an initial result set that was scored using the BM25 algorithm, using multi-lingual, deep learning models adapted from Microsoft Bing to promote the most semantically relevant results. 
 
 * Second, it extracts and returns captions and answers in the response, which you can render on a search page to improve the user's search experience.
 
@@ -41,7 +41,7 @@ Here are the features of semantic search.
 
 | Feature | Description |
 |---------|-------------|
-| Semantic reranking | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
+| Semantic ranking | Uses the context or semantic meaning of a query to compute a new relevance score over existing BM25-ranked results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts verbatim sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the search results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and extra substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document has text with the characteristics of an answer. |
 
@@ -49,7 +49,7 @@ Here are the features of semantic search.
 
 Semantic ranking looks for context and relatedness among terms, elevating matches that make more sense for the query. 
 
-The following illustration explains the concept. Consider the term "capital". It has different meanings depending on whether the context is finance, law, geography, or grammar. Through language understanding, the semantic reranker can detect context and promote results that fit query intent.
+The following illustration explains the concept. Consider the term "capital". It has different meanings depending on whether the context is finance, law, geography, or grammar. Through language understanding, the semantic ranker can detect context and promote results that fit query intent.
 
 :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Illustration of vector representation for context." border="true":::
 
@@ -69,7 +69,7 @@ In semantic ranking, the query subsystem passes search results as an input to th
 
 Each document is now represented by a single long string.
 
-The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length. 
+**Maximum token counts (256)**. The string is composed of tokens, not characters or words. The maximum token count is 256 unique tokens. For estimation purposes, you can assume that 256 tokens are roughly equivalent to a string that is 256 words in length. 
 
 > [!NOTE]
 > Tokenization is determined in part by the [analyzer assignment](search-analyzers.md) on searchable fields. If you are using specialized analyzer, such as nGram or EdgeNGram, you might want to exclude that field from semantic ranking. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).

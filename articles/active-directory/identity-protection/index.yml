@@ -27,7 +27,7 @@ landingContent:
         links:
           - text: What is Microsoft Entra ID Protection?
             url: overview-identity-protection.md
-          - text: Plan an Microsoft Entra ID Protection deployment
+          - text: Plan a Microsoft Entra ID Protection deployment
             url: how-to-deploy-identity-protection.md
 
   # Card
@@ -57,4 +57,3 @@ landingContent:
         links:
           - text: Simulate Risk Detections
             url: howto-identity-protection-simulate-risk.md
-

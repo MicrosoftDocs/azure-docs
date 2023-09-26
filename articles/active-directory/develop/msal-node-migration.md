@@ -71,7 +71,7 @@ const pca = new msal.PublicClientApplication({
 ```
 
 > [!NOTE]
-> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Azure AD organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any Azure AD account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations` instead.
+> If you use the `https://login.microsoftonline.com/common` authority in v2.0, you will allow users to sign in with any Microsoft Entra organization or a personal Microsoft account (MSA). In MSAL Node, if you want to restrict login to any Microsoft Entra account (same behavior as with ADAL Node), use `https://login.microsoftonline.com/organizations` instead.
 
 On the other hand, if you're building a web app or a daemon app, you instantiate a `ConfidentialClientApplication` object. With such apps you also need to supply a *client credential*, such as a client secret or a certificate:
 

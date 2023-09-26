@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn how to launch the Immersive reader using HTML, JavaScript, Python, Android, or iOS. Immersive Reader uses proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences.
 author: rwallerms
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-js, devx-track-python
 ms.topic: how-to
 ms.date: 03/04/2021
