@@ -15,7 +15,7 @@ When you create a virtual network gateway, you need to specify the gateway SKU t
 > [!NOTE]
 > * For information about working with the legacy gateway SKUs (Basic, Standard, and HighPerformance), see [Working with VPN gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
 > * For ExpressRoute gateway SKUs, see [Virtual Network Gateways for ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
-> * For Availability Zone SKUs (*AZ SKUs), see [About Zone redundant gateway SKUs](about-zone-redundant-vnet-gateways.md).
+> * For Availability Zone SKUs (*AZ SKUs), see [About Zone redundant gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 >
 
 ###  <a name="feature"></a>Gateway SKUs by feature set
