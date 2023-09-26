@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
     Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
 * <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 * [Jupyter Notebooks](https://jupyter.org/) (optional)
-* An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](../ai-services/openai/concepts/models/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the model.
+* An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the model.
 
 ## Create an Azure Cache for Redis Instance
 
