@@ -29,7 +29,7 @@ In this tutorial:
 
 * Completion of the prerequisites and steps in [Tutorial: Create components for sign in and sign out in a React single-page app](tutorial-single-page-app-react-sign-in-users.md).
 
-## Creating a helper the Microsoft Graph client
+## Create the API call to Microsoft Graph
 
 To allow the SPA to request access to Microsoft Graph, a reference to the `graphConfig` object needs to be added. This contains the Graph REST API endpoint defined in *authConfig.js* file.
 

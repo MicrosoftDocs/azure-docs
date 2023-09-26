@@ -9,13 +9,13 @@ ms.subservice: develop
 ms.author: owenrichards
 ms.custom: devx-track-extended-java, devx-track-js
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 09/26/2023
 #Customer intent: As a React developer, I want to know how to use functional components to add sign in and sign out experiences in my React application.
 ---
 
 # Tutorial: Create components for sign in and sign out in a React single page app
 
-Functional components are the building blocks of React apps. This tutorial demonstrates how functional components can be used to build the sign in and sign out experience in a React single-page app (SPA). The `useMsal` hook is used to retrieve an access token to allow user sign in.
+Functional components are the building blocks of React apps. This tutorial demonstrates how functional components can be used to build the sign in and sign out experience in a React single-page app (SPA). The `useMsal` hook is used to retrieve an access token to allow user sign-in.
 
 In this tutorial:
 
@@ -30,7 +30,7 @@ In this tutorial:
 
 * Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](tutorial-single-page-app-react-prepare-spa.md).
 
-### Adding the page layout component
+### Add the page layout component
 
 1. Open *PageLayout.jsx* and add the following code to render the page layout. The [useIsAuthenticated](/javascript/api/@azure/msal-react) hook returns whether or not a user is currently signed-in.
 
