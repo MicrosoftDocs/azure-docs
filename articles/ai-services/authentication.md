@@ -40,7 +40,7 @@ Let's quickly review the authentication headers available for use with Azure AI 
 
 The first option is to authenticate a request with a resource key for a specific service, like Translator. The keys are available in the Azure portal for each resource that you've created. To use a resource key to authenticate a request, it must be passed along as the `Ocp-Apim-Subscription-Key` header.
 
-These sample requests demonstrates how to use the `Ocp-Apim-Subscription-Key` header. Keep in mind, when using this sample you'll need to include a valid resource key.
+These sample requests demonstrate how to use the `Ocp-Apim-Subscription-Key` header. Keep in mind, when using this sample you'll need to include a valid resource key.
 
 This is a sample call to the Translator service:
 ```cURL
