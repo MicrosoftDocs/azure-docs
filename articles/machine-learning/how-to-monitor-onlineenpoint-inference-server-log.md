@@ -33,3 +33,4 @@ Follow the steps below to collect inference server logs in AKS:
 
 1. After about 1 hour for it to take effect, you can query inference server logs from **AKS** or **Log Analytics** portal.
 
+    :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/aks-portal-query-inference-server-logs.png" alt-text="Diagram illustrating how to enable log minitor in AKS." lightbox="./media/how-to-attach-kubernetes-to-workspace/aks-portal-query-inference-server-logs.png":::
