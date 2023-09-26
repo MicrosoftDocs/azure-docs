@@ -24,7 +24,7 @@ View the list of Azure Cosmos DB for PostgreSQL clusters in your subscription.
 
 # [Direct link](#tab/direct)
 
-Go to the [list of Azure Cosmos DB for PostgreSQL clusters](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.DocumentDb%2FdatabaseAccounts) in the Azure portal.
+Go to the [list of Azure Cosmos DB for PostgreSQL clusters](https://portal.azure.com/#browse/Microsoft.DBforPostgreSQL%2FserverGroupsv2) in the Azure portal.
 
 # [Portal search](#tab/portal-search)
 
