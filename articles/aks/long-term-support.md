@@ -3,26 +3,26 @@ title: Long Term Support Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) Long Term Support for Kubernetes
 ms.topic: article
 ms.date: 08/16/2023
-
+ms.author: juda
 #Customer intent: As a cluster operator or developer, I want to understand how Long Term Support for Kubernetes on AKS works.
 ---
 
-
+# Long Term Support
 The Kubernetes community releases a new minor version approximately every four months, with a support window for each version for one year.  This support in terms of AKS is called "Community Support".
 
-AKS will support versions of Kubernetes that are within this Community Support window, as it provides bug fixes, and security updates from the community.
+AKS supports versions of Kubernetes that are within this Community Support window, to push bug fixes and security updates from community releases.
 
-Whilst the innovation that can be delivered with this release cadence provides huge benefits for our customers, it can be challenging to have to keep up to date with Kubernetes releases and this is compounded further by the amount of AKS clusters you have to maintain.  
+While innovation delivered with this release cadence provides huge benefits for our customers, it's challenging to keep up to date Kubernetes releases. This is further compounded by the amount of AKS clusters you have to maintain.  
 
-# Long Term Support
 
-Once a Kubernetes version is out of Community Support, bug fixes and suecurity update will generally not be made available and this leave unsupported Kubernetes clusters at risk.  The AKS team will be maintaining a version of Kubernetes for a period of 2 years and will also be working with the upstream LTS working group to define LTS for upstream Kubernetes. 
+## AKS support types
+Once a Kubernetes version is out of Community Support, bug fixes and security updates won't be made available. This leaves unsupported Kubernetes clusters at-risk. The AKS team maintains a version of Kubernetes for a period of two years and work with the upstream LTS (Long Term Support) working group to define LTS for upstream Kubernetes. 
 
 :::image type="content" source="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png" alt-text="Gantt chart showing the lifecycle of all Kubernetes versions currently active in AKS." lightbox="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png":::
 
-This will be made up of 1 year Community Support and 1 year of Microsoft back porting security fixes from the community upstream in our public repository.  Working with the upstream LTS working group, we hope this work can constribute our efforts back to the community whilst providing our customers with the option of a longer support window.
+AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS work group will contribute efforts back to the community to provide our customers with a longer support window.
 
-LTS is intended to give you an extended period of time to plan and test for upgrades over a 2 year period.
+LTS intends to give you an extended period of time to plan and test for upgrades over a two-year period from the General Availability of the Kubernetes version.
 
 |   | Community Support  |Long Term Support   |
 |---|---|---|
