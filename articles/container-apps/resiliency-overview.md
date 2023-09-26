@@ -1,5 +1,5 @@
 ---
-title: Container app resiliency in Azure Container Apps
+title: Resiliency policies powered by Dapr
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency in Azure Container Apps.
 services: container-apps
@@ -12,9 +12,13 @@ ms.custom: ignite-fall-2023
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
 ---
 
-# Resiliency in Azure Container Apps
+# Resiliency policies powered by Dapr
 
-Resiliency policies powered by [Dapr](https://docs.dapr.io/operations/resiliency/) enable you to detect, mitigate, and respond to failures by applying retries/back-offs, timeouts, circuit breakers, and connection pool policies to your container apps and Dapr components. 
+Dapr-driven resiliency policies empower developers to detect, mitigate, and recover from network failures by providing the ability to configure retries, timeouts, circuit breakers, and connections pools on container applications and Dapr components.
+
+In the context of Azure Container Apps, resiliency policies are configured as child resources on a container app or Dapr component. When an application initiates a network request, it’s the callee – either the container app or Dapr component associated to the resiliency policies that dictate the how timeouts, retries, and other resiliency policies should be applied.
+
+There are 3 methods for creating resiliency policies - Bicep, the CLI, and the Azure Portal.
 
 ## How do resiliency policies work?
 
@@ -107,6 +111,18 @@ Timeouts are used to early-terminate long-running operations. The timeout policy
 | `responseTimeoutInSeconds` |  |
 | `connectionTimeoutInSecionds` |  |
 
+For example:
+
+```bicep
+properties: {
+  target: 'aca-app-name'
+  timeoutPolicy: {
+      responseTimeoutInSeconds: 15
+      connectionTimeoutInSeconds: 5
+  }
+}
+```
+
 ### Retries
 
 Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
@@ -123,6 +139,44 @@ Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations
 | `matches.headers` |  |
 | `matches` |  |
 | `matches.httpStatusCodes` |  |
+
+For example:
+
+```bicep
+properties: {
+  target: 'aca-app-name'
+    httpRetryPolicy: {
+        maxRetries: 5
+        retryBackOff: {
+          initialDelayInMilliseconds: 1000
+          maxIntervalInMilliseconds: 10000
+        }
+        matches: {
+            headers: [
+                {
+                    headerMatch: {
+                        header: 'X-Content-Type'
+                        match: { 
+                            prefixMatch: 'GOATS'
+                        }
+                    }
+                }
+            ]
+            httpStatusCodes: [
+                502
+                503
+            ]
+            errors: [
+                5xx
+                connect-failure
+                reset          
+            ]
+        }
+    } 
+
+}
+```
+
 
 #### `tcpRetryPolicy`
 
@@ -286,4 +340,4 @@ Need
 
 ## Related content
 
-[See how resiliency works for Dapr components in Azure Container Apps](todo)
+[See how resiliency works for Dapr components in Azure Container Apps](./dapr-resiliency-overview.md)
