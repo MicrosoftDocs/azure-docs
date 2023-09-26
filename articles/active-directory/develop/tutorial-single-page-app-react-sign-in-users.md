@@ -9,13 +9,13 @@ ms.subservice: develop
 ms.author: owenrichards
 ms.custom: devx-track-extended-java, devx-track-js
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 09/26/2023
 #Customer intent: As a React developer, I want to know how to use functional components to add sign in and sign out experiences in my React application.
 ---
 
 # Tutorial: Create components for sign in and sign out in a React single page app
 
-Functional components are the building blocks of React apps. This tutorial demonstrates how functional components can be used to build the sign in and sign out experience in a React single-page app (SPA). The `useMsal` hook is used to retrieve an access token to allow user sign in.
+Functional components are the building blocks of React apps. This tutorial demonstrates how functional components can be used to build the sign in and sign out experience in a React single-page app (SPA). The `useMsal` hook is used to retrieve an access token to allow user sign-in.
 
 In this tutorial:
 
@@ -28,50 +28,9 @@ In this tutorial:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](single-page-app-tutorial-02-prepare-spa.md).
+* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication](tutorial-single-page-app-react-prepare-spa.md).
 
-## Adding components to the application
-
-The project needs extra files to be created for the page layout, displaying profile data, sign in and sign out options.
-
-### [Visual Studio](#tab/visual-studio)
-
-1. In the Solution Explorer, open the *src* folder.
-1. Select **Add** > **New Folder** and name it *components*.
-1. Open the *components* folder, and select **Add** > **New Item**.
-1. Search for and select **JSX file**, and create the following four files:
-    - *PageLayout.jsx*
-    - *ProfileData.jsx*
-    - *SignInButton.jsx*
-    - *SignOutButton.jsx*
-
-### [Visual Studio Code](#tab/visual-studio-code)
-
-1. Navigate to the *src* folder in the left panel.
-1. Right click on *src*, select **New Folder** and call it *components*.
-1. Right click on *components* and using the **New File** option, create the following four files;
-    - *PageLayout.jsx*
-    - *ProfileData.jsx*
-    - *SignInButton.jsx*
-    - *SignOutButton.jsx*
-
----
-
-Once complete, you should have the following folder structure.
-
-```txt
-reactspalocal/
-├── src/
-│   ├── components/
-│   │   ├── PageLayout.jsx
-│   │   ├── ProfileData.jsx
-│   │   ├── SignInButton.jsx
-│   │   └── SignOutButton.jsx
-│   └── ...
-└── ...
-```
-
-### Adding the page layout
+### Add the page layout component
 
 1. Open *PageLayout.jsx* and add the following code to render the page layout. The [useIsAuthenticated](/javascript/api/@azure/msal-react) hook returns whether or not a user is currently signed-in.
 
@@ -123,7 +82,7 @@ reactspalocal/
 
 1. Save the file.
 
-### Display profile information
+### Display profile information 
 
 1. Open the *ProfileData.jsx* and add the following code, which creates a component that displays the user's profile information:
 
@@ -254,9 +213,7 @@ reactspalocal/
 
 1. Save the file.
 
-<!-- ::: zone pivot="devlang-javascript"
-[!INCLUDE [javascript](./includes/single-page-app/javascript-tutorial-03-sign-in-users.md)]
-<!-- ::: zone-end -->
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Call an API from a React single-page app](single-page-app-tutorial-04-call-api.md)
+> [Tutorial: Call an API from a React single-page app](tutorial-single-page-app-react-call-api.md)
