@@ -19,11 +19,7 @@ The following are the major use cases:
 * Log Aggregation 
 * Stream Processing 
 
-Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The Kafka Adapters are backward compatible and support all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions.
-
-### Compression
-
-Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
+Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The Kafka Adapters are backward compatible and support all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions. Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
 
 ## Authentication and encryption
 
@@ -39,21 +35,20 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 
 > [!IMPORTANT]
-> Confluent Cloud supports authenticating using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not currently support these authentication options. There will be an update shortly to support authenticating to the confluent cloud using API Keys.
-> 
+> Confluent Cloud supports authenticating using API Keys, OAuth, or SAML single sign-on (SSO). Azure Stream Analytics does not currently support these authentication options. 
 
 
-### Key Vault integration
+### Key vault integration
 
 > [!NOTE]
-> When using trust store certificates with mTLS or SASL_SSL security protocols, you must have Azure KeyVault and managed identity configured for your Azure Stream Analytics job.
+> When using trust store certificates with mTLS or SASL_SSL security protocols, you must have Azure Key vault and managed identity configured for your Azure Stream Analytics job.
 >
 
-Azure Stream Analytics integrates seamlessly with Azure Key Vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to Azure Key Vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets.
+Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets.
 
-You can store the certificates as Key Vault certificates or Key Vault secrets. Private keys are in PEM format.
+You can store the certificates as Key vault certificates or Key vault secrets. Private keys are in PEM format.
 
-### Key Vault integration
+### VNET integration
 When configuring your Azure Stream Analytics job to connect to your Kafka clusters, depending on your configuration, you may have to configure your job to access your Kafka clusters, which are behind a firewall or inside a virtual network. You can visit the Azure Stream Analytics VNET documentation to learn more about configuring private endpoints to access resources inside a virtual network or behind a firewall.
 
 
@@ -72,7 +67,7 @@ The following table lists the property names and their description for creating 
 
 ### Limitations
 * When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units. 
-* When using mTLS or SASL_SSL with Azure Key Vault, you must convert your Java Key Store to PEM format. 
+* When using mTLS or SASL_SSL with Azure Key vault, you must convert your Java Key Store to PEM format. 
 * The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
 
 > [!NOTE]
