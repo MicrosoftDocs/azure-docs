@@ -19,11 +19,12 @@ This issue occurs if the service principal for Microsoft Playwright Testing is d
 
 ## Resolution
 
-Before you follow these steps, make sure that the following prerequisites are met:
+To resolve this issue, you need to enable the service principal for Microsoft Playwright Testing for the tenant. 
 
-- The steps are performed by a Microsoft 365 global administrator.
+> [!IMPORTANT]
+> To enable the service principal, you need to be a tenant admin.
 
-To resolve this issue, follow these steps:
+Follow these steps to enable the Microsoft Plawright Testing service principal:
 
 1. Open an elevated Windows PowerShell command prompt (run Windows PowerShell as an administrator).
  
