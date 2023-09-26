@@ -78,7 +78,7 @@ You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsFor
 By default, SharePoint Online and OneDrive have their own set of external user options and don't use the settings from Microsoft Entra ID.  You need to enable [SharePoint and OneDrive integration with Microsoft Entra B2B](/sharepoint/sharepoint-azureb2b-integration-preview) to ensure the options are consistent among those applications.
 ## Invitations have been disabled for directory
 
-If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Microsoft Entra ID > User settings > External users > Manage external collaboration settings:
+If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Identity > Users > User settings > External users > Manage external collaboration settings:
 
 :::image type="content" source="media/troubleshoot/external-user-settings.png" alt-text="Screenshot showing the External User settings.":::
 
