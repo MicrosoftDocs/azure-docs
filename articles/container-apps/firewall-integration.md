@@ -16,7 +16,7 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles environment, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. When using an external workload profiles environment, inbound traffic to Container Apps that use external Ingress routes through the public IP that exists in the [managed resource group](networking?tabs=azure-cli#workload-profiles-environment-1) rather than through your subnet. So locking down inbound traffic via NSG or Firewall on an external workload profiles environment is not supported. Learn more in the [networking concepts document](./networking.md#user-defined-routes-udr).
+In the workload profiles environment, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. When using an external workload profiles environment, inbound traffic to Container Apps that use external Ingress routes through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-1) rather than through your subnet. So locking down inbound traffic via NSG or Firewall on an external workload profiles environment is not supported. Learn more in the [networking concepts document](./networking.md#user-defined-routes-udr).
 
 In the Consumption only environment, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
 
