@@ -64,11 +64,72 @@ The sample deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` i
 
 The sample SAP library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
-Run the following command to create the deployer and the SAP library. The command adds the service principal details to the deployment key vault. If you followed the web app setup in the previous step, this command also creates the infrastructure to host the application.
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+A minimal Terraform file for the `DEPLOYER` might look like this example:
+
+    ```terraform
+    # The environment value is a mandatory field, it is used for partitioning the environments.
+    environment = "MGMT"
+    # The location/region value is a mandatory field, it is used to control where the resources are deployed
+    location = "westeurope"
+
+    # management_network_address_space is the address space for management virtual network
+    management_network_address_space = "10.10.20.0/25"
+    # management_subnet_address_prefix is the address prefix for the management subnet
+    management_subnet_address_prefix = "10.10.20.64/28"
+
+    # management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
+    management_firewall_subnet_address_prefix = "10.10.20.0/26"
+    firewall_deployment = false
+
+    # management_bastion_subnet_address_prefix is the address prefix for the bastion subnet
+    management_bastion_subnet_address_prefix = "10.10.20.128/26"
+    bastion_deployment = true
+
+    # deployer_enable_public_ip controls if the deployer Virtual machines will have Public IPs
+    deployer_enable_public_ip = false
+
+    # deployer_count defines how many deployer VMs will be deployed
+    deployer_count = 1
+
+    # use_service_endpoint defines that the management subnets have service endpoints enabled
+    use_service_endpoint = true
+
+    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+    use_private_endpoint = false
+
+    # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
+    enable_firewall_for_keyvaults_and_storage = false
+
+    # public_network_access_enabled controls if storage account and key vaults have public network access enabled
+    public_network_access_enabled = true
+
+    ```
+
+    Note the Terraform variable file locations for future edits during deployment.
+
+A minimal Terraform file for the `LIBRARY` might look like this example:
+
+    ```terraform
+    # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
+    environment = "MGMT"
+    # The location/region value is a mandatory field, it is used to control where the resources are deployed
+    location = "westeurope"
+
+    #Defines the DNS suffix for the resources
+    dns_label = "azure.contoso.net"
+
+    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+    use_private_endpoint = false
+    ```
+
+    Note the Terraform variable file locations for future edits during deployment.
+
+Run the following command to create the deployer and the SAP library. The command adds the service principal details to the deployment key vault.
 
 # [Linux](#tab/linux)
 
-You can copy the sample configuration files to start testing the deployment automation framework.
 
 Run the following command to deploy the control plane:
 
@@ -88,7 +149,6 @@ export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-auto
 
 az logout
 az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
-
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
