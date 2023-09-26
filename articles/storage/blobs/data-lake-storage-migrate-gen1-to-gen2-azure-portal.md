@@ -249,9 +249,9 @@ The following table shows the approximate speed of each migration processing tas
 
 <sup>1</sup>    The additional metadata processing time applies only if you choose the **Copy data to a new Gen2 account** option. This processing time does not apply if you choose the **Complete migration to a new gen2 account** option.
 
-##### Example: Processing a large number of objects
+##### Example: Processing a large amount of data and metadata
 
-This example assumes **300 TB** of data and **200 million** objects.
+This example assumes **300 TB** of data and **200 million** data and metadata items.
 
 | Task | Estimated time |
 |--|--|
@@ -265,13 +265,13 @@ This example assumes **300 TB** of data and **200 million** objects.
 | **Total time to perform a data-only migration** | **62 hours** |
 | **Total time to perform a complete migration**| **62 - 4 = 58 hours** |
 
-##### Example: Processing a small number of objects
+##### Example: Processing a small amount of data and metadata
 
-This example assumes that **2 TB** of data and **56 thousand** files and folders are being migrated.
+This example assumes that **2 TB** of data and **56 thousand** data and metadata items.
 
 | Task | Estimated time |
 |--|--|
-| Copy data | (2 TB / 9 TB) * 60 minutes = 12 minutes|
+| Copy data | (2 TB / 9 TB) * 60 minutes = 13.3 minutes|
 | Validate data | (56,000 / 9 million) * 3,600 seconds = 22.4 seconds  |
 | **Total data migration time** | **13.3 minutes + 22.4 seconds = approximately 14 minutes** |   
 | Copy metadata | (56,000 / 4 million) * 3,600 seconds  = approximately 51 seconds |
