@@ -123,7 +123,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
    ```
     
     > [!NOTE]
-    > The value of the `resource` parameter must be an exact match for what is expected by Azure AD. When using the Resource Manager resource ID, you must include the trailing slash on the URI. 
+    > The value of the `resource` parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Resource Manager resource ID, you must include the trailing slash on the URI. 
     
     The response includes the access token you need to access Azure Resource Manager. 
     

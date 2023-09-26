@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 ## Symptom - Custom security attributes page is disabled
 
-When signed in to the Azure portal as Global Administrator and you try to access the **Custom security attributes** page, it is disabled.
+When signed in to the [Microsoft Entra admin center](https://entra.microsoft.com) and you try to access the **Custom security attributes** page, it is disabled.
 
 ![Custom security attributes page disabled in Azure portal.](./media/custom-security-attributes-troubleshoot/attributes-disabled.png)
 
@@ -31,11 +31,11 @@ Custom security attributes require a Microsoft Entra ID P1 or P2 license.
 
 **Solution**
 
-Open **Microsoft Entra ID** > **Overview** and check the license for your tenant.
+Browse to **Identity** > **Overview** and check the license for your tenant.
 
 ## Symptom - Add attribute set is disabled
 
-When signed in to the Azure portal as Global Administrator and you try to click the **Custom security attributes** > **Add attribute set** option, it is disabled.
+When signed in to the [Microsoft Entra admin center](https://entra.microsoft.com) and you try to click the **Custom security attributes** > **Add attribute set** option, it is disabled.
 
 ![Add attribute set option disabled in Azure portal.](./media/custom-security-attributes-troubleshoot/attribute-set-add-disabled.png)
 
