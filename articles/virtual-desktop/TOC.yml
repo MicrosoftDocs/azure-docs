@@ -617,9 +617,6 @@
   - name: RDP Shortpath
     displayName: troubleshooting, network, udp
     href: troubleshoot-rdp-shortpath.md
-  - name: Sign-in screen is blank
-    displayName: troubleshooting, logon
-    href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     displayName: troubleshooting, mmr
     href: troubleshoot-multimedia-redirection.md
