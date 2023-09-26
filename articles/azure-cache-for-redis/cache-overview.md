@@ -6,10 +6,10 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 03/28/2023
+ms.date: 09/26/2023
 ---
 
-# About Azure Cache for Redis
+# What is Azure Cache for Redis?
 
 Azure Cache for Redis provides an in-memory data store based on the [Redis](https://redis.io/) software. Redis improves the performance and scalability of an application that uses backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly. Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
 
@@ -79,14 +79,14 @@ Consider the following options when choosing an Azure Cache for Redis tier:
 - **Maximum number of client connections**: The Premium and Enterprise tiers offer the maximum numbers of clients that can connect to Redis, offering higher numbers of connections for larger sized caches. Clustering increases the total amount of network bandwidth available for a clustered cache.
 - **High availability**: Azure Cache for Redis provides multiple [high availability](cache-high-availability.md) options. It guarantees that a Standard, Premium, or Enterprise cache is available according to our [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. We recommend using the Redis data persistence feature in the Premium and Enterprise tiers to increase resiliency against data loss.
 - **Data persistence**: The Premium and Enterprise tiers allow you to persist the cache data to an Azure Storage account and a Managed Disk respectively. Underlying infrastructure issues might result in potential data loss. We recommend using the Redis data persistence feature in these tiers to increase resiliency against data loss. Azure Cache for Redis offers both RDB and AOF (preview) options. Data persistence can be enabled through Azure portal and CLI. For the Premium tier, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
-- **Network isolation**: Azure Private Link and Virtual Network (VNET) deployments provide enhanced security and traffic isolation for your Azure Cache for Redis. VNET allows you to further restrict access through network access control policies. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md) and [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
+- **Network isolation**: Azure Private Link and Virtual Network (VNet) deployments provide enhanced security and traffic isolation for your Azure Cache for Redis. VNet allows you to further restrict access through network access control policies. For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md) and [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
 - **Redis Modules**: Enterprise tiers support [RediSearch](https://docs.redis.com/latest/modules/redisearch/), [RedisBloom](https://docs.redis.com/latest/modules/redisbloom/), [RedisTimeSeries](https://docs.redis.com/latest/modules/redistimeseries/), and [RedisJSON](https://docs.redis.com/latest/modules/redisjson/). These modules add new data types and functionality to Redis.
 
 You can scale your cache from the Basic tier up to Premium after it has been created. Scaling down to a lower tier isn't supported currently. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to scale - Basic, Standard, and Premium tiers](cache-how-to-scale.md#how-to-scale---basic-standard-and-premium-tiers).
 
 ### Special considerations for Enterprise tiers
 
-The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis from Redis Inc. Customers obtain and pay for a license to this software through an Azure Marketplace offer. Azure Cache for Redis manages the license acquisition so that you won't have to do it separately. To purchase in the Azure Marketplace, you must have the following prerequisites:
+The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis from Redis Inc. Customers obtain and pay for a license to this software through an Azure Marketplace offer. Azure Cache for Redis manages the license acquisition so that you don't have to do it separately. To purchase in the Azure Marketplace, you must have the following prerequisites:
 
 - Your Azure subscription has a valid payment instrument. Azure credits or free MSDN subscriptions aren't supported.
 - Your organization allows [Azure Marketplace purchases](../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases).
@@ -103,7 +103,7 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 
 Azure Cache for Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
-## Next steps
+## Related content
 
 - [Create an open-source Redis cache](quickstart-create-redis.md)
 - [Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md)
