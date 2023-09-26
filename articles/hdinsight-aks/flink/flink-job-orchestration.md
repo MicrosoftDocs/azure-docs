@@ -35,7 +35,7 @@ It is recommended to rotate access keys or secrets periodically.
     ```
 
 
-1. Create Managed Airflow [enable with Azure Key Vault to store and manage your sensitive information in a secure and centralized manner](/azure/data-factory/enable-azure-key-vault-for-managed-airflow). By doing this, you can use variables and connections, and they automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hdinsight-aks-variables then for a variable key of hello, you would want to store your Variable at hilo-variable -hello. 
+1. Create Managed Airflow [enable with Azure Key Vault to store and manage your sensitive information in a secure and centralized manner](/azure/data-factory/enable-azure-key-vault-for-managed-airflow). By doing this, you can use variables and connections, and they automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hdinsight-aks-variables then for a variable key of hello, you would want to store your Variable at hdinsight-aks-variable -hello. 
 
     - Add the following settings for the Airflow configuration overrides in integrated runtime properties: 
 
