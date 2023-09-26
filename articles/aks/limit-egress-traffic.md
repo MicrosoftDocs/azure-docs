@@ -147,6 +147,12 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you can create a route table.
 
+> [!IMPORTANT]
+> Outbound type of UDR requires a route for 0.0.0.0/0 and a next hop destination of NVA in the route table.
+> The route table already has a default 0.0.0.0/0 to the Internet. Without a public IP address for Azure to use for Source Network Address Translation (SNAT), simply adding this route won't provide you outbound Internet connectivity. AKS validates that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to a gateway, NVA, etc.
+> When using an outbound type of UDR, a load balancer public IP address for **inbound requests** isn't created unless you configure a service of type *loadbalancer*. AKS never creates a public IP address for **outbound requests** if you set an outbound type of UDR.
+> For more information, see [Outbound rules for Azure Load Balancer](../load-balancer/outbound-rules.md#scenario6out).
+
 1. Create an empty route table to be associated with a given subnet using the [`az network route-table create`][az-network-route-table-create] command. The route table will define the next hop as the Azure Firewall created above. Each subnet can have zero or one route table associated to it.
 
     ```azurecli

@@ -61,31 +61,6 @@ Here's how to generate a registration key using the Azure portal.
 
 1. Select **Download** to download a text file containing the registration key, or copy the registration key to your clipboard to use later. You can also retrieve the registration key later by returning to the host pool overview.
 
-# [Azure CLI](#tab/cli)
-
-Here's how to generate a registration key using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-2. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
-
-   ```azurecli
-   az desktopvirtualization hostpool update \
-       --name <Name> \
-       --resource-group <ResourceGroupName> \
-       --registration-info expiration-time=$(date -d '+24 hours' --iso-8601=ns) registration-token-operation="Update"
-   ```
-
-3. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
-
-   ```azurecli
-   az desktopvirtualization hostpool retrieve-registration-token \
-       --name <Name> \
-       --resource-group <ResourceGroupName> \
-       --query token --output tsv
-   ```
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -116,6 +91,32 @@ Here's how to generate a registration key using the [Az.DesktopVirtualization](/
    }
    
    (Get-AzWvdHostPoolRegistrationToken @parameters).Token
+   ```
+
+# [Azure CLI](#tab/cli)
+
+Here's how to generate a registration key using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+2. Use the `az desktopvirtualization workspace update` command with the following example to generate a registration key that is valid for 24 hours.
+
+   ```azurecli
+   az desktopvirtualization hostpool update \
+       --name <Name> \
+       --resource-group <ResourceGroupName> \
+       --registration-info expiration-time=$(date -d '+24 hours' --iso-8601=ns) registration-token-operation="Update"
+   ```
+
+3. Get the registration key and copy it to your clipboard to use later. You can also retrieve the registration key later by running this command again anytime while the registration key is valid.
+
+   ```azurecli
+   az desktopvirtualization hostpool retrieve-registration-token \
+       --name <Name> \
+       --resource-group <ResourceGroupName> \
+       --query token --output tsv
    ```
 
 ---

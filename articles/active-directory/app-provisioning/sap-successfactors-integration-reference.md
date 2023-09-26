@@ -264,7 +264,7 @@ Use the steps to update your mapping to retrieve these codes.
     | Provisioning Job                                     | Account status attribute | Mapping expression       |
     | ---------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------ |
     | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch([emplStatus], "True", "A", "False", "U", "False", "P", "False")` |
-    | SuccessFactors to Microsoft Entra User Provisioning         | `accountEnabled`           | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
+    | SuccessFactors to Microsoft Entra user provisioning         | `accountEnabled`           | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save the changes.
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
@@ -336,7 +336,7 @@ This section describes how you can update the JSONPath settings to definitely re
     | Provisioning Job | Account status attribute | Expression to use if account status is based on "activeEmploymentsCount" | Expression to use if account status is based on "emplStatus" value |
     | ----------------- | ------------------------ | ----------------------------- | ------------------------------------- |
     | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch([activeEmploymentsCount], "False", "0", "True")`                 | `Switch([emplStatus], "True", "A", "False", "U", "False", "P", "False")` |
-    | SuccessFactors to Microsoft Entra User Provisioning         | `accountEnabled`           | `Switch([activeEmploymentsCount], "True", "0", "False")`                 | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
+    | SuccessFactors to Microsoft Entra user provisioning         | `accountEnabled`           | `Switch([activeEmploymentsCount], "True", "0", "False")`                 | `Switch([emplStatus], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save your changes. 1. 
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
