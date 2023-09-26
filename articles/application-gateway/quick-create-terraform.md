@@ -45,7 +45,7 @@ In this quickstart, you use Terraform to create an Azure Application Gateway. Th
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-application-gateway/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code:
 
