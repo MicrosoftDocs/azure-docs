@@ -1,28 +1,25 @@
 ---
-title: Enable flow logging using Azure ExpressRoute Traffic Collector (Preview)
-description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature will be helpful.
+title: Azure ExpressRoute Traffic Collector (Preview)
+titleSuffix: Azure ExpressRoute
+description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature is helpful.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/21/2023
 ms.author: duau
 ms.custom: references_regions
 ---
 
-# Enable flow logging using ExpressRoute Traffic Collector (Preview)
+# Azure ExpressRoute Traffic Collector (Preview)
 
-ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute Direct circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis, export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logging can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
-
-> [!IMPORTANT]
-> ExpressRoute Traffic Collector is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute Direct circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 
 :::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 
 ## Use cases
 
-Flow logs can help you derive various traffic insights. Most common use cases are:
+Flow logs can help you look into various traffic insights. Some common use cases are:
 
 ### Network monitoring
 
@@ -44,7 +41,7 @@ Flow logs can help you derive various traffic insights. Most common use cases ar
 
 ## Flow log collection and sampling
 
-ExpressRoute Traffic Collector enables flow collection for Azure private peering and Microsoft peering. Flow logs are collected every minute. All packets collected for a given flow gets aggregated and imported into a Log Analytics workspace for further analysis. During flow collection, not every packet is captured into its own flow record. ExpressRoute Traffic Collector uses a sampling rate of 1:4096, meaning 1 out of every 4096 packets gets captured. Therefore, sampling rate short flows (in total bytes) may not get collected. This sampling size doesn't affect network traffic analysis when sampled data is aggregated over a longer period of time. Flow collection time and sampling rate are fixed and can't be changed.
+Flow logs are collected at an interval of every 1 minute. All packets collected for a given flow get aggregated and imported into a Log Analytics workspace for further analysis. During flow collection, not every packet is captured into its own flow record. ExpressRoute Traffic Collector uses a sampling rate of 1:4096, meaning 1 out of every 4096 packets gets captured. Therefore, sampling rate short flows (in total bytes) may not get collected. This sampling size doesn't affect network traffic analysis when sampled data is aggregated over a longer period of time. Flow collection time and sampling rate are fixed and can't be changed.
 
 ## Flow log schema
 
@@ -95,15 +92,56 @@ ExpressRoute Traffic Collector enables flow collection for Azure private peering
 
 ExpressRoute Traffic Collector is supported in the following regions:
 
+### North America
+- Canada East
+- Canada Central
 - Central US
-- East US
-- East US 2
+- Central US EUAP
 - North Central US 
 - South Central US 
-- West Central US 
+- West Central US
+- East US
+- East US 2
 - West US 
 - West US 2 
 - West US 3
+
+### South America
+- Brazil South
+- Brazil Southeast
+
+### Europe
+- West Europe
+- North Europe
+- UK South
+- UK West
+- France Central
+- France South
+- Germany North
+- Sweden Central
+- Sweden South
+- Switzerland North
+- Switzerland West
+- Norway East
+- Norway West
+
+### Asia
+- East Asia
+- Central India
+- South India
+- Japan West
+- Korea South
+- UAE North
+
+### Africa
+- South Africa North
+- South Africa West
+
+### Pacific
+- Australia Central
+- Australia Central 2
+- Australia East
+- Australia Southeast
 
 ## Next steps
 

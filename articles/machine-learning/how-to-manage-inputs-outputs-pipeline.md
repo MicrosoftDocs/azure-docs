@@ -79,7 +79,7 @@ The following screenshots provide an example of how inputs and outputs are displ
 
 In the pipeline job page of studio, the asset type inputs/output of a component is shown as a small circle in the corresponding component, known as the Input/Output port. These ports represent the data flow in a pipeline. 
 
-The pipeline level input/output is displayed as a purple box for easy identification.
+The pipeline level output is displayed as a purple box for easy identification.
 
 
 :::image type="content" source="./media/how-to-manage-pipeline-input-output/input-output-port.png" lightbox="./media/how-to-manage-pipeline-input-output/input-output-port.png" alt-text="Screenshot highlighting the pipeline input and output port.":::
@@ -194,7 +194,7 @@ The end to end notebook example in [azureml-example repo](https://github.com/Azu
 
 ### Studio
 
-You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double click the component -> find the input you'd like to promote -> Select the three dots on the right -> Select Add to pipeline input. 
+You can promote a component's input to pipeline level input in designer authoring page. Go to the component's setting panel by double clicking the component -> find the input you'd like to promote -> Select the three dots on the right -> Select Add to pipeline input. 
 
  :::image type="content" source="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" lightbox="./media/how-to-manage-pipeline-input-output/promote-pipeline-input.png" alt-text="Screenshot highlighting how to promote to pipeline input in designer.":::
 
@@ -203,7 +203,12 @@ You can promote a component's input to pipeline level input in designer authorin
 
 By default, all inputs are required and must be assigned a value (or a default value) each time you submit a pipeline job. However, there may be instances where you need optional inputs. In such cases, you have the flexibility to not assign a value to the input when submitting a pipeline job. 
 
-For example, if you have an optional input with data/model type and you don't assign a value when submitting the pipeline job, there will be a component in the pipeline that doesn't have upstream data dependency (the input port isn't connected to any component or data/model node). The pipeline service invokes this component directly rather than waiting upstream dependency to be ready.
+Optional input can be useful in below two scenarios:
+
+- If you have an optional data/model type input and don't assign a value to it when submitting the pipeline job, there will be a component in the pipeline that lacks a preceding data dependency. In other words, the input port isn't linked to any component or data/model node. This causes the pipeline service to invoke this component directly, instead of waiting for the preceding dependency to be ready.
+- Below screenshot provides a clear example of the second scenario. If you set `continue_on_step_failure = True` for the pipeline and have a second node (node2) that uses the output from the first node (node1) as an optional input, node2 will still be executed even if node1 fails. However, if node2 is using required input from node1, it will not be executed if node1 fails.
+ 
+     :::image type="content" source="./media/how-to-manage-pipeline-input-output/continue-on-failure-optional-input.png" lightbox="./media/how-to-manage-pipeline-input-output/continue-on-failure-optional-input.png" alt-text="Screenshot to show the orchestration logic of optional input and continue on failure.":::
 
 Following are examples about how to define optional input.
 

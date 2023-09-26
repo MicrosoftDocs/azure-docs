@@ -1,6 +1,6 @@
 ---
-title: Azure AD app consent experiences
-description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
+title: Microsoft Entra app consent experiences
+description: Learn more about the Microsoft Entra consent experiences to see how you can use it when managing and developing applications on Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -14,9 +14,9 @@ ms.author: jomondi
 ms.reviewer: jesakowi, asteen, jawoods
 ---
 
-# Consent experience for applications in Azure Active Directory
+# Consent experience for applications in Microsoft Entra ID
 
-In this article, you'll learn about the Azure Active Directory (Azure AD) application consent user experience. You'll then be able to intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
+In this article, you'll learn about the Microsoft Entra application consent user experience. You'll then be able to intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
 
 Consent is the process of a user granting authorization to an application to access protected resources on their behalf. An admin or user can be asked for consent to allow access to their organization/individual data.
 
@@ -92,7 +92,7 @@ In this scenario, an administrator consents to all of the permissions that an ap
 
  :::image type="content" source="./media/consent-framework/grant-consent.png" alt-text="Screenshot of explicit admin consent through the Azure portal." lightbox="./media/consent-framework/grant-consent.png":::
 
-All users in that tenant won't see the consent dialog unless the application requires new permissions. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+All users in that tenant won't see the consent dialog unless the application requires new permissions. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Microsoft Entra ID](../roles/permissions-reference.md).
 
    > [!IMPORTANT]
    > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use MSAL.js. Otherwise, the application fails when the access token is requested.
@@ -122,6 +122,6 @@ This section outlines the common issues with the consent experience and possible
 For troubleshooting steps, see [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 ## Next steps
 
-- Get a step-by-step overview of [how the Azure AD consent framework implements consent](./quickstart-register-app.md).
+- Get a step-by-step overview of [how the Microsoft Entra consent framework implements consent](./quickstart-register-app.md).
 - For more depth, learn [how a multi-tenant application can use the consent framework](./howto-convert-app-to-be-multi-tenant.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
 - Learn [how to configure the app's publisher domain](howto-configure-publisher-domain.md).

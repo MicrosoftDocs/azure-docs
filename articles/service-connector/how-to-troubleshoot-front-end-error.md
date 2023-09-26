@@ -1,8 +1,8 @@
 ---
 title: Service Connector troubleshooting guidance
 description: This article lists error messages and suggested actions of Service Connector to use for troubleshooting issues.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: troubleshooting
 ms.date: 5/25/2022

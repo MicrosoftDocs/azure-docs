@@ -38,6 +38,10 @@ The current list of supported commands are
   Command Name: `mde-agent-information`\
   Arguments: None
 
+- Collect Dell Hardware Rollup Status\
+  Command Name: `hardware-rollup-status`\
+  Arguments: None
+
 The command syntax is:
 
 ```azurecli-interactive
@@ -69,6 +73,16 @@ az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" 
   --resource-group "resourceGroupName" \
   --subscription "subscription" \
   --commands '[{"command":"mde-agent-information"}]' \
+  --limit-time-seconds 600
+```
+
+This example executes the `hardware-rollup-status` command without arguments.
+
+```azurecli
+az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
+  --resource-group "resourceGroupName" \
+  --subscription "subscription" \
+  --commands '[{"command":"hardware-rollup-status"}]' \
   --limit-time-seconds 600
 ```
 
@@ -119,4 +133,19 @@ Writing to /hostfs/tmp/runcommand
 ================================
 Script execution result can be found in storage account:
  https://cmzhnh6bdsfsdwpbst.blob.core.windows.net/bmm-run-command-output/f5962f18-2228-450b-8cf7-cb8344fdss63b0-action-bmmdataextcmd.tar.gz?se=2023-07-26T19%3A07%3A22Z&sig=X9K3VoNWRFP78OKqFjvYoxubp65BbNTq%2BGnlHclI9Og%3D&sp=r&spr=https&sr=b&st=2023-07-26T15%3A07%3A22Z&sv=2019-12-12
+```
+
+Data is collected with the `hardware-rollup-status` command and formatted as JSON to `/hostfs/tmp/runcommand/rollupStatus.json`. The JSON file is found
+in the data extract zip file located in the storage account.
+
+```azurecli
+====Action Command Output====
+Executing hardware-rollup-status command
+Getting rollup status logs for b37dev03a1c002
+Writing to /hostfs/tmp/runcommand
+
+
+================================
+Script execution result can be found in storage account:
+https://cmkfjft8twwpst.blob.core.windows.net/bmm-run-command-output/20b217b5-ea38-4394-9db1-21a0d392eff0-action-bmmdataextcmd.tar.gz?se=2023-09-19T18%3A47%3A17Z&sig=ZJcsNoBzvOkUNL0IQ3XGtbJSaZxYqmtd%3D&sp=r&spr=https&sr=b&st=2023-09-19T14%3A47%3A17Z&sv=2019-12-12
 ```

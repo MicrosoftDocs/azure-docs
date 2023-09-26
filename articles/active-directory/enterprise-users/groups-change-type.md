@@ -16,9 +16,9 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Change static group membership to dynamic in Azure Active Directory
+# Change static group membership to dynamic in Microsoft Entra ID
 
-You can change a group's membership from static to dynamic (or vice-versa) In Azure Active Directory (Azure AD), part of Microsoft Entra. Azure AD keeps the same group name and ID in the system, so all existing references to the group are still valid. If you create a new group instead, you would need to update those references. Dynamic group membership eliminates management overhead adding and removing users. This article tells you how to convert existing groups from static to dynamic membership using either Azure portal or PowerShell cmdlets.
+You can change a group's membership from static to dynamic (or vice-versa) In Microsoft Entra ID, part of Microsoft Entra. Microsoft Entra ID keeps the same group name and ID in the system, so all existing references to the group are still valid. If you create a new group instead, you would need to update those references. Dynamic group membership eliminates management overhead adding and removing users. This article tells you how to convert existing groups from static to dynamic membership using either Azure portal or PowerShell cmdlets.
 
 > [!WARNING]
 > When changing an existing static group to a dynamic group, all existing members are removed from the group, and then the membership rule is processed to add new members. If the group is used to control access to apps or resources, be aware that the original members might lose access until the membership rule is fully processed.
@@ -30,7 +30,7 @@ You can change a group's membership from static to dynamic (or vice-versa) In Az
 The following steps can be performed using an account that has either the Global administrator, user administrator or groups administrator roles assigned. 
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1.  **Groups**.
 1. From the **All groups** list, open the group that you want to change.
 1. Select **Properties**.
@@ -50,7 +50,7 @@ The following steps are an example of changing a group from static to dynamic me
 4. Select **Save** on the **Properties** page for the group to save your changes. The **Membership type** of the group is immediately updated in the group list.
 
 > [!TIP]
-> Group conversion might fail if the membership rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid. For examples of rule syntax and a complete list of the supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
+> Group conversion might fail if the membership rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid. For examples of rule syntax and a complete list of the supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Microsoft Entra ID](groups-dynamic-membership.md).
 
 ## Change membership type for a group (PowerShell)
 
@@ -115,7 +115,7 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 
 ## Next steps
 
-These articles provide additional information on groups in Azure Active Directory.
+These articles provide additional information on groups in Microsoft Entra ID.
 
 * [See existing groups](../fundamentals/groups-view-azure-portal.md)
 * [Create a new group and adding members](../fundamentals/how-to-manage-groups.md)
