@@ -447,7 +447,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 3. Open a web browser on **VM-Onprem**, and browse to http://\<VM-spoke-01 private IP\>.
 
    You should see the **VM-spoke-01** web page:
-   ![VM-Spoke-01 web page](media/secure-hybrid-network/vm-spoke-01-web.png)
+   :::image type="content" source="media/secure-hybrid-network/vm-spoke-01-web.png" alt-text="Screenshot showing vm-spoke-01 web page.":::
 
 4. From the **VM-Onprem** virtual machine, open a remote desktop to **VM-spoke-01** at the private IP address.
 
