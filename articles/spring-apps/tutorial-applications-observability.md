@@ -63,7 +63,7 @@ To see the built-in example query statements or to write your own queries, open 
 
 To see the application logs containing the terms "error" or "exception", select **Alerts** on the **Queries** page, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
 
-The following query shows the application logs from the last hour that contain the terms "error" or "exception". You can customize the query with any keyword you want to search for.
+The following query shows the application logs from the last hour that contains the terms "error" or "exception". You can customize the query with any keyword you want to search for.
 
 ```sql
 AppPlatformLogsforSpring
