@@ -77,7 +77,7 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 |**Pin to**|Pin your query to a [workbook](../visualize/workbooks-overview.md), or an [Azure dashboard](../visualize/tutorial-logs-dashboards.md) or [Grafana dashboard](../visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).|
 | **Format query** | Format query text in advanced mode. |
 | **Search job mode** | [Run a search job](../logs/search-jobs.md). |
-| **Switch back to classic Logs** | Switch back to the classic Log Analytics user interface. |
+| **Switch back to classic Logs** | Switch back to the [classic Log Analytics user interface](../logs/log-analytics-overview.md). |
 
 ## Get started in simple mode
 
