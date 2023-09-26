@@ -46,7 +46,7 @@ Try the following fixes:
 - When running in Azure:
     - Make sure you're using [Azure Functions Runtime Version](./functions-versions.md) 4.25 or higher.
     - Make sure you're using Node.js v18 or higher.
-    - Set the app setting [`FUNCTIONS_NODE_BLOCK_ON_ENTRY_POINT_ERROR`](./functions-app-settings.md#functions_node_block_on_entry_point_error) to `1`. This setting is recommended for all model v4 apps and ensures that all entry point errors are visible in your application insights logs.
+    - Set the app setting `FUNCTIONS_NODE_BLOCK_ON_ENTRY_POINT_ERROR` to `true`. This setting is recommended for all model v4 apps and ensures that all entry point errors are visible in your application insights logs. For more information, see [App settings reference for Azure Functions](./functions-app-settings.md#functions_node_block_on_entry_point_error).
     - Check your function app logs for entry point errors. The following example query shows how to view entry point errors for your app in the past day:
 
         ```kusto

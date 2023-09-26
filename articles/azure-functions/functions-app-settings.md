@@ -321,19 +321,18 @@ The following major runtime version values are supported:
 
 ## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
 
-This app setting was added as a temporary way for apps on Node.js v18 and lower to replicate a breaking change introduced in Node.js v20+. Starting in Node.js v20, Azure Functions treats entry point errors as blocking errors and log the errors in Application Insights. In Node.js v18 or lower, entry point errors are ignored as warnings and aren't visible in Application Insights.
+This app setting is a temporary way for Node.js apps to enable a breaking change that makes entry point errors easier to troubleshoot. It's highly recommended to set this to `true` on Node.js v18 or lower, especially for programming model v4 apps which always use entry point files. The behavior without the breaking change treats entry point errors as warnings and will not log them in Application Insights.
 
-For Node.js v20+, this app setting has no effect. For Node.js v18 or lower, the default behavior depends on your programming model version:
-- Model v3: The default value for the app setting is `0`.
-- Model v4: The default value for the app setting depends on if the error happens before or after the first model v4 function is registered (by calling `app.http()`, `app.timer()`, etc.).
-    - If the error is thrown before, the default behavior matches a setting value of `0`. For example, if your entry point file doesn't exist, the error is ignored.
-    - If the error is thrown after, the default behavior matches a setting value of `1`. For example, if you try to register the same function name a second time, the error blocks your app from running and is logged in app insights.
+Starting with Node.js v20, the app setting has no effect and the breaking change behavior is always enabled.
 
-This setting is most applicable to model v4 apps, because they require entry point files unlike model v3. It's highly recommended to set the app setting to `1`, because ignoring entry point errors can lead to unexpected behavior (like "No functions found"). Since the ignored warnings don't show up in app insights, it can be difficult to troubleshoot any problems. When changing the setting to `1`, you may need to fix any errors that were previously ignored.
+For Node.js v18 or lower, the app setting can be used and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+- If the error is thrown before, the default behavior matches `false`. For example, if you are using model v3 or your entry point file doesn't exist.
+- If the error is thrown after, the default behavior matches `true`. For example, if you try to register duplicate functions.
 
-|Key|Sample value|
-|---|------------|
-|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`1`|
+|Key|Value|Description|
+|---|-----|-----------|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Treat entry point errors as blocking errors and log them in App Insights.|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Treat entry point errors as ignore-able warnings and don't log them in App Insights.|
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
