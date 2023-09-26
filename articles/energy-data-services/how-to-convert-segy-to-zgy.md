@@ -175,7 +175,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
     }'
     ```
 
-7. Open the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. See [How to generate a refresh token](how-to-generate-refresh-token.md) to generate the required refresh token. Once you've generated the token, store it in a place where you'll be able to access it in the future.
+7. Open the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil) codebase and edit the `config.yaml` at the root. Replace the contents of this config file with the following yaml. See [How to generate a refresh token](how-to-generate-refresh-token.md) to generate the required refresh token. Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
     ```yaml
     seistore:
@@ -198,7 +198,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
         empty: none
     ```
 
-8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](./tutorial-seismic-ddms-sdutil.md). See [How to generate a refresh token](how-to-generate-refresh-token.md). Once you've generated the token, store it in a place where you'll be able to access it in the future.
+8. Run the following commands using **sdutil** to see its working fine.  Follow the directions in [Setup and Usage for Azure env](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil#setup-and-usage-for-azure-env). Understand that depending on your OS and Python version, you may have to run `python3` command as opposed to `python`. If you run into errors with these commands, refer to the [SDUTIL tutorial](./tutorial-seismic-ddms-sdutil.md). See [How to generate a refresh token](how-to-generate-refresh-token.md). Once you've generated the token, store it in a place where you'll be able to access it in the future.
 
     > [!NOTE]
     > when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
@@ -305,7 +305,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
     python sdutil ls sd://<data-partition>/<subproject>
     ```
 
-15. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) `cp` command:
+15. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil) `cp` command:
 
     ```bash
     python sdutil cp sd://<data-partition>/<subproject>/<filename.zgy> <local/destination/path>

@@ -3,7 +3,7 @@ title: How to use the 'blobfuse2 completion powershell' command to generate the 
 titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 completion powershell' command to generate the autocompletion script for BlobFuse2.
 author: jimmart-dev
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: jammart

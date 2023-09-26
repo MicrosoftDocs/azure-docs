@@ -6119,6 +6119,11 @@
             "source_path_from_root": "/articles/cognitive-services/Translator/quickstart-translator-sdk.md",
             "redirect_url": "/azure/ai-services/Translator/quickstart-text-sdk",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-services/computer-vision/how-to/install-sdk.md",
+            "redirect_url": "/articles/ai-services/computer-vision/sdk/install-sdk",
+            "redirect_document_id": false
         }
     ]
 }

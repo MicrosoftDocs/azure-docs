@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/02/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Blob storage input binding for Azure Functions
@@ -14,6 +14,9 @@ The input binding allows you to read blob storage data as input to an Azure Func
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+[!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
 
@@ -117,7 +120,30 @@ This section contains the following examples:
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ::: zone-end  
+::: zone pivot="programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobInputAndOutput1.ts" :::
+
+# [Model v3](#tab/nodejs-v3)
+
+TypeScript samples are not documented for model v3.
+
+---
+
+::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following example shows a queue triggered [JavaScript function](functions-reference-node.md) that makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobInputAndOutput1.js" :::
+
+# [Model v3](#tab/nodejs-v3)
 
 The following example shows blob input and output bindings in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
@@ -162,6 +188,8 @@ module.exports = async function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
 };
 ```
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -355,7 +383,7 @@ For Python functions defined by using *function.json*, see the [Configuration](#
 The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#example) for details.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 ::: zone-end
 
@@ -363,7 +391,34 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 _Applies only to the Python v1 programming model._
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+The following table explains the properties that you can set on the `options` object passed to the `input.storageBlob()` method.
+
+| Property | Description |
+|---------|------------------------|
+|**path** | The path to the blob. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+
+# [Model v3](#tab/nodejs-v3)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+| Property | Description |
+|---------|----------------------|
+|**type** | Must be set to `blob`. |
+|**direction** | Must be set to `in`. Exceptions are noted in the [usage](#usage) section. |
+|**name** | The name of the variable that represents the blob in function code.|
+|**path** | The path to the blob. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file. 
 
@@ -406,8 +461,17 @@ If you get an error message when trying to bind to one of the Storage SDK types,
 ::: zone pivot="programming-language-java"
 The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#example) for details.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
-Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*.
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+# [Model v4](#tab/nodejs-v4)
+
+Access the blob data by using `context.extraInputs.get()`.
+
+# [Model v3](#tab/nodejs-v3)
+
+Access the blob data by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
+
+---
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.

@@ -5,8 +5,7 @@ description: Learn how to set up Bring your own storage (BYOS) Speech resource.
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.author: alexeyo 
@@ -93,7 +92,7 @@ To use any of the methods above you need an Azure account that is assigned a rol
 
 To create a BYOS-enabled Speech resource with Azure portal, you need to access some portal preview features. Perform the following steps:
 
-1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
 1. Note the *Storage account* section at the bottom of the page.
 1. Select *Yes* for *Bring your own storage* option.
 1. Configure the required Storage account settings and proceed with the Speech resource creation.
@@ -206,7 +205,7 @@ You may always check, whether any given Speech resource is BYOS enabled, and wha
 
 To check BYOS configuration of a Speech resource with Azure portal, you need to access some portal preview features. Perform the following steps:
 
-1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&feature.canmodifystamps=true&Microsoft_Azure_ProjectOxford=stage1&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
+1. Navigate to *Create Speech* page using [this link](https://ms.portal.azure.com/?feature.enablecsumi=true&feature.enablecsstoragemenu=true&microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_byospreview#create/Microsoft.CognitiveServicesSpeechServices).
 1.  Close *Create Speech* screen by pressing *X* in the right upper corner.
 1.  If asked agree to discard unsaved changes.
 1.  Navigate to the Speech resource you want to check.

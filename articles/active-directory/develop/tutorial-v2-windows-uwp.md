@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 
 In this tutorial, you build a native Universal Windows Platform (UWP) app that signs in users and gets an access token to call the Microsoft Graph API. 
 
-At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory (Azure AD).
+At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Microsoft Entra ID.
 
 In this tutorial:
 
@@ -389,10 +389,10 @@ Now, register your application:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application, for example `UWP-App-calling-MSGraph`. Users of your app might see this name, and you can change it later.
-1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. 
+1. Under **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**. 
 1. Select **Register**.
 1. On the overview page, find the **Application (client) ID** value and copy it. Go back to Visual Studio, open *MainPage.xaml.cs*, and replace the value of `ClientId` with this value.
 
@@ -411,7 +411,7 @@ Configure API permissions for your application:
 
 ## Enable integrated authentication on federated domains (optional)
 
-To enable integrated Windows authentication when it's used with a federated Azure AD domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
+To enable integrated Windows authentication when it's used with a federated Microsoft Entra domain, the application manifest must enable additional capabilities. Go back to your application in Visual Studio.
 
 1. Open *Package.appxmanifest*.
 1. Select **Capabilities**, and enable the following settings:
@@ -421,7 +421,7 @@ To enable integrated Windows authentication when it's used with a federated Azur
    * **Shared User Certificates**
 
 > [!IMPORTANT]
-> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need integrated Windows authentication with a federated Azure AD domain.
+> [Integrated Windows authentication](https://aka.ms/msal-net-iwa) isn't configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need integrated Windows authentication with a federated Microsoft Entra domain.
 
 ## Alternate approach to using WithDefaultRedirectURI()
 
@@ -492,7 +492,7 @@ To test your application, select the **F5** key to run your project in Visual St
 
 ![Application's user interface](./media/tutorial-v2-windows-uwp/testapp-ui-vs2019.png)
 
-When you're ready to test, select **Call Microsoft Graph API**. Then use an Azure AD organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. The first time a user runs this test, the application displays a window asking the user to sign in.
+When you're ready to test, select **Call Microsoft Graph API**. Then use a Microsoft Entra organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. The first time a user runs this test, the application displays a window asking the user to sign in.
 
 ### Consent
 
@@ -525,7 +525,7 @@ Users might be prompted for additional consents as you increase the number of sc
 
 ### Issue 1
 
-You receive one of the following error messages when you sign in on your application on a federated Azure AD domain:
+You receive one of the following error messages when you sign in on your application on a federated Microsoft Entra domain:
 
 * "No valid client certificate found in the request."
 * "No valid certificates found in the user's certificate store."

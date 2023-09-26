@@ -269,7 +269,7 @@ The count of trace statements logged with the TrackTrace() Application Insights 
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * Learn about [Log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
 * [Log-based metrics queries and definitions](../essentials/app-insights-metrics.md).

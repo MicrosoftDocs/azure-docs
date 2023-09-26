@@ -44,7 +44,9 @@ Once the VM is started, the tag can be removed by using following command:
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## Transferring a subscription between Azure AD directories
+<a name='transferring-a-subscription-between-azure-ad-directories'></a>
+
+## Transferring a subscription between Microsoft Entra directories
 
 Managed identities don't get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
 
@@ -53,7 +55,7 @@ Workaround for managed identities in a subscription that has been moved to anoth
  - For system assigned managed identities: disable and re-enable. 
  - For user assigned managed identities: delete, re-create, and attach them again to the necessary resources (for example, virtual machines)
 
-For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
+For more information, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Error during managed identity assignment operations
 In rare cases, you may see error messages indicating errors related to assignment of managed identities with Azure resources. Some of the example error messages are as follows: 

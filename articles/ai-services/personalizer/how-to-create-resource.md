@@ -4,8 +4,7 @@ description: In this article, learn how to create a personalizer resource in the
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 03/26/2020 
 ms.custom: devx-track-azurecli

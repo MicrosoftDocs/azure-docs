@@ -5,18 +5,15 @@ description: Use the Read 3.2 OCR containers from Azure AI Vision to extract tex
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 03/02/2023
+ms.date: 08/29/2023
 ms.author: pafarley
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 
 # Install Azure AI Vision 3.2 GA Read OCR container
-
-[!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
 Containers enable you to run the Azure AI Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run the Read (OCR) container.
 
@@ -50,12 +47,6 @@ You must meet the following prerequisites before using the containers:
 |Computer Vision resource |In order to use the container, you must have:<br><br>A **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-
-## Request approval to run the container
-
-Fill out and submit the [request form](https://aka.ms/csgate) to request approval to run the container. 
-
-[!INCLUDE [Request access to run the container](../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 

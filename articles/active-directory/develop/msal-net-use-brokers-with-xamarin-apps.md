@@ -182,7 +182,7 @@ Add the redirect URI to the app's registration. To generate a properly formatted
 **To generate the redirect URI:**
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
-1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Search for and select the application.
 1. Select **Authentication** > **Add a platform** > **iOS / macOS**
 1. Enter your bundle ID, and then select **Configure**.

@@ -34,7 +34,7 @@ This article shows you how to call a protected ASP.NET Core web API using Client
 ::: zone pivot="no-api"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/). 
-- This Azure account must have permissions to manage applications. Any of the following Azure Active Directory (Azure AD) roles include the required permissions:
+- This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
   - Application administrator 
   - Application developer 
   - Cloud application administrator 
@@ -46,7 +46,7 @@ This article shows you how to call a protected ASP.NET Core web API using Client
 ::: zone pivot="api"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/). 
-- This Azure account must have permissions to manage applications. Any of the following Azure Active Directory (Azure AD) roles include the required permissions:
+- This Azure account must have permissions to manage applications. Any of the following Microsoft Entra roles include the required permissions:
   - Application administrator 
   - Application developer 
   - Cloud application administrator 
@@ -72,7 +72,7 @@ Follow these steps to create the web API registration:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.  
-1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.  
 1. Enter a **Name** for the application, such as *NewWebAPI1*.  
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select **Help me choose** option.  
@@ -118,7 +118,7 @@ Follow these steps to create the web app registration:
 
 ::: zone pivot="no-api"
 
-1. Select **Home** to return to the home page. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Select **Home** to return to the home page. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for the application, such as `web-app-calls-web-api`. 
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option. 
@@ -131,7 +131,7 @@ Follow these steps to create the web app registration:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.  
-1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.  
 1. Enter a Name for the application, such as `web-app-calls-web-api`. 
 1. For **Supported account types**, select **Accounts in this organizational directory only**. For information on different account types, select the **Help me choose** option. 
@@ -258,10 +258,10 @@ The authorization code flow begins with the client directing the user to the `/a
    ``` 
 
 1. Copy the URL, replace the following parameters and paste it into your browser: 
-   - `{tenant_id}` is the web app **Directory (tenant) ID**. This should be the same value across both of the applications's **Overview** pane **App registrations**.  
+   - `{tenant_id}` is the web app **Directory (tenant) ID**.  
    - `{web-app-calls-web-api_application_client_id}` is the **Application (client) ID** on the web app's (*web-app-calls-web-api*) **Overview** pane.
    - `{web_API_application_client_id}` is the **Application (client) ID** on the web API's (*NewWebAPI1*) **Overview** pane.
-1. Sign in as a user in the Azure AD tenant in which the apps are registered. Consent to any requests for access, if necessary.  
+1. Sign in as a user in the Microsoft Entra tenant in which the apps are registered. Consent to any requests for access, if necessary.  
 1. Your browser will be redirected to `http://localhost/`. Refer to your browser's navigation bar and copy the `{authorization_code}` to use in the following steps. The URL takes the form of the following snippet:  
 
    ```http
@@ -283,7 +283,7 @@ cURL can now be used to request an access token from the Microsoft identity plat
    -d 'grant_type=authorization_code' \
    -d 'client_secret={client_secret}'
    ``` 
-   - `{tenant_id}` is the web app **Directory (tenant) ID**. This should be the same value across both of the applications's **Overview** pane **App registrations**. 
+   - `{tenant_id}` is the web app **Directory (tenant) ID**.
    - `client_id={web-app-calls-web-api_application_client_id}`, and `session_state={web-app-calls-web-api_application_client_id}` is the **Application (client) ID** on the web application's (*web-app-calls-web-api*) **Overview** pane. 
    - `api://{web_API_application_client_id}/Forecast.Read` is the **Application (client) ID** on the web API's (*NewWebAPI1*) **Overview** pane. 
    - `code={authorization_code}` is the authorization code that was received in [Request an authorization code](#request-an-authorization-code). This enables the cURL tool to request an access token. 

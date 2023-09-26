@@ -24,7 +24,8 @@ To get started, you'll need:
 
 - A Nevis demo account
   - Go to nevis.net for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/) to request an account
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 

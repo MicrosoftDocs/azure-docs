@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Conditional Access for workload identities 
+title: Microsoft Entra Conditional Access for workload identities 
 description: Protecting workload identities with Conditional Access policies
 
 services: active-directory
@@ -29,12 +29,12 @@ These differences make workload identities harder to manage and put them at high
 
 > [!IMPORTANT]
 > Workload Identities Premium licenses are required to create or modify Conditional Access policies scoped to service principals. 
-> In directories without appropriate licenses, existing Conditional Access policies for workload identities will continue to function, but can't be modified. For more information, see [Microsoft Entra Workload Identities](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).  
+> In directories without appropriate licenses, existing Conditional Access policies for workload identities will continue to function, but can't be modified. For more information, see [Microsoft Entra Workload ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-workload-identities#office-StandaloneSKU-k3hubfz).  
 
 > [!NOTE]
 > Policy can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities are not covered by policy. 
 
-Conditional Access for workload identities enables blocking service principals from outside of trusted public IP ranges, or based on risk detected by Azure AD Identity Protection.
+Conditional Access for workload identities enables blocking service principals from outside of trusted public IP ranges, or based on risk detected by Microsoft Entra ID Protection.
 
 ## Implementation
 
@@ -73,7 +73,7 @@ Create a risk-based Conditional Access policy that applies to service principals
    1. Set the **Configure** toggle to **Yes**.
    1. Select the levels of risk where you want this policy to trigger.
    1. Select **Done**.
-1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
+1. Under **Grant**, **Block access** is the only available option. Access is blocked when the specified risk levels are seen.
 1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
 1. Select **Create** to complete your policy.
 
@@ -100,7 +100,7 @@ To view results of a risk-based policy, refer to the **Report-only** tab of even
 
 ### Finding the objectID
 
-You can get the objectID of the service principal from Azure AD Enterprise Applications. The Object ID in Azure AD App registrations can’t be used. This identifier is the Object ID of the app registration, not of the service principal.
+You can get the objectID of the service principal from Microsoft Entra Enterprise Applications. The Object ID in Microsoft Entra App registrations can’t be used. This identifier is the Object ID of the app registration, not of the service principal.
 
 1. Browse to **Identity** > **Applications** > **Enterprise Applications**, find the application you registered.
 1. From the **Overview** tab, copy the **Object ID** of the application. This identifier is the unique to the service principal, used by Conditional Access policy to find the calling app.

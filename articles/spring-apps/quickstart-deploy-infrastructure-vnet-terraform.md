@@ -49,13 +49,13 @@ For more customization including custom domain support, see the [Azure Spring Ap
 
 The configuration file used in this quickstart is from the [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
-### [Standard plan](#tab/azure-spring-apps-standard)
-
-:::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
-
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
 :::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Enterprise/main.tf":::
+
+### [Standard plan](#tab/azure-spring-apps-standard)
+
+:::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
 
 ---
 

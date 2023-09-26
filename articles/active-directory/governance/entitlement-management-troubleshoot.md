@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot entitlement management
-description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management.
+description: Learn about some items you should check to help you troubleshoot Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -26,23 +26,23 @@ This article describes some items you should check to help you troubleshoot enti
 
 ## Administration
 
-* If you get an access denied message when configuring entitlement management, and you're a Global administrator, ensure that your directory has an [Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance (or EMS E5) license](entitlement-management-overview.md#license-requirements).  If you've recently renewed an expired Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance subscription, then it may take 8 hours for this license renewal to be visible.
+* If you get an access denied message when configuring entitlement management, and you're a Global administrator, ensure that your directory has an [Microsoft Entra ID P2 or Microsoft Entra ID Governance (or EMS E5) license](entitlement-management-overview.md#license-requirements).  If you've recently renewed an expired Microsoft Entra ID P2 or Microsoft Entra ID Governance subscription, then it may take 8 hours for this license renewal to be visible.
 
-* If your tenant's Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance license has expired, then you won't be able to process new access requests or perform access reviews.  
+* If your tenant's Microsoft Entra ID P2 or Microsoft Entra ID Governance license has expired, then you won't be able to process new access requests or perform access reviews.  
 
 * If you get an access denied message when creating or viewing access packages, and you're a member of a Catalog creator group, you must [create a catalog](entitlement-management-catalog-create.md) prior to creating your first access package.
 
 ## Resources
 
-* Roles for applications are defined by the application itself and are managed in Azure AD. If an application doesn't have any resource roles, entitlement management assigns users to a **Default Access** role.
+* Roles for applications are defined by the application itself and are managed in Microsoft Entra ID. If an application doesn't have any resource roles, entitlement management assigns users to a **Default Access** role.
 
     The Microsoft Entra admin center may also show service principals for services that can't be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they can't be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
 
 * Applications that only support Personal Microsoft Account users for authentication, and don't support organizational accounts in your directory, don't have application roles and can't be added to access package catalogs.
 
-* For a group to be a resource in an access package, it must be able to be modifiable in Azure AD.  Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Azure AD.   Groups that originate in Exchange Online as Distribution groups can't be modified in Azure AD either. 
+* For a group to be a resource in an access package, it must be able to be modifiable in Microsoft Entra ID.  Groups that originate in an on-premises Active Directory can't be assigned as resources because their owner or member attributes can't be changed in Microsoft Entra ID.   Groups that originate in Exchange Online as Distribution groups can't be modified in Microsoft Entra ID either. 
 
-* SharePoint Online document libraries and individual documents can't be added as resources.  Instead, create an [Azure AD security group](../fundamentals/how-to-manage-groups.md), include that group and a site role in the access package, and in SharePoint Online use that group to control access to the document library or document.
+* SharePoint Online document libraries and individual documents can't be added as resources.  Instead, create an [Microsoft Entra security group](../fundamentals/how-to-manage-groups.md), include that group and a site role in the access package, and in SharePoint Online use that group to control access to the document library or document.
 
 * If there are users that have already been assigned to a resource that you want to manage with an access package, be sure that the users are assigned to the access package with an appropriate policy. For example, you might want to include a group in an access package that already has users in the group. If those users in the group require continued access, they must have an appropriate policy for the access packages so that they don't lose their access to the group. You can assign the access package by either asking the users to request the access package containing that resource, or by directly assigning them to the access package. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
 
@@ -69,13 +69,13 @@ This article describes some items you should check to help you troubleshoot enti
 
 * When a user who isn't yet in your directory signs in to the My Access portal to request an access package, be sure they authenticate using their organizational account. The organizational account can be either an account in the resource directory, or in a directory that is included in one of the policies of the access package. If the user's account isn't an organizational account, or the directory where they authenticate isn't included in the policy, then the user won't see the access package. For more information, see [Request access to an access package](entitlement-management-request-access.md).
 
-* If a user is blocked from signing in to the resource directory, they won't be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Microsoft Entra admin center, select **Identity**, select **Users**, select the user, and then select **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Azure Active Directory](../fundamentals/how-to-manage-user-profile-info.md).  You can also check if the user was blocked due to an [Identity Protection policy](../identity-protection/howto-identity-protection-remediate-unblock.md).
+* If a user is blocked from signing in to the resource directory, they won't be able to request access in the My Access portal. Before the user can request access, you must remove the sign-in block from the user's profile. To remove the sign-in block, in the Microsoft Entra admin center, select **Identity**, select **Users**, select the user, and then select **Profile**. Edit the **Settings** section and change **Block sign in** to **No**. For more information, see [Add or update a user's profile information using Microsoft Entra ID](../fundamentals/how-to-manage-user-profile-info.md).  You can also check if the user was blocked due to an [Identity Protection policy](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * In the My Access portal, if a user is both a requestor and an approver, they won't see their request for an access package on the **Approvals** page. This behavior is intentional - a user can't approve their own request. Ensure that the access package they're requesting has additional approvers configured on the policy. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
 
 ### View a request's delivery errors
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -103,7 +103,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 - If the error wasn't fixed during the trials window, the request status may be **Delivery failed** or **partially delivered**. You can then use the **reprocess** button. You'll have seven days to reprocess the request.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -121,7 +121,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 You can only cancel a pending request that hasn't yet been delivered or whose delivery has failed.The **cancel** button would be grayed out otherwise.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
