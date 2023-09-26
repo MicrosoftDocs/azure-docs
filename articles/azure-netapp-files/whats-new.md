@@ -25,7 +25,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure NetApp Files customer-managed keys for Azure NetApp Files volume encryption is now available in select US Gov regions (Preview)](configure-customer-managed-keys.md#supported-regions)
 
-    Customer keys are protected from attacks for maximum security of their Azure NetApp File volumes. This capability is now available US Gov Virginia (preview). This increased security complements the additional security for deployments in US Gov. Healthcare, Finance, Government, and many other customers can now protect their customer managed encryption keys within the secure confines of US Gov Virginia region.
+    Customer keys are protected from attacks for maximum security of their Azure NetApp File volumes. This capability is now available US Gov Virginia (preview). This increased security complements the additional security for deployments in US Gov. Healthcare, Finance, Government, and many other customers can now protect their customer-managed encryption keys within the secure confines of US Gov Virginia region.
 
 * [Standard network features in select US Gov regions (Preview)](azure-netapp-files-network-topologies.md)
 
