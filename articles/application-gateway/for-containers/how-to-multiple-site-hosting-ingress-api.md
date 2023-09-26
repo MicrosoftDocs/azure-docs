@@ -19,7 +19,7 @@ This document helps you set up an example application that uses the Ingress API 
 
 Application Gateway for Containers enables multi-site hosting by allowing you to configure more than one web application on the same port. Two or more unique sites can be hosted using unique backend services. See the following example scenario:
 
-![A figure showing multisite hosting with Application Gateway for Containers.](./media/how-to-multiple-site-hosting-ingress-api/multiple-site-hosting.png)
+![A diagram showing multisite hosting with Application Gateway for Containers.](./media/how-to-multiple-site-hosting-ingress-api/multiple-site-hosting.png)
 
 ## Prerequisites
 
