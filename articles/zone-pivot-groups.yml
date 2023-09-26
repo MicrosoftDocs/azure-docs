@@ -448,7 +448,7 @@ groups:
   prompt: Choose a programming model
   pivots:
   - id: nodejs-model-v4
-    title: v4 (preview)
+    title: v4
   - id: nodejs-model-v3
     title: v3
 - id: functions-container-hosting
