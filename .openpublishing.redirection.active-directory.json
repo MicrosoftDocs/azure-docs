@@ -256,11 +256,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory-domain-services/TOC.yml",
-      "redirect_url": "/entra/identity/domain-services/TOC",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory-domain-services/troubleshoot-account-lockout.md",
       "redirect_url": "/entra/identity/domain-services/troubleshoot-account-lockout",
       "redirect_document_id": false
