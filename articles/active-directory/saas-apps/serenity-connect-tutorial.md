@@ -86,7 +86,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	[ ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")] (common/copy-metadataurl.png#lightbox)
+	[ ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate") ](common/copy-metadataurl.png#lightbox)
 
 ### Create a Microsoft Entra ID test user
 
