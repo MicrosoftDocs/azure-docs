@@ -136,5 +136,5 @@ Use [Get Artifacts by type](https://api-portal.videoindexer.ai/api-details#api=O
 - Up to 20 detections per frame for standard and advanced processing.
 - The video area should not exceed 1920 x 1080 pixels.
 - Object size should not be greater than 90 percent of the frame.
-- 
-
+- A very high frame rate (> 30 FPS) may result in slower indexing, with little added value to the quality of the detection and tracking.
+- Other factors that may affect the accuracy of the object detection include low light conditions, camera motion, and occlusion.
