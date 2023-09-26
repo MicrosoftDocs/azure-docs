@@ -41,7 +41,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
     |---------|---------|
     |NFVI Name     |  Enter nginx_NFVI.       |
     |NFVI Type     |   Select Azure Core.      |
-    |NFVI Location    |    Select UF South     |
+    |NFVI Location    |    Select UK South.     |
 
     :::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
 
