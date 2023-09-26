@@ -33,12 +33,12 @@ The following sections describe each step in additional detail.
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-If you'd like to continue using your existing app registration for your applications, use the Azure portal to update the registration's redirect URIs to the SPA platform. Doing so enables the authorization code flow with PKCE and CORS support for apps that use the registration (you still need to update your application's code to MSAL.js v2.x).
+If you'd like to continue using your existing app registration for your applications, use the Microsoft Entra admin center to update the registration's redirect URIs to the SPA platform. Doing so enables the authorization code flow with PKCE and CORS support for apps that use the registration (you still need to update your application's code to MSAL.js v2.x).
 
 Follow these steps for app registrations that are currently configured with **Web** platform redirect URIs:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select your **Azure Active Directory** tenant.
-1. In **App registrations**, select your application, and then **Authentication**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** >  **Applications** > **App registrations**, select your application, and then **Authentication**.
 1. In the **Web** platform tile under **Redirect URIs**, select the warning banner indicating that you should migrate your URIs.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Implicit flow warning banner on web app tile in Azure portal":::

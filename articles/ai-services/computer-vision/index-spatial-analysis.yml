@@ -7,8 +7,7 @@ metadata:
   title: Spatial Analysis documentation - Quickstarts, Tutorials, API Reference - Azure AI services | Microsoft Docs
   description: The Spatial Analysis service helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, run AI operations to extract insights from the video streams, and generate events to be used by other systems.
   services: cognitive-services
-  ms.service: cognitive-services
-  ms.subservice: computer-vision
+  ms.service: azure-ai-vision
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley

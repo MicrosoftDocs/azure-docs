@@ -55,6 +55,8 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)

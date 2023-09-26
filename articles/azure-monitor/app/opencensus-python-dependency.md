@@ -10,6 +10,9 @@ ms.reviewer: mmcc
 
 # Track dependencies with OpenCensus Python
 
+> [!NOTE]
+> [OpenCensus Python SDK is deprecated](https://opentelemetry.io/blog/2023/sunsetting-opencensus/), but Microsoft supports it until retirement on September 30, 2024. We now recommend the [OpenTelemetry-based Python offering](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable?tabs=python) and provide [migration guidance](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-python-opencensus-migrate?tabs=aspnetcore).
+
 A dependency is an external component that is called by your application. Dependency data is collected using OpenCensus Python and its various integrations. The data is then sent to Application Insights under Azure Monitor as `dependencies` telemetry.
 
 First, instrument your Python application with latest [OpenCensus Python SDK](./opencensus-python.md).

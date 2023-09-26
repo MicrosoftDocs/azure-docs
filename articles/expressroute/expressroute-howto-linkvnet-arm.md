@@ -20,6 +20,8 @@ ms.custom: seodec18, devx-track-azurepowershell, template-tutorial
 
 This tutorial helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This tutorial also shows you how to update a virtual network link.
 
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Connect a virtual network in the same subscription to a circuit
@@ -231,7 +233,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 > 
 
 > [!NOTE]
-> FastPath and Private Link feature onboarding requires time to be enabled after request. You can expect about two weeks of delay until request is completed, so we encourage you to plan your deployment in advance with these timelines into consideration.
+> Enabling FastPath Private Link support for limited GA scenarios may take upwards of 2 weeks to complete. Please plan your deployment(s) in advance.
 > 
 
 ## Enroll in ExpressRoute FastPath features (preview)

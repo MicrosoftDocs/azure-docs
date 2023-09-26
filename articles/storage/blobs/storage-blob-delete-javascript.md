@@ -14,6 +14,8 @@ ms.custom: devx-track-js, devguide-js
 
 # Delete and restore a blob with JavaScript
 
+[!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
+
 This article shows how to delete blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
 
 ## Prerequisites

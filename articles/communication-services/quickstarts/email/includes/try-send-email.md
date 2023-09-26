@@ -32,7 +32,7 @@ To send a message to a recipient, and to specify the message subject and body,
 
 2. Select one of the verified domains from drop-down.
 
-   :::image type="content" source="../media/try-email-domains-selected-domain.png" alt-text="Screenshot that shows the left navigation panel for Try Email." lightbox="../media/try-email-domains-select.png":::
+   :::image type="content" source="../media/try-email-domains-selected-domain.png" alt-text="Screenshot that shows the verfied domain from drop-down." lightbox="../media/try-email-domains-select.png":::
 
 3. Compose the email to send
     - Enter Recipient email address
@@ -47,14 +47,14 @@ To send a message to a recipient, and to specify the message subject and body,
    
 5. Email Sent Successfully.
  
-    :::image type="content" source="../media/try-email-sent-success.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/try-email-sent-success.png":::
+    :::image type="content" source="../media/try-email-sent-success.png" alt-text="Screenshot that shows successful email send." lightbox="../media/try-email-sent-success.png":::
    
 6. You can now also copy the sample *Code Snippet* to send an email to use in your sample project to send notifications.
    - Select Language of your choice
    - Click Insert my Connection
    - Click Copy
 
-     :::image type="content" source="../media/try-email-codesnippet-connection-string.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/try-email-codesnippet-connection-string.png":::
+     :::image type="content" source="../media/try-email-code-snippet-connection-string.png" alt-text="Screenshot that shows code snippet to send email." lightbox="../media/try-email-code-snippet-connection-string.png":::
         
 7. Email Code Snippet is now ready to use in your notification project. 
    

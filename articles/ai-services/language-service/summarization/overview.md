@@ -5,8 +5,7 @@ description: Learn about summarizing text.
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 01/12/2023
 ms.author: jboback

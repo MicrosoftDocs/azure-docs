@@ -3,6 +3,8 @@ title: Set up and manage self-service access to VMware resources through Azure R
 description: Learn how to manage access to your on-premises VMware resources through Azure Role-Based Access Control (RBAC). 
 ms.topic: how-to
 ms.date: 08/21/2023
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 # Customer intent: As a VI admin, I want to manage access to my vCenter resources in Azure so that I can keep environments secure
 ---
 
