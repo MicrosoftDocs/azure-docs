@@ -1655,6 +1655,8 @@
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
+      - name: MIC SAAS Portal
+        href: mic-saas-portal-tutorial.md
       - name: MiHCM
         href: mihcm-tutorial.md  
       - name: Mimecast
