@@ -41,4 +41,10 @@ landingContent:
         links:
           - text: How to disable events and delete events enabled workspaces
             url: events-disable-delete-workspace.md
-   
+
+  - title: Consume FHIR events with Logic Apps
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: How to consume FHIR events with Logic Apps to enable automation workflows
+            url: events-consume-logic-apps.md 
