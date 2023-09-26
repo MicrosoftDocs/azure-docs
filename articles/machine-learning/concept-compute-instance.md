@@ -52,11 +52,13 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
-You can run Jupyter notebooks in [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) using compute instance as the remote server with no SSH needed. You can also enable VS Code integration through [remote SSH extension](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+You can run notebooks from [your Azure Machine Learning workspace](./how-to-run-jupyter-notebooks.md), [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io) or [VS Code for the Web](./how-to-launch-vs-code-remote.md).
+ 
+We recommend you try VS Code for the Web to take advantage of the rich development environment it provides.  VS Code (Web) gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing.  For more information about using VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
 
 You can [install packages](how-to-access-terminal.md#install-packages) and [add kernels](how-to-access-terminal.md#add-new-kernels) to your compute instance.
 
-Following tools and environments are already installed on the compute instance:
+The following tools and environments are already installed on the compute instance:
 
 |General tools & environments|Details|
 |----|:----:|
