@@ -109,11 +109,11 @@ Name resolution of the resources in other namespaces from VMs connected to the m
 For more information about managing DNS, see the [DNS tools article on Technet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753579(v=ws.11)).
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[expressroute]: ../expressroute/expressroute-introduction.md
-[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+[expressroute]: /azure/expressroute/expressroute-introduction
+[vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm
