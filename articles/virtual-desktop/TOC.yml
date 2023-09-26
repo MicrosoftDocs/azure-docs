@@ -90,11 +90,11 @@
         displayName: connections
         href: network-connectivity.md
       - name: RDP Shortpath
-        displayName: network, udp
+        displayName: network connectivity, connections, udp
         href: rdp-shortpath.md
-      - name: Implement Quality of Service
-        displayName: network, qos
-        href: rdp-quality-of-service-qos.md
+      - name: Azure Private Link
+        displayName: network connectivity, connections, private endpoints
+        href: private-link-overview.md
       - name: Required URL list
         displayName: network, urls, firewall, connections, connectivity
         href: safe-url-list.md
@@ -103,9 +103,9 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Azure Private Link
-        displayName: network, private endpoints
-        href: private-link-overview.md
+      - name: Implement Quality of Service
+        displayName: network, qos
+        href: rdp-quality-of-service-qos.md
     - name: Identity and access management
       items:
       - name: Identities and authentication

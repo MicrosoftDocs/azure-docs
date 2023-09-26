@@ -572,6 +572,8 @@
         href: cognidox-tutorial.md
       - name: Cognician
         href: cognician-tutorial.md
+      - name: CoLab
+        href: colab-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Colloquial
@@ -1005,6 +1007,8 @@
         href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
+      - name: Flock Safety
+        href: flock-safety-tutorial.md
       - name: FloQast
         href: floqast-tutorial.md
       - name: Fluxx Labs
@@ -1091,6 +1095,8 @@
         href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: Glia Hub
+        href: glia-hub-tutorial.md
       - name: Glint Inc
         href: glint-inc-tutorial.md  
       - name: GlobalOne
@@ -1111,6 +1117,8 @@
         href: grape-tutorial.md
       - name: Grammarly
         href: grammarly-tutorial.md  
+      - name: Granite
+        href: granite-tutorial.md
       - name: Greenhouse
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
@@ -1129,6 +1137,8 @@
         href: gtnexus-sso-module-tutorial.md  
       - name: Guardium Data Protection
         href: guardium-data-protection-tutorial.md
+      - name: Guru
+        href: guru-tutorial.md
     - name: H - I
       items:
       - name: Hackerone
@@ -1309,6 +1319,8 @@
         href: insideview-tutorial.md
       - name: Insight4GRC
         href: insight4grc-tutorial.md
+      - name: Insightly SAML
+        href: insightly-saml-tutorial.md
       - name: Insignia SAML SSO
         href: insigniasamlsso-tutorial.md
       - name: Insperity ExpensAble
@@ -1647,6 +1659,8 @@
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
+      - name: MIC SAAS Portal
+        href: mic-saas-portal-tutorial.md
       - name: MiHCM
         href: mihcm-tutorial.md  
       - name: Mimecast
@@ -2039,6 +2053,8 @@
         href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
         href: proprofs-knowledge-base-tutorial.md
+      - name: Prosci Portal
+        href: prosci-portal-tutorial.md
       - name: Proto.io
         href: proto.io-tutorial.md
       - name: Proware
@@ -2163,6 +2179,8 @@
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
         href: rstudio-server-pro-tutorial.md
+      - name: RoleMapper
+        href: rolemapper-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
@@ -2437,6 +2455,8 @@
         href: speexx-tutorial.md  
       - name: Splashtop
         href: splashtop-tutorial.md
+      - name: SPS|Production Manager
+        href: sps-production-manager-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
         href: splunkenterpriseandsplunkcloud-tutorial.md
       - name: Spotinst

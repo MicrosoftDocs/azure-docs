@@ -249,7 +249,7 @@ By default, only MSAL apps invoke the SSO Extension, and then in turn the Extens
    |**1** |**All Items**|Shows all types of credentials across Keychain Access|
    |**2** |**Keychain Search Bar**|Allows filtering by credential. To filter for the Microsoft Entra PRT type **`primaryrefresh`**|
    |**3** |**Kind**|Refers to the type of credential. The Microsoft Entra PRT credential is an **Application Password** credential type|
-   |**4** |**Account**|Displays the Microsoft Entra User Account, which owns the PRT in the format: **`UserObjectId.TenantId-login.windows.net`**   |
+   |**4** |**Account**|Displays the Microsoft Entra user account, which owns the PRT in the format: **`UserObjectId.TenantId-login.windows.net`**   |
    |**5** |**Where**|Displays the full name of the credential. The Microsoft Entra PRT credential begins with the following format: **`primaryrefreshtoken-29d9ed98-a469-4536-ade2-f981bc1d605`** The **29d9ed98-a469-4536-ade2-f981bc1d605** is the Application ID for the **Microsoft Authentication Broker** service, responsible for handling PRT acquisition requests|
    |**6** |**Modified**|Shows when the credential was last updated. For the Microsoft Entra PRT credential, anytime the credential is bootstrapped or updated by an interactive sign-on event it updates the date/timestamp|
    |**7** |**Keychain**  |Indicates which Keychain the selected credential resides.  The Microsoft Entra PRT credential resides in the **Local Items** or **iCloud** Keychain. When iCloud is enabled on the macOS device, the **Local Items** Keychain will become the **iCloud** keychain|  
