@@ -11,7 +11,7 @@ ms.date: 08/04/2023
 ms.custom: known-issue
 ---
 
-# Known issue  - Existing Kubernetes compute can't be update with `az ml compute attach` command
+# Known issue  - Existing Kubernetes compute can't be updated with `az ml compute attach` command
 
 Updating a Kubernetes attached compute instance using the `az ml attach` command appears to succeed but doesn't.
  
