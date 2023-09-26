@@ -11,9 +11,9 @@ You can use Bicep to create a new resource group. This article shows you how to 
 
 ## Define resource group
 
-To create a resource group, define a [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) resource with a name and location for the resource group.
+To create a resource group with Bicep, define a [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) resource with a name and location for the resource group.
 
-The following example creates an empty resource group. Notice that its target scope is `subscription`.
+The following example shows a Bicep file that creates an empty resource group. Notice that its target scope is `subscription`.
 
 ```bicep
 targetScope='subscription'
@@ -50,11 +50,11 @@ New-AzSubscriptionDeployment `
   -resourceGroupLocation centralus
 ```
 
-### Create resource group and resources
+## Create resource group and resources
 
 To create the resource group and deploy resources to it, add a module that defines the resources to deploy to the resource group. Set the scope for the module to the symbolic name for the resource group you create. You can deploy to up to 800 resource groups.
 
-The following example creates a resource group, and deploys a storage account to the resource group. Notice that the `scope` property for the module is set to `newRG`, which is the symbolic name for the resource group that is being created.
+The following example shows a Bicep file that creates a resource group, and deploys a storage account to the resource group. Notice that the `scope` property for the module is set to `newRG`, which is the symbolic name for the resource group that is being created.
 
 ```bicep
 targetScope='subscription'
@@ -98,7 +98,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Create resource group during resource group deployment
 
-You can also create a resource group during a resource group level deployment. For that scenario, you deploy to an existing resource group and switch to the level of a subscription to create a resource group. The following template creates a new resource group in the specified subscription. The module that creates the resource group is the same as the example that creates the resource group.
+You can also create a resource group during a resource group level deployment. For that scenario, you deploy to an existing resource group and switch to the level of a subscription to create a resource group. The following Bicep file creates a new resource group in the specified subscription. The module that creates the resource group is the same as the example that creates the resource group.
 
 ```bicep
 param secondResourceGroup string
