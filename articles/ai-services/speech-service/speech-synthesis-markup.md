@@ -5,8 +5,7 @@ description: Learn how to use the Speech Synthesis Markup Language to control pr
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 8/16/2023
 ms.author: eur

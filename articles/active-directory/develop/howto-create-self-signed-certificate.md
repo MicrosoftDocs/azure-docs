@@ -20,7 +20,7 @@ ms.custom: scenarios:getting-started, engagement-fy23
 
 Microsoft Entra ID supports two types of authentication for service principals: **password-based authentication** (app secret) and **certificate-based authentication**. While app secrets can easily be created in the Azure portal or using a Microsoft API like Microsoft Graph, they're long-lived, and not as secure as certificates. It's therefore recommended that your application uses a certificate rather than a secret.
 
-For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. In this how-to, you'll use Windows PowerShell to create and export a self-signed certificate.
+For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. In this how-to, you'll use PowerShell to create and export a self-signed certificate.
 
 > [!CAUTION]
 > Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
@@ -44,7 +44,7 @@ To customize the start and expiry date and other properties of the certificate, 
 
 ## Create and export your public certificate
 
-Use the certificate you create using this method to authenticate from an application running from your machine. For example, authenticate from Windows PowerShell.
+Use the certificate you create using this method to authenticate from an application running from your machine. For example, authenticate from PowerShell.
 
 In a PowerShell prompt, run the following command and leave the PowerShell console session open. Replace `{certificateName}` with the name that you wish to give to your certificate.
 

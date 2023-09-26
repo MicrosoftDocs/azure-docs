@@ -36,7 +36,7 @@ To obtain the list of objects in your tenant with LargeObject errors, use one of
 ## Mitigation options
 Until the LargeObject error is resolved, other attribute changes to the same object cannot be exported to Microsoft Entra ID. To resolve the error, you can consider the following options:
 
- * Upgrade Azure AD Connect to build 1.1.524.0 or after. In Azure AD Connect build 1.1.524.0, the out-of-box synchronization rules have been updated to not export attributes userCertificate and userSMIMECertificate if the attributes have more than 15 values. For details on how to upgrade Azure AD Connect, refer to article [Microsoft Entra Connect: Upgrade from a previous version to the latest](./how-to-upgrade-previous-version.md).
+ * Upgrade Microsoft Entra Connect to build 1.1.524.0 or after. In Microsoft Entra Connect build 1.1.524.0, the out-of-box synchronization rules have been updated to not export attributes userCertificate and userSMIMECertificate if the attributes have more than 15 values. For details on how to upgrade Microsoft Entra Connect, refer to article [Microsoft Entra Connect: Upgrade from a previous version to the latest](./how-to-upgrade-previous-version.md).
 
  * Implement an **outbound sync rule** in Microsoft Entra Connect that exports a **null value instead of the actual values for objects with more than 15 certificate values**. This option is suitable if you do not require any of the certificate values to be exported to Microsoft Entra ID for objects with more than 15 values. For details on how to implement this sync rule, refer to next section [Implementing sync rule to limit export of userCertificate attribute](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
@@ -71,7 +71,7 @@ Ensure no synchronization takes place while you are in the middle of implementin
 2. Disable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
-> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
+> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Microsoft Entra Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Microsoft Entra Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
 1. Start the **Synchronization Service Manager** by going to START → Synchronization Service.
 
@@ -177,7 +177,7 @@ Now that the issue is resolved, re-enable the built-in sync scheduler:
 2. Re-enable scheduled synchronization by running cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
-> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
+> The preceding steps are only applicable to newer versions (1.1.xxx.x) of Microsoft Entra Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Microsoft Entra Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

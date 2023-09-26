@@ -79,7 +79,7 @@ Identify data to migrate.
 
 Deploy a new Azure Health Data Services FHIR Service server.
 - First, deploy an Azure Health Data Services workspace.
-  
+
 - Then deploy an Azure Health Data Services FHIR Service server. More information: [Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
   
 - Configure your new Azure Health Data Services FHIR Service server. If you need to use the same configurations as you have in Azure API for FHIR for your new server, see the recommended list of what to check for in the [migration tool documentation](https://go.microsoft.com/fwlink/?linkid=2248324). Configure the settings before you migrate.

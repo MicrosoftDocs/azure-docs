@@ -113,7 +113,7 @@ You need to do perform this action for both $UPN_employee and $UPN_manager
 
 After editing the script, save it and follow these steps:
 
- 1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Microsoft Entra admin center.
+1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Microsoft Entra admin center.
 1. Navigate to the saved PowerShell script location and run it.
 1. If prompted select **Yes to all** when installing the Azure AD PowerShell module.
 1. When prompted, sign in to the Microsoft Entra admin center with a global administrator for your tenant.
