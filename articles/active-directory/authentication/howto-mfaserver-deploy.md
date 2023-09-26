@@ -122,7 +122,7 @@ Follow these steps to download the Microsoft Entra multifactor authentication Se
 > Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual. The following steps only work if you were an existing MFA Server customer.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
-1. Browse to **Protection** > **multifactor authentication** > **Server settings**.
+1. Browse to **Protection** > **Multifactor authentication** > **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 
    ![Download MFA Server](./media/howto-mfaserver-deploy/downloadportal.png)

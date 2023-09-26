@@ -451,7 +451,7 @@ Use Event Viewer to look for the log entries that are logged by the Microsoft En
    > [!NOTE]
    > The CloudAP plug-in logs error events in the operational logs, and it logs the info events in the analytics logs. The analytics and operational log events are both required to troubleshoot issues. 
 
-1. Event 1006 in the analytics logs denotes the start of the PRT acquisition flow, and event 1007 in the analytics logs denotes the end of the PRT acquisition flow. All events in the Microsoft Entra ID logs (analytics and operational) that are logged between events 1006 and 1007 were logged as part of the PRT acquisition flow. 
+1. Event 1006 in the analytics logs denotes the start of the PRT acquisition flow, and event 1007 in the analytics logs denotes the end of the PRT acquisition flow. All events in the Microsoft Entra logs (analytics and operational) that are logged between events 1006 and 1007 were logged as part of the PRT acquisition flow.
 
 1. Event 1007 logs the final error code.
 
