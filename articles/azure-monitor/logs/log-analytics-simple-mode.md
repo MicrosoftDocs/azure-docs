@@ -28,7 +28,7 @@ The new Log Analytics is currently in preview and available to a limited number 
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
-## Explore simple mode
+## The simple mode experience
 
 This section explains the elements of the Log Analytics simple mode experience.
 
@@ -101,6 +101,9 @@ To get started in simple mode:
 - Select a [function](../logs/functions.md).
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-functions.png" alt-text="Screenshot that shows the functions tab in Log Analytics."::: 
+
+    > [!IMPORTANT]
+    > Functions let you reuse query logic and often require input parameters or additional context. In such cases, the function won't run until you switch to advanced mode and provide the required input.  
   
 ## Explore and analyze data in simple mode 
 
