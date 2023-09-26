@@ -98,7 +98,7 @@ If you have already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
-- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
+- [The latest .NET 7.0 SDK.](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 :::zone-end
 
@@ -205,7 +205,7 @@ In this step, you fork a demo project to deploy.
 
 :::zone target="docs" pivot="development-environment-azd"
 
-This quickstart uses the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) both to create Azure resources and deploy code to it. For more information about Azure Azure Developer CLI, visit the [documentation](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) or [training path](/training/paths/azure-developer-cli/).
+This quickstart uses the [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) both to create Azure resources and deploy code to it. For more information about Azure Developer CLI, visit the [documentation](/azure/developer/azure-developer-cli/install-azd?tabs=winget-windows%2Cbrew-mac%2Cscript-linux&pivots=os-windows) or [training path](/training/paths/azure-developer-cli/).
 
 Retrieve and initialize [the ASP.NET Core web app template](https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git) for this quickstart using the following steps:
 
@@ -795,7 +795,7 @@ azd up
 
 `azd up` will skip the provisioning resources step this time and only redeploy your code, since there have been no changes to the Bicep files.
 
-Once deployment has completed, the browser will open to the updated updated ASP.NET Core 7.0 web app.
+Once deployment has completed, the browser will open to the updated ASP.NET Core 7.0 web app.
 
 :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
 
