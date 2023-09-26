@@ -14,13 +14,11 @@ ms.custom: ignite-fall-2023
 
 # Dapr component resiliency in Azure Container Apps
 
-Detect, mitigate, and respond to failure in your container app using resiliency policy configurations powered by [Dapr](https://docs.dapr.io/operations/resiliency/). Resiliency policies apply the following to your container apps or [Dapr components](./dapr-resiliency-overview.md): 
-- Retries/back-offs
-- Timeouts
-- Circuit breakers
+[Dapr-driven resiliency policies](https://docs.dapr.io/operations/resiliency/) empower developers to detect, mitigate, and recover from network failures using retries, timeouts, and circuit breakers on container applications and Dapr components.
 
-## How do resiliency policies work?
+In the context of Azure Container Apps, resiliency policies are configured as child resources on a container app or [Dapr component](./dapr-resiliency-overview.md). When an application initiates a network request, the callee (either the container app or Dapr component associated with the resiliency policies) dictates how timeouts, retries, and other resiliency policies are applied.
 
+You can [define resiliency policies](#defining-resiliency-policies) using either Bicep, the Azure CLI, and the Azure Portal.
 
 ## Dapr component resiliency policies
 

@@ -20,17 +20,6 @@ In the context of Azure Container Apps, resiliency policies are configured as ch
 
 You can [define resiliency policies](#defining-resiliency-policies) using either Bicep, the Azure CLI, and the Azure Portal.
 
-## How do resiliency policies work?
-
-Resiliency policies are defined and deployed as their own sub-resource associated with the callee entity, which can be a Container App or Dapr component. You can create and apply policies using Bicep, the CLI, and the Azure portal.
-
-Resiliency policies work better together. Combine timeouts, retries, and cirtuit breakers on your service to:
-- Early terminate it (timeouts)
-- Retry it (retries)
-- Potentially back-off the service in response to elevted failure rates (circuit breakers)
-
-All applications making calls use the policies defined by the application they're calling. For example, in the following diagram, App A uses the policies defined for App B.
-
 ## Container app to container app policies
 
 Whether you’re using native Container App-to-Container or `dapr invoke` for your service-to-service communication, resiliency policies are configured and applied the same. The following Bicep shows a full resiliency policy example. 
