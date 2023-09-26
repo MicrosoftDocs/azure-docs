@@ -1,5 +1,5 @@
 ---
-title: Migration strategies
+title: Migration strategies for moving from Azure API for FHIR
 description: Learn how to migrate FHIR data from Azure API for FHIR to the Azure Health Data Services FHIR service. This article provides steps and tools for a smooth transition.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -34,14 +34,14 @@ To migrate your data, follow these steps:
 Compare the differences between Azure API for FHIR and Azure Health Data Services. Also review your architecture and assess if any changes need to be made.
 
 |**Capabilities**               |**Azure API for FHIR**                                                                                                                                             |**Azure Health Data Services** |
-|-------|-------|-------|
-| **Settings**            | Supported:   Local RBAC   • SMART on FHIR Proxy                                                                                                                  | Planned deprecation - Local RBAC (9/6/23)  - SMART on FHIR Proxy (9/21/26)                                                                                                                |   |   |
+|---|---|---|
+| **Settings**            | Supported:   <br>• Local RBAC   <br>• SMART on FHIR Proxy                                                                                                                  | Planned deprecation <br>• Local RBAC (9/6/23)  <br>• SMART on FHIR Proxy (9/21/26)                                                                                                                |   |   |
 | **Data storage Volume** | More than 4 TB                                                                                                                                                       | Current support is 4 TB. Reach out to CSS team if you need more than 4 TB.                                                                                                                |   |   |
 | **Data ingress**        | Tools available in OSS                                                                                                                                             | $import operation                                                                                                                                                                         |   |   |
 | **Autoscaling**         | Supported on request and incurs charge                                                                                                                             | Enabled by default at no extra charge                                                                                                                                                |   |   |
-| **Search parameters**   | - Bundle type supported: Batch - Include and revinclude, iterate modifier not supported  - Sorting supported by first name, last name, birthdate and clinical date | - Bundle Type supported: Batch and transaction  - Selectable search parameters  - Include, revinclude, and iterate modifier is supported - Sorting supported by string and dateTime fields |   |   |
+| **Search parameters**   | • Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, last name, birthdate and clinical date | • Bundle Type supported: Batch and transaction  <br> • Selectable search parameters  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields |   |   |
 | **Events**              | Not Supported                                                                                                                                                      | Supported                                                                                                                                                                                 |   |   |
-| **Infrastructure**      | Supported: - Customer managed keys  - AZ support and PITR  - Cross region DR                                                                                       | Supported - Data recovery - Upcoming: AZ support for customer managed keys                                                                                                                              |   |   |
+| **Infrastructure**      | Supported: - <br> • Customer managed keys  <br> • AZ support and PITR  <br> • Cross region DR                                                                                       | Supported - Data recovery <br> Upcoming: AZ support for customer managed keys                                                                                                                              |   |   |
 
 ### Things to consider that may affect your architecture
 
@@ -61,15 +61,17 @@ If you want to migrate existing IoT connector device FHIR data from your Azure A
 
 First, create a migration plan. We recommend the migration patterns described in the table. Depending on your organization’s tolerance for downtime, you may decide to use certain patterns and tools to help facilitate your migration.
 
-| Migration Pattern | Details                                                                                                                                                                                          | How?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lift and shift    | The simplest pattern. Ideal if your data pipelines can afford longer downtime.                                                                                                                    | Choose the option that works best for your organization: Configure a workflow to [\$export](../azure-api-for-fhir/export-data.md) your data on Azure API for FHIR, and then [\$import](configure-import-data.md) into Azure Health Data Services FHIR Service. The [GitHub repo](https://github.com/Azure/apiforfhir-migration-tool/blob/main/v0/V0_README.md) provides tips on running these commands, and a script to help automate creating the \$import payload.  Or, create your own tool to migrate the data using \$export and \$import. |
-| Incremental copy  | Continuous version of lift and shift, with less downtime. Ideal for large amounts of data that take longer to copy, or if you want to continue running Azure API for FHIR during the migration.  | Choose the option that works best for your organization. We created an [OSS migration tool](https://github.com/Azure/apiforfhir-migration-tool/blob/main/v0/V0_README.md) to help with this migration pattern. Or, create your own tool to migrate the data incrementally.                                                                                                                                                                                                                                                                                                                                                                                                                            
+| Migration Pattern | Details                                                                                                                                                                                          | How?                             |
+|---|---|---|
+| Lift and shift    | The simplest pattern. Ideal if your data pipelines can afford longer downtime.                                                                                                                    | Choose the option that works best for your organization: <br> • Configure a workflow to [\$export](../azure-api-for-fhir/export-data.md) your data on Azure API for FHIR, and then [\$import](configure-import-data.md) into Azure Health Data Services FHIR service. <br> • The [GitHub repo](https://go.microsoft.com/fwlink/?linkid=2247964) provides tips on running these commands, and a script to help automate creating the \$import payload.  <br> • Or create your own tool to migrate the data using \$export and \$import. |
+| Incremental copy  | Continuous version of lift and shift, with less downtime. Ideal for large amounts of data that take longer to copy, or if you want to continue running Azure API for FHIR during the migration.  | Choose the option that works best for your organization. <br> • We created an [OSS migration tool](https://go.microsoft.com/fwlink/?linkid=2248131) to help with this migration pattern. <br> • Or create your own tool to migrate the data incrementally.|
 
 ### OSS migration tool considerations
 
-If you decide to use the OSS migration tool, review and understand the migration tool’s [capabilities and limitations](https://github.com/Azure/apiforfhir-migration-tool/incremental-copy-docs/appendix.md).
+If you decide to use the OSS migration tool, review and understand the migration tool’s [capabilities and limitations](https://go.microsoft.com/fwlink/?linkid=2248324).
+
 #### Prepare Azure API for FHIR server
+
 Identify data to migrate.
 - Take this opportunity to clean up data or FHIR servers that you no longer use.
 
@@ -77,14 +79,14 @@ Identify data to migrate.
 
 Deploy a new Azure Health Data Services FHIR Service server.
 - First, deploy an Azure Health Data Services workspace.
+
+- Then deploy an Azure Health Data Services FHIR Service server. More information: [Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
   
-- Then deploy an Azure Health Data Services FHIR Service server ([Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)
-  
-- Configure your new Azure Health Data Services FHIR Service server. If you need to use the same configurations as you have in Azure API for FHIR for your new server, see the recommended list of what to check for in [migration tool documentation](https://microsoft.sharepoint.com/:w:/t/msh/Eb7WohSv_6JNlG1xAI8TyvoBbAPfhxnPzr4wv9py1InEww?e=QeSbo3&nav=eyJoIjoiMTUwODIzNzMifQ)). Configure the settings before you migrate.
+- Configure your new Azure Health Data Services FHIR Service server. If you need to use the same configurations as you have in Azure API for FHIR for your new server, see the recommended list of what to check for in the [migration tool documentation](https://go.microsoft.com/fwlink/?linkid=2248324). Configure the settings before you migrate.
 
 ## Step 3: Migrate data
 
-Choose the migration pattern that works best for your organization. If you're using OSS migration tools, follow the instructions on [GitHub](https://github.com/Azure/apiforfhir-migration-tool).
+Choose the migration pattern that works best for your organization. If you're using OSS migration tools, follow the instructions on [GitHub](https://go.microsoft.com/fwlink/?linkid=2248130).
 
 ## Step 4: Migrate applications and reconfigure settings
 
@@ -103,6 +105,3 @@ Migrate applications that were pointing to the old FHIR server.
 ## Step 5: Cut over to Azure Health Data Services FHIR services
 
 After you’re confident that your Azure Health Data Services FHIR Service server is stable, you can begin using Azure Health Data Services FHIR Service to satisfy your business scenarios. Turn off any remaining pipelines that are running on Azure API for FHIR, delete data from the intermediate storage account that was used in the migration tool if necessary, delete data from your Azure API for FHIR server, and decommission your Azure API for FHIR account.
-
-
-[def]: https://learn.microsoft.com/azure/healthcare-apis/events/events-overview
