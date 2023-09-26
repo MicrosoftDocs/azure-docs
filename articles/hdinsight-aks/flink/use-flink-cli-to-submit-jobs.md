@@ -12,13 +12,13 @@ Apache Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (
 
 ## Installation Steps
 
-To install Flink CLI on linux, you'll need **linux VM** to execute the installation script. You need to run bash environment if you are on **Windows**. 
+To install Flink CLI on Linux, you'll need a **linux VM** to execute the installation script. You need to run a bash environment if you are on **Windows**. 
 
 > [!NOTE]
 > This does NOT work on Windows **GIT BASH**, you need to install [WSL](/windows/wsl/install) to make this work on Windows. 
 
 ### Requirements
-* Install JRE 11.  If not installed, follow the steps from here /java/openjdk/download
+* Install JRE 11.  If not installed, follow the steps from `/java/openjdk/download`
 * Add java to PATH or define JAVA_HOME environment variable pointing to JRE installation directory, such that `$JAVA_HOME/bin/java` exists.
 
 ### Install or update
@@ -29,7 +29,7 @@ Both installing and updating the CLI require rerunning the install script. Insta
 curl -L https://aka.ms/hdionaksflinkcliinstalllinux | bash
 ```
 
-This command installs Flink CLI in user home directory ($HOME/flink-cli). The script can also be downloaded and run locally. You may have to restart your shell in order for changes to take effect.
+This command installs Flink CLI in user home directory (`$HOME/flink-cli`). The script can also be downloaded and run locally. You may have to restart your shell in order for changes to take effect.
 
 ## Run an Apache Flink command to test
 
