@@ -128,6 +128,9 @@ To change the time range and number of records displayed, use the **Time range**
     
     :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows the filter menu that opens when you select Filter in Log Analytics simple mode.":::
 
+    > [!NOTE]
+    > Simple mode doesn't support filtering a dynamic column. To filter a dynamic column, you first need to [parse the data](../logs/parse-text.md). 
+
 **Search for entries that have a specific value in the table**
 
 1. Select **Search**.
