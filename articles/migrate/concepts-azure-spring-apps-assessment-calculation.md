@@ -67,8 +67,6 @@ Here's what's included in Azure Spring Apps assessment properties:
 
 ## Calculate readiness
 
-### Azure Spring Apps readiness
-
 Azure Spring Apps readiness for Spring Boot apps is based on feature compatibility checks between on-premises configuration of Spring Boot apps and Azure Spring Apps:
 
 1. The Azure Spring Apps assessment considers the Spring Boot apps configuration data to identify compatibility issues.
@@ -79,9 +77,7 @@ Azure Spring Apps readiness for Spring Boot apps is based on feature compatibili
 
 ## Calculate sizing
 
-### Azure Spring Apps cost details
-
-The assessment summary shows the estimated monthly costs for hosting you apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. Whatever apps you put into this Azure Spring Apps service instance are all up to you.
+The assessment summary shows the estimated monthly costs for hosting your apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. Whatever apps you put into this Azure Spring Apps service instance are all up to you.
 
 For the purpose of cost estimation, we assume you would put all your accessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/), note that the monthly cost on this card assumes each month has 744 hours instead of 730 hours.
 

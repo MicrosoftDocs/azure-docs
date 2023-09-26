@@ -38,16 +38,16 @@ Run an assessment as follows:
 
 1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate.":::
+    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/how-to-create-azure-spring-apps-assessment/discover-assess-migrate.png":::
 
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure Spring Apps**.
 
-    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess.png" alt-text="Dropdown to choose assessment type as Web apps on Azure.":::
+    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-inline.png" alt-text="Screenshot of dropdown to choose assessment type as Web apps on Azure." lightbox="./media/how-to-create-azure-spring-apps-assessment/assess-expanded.png":::
 
 3. In **Create assessment**, you'll see the assessment type pre-selected as **Web apps on Azure**, the scenario pre-selected as **Spring Boot to Azure Spring Apps**, and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 4. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized.":::
+    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-inline.png" alt-text="Screenshot of Edit button from where assessment properties can be customized. lightbox="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-expanded.png":::
 
 1. The following are included in Azure Spring Apps assessment properties:
 
@@ -68,10 +68,11 @@ Run an assessment as follows:
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile and refresh the tile data by clicking on the **Refresh** option on top of the tile. Wait for data to get refreshed.
 
-     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/tile-refresh.png" alt-text="Refresh discovery and assessment tool data.":::
+     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/tile-refresh-inline.png" alt-text="Screenshot of refreshed discovery and assessment tool data." lightbox="./media/how-to-create-azure-spring-apps-assessment/tile-refresh-expanded.png":::
 
 1. Select the number next to **Azure Spring Apps** assessment.
-     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-navigation.png" alt-text="Navigation to created assessment.":::
+
+     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-navigation-inline.png" alt-text="Screenshot of navigation to created assessment." lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-navigation-expanded.png":::
 
 1. Select the assessment name that you wish to view.
 
@@ -83,6 +84,7 @@ Run an assessment as follows:
 2. Select the assessment name that you wish to view.
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment. The assessment summary consists of the **Overview** and the **Azure Spring apps** sections.
 
+:::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-summary-inline.png" alt-text="Screenshot of the assessment created." lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-summary-expanded.png":::
 
 ### Overview
 
@@ -94,19 +96,19 @@ This card shows the list of assessed apps with the average memory consumption an
 
 ### Review cost estimates
 
-The assessment summary shows the estimated monthly costs for hosting your apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. You can chhose the apps to be included in the Azure Spring apps service instance..
+The assessment summary shows the estimated monthly costs for hosting your apps in Spring Apps. In Azure Spring Apps, you pay charges per Azure Spring Apps service instance and not per app. One or more apps can be configured to run on the same service instance. You can choose the apps to be included in the Azure Spring apps service instance..
 
 For estimating cost, we assume you add all your assessed apps into the same Azure Spring Apps service instance. Learn more about the details of Azure Spring Apps pricing from the [pricing page](https://azure.microsoft.com/pricing/details/spring-apps/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/). The monthly cost on this card assumes each month has 744 hours instead of 730 hours.
 
 The estimated cost applies for both Azure Spring Apps Standard tier and Enterprise tier. For Enterprise tier, there is an additional cost on [software IP](https://azuremarketplace.microsoft.com/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which aren't included in cost estimation.
 
-   :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost.png" alt-text="Screenshot of Cost details.":::
+   :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost-inline.png" alt-text="Screenshot of Cost details. lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-cost-expanded.png":::
 
 ### Review readiness
 
 1. Select **Azure Spring Apps**.
 
-    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-readiness.png" alt-text="Azure Spring Apps readiness details.":::
+    :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-readiness-inline.png" alt-text="Screenshot of Azure Spring Apps readiness details. lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-readiness-expanded.png":::
 
 1. Review Azure Spring Apps readiness column in table, for the assessed apps:
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
