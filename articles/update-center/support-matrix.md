@@ -70,7 +70,7 @@ Update Manager doesn't support managing the Configuration Manager client.
 
 Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled servers. The following table lists the Azure public cloud where you can use Update Manager.
 
-# [Azure virtual machine](#tab/azurevm)
+# [Azure VMs](#tab/azurevm)
 
 Azure Update Manager is available in all Azure public regions where compute virtual machines are available.
 
