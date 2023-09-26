@@ -51,7 +51,7 @@ Any Event Grid system topic configured with Azure Communication Services is crea
 Your application manages the relationship between human users and Communication Service identities. When you want to delete data for a human user, you must delete data involving all Communication Service identities correlated for the user.
 
 There are two categories of Communication Service data:
-- **API Data.** This data is created and managed by Communication Service APIs, a typical example being Chat messages managed through Chat APIs.
+- **API Data.** This data is created and managed with Communication Service APIs, for example, Chat messages managed through Chat APIs.
 - **Azure Monitor Logs** This data is created by the service and managed through the Azure Monitor data platform. This data includes telemetry and metrics to help you understand your Communication Services usage.
 
 ## API data
@@ -75,7 +75,7 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. Chat thread participants can use ListMessages to view message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidentally deleted messages are not recoverable by the system.
+Azure Communication Services stores chat messages indefinitely till they are deleted. Chat thread participants can use ListMessages to view message history for a particular thread. Users that are removed from a chat thread are able to view previous message history but cannot send or receive new messages. Accidentally deleted messages are not recoverable by the system.
 
 Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
