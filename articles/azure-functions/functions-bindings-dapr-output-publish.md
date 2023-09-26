@@ -2,7 +2,7 @@
 title: Dapr Publish output binding for Azure Functions
 description: Learn how to provide Dapr Publish output binding data using Azure Functions.
 ms.topic: reference
-ms.date: 08/17/2023
+ms.date: 09/26/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -10,17 +10,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Publish output binding for Azure Functions
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
-
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr publish output binding allows you to publish a message to a Dapr topic during a function execution.
 
-For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
+For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
 
 ## Example
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -77,6 +73,9 @@ public String run(
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+> [!NOTE]  
+> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -228,7 +227,7 @@ def main(subEvent,
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprPublish` to trigger a Dapr output binding, which supports the following properties.
+In the [in-process model](./functions-dotnet-class-library.md), use the `DaprPublish` to define a Dapr publish output binding, which supports these parameters:
 
 |function.json property | Description|
 |---------|----------------------|
@@ -237,7 +236,7 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprPubli
 
 # [Isolated process](#tab/isolated-process)
 
-The following table explains the parameters for the `DaprPublishOutput`.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprPublish Output` to define a Dapr publish output binding, which supports these parameters:
 
 |function.json property | Description|
 |---------|----------------------|
@@ -253,7 +252,7 @@ The following table explains the parameters for the `DaprPublishOutput`.
 
 ## Annotations
 
-The `DaprPublishOutput` annotation allows you to create a function that publishes a message. 
+The `DaprPublishOutput` annotation allows you to have a function access a published message. 
 
 | Element | Description | 
 | --------- | ----------- | 
@@ -310,48 +309,14 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 See the [Example section](#example) for complete examples.
 
 ## Usage
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-To use the Dapr publish output binding, run `DaprPublish`. 
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+To use the Dapr publish output binding, start by setting up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-See the [Example section](#example) for complete examples.
-
-To use the Dapr publish output binding, run `DaprPublishOutput`. 
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript, programming-language-powershell"
-
-To use a Dapr publish output binding, define your `daprPublish` binding in a functions.json file.  
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-::: zone-end
 
 ::: zone pivot="programming-language-python"
 
@@ -371,19 +336,9 @@ To use the `daprPublish` in Python v2, set up your project with the correct depe
    "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
 # [Python v1](#tab/v1)
 
-To use a Dapr publish output binding, define your `daprPublish` binding in a functions.json file.  
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
+The Python v1 model requires no additional changes, aside from setting up the output pub/sub component.
 
 ---
 
@@ -391,17 +346,5 @@ You also need to set up a Dapr pub/sub component. You can learn more about which
 
 ## Next steps
 
-Choose one of the following links to review the reference article for a specific Dapr binding type:
-
-- Triggers 
-  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
-  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
-  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
-- Input
-  - [Dapr state](./functions-bindings-dapr-input-state.md)
-  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
-- Dapr output bindings
-  - [Dapr state](./functions-bindings-dapr-output-state.md)
-  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
-  - [Dapr output](./functions-bindings-dapr-output.md)
+[Learn more about Dapr publish and subscribe.](https://docs.dapr.io/developing-applications/building-blocks/pubsub/)
 

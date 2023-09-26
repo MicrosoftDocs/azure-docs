@@ -10,17 +10,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Input Bindings trigger for Azure Functions
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
-
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 Azure Functions can be triggered on a Dapr input binding using the following Dapr events.
 
-There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (for example, Storage Queues) and then modify the function definition for Dapr.
+For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
 
 ## Example
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -64,6 +60,9 @@ public String run(
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+> [!NOTE]  
+> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
 
 The following example shows Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -203,7 +202,7 @@ def main(triggerData: str) -> None:
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprBindingTrigger` to trigger a Dapr input binding, which supports the following properties.
+In the [in-process model](./functions-dotnet-class-library.md), use the `DaprBindingTrigger` to trigger a Dapr input binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -211,7 +210,7 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprBindi
 
 # [Isolated process](#tab/isolated-process)
 
-The following table explains the parameters for the `DaprBindingTrigger`.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprBindingTrigger` to define a Dapr binding trigger, which supports these parameters:
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -278,35 +277,14 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 See the [Example section](#example) for complete examples.
 
 ## Usage
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp, programming-language-java"
-
-To use the Dapr Input Binding trigger, run `DaprBindingTrigger`. 
-
-You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+To use the Dapr Input Binding trigger, start by setting up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript,programming-language-powershell"
-
-To use a Dapr Input Binding trigger, define your `daprBindingTrigger` binding in a functions.json file.  
-
-You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-::: zone-end
 
 ::: zone pivot="programming-language-python"
 
@@ -326,20 +304,9 @@ To use the `daprBindingTrigger` in Python v2, set up your project with the corre
    "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
-You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-
 # [Python v1](#tab/v1)
 
-To use a Dapr Input Binding trigger, define your `daprBindingTrigger` binding in a functions.json file.  
-
-You also need to set up a Dapr input binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr input binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Trigger your application with input bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
+The Python v1 model requires no additional changes, aside from setting up the bindings component.
 
 ---
 
@@ -348,16 +315,4 @@ You also need to set up a Dapr input binding component. You can learn more about
 
 ## Next steps
 
-Choose one of the following links to review the reference article for a specific Dapr binding type:
-
-- Triggers 
-  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
-  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
-- Input
-  - [Dapr state](./functions-bindings-dapr-input-state.md)
-  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
-- Dapr output bindings
-  - [Dapr state](./functions-bindings-dapr-output-state.md)
-  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
-  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
-  - [Dapr output](./functions-bindings-dapr-output.md)
+[Learn more about Dapr service invocation.](https://docs.dapr.io/developing-applications/building-blocks/bindings/)

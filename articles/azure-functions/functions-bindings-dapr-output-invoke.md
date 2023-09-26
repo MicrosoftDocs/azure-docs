@@ -10,17 +10,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Invoke output binding for Azure Functions
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
-
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr invoke output binding allows you to invoke another Dapr application during a function execution.
 
-For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
+For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
 
 ## Example
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -88,6 +84,9 @@ public String run(
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+> [!NOTE]  
+> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -243,7 +242,7 @@ def main(req: func.HttpRequest,
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprInvoke` to trigger a Dapr output binding, which supports the following properties.
+In the [in-process model](./functions-dotnet-class-library.md), use the `DaprInvoke` attribute to define a Dapr invoke output binding, which supports these parameters:
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -254,7 +253,7 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprInvok
 
 # [Isolated process](#tab/isolated-process)
 
-The following table explains the parameters for the `DaprInvokeOutput`.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprInvokeOutput` attribute to define a Dapr invoke output binding, which supports these parameters:
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -331,37 +330,11 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 See the [Example section](#example) for complete examples.
 
 ## Usage
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-To use the Dapr service invocation output binding, run `DaprInvoke`. 
-
-You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-To use the Dapr service invocation output binding, run `DaprInvokeOutput`. 
-
-You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript, programming-language-powershell"
-
-To use a Dapr invoke output binding, define your `daprInvoke` binding in a functions.json file.  
-
-You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
-
-::: zone-end
+To use the Dapr service invocation output binding, learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
 
 ::: zone pivot="programming-language-python"
 
@@ -381,14 +354,9 @@ To use the `daprInvoke` in Python v2, set up your project with the correct depen
    "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
-You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
-
-
 # [Python v1](#tab/v1)
 
-To use a Dapr invoke output binding, define your `daprInvoke` binding in a functions.json file.  
-
-You can learn more about [how to use Dapr service invocation in the official Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/).
+The Python v1 model requires no additional changes, aside from setting up the service invocation components.
 
 ---
 
@@ -397,17 +365,4 @@ You can learn more about [how to use Dapr service invocation in the official Dap
 
 ## Next steps
 
-Choose one of the following links to review the reference article for a specific Dapr binding type:
-
-- Triggers 
-  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
-  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
-  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
-- Input
-  - [Dapr state](./functions-bindings-dapr-input-state.md)
-  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
-- Dapr output bindings
-  - [Dapr state](./functions-bindings-dapr-output-state.md)
-  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
-  - [Dapr output](./functions-bindings-dapr-output.md)
-
+[Learn more about Dapr service invocation.](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/)

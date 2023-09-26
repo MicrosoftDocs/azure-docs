@@ -10,17 +10,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Binding output binding for Azure Functions
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
-
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr output binding allows you to send a value to a Dapr output binding during a function execution.
 
-For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
+For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
 
 ## Example
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -80,6 +76,9 @@ public String run(
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+> [!NOTE]  
+> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -215,7 +214,7 @@ def main(args, messages: func.Out[bytes]) -> None:
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprBinding` to trigger a Dapr output binding, which supports the following properties.
+In the [in-process model](./functions-dotnet-class-library.md), use the `DaprBinding` to define a Dapr binding output binding, which supports these parameters:
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -225,7 +224,7 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprBindi
 
 # [Isolated process](#tab/isolated-process)
 
-The following table explains the parameters for the `DaprBindingOutput`.
+In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprBindingOutput` to define a Dapr binding output binding, which supports these parameters:
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -296,46 +295,14 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 See the [Example section](#example) for complete examples.
 
 ## Usage
 
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-To use the Dapr output binding, run `DaprBinding`. 
-
-You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+To use the Dapr output binding, start by setting up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
 - [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-To use the Dapr output binding, run `DaprBindingOutput`. 
-
-You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript, programming-language-powershell"
-
-To use a Dapr output binding, define your `daprBinding` binding in a functions.json file.  
-
-You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-::: zone-end
 
 ::: zone pivot="programming-language-python"
 
@@ -355,20 +322,9 @@ To use the `daprBinding` in Python v2, set up your project with the correct depe
    "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
-You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
-
-
 # [Python v1](#tab/v1)
 
-To use a Dapr output binding, define your `daprBinding` binding in a functions.json file.  
-
-You also need to set up a Dapr output binding component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr output binding component specs](https://docs.dapr.io/reference/components-reference/supported-bindings/)
-- [How to: Use output bindings to interface with external resources](https://docs.dapr.io/developing-applications/building-blocks/bindings/howto-bindings/)
+The Python v1 model requires no additional changes, aside from setting up the output binding component.
 
 ---
 
@@ -377,17 +333,4 @@ You also need to set up a Dapr output binding component. You can learn more abou
 
 ## Next steps
 
-Choose one of the following links to review the reference article for a specific Dapr binding type:
-
-- Triggers 
-  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
-  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
-  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
-- Input
-  - [Dapr state](./functions-bindings-dapr-input-state.md)
-  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
-- Dapr output bindings
-  - [Dapr state](./functions-bindings-dapr-output-state.md)
-  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
-  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
-
+[Learn more about Dapr service invocation.](https://docs.dapr.io/developing-applications/building-blocks/bindings/)

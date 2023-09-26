@@ -10,17 +10,13 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr Topic trigger for Azure Functions
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
-
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 Azure Functions can be triggered on a Dapr topic subscription using the following Dapr events.
 
-There are no templates for triggers in Dapr in the functions tooling today. Start your project with another trigger type (e.g. Storage Queues) and then modify the function.json or attributes.
+For information on setup and configuration details of the Dapr extension, see the [Dapr extension overview](./functions-bindings-dapr.md).
 
 ## Example
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -73,6 +69,9 @@ public String run(
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+
+> [!NOTE]  
+> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -218,7 +217,7 @@ def main(subEvent) -> None:
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprTopicTrigger` to trigger a Dapr pub/sub binding, which supports the following properties.
+In the [in-process model](./functions-dotnet-class-library.md), use the `DaprTopicTrigger` to trigger a Dapr pub/sub binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -226,6 +225,8 @@ In [C# class libraries](./functions-dotnet-class-library.md), use the `DaprTopic
 | **Topic** | The name of the Dapr topic. | 
 
 # [Isolated process](#tab/isolated-process)
+
+In the [isolated worker model](./dotnet-isolated-process-guide.md), use the `DaprTopicTrigger` to define a Dapr topic trigger, which supports these parameters:
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -296,35 +297,15 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-java, programming-language-javascript, programming-language-powershell, programming-language-python"
-
 See the [Example section](#example) for complete examples.
 
 ## Usage
 
-::: zone-end
 
-::: zone pivot="programming-language-csharp,programming-language-java"
-
-To use a Dapr Topic trigger, run `DaprTopicTrigger`. 
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
+To use a Dapr Topic trigger, start by setting up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
 
 - [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
 - [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript, programming-language-powershell"
-
-To use a Dapr Topic trigger, define your `daprTopicTrigger` binding in a functions.json file.  
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-::: zone-end
 
 ::: zone pivot="programming-language-python"
 
@@ -344,20 +325,9 @@ To use the `daprTopicTrigger` in Python v2, set up your project with the correct
    "PYTHON_ISOLATE_WORKER_DEPENDENCIES":1
    ```
 
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
-
-
 # [Python v1](#tab/v1)
 
-To use a Dapr Topic trigger, define your `daprTopicTrigger` binding in a functions.json file.  
-
-You also need to set up a Dapr pub/sub component. You can learn more about which component to use and how to set it up in the official Dapr documentation.
-
-- [Dapr pub/sub component specs](https://docs.dapr.io/reference/components-reference/supported-pubsub/)
-- [How to: Publish a message and subscribe to a topic](https://docs.dapr.io/developing-applications/building-blocks/pubsub/howto-publish-subscribe/)
+The Python v1 model requires no additional changes, aside from setting up the pub/sub component.
 
 ---
 
@@ -365,16 +335,4 @@ You also need to set up a Dapr pub/sub component. You can learn more about which
 
 ## Next steps
 
-Choose one of the following links to review the reference article for a specific Dapr binding type:
-
-- Triggers 
-  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
-  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
-- Input
-  - [Dapr state](./functions-bindings-dapr-input-state.md)
-  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
-- Dapr output bindings
-  - [Dapr state](./functions-bindings-dapr-output-state.md)
-  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
-  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
-  - [Dapr output](./functions-bindings-dapr-output.md)
+[Learn more about Dapr publish and subscribe.](https://docs.dapr.io/developing-applications/building-blocks/pubsub/)

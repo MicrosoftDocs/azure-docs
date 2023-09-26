@@ -8,8 +8,6 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Dapr triggers and bindings for Azure Functions
 
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell"
-
 [!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr Extension for Azure Functions is a set of tools and services that allow developers to easily integrate Azure Functions with the [Distributed Application Runtime (Dapr)](https://docs.dapr.io/) platform. 
@@ -29,8 +27,6 @@ With the integration between Dapr and Functions, you can build functions that re
 | Invoke another Dapr app | Out | [daprInvoke](./functions-bindings-dapr-output-invoke.md) |
 |Publish a message to a Dapr topic | Out | [daprPublish](./functions-bindings-dapr-output-publish.md) |
 | Send a value to a Dapr output binding | Out | [daprBinding](./functions-bindings-dapr-output.md) |
-
-::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -65,6 +61,8 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 ## Install bundle
 
+> [!NOTE]  
+> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
 
 # [Preview Bundle v4.x](#tab/preview-bundle-v4x)
 
@@ -209,17 +207,4 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 
 ## Next steps
 
-Choose one of the following links to review the reference article for a specific Dapr binding type:
-
-- Triggers 
-  - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
-  - [Dapr service invocation](./functions-bindings-dapr-trigger-svc-invoke.md)
-  - [Dapr topic](./functions-bindings-dapr-trigger-topic.md)
-- Input bindings
-  - [Dapr state](./functions-bindings-dapr-input-state.md)
-  - [Dapr secret](./functions-bindings-dapr-input-secret.md)
-- Output bindings
-  - [Dapr state](./functions-bindings-dapr-output-state.md)
-  - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
-  - [Dapr publish](./functions-bindings-dapr-output-publish.md)
-  - [Dapr output](./functions-bindings-dapr-output.md)
+[Learn more about Dapr.](https://docs.dapr.io/)
