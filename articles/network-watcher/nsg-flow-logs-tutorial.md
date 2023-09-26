@@ -1,14 +1,13 @@
 ---
 title: 'Tutorial: Log network traffic flow to and from a virtual machine'
 titleSuffix: Azure Network Watcher
-description: Learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
+description: In this tutorial, you learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 07/24/2023
-ms.author: halkazwini
-ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I need to log the network traffic to and from a virtual machine (VM) so I can analyze it for anomalies.
+ms.date: 09/26/2023
+# CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual machine (VM) so I can analyze the data for anomalies.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
@@ -16,6 +15,8 @@ ms.custom: template-tutorial, mvc, engagement-fy23
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
 
 This tutorial helps you use NSG flow logs to log a virtual machine's network traffic that flows through the [network security group](../virtual-network/network-security-groups-overview.md) associated to its network interface.
+
+:::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-flow-logs-tutorial-diagram.png" alt-text="Diagram shows the resources created during the tutorial.":::
 
 In this tutorial, you learn how to:
 
@@ -31,17 +32,15 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
 ## Create a virtual network
 
 In this section, you create **myVNet** virtual network with one subnet for the virtual machine.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** from the search results.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
@@ -128,7 +127,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal.":::
 
 ## Create a storage account
 
@@ -163,7 +162,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 1. In **Network Watcher | Flow logs**, select **+ Create** or **Create flow log** blue button.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs.png" alt-text="Screenshot of Flow logs page in the Azure portal." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs.png":::
+    :::image type="content" source="./media/nsg-flow-logs-tutorial/flow-logs.png" alt-text="Screenshot of Flow logs page in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/flow-logs.png":::
 
 1. Enter or select the following values in **Create a flow log**:
 
@@ -172,13 +171,13 @@ In this section, you create an NSG flow log that's saved into the storage accoun
     | **Project details** |   |
     | Subscription | Select the Azure subscription of your network security group that you want to log. |
     | Network security group | Select **+ Select resource**. <br> In **Select network security group**, select **myVM-nsg**. Then, select **Confirm selection**. |
-    | Flow Log Name | Leave the default of **myVM-nsg-myResourceGroup-flowlog**.
+    | Flow Log Name | Leave the default of **myVM-nsg-myResourceGroup-flowlog**. |
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of your storage account. |
     | Storage Accounts | Select the storage account you created in the previous steps. This tutorial uses **mynwstorageaccount**. |
     | Retention (days) | Enter *0* to retain the flow logs data in the storage account forever (until you delete it from the storage account). To apply a retention policy, enter the retention time in days. For information about storage pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-tutorial/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
 
     > [!NOTE]
     > The Azure portal creates NSG flow logs in the **NetworkWatcherRG** resource group.
@@ -189,7 +188,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 1. Once the deployment is complete, select **Go to resource** to confirm the flow log created and listed in the **Flow logs** page.
 
-    :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/network-watcher-nsg-flow-logging-portal/flow-logs-list.png":::
+    :::image type="content" source="./media/nsg-flow-logs-tutorial/flow-logs-list.png" alt-text="Screenshot of Flow logs page in the Azure portal showing the newly created flow log." lightbox="./media/nsg-flow-logs-tutorial/flow-logs-list.png":::
 
 1. Go back to your RDP session with **myVM** virtual machine.
 
@@ -215,7 +214,7 @@ In this section, you go to the storage account you previously selected and downl
 
 6. Select the ellipsis **...** to the right of the PT1H.json file, then select **Download**.
 
-   :::image type="content" source="./media/network-watcher-nsg-flow-logging-portal/nsg-log-file.png" alt-text="Screenshot showing how to download nsg flow log from the storage account container in the Azure portal.":::
+   :::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-log-file.png" alt-text="Screenshot showing how to download nsg flow log from the storage account container in the Azure portal.":::
 
 > [!NOTE]
 > You can use Azure Storage Explorer to access and download flow logs from your storage account. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
@@ -284,16 +283,9 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 > [!NOTE]
 > The **myVM-nsg-myResourceGroup-flowlog** flow log is in the **NetworkWatcherRG** resource group, but it'll be deleted after deleting the **myVM-nsg** network security group (by deleting the **myResourceGroup** resource group).
 
-## Next steps
+## Related content
 
-In this tutorial, you learned how to:
+- To learn more about NSG flow logs, see [Flow logging for network security groups](network-watcher-nsg-flow-logging-overview).
+- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logging).
+- To learn about Traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 
-* Enable NSG flow logging for a network security group to log traffic from and to a virtual machine.
-* Download and view the flow log data.
-
-The raw data in the JSON file can be difficult to interpret. To visualize flow logs data, you can use [Traffic analytics](traffic-analytics.md) and [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-
-To learn how to monitor network communication between virtual machines using Network Watcher connection monitor, see:
-
-> [!div class="nextstepaction"]
-> [Monitor network communication between two virtual machines](connection-monitor.md)
