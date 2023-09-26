@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure Virtual Machines and Virtual Machin
 author: faister
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 09/21/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions, subject-reliability
@@ -122,8 +122,9 @@ Now that you have migrated your data to ZRS managed disks or zonal managed disks
 
 This section details how to move single instance Azure virtual machines from a Regional configuration to a target [Availability Zone](../reliability/availability-zones-overview.md) within the same Azure region.
 
-> [!NOTE]
-> Currently, this feature is in *Public Preview*.
+
+> [!IMPORTANT]
+> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
 
 ###  Key benefits of regional to zonal move
 
@@ -153,7 +154,7 @@ The following table describes the support matrix for moving virtual machines fro
 
 | Scenario | Support | Details |
 | --- | --- | --- |
-| Single Instance VM | Supported | Regional to Zonal Move of single instance VM(s) supported. |
+| Single Instance VM | Supported | Regional to zonal move of single instance VM(s) is supported. |
 | VMs within an Availability Set | Not supported | |
 | VMs inside Virtual Machine Scale Sets with uniform orchestration | Not supported | |
 | VMs inside Virtual Machine Scale Sets with flexible orchestration | Not supported | |
@@ -179,7 +180,7 @@ The following table describes the support matrix for moving virtual machines sto
 
 | Scenario | Support | Details |
 | --- | --- | --- |
-| VMs with managed disk | Supported | |
+| VMs with managed disk | Supported | Regional to zonal move of single instance VM(s) is supported. |
 | VMs using unmanaged disks | Not supported | |
 | VMs using Ultra Disks | Not supported | |
 | VMs using Ephemeral OS Disks | Not supported | |
@@ -189,10 +190,10 @@ The following table describes the support matrix for moving virtual machines sto
 | VMs with premium SSDs | Supported | |
 | VMs with NVMe disks (Storage optimized - Lsv2-series) | Supported | |
 | Temporary disk in VMs | Supported | Temporary disks will be created; however, they won't contain the data from the source temporary disks. |
-| VMs with ZRS disks | Not Supported | |
-| VMs with ADE (Azure Disk Encryption) | Not Supported | |
-| VMs with server-side encryption using service-managed keys | Not Supported | |
-| VMs with server-side encryption using customer-managed keys | Not Supported | |
+| VMs with ZRS disks | Supported | |
+| VMs with ADE (Azure Disk Encryption) | Supported | |
+| VMs with server-side encryption using service-managed keys | Supported | |
+| VMs with server-side encryption using customer-managed keys | Supported | |
 | VMs with Host based encryption enabled with PM | Not Supported | |
 | VMs with Host based encryption enabled with CMK | Not Supported | |
 | VMs with Host based encryption enabled with Double encryption | Not Supported | |
@@ -201,10 +202,10 @@ The following table describes the support matrix for moving virtual machines sto
 
 The following table describes the support matrix for moving virtual machines networking settings:
 
-| Scenario | Support |
-| --- | --- | 
-| NIC | By default, a new resource is created, however, you can specify an existing resource in the target configuration. | 
-| VNET | By default, the source virtual network (VNET) is used, or you can specify an existing resource in the target configuration. | 
+| Scenario | Support | Details | 
+| --- | --- | --|
+| NIC | Supported | By default, a new resource is created, however, you can specify an existing resource in the target configuration. | 
+| VNET | Supported| By default, the source virtual network (VNET) is used, or you can specify an existing resource in the target configuration. | 
 
 
 ## Migration Option 3: Azure Resource Mover

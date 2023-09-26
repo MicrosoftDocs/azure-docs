@@ -122,10 +122,10 @@ You can input all the settings on this page before selecting **Apply** at the bo
     > [!IMPORTANT]
     > If you are using port 3 for data networks, we recommend that it is used for the lowest expected load.
     1. Select **Add virtual network** and fill in the side panel:
-          - **Virtual switch**: select **vswitch-port3** for N2, N3 and up to four DNs, and select **vswitch-port4** for up to six DNs.
-          - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
-          - **VLAN**: 0
-          - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
+        - **Virtual switch**: select **vswitch-port3** for N2, N3 and up to four DNs, and select **vswitch-port4** for up to six DNs.
+        - **Name**: *N2*, *N3*, or *N6-DNX* (where *X* is the DN number 1-10).
+        - **VLAN**: 0
+        - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *255.255.255.0* and *10.232.44.1*
             - If the subnet does not have a default gateway, use another IP address in the subnet which will respond to ARP requests (such as one of the RAN IP addresses). If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
         - **DNS server** and **DNS suffix** should be left blank.

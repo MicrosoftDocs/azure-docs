@@ -113,7 +113,7 @@ You need to do perform this action for both $UPN_employee and $UPN_manager
 
 After editing the script, save it and follow these steps:
 
- 1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Microsoft Entra admin center.
+1.  Open a Windows PowerShell command prompt, with Administrative privileges, from a machine that has access to the Microsoft Entra admin center.
 1. Navigate to the saved PowerShell script location and run it.
 1. If prompted select **Yes to all** when installing the Azure AD PowerShell module.
 1. When prompted, sign in to the Microsoft Entra admin center with a global administrator for your tenant.
@@ -146,12 +146,12 @@ $Department = "Sales"
 $UPN_manager = "bsimon@<your tenant name here>"
 
 Install-Module -Name AzureAD
-Connect-AzureAD -Confirm
+Connect-MgGraph -Confirm
 
 $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
 $PasswordProfile.Password = "<Password>"
-New-AzureADUser -DisplayName $Displayname_manager  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_manager -AccountEnabled $true -MailNickName $Name_manager -Department $Department
-New-AzureADUser -DisplayName $Displayname_employee  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_employee -AccountEnabled $true -MailNickName $Name_employee -Department $Department
+New-MgUser -DisplayName $Displayname_manager  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_manager -AccountEnabled $true -MailNickName $Name_manager -Department $Department
+New-MgUser -DisplayName $Displayname_employee  -PasswordProfile $PasswordProfile -UserPrincipalName $UPN_employee -AccountEnabled $true -MailNickName $Name_employee -Department $Department
 ```
 
 Once your user(s) has been successfully created in Microsoft Entra ID, you may proceed to follow the Lifecycle workflow tutorials for your workflow creation.  

@@ -4,7 +4,7 @@ description: Learn how to move single instance Azure virtual machines from a reg
 author: ankitaduttaMSFT
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/10/2023
+ms.date: 09/25/2023
 ms.author: ankitadutta
 ---
 
@@ -13,7 +13,7 @@ ms.author: ankitadutta
 This article provides information on how to move Azure single instance Virtual Machines (VMs) from a regional to a zonal configuration within the same Azure region.
 
 > [!IMPORTANT]
-> Currently, this feature is in *Public Preview*.
+> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
 ## Prerequisites
 
 Ensure the following before you begin:
@@ -28,6 +28,7 @@ Ensure the following before you begin:
 - **VM support**: Check that the VMs you want to move are supported. [Learn more](../reliability/migrate-vm.md). Check supported VM settings.
       
 - **Subscription quota**: The subscription must have enough quota to create the new VM and associated networking resources in target zonal configuration (in same region). If the subscription doesn't have enough quota, you need to [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md). 
+- **VM health status**: The VMs you want to move must be in a healthy state before attempting the  zonal move. Ensure that all pending reboots and mandatory updates are complete. 
 
 ## Select and move VMs
 
@@ -134,4 +135,4 @@ To manually remove the move collection that was made, follow these steps:
 
 ## Next steps
 
-- Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell](./move-virtual-machines-regional-zonal-powershell.md).
+Learn how to move single instance Azure VMs from regional to zonal configuration using [PowerShell](./move-virtual-machines-regional-zonal-powershell.md).

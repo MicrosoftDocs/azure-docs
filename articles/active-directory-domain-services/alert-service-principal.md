@@ -16,7 +16,7 @@ ms.author: justinha
 ---
 # Known issues: Service principal alerts in Microsoft Entra Domain Services
 
-[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that the Azure platform uses to manage, update, and maintain a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain. If a service principal is deleted, functionality in the managed domain is impacted.
+[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that the Azure platform uses to manage, update, and maintain a Microsoft Entra Domain Services managed domain. If a service principal is deleted, functionality in the managed domain is impacted.
 
 This article helps you troubleshoot and resolve service principal-related configuration alerts.
 
@@ -33,14 +33,14 @@ If a required service principal is deleted, the Azure platform can't perform aut
 To check which service principal is missing and must be recreated, complete the following steps:
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Enterprise applications**. Choose *All applications* from the **Application Type** drop-down menu, then select **Apply**.
-1. Search for each of the following application IDs. For Azure Global, search for AppId value *2565bd9d-da50-47d4-8b85-4c97f669dc36*. For other Azure clouds, search for AppId value *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. If no existing application is found, follow the *Resolution* steps to create the service principal or re-register the namespace.
+1. Search for each of the following application IDs. For Azure Global, search for AppId value `2565bd9d-da50-47d4-8b85-4c97f669dc36`. For other Azure clouds, search for AppId value `6ba9a5d4-8456-4118-b521-9c5ca10cdf84`. If no existing application is found, follow the *Resolution* steps to create the service principal or re-register the namespace.
 
     | Application ID | Resolution |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recreate a missing service principal](#recreate-a-missing-service-principal) |
-    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-register the Microsoft.AAD namespace](#re-register-the-microsoft-aad-namespace) |
-    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Re-register the Microsoft.AAD namespace](#re-register-the-microsoft-aad-namespace) |
-    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Re-register the Microsoft.AAD namespace](#re-register-the-microsoft-aad-namespace) |
+    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-register the `Microsoft.AAD` namespace](#re-register-the-microsoft-aad-namespace) |
+    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Re-register the `Microsoft.AAD` namespace](#re-register-the-microsoft-aad-namespace) |
+    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Re-register the `Microsoft.AAD` namespace](#re-register-the-microsoft-aad-namespace) |
 
 ### Recreate a missing Service Principal
 
@@ -65,12 +65,12 @@ The managed domain's health automatically updates itself within two hours and re
 
 ### Re-register the Microsoft Entra namespace
 
-If application ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*, or *d87dcbc6-a371-462e-88e3-28ad15ec4e64* is missing from your Microsoft Entra directory, complete the following steps to re-register the *Microsoft.AAD* resource provider:
+If application ID `443155a6-77f3-45e3-882b-22b3a8d431fb`, `abba844e-bc0e-44b0-947a-dc74e5d09022`, or `d87dcbc6-a371-462e-88e3-28ad15ec4e64` is missing from your Microsoft Entra directory, complete the following steps to re-register the `Microsoft.AAD` resource provider:
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Subscriptions**.
 1. Choose the subscription associated with your managed domain.
 1. From the left-hand navigation, choose **Resource Providers**.
-1. Search for *Microsoft.AAD*, then select **Re-register**.
+1. Search for `Microsoft.AAD`, then select **Re-register**.
 
 The managed domain's health automatically updates itself within two hours and removes the alert.
 
@@ -80,7 +80,7 @@ The managed domain's health automatically updates itself within two hours and re
 
 *The service principal with the application ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" was deleted and then recreated. The recreation leaves behind inconsistent permissions on Microsoft Entra Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.*
 
-Microsoft Entra DS automatically synchronizes user accounts and credentials from Microsoft Entra ID. If there's a problem with the Microsoft Entra application used for this process, credential synchronization between Microsoft Entra DS and Microsoft Entra ID fails.
+Domain Services automatically synchronizes user accounts and credentials from Microsoft Entra ID. If there's a problem with the Microsoft Entra application used for this process, credential synchronization between Domain Services and Microsoft Entra ID fails.
 
 ### Resolution
 
