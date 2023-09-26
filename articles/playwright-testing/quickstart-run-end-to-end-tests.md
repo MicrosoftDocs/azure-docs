@@ -171,9 +171,7 @@ Learn more about how to [determine the optimal configuration for optimizing test
 
 ## Troubleshooting
 
-### Sign in fails with `Message: AADSTS7000112: Application 'b1fd4ebf-2bed-4162-be84-97e0fe523f64'(PlaywrightServiceAADLogin) is disabled.`
-
-Follow these steps to [troubleshoot signing into the Playwright portal](./troubleshoot-unable-sign-into-playwright-portal.md).
+[!INCLUDE [include-troubleshooting-sign-into-portal](includes/include-troubleshooting-sign-into-portal.md)]
 
 [!INCLUDE [include-troubleshooting-unauthorized](includes/include-troubleshooting-unauthorized.md)]
 
