@@ -162,6 +162,10 @@ Learn more about how to [determine the optimal configuration for optimizing test
 
 ## Troubleshooting
 
+## Unable to sign into the Playwright portal
+
+Follow these steps to [troubleshoot signing into the Playwright portal](./troubleshoot-unable-sign-into-playwright-portal.md).
+
 [!INCLUDE [include-troubleshooting-unauthorized](includes/include-troubleshooting-unauthorized.md)]
 
 [!INCLUDE [include-troubleshooting-slow-tests](includes/include-troubleshooting-slow-tests.md)]
