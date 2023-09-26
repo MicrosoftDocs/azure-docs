@@ -196,7 +196,7 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 If you update your query in advanced mode and then switch to simple mode, select **User Query** to return to the query editor and continue to work on your query at any time.  
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you to return to the query editor when you're in simple mode.":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode.":::
 
 ## Next steps
 - Walk through a [tutorial on writing queries](../logs/log-analytics-tutorial.md).
