@@ -15,7 +15,7 @@ This  FAQ is a list of commonly asked questions about Azure Update Manager. If y
 
 ## Fundamentals
 
-### What are the benefits of using Azure Update Manager over Automation Update Management?
+### What are the benefits of using Azure Update Manager?
 
 Azure Update Manager provides a SaaS solution to manage and govern software updates to Windows and Linux machines across Azure, on-premises, and multi-cloud environments.
 Following are the benefits of using Azure Update Manager:
