@@ -1,5 +1,5 @@
 ---
-title: Known issue - Inferencing | Existing Kubernetes compute cannot be updated
+title: Known issue - Existing Kubernetes compute cannot be updated
 titleSuffix: Azure Machine Learning
 description: Updating a Kubernetes attached compute instance using the az ml attach command appears to succeed but does not.
 author: s-polly
@@ -33,4 +33,4 @@ The `az ml compute attach` command is not currently supported for use with Kuber
 
 ## Next steps
 
-- [About known issues](azureml-known-issues.md)
+- [About known issues](azure-machine-learning-known-issues.md)

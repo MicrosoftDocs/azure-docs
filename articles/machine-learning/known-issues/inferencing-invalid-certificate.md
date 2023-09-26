@@ -1,5 +1,5 @@
 ---
-title: Known issue - Inferencing | Invalid certificate error during deployment
+title: Known issue - Invalid certificate error during deployment
 titleSuffix: Azure Machine Learning
 description: During machine learning deployments with an AKS cluster, you may receive an invalid certificate error.
 author: s-polly
@@ -44,4 +44,4 @@ There are two options to resolve this issue:
 
 ## Next steps
 
-- [About known issues](azureml-known-issues.md)
+- [About known issues](azure-machine-learning-known-issues.mdS)
