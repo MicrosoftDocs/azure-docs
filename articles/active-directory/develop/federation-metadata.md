@@ -1,6 +1,6 @@
 ---
-title: Azure AD Federation Metadata
-description: This article describes the federation metadata document that Azure Active Directory publishes for services that accept Azure Active Directory tokens.
+title: Azure AD federation metadata
+description: This article describes the federation metadata document that Microsoft Entra ID publishes for services that accept Microsoft Entra ID tokens.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 Microsoft Entra ID publishes a federation metadata document for services that is configured to accept the security tokens that Microsoft Entra ID issues. The federation metadata document format is described in the [Web Services Federation Language (WS-Federation) Version 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), which extends [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
-## Tenant-specific and Tenant-independent metadata endpoints
+## Tenant-specific and tenant-independent metadata endpoints
 
 Microsoft Entra ID publishes tenant-specific and tenant-independent endpoints.
 
@@ -39,7 +39,7 @@ For **tenant-independent endpoints**, the `TenantDomainName` is `common`. This d
 
 For example, a tenant-specific endpoint might be `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. The tenant-independent endpoint is [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). You can view the federation metadata document by typing this URL in a browser.
 
-## Contents of federation Metadata
+## Contents of federation metadata
 
 The following section provides information needed by services that consume the tokens issued by Azure AD.
 
