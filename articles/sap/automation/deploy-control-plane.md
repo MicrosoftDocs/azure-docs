@@ -278,7 +278,7 @@ The script installs Terraform and Ansible and configures the deployer.
 ## Securing the control plane
 
 The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
-If you have created your control plane using an external virtual machine or by using the cloud shell you should secure the control plane by implementing private endpoints for the storage accounts and key vaults.
+If you have created your control plane using an external virtual machine or by using the cloud shell, you should secure the control plane by implementing private endpoints for the storage accounts and key vaults.
 
 Log on to the deployer virtual machine and copy the control plane configuration `tfvars` terraform files to the deployer. Ensure that the files are located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES` DEPLOYER and LIBRARY folders.
 
