@@ -327,10 +327,10 @@ engine:
     - type: InvokeFragment
       reference: <fragment-accelerator-name>
 ```
+3. Synchronize the change to Dev Tools Portal.
+To refect the changes on Dev Tools Portal more quickly, you can provide a tiny value to the **Git interval** field of your customized accelerator which indicate the intervals at which to check for Git repository updates.
 
-3. Synchronize the change to your customized accelerator by using the Azure portal or Azure CLI.
-
-The **Git interval** field of your customized accelerator indicate the interval at which to check for repository updates. It can be used on fragment type of customized accelerator as well.
+4. Synchronize the change to your customized accelerator on Azure Portal by using the Azure portal or Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
