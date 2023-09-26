@@ -152,7 +152,7 @@
       href: azure-functions-output.md
     - name: Azure Data Lake Storage Gen 1
       href: azure-data-lake-storage-gen1-output.md
-    - name: Kafka Output
+    - name: Kafka output
       href: kafka-output.md
   - name: Extend queries with functions
     items:
