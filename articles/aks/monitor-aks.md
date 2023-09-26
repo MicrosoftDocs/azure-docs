@@ -213,6 +213,7 @@ Principal author:
 
 - [Xuhong Liu](https://www.linkedin.com/in/xuhong-l-5937159b/) | Senior Service Engineer
 - [Srini Padala](https://www.linkedin.com/in/srinivasa-padala/) | Senior Customer Engineer
+- [Brian Wren](https://www.linkedin.com/in/brian-wren-2a6aa71/) |Principal Content Developer
 
 Other contributors:
 
