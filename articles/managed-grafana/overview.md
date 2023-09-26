@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: overview 
-ms.date: 3/23/2023
+ms.date: 09/29/2023
 --- 
 
 # What is Azure Managed Grafana?
@@ -31,6 +31,37 @@ You can share Grafana dashboards with people inside and outside of your organiza
 Managed Grafana uses Azure Active Directory (Azure AD)’s centralized identity management, which allows you to control which users can use a Grafana instance, and you can use managed identities to access Azure data stores, such as Azure Monitor.
 
 You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.
+
+## Service tiers
+
+Azure Managed Grafana is available in the two service tiers presented below.
+
+| Tier                      | Description                    |
+|------------------------------|-------------------------------------|
+| Essential              | Provides the core functionalities of Azure Managed Grafana, with a limited service in terms of resource availability and features. VMs in the Essential tier have a 10-15% eviction rate.                          |
+| Standard              | The default tier, offering better performance and more features. |
+
+The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) provides a detailed comparison of each tier and the following table lists some of the features supported in each tier:
+
+| Feature                                                                                  | Essential                           | Standard                                                |
+|------------------------------------------------------------------------------------------|-------------------------------------|---------------------------------------------------------|
+| [Zone redundancy](how-to-enable-zone-redundancy.md)                                      | -                                   | ✔                                                      |
+| [Deterministic outbound IPs](how-to-deterministic-ip.md)                                 | -                                   | ✔                                                      |
+| [Private endpoints](how-to-set-up-private-access.md)                                     | -                                   | ✔                                                      |
+| Alerting                                                                                 | -                                   | ✔                                                      |
+| [Emails, via SMTP](how-to-smtp-settings.md)                                              | -                                   | ✔                                                      |
+| [Reporting/image rendering](how-to-use-reporting-and-image-rendering.md)                 | -                                   | ✔                                                      |
+| [API keys](how-to-create-api-keys.md) and [service accounts](how-to-service-accounts.md) | ✔                                  | ✔                                                      |
+| [Data source plugins](how-to-data-source-plugins-managed-identity.md)                    | Azure Monitor, Prometheus, TestData | All core plugins, Azure Data Explorer, GitHub, JSON API |
+| [Grafana Enterprise](how-to-grafana-enterprise.md)                                       | -                                   | Optional, with licensing costs                        |
+
+> [!NOTE]
+> Users can upgrade an instance from Essential to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential however isn't supported.
+
+## Quotas
+
+Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential and Standard pricing plans, see [Limitations: quotas](known-limitations.md).
+                                        | 1               | 20               |
 
 ## Next steps
 

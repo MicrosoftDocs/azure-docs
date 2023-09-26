@@ -17,7 +17,7 @@ In this guide, you learn how to set up Azure Monitor alerts and use them with Az
 * Customized notifications and actions - Azure Monitor alerts use action groups to send notifications through email, text, voice, and Azure app. These events can be configured to trigger further actions implemented in Functions, Logic apps, webhook, and other supported action types.
 * Consistent resource management - Azure Monitor alerts are managed as Azure resources. They can be created, updated and viewed using Azure APIs and tools, such as ARM templates, Azure CLI or SDKs.
 
-For any Azure Monitor service, including Managed Service for Prometheus, you should define and manage your alert rules in Azure Monitor. You can view fired and resolved alerts in the [Azure Alert Consumption dashboard](https://grafana.com/grafana/dashboards/15128-azure-alert-consumption/) included in Managed Grafana. 
+For any Azure Monitor service, including Managed Service for Prometheus, you should define and manage your alert rules in Azure Monitor. You can view fired and resolved alerts in the [Azure Alert Consumption dashboard](https://grafana.com/grafana/dashboards/15128-azure-alert-consumption/) included in Managed Grafana.
 
 > [!IMPORTANT]
 > Using Grafana alerts with an Azure Monitor service isn't officially supported by Microsoft.
@@ -30,7 +30,6 @@ Define alert rules in Azure Monitor based on the type of alerts:
 |-----------------|-----------------------------------------------------------------------------------------|
 | Managed service for Prometheus | Use [Prometheus rule groups](../azure-monitor/essentials/prometheus-rule-groups.md). A set of [predefined Prometheus alert rules](../azure-monitor/containers/container-insights-metric-alerts.md) and [recording rules](../azure-monitor/essentials/prometheus-metrics-scrape-default.md#recording-rules) for AKS is available. |
 | Other metrics, logs, health | Create new [alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md). |
-
 
 You can view alert state and conditions using the Azure Alert Consumption dashboard in your Managed Grafana workspace.
 

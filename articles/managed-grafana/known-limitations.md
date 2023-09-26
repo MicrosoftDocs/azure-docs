@@ -3,7 +3,7 @@ title: Azure Managed Grafana limitations
 description: Learn about current limitations in Azure Managed Grafana.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 03/13/2023
+ms.date: 09/29/2023
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -21,8 +21,6 @@ Azure Managed Grafana has the following known limitations:
 
 * Installing, uninstalling and upgrading plugins from the Grafana Catalog isn't possible.
 
-* Data source query results are capped at 80 MB. To mitigate this constraint, reduce the size of the query, for example, by shortening the time duration.
-
 * Querying Azure Data Explorer may take a long time or return 50x errors. To resolve these issues, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
 
 * Users can be assigned the following Grafana Organization level roles: Admin, Editor, or Viewer. The Grafana Server Admin role isn't available to customers.
@@ -31,7 +29,7 @@ Azure Managed Grafana has the following known limitations:
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
-*  Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com)
+* Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com)
 
 * Some Azure Managed Grafana features aren't available in Azure Government and Microsoft Azure operated by 21Vianet due to limitations in these specific environments. This following table lists the feature differences.
 
@@ -41,6 +39,20 @@ Azure Managed Grafana has the following known limitations:
   | Managed private endpoint | &#x274C; | &#x274C; |
   | Team sync with Azure AD | &#x274C; | &#x274C; |
   | Enterprise plugins | &#x274C; | &#x274C; |
+
+## Quotas
+
+| Limit                                |                                                                                                              | Essential       | Standard         |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------|-----------------|------------------|
+| Alert rules                          | Max number of alert rules that can be created                                                                | Not supported   | 100 per instance |
+| Dashboards                           | Max number of dashboards that can be created                                                                 | 20 per instance | Unlimited        |
+| Data sources                         | Max number of datasources that can be created                                                                | 5 per instance  | Unlimited        |
+| Users                                | Max number of users that can be created                                                                      | Unlimited       | Unlimited        |
+| API keys                             | Max number of API keys that can be created                                                                   | 2 per instance  | 100 per instance |
+| Data query timeout                   | Max wait duration for the reception of data query response headers, before Grafana times out | 200 seconds     | 200 seconds      |
+| Data source query size               | The maximum number of bytes that are read/accepted from responses of outgoing HTTP requests              | 80 MB           | 80 MB            |
+| Render image or PDF report wait time | Max wait duration for an image or report PDF rendering request to complete before Grafana times out.         | Not supported   | 220 seconds      |
+| Instance count                       | Max number of instances in a single subscription per Azure region    
 
 ## Next steps
 
