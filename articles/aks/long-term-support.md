@@ -18,7 +18,7 @@ While innovation delivered with this release cadence provides huge benefits for 
 ## AKS support types
 Once a Kubernetes version is out of Community Support (approximately one year), bug fixes and security updates aren't made available, leaving unsupported Kubernetes clusters at-risk.  
 
-AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group will contribute efforts back to the community to provide our customers with a longer support window.
+AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group contributes efforts back to the community to provide our customers with a longer support window.
 
 LTS intends to give you an extended period of time to plan and test for upgrades over a two-year period from the General Availability of the Kubernetes version.
 
@@ -73,10 +73,10 @@ As the list of managed add-ons is large, we list the addons / features that aren
 
 You can't move a cluster to Long Term support if any of these add-ons / features are enabled in your cluster.  
 
-Whilst these AKS managed add-ons will not be supported by Microsoft, you are able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
+Whilst these AKS managed add-ons aren't supported by Microsoft, you're able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
 
 ## How we decide the next LTS version
-Versions of Kubernetes LTS are available for two years from General Availability, we will then mark a later version of Kubernetes as LTS based on the following:
+Versions of Kubernetes LTS are available for two years from General Availability, we'll then mark a later version of Kubernetes as LTS based on the following:
 
 * The previous version has had a two year support window
 * Sufficient time for customers to migrate from the prior LTS version to the current
@@ -100,7 +100,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 > [!NOTE]
 > Kubernetes 1.28.3 is used as an example here, please check for available releases in the portal or using the get-version parameter in the azure CLI.
 
-There are approximately two years between one LTS version and the next.  In lieu of upstream support for migrating more than two minor versions, there is a high likelihood your application depends on Kubernetes APIs that have been deprecated.  We recommend you thoroughly test your application on the target LTS Kubernetes version and carry out a blue/green deployment from one version to another.
+There are approximately two years between one LTS version and the next.  In lieu of upstream support for migrating more than two minor versions, there's a high likelihood your application depends on Kubernetes APIs that have been deprecated.  We recommend you thoroughly test your application on the target LTS Kubernetes version and carry out a blue/green deployment from one version to another.
 
 ### Migrating from LTS to the next LTS release
 The upstream Kubernetes community supports a two minor version upgrade path.  The process migrates the objects in your Kubernetes cluster as part of the upgrade process, and provides a tested, and accredited migration path.
