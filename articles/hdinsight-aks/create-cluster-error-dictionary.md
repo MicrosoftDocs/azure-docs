@@ -8,8 +8,7 @@ ms.date: 08/31/2023
 
 # Cluster creation errors on Azure HDInsight on AKS
 
-This article describes resolutions to troubleshoot errors, that you might come across when creating clusters on HDInsight on AKS.
-
+This article describes how to troubleshoot and resolve errors that could occur when you create Azure HDInsight on AKS clusters.
 
 |Sr. No|Error message|Cause|Resolution|
 |----|-----|-----|-----|
@@ -54,4 +53,3 @@ This article describes resolutions to troubleshoot errors, that you might come a
 
 ## Next steps
 * [Troubleshoot cluster configuration](./trino/trino-configuration-troubleshoot.md).
-
