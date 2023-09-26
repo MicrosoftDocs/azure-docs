@@ -1,20 +1,23 @@
 ---
-title: Deploy an Azure Application Gateway v2 using Terraform to direct web traffic 
+title: 'Quickstart: Direct web traffic using Terraform'
+titleSuffix: Azure Application Gateway
 description: Learn how to use Terraform to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.author: greglin
-ms.date: 09/25/2023
+ms.date: 09/26/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
 ---
 
-# Deploy an Azure Application Gateway v2 using Terraform to direct web traffic
+# Quickstart: Direct web traffic with Azure Application Gateway - Terraform
 
-In this article, you use Terraform to deploy an Azure Application Gateway v2 and two Windows Server 2019 Datacenter test servers for the backend pool.
+In this quickstart, you use Bicep to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly.
+
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
