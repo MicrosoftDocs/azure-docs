@@ -8,7 +8,7 @@ ms.topic: conceptual
 
 As you progress on your journey with Cloud Governance, you'll want to shift from manually managing
 each policy assignment in the Azure portal or through the various SDKs to something more manageable
-and repeatable at enterprise scale. Two of the predominant approaches to managing systems at scale
+and repeatable at an enterprise scale. Two of the predominant approaches to managing systems at scale
 in the cloud are:
 
 - Infrastructure as Code: The practice of treating the content that defines your environments,
@@ -31,6 +31,7 @@ Before getting into the details of Azure Policy as Code workflow, it's important
 
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
+- [Policy exemption](./exemption-structure.md)
 
 The file names correspond with certain portions of policy or initiative definitions and other policy resources:
 
@@ -42,14 +43,13 @@ The file names correspond with certain portions of policy or initiative definiti
 | `policyset.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
 | `policy.rules.json`           | The `properties.policyRule` portion of the policy definition               |
 | `policyset.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
-| `exemptionName.json`          | The exemption that targets a particular resource or scope | 
+| `exemptionName.json`          | The policy exemption that targets a particular resource or scope  | 
 
 Examples of these file formats are available in the
 [Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
 
 - Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
 
 
 ## Workflow overview
@@ -83,13 +83,14 @@ in source control.
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
         | - exemptionName.json________ # Exemption for this particular assignment
+      |- exemptions.<name2>/__________ # Subfolder for exemptions on assignment 2
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
-|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
         | - exemptionName.json________ # Exemption for this particular assignment
 |
@@ -117,13 +118,14 @@ definitions in source control:
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
         | - exemptionName.json________ # Exemption for this particular assignment
+      |- exemptions.<name2>/__________ # Subfolder for exemptions on assignment 2
+        | - exemptionName.json________ # Exemption for this particular assignment
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
-|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
         | - exemptionName.json________ # Exemption for this particular assignment
 |
@@ -145,6 +147,9 @@ Once automation has taken your newly created or updated policy or initiative def
 the update to the object in Azure, it's time to test the changes that were made. Either the policy
 or the initiative(s) it's part of should then be assigned to resources in the environment farthest
 from production. This environment is typically _Dev_.
+
+>[!NOTE] 
+> In this step, we are conducting integration testing of the policy definition within your Azure environment, this is seperate from [verfying the functionality of the policy definition](./evaluate-impact.md#test-your-policys-effectiveness) which should occur during the definition creation process.
 
 The assignment should use [enforcementMode](./assignment-structure.md#enforcement-mode) of
 _disabled_ so that resource creation and updates aren't blocked, but that existing resources are
@@ -192,7 +197,7 @@ compliance change as expected.
 
 After all validation gates have completed, update the assignment to use **enforcementMode** of
 _enabled_. It's recommended to make this change initially in the same environment far from
-production. Once that environment is validated as working as expected, the change should then be
+production. Validate that the desired effects are applied during resource creation and resource update. Once that environment is validated as working as expected, the change should then be
 scoped to include the next environment, and so on, until the policy is deployed to production
 resources.
 
