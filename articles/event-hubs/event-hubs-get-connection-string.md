@@ -1,9 +1,9 @@
 ---
-title: Get connection string - Azure Event Hubs | Microsoft Docs
+title: Get connection string - Azure Event Hubs 
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
 ms.topic: article
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 06/21/2022 
+ms.date: 07/28/2023
 ---
 
 # Get an Event Hubs connection string
@@ -11,7 +11,7 @@ To communicate with an event hub in a namespace, you need a connection string fo
 
 The connection string for a namespace has the following components embedded within it,
 
-* Fully qualified domain name of the Event Hubs namespace you created (it includes the Event Hubs namespace name followed by servicebus.windows.net)
+* Fully qualified domain name of the Event Hubs namespace you created (it includes the Event Hubs namespace name followed by `servicebus.windows.net`)
 * Name of the shared access key 
 * Value of the shared access key
 
@@ -50,7 +50,7 @@ This section gives you steps for getting a connection string to a specific event
 
 1. On the **Event Hubs Namespace** page, select the event hub in the bottom pane. 
 1. On the **Event Hubs instance** page, select **Shared access policies** on the left menu. 
-1. There's no default policy created for an event hub. Create a policy with **Manage**, **Send, or **Listen** access. 
+1. There's no default policy created for an event hub. Create a policy with **Manage**, **Send**, or **Listen** access. 
 1. Select the policy from the list. 
 1. Select the **copy** button next to the **Connection string-primary key** field. 
 

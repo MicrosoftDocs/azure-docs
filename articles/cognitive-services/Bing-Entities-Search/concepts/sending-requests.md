@@ -1,6 +1,6 @@
 ---
 title: "Sending search requests to the Bing Entity Search API"
-titleSuffix: Azure cognitive Services
+titleSuffix: Azure AI services
 description: The Bing Entity Search API sends a search query to Bing and gets results that include entities and places.
 services: cognitive-services
 author: aahill
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Sending search requests to the Bing Entity Search API
 
-[!INCLUDE [Bing move notice](../../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries/regions, etc.
 

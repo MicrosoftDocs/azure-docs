@@ -4,6 +4,7 @@ description: Describes how to build a Business case with Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 01/17/2023
 ms.custom: engagement-fy23

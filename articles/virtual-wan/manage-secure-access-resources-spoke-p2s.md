@@ -103,7 +103,7 @@ Once you complete these steps, you will have created an architecture that allows
 1. Under Security, select **Azure Firewall policies**.
 1. Select **Create Azure Firewall Policy**.
 1. Under **Policy details**, type in a name and select the region your virtual hub is deployed in.
-1. Select **Next: DNS Settings (preview)**.
+1. Select **Next: DNS Settings**.
 1. Select **Next: Rules**.
 1. On the **Rules** tab, select **Add a rule collection**.
 1. Provide a name for the collection. Set the type as **Network**. Add a priority value **100**.

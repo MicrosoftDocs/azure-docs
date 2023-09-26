@@ -11,20 +11,19 @@ ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
 ms.date: 05/22/2023
-ms.custom: developer
-
-#Customer intent: As a dev, I want to learn about how to Sign in users and call an API in your own Node.js web application by using Azure Active Directory (Azure AD) for customers tenant.
+ms.custom: developer, devx-track-js
+#Customer intent: As a dev, I want to learn about how to Sign in users and call an API in your own Node.js web application by using Microsoft Entra ID for customers tenant.
 ---
 
 # Sign in users and call an API in a Node.js web application 
 
-In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using ASP.NET. You secure the web API by using Azure Active Directory (AD) for customers. To authorize access to the web API, you must serve requests that include a valid access token, which is issued by Azure AD for customers itself.
+In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using ASP.NET. You secure the web API by using Microsoft Entra ID for customers. To authorize access to the web API, you must serve requests that include a valid access token, which is issued by External ID for customers itself.
 
 To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](../../develop/microsoft-identity-web.md) respectively.
 
 We've organized the content into four separate articles so it's easy for you to follow:
 
-- [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-call-api-prepare-tenant.md) guides you how to register your API, client web app and configure user flows in the Microsoft Entra admin center.
+- [Prepare your External ID for customers tenant](how-to-web-app-node-sign-in-call-api-prepare-tenant.md) guides you how to register your API, client web app and configure user flows in the Microsoft Entra admin center.
 
 - [Prepare your web application and API](how-to-web-app-node-sign-in-call-api-prepare-app.md) guides you how to set up your Node.js client app and web API.
 
@@ -38,7 +37,7 @@ Token-based authentication ensures that requests to a web API include a valid ac
 
 The client web app completes the following events:
 
-- It authenticates users with Azure AD for customers.
+- It authenticates users with External ID for customers.
 
 - It acquires an access token with the required permissions (scopes) for the web API endpoint.
 
@@ -65,14 +64,14 @@ The web API completes the following events:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 
-If you want to run a sample Node.js web application that calls a sample web API to get a feel of how things work, complete the steps in [Sign in users and call an API in sample Node.js web application](how-to-web-app-node-sample-sign-in-call-api.md).
+If you want to run a sample Node.js web application that calls a sample web API to get a feel of how things work, complete the steps in [Sign in users and call an API in sample Node.js web application](./sample-web-app-node-sign-in-call-api.md).
 
 ## Next steps
 
-Next, learn how to prepare your Azure AD for customers tenant.
+Next, learn how to prepare your External ID for customers tenant.
 
 > [!div class="nextstepaction"]
-> [Prepare your Azure AD for customers tenant for authentication >](how-to-web-app-node-sign-in-call-api-prepare-tenant.md)
+> [Prepare your External ID for customers tenant for authentication >](how-to-web-app-node-sign-in-call-api-prepare-tenant.md)

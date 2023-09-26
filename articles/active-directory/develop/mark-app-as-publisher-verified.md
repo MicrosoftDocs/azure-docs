@@ -1,6 +1,6 @@
 ---
 title: Mark an app as publisher verified
-description: Describes how to mark an app as publisher verified. When an application is marked as publisher verified, it means that the publisher (application developer) has verified the authenticity of their organization using a Microsoft Partner Network (MPN) account that has completed the verification process and has associated this MPN account with that application registration.
+description: Describes how to mark an app as publisher verified. When an application is marked as publisher verified, it means that the publisher (application developer) has verified the authenticity of their organization using a Cloud Partner Program (CPP) account that has completed the verification process and has associated this CPP account with that application registration.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/16/2023
+ms.date: 08/17/2023
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: xurobert
@@ -16,29 +16,29 @@ ms.reviewer: xurobert
 
 # Mark your app as publisher verified
 
-When an app registration has a verified publisher, it means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their app registration. This article describes how to complete the [publisher verification](publisher-verification-overview.md) process.
+When an app registration has a verified publisher, it means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Cloud Partner Program (CPP) account and has associated this CPP account with their app registration. This article describes how to complete the [publisher verification](publisher-verification-overview.md) process.
 
 ## Quickstart
-If you are already enrolled in the Microsoft Partner Network (MPN) and have met the [pre-requisites](publisher-verification-overview.md#requirements), you can get started right away: 
+If you are already enrolled in the [Cloud Partner Program (CPP)](/partner-center/intro-to-cloud-partner-program-membership) and have met the [pre-requisites](publisher-verification-overview.md#requirements), you can get started right away: 
 
 1. Sign into the [App Registration portal](https://aka.ms/PublisherVerificationPreview) using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md)
 
 1. Choose an app and click **Branding & properties**. 
 
-1. Click **Add MPN ID to verify publisher** and review the listed requirements.
+1. Click **Add Partner One ID to verify publisher** and review the listed requirements.
 
-1. Enter your MPN ID and click **Verify and save**.
+1. Enter your Partner One ID and click **Verify and save**.
 
 For more details on specific benefits, requirements, and frequently asked questions see the [overview](publisher-verification-overview.md).
 
 ## Mark your app as publisher verified
 Make sure you meet the [pre-requisites](publisher-verification-overview.md#requirements), then follow these steps to mark your app(s) as Publisher Verified.  
 
-1. Sign in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Azure AD) account authorized to make changes to the app you want to mark as Publisher Verified and on the MPN Account in Partner Center.
+1. Sign in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Microsoft Entra) account authorized to make changes to the app you want to mark as Publisher Verified and on the CPP Account in Partner Center.
 
-    - The Azure AD user must have one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Administrator. 
+    - The Microsoft Entra user must have one of the following [roles](../roles/permissions-reference.md): Application Admin, Cloud Application Admin, or Global Administrator. 
 
-    - The user in Partner Center must have the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Administrator (a shared role mastered in Azure AD). 
+    - The user in Partner Center must have the following [roles](/partner-center/permissions-overview): CPP Admin, Accounts Admin, or a Global Administrator (a shared role mastered in Microsoft Entra ID). 
 
 1. Navigate to the **App registrations** blade:  
 
@@ -46,13 +46,13 @@ Make sure you meet the [pre-requisites](publisher-verification-overview.md#requi
 
 1. Ensure the app’s [publisher domain](howto-configure-publisher-domain.md) is set. 
 
-1. Ensure that either the publisher domain or a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) on the tenant matches the domain of the email address used during the verification process for your MPN account.
+1. Ensure that either the publisher domain or a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) on the tenant matches the domain of the email address used during the verification process for your CPP account.
 
-1. Click **Add MPN ID to verify publisher** near the bottom of the page. 
+1. Click **Add Partner One ID to verify publisher** near the bottom of the page. 
 
-1. Enter the **MPN ID** for: 
+1. Enter the **Partner One ID** for: 
 
-    - A valid Microsoft Partner Network account that has completed the verification process.  
+    - A valid Cloud Partner Program account that has completed the verification process.  
 
     - The Partner global account (PGA) for your organization. 
 

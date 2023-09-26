@@ -7,8 +7,7 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.date: 06/20/2023
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ---
 
 # Migrate Azure Data Lake Storage from Gen1 to Gen2 by using the Azure portal
@@ -90,6 +89,8 @@ For more information, see [Manage Azure Data Lake Analytics using the Azure port
 ## Step 4: Prepare the Gen1 account
 
 File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) aren't compatible with Gen2. You need to rename these files or directories before you migrate.
+
+For the better performance, consider delaying the migration for at least seven days from the time of the last delete operation. In a Gen1 account, deleted files become _soft_ deleted files, and the Garbage Collector won't remove them permanently until approximately seven days. All files, including soft deleted files, are processed during migration. If you wait until the Garbage Collector has permanently removed deleted files, your wait time can improve.  
 
 ## Step 5: Perform the migration
 
@@ -229,6 +230,57 @@ The following functionality isn't supported in the compatibility layer.
 
 ## Frequently asked questions
 
+#### How long will migration take?
+
+Data and metadata are migrated in parallel. The total time required to complete a migration is equal to whichever of these two processes complete last. 
+
+The following table shows the approximate speed of each migration processing task. 
+
+> [!NOTE]
+> These time estimates are approximate and can vary. For example, copying a large number of small files can slow performance. 
+
+| Processing task                        | Speed                                 |
+|----------------------------------------|---------------------------------------|
+| Data copy                              | 9 TB per hour                        |
+| Data validation                        | 9 million files per hour              |
+| Metadata copy                          | 4 million files and folders per hour  |
+| Metadata processing                    | 25 million files and folders per hour |
+| Additional metadata processing (data copy option)<sup>1</sup> | 50 million files and folders per hour |
+
+<sup>1</sup>    The additional metadata processing time applies only if you choose the **Copy data to a new Gen2 account** option. This processing time does not apply if you choose the **Complete migration to a new gen2 account** option.
+
+##### Example: Processing a large amount of data and metadata
+
+This example assumes **300 TB** of data and **200 million** data and metadata items.
+
+| Task | Estimated time |
+|--|--|
+| Copy data | 300 TB / 9 TB = 33.33 hours |
+| Validate data | 200 million / 9 million = 22.22 hours|
+| **Total data migration time** | **33.33 + 22.2 = 55.55 hours** |   
+| Copy metadata | 200 million / 4 million = 50 hours |
+| Metadata processing | 200 million / 25 million = 8 hours |
+| Additional metadata processing - data copy option only | 200 million / 50 million = 4 hours |
+| **Total metadata migration time** | **50 + 8 + 4 = 62 hours** |
+| **Total time to perform a data-only migration** | **62 hours** |
+| **Total time to perform a complete migration**| **62 - 4 = 58 hours** |
+
+##### Example: Processing a small amount of data and metadata
+
+This example assumes that **2 TB** of data and **56 thousand** data and metadata items.
+
+| Task | Estimated time |
+|--|--|
+| Copy data | (2 TB / 9 TB) * 60 minutes = 13.3 minutes|
+| Validate data | (56,000 / 9 million) * 3,600 seconds = 22.4 seconds  |
+| **Total data migration time** | **13.3 minutes + 22.4 seconds = approximately 14 minutes** |   
+| Copy metadata | (56,000 / 4 million) * 3,600 seconds  = approximately 51 seconds |
+| Metadata processing | 56,000/ 25 million = 8 seconds |
+| Additional metadata processing - data copy option only | (56,000 / 50 million) * 3,600 seconds = 4 seconds|
+| **Total metadata migration time** | **51 + 8 + 4 = 63 seconds** |
+| **Total time to perform a data-only migration** | **14 minutes** |
+| **Total time to perform a complete migration** | **14 minutes - 4 seconds = 13 minutes and 56 seconds (approximately 14 minutes)** |
+
 #### How much does the data migration cost?
 
 There's no cost to use the portal-based migration tool, however you'll be billed for usage of Azure Data Lake Gen1 and Gen2 services. During the data migration, you'll be billed for the data storage and transactions of the Gen1 account.
@@ -258,6 +310,20 @@ When you copy the data over to your Gen2-enabled account, two factors that can a
 #### Will WebHDFS File System APIs supported on Gen2 account post migration?
 
 WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibility layer. Customers should plan to leverage Gen2-specific APIs for better performance and features.
+
+#### What happens to my Gen1 account after the retirement date?
+
+The account becomes inaccessible. You won't be able to:
+
+- Manage the account
+
+- Access data in the account 
+
+- Receive service updates to Gen1 or Gen1 APIs, SDKs, or client tools
+
+- Access Gen1 customer support online, by phone or by email
+
+See [Action required: Switch to Azure Data Lake Storage Gen2 by 29 February 2024](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
 ## Next steps
 

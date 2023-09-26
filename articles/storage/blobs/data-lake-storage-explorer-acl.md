@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Use the Azure Storage Explorer to manage access control lists (ACLs) in storage accounts that have hierarchical namespace (HNS) enabled.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: normesta

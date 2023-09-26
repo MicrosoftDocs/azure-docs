@@ -33,7 +33,7 @@ Using outbound type is an advanced networking scenario and requires proper netwo
 
 AKS doesn't automatically configure egress paths if `userDefinedRouting` is set, which means you must configure the egress.
 
-When you don't use standard load balancer (SLB) architecture, you must establish explicit egress. You must deploy your AKS cluster into an existing virtual network with a subnet that has been previously configured. This architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy so a public IP assigned to the standard load balancer or appliance can handle the Network Address Translation (NAT).
+When you don't use standard load balancer (SLB) architecture, you must establish explicit egress. You must deploy your AKS cluster into an existing virtual network with a subnet that has been previously configured. This architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, or proxy, so a public IP assigned to the standard load balancer or appliance can handle the Network Address Translation (NAT).
 
 ### Load balancer creation with `userDefinedRouting`
 

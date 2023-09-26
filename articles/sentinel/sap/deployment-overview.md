@@ -24,9 +24,10 @@ Microsoft Sentinel solution for SAP® applications is certified for SAP S/4HANA�
 **Microsoft Sentinel solution for SAP® applications** is a [Microsoft Sentinel solution](../sentinel-solutions.md) that you can use to monitor your SAP systems and detect sophisticated threats throughout the business logic and application layers. The solution includes the following components:
 - The Microsoft Sentinel for SAP data connector for data ingestion.
 - Analytics rules and watchlists for threat detection.
-- Functions for easy data access. 
-- Workbooks for interactive data visualization. 
-- Watchlists for customization of the built-in solution parameters.  
+- Functions for easy data access.
+- Workbooks for interactive data visualization.
+- Watchlists for customization of the built-in solution parameters.
+- Playbooks for automating responses to threats.
 
 > [!NOTE]
 > The Microsoft Sentinel for SAP solution is free to install, but there will be an [additional hourly charge](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/) for activating and using the solution on production systems starting May 2023. 

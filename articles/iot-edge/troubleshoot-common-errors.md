@@ -66,7 +66,9 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 #### Symptoms
 
-The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but continually reporting 'empty config file...'.
+* The device has trouble starting modules defined in the deployment. Only the *edgeAgent* is running but and reports *empty config file...*.
+
+* When you run `sudo iotedge check` on a device, it reports *Container engine is not configured with DNS server setting, which may impact connectivity to IoT Hub. Please see https://aka.ms/iotedge-prod-checklist-dns for best practices.*
 
 #### Cause
 

@@ -3,7 +3,9 @@ title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster by using Te
 description: In this article, you learn how to quickly create a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS)
 ms.topic: quickstart
 ms.date: 06/13/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
+content_well_notification: 
+  - AI-contribution
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
@@ -28,13 +30,15 @@ In this article, you learn how to:
 > * Create an AzAPI resource [azapi_resource](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource).
 > * Create an AzAPI resource to generate an SSH key pair using [azapi_resource_action](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/azapi_resource_action).
 
-[!INCLUDE [AI attribution](../../../includes/ai-generated-attribution.md)]
-
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 - **Kubernetes command-line tool (kubectl):** [Download kubectl](https://kubernetes.io/releases/download/).
+
+## Login to your Azure Account
+
+[!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
 
 ## Implement the Terraform code
 

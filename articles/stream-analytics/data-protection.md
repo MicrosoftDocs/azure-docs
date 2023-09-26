@@ -26,9 +26,8 @@ Azure Stream Analytics persists the following metadata and data in order to run:
 
 * Connection details of the resources used by your Stream Analytics job
 
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
 ## In-Region Data Residency
+
 Azure Stream Analytics stores customer data and other metadata described above. Customer data is stored by Azure Stream Analytics in a single region by default, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 Additionally, you can choose to store all data assets (customer data and other metadata) related to your stream analytics job in a single region by encrypting them in a storage account of your choice.
 
@@ -48,8 +47,6 @@ If the storage account you want to use is in an Azure Virtual Network, you must 
 ### Configure storage account for private data 
 
 Encrypt your storage account to secure all of your data and explicitly choose the location of your private data. 
-
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 Use the following steps to configure your storage account for private data assets. This configuration is made from your Stream Analytics job, not from your storage account.
 
@@ -86,8 +83,6 @@ Any private data that is required to be persisted by Stream Analytics is stored 
 * Snapshots of reference data 
 
 Connection details of your resources, which are used by your Stream Analytics job, are also stored. Encrypt your storage account to secure all of your data. 
-
-To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## Enables Data Residency 
 You may use this feature to enforce any data residency requirements you may have by providing a storage account accordingly.

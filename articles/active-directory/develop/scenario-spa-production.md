@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 Now that you know how to acquire a token to call web APIs, here are some things to consider when moving your application to production.
 
-[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](./includes/scenarios/scenarios-production.md)]
 
 ## Deploy your app
 

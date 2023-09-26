@@ -5,8 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 05/15/2023
-ms.custom: MVC, engagement-fy23
+ms.date: 09/13/2023
+ms.service: azure-migrate
+ms.custom: MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 
@@ -51,7 +52,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
+1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
@@ -76,7 +77,7 @@ Run an assessment as follows:
    - In **Storage type**,
      - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
      - Alternatively, select the storage type you want to use for VM when you migrate it.
-   - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
+   - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
      - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
      - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
      - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
@@ -138,13 +139,12 @@ An assessment describes:
 To view an assessment:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VM assessment**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
+2. In **Assessments**, select an assessment to open it. 
+4. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
+   - The Azure readiness graph displays the status of the VM.
+   - The Supportability section displays the distribution by OS license support status and the distribution by Windows Server version.
+   - The Savings option section displays the estimated savings on moving to Azure.
 
-    ![Screenshot of Assessment summary.](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
-3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
- 
- 
 ### Review readiness
 
 1. Select **Azure readiness**.
@@ -191,6 +191,12 @@ Confidence ratings are as follows.
 81%-100% | 5 stars
 
 [Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+
+### Review issues
+
+In the Assessment report, you can see a list of errors if there are any issues faced by the assessment service for any VM. To troubleshoot the issues, select **Details** in the **Issues** column to view errors corresponding to a VM. A context pane will open with detailed information about the errors. Use this information to resolve the issues.
+
+![Screenshot of issue details.](./media/tutorial-assess-vmware-azure-vm/issue-details.png)
 
 ## Next steps
 

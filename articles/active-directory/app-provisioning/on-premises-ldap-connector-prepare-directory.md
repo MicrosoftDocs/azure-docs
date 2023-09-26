@@ -1,6 +1,6 @@
 ---
-title: Preparing for Azure AD Provisioning to Active Directory Lightweight Directory Services
-description: This document describes how to configure Azure AD to provision users into Active Directory Lightweight Directory Services as an example of an LDAP directory.
+title: Preparing for Microsoft Entra provisioning to Active Directory Lightweight Directory Services
+description: This document describes how to configure Microsoft Entra ID to provision users into Active Directory Lightweight Directory Services as an example of an LDAP directory.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.author: billmath
 ms.reviewer: arvinh
 ---
 
-# Prepare Active Directory Lightweight Directory Services for provisioning from Azure AD
+# Prepare Active Directory Lightweight Directory Services for provisioning from Microsoft Entra ID
 
-The following documentation provides tutorial information demonstrating how to prepare an Active Directory Lightweight Directory Services (AD LDS) installation.  This can be used as an example LDAP directory for troubleshooting or to demonstrate [how to provision users from Azure AD into an LDAP directory](on-premises-ldap-connector-configure.md).  
+The following documentation provides tutorial information demonstrating how to prepare an Active Directory Lightweight Directory Services (AD LDS) installation.  This can be used as an example LDAP directory for troubleshooting or to demonstrate [how to provision users from Microsoft Entra ID into an LDAP directory](on-premises-ldap-connector-configure.md).  
 
 ## Prepare the LDAP directory
 
@@ -72,20 +72,20 @@ In order to enable SSL to work, you need to grant the NETWORK SERVICE read permi
 Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
  1. Open Server Manager and select AD LDS on the left
  2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
-   [![Screenshot that shows the Ldp tool location.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool location.](../../../includes/media/app-provisioning-ldap/ldp-1.png)](../../../includes/media/app-provisioning-ldap/ldp-1.png#lightbox)</br>
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
     - Server:  APP3
     - Port: 636
     - Place a check in the SSL box
-   [![Screenshot that shows the Ldp tool connection configuration.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool connection configuration.](../../../includes/media/app-provisioning-ldap/ldp-2.png)](../../../includes/media/app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5.  You should see a response similar to the screenshot below.
-   [![Screenshot that shows the Ldp tool connection configuration success.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool connection configuration success.](../../../includes/media/app-provisioning-ldap/ldp-3.png)](../../../includes/media/app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
-   [![Screenshot that shows the Ldp tool bind operation.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool bind operation.](../../../includes/media/app-provisioning-ldap/ldp-4.png)](../../../includes/media/app-provisioning-ldap/ldp-4.png#lightbox)</br>
  8. You should now, successfully bind to the instance.
-   [![Screenshot that shows the Ldp tool bind success.](../../../includes/media/active-directory-app-provisioning-ldap/ldp-5.png)](../../../includes/media/active-directory-app-provisioning-ldap/ldp-5.png#lightbox)</br>
+   [![Screenshot that shows the Ldp tool bind success.](../../../includes/media/app-provisioning-ldap/ldp-5.png)](../../../includes/media/app-provisioning-ldap/ldp-5.png#lightbox)</br>
 
 ### Disable the local password policy
 Currently, the LDAP connector provisions users with a blank password.  This provisioning will not satisfy the local password policy on our server so we are going to disable it for testing purposes.  To disable password complexity, on a non-domain-joined server, use the following steps.
@@ -96,12 +96,12 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  1. On the server, click **Start**, **Run**, and then **gpedit.msc**
  2. On the **Local Group Policy editor**, navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
  3. On the right, double-click **Password must meet complexity requirements** and select **Disabled**.
-  [![Screenshot of the complexity requirements setting.](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png)](../../../includes/media/active-directory-app-provisioning-ldap/local-1.png#lightbox)</br>
+  [![Screenshot of the complexity requirements setting.](../../../includes/media/app-provisioning-ldap/local-1.png)](../../../includes/media/app-provisioning-ldap/local-1.png#lightbox)</br>
  5. Click **Apply** and **Ok**
  6. Close the Local Group Policy editor
  
 
-Next, continue in the guidance to [provision users from Azure AD into an LDAP directory](on-premises-ldap-connector-configure.md) to download and configure the provisioning agent.  
+Next, continue in the guidance to [provision users from Microsoft Entra ID into an LDAP directory](on-premises-ldap-connector-configure.md) to download and configure the provisioning agent.  
 
 ## Appendix A - Install AD LDS PowerShell script
 The following PowerShell script can be used to automate the installation of Active Directory Lightweight Directory Services. You'll need to edit the script to match your environment; in particular, change `APP3` to the hostname of your computer.

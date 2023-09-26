@@ -5,9 +5,11 @@ author: TomArcherMsft
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 ms.author: tarcher
 ms.date: 4/14/2023
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using Terraform
@@ -24,8 +26,6 @@ In this article, you learn how to:
 > * Create a random value for the virtual network name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure DDoS protection plan using [azurerm_network_ddos_protection_plan](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_ddos_protection_plan)
 > * Create an Azure virtual network using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

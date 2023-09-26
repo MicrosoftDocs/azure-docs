@@ -2,13 +2,16 @@
 title: Incoming request tracking in Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor request calls for your Python apps via OpenCensus Python.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 06/23/2023
 ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
 ---
 
 # Track incoming requests with OpenCensus Python
+
+> [!NOTE]
+> [OpenCensus Python SDK is deprecated](https://opentelemetry.io/blog/2023/sunsetting-opencensus/), but Microsoft supports it until retirement on September 30, 2024. We now recommend the [OpenTelemetry-based Python offering](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-enable?tabs=python) and provide [migration guidance](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-python-opencensus-migrate?tabs=aspnetcore).
 
 OpenCensus Python and its integrations collect incoming request data. You can track incoming request data sent to your web applications built on top of the popular web frameworks Django, Flask, and Pyramid. Application Insights receives the data as `requests` telemetry.
 

@@ -131,3 +131,10 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 ## Next steps
 
 - [Manage the Dynatrace resource](dynatrace-how-to-manage.md)
+- Get started with Azure Native Dynatrace Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

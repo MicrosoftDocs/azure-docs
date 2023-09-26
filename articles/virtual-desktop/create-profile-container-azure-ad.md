@@ -13,7 +13,7 @@ ms.author: helohr
 
 In this article, you'll learn how to create and configure an Azure Files share for Azure Active Directory (Azure AD) Kerberos authentication. This configuration allows you to store FSLogix profiles that can be accessed by hybrid user identities from Azure AD-joined or Hybrid Azure AD-joined session hosts without requiring network line-of-sight to domain controllers. Azure AD Kerberos enables Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol.
 
-This feature is supported in the Azure Public, Azure US Gov and Azure China 21Vianet clouds.
+This feature is supported in the Azure Public, Azure US Gov, and Azure operated by 21Vianet.
 
 ## Prerequisites
 
@@ -43,11 +43,16 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
 
 1. Enable the Azure AD Kerberos functionality using one of the following methods.
 
-    - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the session host: [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
+    - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the session host: [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled).
+    
+       > [!NOTE]
+       > Windows multi-session client operating systems don't support Policy CSP as they only support the [settings catalog](/mem/intune/configuration/settings-catalog), so you'll need to use one of the other methods. Learn more at [Using Azure Virtual Desktop multi-session with Intune](/mem/intune/fundamentals/azure-virtual-desktop-multi-session).
+    
     - Enable this Group policy on session hosts. The path will be one of the following, depending on the version of Windows you use on your session hosts:
        - `Administrative Templates\System\Kerberos\Allow retrieving the cloud kerberos ticket during the logon`
        - `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
-    - Create the following registry value on the session host: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
+    
+    - - Create the following registry value on the session host: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
 2. When you use Azure AD with a roaming profile solution like FSLogix, the credential keys in Credential Manager must belong to the profile that's currently loading. This will let you load your profile on many different VMs instead of being limited to just one. To enable this setting, create a new registry value by running the following command:
 

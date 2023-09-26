@@ -2,7 +2,6 @@
 title: Azure Blob indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme

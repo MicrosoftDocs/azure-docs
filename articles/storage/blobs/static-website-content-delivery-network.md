@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to cache static website content from an Azure Storage account by using Azure Content Delivery Network (CDN).
 author: normesta
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020

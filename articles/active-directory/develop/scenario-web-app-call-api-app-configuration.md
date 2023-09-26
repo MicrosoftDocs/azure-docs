@@ -29,7 +29,7 @@ The [Web app that signs in users](scenario-web-app-sign-user-overview.md) scenar
 
 The following Microsoft libraries support web apps:
 
-[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
+[!INCLUDE [active-directory-develop-libraries-webapp](./includes/libraries/libraries-webapp.md)]
 
 Select the tab for the platform you're interested in:
 
@@ -37,7 +37,7 @@ Select the tab for the platform you're interested in:
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.cs
 
@@ -139,7 +139,7 @@ The following image shows the various possibilities of *Microsoft.Identity.Web* 
 
 ## Client secrets or client certificates
 
-[!INCLUDE [web-app-client-credentials.md](includes/web-app-client-credentials.md)]
+[!INCLUDE [web-app-client-credentials.md](./includes/web-app-client-credentials.md)]
 
 ## Startup.Auth.cs
 
@@ -289,7 +289,7 @@ Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connec
 
 # [Node.js](#tab/nodejs)
 
-The *handleRedirect* method in **AuthProvider** class processes the authorization code received from Azure AD. This is shown below:
+The *handleRedirect* method in **AuthProvider** class processes the authorization code received from Microsoft Entra ID. This is shown below:
 
 :::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js" range="123-155":::
 

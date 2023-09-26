@@ -61,6 +61,7 @@ Perf
 ```
 
 ### Container memory
+This query uses `memoryRssBytes` which is only available for Linux nodes.
 
 ```kusto
 Perf
@@ -307,44 +308,6 @@ KubePodInv
 
 These queries are generated from the [out of the box visualizations](./container-insights-analyze.md) from container insights. You can choose to use these if you have enabled custom [cost optimization settings](./container-insights-cost-config.md), in lieu of the default charts.
 
-### Node CPU and memory utilization
-
-The required tables for this chart include Perf and KubeNodeInventory.
-
-```kusto
- let trendBinSize = 5m;
- let MaxListSize = 1000;
- let clusterId = 'clusterResourceID'; //update with resource ID
- let clusterIdToken = strcat(clusterId, "/");
- 
- let materializedPerfData = materialize(Perf 
-| where InstanceName startswith clusterIdToken 
-| where ObjectName == 'K8SNode' 
-| summarize arg_max(TimeGenerated, *) by CounterName, Computer, bin(TimeGenerated, trendBinSize) 
-| where CounterName == 'cpuCapacityNanoCores' or CounterName == 'memoryCapacityBytes' or CounterName == 'cpuUsageNanoCores' or CounterName == 'memoryRssBytes' 
-| project TimeGenerated, Computer, CounterName, CounterValue 
-| summarize StoredValue = max(CounterValue) by Computer, CounterName, bin(TimeGenerated, trendBinSize));
-
- let rawData = KubeNodeInventory 
-| where ClusterId =~ clusterId 
-| summarize arg_max(TimeGenerated, *) by Computer, bin(TimeGenerated, trendBinSize) 
-| join( materializedPerfData 
-| where CounterName == 'cpuCapacityNanoCores' or CounterName == 'memoryCapacityBytes' 
-| project Computer, CounterName = iif(CounterName == 'cpuCapacityNanoCores', 'cpu', 'memory'), CapacityValue = StoredValue, TimeGenerated ) on Computer, TimeGenerated 
-| join kind=inner( materializedPerfData 
-| where CounterName == 'cpuUsageNanoCores' or CounterName == 'memoryRssBytes' 
-| project Computer, CounterName = iif(CounterName == 'cpuUsageNanoCores', 'cpu', 'memory'), UsageValue = StoredValue, TimeGenerated ) on Computer, CounterName, TimeGenerated 
-| project Computer, CounterName, TimeGenerated, UsagePercent = UsageValue * 100.0 / CapacityValue;
-
- rawData 
-| summarize Min = min(UsagePercent), Avg = avg(UsagePercent), Max = max(UsagePercent), percentiles(UsagePercent, 50, 90, 95) by bin(TimeGenerated, trendBinSize), CounterName 
-| sort by TimeGenerated asc 
-| project CounterName, TimeGenerated, Min, Avg, Max, P50 = percentile_UsagePercent_50, P90 = percentile_UsagePercent_90, P95 = percentile_UsagePercent_95 
-| summarize makelist(TimeGenerated, MaxListSize), makelist(Min, MaxListSize), makelist(Avg, MaxListSize), makelist(Max, MaxListSize), makelist(P50, MaxListSize), makelist(P90, MaxListSize), makelist(P95, MaxListSize) by CounterName 
-| join ( rawData 
-| summarize Min = min(UsagePercent), Avg = avg(UsagePercent), Max = max(UsagePercent), percentiles(UsagePercent, 50, 90, 95) by CounterName ) on CounterName 
-| project ClusterId = clusterId, CounterName, Min, Avg, Max, P50 = percentile_UsagePercent_50, P90 = percentile_UsagePercent_90, P95 = percentile_UsagePercent_95, list_TimeGenerated, list_Min, list_Avg, list_Max, list_P50, list_P90, list_P95 
-```
 ### Node count by status
 
 The required tables for this chart include KubeNodeInventory.
@@ -658,47 +621,9 @@ The required tables for this chart include KubeNodeInventory, KubePodInventory, 
 | project ClusterName, NodeName, LastReceivedDateTime, Status, ContainerCount, UpTimeMs = UpTimeMs_long, Aggregation = Aggregation_real, LimitValue = LimitValue_real, list_TrendPoint, Labels, ClusterId 
 ```
 
-## Resource logs
-
-Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. You can distinguish different logs with the **Category** column. For a description of each category, see [AKS reference resource logs](../../aks/monitor-aks-reference.md). The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. For more information, see [Configure monitoring](../../aks/monitor-aks.md#configure-monitoring).
-
-### API server logs
-
-```kusto
-AzureDiagnostics 
-| where Category == "kube-apiserver"
-```
-
-### Count logs for each category
-
-```kusto
-AzureDiagnostics
-| where ResourceType == "MANAGEDCLUSTERS"
-| summarize count() by Category
-```
-
 ## Prometheus metrics
 
-The following example is a Prometheus metrics query showing disk reads per second per disk per node.
-
-```
-InsightsMetrics
-| where Namespace == 'container.azm.ms/diskio'
-| where TimeGenerated > ago(1h)
-| where Name == 'reads'
-| extend Tags = todynamic(Tags)
-| extend HostName = tostring(Tags.hostName), Device = Tags.name
-| extend NodeDisk = strcat(Device, "/", HostName)
-| order by NodeDisk asc, TimeGenerated asc
-| serialize
-| extend PrevVal = iif(prev(NodeDisk) != NodeDisk, 0.0, prev(Val)), PrevTimeGenerated = iif(prev(NodeDisk) != NodeDisk, datetime(null), prev(TimeGenerated))
-| where isnotnull(PrevTimeGenerated) and PrevTimeGenerated != TimeGenerated
-| extend Rate = iif(PrevVal > Val, Val / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1), iif(PrevVal == Val, 0.0, (Val - PrevVal) / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1)))
-| where isnotnull(Rate)
-| project TimeGenerated, NodeDisk, Rate
-| render timechart
-
-```
+The following examples requires the configuration described in [Send Prometheus metrics to Log Analytics workspace with Container insights](container-insights-prometheus-logs.md).
 
 To view Prometheus metrics scraped by Azure Monitor and filtered by namespace, specify *"prometheus"*. Here's a sample query to view Prometheus metrics from the `default` Kubernetes namespace.
 
@@ -730,7 +655,7 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows the log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-03.png)
+![Screenshot that shows the log query results of data ingestion volume.](media/container-insights-log-query/log-query-example-usage-03.png)
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -745,7 +670,8 @@ InsightsMetrics
 
 The output will show results similar to the following example.
 
-![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-prometheus/log-query-example-usage-02.png)
+![Screenshot that shows log query results of data ingestion volume.](./media/container-insights-log-query/log-query-example-usage-02.png)
+
 
 
 ## Configuration or scraping errors
@@ -763,3 +689,4 @@ The output shows results similar to the following example:
 ## Next steps
 
 Container insights doesn't include a predefined set of alerts. To learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures, see [Create performance alerts with Container insights](./container-insights-log-alerts.md).
+

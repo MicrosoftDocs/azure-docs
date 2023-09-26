@@ -1,6 +1,6 @@
 ---
 title: Default insights tag - Bing Visual Search
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Provides details about the default insights that Bing Visual Search returns about an image.
 services: cognitive-services
 
@@ -15,7 +15,7 @@ ms.date: 04/04/2019
 
 # Default insights tag
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The default insights tag is the one with the `displayName` field set to an empty string. The following example shows the possible list of default insights (actions). The list of actions the response includes depends on the image. And for each action, the list of properties may vary by image, so check if the property exists before trying to use it.
 

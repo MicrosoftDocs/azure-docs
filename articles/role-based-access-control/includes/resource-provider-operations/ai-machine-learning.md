@@ -84,7 +84,7 @@ Azure service: [Azure Bot Service](/azure/bot-service/)
 
 ### Microsoft.CognitiveServices
 
-Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
+Azure service: [Cognitive Services](../../../ai-services/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -111,6 +111,8 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/networkSecurityPerimeterAssociationProxies/read | Reads a network security perimeter association. |
 > | Microsoft.CognitiveServices/accounts/networkSecurityPerimeterAssociationProxies/write | Writes a network security perimeter association. |
 > | Microsoft.CognitiveServices/accounts/networkSecurityPerimeterAssociationProxies/delete | Deletes a network security perimeter association. |
+> | Microsoft.CognitiveServices/accounts/networkSecurityPerimeterConfigurations/read | Read effective Network Security Perimeters configuration |
+> | Microsoft.CognitiveServices/accounts/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile effective Network Security Perimeters configuration |
 > | Microsoft.CognitiveServices/accounts/privateEndpointConnectionProxies/read | Reads private endpoint connections. |
 > | Microsoft.CognitiveServices/accounts/privateEndpointConnectionProxies/write | Writes a private endpoint connections. |
 > | Microsoft.CognitiveServices/accounts/privateEndpointConnectionProxies/delete | Deletes a private endpoint connections. |
@@ -123,6 +125,9 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Cognitive Services account |
 > | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Cognitive Services. |
+> | Microsoft.CognitiveServices/accounts/raiPolicies/read | Gets all applicable policies under the account including default policies. |
+> | Microsoft.CognitiveServices/accounts/raiPolicies/write | Create or update a custom Responsible AI policy. |
+> | Microsoft.CognitiveServices/accounts/raiPolicies/delete | Deletes a custom Responsible AI policy that's not referenced by an existing deployment. |
 > | Microsoft.CognitiveServices/accounts/skus/read | Reads available SKUs for an existing resource. |
 > | Microsoft.CognitiveServices/accounts/usages/read | Get the quota usage for an existing resource. |
 > | Microsoft.CognitiveServices/deletedAccounts/read | List deleted accounts. |
@@ -130,6 +135,7 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
 > | Microsoft.CognitiveServices/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notification from Microsoft.Network of NetworkSecurityPerimeter updates. |
 > | Microsoft.CognitiveServices/locations/commitmentTiers/read | Reads available commitment tiers. |
+> | Microsoft.CognitiveServices/locations/models/read | Reads available models. |
 > | Microsoft.CognitiveServices/locations/networkSecurityPerimeterProxies/read | Reads a network security perimeter. |
 > | Microsoft.CognitiveServices/locations/networkSecurityPerimeterProxies/write | Writes a network security perimeter. |
 > | Microsoft.CognitiveServices/locations/networkSecurityPerimeterProxies/delete | Deletes  a network security perimeter. |
@@ -142,9 +148,14 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/locations/operationresults/read | Read the status of an asynchronous operation. |
 > | Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/read | Get deleted account. |
 > | Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete | Purge deleted account. |
+> | Microsoft.CognitiveServices/locations/usages/read | Read all usages data |
 > | Microsoft.CognitiveServices/Operations/read | List all available operations |
 > | Microsoft.CognitiveServices/skus/read | Reads available SKUs for Cognitive Services. |
 > | **DataAction** | **Description** |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-last/action | Submit multivariate anomaly detection task with the modelId of trained model and inference data, and the inference data should be put into request body in a JSON format. The request will complete synchronously and return the detection immediately in the response body. |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-batch/action | Submit multivariate anomaly detection task with the modelId of trained model and inference data, the input schema should be the same with the training request. The request will complete asynchronously and return a resultId to query the detection result.The request should be a source link to indicate an externally accessible Azure storage Uri, either pointed to an Azure blob storage folder, or pointed to a CSV file in Azure blob storage. |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/action | Create and train a multivariate anomaly detection model.<br>The request must include a source parameter to indicate an externally accessible Azure blob storage URI.There are two types of data input: An URI pointed to an Azure blob storage folder which contains multiple CSV files, and each CSV file contains two columns, timestamp and variable.<br>Another type of input is an URI pointed to a CSV file in Azure blob storage, which contains all the variables and a timestamp column. |
+> | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/detect-batch/read | For asynchronous inference, get multivariate anomaly detection result based on resultId returned by the BatchDetectAnomaly api. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/write | Create and train a multivariate anomaly detection model.<br>The request must include a source parameter to indicate an externally accessible Azure storage Uri (preferably a Shared Access Signature Uri).<br>All time-series used in generate the model must be zipped into one single file.<br>Each time-series will be in a single CSV file in which the first column is timestamp and the second column is value. |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/delete | Delete an existing multivariate model according to the modelId |
 > | Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/detect/action | Submit detection multivariate anomaly task with the trained model of modelId, the input schema should be the same with the training request.<br>Thus request will be complete asynchronously and will return a resultId for querying the detection result.The request should be a source link to indicate an externally accessible Azure storage Uri (preferably a Shared Access Signature Uri).<br>All time-series used in generate the model must be zipped into one single file.<br>Each time-series will be as follows: the first column is timestamp and the second column is value.<br>Synchronized API for anomaly detection. |
@@ -197,6 +208,8 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneTemplates/write | Create tune template. |
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneTemplates/delete | Delete tune template. |
 > | Microsoft.CognitiveServices/accounts/Autosuggest/search/action | This operation provides suggestions for a given query or partial query. |
+> | Microsoft.CognitiveServices/accounts/Billing/submitusage/action | submit usage with meter name and quantity specified in request body. |
+> | Microsoft.CognitiveServices/accounts/Billing/createlicense/action | create and return a license for a subscription and list of license keys specified in request body. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/analyze/action | This operation extracts a rich set of visual features based on the image content.  |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/describe/action | This operation generates a description of an image in human readable language with complete sentences.<br> The description is based on a collection of content tags, which are also returned by the operation.<br>More than one description can be generated for each image.<br> Descriptions are ordered by their confidence score.<br>All descriptions are in English. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/generatethumbnail/action | This operation generates a thumbnail image with the user-specified width and height.<br> By default, the service analyzes the image, identifies the region of interest (ROI), and generates smart cropping coordinates based on the ROI.<br> Smart cropping helps when you specify an aspect ratio that differs from that of the input image |
@@ -205,6 +218,8 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | This operation generates a list of words, or tags, that are relevant to the content of the supplied image.<br>The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images.<br>Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.<br>Tags may contain hints to avoid ambiguity or provide context, for example the tag "cello" may be accompanied by the hint "musical instrument".<br>All tags are in English. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | This operation returns a bounding box around the most important area of the image. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/detect/action | This operation Performs object detection on the specified image.  |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/imageanalysis:analyze/action | Analyze the input image. The request either contains image stream with any content type ['image/*', 'application/octet-stream'], or a JSON payload which includes an url property to be used to retrieve the image stream. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/imageanalysis:segment/action | Analyze the input image.<br>The request either contains an image stream with any content type ['image/*', 'application/octet-stream'], or a JSON payload which includes a url property to be used to retrieve the image stream.<br>An image stream of content type 'image/png' is returned, where the pixel values depend on the analysis mode.<br>The returned image has the same dimensions as the input image for modes: foregroundMatting.<br>The returned image has the same aspect ratio and same dimensions as the input image up to a limit of 16 megapixels for modes: backgroundRemoval. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/batch/write | This internal operation creates a new batch with the specified name. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/batch/read | This internal operation returns the list of batches. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/batch/analyzestatus/read | This internal operation returns the status of the specified batch. |
@@ -219,13 +234,23 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/:cancel/action | Cancel model training. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/delete | Delete a custom model. A model can be deleted if it is in one of the 'Succeeded', 'Failed', or 'Canceled' states. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/models/write | Start training a custom model. |
-> | Microsoft.CognitiveServices/accounts/ComputerVision/operations/imageanalysis:analyze/action | Analyze the input image of incoming request without deployment. The request contains an image stream. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/operations/imageanalysis:analyze/action | Analyze the input image of incoming request without deployment. The request either contains image stream |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/operations/read | Get information about a specific operation. Get a list of the available operations. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/operations/contentgeneration-backgrounds:generate/action | Generates a background from a specified query, style, and size. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/analyze/action | Use this interface to perform a Read operation, employing the state-of-the-art Optical Character Recognition (OCR) algorithms optimized for text-heavy documents.<br>It can handle hand-written, printed or mixed documents.<br>When you use the Read interface, the response contains a header called 'Operation-Location'.<br>The 'Operation-Location' header contains the URL that you must use for your Get Read Result operation to access OCR results.** |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/analyzeresults/read | Use this interface to retrieve the status and OCR result of a Read operation.  The URL containing the 'operationId' is returned in the Read operation 'Operation-Location' response header.* |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/core/asyncbatchanalyze/action | Use this interface to get the result of a Batch Read File operation, employing the state-of-the-art Optical Character |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/read/operations/read | This interface is used for getting OCR results of Read operation. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Batch Read File interface. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/suggest/action | Get search suggestions for the user, given the query text that the user has entered so far. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/search/action | Perform a search using the specified search query and parameters. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes:query/action | Search indexes using the specified search query and parameters. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/documents/read | Get a list of all documents. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/facegroups/read | Get the list of available face groups for a user. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/facegroups/write | Update the properties of a face group. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes/delete | Delete an index. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes/documents/write | Create a document in an index. If the index doesn't exist, then it will be created automatically. Update a document.* |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes/documents/delete | Delete a document. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes/documents/read | Get a list of documents within an index. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | This interface is used for getting recognize text operation result. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Recognize Text interface. |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/imagelists/action | Create image list. |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/termlists/action | Create term list. |
@@ -278,6 +303,18 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ContentModerator/text/lists/items/write | Create Item In Text List |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/text/lists/items/delete | Delete Item By itemId and listId |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/text/lists/items/read | Get All Items By listId Get Item By itemId and listId* |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/image:analyze/action | A sync API for harmful content analysis for image. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:analyze/action | A sync API for harmful content analysis for text. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/imagewithtext:analyze/action | A sync API for harmful content analysis for image with text |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisthitcalls/read | Show blocklist hit request count at different timestamps. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisttopterms/read | List top terms hit in blocklist at different timestamps. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/categories/severities/requestcounts/read | List API request count number of a specific category and a specific severity given a time range. Default maxpagesize is 1000. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/requestcounts/read | List API request counts at different timestamps given a time range. Default maxpagesize is 1000. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/requestlatencies/read | List API request latencies at different timestamps given a time range. Default maxpagesize is 1000. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/read | Get or List Text Blocklist |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/write | Updates a text blocklist, if blocklistName does not exist, create a new blocklist. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/delete | Deletes a text blocklist. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text/blocklists/blockitems/read | Get blockItem By blockItemId from a text blocklist. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/write | Creates a new project or replaces metadata of an existing project. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/delete | Deletes a project. |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/export/action | Triggers a job to export project data in JSON format. |
@@ -546,7 +583,10 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/documentmodels:authorizecopy/action | Generates authorization to copy a model to this location with specified modelId and optional description. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/analysis/analyze/document/action | Analyze Document. Support prebuilt models or custom trained model. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/analysis/get/analyze/result/read | Gets the result of document analysis. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/classification/analyze/document/action | Classify document. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/classification/get/analyze/result/read | Gets the result of document classification. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/creation/build/action | Builds a custom document analysis model. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/creation/classify/action | Builds a custom document classifier. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/creation/compose/model/action | Creates a new model from document types of existing models. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/creation/copy/model/action | Copy a custom Form Recognizer model from one subscription to another.<br>Start the process by obtaining a `modelId` token from the target endpoint by using this API with `source=false` query string.<br>Then pass the `modelId` reference in the request body along with other target resource information. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/creation/generate/copyauthorization/action | Generate authorization payload to copy a model at the target Form Recognizer resource. |
@@ -574,6 +614,8 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/info/read | Return basic info about the current resource. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/layout/analyze/action | Extract text and layout information from a given document.<br>The input document must be of one of the supported content types - 'application/pdf', 'image/jpeg', 'image/png' or 'image/tiff'.<br>Alternatively, use 'application/json' type to specify the Url location of the document to be analyzed. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/layout/analyzeresults/read | Track the progress and obtain the result of the analyze layout operation |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/management/classifier/delete | Deletes document classifier. |
+> | Microsoft.CognitiveServices/accounts/FormRecognizer/management/get/classifier/read | List all document classifiers. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/management/get/info/read | Return basic info about the current resource. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/management/get/model/read | Get information about a model. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/management/model/delete | Delete model artifacts. |
@@ -593,9 +635,13 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/ImageSearch/search/action | Get relevant images for a given query. |
 > | Microsoft.CognitiveServices/accounts/ImageSearch/trending/action | Get currently trending images. |
 > | Microsoft.CognitiveServices/accounts/ImmersiveReader/getcontentmodelforreader/action | Creates an Immersive Reader session |
-> | Microsoft.CognitiveServices/accounts/Knowledge/entitymatch/action | Entity Match |
-> | Microsoft.CognitiveServices/accounts/Knowledge/entities:annotate/action | Search annotation |
+> | Microsoft.CognitiveServices/accounts/Knowledge/entitymatch/action | Entity Match* |
+> | Microsoft.CognitiveServices/accounts/Knowledge/entities:annotate/action | Search annotation* |
 > | Microsoft.CognitiveServices/accounts/Knowledge/annotation/dataverse/action | Dataverse search annotation |
+> | Microsoft.CognitiveServices/accounts/Knowledge/dbdata/answer/action | DBDataAnswer |
+> | Microsoft.CognitiveServices/accounts/Knowledge/dbvalue/create/action | DBValueCreate* |
+> | Microsoft.CognitiveServices/accounts/Knowledge/dbvalue/update/action | *NotDefined* |
+> | Microsoft.CognitiveServices/accounts/Knowledge/nl2sq/api/nl2sq/predict/action | NL2SQL Predict* |
 > | Microsoft.CognitiveServices/accounts/Language/query-knowledgebases/action | Answer Knowledgebase. |
 > | Microsoft.CognitiveServices/accounts/Language/query-text/action | Answer Text. |
 > | Microsoft.CognitiveServices/accounts/Language/query-dataverse/action | Query Dataverse. |
@@ -609,9 +655,14 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversation/jobs/read | Get the status of an analysis job.  A job may consist of one or more tasks.  Once all tasks are succeeded, the job will transition to the suceeded state and results will be available for each task. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobscancel/action | Cancel a long-running analysis job on conversation. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobs/action | Submit a long conversation for analysis. Specify one or more unique tasks to be executed as a long-running operation. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/run-gpt/action | Trigger GPT job. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/submit-gpt-prediction-decisions/action | Trigger job to submit decisions on accepting, rejecting, or modifying GPT predictions. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/export/jobs/result/read | Get export job result details. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/gpt-predictions/read | Get GPT predictions result. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/models/read | Get a trained model info. Get trained models info.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/models/modelguidance/read | Get trained model guidance. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/run-gpt/jobs/read | Get GPT prediction jobs. Get GPT predictions status and result details.* |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/submit-gpt-prediction-decisions/jobs/read | Get submit GPT prediction decisions job status and result details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobs/read | Get the status of an analysis job.  A job may consist of one or more tasks.  Once all tasks are succeeded, the job will transition to the suceeded state and results will be available for each task. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/write | Creates a new or update a project. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/delete | Deletes a project. |
@@ -619,6 +670,9 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/export/action | Triggers a job to export project data in JSON format. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/import/action | Triggers a job to import a project in JSON format. If a project with the same name already exists, the data of that project is replaced. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/train/action | Trigger training job. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/copy/action | Copies an existing project to another Azure resource. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/authorize-copy/action | Generates a copy project operation authorization to the current target Azure resource. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/copy/jobs/read | Gets the status of an existing copy project job. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/deletion/jobs/read | Get project deletion job status and result details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/deployments/read | Get a deployment info. List all deployments.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/deployments/delete | Delete a deployment. |
@@ -641,13 +695,15 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/delete | Delete a trained model. Delete a trained model.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/read | Get a trained model info. List all trained models.* Get a trained model info.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/load-snapshot/action | Restores the snapshot of this trained model to be the current working directory of the project. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/evaluate/action | Triggers evaluation operation on a trained model. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/evaluate/jobs/read | Gets the status for an evaluation job. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/evaluation/read | Get trained model evaluation report. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/evaluation/result/read | Get trained model evaluation result. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/evaluation/summary-result/read | Get trained model evaluation summary. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/load-snapshot/jobs/read | Gets the status for loading a snapshot. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/models/verification/read | Get trained model verification report. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/prebuilts/read | Get list of Supported prebuilts for conversational projects. |
-> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/read | Lists the deployments resources assigned to the project. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/unassign/action | Unassign resources from a project. This disallows deploying new deployments to these resources, and deletes existing deployments assigned to them. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/resources/assign/jobs/read | Gets the status of an existing assign deployment resources job. |
@@ -657,10 +713,15 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/jobs/action | Submit a collection of text documents for analysis. Specify one or more unique tasks to be executed. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/jobscancel/action | Cancel a long-running Text Analysis job. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/autotag/action | Trigger auto tagging job. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/run-gpt/action | Trigger GPT job. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/submit-gpt-prediction-decisions/action | Trigger job to submit decisions on accepting, rejecting, or modifying GPT predictions. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/autotag/jobs/read | Get autotagging jobs. Get auto tagging job status and result details.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/export/jobs/result/read | Get export job result details. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/gpt-predictions/read | Get GPT predictions result. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/models/read | Get a trained model info. Get trained models info.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/models/modelguidance/read | Get trained model guidance. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/run-gpt/jobs/read | Get GPT prediction jobs. Get GPT predictions status and result details.* |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/internal/projects/submit-gpt-prediction-decisions/jobs/read | Get submit GPT prediction decisions job status and result details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/jobs/read | Get the status of an analysis job.  A job may consist of one or more tasks.  Once all tasks are completed, the job will transition to the completed state and results will be available for each task. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/write | Creates a new or update a project. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/delete | Deletes a project. |
@@ -668,6 +729,9 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/export/action | Triggers a job to export project data in JSON format. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/import/action | Triggers a job to import a project in JSON format. If a project with the same name already exists, the data of that project is replaced. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/train/action | Trigger training job. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/copy/action | Copies an existing project to another Azure resource. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/authorize-copy/action | Generates a copy project operation authorization to the current target Azure resource. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/copy/jobs/read | Gets the status of an existing copy project job. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/deletion/jobs/read | Get project deletion job status and result details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/deployments/read | Get a deployment info. List all deployments.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/deployments/delete | Delete a deployment. |
@@ -679,21 +743,29 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/deployments/swap/jobs/read | Gets a swap deployment job status and result details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/export/jobs/read | Get export job status details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/export/jobs/result/read | Get export job result details. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/exported-models/write | Creates a new exported model or replaces an existing one. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/exported-models/delete | Deletes an existing exported model. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/exported-models/read | Gets the details of an exported model. Lists the exported models belonging to a project.* |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/exported-models/jobs/read | Gets the status for an existing job to create or update an exported model. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/exported-models/manifest/read | Gets the details and URL needed to download the exported model. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/global/deletion-jobs/read | Get project deletion job status and result details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/global/deployments/resources/read | Lists the deployments to which an Azure resource is assigned. This doesn't return deployments belonging to projects owned by this resource. It only returns deployments belonging to projects owned by other resources. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/global/languages/read | Get List of Supported languages. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/global/prebuilt-entities/read | Lists the supported prebuilt entities that can be used while creating composed entities. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/global/training-config-versions/read | List all training config versions. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/import/jobs/read | Get import or replace project job status and result details. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/languages/read | Get List of Supported languages. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/delete | Delete a trained model. Delete a trained model.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/read | Get a trained model info. List all trained models.* Get a trained model info.* |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/load-snapshot/action | Restores the snapshot of this trained model to be the current working directory of the project. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/evaluate/action | Triggers evaluation operation on a trained model. |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/evaluate/jobs/read | Gets the status for an evaluation job. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/evaluation/read | Get trained model evaluation report. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/evaluation/result/read | Get trained model evaluation result. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/evaluation/summary-result/read | Get trained model evaluation summary. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/load-snapshot/jobs/read | Gets the status for loading a snapshot. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/models/verification/read | Get trained model verification report. |
-> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
+> | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/assign/action | Assign new Azure resources to a project to allow deploying new deployments to them.<br>This API is available only via AAD authentication and not supported via subscription key authentication.<br>For more details about AAD authentication, check here: [Authenticate with Azure Active Directory](/azure/ai-services/authentication?tabs=powershell#authenticate-with-azure-active-directory) |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/read | Lists the deployments resources assigned to the project. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/unassign/action | Unassign resources from a project. This disallows deploying new deployments to these resources, and deletes existing deployments assigned to them. |
 > | Microsoft.CognitiveServices/accounts/Language/analyze-text/projects/resources/assign/jobs/read | Gets the status of an existing assign deployment resources job. |
@@ -1010,38 +1082,36 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/MetricsAdvisor/timeseriesgroups/seriessets/write | Add or update a time series set to a time series group |
 > | Microsoft.CognitiveServices/accounts/MetricsAdvisor/timeseriesgroups/seriessets/delete | Delete a time series set from a time series group |
 > | Microsoft.CognitiveServices/accounts/MetricsAdvisor/timeseriesgroups/seriessets/read | Get a time series set |
+> | Microsoft.CognitiveServices/accounts/ModelDistribution/models/read | Get model manifest for given conditions |
+> | Microsoft.CognitiveServices/accounts/ModelDistribution/models/latest/read | Get latest available and compatible model for a specific service. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Returns news for a provided category. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Get news articles relevant for a given query. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Get trending topics identified by Bing. These are the same topics shown in the banner at the bottom of the Bing home page. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/action | Creates a deployment owned by the Azure OpenAI resource. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/files/action | Creates a file owned by the Azure OpenAI resource by uploading data. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/action | Creates a fine-tuned model. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/text-to-image/action | Generates an image from a text caption |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/delete | Deletes a deployment. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/read | Gets information about deployments. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/write | Updates deployments. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/write | Create or update deployments. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/delete | Delete deployment. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/write | Create a completion from a chosen model |
+> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/rainbow/action | Creates a completion for the provided prompt, consisting of text and images |
+> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
+> | Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
 > | Microsoft.CognitiveServices/accounts/OpenAI/engines/read | Read engine information. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action | Create a completion from a chosen model |
 > | Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action | Search for the most relevant documents using the current engine. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action | Sample from the model via POST request. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/write | Create a completion from a chosen model |
-> | Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/browser_stream/read | (Intended for browsers only.) Stream generated text from the model via GET request.<br>This method is provided because the browser-native EventSource method can only send GET requests.<br>It supports a more limited set of configuration options than the POST variant. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/read | (Intended for browsers only.) Stream generated text from the model via GET request.<br>This method is provided because the browser-native EventSource method can only send GET requests.<br>It supports a more limited set of configuration options than the POST variant. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/files/delete | Deletes files. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action | (Intended for browsers only.) Stream generated text from the model via GET request.<br>This method is provided because the browser-native EventSource method can only send GET requests.<br>It supports a more limited set of configuration options than the POST variant. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action | Create a completion from a chosen model |
+> | Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/browser_stream/action | (Intended for browsers only.) Stream generated text from the model via GET request.<br>This method is provided because the browser-native EventSource method can only send GET requests.<br>It supports a more limited set of configuration options than the POST variant. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/files/write | Upload or import files. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/files/delete | Delete files. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/files/read | Gets information about files. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/files/import/action | Creates a file by uploading data. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/files/content/read | Gets the content of the specified file. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/cancel/action | Cancels the adaptation of a fine-tuned model. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/delete | Deletes a fine-tuned model. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/write | Creates or cancels adaptation of a model. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/delete | Delete the adaptation of a model. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/read | Gets information about fine-tuned models. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/fine-tunes/events/read | Gets event information for a fine-tuning model adaptation. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/models/read | Gets information about fine-tuned models |
+> | Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action | Create image generations. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/models/read | Gets information about models |
 > | Microsoft.CognitiveServices/accounts/OpenAI/openapi/read | Get OpenAI Info |
-> | Microsoft.CognitiveServices/accounts/OpenAI/text-to-image/operations/read | Returns the status of the text-to-image operation |
 > | Microsoft.CognitiveServices/accounts/Personalizer/rank/action | A personalization rank request. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/evaluations/action | Submit a new evaluation. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/configurations/client/action | Get the client configuration. |
@@ -1066,6 +1136,9 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/Personalizer/events/activate/action | Report that the specified event was actually displayed to the user and a reward should be expected for it. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/events/activate/action | Report that the specified event was actually used (e.g. by being displayed to the user) and a reward should be expected for it. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/events/reward/action | Report reward between 0 and 1 that resulted from using the action specified in rewardActionId, for the specified event. |
+> | Microsoft.CognitiveServices/accounts/Personalizer/featureimportances/read | List of all Feature Importances. Get the Feature Importance associated with the Id. |
+> | Microsoft.CognitiveServices/accounts/Personalizer/featureimportances/write | Submit a new Feature Importance job. |
+> | Microsoft.CognitiveServices/accounts/Personalizer/featureimportances/delete | Delete the Feature Importance associated with the Id. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/logs/delete | Deletes all the logs. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/logs/delete | Delete all logs of Rank and Reward calls stored by Personalizer. |
 > | Microsoft.CognitiveServices/accounts/Personalizer/logs/interactions/action | The endpoint is intended to be used from within a SDK for logging interactions and accepts specific format defined in https://github.com/VowpalWabbit/reinforcement_learning. This endpoint should not be used by the customer. |
@@ -1117,6 +1190,7 @@ Azure service: [Cognitive Services](../../../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/create/write | Asynchronous operation to create a new knowledgebase. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/operations/read | Gets details of a specific long running operation. |
+> | Microsoft.CognitiveServices/accounts/SpeechServices/issuetoken/action | Issue Cognitive Services jwt token for authentication. |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/action | This method can be used to copy a model from one location to another. If the target subscription |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/webhooks/action | Web hooks operations |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/datasets/write | Create or update a dataset |

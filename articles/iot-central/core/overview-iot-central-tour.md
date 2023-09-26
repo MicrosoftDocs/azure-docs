@@ -16,17 +16,9 @@ This article introduces you to Azure IoT Central UI. You can use the UI to creat
 
 ## IoT Central homepage
 
-The [IoT Central homepage](https://apps.azureiotcentral.com/) page is the place to learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing applications.
+The [IoT Central homepage](https://apps.azureiotcentral.com/) page is the place to learn more about the latest news and features available on IoT Central and see and launch your existing applications.
 
-:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="Screenshot that shows the IoT Central homepage where you can create new IoT Central applications.":::
-
-### Create an application
-
-In the **Build** section you can browse the list of industry-relevant IoT Central templates, or start from scratch using a Custom application template.  
-
-:::image type="content" source="media/overview-iot-central-tour/iot-central-build.png" alt-text="Screenshot that shows the IoT Central build page where you can select an application template.":::
-
-To learn more, see the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart.
+:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="Screenshot that shows the IoT Central homepage where you can see the IoT Central applications you have access to.":::
 
 ### Launch your application
 
@@ -44,7 +36,7 @@ Once you're inside your IoT application, use the left pane to access various fea
 :::row:::
   :::column span="":::
 
-    :::image type="content" source="media/overview-iot-central-tour/navigation-bar.png" alt-text="left pane":::
+    :::image type="content" source="media/overview-iot-central-tour/navigation-bar.png" alt-text="Screenshot that shows the IoT Central left navigation pane.":::
 
   :::column-end:::
   :::column span="2":::

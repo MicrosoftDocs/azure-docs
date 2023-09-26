@@ -26,7 +26,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 By default, published RDP files contain the following properties:
 
-|RDP properties | Desktops | RemoteApps |
+|RDP properties | Desktop session | RemoteApp session |
 |---|---| --- |
 | Multi-monitor mode | Enabled | N/A |
 | Drive redirections enabled | Drives, clipboard, printers, COM ports, USB devices and smartcards| Drives, clipboard, and printers |

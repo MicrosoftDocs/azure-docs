@@ -5,7 +5,7 @@ author: johnmic
 ms.author: johnmic
 ms.topic: conceptual
 ms.custom: subject-reliability, references_regions
-ms.service: storage-mover
+ms.service: azure-storage-mover
 ms.date: 03/21/2023
 ---
 
@@ -25,7 +25,7 @@ Current doc score: 100, 1130, 0
 !########################################################
 -->
 
-# What is reliability in Azure Storage Mover?
+# Reliability in Azure Storage Mover
 
 This article describes reliability support in Azure Storage Mover and covers cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 

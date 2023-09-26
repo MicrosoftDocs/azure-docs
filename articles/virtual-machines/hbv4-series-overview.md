@@ -46,9 +46,9 @@ Each HBv4 VM size is similar in physical layout, features, and performance of a 
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB176rs_v4               | 4            | 44                     | Dual-socket EPYC 9V33X           |
 Standard_HB176-144rs_v4           | 4            | 36                     | Dual-socket EPYC 9V33X           |
-Standard_HB176-64rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
-Standard_HB176-32rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
-Standard_HB176-16rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
+Standard_HB176-96rs_v4            | 4            | 24                     | Dual-socket EPYC 9V33X           |
+Standard_HB176-48rs_v4            | 4            | 12                     | Dual-socket EPYC 9V33X           |
+Standard_HB176-24rs_v4            | 4            | 6                      | Dual-socket EPYC 9V33X           |
 
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
@@ -67,16 +67,28 @@ lstopo-no-graphics --no-io --no-legend --of txt
 ![lstopo output for HBv4-176 VM](./media/hpc/architecture/hbv4/hbv4-176-lstopo.png)
 </details>
 
+<details>
+<summary>Click to view lstopo output for Standard_HB176-144rs_v4</summary>
+
 ![lstopo output for HBv4-144 VM](./media/hpc/architecture/hbv4/hbv4-144-lstopo.png)
 </details>
+
+<details>
+<summary>Click to view lstopo output for Standard_HB176-96rs_v4</summary>
 
 ![lstopo output for HBv4-64 VM](./media/hpc/architecture/hbv4/hbv4-96-lstopo.png)
 </details>
 
+<details>
+<summary>Click to view lstopo output for Standard_HB176-48rs_v4</summary>
+
 ![lstopo output for HBv4-32 VM](./media/hpc/architecture/hbv4/hbv4-48-lstopo.png)
 </details>
 
-![lstopo output for HBv4-16 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
+<details>
+<summary>Click to view lstopo output for Standard_HB176-24rs_v4</summary>
+
+![lstopo output for HBv4-24 VM](./media/hpc/architecture/hbv4/hbv4-24-lstopo.png)
 </details>
 
 ## InfiniBand networking
@@ -98,7 +110,7 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 | Cores                            | 176, 144, 96, 48, or 24 (SMT disabled)           | 
 | CPU                              | AMD EPYC 9V33X                   | 
 | CPU Frequency (non-AVX)          | 2.4 GHz base, 3.7 GHz peak boost    | 
-| Memory                           | 688 GB (RAM per core depends on VM size)         | 
+| Memory                           | 704 GB (RAM per core depends on VM size)         | 
 | Local Disk                       | 2 * 1.8 TB NVMe (block), 480 GB SSD (page file) | 
 | InfiniBand                       | 400 Gb/s Mellanox ConnectX-7 NDR InfiniBand | 
 | Network                          | 80 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 

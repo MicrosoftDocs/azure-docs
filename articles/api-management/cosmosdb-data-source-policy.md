@@ -5,7 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.custom: devx-track-azurecli
+ms.topic: article
 ms.date: 06/07/2023
 ms.author: danlep
 ---
@@ -17,7 +18,7 @@ The `cosmosdb-data-source` resolver policy resolves data for an object type and 
 Use the policy to configure a single query request, read request, delete request, or write request and an optional response from the Cosmos DB data source.   
 
 > [!NOTE]
-> This policy is currently in preview.
+> This policy is in preview. Currently, the policy isn't supported in the Consumption tier of API Management.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -235,7 +236,7 @@ Use the policy to configure a single query request, read request, delete request
 ## Usage
 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) dedicated
 
 ### Usage notes
 
@@ -321,7 +322,7 @@ documents.azure.com:443/;AccountKey=CONTOSOKEY;
         <container-name>myContainer</container-name>
     </connection-info>
     <query-request>
-        <sql-statement>SELECT * FROM c </sqlstatement>
+        <sql-statement>SELECT * FROM c </sql-statement>
     </query-request>
 </cosmosdb-data-source>
 ```

@@ -61,6 +61,10 @@ After the new subscription is created, the owner of the subscription can see it 
 
 When you created the subscription, Azure created a notification stating **Successfully created the subscription**. The notification also had a link to **Go to subscription**, which allows you to view the new subscription. If you missed the notification, you can view select the bell symbol in the upper-right corner of the portal to view the notification that has the link to **Go to subscription**. Select the link to view the new subscription.
 
+Here's an example of the notification:
+
+:::image type="content" source="./media/create-subscription/subscription-create-notification.png" alt-text="Screenshot showing the Successfully created the subscription notification. " lightbox="./media/create-subscription/subscription-create-notification.png" :::
+
 Or, if you're already on the Subscriptions page, you can refresh your browser's view to see the new subscription.
 
 ## View all subscriptions

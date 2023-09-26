@@ -28,7 +28,7 @@ To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins](device-twins-java.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](./quickstart-control-device.md?pivots=programming-language-java)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -43,7 +43,7 @@ This article shows you how to create two Java apps:
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 

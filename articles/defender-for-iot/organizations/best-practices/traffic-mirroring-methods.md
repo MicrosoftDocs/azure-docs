@@ -1,7 +1,7 @@
 ---
 title: Choose a traffic mirroring methods - Microsoft Defender for IoT
 description: This article describes traffic mirroring methods for OT monitoring with Microsoft Defender for IoT.
-ms.date: 09/20/2022
+ms.date: 07/04/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -34,7 +34,7 @@ Defender for IoT supports the following methods:
 |**A switch SPAN port**     |  Mirrors local traffic from interfaces on the switch to a different interface on the same switch |  [Configure mirroring with a switch SPAN port](../traffic-mirroring/configure-mirror-span.md) |
 |**Remote SPAN (RSPAN) port**     |  Mirrors traffic from multiple, distributed source ports into a dedicated remote VLAN  | [Remote SPAN (RSPAN) ports](#remote-span-rspan-ports) <br><br>[Configure traffic mirroring with a Remote SPAN (RSPAN) port](../traffic-mirroring/configure-mirror-rspan.md)     |
 |**Active or passive aggregation (TAP)**    |   Installs an active / passive aggregation TAP inline to your network cable, which duplicates traffic to the OT network sensor. Best method for forensic monitoring. | [Active or passive aggregation (TAP)](#active-or-passive-aggregation-tap)     |
-|**An encapsulated remote switched port analyzer (ERSPAN)**     | Mirrors input interfaces to your OT sensor's monitoring interface | [ERSPAN ports](#erspan-ports) <br><br> [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](../traffic-mirroring/configure-mirror-erspan.md). |
+|**An encapsulated remote switched port analyzer (ERSPAN)**     | Mirrors input interfaces to your OT sensor's monitoring interface | [ERSPAN ports](#erspan-ports) <br><br>[Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan). |
 |**An ESXi vSwitch**   |  Mirrors traffic using *Promiscuous mode* on an ESXi vSwitch. | [Traffic mirroring with virtual switches](#traffic-mirroring-with-virtual-switches) <br><br>[Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md).      |
 |**A Hyper-V vSwitch**    |   Mirrors traffic using *Promiscuous mode* on a Hyper-V vSwitch.  | [Traffic mirroring with virtual switches](#traffic-mirroring-with-virtual-switches) <br><br>[Configure traffic mirroring with a Hyper-V vSwitch](../traffic-mirroring/configure-mirror-hyper-v.md)     |
 
@@ -122,7 +122,7 @@ ERSPAN source options include elements such as:
 - Fabric port channels
 - Satellite ports and host interface port channels
 
-For more information, see [Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)](../traffic-mirroring/configure-mirror-erspan.md).
+For more information, see [Update a sensor's monitoring interfaces (configure ERSPAN)](../how-to-manage-individual-sensors.md#update-a-sensors-monitoring-interfaces-configure-erspan).
 
 ## Traffic mirroring with virtual switches
 

@@ -1,22 +1,22 @@
 ---
-title: LINQ to SQL translation
+title: LINQ to NoSQL translation
 titleSuffix: Azure Cosmos DB for NoSQL
-description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: jucocchi
+description: Learn the LINQ operators supported and how the LINQ queries are mapped to NoSQL queries in Azure Cosmos DB.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 03/22/2023
-ms.custom: ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
 
-# LINQ to SQL translation in Azure Cosmos DB for NoSQL
+# LINQ to NoSQL translation in Azure Cosmos DB for NoSQL
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
-The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable` object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli), which works with API for NoSQL.
+The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into an Azure Cosmos DB for NoSQL query. If you want to get the NoSQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable` object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli), which works with API for NoSQL.
 
 > [!NOTE]
 > We recommend using the latest [.NET SDK (`Microsoft.Azure.Cosmos`) version](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
@@ -41,7 +41,7 @@ The query provider supports the following scalar expressions:
     family.children[n].grade;
     ```
   
-- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values. For the complete list, see the [Azure Cosmos DB SQL specification](aggregate-functions.md).
+- Arithmetic expressions, including common arithmetic expressions on numerical and Boolean values.
   
     ```csharp
     2 * family.children[0].grade;
@@ -93,20 +93,20 @@ while (setIterator.HasMoreResults)
 
 ## Supported LINQ operators
 
-The LINQ provider included with the SQL .NET SDK supports the following operators:
+The LINQ provider included with the NoSQL .NET SDK supports the following operators:
 
 - **Select**: Projections translate to [SELECT](select.md), including object construction.
-- **Where**: Filters translate to [WHERE](where.md), and support translation between `&&`, `||`, and `!` to the SQL operators
+- **Where**: Filters translate to [WHERE](where.md), and support translation between `&&`, `||`, and `!` to the NoSQL operators
 - **SelectMany**: Allows unwinding of arrays to the [JOIN](join.md) clause. Use to chain or nest expressions to filter on array elements.
 - **OrderBy** and **OrderByDescending**: Translate to [ORDER BY](order-by.md) with ASC or DESC.
-- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for [aggregation](aggregate-functions.md), and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
+- **Count**, **Sum**, **Min**, **Max**, and **Average** operators for aggregation, and their async equivalents **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, and **AverageAsync**.
 - **CompareTo**: Translates to range comparisons. This operator is commonly used for strings, since they're not comparable in .NET.
 - **Skip** and **Take**: Translates to [OFFSET and LIMIT](offset-limit.md) for limiting results from a query and doing pagination.
-- **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](mathematical-functions.md).
-- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](string-functions.md).
-- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](array-functions.md).
+- **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](system-functions.yml).
+- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](system-functions.yml).
+- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](system-functions.yml).
 - **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent [built-in geospatial functions](geospatial-query.md).
-- **User-Defined Function Extension function**: Supports translation from the stub method [CosmosLinq.InvokeUserDefinedFunction](/dotnet/api/microsoft.azure.cosmos.linq.cosmoslinq.invokeuserdefinedfunction?view=azure-dotnet&preserve-view=true) to the corresponding [user-defined function](udfs.md).
+- **User-Defined Function Extension function**: Supports translation from the stub method [CosmosLinq.InvokeUserDefinedFunction](/dotnet/api/microsoft.azure.cosmos.linq.cosmoslinq.invokeuserdefinedfunction?view=azure-dotnet&preserve-view=true) to the corresponding user-defined function.
 - **Miscellaneous**: Supports translation of `Coalesce` and [conditional operators](logical-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.
 
 ## Examples
@@ -125,7 +125,7 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression. The `
     input.Select(family => family.parents[0].familyName);
     ```
   
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT VALUE f.parents[0].familyName
@@ -140,7 +140,7 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression. The `
     input.Select(family => family.children[0].grade + c); // c is an int variable
     ```
   
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT VALUE f.children[0].grade + c
@@ -159,7 +159,7 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression. The `
     });
     ```
   
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT VALUE {
@@ -179,7 +179,7 @@ The syntax is `input.SelectMany(x => f(x))`, where `f` is a scalar expression th
     input.SelectMany(family => family.children);
     ```
   
-- **SQL**
+- **NoSQL**
 
     ```sql
     SELECT VALUE child
@@ -198,7 +198,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
     input.Where(family=> family.parents[0].familyName == "Wakefield");
     ```
   
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT *
@@ -216,7 +216,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
         family.children[0].grade < 3);
     ```
   
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT *
@@ -225,7 +225,7 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
     AND f.children[0].grade < 3
     ```
 
-## Composite SQL queries
+## Composite NoSQL queries
 
 You can compose the preceding operators to form more powerful queries. Since Azure Cosmos DB supports nested containers, you can concatenate or nest the composition.
 
@@ -242,7 +242,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
         .Where(parent => parent.familyName == "Wakefield");
     ```
 
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT *
@@ -259,7 +259,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
         .Select(family => family.parents[0].familyName);
     ```
 
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT VALUE f.parents[0].familyName
@@ -276,7 +276,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
         Where(anon=> anon.grade < 3);
     ```
   
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT *
@@ -293,7 +293,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
         .Where(parent => parents.familyName == "Wakefield");
     ```
   
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT *
@@ -316,7 +316,7 @@ A nested query applies the inner query to each element of the outer container. O
         family.parents.Select(p => p.familyName));
     ```
 
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT VALUE p.familyName
@@ -333,7 +333,7 @@ A nested query applies the inner query to each element of the outer container. O
         family.children.Where(child => child.familyName == "Jeff"));
     ```
 
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT *
@@ -351,7 +351,7 @@ A nested query applies the inner query to each element of the outer container. O
         child => child.familyName == family.parents[0].familyName));
     ```
 
-- **SQL**
+- **NoSQL**
   
     ```sql
     SELECT *
@@ -360,7 +360,7 @@ A nested query applies the inner query to each element of the outer container. O
     WHERE c.familyName = f.parents[0].familyName
     ```
 
-## Next steps
+## Related content
 
 - [Azure Cosmos DB for NoSQL .NET SDK developer guide](../how-to-dotnet-get-started.md)
 - [Model document data](../../modeling-data.md)

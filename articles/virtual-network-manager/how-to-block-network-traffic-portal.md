@@ -101,8 +101,8 @@ If you just created a new security admin configuration, make sure to deploy this
 
 ## Update existing security admin configuration
 
-* If the security admin configuration you're updating is applied to a network group containing static members, you need to deploy the configuration again to take effect.
-* Security admin configurations are automatically applied to dynamic members in a network group.
+- If the security admin configuration you're updating is applied to a network group containing static members, you need to deploy the configuration again to take effect.
+- Security admin configurations are automatically applied to dynamic members in a network group.
 
 ## Verify security admin rules
 

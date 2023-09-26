@@ -17,7 +17,7 @@ ms.reviewer: ssalgado
 
 There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs)](how-to-train-model.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with a guided experience for submitting training jobs in Azure Machine Learning studio.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -117,7 +117,7 @@ If you're using Azure Machine Learning for the first time, you'll see an empty l
 
 | Compute Type | How to | 
 | --- | --- | 
-| Compute instance | [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) | 
+| Compute instance | [Create an Azure Machine Learning compute instance](how-to-create-compute-instance.md) | 
 | Compute cluster | [Create an Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) | 
 | Attached Kubernetes cluster | [Attach an Azure Arc-enabled Kubernetes cluster](how-to-attach-kubernetes-anywhere.md) | 
 
@@ -151,7 +151,7 @@ Once you've configured your job, choose **Next** to go to the **Review** page. T
 
 To launch the job, choose **Submit training job**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
-  [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
+  [!INCLUDE [Email Notification Include](includes/machine-learning-email-notifications.md)]
 
 ## Next steps
 

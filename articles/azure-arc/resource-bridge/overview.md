@@ -3,7 +3,7 @@ title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
 ms.date: 02/15/2023
 ms.topic: overview
-ms.custom: references_regions 
+ms.custom: references_regions
 ---
 
 # What is Azure Arc resource bridge (preview)?
@@ -80,13 +80,17 @@ In order to use Arc resource bridge in a region, Arc resource bridge and the arc
 Arc resource bridge supports the following Azure regions:
 
 * East US
-* East US2
-* West US2
-* West US3
+* East US 2
+* West US 2
+* West US 3
+* Central US
+
 * South Central US
 * West Europe
 * North Europe
 * UK South
+* Sweden Central
+
 * Canada Central
 * Australia East
 * Southeast Asia
@@ -99,7 +103,7 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 The following private cloud environments and their versions are officially supported for Arc resource bridge:
 
-* VMware vSphere version 6.7, 7.0
+* VMware vSphere version 6.7, 7.0, 8.0
 * Azure Stack HCI
 * SCVMM
 
@@ -110,10 +114,12 @@ The following private cloud environments and their versions are officially suppo
 
 ### Networking
 
-Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#not-able-to-connect-to-url) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
 ## Next steps
 
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
 * Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
+
+

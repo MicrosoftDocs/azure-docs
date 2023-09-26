@@ -20,7 +20,7 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 Azure Machine Learning requires access to servers and services on the public internet. When implementing network isolation, you need to understand what access is required and how to enable it.
 
 > [!NOTE]
-> The information in this article applies to Azure Machine Learning workspace configured with a private endpoint.
+> The information in this article applies to Azure Machine Learning workspace configured to use an _Azure Virtual Network_. When using a _managed virtual network_, the required inbound and outbound configuration for the workspace is automatically applied. For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md).
 
 ## Common terms and information
 
@@ -77,7 +77,7 @@ __Outbound traffic__
 | `BatchNodeManagement.<region>` | 443 | Communication Azure Batch. |
 | `AzureResourceManager` | 443 | Creation of Azure resources with Azure Machine Learning. |
 | `Storage.<region>` | 443 | Access data stored in the Azure Storage Account for compute cluster and compute instance. This outbound can be used to exfiltrate data. For more information, see [Data exfiltration protection](how-to-prevent-data-loss-exfiltration.md). |
-| `AzureFrontDoor.FrontEnd`</br>* Not needed in Azure China. | 443 | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
+| `AzureFrontDoor.FrontEnd`</br>* Not needed in Microsoft Azure operated by 21Vianet. | 443 | Global entry point for [Azure Machine Learning studio](https://ml.azure.com). Store images and environments for AutoML. |
 | `MicrosoftContainerRegistry.<region>` | 443 | Access docker images provided by Microsoft. |
 | `Frontdoor.FirstParty` | 443 | Access docker images provided by Microsoft. |
 | `AzureMonitor` | 443 | Used to log monitoring and metrics to Azure Monitor. Only needed if you haven't [secured Azure Monitor](how-to-secure-workspace-vnet.md#secure-azure-monitor-and-application-insights) for the workspace. </br>* This outbound is also used to log information for support incidents. |
@@ -100,16 +100,7 @@ __Outbound traffic__
 
 __To allow installation of Python packages for training and deployment__, allow __outbound__ traffic to the following host names:
 
-> [!NOTE]
-> This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
-
-| __Host name__ | __Purpose__ |
-| ---- | ---- |
-| `anaconda.com`<br>`*.anaconda.com` | Used to install default packages. |
-| `*.anaconda.org` | Used to get repo data. |
-| `pypi.org` | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow `*.pythonhosted.org`. |
-| `*pytorch.org` | Used by some examples based on PyTorch. |
-| `*.tensorflow.org` | Used by some examples based on Tensorflow. |
+[!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
 
 ## Scenario: Install RStudio on compute instance
 
@@ -129,7 +120,7 @@ To allow the installation of R packages, allow __outbound__ traffic to `cloud.r-
 
 ## Scenario: Using compute cluster or compute instance with a public IP
 
-[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
+[!INCLUDE [udr info for computes](includes/machine-learning-compute-user-defined-routes.md)]
 
 ## Scenario: Firewall between Azure Machine Learning and Azure Storage endpoints
 
@@ -268,7 +259,7 @@ The result of the API call is a JSON document. The following snippet is an excer
 
 ### Microsoft hosts
 
-The hosts in the following tables are owned by Microsoft, and provide services required for the proper functioning of your workspace. The tables list hosts for the Azure public, Azure Government, and Azure China 21Vianet regions.
+The hosts in the following tables are owned by Microsoft, and provide services required for the proper functioning of your workspace. The tables list hosts for the Azure public, Azure Government, and Microsoft Azure operated by 21Vianet regions.
 
 > [!IMPORTANT]
 > Azure Machine Learning uses Azure Storage Accounts in your subscription and in Microsoft-managed subscriptions. Where applicable, the following terms are used to differentiate between them in this section:
@@ -294,7 +285,7 @@ __General Azure hosts__
 | Azure portal | `management.azure.us` | TCP | 443 |
 | Azure Resource Manager | `management.usgovcloudapi.net` | TCP | 443 |
 
-# [Azure China 21Vianet](#tab/china)
+# [Microsoft Azure operated by 21Vianet](#tab/china)
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
@@ -343,7 +334,7 @@ __Azure Machine Learning hosts__
 | Integrated notebook | `graph.microsoft.us` | TCP | 443 |
 | Integrated notebook | `*.aznbcontent.net` | TCP | 443 |
 
-# [Azure China 21Vianet](#tab/china)
+# [Microsoft Azure operated by 21Vianet](#tab/china)
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |
@@ -401,7 +392,7 @@ __Azure Machine Learning compute instance and compute cluster hosts__
 | Your storage account | `<storage>.blob.core.usgovcloudapi.net` | TCP | 443 |
 | Azure Key Vault | `*.vault.usgovcloudapi.net` | TCP | 443 |
 
-# [Azure China 21Vianet](#tab/china)
+# [Microsoft Azure operated by 21Vianet](#tab/china)
 
 | __Required for__ | __Hosts__ | __Protocol__ | __Ports__ |
 | ----- | ----- | ----- | ----- |

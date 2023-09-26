@@ -19,7 +19,7 @@ ms.custom: single server deprecation announcement
 
 Azure Database for PostgreSQL – Single Server generally became available in 2018. Given customer feedback and new advancements in the computation, availability, scalability, and performance capabilities in the Azure database landscape, the Single Server offering needs to be retired and upgraded with a new architecture. Azure Database for PostgreSQL - Flexible Server is the next generation of the service and brings you the best of Azure open-source database platform.
 
-As part of this retirement, we no longer support creating new single server instances from the Azure portal beginning November 30, 2023. If you need to create single server instances to meet business continuity needs, you can continue to use Azure CLI.
+As part of this retirement, we no longer support creating new single server instances from the Azure portal beginning November 30, 2023. If you need to create single server instances to meet business continuity needs, you can continue to use Azure CLI and the ARM template. However, as of March 2025, these methods will no longer be used.
 
 If you currently have an Azure Database for PostgreSQL - Single Server service hosting production servers, we're glad to inform you that you can migrate your Azure Database for PostgreSQL - Single Server to the Azure Database for PostgreSQL - Flexible Server.
 
@@ -74,7 +74,7 @@ Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure
 
 **Q. Will I incur downtime when I migrate my Azure Database from PostgreSQL - Single Server to a Flexible Server?**
 
-**A.** Currently, the Single Server to Flexible Server migration tool only supports offline migrations. Offline migration requires downtime to your applications during the migration process. Visit Single Server to Flexible Server migration tool](../migrate/concepts-single-to-flexible.md) for more information.
+**A.** Currently, the Single Server to Flexible Server migration tool only supports offline migrations. Offline migration requires downtime to your applications during the migration process. For more information, see [Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server](../migrate/concepts-single-to-flexible.md).
 
 Downtime depends on several factors, including the number of databases, size of your databases, number of tables inside each database, number of indexes, and the distribution of data across tables. It also depends on the SKU of the source and target server and the IOPS available on the source and target server.
 
@@ -86,12 +86,14 @@ You can contact your account teams if downtime requirements aren't met by the Of
 
 > [!NOTE]
 > Support for online migration is coming soon.
+
 **Q. Will there be future updates to Single Server to support the latest PostgreSQL versions?**
 
 **A.** We recommend you migrate to Flexible Server if you must run on the latest PostgreSQL engine versions. We continue to deploy minor versions released by the community for Postgres version 11 until it's retired by the community in Nov'2023.
 
 > [!NOTE]
 > We're extending support for Postgres version 11 past the community retirement date and will support PostgreSQL version 11 on both [Single Server](https://azure.microsoft.com/updates/singlepg11-retirement/) and [Flexible Server](https://azure.microsoft.com/updates/flexpg11-retirement/) to ease this transition. Consider migrating to Flexible Server to use the benefits of the latest Postgres engine versions.
+
 **Q. How does the Flexible Server 99.99% availability SLA differ from Single Server?**
 
 **A.** Flexible Server zone-redundant deployment provides 99.99% availability with zonal-level resiliency, and Single Server delivers 99.99% availability but without zonal resiliency. Flexible Server High Availability (HA) architecture deploys a hot standby server with redundant compute and storage (with each site's data stored in 3x copies). A Single Server HA architecture doesn't have a passive hot standby to help recover from zonal failures. Flexible Server HA architecture reduces downtime during unplanned outages and planned maintenance.

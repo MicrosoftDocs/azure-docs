@@ -8,9 +8,8 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
 ms.date: 03/09/2022
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.custom: references_regions
-ms.subservice: data-lake-storage-gen2
 ---
 
 # Migrate on-premises Hadoop data to Azure Data Lake Storage Gen2 with WANdisco LiveData Platform for Azure

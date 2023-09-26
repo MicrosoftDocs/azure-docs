@@ -15,11 +15,11 @@ ms.reviewer: franksolomon
 
 # CLI (v2) Spark job YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 <!--- The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sparkJob.schema.json. --->
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -108,7 +108,7 @@ See examples at [examples GitHub repository](https://github.com/Azure/azureml-ex
 
 ## YAML: A standalone Spark job using attached Synapse Spark pool and managed identity
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-standalone-managed-identity.yaml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/spark/attached-spark-standalone-managed-identity.yml":::
 
 ## YAML: A standalone Spark job using serverless Spark compute and user identity
 

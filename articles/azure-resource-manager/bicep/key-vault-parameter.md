@@ -3,7 +3,7 @@ title: Key Vault secret with Bicep
 description: Shows how to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
-ms.date: 06/15/2023
+ms.date: 06/23/2023
 ---
 
 # Use Azure Key Vault to pass secure parameter value during Bicep deployment
@@ -187,7 +187,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2023-02-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -202,6 +202,15 @@ module sql './sql.bicep' = {
 }
 ```
 
+Also, `getSecret` function (or with the namespace qualifier `az.getSecret`) can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault.
+
+```bicep
+using './main.bicep'
+
+param secureUserName = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretUserName', 'exampleSecretVersion')
+param securePassword = az.getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword')
+```
+
 ## Reference secrets in parameters file
 
 If you don't want to use a module, you can reference the key vault directly in the parameters file. The following image shows how the parameters file references the secret and passes that value to the Bicep file.
@@ -214,6 +223,7 @@ If you don't want to use a module, you can reference the key vault directly in t
 The following Bicep file deploys a SQL server that includes an administrator password. The password parameter is set to a secure string. But the Bicep doesn't specify where that value comes from.
 
 ```bicep
+param location string = resourceGroup().location
 param adminLogin string
 
 @secure()
@@ -221,9 +231,9 @@ param adminPassword string
 
 param sqlServerName string
 
-resource sqlServer 'Microsoft.Sql/servers@2020-11-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2022-11-01-preview' = {
   name: sqlServerName
-  location: resourceGroup().location
+  location: location
   properties: {
     administratorLogin: adminLogin
     administratorLoginPassword: adminPassword

@@ -13,8 +13,7 @@ ms.custom: template-quickstart
 
 Use this document to get started with the steps to install Data Manager for Agriculture. Make sure that  your Azure subscription ID is in our allowlist. Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Azure Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
-> [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). See Azure Data Manager for Agriculture specific terms of use [**here**](supplemental-terms-azure-data-manager-for-agriculture.md). 
+[!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
 ## 1: Register resource provider
 
@@ -35,7 +34,7 @@ Enter Data manager for agriculture in the marketplace search bar. Then select 'c
 
 Provide the required details for creating an Azure Data Manager for Agriculture instance and resource group in a selected region. Provide the following details:
 
-* **Subscription Id** : Choose the allow listed subscription Id for your tenant
+* **Subscription ID** : Choose the allow listed subscription ID for your tenant
 * **Resource Group**: Choose an existing resource group or create a new one
 * **Instance Name**: Give the Data Manager for Agriculture instance a name
 * **Region**: Choose the region where you want the instance deployed 
@@ -142,9 +141,9 @@ The response should look like:
 }
 ```
 
-With working **API endpoint (instanceUri)** and **access_token**, you now can start making requests to our service  APIs. If there are any queries in setting up the environment write to us at madma@microsoft.com.
+With working **API endpoint (instanceUri)** and **access_token**, you now can start making requests to our service  APIs. If there are any queries in setting up the environment, [raise a support request](./how-to-create-azure-support-request.md) to get required help.
 
 ## Next steps
-
-* See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md).
-* Understand our APIs [here](/rest/api/data-manager-for-agri).
+* See the Hierarchy Model and learn how to create and organize your agriculture data  [here](./concepts-hierarchy-model.md)
+* Understand our REST APIs [here](/rest/api/data-manager-for-agri)
+* [How to create an Azure support request](./how-to-create-azure-support-request.md)

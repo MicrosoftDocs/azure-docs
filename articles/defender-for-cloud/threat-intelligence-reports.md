@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud threat intelligence report
+title: Threat intelligence report
 description: This page helps you to use Microsoft Defender for Cloud threat intelligence reports during an investigation to find more information about security alerts
 ms.topic: how-to
 ms.date: 01/08/2023

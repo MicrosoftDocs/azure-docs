@@ -16,7 +16,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 # Train scikit-learn models at scale with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning Python SDK v2.
 

@@ -55,7 +55,7 @@ ms.topic: include
 
       To configure this setting, the tunnel type on the Basics page must be OpenVPN. Azure Active Directory-based authentication is only supported with OpenVPN.
 
-      :::image type="content" source="media/virtual-wan-p2s-configuration/azure-active-directory.png" alt-text="Azure Active Directory authentication page.":::
+      :::image type="content" source="media/virtual-wan-p2s-configuration/configure.png" alt-text="Azure Active Directory authentication page.":::
 
 1. When you have finished configuring the settings, select **Review + create** at the bottom of the page.
 

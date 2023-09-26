@@ -1,8 +1,8 @@
 ---
 title: Review access to groups & applications in access reviews
-description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
+description: Learn how to review access of group members or application access in Microsoft Entra access reviews.
 services: active-directory
-author: amsliu
+author: owinfreyATL
 manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 7/18/2022
-ms.author: amsliu
+ms.date: 06/28/2023
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
 # Review access to groups and applications in access reviews
 
-Microsoft Entra simplifies how enterprises manage access to groups and applications in Microsoft Entra and other Microsoft web services with a feature called access reviews. This article will cover how a designated reviewer performs an access review for members of a group or users with access to an application. If you want to review access to an access package, read [Review access of an access package in entitlement management](entitlement-management-access-reviews-review-access.md).
+Microsoft Entra ID simplifies how enterprises manage access to groups and applications in Microsoft Entra ID and other Microsoft web services with a feature called access reviews. This article covers how a designated reviewer performs an access review for members of a group or users with access to an application. If you want to review access to an access package, read [Review access of an access package in entitlement management](entitlement-management-access-reviews-review-access.md).
 
 ## Perform access review by using My Access
 You can review access to groups and applications via My Access. My Access is a user-friendly portal for granting, approving, and reviewing access needs.
@@ -73,11 +73,11 @@ There are two ways that you can approve or deny access:
 
 1. Select **Approve** or **Deny** on the bar.
 
-   If you're unsure if a user should continue to have access, you can select **Don't know**. The user gets to keep their access, and your choice is recorded in the audit logs. Keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
+   If you're unsure if a user should continue to have access, you can select **Don't know**. The user gets to keep their access, and your choice is recorded in the audit logs. Keep in mind that any information you provide is available to other reviewers. They can read your comments and take them into account when they review the request.
 
     ![Screenshot of open access review listing the users who need review.](./media/perform-access-review/user-list-preview.png)
 
-1. The administrator of the access review might require you to supply a reason for your decision in the **Reason** box, even when a reason is not required. You can still provide a reason for your decision. The information that you include will be available to other approvers for review.
+1. The administrator of the access review might require you to supply a reason for your decision in the **Reason** box, even when a reason isn't required. You can still provide a reason for your decision. The information that you include is available to other approvers for review.
 
 1. Select **Submit**.
 
@@ -89,9 +89,9 @@ There are two ways that you can approve or deny access:
 
 ### Review access based on recommendations
 
-To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single selection. There are two ways that the system generates recommendations for the reviewer. One method is by the user's sign-in activity. If a user has been inactive for 30 days or more, the system will recommend that the reviewer deny access. 
+To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single selection. There are two ways that the system generates recommendations for the reviewer. One method is by the user's sign-in activity. If a user has been inactive for 30 days or more, the system recommends that the reviewer deny access. 
 
-The other method is based on the access that the user's peers have. If the user doesn't have the same access as their peers, the system will recommend that the reviewer deny that user access.
+The other method is based on the access that the user's peers have. If the user doesn't have the same access as their peers, the system recommends that the reviewer deny that user access.
 
 If you have **No sign-in within 30 days** or **Peer outlier** enabled, follow these steps to accept recommendations:
 
@@ -108,9 +108,9 @@ If you have **No sign-in within 30 days** or **Peer outlier** enabled, follow th
 
 ### Review access for one or more users in a multi-stage access review (preview)
 
-If the administrator has enabled multi-stage access reviews, there will be two or three total stages of review. Each stage of review will have a specified reviewer.
+If the administrator has enabled multi-stage access reviews, there will be two or three total stages of review. Each stage of review has a specified reviewer.
 
-You will either review access manually or accept the recommendations based on sign-in activity for the stage you're assigned as the reviewer.
+You'll either review access manually or accept the recommendations based on sign-in activity for the stage you're assigned as the reviewer.
 
 If you're the second-stage or third-stage reviewer, you'll also see the decisions made by the reviewers in the prior stages, if the administrator enabled this setting when creating the access review. The decision made by a second-stage or third-stage reviewer will overwrite the previous stage. So, the decision that the second-stage reviewer makes will overwrite the first stage. And the third-stage reviewer's decision will overwrite the second stage.
 
@@ -119,7 +119,7 @@ If you're the second-stage or third-stage reviewer, you'll also see the decision
 Approve or deny access as outlined in [Review access for one or more users](#review-access-for-one-or-more-users).
 
 > [!NOTE]
-> The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Azure portal. This action will close the active stage and start the next stage.
+> The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Microsoft Entra admin center. This action will close the active stage and start the next stage.
 
 ### Review access for B2B direct connect users in Teams shared channels and Microsoft 365 groups (preview)
 
@@ -132,7 +132,7 @@ To review access of B2B direct connect users, use the following instructions:
 > [!NOTE]
 > Unlike internal users and B2B collaboration users, B2B direct connect users and teams _don't_ have recommendations based on last sign-in activity to make decisions when you perform the review.
 
-If a team you review has shared channels, all B2B direct connect users and teams that access those shared channels are part of the review. This includes B2B collaboration users and internal users. When a B2B direct connect user or team is denied access in an access review, the user will lose access to every shared channel in the team. To learn more about B2B direct connect users, read [B2B direct connect](../external-identities/b2b-direct-connect-overview.md).
+If a team you review has shared channels, all B2B direct connect users and teams that access those shared channels are part of the review. This includes B2B collaboration users and internal users. When a B2B direct connect user or team is denied access in an access review, the user loses access to every shared channel in the team. To learn more about B2B direct connect users, read [B2B direct connect](../external-identities/b2b-direct-connect-overview.md).
 
 ## Set up what will happen if no action is taken on access review
 When the access review is set up, the administrator has the option to use advanced settings to determine what will happen if a reviewer doesn't respond to an access review request.

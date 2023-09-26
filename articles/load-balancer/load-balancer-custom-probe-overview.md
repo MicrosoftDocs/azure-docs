@@ -20,6 +20,18 @@ Health probes support multiple protocols. The availability of a specific health 
 | **[Probe protocol](#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Probe down behavior](#probe-down-behavior)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
+## Probe properties
+
+Health probes have the following properties:
+
+| Health Probe property name | Details|
+| --- | --- | 
+| Name | Name of the health probe. This is a name you get to define for your health probe |
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Options are: TCP, HTTP, HTTPS |
+| Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check it's health |
+| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between different probe two consecutive health check attemps to the virtual machine |
+| Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
+
 ## Probe configuration
 
 Health probe configuration consists of the following elements:
@@ -49,11 +61,15 @@ The protocol used by the health probe can be configured to one of the following 
 | Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   Existing UDP flows move to another healthy instance in the backend pool.|
 | All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance.  Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
 
-## Probe interval
+## Probe interval & timeout
 
-The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 15 seconds by default but can be explicitly set to another value.
+The interval value determines how frequently the health probe checks for a response from your backend pool instances. If the health probe fails, your backend pool instances are immediately marked as unhealthy. If the health probe succeeds on the next healthy probe up, Azure Load Balancer marks your backend pool instances as healthy. The health probe attempts to check the configured health probe port every 5 seconds by default but can be explicitly set to another value.
 
-It is important to note that probes also have a timeout period. For example, if a health probe interval is set to 15 seconds, the total time it takes for your health probe to reflect your application would be 20 seconds (interval + timeout period). Assume the reaction to a timeout response takes a minimum of 5 seconds and a maximum of 10 seconds to react to the change. This example is provided to illustrate what is taking place. 
+In order to ensure a timely response is received, health probes have built-in timeouts. The following are the timeout durations for TCP and HTTP/S probes:
+* TCP probe timeout duration: 60 seconds
+* HTTP/S probe timeout duration: 30 seconds (60 seconds for establishing a connection)
+
+If the configured interval is longer than the above timeout period, the health probe will timeout and fail if no response is received during the timeout period. For example, if a TCP health probe is configured with a probe interval of 120 seconds (every 2 minutes), and no probe response is received within the first 60 seconds, the probe will have reached its timeout period and fail.
 
 ## Design guidance
 

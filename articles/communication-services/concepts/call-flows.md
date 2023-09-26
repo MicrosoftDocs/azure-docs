@@ -5,7 +5,6 @@ description: Learn about call flows in Azure Communication Services.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
-
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual

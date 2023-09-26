@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 06/09/2023
+ms.date: 09/07/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -25,7 +25,45 @@ New versions of the Azure Virtual Desktop Agent are installed automatically. Whe
 
 A rollout may take several weeks before the agent is available in all environments. Some agent versions may not reach non-validation environments, so you may see multiple versions of the agent deployed across your environments.
 
-## Version 1.0.6713.1300
+| Release | Latest version |
+|--|--|
+| Production | 1.0.7255.1400 |
+| Validation | 1.0.7539.5800 |
+
+The agent is automatically installed when adding session hosts in most scenarios. If you need to download the agent, you find it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
+
+## Version 1.0.7539.5800 (validation)
+
+This update was released at the beginning of September 2023 and includes the following changes: 
+
+- Security improvements and bug fixes. 
+
+## Version 1.0.7255.800
+
+This update was released at the end of July 2023 and includes the following changes: 
+
+- Fixed an issue that would disable the Traversal Using Relay NAT (TURN) health check when a user disabled the Unified Datagram Protocol (UDP). 
+- Security improvements and bug fixes. 
+
+## Version 1.0.7033.1401 
+
+This update was released at the end of July 2023 and includes the following changes: 
+
+- Security improvements and bug fixes. 
+
+## Version 1.0.6713.1603
+
+This update was released at the end of July 2023 and includes the following changes:
+
+- Security improvements and bug fixes.
+
+## Version 1.0.7033.900
+
+This update was released at the beginning of July 2023 and includes the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.6713.1300/1.0.6713.1600
 
 This update was released at the beginning of June 2023 and includes the following changes:
 

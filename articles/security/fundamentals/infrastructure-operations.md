@@ -4,8 +4,7 @@ description: This article describes how Microsoft manages and operates the Azure
 services: security
 documentationcenter: n
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -13,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2019
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---

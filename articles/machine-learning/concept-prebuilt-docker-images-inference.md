@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Learning'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.author: sehan
 author: dem108
 ms.date: 11/04/2022
@@ -29,7 +29,7 @@ Prebuilt Docker container images for inference are used when deploying a model w
 > [!IMPORTANT]
 > The list provided below includes only **currently supported** inference docker images by Azure Machine Learning.
 
-[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
+[!INCLUDE [list-of-inference-prebuilt-docker-images](includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## How to use inference prebuilt docker images?
 

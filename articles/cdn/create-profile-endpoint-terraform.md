@@ -6,9 +6,11 @@ services: cdn
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 4/14/2023
-ms.custom: devx-track-terraform, ai-gen-docs
+ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
+content_well_notification: 
+  - AI-contribution
 ---
 
 # Quickstart: Create an Azure CDN profile and endpoint using Terraform
@@ -25,8 +27,6 @@ In this article, you learn how to:
 > * Create a random string for the CDN endpoint name using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 > * Create an Azure CDN profile using [azurerm_cdn_profile](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_profile)
 > * Create an Azure CDN endpoint using [azurerm_cdn_endpoint](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_endpoint)
-
-[!INCLUDE [AI attribution](../../includes/ai-generated-attribution.md)]
 
 ## Prerequisites
 

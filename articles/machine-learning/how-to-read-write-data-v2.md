@@ -16,7 +16,7 @@ ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2
 
 # Access data in a job
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 In this article you learn:

@@ -15,7 +15,7 @@ ms.custom: references_regions, subject-reliability
 >[!IMPORTANT]
 >Zone redundancy for SQL Managed Instance is currently in Preview. To learn which regions support SQL Instance zone redundancy, see [Services support by region](availability-zones-service-support.md).
 
-SQL Managed Instance offers a zone redundant configuration that uses [Azure availability zones](availability-zones-overview.md#availability-zones) to replicate your instances across multiple physical locations within an Azure region. With zone redundancy enabled, your Business Critical managed instances become resilient to a larger set of failures, such as catastrophic datacenter outages, without any changes to application logic. For more information on the availability model for SQL Database, see [Business Critical service tier zone redundant availability section in the Azure SQL documentation](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#premium-and-business-critical-service-tier-zone-redundant-availability). 
+SQL Managed Instance offers a zone redundant configuration that uses [Azure availability zones](availability-zones-overview.md#zonal-and-zone-redundant-services) to replicate your instances across multiple physical locations within an Azure region. With zone redundancy enabled, your Business Critical managed instances become resilient to a larger set of failures, such as catastrophic datacenter outages, without any changes to application logic. For more information on the availability model for SQL Database, see [Business Critical service tier zone redundant availability section in the Azure SQL documentation](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#premium-and-business-critical-service-tier-zone-redundant-availability). 
 
 This guide describes how to migrate SQL Managed Instances that use Business Critical service tier from non-availability zone support to availability zone support. Once the zone redundant option is enabled, Azure SQL Managed Instance automatically reconfigures the instance. 
 
@@ -34,7 +34,7 @@ This guide describes how to migrate SQL Managed Instances that use Business Crit
 
 ## Downtime requirements
 
-All scaling operations in Azure SQL are online operations and require minimal to no downtime. For more details on Azure SQL dynamic scaling, see [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources?view=azuresql&preserve-view=tru).
+All scaling operations in Azure SQL are online operations and require minimal to no downtime. For more details on Azure SQL dynamic scaling, see [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources?view=azuresql&preserve-view=true).
 
 ## How to enable the zone redundant configuration
 
@@ -77,10 +77,10 @@ Use the following REST API commands to enable zone redundant configuration with 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with SQL Managed Instance with our Quick Start reference guide](/azure/azure-sql/managed-instance/quickstart-content-reference-guide?view=azuresql&preserve-view=tru)
+> [Get started with SQL Managed Instance with our Quick Start reference guide](/azure/azure-sql/managed-instance/quickstart-content-reference-guide?view=azuresql&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure SQL Managed Instance zone redundancy and high availability](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell#premium-and-business-critical-service-tier-zone-redundant-availability)
+> [Learn more about Azure SQL Managed Instance zone redundancy and high availability](/azure/azure-sql/database/high-availability-sla?view=azuresql&preserve-view=truetabs=azure-powershell#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 
 

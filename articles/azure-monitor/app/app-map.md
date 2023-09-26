@@ -2,7 +2,7 @@
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with Application Map and Intelligent view.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 07/10/2023
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.reviewer: rijolly 

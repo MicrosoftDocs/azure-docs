@@ -1,54 +1,52 @@
 ---
-title: FLOOR in Azure Cosmos DB query language
-description: Learn about the FLOOR SQL system function in Azure Cosmos DB to return the largest integer less than or equal to the specified numeric expression
-author: ginamr
+title: FLOOR
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns return the largest integer less than or equal to the specified numeric expression
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# FLOOR (Azure Cosmos DB)
+
+# FLOOR (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the largest integer less than or equal to the specified numeric expression.  
+Returns the largest integer less than or equal to the specified numeric expression.  
   
 ## Syntax
   
 ```sql
-FLOOR (<numeric_expr>)  
-```  
-  
+FLOOR(<numeric_expr>)  
+```
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
+
+Returns a numeric expression.  
   
 ## Examples
-  
-  The following example shows positive numeric, negative, and zero values with the `FLOOR` function.  
-  
-```sql
-SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  
-```  
-  
- Here is the result set.  
-  
-```json
-[{fl1: 123, fl2: -124, fl3: 0}]  
-```
+
+The following example shows positive numeric, negative, and zero values evaluated with this function.  
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/floor/query.sql" highlight="2-6":::  
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/floor/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [range index](../../index-policy.md#includeexclude-strategy).
+- This system function benefits from a [range index](../../index-policy.md#includeexclude-strategy).
 
-## Next steps
+## Related content
 
-- [Mathematical functions Azure Cosmos DB](mathematical-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
+- [System functions](system-functions.yml)
 - [Introduction to Azure Cosmos DB](../../introduction.md)

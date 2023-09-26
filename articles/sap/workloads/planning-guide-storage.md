@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/10/2023
+ms.date: 07/13/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -63,8 +63,8 @@ Before going into the details, we're presenting the summary and recommendations 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Premium SSD v2 | Ultra disk | Azure NetApp Files | Azure Premium Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | OS disk | Not suitable |  Restricted suitable (non-prod) | Recommended | Not possible | Not possible | Not possible | Not possible |
-| Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Recommended |
-| /sapmnt | Not suitable | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Recommended | Recommended |
+| Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Highly Recommended |
+| /sapmnt | Not suitable | Restricted suitable (non-prod) | Recommended | Recommended | Recommended | Recommended | Highly Recommended |
 | DBMS Data volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
 | DBMS log volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended<sup>1</sup> | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
 | DBMS Data volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended<sup>2</sup> | Not supported |
@@ -92,7 +92,8 @@ Characteristics you can expect from the different storage types list like:
 | Disk snapshots possible | Yes | Yes | Yes | No | No | Yes | No |
 | Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> | No |
 | Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | In public preview | No |
-| Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
+| Synchronous Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
+| Asynchronous Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | In preview | No |
 | Geo redundancy | Not for managed disks | Not for managed disks | No | No | No | Possible | No |
 
 

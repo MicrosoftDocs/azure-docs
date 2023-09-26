@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use the Execute Python Script model in Azure Machine Learning designer to run custom operations written in Python.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mldata
+ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.reviewer: franksolomon
+ms.reviewer: lagayhar
 ms.date: 02/08/2023
 ms.topic: how-to
-ms.custom: designer, devx-track-python
+ms.custom: UpdateFrequency5, designer, devx-track-python
 ---
 
 # Run Python code in Azure Machine Learning designer
@@ -23,7 +23,7 @@ The default execution environment uses the Anacondas distribution of Python. See
 
 ![Execute Python input map](media/how-to-designer-python/execute-python-map.png)
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
 
 ## Execute Python written in the designer
 

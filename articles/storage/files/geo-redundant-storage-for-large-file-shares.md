@@ -2,11 +2,10 @@
 title: Azure Files geo-redundancy for large file shares (preview)
 description: Azure Files geo-redundancy for large file shares (preview) significantly improves standard SMB file share capacity and performance limits when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 08/28/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
@@ -46,7 +45,7 @@ Enabling large file shares when using geo-redundant storage (GRS) and geo-zone-r
 |---------------|-------------------|---------------|
 | Capacity per share | 5 TiB | 100 TiB (20x increase) |
 | Max IOPS per share | 1,000 IOPS | 20,000 IOPS (20x increase) |
-| Max throughput per share | Up to 60 MiB/s | Up to 300 MiB/s (5x increase) |
+| Max throughput per share | Up to 60 MiB/s | Up to [storage account limits](./storage-files-scale-targets.md#storage-account-scale-targets) |
 
 ## Region availability
 
@@ -56,12 +55,18 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - Australia Central 2
 - Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
 - Central US
 - China East 2
 - China East 3
 - China North 2
 - China North 3
 - East Asia
+- East US
 - East US 2
 - France Central
 - France South
@@ -71,19 +76,32 @@ Azure Files geo-redundancy for large file shares preview is currently available 
 - Japan West
 - Korea Central
 - Korea South
+- North Central US
+- North Europe
 - Norway East
 - Norway West
 - South Africa North
 - South Africa West
+- South Central US
+- South India
 - Southeast Asia
 - Sweden Central
 - Sweden South
+- Switzerland North
+- Switzerland West
 - UAE Central
 - UAE North
 - UK South
 - UK West
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia
 - West Central US
+- West Europe
+- West India
+- West US
 - West US 2
+- West US 3
 
 ## Pricing
 

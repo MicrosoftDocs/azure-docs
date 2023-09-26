@@ -224,7 +224,7 @@ Virtual tables refer to the data in the real table, enabling the driver to acces
 
 ### Example
 
-For example, ExampleTable here is a MongoDB table that has one column with an array of Objects in each cell – Invoices, and one column with an array of Scalar types – Ratings.
+For example, ExampleTable here is a MongoDB table that has one column with an array of Objects in each cell - Invoices, and one column with an array of Scalar types - Ratings.
 
 | _id | Customer Name | Invoices | Service Level | Ratings |
 | --- | --- | --- | --- | --- |

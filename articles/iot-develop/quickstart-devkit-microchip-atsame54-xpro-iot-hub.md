@@ -95,7 +95,7 @@ To connect the Microchip E54 to Azure, you modify a configuration file for Azure
 1. Comment out the following line near the top of the file as shown:
 
     ```c
-    // #define ENABLE_DPS 
+    // #define ENABLE_DPS
     ```
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
@@ -197,26 +197,26 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
     ```output
     Initializing DHCP
-    	MAC: *************
-    	IP address: 192.168.0.41
-    	Mask: 255.255.255.0
-    	Gateway: 192.168.0.1
+        MAC: *************
+        IP address: 192.168.0.41
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
     SUCCESS: DHCP initialized
-    
+
     Initializing DNS client
-    	DNS address: 192.168.0.1
-    	DNS address: ***********
+        DNS address: 192.168.0.1
+        DNS address: ***********
     SUCCESS: DNS client initialized
-    
+
     Initializing SNTP time sync
-    	SNTP server 0.pool.ntp.org
-    	SNTP time update: Dec 3, 2022 0:5:35.572 UTC 
+        SNTP server 0.pool.ntp.org
+        SNTP time update: Dec 3, 2022 0:5:35.572 UTC
     SUCCESS: SNTP initialized
-    
+
     Initializing Azure IoT Hub client
-    	Hub hostname: ***************
-    	Device id: mydevice
-    	Model id: dtmi:azurertos:devkit:gsg;2
+        Hub hostname: ***************
+        Device id: mydevice
+        Model id: dtmi:azurertos:devkit:gsg;2
     SUCCESS: Connected to IoT Hub
     ```
 
@@ -224,7 +224,7 @@ Keep Termite open to monitor device output in the following steps.
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Microchip E54. These capabilities rely on the device model published for the Microchip E54 in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. 
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the Microchip E54. These capabilities rely on the device model published for the Microchip E54 in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart.
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -248,7 +248,7 @@ To access IoT Plug and Play components for the device in IoT Explorer:
 
 To view device properties using Azure IoT Explorer:
 
-1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off. 
+1. Select the **Properties (read-only)** tab. There's a single read-only property to indicate whether the led is on or off.
 1. Select the **Properties (writable)** tab. It displays the interval that telemetry is sent.
 1. Change the `telemetryInterval` to *5*, and then select **Update desired value**. Your device now uses this interval to send telemetry.
 
@@ -256,7 +256,7 @@ To view device properties using Azure IoT Explorer:
 
 1. IoT Explorer responds with a notification. You can also observe the update in Termite.
 1. Set the telemetry interval back to 10.
- 
+
 To use Azure CLI to view device properties:
 
 1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
@@ -346,7 +346,7 @@ To use Azure CLI to call a method:
     {
         "payload": {},
         "status": 200
-    }    
+    }
     ```
 
 1. Check your device to confirm the LED state.
@@ -366,33 +366,13 @@ If you experience issues building the device code, flashing the device, or conne
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
-## Clean up resources
-
-If you no longer need the Azure resources created in this quickstart, you can use the Azure CLI to delete the resource group and all of its resources.
-
-> [!IMPORTANT] 
-> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources.
-
-To delete a resource group by name:
-
-1. Run the [az group delete](/cli/azure/group#az-group-delete) command. This command removes the resource group, the IoT Hub, and the device registration you created.
-
-    ```azurecli-interactive
-    az group delete --name MyResourceGroup
-    ```
-
-1. Run the [az group list](/cli/azure/group#az-group-list) command to confirm the resource group is deleted.  
-
-    ```azurecli-interactive
-    az group list
-    ```
-
+[!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
 ## Next steps
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the Microchip E54 device. You connected the Microchip E54 to Azure IoT Hub, and carried out tasks such as viewing telemetry and calling a method on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect general devices, and embedded devices, to Azure IoT. 
+As a next step, explore the following articles to learn more about using the IoT device SDKs to connect general devices, and embedded devices, to Azure IoT.
 
 > [!div class="nextstepaction"]
 > [Connect a general simulated device to IoT Hub](quickstart-send-telemetry-iot-hub.md)

@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 06/30/2021
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -15,7 +15,6 @@ ms.subservice: pstn
 # Telephony concepts
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
 
 Azure Communication Services Calling SDKs can be used to add telephony and Public Switched Telephone Network access to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn more about specific SDK languages and capabilities.
 
@@ -43,8 +42,6 @@ This option requires an uninterrupted connection to Azure Communication Services
 For cloud calling, outbound calls are billed at per-minute rates depending on the target country/region. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
 
 ### Azure direct routing
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
 With this option, you can connect legacy on-premises telephony and your carrier of choice to Azure Communication Services. It provides PSTN calling capabilities to your Communication Services application even if Voice Calling (PSTN) is not available in your country/region. 
 

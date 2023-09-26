@@ -3,7 +3,7 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/12/2023
+ms.date: 08/16/2023
 ms.custom: references_regions
 ---
 
@@ -29,7 +29,7 @@ To protect against split-brain scenarios and help measure site health, a managed
 
 The following diagram depicts a vSAN cluster stretched across two AZs. 
 
-:::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN stretched cluster created in a third Availability Zone with the data being copied to all three of them.":::
+:::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN stretched cluster created in a third Availability Zone with the data being copied to all three of them." border="false" lightbox="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png":::
 
 In summary, stretched clusters simplify protection needs by providing the same trusted controls and capabilities in addition to the scale and flexibility of the Azure infrastructure.
 
@@ -40,14 +40,16 @@ It's important to understand that stretched cluster private clouds only offer an
     
         The following diagram shows the secondary site partitioning scenario.
     
-        :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
+        :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site." border="false" lightbox="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png":::
 
     - If the secondary site partitioning progressed into the failure of the primary site instead, or resulted in a complete partitioning, vSphere HA would attempt to restart the workload VMs on the secondary site. If vSphere HA attempted to restart the workload VMs on the secondary site, it would put the workload VMs in an unsteady state. 
     
 
-        The following diagram shows the preferred site failure or complete partitioning scenario.
+        The following diagrams show the preferred site failure and complete network partitioning scenarios.
 
-        :::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure or complete partitioning occurs.":::
+        :::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure occurs." border="false" lightbox="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png":::
+
+        :::image type="content" source="media/stretch-clusters/diagram-4-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when complete network isolation occurs." border="false" lightbox="media/stretch-clusters/diagram-4-restart-workload-secondary-site.png":::
 
 It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of those types of rare failures, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. It's important you understand that a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX-T Manager cluster, one NSX-T Data Center Edge VM pair.
 
@@ -56,7 +58,7 @@ It should be noted that these types of failures, although rare, fall outside the
 Azure VMware Solution stretched clusters are available in the following regions: 
 
 - UK South (on AV36) 
-- West Europe (on AV36) 
+- West Europe (on AV36, and AV36P) 
 - Germany West Central (on AV36) 
 - Australia East (on AV36P) 
 
@@ -121,7 +123,7 @@ No. A stretched cluster is created between two availability zones, while the thi
 ### What are the limitations I should be aware of?
 
 - Once a private cloud has been created with a stretched cluster, it can't be changed to a standard cluster private cloud. Similarly, a standard cluster private cloud can't be changed to a stretched cluster private cloud after creation.
-- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment.
+- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment. For more details, refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
 - Currently not supported in a stretched cluster environment:

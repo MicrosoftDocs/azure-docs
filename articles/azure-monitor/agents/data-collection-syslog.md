@@ -3,8 +3,6 @@ title: Collect Syslog events with Azure Monitor Agent
 description: Configure collection of Syslog events by using a data collection rule on virtual machines with Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 05/10/2023
-author: narinem
-ms.author: narinem
 ms.reviewer: glinuxagent
 ---
 

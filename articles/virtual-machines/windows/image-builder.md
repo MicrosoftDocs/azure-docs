@@ -8,7 +8,7 @@ ms.date: 06/12/2023
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: windows
 ---
 # Create a Windows VM by using Azure VM Image Builder

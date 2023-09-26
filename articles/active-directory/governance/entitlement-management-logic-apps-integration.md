@@ -1,5 +1,5 @@
 ---
-title: Trigger Logic Apps with custom extensions in entitlement management (Preview)
+title: Trigger Logic Apps with custom extensions in entitlement management
 description: Learn how to configure and use custom logic app workflows in entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can configure and add custom logic apps to my catalogs and access packages in entitlement management.
 
 ---
-# Trigger Logic Apps with custom extensions in entitlement management (Preview)
+# Trigger Logic Apps with custom extensions in entitlement management
 
 
 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) can be used to automate custom workflows and connect apps and services in one place. Users can integrate Logic Apps with entitlement management to broaden their governance workflows beyond the core entitlement management use cases.
@@ -43,17 +43,22 @@ Entitlement management use cases that can be integrated with Logic Apps include 
 
 These triggers to Logic Apps are controlled in a tab within access package policies called **Rules**. Additionally, a **Custom Extensions** tab on the Catalog page shows all added Logic Apps extensions for a given Catalog. This article describes how to create and add logic apps to catalogs and access packages in entitlement management. 
 
+## License requirements
+
+[!INCLUDE [active-directory-entra-governance-license.md](../../../includes/active-directory-entra-governance-license.md)]
+
+
 ## Create and add a Logic App workflow to a catalog for use in entitlement management 
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner or Resource Group Owner 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
+1. Browse to **Identity governance** > **Catalogs**.
 
-1. In the left menu, select **Catalogs**. 
-
-1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions (Preview)**. 
+1. Select the catalog for which you want to add a custom extension and then in the left menu, select **Custom Extensions**. 
 
 1. In the header navigation bar, select **Add a Custom Extension**.  
 
@@ -116,21 +121,19 @@ These triggers to Logic Apps are controlled in a tab within access package polic
 
 **Prerequisite roles:** Global administrator, Identity Governance administrator, Catalog owner, or Access package manager 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**. 
-
-1. In the left menu, select **Access packages**. 
+1. Browse to **Identity governance** > **Entitlement management** > **Access package**.
 
 1. Select the access package you want to add a custom extension (logic app) to from the list of access packages that have already been created.  
 
     > [!NOTE]  
     > Select **New access package** if you want to create a new access package.
-    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
+    > For more information about how to create an access package, see [Create a new access package in entitlement management](entitlement-management-access-package-create.md).  For more information about how to edit an existing access package, see [Change request settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings).
 
 1. Change to the policy tab, select the policy and select **Edit**.
 
-1. In the policy settings, go to the **Custom Extensions (Preview)** tab.
+1. In the policy settings, go to the **Custom Extensions** tab.
 
 1. In the menu below **Stage**, select the access package event you wish to use as trigger for this custom extension (Logic App). For example, if you only want to trigger the custom extension Logic App workflow when a user requests the access package, select **Request is created**. 
 
@@ -152,7 +155,7 @@ For newly created Logic Apps linked to custom extensions, these Logic Apps begin
 
 1. Select the Logic App under the Logic app column for the associated custom extension row. This allows you to edit or create the workflow in Logic App designer.  
 
-For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps with the Azure portal](../../logic-apps/quickstart-create-example-consumption-workflow.md).
+For more information on creating logic app workflows, see [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps](../../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 
 ## Configuring custom extensions that pause entitlement management processes

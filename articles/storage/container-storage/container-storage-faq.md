@@ -2,10 +2,9 @@
 title: Frequently asked questions (FAQ) for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
-ms.service: storage
-ms.date: 06/22/2023
+ms.service: azure-container-storage
+ms.date: 08/02/2023
 ms.author: kendownie
-ms.subservice: container-storage
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -21,7 +20,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-regions"></a>
   **In which Azure regions is Azure Container Storage available?**  
-  Azure Container Storage Preview is only available in East US, West Europe, West US 2, and West US 3. See [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products).
+  [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
 * <a id="azure-container-storage-preview-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
@@ -33,7 +32,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-delete-aks-resource-group"></a>
   **I've created an Elastic SAN storage pool, and I'm trying to delete my resource group where my AKS cluster is located and it's not working. Why?**  
-  Sign into the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
+  Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
 
 * <a id="azure-container-storage-autoupgrade"></a>
   **Is there any performance impact when upgrading to a new version of Azure Container Storage?**  
@@ -45,7 +44,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-remove"></a>
   **I get this error when trying to install Azure Container Storage, how do I resolve it? "(ExtensionOperationFailed) The extension operation failed with the following error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}?"**
-  This error is due to a lack of permissions for Azure Container Storage to install and deploy storage in your AKS Cluster. Azure Container Storage Preview is deployed using an ARC extension. To resolve this, you must [assign the Contributor role](container-storage-aks-quickstart.md#assign-contributor-role-to-aks-managed-identity) to the AKS managed identity.
+  This error is due to a lack of permissions for Azure Container Storage to install and deploy storage in your AKS Cluster. Azure Container Storage Preview is deployed using an ARC extension. To resolve this, you must [assign the Contributor role](install-container-storage-aks.md#assign-contributor-role-to-aks-managed-identity) to the AKS managed identity.
 
 ## Billing and pricing
 

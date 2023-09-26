@@ -15,13 +15,13 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk add group members in Azure Active Directory
+# Bulk add group members in Microsoft Entra ID
 
-You can add multiple members to a group by using a comma-separated values (CSV) file to bulk import group members in the portal for Azure Active Directory (Azure AD), part of Microsoft Entra.
+You can add multiple members to a group by using a comma-separated values (CSV) file to bulk import group members in the portal for Microsoft Entra ID, part of Microsoft Entra.
 
 ## Understand the CSV template
 
-Download and fill in the bulk upload CSV template to successfully add Azure AD group members in bulk. Your CSV template might look like this example:
+Download and fill in the bulk upload CSV template to successfully add Microsoft Entra group members in bulk. Your CSV template might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-import-members/template-with-callouts.png)
 
@@ -43,8 +43,14 @@ The rows in a downloaded CSV template are as follows:
 
 ## To bulk import group members
 
-1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk import members of groups they own.
-1. In Azure AD, select **Groups** > **All groups**.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Select Microsoft Entra ID.
+   >[!NOTE]
+   >Group owners can also bulk import members of groups they own.
+1. Select **Groups** > **All groups**.
 1. Open the group to which you're adding members and then select **Members**.
 1. On the **Members** page, select **bulk operations** and then choose **Import members**.
 1. On the **Bulk import group members** page, select **Download** to get the CSV file template with required group member properties.

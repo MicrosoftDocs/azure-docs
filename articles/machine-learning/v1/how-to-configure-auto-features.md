@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, automl, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ms.date: 01/24/2022
 monikerRange: 'azureml-api-1'
 ---
 
 # Data featurization in automated machine learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn about the data featurization settings in Azure Machine Learning, and how to customize those features for [automated machine learning experiments](../concept-automated-ml.md).
 
@@ -32,7 +32,7 @@ In Azure Machine Learning, data-scaling and normalization techniques are applied
 
 This article assumes that you already know how to configure an automated ML experiment. 
 
-[!INCLUDE [automl-sdk-version](../../../includes/machine-learning-automl-sdk-version.md)]
+[!INCLUDE [automl-sdk-version](../includes/machine-learning-automl-sdk-version.md)]
 
 For information about configuration, see the following articles:
 
@@ -345,7 +345,7 @@ In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use
 
 Automated ML takes the following steps for BERT. 
 
-1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
 

@@ -6,7 +6,7 @@ manager: rcole
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 03/11/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -15,9 +15,6 @@ ms.custom: kr2b-contr-experiment
 
 # Use direct routing to connect to existing telephony service
 Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and how voice routing works for the enabled Communication resource. 
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 For information about whether Azure Communication Services direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [Communication Services direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
@@ -52,7 +49,7 @@ SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange:
 Status - The overall health status of a Trunk: 
 - Unknown - Indicates an unknown health status. 
 - Online - Indicates that SBC connection is healthy. 
-- Inactive - Indicates inactive connection. 
+- Warning - Indicates TLS or Ping is expired. 
 
 > [!IMPORTANT]
 > Before placing or receiving calls, make sure that SBC status is *Online*

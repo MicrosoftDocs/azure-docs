@@ -1,8 +1,8 @@
 ---
 title: Change directory tenants with your individual VSS Azure subscriptions
 description: Change directory tenants with your Azure subscriptions.
-author: jamestramel
-ms.author: jametra
+author: jenp
+ms.author: jenp
 ms.prod: visual-studio-windows
 ms.topic: how-to 
 ms.date: 10/12/2021

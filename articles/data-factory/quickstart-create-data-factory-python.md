@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 

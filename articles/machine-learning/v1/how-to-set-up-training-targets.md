@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5,sdkv1
 
 # Configure and submit training jobs
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to configure and submit Azure Machine Learning jobs to train your models. Snippets of code explain the key parts of configuration and submission of a training script.  Then use one of the [example notebooks](#notebook-examples) to find the full end-to-end working examples.
 
@@ -76,7 +76,7 @@ The example code in this article assumes that you have already created a compute
 >[!Note]
 >Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
 
-[!INCLUDE [arc-enabled-kubernetes](../../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
+[!INCLUDE [arc-enabled-kubernetes](../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Create an environment
 Azure Machine Learning [environments](../concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
@@ -148,7 +148,7 @@ run.wait_for_completion(show_output=True)
 > [!IMPORTANT]
 > When you submit the training job, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace. If you change files and submit the job again, only the changed files will be uploaded.
 >
-> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 > 
 > For more information about snapshots, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -174,7 +174,7 @@ See these notebooks for examples of configuring jobs for various training scenar
 * [Training with ML frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-clone-for-examples.md)]
 
 ## Troubleshooting
 

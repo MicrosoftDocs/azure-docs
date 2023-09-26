@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Private 5G Core?
 description: Discover what's new in Azure Private 5G Core
-author: robswain
-ms.author: robswain
+author: paulcarter
+ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 05/31/2023
+ms.date: 09/21/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -22,6 +22,133 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## September 2023
+### Packet core 2308
+
+**Type:** New release
+
+**Date available:** September 21, 2023
+
+The 2308 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2308 release notes](azure-private-5g-core-release-notes-2308.md).
+
+### 10 DNs
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the number of supported data networks (DNs) increases from three to ten, including with layer 2 traffic separation. If more than 6 DNs are required, a shared switch for access and core traffic is needed.
+
+### Default MTU values 
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the default MTU values are changed as follows:
+- UE MTU: 1440 (was 1300)
+-	Access MTU: 1500 (was 1500)
+-	Data MTU: 1440 (was 1500)
+
+Customers upgrading to 2308 see a change in the MTU values on their packet core.
+
+When the UE MTU is set to any valid value (see API Spec) then the other MTUs will be set to:
+- Access MTU: UE MTU + 60
+- Data MTU: UE MTU
+  
+Rollbacks to Packet Core versions earlier than 2308 are not possible if the UE MTU field is changed following an upgrade.
+
+### MTU Interop setting
+
+**Type:** New feature
+
+**Date available:** September 07, 2023
+
+In this release, the MTU Interop setting is deprecated and cannot be set for Packet Core versions 2308 and above.
+
+## July 2023
+### Packet core 2307
+
+**Type:** New release
+
+**Date available:** July 31, 2023
+
+The 2307 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2307 release notes](azure-private-5g-core-release-notes-2307.md).
+
+### UE usage tracking
+
+**Type:** New feature
+
+**Date available:** July 31, 2023
+
+The UE usage tracking messages in Azure Event Hubs are now encoded in AVRO file container format, which enables you to consume these events via Power BI or Azure Stream Analytics (ASA). If you want to enable this feature for your deployment, contact your support representative.
+
+### Unknown User cause code mapping in 4G deployments
+
+**Type:** New feature
+
+**Date available:** July 31, 2023
+
+In this release, the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
+### 2023-06-01 API
+
+**Type:** New release
+
+**Date available:** July 19, 2023
+
+The 2023-06-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From July 19, 2023-06-01 is the default API version for Azure Private 5G Core deployments.
+ 
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API or 2022-11-01, you don't need to do anything. Your portal will use the new API.
+ 
+ARM API users with existing resources can continue to use the 2022-04-01-preview API or 2022-11-01 without updating their templates.
+ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
+ 
+Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API cannot go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+
+### New cloud monitoring option - Azure Monitor Workbooks
+
+**Type:** New feature
+
+**Date available:** July 12, 2023
+
+You can now use Azure Monitor Workbooks to monitor your private mobile network. Workbooks provide versatile tools for visualizing and analyzing data. You can use workbooks to gain insights into your connected resources - including the packet core, Azure Stack Edge devices and Kubernetes clusters - using a range of visualization options. You can create new workbooks or customize one of the included templates to suit your needs.
+
+See [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md) to learn more.
+
+## June 2023
+
+### Packet core 2306
+
+**Type:** New release
+
+**Date available:** July 10, 2023
+
+The 2306 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2306 release notes](azure-private-5g-core-release-notes-2306.md).
+### Configuration changes to Packet Core without a reinstall and changes to MCC, MNC
+
+**Type:** New feature
+
+**Date available:** July 10, 2023
+
+It is now possible to:
+- attach a new or existing data network
+- modify an attached data network's configuration
+  
+followed by a few minutes of downtime, but not a packet core reinstall.
+
+For details, see [Modify a packet core instance](modify-packet-core.md).
+
+### PLMN configuration
+
+**Type:** New feature
+
+**Date available:** July 10, 2023
+
+You can now change the public land mobile network (PLMN) identifier, comprising a Mobile Country Code (MCC) and Mobile Network Code (MNC), on an existing private mobile network. Previously, this required recreating the network with the new configuration.
+
+To change your PLMN configuration, see [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md).
+
+
 ## May 2023
 
 ### Packet core 2305
@@ -31,6 +158,26 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 **Date available:** May 31, 2023
 
 The 2305 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2305 release notes](azure-private-5g-core-release-notes-2305.md).
+
+### Easier creation of a site using PowerShell
+
+**Type:** New feature
+
+**Date available:** May 31, 2023
+
+New-MobileNetworkSite now supports a parameter that makes it easier to create a site and its dependant resources.
+
+For details, see [Create more Packet Core instances for a site using the Azure portal](create-additional-packet-core.md).
+ 
+### Multiple Packet Cores under the same Site
+
+**Type:** New feature
+
+**Date available:** May 1, 2023
+
+It is now possible to add multiple packet cores in the same site using the Azure portal. 
+
+For details, see [Create a Site and dependant resources](deploy-private-mobile-network-with-site-powershell.md#create-a-site-and-dependant-resources).
 
 ## March 2023
 
@@ -96,7 +243,7 @@ The Azure Private 5G Core online service now reports the provisioning status of 
 
 **Date available:** January 31, 2023
 
-You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages will be collected from the edge site and uploaded to an Azure storage account, which can be shared with AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
+You can now gather diagnostics for a site remotely using the Azure portal. Diagnostics packages are collected from the edge site and uploaded to an Azure storage account, which can be shared with AP5GC support or others for assistance with issues. Follow [Gather diagnostics using the Azure portal](gather-diagnostics.md) to gather a remote diagnostics package for an Azure Private 5G Core site using the Azure portal.
 
 ### West Europe region
 
@@ -122,9 +269,9 @@ The **Diagnose and solve problems** option in the left content menu can now prov
 
 **Date available:** December 16, 2022
 
-If you're experiencing issues with your packet core deployment, you can now reinstall the packet core to return it to a known state. Reinstalling the packet core deletes the existing packet core deployment and attempts to deploy the packet core at the edge with the existing site configuration. Already created **Site**-dependent resources such as the **Packet Core Control Plane**, **Packet Core Data Plane** and **Attached Data Network** will continue to be used in the deployment.
+If you're experiencing issues with your packet core deployment, you can now reinstall the packet core to return it to a known state. Reinstalling the packet core deletes the existing packet core deployment and attempts to deploy the packet core at the edge with the existing site configuration. Already created **Site**-dependent resources such as the **Packet Core Control Plane**, **Packet Core Data Plane** and **Attached Data Network** continue to be used in the deployment.
 
-You can check the installation state on the **Packet Core Control Plane** resource's overview page. Upon successful redeployment, the installation state will change from **Reinstalling** to either **Installed** or **Failed**, depending on the outcome. You can reinstall the packet core if the installation state is **Installed** or **Failed**.
+You can check the installation state on the **Packet Core Control Plane** resource's overview page. Upon successful redeployment, the installation state changes from **Reinstalling** to either **Installed** or **Failed**, depending on the outcome. You can reinstall the packet core if the installation state is **Installed** or **Failed**.
 
 If you attempt a reinstall after an upgrade, redeployment will be attempted with the upgraded packet core version. The reinstall is done using the latest packet core version currently defined in the ARM API version.
 
@@ -156,7 +303,7 @@ You can add a custom certificate to secure access to your local monitoring tools
 
 The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From December 12, 2022-11-01 is the default API version for Azure Private 5G Core deployments.
 
-If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, you don't need to do anything. Your portal will use the new API and any differences between the APIs are handled automatically.
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, you don't need to do anything. Your portal uses the new API and any differences between the APIs are handled automatically.
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 

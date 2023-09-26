@@ -1,12 +1,12 @@
 ---
 title:  Use Managed identity to connect Azure SQL Database to an app deployed to Azure Spring Apps
 description: Set up managed identity to connect Azure SQL to an app deployed to Azure Spring Apps.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/26/2022
-ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-connector
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, passwordless-java, service-connector
 ---
 
 # Use a managed identity to connect Azure SQL Database to an app deployed to Azure Spring Apps
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, event-tier1-build-2022, passwordless-java, service-c
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -63,6 +63,9 @@ spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:14
 
 #### [Service Connector](#tab/service-connector)
 
+> [!NOTE]
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
+
 Configure your app deployed to Azure Spring Apps to connect to an Azure SQL Database with a system-assigned managed identity using the `az spring connection create` command, as shown in the following example.
 
 1. Use the following command to install the Service Connector passwordless extension for the Azure CLI:
@@ -88,7 +91,7 @@ Configure your app deployed to Azure Spring Apps to connect to an Azure SQL Data
 1. Use the following command to check the creation result:
 
    ```azurecli
-   CONNECTION_NAME=$(az spring connection list \
+   export CONNECTION_NAME=$(az spring connection list \
       --resource-group $SPRING_APP_RESOURCE_GROUP \
       --service $SPRING_APP_SERVICE_NAME \
       --app $APP_NAME  \

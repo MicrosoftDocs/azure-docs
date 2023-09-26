@@ -17,7 +17,7 @@ ms.custom: UpdateFrequency5, seodec18, ignite-2022
 
 # Explore Azure Machine Learning with Jupyter Notebooks (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 The [Azure Machine Learning Notebooks repository](https://github.com/azure/machinelearningnotebooks) includes Azure Machine Learning Python SDK (v1) samples. These Jupyter notebooks are designed to help you explore the SDK and serve as models for your own machine learning projects.  In this repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
 
@@ -41,7 +41,7 @@ To view example notebooks:
 
 If you'd like to bring your own notebook server for local development, follow these steps on your computer.
 
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+[!INCLUDE [aml-your-server](../includes/aml-your-server.md)]
 
 These instructions install the base SDK packages necessary for the quickstart and tutorial notebooks. Other sample notebooks may require you to install extra components. For more information, see [Install the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install).
 
@@ -49,7 +49,7 @@ These instructions install the base SDK packages necessary for the quickstart an
 
 The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
-[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
+[!INCLUDE [aml-dsvm-server](../includes/aml-dsvm-server.md)]
 
 ## Next steps
 

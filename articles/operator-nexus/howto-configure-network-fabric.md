@@ -79,7 +79,7 @@ Run the following command to create the network fabric. The rack count is either
 
 ```azurecli
 
-az nf fabric create \ 
+az networkfabric fabric create \ 
 --resource-group "NFResourceGroupName" 
 --location "eastus" \
 --resource-name "NFName" \
@@ -173,7 +173,7 @@ Expected output:
 ### Show network fabrics
 
 ```azurecli
-az nf fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
+az networkfabric fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
 ```
 
 Expected output:
@@ -260,7 +260,7 @@ Expected output:
 ### List all network fabrics in a resource group
 
 ```azurecli
-az nf fabric list --resource-group "NFResourceGroup"  
+az networkfabric fabric list --resource-group "NFResourceGroup"  
 ```
 
 Expected output:
@@ -373,7 +373,7 @@ Run the following command to create the NNI:
 
 ```azurecli
 
-az nf nni create \
+az networkfabric nni create \
 --resource-group "NFResourceGroup" \
 --location "eastus" \
 --resource-name "NFNNIName" \
@@ -427,7 +427,7 @@ Expected output:
 ### Show network fabric NNIs
 
 ```azurecli
-az nf nni show -g "NFResourceGroup" --resource-name "NFNNIName" --fabric "NFFabric"
+az networkfabric nni show -g "NFResourceGroup" --resource-name "NFNNIName" --fabric "NFFabric"
 
 ```
 
@@ -472,7 +472,7 @@ Expected output:
 ### List or get network fabric NNIs
 
 ```azurecli
-az nf nni list -g NFResourceGroup --fabric NFFabric
+az networkfabric nni list -g NFResourceGroup --fabric NFFabric
 ```
 
 Expected output:
@@ -520,7 +520,7 @@ Run the following command to update network fabric devices:
 
 ```azurecli
 
-az nf device update \
+az networkfabric device update \
 --resource-group "NFResourceGroup" \
 --resource-name "Network-Device-Name" \
 --location "eastus" \
@@ -573,7 +573,7 @@ For example, `AggrRack` consists of:
 Run the following command to list network fabric devices in a resource group:
 
 ```azurecli
-az nf device list --resource-group "NFResourceGroup"
+az networkfabric device list --resource-group "NFResourceGroup"
 ```
 
 Expected output:
@@ -728,7 +728,7 @@ Expected output:
 Run the following command to get or show details of a network fabric device:
 
 ```azurecli
-az nf device show --resource-group "NFResourceGroup" --resource-name "Network-Device-Name"
+az networkfabric device show --resource-group "NFResourceGroup" --resource-name "Network-Device-Name"
 ```
 
 Expected output:
@@ -765,11 +765,11 @@ Expected output:
 After you update the device serial number, provision and show the fabric by running the following commands:
 
 ```azurecli
-az nf fabric provision --resource-group "NFResourceGroup"  --resource-name "NFName"
+az networkfabric fabric provision --resource-group "NFResourceGroup"  --resource-name "NFName"
 ```
 
 ```azurecli
-az nf fabric show --resource-group "NFResourceGroup"    --resource-name "NFName"
+az networkfabric fabric show --resource-group "NFResourceGroup"    --resource-name "NFName"
 ```
 
 Expected output:
@@ -856,7 +856,7 @@ Expected output:
 To deprovision a fabric, ensure that the fabric is in a provisioned operational state and then run this command:
 
 ```azurecli
-az nf fabric deprovision --resource-group "NFResourceGroup" --resource-name "NFName"
+az networkfabric fabric deprovision --resource-group "NFResourceGroup" --resource-name "NFName"
 
 ```
 
@@ -948,7 +948,7 @@ To delete a fabric, run the following command. Before you do, make sure that:
 * No racks are associated with the fabric.
 
 ```azurecli
-az nf fabric delete --resource-group "NFResourceGroup" --resource-name "NFName"
+az networkfabric fabric delete --resource-group "NFResourceGroup" --resource-name "NFName"
 
 ```
 
@@ -1034,13 +1034,12 @@ Expected output:
 After you successfully delete the network fabric, when you run the command to show the fabric, you won't find any resources available:
 
 ```azurecli
-az nf fabric show --resource-group "NFResourceGroup" --resource-name "NFName"
+az networkfabric fabric show --resource-group "NFResourceGroup" --resource-name "NFName"
 ```
 
 Expected output:
 
 ```output
-Command group 'nf' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-(ResourceNotFound) The Resource 'Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName' under resource group 'NFResourceGroup' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
+The Resource 'Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName' under resource group 'NFResourceGroup' was not found. For more details please go to https://aka.ms/ARMResourceNotFoundFix
 Code: ResourceNotFound
 ```

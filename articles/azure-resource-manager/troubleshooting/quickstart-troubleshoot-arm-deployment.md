@@ -88,11 +88,11 @@ Copy the following template and save it locally. You'll use this file to trouble
 
 Open the file in Visual Studio Code. The wavy line under `parameterss:` indicates an error. To see the validation error, hover over the error.
 
-:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-error.png" alt-text="Screenshot of a template validation error in Visual Studio Code.":::
+:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-error.png" alt-text="Screenshot of Visual Studio Code highlighting a template validation error with a red wavy line under the misspelled 'parameterss:' in the code.":::
 
 You'll notice that `variables` and `resources` have errors for _undefined parameter reference_. To display the template's validation errors, select **View** > **Problems**.
 
-:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-undefined-parameter.png" alt-text="Screenshot of Visual Studio Code that shows undefined parameter reference errors.":::
+:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/validation-undefined-parameter.png" alt-text="Screenshot of Visual Studio Code showing the Problems tab listing undefined parameter reference errors for 'variables' and 'resources' sections.":::
 
 All the errors are caused by the incorrect spelling of an element name.
 
@@ -144,11 +144,11 @@ Storage names must be between 3 and 24 characters and use only lowercase letters
 
 Because the deployment didn't run, there's no deployment history.
 
-:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/preflight-no-deploy.png" alt-text="Screenshot of resource group overview that shows no deployment for preflight error.":::
+:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/preflight-no-deploy.png" alt-text="Screenshot of Azure resource group overview page displaying an empty deployment history section due to a preflight error.":::
 
 The activity log shows the preflight error. Select the log to see the error's details.
 
-:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/preflight-activity-log.png" alt-text="Screenshot of resource group activity log with preflight error.":::
+:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/preflight-activity-log.png" alt-text="Screenshot of Azure resource group activity log showing a preflight error entry with a red exclamation mark icon.":::
 
 ## Fix deployment error
 
@@ -178,7 +178,7 @@ New-AzResourceGroupDeployment `
 
 The deployment begins and is visible in the deployment history. The deployment fails because `outputs` references a virtual network that doesn't exist in the resource group. However, there were no errors for the storage account, so the resource deployed. The deployment history shows a failed deployment.
 
-:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/deployment-failed.png" alt-text="Screenshot of resource group overview that shows a failed deployment.":::
+:::image type="content" source="media/quickstart-troubleshoot-arm-deployment/deployment-failed.png" alt-text="Screenshot of Azure resource group overview page showing a failed deployment with a red exclamation mark icon in the deployment history section.":::
 
 To fix the deployment error, change the reference function to use a valid resource. For more information, see [Resolve resource not found errors](error-not-found.md). For this quickstart, delete the comma that precedes `vnetResult` and all of `vnetResult`. Save the file and rerun the deployment.
 

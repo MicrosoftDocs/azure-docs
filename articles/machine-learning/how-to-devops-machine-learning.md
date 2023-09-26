@@ -10,7 +10,7 @@ ms.author: kritifaujdar
 ms.reviewer: larryfr
 ms.date: 06/06/2023
 ms.topic: how-to
-ms.custom: devops-pipelines-deploy, devx-track-arm-template
+ms.custom: devops-pipelines-deploy
 ---
 
 # Use Azure Pipelines with Azure Machine Learning
@@ -38,7 +38,7 @@ This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/a
     > [!TIP]
     >This extension isn't required to submit the Azure Machine Learning job; it's required to be able to wait for the job completion.
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
 
 ## Step 1: Get the code
@@ -79,7 +79,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 1. Choose **+ New service connection** and select **Generic**.
 
-1. Use **https://management.azure.com** and provide a service connection name. Don't provide any authentication related information.
+1. Use ```https://management.azure.com``` and provide a service connection name. Don't provide any authentication related information.
 
 1. Create your service connection.
 
@@ -153,15 +153,11 @@ jobs:
       scriptType: bash
       inlineScript: |
       
-        # submit component job and get the run name
-        job_out=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name)
+      # submit component job and get the run name
+      job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
-        # Remove quotes around job name
-        job_name=$(sed -e 's/^"//' -e 's/"$//' <<<"$job_out")
-        echo $job_name
-
-        # Set output variable for next task
-        echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
+      # Set output variable for next task
+      echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
 
 ```
 # [Using generic service connection](#tab/generic)
@@ -209,19 +205,16 @@ jobs:
       scriptType: bash
       inlineScript: |
       
-        # submit component job and get the run name
-        job_out=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name)
+      # submit component job and get the run name
+      job_name=$(az ml job create --file single-job-pipeline.yml -g $(resource-group) -w $(workspace) --query name --output tsv)
 
-        # Remove quotes around run name
-        job_name=$(sed -e 's/^"//' -e 's/"$//' <<<"$job_out")
-        echo $job_name
 
-        # Set output variable for next task
-        echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
+      # Set output variable for next task
+      echo "##vso[task.setvariable variable=JOB_NAME;isOutput=true;]$job_name"
 
-        # Get a bearer token to authenticate the request in the next job
-        export aadToken=$(az account get-access-token --resource=https://management.azure.com --query accessToken -o tsv)
-        echo "##vso[task.setvariable variable=AAD_TOKEN;isOutput=true;issecret=true]$aadToken"
+      # Get a bearer token to authenticate the request in the next job
+      export aadToken=$(az account get-access-token --resource=https://management.azure.com --query accessToken -o tsv)
+      echo "##vso[task.setvariable variable=AAD_TOKEN;isOutput=true;issecret=true]$aadToken"
      
 ```
 ---
@@ -258,7 +251,7 @@ The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `Az
     # We are saving the name of azureMl job submitted in previous step to a variable and it will be used as an inut to the AzureML Job Wait task
     azureml_job_name_from_submit_job: $[ dependencies.SubmitAzureMLJob.outputs['submit_azureml_job_task.AZUREML_JOB_NAME'] ] 
   steps:
-  - task: AzureMLJobWaitTask@0
+  - task: AzureMLJobWaitTask@1
     inputs:
       serviceConnection: $(service-connection)
       resourceGroupName: $(resource-group)

@@ -76,14 +76,18 @@ To configure your network to use DNS resolution for WPAD, follow the instruction
 
 ### Manually set a device-wide proxy for Windows services
 
-You can set a device-wide proxy or Proxy Auto Configuration (.PAC) file that applies to all interactive, Local System, and Network Service users with the [Network Proxy CSP](/windows/client-management/mdm/networkproxy-csp). 
+If you're specifying a proxy server manually, at a minimum you will need to set a proxy for the Windows services *RDAgent* and *Remote Desktop Services* on your session hosts. RDAgent runs with the account *Local System* and Remote Desktop Services runs with the account *Network Service*. You can set a proxy for these accounts using the `bitsadmin` command-line tool.
 
-In addition you will need to set a proxy for the Windows services *RDAgent* and *Remote Desktop Services*. RDAgent runs with the account *Local System* and Remote Desktop Services runs with the account *Network Service*. You can set a proxy for these accounts by running the following commands from an elevated command prompt, changing the placeholder value for `<server>` with your own address:
+The following example configures the Local System and Network Service accounts to use a proxy `.pac` file . You'll need to run these commands from an elevated command prompt, changing the placeholder value for `<server>` with your own address:
 
-```console
+```cmd
 bitsadmin /util /setieproxy LOCALSYSTEM AUTOSCRIPT http://<server>/proxy.pac
 bitsadmin /util /setieproxy NETWORKSERVICE AUTOSCRIPT http://<server>/proxy.pac
 ```
+
+For a full reference and other examples, see [bitsadmin util and setieproxy](/windows-server/administration/windows-commands/bitsadmin-util-and-setieproxy).
+
+You can also set a device-wide proxy or Proxy Auto Configuration (.PAC) file that applies to all interactive, Local System, and Network Service users. If your session hosts are enrolled with Intune, you can set a proxy with the [Network Proxy CSP](/windows/client-management/mdm/networkproxy-csp), however, Windows multi-session client operating systems don't support Policy CSP as they only support the [settings catalog](/mem/intune/configuration/settings-catalog). Alternatively you can configure a device-wide proxy using the `netsh winhttp` command. For a full reference and examples, see [Netsh Commands for Windows Hypertext Transfer Protocol (WINHTTP)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731131(v=ws.10))
 
 ## Client-side proxy support
 

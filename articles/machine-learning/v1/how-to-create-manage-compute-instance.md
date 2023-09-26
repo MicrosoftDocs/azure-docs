@@ -15,7 +15,7 @@ ms.date: 05/02/2022
 
 # Create and manage an Azure Machine Learning compute instance with CLI v1
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 
 Learn how to create and manage a [compute instance](../concept-compute-instance.md) in your Azure Machine Learning workspace with CLI v1.
@@ -30,7 +30,7 @@ In this article, you learn how to:
 * Manage (start, stop, restart, delete) a compute instance
 
 > [!NOTE]
-> This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-manage-compute-instance.md).
+> This article covers only how to do these tasks using CLI v1.  For more recent ways to manage a compute instance, see [Create an Azure Machine Learning compute cluster](../how-to-create-compute-instance.md).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ In this article, you learn how to:
 
 * The [Azure CLI extension for Machine Learning service (v1)](reference-azure-machine-learning-cli.md) or [Azure Machine Learning Python SDK (v1)](/python/api/overview/azure/ml/intro).
 
-    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+    [!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 
 ## Create
@@ -58,7 +58,7 @@ The following example demonstrates how to create a compute instance:
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import datetime
@@ -97,7 +97,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 ```azurecli-interactive
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
@@ -116,7 +116,7 @@ Start, stop, restart, and delete a compute instance. A compute instance doesn't 
 
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In the examples below, the name of the compute instance is **instance**.
 
@@ -160,7 +160,7 @@ In the examples below, the name of the compute instance is **instance**.
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 In the examples below, the name of the compute instance is **instance**
 

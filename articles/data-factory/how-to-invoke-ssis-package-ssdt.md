@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
 ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 07/17/2023
 ---
 
 # Execute SSIS packages in Azure from SSDT

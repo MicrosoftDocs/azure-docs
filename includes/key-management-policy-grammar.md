@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 01/31/2023
+ms.date: 07/20/2023
 ms.author: mbaldwin
 ---
 
@@ -254,3 +254,28 @@ The encoding is as follows:
 ## Environment Assertion
 
 An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority. An Environment Asserting contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The key encryption key is a public RSA key owned and protected by the target execution environment that is used for key export. It must appear in the TEE keys claim (x-ms-runtime/keys). This claim is a JSON object representing a JSON Web Key Set. Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
+
+## Key Vault and Managed HSM Attestation Token Requirements
+Azure Key Vault Premium and Managed HSM Secure Key Release were designed alongside [Microsoft Azure Attestation Service](../articles/attestation/overview.md) but may work with any attestation server’s tokens if it conforms to the expected token structure, supports OpenID connect, and has the expected claims. DigiCert is presently the only public CA that Azure Key Vault Premium and Managed HSM trust for attestation token signing certificates. 
+
+ 
+
+The full set of requirements are: 
+
+- **iss** claim that identifies the issuer is required and is matched against the SKR policy on the key being requested. 
+
+  - Issuer must support OpenID Connect Metadata using a certificate rooted in DigiCert CA. 
+
+  - In the OpenID Connect Metadata the **jwks_uri** claim is required and must resolve to a JSON Web Key Set (JWKS), where each JWK in the set must contain kid, kty, and a X5c array of signing certs. 
+
+- **x-ms-runtime** claim is required as a JSON object containing: 
+
+  - An array of JSON Web Keys named keys that represent the keys held by the attested environment. The keys must be plain JWK format or x5c array (first key is taken as the signing key and its kid must match a signing key in OpenId Connect metadata). 
+
+  - Kid is required. 
+
+  - One of those keys must be an RSA. 
+
+  - Marked with **key_use** of encryption or a **key_ops** array containing the Encrypt operation. 
+
+For a sample token see [Examples of an Azure Attestation token](../articles/attestation/attestation-token-examples.md#sample-jwt-generated-for-sev-snp-attestation).

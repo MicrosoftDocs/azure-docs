@@ -2,11 +2,11 @@
 title: Use Azure Monitor Troubleshooter
 description: Detailed instructions on using the on agent monitoring tool to diagnose potential issue.
 ms.topic: conceptual
-author: JeffreyWolford
-ms.author: jeffwo
+author: guywi-ms
+ms.author: guywild
 ms.date: 4/28/2023
 ms.custom: references_regions
-ms.reviewer: guywild
+ms.reviewer: jeffwo
 
 # customer-intent: As an IT manager, I want to investigate agent issue on a particular virtual machine and determine if I can resolve the issue on my own.
 ---

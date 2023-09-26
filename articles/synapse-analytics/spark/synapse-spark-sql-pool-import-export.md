@@ -79,7 +79,7 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 #### Azure Active Directory based authentication
 
-Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
+Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully sign in to the Azure Synapse Analytics Workspace.
 
 #### Basic authentication
 
@@ -806,7 +806,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
 
- ```Scala
+```Scala
 //Specify options that Spark runtime must support when interfacing and consuming source data
 val storageAccountName="<storageAccountName>"
 val storageContainerName="<storageContainerName>"

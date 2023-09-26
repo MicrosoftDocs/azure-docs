@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, UpdateFrequency2
 ---
 
 # Automate adding a lab user to a lab in Azure DevTest Labs
@@ -119,7 +119,7 @@ You can get the ObjectId by using the [Get-AzureRMADUser](/powershell/module/azu
 $userObjectId = (Get-AzureRmADUser -UserPrincipalName 'email@company.com').Id
 ```
 
-You can also use the Azure Active Directory PowerShell cmdlets that include [Get-MsolUser](/powershell/module/msonline/get-msoluser?preserve-view=true&view=azureadps-1.0), [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?preserve-view=true&view=azureadps-1.0), and [Get-MsolServicePrincipal](/powershell/module/msonline/get-msolserviceprincipal?preserve-view=true&view=azureadps-1.0).
+You can also use the Microsoft Graph PowerShell cmdlets that include [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-1.0&preserve-view=true), [Get-MgGroup](/powershell/module/microsoft.graph.groups/get-mggroup?view=graph-powershell-1.0&preserve-view=true), and [Get-MgServicePrincipal](/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?view=graph-powershell-1.0&preserve-view=true).
 
 ### Scope
 Scope specifies the resource or resource group for which the role assignment should apply. For resources, the scope is in the form: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}`. The template uses the `subscription().subscriptionId` function to fill in the `subscription-id` part and the `resourceGroup().name` template function to fill in the `resource-group-name` part. Using these functions means that the lab to which you're assigning a role must exist in the current subscription and the same resource group to which the template deployment is made. The last part, `resource-name`, is the name of the lab. This value is received via the template parameter in this example. 

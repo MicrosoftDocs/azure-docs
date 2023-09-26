@@ -8,7 +8,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/18/2023
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Authorize developer accounts by using Azure Active Directory in Azure API Management

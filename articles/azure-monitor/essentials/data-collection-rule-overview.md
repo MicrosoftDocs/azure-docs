@@ -4,7 +4,7 @@ description: Overview of data collection rules (DCRs) in Azure Monitor including
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/15/2022
+ms.date: 08/08/2023
 ms.reviewer: nikeist
 ms.custom: references_regions
 ---
@@ -27,7 +27,8 @@ The following resources describe different scenarios for creating DCRs. In some 
 |:---|:---|:---|
 | Azure Monitor Agent | [Configure data collection for Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md) | Use the Azure portal to create a DCR that specifies events and performance counters to collect from a machine with Azure Monitor Agent. Then apply that rule to one or more virtual machines. Azure Monitor Agent will be installed on any machines that don't currently have it.  |
 | | [Use Azure Policy to install Azure Monitor Agent and associate with a DCR](../agents/azure-monitor-agent-manage.md#use-azure-policy) | Use Azure Policy to install Azure Monitor Agent and associate one or more DCRs with any virtual machines or virtual machine scale sets as they're created in your subscription.
-| Custom logs | [Configure custom logs by using the Azure portal](../logs/tutorial-logs-ingestion-portal.md)<br>[Configure custom logs by using Azure Resource Manager templates and the REST API](../logs/tutorial-logs-ingestion-api.md) | Send custom data by using a REST API. The API call connects to a data collection endpoint and specifies a DCR to use. The DCR specifies the target table and potentially includes a transformation that filters and modifies the data before it's stored in a Log Analytics workspace.  |
+| Text logs | [Configure custom logs by using the Azure portal](../logs/tutorial-logs-ingestion-portal.md)<br>[Configure custom logs by using Azure Resource Manager templates and the REST API](../logs/tutorial-logs-ingestion-api.md)<br>[Configure text logs by using Azure Monitoring Agent](../agents/data-collection-text-log.md) | Send custom data by using a REST API or Agent. The API call connects to a data collection endpoint and specifies a DCR to use. The agent uses the DCR to configure the collection of data on a machine. The DCR specifies the target table and potentially includes a transformation that filters and modifies the data before it's stored in a Log Analytics workspace.  |
+| Azure Event Hubs | [Ingest events from Azure Event Hubs to Azure Monitor Logs](../logs/ingest-logs-event-hub.md)| Collect data from multiple sources to an event hub and ingest the data you need directly into tables in one or more Log Analytics workspaces. This is a highly scalable method of collecting data from a wide range of sources with minimum configuration.|
 | Workspace transformation | [Configure ingestion-time transformations by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Configure ingestion-time transformations by using Azure Resource Manager templates and the REST API](../logs/tutorial-workspace-transformations-api.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
 
 ## Work with data collection rules
@@ -47,7 +48,7 @@ When you use programmatic methods to create DCRs and associations, you require t
 
 | Built-in role | Scopes | Reason |
 |:---|:---|:---|
-| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations ). |
+| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations). |
 | [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Azure Arc-enabled servers</li></ul> | Deploy agent extensions on the VM. |
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Deploy Azure Resource Manager templates. |
 
@@ -60,7 +61,7 @@ Data collection rules are available in all public regions where Log Analytics wo
 **Single region data residency** is a preview feature to enable storing customer data in a single region and is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and the Brazil South (Sao Paulo State) Region of the Brazil Geo. Single-region residency is enabled by default in these regions.
 
 ## Data resiliency and high availability
-A rule gets created and stored in a particular region and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same geography. The service is deployed to all three [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region. For this reason, it's a *zone-redundant service*, which further increases availability.
+A rule gets created and stored in a particular region and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions) within the same geography. The service is deployed to all three [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region. For this reason, it's a *zone-redundant service*, which further increases availability.
 
 ## Next steps
 

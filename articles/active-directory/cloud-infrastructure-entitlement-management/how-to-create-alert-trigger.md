@@ -52,6 +52,8 @@ This article describes how you can create and view activity alerts and alert tri
 
     The **Alerts** table displays information about your alert.
 
+    Select the alert name to view the individual activities and further details about the **resources**, **tasks**, and **identities** involved.
+
 
 
 ## View activity alert triggers
@@ -105,5 +107,3 @@ This article describes how you can create and view activity alerts and alert tri
 
 - For an overview on activity triggers, see [View information about activity triggers](ui-triggers.md).
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](product-rule-based-anomalies.md).
-- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](product-statistical-anomalies.md).
-- For information on permission analytics triggers, see [Create and view permission analytics triggers](product-permission-analytics.md).

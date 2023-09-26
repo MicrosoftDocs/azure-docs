@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2023
-ms.custom:
+ms.date: 08/01/2023
 ---
 
 # Create and run code from workflows in Azure Logic Apps using Azure Functions
@@ -115,19 +114,11 @@ Standard workflows currently don't support this option for creating a function f
   * [Azure PowerShell](/powershell/module/az.functions)
   * [ARM template](/azure/templates/microsoft.web/sites/functions)
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. To create and add your function, follow the step that applies to your scenario:
+1. In the designer, [follow these general steps to add the **Azure Functions** action named **Choose an Azure function**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * Under the last step in your workflow, select **New step**.
-
-   * Between existing steps in your workflow, move your mouse over the arrow, select the plus (+) sign, and then select **Add an action**.
-
-1. In the designer search box, enter `azure functions`. From the actions list, select the action named **Choose an Azure function**, for example:
-
-   ![Screenshot showing the Azure portal for Consumption logic app workflow and the designer with the search box to find Azure functions.](./media/logic-apps-azure-functions/find-azure-functions-action-consumption.png)
-
-1. From the function apps list, select your function app. After the actions list opens, select the action named **Create New Function**.
+1. From the function apps list that appears, select your function app. From the actions list that appears, select the action named **Create New Function**.
 
    ![Screenshot showing the operation picker with "Create New Function".](./media/logic-apps-azure-functions/select-function-app-create-function-consumption.png)
 
@@ -169,21 +160,15 @@ Standard workflows currently don't support this option for creating a function f
 
 ## Add existing functions to logic app workflows (Consumption + Standard workflows)
 
-To call existing functions from your logic app workflow, you can add functions like any other action in the workflow designer.
+To call existing functions from your logic app workflow, you can add functions like any other action in the designer.
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
-1. Under the step where you want to add the function, select **New step**.
+1. In the designer, [follow these general steps to add the **Azure Functions** action named **Choose an Azure function**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter **azure functions**.
-
-1. From the actions list, select the action named **Choose an Azure function**, for example:
-
-   ![Screenshot showing Azure portal for Consumption logic app workflow and designer with the search box to find Azure functions.](./media/logic-apps-azure-functions/find-azure-functions-action-consumption.png)
-
-1. From the function apps list, select your function app. After the functions list appears, select your function.
+1. From the function apps list, select your function app. From the functions list that appears, select your function.
 
    ![Screenshot for Consumption showing a selected function app and function.](./media/logic-apps-azure-functions/select-function-app-function-consumption.png)
 
@@ -207,13 +192,7 @@ To call existing functions from your logic app workflow, you can add functions l
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
 
-1. On the designer, either under the last step or between existing steps in your workflow, select the plus (**+**) sign for **Insert a new step**, and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Built-in**. In the **Choose an operation** search box, enter **azure function**.
-
-1. From the actions list, select the action named **Call an Azure function**, for example:
-
-   ![Screenshot showing the Azure portal for Standard logic app workflow and the designer with the search box to find Azure functions.](./media/logic-apps-azure-functions/find-azure-functions-action-standard.png)
+1. In the designer, [follow these general steps to add the **Azure Functions** action named **Call an Azure function**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. For the **Connection name** property, provide a name for your connection to your function app. From the function apps list, select the function app you want. From the functions list, select the function, and then select **Create**, for example:
 

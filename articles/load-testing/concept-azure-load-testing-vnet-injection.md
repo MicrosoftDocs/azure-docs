@@ -7,12 +7,12 @@ ms.service: load-testing
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 08/22/2023
 ---
 
 # Scenarios for deploying Azure Load Testing in a virtual network
 
-In this article, you'll learn about the scenarios for deploying Azure Load Testing in a virtual network (VNET). This deployment is sometimes called VNET injection.
+In this article, you learn about the scenarios for deploying Azure Load Testing in a virtual network (VNET). This deployment is sometimes called VNET injection.
 
 This functionality enables the following usage scenarios:
 

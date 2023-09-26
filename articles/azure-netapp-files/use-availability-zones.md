@@ -43,12 +43,9 @@ You can co-locate your compute, storage, networking, and data resources across a
 
 Latency is subject to availability zone latency for within availability zone access and the regional latency envelope for cross-availability zone access.
 
->[!IMPORTANT]
->Availability zone volume placement in Azure NetApp Files is currently in preview. Refer to [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#register-the-feature) for details on registering the feature. 
-
 ## Azure regions with availability zones
 
-For a list of regions that that currently support availability zones, refer to [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones).
+For a list of regions that that currently support availability zones, see [Azure regions with availability zone support](../reliability/availability-zones-service-support.md).
 
 ## Next steps
 

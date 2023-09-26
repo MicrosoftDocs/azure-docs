@@ -193,6 +193,8 @@ Wait for the virtual machine creation to complete before moving on to the next s
 
 In this section, you test the NAT gateway. You first discover the public IP of the NAT gateway. You then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
     
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
 1. Select **public-ip-nat**.
