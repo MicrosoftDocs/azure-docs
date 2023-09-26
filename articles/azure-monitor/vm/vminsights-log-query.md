@@ -131,6 +131,7 @@ Every record in VMBoundPort is identified by the following fields:
 |Ip | Port IP address (can be wildcard IP, *0.0.0.0*) |
 |Port |The Port number |
 |Protocol | The protocol.  Example, *tcp* or *udp* (only *tcp* is currently supported).|
+
 The identity a port is derived from the above five fields and is stored in the PortId  property. This property can be used to quickly find records for a specific port across time. 
 
 #### Metrics 
