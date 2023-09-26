@@ -216,10 +216,10 @@ Retrieve and initialize [the ASP.NET Core web app template](https://github.com/A
     ```
     When prompted for an environment name, enter `dev`.
     
-2. From the same terminal session, run the application locally using the `dotnet run` command.
+2. From the same terminal session, run the application locally using the `dotnet run` command. Use the `--project` parameter to specify the `src` directory of the `azd` template, which is where the application code lives.
 
     ```bash
-    dotnet run --urls=https://localhost:5001/
+    dotnet run --project src --urls=https://localhost:5001/
     ```
 
 3. Open a web browser and navigate to the app at `https://localhost:5001`. The ASP.NET Core 7.0 web app template is displayed on the page.
