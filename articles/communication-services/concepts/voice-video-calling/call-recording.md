@@ -15,7 +15,7 @@ ms.subservice: calling
 # Call Recording overview
 
 > [!NOTE]
->  Call Recording is not enabled for [Teams interoperability](../teams-interop.md).
+>  Call Recording for [Teams interoperability](../call-automation/call-automation-teams-interop.md) is now in Public Preview.
 
 Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from your server-side business logic. Also, recordings can be triggered by a user action that tells the server application to start recording. 
 
