@@ -97,14 +97,14 @@ To schedule recurring updates on a single VM:
 
 1. On the **Azure Update Manager** | **Machines** page, select your subscription, select your machine, and then select **Schedule updates**.
 
-1. In **Create new maintenance configuration**, you can create a schedule for a single VM and assign a machine and tags. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
+1. In **Create new maintenance configuration**, you can create a schedule for a single VM and assign a machine and tags. Follow the procedure from step 3 listed in **From the Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
 # [From a selected VM](#tab/singlevm-schedule-home)
 
 1. Select your virtual machine to open the **Virtual machines | Updates** page.
 1. Under **Operations**, select **Updates**.
 1. On the **Updates** tab, select **Go to Updates using Update Center**.
-1. In **Updates preview**, select **Schedule updates**. In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
+1. In **Updates preview**, select **Schedule updates**. In **Create new maintenance configuration**, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From the Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
 ---
 A notification confirms that the deployment was created.
@@ -115,7 +115,7 @@ To schedule recurring updates at scale, follow these steps.
 
 You can schedule updates from the **Overview** or **Machines** pane.
 
-# [From Overview pane](#tab/schedule-updates-scale-overview)
+# [From the Overview pane](#tab/schedule-updates-scale-overview)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -152,7 +152,7 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. On the **Azure Update Manager** | **Machines** page, select your subscription, select your machines, and then select **Schedule updates**.
 
-On the **Create new maintenance configuration** page, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
+On the **Create new maintenance configuration** page, you can create a schedule for a single VM. Follow the procedure from step 3 listed in **From the Overview pane** of [Schedule recurring updates on a single VM](#schedule-recurring-updates-on-a-single-vm) to create a maintenance configuration and assign a schedule.
 
 ---
 A notification confirms that the deployment was created.
@@ -226,7 +226,7 @@ Azure Policy allows you to assign standards and assess compliance at scale. For 
 	- Select **Policy definition** to view a list of policies.
 	- On the **Available Definitions** pane, select **Built in** for **Type**. In **Search**, enter **Schedule recurring updates using Azure Update Manager** and click **Select**.
 
-	:::image type="content" source="./media/scheduled-updates/dynamic-scoping-defintion.png" alt-text="Screenshot that shows how to select the definition.":::
+	  :::image type="content" source="./media/scheduled-updates/dynamic-scoping-defintion.png" alt-text="Screenshot that shows how to select the definition.":::
 	
 	- Ensure that **Policy enforcement** is set to **Enabled**, and then select **Next**.
 1. On the **Parameters** tab, by default, only the **Maintenance configuration ARM ID** is visible.
