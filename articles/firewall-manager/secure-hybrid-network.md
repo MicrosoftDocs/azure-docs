@@ -271,7 +271,7 @@ Create the on-premises to hub virtual network connection. This step is similar t
 
 After about five minutes or so, the status of both connections should be **Connected**.
 
-![Gateway connections](media/secure-hybrid-network/gateway-connections.png)
+:::image type="content" source="media/secure-hybrid-network/gateway-connections.png" alt-text="Screenshot showing the vpn gateway connections.":::
 
 ## Peer the hub and spoke virtual networks
 
@@ -304,7 +304,7 @@ Now peer the hub and spoke virtual networks.
 
 5. Select **Add**.
 
-   :::image type="content" source="media/secure-hybrid-network/firewall-peering.png" alt-text="Vnet peering":::
+   :::image type="content" source="media/secure-hybrid-network/firewall-peering.png" alt-text="Screenshot showing Vnet peering.":::
 
 ## Create the routes
 
