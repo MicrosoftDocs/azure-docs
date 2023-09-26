@@ -35,7 +35,7 @@ It is recommended to rotate access keys or secrets periodically.
     ```
 
 
-1. Create Managed Airflow [enable with Azure Key Vault to store and manage your sensitive information in a secure and centralized manner](/azure/data-factory/enable-azure-key-vault-for-managed-airflow). By doing this, you can use variables and connections, and they automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hilo-variables then for a variable key of hello, you would want to store your Variable at hilo-variable -hello. 
+1. Create Managed Airflow [enable with Azure Key Vault to store and manage your sensitive information in a secure and centralized manner](/azure/data-factory/enable-azure-key-vault-for-managed-airflow). By doing this, you can use variables and connections, and they automatically be stored in Azure Key Vault. The name of connections and variables need to be prefixed by variables_prefix  defined in AIRFLOW__SECRETS__BACKEND_KWARGS. For example, If variables_prefix has a value as  hdinsight-aks-variables then for a variable key of hello, you would want to store your Variable at hilo-variable -hello. 
 
     - Add the following settings for the Airflow configuration overrides in integrated runtime properties: 
 
@@ -43,7 +43,7 @@ It is recommended to rotate access keys or secrets periodically.
       `"airflow.providers.microsoft.azure.secrets.key_vault.AzureKeyVaultBackend"` 
 
       - AIRFLOW__SECRETS__BACKEND_KWARGS:  
-      `"{"connections_prefix": "airflow-connections", "variables_prefix": "hilo-variables", "vault_url": <your keyvault uri>}”` 
+      `"{"connections_prefix": "airflow-connections", "variables_prefix": "hdinsight-aks-variables", "vault_url": <your keyvault uri>}”` 
 
     - Add the following setting for the Environment variables configuration in the Airflow integrated runtime properties: 
 
@@ -64,11 +64,11 @@ It is recommended to rotate access keys or secrets periodically.
 
 1. Create the following secrets in your key vault with the value from the previous AD Service principal appId, password, and tenant, prefixed by property variables_prefix defined in AIRFLOW__SECRETS__BACKEND_KWARGS. The DAG code can access any of these variables without variables_prefix.  
 
-    - hilo-variables-api-client-id=`<App ID from previous step> `
+    - hdinsight-aks-variables-api-client-id=`<App ID from previous step> `
 
-    - hilo-variables-api-secret=`<Password from previous step> `
+    - hdinsight-aks-variables-api-secret=`<Password from previous step> `
 
-    - hilo-variables-tenant-id=`<Tenant from previous step> `
+    - hdinsight-aks-variables-tenant-id=`<Tenant from previous step> `
 
     ```python
     from airflow.models import Variable 
