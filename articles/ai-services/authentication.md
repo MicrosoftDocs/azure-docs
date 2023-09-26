@@ -163,7 +163,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## Authenticate with Azure Active Directory
 
 > [!IMPORTANT]
-> Azure AD authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](./cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support Azure AD authentication.
+> Azure AD authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](./cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support Azure AD authentication.
 
 In the previous sections, we showed you how to authenticate against Azure AI services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure [role-based access control (Azure RBAC)](../../articles/role-based-access-control/overview.md). Let's take a look at what's required to authenticate using Azure Active Directory (Azure AD).
 
@@ -174,7 +174,7 @@ In the following sections, you'll use either the Azure Cloud Shell environment o
 
 ### Create a resource with a custom subdomain
 
-The first step is to create a custom subdomain. If you want to use an existing Azure AI services resource which does not have custom subdomain name, follow the instructions in [Azure AI services custom subdomains](./cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) to enable custom subdomain for your resource.
+The first step is to create a custom subdomain. If you want to use an existing Azure AI services resource which does not have custom subdomain name, follow the instructions in [Azure AI services custom subdomains](./cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) to enable custom subdomain for your resource.
 
 1. Start by opening the Azure Cloud Shell. Then [select a subscription](/powershell/module/az.accounts/set-azcontext):
 
