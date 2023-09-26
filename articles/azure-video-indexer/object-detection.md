@@ -33,15 +33,102 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 
 Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request.
 
-## View the insight
+## Supported objects
 
-You can interact with the insight with the web portal or on the API page.
+- airplane
+- apple
+- backpack
+- baseball bat
+- baseball glove
+- bed
+- bicycle
+- boat
+- bowl
+- broccoli
+- bus
+- cake
+- car
+- carrot
+- chair
+- clock
+- computer mouse
+- couch
+- cup
+- dining table
+- donut
+- fire hydrant
+- fork
+- frisbee
+- handbag
+- hot dog
+- kite
+- knife
+- laptop
+- microwave
+- monitor
+- motorcycle
+- orange
+- oven
+- parking meter
+- pizza
+- potted plant
+- refrigerator
+- remote
+- sandwich
+- scissors
+- skateboard
+- skis
+- snowboard
+- spoon
+- sports ball
+- suitcase
+- surfboard
+- tennis racket
+- tie
+- toilet
+- toothbrush
+- traffic light
+- train
+- umbrella
+- vase
+- wine glass
 
-### [Web Portal](#tab/webportal)
-something goes here
+You can interact with the insight with the web portal or with the API.
+
+## [Web Portal](#tab/webportal)
+
+Once you have uploaded a video, you can view the insights. In the insights pane you can view the list of objects detected and their main instances.
+
+### Insights
+Select the **Insights** tab. The objects are in descending order of the number of appearances in the video.
+
+:::image type="content" source="media/object-detection/insights-tab.png" alt-text="screenshot of the interface of the insights tab":::
+
+### Timeline
+Select the **Timeline** tab.
+
+:::image type="content" source="media/object-detection/timeline-tab.png" alt-text="screenshot of the interface of the timeline tab":::
+
+Under the timeline all the detection of the object will be displayed according to the time of appearance. When hovering on a specific detection the percentage of certainty of detection of the object will be presented. 
+
+### Player
+
+The player will automatically mark the detected object with a bounding box. The selected object from the insights pane will be highlighted in blue with the objects type and serial number also displayed.
+ 
+Filter the bounding boxes around objects by selecting bounding box icon on the player.
+
+:::image type="content" source="media/object-detection/object-filtering-icon.png" alt-text="screenshot of object filtering detected objects in the player interface":::
+
+Then, select or deselect the detected objects checkboxes.
+
+:::image type="content" source="media/object-detection/object-filtering.png" alt-text="screenshot of object filtering detected objects in the player interface":::
 
 ### [API](#tab/api)
-something goes here
+
+Object detection is part of the [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) process.
+
+Use [Get Artifacts by type](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Artifact-Download-Url) to download the artifacts.
+
 ---
 
 
