@@ -199,12 +199,19 @@ If you get an error message similar to: **..Missing Backend RFC Authorization..*
 
 ### Missing data in your workbooks or alerts
 
-If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file. 
+If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file.
 
 Use the **RSAU_CONFIG_LOG** transaction for this step.
 
-
 ### Missing SAP change request
+
+If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
+
+For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
+
+### No records/ records are always few hours behind for SAP audit log and change log
+
+The agent relies on time zone information to be correct.  Check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835 for more detials] (<https://me.sap.com/notes/481835/E>).
 
 If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
 
