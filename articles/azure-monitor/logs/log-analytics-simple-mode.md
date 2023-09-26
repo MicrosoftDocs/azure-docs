@@ -81,7 +81,11 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 ## Get started in simple mode
 
-To get started in simple mode:
+When you select a table or a predefined query or function in simple mode, Log Analytics automatically retrieves the relevant data for you to explore and analyze. 
+
+This lets you retrieve logs with one click whether you open Log Analytics in resource or workspace context.
+
+To get started:
 
 - Click **Select a table** and select a table from the **Tables** tab to view table data.
 
