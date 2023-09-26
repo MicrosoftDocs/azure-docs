@@ -180,7 +180,7 @@ An Azure user who has the Owner or Contributor role assigned for a VM doesn't au
 
 There are two ways to configure role assignments for a VM:
 
-- Microsoft Entra portal experience
+- Microsoft Entra admin center experience
 - Azure Cloud Shell experience
 
 > [!NOTE]
@@ -188,7 +188,9 @@ There are two ways to configure role assignments for a VM:
 
 <a name='azure-ad-portal'></a>
 
-### Microsoft Entra portal
+<a name='microsoft-entra-portal'></a>
+
+### Microsoft Entra admin center
 
 To configure role assignments for your Microsoft Entra ID-enabled Windows Server 2019 Datacenter VMs:
 
@@ -377,7 +379,7 @@ Exit code -2145648607 translates to `DSREG_AUTOJOIN_DISC_FAILED`. The extension 
    - `curl https://pas.windows.net/ -D -`
    
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select  **Identity** > **Overview** > **Properties** > **Tenant ID**.
+   > Replace `<TenantID>` with the Microsoft Entra tenant ID that's associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name or select  **Identity** > **Overview** > **Properties** > **Tenant ID**.
    >
    > Attempts to connect to `enterpriseregistration.windows.net` might return 404 Not Found, which is expected behavior. Attempts to connect to `pas.windows.net` might prompt for PIN credentials or might return 404 Not Found. (You don't need to enter the PIN.) Either one is sufficient to verify that the URL is reachable.
 

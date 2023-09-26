@@ -49,7 +49,7 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
 
    > [!NOTE]
-   > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
+   > For Cloud HR provisioning app (Workday / SuccessFactors to Active Directory / Microsoft Entra ID), the input value is different. 
    > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
    > For SuccessFactors scenario, please provide "personIdExternal" of the user in SuccessFactors. 
  
@@ -171,7 +171,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 ::: zone pivot="cross-tenant-synchronization"
 * On-demand provisioning of groups is not supported for cross-tenant synchronization. 
 ::: zone-end
-* On-demand provisioning supports provisioning one user at a time through the Microsoft Entra portal.
+* On-demand provisioning supports provisioning one user at a time through the Microsoft Entra admin center.
 * Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft-delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
 * On-demand provisioning of roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Microsoft Entra ID. Those users don't appear when you search for a user.
