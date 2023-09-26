@@ -31,7 +31,7 @@ You can create a user in the Microsoft Entra admin center or by using Graph Powe
 You can create a new user using the Microsoft Entra admin center.
 To add a new user, follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](/azure/active-directory/roles/permissions-reference#user-administrator).
 
 1. Browse to **Identity** > **Users**, and then select **New user**.
 
