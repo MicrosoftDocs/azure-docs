@@ -26,7 +26,7 @@ It is recommended to rotate access keys or secrets periodically.
 
 1. Upload your Flink Job jar to the storage account -  It can be the primary storage account associated with the Flink cluster or any other storage account, where Assign the “Storage Blob Data Owner” role to the user-assigned MSI used for the cluster to this storage account. 
 
-1. Azure Key Vault - You can follow [this tutorial to create a new Azure Key Vault](/azure/key-vault/general/quick-create-portal)in case, if you don't have one. 
+1. Azure Key Vault - You can follow [this tutorial to create a new Azure Key Vault](/azure/key-vault/general/quick-create-portal/) in case, if you don't have one. 
 
 1. Create [Azure AD Service Principal](/cli/azure/ad/sp/) to access Key Vault – Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role, and make a note of ‘appId’, ‘password’, and ‘tenant’ from the response. We need to use the same for Airflow to use Key Vault storage as backends for storing sensitive information. 
 
