@@ -25,9 +25,14 @@ To adjust to changing application demands, such as between workdays and evenings
 
 :::image type="content" source="media/autoscaler/cluster-autoscaler.png" alt-text="Screenshot of how the cluster autoscaler and horizontal pod autoscaler often work together to support the required application demands.":::
 
-The horizontal pod autoscaler scales the number of pod replicas as needed, and the cluster autoscaler scales the number of nodes in a node pool as needed. The cluster autoscaler decreases the number of nodes when there has been unused capacity after a period of time. Any pods on a node removed by the cluster autoscaler are safely scheduled elsewhere in the cluster.
+The Horizontal Pod Autoscaler scales the number of pod replicas as needed, and the cluster autoscaler scales the number of nodes in a node pool as needed. The cluster autoscaler decreases the number of nodes when there has been unused capacity after a period of time. Any pods on a node removed by the cluster autoscaler are safely scheduled elsewhere in the cluster.
 
-While Vertical Pod Autoscaler or Horizontal Pod Autoscaler can be used to automatically adjust the number of Kubernetes pods in a workload, the number of nodes also needs to be able to scale to meet the computational needs of the pds. The cluster autoscaler addresses that need, handling scale up and scale down of Kubernetes nodes. It is common practice to enable cluster autoscaler for nodes, and either Vertical Pod Autoscaler or Horizontal Pod Autoscalers for pods.
+While Vertical Pod Autoscaler or Horizontal Pod Autoscaler can be used to automatically adjust the number of Kubernetes pods in a workload, the number of nodes also needs to be able to scale to meet the computational needs of the pods. The cluster autoscaler addresses that need, handling scale up and scale down of Kubernetes nodes. It is common practice to enable cluster autoscaler for nodes, and either Vertical Pod Autoscaler or Horizontal Pod Autoscalers for pods.
+
+The cluster autoscaler and Horizontal Pod Autoscaler can work together and are often both deployed in a cluster. When combined, the Horizontal Pod Autoscaler runs the number of pods required to meet application demand, and the cluster autoscaler runs the number of nodes required to support the scheduled pods.
+
+> [!NOTE]
+> Manual scaling is disabled when you use the cluster autoscaler. Let the cluster autoscaler determine the required number of nodes. If you want to manually scale your cluster, [disable the cluster autoscaler](#disable-the-cluster-autoscaler-on-a-cluster).
 
 With cluster autoscaler enabled, when the node pool size is lower than the minimum or greater than the maximum it applies the scaling rules. Next, the autoscaler waits to take effect until a new node is needed in the node pool or until a node may be safely deleted from the current node pool. For more information, see [How does scale-down work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)
 
@@ -39,14 +44,11 @@ The cluster autoscaler may be unable to scale down if pods can't move, such as i
 
 For more information, see [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown]
 
-The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. For more information on what parameters the cluster autoscaler uses, see [using the autoscaler profile](#use-the-cluster-autoscaler-profile).
-
-The cluster autoscaler and horizontal pod autoscaler can work together and are often both deployed in a cluster. When combined, the horizontal pod autoscaler runs the number of pods required to meet application demand, and the cluster autoscaler runs the number of nodes required to support the scheduled pods.
-
-> [!NOTE]
-> Manual scaling is disabled when you use the cluster autoscaler. Let the cluster autoscaler determine the required number of nodes. If you want to manually scale your cluster, [disable the cluster autoscaler](#disable-the-cluster-autoscaler-on-a-cluster).
-
 ## Use the cluster autoscaler on your AKS cluster
+
+In this section, you deploy, upgrade, disable, or re-enable the cluster autoscaler on your cluster.
+
+The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. For more information on what parameters the cluster autoscaler uses, see [using the autoscaler profile](#use-the-cluster-autoscaler-profile).
 
 ### Enable the cluster autoscaler on a new cluster
 
