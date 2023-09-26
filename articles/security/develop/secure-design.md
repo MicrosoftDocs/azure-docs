@@ -4,7 +4,7 @@ description: This article discusses best practices to consider during the requir
 author: TerryLanfear
 manager: rkarlin
 ms.author: terrylan
-ms.date: 02/06/2023
+ms.date: 09/26/2023
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -40,7 +40,7 @@ Use the following resources during the training stage to familiarize yourself wi
 
 * [Secure DevOps Kit for Azure](https://github.com/azsk/AzTS-docs/#readme) is a collection of scripts, tools, extensions, and automations that cater to the comprehensive Azure subscription and resource security needs of DevOps teams that use extensive automation. The Secure DevOps Kit for Azure can show you how to smoothly integrate security into your native DevOps workflows. The kit addresses tools like security verification tests (SVTs), which can help developers write secure code and test the secure configuration of their cloud applications in the coding and early development stages.
 
-* [Security best practices for Azure solutions](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) provides a collection of security best practices to use as you design, deploy, and manage your cloud solutions by using Azure.
+* [Azure security best practices and patterns](../../fundamentals/best-practices-and-patterns.md) - A collection of security best practices to use when you design, deploy, and manage cloud solutions by using Azure. Guidance is intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 ## Requirements
 

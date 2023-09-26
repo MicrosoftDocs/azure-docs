@@ -4,7 +4,7 @@ description: Best practices to help you develop more secure code and deploy a mo
 author: TerryLanfear
 manager: rkarlin
 ms.author: terrylan
-ms.date: 02/06/2023
+ms.date: 09/26/2023
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -61,7 +61,7 @@ applications and to help secure your applications on Azure:
 
 [Microsoft identity platform](../../active-directory/develop/index.yml) - The Microsoft identity platform is an evolution of the Azure AD identity service and developer platform. It's a full-featured platform that consists of an authentication service, open-source libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 
-[Security best practices for Azure solutions](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) - A collection of security best practices to use when you design, deploy, and manage cloud solutions by using Azure. This paper is intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
+[Azure security best practices and patterns](../../fundamentals/best-practices-and-patterns.md) - A collection of security best practices to use when you design, deploy, and manage cloud solutions by using Azure. Guidance is intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.
 
 [Security and Compliance Blueprints on Azure](../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md) - Azure Security and Compliance Blueprints are resources that can help you build and launch cloud-powered applications that comply with stringent regulations and standards.
 
