@@ -83,7 +83,7 @@ When reviewing the logs for this situation, the sign-in logs for the home tenant
 
 **Microsoft Graph activity logs**
 
-`MicrosoftGraphActivityLogs` can be routed with your sign-in logs through Diagnostic settings to an endpoint like Azure Monitor logs. This integration allows you to cross reference the token issued by the Microsoft Graph activity with the sign-in.
+`MicrosoftGraphActivityLogs` can be routed with your sign-in logs through Microsoft Entra diagnostic settings to an endpoint like Azure Monitor logs. This integration allows you to cross reference the token issued by the Microsoft Graph activity with the sign-in.
 
 You may identify Microsoft Graph events that don't correlate to a service principal sign-in. For example, you found a `UniqueTokenIdentifier` in the Microsoft Graph activity logs that is missing from the service principal sign-in logs. This situation occurs for first-party, app-only sign-in activity. The Microsoft Graph activity logs record all Microsoft Graph API requests, including those made by first-party apps. The service principal sign-in logs don't capture those events, so you're not paying for logs related to internal Microsoft tokens within your tenant. 
 

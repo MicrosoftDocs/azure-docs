@@ -17,13 +17,13 @@ ms.reviewer: egreenberg14
 
 # What are the identity logs you can stream to an endpoint?
 
-Using Diagnostic settings in Microsoft Entra ID, you can route activity logs to several endpoints for long term retention and data insights. You select the logs you want to route, then select the endpoint.
+Using Microsoft Entra diagnostic settingss, you can route activity logs to several endpoints for long term retention and data insights. You select the logs you want to route, then select the endpoint.
 
-This article describes the logs that you can route to an endpoint from Microsoft Entra Diagnostic settings.
+This article describes the logs that you can route to an endpoint with Microsoft Entra diagnostic settings.
 
 ## Log streaming requirements and options
 
-Setting up an endpoint, such as an event hub or storage account, may require different roles and licenses. To create or edit a new Diagnostic setting, you need a user who's a **Security Administrator** or **Global Administrator** for the Microsoft Entra tenant.
+Setting up an endpoint, such as an event hub or storage account, may require different roles and licenses. To create or edit a new diagnostic setting, you need a user who's a **Security Administrator** or **Global Administrator** for the Microsoft Entra tenant.
 
 To help decide which log routing option is best for you, see [How to access activity logs](howto-access-activity-logs.md). The overall process and requirements for each endpoint type are covered in the following articles: 
 
