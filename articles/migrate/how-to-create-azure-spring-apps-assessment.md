@@ -19,12 +19,12 @@ This article shows you how to assess discovered Spring Boot apps for migration t
 
 ## Before you start
 
-- Make sure you've [created](./create-manage-projects.md) an Azure Migrate project and have the Azure Migrate for Spring apps added.
+- Ensure you've [created](./create-manage-projects.md) an Azure Migrate project and have Azure Migrate for Spring apps added.
 - To create an assessment, you need to set up an Azure Migrate appliance. The [appliance](migrate-appliance.md) discovers on-premises servers, and sends metadata and performance data to Azure Migrate. The same appliance discovers Spring Boot apps running in your environment.
 
 ## Azure Spring Apps assessment overview
 
-An Azure Spring Apps assessment provides one sizing criteria:
+An Azure Spring Apps assessment provides the following sizing criteria:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
