@@ -46,7 +46,7 @@ To avoid errors and successfully delete events enabled workspaces, follow these 
 
 ## Next steps
 
-In this article, you learned how to disable events and delete Azure Health Data Services workspaces.
+In this article, you learned how to disable events and delete events enabled workspaces.
 
 To learn about how to troubleshoot events, see
 
