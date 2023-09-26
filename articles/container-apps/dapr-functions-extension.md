@@ -1,7 +1,7 @@
 ---
-title: Deploy the Dapr binding for Azure Functions in Azure Container Apps
+title: Deploy the Dapr extension for Azure Functions in Azure Container Apps
 titleSuffix: "Azure Container Apps"
-description: Learn how to use and deploy the Dapr binding for Azure Functions in your Dapr-enabled container apps. 
+description: Learn how to use and deploy the Dapr extension for Azure Functions in your Dapr-enabled container apps. 
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: paulyuk
@@ -9,14 +9,15 @@ ms.service: container-apps
 ms.topic: how-to 
 ms.date: 09/19/2023
 ms.custom: devx-track-linux
-# Customer Intent: I'm a developer who wants to use the Dapr binding for Azure Functions in my Dapr-enabled container app
+# Customer Intent: I'm a developer who wants to use the Dapr extension for Azure Functions in my Dapr-enabled container app
 ---
 
-# Deploy the Dapr binding for Azure Functions in Azure Container Apps
+# Deploy the Dapr extension for Azure Functions in Azure Container Apps
 
-Need blurb for intro.
+The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md) allows you to easily interact with the Dapr APIs from an Azure Function using triggers and bindings. In this guide, you learn how to use the Dapr extension for Azure Functions using a Bicep template for your container app. 
 
-This guide demonstrates using the Dapr binding for Azure Functions template to deploy a Dapr-enabled container app. 
+> [!NOTE]
+> The Dapr extension for Azure Functions is currently in preview. 
 
 ## Prerequisites
 
@@ -33,7 +34,7 @@ This guide demonstrates using the Dapr binding for Azure Functions template to d
    az login
    ```
 
-1. Clone the [Dapr binding for Azure Functions repo](https://github.com/Azure/azure-functions-dapr-extension).
+1. Clone the [Dapr extension for Azure Functions repo](https://github.com/Azure/azure-functions-dapr-extension).
 
    ```azurecli
    git clone https://github.com/Azure/azure-functions-dapr-extension.git
@@ -99,5 +100,5 @@ az group delete --name {resourceGroupName}
 
 ## Related links
 
-- [Learn more about the Dapr binding for Azure Functions](../azure-functions/functions-bindings-dapr.md)
+- [Learn more about the Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md)
 - [Learn more about connecting Dapr components to your container app](./dapr-component-connection.md)
