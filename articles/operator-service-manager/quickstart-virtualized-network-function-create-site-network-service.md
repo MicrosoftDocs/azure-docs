@@ -3,7 +3,7 @@ title: Create a Site Network Service for Ubuntu Virtual Machine (VM) as Virtual 
 description: Learn how to create a Site Network Service (SNS) for Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF)
 author: sherrygonz
 ms.author: sherryg
-ms.date: 09/14/2023
+ms.date: 09/26/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
 ---
@@ -67,6 +67,7 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
 
     :::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create.":::
 
+1. Select a **Configuration Group Value** resource for each schema listed in the selected network service design. The dropdown options include only the configuration group resources that conform to the given schema and are available in your subscription (selected on the **Basics** tab).
 1. Enter the following json configuration into the editor panel.
 
     ```json
@@ -84,9 +85,8 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
         "managedIdentity": "`<managed-identity-resource-id>`"
     }
     ``````
-    
-    :::image type="content" source="media/editor-panel-virtual-network-function.png" alt-text="Screenshot showing the editor panel with the json information added.":::
-
+    > [!NOTE]
+> Refer to the [Resource ID for the managed identity](quickstart-virtualized-network-function-operator.md#locate-resource-id-for-managed-identity)section to see how to retrieve the `managedIdentity` resource ID. Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub`.
 1. Select **Review + create**.
 1. Select **Create**.
 
