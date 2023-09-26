@@ -111,4 +111,4 @@ __To use ACLs__, the managed identity of the workspace can be assigned access ju
 
 ## Next steps
 
-For information on enabling studio in a network, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
+For information about enabling studio in a network, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
