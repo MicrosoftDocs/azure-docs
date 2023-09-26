@@ -25,9 +25,7 @@ When you troubleshoot agent problems, you verify that the agent was installed co
 
 You can verify these items in the portal and on the local server that's running the agent.
 
-<a name='entra-portal-agent-verification'></a>
-
-### Microsoft Entra portal agent verification
+### Microsoft Entra admin center agent verification
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 

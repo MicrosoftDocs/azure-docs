@@ -61,7 +61,7 @@ ID tokens are passed to websites and native clients. ID tokens contain profile i
 You cannot set token lifetime policies for refresh tokens and session tokens. For lifetime, timeout, and revocation information on refresh tokens, see [Refresh tokens](refresh-tokens.md).
 
 > [!IMPORTANT]
-> As of January 30, 2021 you cannot configure refresh and session token lifetimes. Microsoft Entra ID no longer honors refresh and session token configuration in existing policies.  New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
+> As of January 30, 2021 you cannot configure refresh and session token lifetimes. Microsoft Entra no longer honors refresh and session token configuration in existing policies. New tokens issued after existing tokens have expired are now set to the [default configuration](#configurable-token-lifetime-properties). You can still configure access, SAML, and ID token lifetimes after the refresh and session token configuration retirement.
 >
 > Existing token's lifetime will not be changed. After they expire, a new token will be issued based on the default value.
 >
