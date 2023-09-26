@@ -115,13 +115,27 @@ For **server connections**, the failover and recovery work the same way as it do
 > [!NOTE]
 > *  This failover mechanism is for Azure SignalR service. Regional outages of app server are beyond the scope of this document.
 
-## Drain and undrain
-If you wish to remove one replication from the dns resolution of the primary FQDN, you could do so by drainING the replica. After the replica is drained, the dns resolution will not contain the replica. 
+## Disable or enable the regional endpoint
+When setting up a replication, you have the option to enable or disable its endpoint. If it's disabled, the primary FQDN's DNS resolution won't include the replica, and therefore, won't direct traffic to it.
 
-Before deleting a replication, it's a common practice to drain the replicaton first. After some while, the existing connections will gradually disconnect. Then it's more graceful to do the deletion.
+![Alt text](image-1.png)
+
+You can also enable of disable the endpoint after it's been created.
+
+On the primary resource's replica tab:
+
+![Alt text](image.png)
+
+This could be helpful when you are debugging some regional issues.
+Before deleting a replication, it's a good idea to disable the replicaton endpoint first. After some while, the existing connections will gradually disconnect. Since no new connections are coming, this replication becomes idle finally. Then deleting it will be smooth.
+
+ Before deleting a replication, consider disabling its endpoint first. Over time, existing connections will disconnect. As no new connections are coming, the replication becomes inactive. This ensures a seamless deletion process.
+ 
+ This feature is also useful for troubleshooting regional issues.
 
 > [!NOTE]
-> * Due to the DNS cache, it might take several minutes for the DNS update to take effect.  Existing connections won't be impacted unitl they are disconnected.
+> * Due to the DNS cache, it may take several minutes for the DNS update to take effect. 
+> * Existing connections remain unaffected until they disconnect.
 
 ## Impact on performance after adding replicas
 
