@@ -63,7 +63,7 @@ To [promote a cluster read replica](./concepts-read-replicas.md#replica-promotio
 
 3. On the **Replicate data globally** page, find the read replica in the list of clusters under the map and click the promote icon. 
 
-4. In the **Promote** panel, double check the read replica's name, confirm that you understand that promotion is irreversible by setting the checkbox, and select **Promote**.
+4. On the **Promote \<cluster name>** screen, double check the read replica's name, confirm that you understand that promotion is irreversible by setting the checkbox, and select **Promote**.
 
 After the read replica is promoted, it becomes an independent readable and writable cluster with the same connection string. 
 

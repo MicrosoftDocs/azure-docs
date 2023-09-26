@@ -31,9 +31,11 @@ a custom restore point within your retention period.
 > than the latest failover time. 
 
 ## Select type of cluster backup
-Enabling geo-redundant backup is possible during cluster creation on **Scale** page that can be accessed on **Basics** tab. Click the **Save** button to apply your selection. 
+Enabling geo-redundant backup is possible during cluster creation on the **Scale** screen that can be accessed on the **Basics** tab. Click the **Save** button to apply your selection. 
 
-Geo-redundant backup can be enabled only during cluster creation. You can't disable geo-redundant backup once cluster is created.
+> [!NOTE]
+> Geo-redundant backup can be enabled only during cluster creation. 
+> You can't disable geo-redundant backup once cluster is created.
 
 ## Confirm type of backup
 To check what type of backup is enabled on a cluster, follow these steps:
@@ -41,7 +43,7 @@ To check what type of backup is enabled on a cluster, follow these steps:
 1. In the [Azure portal](https://portal.azure.com/), select an existing Azure Cosmos DB for PostgreSQL cluster.
 1. On the **Overview** page, check **Backup** field in the **Essentials** section.
 
-The **Backup** field values can be **Locally redundant** or **Zone redundant** for same region cluster backup or **Geo-redundant** for the backup stored in another Azure region.
+The **Backup** field values can be **Locally redundant** or **Zone redundant** for the same region cluster backup or **Geo-redundant** for the backup stored in another Azure region.
 
 ## Restore to the earliest restore point
 
@@ -90,8 +92,8 @@ and time of your choosing.
 After a restore, you should do the following to get your users and applications
 back up and running:
 
-* If the new server is meant to replace the original server, redirect clients
-  and client applications to the new server
+* If the new cluster is meant to replace the original cluster, redirect clients
+  and client applications to the new cluster.
 * Ensure appropriate [networking settings for private or public access](./concepts-security-overview.md#network-security) are in place for
   users to connect. These settings aren't copied from the original cluster.
 * Ensure appropriate [logins](./howto-create-users.md) and database level permissions are in place.
