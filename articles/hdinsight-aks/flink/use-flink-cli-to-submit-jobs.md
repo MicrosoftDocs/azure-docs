@@ -12,7 +12,7 @@ Apache Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (
 
 ## Installation Steps
 
-To install Flink CLI on linux, you will need **linux VM** to execute the installation script. You need to run bash environment if you are on **Windows**. 
+To install Flink CLI on linux, you'll need **linux VM** to execute the installation script. You need to run bash environment if you are on **Windows**. 
 
 > [!NOTE]
 > This does NOT work on Windows **GIT BASH**, you need to install [WSL](/windows/wsl/install) to make this work on Windows. 
@@ -23,7 +23,7 @@ To install Flink CLI on linux, you will need **linux VM** to execute the install
 
 ### Install or update
 
-Both installing and updating the CLI requires rerunning the install script. Install the CLI by running curl.
+Both installing and updating the CLI require rerunning the install script. Install the CLI by running curl.
 
 ```bash
 curl -L https://aka.ms/hdionaksflinkcliinstalllinux | bash
@@ -39,9 +39,9 @@ This command installs Flink CLI in user home directory ($HOME/flink-cli). The sc
    bin/flink list -D azure.tenant.id=<update-tenant-id> -D rest.address=<flink-cluster-fqdn>
    ```
    > [!NOTE]
-   > If executing via SSH pod, use the command ```bin/flink list``` which will give you the complete output  
+   > If executing via SSH pod, use the command ```bin/flink list``` to give you the complete output.
 
-   If you don't want to add those parameters every time, add them to **conf/flink-conf.yaml**
+   If you don't want to add those parameters every time, add them to **conf/flink-conf.yaml**.
    
    ```bash
    rest.address: <flink-cluster-fqdn>
@@ -76,7 +76,7 @@ curl https://hdiconfigactions.blob.core.windows.net/hiloflinkblob/install.sh | b
 ```
 
 ## Examples
-Here are some examples of actions supported by Flink’s CLI tool
+Here are some examples of actions supported by Flink’s CLI tool:
 
 |Action|Purpose|
 |-|-|
@@ -87,7 +87,7 @@ Here are some examples of actions supported by Flink’s CLI tool
 |cancel|This action can be used to *cancel running jobs* based on their JobID|
 |stop|This action combines the *cancel and savepoint actions to stop* a running job but also create a savepoint to start from again|
 
-All actions and their parameters can be accessed through below commands: 
+All actions and their parameters can be accessed through the following commands: 
 
 ```bash
 bin/flink --help
