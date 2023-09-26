@@ -225,7 +225,7 @@ To learn how to create an App Service Environment v3 on the Isolated v2 plan, se
 
 |Error message      |Description  |Recommendation  |
 |---------|---------|----------|
-|Zone redundancy is not available for resource group '<rg-name>'. Please deploy app service plan '<asp-name>' to a new resource group.     |Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group.      |To ensure your workloads land on a stamp that supports availability zones, create a new resource group, App Service plan, and App Service.  |
+|Zone redundancy is not available for resource group 'RG-NAME'. Please deploy app service plan 'ASP-NAME' to a new resource group.     |Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, you'll receive an error if availability zones aren't supported for your resource group.      |To ensure your workloads land on a stamp that supports availability zones, create a new resource group, App Service plan, and App Service.  |
 
 ### Fault tolerance
 
