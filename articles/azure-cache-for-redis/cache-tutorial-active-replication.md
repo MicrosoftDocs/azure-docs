@@ -176,7 +176,7 @@ spec:
     app: shoppingcart
 ```
 
-## Install and connect to your AKS cluster
+## Install Kubernetes CLI and connect to your AKS cluster
 
 In this section, you first install the Kubernetes CLI and then connect to an AKS cluster.
 
@@ -262,9 +262,7 @@ NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)    
 shoppingcart-svc       LoadBalancer   10.0.166.147   20.69.136.105   80:30390/TCP   90s
 ```
 
-Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running as follows:
-
-<!-- screenshot for Seattle -->
+Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application.
 
 Run the same deployment steps and deploy an instance of the demo application to run in East US region.
 
@@ -278,9 +276,13 @@ kubectl get pods -n east
 kubectl get service -n east
 ```
 
-With two services opened in your browser, you should see that changing the inventory in one region is almost instantly reflected in the other region. The inventory data is stored in the Redis Enterprise instances that are replicating data across regions.
+With each of the two services opened in a browser, you see that changing the inventory in one region is almost instantly reflected in the other region. The inventory data is stored in the Redis Enterprise instances that are replicating data across regions.
 
-You did it! Click on the buttons and explore the demo. To reset the count, add `/reset` after the url:
+You did it! Click on the buttons and explore the demo. 
+
+:::image type="content" source="media/cache-tutorial-active-replication/cache-two-browser-region-small.png" alt-text="Screenshot of two matching browser with shopping cart app running in to different regions showing the same data." lightbox="media/cache-tutorial-active-replication/cache-two-browser-region.png":::
+
+To reset the count, add `/reset` after the url:
 
  `<IP address>/reset`
 

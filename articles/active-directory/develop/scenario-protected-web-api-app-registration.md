@@ -106,7 +106,7 @@ To add another layer of security, a Microsoft Entra tenant administrator can con
 
 To increase security by restricting token issuance only to client apps that have been assigned app roles:
 
-1. In the Azure portal, select your app in **Identity** > **App registrations**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), select your app under **Identity** > **Applications** > **App registrations**.
 1. On the application's overview page, select its **Managed application in local directory** link to navigate to its **Enterprise Application Overview** page.
 1. Under **Manage**, select **Properties**.
 1. Set **Assignment required?** to **Yes**.

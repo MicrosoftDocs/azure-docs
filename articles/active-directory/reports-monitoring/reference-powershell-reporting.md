@@ -18,7 +18,7 @@ ms.custom: has-azure-ad-ps-ref
 # Azure AD PowerShell cmdlets for reporting
 
 > [!NOTE] 
-> These PowerShell cmdlets currently only work with the [Microsoft Entra ID Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
+> These PowerShell cmdlets currently only work with the [Azure Active Directory PowerShell for Graph Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#directory_auditing) module. Please note that the preview module is not suggested for production use. 
 
 To install the public preview release, use the following: 
 

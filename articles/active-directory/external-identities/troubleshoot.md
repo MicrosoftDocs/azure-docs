@@ -78,7 +78,7 @@ You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsFor
 By default, SharePoint Online and OneDrive have their own set of external user options and don't use the settings from Microsoft Entra ID.  You need to enable [SharePoint and OneDrive integration with Microsoft Entra B2B](/sharepoint/sharepoint-azureb2b-integration-preview) to ensure the options are consistent among those applications.
 ## Invitations have been disabled for directory
 
-If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Microsoft Entra ID > User settings > External users > Manage external collaboration settings:
+If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Identity > Users > User settings > External users > Manage external collaboration settings:
 
 :::image type="content" source="media/troubleshoot/external-user-settings.png" alt-text="Screenshot showing the External User settings.":::
 
@@ -177,7 +177,7 @@ Rarely, you might see this message: “This action can't be completed because th
 
 <a name='i-receive-the-error-that-azure-ad-cant-find-the-aad-extensions-app-in-my-tenant'></a>
 
-## I receive the error that Microsoft Entra ID can't find the aad-extensions-app in my tenant
+## I receive the error that Microsoft Entra ID can't find the `aad-extensions-app` in my tenant
 
 When you're using self-service sign-up features, like custom user attributes or user flows, an app called `aad-extensions-app. Do not modify. Used by AAD for storing user data.` is automatically created. It's used by Microsoft Entra External ID to store information about users who sign up and custom attributes collected.
 

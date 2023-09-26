@@ -34,7 +34,7 @@ Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\T
 
 >[!NOTE]
 >Install-Module requires updating to [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) or later;  
-Or install [PackageManagement PowerShell Modules Preview - March 2016 for PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
+Or install [PackageManagement PowerShell module preview - March 2016 for PowerShell 3.0/4.0](/powershell/module/PackageManagement)
 
 - **Show all commands**: `Get-Command -Module AdSyncTools` 
 - **Execute the PowerShell function**: `Connect-ADSyncDatabase` with the following parameters

@@ -151,7 +151,7 @@ Go to workspace portal, select **Prompt flow** -> **Runtime** -> **Add**, then f
 Clone repo to your local machine.
 
 ```bash
-    git clone https://github.com/<user-name>/llmops-pipeline
+    git clone https://github.com/<user-name>/llmops-gha-demo
  ```
 
 ### Update workflow to connect to your Azure Machine Learning workspace

@@ -64,6 +64,8 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 
 If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
 
+<!-- docutune:disable -->
+
 | MSAL                   | GitHub issues URL                                                              |
 | ---------------------- | ------------------------------------------------------------------------------ |
 | MSAL for Android       | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
@@ -75,6 +77,8 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 | MSAL Node              | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
 | MSAL Python            | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues  |
 | MSAL React             | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
+
+<!-- docutune:enable -->
 
 ## Stay informed of updates and new releases
 
