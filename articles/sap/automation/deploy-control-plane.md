@@ -43,61 +43,22 @@ Optionally, assign the following permissions to the service principal:
 az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>
 ```
 
-## Prepare the web app
-This step is optional. If you want a browser-based UX to help the configuration of SAP workload zones and systems, run the following commands before you deploy the control plane.
-
-# [Linux](#tab/linux)
-
-```bash
-echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
-
-region_code=WEEU
-
-export TF_VAR_app_registration_app_id=$(az ad app create \
-    --display-name ${region_code}-webapp-registration \
-    --enable-id-token-issuance true \
-    --sign-in-audience AzureADMyOrg \
-    --required-resource-access @manifest.json \
-    --query "appId" | tr -d '"')
-
-export TF_VAR_webapp_client_secret=$(az ad app credential reset \
-    --id $TF_VAR_app_registration_app_id --append               \
-    --query "password" | tr -d '"')
-
-export TF_VAR_use_webapp=true
-rm manifest.json
-
-```
-# [Windows](#tab/windows)
-
-```powershell
-
-Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
-
-$region_code="WEEU"
-
-$env:TF_VAR_app_registration_app_id = (az ad app create `
-    --display-name $region_code-webapp-registration     `
-    --required-resource-accesses ./manifest.json        `
-    --query "appId").Replace('"',"")
-
-$env:TF_VAR_webapp_client_secret=(az ad app credential reset `
-    --id $env:TF_VAR_app_registration_app_id --append            `
-    --query "password").Replace('"',"")
-
-$env:TF_VAR_use_webapp="true"
-
-del manifest.json
-
-```
-
-# [Azure DevOps](#tab/devops)
-
-Currently, it isn't possible to perform this action from Azure DevOps.
-
----
 
 ## Deploy the control plane
+
+All the artifacts that are required to deploy the control plane are located in GitHub repositories.
+
+Prepare for the control plane deployment by cloning the repositories using the following commands:
+
+
+```bash
+mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
+
+git clone https://github.com/Azure/sap-automation.git sap-automation
+
+git clone https://github.com/Azure/sap-automation-samples.git samples
+
+```
 
 The sample deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
 
@@ -119,7 +80,7 @@ export   ARM_CLIENT_SECRET="<password>"
 export       ARM_TENANT_ID="<tenantId>"
 export            env_code="MGMT"
 export         region_code="WEEU"
-export           vnet_code="DEP01"
+export           vnet_code="DEP00"
 
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
@@ -250,6 +211,60 @@ cd sap-automation/deploy/scripts
 ```
 
 The script installs Terraform and Ansible and configures the deployer.
+
+## Prepare the web app
+This step is optional. If you want a browser-based UX to help the configuration of SAP workload zones and systems, run the following commands before you deploy the control plane.
+
+# [Linux](#tab/linux)
+
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
+
+region_code=WEEU
+
+export TF_VAR_app_registration_app_id=$(az ad app create \
+    --display-name ${region_code}-webapp-registration \
+    --enable-id-token-issuance true \
+    --sign-in-audience AzureADMyOrg \
+    --required-resource-access @manifest.json \
+    --query "appId" | tr -d '"')
+
+export TF_VAR_webapp_client_secret=$(az ad app credential reset \
+    --id $TF_VAR_app_registration_app_id --append               \
+    --query "password" | tr -d '"')
+
+export TF_VAR_use_webapp=true
+rm manifest.json
+
+```
+# [Windows](#tab/windows)
+
+```powershell
+
+Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
+
+$region_code="WEEU"
+
+$env:TF_VAR_app_registration_app_id = (az ad app create `
+    --display-name $region_code-webapp-registration     `
+    --required-resource-accesses ./manifest.json        `
+    --query "appId").Replace('"',"")
+
+$env:TF_VAR_webapp_client_secret=(az ad app credential reset `
+    --id $env:TF_VAR_app_registration_app_id --append            `
+    --query "password").Replace('"',"")
+
+$env:TF_VAR_use_webapp="true"
+
+del manifest.json
+
+```
+
+# [Azure DevOps](#tab/devops)
+
+Currently, it isn't possible to perform this action from Azure DevOps.
+
+---
 
 ## Next step
 
