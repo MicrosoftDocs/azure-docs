@@ -78,14 +78,14 @@ curl https://hdiconfigactions.blob.core.windows.net/hiloflinkblob/install.sh | b
 ## Examples
 Here are some examples of actions supported by Flink’s CLI tool:
 
-|Action|Purpose|
+| Action | Purpose |
 |-|-|
-|Run|This action executes jobs. It requires at least the jar containing the job. Flink- or job-related arguments can be passed if necessary.|
-|info|This action can be used to print an optimized execution graph of the passed job. Again, the jar containing the job needs to be passed.|
-|list|This action *lists all running or scheduled jobs*.|
-|savepoint|This action can be used to *create or disposing savepoints* for a given job. It might be necessary to specify a savepoint directory besides the JobID|
-|cancel|This action can be used to *cancel running jobs* based on their JobID|
-|stop|This action combines the *cancel and savepoint actions to stop* a running job but also create a savepoint to start from again|
+| run | This action executes jobs. It requires at least the jar containing the job. Flink- or job-related arguments can be passed if necessary. |
+| info | This action can be used to print an optimized execution graph of the passed job. Again, the jar containing the job needs to be passed. |
+| list | This action *lists all running or scheduled jobs*.|
+| savepoint | This action can be used to *create or disposing savepoints* for a given job. It may be necessary to specify a savepoint directory besides the JobID. |
+| cancel | This action can be used to *cancel running jobs* based on their JobID. |
+| stop | This action combines the *cancel and savepoint actions to stop* a running job but also creates a savepoint to start from again. |
 
 All actions and their parameters can be accessed through the following commands: 
 
