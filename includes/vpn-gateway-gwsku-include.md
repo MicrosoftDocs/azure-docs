@@ -1,24 +1,21 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
- author: cherylmc
- ms.service: vpn-gateway
- ms.topic: include
- ms.date: 09/15/2023
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 09/26/2023
+ms.service: vpn-gateway
+ms.topic: include
 ---
 
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughput, features, and SLAs. For virtual network gateway SKUs in Azure Availability Zones, see [Zone-redundant gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. Select the SKU that satisfies your requirements based on the types of workloads, throughput, features, and SLAs. For virtual network gateway SKUs in Azure Availability Zones (*AZ SKUs), see [Zone-redundant gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 > [!NOTE]
->  * For information about working with the legacy gateway SKUs (Basic, Standard, and HighPerformance), see [Working with VPN gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
->  * For ExpressRoute gateway SKUs, see [Virtual Network Gateways for ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+> * For information about working with the legacy gateway SKUs (Basic, Standard, and HighPerformance), see [Working with VPN gateway SKUs (legacy SKUs)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+> * For ExpressRoute gateway SKUs, see [Virtual Network Gateways for ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+> * For Availability Zone SKUs (*AZ SKUs), see [About Zone redundant gateway SKUs](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 >
 
 ###  <a name="feature"></a>Gateway SKUs by feature set
@@ -45,6 +42,6 @@ Due to the differences in SLAs and feature sets, we recommend the following SKUs
 | **Dev-test or proof of concept**   | Basic (**)                 |
 |                                    |                        |
 
-(\*\*) The Basic SKU is considered a legacy SKU and has feature limitations. Verify that the feature that you need is supported before you use the Basic SKU.
+(\*\*) The Basic SKU is considered a legacy SKU and has feature limitations. Verify that the feature that you need is supported before you use the Basic SKU. Additionally, the Basic SKU can only be configured using Azure CLI or PowerShell.
 
 If you are using the old SKUs (legacy), the production SKU recommendations are Standard and HighPerformance. For information and instructions for old SKUs, see [Gateway SKUs (legacy)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).

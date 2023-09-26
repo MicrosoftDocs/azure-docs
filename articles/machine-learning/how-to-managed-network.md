@@ -129,7 +129,7 @@ Before following the steps in this article, make sure you have the following pre
 > The creation of the managed VNet is deferred until a compute resource is created or provisioning is manually started. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
 
 > [!IMPORTANT]
-> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
+> __If you plan to submit serverless Spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless Spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -296,7 +296,7 @@ To configure a managed VNet that allows internet outbound communications, use th
         * __Resource type__: The type of the Azure resource.
         * __Resource name__: The name of the Azure resource.
         * __Sub Resource__: The sub resource of the Azure resource type.
-        * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
+        * __Spark enabled__: Select this option if you want to enable serverless Spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
 
         :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of adding an outbound rule for a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
@@ -331,7 +331,7 @@ To configure a managed VNet that allows internet outbound communications, use th
 > The managed VNet is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
 
 > [!IMPORTANT]
-> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
+> __If you plan to submit serverless Spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless Spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -598,7 +598,7 @@ To configure a managed VNet that allows only approved outbound communications, u
         * __Resource type__: The type of the Azure resource.
         * __Resource name__: The name of the Azure resource.
         * __Sub Resource__: The sub resource of the Azure resource type.
-        * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
+        * __Spark enabled__: Select this option if you want to enable serverless Spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
 
         > [!TIP]
         > Azure Machine Learning managed VNet doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
@@ -646,15 +646,15 @@ To configure a managed VNet that allows only approved outbound communications, u
 ---
 
 
-## Configure for serverless spark jobs
+## Configure for serverless Spark jobs
 
 > [!TIP]
-> The steps in this section are only needed if you plan to submit __serverless spark jobs__. If you aren't going to be submitting serverless spark jobs, you can skip this section.
+> The steps in this section are only needed if you plan to submit __serverless Spark jobs__. If you aren't going to be submitting serverless Spark jobs, you can skip this section.
 
-To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
+To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
 
 * Configure a managed VNet for the workspace and add an outbound private endpoint for the Azure Storage Account.
-* After you configure the managed VNet, provision it and flag it to allow spark jobs.
+* After you configure the managed VNet, provision it and flag it to allow Spark jobs.
 
 1. Configure an outbound private endpoint.
 
@@ -742,7 +742,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # [Azure CLI](#tab/azure-cli)
 
-    The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
+    The following example shows how to provision a managed VNet for serverless Spark jobs by using the `--include-spark` parameter.
 
     ```azurecli
     az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
@@ -750,13 +750,13 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # [Python SDK](#tab/python)
 
-    The following example shows how to provision a managed VNet for serverless spark jobs:
+    The following example shows how to provision a managed VNet for serverless Spark jobs:
 
     ```python
     # Connect to a workspace named "myworkspace"
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
 
-    # whether to provision spark vnet as well
+    # whether to provision Spark vnet as well
     include_spark = True
 
     provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
@@ -764,7 +764,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # [Azure portal](#tab/portal)
 
-    Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless spark support.
+    Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless Spark support.
 
     --- 
 
@@ -782,7 +782,7 @@ To reduce the wait time when someone attempts to create the first compute, you c
 The following example shows how to provision a managed VNet.
 
 > [!TIP]
-> If you plan to submit serverless spark jobs, add the `--include-spark` parameter.
+> If you plan to submit serverless Spark jobs, add the `--include-spark` parameter.
 
 ```azurecli
 az ml workspace provision-network -g my_resource_group -n my_workspace_name
@@ -796,7 +796,7 @@ The following example shows how to provision a managed VNet:
 # Connect to a workspace named "myworkspace"
 ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
 
-# whether to provision spark vnet as well
+# whether to provision Spark vnet as well
 include_spark = True
 
 provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
@@ -804,7 +804,7 @@ provision_network_result = ml_client.workspaces.begin_provision_network(workspac
 
 # [Azure portal](#tab/portal)
 
-Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless spark support.
+Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless Spark support.
 
 --- 
 
@@ -1006,7 +1006,7 @@ When you create a private endpoint, you provide the _resource type_ and _subreso
 When you create a private endpoint for Azure Machine Learning dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure Machine Learning workspace.
 
 > [!IMPORTANT]
-> When configuring private endpoints for an Azure Machine Learning managed VNet, the private endpoints are only created when created when the first _compute is created_ or when managed VNet provisioning is forced. For more information on forcing the managed VNet provisioning, see [Configure for serverless spark jobs](#manually-provision-a-managed-vnet).
+> When configuring private endpoints for an Azure Machine Learning managed VNet, the private endpoints are only created when created when the first _compute is created_ or when managed VNet provisioning is forced. For more information on forcing the managed VNet provisioning, see [Configure for serverless Spark jobs](#manually-provision-a-managed-vnet).
 
 ## Pricing
 

@@ -105,7 +105,7 @@ Check to see that the guest users you added exist in the directory either in the
 
 ### View guest users with PowerShell
 
-To view guest users with PowerShell, you'll need the [Microsoft.Graph.Users PowerShell Module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true). Then sign in using the `Connect-MgGraph` command with an admin account to consent to the required scopes:
+To view guest users with PowerShell, you'll need the [`Microsoft.Graph.Users` PowerShell module](/powershell/module/microsoft.graph.users/?view=graph-powershell-beta&preserve-view=true). Then sign in using the `Connect-MgGraph` command with an admin account to consent to the required scopes:
 ```powershell
 Connect-MgGraph -Scopes "User.Read.All"
 ```
