@@ -1,5 +1,5 @@
 ---
-title: Microsoft Entra SSO integration with RoleMapper.
+title: Microsoft Entra SSO integration with RoleMapper
 description: Learn how to configure single sign-on between Microsoft Entra ID and RoleMapper.
 services: active-directory
 author: jeevansd
@@ -145,6 +145,6 @@ In this section, you test your Microsoft Entra single sign-on configuration with
  
 You can also use Microsoft My Apps to test the application in any mode. When you click the RoleMapper tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the RoleMapper for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-## Next Steps
+## Next steps
 
 Once you configure RoleMapper you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
