@@ -8,7 +8,7 @@ ms.date: 09/23/2023
 
 # Flink job orchestration using azure data factory managed airflow 
 
-This article covers using [Azure REST API](/rest/api/azure/) to access HDInsight Flink Cluster using [Cluster Job APIs](/rest/api/documentation-preview/cluster-jobs/) and orchestration data pipeline with Azure Data Factory Managed Airflow. [Azure Data Factory Managed Airflow](/azure/data-factory/concept-managed-airflow) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily. 
+This article covers managing HDInsight Flink job using Azure REST API ([refer Job Management REST API section in this tutorial](flink-job-management.md)) and orchestration data pipeline with Azure Data Factory Managed Airflow. [Azure Data Factory Managed Airflow](/azure/data-factory/concept-managed-airflow) service is a simple and efficient way to create and manage [Apache Airflow](https://airflow.apache.org/) environments, enabling you to run data pipelines at scale easily. 
 
 Apache Airflow is an open-source platform that programmatically creates, schedules, and monitors complex data workflows. It allows you to define a set of tasks, called operators, that can be combined into directed acyclic graphs (DAGs) to represent data pipelines. 
 
