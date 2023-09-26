@@ -248,13 +248,13 @@ Other OpenTelemetry Instrumentations are available [here](https://github.com/ope
     const { useAzureMonitor } = require("@azure/monitor-opentelemetry");
     const { metrics, trace, ProxyTracerProvider } = require("@opentelemetry/api");
 
-    // Get the OpenTelemetry tracer provider and meter provider
-    const tracerProvider = (trace.getTracerProvider() as ProxyTracerProvider).getDelegate();
-    const meterProvider = metrics.getMeterProvider();
-
     // Import the OpenTelemetry instrumentation registration function and Express instrumentation
     const { registerInstrumentations } = require( "@opentelemetry/instrumentation");
     const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
+
+    // Get the OpenTelemetry tracer provider and meter provider
+    const tracerProvider = (trace.getTracerProvider() as ProxyTracerProvider).getDelegate();
+    const meterProvider = metrics.getMeterProvider();
 
     // Enable Azure Monitor integration
     useAzureMonitor();
