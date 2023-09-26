@@ -27,7 +27,7 @@ az aosm nfd generate-config --definition-type cnf
 Execution of the preceding command generates an input.json file.
 
 > [!NOTE]
-> Edit the input.json file. Replace it with the values shown in the following sample. Save the file as**input-cnf-nfd.json**. Zip the ngnix configuration files in tgz format.
+> Edit the input.json file. Replace it with the values shown in the following sample. Save the file as **input-cnf-nfd.json**. Zip the ngnix configuration files in tgz format.
 
 Here's sample input-cnf-nfd.json file:
 
