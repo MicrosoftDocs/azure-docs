@@ -133,6 +133,10 @@ The following diagram shows volume restoration (cloning) by using DR target volu
 
 See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
 
+### Creating a short-term clone 
+
+<!-- content pending -->
+
 ### Restoring (reverting) an online snapshot in-place
 
 In some cases, because the new volume will consume storage capacity, creating a new volume from a snapshot might not be needed or appropriate. To recover from data corruption quickly (for example, database corruption or ransomware attacks), it might be more appropriate to restore a snapshot within the volume itself. This operation can be done using the Azure NetApp Files [snapshot revert](snapshots-revert-volume.md) functionality. This functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system, especially in large, multi-TiB volumes. 
