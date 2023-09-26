@@ -68,61 +68,61 @@ You can copy the sample configuration files to start testing the deployment auto
 
 A minimal Terraform file for the `DEPLOYER` might look like this example:
 
-    ```terraform
-    # The environment value is a mandatory field, it is used for partitioning the environments.
-    environment = "MGMT"
-    # The location/region value is a mandatory field, it is used to control where the resources are deployed
-    location = "westeurope"
+```terraform
+# The environment value is a mandatory field, it is used for partitioning the environments.
+environment = "MGMT"
+# The location/region value is a mandatory field, it is used to control where the resources are deployed
+location = "westeurope"
 
-    # management_network_address_space is the address space for management virtual network
-    management_network_address_space = "10.10.20.0/25"
-    # management_subnet_address_prefix is the address prefix for the management subnet
-    management_subnet_address_prefix = "10.10.20.64/28"
+# management_network_address_space is the address space for management virtual network
+management_network_address_space = "10.10.20.0/25"
+# management_subnet_address_prefix is the address prefix for the management subnet
+management_subnet_address_prefix = "10.10.20.64/28"
 
-    # management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
-    management_firewall_subnet_address_prefix = "10.10.20.0/26"
-    firewall_deployment = false
+# management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
+management_firewall_subnet_address_prefix = "10.10.20.0/26"
+firewall_deployment = false
 
-    # management_bastion_subnet_address_prefix is the address prefix for the bastion subnet
-    management_bastion_subnet_address_prefix = "10.10.20.128/26"
-    bastion_deployment = true
+# management_bastion_subnet_address_prefix is the address prefix for the bastion subnet
+management_bastion_subnet_address_prefix = "10.10.20.128/26"
+bastion_deployment = true
 
-    # deployer_enable_public_ip controls if the deployer Virtual machines will have Public IPs
-    deployer_enable_public_ip = false
+# deployer_enable_public_ip controls if the deployer Virtual machines will have Public IPs
+deployer_enable_public_ip = false
 
-    # deployer_count defines how many deployer VMs will be deployed
-    deployer_count = 1
+# deployer_count defines how many deployer VMs will be deployed
+deployer_count = 1
 
-    # use_service_endpoint defines that the management subnets have service endpoints enabled
-    use_service_endpoint = true
+# use_service_endpoint defines that the management subnets have service endpoints enabled
+use_service_endpoint = true
 
-    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
-    use_private_endpoint = false
+# use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+use_private_endpoint = false
 
-    # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
-    enable_firewall_for_keyvaults_and_storage = false
+# enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
+enable_firewall_for_keyvaults_and_storage = false
 
-    # public_network_access_enabled controls if storage account and key vaults have public network access enabled
-    public_network_access_enabled = true
+# public_network_access_enabled controls if storage account and key vaults have public network access enabled
+public_network_access_enabled = true
 
-    ```
+```
 
-    Note the Terraform variable file locations for future edits during deployment.
+Note the Terraform variable file locations for future edits during deployment.
 
 A minimal Terraform file for the `LIBRARY` might look like this example:
 
-    ```terraform
-    # The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
-    environment = "MGMT"
-    # The location/region value is a mandatory field, it is used to control where the resources are deployed
-    location = "westeurope"
+```terraform
+# The environment value is a mandatory field, it is used for partitioning the environments, for example, PROD and NP.
+environment = "MGMT"
+# The location/region value is a mandatory field, it is used to control where the resources are deployed
+location = "westeurope"
 
-    #Defines the DNS suffix for the resources
-    dns_label = "azure.contoso.net"
+#Defines the DNS suffix for the resources
+dns_label = "azure.contoso.net"
 
-    # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
-    use_private_endpoint = false
-    ```
+# use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+use_private_endpoint = false
+```
 
     Note the Terraform variable file locations for future edits during deployment.
 
@@ -153,12 +153,15 @@ az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --t
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 
-sudo ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                                            \
-    --deployer_parameter_file "${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars" \
-    --library_parameter_file "${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"                                   \
-    --subscription "${ARM_SUBSCRIPTION_ID}"                                                                                                                                       \
-    --spn_id "${ARM_CLIENT_ID}"                                                                                                                                                   \
-    --spn_secret "${ARM_CLIENT_SECRET}"                                                                                                                                           \
+deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
+
+${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+    --deployer_parameter_file "${deployer_parameter_file}"         \
+    --library_parameter_file "{library_parameter_file}"            \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+    --spn_id "${ARM_CLIENT_ID}"                                    \
+    --spn_secret "${ARM_CLIENT_SECRET}"                            \
     --tenant_id "${ARM_TENANT_ID}"
 ```
 
@@ -184,7 +187,7 @@ You can track the progress in the Azure DevOps portal. After the deployment is f
 
 ---
 
-### Manually configure the deployer by using Azure Bastion
+### Manually configure a virtual machine as a SDAF deployer by using Azure Bastion
 
 To connect to the deployer:
 
@@ -225,7 +228,7 @@ cd sap-automation/deploy/scripts
 
 The script installs Terraform and Ansible and configures the deployer.
 
-### Manually configure the deployer
+### Manually configure a virtual machine as a SDAF deployer 
 
 Connect to the deployer VM from a computer that can reach the Azure virtual network.
 
@@ -271,6 +274,62 @@ cd sap-automation/deploy/scripts
 ```
 
 The script installs Terraform and Ansible and configures the deployer.
+
+## Securing the control plane
+
+The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
+If you have created your control plane using an external virtual machine or by using the cloud shell you should secure the control plane by implementing private endpoints for the storage accounts and key vaults.
+
+Log on to the deployer virtual machine and copy the control plane configuration `tfvars` terraform files to the deployer. Ensure that the files are located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES` DEPLOYER and LIBRARY folders.
+
+Ensure that the `use_private_endpoint` variable is set to `true` in the `DEPLOYER` and `LIBRARY` configuration files. Also ensure that `public_network_access_enabled` is set to `false` in the `DEPLOYER`  configuration files.
+
+```terraform
+
+# use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
+use_private_endpoint = true
+
+# public_network_access_enabled controls if storage account and key vaults have public network access enabled
+public_network_access_enabled = false
+
+```
+
+Rerun the control plane deployment to enable private endpoints for the storage accounts and key vaults.
+
+```bash
+
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+export            env_code="MGMT"
+export         region_code="WEEU"
+export           vnet_code="DEP00"
+export  storageaccountname=<storageaccountname>
+
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
+az logout
+az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+
+deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
+
+${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+    --deployer_parameter_file "${deployer_parameter_file}"         \
+    --library_parameter_file "{library_parameter_file}"            \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+    --spn_id "${ARM_CLIENT_ID}"                                    \
+    --spn_secret "${ARM_CLIENT_SECRET}"                            \
+    --tenant_id "${ARM_TENANT_ID}"                                 \
+    --storageaccountname "${storageaccountname}"                   \
+    --recover
+```
+
 
 ## Prepare the web app
 This step is optional. If you want a browser-based UX to help the configuration of SAP workload zones and systems, run the following commands before you deploy the control plane.
