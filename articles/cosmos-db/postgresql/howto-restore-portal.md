@@ -20,7 +20,7 @@ ms.date: 09/17/2023
 > for production workloads. Certain features might not be supported or might have constrained 
 > capabilities.
 
-This article provides step-by-step procedures to select backup type and to perform [point-in-time
+This article provides step-by-step procedures to select backup type, to check type of backup enabled on a cluster, and to perform [point-in-time
 recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
@@ -34,6 +34,14 @@ a custom restore point within your retention period.
 Enabling geo-redundant backup is possible during cluster creation on **Scale** page that can be accessed on **Basics** tab. Click the **Save** button to apply your selection. 
 
 Geo-redundant backup can be enabled only during cluster creation. You can't disable geo-redundant backup once cluster is created.
+
+## Confirm type of backup
+To check what type of backup is enabled on a cluster, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), select an existing Azure Cosmos DB for PostgreSQL cluster.
+1. On the **Overview** page, check **Backup** field in the **Essentials** section.
+
+The **Backup** field values can be **Locally redundant** or **Zone redundant** for same region cluster backup or **Geo-redundant** for the backup stored in another Azure region.
 
 ## Restore to the earliest restore point
 
