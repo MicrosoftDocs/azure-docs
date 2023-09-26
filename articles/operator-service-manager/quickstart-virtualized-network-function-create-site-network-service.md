@@ -84,7 +84,7 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
         },
         "managedIdentity": "`<managed-identity-resource-id>`"
     }
-    ``````
+    ```
     > [!NOTE]
 > Refer to the [Resource ID for the managed identity](quickstart-virtualized-network-function-operator.md#locate-resource-id-for-managed-identity)section to see how to retrieve the `managedIdentity` resource ID. Additionally, the sshPublicKeyadmin can be listed by executing `cat~/.ssh.id_rsa.pub` or `cat ~/.ssh/id_dsa.pub`.
 1. Select **Review + create**.
