@@ -11,62 +11,106 @@ ms.date: 09/08/2023
 
 # Quickstart: Complete the prerequisites to deploy a Containerized Network Function in Azure Operator Service Manager
 
-In this Quickstart, you'll complete the tasks necessary prior to using the Azure Operator Service Manager (AOSM). You'll register the required resource providers and install the tools necessary to interact with the Azure Operator Service Manager (AOSM) service.
-
-To use Azure Operator Service Manager (AOSM), you must have an Azure subscription and have signed an Azure Operator Service Manager agreement with Microsoft.
+In this Quickstart, you complete the tasks necessary prior to using the Azure Operator Service Manager (AOSM). 
 
 ## Prerequisites
 
-- [Install the Docker Engine](https://docs.docker.com/engine/install/).
-- [Install Helm CLI](https://helm.sh/docs/intro/install/).
+An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
- Based on your preferred work environment, complete one of the following prerequisites to configure your Azure CLI environment.
+## Download and install Azure CLI
 
-- [Start the Cloud Shell](/azure/cloud-shell/quickstart?tabs=azurecli) to use Bash environment in Azure Cloud Shell
-- [Start the Docker container with Azure CLI preinstalled](/cli/azure/run-azure-cli-docker) to run the Azure CLI in a Docker container (Windows or macOS)
-- [Install the Azure CLI](/cli/azure/install-azure-cli) to run CLI reference commands locally. Then sign in to the Azure CLI using the `az login` command and complete the prompts displayed in your terminal to finish authentication.
+Use the Bash environment in the Azure cloud shell. For more information, see [Start the Cloud Shell](/azure/cloud-shell/quickstart?tabs=azurecli) to use Bash environment in Azure Cloud Shell.
 
-## Install the Azure Operator Service Manager (AOSM) CLI extension
+For users that prefer to run CLI reference commands locally refer to [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-1. Open or sign in to your preferred Azure CLI work environment.
-1. Install the extension by entering the `az extension add --name aosm` command at the prompt line.
+If you're running on Window or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
-## Verify and upgrade the Azure CLI version
+If you're using a local installation, sign into the Azure CLI using the `az login` command and complete the prompts displayed in your terminal to finish authentication. For more sign-in options, refer to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
+### Install Azure Operator Service Manager (AOSM) CLI extension
+
+Install the Azure Operator Service Manager (AOSM) CLI extension using this command:
+
+```azurecli
+az extension add --name aosm
+``````
 1. Run `az version` to see the version and dependent libraries that are installed.
 1. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
-## Register and verify the required resource providers
+## Register and verify required resource providers
 
-Execute the following commands in the Azure CLI to register the required resource providers.
-> [!NOTE]
-> The registration process may take up to five minutes. Once the registration is successful, you can proceed with using the Azure Operator Service Manager.
+Before you begin using the Azure Operator Service Manager, make sure to register the required resource provider. Execute the following commands. This registration process may take up to 5 minutes.
 
 ```azurecli
-# Register Resource Provider 
-az provider register --namespace Microsoft.HybridNetwork 
+# Register Resource Provider
+az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
+``````
 
-# Query the Resource Provider 
-az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}" 
-az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}" 
-```
+Verify the registration status of the resource providers. Execute the following commands.
 
-## Configure the Containerized Network Function deployment
+```azurecli
+# Query the Resource Provider
+az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
+az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
+``````
 
-The following section describes how to set up the configuration files needed to deploy Containerized Network Functions (CNF). These steps provide a well-organized and structured approach to deploying CNFs with Helm packages and associated configurations. These packages must be installed on the machine from which you're executing the CLI commands.
+> [!NOTE]
+> It may take a few minutes for the resource provider registration to complete. Once the registration is successful, you can proceed with using the Azure Operator Service Manager (AOSM).
 
-1. Generate the configuration file used to define a CNF deployment using the `az aosm nfd generate-config --definition-type-cnf` command in the Azure CLI.
-1. Verify that helm packages with schemas are present on your local storage, then reference these packages in the generated input.json configuration file.
-1. Specify a reference to the existing Azure Container Registry (ACR) that contains the necessary CNF images. Currently, only one ACR is supported per CNF. The images to be used are automatically populated based on the helm package schema.
-1. (Optional) Provide a file (on disk) named `path_to_mappings`. This file should mirror `values.yaml`, with your selected values replaced by deployment parameters. Replacing these parameters exposes them as deployment parameters to the CNF. You can either leave the values as blank strings to have every value as a deployment parameter or use the `--interactive` option to interactively make choices.
+## Requirements for Containerized Network Function (CNF)
 
-## Download and install the nginx image to an Azure Container Registry
+For those utilizing Containerized Network Functions, it's essential to ensure that the following packages are installed on the machine from which you're executing the CLI:
 
-This section illustrates Azure Operator Service Manager (AOSM) CLI's ability to copy ACR images automatically. To download and install the nginx image to an ACR, complete the following steps.
+- **Install docker**, refer to [Install the Docker Engine](https://docs.docker.com/engine/install/).
+- **Install Helm**, refer to [Install Helm CLI](https://helm.sh/docs/intro/install/).
+
+### Configure Containerized Network Function (CNF) deployment
+
+For deployments of Containerized Network Functions (CNFs), it's crucial to have the following installed on the machine from which you're executing the CLI:
+
+- **Helm Packages with Schema** - These packages should be present on your local storage and referenced within the `input.json` configuration file.
+- **Creating a Sample Configuration File** - Generate an example configuration file for defining a CNF deployment. Issue this command to generate an `input.json` file that you need to populate with your specific configuration.
+
+```azurecli
+az aosm nfd generate-config
+``````
+
+- **Azure Container Registry (ACR) Reference** - You must specify a reference to an existing Azure Container Registry that contains the necessary CNF images. Currently, only one ACR is supported per CNF. The images to be used are automatically populated based on the Helm package schema.
+- **Optional: Mapping File (path_to_mappings)**: Optionally, you can provide a file (on disk) named path_to_mappings. This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. You can either leave the values as blank strings to have every value as a deployment parameter or use the `--interactive` option to interactively make choices.
+
+When configuring the `input.json` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `input.json` should resemble the following structure:
+
+```json
+"helm_packages": [
+    {
+        "name": "A",
+        "path_to_chart": "Path to package A",
+        "path_to_mappings": "Path to package A mappings",
+        "depends_on": [
+            "Names of the Helm packages this package depends on"
+        ]
+    },
+    {
+        "name": "B",
+        "path_to_chart": "Path to package B",
+        "path_to_mappings": "Path to package B mappings",
+        "depends_on": [
+            "Names of the Helm packages this package depends on"
+        ]
+    }
+]
+``````
+Following these guidelines ensures a well organized and structured approach to deploy Containerized Network Functions (CNFs) with Helm packages and associated configurations.
+
+### Download and install nginx image to ARC
+
+This particular step might seem frivolous when considering the quickstart process. This step involves some superfluous file manipulation. This file manipulation showcases the capability of the AZ AOSM CLI in copying ACR images on your behalf. 
+
+To download and install the nginx image to an ACR, complete the following steps.
 
 1. [Create an ACR](../container-registry/container-registry-get-started-azure-cli.md) using the Azure CLI.
-1. Push the`nginx: stable` image to your ACR:
+1. Push the `nginx: stable` image to your ACR:
 
 ```azurecli
 az login 
@@ -80,156 +124,149 @@ docker tag nginx:stable <your acr name>.azurecr.io/samples/nginx:stable
 docker push <your acr name>.azurecr.io/samples/nginx:stable
 ```
 
+> [!NOTE]
+> These steps were taken (with modifications for the 'stable' tag name) from [Container Registry get started docker](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli).
+
 ## Dive into Helm charts
 
-This section introduces you to a basic Helm chart that sets up nginx and configures it to listen on a specified port. While the Helm chart furnished in this section already incorporates a `values.schema.json` file, should you need to generate such a schema in the future, a handy tool is available on [GitHub](https://github.com/holgerjh/helm-schema).
+This section introduces you to a basic Helm chart that sets up nginx and configures it to listen on a specified port. The Helm chart furnished in this section already incorporates a `values.schema.json` file.
 
 ### Sample values.schema.json file
 
 ```json
-{ 
-    "$schema": "http://json-schema.org/draft-07/schema", 
-    "additionalProperties": true, 
-    "properties": { 
-        "affinity": { 
-            "additionalProperties": false, 
-            "properties": {}, 
-            "type": "object" 
-        }, 
-
-        "fullnameOverride": { 
-            "type": "string" 
-        }, 
-
-        "image": { 
-            "additionalProperties": false, 
-            "properties": { 
-                "pullPolicy": { 
-                    "type": "string" 
-                }, 
-
-                "repository": { 
-                    "type": "string" 
-                }, 
-
-                "tag": { 
-                    "type": "string" 
-                } 
-            }, 
-
-            "type": "object" 
-        }, 
-
-        "imagePullSecrets": { 
-            "items": { 
-                "anyOf": [] 
-            }, 
-
-            "type": "array" 
-        }, 
-
-        "ingress": { 
-            "additionalProperties": false, 
-            "properties": { 
-                "annotations": { 
-                    "additionalProperties": false, 
-                    "properties": {}, 
-                    "type": "object" 
-                }, 
-
-                "enabled": { 
-                    "type": "boolean" 
-                }, 
-
-                "hosts": { 
-                    "items": { 
-                        "anyOf": [ 
-                            { 
-                                "additionalProperties": false, 
-                                "properties": { 
-                                    "host": { 
-                                        "type": "string" 
-                                    }, 
-                                    "paths": { 
-                                        "items": { 
-                                            "anyOf": [] 
-                                        }, 
-                                        "type": "array" 
-                                    } 
-                                }, 
-                                "type": "object" 
-                            } 
-                        ] 
-                    }, 
-                    "type": "array" 
-                }, 
-                "tls": { 
-                    "items": { 
-                        "anyOf": [] 
-                    }, 
-                    "type": "array" 
-                } 
-            }, 
-            "type": "object" 
-        }, 
-        "nameOverride": { 
-            "type": "string" 
-        }, 
-        "nodeSelector": { 
-            "additionalProperties": false, 
-            "properties": {}, 
-            "type": "object" 
-        }, 
-        "podSecurityContext": { 
-            "additionalProperties": false, 
-            "properties": {}, 
-            "type": "object" 
-        }, 
-        "replicaCount": { 
-            "type": "integer" 
-        }, 
-        "resources": { 
-            "additionalProperties": false, 
-            "properties": {}, 
-            "type": "object" 
-        }, 
-        "securityContext": { 
-            "additionalProperties": false, 
-            "properties": {}, 
-            "type": "object" 
-        }, 
-        "service": { 
-            "additionalProperties": false, 
-            "properties": { 
-                "port": { 
-                    "type": "integer" 
-                }, 
-                "type": { 
-                    "type": "string" 
-                } 
-            }, 
-            "type": "object" 
-        }, 
-        "serviceAccount": { 
-            "additionalProperties": false, 
-            "properties": { 
-                "create": { 
-                    "type": "boolean" 
-                }, 
-                "name": { 
-                    "type": "null" 
-                } 
-            }, 
-            "type": "object" 
-        }, 
-        "tolerations": { 
-            "items": { 
-                "anyOf": [] 
-            }, 
-            "type": "array" 
-        } 
-    }, 
-    "type": "object" 
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "additionalProperties": true,
+    "properties": {
+        "affinity": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "fullnameOverride": {
+            "type": "string"
+        },
+        "image": {
+            "additionalProperties": false,
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "imagePullSecrets": {
+            "items": {
+                "anyOf": []
+            },
+            "type": "array"
+        },
+        "ingress": {
+            "additionalProperties": false,
+            "properties": {
+                "annotations": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "type": "object"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "hosts": {
+                    "items": {
+                        "anyOf": [
+                            {
+                                "additionalProperties": false,
+                                "properties": {
+                                    "host": {
+                                        "type": "string"
+                                    },
+                                    "paths": {
+                                        "items": {
+                                            "anyOf": []
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "tls": {
+                    "items": {
+                        "anyOf": []
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "nameOverride": {
+            "type": "string"
+        },
+        "nodeSelector": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "podSecurityContext": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "replicaCount": {
+            "type": "integer"
+        },
+        "resources": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "securityContext": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "service": {
+            "additionalProperties": false,
+            "properties": {
+                "port": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "serviceAccount": {
+            "additionalProperties": false,
+            "properties": {
+                "create": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "null"
+                }
+            },
+            "type": "object"
+        },
+        "tolerations": {
+            "items": {
+                "anyOf": []
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
 }
 ```
 
@@ -430,9 +467,9 @@ data:
     }
 ```
 
-- **Deployment Configuration:** The `deployment.yaml` file showcases specific lines pertinent to `imagePullSecrets` and `image`. Be sure to observe their structured format, as Azure Operator Service Manager (AOSM) furnishes the necessary values for these fields during deployment.
+**Deployment Configuration:** The `deployment.yaml` file showcases specific lines pertinent to `imagePullSecrets` and `image`. Be sure to observe their structured format, as Azure Operator Service Manager (AOSM) furnishes the necessary values for these fields during deployment.
 
-### Sample deployment.yaml file
+**Sample deployment.yaml file**
 
 ```yml
 apiVersion: apps/v1 
