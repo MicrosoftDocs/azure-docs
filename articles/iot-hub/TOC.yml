@@ -204,10 +204,10 @@
             href: authenticate-x509.md
         - name: Authorization
           items:
-          - name: Authorize with Azure Active Directory
+          - name: Azure Active Directory
             displayName: authorization, authorize, auth, authz
             href: authorize-azure-ad.md
-          - name: Authorize with shared access signatures
+          - name: Shared access signatures
             displayName: authorization, authorize, auth, authz
             href: authorize-sas.md
         - name: TLS support

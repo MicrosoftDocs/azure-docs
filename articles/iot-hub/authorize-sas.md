@@ -28,7 +28,7 @@ You must have appropriate permissions to access any of the IoT Hub endpoints. Fo
 
 ## Authorization in IoT Hub
 
-*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*. Authorization is separate from *authentication*, which is the process of proving that you are who you say you are. For more information about authentication, see [Authentication overview](authenticate-overview.md).
+*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*. Authorization is separate from *authentication*, which is the process of proving that you are who you say you are.
 
 This article describes authorization using **Shared access signatures** lets you group permissions and grant them to applications using access keys and signed security tokens. For other authorization options, see [Authorize access with Azure Active Directory](authorize-azure-ad.md).
 

@@ -22,7 +22,7 @@ Authenticating access by using Azure AD and controlling permissions by using Azu
 
 ## Authorization in IoT Hub
 
-*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*. Authorization is separate from *authentication*, which is the process of proving that you are who you say you are. For more information about authentication, see [Authentication overview](authenticate-overview.md).
+*Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*. Authorization is separate from *authentication*, which is the process of proving that you are who you say you are.
 
 This article describes authorization using **Azure Active Directory (Azure AD) integration** for service APIs. Azure provides identity-based authentication with AAD and fine-grained authorization with Azure role-based access control (Azure RBAC). Azure AD and RBAC integration is supported for IoT hub service APIs only. For other authorization options, see [Authorize access with shared access signatures](authorize-sas.md). 
 
