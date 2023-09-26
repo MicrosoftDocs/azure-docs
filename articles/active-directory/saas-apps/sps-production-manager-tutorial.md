@@ -35,9 +35,6 @@ In this tutorial, you configure and test Microsoft Entra SSO in a test environme
 
 * SPS|Production Manager supports **IDP** initiated SSO.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 ## Adding SPS|Production Manager from the gallery
 
 To configure the integration of SPS|Production Manager into Microsoft Entra ID, you need to add SPS|Production Manager from the gallery to your list of managed SaaS apps.
