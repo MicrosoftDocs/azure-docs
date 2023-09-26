@@ -25,7 +25,7 @@ Azure Stream Analytics lets you connect directly to Kafka clusters to ingest dat
 
 Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
 
-## Authentication and Encryption
+## Authentication and encryption
 
 You can use four types of security protocols to connect to your Kafka clusters:
 
@@ -43,7 +43,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 > 
 
 
-### Key Vault Integration
+### Key Vault integration
 
 > [!NOTE]
 > When using trust store certificates with mTLS or SASL_SSL security protocols, you must have Azure KeyVault and managed identity configured for your Azure Stream Analytics job.
@@ -53,7 +53,7 @@ Azure Stream Analytics integrates seamlessly with Azure Key Vault to access stor
 
 You can store the certificates as Key Vault certificates or Key Vault secrets. Private keys are in PEM format.
 
-### Key Vault Integration
+### Key Vault integration
 When configuring your Azure Stream Analytics job to connect to your Kafka clusters, depending on your configuration, you may have to configure your job to access your Kafka clusters, which are behind a firewall or inside a virtual network. You can visit the Azure Stream Analytics VNET documentation to learn more about configuring private endpoints to access resources inside a virtual network or behind a firewall.
 
 
