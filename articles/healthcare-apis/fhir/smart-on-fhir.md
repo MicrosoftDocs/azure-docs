@@ -165,6 +165,9 @@ Notice that the SMART on FHIR app launcher updates the **Launch URL** informatio
 Inspect the token response to see how the launch context fields are passed on to the app.
      </details>
      
+## Migrate from SMART on FHIR Proxy to SMART on FHIR (Enhanced)
+[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smartonfhirproxymigration.md)]
+
 ## Next steps
 
 Now that you've learned about enabling SMART on FHIR functionality, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.
