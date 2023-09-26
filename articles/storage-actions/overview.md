@@ -5,7 +5,7 @@ description: Learn how to perform operations on containers and blobs in Azure St
 services: storage
 author: normesta
 
-ms.service: storage-tasks
+ms.service: azure-storage-actions
 ms.topic: overview
 ms.date: 08/03/2023
 ms.author: normesta

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage Tasks
 description: Learn about limitations and known issues of Azure Storage Tasks.
 author: normesta
 
-ms.service: storage-tasks
+ms.service: azure-storage-actions
 ms.topic: conceptual
 ms.date: 05/16/2023
 ms.author: normesta

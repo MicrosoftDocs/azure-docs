@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Azure Storage Tasks documentation
   description: Azure Storage Tasks documentation hub page. Points to service documentation for using the Azure Storage Tasks perform operations on containers and blobs in Azure Storage accounts based on a set of conditions that you define. 
-  ms.service: azure-storage-tasks
+  ms.service: azure-storage-actions
   ms.topic: hub-page
   author: normesta
   ms.author: normesta

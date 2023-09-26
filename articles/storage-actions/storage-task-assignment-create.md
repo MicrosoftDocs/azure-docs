@@ -3,7 +3,7 @@ title: Create and manage a storage task assignment
 titleSuffix: Azure Storage Tasks
 description: Learn how to create an assignment, and then enable that assignment to run.
 author: normesta
-ms.service: storage-tasks
+ms.service: azure-storage-actions
 ms.topic: how-to
 ms.author: normesta
 ms.date: 05/10/2023

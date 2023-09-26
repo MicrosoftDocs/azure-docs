@@ -3,7 +3,7 @@ title: Create a storage task
 titleSuffix: Azure Storage Tasks
 description: Learn how to create a storage task. A storage task can perform operations on containers and blobs in one or more Azure Storage accounts. 
 author: normesta
-ms.service: storage-tasks
+ms.service: azure-storage-actions
 ms.topic: how-to
 ms.author: normesta
 ms.date: 05/10/2023
