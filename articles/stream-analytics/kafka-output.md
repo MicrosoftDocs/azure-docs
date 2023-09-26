@@ -14,7 +14,7 @@ Azure Stream Analytics allows you to connect directly to Kafka clusters as a pro
 
 ### Kafka Event Compression
 
-Supported compression types are None, Gzip, Snappy, LZ4 and Zstd.
+Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
 
 ## Authentication and Encryption
 
@@ -44,7 +44,7 @@ Azure Stream Analytics integrates seamlessly with Azure Key Vault to access stor
 You can store the certificates as Key Vault certificates or Key Vault secrets. Private keys are in PEM format.
 
 ### Key Vault Integration
-When configuring your Azure Stream Analytics job to connect to your Kafka clusters, depending on your configuration, you may have to configure your job to be able to access your Kafka clusters, which are behind a firewall or inside a virtual network. You can visit the Azure Stream Analytics VNET documentation to learn more about configuring private endpoints to access resources that are inside a virtual network or behind a firewall.
+When configuring your Azure Stream Analytics job to connect to your Kafka clusters, depending on your configuration, you may have to configure your job to access your Kafka clusters, which are behind a firewall or inside a virtual network. You can visit the Azure Stream Analytics VNET documentation to learn more about configuring private endpoints to access resources inside a virtual network or behind a firewall.
 
 
 ### Configuration
@@ -53,12 +53,12 @@ The following table lists the property names and their description for creating 
 | Property name                | Description                                                                                                             |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Input/Output Alias            | A friendly name used in queries to reference your input or output                                                      |
-| Bootstrap server addresses   | A list of host/port pairs to use for establishing the connection to the Kafka cluster.                                  |
+| Bootstrap server addresses   | A list of host/port pairs to establish the connection to the Kafka cluster.                                  |
 | Kafka topic                  | A unit of your Kafka cluster you want to write events to.                                                               |
-| Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports: mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
+| Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro) of the outgoing data stream.                                        |
 | Partition key                | Azure Stream Analytics assigns partitions using round partitioning.                                                     |
-| Kafka event compression type | The compression type used for outgoing data stream, such as Gzip, Snappy, Lz4, Zstd or None.                            |            
+| Kafka event compression type | The compression type used for outgoing data streams, such as Gzip, Snappy, Lz4, Zstd, or None.                            |            
 
 ### Limitations
 * When configuring your Azure Stream Analytics jobs to use VNET/SWIFT, your job must be configured with at least six (6) streaming units. 
@@ -66,7 +66,7 @@ The following table lists the property names and their description for creating 
 * The minimum version of Kafka you can configure Azure Stream Analytics to connect to is version 0.10.
 
 > [!NOTE]
-> For direct on using the Azure Stream Analytics kafka adapter, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
+> For direct help with using the Azure Stream Analytics Kafka adapter, please reach out to [askasa@microsoft.com](mailto:askasa@microsoft.com).
 >
 
 ## Next steps
