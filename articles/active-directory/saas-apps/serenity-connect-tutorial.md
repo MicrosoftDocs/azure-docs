@@ -82,7 +82,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 	`https://app.serenityconnect.com/sso-sign-in`
 
 	> [!NOTE]
-    > This value is not real. Update this value with the actual Identifier. Contact [Granite support team](mailto:support@granitegrc.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
+    > This value is not real. Update this value with the actual Identifier. Contact [Serenity Connect support team](mailto:hello@serenityconnect.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Microsoft Entra admin center.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
