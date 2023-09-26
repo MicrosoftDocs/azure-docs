@@ -108,10 +108,10 @@ The NPS extension requires Windows Server 2008 R2 SP1 or later, with the Network
 
 The following libraries are installed automatically with the NPS extension:
 
--    [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--    [Azure AD PowerShell Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+- [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Azure AD PowerShell module version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-If the Microsoft Azure Active Directory PowerShell Module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
+If the Azure Active Directory PowerShell module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
 
 ### Azure Active Directory synced with on-premises Active Directory
 
@@ -359,7 +359,7 @@ The NPS extension must be installed on a server that has the Network Policy and 
 
 ### Configure certificates for use with the NPS extension by using a PowerShell script
 
-To ensure secure communications and assurance, configure certificates for use by the NPS extension. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS.
+To ensure secure communications and assurance, configure certificates for use by the NPS extension. The NPS components include a PowerShell script that configures a self-signed certificate for use with NPS.
 
 The script performs the following actions:
 

@@ -70,7 +70,7 @@ Integration with the Microsoft identity platform comes with benefits that do not
 
 **Multi-factor authentication.**  The Microsoft identity platform provides native multi-factor authentication. IT administrators can require multi-factor authentication to access your application, so that you do not have to code this support yourself. Learn more about [Multi-Factor Authentication](/azure/multi-factor-authentication/).
 
-**Anomalous sign in detection.**  The Microsoft identity platform processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems. By supporting the Microsoft identity platform sign-in, your application gets the benefit of this protection. Learn more about [viewing Microsoft Entra access report](../reports-monitoring/overview-reports.md).
+**Anomalous sign in detection.** The Microsoft identity platform processes more than a billion sign-ins a day, while using machine learning algorithms to detect suspicious activity and notify IT administrators of possible problems. By supporting the Microsoft identity platform sign-in, your application gets the benefit of this protection. Learn more about [viewing Microsoft Entra reports](../reports-monitoring/overview-monitoring-health.md).
 
 **Conditional Access.**  In addition to multi-factor authentication, administrators can require specific conditions be met before users can sign-in to your application. Conditions that can be set include the IP address range of client devices, membership in specified groups, and the state of the device being used for access. Learn more about [Microsoft Entra Conditional Access](../conditional-access/overview.md).
 

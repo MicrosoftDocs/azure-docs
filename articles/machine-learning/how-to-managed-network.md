@@ -1,5 +1,5 @@
 ---
-title: Managed virtual network isolation (preview)
+title: Managed virtual network isolation
 titleSuffix: Azure Machine Learning
 description: Use managed virtual network isolation for network security with Azure Machine Learning.
 services: machine-learning
@@ -13,59 +13,53 @@ ms.topic: how-to
 ms.custom: build-2023, devx-track-azurecli
 ---
 
-# Workspace managed network isolation (preview)
+# Workspace managed virtual network isolation
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Azure Machine Learning provides support for managed virtual network (VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed virtual network.
+Azure Machine Learning provides support for managed virtual network (managed VNet) isolation. Managed VNet isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed VNet.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
-
-## Managed virtual network architecture
+## managed virtual network architecture
 
 When you enable managed virtual network isolation, a managed VNet is created for the workspace. Managed compute resources you create for the workspace automatically use this managed VNet. The managed VNet can use private endpoints for Azure resources that are used by your workspace, such as Azure Storage, Azure Key Vault, and Azure Container Registry. 
 
-There are two different configuration modes for outbound traffic from the managed virtual network:
+There are two different configuration modes for outbound traffic from the managed VNet:
 
 > [!TIP]
-> Regardless of the outbound mode you use, traffic to Azure resources can be configured to use a private endpoint. For example, you may allow all outbound traffic to the internet, but restrict communication with Azure resources by creating a private endpoint for that resource in the managed VNet
+> Regardless of the outbound mode you use, traffic to Azure resources can be configured to use a private endpoint. For example, you may allow all outbound traffic to the internet, but restrict communication with Azure resources by adding outbound rules for the resources.
 
 | Outbound mode | Description | Scenarios |
 | ----- | ----- | ----- |
-| Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | Recommended if you need access to machine learning artifacts on the Internet, such as python packages or pretrained models. |
-| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | Recommended if you want to minimize the risk of data exfiltration but you need to prepare all required machine learning artifacts in your private locations. |
+| Allow internet outbound | Allow all internet outbound traffic from the managed VNet. | You want unrestricted access to machine learning resources on the internet, such as python packages or pretrained models.<sup>1</sup> |
+| Allow only approved outbound | Outbound traffic is allowed by specifying service tags. | * You want to minimize the risk of data exfiltration, but you need to prepare all required machine learning artifacts in your private environment.</br>* You want to configure outbound access to an approved list of services, service tags, or FQDNs. |
+| Disabled | Inbound and outbound traffic isn't restricted or you're using your own Azure Virtual Network to protect resources. | You want public inbound and outbound from the workspace, or you're handling network isolation with your own Azure VNet. |
 
-The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault __if they're configured as private__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
+1: You can use outbound rules with _allow only approved outbound_ mode to achieve the same result as using allow internet outbound. The differences are:
 
-The following diagram shows a managed virtual network configured to __allow internet outbound__:
+* You must add rules for each outbound connection you need to allow.
+* Adding FQDN outbound rules increase your costs as this rule type uses Azure Firewall.
+* The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add may increase your risk.
 
-:::image type="content" source="./media/how-to-managed-network/internet-outbound.svg" alt-text="Diagram of managed network isolation configured for internet outbound." lightbox="./media/how-to-managed-network/internet-outbound.svg":::
+The managed VNet is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your workspace, workspace's default storage, container registry and key vault __if they're configured as private__ or __the workspace isolation mode is set to allow only approved outbound__. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
-The following diagram shows a managed virtual network configured to __allow only approved outbound__:
+The following diagram shows a managed VNet configured to __allow internet outbound__:
+
+:::image type="content" source="./media/how-to-managed-network/internet-outbound.svg" alt-text="Diagram of managed VNet isolation configured for internet outbound." lightbox="./media/how-to-managed-network/internet-outbound.svg":::
+
+The following diagram shows a managed VNet configured to __allow only approved outbound__:
 
 > [!NOTE]
 > In this configuration, the storage, key vault, and container registry used by the workspace are flagged as private. Since they are flagged as private, a private endpoint is used to communicate with them.
 
-:::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed network isolation configured for allow only approved outbound." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
+:::image type="content" source="./media/how-to-managed-network/only-approved-outbound.svg" alt-text="Diagram of managed VNet isolation configured for allow only approved outbound." lightbox="./media/how-to-managed-network/only-approved-outbound.svg":::
 
 ### Azure Machine Learning studio
 
 If you want to use the integrated notebook or create datasets in the default storage account from studio, your client needs access to the default storage account. Create a _private endpoint_ or _service endpoint_ for the default storage account in the Azure Virtual Network that the clients use.
 
-Part of Azure Machine Learning studio runs locally in the client's web browser, and communicates directly with the default storage for the workspace. Creating a private endpoint or service endpoint for the default storage account in the virtual network ensures that the client can communicate with the storage account.
-
-> [!TIP]
-> A using a service endpoint in this configuration can reduce costs.
+Part of Azure Machine Learning studio runs locally in the client's web browser, and communicates directly with the default storage for the workspace. Creating a private endpoint or service endpoint (for the default storage account) in the client's virtual network ensures that the client can communicate with the storage account.
 
 For more information on creating a private endpoint or service endpoint, see the [Connect privately to a storage account](/azure/storage/common/storage-private-endpoints) and [Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) articles.
-
-## Supported scenarios
-
-|Scenarios|Supported|
-|---|---|
-|Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound|
-|Compute|&#x2022; [Compute Instance](concept-compute-instance.md)<br>&#x2022; [Compute Cluster](how-to-create-attach-compute-cluster.md)<br>&#x2022; [Serverless](how-to-use-serverless-compute.md)<br>&#x2022; [Serverless spark](apache-spark-azure-ml-concepts.md)<br>&#x2022; New managed online endpoint creation<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless |
-|Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag<br>&#x2022; FQDN | 
 
 ## Prerequisites
 
@@ -78,7 +72,7 @@ Before following the steps in this article, make sure you have the following pre
 * The [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
     >[!TIP]
-    > Azure Machine Learning managed virtual network was introduced on May 23rd, 2023. If you have an older version of the ml extension, you may need to update it for the examples in this article work. To update the extension, use the following Azure CLI command:
+    > Azure Machine Learning managed VNet was introduced on May 23rd, 2023. If you have an older version of the ml extension, you may need to update it for the examples in this article work. To update the extension, use the following Azure CLI command:
     >
     > ```azurecli
     > az extension update -n ml
@@ -95,7 +89,7 @@ Before following the steps in this article, make sure you have the following pre
 * The Azure Machine Learning Python SDK v2. For more information on the SDK, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
     > [!TIP]
-    > Azure Machine learning managed virtual network was introduced on May 23rd, 2023. If you have an older version of the SDK installed, you may need to update it for the examples in this article to work. To update the SDK, use the following command:
+    > Azure Machine learning managed VNet was introduced on May 23rd, 2023. If you have an older version of the SDK installed, you may need to update it for the examples in this article to work. To update the SDK, use the following command:
     >
     > ```bash
     > pip install --upgrade azure-ai-ml azure-identity
@@ -131,10 +125,11 @@ Before following the steps in this article, make sure you have the following pre
 
 ## Configure a managed virtual network to allow internet outbound
 
+> [!TIP]
+> The creation of the managed VNet is deferred until a compute resource is created or provisioning is manually started. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
+
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
->
-> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
+> __If you plan to submit serverless Spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless Spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -163,9 +158,6 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Create a new workspace__:
 
-    > [!TIP]
-    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
-
     The following example creates a new workspace. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the workspace:
 
     ```azurecli
@@ -184,7 +176,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     name: myworkspace
     location: EastUS
     managed_network:
-    isolation_mode: allow_internet_outbound
+      isolation_mode: allow_internet_outbound
     ```
 
 * __Update an existing workspace__:
@@ -197,7 +189,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     az ml workspace update --name ws --resource-group rg --managed-network allow_internet_outbound
     ```
 
-    To Update an existing workspace using the YAML file, use the `--file` parameter and specify the YAML file that contains the configuration settings:
+    To update an existing workspace using the YAML file, use the `--file` parameter and specify the YAML file that contains the configuration settings:
 
     ```azurecli
     az ml workspace update --file workspace.yaml --name ws --resource-group MyGroup
@@ -224,13 +216,10 @@ To configure a managed VNet that allows internet outbound communications, use th
 
 * __Create a new workspace__:
 
-    > [!TIP]
-    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/developer/python/sdk/examples/azure-sdk-example-resource-group).
-
     The following example creates a new workspace named `myworkspace`, with an outbound rule named `myrule` that adds a private endpoint for an Azure Blob store:
 
     ```python
-    # Basic managed network configuration
+    # Basic managed VNet configuration
     network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
 
     # Workspace configuration
@@ -268,7 +257,7 @@ To configure a managed VNet that allows internet outbound communications, use th
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
     ws = ml_client.workspaces.get()
     
-    # Basic managed network configuration
+    # Basic managed VNet configuration
     ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
 
     # Example private endpoint outbound to a blob
@@ -296,18 +285,18 @@ To configure a managed VNet that allows internet outbound communications, use th
     1. Provide the required information on the __Basics__ tab.
     1. From the __Networking__ tab, select __Private with Internet Outbound__.
     
-        :::image type="content" source="./media/how-to-managed-network/use-managed-network-internet-outbound.png" alt-text="Screenshot of creating a workspace with an internet outbound managed network." lightbox="./media/how-to-managed-network/use-managed-network-internet-outbound.png":::
+        :::image type="content" source="./media/how-to-managed-network/use-managed-network-internet-outbound.png" alt-text="Screenshot of creating a workspace with an internet outbound managed VNet." lightbox="./media/how-to-managed-network/use-managed-network-internet-outbound.png":::
 
     1. To add an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the following information:
     
         * __Rule name__: A name for the rule. The name must be unique for this workspace.
-        * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound. Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
+        * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound. Azure Machine Learning managed VNet doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
         * __Subscription__: The subscription that contains the Azure resource you want to add a private endpoint for.
         * __Resource group__: The resource group that contains the Azure resource you want to add a private endpoint for.
         * __Resource type__: The type of the Azure resource.
         * __Resource name__: The name of the Azure resource.
         * __Sub Resource__: The sub resource of the Azure resource type.
-        * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
+        * __Spark enabled__: Select this option if you want to enable serverless Spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
 
         :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of adding an outbound rule for a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
@@ -319,38 +308,30 @@ To configure a managed VNet that allows internet outbound communications, use th
 
     [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
-    1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
+    1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
     1. Select __Networking__, then select __Private with Internet Outbound__.
     
-        :::image type="content" source="./media/how-to-managed-network/update-managed-network-internet-outbound.png" alt-text="Screenshot of updating a workspace to managed network with internet outbound." lightbox="./media/how-to-managed-network/update-managed-network-internet-outbound.png":::
+        :::image type="content" source="./media/how-to-managed-network/update-managed-network-internet-outbound.png" alt-text="Screenshot of updating a workspace to managed VNet with internet outbound." lightbox="./media/how-to-managed-network/update-managed-network-internet-outbound.png":::
 
-        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the following information:
-    
-            * __Rule name__: A name for the rule. The name must be unique for this workspace.
-            * __Destination type__: Private Endpoint is the only option when the network isolation is private with internet outbound. Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
-            * __Subscription__: The subscription that contains the Azure resource you want to add a private endpoint for.
-            * __Resource group__: The resource group that contains the Azure resource you want to add a private endpoint for.
-            * __Resource type__: The type of the Azure resource.
-            * __Resource name__: The name of the Azure resource.
-            * __Sub Resource__: The sub resource of the Azure resource type.
-            * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
+        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the same information as used when creating a workspace in the 'Create a new workspace' section.
 
-            :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating a managed network by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
+            :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating a managed VNet by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
         * To __delete__ an outbound rule, select __delete__ for the rule.
 
-            :::image type="content" source="./media/how-to-managed-network/delete-outbound-rule.png" alt-text="Screenshot of the delete rule icon for an approved outbound managed network.":::
+            :::image type="content" source="./media/how-to-managed-network/delete-outbound-rule.png" alt-text="Screenshot of the delete rule icon for an approved outbound managed VNet.":::
 
-    1. Select __Save__ at the top of the page to save the changes to the managed network.
+    1. Select __Save__ at the top of the page to save the changes to the managed VNet.
 
 ---
 
 ## Configure a managed virtual network to allow only approved outbound
 
+> [!TIP]
+> The managed VNet is automatically provisioned when you create a compute resource. When allowing automatic creation, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules, the first FQDN rule adds around __10 minutes__ to the provisioning time. For more information, see [Manually provision the network](#manually-provision-a-managed-vnet).
+
 > [!IMPORTANT]
-> The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. If you want to provision the managed virtual network and private endpoints, use the `az ml workspace provision-network` command from the Azure CLI. For example, `az ml workspace provision-network --name ws --resource-group rg`.
->
-> __If you plan to submit serverless spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless spark jobs](#configure-for-serverless-spark-jobs) section.
+> __If you plan to submit serverless Spark jobs__, you must manually start provisioning. For more information, see the [configure for serverless Spark jobs](#configure-for-serverless-spark-jobs) section.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -361,11 +342,14 @@ managed_network:
   isolation_mode: allow_only_approved_outbound
 ```
 
-You can also define _outbound rules_ to define approved outbound communication. An outbound rule can be created for a type of `service_tag` or `fqdn`. You can also define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource, a service tag to Azure Data Factory, and an FQDN to `pypi.org`:
+You can also define _outbound rules_ to define approved outbound communication. An outbound rule can be created for a type of `service_tag`, `fqdn`, and `private_endpoint`. The following rule demonstrates adding a private endpoint to an Azure Blob resource, a service tag to Azure Data Factory, and an FQDN to `pypi.org`:
 
 > [!IMPORTANT]
 > * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `allow_only_approved_outbound`.
 > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
+
+> [!WARNING]
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 
 ```yaml
 managed_network:
@@ -392,22 +376,19 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Create a new workspace__:
 
-    > [!TIP]
-    > Before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
-
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed VNet:
 
     ```azurecli
     az ml workspace create --name ws --resource-group rg --managed-network allow_only_approved_outbound
     ```
 
-    The following YAML file defines a workspace with a managed virtual network:
+    The following YAML file defines a workspace with a managed VNet:
 
     ```yml
     name: myworkspace
     location: EastUS
     managed_network:
-    isolation_mode: allow_only_approved_outbound
+      isolation_mode: allow_only_approved_outbound
     ```
 
     To create a workspace using the YAML file, use the `--file` parameter:
@@ -427,6 +408,9 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     ```
 
     The following YAML file defines a managed VNet for the workspace. It also demonstrates how to add an approved outbound to the managed VNet. In this example, an outbound rule is added for both a service tag:
+
+    > [!WARNING]
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing.For more information, see [Pricing](#pricing).
 
     ```yaml
     name: myworkspace_dep
@@ -462,20 +446,20 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 * __Create a new workspace__:
 
-    > [!TIP]
-    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/developer/python/sdk/examples/azure-sdk-example-resource-group).
-
     The following example creates a new workspace named `myworkspace`, with several outbound rules:
 
     * `myrule` - Adds a private endpoint for an Azure Blob store.
     * `datafactory` - Adds a service tag rule to communicate with Azure Data Factory.
 
     > [!IMPORTANT]
-    > * Adding an outbound for a service tag is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
+    > * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
     > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
 
+    > [!WARNING]
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+
     ```python
-    # Basic managed virtual network configuration
+    # Basic managed VNet configuration
     network = ManagedNetwork(IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
 
     # Workspace configuration
@@ -537,14 +521,17 @@ To configure a managed VNet that allows only approved outbound communications, u
     * `datafactory` - Adds a service tag rule to communicate with Azure Data Factory.
 
     > [!TIP]
-    > Adding an outbound for a service tag is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
+    > Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
+
+    > [!WARNING]
+    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
     
     ```python
     # Get the existing workspace
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
     ws = ml_client.workspaces.get()
 
-    # Basic managed virtual network configuration
+    # Basic managed VNet configuration
     ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
 
     # Append some rules
@@ -597,7 +584,7 @@ To configure a managed VNet that allows only approved outbound communications, u
     1. Provide the required information on the __Basics__ tab.
     1. From the __Networking__ tab, select __Private with Approved Outbound__.
     
-        :::image type="content" source="./media/how-to-managed-network/use-managed-network-approved-outbound.png" alt-text="Screenshot of creating a workspace with an approved outbound managed network." lightbox="./media/how-to-managed-network/use-managed-network-approved-outbound.png":::
+        :::image type="content" source="./media/how-to-managed-network/use-managed-network-approved-outbound.png" alt-text="Screenshot of creating a workspace with an approved outbound managed VNet." lightbox="./media/how-to-managed-network/use-managed-network-approved-outbound.png":::
 
     1. To add an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the following information:
     
@@ -611,10 +598,10 @@ To configure a managed VNet that allows only approved outbound communications, u
         * __Resource type__: The type of the Azure resource.
         * __Resource name__: The name of the Azure resource.
         * __Sub Resource__: The sub resource of the Azure resource type.
-        * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
+        * __Spark enabled__: Select this option if you want to enable serverless Spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
 
         > [!TIP]
-        > Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
+        > Azure Machine Learning managed VNet doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
 
         :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating an approved outbound network by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
@@ -628,9 +615,12 @@ To configure a managed VNet that allows only approved outbound communications, u
 
         If the destination type is __FQDN__, provide the following information:
 
+        > [!WARNING]
+        > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
+
         * __FQDN destination__: The fully qualified domain name to add to the approved outbound rules.
 
-        :::image type="content" source="./media/how-to-managed-network/outbound-rule-fqdn.png" alt-text="Screenshot of updating an approved outbound network by adding an FQDN rule for an approved outbound managed network." lightbox="./media/how-to-managed-network/outbound-rule-fqdn.png":::
+        :::image type="content" source="./media/how-to-managed-network/outbound-rule-fqdn.png" alt-text="Screenshot of updating an approved outbound network by adding an FQDN rule for an approved outbound managed VNet." lightbox="./media/how-to-managed-network/outbound-rule-fqdn.png":::
 
         Select __Save__ to save the rule. You can continue using __Add user-defined outbound rules__ to add rules.
 
@@ -640,64 +630,31 @@ To configure a managed VNet that allows only approved outbound communications, u
 
     [!INCLUDE [managed-vnet-update](includes/managed-vnet-update.md)]
 
-    1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
+    1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
     1. Select __Networking__, then select __Private with Approved Outbound__.
     
-        :::image type="content" source="./media/how-to-managed-network/update-managed-network-approved-outbound.png" alt-text="Screenshot of updating a workspace to managed network with approved outbound." lightbox="./media/how-to-managed-network/update-managed-network-approved-outbound.png":::
+        :::image type="content" source="./media/how-to-managed-network/update-managed-network-approved-outbound.png" alt-text="Screenshot of updating a workspace to managed VNet with approved outbound." lightbox="./media/how-to-managed-network/update-managed-network-approved-outbound.png":::
 
-        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the following information:
-    
-            * __Rule name__: A name for the rule. The name must be unique for this workspace.
-            * __Destination type__: Private Endpoint, Service Tag, or FQDN. Service Tag and FQDN are only available when the network isolation is private with approved outbound.
-
-            If the destination type is __Private Endpoint__, provide the following information:
-
-            * __Subscription__: The subscription that contains the Azure resource you want to add a private endpoint for.
-            * __Resource group__: The resource group that contains the Azure resource you want to add a private endpoint for.
-            * __Resource type__: The type of the Azure resource.
-            * __Resource name__: The name of the Azure resource.
-            * __Sub Resource__: The sub resource of the Azure resource type.
-            * __Spark enabled__: Select this option if you want to enable serverless spark jobs for the workspace. This option is only available if the resource type is Azure Storage.
-
-            > [!TIP]
-            > Azure Machine Learning managed virtual network doesn't support creating a private endpoint to all Azure resource types. For a list of supported resources, see the [Private endpoints](#private-endpoints) section.
-
-            :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating an approved outbound network by adding a private endpoint rule." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
-
-            If the destination type is __Service Tag__, provide the following information:
-
-            * __Service tag__: The service tag to add to the approved outbound rules.
-            * __Protocol__: The protocol to allow for the service tag.
-            * __Port ranges__: The port ranges to allow for the service tag.
-
-            :::image type="content" source="./media/how-to-managed-network/outbound-rule-service-tag.png" alt-text="Screenshot of updating an approved outbound network by adding a service tag rule." lightbox="./media/how-to-managed-network/outbound-rule-service-tag.png" :::
-
-            If the destination type is __FQDN__, provide the following information:
-
-            * __FQDN destination__: The fully qualified domain name to add to the approved outbound rules.
-
-            :::image type="content" source="./media/how-to-managed-network/outbound-rule-fqdn.png" alt-text="Screenshot of updating an approved outbound network by adding an FQDN rule." lightbox="./media/how-to-managed-network/outbound-rule-fqdn.png":::
-
-            Select __Save__ to save the rule. You can continue using __Add user-defined outbound rules__ to add rules.
+        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the same information as when creating a workspace in the previous 'Create a new workspace' section.
 
         * To __delete__ an outbound rule, select __delete__ for the rule.
 
-            :::image type="content" source="./media/how-to-managed-network/delete-outbound-rule.png" alt-text="Screenshot of the delete rule icon for an approved outbound managed network.":::
+            :::image type="content" source="./media/how-to-managed-network/delete-outbound-rule.png" alt-text="Screenshot of the delete rule icon for an approved outbound managed VNet.":::
 
-    1. Select __Save__ at the top of the page to save the changes to the managed network.
+    1. Select __Save__ at the top of the page to save the changes to the managed VNet.
 
 ---
 
 
-## Configure for serverless spark jobs
+## Configure for serverless Spark jobs
 
 > [!TIP]
-> The steps in this section are only needed if you plan to submit __serverless spark jobs__. If you aren't going to be submitting serverless spark jobs, you can skip this section.
+> The steps in this section are only needed if you plan to submit __serverless Spark jobs__. If you aren't going to be submitting serverless Spark jobs, you can skip this section.
 
-To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
+To enable the [serverless Spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
 
 * Configure a managed VNet for the workspace and add an outbound private endpoint for the Azure Storage Account.
-* After you configure the managed VNet, provision it and flag it to allow spark jobs.
+* After you configure the managed VNet, provision it and flag it to allow Spark jobs.
 
 1. Configure an outbound private endpoint.
 
@@ -705,8 +662,8 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Storage Account. Also set `spark_enabled: true`:
 
-    > [!NOTE]
-    > This example is for a managed VNet configured to allow internet traffic. Currently, serverless Spark does not support `isolation_mode: allow_only_approved_outbound` to allow only approved outbound traffic.
+    > [!TIP]
+    > This example is for a managed VNet configured using `isolation_mode: allow_internet_outbound` to allow internet traffic.  If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `isolation_mode: allow_only_approved_outbound`.
 
     ```yml
     name: myworkspace
@@ -727,19 +684,23 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     az ml workspace update --file workspace_pe.yml --resource_group rg --name ws
     ```
 
+    > [!NOTE]
+    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in your Spark job.
+    > - If the workspace was created with `isolation_mode: allow_internet_outbound`, it can not be updated later to use `isolation_mode: allow_only_approved_outbound`.
+
     # [Python SDK](#tab/python)
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the Azure Storage Account and sets `spark_enabled=true`:
 
-    > [!NOTE]
-    > The following example is for a managed VNet configured to allow internet traffic. Currently, serverless Spark does not support `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` to allow only approved outbound traffic.  
+    > [!TIP]
+    > The following example is for a managed VNet configured using `IsolationMode.ALLOW_INTERNET_OUTBOUND` to allow internet traffic. If you want to allow only approved outbound traffic to enable data exfiltration protection (DEP), use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.  
         
     ```python
     # Get the existing workspace
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
     ws = ml_client.workspaces.get()
 
-    # Basic managed network configuration
+    # Basic managed VNet configuration
     ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
 
     # Example private endpoint outbound to a blob
@@ -758,27 +719,30 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     # Create the workspace
     ml_client.workspaces.begin_update(ws)
     ```
+    > [!NOTE]
+    > - When data exfiltration protection (DEP) is enabled, conda package dependencies defined in Spark session configuration will fail to install. To resolve this problem, upload a self-contained Python package wheel with no external dependencies to an Azure storage account and create private endpoint to this storage account. Use the path to Python package wheel as `py_files` parameter in the Spark job.
+    > - If the workspace was created with `IsolationMode.ALLOW_INTERNET_OUTBOUND`, it can not be updated later to use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`. 
 
 
     # [Azure portal](#tab/portal)
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace.
-    1. Select __Networking__, then select __Add user-defined outbound rules__. Add a rule for the Azure Storage Account, and make sure that __Spark enabled__ is selected.
+    2. Select __Networking__, then select __Add user-defined outbound rules__. Add a rule for the Azure Storage Account, and make sure that __Spark enabled__ is selected.
     
         :::image type="content" source="./media/how-to-managed-network/add-outbound-spark-enabled.png" alt-text="Screenshot of an endpoint rule with Spark enabled selected." lightbox="./media/how-to-managed-network/add-outbound-spark-enabled.png":::
 
-    1. Select __Save__ to save the rule, then select __Save__ from the top of __Networking__ to save the changes to the manged virtual network.
+    3. Select __Save__ to save the rule, then select __Save__ from the top of __Networking__ to save the changes to the manged virtual network.
 
     ---
 
-1. Provision the managed VNet.
+2. Provision the managed VNet.
 
     > [!NOTE]
-    > If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed virtual network. If you don't disable public network access when provisioning the managed virtual network, the private endpoints for the managed endpoint may not be created successfully.
+    > If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed VNet. If you don't disable public network access when provisioning the managed VNet, the private endpoints for the managed endpoint may not be created successfully.
 
     # [Azure CLI](#tab/azure-cli)
 
-    The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
+    The following example shows how to provision a managed VNet for serverless Spark jobs by using the `--include-spark` parameter.
 
     ```azurecli
     az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
@@ -786,13 +750,13 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # [Python SDK](#tab/python)
 
-    The following example shows how to provision a managed VNet for serverless spark jobs:
+    The following example shows how to provision a managed VNet for serverless Spark jobs:
 
     ```python
     # Connect to a workspace named "myworkspace"
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
 
-    # whether to provision spark vnet as well
+    # whether to provision Spark vnet as well
     include_spark = True
 
     provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
@@ -800,9 +764,97 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # [Azure portal](#tab/portal)
 
-    Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless spark support.
+    Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless Spark support.
 
     --- 
+
+## Manually provision a managed VNet
+
+The managed VNet is automatically provisioned when you create a compute resource. When you rely on automatic provisioning, it can take around __30 minutes__ to create the first compute resource as it is also provisioning the network. If you configured FQDN outbound rules (only available with allow only approved mode), the first FQDN rule adds around __10 minutes__ to the provisioning time. 
+
+To reduce the wait time when someone attempts to create the first compute, you can manually provision the managed VNet after creating the workspace without creating a compute resource:
+
+> [!NOTE]
+> If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed VNet. If you don't disable public network access when provisioning the managed VNet, the private endpoints for the managed endpoint may not be created successfully.
+
+# [Azure CLI](#tab/azure-cli)
+
+The following example shows how to provision a managed VNet.
+
+> [!TIP]
+> If you plan to submit serverless Spark jobs, add the `--include-spark` parameter.
+
+```azurecli
+az ml workspace provision-network -g my_resource_group -n my_workspace_name
+```
+
+# [Python SDK](#tab/python)
+
+The following example shows how to provision a managed VNet:
+
+```python
+# Connect to a workspace named "myworkspace"
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
+
+# whether to provision Spark vnet as well
+include_spark = True
+
+provision_network_result = ml_client.workspaces.begin_provision_network(workspace_name=ws_name, include_spark=include_spark).result()
+```
+
+# [Azure portal](#tab/portal)
+
+Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually provision the managed VNet with serverless Spark support.
+
+--- 
+
+## Configure image builds
+
+When the Azure Container Registry for your workspace is behind a virtual network, it can't be used to directly build Docker images. Instead, configure your workspace to use a compute cluster or compute instance to build images.
+
+> [!IMPORTANT]
+> The compute resource used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. If you're using a network configured to allow only approved outbound, you may need to add [rules that allow access to public repos](#scenario-access-public-machine-learning-packages) or [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository).
+
+# [Azure CLI](#tab/azure-cli)
+
+To update a workspace to use a compute cluster or compute instance to build Docker images, use the `az ml workspace update` command with the `--image-build-compute` parameter:
+
+```azurecli
+az ml workspace update --name ws --resource-group rg --image-build-compute mycompute
+```
+
+# [Python SDK](#tab/python)
+
+The following example demonstrates how to update a workspace to use a compute cluster to build images:
+
+```python
+# import required libraries
+from azure.ai.ml import MLClient
+from azure.identity import DefaultAzureCredential
+
+subscription_id = "<your subscription ID>"
+resource_group = "<your resource group name>"
+workspace = "<your workspace name>"
+
+ml_client = MLClient(
+    DefaultAzureCredential(), subscription_id, resource_group, workspace
+)
+
+# Get workspace info
+ws=ml_client.workspaces.get(name=workspace)
+# Update to use cpu-cluster for image builds
+ws.image_build_compute="mycompute"
+ml_client.workspaces.begin_update(ws)
+# To switch back to using ACR to build (if ACR is not in the virtual network):
+# ws.image_build_compute = ''
+# ml_client.workspaces.begin_update(ws)
+```
+
+# [Azure portal](#tab/portal)
+
+Currently there isn't a way to set the image build compute from the Azure portal. Use the __Azure CLI__ or __Python SDK__ tabs to learn how to manually configure image builds.
+
+---
 
 ## Manage outbound rules
 
@@ -849,7 +901,7 @@ ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_n
 
 # [Azure portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed virtual network isolation for.
+1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
 1. Select __Networking__. The __Workspace Outbound access__ section allows you to manage outbound rules.
 
     :::image type="content" source="./media/how-to-managed-network/manage-outbound-rules.png" alt-text="Screenshot of the outbound rules section." lightbox="./media/how-to-managed-network/manage-outbound-rules.png":::
@@ -868,8 +920,8 @@ ml_client._workspace_outbound_rules.begin_remove(resource_group, ws_name, rule_n
 > These  rules are automatically added to the managed VNet.
 
 __Private endpoints__:
-* When the isolation mode for the managed network is `Allow internet outbound`, private endpoint outbound rules are automatically created as required rules from the managed network for the workspace and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, Azure Machine Learning workspace).
-* When the isolation mode for the managed network is `Allow only approved outbound`, private endpoint outbound rules are automatically created as required rules from the managed network for the workspace and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, Azure Machine Learning workspace).
+* When the isolation mode for the managed VNet is `Allow internet outbound`, private endpoint outbound rules are automatically created as required rules from the managed VNet for the workspace and associated resources __with public network access disabled__ (Key Vault, Storage Account, Container Registry, Azure Machine Learning workspace).
+* When the isolation mode for the managed VNet is `Allow only approved outbound`, private endpoint outbound rules are automatically created as required rules from the managed VNet for the workspace and associated resources __regardless of public network access mode for those resources__ (Key Vault, Storage Account, Container Registry, Azure Machine Learning workspace).
 
 __Outbound__ service tag rules:
 
@@ -890,11 +942,17 @@ __Inbound__ service tag rules:
 
 To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
+> [!WARNING]
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing.For more information, see [Pricing](#pricing).
+
 [!INCLUDE [recommended outbound](includes/recommended-network-outbound.md)]
 
 ### Scenario: Use Visual Studio Code desktop or web with compute instance
 
 If you plan to use __Visual Studio Code__ with Azure Machine Learning, add outbound _FQDN_ rules to allow traffic to the following hosts:
+
+> [!WARNING]
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 
 * `*.vscode.dev`
 * `vscode.blob.core.windows.net`
@@ -948,13 +1006,13 @@ When you create a private endpoint, you provide the _resource type_ and _subreso
 When you create a private endpoint for Azure Machine Learning dependency resources, such as Azure Storage, Azure Container Registry, and Azure Key Vault, the resource can be in a different Azure subscription. However, the resource must be in the same tenant as the Azure Machine Learning workspace.
 
 > [!IMPORTANT]
-> When configuring private endpoints for an Azure Machine Learning managed virtual network, the private endpoints are only created when created when the first _compute is created_ or when managed network provisioning is forced. For more information on forcing the managed network provisioning, see [Configure for serverless spark jobs](#configure-for-serverless-spark-jobs).
+> When configuring private endpoints for an Azure Machine Learning managed VNet, the private endpoints are only created when created when the first _compute is created_ or when managed VNet provisioning is forced. For more information on forcing the managed VNet provisioning, see [Configure for serverless Spark jobs](#manually-provision-a-managed-vnet).
 
 ## Pricing
 
-The Azure Machine Learning managed virtual network feature is free. However, you're charged for the following resources that are used by the managed virtual network:
+The Azure Machine Learning managed VNet feature is free. However, you're charged for the following resources that are used by the managed VNet:
 
-* Azure Private Link - Private endpoints used to secure communications between the managed virtual network and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
+* Azure Private Link - Private endpoints used to secure communications between the managed VNet and Azure resources relies on Azure Private Link. For more information on pricing, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 * FQDN outbound rules - FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. 
 
     > [!IMPORTANT]
@@ -962,15 +1020,16 @@ The Azure Machine Learning managed virtual network feature is free. However, you
 
 ## Limitations
 
-* Once you enable managed virtual network isolation of your workspace, you can't disable it.
-* Managed virtual network uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
-* The managed network is deleted when the workspace is deleted. 
+* Once you enable managed VNet isolation of your workspace, you can't disable it.
+* Managed VNet uses private endpoint connection to access your private resources. You can't have a private endpoint and a service endpoint at the same time for your Azure resources, such as a storage account. We recommend using private endpoints in all scenarios.
+* The managed VNet is deleted when the workspace is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
-* Creating a compute cluster in a different region than the workspace isn't supported when using a managed virtual network.
+* Creating a compute cluster in a different region than the workspace isn't supported when using a managed VNet.
+* Kubernetes and attached VMs aren't supported in an Azure Machine Learning managed VNet.
 
 ### Migration of compute resources
 
-If you have an existing workspace and want to enable managed virtual network for it, there's currently no supported migration path for existing manged compute resources. You'll need to delete all existing managed compute resources and recreate them after enabling the managed virtual network. The following list contains the compute resources that must be deleted and recreated:
+If you have an existing workspace and want to enable managed VNet for it, there's currently no supported migration path for existing manged compute resources. You'll need to delete all existing managed compute resources and recreate them after enabling the managed VNet. The following list contains the compute resources that must be deleted and recreated:
 
 * Compute cluster
 * Compute instance
@@ -978,5 +1037,5 @@ If you have an existing workspace and want to enable managed virtual network for
 
 ## Next steps
 
-* [Troubleshoot managed virtual network](how-to-troubleshoot-managed-network.md)
-* [Configure managed computes in a managed virtual network](how-to-managed-network-compute.md)
+* [Troubleshoot managed VNet](how-to-troubleshoot-managed-network.md)
+* [Configure managed computes in a managed VNet](how-to-managed-network-compute.md)

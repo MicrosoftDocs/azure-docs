@@ -46,7 +46,7 @@ By distributing your applications across multiple availability zones, you can en
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app service plan/code/asp-1/asp-1.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app-service-plan/code/asp-1/asp-1.kql":::
 
 ----
 
@@ -58,7 +58,7 @@ Availability zone support is only available on certain App Service plans. To see
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app service plan/code/asp-2/asp-2.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app-service-plan/code/asp-2/asp-2.kql":::
 
 ----
 
@@ -80,7 +80,7 @@ It's recommended that you enable autoscale/automatic scaling for your Azure App 
 
 # [Azure Resource Graph](#tab/graph)
 
-:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app service plan/code/asp-5/asp-5.kql":::
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/web/app-service-plan/code/asp-5/asp-5.kql":::
 
 ----
 
