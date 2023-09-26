@@ -30,7 +30,7 @@
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
-    href: network-watcher-nsg-flow-logging-portal.md
+    href: nsg-flow-logs-tutorial.md
 - name: Concepts
   items:
   - name: Network Watcher FAQ
