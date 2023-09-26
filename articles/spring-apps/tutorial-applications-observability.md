@@ -1,15 +1,15 @@
 ---
-title: "Tutorial: Optimize application observability for Azure Spring Apps"
+title: Optimize application observability for Azure Spring Apps
 description: Learn how to observe the application of Azure Spring Apps.
 author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 09/15/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Optimize application observability for Azure Spring Apps
+# Optimize application observability for Azure Spring Apps
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -26,15 +26,15 @@ This quickstart shows you how to observe your production applications deployed o
 - **Performance**: Understand which performance issue the application encounters, need further attention, and find out the root cause of the problem.
 - **Alerts**: Know the current state of the application. Proactively notify others and take necessary actions when the application isn't working properly.
 
-In this quickstart, we use the well-known sample app [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) as the production application. For more information on how to deploy the PetClinic sample app to Azure Spring Apps, see the following articles:
+This article uses the well-known [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) sample app as the production application. For more information on how to deploy PetClinic to Azure Spring Apps and use MySQL as the persistent store, see the following articles:
 
 - [Deploy microservice applications to Azure Spring Apps](./quickstart-deploy-microservice-apps.md)
-- [Run microservice apps(Pet Clinic) with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
+- [Integrate Azure Spring Apps with Azure Database for MySQL](./quickstart-integrate-azure-database-mysql.md)
 
-Log Analytics and application insights are deeply integrated with Azure Spring Apps. You can use Log Analytics to diagnose your application with various log queries, and use Application Insights to investigate production issues. For more information, see the following articles:
+Log Analytics and Application Insights are deeply integrated with Azure Spring Apps. You can use Log Analytics to diagnose your application with various log queries and use Application Insights to investigate production issues. For more information, see the following articles:
 
-- [Log Analytics](../azure-monitor/logs/log-analytics-overview.md)
-- [Application Insights](../azure-monitor/insights/insights-overview.md) 
+- [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md)
+- [Azure Monitor Insights overview](../azure-monitor/insights/insights-overview.md) 
 
 ## 1. Prerequisites
 
@@ -44,28 +44,24 @@ Log Analytics and application insights are deeply integrated with Azure Spring A
 
 ## 4. Query logs to diagnose an application problem
 
-If you encounter production issues, find query logs for distributed applications that are spread across multiple applications. The trace data collected by Application Insights can help find the log information of all related links, including the exception stack information.
+If you encounter production issues, you need to do a root cause analysis. Finding logs is an important part of this analysis, especially for distributed applications with logs spread across multiple applications. The trace data collected by Application Insights can help you find the log information for all related links, including the exception stack information.
 
-This section explains how to use Log Analytics to query the application logs, and use Application Insights to investigate request failures. For more information, see the following articles:
+This section explains how to use Log Analytics to query the application logs and use Application Insights to investigate request failures. For more information, see the following articles:
 
 - [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md)
-- [Application Map in Application Insights](../azure-monitor/app/app-map.md)
+- [Application Map: Triage distributed applications](../azure-monitor/app/app-map.md)
 
 ### 4.1. Log queries
 
-This section explains how to query application logs from the table `AppPlatformLogsforSpring` hosted by Azure Spring Apps. You can use [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
+This section explains how to query application logs from the `AppPlatformLogsforSpring` table hosted by Azure Spring Apps. You can use the [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
 
 To see the built-in example query statements or to write your own queries, open the Azure Spring Apps instance and go to the **Logs** menu.
 
 #### Show the application logs which contain the "error" or "exception" terms
 
-Use the following steps to see the application logs containing the terms "error" or "exception":
+To see the application logs containing the terms "error" or "exception", select **Alerts** on the **Queries** page, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
 
-1. On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
-
-The application logs that contain the "error" or "exception" terms within the last hour opens up by default.
-
-1. To customize the query with any keyword you want, enter the following commands:
+The following query shows the application logs from the last hour that contain the terms "error" or "exception". You can customize the query with any keyword you want to search for.
 
 ```sql
 AppPlatformLogsforSpring
@@ -76,13 +72,9 @@ AppPlatformLogsforSpring
 
 #### Show the error and exception number of each application
 
-Use the following step to see the error and exception number of an application:
+To see the error and exception number of an application, select **Alerts** on the **Queries** page, and then select **Run** in the **Show the error and exception number of each application** section.
 
-1. On the **Queries** page, select **Alerts**, and then select **Run** in the **Show the error and exception number of each application** section.
-
-1. A pie chart of the number of the logs containing the "error" or "exception" terms in the last 24 hours opens up. To view the results in a table format, select **Result**.
-
-1. To customize the query with any keyword you want, enter the following commands:
+The following query shows a pie chart of the number of the logs in the last 24 hours that contain the terms "error" or "exception". To view the results in a table format, select **Result**.
 
 ```sql
 AppPlatformLogsforSpring
@@ -98,7 +90,7 @@ AppPlatformLogsforSpring
 
 #### Query the customers service log with a key word
 
-To review a list of logs with `root cause` in the app `customers-service` and to customize your query with the keyword you want, enter the following commands:
+Use the following query to see a list of logs in the `customers-service` app that contain the term "root cause". Update the query to use the keyword that you're looking for.
 
 ```sql
 AppPlatformLogsforSpring
@@ -109,7 +101,7 @@ AppPlatformLogsforSpring
 
 ### 4.2. Investigate request failures
 
-To investigate request failures in the application cluster and to view the failed request list and the specific examples of the failed requests, use the following steps:
+Use the following steps to investigate request failures in the application cluster and to view the failed request list and specific examples of the failed requests:
 
 1. Go to the Azure Spring Apps instance overview page.
 
@@ -117,13 +109,13 @@ To investigate request failures in the application cluster and to view the faile
 
    :::image type="content" source="media/tutorial-applications-observability/application-insights-failures.png" alt-text="Screenshot of the Azure portal that shows the failures." lightbox="media/tutorial-applications-observability/application-insights-failures.png":::
 
-1. On the **Failure** page, select the `PUT` operation that has the most failed requests count, select **1 Samples** to go into the details, and then select the suggested sample in the right panel.
+1. On the **Failure** page, select the `PUT` operation that has the most failed requests count, select **1 Samples** to go into the details, and then select the suggested sample.
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel.
 
 ## 5. Improve the application performance using Application Insights
 
-If there's a performance issue, the trace data collected by Application Insights can help find the log information of all relevant links, including the execution time of each link.
+If there's a performance issue, the trace data collected by Application Insights can help find the log information of all relevant links, including the execution time of each link, to help find the location of the performance bottleneck.
 
 To use Application Insights to investigate the performance issues, use the following steps:
 
@@ -133,7 +125,7 @@ To use Application Insights to investigate the performance issues, use the follo
 
    :::image type="content" source="media/tutorial-applications-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the performance page." lightbox="media/tutorial-applications-observability/application-insights-performance.png":::
 
-1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to go into the details, and then select the suggested sample in the right panel.
+1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to go into the details, and then select the suggested sample.
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel. 
 
