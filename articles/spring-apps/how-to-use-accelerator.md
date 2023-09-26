@@ -330,6 +330,8 @@ engine:
 
 3. Synchronize the change to your customized accelerator by using the Azure portal or Azure CLI.
 
+The **Git interval** field of your customized accelerator indicate the interval at which to check for repository updates. It can be used on fragment type of customized accelerator as well.
+
 #### [Azure portal](#tab/Portal)
 
 There are two ways to sync the change to your customized acceleratory: Create or update your customized accelerator or open the **Accelerators** section and then select **Sync certificate**.
