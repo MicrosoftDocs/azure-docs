@@ -80,16 +80,28 @@ Pin the left pane to keep it open while you work, or maximize your query window 
 
 ## Get started in simple mode
 
-To get started in simple mode, either:
+To get started in simple mode:
 
 - Click **Select a table** and select a table from the **Tables** tab to view table data.
 
     :::image type="content" source="media/log-analytics-explorer/log-analytics-select-table.png" alt-text="Screenshot that shows the Select a table button in Log Analytics.":::
 
-- Use an existing query, such as a shared or [saved query](../logs/save-query.md), or an example query:
+    Alternatively, select **Tables** from the left pane to view the list of tables in the workspace.
 
-    :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that an example query in Log Analytics.":::
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-tables.png" alt-text="Screenshot that shows the Tables tab in Log Analytics.":::
 
+- Use an existing query, such as a shared or [saved query](../logs/save-query.md), or an example query.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-example-query.png" alt-text="Screenshot that shows an example query in Log Analytics.":::
+
+- Select a query from your query history.
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-query-history.png" alt-text="Screenshot that shows the query history in Log Analytics.":::
+
+- Select a [function](../logs/functions.md).
+
+    :::image type="content" source="media/log-analytics-explorer/log-analytics-functions.png" alt-text="Screenshot that shows the functions tab in Log Analytics."::: 
+  
 ## Explore and analyze data in simple mode 
 
 After you [get started in simple mode](#get-started-in-simple-mode), you can explore and analyze data using the [top query bar](#top-query-bar). 
