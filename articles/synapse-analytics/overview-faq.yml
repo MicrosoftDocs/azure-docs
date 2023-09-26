@@ -138,7 +138,7 @@ sections:
       - question: |
           What versions of Spark are available?
         answer: |
-          As of May 2021, Azure Synapse Apache Spark fully supports Spark 2.4 and Spark 3.1. As of April 2022, Spark 3.2 is in preview. For a full list of core components and currently supported versions see [Apache Spark version support](./spark/apache-spark-version-support.md).
+          As of September 2023, Azure Synapse Apache Spark fully supports Spark 3.3. For a full list of core components and currently supported versions see [Apache Spark version support](./spark/apache-spark-version-support.md).
           
       - question: |
           Is there an equivalent of DButils in Azure Synapse Spark?
