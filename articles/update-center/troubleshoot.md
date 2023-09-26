@@ -14,7 +14,7 @@ This article describes the errors that might occur when you deploy or use Azure 
 
 ## General troubleshooting
 
-The following troubleshooting steps apply to the Azure VMs related to the patch extension on Windows and Linux machines.
+The following troubleshooting steps apply to the Azure virtual machines (VMs) related to the patch extension on Windows and Linux machines.
 
 ### Azure Linux VM
 
