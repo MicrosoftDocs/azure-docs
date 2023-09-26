@@ -31,8 +31,8 @@ To publish your application in the gallery, you must first read and agree to spe
     - For password SSO, make sure that your application supports form authentication so that password vaulting can be used.
 	- For federated applications (SAML/WS-Fed), the application should preferably support [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/) but it is not mandatory and it can be an on-premises application as well. Enterprise gallery applications must support multiple user configurations and not any specific user.
 
-	- For OpenID Connect, the application should be multitenant and [Azure AD consent framework](../develop/application-consent-experience.md) must be correctly implemented. Refer [this](../develop/howto-convert-app-to-be-multi-tenant.md) link to convert the application into multitenant.
-- Provisioning is optional yet highly recommended. To learn more about Azure AD SCIM, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+	- For OpenID Connect, the application should be multitenant and [Microsoft Entra ID consent framework](../develop/application-consent-experience.md) must be correctly implemented. Refer to [this](../develop/howto-convert-app-to-be-multi-tenant.md) link to convert the application into multitenant.
+- Provisioning is optional yet highly recommended. To learn more about Microsoft Entra SCIM, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 You can sign up for a free, test Development account. It's free for 90 days and you get all of the premium Microsoft Entra features with it. You can also extend the account if you use it for development work: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
@@ -61,9 +61,9 @@ Create documentation that includes the following information at minimum:
 
 ### App documentation on the Microsoft site
 
-When your SAML application is added to the gallery, documentation is created that explains the step-by-step process. For an example, see [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery. You can easily update the documentation if you make changes to your application by using your GitHub account.
+When your SAML application is added to the gallery, documentation is created that explains the step-by-step process. For an example, see [Tutorials for integrating SaaS applications with Microsoft Entra ID](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery. You can easily update the documentation if you make changes to your application by using your GitHub account.
 
-For OIDC application,there is no any application specific documentation, we have only the generic [tutorial](../develop/v2-protocols-oidc.md) for all the OpenID Connect applications.
+For OIDC application,there is no application specific documentation, we have only the generic [tutorial](../develop/v2-protocols-oidc.md) for all the OpenID Connect applications.
 
 ## Submit your application
 
