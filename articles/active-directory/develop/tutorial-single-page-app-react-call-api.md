@@ -33,7 +33,7 @@ In this tutorial:
 
 To allow the SPA to request access to Microsoft Graph, a reference to the `graphConfig` object needs to be added. This contains the Graph REST API endpoint defined in *authConfig.js* file.
 
-1. In the *src* folder, open *graph.js* and replace the contents of the file with the following code snippet to request access to Microsoft Graph.
+- In the *src* folder, open *graph.js* and replace the contents of the file with the following code snippet to request access to Microsoft Graph.
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/graph.js" :::
 
@@ -41,7 +41,7 @@ To allow the SPA to request access to Microsoft Graph, a reference to the `graph
 
 The following code snippet imports the UI components that were created previously to the application. It also imports the required components from the `@azure/msal-react` package. These components will be used to render the user interface and call the API.
 
-1. In the *src* folder, open *App.jsx* and replace the contents of the file with the following code snippet to request access.
+- In the *src* folder, open *App.jsx* and replace the contents of the file with the following code snippet to request access.
 
    ```javascript
     import React, { useState } from 'react';
@@ -62,7 +62,7 @@ The following code snippet imports the UI components that were created previousl
 
 The `ProfileContent` function is used to render the user's profile information after the user has signed in. This function will be called when the user selects the **Request Profile Information** button.
 
-1. In the *App.jsx* file, add the following code below your imports:
+- In the *App.jsx* file, add the following code below your imports:
 
     ```JavaScript
     /**
@@ -104,7 +104,7 @@ The `ProfileContent` function is used to render the user's profile information a
 
 The `MainContent` function is used to render the user's profile information after the user has signed in. This function will be called when the user selects the **Request Profile Information** button.
 
-1. In the *App.jsx* file, replace the `App()` function with the following code:
+- In the *App.jsx* file, replace the `App()` function with the following code:
 
     ```JavaScript
     /**
