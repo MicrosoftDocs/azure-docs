@@ -85,6 +85,8 @@ items:
       href: topics-inference.md
     - name: Text-based emotion detection
       href: emotions-detection.md
+    - name: Object detection
+      href: object-detection.md
   - name: Customizing content models
     displayName: customize, customizing
     items:

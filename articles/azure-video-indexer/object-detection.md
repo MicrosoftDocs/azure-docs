@@ -31,7 +31,46 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 | start | | 
 | end | |
 
-Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request.
+## JSON response
+
+Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request. Detected objects will appear in the downloaded *insights.json* file under “detected Objects”. Every time the object is detected, it is given an id. In this example, a cup was detected twice.
+
+```json
+detectedObjects: [
+    {
+    id: 1,
+    type: "Cup",
+    thumbnailId: "1c0b9fbb-6e05-42e3-96c1-abe2cd48t33",
+    displayName: "cup",
+    wikiDataId: "Q13194",
+    instances: [
+        {
+        confidence: 0.468,
+        adjustedStart: "0:00:00",
+        adjustedEnd: "0:00:02.44",
+        start: "0:00:00",
+        end: "0:00:02.44"
+        }    
+    ]
+    },
+    {
+    id: 2,
+    type: "Cup",
+    thumbnailId: "1c0b9fbb-6e05-42e3-96c1-abe2cd48t34",
+    displayName: "cup",
+    wikiDataId: "Q13194",
+    instances: [
+        {
+        confidence: 0.427,
+        adjustedStart: "0:00:00",
+        adjustedEnd: "0:00:14.24",
+        start: "0:00:00",
+        end: "0:00:14.24"
+        }    
+    ]
+    }
+]
+```
 
 ## Supported objects
 
@@ -123,7 +162,9 @@ Then, select or deselect the detected objects checkboxes.
 
 :::image type="content" source="media/object-detection/object-filtering.png" alt-text="screenshot of object filtering detected objects in the player interface":::
 
-### [API](#tab/api)
+Download the insights by selecting **Download** and then **Insights (JSON)**.
+
+## [API](#tab/api)
 
 Object detection is part of the [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) process.
 
