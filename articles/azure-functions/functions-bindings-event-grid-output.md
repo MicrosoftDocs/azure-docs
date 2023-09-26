@@ -530,7 +530,7 @@ The attribute's constructor takes the name of an application setting that contai
 The following table explains the parameters for the `EventGridAttribute`.
 
 |Parameter | Description|
-|---------|---------|----------------------|
+|---------|---------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 |**Connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
@@ -540,7 +540,7 @@ The following table explains the parameters for the `EventGridAttribute`.
 The following table explains the parameters for the `EventGridOutputAttribute`.
 
 |Parameter | Description|
-|---------|---------|----------------------|
+|---------|---------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 |**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
