@@ -116,7 +116,7 @@ Initiate the APM **Guided Configuration** to launch the **Easy Button** template
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
 
-    ![Screenshot of the Microsoft Entra Application option on Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
+    ![Screenshot of the Azure A D Application option on Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
 2. Review the list of steps and select **Next**
 
@@ -174,7 +174,6 @@ Use the optional **Security Settings** to specify whether Microsoft Entra ID enc
 This section contains properties to manually configure a new BIG-IP SAML application in your Microsoft Entra tenant. Easy Button has application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP, and an SHA template for other apps. 
 
 For this scenario, select **F5 BIG-IP APM Azure AD Integration > Add**.
-
 
    ![Screenshot of the Add option under Configuration Properties on Azure Configuration.](./media/f5-big-ip-easy-button-ldap/azure-config-add-app.png)
 

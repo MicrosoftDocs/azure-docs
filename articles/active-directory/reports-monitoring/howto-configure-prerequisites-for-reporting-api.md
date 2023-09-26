@@ -29,7 +29,7 @@ To get access to the reporting data through the API, you need to have one of the
 
 In order to access the sign-in reports for a tenant, a Microsoft Entra tenant must have associated Microsoft Entra ID P1 or P2 license. If the directory type is Azure AD B2C, the sign-in reports are accessible through the API without any other license requirement. 
 
-Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens. To configure your directory to access the Microsoft Entra ID reporting API, you must sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) in one of the required roles.
+Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens. To configure your directory to access the Microsoft Entra reporting API, you must sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) in one of the required roles.
 
 > [!IMPORTANT]
 > Applications running under credentials with administrator privileges can be very powerful, so be sure to keep the application's ID and secret credentials in a secure location.
@@ -61,7 +61,7 @@ To enable your application to access Microsoft Graph without user intervention, 
 
 ### Grant permissions 
 
-To access the Microsoft Entra ID reporting API, you must grant your app *Read directory data* and *Read all audit log data* permissions for the Microsoft Graph API.
+To access the Microsoft Entra reporting API, you must grant your app *Read directory data* and *Read all audit log data* permissions for the Microsoft Graph API.
 
 1. Browse to **Identity** > **Applications** > **App Registrations**.
 1. Select **Add a permission**.
@@ -95,7 +95,7 @@ Once you have the app registration configured, you can run activity log queries 
 
 ## Access reports using Microsoft Graph PowerShell
 
-To use PowerShell to access the Microsoft Entra ID reporting API, you need to gather a few configuration settings. These settings were created as a part of the [app registration process](#register-an-azure-ad-application).
+To use PowerShell to access the Microsoft Entra reporting API, you need to gather a few configuration settings. These settings were created as a part of the [app registration process](#register-an-azure-ad-application).
 
 - Tenant ID
 - Client app ID
@@ -129,7 +129,7 @@ Programmatic access APIs:
 
 <a name='troubleshoot-errors-in-azure-active-directory-reporting-api'></a>
 
-### Troubleshoot errors in Microsoft Entra ID reporting API
+### Troubleshoot errors in Microsoft Entra reporting API
 
 **500 HTTP internal server error while accessing Microsoft Graph beta endpoint**: We don't currently support the Microsoft Graph beta endpoint - make sure to access the activity logs using the Microsoft Graph v1.0 endpoint.
 - GET `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
