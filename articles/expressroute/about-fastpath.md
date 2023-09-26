@@ -102,11 +102,10 @@ FastPath Private endpoint/Private Link connectivity is supported for the followi
 - Azure Storage
 - Third Party Private Link Services
 
-Connections associated to ExpressRoute partner circuits aren't eligible for this preview. Both IPv4 and IPv6 connectivity is supported.
-
 > [!NOTE]
+> Connections associated to ExpressRoute partner circuits aren't eligible for this preview. Both IPv4 and IPv6 connectivity is supported.
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
-> 
+> FastPath supports a max of 100Gbps connectivity to a single Availability Zone (Az).
 
 For more information about supported scenarios and to enroll in the limited GA offering, send an email to **exrpm@microsoft.com** with the following information:
 - Azure subscription ID
