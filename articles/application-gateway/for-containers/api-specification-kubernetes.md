@@ -74,7 +74,7 @@ is in the process of being created, updated or deleted.</p>
 <h3 id="alb.networking.azure.io/v1.AlbConditionType">AlbConditionType
 (<code>string</code> alias)</h3>
 <div>
-<p>AlbConditionType is a type of condition associated with a
+<p>AlbConditionType is a type of condition associated with an
 Application Gateway for Containers resource. This type should be used with the AlbStatus.Conditions
 field.</p>
 </div>
@@ -100,7 +100,7 @@ has been accepted by the controller.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.ApplicationLoadBalancer">ApplicationLoadBalancer</a>)
 </p>
 <div>
-<p>AlbSpec defines the specifications for Application Gateway for Containers resource.</p>
+<p>AlbSpec defines the specifications for the Application Gateway for Containers resource.</p>
 </div>
 <table>
 <thead>
@@ -1733,7 +1733,7 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communciating to the
+<p>TrustedRootCertificate can be used to supply a certificate for the gateway to trust when communicating to the
 backend on a port specified as https</p>
 </td>
 </tr>
@@ -2591,7 +2591,7 @@ field.</p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>)
 </p>
 <div>
-<p>RoutePolicyConfig defines the schema for RoutePolicy specification
+<p>RoutePolicyConfig defines the schema for RoutePolicy specification. 
 This allows the specification of the following attributes:
 * Timeouts
 * Session Affinity</p>
