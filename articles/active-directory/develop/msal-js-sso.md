@@ -20,7 +20,7 @@ ms.custom: aaddev, has-adal-ref, engagement-fy23, devx-track-js
 
 Single sign-on (SSO) provides a more seamless experience by reducing the number of times a user is asked for credentials. Users enter their credentials once, and the established session can be reused by other applications on the same device without further prompting.
 
-Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. The two mechanisms, Azure AD session cookie and Microsoft Authentication Library (MSAL) cache, are independent of each other but work together to provide SSO behavior.
+Microsoft Entra ID enables SSO by setting a session cookie when a user authenticates for the first time. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. The two mechanisms, Microsoft Entra session cookie and Microsoft Authentication Library (MSAL) cache, are independent of each other but work together to provide SSO behavior.
 
 ## SSO between browser tabs for the same app
 
@@ -43,7 +43,7 @@ In this case, application instances in different browser tabs make use of the sa
 
 ## SSO between different apps
 
-When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. In particular, MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Azure AD, they're then prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` method.
+When a user authenticates, a session cookie is set on the Microsoft Entra domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. In particular, MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens without an interaction. However, if the user has multiple user accounts in a session with Microsoft Entra ID, they're then prompted to pick an account to sign in with. As such, there are two ways to achieve SSO using `ssoSilent` method.
 
 ### With user hint
 
@@ -59,7 +59,7 @@ To improve performance and ensure that the authorization server will look for th
 
 #### Using a login hint
 
-The `login_hint` optional claim provides a hint to Azure AD about the user account attempting to sign in. To bypass the account selection prompt typically shown during interactive authentication requests, provide the `loginHint` as shown:
+The `login_hint` optional claim provides a hint to Microsoft Entra ID about the user account attempting to sign in. To bypass the account selection prompt typically shown during interactive authentication requests, provide the `loginHint` as shown:
 
 ```javascript
 const silentRequest = {
@@ -80,13 +80,13 @@ try {
 }
 ```
 
-In this example, `loginHint` contains the user's email or UPN, which is used as a hint during interactive token requests. The hint can be passed between applications to facilitate silent SSO, where application A can sign in a user, read the `loginHint`, and then send the claim and the current tenant context to application B. Azure AD will attempt to pre-fill the sign-in form or bypass the account selection prompt and directly proceed with the authentication process for the specified user.
+In this example, `loginHint` contains the user's email or UPN, which is used as a hint during interactive token requests. The hint can be passed between applications to facilitate silent SSO, where application A can sign in a user, read the `loginHint`, and then send the claim and the current tenant context to application B. Microsoft Entra ID will attempt to pre-fill the sign-in form or bypass the account selection prompt and directly proceed with the authentication process for the specified user.
 
 If the information in the `login_hint` claim doesn't match any existing user, they're redirected to go through the standard sign-in experience, including account selection.  
 
 #### Using a session ID
 
-To use a session ID, add `sid` as an [optional claim](./optional-claims.md) to your app's ID tokens. The `sid` claim allows an application to identify a user's Azure AD session independent of their account name or username. To learn how to add optional claims like `sid`, see [Provide optional claims to your app](./optional-claims.md). Use the session ID (SID) in silent authentication requests you make with `ssoSilent` in MSAL.js.
+To use a session ID, add `sid` as an [optional claim](./optional-claims.md) to your app's ID tokens. The `sid` claim allows an application to identify a user's Microsoft Entra session independent of their account name or username. To learn how to add optional claims like `sid`, see [Provide optional claims to your app](./optional-claims.md). Use the session ID (SID) in silent authentication requests you make with `ssoSilent` in MSAL.js.
 
 ```javascript
 const request = {
@@ -174,7 +174,7 @@ For better performance and to help avoid issues, set the `redirectUri` to a blan
 
 ### Third-party cookies
 
-`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Azure AD. This won't work in browsers that block third-party cookies such as Safari, and will lead to an interaction error:
+`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Microsoft Entra ID. This won't work in browsers that block third-party cookies such as Safari, and will lead to an interaction error:
 
 ```txt
 InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD
@@ -184,11 +184,11 @@ To resolve the error, the user must create an interactive authentication request
 
 ## Negating SSO with prompt=login
 
-If you prefer Azure AD to prompt the user for entering their credentials despite an active session with the authorization server, you can use the **login** prompt parameter in requests with MSAL.js. See [MSAL.js prompt behavior](msal-js-prompt-behavior.md) for more.
+If you prefer Microsoft Entra ID to prompt the user for entering their credentials despite an active session with the authorization server, you can use the **login** prompt parameter in requests with MSAL.js. See [MSAL.js prompt behavior](msal-js-prompt-behavior.md) for more.
 
 ## Sharing authentication state between ADAL.js and MSAL.js
 
-MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and share authentication state between apps, the library reads the ID token representing user’s session in ADAL.js cache. To take advantage of this when migrating from ADAL.js, you'll need to ensure that the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
+MSAL.js brings feature parity with ADAL.js for Microsoft Entra authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and share authentication state between apps, the library reads the ID token representing user’s session in ADAL.js cache. To take advantage of this when migrating from ADAL.js, you'll need to ensure that the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
 
 ```javascript
 

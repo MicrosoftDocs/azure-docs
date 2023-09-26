@@ -85,7 +85,7 @@ At this point, any attempt to create a user-assigned managed identity in the res
 
 ### Do managed identities have a backing app object?
 
-No. Managed identities and Azure AD App Registrations aren't the same thing in the directory.
+No. Managed identities and Microsoft Entra App Registrations aren't the same thing in the directory.
 
 App registrations have two components: An Application Object + A Service Principal Object.
 Managed Identities for Azure resources have only one of those components: A Service Principal Object.
@@ -109,7 +109,7 @@ Managed identities use certificate-based authentication. Each managed identityâ€
 
 ### Can the same managed identity be used across multiple regions?
 
-In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Azure AD is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Azure AD. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities wouldn't be impacted.
+In short, yes you can use user assigned managed identities in more than one Azure region. The longer answer is that while user assigned managed identities are created as regional resources the associated [service principal](../develop/app-objects-and-service-principals.md#service-principal-object) (SP) created in Microsoft Entra ID is available globally. The service principal can be used from any Azure region and its availability is dependent on the availability of Microsoft Entra ID. For example, if you created a user assigned managed identity in the South-Central region and that region becomes unavailable this issue only impacts [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md) activities on the managed identity itself.  The activities performed by any resources already configured to use the managed identities wouldn't be impacted.
 
 ### Does managed identities for Azure resources work with Azure Cloud Services (Classic)?
 
@@ -133,11 +133,11 @@ No. Managed identities don't currently support cross-directory scenarios.
 
 ### Are there any rate limits that apply to managed identities?
 
-Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits, and Azure Active Directory service limits.
+Managed identities limits have dependencies on Azure service limits, Azure Instance Metadata Service (IMDS) limits, and Microsoft Entra service limits.
 
 - **Azure service limits** define the number of create operations that can be performed at the tenant and subscription levels. User assigned managed identities also have [limitations](../../azure-resource-manager/management/azure-subscription-service-limits.md#managed-identity-limits) around how they may be named.
 - **IMDS** In general, requests to IMDS are limited to five requests per second. Requests exceeding this threshold will be rejected with 429 responses. Requests to the Managed Identity category are limited to 20 requests per second and 5 concurrent requests. You can read more at the [Azure Instance Metadata Service (Windows)](../../virtual-machines/windows/instance-metadata-service.md?tabs=windows#managed-identity) article.
-- **Azure Active Directory service** Each managed identity counts towards the object quota limit in an Azure AD tenant as described in Azure [AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
+- **Microsoft Entra service** Each managed identity counts towards the object quota limit in a Microsoft Entra tenant as described in [Microsoft Entra service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md).
 
 
 ### Is it possible to move a user-assigned managed identity to a different resource group/subscription?

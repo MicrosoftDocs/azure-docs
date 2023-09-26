@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/11/2023
+ms.date: 09/20/2023
 ---
 
 # User-defined data types in Bicep
@@ -79,7 +79,7 @@ The valid type expressions include:
     }
     ```
 
-  Decorators may be used on properties. `*` may be used to make all values require a constrant. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
+  Decorators may be used on properties. `*` may be used to make all values require a constraint. Additional properties may still be defined when using `*`. This example creates an object that requires a key of type int named `id`, and that all other entries in the object must be a string value at least 10 characters long.
 
     ```bicep
     type obj = {
@@ -216,6 +216,24 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   kind: 'StorageV2'
 }
 ```
+
+## Import types between Bicep files (Preview)
+
+[Bicep version 0.21.1 or newer](./install.md) is required to use this compile-time import feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
+
+Only user-defined data types that bear the `@export()` decorator can be imported to other templates. Currently, this decorator can only be used on `type` statements.
+
+The following example enables you to import the two user-defined data types from other templates:
+
+```bicep
+@export()
+type myStringType = string
+
+@export()
+type myOtherStringType = myStringType
+```
+
+For more information, see [Import user-defined data types](./bicep-import-providers.md#import-user-defined-data-types-preview).
 
 ## Next steps
 

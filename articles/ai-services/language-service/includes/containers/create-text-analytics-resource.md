@@ -5,8 +5,7 @@ description: Learn how to create an Azure AI Language resource.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi

@@ -1,6 +1,6 @@
 ---
-title: How to configure Azure AD certificate-based authentication
-description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
+title: How to configure Microsoft Entra certificate-based authentication
+description: Topic that shows how to configure Microsoft Entra certificate-based authentication in Microsoft Entra ID
 
 ms.service: active-directory
 ms.subservice: authentication
@@ -15,23 +15,23 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref, has-azure-ad-ps-ref
 ---
-# How to configure Azure AD certificate-based authentication
+# How to configure Microsoft Entra certificate-based authentication
 
-Azure Active Directory (Azure AD) certificate-based authentication (CBA) enables organizations to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates created by their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables organizations to adopt phishing-resistant modern passwordless authentication by using an x.509 certificate.
+Microsoft Entra certificate-based authentication (CBA) enables organizations to configure their Microsoft Entra tenants to allow or require users to authenticate with X.509 certificates created by their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables organizations to adopt phishing-resistant modern passwordless authentication by using an x.509 certificate.
  
 During sign-in, users will see also an option to authenticate with a certificate instead of entering a password. 
 If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated against the user account and if successful, they sign in.
 
 <!---Clarify plans that are covered --->
-Follow these instructions to configure and use Azure AD CBA for tenants in Office 365 Enterprise and US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
+Follow these instructions to configure and use Microsoft Entra CBA for tenants in Office 365 Enterprise and US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
 
 ## Prerequisites
 
 Make sure that the following prerequisites are in place:
 
-- Configure at least one certification authority (CA) and any intermediate CAs in Azure AD.
-- The user must have access to a user certificate (issued from a trusted Public Key Infrastructure configured on the tenant) intended for client authentication to authenticate against Azure AD. 
-- Each CA should have a certificate revocation list (CRL) that can be referenced from internet-facing URLs. If the trusted CA doesn't have a CRL configured, Azure AD won't perform any CRL checking, revocation of user certificates won't work, and authentication won't be blocked.
+- Configure at least one certification authority (CA) and any intermediate CAs in Microsoft Entra ID.
+- The user must have access to a user certificate (issued from a trusted Public Key Infrastructure configured on the tenant) intended for client authentication to authenticate against Microsoft Entra ID. 
+- Each CA should have a certificate revocation list (CRL) that can be referenced from internet-facing URLs. If the trusted CA doesn't have a CRL configured, Microsoft Entra ID won't perform any CRL checking, revocation of user certificates won't work, and authentication won't be blocked.
 
 >[!IMPORTANT]
 >Make sure the PKI is secure and can't be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both users whom are synchronized from on-premises and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls, such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
@@ -41,15 +41,17 @@ Make sure that the following prerequisites are in place:
 
 
 >[!NOTE]
->When evaluating a PKI, it is important to review certificate issuance policies and enforcement. As mentioned, adding certificate authorities (CAs) to Azure AD configuration allows certificates issued by those CAs to authenticate any user in Azure AD. For this reason, it is important to consider how and when the CAs are allowed to issue certificates, and how they implement reusable identifiers. Where administrators need to ensure only a specific certificate is able to be used to authenticate a user, admins should exclusively use high-affinity bindings to achieve a higher level of assurance that only a specific certificate is able to authenticate the user. For more information, see [high-affinity bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
+>When evaluating a PKI, it is important to review certificate issuance policies and enforcement. As mentioned, adding certificate authorities (CAs) to Microsoft Entra configuration allows certificates issued by those CAs to authenticate any user in Microsoft Entra ID. For this reason, it is important to consider how and when the CAs are allowed to issue certificates, and how they implement reusable identifiers. Where administrators need to ensure only a specific certificate is able to be used to authenticate a user, admins should exclusively use high-affinity bindings to achieve a higher level of assurance that only a specific certificate is able to authenticate the user. For more information, see [high-affinity bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
 
-## Steps to configure and test Azure AD CBA
+<a name='steps-to-configure-and-test-azure-ad-cba'></a>
 
-Some configuration steps to be done before you enable Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Global Administrator](../roles/permissions-reference.md#global-administrator) role can configure the CA.
+## Steps to configure and test Microsoft Entra CBA
 
-Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor authentication, and configure username bindings to map the certificate field to an attribute of the user object. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can configure user-related settings. Once all the configurations are complete, enable Azure AD CBA on the tenant. 
+Some configuration steps to be done before you enable Microsoft Entra CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Global Administrator](../roles/permissions-reference.md#global-administrator) role can configure the CA.
 
-:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="Diagram of the steps required to enable Azure Active Directory certificate-based authentication.":::
+Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor authentication, and configure username bindings to map the certificate field to an attribute of the user object. [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator) can configure user-related settings. Once all the configurations are complete, enable Microsoft Entra CBA on the tenant. 
+
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="Diagram of the steps required to enable Microsoft Entra certificate-based authentication.":::
 
 ## Step 1: Configure the certification authorities
 
@@ -142,7 +144,7 @@ For more information, see [Understanding the certificate revocation process](./c
 ## Step 2: Enable CBA on the tenant
 
 >[!IMPORTANT]
->A user is considered capable for **MFA** when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. If the users do not have access to certificates they will be locked out and not be able to register other methods for MFA. So the admin needs to enable users who have a valid certificate into the CBA scope. Do not use all users for CBA target and use groups of users who have valid certificates available. For more information, see [Azure AD MFA](concept-mfa-howitworks.md).
+>A user is considered capable for **MFA** when the user is in scope for **Certificate-based authentication** in the Authentication methods policy. This policy requirement means a user can't use proof up as part of their authentication to register other available methods. If the users do not have access to certificates they will be locked out and not be able to register other methods for MFA. So the admin needs to enable users who have a valid certificate into the CBA scope. Do not use all users for CBA target and use groups of users who have valid certificates available. For more information, see [Microsoft Entra multifactor authentication](concept-mfa-howitworks.md).
 
 To enable the certificate-based authentication in the Microsoft Entra admin center, complete the following steps:
 
@@ -161,9 +163,9 @@ Once certificate-based authentication is enabled on the tenant, all users in the
 
 ## Step 3: Configure authentication binding policy 
 
-The authentication binding policy helps determine the strength of authentication to either a single factor or multi factor. An admin can change the default value from single-factor to multifactor and configure custom policy rules by mapping to issuer Subject or policy OID fields in the certificate.
+The authentication binding policy helps determine the strength of authentication to either a single factor or multifactor. An admin can change the default value from single-factor to multifactor and configure custom policy rules by mapping to issuer Subject or policy OID fields in the certificate.
 
-To enable Azure AD CBA and configure user bindings in the Microsoft Entra admin center, complete the following steps:
+To enable Microsoft Entra CBA and configure user bindings in the Microsoft Entra admin center, complete the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
 1. Browse to **Protection** > **Authentication methods** > **Policies**.
@@ -172,7 +174,7 @@ To enable Azure AD CBA and configure user bindings in the Microsoft Entra admin 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/policy.png" alt-text="Screenshot of Authentication policy.":::
 
 1. Click **Configure** to set up authentication binding and username binding.
-1. The protection level attribute has a default value of **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA. 
+1. The protection level attribute has a default value of **Single-factor authentication**. Select **Multifactor authentication** to change the default value to MFA.
 
    >[!NOTE] 
    >The default protection level value will be in effect if no custom rules are added. If custom rules are added, the protection level defined at the rule level will be honored instead.
@@ -190,14 +192,14 @@ To enable Azure AD CBA and configure user bindings in the Microsoft Entra admin 
    To create a rule by certificate issuer, click **Certificate issuer**.
 
    1. Select a **Certificate issuer identifier** from the list box.
-   1. Click **Multi-factor authentication**.
+   1. Click **Multifactor authentication**.
 
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-issuer.png" alt-text="Screenshot of multifactor authentication policy.":::
 
    To create a rule by Policy OID, click **Policy OID**.
 
    1. Enter a value for **Policy OID**.
-   1. Click **Multi-factor authentication**.
+   1. Click **Multifactor authentication**.
 
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 
@@ -213,13 +215,13 @@ The username binding policy helps validate the certificate of the user. By defau
 To determine how to configure username binding, see [How username binding works](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
 
 >[!IMPORTANT]
->If a username binding policy uses synchronized attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with Active Directory Administrators privileges can make changes that impact the onPremisesUserPrincipalName value in Azure AD for any synchronized accounts, including users with delegated administrative privilege over synchronized user accounts or administrative rights over the Azure AD Connect Servers.
+>If a username binding policy uses synchronized attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with Active Directory Administrators privileges can make changes that impact the onPremisesUserPrincipalName value in Microsoft Entra ID for any synchronized accounts, including users with delegated administrative privilege over synchronized user accounts or administrative rights over the Microsoft Entra Connect Servers.
 
 1. Create the username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority, and so on.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
 
-   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD will fall back and try the next binding in the list.
+   If the specified X.509 certificate field is found on the certificate, but Microsoft Entra doesn’t find a user object using that value, the authentication fails. Microsoft Entra ID will fall back and try the next binding in the list.
 
 
 1. Click **Save** to save the changes. 
@@ -259,7 +261,7 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 If your sign-in is successful, then you know that:
 
 - The user certificate has been provisioned into your test device.
-- Azure AD is configured correctly with trusted CAs.
+- Microsoft Entra ID is configured correctly with trusted CAs.
 - Username binding is configured correctly, and the user is found and authenticated.
 
 ### Testing custom authentication binding rules
@@ -304,7 +306,9 @@ Let's walk through a scenario where we validate strong authentication. We'll cre
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
 1. The Conditional Access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
-## Enable Azure AD CBA using Microsoft Graph API
+<a name='enable-azure-ad-cba-using-microsoft-graph-api'></a>
+
+## Enable Microsoft Entra CBA using Microsoft Graph API
 
 To enable CBA and configure username bindings using Graph API, complete the following steps.
 
@@ -385,11 +389,11 @@ To enable CBA and configure username bindings using Graph API, complete the foll
  
 ## Next steps 
 
-- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
-- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
-- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [Azure AD CBA on mobile devices (Android and iOS)](./concept-certificate-based-authentication-mobile-ios.md)
+- [Overview of Microsoft Entra CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Microsoft Entra CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with Microsoft Entra CBA](concept-certificate-based-authentication-limitations.md)
+- [Windows SmartCard logon using Microsoft Entra CBA](concept-certificate-based-authentication-smartcard.md)
+- [Microsoft Entra CBA on mobile devices (Android and iOS)](./concept-certificate-based-authentication-mobile-ios.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)

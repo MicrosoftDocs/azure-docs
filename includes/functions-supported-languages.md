@@ -31,6 +31,8 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 ### [v1.x](#tab/v1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
+
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework) |

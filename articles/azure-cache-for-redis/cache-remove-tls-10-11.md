@@ -29,7 +29,7 @@ As a part of this effort, you can expect the following changes to Azure Cache fo
 | Date    | Description |
 |-------- |-------------|
 | September 2023 | TLS 1.0/1.1 retirement announcement |
-| March 1, 2024 | Beginning March 1, 2024, you will not be able to set the Minimum TLS version for any cache to 1.0 or 1.1. 
+| March 1, 2024 | Beginning March 1, 2024, you will not be able to set the Minimum TLS version for any cache to 1.0 or 1.1. Existing cache instances won't be updated at this point.
 | September 30, 2024 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2
 | October 1, 2024 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances will reject connections using TLS 1.0 or 1.1.
   

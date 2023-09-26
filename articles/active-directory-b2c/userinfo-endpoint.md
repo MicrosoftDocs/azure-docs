@@ -39,7 +39,7 @@ The user info UserJourney specifies:
 
 - **Authorization**: The UserInfo endpoint is protected with a bearer token. An issued access token is presented in the authorization header to the UserInfo endpoint. The policy specifies the technical profile that validates the incoming token and extracts claims, such as the objectId of the user. The objectId of the user is used to retrieve the claims to be returned in the response of the UserInfo endpoint journey. 
 - **Orchestration step**: 
-  - An orchestration step is used to gather information about the user. Based on the claims within the incoming access token, the user journey invokes an [Azure Active Directory technical profile](active-directory-technical-profile.md) to retrieve data about the user, for example, reading the user by the objectId. 
+  - An orchestration step is used to gather information about the user. Based on the claims within the incoming access token, the user journey invokes a [Microsoft Entra technical profile](active-directory-technical-profile.md) to retrieve data about the user, for example, reading the user by the objectId. 
   - **Optional orchestration steps** - You can add more orchestration steps, such as a REST API technical profile to retrieve more information about the user. 
   - **UserInfo Issuer** - Specifies the list of claims that the UserInfo endpoint returns.
 

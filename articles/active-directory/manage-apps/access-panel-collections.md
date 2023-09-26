@@ -14,12 +14,12 @@ ms.collection: M365-identity-device-management
 ms.reviewer: lenalepa
 ms.custom: enterprise-apps
 
-#customer intent: As an admin, I want to enable and create collections for My Apps portal in Azure AD so that I can create a simpler My Apps experience for users.
+#customer intent: As an admin, I want to enable and create collections for My Apps portal in Microsoft Entra ID so that I can create a simpler My Apps experience for users.
 ---
 
 # Create collections on the My Apps portal
 
-Your users can use the My Apps portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have an Azure AD Premium P1 or P2 license you can set up collections. With a collection, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A collection essentially applies a filter to the applications a user can already access, so the user sees only those applications in the collection that have been assigned to them.
+Your users can use the My Apps portal to view and start the cloud-based applications they have access to. By default, all the applications a user can access are listed together on a single page. To better organize this page for your users, if you have a Microsoft Entra ID P1 or P2 license you can set up collections. With a collection, you can group together applications that are related (for example, by job role, task, or project) and display them on a separate tab. A collection essentially applies a filter to the applications a user can already access, so the user sees only those applications in the collection that have been assigned to them.
 
 > [!NOTE]
 > This article covers how an admin can enable and create collections. For information for the end user about how to use the My Apps portal and collections, see [Access and use collections](https://support.microsoft.com/account-billing/organize-apps-using-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
@@ -35,7 +35,7 @@ To create collections on the My Apps portal, you need:
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To create a collection, you must have an Azure AD Premium P1 or P2 license.
+To create a collection, you must have a Microsoft Entra ID P1 or P2 license.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
@@ -76,14 +76,14 @@ You can access audit logs in the [Microsoft Entra admin center](https://entra.mi
 
 ## Get support for My Account pages
 
-From the My Apps page, a user can select **My account** > **View account** to open their account settings. On the Azure AD **My Account** page, users can manage their security info, devices, passwords, and more. They can also access their Office account settings.
+From the My Apps page, a user can select **My account** > **View account** to open their account settings. On the Microsoft Entra ID **My Account** page, users can manage their security info, devices, passwords, and more. They can also access their Office account settings.
 
-In case you need to submit a support request for an issue with the Azure AD account page or the Office account page, follow these steps so your request is routed properly:
+In case you need to submit a support request for an issue with the Microsoft Entra account page or the Office account page, follow these steps so your request is routed properly:
 
-- For issues with the **Azure AD "My Account"** page, open a support request from within the Microsoft Entra admin center. Go to **Microsoft Entra admin center** > **Identity** > **Learn & support** > **New support request**.
+- For issues with the **Microsoft Entra ID "My Account"** page, open a support request from within the Microsoft Entra admin center. Go to **Microsoft Entra admin center** > **Identity** > **Learn & support** > **New support request**.
 
 - For issues with the **Office "My account"** page, open a support request from within the Microsoft 365 admin center. Go to **Microsoft 365 admin center** > **Support**.
 
 ## Next steps
 
-[End-user experiences for applications in Azure Active Directory](end-user-experiences.md)
+[End-user experiences for applications in Microsoft Entra ID](end-user-experiences.md)

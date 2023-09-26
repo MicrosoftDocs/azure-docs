@@ -67,7 +67,7 @@ Later we will upload and download a file to the new storage account. Because fil
 
 ## Grant your VM's system-assigned managed identity access to use a storage SAS 
 
-Azure Storage does not natively support Azure AD authentication.  However, you can use a managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
+Azure Storage does not natively support Microsoft Entra authentication.  However, you can use a managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
 
 1. Navigate back to your newly created storage account.   
 1. Click **Access control (IAM)**.
@@ -99,7 +99,7 @@ You will need to use the Azure Resource Manager PowerShell cmdlets in this porti
     ```
     
     > [!NOTE]
-    > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > The value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     
     Next, extract the "Content" element, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     
