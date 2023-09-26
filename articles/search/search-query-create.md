@@ -55,19 +55,37 @@ In the portal, when you open an index, you can work with Search Explorer alongsi
 
 1. Open **Indexes** and select an index.
 
-1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). Here's a full text search query expression that works for the Hotels sample index:
+1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). 
+
+   Here's a full text search query expression that works for the Hotels sample index:
 
    `search=pool spa +airport&$searchFields=Description,Tags&$select=HotelName,Description,Category&$count=true`
+
+   The following screenshot illustrates the query and response:
+
+   :::image type="content" source="media/search-explorer/search-explorer-full-text-query-hotels.png" alt-text="Screenshot of Search Explorer with a full text query.":::
 
 Notice that you can change the REST API version if you require search behaviors from a specific version, or switch to **JSON view** if you want to paste in the JSON definition of a query. For more information about what a JSON definition looks like, see [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
 ### [**REST API**](#tab/rest-text-query)
 
-The [Postman app](https://www.postman.com/downloads/) can function as a query client. Using the app, you can connect to your search service and send [Search Documents (REST)](/rest/api/searchservice/search-documents) requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
+[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/search-documents). 
 
 Start with [Create a search index using REST and Postman](search-get-started-rest.md) for step-by-step instructions for setting up requests.
 
-Each request is standalone, so you must provide the endpoint, index name, and API version on every request. Other properties, Content-Type and API key, are passed on the request header. For more information, see [Search Documents (REST)](/rest/api/searchservice/search-documents) for help with formulating query requests.
+The following example calls the REST API for full text search:
+
+```http
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
+}
+```
 
 ### [**Azure SDKs**](#tab/sdk-text-query)
 
