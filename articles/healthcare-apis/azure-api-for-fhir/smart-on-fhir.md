@@ -45,7 +45,7 @@ Follow the steps listed under section [Manage Users: Assign Users to Role](/azur
                 <summary> Click to expand! </summary>
 
 > [!NOTE]
-> This is another option to SMART on FHIR(Enhanced) mentioned above. SMART on FHIR Proxy option only enables EHR launch sequence.
+> This is another option to SMART on FHIR (Enhanced) mentioned above. SMART on FHIR Proxy option only enables EHR launch sequence.
 ### Step 1: Set admin consent for your client application
 
 To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources.
