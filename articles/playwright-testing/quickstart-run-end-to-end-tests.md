@@ -171,7 +171,7 @@ Learn more about how to [determine the optimal configuration for optimizing test
 
 ## Troubleshooting
 
-## Unable to sign into the Playwright portal
+### Unable to sign into the Playwright portal
 
 Follow these steps to [troubleshoot signing into the Playwright portal](./troubleshoot-unable-sign-into-playwright-portal.md).
 
