@@ -49,7 +49,7 @@ Application Gateway WAF SKUs can be used to mitigate many L7 DDoS attacks:
 
 * Use bot protection managed rule set provides protection against known bad bots. For more information, see [Configuring bot protection](../ag/bot-protection.md).
 
-* Apply rate limits to prevent IP addresses from calling your service too frequently. For more information, see [Configuring Rate limiting custom rules](../ag/ag/rate-limiting-configure.md).
+* Apply rate limits to prevent IP addresses from calling your service too frequently. For more information, see [Configuring Rate limiting custom rules](../ag/rate-limiting-configure.md).
 
 * Block IP addresses, and ranges that you identify as malicious. For more information, see examples at [Create and use v2 custom rules](../ag/create-custom-waf-rules.md).
 
