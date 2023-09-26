@@ -146,9 +146,12 @@ Many countries/regions and states have laws and regulations that apply to call r
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the Azure Communication Services User Identity in the `participants` array with your internal user identities to identify participants in a call. 
 
 ## Next steps
-For more information, see the following articles:
 
-- Learn more about Call recording, check out the [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+> [!div class="nextstepaction"]
+> [Get started with Call Recording](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+
+Here are some articles of interest to you:
+
 - Learn more about call recording [Insights](../analytics/insights/call-recording-insights.md) and [Logs](../analytics/logs/recording-logs.md)
 - Learn more about [Call Automation](../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Learn more about [Video Calling](../../quickstarts/voice-video-calling/get-started-with-video-calling.md).
