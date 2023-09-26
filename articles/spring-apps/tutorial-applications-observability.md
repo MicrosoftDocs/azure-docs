@@ -18,12 +18,14 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 
 **This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
 
-This quickstart shows you how to observe your production applications deployed on Azure Spring Apps, and diagnose and investigate production issues. You can provide insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts by observing your applications in Azure Spring Apps. To find out if your applications meet expectations and discover and predict issues in all applications, focus on the following areas:
+This article shows you how to observe your production applications deployed on Azure Spring Apps and diagnose and investigate production issues. Observability is the ability to collect insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts.
+
+To find out if your applications meet expectations and to discover and predict issues in all applications, focus on the following areas:
 
 - **Availability**: Check that the application is available and accessible to the user.
 - **Reliability**: Check that the application is reliable and can be used normally.
 - **Failure**: Understand that the application isn't working properly and further fixes are required.
-- **Performance**: Understand which performance issue the application encounters, need further attention, and find out the root cause of the problem.
+- **Performance**: Understand which performance issues the application encounters that need further attention and find out the root cause of the problem.
 - **Alerts**: Know the current state of the application. Proactively notify others and take necessary actions when the application isn't working properly.
 
 This article uses the well-known [PetClinic](https://github.com/azure-samples/spring-petclinic-microservices) sample app as the production application. For more information on how to deploy PetClinic to Azure Spring Apps and use MySQL as the persistent store, see the following articles:
