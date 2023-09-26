@@ -66,7 +66,7 @@ In these application environments, using signed container images helps verify th
 
 ## How Image Integrity works
 
-:::image type="content" source="./media/image-integrity/aks-image-integrity-architecture.png" alt-text="Screenshot showing the basic architecture for Image Integrity" lightbox="./media/image-integrity/aks-image-integrity-architecture.png":::
+:::image type="content" source="./media/image-integrity/aks-image-integrity-architecture.png" alt-text="Screenshot showing the basic architecture for Image Integrity." lightbox="./media/image-integrity/aks-image-integrity-architecture.png":::
 
 Image Integrity uses Ratify, Azure Policy, and Gatekeeper to validate signed images before deploying them to your AKS clusters. Enabling Image Integrity on your cluster deploys a `Ratify` pod. This `Ratify` pod performs the following tasks:
 
