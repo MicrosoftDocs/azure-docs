@@ -73,11 +73,11 @@ In addition to the default fields, the interactive sign-in log also shows:
 
 **Non-interactive sign-ins on the interactive sign-in logs**
 
-Previously, some non-interactive sign-ins from Microsoft Exchange clients were included in the interactive user sign-in log for better visibility. This increased visibility was necessary before the non-interactive user sign-in logs were introduced in November 2020. However, it's important to note that some non-interactive sign-ins, such as those using FIDO2 keys, may still be marked as interactive due to the way the system was set up before the separate non-interactive logs were introduced. These sign-ins may display interactive details like client credential type and browser information, even though they are technically non-interactive sign-ins.
+Previously, some non-interactive sign-ins from Microsoft Exchange clients were included in the interactive user sign-in log for better visibility. This increased visibility was necessary before the non-interactive user sign-in logs were introduced in November 2020. However, it's important to note that some non-interactive sign-ins, such as those using FIDO2 keys, may still be marked as interactive due to the way the system was set up before the separate non-interactive logs were introduced. These sign-ins may display interactive details like client credential type and browser information, even though they're technically non-interactive sign-ins.
 
 **Passthrough sign-ins**
 
-Microsoft Entra ID issues tokens for authentication and authorization. In some situations, a user who is signed in to the Contoso tenant may try to access resources in the Fabrikam tenant, where they don't have access. A no-authorization token, called a passthrough token, is issued to the Fabrikam tenant. The passthrough token doesn't allow the user to access any resources.
+Microsoft Entra ID issues tokens for authentication and authorization. In some situations, a user who is signed in to the Contoso tenant may try to access resources in the Fabrikam tenant, where they don't have access. A no-authorization token called a passthrough token, is issued to the Fabrikam tenant. The passthrough token doesn't allow the user to access any resources.
 
 When reviewing the logs for this situation, the sign-in logs for the home tenant (in this scenario, Contoso) don't show a sign-in attempt because the token wasn't evaluated against the home tenant's policies. The sign-in token was only used to display the appropriate failure message. You won't see a sign-in attempt in the logs for the home tenant.
 
@@ -112,7 +112,7 @@ To make it easier to digest the data, non-interactive sign-in events are grouped
 
 :::image type="content" source="media/concept-sign-ins/aggregate-sign-in.png" alt-text="Screenshot of an aggregate sign-in expanded to show all rows." lightbox="media/concept-sign-ins/aggregate-sign-in-expanded.png":::
 
-When Microsoft Entra ID logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) has a value greater than 1 in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
+When Microsoft Entra ID logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) has a value greater than one in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
 
 Sign-ins are aggregated in the non-interactive users when the following data matches:
 
