@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall-manager
 ms.custom: ignite-2022
 ms.topic: tutorial
-ms.date: 06/15/2022
+ms.date: 09/26/2023
 ms.author: victorh
 ---
 
