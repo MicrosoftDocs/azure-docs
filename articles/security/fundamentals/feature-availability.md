@@ -7,8 +7,8 @@ ms.author: terrylan
 ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: ignite-2022
-ms.topic: reference
-ms.date: 01/13/2023
+ms.topic: feature-availability
+ms.date: 08/31/2023
 ---
 
 # Cloud feature availability for commercial and US Government customers

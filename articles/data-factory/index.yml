@@ -138,7 +138,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Capture changed data with a CDC resource
-            url: how-to-change-data-capture-resource.md          
+            url: how-to-change-data-capture-resource.md            
   - title: Managed Airflow
     linkLists:
       - linkListType: concept

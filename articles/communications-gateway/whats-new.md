@@ -5,12 +5,18 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: whats-new
-ms.date: 05/05/2023
+ms.date: 09/06/2023
 ---
 
 # What's new in Azure Communications Gateway?
 
 This article covers new features and improvements for Azure Communications Gateway.
+
+## September 2023
+
+### ExpressRoute Microsoft Peering between Azure and operator networks
+
+From September 2023, you can use ExpressRoute Microsoft Peering to connect operator networks to Azure Communications Gateway as an alternative to Peering Services Voice (also known as MAPS for voice). We recommend that most deployments use MAPS for voice unless there's a specific reason that ExpressRoute Microsoft Peering is preferable. For example, you might have existing ExpressRoute connectivity to your network that you can reuse. For details and examples of when ExpressRoute might be preferable to MAPS, see [Using ExpressRoute for Microsoft PSTN Services](../../articles/expressroute/using-expressroute-for-microsoft-pstn.md).
 
 ## May 2023
 

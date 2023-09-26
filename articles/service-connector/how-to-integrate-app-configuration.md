@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure App Configuration with Service Connector
 description: Integrate Azure App Configuration into your application with Service Connector
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022

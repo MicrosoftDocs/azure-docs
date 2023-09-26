@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 05/01/2023
 ms.author: davidmu
-ms.custom: aaddev, curation-claims
+ms.custom: aaddev, curation-claims, devx-track-dotnet
 ms.reviewer: rahulnagraj, alamaral
 ---
 
 # Customize claims issued in the JSON web token (JWT) for enterprise applications
 
-The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most preintegrated applications in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. The application validates and uses the token to sign the user in instead of prompting for a username and password.
+The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most preintegrated applications in the Microsoft Entra application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. The application validates and uses the token to sign the user in instead of prompting for a username and password.
 
 These JSON Web tokens (JWT) used by OIDC and OAuth applications contain pieces of information about the user known as *claims*. A claim is information that an identity provider states about a user inside the token they issue for that user. In an [OIDC response](v2-protocols-oidc.md), claims data is typically contained in the ID Token issued by the identity provider in the form of a JWT.
 
@@ -90,7 +90,7 @@ You can use the following functions to transform claims.
 | **Substring() - EndOfString** (Preview) | Extracts parts of a string claim type, beginning at the character at the specified position, and returns the rest of the claim from the specified start index. <br/>SourceClaim - The claim source of the transform.<br/>StartIndex - The zero-based starting character position of a substring in this instance.<br/>For example:<br/>sourceClaim - PleaseExtractThisNow<br/>StartIndex - 6<br/>Output: ExtractThisNow |
 | **RegexReplace()** (Preview) |  RegexReplace() transformation accepts as input parameters:<br/>- Parameter 1: a user attribute as regex input<br/>- An option to trust the source as multivalued<br/>- Regex pattern<br/>- Replacement pattern. The replacement pattern may contain static text format along with a reference that points to regex output groups and more input parameters. |
 
-If you need other transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) under the *SaaS application* category.
+If you need other transformations, submit your idea in the [feedback forum in Microsoft Entra ID](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) under the *SaaS application* category.
 
 ## Regex-based claims transformation
 
@@ -162,9 +162,9 @@ The user type can be:
 
 * **Any** - All users are allowed to access the application.
 * **Members**: Native member of the tenant
-* **All guests**: User moved from an external organization with or without Azure AD.
-* **AAD guests**: Guest user belongs to another organization using Azure AD.
-* **External guests**: Guest user belongs to an external organization that doesn't have Azure AD.
+* **All guests**: User moved from an external organization with or without Microsoft Entra ID.
+* **Microsoft Entra guests**: Guest user belongs to another organization using Microsoft Entra ID.
+* **External guests**: Guest user belongs to an external organization that doesn't have Microsoft Entra ID.
 
 One scenario where the user type is helpful is when the source of a claim is different for a guest and an employee accessing an application. You can specify that if the user is an employee, get the NameID from user.email. If the user is a guest, then the NameID comes from user.extensionattribute1.
 
@@ -175,13 +175,13 @@ To add a claim condition:
 1. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Azure AD evaluates conditions with the same source from top to bottom. The claim emits the last value that matches the expression in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
+The order in which you add the conditions are important. Microsoft Entra first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Microsoft Entra ID evaluates conditions with the same source from top to bottom. The claim emits the last value that matches the expression in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
 
-For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Azure AD. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
+For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Microsoft Entra ID. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
 
-First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
+First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **Microsoft Entra guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-As another example, consider when Britta Simon tries to sign in using the following configuration. Azure AD first evaluates all conditions with source `Attribute`. The source for the claim is `user.mail` when Britta's user type is **AAD guests**. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is the new source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
+As another example, consider when Britta Simon tries to sign in using the following configuration. Microsoft Entra first evaluates all conditions with source `Attribute`. The source for the claim is `user.mail` when Britta's user type is **Microsoft Entra guests**. Next, Microsoft Entra ID evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is the new source for the claim. Because Britta is in **Microsoft Entra guests**, `user.othermail` is the new source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. The claim falls back to `user.extensionattribute1` ignoring the condition entry in both cases.
 
@@ -191,7 +191,7 @@ Applications that receive tokens rely on claim values that can't be tampered wit
 - [Configure a custom signing key](#configure-a-custom-signing-key)
 - [update the application manifest to accept mapped claims](#update-the-application-manifest).  
 
-Without this, Azure AD returns an [AADSTS50146 error code](./reference-error-codes.md#aadsts-error-codes).
+Without this, Microsoft Entra ID returns an [AADSTS50146 error code](./reference-error-codes.md#aadsts-error-codes).
 
 ## Configure a custom signing key
 For multi-tenant apps, a custom signing key should be used. Don't set `acceptMappedClaims` in the app manifest. when setting up an app in the Azure portal, you get an app registration object and a service principal in your tenant. That app is using the Azure global sign-in key, which can't be used for customizing claims in tokens. To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal. For testing purposes, you can use a self-signed certificate. After you configure the custom signing key, your application code needs to validate the token signing key.
@@ -258,7 +258,7 @@ To run this script, you need:
 - An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the Overview blade of the application's entry in App registrations in the Azure portal. The app registration should have the following configuration:
   - A redirect URI of "http://localhost" listed in the **Mobile and desktop applications** platform configuration.
   - In **API permissions**, Microsoft Graph delegated permissions **Application.ReadWrite.All** and **User.Read** (make sure you grant Admin consent to these permissions).
-- A user who logs in to get the Microsoft Graph access token. The user should be one of the following Azure AD administrative roles (required to update the service principal):
+- A user who logs in to get the Microsoft Graph access token. The user should be one of the following Microsoft Entra administrative roles (required to update the service principal):
   - Cloud Application Administrator
   - Application Administrator
   - Global Administrator
@@ -268,7 +268,7 @@ To run this script, you need:
   - password for the private key (pfx file)
  
 > [!IMPORTANT]
-> The private key must be in PKCS#12 format since Azure AD doesn't support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate information.
+> The private key must be in PKCS#12 format since Microsoft Entra ID doesn't support other format types. Using the wrong format can result in the error "Invalid certificate: Key value is invalid certificate" when using Microsoft Graph to PATCH the service principal with a `keyCredentials` containing the certificate information.
 
 ```
 $fqdn="fourthcoffeetest.onmicrosoft.com" # this is used for the 'issued to' and 'issued by' field of the certificate
@@ -463,9 +463,9 @@ For single tenant apps, you can set the `acceptMappedClaims` property to `true` 
 >[!WARNING]
 >Do not set the acceptMappedClaims property to true for multi-tenant apps, which can allow malicious actors to create claims-mapping policies for your app.
 
-The requested token audience is required to use a verified domain name of your Azure AD tenant, which means you should set the `Application ID URI` (represented by the `identifierUris` in the application manifest) for example to `https://contoso.com/my-api` or (simply using the default tenant name) `https://contoso.onmicrosoft.com/my-api`.
+The requested token audience is required to use a verified domain name of your Microsoft Entra tenant, which means you should set the `Application ID URI` (represented by the `identifierUris` in the application manifest) for example to `https://contoso.com/my-api` or (simply using the default tenant name) `https://contoso.onmicrosoft.com/my-api`.
 
-If you're not using a verified domain, Azure AD returns an `AADSTS501461` error code with message "_AcceptMappedClaims is only supported for a token audience matching the application GUID or an audience within the tenant's verified domains. Either change the resource identifier or use an application-specific signing key."
+If you're not using a verified domain, Microsoft Entra ID returns an `AADSTS501461` error code with message "_AcceptMappedClaims is only supported for a token audience matching the application GUID or an audience within the tenant's verified domains. Either change the resource identifier or use an application-specific signing key."
 
 ## Advanced claims options
 
@@ -475,4 +475,4 @@ Configure advanced claim options by checking the box under **Advanced Claims Opt
 
 ## Next steps
 
-* Learn more about the [claims and tokens used in Azure AD](security-tokens.md).
+* Learn more about the [claims and tokens used in Microsoft Entra ID](security-tokens.md).

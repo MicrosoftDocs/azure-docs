@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -360,7 +360,7 @@ A nested query applies the inner query to each element of the outer container. O
     WHERE c.familyName = f.parents[0].familyName
     ```
 
-## Next steps
+## Related content
 
 - [Azure Cosmos DB for NoSQL .NET SDK developer guide](../how-to-dotnet-get-started.md)
 - [Model document data](../../modeling-data.md)

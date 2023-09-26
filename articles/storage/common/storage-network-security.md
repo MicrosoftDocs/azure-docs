@@ -4,6 +4,7 @@ description: Configure layered network security for your storage account by usin
 services: storage
 author: jimmart-dev
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 08/15/2023
 ms.author: jammart

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 09/05/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ App protection policies apply mobile application management (MAM) to specific ap
 
 ## Prerequisites
 
-Customers interested in the public preview will need to opt-in using the [MAM for Windows Public Preview Sign Up Form](https://aka.ms/MAMforWindowsPublic).
+Customers interested in the public preview need to opt in using the [MAM for Windows Public Preview Sign Up Form](https://aka.ms/MAMforWindowsPublic).
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
@@ -34,7 +34,7 @@ The following policy is put in to [Report-only mode](howto-conditional-access-in
 
 ### Require app protection policy for Windows devices
 
-The following steps help create a Conditional Access policy requiring an app protection policy when using a Windows device. The app protection policy must also be configured and assigned to your users in Microsoft Intune. For more information about how to create the app protection policy, see the article [Preview: App protection policy settings for Windows](/mem/intune/apps/app-protection-policy-settings-windows).
+The following steps help create a Conditional Access policy requiring an app protection policy when using a Windows device. The app protection policy must also be configured and assigned to your users in Microsoft Intune. For more information about how to create the app protection policy, see the article [Preview: App protection policy settings for Windows](/mem/intune/apps/app-protection-policy-settings-windows). The following policy includes multiple controls allowing devices to either use app protection policies for mobile application management (MAM) or be managed and compliant with mobile device management (MDM) policies.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Protection** > **Conditional Access**.
@@ -52,16 +52,19 @@ The following steps help create a Conditional Access policy requiring an app pro
    1. **Client apps**, set **Configure** to **Yes**. 
       1. Select **Browser** only.
 1. Under **Access controls** > **Grant**, select **Grant access**.
-   1. Select **Require app protection policy**
+   1. Select **Require app protection policy** and **Require device to be marked as compliant**.
    1. **For multiple controls** select **Require one of the selected controls**
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After administrators confirm the settings using [report-only mode](howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
+
+> [!TIP]
+> Organizations should also deploy a policy that [blocks access from unsupported or unknown device platforms](howto-policy-unknown-unsupported-device.md) along with this policy.
 
 ## Sign in to Windows devices
 
-When users attempt to sign in to a site that is protected by an app protection policy for the first time, they're prompted: To access your service, app or website, you may need to sign in to Microsoft Edge using `username@domain.com` or register your device with `organization` if you are already signed in.
+When users attempt to sign in to a site that is protected by an app protection policy for the first time, they're prompted: To access your service, app or website, you may need to sign in to Microsoft Edge using `username@domain.com` or register your device with `organization` if you're already signed in.
 
 Clicking on **Switch Edge profile** opens a window listing their Work or school account along with an option to **Sign in to sync data**.
 
@@ -70,11 +73,13 @@ Clicking on **Switch Edge profile** opens a window listing their Work or school 
 This process opens a window offering to allow Windows to remember your account and automatically sign you in to your apps and websites. 
 
 > [!CAUTION]
-> You must *CLEAR THE CHECKBOX* **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM).
+> You must *CLEAR THE CHECKBOX* **Allow my organization to manage my device**. Leaving this checked enrolls your device in mobile device maangment (MDM) not mobile application management (MAM). 
+>
+> Don't select **No, sign in to this app only**.
 
 ![Screenshot showing the stay signed in to all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
 
-After selecting **OK** you may see a progress window while policy is applied. After a few moments you should see a window saying "you're all set", app protection policies are applied.
+After selecting **OK**, you may see a progress window while policy is applied. After a few moments, you should see a window saying "you're all set", app protection policies are applied.
 
 ## Troubleshooting
 
@@ -93,7 +98,7 @@ To resolve these possible scenarios:
 
 ### Existing account
 
-If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge, or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration blocks the user from being properly enrolled in MAM. This is a known issue that is currently being worked on. 
+If there's a pre-existing, unregistered account, like `user@contoso.com` in Microsoft Edge, or if a user signs in without registering using the Heads Up Page, then the account isn't properly enrolled in MAM. This configuration blocks the user from being properly enrolled in MAM. This is a known issue. 
 
 ## Next steps
 

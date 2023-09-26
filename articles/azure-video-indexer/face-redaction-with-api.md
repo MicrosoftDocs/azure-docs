@@ -3,6 +3,8 @@ title: Redact faces by using Azure AI Video Indexer API
 description: Learn how to use the Azure AI Video Indexer face redaction feature by using API.
 ms.topic: how-to
 ms.date: 08/11/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Redact faces by using Azure AI Video Indexer API

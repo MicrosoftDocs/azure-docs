@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure IoT Hub
 description: Lists Azure Policy Regulatory Compliance controls available for Azure IoT Hub. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 08/25/2023
+ms.date: 09/19/2023
 ms.topic: conceptual
 author: kgremban
 ms.author: kgremban

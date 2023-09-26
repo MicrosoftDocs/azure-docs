@@ -2,12 +2,12 @@
 title: Azure AI Video Indexer optical character recognition (OCR) overview 
 titleSuffix: Azure AI Video Indexer 
 description: An introduction to Azure AI Video Indexer optical character recognition (OCR) component responsibly.
-author: Juliako
-ms.author: juliako
 manager: femila
 ms.service: azure-video-indexer
 ms.date: 06/15/2022
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Optical character recognition (OCR)  
