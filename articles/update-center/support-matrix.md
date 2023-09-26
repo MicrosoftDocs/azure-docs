@@ -11,13 +11,13 @@ ms.custom: references_regions
 
 # Support matrix for Azure Update Manager
 
-This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure VMs or machines managed by Azure Arc-enabled servers.
+This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure virtual machines (VMs) or machines managed by Azure Arc-enabled servers.
 
 ## Update sources supported
 
 **Windows**: [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) reports to Microsoft Update by default, but you can configure it to report to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). If you configure WUA to report to WSUS, based on the last synchronization from WSUS with Microsoft Update, the results in Update Manager might differ from what Microsoft Update shows.
 
-To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations)
+To specify sources for scanning and downloading updates, see [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings?branch=main#specify-intranet-microsoft-update-service-location). To restrict machines to the internal update service, see [Do not connect to any Windows Update internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates?branch=main#do-not-connect-to-any-windows-update-internet-locations).
 
 **Linux**: You can configure Linux machines to report to a local or public YUM or APT package repository. The results shown in Update Manager depend on where the machines are configured to report.
 
@@ -29,7 +29,7 @@ The following types of updates are supported.
 
 Update Manager supports operating system updates for both Windows and Linux.
 
-Update Manager doesn't support driver Updates.
+Update Manager doesn't support driver updates.
 
 ### First-party updates on Windows
 
@@ -112,9 +112,9 @@ Update Manager doesn't support CIS-hardened images.
 >
 > For the preceding limitation, we recommend that you use [Automation Update Management](../automation/update-management/overview.md) until support is available in Update Manager.
 
-### Marketplace/PIR images
+### Azure Marketplace/PIR images
 
-The Marketplace image in Azure has the following attributes:
+The Azure Marketplace image has the following attributes:
 
 - **Publisher**: The organization that creates the image. Examples are `Canonical` and `MicrosoftWindowsServer`.
 - **Offer**: The name of the group of related images created by the publisher. Examples are `UbuntuServer` and `WindowsServer`.
@@ -151,7 +151,7 @@ Update Manager supports the following operating system versions. You might exper
 
 #### Unsupported operating systems
 
-The following table lists the operating systems for Marketplace images that aren't supported.
+The following table lists the operating systems for Azure Marketplace images that aren't supported.
 
 | **Publisher**| **OS offer** | **SKU**|
 |----------|-------------|-----|
