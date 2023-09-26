@@ -14,11 +14,11 @@ ms.custom: ignite-fall-2023
 
 # Resiliency policies powered by Dapr
 
-Dapr-driven resiliency policies empower developers to detect, mitigate, and recover from network failures by providing the ability to configure retries, timeouts, circuit breakers, and connections pools on container applications and Dapr components.
+[Dapr-driven resiliency policies](https://docs.dapr.io/operations/resiliency/) empower developers to detect, mitigate, and recover from network failures using retries, timeouts, circuit breakers, and connections pools on container applications and Dapr components.
 
-In the context of Azure Container Apps, resiliency policies are configured as child resources on a container app or Dapr component. When an application initiates a network request, it’s the callee – either the container app or Dapr component associated to the resiliency policies that dictate the how timeouts, retries, and other resiliency policies should be applied.
+In the context of Azure Container Apps, resiliency policies are configured as child resources on a container app or [Dapr component](./dapr-resiliency-overview.md). When an application initiates a network request, the callee (either the container app or Dapr component associated with the resiliency policies) dictates how timeouts, retries, and other resiliency policies are applied.
 
-There are 3 methods for creating resiliency policies - Bicep, the CLI, and the Azure Portal.
+You can [define resiliency policies](#defining-resiliency-policies) using either Bicep, the Azure CLI, and the Azure Portal.
 
 ## How do resiliency policies work?
 
@@ -31,17 +31,12 @@ Resiliency policies work better together. Combine timeouts, retries, and cirtuit
 
 All applications making calls use the policies defined by the application they're calling. For example, in the following diagram, App A uses the policies defined for App B.
 
-:::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
-
-> [!NOTE]
-> All policy configurations are children of either a Dapr component or a container app. You can apply resiliency policies to any container app and Dapr component. Container apps and Dapr components can have one resiliency resource associated to each. 
-
 ## Container app to container app policies
 
 Whether you’re using native Container App-to-Container or `dapr invoke` for your service-to-service communication, resiliency policies are configured and applied the same. The following Bicep shows a full resiliency policy example. 
 
 ```bicep
-resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' = {
+resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@2023-08-01-preview' = {
   name: 'myResiliencyPolicy'
   parent: '${appName}'
   properties: {
@@ -100,18 +95,12 @@ resource myPolicyDoc 'Microsoft.App/containerApps/appResiliencyPolicy@version' =
 | Metadata | Description |
 | ------ | ----------- |
 | `name` | The name of your resiliency policy. This name will be tied to container apps and Dapr components. |
-| `parent` | The name of your container app or Dapr component. | 
+| `parent` | The resiliency policy scope, either your container app or Dapr component. | 
+| `target` | The target application of the resiliency configuration (the application being called). |
 
 ### Timeouts
 
 Timeouts are used to early-terminate long-running operations. The timeout policy includes the following metadata.
-
-| Metadata | Description |
-| ------ | ----------- |
-| `responseTimeoutInSeconds` |  |
-| `connectionTimeoutInSecionds` |  |
-
-For example:
 
 ```bicep
 properties: {
@@ -123,24 +112,16 @@ properties: {
 }
 ```
 
+| Metadata | Description |
+| ------ | ----------- |
+| `responseTimeoutInSeconds` |  |
+| `connectionTimeoutInSecionds` |  |
+
 ### Retries
 
 Define a `tcpRetryPolicy` or an `httpRetryPolicy` strategy for failed operations, including failures due to a failed timeout or circuit breaker policy. The retry policy includes the following configurations.
 
 #### `httpRetryPolicy`
-
-| Metadata | Description |
-| ------ | ----------- |
-| `maxRetries` |  |
-| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. |
-| `retryBackOff.initialDelayInMilliseconds` |  |
-| `retryBackOff.maxIntervalInMilliseconds` |  |
-| `matches` |  |
-| `matches.headers` |  |
-| `matches` |  |
-| `matches.httpStatusCodes` |  |
-
-For example:
 
 ```bicep
 properties: {
@@ -173,20 +154,49 @@ properties: {
             ]
         }
     } 
-
 }
 ```
 
+| Metadata | Description |
+| ------ | ----------- |
+| `maxRetries` |  |
+| `retryBackOff` | Monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. |
+| `retryBackOff.initialDelayInMilliseconds` |  |
+| `retryBackOff.maxIntervalInMilliseconds` |  |
+| `matches` | Set match values to limit when the app should attempt a retry. |
+| `matches.headers` | Only retries when the app returns a certain header. |
+| `matches.httpStatusCodes` | Only retries when the app returns a specific status code. |
+| `matches.errors` | Only retries when the app returns a specific error code. |
 
 #### `tcpRetryPolicy`
+
+```bicep
+properties: {
+  target: 'aca-app-name'
+    tcpRetryPolicy: {
+        maxConnectAttempts: 3
+    }
+}
+```
 
 | Metadata | Description |
 | ------ | ----------- |
 | `maxConnectAttempts` | Set the maximum connection attempts (`maxConnectionAttempts`) to retry on failed connections. You can use HTTP and TCP retry policies in the same resiliency resource. |
 
+
 ### Circuit breakers
 
 Circuit breaker policies monitor the requests and shut off all traffic to the impacted service when timeout and retry criteria are met. 
+
+```bicep
+properties: {
+  target: 'aca-app-name'
+    circuitBreakerPolicy: {
+        consecutiveErrors: 5
+        intervalInSeconds: 10
+    }
+}
+```
 
 | Metadata | Description |
 | ------ | ----------- |
@@ -197,12 +207,31 @@ Circuit breaker policies monitor the requests and shut off all traffic to the im
 
 #### `httpConnectionPool`
 
+```bicep
+properties: {
+  target: 'aca-app-name'
+    httpConnectionPool: {
+        http1MaxPendingRequests: 1024
+        http2MaxRequests: 1024
+    }
+}
+```
+
 | Metadata | Description |
 | ------ | ----------- |
 | `http1MaxPendingRequests` |  |
 | `http2MaxRequests` |  |
 
 #### `tcpConnectionPool`
+
+```bicep
+properties: {
+  target: 'aca-app-name'
+    tcpConnectionPool: {
+        maxConnections: 100
+    }
+}
+```
 
 | Metadata | Description |
 | ------ | ----------- |
