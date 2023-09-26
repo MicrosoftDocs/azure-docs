@@ -57,5 +57,5 @@ Start with [migration strategies](migration-strategies.md) to learn more about A
 
 Check out these resources if you need further assistance:
 
-- Get answers from community experts in [Microsoft Q&A](https://learn.microsoft.com/answers/tags/389/azure-health-data-services).
+- Get answers from community experts in [Microsoft Q&A](https://go.microsoft.com/fwlink/?linkid=2248420).
 - If you have a support plan and require technical support, [contact us](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
