@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/21/2023
+ms.date: 09/25/2023
 ms.author: alkohli
 ---
 
@@ -20,6 +20,10 @@ The following release notes identify the critical open issues and the resolved i
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
 This article applies to the **Azure Stack Edge 2309** release, which maps to software version **3.2.2380.1652**.
+
+> [!Warning] 
+> In this release, you must update the packet core version to AP5GC 2308 before you update to Azure Stack Edge 2309. For detailed steps, see [Azure Private 5G Core 2308 release notes](../private-5g-core/azure-private-5g-core-release-notes-2308.md).
+> If you update to Azure Stack Edge 2309 before updating to Packet Core 2308.0.1, you will experience a total system outage. In this case, you must delete and re-create the Azure Kubernetes service cluster on your Azure Stack Edge device. 
 
 ## Supported update paths
 

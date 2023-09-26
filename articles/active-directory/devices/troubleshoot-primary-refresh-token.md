@@ -17,11 +17,13 @@ ms.reviewer: gudlapreethi, bemey, filuz, robgarcia, v-leedennis
 
 This article discusses how to troubleshoot issues that involve the [primary refresh token](/azure/active-directory/devices/concept-primary-refresh-token) (PRT) when you authenticate on a Microsoft Entra joined Windows device by using your Microsoft Entra credentials.
 
+<!-- docutune:ignore AAD -->
+
 On devices that are joined to Microsoft Entra ID or hybrid Microsoft Entra ID, the main component of authentication is the PRT. You obtain this token by signing in to Windows 10 by using Microsoft Entra credentials on a Microsoft Entra joined device for the first time. The PRT is cached on that device. For subsequent sign-ins, the cached token is used to let you use the desktop.
 
 As part of the process of locking and unlocking the device or signing in again to Windows, a background network authentication attempt is made one time every four hours to refresh the PRT. If problems occur that prevent refreshing the token, the PRT eventually expires. Expiration affects single sign-on (SSO) to Microsoft Entra resources. It also causes sign-in prompts to be shown.
 
-If you suspect that a PRT problem exists, we recommend that you first collect Microsoft Entra ID logs, and follow the steps that are outlined in the troubleshooting checklist. Do this for any Microsoft Entra client issue first, ideally within a repro session. Complete this process before you file a support request.
+If you suspect that a PRT problem exists, we recommend that you first collect Microsoft Entra logs, and follow the steps that are outlined in the troubleshooting checklist. Do this for any Microsoft Entra client issue first, ideally within a repro session. Complete this process before you file a support request.
 
 ## Troubleshooting checklist
 
