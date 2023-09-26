@@ -28,7 +28,7 @@ The following table lists the difference between SMART on FHIR proxy and SMART o
 * Step 1: Set up FHIR SMART user role 
 Follow the steps listed under section [Manage Users: Assign Users to Role](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to SMART user role will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide. 
 * Step 2: Deploy SMART on FHIR sample under [Azure Health Data and AI OSS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)
-* Step 3: Update endpoint of the FHIR service url to '<baseurl from APIM>/smart'.
+* Step 3: Update endpoint of the FHIR service url to '{{BASEURL_FROM_APIM}}/smart'.
 * Step 4: Uncheck the SMART on FHIR proxy setting under Authentication blade in Azure Portal for FHIR service. 
 
 If you have questions, you can get answers from community experts in [Microsoft Q&A](https://aka.ms/SMARTonFHIRproxydeprecation). For technical support, you can also create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).  
