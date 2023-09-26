@@ -35,7 +35,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
     - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./concepts/models.md#model-updates).
 
-- Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource. 
+- Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
 
 ::: zone pivot="programming-language-javascript"
 
@@ -64,6 +64,12 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 ::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [JavaScript quickstart](includes/use-your-data-javascript.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [JavaScript quickstart](includes/use-your-data-python.md)]
 
 ::: zone-end
 
