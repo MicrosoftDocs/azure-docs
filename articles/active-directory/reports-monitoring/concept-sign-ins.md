@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/31/2023
+ms.date: 09/26/2023
 ms.author: sarahlipsey
-ms.reviewer: besiler
+ms.reviewer: egreenberg14
 ---
 # What are Microsoft Entra sign-in logs?
 
@@ -81,9 +81,15 @@ Microsoft Entra ID issues tokens for authentication and authorization. In some s
 
 When reviewing the logs for this situation, the sign-in logs for the home tenant (in this scenario, Contoso) don't show a sign-in attempt because the token wasn't evaluated against the home tenant's policies. The sign-in token was only used to display the appropriate failure message. You won't see a sign-in attempt in the logs for the home tenant.
 
+**Microsoft Graph activity logs**
+
+`MicrosoftGraphActivityLogs` can be routed with your sign-in logs through Diagnostic settings to an endpoint like Azure Monitor logs. This integration allows you to cross reference the token issued by the Microsoft Graph activity with the sign-in.
+
+You may identify Microsoft Graph events that don't correlate to a service principal sign-in. For example, you found a `UniqueTokenIdentifier` in the Microsoft Graph activity logs that is missing from the service principal sign-in logs. This situation occurs for first-party, app-only sign-in activity. The Microsoft Graph activity logs record all Microsoft Graph API requests, including those made by first-party apps. The service principal sign-in logs don't capture those events, so you're not paying for logs related to internal Microsoft tokens within your tenant. 
+
 ### Non-interactive user sign-ins
 
-Non-interactive sign-ins are done *on behalf of a* user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, Microsoft Entra ID recognizes when the user's token needs to be refreshed and does so behind the scenes, without interrupting the user's session. In general, the user perceives these sign-ins as happening in the background.
+Non-interactive sign-ins are done *on behalf of a* user. These delegated sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, Microsoft Entra ID recognizes when the user's token needs to be refreshed and does so behind the scenes, without interrupting the user's session. In general, the user perceives these sign-ins as happening in the background.
 
 ![Screenshot of the non-interactive user sign-ins log.](media/concept-sign-ins/sign-in-logs-user-noninteractive.png)
 

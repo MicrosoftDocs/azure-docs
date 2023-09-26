@@ -9,9 +9,10 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 09/08/2023
+  ms.date: 09/26/2023
   ms.author: sarahlipsey
-  ms.reviewer: besiler
+  ms.reviewer: egreenberg14
+
 title: Frequently asked questions around Microsoft Entra monitoring and health
 summary: |
   This article includes answers to frequently asked questions about Microsoft Entra monitoring and health. For more information, see [Microsoft Entra monitoring and health overview](overview-monitoring-health.md). 
@@ -180,6 +181,11 @@ sections:
           Sign-ins using the FIDO2 keys are an example of non-interactive sign-ins that show up in the interactive sign-in logs.
 
           At this time, these non-interactive logs will always be included in the interactive sign-in log. 
+      - question: |
+          Why are there `MicrosoftGraphActivityLogs` events that don't correlate to a Service Principal sign-in?
+          
+        answer:
+          Every time a token is used to call a Microsoft Graph endpoint, the `MicrosoftGraphActivityLogs` are updated with that call. Some of those calls are first-party, app-only calls, which are not published to the Service Principal sign-in logs. When a `MicrosoftGraphActivityLogs` shows a `uniqueTokenIdentifier` that you can't locate in the sign-in logs, the token identifier is referencing a first-party app-only token.
 
   - name: Conditional Access
     questions:
