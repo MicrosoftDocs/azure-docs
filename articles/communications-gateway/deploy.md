@@ -201,5 +201,5 @@ If you chose to delegate a subdomain when you created Azure Communications Gatew
 
 ## Next steps
 
-- [Connect Azure Communications Gateway to Operator Connect or Teams Phone Mobile](connect-operator-connect.md)
-- [Connect Azure Communications Gateway to Microsoft Teams Direct Routing](connect-teams-direct-routing.md)
+> [!div class="nextstepaction"]
+> [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md)

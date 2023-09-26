@@ -50,6 +50,10 @@ Use the following procedures to deploy Azure Communications Gateway and connect 
 
 1. [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md) describes the steps you need to take before you can start creating your Azure Communications Gateway resource. You might need to refer to some of the articles listed in [Learn about and plan for Azure Communications Gateway](#learn-about-and-plan-for-azure-communications-gateway).
 1. [Deploy Azure Communications Gateway](deploy.md) describes how to create your Azure Communications Gateway resource in the Azure portal and connect it to your networks.
+1. [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md) describes how to integrate with the Provisioning API. Integrating with the API is:
+    - Required for Microsoft Teams Direct Routing.
+    - Optional for Operator Connect: only required to add custom headers to messages entering your core network.
+    - Not supported for Teams Phone Mobile.
 
 ## Integrate with your chosen communications services
 

@@ -34,6 +34,8 @@ items:
     href: prepare-to-deploy.md
   - name: Deploy Azure Communications Gateway
     href: deploy.md
+  - name: Integrate with the Provisioning API
+    href: integrate-with-provisioning-api.md
 - name: Integration with Operator Connect and Teams Phone Mobile
   items:
   - name: Overview of interoperability

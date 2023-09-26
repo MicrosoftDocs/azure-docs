@@ -52,6 +52,8 @@ landingContent:
             url: prepare-to-deploy.md
           - text: Deploy Azure Communications Gateway
             url: deploy.md
+          - text: Integrate with Azure Communications Gateway's Provisioning API
+            url: integrate-with-provisioning-api.md
 
   # Card
   - title: Use Azure Communications Gateway for Operator Connect and Teams Phone Mobile
