@@ -5,8 +5,7 @@ description: This is a list of natural languages that the Content Moderator API 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: conceptual
 ms.date: 10/27/2021
 ms.author: pafarley
@@ -32,11 +31,11 @@ ms.author: pafarley
 |Assamese | |✔️ | | |
 |Azerbaijani | |✔️ | | |
 |Bangla - Bangladesh | |✔️ | | |
-|Bangla - India | |✔️ | | |
 |Balinese |✔️ | | | |
 |Basque | |✔️ | | |
 |Belarusian | |✔️ | | |
 |Bengali | ✔️| | | |
+|Bengali - India | |✔️ | | |
 |Bosnian - Cyrillic | |✔️ | | |
 |Bosnian - Latin | |✔️ | | |
 |Buginese |✔️ | | | |

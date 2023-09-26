@@ -1,6 +1,6 @@
 ---
 title: Configure the role claim
-description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory.
+description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Microsoft Entra ID.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -20,7 +20,7 @@ You can customize the role claim in the access token that is received after an a
 
 ## Prerequisites
 
-- An Azure AD subscription with a configured tenant. For more information, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
+- A Microsoft Entra subscription with a configured tenant. For more information, see [Quickstart: Set up a tenant](quickstart-create-new-tenant.md).
 - An enterprise application that has been added to the tenant. For more information, see [Quickstart: Add an enterprise application](../manage-apps/add-application-portal.md).
 - Single sign-on (SSO) configured for the application. For more information, see [Enable single sign-on for an enterprise application](../manage-apps/add-application-portal-setup-sso.md).
 - A user account that is assigned to the role. For more information, see [Quickstart: Create and assign a user account](../manage-apps/add-application-portal-assign-users.md).
@@ -34,9 +34,8 @@ You can customize the role claim in the access token that is received after an a
 
 Use the following steps to locate the enterprise application:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the left pane, select **Azure Active Directory**.
-1. Select **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
 1. Enter the name of the existing application in the search box, and then select the application from the search results.
 1. After the application is selected, copy the object ID from the overview pane.
 
@@ -112,7 +111,7 @@ Use the Microsoft Graph Explorer to add roles to an enterprise application.
 
 Update the attributes to define the role claim that is included in the token.
 
-1. Locate the application in the Azure portal, and then select **Single sign-on** in the left menu.
+1. Locate the application in the Microsoft Entra admin center, and then select **Single sign-on** in the left menu.
 1. In the **Attributes & Claims** section, select **Edit**.
 1. Select **Add new claim**.
 1. In the **Name** box, type the attribute name. This example uses **Role Name** as the claim name.
@@ -124,7 +123,7 @@ Update the attributes to define the role claim that is included in the token.
 
 After the service principal is patched with more roles, you can assign users to the respective roles.
 
-1. In the Azure portal, locate the application to which the role was added.
+1. Locate the application to which the role was added in the Microsoft Entra admin center.
 1. Select **Users and groups** in the left menu and then select the user that you want to assign the new role.
 1. Select **Edit assignment** at the top of the pane to change the role.
 1. Select **None Selected**, select the role from the list, and then select **Select**.

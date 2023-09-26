@@ -5,7 +5,7 @@ summary:  Microsoft’s identity solutions span on-premises and cloud-based capa
 
 metadata:
   author: billmath
-  description: Integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD.
+  description: Integrate your on-premises directories with Microsoft Entra ID. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Microsoft Entra ID.
   manager: amycolannino
   ms.author: billmath
   ms.collection: na
@@ -120,10 +120,3 @@ landingContent:
         links:
           - text: What is connect sync?
             url: connect/whatis-azure-ad-connect-v2.md
-
-
-
-
-
-
-

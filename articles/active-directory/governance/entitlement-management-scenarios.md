@@ -1,6 +1,6 @@
 ---
 title: Common scenarios in entitlement management
-description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
+description: Learn the high-level steps you should follow for common scenarios in Microsoft Entra entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl

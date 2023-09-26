@@ -3,7 +3,7 @@ title: Open-source components and versions - Azure HDInsight 5.x
 description: Learn about the open-source components and versions in Azure HDInsight 5.x.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/27/2023
+ms.date: 08/29/2023
 ---
 
 # HDInsight 5.x component versions
@@ -49,7 +49,7 @@ Azure HDInsight supports the following Apache Spark versions.
 |--|--|--|--|--|--|
 |2.4|July 8, 2019|End of life announced (EOLA)| February 10, 2023| August 10, 2023|February 10, 2024|
 |3.1|March 11, 2022|General availability |-|-|-|
-|3.3|To be announced for preview|-|-|-|-|
+|3.3|Available for preview|-|-|-|-|
 
 ### Guide for migrating from Apache Spark 2.4 to Spark 3.x
 

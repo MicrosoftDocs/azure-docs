@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/21/2023
+ms.date: 08/31/2023
 ms.author: gunnarc
 ms.custom: compute-evergreen
 ---

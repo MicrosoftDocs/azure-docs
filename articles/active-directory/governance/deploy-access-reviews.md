@@ -33,7 +33,7 @@ ms.collection: M365-identity-device-management
 
   ![Diagram that shows the access reviews flow.](./media/deploy-access-review/1-planning-review.png)
 
-Access reviews are an [Microsoft Entra Identity Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
+Access reviews are an [Microsoft Entra ID Governance](identity-governance-overview.md) capability. The other capabilities are [entitlement management](entitlement-management-overview.md), [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), and [terms of use](../conditional-access/terms-of-use.md). Together, they help you address these four questions:
 
 * Which users should have access to which resources?
 * What are those users doing with that access?
@@ -55,10 +55,10 @@ The key benefits of enabling access reviews are:
 
 The following videos help you learn about access reviews:
 
-* [What are access reviews in Azure AD?](https://youtu.be/kDRjQQ22Wkk)
-* [How to create access reviews in Azure AD](https://youtu.be/6KB3TZ8Wi40)
-* [How to create automatic access reviews for all guest users with access to Microsoft 365 groups in Azure AD](https://www.youtube.com/watch?v=3D2_YW2DwQ8)
-* [How to enable access reviews in Azure AD](https://youtu.be/X1SL2uubx9M)
+* [What are access reviews in Microsoft Entra ID?](https://youtu.be/kDRjQQ22Wkk)
+* [How to create access reviews in Microsoft Entra ID](https://youtu.be/6KB3TZ8Wi40)
+* [How to create automatic access reviews for all guest users with access to Microsoft 365 groups in Microsoft Entra ID](https://www.youtube.com/watch?v=3D2_YW2DwQ8)
+* [How to enable access reviews in Microsoft Entra ID](https://youtu.be/X1SL2uubx9M)
 * [How to review access by using My Access](https://youtu.be/tIKdQhdHLXU)
 
 ### Licenses
@@ -80,7 +80,7 @@ For access reviews, you'll likely include representatives from the following tea
 
 * **IT administration** manages your IT infrastructure and administers your cloud investments and software as a service (SaaS) apps. This team:
 
-   * Reviews privileged access to infrastructure and apps, including Microsoft 365 and Azure AD.
+   * Reviews privileged access to infrastructure and apps, including Microsoft 365 and Microsoft Entra ID.
    * Schedules and runs access reviews on groups that are used to maintain exception lists or IT pilot projects to maintain up-to-date access lists.
    * Ensures that programmatic (scripted) access to resources through service principals is governed and reviewed.
 
@@ -134,7 +134,7 @@ We encourage customers to initially pilot access reviews with a small group and 
 In your pilot, we recommend that you:
 
 * Start with reviews where the results aren't automatically applied, and you can control the implications.
-* Ensure all users have valid email addresses listed in Azure AD. Confirm that they receive email communication to take the appropriate action.
+* Ensure all users have valid email addresses listed in Microsoft Entra ID. Confirm that they receive email communication to take the appropriate action.
 * Document any access removed as a part of the pilot in case you need to quickly restore it.
 * Monitor audit logs to ensure all events are properly audited.
 
@@ -146,14 +146,14 @@ This section introduces access review concepts you should know before you plan y
 
 ### What resource types can be reviewed?
 
-After you integrate your organization's resources with Azure AD, such as users, applications, and groups, they can be managed and reviewed.
+After you integrate your organization's resources with Microsoft Entra ID, such as users, applications, and groups, they can be managed and reviewed.
 
 Typical targets for review include:
 
-* [Applications integrated with Azure AD for single sign-on](../manage-apps/what-is-application-management.md), such as SaaS and line of business.
-* Group [membership](../fundamentals/concept-learn-about-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) synchronized to Azure AD, or created in Azure AD or Microsoft 365, including Microsoft Teams.
+* [Applications integrated with Microsoft Entra ID for single sign-on](../manage-apps/what-is-application-management.md), such as SaaS and line of business.
+* Group [membership](../fundamentals/concept-learn-about-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) synchronized to Microsoft Entra ID, or created in Microsoft Entra ID or Microsoft 365, including Microsoft Teams.
 * [Access package](./entitlement-management-overview.md) that groups resources such as groups, apps, and sites into a single package to manage access.
-* [Azure AD roles​ and Azure resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in PIM.
+* [Microsoft Entra roles​ and Azure resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in PIM.
 
 ### Who will create and manage access reviews?
 
@@ -161,12 +161,12 @@ The administrative role required to create, manage, or read an access review dep
 
 | Resource type| Create and manage access reviews (creators)| Read access review results |
 | - | - | -|
-| Group or application| Global administrator <p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator (only does reviews for Azure AD role-assignable groups)<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups))| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator<p>Security reader<p>Group owner ([if enabled by an admin]( create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups)) |
-|Azure AD roles| Global administrator <p>Privileged Role administrator|  Global administrator<p>Global reader<p>User administrator<p>Privileged Role administrator<p> <p>Security reader |
+| Group or application| Global administrator <p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator (only does reviews for Microsoft Entra role-assignable groups)<p>Group owner ([if enabled by an admin](create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups))| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Privileged Role administrator<p>Security reader<p>Group owner ([if enabled by an admin](create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups)) |
+|Microsoft Entra roles| Global administrator <p>Privileged Role administrator|  Global administrator<p>Global reader<p>User administrator<p>Privileged Role administrator<p> <p>Security reader |
 | Azure resource roles| User Access Administrator (for the resource)<p>Resource owner| User Access Administrator (for the resource)<p>Resource owner<p>Reader (for the resource) |
 | Access package| Global administrator<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)| Global administrator<p>Global reader<p>User administrator<p>Identity Governance administrator<p>Catalog owner (for the access package)<p>Access package manager (for the access package)<p>Security reader  |
 
-For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+For more information, see [Administrator role permissions in Microsoft Entra ID](../roles/permissions-reference.md).
 
 ### Who will review the access to the resource?
 
@@ -234,16 +234,16 @@ External identities can be granted access to company resources. They can be:
 * Added to a group.
 * Invited to Teams.
 * Assigned to an enterprise application or access package.
-* Assigned a privileged role in Azure AD or in an Azure subscription.
+* Assigned a privileged role in Microsoft Entra ID or in an Azure subscription.
 
-For more information, see [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script shows where external identities invited into the tenant are used. You can see an external user's group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example, direct rights assignment to SharePoint resources, without the use of groups.
+For more information, see [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script shows where external identities invited into the tenant are used. You can see an external user's group membership, role assignments, and application assignments in Microsoft Entra ID. The script won't show any assignments outside of Microsoft Entra ID, for example, direct rights assignment to SharePoint resources, without the use of groups.
 
-When you create an access review for groups or applications, you can choose to let the reviewer focus on **Everyone with access** or **Guest users only**. By selecting **Guest users only**, reviewers are given a focused list of external identities from Azure AD business to business (B2B) that have access to the resource.
+When you create an access review for groups or applications, you can choose to let the reviewer focus on **Everyone with access** or **Guest users only**. By selecting **Guest users only**, reviewers are given a focused list of external identities from Microsoft Entra business to business (B2B) that have access to the resource.
 
  ![Screenshot that shows reviewing guest users.](./media/deploy-access-review/4-review-guest-users-admin-ui.png)
 
 > [!IMPORTANT]
-> This list *won't* include external members who have a **userType** of **member**. This list also *won't* include users invited outside of Azure AD B2B collaboration. An example is those users who have access to shared content directly through SharePoint.
+> This list *won't* include external members who have a **userType** of **member**. This list also *won't* include users invited outside of Microsoft Entra B2B collaboration. An example is those users who have access to shared content directly through SharePoint.
 
 ## Plan access reviews for access packages
 
@@ -273,13 +273,13 @@ Group membership can be reviewed by:
 
 Group owners review membership because they're best qualified to know who needs access. Ownership of groups differs with the type of group:
 
-* Groups that are created in Microsoft 365 and Azure AD have one or more well-defined owners. In most cases, these owners make perfect reviewers for their own groups as they know who should have access.
+* Groups that are created in Microsoft 365 and Microsoft Entra ID have one or more well-defined owners. In most cases, these owners make perfect reviewers for their own groups as they know who should have access.
 
    For example, Microsoft Teams uses Microsoft 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Microsoft 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group.
 
-* Groups created manually in the Azure portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure portal in the group's **Owners** section or via Microsoft Graph.
+* Groups created manually in the Microsoft Entra admin center or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Microsoft Entra admin center in the group's **Owners** section or via Microsoft Graph.
 
-* Groups that are synchronized from on-premises Active Directory can't have an owner in Azure AD. When you create an access review for them, select individuals who are best suited to decide on membership in them.
+* Groups that are synchronized from on-premises Active Directory can't have an owner in Microsoft Entra ID. When you create an access review for them, select individuals who are best suited to decide on membership in them.
 
 > [!NOTE]
 > Define business policies that define how groups are created to ensure clear group ownership and accountability for regular review of membership.
@@ -294,7 +294,7 @@ To learn how to review guest users' access to group memberships, see [Manage gue
 
 ### Review access to on-premises groups
 
-Access reviews can't change the group membership of groups that you synchronize from on-premises with [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md). This restriction is because the source of authority is on-premises.
+Access reviews can't change the group membership of groups that you synchronize from on-premises with [Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect.md). This restriction is because the source of authority is on-premises.
 
 You can still use access reviews to schedule and maintain regular reviews of on-premises groups. Reviewers will then take action in the on-premises group. This strategy keeps access reviews as the tool for all reviews.
 
@@ -326,13 +326,15 @@ Read more about how to [prepare for an access review of users' access to an appl
 
 ### Reviewers for an application
 
-Access reviews can be for the members of a group or for users who were assigned to an application. Applications in Azure AD don't necessarily have an owner, which is why the option for selecting the application owner as a reviewer isn't possible. You can further scope a review to review only guest users assigned to the application, rather than reviewing all access.
+Access reviews can be for the members of a group or for users who were assigned to an application. Applications in Microsoft Entra ID don't necessarily have an owner, which is why the option for selecting the application owner as a reviewer isn't possible. You can further scope a review to review only guest users assigned to the application, rather than reviewing all access.
 
-## Plan review of Azure AD and Azure resource roles
+<a name='plan-review-of-azure-ad-and-azure-resource-roles'></a>
 
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. Using PIM keeps the list of privileged roles in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) smaller. It also increases the overall security of the directory.
+## Plan review of Microsoft Entra ID and Azure resource roles
 
-Access reviews allow reviewers to attest whether users still need to be in a role. Just like access reviews for access packages, reviews for Azure AD roles and Azure resources are integrated into the PIM admin user experience.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Microsoft Entra ID. Using PIM keeps the list of privileged roles in [Microsoft Entra ID](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) smaller. It also increases the overall security of the directory.
+
+Access reviews allow reviewers to attest whether users still need to be in a role. Just like access reviews for access packages, reviews for Microsoft Entra roles and Azure resources are integrated into the PIM admin user experience.
 
 Review the following role assignments regularly:
 
@@ -351,7 +353,7 @@ In the **Reviewers** section, select one or more people to review all the users.
 
 ## Deploy access reviews
 
-After you've prepared a strategy and a plan to review access for resources integrated with Azure AD, deploy and manage reviews by using the following resources.
+After you've prepared a strategy and a plan to review access for resources integrated with Microsoft Entra ID, deploy and manage reviews by using the following resources.
 
 ### Review access packages
 
@@ -378,17 +380,19 @@ Access needs to groups and applications for employees and guests likely change o
 | [Complete access review](complete-access-review.md)| View an access review and apply the results. |
 | [Take action for on-premises groups](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Use a sample PowerShell script to act on access reviews for on-premises groups. |
 
-### Review Azure AD roles
+<a name='review-azure-ad-roles'></a>
 
-To reduce the risk associated with stale role assignments, regularly review access of privileged Azure AD roles.
+### Review Microsoft Entra roles
 
-![Screenshot that shows the Review membership list of Azure A D roles.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+To reduce the risk associated with stale role assignments, regularly review access of privileged Microsoft Entra roles.
+
+![Screenshot that shows the Review membership list of Microsoft Entra roles.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Follow the instructions in the articles listed in the table.
 
 | How-to articles | Description |
 | - | - |
- [Create access reviews](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Azure AD roles in PIM. |
+ [Create access reviews](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Microsoft Entra roles in PIM. |
 | [Self-review your access](../privileged-identity-management/pim-perform-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| If you're assigned to an administrative role, approve or deny access to your role. |
 | [Complete an access review](../privileged-identity-management/pim-complete-roles-and-resource-roles-review.md?toc=/azure/active-directory/governance/toc.json)| View an access review and apply the results. |
 
@@ -396,7 +400,7 @@ Follow the instructions in the articles listed in the table.
 
 To reduce the risk associated with stale role assignments, regularly review access of privileged Azure resource roles.
 
-![Screenshot that shows reviewing Azure A D roles.](./media/deploy-access-review/9-review-azure-roles-picker.png)
+![Screenshot that shows reviewing Microsoft Entra roles.](./media/deploy-access-review/9-review-azure-roles-picker.png)
 
 Follow the instructions in the articles listed in the table.
 
@@ -423,7 +427,7 @@ When you create new Microsoft Graph API queries for automation, use [Graph Explo
 
 ## Monitor access reviews
 
-Access reviews activities are recorded and available from the [Azure AD's audit logs](../reports-monitoring/concept-audit-logs.md). You can filter the audit data on the category, activity type, and date range. Here's a sample query.
+Access reviews activities are recorded and available from the [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md). You can filter the audit data on the category, activity type, and date range. Here's a sample query.
 
 | Category| Policy |
 | - | - |
@@ -437,7 +441,7 @@ Access reviews activities are recorded and available from the [Azure AD's audit 
 | | Apply decision |
 | Date range| Seven days |
 
-For more advanced queries and analysis of access reviews, and to track changes and completion of reviews, export your Azure AD audit logs to [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) or Azure Event Hubs. When audit logs are stored in Log Analytics, you can use the [powerful analytics language](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) and build your own dashboards.
+For more advanced queries and analysis of access reviews, and to track changes and completion of reviews, export your Microsoft Entra audit logs to [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) or Azure Event Hubs. When audit logs are stored in Log Analytics, you can use the [powerful analytics language](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) and build your own dashboards.
 
 ## Next steps
 

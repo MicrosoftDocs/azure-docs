@@ -305,7 +305,7 @@ The `Function_App_URL` can be found on Function App's Overview page and The `API
 
 If you want to use more than one Function App together with one SignalR Service, upstream can also support complex routing rules. Find more details at [Upstream settings](../azure-signalr/concept-upstream.md).
 
-### Step by step sample
+### Step-by-step sample
 
 You can follow the sample in GitHub to deploy a chat room on Function App with SignalR Service trigger binding and upstream feature: [Bidirectional chat room sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 

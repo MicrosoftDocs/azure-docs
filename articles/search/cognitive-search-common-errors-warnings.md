@@ -7,7 +7,6 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
 ms.topic: conceptual
 ms.date: 08/01/2023
 ---

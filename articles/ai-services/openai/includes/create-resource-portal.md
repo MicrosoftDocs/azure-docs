@@ -4,10 +4,9 @@ titleSuffix: Azure OpenAI
 description: Learn how to use the Azure portal to create an Azure OpenAI resource and manage deployments with the Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/14/2023
+ms.date: 08/25/2023
 keywords: 
 ---
 
@@ -15,6 +14,7 @@ keywords:
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
+- Access permissions to [create Azure OpenAI resources and to deploy models](../how-to/role-based-access-control.md).
 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repository to contact Microsoft.

@@ -228,7 +228,7 @@ To connect to the deployer:
 
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
-1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the private IP address of the deployer and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
+1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the private IP address of the deployer and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configure-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
 
 > [!NOTE]
 >The default username is **azureadm**.

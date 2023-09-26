@@ -5,8 +5,7 @@ description: Guidance for integration and responsible use of Personalizer
 author: jcodella
 ms.author: jacodel
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.date: 05/23/2022
 ms.topic: conceptual
 ---

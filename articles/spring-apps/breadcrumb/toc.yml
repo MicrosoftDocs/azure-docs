@@ -39,3 +39,6 @@ items:
   - name: Azure Spring Apps
     tocHref: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps
     topicHref: /azure/spring-apps/index
+  - name: Azure Spring Apps
+    tocHref: /azure/service-connector
+    topicHref: /azure/spring-apps/index

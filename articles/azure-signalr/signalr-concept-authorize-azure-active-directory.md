@@ -23,12 +23,12 @@ _[1] security principal: a user/resource group, an application, or a service pri
 > - The current set of access keys will be permanently deleted.
 > - Tokens signed with access keys will no longer be available.
 
-## Overview of Azure AD for SignalR
+## Overview of Microsoft Entra ID
 
-When a security principal attempts to access a SignalR resource, the request must be authorized. With Microsoft Entra ID, access to a resource requires 2 steps.
+When a security principal attempts to access a SignalR resource, the request must be authorized. Get access to a resource requires 2 steps when using Microsoft Entra ID.
 
 1. The security principal has to be authenticated by Microsoft Entra ID, which will then return an OAuth 2.0 token.
-1. The token is passed as part of a request to the SignalR resource to authorize access to the resource.
+1. The token is passed as part of a request to the SignalR resource for authorizing the request.
 
 ### Client-side authentication with Microsoft Entra ID
 
@@ -89,6 +89,6 @@ To learn how to create custom roles, see:
 
 - [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
 
-To learn how to use only Azure AD authentication, see:
+To learn how to use only Microsoft Entra authentication, see:
 
 - [Disable local authentication](./howto-disable-local-auth.md)

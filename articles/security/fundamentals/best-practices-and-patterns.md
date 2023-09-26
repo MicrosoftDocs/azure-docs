@@ -1,11 +1,10 @@
 ---
 title: Security best practices and patterns - Microsoft Azure | Microsoft Docs
 description: This article links you to security best practices and patterns for different Azure resources.
-services: azure-security
+services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
@@ -13,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/02/2022
+ms.date: 08/29/2023
 ms.author: terrylan
 
 ---

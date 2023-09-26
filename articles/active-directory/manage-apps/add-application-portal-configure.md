@@ -1,6 +1,6 @@
 ---
 title: 'Configure enterprise application properties'
-description: Configure the properties of an enterprise application in Azure Active Directory.
+description: Configure the properties of an enterprise application in Microsoft Entra ID.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -14,18 +14,18 @@ ms.reviewer: ergreenl
 zone_pivot_groups: enterprise-apps-minus-former-powershell
 ms.custom: enterprise-apps
 
-#Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
+#Customer intent: As an administrator of a Microsoft Entra tenant, I want to configure the properties of an enterprise application.
 ---
 
 # Configure enterprise application properties
 
-This article shows you where you can configure the properties of an enterprise application in your Azure Active Directory (Azure AD) tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
+This article shows you where you can configure the properties of an enterprise application in your Microsoft Entra tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
 
 ## Prerequisites
 
 To configure the properties of an enterprise application, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 ## Configure application properties
@@ -38,8 +38,9 @@ Application properties control how the application is represented and how the ap
 
 To configure the application properties:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
-1. Browse to **Azure Active Directory** > **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **All applications**.
+1. Search for and select the application that you want to use.
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 1. On the **Properties** pane, you may want to configure the following properties for your application:
    - Logo
@@ -54,7 +55,7 @@ To configure the application properties:
 
 Use the following Microsoft Graph PowerShell script to configure basic application properties.
 
-You'll need to consent to the `Application.ReadWrite.All` permission.
+You'll need to to sign in as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) and consent to the `Application.ReadWrite.All` permission.
 
 ```powershell
 
@@ -89,7 +90,7 @@ Update-MgApplication -ApplicationId $applicationId -BodyParameter $params
 
 :::zone pivot="ms-graph"
 
-To configure the basic properties of an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) with one of the roles listed in the prerequisite section.
+To configure the basic properties of an application, sign in to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
 You'll need to consent to the `Application.ReadWrite.All` permission.
 
@@ -126,10 +127,10 @@ Content-type: application/json
 
 ## Use Microsoft Graph to configure application properties
 
-You can also configure other advanced properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These include properties such as permissions, and role assignments. For more information, see [Create and manage an Azure AD application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
+You can also configure other advanced properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These include properties such as permissions, and role assignments. For more information, see [Create and manage a Microsoft Entra application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
 
 ## Next steps
 
 Learn more about how to manage enterprise applications.
 > [!div class="nextstepaction"]
-> [What is application management in Azure Active Directory?](what-is-application-management.md)
+> [What is application management in Microsoft Entra ID?](what-is-application-management.md)

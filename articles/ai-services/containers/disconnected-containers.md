@@ -183,4 +183,4 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Next steps
 
-[Azure AI services containers overview](../cognitive-services-container-support.md)
+[Azure AI containers overview](../cognitive-services-container-support.md)
