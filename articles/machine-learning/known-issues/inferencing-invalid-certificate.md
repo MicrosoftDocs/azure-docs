@@ -44,4 +44,4 @@ There are two options to resolve this issue:
 
 ## Next steps
 
-- [About known issues](azure-machine-learning-known-issues.mdS)
+- [About known issues](azure-machine-learning-known-issues.md)
