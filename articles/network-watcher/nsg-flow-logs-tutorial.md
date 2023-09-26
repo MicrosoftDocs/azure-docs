@@ -38,7 +38,7 @@ In this section, you create **myVNet** virtual network with one subnet for the v
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** from the search results.
+1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
     :::image type="content" source="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -48,9 +48,9 @@ In this section, you create **myVNet** virtual network with one subnet for the v
     | --- | --- |
     | **Project details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
+    | Resource Group | Select **Create new**. </br> Enter ***myResourceGroup*** in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
-    | Name | Enter *myVNet*. |
+    | Name | Enter ***myVNet***. |
     | Region | Select **(US) East US**. |
 
 1. Select **Review + create**.
@@ -61,7 +61,7 @@ In this section, you create **myVNet** virtual network with one subnet for the v
 
 In this section, you create **myVM** virtual machine.
 
-1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** from the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** from the search results.
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -73,7 +73,7 @@ In this section, you create **myVM** virtual machine.
     | Subscription | Select your Azure subscription. |
     | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
-    | Virtual machine name | Enter *myVM*. |
+    | Virtual machine name | Enter ***myVM***. |
     | Region | Select **(US) East US**. |
     | Availability Options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
@@ -117,13 +117,13 @@ In this section, you create **myVM** virtual machine.
 
 NSG flow logging requires the **Microsoft.Insights** provider. To check its status, follow these steps:
 
-1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** in the search results.
+1. In the search box at the top of the portal, enter ***subscriptions***. Select **Subscriptions** in the search results.
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
 1. Select **Resource providers** under **Settings** of your subscription.
 
-1. Enter *insight* in the filter box.
+1. Enter ***insight*** in the filter box.
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
@@ -133,7 +133,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 In this section, you create a storage account to use it to store the flow logs.
 
-1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** in the search results.
 
 1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 
@@ -156,7 +156,7 @@ In this section, you create a storage account to use it to store the flow logs.
 
 In this section, you create an NSG flow log that's saved into the storage account created previously in the tutorial.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** in the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -175,7 +175,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of your storage account. |
     | Storage Accounts | Select the storage account you created in the previous steps. This tutorial uses **mynwstorageaccount**. |
-    | Retention (days) | Enter *0* to retain the flow logs data in the storage account forever (until you delete it from the storage account). To apply a retention policy, enter the retention time in days. For information about storage pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+    | Retention (days) | Enter ***0*** to retain the flow logs data in the storage account forever (until you delete it from the storage account). To apply a retention policy, enter the retention time in days. For information about storage pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
     :::image type="content" source="./media/nsg-flow-logs-tutorial/create-nsg-flow-log.png" alt-text="Screenshot of create NSG flow log page in the Azure portal.":::
 
@@ -198,7 +198,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 In this section, you go to the storage account you previously selected and download the NSG flow log created in the previous section.
 
-1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** in the search results.
 
 2. Select **mynwstorageaccount** or the storage account you previously created and selected to store the logs.
 
@@ -285,7 +285,7 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 
 ## Related content
 
-- To learn more about NSG flow logs, see [Flow logging for network security groups](network-watcher-nsg-flow-logging-overview).
-- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logging).
+- To learn more about NSG flow logs, see [Flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md).
+- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logging.md).
 - To learn about Traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 
