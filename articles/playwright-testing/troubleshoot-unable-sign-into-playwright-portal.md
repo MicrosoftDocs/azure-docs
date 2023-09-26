@@ -30,7 +30,7 @@ To resolve this issue, follow these steps:
 1. Install the Microsoft Azure Active Directory Module for Windows PowerShell by running the following cmdlet:
 
     ```powershell
-    Install-Module -Name AzureAD
+    Install-Module MSOnline
     ```
 
 1. Connect to Azure AD for your Microsoft 365 subscription by running the following cmdlet:
