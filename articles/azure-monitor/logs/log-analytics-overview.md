@@ -14,11 +14,6 @@ You might write a simple query that returns a set of records and then use featur
 
 Whether you work with the results of your queries interactively or use them with other Azure Monitor features, such as log query alerts or workbooks, Log Analytics is the tool that you'll use to write and test them.
 
-> [!TIP]
-> The new Log Analytics is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor.
-> :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
-
-
 ## Start Log Analytics
 
 To start Log Analytics in the Azure portal, on the **Azure Monitor** menu select **Logs**. You'll also see this option on the menu for most Azure resources. No matter where you start Log Analytics, the tool is the same. But the menu you use to start Log Analytics determines the data that's available.
@@ -30,6 +25,10 @@ If you start Log Analytics from the **Azure Monitor** menu or the **Log Analytic
 When you start Log Analytics, a dialog appears that contains [example queries](../logs/queries.md). The queries are categorized by solution. Browse or search for queries that match your requirements. You might find one that does exactly what you need. You can also load one to the editor and modify it as required. Browsing through example queries is a good way to learn how to write your own queries.
 
 If you want to start with an empty script and write it yourself, close the example queries. Select **Queries** at the top of the screen to get them back.
+
+> [!TIP]
+> The new Log Analytics, which offers [simple and advanced modes for exploring data](../logs/log-analytics-simple-mode.md), is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor.
+> :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
 ## Log Analytics interface
 

@@ -41,7 +41,7 @@ In simple mode, the top bar has controls for working with data and switching to 
 | Option | Description |
 |:---|:---|
 | **Time range** | Select the time range for the data available to the query. In advanced mode, if you set a different time range in your query, the time range you set in the time picker is overridden. See [Log query scope and time range in Azure Monitor Log Analytics](./scope.md). |
-|**Filter**|Filter data, and apply simple mode operators, as described in [Query in simple mode](#query-in-simple-mode).|
+|**Filter**|Filter data, and apply simple mode operators, as described in [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).|
 |**Limit**|Configure the number of entries Log Analytics displays in simple mode. The default limit is 1000.|
 |**Simple/Advanced**|Switch between simple and advanced mode.|
 | **Search**|Search through query results to find all instances of a particular string.|
