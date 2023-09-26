@@ -177,7 +177,7 @@ Rarely, you might see this message: “This action can't be completed because th
 
 <a name='i-receive-the-error-that-azure-ad-cant-find-the-aad-extensions-app-in-my-tenant'></a>
 
-## I receive the error that Microsoft Entra ID can't find the aad-extensions-app in my tenant
+## I receive the error that Microsoft Entra ID can't find the `aad-extensions-app` in my tenant
 
 When you're using self-service sign-up features, like custom user attributes or user flows, an app called `aad-extensions-app. Do not modify. Used by AAD for storing user data.` is automatically created. It's used by Microsoft Entra External ID to store information about users who sign up and custom attributes collected.
 
