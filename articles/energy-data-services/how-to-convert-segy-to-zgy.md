@@ -51,11 +51,11 @@ Next, set up Postman:
 
    1. Select **Import** in Postman.
 
-    [![Screenshot that shows the import button in Postman](media/tutorial-ddms/postman-import-button.png)](media/tutorial-ddms/postman-import-button.png#lightbox)
+    [![Screenshot that shows the import button in Postman.](media/tutorial-ddms/postman-import-button.png)](media/tutorial-ddms/postman-import-button.png#lightbox)
 
    2. Paste the URL of each file into the search box.
 
-    [![Screenshot that shows importing collection and environment files in Postman via URL](media/tutorial-ddms/postman-import-search.png)](media/tutorial-ddms/postman-import-search.png#lightbox)
+    [![Screenshot that shows importing collection and environment files in Postman via URL.](media/tutorial-ddms/postman-import-search.png)](media/tutorial-ddms/postman-import-search.png#lightbox)
   
 3. In the Postman environment, update **CURRENT VALUE** with the information from your Azure Data Manager for Energy instance details
 
@@ -63,16 +63,16 @@ Next, set up Postman:
 
    2. In the **CURRENT VALUE** column, enter the information that's described in the table in 'Get your Azure Data Manager for Energy instance details'.
 
-    [![Screenshot that shows where to enter current values in SEGYtoZGY environment](media/how-to-convert-segy-to-zgy/postman-environment-current-values.png)](media/how-to-convert-segy-to-zgy/postman-environment-current-values.png#lightbox)
+    [![Screenshot that shows where to enter current values in SEGYtoZGY environment.](media/how-to-convert-segy-to-zgy/postman-environment-current-values.png)](media/how-to-convert-segy-to-zgy/postman-environment-current-values.png#lightbox)
 
 ## Step by Step Process to convert SEG-Y file to ZGY file
 The Postman collection provided has all of the sample calls to serve as a guide. You can also retrieve the equivalent cURL command for a Postman call by clicking the **Code** button.
 
-[![Screenshot that shows the Code button in Postman](media/how-to-convert-segy-to-zgy/postman-code-button.png)](media/how-to-convert-segy-to-zgy/postman-code-button.png#lightbox)
+[![Screenshot that shows the Code button in Postman.](media/how-to-convert-segy-to-zgy/postman-code-button.png)](media/how-to-convert-segy-to-zgy/postman-code-button.png#lightbox)
 
 ### Create a Legal Tag
 
-[![Screenshot of creating Legal Tag](media/how-to-convert-segy-to-zgy/postman-api-create-legal-tag.png)](media/how-to-convert-segy-to-zgy/postman-api-create-legal-tag.png#lightbox)
+[![Screenshot of creating Legal Tag.](media/how-to-convert-segy-to-zgy/postman-api-create-legal-tag.png)](media/how-to-convert-segy-to-zgy/postman-api-create-legal-tag.png#lightbox)
 
 ### Prepare dataset files
 Prepare the metadata / manifest file / records file for the dataset. The manifest file includes:  
@@ -117,14 +117,14 @@ LEGAL_TAG=<legal-tag-created>
 
 The user needs to be part of the `users.datalake.admins` group. Validate the current entitlements for the user using the following call:
 
-[![Screenshot that shows the API call to get user groups in Postman](media/how-to-convert-segy-to-zgy/postman-api-get-user-groups.png)](media/how-to-convert-segy-to-zgy/postman-api-get-user-groups.png#lightbox)
+[![Screenshot that shows the API call to get user groups in Postman.](media/how-to-convert-segy-to-zgy/postman-api-get-user-groups.png)](media/how-to-convert-segy-to-zgy/postman-api-get-user-groups.png#lightbox)
 
 Later in this tutorial, you need at least one `owner` and at least one `viewer`. These user groups look like `data.default.owners` and `data.default.viewers`. Make sure to note one of each in your list.
 
 If the user isn't part of the required group, you can add the required entitlement using the following sample call:
     email-id: Is the value "Id" returned from the call above.
 
-[![Screenshot that shows the API call to get register a user as an admin in Postman](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png)](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png#lightbox)
+[![Screenshot that shows the API call to get register a user as an admin in Postman.](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png)](media/how-to-convert-segy-to-zgy/postman-api-add-user-to-admins.png#lightbox)
 
 If you haven't yet created entitlements groups, follow the directions as outlined in [How to manage users](how-to-manage-users.md). If you would like to see what groups you have, use [Get entitlements groups for a given user](how-to-manage-users.md#get-entitlements-groups-for-a-given-user). Data access isolation is achieved with this dedicated ACL (access control list) per object within a given data partition. 
 
@@ -132,20 +132,20 @@ If you haven't yet created entitlements groups, follow the directions as outline
 
 #### 1. Register Data Partition to Seismic
 
-[![Screenshot that shows the API call to register a data partition as a seismic tenant in Postman](media/how-to-convert-segy-to-zgy/postman-api-register-tenant.png)](media/how-to-convert-segy-to-zgy/postman-api-register-tenant.png#lightbox)
+[![Screenshot that shows the API call to register a data partition as a seismic tenant in Postman.](media/how-to-convert-segy-to-zgy/postman-api-register-tenant.png)](media/how-to-convert-segy-to-zgy/postman-api-register-tenant.png#lightbox)
 
 #### 2. Create Subproject
 
 Use your previously created entitlement groups that you would like to add as ACL (Access Control List) admins and viewers. Data partition entitlements don't necessarily translate to the subprojects within it, so it is important to be explicit about the ACLs for each subproject, regardless of what data partition it is in.
 
-[![Screenshot that shows the API call to create a seismic subproject in Postman](media/how-to-convert-segy-to-zgy/postman-api-create-subproject.png)](media/how-to-convert-segy-to-zgy/postman-api-create-subproject.png#lightbox)
+[![Screenshot that shows the API call to create a seismic subproject in Postman.](media/how-to-convert-segy-to-zgy/postman-api-create-subproject.png)](media/how-to-convert-segy-to-zgy/postman-api-create-subproject.png#lightbox)
 
 #### 3. Create dataset
 
 > [!NOTE]
 > This step is only required if you are not using `sdutil` for uploading the seismic files.
 
-[![Screenshot that shows the API call to create a seismic dataset in Postman](media/how-to-convert-segy-to-zgy/postman-api-create-dataset.png)](media/how-to-convert-segy-to-zgy/postman-api-create-dataset.png#lightbox)
+[![Screenshot that shows the API call to create a seismic dataset in Postman.](media/how-to-convert-segy-to-zgy/postman-api-create-dataset.png)](media/how-to-convert-segy-to-zgy/postman-api-create-dataset.png#lightbox)
 
 ### Upload the File
 
@@ -177,27 +177,27 @@ azure:
 
 ##### Get the sasurl:
 
-[![Screenshot that shows the API call to get a GCS upload URL in Postman](media/how-to-convert-segy-to-zgy/postman-api-get-gcs-upload-url.png)](media/how-to-convert-segy-to-zgy/postman-api-get-gcs-upload-url.png#lightbox)
+[![Screenshot that shows the API call to get a GCS upload URL in Postman.](media/how-to-convert-segy-to-zgy/postman-api-get-gcs-upload-url.png)](media/how-to-convert-segy-to-zgy/postman-api-get-gcs-upload-url.png#lightbox)
 
 ##### Upload the file:
 
 You need to select the file to upload in the Body section of the API call.
 
-[![Screenshot that shows the API call to upload a file in Postman](media/how-to-convert-segy-to-zgy/postman-api-upload-file.png)](media/how-to-convert-segy-to-zgy/postman-api-upload-file.png#lightbox)
+[![Screenshot that shows the API call to upload a file in Postman.](media/how-to-convert-segy-to-zgy/postman-api-upload-file.png)](media/how-to-convert-segy-to-zgy/postman-api-upload-file.png#lightbox)
 
 
-[![Screenshot that shows the API call to upload a file binary in Postman](media/how-to-convert-segy-to-zgy/postman-api-upload-file-binary.png)](media/how-to-convert-segy-to-zgy/postman-api-upload-file-binary.png#lightbox)
+[![Screenshot that shows the API call to upload a file binary in Postman.](media/how-to-convert-segy-to-zgy/postman-api-upload-file-binary.png)](media/how-to-convert-segy-to-zgy/postman-api-upload-file-binary.png#lightbox)
 
 ##### Verify upload
 
-[![Screenshot that shows the API call to verify a file binary is uploaded in Postman](media/how-to-convert-segy-to-zgy/postman-api-verify-file-upload.png)](media/how-to-convert-segy-to-zgy/postman-api-verify-file-upload.png#lightbox)
+[![Screenshot that shows the API call to verify a file binary is uploaded in Postman.](media/how-to-convert-segy-to-zgy/postman-api-verify-file-upload.png)](media/how-to-convert-segy-to-zgy/postman-api-verify-file-upload.png#lightbox)
 
 #### Method 2: SDUTIL
 
 **sdutil** is an OSDU desktop utility to access seismic service. We use it to upload/download files. Use the azure-stable tag from [SDUTIL](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable).
 
 > [!NOTE]
-> when running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
+> When running `python sdutil config init`, you don't need to enter anything when prompted with `Insert the azure (azureGlabEnv) application key:`.
 
 ```bash
 python sdutil config init
@@ -220,7 +220,7 @@ python sdutil cp ST10010ZC11_PZ_PSDM_KIRCH_FULL_T.MIG_FIN.POST_STACK.3D.JS-01753
 
 Insert the contents of your `all_records.json` file in storage for work-product, seismic trace data, seismic grid, and file collection. Copy and paste the contents of that file to the request body of the API call.
 
-[![Screenshot that shows the API call to create storage records in Postman](media/how-to-convert-segy-to-zgy/postman-api-create-records.png)](media/how-to-convert-segy-to-zgy/postman-api-create-records.png#lightbox)
+[![Screenshot that shows the API call to create storage records in Postman.](media/how-to-convert-segy-to-zgy/postman-api-create-records.png)](media/how-to-convert-segy-to-zgy/postman-api-create-records.png#lightbox)
 
 ### Run Converter
 
@@ -232,11 +232,11 @@ Insert the contents of your `all_records.json` file in storage for work-product,
 python sdutil auth idtoken
 ```
 
-[![Screenshot that shows the API call to start the conversion workflow in Postman](media/how-to-convert-segy-to-zgy/postman-api-start-workflow.png)](media/how-to-convert-segy-to-zgy/postman-api-start-workflow.png#lightbox)
+[![Screenshot that shows the API call to start the conversion workflow in Postman.](media/how-to-convert-segy-to-zgy/postman-api-start-workflow.png)](media/how-to-convert-segy-to-zgy/postman-api-start-workflow.png#lightbox)
 
 2. Let the DAG run to the `succeeded` state. You can check the status using the workflow status call. The run ID is in the response of the above call
 
-[![Screenshot that shows the API call to check the conversion workflow's status in Postman](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png)](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png#lightbox)
+[![Screenshot that shows the API call to check the conversion workflow's status in Postman.](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png)](media/how-to-convert-segy-to-zgy/postman-api-check-workflow-status.png#lightbox)
 
 3. You can see if the converted file is present using the following command in sdutil or in the Postman API call:
 
@@ -244,7 +244,7 @@ python sdutil auth idtoken
     python sdutil ls sd://<data-partition-id>/<subproject>
     ```
 
-[![Screenshot that shows the API call to check if the file has been converted](media/how-to-convert-segy-to-zgy/postman-api-verify-file-converted.png)](media/how-to-convert-segy-to-zgy/postman-api-verify-file-converted.png#lightbox)
+[![Screenshot that shows the API call to check if the file has been converted.](media/how-to-convert-segy-to-zgy/postman-api-verify-file-converted.png)](media/how-to-convert-segy-to-zgy/postman-api-verify-file-converted.png#lightbox)
 
 4. You can download and inspect the file using the [sdutil](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tags/azure-stable) `cp` command:
 
