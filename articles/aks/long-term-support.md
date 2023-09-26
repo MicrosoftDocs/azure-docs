@@ -76,7 +76,7 @@ You can't move a cluster to Long Term support if any of these add-ons / features
 Whilst these AKS managed add-ons aren't supported by Microsoft, you're able to install the Open Source versions of these on your cluster if you wish to use it past Community Support.
 
 ## How we decide the next LTS version
-Versions of Kubernetes LTS are available for two years from General Availability, we'll then mark a later version of Kubernetes as LTS based on the following:
+Versions of Kubernetes LTS are available for two years from General Availability, we'll mark a later version of Kubernetes as LTS based on the following criteria:
 
 * The previous version has had a two year support window
 * Sufficient time for customers to migrate from the prior LTS version to the current
