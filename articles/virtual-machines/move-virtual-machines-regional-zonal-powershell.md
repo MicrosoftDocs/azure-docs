@@ -50,7 +50,6 @@ We use these values in our script examples:
 | IdentityType | SystemAssigned |
 | VM name | demoVM-MoveResource  |
 | Move Type | RegionToZone |
-| VM Resource ID | xxx |
 
 ## Sign in to Azure
 
