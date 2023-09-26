@@ -512,6 +512,14 @@ public SignalRGroupAction removeFromGroup(
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
+# [Isolated worker model](#tab/isolated-process)
+
+The following table explains the properties of the `SignalROutput` attribute.
+
+| Attribute property |Description|
+|---------|----------------------|
+|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 # [In-process model](#tab/in-process)
 
 The following table explains the properties of the `SignalR` output attribute.
@@ -522,14 +530,6 @@ The following table explains the properties of the `SignalR` output attribute.
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 
-# [Isolated worker model](#tab/isolated-process)
-
-The following table explains the properties of the `SignalROutput` attribute.
-
-| Attribute property |Description|
-|---------|----------------------|
-|**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
-|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 ---
 
 ::: zone-end

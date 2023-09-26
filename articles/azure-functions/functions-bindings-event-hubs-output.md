@@ -246,18 +246,18 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#event-hubs-output).
 
-# [In-process model](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
-Use the [EventHubAttribute] to define an output binding to an event hub, which supports the following properties.
+Use the [EventHubOutputAttribute] to define an output binding to an event hub, which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|
 |**EventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
-# [Isolated worker model](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 
-Use the [EventHubOutputAttribute] to define an output binding to an event hub, which supports the following properties.
+Use the [EventHubAttribute] to define an output binding to an event hub, which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|

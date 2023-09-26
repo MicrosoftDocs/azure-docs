@@ -137,7 +137,7 @@ def main(invocation) -> None:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the `SignalRTrigger` attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
 
-# [In-process model](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following table explains the properties of the `SignalRTrigger` attribute.
 
@@ -149,7 +149,7 @@ The following table explains the properties of the `SignalRTrigger` attribute.
 |**ParameterNames**| (Optional) A list of names that binds to the parameters. |
 |**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
-# [Isolated worker model](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 
 The following table explains the properties of the `SignalRTrigger` attribute.
 

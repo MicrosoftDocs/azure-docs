@@ -571,6 +571,19 @@ With this simple binding, you can't programmatically handle a case in which no r
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#table-input).
 
+# [Isolated worker model](#tab/isolated-process)
+
+In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
+
+| Attribute property |Description|
+|---------|---------|
+| **TableName** | The name of the table.| 
+| **PartitionKey** |Optional. The partition key of the table entity to read. | 
+|**RowKey** | Optional. The row key of the table entity to read. | 
+| **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
+|**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
 # [In-process model](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute` supports the following properties:
@@ -611,19 +624,6 @@ public static void Run(
 ```
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
-
-# [Isolated worker model](#tab/isolated-process)
-
-In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
-
-| Attribute property |Description|
-|---------|---------|
-| **TableName** | The name of the table.| 
-| **PartitionKey** |Optional. The partition key of the table entity to read. | 
-|**RowKey** | Optional. The row key of the table entity to read. | 
-| **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
-|**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
-|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
 
 ---
 

@@ -251,9 +251,9 @@ public SignalRConnectionInfo negotiate(
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
 
-# [In-process model](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
-The following table explains the properties of the `SignalRConnectionInfo` attribute:
+The following table explains the properties of the `SignalRConnectionInfoInput` attribute:
 
 | Attribute property |Description|
 |---------|----------------------|
@@ -263,9 +263,9 @@ The following table explains the properties of the `SignalRConnectionInfo` attri
 |**IdToken**| Optional. A JWT token whose claims will be added to the user claims. It should be used together with **ClaimTypeList**. You can use a [binding expression](#binding-expressions-for-http-trigger) to bind the value to an HTTP request header or query. |
 |**ClaimTypeList**| Optional. A list of claim types, which filter the claims in **IdToken** . |
 
-# [Isolated worker model](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 
-The following table explains the properties of the `SignalRConnectionInfoInput` attribute:
+The following table explains the properties of the `SignalRConnectionInfo` attribute:
 
 | Attribute property |Description|
 |---------|----------------------|
