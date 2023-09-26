@@ -11,7 +11,7 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 
 ## Windows Server 2019 and 2022
 
-AKS clusters are deployed on host virtual machines, which run an operating system with built-in secure configurations. This operating system is used for containers running on AKS. This host operating system is based on a **Windows Server 2022** and **Windows Server 2019** image with security configurations applied. 
+AKS clusters are deployed on host virtual machines, which run an operating system with built-in secure configurations. This operating system is used for containers running on AKS. This host operating system is based on a **Windows Server 2022** and **Windows Server 2019** image with security configurations applied.
 
 As a part of the security-optimized operating system:
 
@@ -35,255 +35,236 @@ The following are CIS rules implemented:
 
 | CIS paragraph number | Recommendation description|Status| Reason |
 |---|---|---|---|---|
-| 1 | Initial Setup ||| 
-| 1.1 | Filesystem Configuration ||| 
-| 1.1.1 | Disable unused filesystems ||| 
-| 1.1.1.1 | Ensure mounting of cramfs filesystems is disabled | Pass ||
-| 1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled | Pass ||
-| 1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled | Pass ||
-| 1.1.1.4 | Ensure mounting of hfs filesystems is disabled | Pass ||
-| 1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled | Pass ||
-| 1.1.1.6 | Ensure mounting of udf filesystems is disabled | Fail | Potential Operational Impact |
-| 1.1.2 | Ensure /tmp is configured | Fail |  |
-| 1.1.3 | Ensure nodev option set on /tmp partition | Fail |  |
-| 1.1.4 | Ensure nosuid option set on /tmp partition | Pass ||
-| 1.1.5 | Ensure noexec option set on /tmp partition | Pass ||
-| 1.1.6 | Ensure /dev/shm is configured | Pass ||
-| 1.1.7 | Ensure nodev option set on /dev/shm partition | Pass ||
-| 1.1.8 | Ensure nosuid option set on /dev/shm partition | Pass ||
-| 1.1.9 | Ensure noexec option set on /dev/shm partition | Fail | Potential Operational Impact |
-| 1.1.12 | Ensure /var/tmp partition includes the nodev option | Pass ||
-| 1.1.13 | Ensure /var/tmp partition includes the nosuid option | Pass ||
-| 1.1.14 | Ensure /var/tmp partition includes the noexec option | Pass ||
-| 1.1.18 | Ensure /home partition includes the nodev option | Pass ||
-| 1.1.19 | Ensure nodev option set on removable media partitions | Not Applicable ||
-| 1.1.20 | Ensure nosuid option set on removable media partitions | Not Applicable ||
-| 1.1.21 | Ensure noexec option set on removable media partitions | Not Applicable ||
-| 1.1.22 | Ensure sticky bit is set on all world-writable directories | Fail | Potential Operation Impact |
-| 1.1.23 | Disable Automounting | Pass ||
-| 1.1.24 | Disable USB Storage | Pass ||
-| 1.2 | Configure Software Updates ||| 
-| 1.2.1 | Ensure package manager repositories are configured | Pass | Covered Elsewhere |
-| 1.2.2 | Ensure GPG keys are configured | Not Applicable ||
-| 1.3 | Filesystem Integrity Checking ||| 
-| 1.3.1 | Ensure AIDE is installed | Fail | Covered Elsewhere |
-| 1.3.2 | Ensure filesystem integrity is regularly checked | Fail | Covered Elsewhere |
-| 1.4 | Secure Boot Settings ||| 
-| 1.4.1 | Ensure permissions on bootloader config aren't overridden | Fail |  |
-| 1.4.2 | Ensure bootloader password is set | Fail | Not Applicable|
-| 1.4.3 | Ensure permissions on bootloader config are configured | Fail |  |
-| 1.4.4 | Ensure authentication required for single user mode | Fail | Not Applicable |
-| 1.5 | Additional Process Hardening |||
-| 1.5.1 | Ensure XD/NX support is enabled | Not Applicable ||
-| 1.5.2 | Ensure address space layout randomization (ASLR) is enabled | Pass ||
-| 1.5.3 | Ensure prelink is disabled | Pass ||
-| 1.5.4 | Ensure core dumps are restricted | Pass ||
-| 1.6 | Mandatory Access Control ||| 
-| 1.6.1 | Configure AppArmor ||| 
-| 1.6.1.1 | Ensure AppArmor is installed | Pass ||
-| 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | Fail | Potential Operation Impact |
-| 1.6.1.3 | Ensure all AppArmor Profiles are in enforce or complain mode | Pass ||
-| 1.7 | Command Line Warning Banners |||
-| 1.7.1 | Ensure message of the day is configured properly | Pass ||
-| 1.7.2 | Ensure permissions on /etc/issue.net are configured | Pass ||
-| 1.7.3 | Ensure permissions on /etc/issue are configured | Pass ||
-| 1.7.4 | Ensure permissions on /etc/motd are configured | Pass ||
-| 1.7.5 | Ensure remote login warning banner is configured properly | Pass ||
-| 1.7.6 | Ensure local login warning banner is configured properly | Pass ||
-| 1.8 | GNOME Display Manager ||| 
-| 1.8.2 | Ensure GDM login banner is configured | Pass ||
-| 1.8.3 | Ensure disable-user-list is enabled | Pass ||
-| 1.8.4 | Ensure XDCMP isn't enabled | Pass ||
-| 1.9 | Ensure updates, patches, and additional security software are installed | Pass ||
-| 2 | Services ||| 
-| 2.1 | Special Purpose Services ||| 
-| 2.1.1 | Time Synchronization ||| 
-| 2.1.1.1 | Ensure time synchronization is in use | Pass ||
-| 2.1.1.2 | Ensure systemd-timesyncd is configured | Not Applicable | AKS uses ntpd for timesync |
-| 2.1.1.3 | Ensure chrony is configured | Fail | Covered Elsewhere |
-| 2.1.1.4 | Ensure ntp is configured | Pass ||
-| 2.1.2 | Ensure X Window System isn't installed | Pass ||
-| 2.1.3 | Ensure Avahi Server isn't installed | Pass ||
-| 2.1.4 | Ensure CUPS isn't installed | Pass ||
-| 2.1.5 | Ensure DHCP Server isn't installed | Pass ||
-| 2.1.6 | Ensure LDAP server isn't installed | Pass ||
-| 2.1.7 | Ensure NFS isn't installed | Pass ||
-| 2.1.8 | Ensure DNS Server isn't installed | Pass ||
-| 2.1.9 | Ensure FTP Server isn't installed | Pass ||
-| 2.1.10 | Ensure HTTP server isn't installed | Pass ||
-| 2.1.11 | Ensure IMAP and POP3 server aren't installed | Pass ||
-| 2.1.12 | Ensure Samba isn't installed | Pass ||
-| 2.1.13 | Ensure HTTP Proxy Server isn't installed | Pass ||
-| 2.1.14 | Ensure SNMP Server isn't installed | Pass ||
-| 2.1.15 | Ensure mail transfer agent is configured for local-only mode | Pass ||
-| 2.1.16 | Ensure rsync service isn't installed | Fail |  |
-| 2.1.17 | Ensure NIS Server isn't installed | Pass ||
-| 2.2 | Service Clients |||
-| 2.2.1 | Ensure NIS Client isn't installed | Pass ||
-| 2.2.2 | Ensure rsh client isn't installed | Pass ||
-| 2.2.3 | Ensure talk client isn't installed | Pass ||
-| 2.2.4 | Ensure telnet client isn't installed | Fail |  |
-| 2.2.5 | Ensure LDAP client isn't installed | Pass ||
-| 2.2.6 | Ensure  RPC isn't installed | Fail | Potential Operational Impact |
-| 2.3 | Ensure nonessential services are removed or masked | Pass |  |
-| 3 | Network Configuration ||| 
-| 3.1 | Disable unused network protocols and devices |||
-| 3.1.2 | Ensure wireless interfaces are disabled | Pass ||
-| 3.2 | Network Parameters (Host Only) |||
-| 3.2.1 | Ensure packet redirect sending is disabled | Pass ||
-| 3.2.2 | Ensure IP forwarding is disabled | Fail | Not Applicable |
-| 3.3 | Network Parameters (Host and Router) |||
-| 3.3.1 | Ensure source routed packets aren't accepted | Pass ||
-| 3.3.2 | Ensure ICMP redirects aren't accepted | Pass ||
-| 3.3.3 | Ensure secure ICMP redirects aren't accepted | Pass ||
-| 3.3.4 | Ensure suspicious packets are logged | Pass ||
-| 3.3.5 | Ensure broadcast ICMP requests are ignored | Pass ||
-| 3.3.6 | Ensure bogus ICMP responses are ignored | Pass ||
-| 3.3.7 | Ensure Reverse Path Filtering is enabled | Pass ||
-| 3.3.8 | Ensure TCP SYN Cookies is enabled | Pass ||
-| 3.3.9 | Ensure IPv6 router advertisements aren't accepted | Pass ||
-| 3.4 | Uncommon Network Protocols |||
-| 3.5 | Firewall Configuration |||
-| 3.5.1 | Configure UncomplicatedFirewall |||
-| 3.5.1.1 | Ensure ufw is installed | Pass ||
-| 3.5.1.2 | Ensure iptables-persistent is not installed with ufw | Pass ||
-| 3.5.1.3 | Ensure ufw service is enabled | Fail | Covered Elsewhere |
-| 3.5.1.4 | Ensure ufw loopback traffic is configured | Fail | Covered Elsewhere |
-| 3.5.1.5 | Ensure ufw outbound connections are configured | Not Applicable | Covered Elsewhere |
-| 3.5.1.6 | Ensure ufw firewall rules exist for all open ports | Not Applicable | Covered Elsewhere |
-| 3.5.1.7 | Ensure ufw default deny firewall policy | Fail | Covered Elsewhere |
-| 3.5.2 | Configure nftables |||
-| 3.5.2.1 | Ensure nftables is installed | Fail | Covered Elsewhere |
-| 3.5.2.2 | Ensure ufw is uninstalled or disabled with nftables | Fail | Covered Elsewhere |
-| 3.5.2.3 | Ensure iptables are flushed with nftables | Not Applicable | Covered Elsewhere |
-| 3.5.2.4 | Ensure a nftables table exists | Fail | Covered Elsewhere |
-| 3.5.2.5 | Ensure nftables base chains exist | Fail | Covered Elsewhere |
-| 3.5.2.6 | Ensure nftables loopback traffic is configured | Fail | Covered Elsewhere |
-| 3.5.2.7 | Ensure nftables outbound and established connections are configured | Not Applicable | Covered Elsewhere |
-| 3.5.2.8 | Ensure nftables default deny firewall policy | Fail | Covered Elsewhere |
-| 3.5.2.9 | Ensure nftables service is enabled | Fail | Covered Elsewhere |
-| 3.5.2.10 | Ensure nftables rules are permanent | Fail | Covered Elsewhere |
-| 3.5.3| Configure iptables |||
-| 3.5.3.1 | Configure iptables software ||| 
-| 3.5.3.1.1 | Ensure iptables packages are installed | Fail | Covered Elsewhere |
-| 3.5.3.1.2 | Ensure nftables is not installed with iptables | Pass ||
-| 3.5.3.1.3 | Ensure ufw is uninstalled or disabled with iptables | Fail | Covered Elsewhere |
-| 3.5.3.2 | Configure IPv4 iptables |||
-| 3.5.3.2.1 | Ensure iptables default deny firewall policy | Fail | Covered Elsewhere |
-| 3.5.3.2.2 | Ensure iptables loopback traffic is configured | Fail | Not Applicable |
-| 3.5.3.2.3 | Ensure iptables outbound and established connections are configured | Not Applicable ||
-| 3.5.3.2.4 | Ensure iptables firewall rules exist for all open ports | Fail | Potential Operation Impact |
-| 3.5.3.3 | Configure IPv6  ip6tables |||
-| 3.5.3.3.1 | Ensure ip6tables default deny firewall policy | Fail | Covered Elsewhere |
-| 3.5.3.3.2 | Ensure ip6tables loopback traffic is configured | Fail | Covered Elsewhere |
-| 3.5.3.3.3 | Ensure ip6tables outbound and established connections are configured | Not Applicable | Covered Elsewhere |
-| 3.5.3.3.4 | Ensure ip6tables firewall rules exist for all open ports | Fail | Covered Elsewhere |
-| 4 | Logging and Auditing |||
-| 4.1 | Configure System Accounting (auditd) |||
-| 4.1.1.2 | Ensure auditing is enabled |||
-| 4.1.2 | Configure Data Retention |||
-| 4.2 | Configure Logging |||
-| 4.2.1 | Configure rsyslog |||
-| 4.2.1.1 | Ensure rsyslog is installed | Pass ||
-| 4.2.1.2 | Ensure rsyslog Service is enabled | Pass ||
-| 4.2.1.3 | Ensure logging is configured | Pass ||
-| 4.2.1.4 | Ensure rsyslog default file permissions configured | Pass ||
-| 4.2.1.5 | Ensure rsyslog is configured to send logs to a remote log host | Fail | Covered Elsewhere |
-| 4.2.1.6 | Ensure remote rsyslog messages are only accepted on designated log hosts. | Not Applicable |  |
-| 4.2.2 | Configure journald |||
-| 4.2.2.1 | Ensure journald is configured to send logs to rsyslog | Pass ||
-| 4.2.2.2 | Ensure journald is configured to compress large log files | Fail |  |
-| 4.2.2.3 | Ensure journald is configured to write logfiles to persistent disk | Pass |  |
-| 4.2.3 | Ensure permissions on all logfiles are configured | Fail |  |
-| 4.3 | Ensure logrotate is configured | Pass ||
-| 4.4 | Ensure logrotate assigns appropriate permissions | Fail |  |
-| 5 | Access, Authentication, and Authorization ||| 
-| 5.1 | Configure time-based job schedulers |||
-| 5.1.1 | Ensure cron daemon is enabled and running | Pass ||
-| 5.1.2 | Ensure permissions on /etc/crontab are configured | Pass ||
-| 5.1.3 | Ensure permissions on /etc/cron.hourly are configured | Pass ||
-| 5.1.4 | Ensure permissions on /etc/cron.daily are configured | Pass ||
-| 5.1.5 | Ensure permissions on /etc/cron.weekly are configured | Pass ||
-| 5.1.6 | Ensure permissions on /etc/cron.monthly are configured | Pass ||
-| 5.1.7 | Ensure permissions on /etc/cron.d are configured | Pass ||
-| 5.1.8 | Ensure cron is restricted to authorized users | Fail |  |
-| 5.1.9 | Ensure at is restricted to authorized users | Fail |  |
-| 5.2 | Configure sudo |||
-| 5.2.1 | Ensure sudo is installed | Pass ||
-| 5.2.2 | Ensure sudo commands use pty | Fail | Potential Operational Impact |
-| 5.2.3 | Ensure sudo log file exists | Fail |  |
-| 5.3 | Configure SSH Server |||
-| 5.3.1 | Ensure permissions on /etc/ssh/sshd_config are configured | Pass ||
-| 5.3.2 | Ensure permissions on SSH private host key files are configured | Pass ||
-| 5.3.3 | Ensure permissions on SSH public host key files are configured | Pass ||
-| 5.3.4 | Ensure SSH access is limited | Pass ||
-| 5.3.5 | Ensure SSH LogLevel is appropriate | Pass ||
-| 5.3.7 | Ensure SSH MaxAuthTries is set to 4 or less | Pass ||
-| 5.3.8 | Ensure SSH IgnoreRhosts is enabled | Pass ||
-| 5.3.9 | Ensure SSH HostbasedAuthentication is disabled | Pass ||
-| 5.3.10 | Ensure SSH root login is disabled | Pass ||
-| 5.3.11 | Ensure SSH PermitEmptyPasswords is disabled | Pass ||
-| 5.3.12 | Ensure SSH PermitUserEnvironment is disabled | Pass ||
-| 5.3.13 | Ensure only strong Ciphers are used | Pass ||
-| 5.3.14 | Ensure only strong MAC algorithms are used | Pass ||
-| 5.3.15 | Ensure only strong Key Exchange algorithms are used | Pass ||
-| 5.3.16 | Ensure SSH Idle Timeout Interval is configured | Fail |  |
-| 5.3.17 | Ensure SSH LoginGraceTime is set to one minute or less | Pass ||
-| 5.3.18 | Ensure SSH warning banner is configured | Pass ||
-| 5.3.19 | Ensure SSH PAM is enabled | Pass ||
-| 5.3.21 | Ensure SSH MaxStartups is configured | Fail |  |
-| 5.3.22 | Ensure SSH MaxSessions is limited | Pass ||
-| 5.4 | Configure PAM |||
-| 5.4.1 | Ensure password creation requirements are configured | Pass ||
-| 5.4.2 | Ensure lockout for failed password attempts is configured | Fail |  |
-| 5.4.3 | Ensure password reuse is limited | Fail |  |
-| 5.4.4 | Ensure password hashing algorithm is SHA-512 | Pass ||
-| 5.5 | User Accounts and Environment |||
-| 5.5.1 | Set Shadow Password Suite Parameters |||
-| 5.5.1.1 | Ensure minimum days between password changes is  configured | Pass ||
-| 5.5.1.2 | Ensure password expiration is 365 days or less | Pass ||
-| 5.5.1.3 | Ensure password expiration warning days is 7 or more | Pass ||
-| 5.5.1.4 | Ensure inactive password lock is 30 days or less | Pass ||
-| 5.5.1.5 | Ensure all users last password change date is in the past | Fail |  |
-| 5.5.2 | Ensure system accounts are secured | Pass ||
-| 5.5.3 | Ensure default group for the root account is GID 0 | Pass ||
-| 5.5.4 | Ensure default user umask is 027 or more restrictive | Pass ||
-| 5.5.5 | Ensure default user shell timeout is 900 seconds or less | Fail |  |
-| 5.6 | Ensure root login is restricted to system console | Not Applicable | |
-| 5.7 | Ensure access to the su command is restricted | Fail | Potential Operation Impact |
-| 6 | System Maintenance |||
-| 6.1 | System File Permissions |||
-| 6.1.2 | Ensure permissions on /etc/passwd are configured | Pass ||
-| 6.1.3 | Ensure permissions on /etc/passwd- are configured | Pass ||
-| 6.1.4 | Ensure permissions on /etc/group are configured | Pass ||
-| 6.1.5 | Ensure permissions on /etc/group- are configured | Pass ||
-| 6.1.6 | Ensure permissions on /etc/shadow are configured | Pass ||
-| 6.1.7 | Ensure permissions on /etc/shadow- are configured | Pass ||
-| 6.1.8 | Ensure permissions on /etc/gshadow are configured | Pass ||
-| 6.1.9 | Ensure permissions on /etc/gshadow- are configured | Pass ||
-| 6.1.10 | Ensure no world writable files exist | Fail | Potential Operation Impact |
-| 6.1.11 | Ensure no unowned files or directories exist | Fail |  Potential Operation Impact |
-| 6.1.12 | Ensure no ungrouped files or directories exist | Fail |  Potential Operation Impact |
-| 6.1.13 | Audit SUID executables | Not Applicable |  |
-| 6.1.14 | Audit SGID executables | Not Applicable |  |
-| 6.2 | User and Group Settings |||
-| 6.2.1 | Ensure accounts in /etc/passwd use shadowed passwords | Pass ||
-| 6.2.2 | Ensure password fields aren't empty | Pass ||
-| 6.2.3 | Ensure all groups in /etc/passwd exist in /etc/group | Pass ||
-| 6.2.4 | Ensure all users' home directories exist | Pass ||
-| 6.2.5 | Ensure users own their home directories | Pass ||
-| 6.2.6 | Ensure users' home directories permissions are 750 or more restrictive | Pass ||
-| 6.2.7 | Ensure users' dot files aren't group or world writable | Pass ||
-| 6.2.8 | Ensure no users have .netrc files | Pass ||
-| 6.2.9 | Ensure no users have .forward files | Pass ||
-| 6.2.10 | Ensure no users have .rhosts files | Pass ||
-| 6.2.11 | Ensure root is the only UID 0 account | Pass ||
-| 6.2.12 | Ensure root PATH Integrity | Pass ||
-| 6.2.13 | Ensure no duplicate UIDs exist | Pass ||
-| 6.2.14 | Ensure no duplicate GIDs exist | Pass ||
-| 6.2.15 | Ensure no duplicate user names exist | Pass ||
-| 6.2.16 | Ensure no duplicate group names exist | Pass ||
-| 6.2.17 | Ensure shadow group is empty | Pass ||
+| 1.1.1 | Ensure 'Enforce password history' is set to '24 or more password(s)' | Fail ||
+|---|---|---|---|---|
+| 1.1.2 | Ensure 'Maximum password age' is set to '365 or fewer days, but not 0' | Pass ||
+| 1.1.3 | Ensure 'Minimum password age' is set to '1 or more day(s)' | Fail |
+| 1.1.4 | Ensure 'Minimum password length' is set to '14 or more character(s)' | Fail ||
+| 1.1.5 | Ensure 'Password must meet complexity requirements' is set to 'Enabled' | Pass ||
+| 1.1.6 | Ensure 'Store passwords using reversible encryption' is set to 'Disabled' | Pass ||
+| 2.2.1 | Ensure 'Access Credential Manager as a trusted caller' is set to 'No One' | Pass ||
+| 2.2.2 | Ensure 'Access this computer from the network' is set to 'Administrators, Authenticated Users, ENTERPRISE DOMAIN CONTROLLERS' (DC only) | Fail ||
+| 2.2.4 | Ensure 'Act as part of the operating system' is set to 'No One' | Pass ||
+| 2.2.5 | Ensure 'Add workstations to domain' is set to 'Administrators' (DC only) | N/A ||
+| 2.2.6 | Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE' | Pass ||
+| 2.2.7 | Ensure 'Allow log on locally' is set to 'Administrators' | Fail ||
+| 2.2.8 | Ensure 'Allow log on through Remote Desktop Services' is set to 'Administrators' (DC only) | Pass ||
+| 2.2.10 | Ensure 'Back up files and directories' is set to 'Administrators, Backup Operators' | Pass ||
+| 2.2.11 | Ensure 'Change the system time' is set to 'Administrators, LOCAL SERVICE' | Pass ||
+| 2.2.12 | Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE' | Pass ||
+| 2.2.13 | Ensure 'Create a pagefile' is set to 'Administrators' | Pass ||
+| 2.2.14 | Ensure 'Create a token object' is set to 'No One' | Pass ||
+| 2.2.15 | Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE' | Pass ||
+| 2.2.16 | Ensure 'Create permanent shared objects' is set to 'No One' | Pass ||
+| 2.2.17 | Ensure 'Create symbolic links' is set to 'Administrators' (DC only) | Pass ||
+| 2.2.19 | Ensure 'Debug programs' is set to 'Administrators' | Pass ||
+| 2.2.20 | Ensure 'Deny access to this computer from the network' to include 'Guests' | Fail ||
+| 2.2.21 | Ensure 'Deny log on as a batch job' to include 'Guests' | Fail ||
+| 2.2.22 | Ensure 'Deny log on as a service' to include 'Guests' | Fail ||
+| 2.2.23 | Ensure 'Deny log on locally' to include 'Guests' | Fail ||
+| 2.2.24 | Ensure 'Deny log on through Remote Desktop Services' to include 'Guests' | Fail ||
+| 2.2.25 | Ensure 'Enable computer and user accounts to be trusted for delegation' is set to 'Administrators' (DC only) | Pass ||
+| 2.2.27 | Ensure 'Force shutdown from a remote system' is set to 'Administrators' | Pass ||
+| 2.2.28 | Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE' | N/A ||
+| 2.2.29 | Ensure 'Impersonate a client after authentication' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE' (DC only) | Pass ||
+| 2.2.31 | Ensure 'Increase scheduling priority' is set to 'Administrators' | Fail ||
+| 2.2.32 | Ensure 'Load and unload device drivers' is set to 'Administrators' | Pass ||
+| 2.2.33 | Ensure 'Lock pages in memory' is set to 'No One' | Pass ||
+| 2.2.34 | Ensure 'Manage auditing and security log' is set to 'Administrators' and (when Exchange is running in the environment) 'Exchange Servers' (DC only) | Pass ||
+| 2.2.36 | Ensure 'Modify an object label' is set to 'No One' | Pass ||
+| 2.2.37 | Ensure 'Modify firmware environment values' is set to 'Administrators' | Pass ||
+| 2.2.38 | Ensure 'Perform volume maintenance tasks' is set to 'Administrators' | Pass ||
+| 2.2.39 | Ensure 'Profile single process' is set to 'Administrators' | Pass ||
+| 2.2.40 | Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\WdiServiceHost' | Pass ||
+| 2.2.41 | Ensure 'Replace a process level token' is set to 'LOCAL SERVICE, NETWORK SERVICE' | Pass ||
+| 2.2.42 | Ensure 'Restore files and directories' is set to 'Administrators, Backup Operators' | Pass ||
+| 2.2.43 | Ensure 'Shut down the system' is set to 'Administrators, Backup Operators' | Pass ||
+| 2.2.44 | Ensure 'Synchronize directory service data' is set to 'No One' (DC only) | N/A ||
+| 2.2.45 | Ensure 'Take ownership of files or other objects' is set to 'Administrators' | Pass ||
+| 2.3.1.1 | Ensure 'Accounts: Block Microsoft accounts' is set to 'Users can't add or log on with Microsoft accounts' | Pass ||
+| 2.3.1.3 | Ensure 'Accounts: Limit local account use of blank passwords to console logon only' is set to 'Enabled' | Pass ||
+| 2.3.1.4 | Configure 'Accounts: Rename administrator account' | Pass ||
+| 2.3.1.5 | Configure 'Accounts: Rename guest account' | Pass ||
+| 2.3.2.1 | Ensure 'Audit: Force audit policy subcategory settings (Windows Vista or later) to override audit policy category settings' is set to 'Enabled' | Pass ||
+| 2.3.2.2 | Ensure 'Audit: Shut down system immediately if unable to log security audits' is set to 'Disabled' | Pass ||
+| 2.3.4.1 | Ensure 'Devices: Allowed to format and eject removable media' is set to 'Administrators' | Pass ||
+| 2.3.4.2 | Ensure 'Devices: Prevent users from installing printer drivers' is set to 'Enabled' | Pass ||
+| 2.3.5.1 | Ensure 'Domain controller: Allow server operators to schedule tasks' is set to 'Disabled' (DC only) | N/A ||
+| 2.3.5.2 | Ensure 'Domain controller: Allow vulnerable Netlogon secure channel connections' is set to 'Not Configured' (DC Only) | N/A ||
+| 2.3.5.3 | Ensure 'Domain controller: LDAP server channel binding token requirements' is set to 'Always' (DC Only) | N/A ||
+| 2.3.5.4 | Ensure 'Domain controller: LDAP server signing requirements' is set to 'Require signing' (DC only) | N/A ||
+| 2.3.5.5 | Ensure 'Domain controller: Refuse machine account password changes' is set to 'Disabled' (DC only) | N/A ||
+| 2.3.6.1 | Ensure 'Domain member: Digitally encrypt or sign secure channel data (always)' is set to 'Enabled' | Pass ||
+| 2.3.6.2 | Ensure 'Domain member: Digitally encrypt secure channel data (when possible)' is set to 'Enabled' | Pass ||
+| 2.3.6.3 | Ensure 'Domain member: Digitally sign secure channel data (when possible)' is set to 'Enabled' | Pass ||
+| 2.3.6.4 | Ensure 'Domain member: Disable machine account password changes' is set to 'Disabled' | Pass ||
+| 2.3.6.5 | Ensure 'Domain member: Maximum machine account password age' is set to '30 or fewer days, but not 0' | Pass ||
+| 2.3.7.1 | Ensure 'Interactive logon: Machine inactivity limit' is set to '900 or fewer second(s), but not 0' | Pass ||
+| 2.3.7.2 | Configure 'Interactive logon: Message text for users attempting to log on' | Fail ||
+| 2.3.7.3 | Configure 'Interactive logon: Message title for users attempting to log on' | Fail ||
+| 2.3.7.4 | Ensure 'Interactive logon: Prompt user to change password before expiration' is set to 'between 5 and 14 days' | Pass ||
+| 2.3.8.1 | Ensure 'Microsoft network client: Digitally sign communications (always)' is set to 'Enabled' | Fail ||
+| 2.3.8.2 | Ensure 'Microsoft network client: Digitally sign communications (if server agrees)' is set to 'Enabled' | Pass ||
+| 2.3.8.3 | Ensure 'Microsoft network client: Send unencrypted password to third-party SMB servers' is set to 'Disabled' | Pass ||
+| 2.3.9.1 | Ensure 'Microsoft network server: Amount of idle time required before suspending session' is set to '15 or fewer minute(s)' | Pass ||
+| 2.3.9.2 | Ensure 'Microsoft network server: Digitally sign communications (always)' is set to 'Enabled' | Fail ||
+| 2.3.9.3 | Ensure 'Microsoft network server: Digitally sign communications (if client agrees)' is set to 'Enabled' | Fail ||
+| 2.3.9.4 | Ensure 'Microsoft network server: Disconnect clients when logon hours expire' is set to 'Enabled' | Pass ||
+| 2.3.10.1 | Ensure 'Network access: Allow anonymous SID/Name translation' is set to 'Disabled' | Pass ||
+| 2.3.10.4 | Ensure 'Network access: Let Everyone permissions apply to anonymous users' is set to 'Disabled' | Pass ||
+| 2.3.10.5 | Configure 'Network access: Named Pipes that can be accessed anonymously' (DC only) | Pass ||
+| 2.3.10.7 | Configure 'Network access: Remotely accessible registry paths' is configured | Pass ||
+| 2.3.10.8 | Configure 'Network access: Remotely accessible registry paths and sub-paths' is configured | Pass ||
+| 2.3.10.9 | Ensure 'Network access: Restrict anonymous access to Named Pipes and Shares' is set to 'Enabled' | Pass ||
+| 2.3.10.11 | Ensure 'Network access: Shares that can be accessed anonymously' is set to 'None' | N/A ||
+| 2.3.10.12 | Ensure 'Network access: Sharing and security model for local accounts' is set to 'Classic - local users authenticate as themselves' | Pass ||
+| 2.3.11.1 | Ensure 'Network security: Allow Local System to use computer identity for NTLM' is set to 'Enabled' | Fail ||
+| 2.3.11.2 | Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled' | Pass ||
+| 2.3.11.3 | Ensure 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' is set to 'Disabled' | Pass ||
+| 2.3.11.4 | Ensure 'Network security: Configure encryption types allowed for Kerberos' is set to 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types' | Pass ||
+| 2.3.11.5 | Ensure 'Network security: Do not store LAN Manager hash value on next password change' is set to 'Enabled' | Pass ||
+| 2.3.11.6 | Ensure 'Network security: LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM & NTLM' | Fail ||
+| 2.3.11.7 | Ensure 'Network security: LDAP client signing requirements' is set to 'Negotiate signing' or higher | Pass ||
+| 2.3.11.8 | Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) clients' is set to 'Require NTLMv2 session security, Require 128-bit encryption' | Fail ||
+| 2.3.11.9 | Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) servers' is set to 'Require NTLMv2 session security, Require 128-bit encryption' | Fail ||
+| 2.3.13.1 | Ensure 'Shutdown: Allow system to be shut down without having to log on' is set to 'Disabled' | Pass ||
+| 2.3.15.1 | Ensure 'System objects: Require case insensitivity for non-Windows subsystems' is set to 'Enabled' | Pass ||
+| 2.3.15.2 | Ensure 'System objects: Strengthen default permissions of internal system objects (e.g. Symbolic Links)' is set to 'Enabled' | Pass ||
+| 2.3.17.1 | Ensure 'User Account Control: Admin Approval Mode for the Built-in Administrator account' is set to 'Enabled' | Fail ||
+| 2.3.17.2 | Ensure 'User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure desktop' | Fail ||
+| 2.3.17.3 | Ensure 'User Account Control: Behavior of the elevation prompt for standard users' is set to 'Automatically deny elevation requests' | Fail ||
+| 2.3.17.4 | Ensure 'User Account Control: Detect application installations and prompt for elevation' is set to 'Enabled' | Pass ||
+| 2.3.17.5 | Ensure 'User Account Control: Only elevate UIAccess applications that are installed in secure locations' is set to 'Enabled' | Pass ||
+| 2.3.17.6 | Ensure 'User Account Control: Run all administrators in Admin Approval Mode' is set to 'Enabled' | Pass ||
+| 2.3.17.7 | Ensure 'User Account Control: Switch to the secure desktop when prompting for elevation' is set to 'Enabled' | Pass ||
+| 2.3.17.8 | Ensure 'User Account Control: Virtualize file and registry write failures to per-user locations' is set to 'Enabled' | Pass ||
+| 5.1 | Ensure 'Print Spooler (Spooler)' is set to 'Disabled' (DC only) | N/A ||
+| 9.1.1 | Ensure 'Windows Firewall: Domain: Firewall state' is set to 'On (recommended)' | Fail ||
+| 9.1.2 | Ensure 'Windows Firewall: Domain: Inbound connections' is set to 'Block (default)' | Pass ||
+| 9.1.3 | Ensure 'Windows Firewall: Domain: Outbound connections' is set to 'Allow (default)' | Pass ||
+| 9.1.4 | Ensure 'Windows Firewall: Domain: Logging: Name' is set to '%SystemRoot%\System32\logfiles\firewall\domainfw.log' | Pass ||
+| 9.1.5 | Ensure 'Windows Firewall: Domain: Logging: Size limit (KB)' is set to '16,384 KB or greater' | Pass ||
+| 9.1.6 | Ensure 'Windows Firewall: Domain: Logging: Log dropped packets' is set to 'Yes' | Pass ||
+| 9.1.7 | Ensure 'Windows Firewall: Domain: Logging: Log successful connections' is set to 'Yes' | Fail ||
+| 9.2.1 | Ensure 'Windows Firewall: Private: Firewall state' is set to 'On (recommended)' | Fail ||
+| 9.2.2 | Ensure 'Windows Firewall: Private: Inbound connections' is set to 'Block (default)' | Pass ||
+| 9.2.3 | Ensure 'Windows Firewall: Private: Outbound connections' is set to 'Allow (default)' | Fail ||
+| 9.2.4 | Ensure 'Windows Firewall: Private: Logging: Name' is set to '%SystemRoot%\System32\logfiles\firewall\privatefw.log' | Pass ||
+| 9.2.5 | Ensure 'Windows Firewall: Private: Logging: Size limit (KB)' is set to '16,384 KB or greater' | Pass ||
+| 9.2.6 | Ensure 'Windows Firewall: Private: Logging: Log dropped packets' is set to 'Yes' | Pass ||
+| 9.2.7 | Ensure 'Windows Firewall: Private: Logging: Log successful connections' is set to 'Yes' | Pass ||
+| 9.3.1 | Ensure 'Windows Firewall: Public: Firewall state' is set to 'On (recommended)' | Fail ||
+| 9.3.2 | Ensure 'Windows Firewall: Public: Inbound connections' is set to 'Block (default)' | Pass ||
+| 9.3.3 | Ensure 'Windows Firewall: Public: Outbound connections' is set to 'Allow (default)' | Fail ||
+| 9.3.4 | Ensure 'Windows Firewall: Public: Logging: Name' is set to '%SystemRoot%\System32\logfiles\firewall\publicfw.log' | Pass ||
+| 9.3.5 | Ensure 'Windows Firewall: Public: Logging: Size limit (KB)' is set to '16,384 KB or greater' | Fail ||
+| 9.3.6 | Ensure 'Windows Firewall: Public: Logging: Log dropped packets' is set to 'Yes' | Pass ||
+| 9.3.7 | Ensure 'Windows Firewall: Public: Logging: Log successful connections' is set to 'Yes' | Pass ||
+| 17.1.1 | Ensure 'Audit Credential Validation' is set to 'Success and Failure' | Pass ||
+| 17.1.2 | Ensure 'Audit Kerberos Authentication Service' is set to 'Success and Failure' (DC Only) | Pass ||
+| 17.2.1 | Ensure 'Audit Computer Account Management' is set to include 'Success and Failure' (DC only) | Pass ||
+| 17.2.2 | Ensure 'Audit Distribution Group Management' is set to include 'Success and Failure' (DC only) | Pass ||
+| 17.2.3 | Ensure 'Audit Other Account Management Events' is set to include 'Success' (DC only) | Pass ||
+| 17.2.4 | Ensure 'Audit Security Group Management' is set to include 'Success' | Pass ||
+| 17.2.5 | Ensure 'Audit User Account Management' is set to 'Success and Failure' | Pass ||
+| 17.3.1 | Ensure 'Audit PNP Activity' is set to include 'Success' | Pass ||
+| 17.3.2 | Ensure 'Audit Process Creation' is set to include 'Success' | Pass ||
+| 17.5.1 | Ensure 'Audit Account Lockout' is set to include 'Success and Failure' | Pass ||
+| 17.5.2 | Ensure 'Audit Group Membership' is set to include 'Success' | Pass ||
+| 17.5.3 | Ensure 'Audit Logoff' is set to include 'Success' | Pass ||
+| 17.5.4 | Ensure 'Audit Logon' is set to 'Success and Failure' | Pass ||
+| 17.5.5 | Ensure 'Audit Other Logon/Logoff Events' is set to 'Success and Failure' | Pass ||
+| 17.5.6 | Ensure 'Audit Special Logon' is set to include 'Success' | Pass ||
+| 17.6.1 | Ensure 'Audit Other Object Access Events' is set to 'Success and Failure' | Fail ||
+| 17.6.2 | Ensure 'Audit Removable Storage' is set to 'Success and Failure' | Fail ||
+| 17.7.1 | Ensure 'Audit Audit Policy Change' is set to include 'Success' | Pass ||
+| 17.7.2 | Ensure 'Audit Authentication Policy Change' is set to include 'Success' | Pass ||
+| 17.7.3 | Ensure 'Audit MPSSVC Rule-Level Policy Change' is set to 'Success and Failure' | Fail ||
+| 17.8.1 | Ensure 'Audit Sensitive Privilege Use' is set to 'Success and Failure' | Pass ||
+| 17.9.1 | Ensure 'Audit Security State Change' is set to include 'Success' | Fail ||
+| 17.9.2 | Ensure 'Audit Security System Extension' is set to include 'Success' | Pass ||
+| 17.9.3 | Ensure 'Audit System Integrity' is set to 'Success and Failure' | Pass ||
+| 18.1.2.2 | Ensure 'Allow users to enable online speech recognition services' is set to 'Disabled' | Fail ||
+| 18.3.1 | Ensure 'Configure SMB v1 client driver' is set to 'Enabled: Disable driver (recommended)' | Pass ||
+| 18.3.2 | Ensure 'Configure SMB v1 server' is set to 'Disabled' | Pass ||
+| 18.3.3 | Ensure 'Enable Structured Exception Handling Overwrite Protection (SEHOP)' is set to 'Enabled' | Pass ||
+| 18.3.4 | Ensure 'NetBT NodeType configuration' is set to 'Enabled: P-node (recommended)' | Pass ||
+| 18.3.5 | Ensure 'WDigest Authentication' is set to 'Disabled' | Pass ||
+| 18.4.1 | Ensure 'MSS: (DisableIPSourceRouting IPv6) IP source routing protection level (protects against packet spoofing)' is set to 'Enabled: Highest protection, source routing is completely disabled' | Pass ||
+| 18.4.2 | Ensure 'MSS: (DisableIPSourceRouting) IP source routing protection level (protects against packet spoofing)' is set to 'Enabled: Highest protection, source routing is completely disabled' | Pass ||
+| 18.4.3 | Ensure 'MSS: (EnableICMPRedirect) Allow ICMP redirects to override OSPF generated routes' is set to 'Disabled' | Fail ||
+| 18.4.4 | Ensure 'MSS: (NoNameReleaseOnDemand) Allow the computer to ignore NetBIOS name release requests except from WINS servers' is set to 'Enabled' | Pass ||
+| 18.5.4.1 | Ensure 'Turn off multicast name resolution' is set to 'Enabled' | Fail ||
+| 18.5.8.1 | Ensure 'Enable insecure guest logons' is set to 'Disabled' | Fail ||
+| 18.5.11.2 | Ensure 'Prohibit installation and configuration of Network Bridge on your DNS domain network' is set to 'Enabled' | Fail ||
+| 18.5.11.3 | Ensure 'Prohibit use of Internet Connection Sharing on your DNS domain network' is set to 'Enabled' | Fail ||
+| 18.5.14.1 | Ensure 'Hardened UNC Paths' is set to 'Enabled, with "Require Mutual Authentication" and "Require Integrity" set for all NETLOGON and SYSVOL shares' | Pass ||
+| 18.5.21.1 | Ensure 'Minimize the number of simultaneous connections to the Internet or a Windows Domain' is set to 'Enabled: 1 = Minimize simultaneous connections' | Pass ||
+| 18.8.3.1 | Ensure 'Include command line in process creation events' is set to 'Enabled' | Fail ||
+| 18.8.4.1 | Ensure 'Encryption Oracle Remediation' is set to 'Enabled: Force Updated Clients' | Pass ||
+| 18.8.4.2 | Ensure 'Remote host allows delegation of non-exportable credentials' is set to 'Enabled' | Pass ||
+| 18.8.14.1 | Ensure 'Boot-Start Driver Initialization Policy' is set to 'Enabled: Good, unknown and bad but critical' | Pass ||
+| 18.8.21.2 | Ensure 'Configure registry policy processing: Do not apply during periodic background processing' is set to 'Enabled: FALSE' | Pass ||
+| 18.8.21.3 | Ensure 'Configure registry policy processing: Process even if the Group Policy objects have not changed' is set to 'Enabled: TRUE' | Pass ||
+| 18.8.21.4 | Ensure 'Continue experiences on this device' is set to 'Disabled' | Pass ||
+| 18.8.21.5 | Ensure 'Turn off background refresh of Group Policy' is set to 'Disabled' | Pass ||
+| 18.8.22.1.1 | Ensure 'Turn off downloading of print drivers over HTTP' is set to 'Enabled' | Fail ||
+| 18.8.28.1 | Ensure 'Block user from showing account details on sign-in' is set to 'Enabled' | Fail ||
+| 18.8.28.2 | Ensure 'Do not display network selection UI' is set to 'Enabled' | Fail ||
+| 18.8.36.1 | Ensure 'Configure Offer Remote Assistance' is set to 'Disabled' | Pass ||
+| 18.8.36.2 | Ensure 'Configure Solicited Remote Assistance' is set to 'Disabled' | Fail ||
+| 18.8.40.1 | Ensure 'Configure validation of ROCA-vulnerable WHfB keys during authentication' is set to 'Enabled: Audit' or higher (DC only) | N/A |
+| 18.9.6.1 | Ensure 'Allow Microsoft accounts to be optional' is set to 'Enabled' | Fail ||
+| 18.9.14.1 | Ensure 'Turn off cloud consumer account state content' is set to 'Enabled' | Pass ||
+| 18.9.14.2 | Ensure 'Turn off Microsoft consumer experiences' is set to 'Enabled' | Pass ||
+| 18.9.16.1 | Ensure 'Do not display the password reveal button' is set to 'Enabled' | Fail ||
+| 18.9.16.2 | Ensure 'Enumerate administrator accounts on elevation' is set to 'Disabled' | Pass ||
+| 18.9.17.1 | Ensure 'Allow Diagnostic Data' is set to 'Enabled: Send required diagnostic data' | Fail ||
+| 18.9.27.1.1 | Ensure 'Application: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' | Pass ||
+| 18.9.27.1.2 | Ensure 'Application: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater' | Fail ||
+| 18.9.27.2.1 | Ensure 'Security: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' | Pass ||
+| 18.9.27.2.2 | Ensure 'Security: Specify the maximum log file size (KB)' is set to 'Enabled: 196,608 or greater' | Fail ||
+| 18.9.27.3.1 | Ensure 'Setup: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' | Pass ||
+| 18.9.27.3.2 | Ensure 'Setup: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater' | Fail ||
+| 18.9.27.4.1 | Ensure 'System: Control Event Log behavior when the log file reaches its maximum size' is set to 'Disabled' | Pass ||
+| 18.9.27.4.2 | Ensure 'System: Specify the maximum log file size (KB)' is set to 'Enabled: 32,768 or greater' | Fail ||
+| 18.9.31.2 | Ensure 'Turn off Data Execution Prevention for Explorer' is set to 'Disabled' | Pass ||
+| 18.9.31.3 | Ensure 'Turn off heap termination on corruption' is set to 'Disabled' | Pass ||
+| 18.9.31.4 | Ensure 'Turn off shell protocol protected mode' is set to 'Disabled' | Pass ||
+| 18.9.46.1 | Ensure 'Block all consumer Microsoft account user authentication' is set to 'Enabled' | Pass ||
+| 18.9.47.15 | Ensure 'Configure detection for potentially unwanted applications' is set to 'Enabled: Block' | Pass ||
+| 18.9.47.16 | Ensure 'Turn off Microsoft Defender AntiVirus' is set to 'Disabled' | Pass ||
+| 18.9.47.4.1 | Ensure 'Configure local setting override for reporting to Microsoft MAPS' is set to 'Disabled' | Pass ||
+| 18.9.47.5.1.1 | Ensure 'Configure Attack Surface Reduction rules' is set to 'Enabled' | Pass ||
+| 18.9.47.5.1.2 | Ensure 'Configure Attack Surface Reduction rules: Set the state for each ASR rule' is configured | Pass ||
+| 18.9.47.5.3.1 | Ensure 'Prevent users and apps from accessing dangerous websites' is set to 'Enabled: Block' | Pass ||
+| 18.9.47.9.1 | Ensure 'Scan all downloaded files and attachments' is set to 'Enabled' | Pass ||
+| 18.9.47.9.2 | Ensure 'Turn off real-time protection' is set to 'Disabled' | Pass ||
+| 18.9.47.9.3 | Ensure 'Turn on behavior monitoring' is set to 'Enabled' | Pass ||
+| 18.9.47.9.4 | Ensure 'Turn on script scanning' is set to 'Enabled' | Pass ||
+| 18.9.47.12.1 | Ensure 'Turn on e-mail scanning' is set to 'Enabled' | Fail ||
+| 18.9.65.2.2 | Ensure 'Do not allow passwords to be saved' is set to 'Enabled' | Fail ||
+| 18.9.65.3.3.1 | Ensure 'Do not allow drive redirection' is set to 'Enabled' | Pass ||
+| 18.9.65.3.9.1 | Ensure 'Always prompt for password upon connection' is set to 'Enabled' | Fail ||
+| 18.9.65.3.9.2 | Ensure 'Require secure RPC communication' is set to 'Enabled' | Fail ||
+| 18.9.65.3.9.3 | Ensure 'Set client connection encryption level' is set to 'Enabled: High Level' | Pass ||
+| 18.9.65.3.11.1 | Ensure 'Do not delete temp folders upon exit' is set to 'Disabled' | Pass ||
+| 18.9.65.3.11.2 | Ensure 'Do not use temporary folders per session' is set to 'Disabled' | Pass ||
+| 18.9.66.1 | Ensure 'Prevent downloading of enclosures' is set to 'Enabled' | Fail ||
+| 18.9.67.2 | Ensure 'Allow indexing of encrypted files' is set to 'Disabled' | Pass ||
+| 18.9.85.1.1 | Ensure 'Configure Windows Defender SmartScreen' is set to 'Enabled: Warn and prevent bypass' | Fail ||
+| 18.9.90.1 | Ensure 'Allow user control over installs' is set to 'Disabled' | Pass ||
+| 18.9.90.2 | Ensure 'Always install with elevated privileges' is set to 'Disabled' | Pass ||
+| 18.9.91.1 | Ensure 'Sign-in and lock last interactive user automatically after a restart' is set to 'Disabled' | Pass ||
+| 18.9.100.1 | Ensure 'Turn on PowerShell Script Block Logging' is set to 'Enabled' | Fail ||
+| 18.9.100.2 | Ensure 'Turn on PowerShell Transcription' is set to 'Disabled' | Pass ||
+| 18.9.102.1.1 | Ensure 'Allow Basic authentication' is set to 'Disabled' | Pass ||
+| 18.9.102.1.2 | Ensure 'Allow unencrypted traffic' is set to 'Disabled' | Pass ||
+| 18.9.102.1.3 | Ensure 'Disallow Digest authentication' is set to 'Enabled' | Fail ||
+| 18.9.102.2.1 | Ensure 'Allow Basic authentication' is set to 'Disabled' | Pass ||
+| 18.9.102.2.2 | Ensure 'Allow unencrypted traffic' is set to 'Disabled' | Pass ||
+| 18.9.102.2.3 | Ensure 'Disallow WinRM from storing RunAs credentials' is set to 'Enabled' | Fail ||
+| 18.9.105.2.1 | Ensure 'Prevent users from modifying settings' is set to 'Enabled' | Pass ||
 
 ## Next steps  
 
