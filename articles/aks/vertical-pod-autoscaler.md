@@ -3,14 +3,14 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 09/11/2023
+ms.date: 09/26/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 
 This article provides an overview of Vertical Pod Autoscaler (VPA) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA frees up CPU and Memory for the other pods and helps make effective utilization of your AKS cluster.
 
-Vertical Pod autoscaling provides recommendations for resource usage over time. To manage sudden increases in resource usage, use the [Horizontal Pod Autoscaler][horizontal-pod-autoscaling].
+Vertical Pod autoscaling provides recommendations for resource usage over time. To manage sudden increases in resource usage, use the [Horizontal Pod Autoscaler][horizontal-pod-autoscaling], which scales the number of pod replicas as needed.
 
 ## Benefits
 

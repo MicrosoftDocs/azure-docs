@@ -3,12 +3,14 @@ title: Vertical Pod Autoscaler API reference in Azure Kubernetes Service (AKS)
 description: Learn about the Vertical Pod Autoscaler API reference for Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 09/11/2023
+ms.date: 09/26/2023
 ---
 
 # Vertical Pod Autoscaler API reference
 
 This article provides the API reference for the Vertical Pod Autoscaler feature of Azure Kubernetes Service.
+
+This reference is based on version 0.13.0 of the AKS implementation of VPA.
 
 ## VerticalPodAutoscaler
 
