@@ -34,3 +34,4 @@ armclient get /subscriptions/<subscription>/resourceGroups/<resourceGroup> /prov
 10.	Go to Azure portal and check if the Principal ID has the required access on the Azure Key Vault, chosen for secret processing. 
 11.	Go to the Key Vault, go to access policies, select the Principal ID from list and check the permissions it has OR create a new access policy specifically for the Principal ID you found by running the command above. 
 12.	Ensure that following permissions are assigned to the Principal ID: *Secret permission* and both *Secret Management Operations and Privileged Management Operations*.
+
