@@ -48,136 +48,132 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     If your software hypervisor is not Hyper-V, other modules need to be added into the initramfs to successfully boot in Azure
 
-    Edit the "/etc/dracut.conf" file and add the following line to the file:
+    Edit the "/etc/dracut.conf" file and add the following line to the file then executeh the ```dracut```command to rebuild the initramfs file:
 
-    ```config
-    add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
-    ```
+```config
+add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
+```
 
-    Once the configuration file has been saved, run the following command to update the intramfs of the host:
-
-    ```bash
-    sudo dracut --verbose --force
-    ```
+```bash
+sudo dracut --verbose --force
+```
 
 2. Setup the Serial Console.
 
-    In order to successfully work with the serial console, it's required to set up several variables in the "/etc/defaults/grub" file.
+    In order to successfully work with the serial console, it's required to set up several variables in the "/etc/defaults/grub" file and recreate the grub on the server.
 
-    ```config
-    # Add console=ttyS0 and earlyprintk=ttS0 to the variable
-    # remove "splash=silent" and "quiet" options.
-    GRUB_CMDLINE_LINUX_DEFAULT="audit=1 no-scroll fbcon=scrollback:0 mitigations=auto security=apparmor crashkernel=228M,high crashkernel=72M,low console=ttyS0 earlyprintk=ttyS0"
+```config
+# Add console=ttyS0 and earlyprintk=ttS0 to the variable
+# remove "splash=silent" and "quiet" options.
+GRUB_CMDLINE_LINUX_DEFAULT="audit=1 no-scroll fbcon=scrollback:0 mitigations=auto security=apparmor crashkernel=228M,high crashkernel=72M,low console=ttyS0 earlyprintk=ttyS0"
 
-    # Add "console serial" to GRUB_TERMINAL
-    GRUB_TERMINAL="console serial"
+# Add "console serial" to GRUB_TERMINAL
+GRUB_TERMINAL="console serial"
 
-    # Set the GRUB_SERIAL_COMMAND variable
+# Set the GRUB_SERIAL_COMMAND variable
 
-    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
-    ```
+GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+```
 
-    Next recreate the grub:
-
-    ```shell
-    /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg 
-    ```
+```shell
+/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg 
+```
  
 3. Register your SUSE Linux Enterprise system to allow it to download updates and install packages.
 
 4. Update the system with the latest patches:
 
-    ```bash
-    sudo zypper update
-    ```
+```bash
+sudo zypper update
+```
     
 5. Install Azure Linux Agent and cloud-init
 
-    ```bash
-    sudo SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
-    sudo zypper refresh
-    sudo zypper install python-azure-agent
-    sudo zypper install cloud-init
-    ```
+```bash
+sudo SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
+sudo zypper refresh
+sudo zypper install python-azure-agent
+sudo zypper install cloud-init
+```
 
 6. Enable waagent & cloud-init to start on boot
 
-    ```bash
-    sudo systemctl enable  waagent 
-    sudo systemctl enable cloud-init-local.service
-    sudo systemctl enable cloud-init.service
-    sudo systemctl enable cloud-config.service
-    sudo systemctl enable cloud-final.service
-    sudo systemctl daemon-reload
-    sudo cloud-init clean
-    ```
+```bash
+sudo systemctl enable  waagent 
+sudo systemctl enable cloud-init-local.service
+sudo systemctl enable cloud-init.service
+sudo systemctl enable cloud-config.service
+sudo systemctl enable cloud-final.service
+sudo systemctl daemon-reload
+sudo cloud-init clean
+```
 
 7. Update the cloud-init configuration 
 
-    ```bash
-    cat <<EOF | sudo /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg 
-    datasource_list: [ Azure ]
-    datasource:
-        Azure:
-            apply_network_config: False
+```bash
+cat <<EOF | sudo /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg 
+datasource_list: [ Azure ]
+datasource:
+    Azure:
+        apply_network_config: False
 
-    EOF
-    ```
+EOF
+```
 
-    ```bash
-    sudo cat <<EOF | sudo tee  /etc/cloud/cloud.cfg.d/05_logging.cfg
-    # This tells cloud-init to redirect its stdout and stderr to
-    # 'tee -a /var/log/cloud-init-output.log' so the user can see output
-    # there without needing to look on the console.
-    output: {all: '| tee -a /var/log/cloud-init-output.log'}
-    EOF
+```bash
+sudo cat <<EOF | sudo tee  /etc/cloud/cloud.cfg.d/05_logging.cfg
+# This tells cloud-init to redirect its stdout and stderr to
+# 'tee -a /var/log/cloud-init-output.log' so the user can see output
+# there without needing to look on the console.
+output: {all: '| tee -a /var/log/cloud-init-output.log'}
+EOF
 
-    # Make sure mounts and disk_setup are in the init stage:
-    echo "Adding mounts and disk_setup to init stage"
-    sudo sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
-    sudo sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
-    sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
-    sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
-    ```
+# Make sure mounts and disk_setup are in the init stage:
+echo "Adding mounts and disk_setup to init stage"
+sudo sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
+sudo sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
+sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
+sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
+```
 
 8. If you want to mount, format, and create a swap partition you can either:
     * Pass this configuration in as a cloud-init config every time you create a VM.
     * Use a cloud-init directive baked into the image that configures swap space every time the VM is created:
 	
 
-    ```bash
-    cat  <<EOF | sudo tee -a /etc/systemd/system.conf
-    'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"'
-    EOF 
+```bash
+cat  <<EOF | sudo tee -a /etc/systemd/system.conf
+'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"'
+EOF 
 
-    cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/00-azure-swap.cfg
-    #cloud-config
-    # Generated by Azure cloud image build
-    disk_setup:
-      ephemeral0:
-        table_type: mbr
-        layout: [66, [33, 82]]
-        overwrite: True
-    fs_setup:
-      - device: ephemeral0.1
-        filesystem: ext4
-      - device: ephemeral0.2
-        filesystem: swap
-    mounts:
-      - ["ephemeral0.1", "/mnt"]
-      - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
-    EOF
-    ```
+cat <<EOF | sudo tee /etc/cloud/cloud.cfg.d/00-azure-swap.cfg
+#cloud-config
+# Generated by Azure cloud image build
+disk_setup:
+  ephemeral0:
+    table_type: mbr
+    layout: [66, [33, 82]]
+    overwrite: True
+fs_setup:
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
+mounts:
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
+EOF
+```
     
 9. Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this step is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk or create the swap file. Use these commands to modify `/etc/waagent.conf` appropriately:
 
 
-    ```bash
-    sudo sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=auto/g' /etc/waagent.conf
-    sudo sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
-    sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-    ```
+```bash
+sudo sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=auto/g' /etc/waagent.conf
+sudo sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+```
 
 > [!NOTE]
 > Make sure the **'udf'** module is enabled. Removing/disabling them will cause a provisioning/boot failure.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
@@ -186,49 +182,49 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
 11. Remove udev rules and network adapter configuration files to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-    ```bash
-    sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-    sudo rm -f /etc/udev/rules.d/85-persistent-net-cloud-init.rules
-    sudo rm -f /etc/sysconfig/network/ifcfg-eth* 
-    ```
+```bash
+sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
+sudo rm -f /etc/udev/rules.d/85-persistent-net-cloud-init.rules
+sudo rm -f /etc/sysconfig/network/ifcfg-eth* 
+```
 
 12. It's recommended to edit the "/etc/sysconfig/network/dhcp" file and change the `DHCLIENT_SET_HOSTNAME` parameter to the following:
 
-    ```config
-    DHCLIENT_SET_HOSTNAME="no"
-    ```
+```config
+DHCLIENT_SET_HOSTNAME="no"
+```
 
 13. In the "/etc/sudoers" file, comment out or remove the following lines if they exist:
 
-    ```output
-    Defaults targetpw   # ask for the password of the target user i.e. root
-    ALL    ALL=(ALL) ALL   # WARNING! Only use this setting together with 'Defaults targetpw'!
-    ```
+```output
+Defaults targetpw   # ask for the password of the target user i.e. root
+ALL    ALL=(ALL) ALL   # WARNING! Only use this setting together with 'Defaults targetpw'!
+```
 
 
 14. Ensure that the SSH server is installed and configured to start at boot time.
 
-   ```bash
-   sudo systemctl enable sshd
-   ```
+```bash
+sudo systemctl enable sshd
+```
 
 15. Make sure to clean cloud-init stage;
 
-    ```bash
-    sudo cloud-init clean --seed --logs
-    ```
+```bash
+sudo cloud-init clean --seed --logs
+```
 
 16. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 >[!NOTE] 
 > If you're migrating a specific virtual machine and don't wish to create a generalized image, skip the deprovision step
 
-    ```bash
-    sudo rm -f /var/log/waagent.log
-    sudo waagent -force -deprovision+user
-    sudo export HISTSIZE=0
-    sudo rm -f ~/.bash_history
-     ```
+```bash
+sudo rm -f /var/log/waagent.log
+sudo waagent -force -deprovision+user
+sudo export HISTSIZE=0
+sudo rm -f ~/.bash_history
+```
     
 ---
 
