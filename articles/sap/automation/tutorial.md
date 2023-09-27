@@ -338,7 +338,7 @@ export       ARM_TENANT_ID="<tenantId>"
 
     ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
         --deployer_parameter_file "${deployer_parameter_file}"         \
-        --library_parameter_file "{library_parameter_file}"            \
+        --library_parameter_file "${library_parameter_file}"            \
         --subscription "${ARM_SUBSCRIPTION_ID}"                        \
         --spn_id "${ARM_CLIENT_ID}"                                    \
         --spn_secret "${ARM_CLIENT_SECRET}"                            \
