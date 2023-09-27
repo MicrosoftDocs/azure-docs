@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Symantec Web Security Service (WSS) for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Symantec Web Security Service (WSS).
+title: 'Tutorial: Configure Symantec Web Security Service (WSS) for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Symantec Web Security Service (WSS).
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,37 +15,37 @@ ms.author: thwimmer
 
 # Tutorial: Configure Symantec Web Security Service (WSS) for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Symantec Web Security Service (WSS) and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Symantec Web Security Service (WSS).
+The objective of this tutorial is to demonstrate the steps to be performed in Symantec Web Security Service (WSS) and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users and/or groups to Symantec Web Security Service (WSS).
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector built on top of the Microsoft Entra user Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in Public Preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant.
+* A Microsoft Entra tenant.
 * [A Symantec Web Security Service (WSS) tenant](https://www.websecurity.digicert.com/buy-renew?inid=brmenu_nav_brhome).
 * A user account in Symantec Web Security Service (WSS) with Admin permissions.
 
 ## Assigning users to Symantec Web Security Service (WSS)
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Microsoft Entra ID are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Symantec Web Security Service (WSS). Once decided, you can assign these users and/or groups to Symantec Web Security Service (WSS) by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Microsoft Entra ID need access to Symantec Web Security Service (WSS). Once decided, you can assign these users and/or groups to Symantec Web Security Service (WSS) by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ##  Important tips for assigning users to Symantec Web Security Service (WSS)
 
-* It is recommended that a single Azure AD user is assigned to Symantec Web Security Service (WSS) to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Microsoft Entra user is assigned to Symantec Web Security Service (WSS) to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Symantec Web Security Service (WSS), you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Setup Symantec Web Security Service (WSS) for provisioning
 
-Before configuring Symantec Web Security Service (WSS) for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Symantec Web Security Service (WSS).
+Before configuring Symantec Web Security Service (WSS) for automatic user provisioning with Microsoft Entra ID, you will need to enable SCIM provisioning on Symantec Web Security Service (WSS).
 
 1. Sign in to your [Symantec Web Security Service admin console](https://portal.threatpulse.com/login.jsp). Navigate to **Solutions** > **Service**.
 
@@ -59,46 +59,39 @@ Before configuring Symantec Web Security Service (WSS) for automatic user provis
 
 	![Screenshot of the Third-Party Users & Groups Sync option.](media/symantec-web-security-service/third-party-users.png)
 
-4.  Copy the **SCIM URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Symantec Web Security Service (WSS)  		application in the Azure portal.
+4.  Copy the **SCIM URL** and **Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Symantec Web Security Service (WSS)  		application.
 
 	![Screenshot of the New Integration dialog box with the S C I M U R L and Token text boxes called out.](media/symantec-web-security-service/scim.png)
 
 ## Add Symantec Web Security Service (WSS) from the gallery
 
-To configure Symantec Web Security Service (WSS) for automatic user provisioning with Azure AD, you need to add Symantec Web Security Service (WSS) from the Azure AD application gallery to your list of managed SaaS applications.
+To configure Symantec Web Security Service (WSS) for automatic user provisioning with Microsoft Entra ID, you need to add Symantec Web Security Service (WSS) from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add Symantec Web Security Service (WSS) from the Azure AD application gallery, perform the following steps:**
+**To add Symantec Web Security Service (WSS) from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Go to **Enterprise applications**, and then select **All applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Symantec Web Security Service**, select **Symantec Web Security Service** in the results panel, and then click the **Add** button to add the application.
-
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Symantec Web Security Service**, select **Symantec Web Security Service** in the search box.
+1. Select **Symantec Web Security Service** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 	![Symantec Web Security Service (WSS) in the results list](common/search-new-app.png)
 
 ## Configuring automatic user provisioning to Symantec Web Security Service (WSS)
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Symantec Web Security Service (WSS) based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in Symantec Web Security Service (WSS) based on user and/or group assignments in Microsoft Entra ID.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Symantec Web Security Service (WSS), following the instructions provided in the [Symantec Web Security Service (WSS) Single sign-on tutorial](symantec-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
-### To configure automatic user provisioning for Symantec Web Security Service (WSS) in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-symantec-web-security-service-wss-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for Symantec Web Security Service (WSS) in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Symantec Web Security Service**.
+1. In the applications list, select **Symantec Web Security Service**.
 
 	![The Symantec Web Security Service (WSS) link in the Applications list](common/all-applications.png)
 
@@ -110,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, input the **SCIM URL** and **Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Symantec Web Security Service. If the connection fails, ensure your Symantec Web Security Service (WSS) account has Admin permissions and try again.
+5. Under the Admin Credentials section, input the **SCIM URL** and **Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Microsoft Entra ID can connect to Symantec Web Security Service. If the connection fails, ensure your Symantec Web Security Service (WSS) account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -120,25 +113,25 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Symantec Web Security Service (WSS)**.
+8. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Symantec Web Security Service (WSS)**.
 
-	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/usermapping.png)
+	![Screenshot of the Mappings section with the Synchronize Microsoft Entra users to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/usermapping.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Microsoft Entra ID to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
 
 	![Screenshot of the Attribution Mapping section showing 16 matching properties.](media/symantec-web-security-service/userattribute.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Symantec Web Security Service**.
+10. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to Symantec Web Security Service**.
 
-	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Groups to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/groupmapping.png)
+	![Screenshot of the Mappings section with the Synchronize Microsoft Entra groups to Symantec Web Security Service W S S option called out.](media/symantec-web-security-service/groupmapping.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Microsoft Entra ID to Symantec Web Security Service (WSS) in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Symantec Web Security Service (WSS) for update operations. Select the **Save** button to commit any changes.
 
 	![Screenshot of the Attribution Mapping section showing three matching properties.](media/symantec-web-security-service/groupattribute.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Symantec Web Security Service, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Microsoft Entra provisioning service for Symantec Web Security Service, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -152,12 +145,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. For more information on how long it will take for users and/or groups to provision, see [How long will it take to provision users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Symantec Web Security Service (WSS). For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Symantec Web Security Service (WSS). For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

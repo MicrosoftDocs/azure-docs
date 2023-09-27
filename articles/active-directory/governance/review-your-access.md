@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Review access for yourself to groups or applications in access reviews
 
-Microsoft Entra simplifies how enterprises manage access to groups or applications in Azure AD and other Microsoft Online Services with a feature called access reviews.
+Microsoft Entra ID simplifies how enterprises manage access to groups or applications in Microsoft Entra ID and other Microsoft Online Services with a feature called access reviews.
 
 This article describes how to review your own access to a group or an application.
 

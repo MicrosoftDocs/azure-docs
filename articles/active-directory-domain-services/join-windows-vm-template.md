@@ -1,6 +1,6 @@
 ---
-title: Use a template to join a Windows VM to Azure AD DS | Microsoft Docs
-description: Learn how to use Azure Resource Manager templates to join a new or existing Windows Server VM to an Azure Active Directory Domain Services managed domain.
+title: Use a template to join a Windows VM to Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to use Azure Resource Manager templates to join a new or existing Windows Server VM to a Microsoft Entra Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -11,15 +11,15 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 09/23/2023
 ms.author: justinha
 ---
 
-# Join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain using a Resource Manager template
+# Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain using a Resource Manager template
 
-To automate the deployment and configuration of Azure virtual machines (VMs), you can use a Resource Manager template. These templates let you create consistent deployments each time. Extensions can also be included in templates to automatically configure a VM as part of the deployment. One useful extension joins VMs to a domain, which can be used with Azure Active Directory Domain Services (Azure AD DS) managed domains.
+To automate the deployment and configuration of Azure virtual machines (VMs), you can use a Resource Manager template. These templates let you create consistent deployments each time. Extensions can also be included in templates to automatically configure a VM as part of the deployment. One useful extension joins VMs to a domain, which can be used with Microsoft Entra Domain Services managed domains.
 
-This article shows you how to create and join a Windows Server VM to an Azure AD DS managed domain using Resource Manager templates. You also learn how to join an existing Windows Server VM to an Azure AD DS domain.
+This article shows you how to create and join a Windows Server VM to a Domain Services managed domain using Resource Manager templates. You also learn how to join an existing Windows Server VM to a Domain Services domain.
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-* A user account that's a part of the *AAD DC administrators* group.
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, the first tutorial [creates and configures a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A user account that's a part of the *AAD DC Administrators* group.
 
 ## Azure Resource Manager template overview
 
@@ -83,7 +83,7 @@ To create a Windows Server VM then join it to a managed domain, complete the fol
 
     | Setting                   | Value |
     |---------------------------|-------|
-    | Subscription              | Pick the same Azure subscription in which you have enabled Azure AD Domain Services. |
+    | Subscription              | Pick the same Azure subscription in which you have enabled Microsoft Entra Domain Services. |
     | Resource group            | Choose the resource group for your VM. |
     | Location                  | Select the location of for your VM. |
     | Existing VNET Name        | The name of the existing virtual network to connect the VM to, such as *myVnet*. |
@@ -93,7 +93,7 @@ To create a Windows Server VM then join it to a managed domain, complete the fol
     | Domain To Join            | The managed domain DNS name, such as *aaddscontoso.com*. |
     | Domain Username           | The user account in the managed domain that should be used to join the VM to the managed domain, such as `contosoadmin@aaddscontoso.com`. This account must be a part of the managed domain. |
     | Domain Password           | The password for the user account specified in the previous setting. |
-    | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *AAD DC Computers* OU. |
+    | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *Microsoft Entra DC Computers* OU. |
     | VM Admin Username         | Specify a local administrator account to create on the VM. |
     | VM Admin Password         | Specify a local administrator password for the VM. Create a strong local administrator password to protect against password brute-force attacks. |
 
@@ -116,13 +116,13 @@ To join an existing Windows Server VM to a managed domain, complete the followin
 
     | Setting                   | Value |
     |---------------------------|-------|
-    | Subscription              | Pick the same Azure subscription in which you have enabled Azure AD Domain Services. |
+    | Subscription              | Pick the same Azure subscription in which you have enabled Microsoft Entra Domain Services. |
     | Resource group            | Choose the resource group with your existing VM. |
     | Location                  | Select the location of your existing VM. |
     | VM list                   | Enter the comma-separated list of the existing VM(s) to join to the managed domain, such as *myVM1,myVM2*. |
     | Domain Join User Name     | The user account in the managed domain that should be used to join the VM to the managed domain, such as `contosoadmin@aaddscontoso.com`. This account must be a part of the managed domain. |
     | Domain Join User Password | The password for the user account specified in the previous setting. |
-    | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *AAD DC Computers* OU. |
+    | Optional OU Path          | The custom OU in which to add the VM. If you don't specify a value for this parameter, the VM is added to the default *Microsoft Entra DC Computers* OU. |
 
 1. Review the terms and conditions, then check the box for **I agree to the terms and conditions stated above**. When ready, select **Purchase** to join the VM to the managed domain.
 
@@ -137,9 +137,9 @@ It takes a few moments for the deployment to complete successfully. When finishe
 In this article, you used the Azure portal to configure and deploy resources using templates. You can also deploy resources with Resource Manager templates using [Azure PowerShell][deploy-powershell] or the [Azure CLI][deploy-cli].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
-[template-overview]: ../azure-resource-manager/templates/overview.md
-[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
-[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md
+[template-overview]: /azure/azure-resource-manager/templates/overview
+[deploy-powershell]: /azure/azure-resource-manager/templates/deploy-powershell
+[deploy-cli]: /azure/azure-resource-manager/templates/deploy-cli

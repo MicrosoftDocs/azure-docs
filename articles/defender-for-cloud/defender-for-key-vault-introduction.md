@@ -54,7 +54,7 @@ Depending on the *type* of access that occurred, some fields might not be availa
 > [!TIP]
 > Azure virtual machines are assigned Microsoft IPs. This means that an alert might contain a Microsoft IP even though it relates to activity performed from outside of Microsoft. So even if an alert has a Microsoft IP, you should still investigate as described on this page.
 
-### Step 1. Identify the source
+### Step 1: Identify the source
 
 1. Verify whether the traffic originated from within your Azure tenant. If the key vault firewall is enabled, it's likely that you've provided access to the user or application that triggered this alert.
 1. If you can't verify the source of the traffic, continue to [Step 2. Respond accordingly](#step-2-respond-accordingly).
@@ -64,7 +64,7 @@ Depending on the *type* of access that occurred, some fields might not be availa
 > Microsoft Defender for Key Vault is designed to help identify suspicious activity caused by stolen credentials. **Don't** dismiss the alert simply because you recognize the user or application. Contact the owner of the application or the user and verify the activity was legitimate. You can create a suppression rule to eliminate noise if necessary. Learn more in [Suppress security alerts](alerts-suppression-rules.md).
 
 
-### Step 2. Respond accordingly 
+### Step 2: Respond accordingly 
 If you don't recognize the user or application, or if you think the access shouldn't have been authorized:
 
 - If the traffic came from an unrecognized IP Address:
@@ -79,13 +79,13 @@ If you don't recognize the user or application, or if you think the access shoul
     1. Contact your administrator.
     1. Determine whether there's a need to reduce or revoke Azure Active Directory permissions.
 
-### Step 3. Measure the impact
+### Step 3: Measure the impact
 When the event has been mitigated, investigate the secrets in your key vault that were affected:
 1. Open the **Security** page on your Azure key vault and view the triggered alert.
 1. Select the specific alert that was triggered and review the list of the secrets that were accessed and the timestamp.
 1. Optionally, if you have key vault diagnostic logs enabled, review the previous operations for the corresponding caller IP, user principal, or object ID.  
 
-### Step 4. Take action 
+### Step 4: Take action 
 When you've compiled your list of the secrets, keys, and certificates that were accessed by the suspicious user or application, you should rotate those objects immediately.
 
 1. Affected secrets should be disabled or deleted from your key vault.

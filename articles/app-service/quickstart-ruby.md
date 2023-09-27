@@ -7,6 +7,8 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.devlang: ruby
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other, devx-track-linux
+author: cephalin
+ms.author: cephalin
 ---
 
 # Create a Ruby on Rails App in App Service

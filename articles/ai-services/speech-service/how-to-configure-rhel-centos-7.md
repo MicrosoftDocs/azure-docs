@@ -5,8 +5,7 @@ description: Learn how to configure RHEL/CentOS 7 so that the Speech SDK can be 
 services: cognitive-services
 author: pankopon
 manager: jhakulin
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/01/2022
 ms.author: pankopon

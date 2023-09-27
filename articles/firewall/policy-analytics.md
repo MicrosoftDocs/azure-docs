@@ -49,5 +49,6 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 ## Next steps
 
 
+- To learn more about Policy Analytics, see [Optimize performance and strengthen security with Policy Analytics for Azure Firewall](https://azure.microsoft.com/blog/optimize-performance-and-strengthen-security-with-policy-analytics-for-azure-firewall/).
 - To learn more about Azure Firewall logs and metrics, see [Azure Firewall logs and metrics](logs-and-metrics.md).
 - To learn more about Azure Firewall structured logs, see [Azure Firewall structured logs](firewall-structured-logs.md).

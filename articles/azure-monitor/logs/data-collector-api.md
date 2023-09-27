@@ -5,15 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/08/2023
-
 ---
 
-# Send log data to Azure Monitor by using the HTTP Data Collector API (preview)
+# Send log data to Azure Monitor by using the HTTP Data Collector API (deprecated)
 
 This article shows you how to use the HTTP Data Collector API to send log data to Azure Monitor from a REST API client.  It describes how to format data that's collected by your script or application, include it in a request, and have that request authorized by Azure Monitor. We provide examples for Azure PowerShell, C#, and Python.
 
 > [!NOTE]
-> The Azure Monitor HTTP Data Collector API is in public preview.
+> The Azure Monitor HTTP Data Collector API has been deprecated and will no longer be functional as of 9/14/2026. It's been replaced by the [Logs ingestion API](logs-ingestion-api-overview.md).
 
 ## Concepts
 You can use the HTTP Data Collector API to send log data to a Log Analytics workspace in Azure Monitor from any client that can call a REST API.  The client might be a runbook in Azure Automation that collects management data from Azure or another cloud, or it might be an alternative management system that uses Azure Monitor to consolidate and analyze log data.
@@ -56,7 +55,8 @@ Any request to the Azure Monitor HTTP Data Collector API must include an authori
 
 Here's the format for the authorization header:
 
-```
+
+```sql
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
@@ -64,7 +64,8 @@ Authorization: SharedKey <WorkspaceID>:<Signature>
 
 Use this format to encode the **SharedKey** signature string:
 
-```
+
+```ruby
 StringToSign = VERB + "\n" +
                   Content-Length + "\n" +
                   Content-Type + "\n" +
@@ -74,13 +75,15 @@ StringToSign = VERB + "\n" +
 
 Here's an example of a signature string:
 
-```
+
+```ruby
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
 When you have the signature string, encode it by using the HMAC-SHA256 algorithm on the UTF-8-encoded string, and then encode the result as Base64. Use this format:
 
-```
+
+```sql
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
@@ -165,7 +168,6 @@ The following properties are reserved and shouldn't be used in a custom record t
 - tenant
 - TimeGenerated
 - RawData
-
 
 ## Data limits
 The data posted to the Azure Monitor Data collection API is subject to certain constraints:
@@ -568,6 +570,7 @@ public class ApiExample {
 
 ```
 
+
 ---
 
 ## Alternatives and considerations
@@ -581,7 +584,9 @@ Although the Data Collector API should cover most of your needs as you collect f
 | [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer, now generally available to the public, is the data platform that powers Application Insights Analytics and Azure Monitor Logs. By using the data platform in its raw form, you have complete flexibility (but require the overhead of management) over the cluster (Kubernetes role-based access control (RBAC), retention rate, schema, and so on). Azure Data Explorer provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods), including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that won't be correlated with any other data under Application Insights or Monitor Logs. </li><li> Data that requires advanced ingestion or processing capabilities that aren't available today in Azure Monitor Logs. </li></ul> |
 
 
+
 ## Next steps
 - Use the [Log Search API](./log-query-overview.md) to retrieve data from the Log Analytics workspace.
 
 - Learn more about how to [create a data pipeline with the Data Collector API](create-pipeline-datacollector-api.md) by using a Logic Apps workflow to Azure Monitor.
+

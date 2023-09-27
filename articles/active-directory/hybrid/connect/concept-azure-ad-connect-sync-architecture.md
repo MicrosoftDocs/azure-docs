@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Understanding the architecture - Azure'
-description: This topic describes the architecture of Azure AD Connect sync and explains the terms used.
+title: 'Microsoft Entra Connect Sync: Understanding the architecture - Azure'
+description: This topic describes the architecture of Microsoft Entra Connect Sync and explains the terms used.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,8 +18,8 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Understanding the architecture
-This topic covers the basic architecture for Azure AD Connect sync. In many aspects, it is similar to its predecessors MIIS 2003, ILM 2007, and FIM 2010. Azure AD Connect sync is the evolution of these technologies. If you are familiar with any of these earlier technologies, the content of this topic will be familiar to you as well. If you are new to synchronization, then this topic is for you. It is however not a requirement to know the details of this topic to be successful in making customizations to Azure AD Connect sync (called sync engine in this topic).
+# Microsoft Entra Connect Sync: Understanding the architecture
+This topic covers the basic architecture for Microsoft Entra Connect Sync. In many aspects, it is similar to its predecessors MIIS 2003, ILM 2007, and FIM 2010. Microsoft Entra Connect Sync is the evolution of these technologies. If you are familiar with any of these earlier technologies, the content of this topic will be familiar to you as well. If you are new to synchronization, then this topic is for you. It is however not a requirement to know the details of this topic to be successful in making customizations to Microsoft Entra Connect Sync (called sync engine in this topic).
 
 ## Architecture
 The sync engine creates an integrated view of objects that are stored in multiple connected data sources and manages identity information in those data sources. This integrated view is determined by the identity information retrieved from connected data sources and a set of rules that determine how to process this information.
@@ -35,7 +35,7 @@ Connectors make API calls to exchange identity information (both read and write)
 
 Data can flow in either direction, but it cannot flow in both directions simultaneously. In other words, a Connector can be configured to allow data to flow from the connected data source to sync engine or from sync engine to the connected data source, but only one of those operations can occur at any one time for one object and attribute. The direction can be different for different objects and for different attributes.
 
-To configure a Connector, you specify the object types that you want to synchronize. Specifying the object types defines the scope of objects that are included in the synchronization process. The next step is to select the attributes to synchronize, which is known as an attribute inclusion list. These settings can be changed any time in response to changes to your business rules. When you use the Azure AD Connect installation wizard, these settings are configured for you.
+To configure a Connector, you specify the object types that you want to synchronize. Specifying the object types defines the scope of objects that are included in the synchronization process. The next step is to select the attributes to synchronize, which is known as an attribute inclusion list. These settings can be changed any time in response to changes to your business rules. When you use the Microsoft Entra Connect installation wizard, these settings are configured for you.
 
 To export objects to a connected data source, the attribute inclusion list must include at least the minimum attributes required to create a specific object type in a connected data source. For example, the **sAMAccountName** attribute must be included in the attribute inclusion list to export a user object to Active Directory because all user objects in Active Directory must have a **sAMAccountName** attribute defined. Again, the installation wizard does this configuration for you.
 
@@ -170,7 +170,7 @@ When sync engine finds a staging object that matches by distinguished name but n
 * If the object located in the connector space has no anchor, then sync engine removes this object from the connector space and marks the metaverse object it is linked to as **retry provisioning on next synchronization run**. Then it creates the new import object.
 * If the object located in the connector space has an anchor, then sync engine assumes that this object has either been renamed or deleted in the connected directory. It assigns a temporary, new distinguished name for the connector space object so that it can stage the incoming object. The old object then becomes **transient**, waiting for the Connector to import the rename or deletion to resolve the situation.
 
-Transient objects are not always a problem, and you might see them even in a healthy environment. With [Azure AD Connect sync V2 endpoint API](how-to-connect-sync-endpoint-api-v2.md), transient objects should auto-resolve in subsequent delta synchronization cycles. A common example where you might find transient objects being generated occurs on Azure AD Connect servers installed in staging mode, when an admin permanently deletes an object directly in Azure AD using PowerShell and later synchronizes the object again.
+Transient objects are not always a problem, and you might see them even in a healthy environment. With [Microsoft Entra Connect Sync V2 endpoint API](how-to-connect-sync-endpoint-api-v2.md), transient objects should auto-resolve in subsequent delta synchronization cycles. A common example where you might find transient objects being generated occurs on Microsoft Entra Connect servers installed in staging mode, when an admin permanently deletes an object directly in Microsoft Entra ID using PowerShell and later synchronizes the object again.
 
 If sync engine locates a staging object that corresponds to the object specified in the Connector, it determines what kind of changes to apply. For example, sync engine might rename or delete the object in the connected data source, or it might only update the object’s attribute values.
 
@@ -254,7 +254,6 @@ The sync engine stores export and import status information about each staging o
 For example, if sync engine exports attribute C, which has a value of 5, to a connected data source, it stores C=5 in its export status memory. Each additional export on this object results in an attempt to export C=5 to the connected data source again because sync engine assumes that this value has not been persistently applied to the object (that is, unless a different value was imported recently from the connected data source). The export memory is cleared when C=5 is received during an import operation on the object.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
+Learn more about the [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
-
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

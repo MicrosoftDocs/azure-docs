@@ -1,4 +1,4 @@
-- name: Microsoft Entra Workload Identities documentation
+- name: Microsoft Entra Workload ID documentation
   href: index.yml
 - name: Overview
   expanded: true

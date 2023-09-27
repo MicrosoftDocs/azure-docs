@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Before you learn about the current state of your external collaboration, determine a security posture. Consider centralized vs. delegated control, also governance, regulatory, and compliance targets.
 
-Learn more: [Determine your security posture for external access with Azure Active Directory](1-secure-access-posture.md)
+Learn more: [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 Users in your organization likely collaborate with users from other organizations. Collaboration occurs with productivity applications like Microsoft 365, by email, or sharing resources with external users. These scenarios include users:
 
@@ -42,7 +42,7 @@ To find collaborating users:
 
 ## Enumerate guest users and organizations
 
-External users might be Azure AD B2B users with partner-managed credentials, or external users with locally provisioned credentials. Typically, these users are the Guest UserType. To learn about inviting guests users and sharing resources, see [B2B collaboration overview](../external-identities/what-is-b2b.md).
+External users might be Microsoft Entra B2B users with partner-managed credentials, or external users with locally provisioned credentials. Typically, these users are the Guest UserType. To learn about inviting guests users and sharing resources, see [B2B collaboration overview](../external-identities/what-is-b2b.md).
 
 You can enumerate guest users with:
 
@@ -50,7 +50,7 @@ You can enumerate guest users with:
 * [PowerShell](/graph/api/user-list?tabs=http)
 * [Azure portal](../enterprise-users/users-bulk-download.md)
 
-Use the following tools to identify Azure AD B2B collaboration, external Azure AD tenants, and users accessing applications:
+Use the following tools to identify Microsoft Entra B2B collaboration, external Microsoft Entra tenants, and users accessing applications:
 
 * PowerShell module, [Get MsIdCrossTenantAccessActivity](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity)
 * [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md)
@@ -71,7 +71,7 @@ If you use entitlement management, you can confine access packages to a subset o
 
 ## Determine external user access
 
-With an inventory of external users and organizations, determine the access to grant to the users. You can use the Microsoft Graph API to determine Azure AD group membership or application assignment.
+With an inventory of external users and organizations, determine the access to grant to the users. You can use the Microsoft Graph API to determine Microsoft Entra group membership or application assignment.
 
 * [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph%2Fcontext&view=graph-rest-1.0&preserve-view=true)
 * [Applications API overview](/graph/applications-concept-overview?view=graph-rest-1.0&preserve-view=true)
@@ -85,7 +85,7 @@ Investigate access to your sensitive apps for awareness about external access. S
 If your email and network plans are enabled, you can investigate content sharing through email or unauthorized software as a service (SaaS) apps. 
 
 * Identify, prevent, and monitor accidental sharing
-  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true )
+  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true)
 * Identify unauthorized apps
   * [Microsoft Defender for Cloud Apps overview](/defender-cloud-apps/what-is-defender-for-cloud-apps)
 
@@ -93,23 +93,22 @@ If your email and network plans are enabled, you can investigate content sharing
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md) (You're here)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md)
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md)
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md)
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md)
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md)
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md)
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md)
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) 
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
-
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

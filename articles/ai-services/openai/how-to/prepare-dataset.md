@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI Service
 description: Learn how to prepare your dataset for fine-tuning
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 06/24/2022
 author: ChrisHMSFT

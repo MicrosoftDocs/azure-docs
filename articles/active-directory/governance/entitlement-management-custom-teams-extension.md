@@ -1,5 +1,5 @@
 ---
-title: Integrating Azure AD Entitlement Management with Microsoft Teams using Custom Extensibility and Logic Apps
+title: Integrating Microsoft Entra Entitlement Management with Microsoft Teams using Custom Extensibility and Logic Apps
 description: This tutorial walks you through integrating Microsoft Teams with entitlement management using custom extensions and Logic Apps.
 author: owinfreyATL
 ms.author: owinfrey
@@ -11,7 +11,7 @@ ms.date: 07/05/2023
 ms.custom: template-tutorial 
 ---
 
-# Tutorial: Integrating Azure AD Entitlement Management with Microsoft Teams using Custom Extensibility and Logic Apps
+# Tutorial: Integrating Microsoft Entra Entitlement Management with Microsoft Teams using Custom Extensibility and Logic Apps
 
 
 Scenario: Use custom extensibility and an Azure Logic App to automatically send notifications to end users on Microsoft Teams when they receive or are denied access to an access package.
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Adding a Logic App Workflow to an existing catalog.
 > * Adding a custom extension to a policy within an existing access package.
-> * Register an application in Azure AD for resuming Entitlement Management workflow
+> * Register an application in Microsoft Entra ID for resuming Entitlement Management workflow
 > * Configuring ServiceNow for Automation Authentication.
 > * Requesting access to an access package as an end-user.
 > * Receiving access to the requested access package as an end-user.
@@ -29,17 +29,19 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure AD user account with an active Azure subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account with an active Azure subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 
 ## Create a Logic App and custom extension in a catalog
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Prerequisite roles: Global administrator, Identity Governance administrator, or Catalog owner and Resource Group Owner.
 
 To create a Logic App and custom extension in a catalog, you'd follow these steps:
 
-1. Navigate To Entra portal [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
+1. Navigate To Microsoft Entra admin center [Identity Governance - Microsoft Entra admin center](https://entra.microsoft.com/#view/Microsoft_AAD_ERM/DashboardBlade/~/elmEntitlement)
 
 1. In the left menu, select **Catalogs**. 
 
@@ -128,7 +130,7 @@ After setting up custom extensibility in the catalog, administrators can create 
 1. In **Review and Create**, review the summary of your access package, and make sure the details are correct, then select **Create**. 
 
 > [!NOTE]
-> Select **New access package** if you want to create a new access package. For more information about how to create an access package, see: [Create a new access package in entitlement management](entitlement-management-access-package-create.md). For more information about how to edit an existing access package, see: [Change request settings for an access package in Azure AD entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings). 
+> Select **New access package** if you want to create a new access package. For more information about how to create an access package, see: [Create a new access package in entitlement management](entitlement-management-access-package-create.md). For more information about how to edit an existing access package, see: [Change request settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-request-policy.md#open-and-edit-an-existing-policys-request-settings). 
 
 
 ## Validation
@@ -139,7 +141,3 @@ To validate successful integration with Microsoft Teams, you'd add or remove a u
 
 > [!div class="nextstepaction"]
 > [Configure verified ID settings for an access package in entitlement management](entitlement-management-verified-id-settings.md)
-
-
-
-

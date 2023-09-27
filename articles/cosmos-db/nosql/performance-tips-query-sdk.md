@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/20/2023
 ms.author: maquaran
 ms.devlang: csharp, java
-ms.custom: devx-track-java, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-python
 zone_pivot_groups: programming-languages-set-cosmos
 ---
 
@@ -91,7 +91,17 @@ The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries l
 
 # [V3 .NET SDK](#tab/v3)
 
-For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By):
+For queries that target a Partition Key by setting the [PartitionKey](/dotnet/api/microsoft.azure.cosmos.queryrequestoptions.partitionkey) property in `QueryRequestOptions` and contain no aggregations (including Distinct, DCount, Group By). In this example, the partition key field of `/state` is filtered on the value `Washington`.
+
+```csharp
+using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
+    "SELECT * FROM c WHERE c.city = 'Seattle' AND c.state = 'Washington'"
+{
+    // ...
+}
+```
+
+Optionally, you can provide the partition key as a part of the request options object.
 
 ```cs
 using (FeedIterator<MyItem> feedIterator = container.GetItemQueryIterator<MyItem>(
@@ -412,5 +422,110 @@ To learn more about performance using the Java SDK:
 
 * [Best practices for Azure Cosmos DB Java V4 SDK](best-practice-java.md)
 * [Performance tips for Azure Cosmos DB Java V4 SDK](performance-tips-java-sdk-v4.md)
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+## Reduce Query Plan calls
+
+To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway, which adds to the latency of the query operation. There is a way to remove this request and reduce the latency of the single partition query operation. For single partition queries specify the partition key value for the item and pass it as [partition_key](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-query-items) argument:
+
+```python
+items = container.query_items(
+        query="SELECT * FROM r where r.city = 'Seattle'",
+        partition_key="Washington"
+    )
+```
+
+## Tune the page size
+
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. The [max_item_count](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-query-items) allows you to set the maximum number of items to be returned in the enumeration operation.
+
+```python
+items = container.query_items(
+        query="SELECT * FROM r where r.city = 'Seattle'",
+        partition_key="Washington",
+        max_item_count=1000
+    )
+```
+
+## Next steps
+
+To learn more about using the Python SDK for API for NoSQL:
+
+* [Azure Cosmos DB Python SDK for API for NoSQL](sdk-python.md)
+* [Quickstart: Azure Cosmos DB for NoSQL client library for Python](quickstart-python.md)
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+## Reduce Query Plan calls
+
+To execute a query, a query plan needs to be built. This in general represents a network request to the Azure Cosmos DB Gateway, which adds to the latency of the query operation. There is a way to remove this request and reduce the latency of the single partition query operation. For single partition queries scoping a query to a single partition can be accomplished two ways.
+
+Using a parameterized query expression and specifying partition key in query statement. The query is programmatically composed to `SELECT * FROM todo t WHERE t.partitionKey = 'Bikes, Touring Bikes'`:
+
+```javascript
+// find all items with same categoryId (partitionKey)
+const querySpec = {
+    query: "select * from products p where p.categoryId=@categoryId",
+    parameters: [
+        {
+            name: "@categoryId",
+            value: "Bikes, Touring Bikes"
+        }
+    ]
+};
+
+// Get items 
+const { resources } = await container.items.query(querySpec).fetchAll();
+
+for (const item of resources) {
+    console.log(`${item.id}: ${item.name}, ${item.sku}`);
+}
+```
+
+Or specify [partitionKey](/javascript/api/@azure/cosmos/feedoptions#@azure-cosmos-feedoptions-partitionkey) in `FeedOptions` and pass it as argument:
+
+```javascript
+const querySpec = {
+    query: "select * from products p"
+};
+
+const { resources } = await container.items.query(querySpec, { partitionKey: "Bikes, Touring Bikes" }).fetchAll();
+
+for (const item of resources) {
+    console.log(`${item.id}: ${item.name}, ${item.sku}`);
+}
+```
+
+## Tune the page size
+
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. The [maxItemCount](/javascript/api/@azure/cosmos/feedoptions#@azure-cosmos-feedoptions-maxitemcount) allows you to set the maximum number of items to be returned in the enumeration operation.
+
+```javascript
+const querySpec = {
+    query: "select * from products p where p.categoryId=@categoryId",
+    parameters: [
+        {
+            name: "@categoryId",
+            value: items[2].categoryId
+        }
+    ]
+};
+
+const { resources } = await container.items.query(querySpec, { maxItemCount: 1000 }).fetchAll();
+
+for (const item of resources) {
+    console.log(`${item.id}: ${item.name}, ${item.sku}`);
+}
+```
+
+## Next steps
+
+To learn more about using the Node.js SDK for API for NoSQL:
+
+* [Azure Cosmos DB Node.js SDK for API for NoSQL](sdk-nodejs.md)
+* [Quickstart - Azure Cosmos DB for NoSQL client library for Node.js](quickstart-nodejs.md)
 
 ::: zone-end

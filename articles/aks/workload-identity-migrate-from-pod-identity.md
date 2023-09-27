@@ -23,7 +23,7 @@ This section explains the migration options available depending on what version 
 For either scenario, you need to have the federated trust set up before you update your application to use the workload identity. The following are the minimum steps required:
 
 - [Create a managed identity](#create-a-managed-identity) credential.
-- Associate the managed identity with the kubernetes service account already used for the pod-manged identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
+- Associate the managed identity with the kubernetes service account already used for the pod-managed identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
 - [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Azure AD.
 
 ### Migrate from latest version

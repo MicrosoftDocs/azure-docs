@@ -5,8 +5,7 @@ description: Learn about the steps for using Azure resources with custom text cl
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 05/06/2022
 ms.author: aahi

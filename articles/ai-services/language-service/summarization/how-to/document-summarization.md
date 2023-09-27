@@ -5,8 +5,7 @@ description: This article will show you how to summarize text with the extractiv
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: jboback

@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 04/15/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Troubleshoot share connection failure during data copy to Azure Data Box

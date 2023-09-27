@@ -31,9 +31,9 @@ Azure Active Directory B2C (Azure AD B2C) is an identity and access management s
   - For back-end services, use the [client credentials](../develop/msal-authentication-flows.md#client-credentials) flow
 - To migrate from an identity provider (IdP):
   - [Seamless migration](../../active-directory-b2c/user-migration.md#seamless-migration)
-  - Go to [azure-ad-b2c-user-migration](https://github.com/azure-ad-b2c/user-migration)
+  - Go to [`user-migration`](https://github.com/azure-ad-b2c/user-migration)
 - Select protocols
-  - If you use Kerberos, Microsoft Windows NT LAN Manager (NTLM), and Web Services Federation (WS-Fed), see the video, [Azure Active Directory: Application and identity migration to Azure AD B2C](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE)
+  - If you use Kerberos, Microsoft Windows NT LAN Manager (NTLM), and Web Services Federation (WS-Fed), see the video, [Application and identity migration to Azure AD B2C](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE)
 
 After migration, your applications can support modern identity protocols such as OAuth 2.0 and OpenID Connect (OIDC).
 
@@ -139,9 +139,9 @@ Use the following checklist for onboarding an application
 |Your identity groups| Cluster identities into groups with requirements, such as business-to-consumer (B2C), business-to-business (B2B) business-to-employee (B2E), and business-to-machine (B2M) for IoT device sign-in and service accounts.|
 |Identity provider (IdP)| See, [Select an identity provider](../../active-directory-b2c/add-identity-provider.md#select-an-identity-provider). For example, for a customer-to-customer (C2C) mobile app use an easy sign-in process. </br>B2C with digital services has compliance requirements. </br>Consider email sign-in. |
 |Regulatory constraints | Determine a need for remote profiles or privacy policies. |
-|Sign-in and sign-up flow | Confirm email verification or email verification during sign-up. </br>For check-out processes, see [How it works: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). </br>See the video, [Azure AD: Azure AD B2C user migration using Microsoft Graph API](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=4). |
-|Application and authentication protocol| Implement client applications such as Web application, single-page application (SPA), or native. </br>Authentication protocols for client application and Azure AD B2C: OAuth, OIDC, and SAML. </br>See the video, [Azure AD: Protecting Web APIs with Azure AD](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9).|
-| User migration | Confirm if you'll [migrate users to Azure AD B2C](../../active-directory-b2c/user-migration.md): Just-in-time (JIT) migration and bulk import/export. </br>See the video, [Azure Active Directory: Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2).|
+|Sign-in and sign-up flow | Confirm email verification or email verification during sign-up. </br>For check-out processes, see [How it works: Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md). </br>See the video [Azure AD B2C user migration using Microsoft Graph API](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=4). |
+|Application and authentication protocol| Implement client applications such as Web application, single-page application (SPA), or native. </br>Authentication protocols for client application and Azure AD B2C: OAuth, OIDC, and SAML. </br>See the video [Protecting Web APIs with Microsoft Entra ID](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9).|
+| User migration | Confirm if you'll [migrate users to Azure AD B2C](../../active-directory-b2c/user-migration.md): Just-in-time (JIT) migration and bulk import/export. </br>See the video [Azure AD B2C user migration strategies](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2).|
 
 Use the following checklist for delivery.
 
@@ -157,9 +157,9 @@ Use the following checklist for delivery.
 
 Use the following checklist to enhance application security.
 
-* Authentication method, such as multi-factor authentication (MFA):
+* Authentication method, such as multifactor authentication:
   * MFA is recommended for users that trigger high-value transactions or other risk events. For example, banking, finance, and check-out processes.
-  * See, [What authentication and verification methods are available in Azure AD?](../authentication/concept-authentication-methods.md)
+  * See, [What authentication and verification methods are available in Microsoft Entra ID?](../authentication/concept-authentication-methods.md)
 * Confirm use of anti-bot mechanisms
 * Assess the risk of attempts to create a fraudulent account or sign-in 
   * See, [Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C](../../active-directory-b2c/partner-dynamics-365-fraud-protection.md) 
@@ -169,7 +169,7 @@ Use the following checklist to enhance application security.
 
 * The modern security perimeter now extends beyond an organization's network. The perimeter includes user and device identity. 
   * See, [What is Conditional Access?](../conditional-access/overview.md)
-* Enhance the security of Azure AD B2C with Azure AD identity protection
+* Enhance the security of Azure AD B2C with Microsoft Entra ID Protection
   * See, [Identity Protection and Conditional Access in Azure AD B2C](../../active-directory-b2c/conditional-access-identity-protection-overview.md)
 
 ### Compliance
@@ -204,7 +204,7 @@ Use the following checklist for monitoring, auditing, and logging.
 
 * Monitoring
   * [Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md)
-  * See the video [Azure Active Directory: Monitoring and reporting Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1)
+  * See the video [Monitoring and reporting Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1)
 * Auditing and logging
   * [Accessing Azure AD B2C audit logs](../../active-directory-b2c/view-audit-logs.md)
 

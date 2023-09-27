@@ -3,7 +3,7 @@ title: Known issues and limitations with online migrations to Azure SQL Managed 
 description: Learn about known issues/migration limitations associated with online migrations to Azure SQL Managed Instance.
 author: croblesm
 ms.author: roblescarlos
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 02/20/2020
 ms.service: dms
 ms.topic: troubleshooting

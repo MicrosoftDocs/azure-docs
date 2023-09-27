@@ -5,8 +5,7 @@ description: Stay up to date on recent releases and updates to Azure AI Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: build-2023
 ms.topic: whats-new
 ms.date: 12/27/2022
@@ -16,6 +15,15 @@ ms.author: pafarley
 # What's new in Azure AI Vision
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
+
+## September 2023
+
+### Deprecation of outdated Computer Vision API versions
+
+Computer Vision API versions 1.0, 2.0, 3.0, and 3.1 will be retired on September 13, 2026. Developers won’t be able to make API calls to these APIs after that date.
+We recommend that all affected customers migrate their workloads to the generally available Computer Vision 3.2 API by following this [QuickStart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library?tabs=linux%2Cvisual-studio&pivots=programming-language-rest-api) at their earliest convenience. Customers should also consider migrating to [Image Analysis 4.0 API (preview)](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?tabs=visual-studio%2Clinux&pivots=programming-language-python), which has our latest and greatest Image Analysis capabilities. 
+
+Visit our [Q&A](/answers/tags/127/azure-computer-vision) for any questions.
 
 ## May 2023
 

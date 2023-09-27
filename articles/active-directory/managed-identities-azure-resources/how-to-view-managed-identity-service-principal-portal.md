@@ -12,14 +12,14 @@ ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2022
+ms.date: 08/31/2023
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
 # View the service principal of a managed identity in the Azure portal
 
-Managed identities provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code. 
 
 In this article, you learn how to view the service principal of a managed identity using the Azure portal.
 
@@ -36,7 +36,7 @@ In this article, you learn how to view the service principal of a managed identi
 
 This procedure demonstrates how to view the service principal of a VM with system assigned identity enabled (the same steps apply for an application).
 
-1. Select **Azure Active Directory** and then select **Enterprise applications**.
+1. Select **Microsoft Entra ID** and then select **Enterprise applications**.
 2. Under **Application Type**, choose **All Applications** and then select **Apply**.
 3. In the search filter box, type the name of the Azure resource that has managed identities enabled or choose it from the list.
 

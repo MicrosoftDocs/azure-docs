@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Media Stats (iOS)
+title: Azure Communication Services media quality statistics (iOS)
 titleSuffix: An Azure Communication Services concept document
-description: Provides usage samples of the Media Stats feature iOS Native.
+description: Get usage samples of the media quality statistics feature for iOS native.
 author: jsaurezle-msft
 ms.author: jsaurezlee
 
@@ -12,35 +12,34 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-## Media quality statistics for ongoing call
+## Media quality statistics for an ongoing call
 
-[!INCLUDE [public-preview-notes](../../../../includes/public-preview-include.md)]
-
-Media quality statistics is an extended feature of the core `Call` API. You first need to obtain the MediaStats feature API object:
+Media quality statistics is an extended feature of the core `Call` API. You first need to obtain the `mediaStatsCallFeature` API object:
 
 ```swift
 var mediaStatsCallFeature = self.call?.feature(Features.mediaStats)
 ```
 
-The Media Stats feature object have the following API structure:
-- `didReceiveSample`: Delegate method for listening for periodic reports of the Media Stats.
-- `sampleIntervalInSeconds`: Gets and sets the interval in seconds of the Media Stats report generation. If not specified, sdk use defaults.
-- A `MediaStatsReport` object that contains the definition of the Outgoing and Incoming Media Stats categorized by Audio, Video and Screen Share.
-  - `OutgoingMediaStats`: The list of Media Stats for Outgoing media.
-    - `audio`: The list of Media Stats for the Outgoing Audio.
-    - `video`: The list of Media Stats for the Outgoing Video.
-    - `screenShare`: The list of Media Stats for the Outgoing Screen Share. 
-  - `OncomingStats`: The list of Media Stats for Incoming media.
-    - `audio`: The list of Media Stats for the Incoming Audio.
-    - `video`: The list of Media Stats for the Incoming Video.
-    - `screenShare`: The list of Media Stats for the Incoming Screen Share. 
+The `mediaStatsCallFeature` object has the following API structure:
+
+- The `didReceiveSample` delegate method listens for periodic reports of the media statistics.
+- `sampleIntervalInSeconds` gets and sets the interval, in seconds, of the media statistics report generation. If it's not specified, the SDK uses defaults.
+- A `MediaStatsReport` object contains the definition of the outgoing and incoming media statistics, categorized by audio, video, and screen share.
+  - `OutgoingMediaStats`: The list of media statistics for outgoing media.
+    - `audio`: The list of media statistics for the outgoing audio.
+    - `video`: The list of media statistics for the outgoing video.
+    - `screenShare`: The list of media statistics for the outgoing screen share.
+  - `OncomingStats`: The list of media statistics for incoming media.
+    - `audio`: The list of media statistics for the incoming audio.
+    - `video`: The list of media statistics for the incoming video.
+    - `screenShare`: The list of media statistics for the incoming screen share.
   - `generatedAt`: The date when the report was generated.
-  - `incomingMediaStats`: Gets the `IncomingMediaStats` for a `RemoteParticipant`.
+  - `incomingMediaStats`: Gets the `IncomingMediaStats` value for `RemoteParticipant`.
 
 Then, subscribe to the `SampleReported` event to get regular updates about the current media quality statistics:
 
 ```swift
-// Optional, set the interval for Media Stats report generation
+// Optionally, set the interval for media statistics report generation
 mediaStatsCallFeature.sampleIntervalInSeconds = 15
 mediaStatsCallFeature.delegate = MediaStatsDelegate()
 
@@ -50,29 +49,29 @@ public class MediaStatsDelegate : MediaStatsCallFeatureDelegate
     public func mediaStatsCallFeature(_ mediaStatsCallFeature: MediaStatsCallFeature, didReceiveSample args: MediaStatsReportEventArgs) {
         let report = args.report
 
-        // Obtain the Outgoing Media Stats for Audio
+        // Obtain the outgoing media statistics for audio
         let outgoingAudioMediaStats = report.outgoingMediaStats.audio
     
-        // Obtain the Outgoing Media Stats for Video
+        // Obtain the outgoing media statistics for video
         let outgoingVideoMediaStats = report.outgoingMediaStats.video
     
-        // Obtain the Outgoing Media Stats for Screen Share
+        // Obtain the outgoing media statistics for screen share
         let outgoingScreenShareMediaStats = report.outgoingMediaStats.screenShare
     
-        // Obtain the Incoming Media Stats for Audio
+        // Obtain the incoming media statistics for audio
         let incomingAudioMediaStats = report.incomingMediaStats.audio
     
-        // Obtain the Incoming Media Stats for Video
+        // Obtain the incoming media statistics for video
         let incomingVideoMediaStats = report.incomingMediaStats.video
     
-        // Obtain the Incoming Media Stats for Screen Share
+        // Obtain the incoming media statistics for screen share
         let incomingScreenShareMediaStats = report.incomingMediaStats.screenShare
     }
 }
 ```
 
-Also, `MediaStatsReport` have a helper method to obtain the `IncomingMediaStats` for a particular `RemoteParticipant`.
-For example, in order to get the `IncomingMediaStats` for all the `RemoteParticipants` in the call you can:
+Also, `MediaStatsReport` has a helper method to obtain the `IncomingMediaStats` value for a particular `RemoteParticipant` instance.
+For example, to get the `IncomingMediaStats` value for all the remote participants in the call, you can use:
 
 ```swift
 public class MediaStatsDelegate : MediaStatsCallFeatureDelegate
@@ -83,17 +82,17 @@ public class MediaStatsDelegate : MediaStatsCallFeatureDelegate
         call.remoteParticipants.forEach{ remoteParticipant in
             let remoteIncomingMediaStats = report.incomingMediaStats(fromParticipant: remoteParticipant.identifier)
 
-            // Obtain the Incoming Media Stats for Audio
+            // Obtain the incoming media statistics for audio
             let incomingAudioMediaStats = remoteIncomingMediaStats.audio
         
-            // Obtain the Incoming Media Stats for Video
+            // Obtain the incoming media statistics for video
             let incomingVideoMediaStats = remoteIncomingMediaStats.video
         
-            // Obtain the Incoming Media Stats for Screen Share
+            // Obtain the incoming media statistics for screen share
             let incomingScreenShareMediaStats = remoteIncomingMediaStats.screenShare
         }
     }
 }
 ```
 
-[!INCLUDE [native matrics](media-stats-native-metrics.md)]
+[!INCLUDE [native metrics](media-stats-native-metrics.md)]

@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Troubleshoot SQL connectivity issues'
-description: Explains how to troubleshoot SQL connectivity issues that occur with Azure AD Connect.
+title: 'Microsoft Entra Connect: Troubleshoot SQL connectivity issues'
+description: Explains how to troubleshoot SQL connectivity issues that occur with Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,8 +16,8 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot SQL connectivity issues with Azure AD Connect
-This article explains how to troubleshoot connectivity issues between Azure AD Connect and SQL Server. 
+# Troubleshoot SQL connectivity issues with Microsoft Entra Connect
+This article explains how to troubleshoot connectivity issues between Microsoft Entra Connect and SQL Server. 
 
 The following screenshot shows a typical error, if the SQL Server cannot be found.
 
@@ -34,13 +34,13 @@ Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\T
 
 >[!NOTE]
 >Install-Module requires updating to [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) or later;  
-Or install [PackageManagement PowerShell Modules Preview - March 2016 for PowerShell 3.0/4.0](/powershell/module/PackageManagement) 
+Or install [PackageManagement PowerShell module preview - March 2016 for PowerShell 3.0/4.0](/powershell/module/PackageManagement)
 
 - **Show all commands**: `Get-Command -Module AdSyncTools` 
 - **Execute the PowerShell function**: `Connect-ADSyncDatabase` with the following parameters
     - Server. The SQL Server name.
     - Instance. (Optional) The SQL Server Instance name and optionally Port number, that you would like to use. Do not specify this parameter to use the default instance.
-    - UserName. (Optional) The user account to connect with. If left blank the currently logged in user will be used. If you are connecting to a remote SQL Server this should be the custom service account you have created for Azure AD Connect SQL Connectivity. Azure AD Connect uses the Azure AD Connect sync service account as to authenticate to a remote SQL server.
+    - UserName. (Optional) The user account to connect with. If left blank the currently logged in user will be used. If you are connecting to a remote SQL Server this should be the custom service account you have created for Microsoft Entra Connect SQL Connectivity. Microsoft Entra Connect uses the Microsoft Entra Connect Sync service account as to authenticate to a remote SQL server.
     - Password. (Optional) Password for the UserName provided.
 
 This PowerShell function will attempt to bind to the specified SQL Server and Instance using the credentials passed in OR use the credentials of the current user. If the SQL Server cannot be found the script will attempt to connect to the SQL Browser service to determine enabled protocols and ports.
@@ -170,5 +170,5 @@ PS C:\Program Files\Microsoft Azure Active Directory Connect\tools>
 ```
 
 ## Next Steps
-- [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
--  [Azure AD connectivity with Azure AD Connect](tshoot-connect-connectivity.md)
+- [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)
+-  [Microsoft Entra connectivity with Microsoft Entra Connect](tshoot-connect-connectivity.md)

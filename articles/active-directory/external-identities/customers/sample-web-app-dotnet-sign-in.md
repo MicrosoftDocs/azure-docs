@@ -1,6 +1,6 @@
 ---
 title: Sign in users to a sample ASP.NET web application
-description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using an Azure AD for customers tenant.
+description: Learn how to configure a sample ASP.NET web app to sign in and sign out users by using a Microsoft Entra ID for customers tenant.
 services: active-directory
 author: cilwerner
 manager: celestedg
@@ -12,20 +12,20 @@ ms.subservice: ciam
 ms.topic: sample
 ms.date: 06/23/2023
 ms.custom: developer, devx-track-dotnet
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET web app to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample ASP.NET web app to sign in and sign out users with my Microsoft Entra ID for customers tenant
 ---
 
-# Sign in users for a sample ASP.NET web app in an Azure AD for customers tenant
+# Sign in users for a sample ASP.NET web app in a Microsoft Entra ID for customers tenant
 
 This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-identity-web/) for ASP.NET to handle authentication.
 
-In this article, you'll register a web application in the Microsoft Entra admin center and create a sign in and sign out user flow. You'll associate your web application with the user flow, download and update a sample ASP.NET web application using your own Azure Active Directory (Azure AD) for customers tenant details. Finally, you'll run and test the sample web application.
+In this article, you'll register a web application in the Microsoft Entra admin center and create a sign in and sign out user flow. You'll associate your web application with the user flow, download and update a sample ASP.NET web application using your own Microsoft Entra ID for customers tenant details. Finally, you'll run and test the sample web application.
 
 ## Prerequisites
 
 - Although any IDE that supports ASP.NET applications can be used, Visual Studio Code is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 - [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet).
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register the web app
 
@@ -98,4 +98,4 @@ To get the web app sample code, you can do either of the following tasks:
 - [Enable password reset](how-to-enable-password-reset-customers.md)
 - [Customize the default branding](how-to-customize-branding-customers.md)
 - [Configure sign-in with Google](how-to-google-federation-customers.md)
-- [Sign in users in your own ASP.NET web application by using an Azure AD for customers tenant](tutorial-web-app-dotnet-sign-in-prepare-app.md)
+- [Sign in users in your own ASP.NET web application by using a Microsoft Entra ID for customers tenant](tutorial-web-app-dotnet-sign-in-prepare-app.md)

@@ -5,8 +5,7 @@ description: Learn about how to label your data for use with the custom Sentimen
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 07/19/2023
 ms.author: aahi

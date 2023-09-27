@@ -1,6 +1,6 @@
 ---
-title: Using Azure AD Connect Health with AD FS
-description: This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure.
+title: Using Microsoft Entra Connect Health with AD FS
+description: This is the Microsoft Entra Connect Health page how to monitor your on-premises AD FS infrastructure.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
@@ -18,25 +18,25 @@ ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
 
-# Monitor AD FS using Azure AD Connect Health
-The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health. For information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health, see [Using Azure AD Connect Health for Sync](how-to-connect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health, see [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md).
+# Monitor AD FS using Microsoft Entra Connect Health
+The following documentation is specific to monitoring your AD FS infrastructure with Microsoft Entra Connect Health. For information on monitoring Microsoft Entra Connect (Sync) with Microsoft Entra Connect Health, see [Using Microsoft Entra Connect Health for Sync](how-to-connect-health-sync.md). Additionally, for information on monitoring Active Directory Domain Services with Microsoft Entra Connect Health, see [Using Microsoft Entra Connect Health with AD DS](how-to-connect-health-adds.md).
 
 ## Alerts for AD FS
-The Azure AD Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation.
+The Microsoft Entra Connect Health Alerts section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation.
 
 You can double-click an active or resolved alert, to open a new blade with additional information, steps you can take to resolve the alert, and links to relevant documentation. You can also view historical data on alerts that were resolved in the past.
 
-![Screenshot that shows the Azure AD Connect Health "Alerts" page with an alert selected, and the "Alert Details" window displayed.](./media/how-to-connect-health-adfs/alert2.png)
+![Screenshot that shows the Microsoft Entra Connect Health "Alerts" page with an alert selected, and the "Alert Details" window displayed.](./media/how-to-connect-health-adfs/alert2.png)
 
 ## Usage Analytics for AD FS
-Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. You can double-click the usage analytics box, to open the usage analytics blade, which shows you several metrics and groupings.
+Microsoft Entra Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. You can double-click the usage analytics box, to open the usage analytics blade, which shows you several metrics and groupings.
 
 > [!NOTE]
 > To use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs).
 >
 >
 
-![Screenshot that shows the Azure AD Connect Health "Usage Analytics" page.](./media/how-to-connect-health-adfs/report1.png)
+![Screenshot that shows the Microsoft Entra Connect Health "Usage Analytics" page.](./media/how-to-connect-health-adfs/report1.png)
 
 To select additional metrics, specify a time range, or to change the grouping, right-click on the usage analytics chart and select Edit Chart. Then you can specify the time range, select a different metric, and change the grouping. You can view the distribution of the authentication traffic based on different "metrics" and group each metric using relevant "group by" parameters described in the following section:
 
@@ -69,9 +69,9 @@ To select additional metrics, specify a time range, or to change the grouping, r
 | Application |Groups the average number of users based on the targeted application (relying party). This grouping is useful to understand how many users are using which application. |
 
 ## Performance Monitoring for AD FS
-Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. Selecting the Monitoring box, opens a new blade with detailed information on the metrics.
+Microsoft Entra Connect Health Performance Monitoring provides monitoring information on metrics. Selecting the Monitoring box, opens a new blade with detailed information on the metrics.
 
-![Screenshot that shows the Azure AD Connect Health Performance "Monitoring" page.](./media/how-to-connect-health-adfs/perf1.png)
+![Screenshot that shows the Microsoft Entra Connect Health Performance "Monitoring" page.](./media/how-to-connect-health-adfs/perf1.png)
 
 By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metric, right-click on the monitoring chart under the monitoring blade and select Edit Chart (or select the Edit Chart button). From the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
@@ -80,7 +80,7 @@ One of the common reasons for a failed authentication request on an AD FS server
 
 But there are other reasons that can result in an unexpected number of requests being handled by your AD FS servers, such as: An application that caches user credentials and the credentials expire or a malicious user attempting to sign into an account with a series of well-known passwords. These two examples are valid reasons that could lead to a surge in requests.
 
-Azure AD Connect Health for ADFS provides a report about top 50 Users with failed login attempts due to invalid username or password. This report is achieved by processing the audit events generated by all the AD FS servers in the farms.
+Microsoft Entra Connect Health for ADFS provides a report about top 50 Users with failed login attempts due to invalid username or password. This report is achieved by processing the audit events generated by all the AD FS servers in the farms.
 
 ![Screenshot that shows the "Reports" section with the number of bad password attempts from the last 30 days.](./media/how-to-connect-health-adfs/report1a.png)
 
@@ -97,7 +97,7 @@ The graph provides the following information:
 * The total # of unique users that failed logins on a per-day basis.
 * Client IP address of for last request
 
-![Azure AD Connect Health Portal](./media/how-to-connect-health-adfs/report3a.png)
+![Microsoft Entra Connect Health Portal](./media/how-to-connect-health-adfs/report3a.png)
 
 The report provides the following information:
 
@@ -112,6 +112,6 @@ The report provides the following information:
 > This report is automatically updated after every 12 hours with the new information collected within that time. As a result, login attempts within the last 12 hours may not be included in the report.
 
 ## Related links
-* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
+* [Microsoft Entra Connect Health](./whatis-azure-ad-connect.md)
+* [Microsoft Entra Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Risky IP report](how-to-connect-health-adfs-risky-ip.md)

@@ -234,6 +234,6 @@ Commvault has made it easy to deploy their solution in Azure to protect Azure Vi
 
 See these additional Commvault resources for information about specialized usage scenarios.
 
-- [Use Commvault to Migrate your servers and applications to Azure](https://www.commvault.com/resources/demonstration-vmware-to-azure-migrations-with-commvault)
+- [Use Commvault to Migrate your servers and applications to Azure](https://www.commvault.com/supported-technologies/microsoft/azure)
 - [Protect SAP in Azure with Commvault](https://www.youtube.com/watch?v=4ZGGE53mGVI)
 - [Protect Office365 with Commvault](https://www.youtube.com/watch?v=dl3nvAacxZU)

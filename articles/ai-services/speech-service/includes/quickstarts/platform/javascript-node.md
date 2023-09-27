@@ -5,10 +5,9 @@ description: Use this guide to set up your platform for using JavaScript (NodeJS
 services: cognitive-services
 author: markamos
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 10/15/2020
+ms.date: 09/05/2023
 ms.author: eur
 ms.custom: devx-track-js
 ---
@@ -22,9 +21,17 @@ This quickstart requires [Node.js](https://nodejs.org/).
 
 ## Create an npm project
 
-Create a new directory, run `npm init`, and walk through the prompts.
+1. Create a new directory.
+1. In a console, run the following command and respond to the prompts:
+
+   ```console
+   npm init
+   ```
 
 ## Add the Speech SDK package
 
-Run `npm install microsoft-cognitiveservices-speech-sdk`.
+- Run the following command:
 
+   ```console
+   npm install microsoft-cognitiveservices-speech-sdk
+   ```

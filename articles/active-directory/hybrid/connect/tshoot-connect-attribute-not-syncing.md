@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot an attribute not synchronizing in Azure AD Connect'
+title: Troubleshoot an attribute not synchronizing in Microsoft Entra Connect'
 description: This topic provides steps for how to troubleshoot issues with attribute synchronization using the troubleshooting task.
 services: active-directory
 documentationcenter: ''
@@ -16,32 +16,31 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Troubleshoot an attribute not synchronizing in Azure AD Connect
+# Troubleshoot an attribute not synchronizing in Microsoft Entra Connect
 
 ## **Recommended Steps**
 
-Before investigating attribute syncing issues, let’s understand the **Azure AD Connect** syncing process:
+Before investigating attribute syncing issues, let’s understand the **Microsoft Entra Connect** syncing process:
 
-  ![Azure AD Connect Synchronization Process](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
+  ![Microsoft Entra Connect Synchronization Process](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
 
 ### **Terminology**
 
 * **CS:** Connector Space, a table in database.
 * **MV:** Metaverse, a table in database.
 * **AD:** Active Directory
-* **Azure AD:** Azure Active Directory
 
 ### **Synchronization Steps**
 
 * Import from AD: Active Directory objects are brought into AD CS.
 
-* Import from Azure AD: Azure Active Directory objects are brought into Azure AD CS.
+* Import from Microsoft Entra ID: Microsoft Entra objects are brought into Microsoft Entra CS.
 
 * Synchronization: **Inbound Synchronization Rules** and **Outbound Synchronization Rules** are run in the order of precedence number from lower to higher. To view the Synchronization Rules, you can go to **Synchronization Rules Editor** from the desktop applications. The **Inbound Synchronization Rules** brings in data from CS to MV. The **Outbound Synchronization Rules** moves data from MV to CS.
 
 * Export to AD: After running Synchronization, objects are exported from AD CS to **Active Directory**.
 
-* Export to Azure AD: After running Synchronization, objects are exported from Azure AD CS to **Azure Active Directory**.
+* Export to Microsoft Entra ID: After running Synchronization, objects are exported from Microsoft Entra CS to **Microsoft Entra ID**.
 
 ### **Step by Step Investigation**
 
@@ -71,18 +70,18 @@ Before investigating attribute syncing issues, let’s understand the **Azure AD
 
   ![Screenshot that shows the attribute flow from Metaverse back to Active Directory Connector Space using Outbound Synchronization Rules.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
-* Similarly, you can view the **Azure Active Directory Connector Space** object and can generate the **Preview** to view attribute flow from **Metaverse** to the **Connector Space** and vice versa, this way you can investigate why an attribute isn't syncing.
+* Similarly, you can view the **Microsoft Entra Connector Space** object and can generate the **Preview** to view attribute flow from **Metaverse** to the **Connector Space** and vice versa, this way you can investigate why an attribute isn't syncing.
 
 ## **Recommended Documents**
-* [Azure AD Connect sync: Technical Concepts](./how-to-connect-sync-technical-concepts.md)
-* [Azure AD Connect sync: Understanding the architecture](./concept-azure-ad-connect-sync-architecture.md)
-* [Azure AD Connect sync: Understanding Declarative Provisioning](./concept-azure-ad-connect-sync-declarative-provisioning.md)
-* [Azure AD Connect sync: Understanding Declarative Provisioning Expressions](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect sync: Understanding the default configuration](./concept-azure-ad-connect-sync-default-configuration.md)
-* [Azure AD Connect sync: Understanding Users, Groups, and Contacts](./concept-azure-ad-connect-sync-user-and-contacts.md)
-* [Azure AD Connect sync: Shadow attributes](./how-to-connect-syncservice-shadow-attributes.md)
+* [Microsoft Entra Connect Sync: Technical Concepts](./how-to-connect-sync-technical-concepts.md)
+* [Microsoft Entra Connect Sync: Understanding the architecture](./concept-azure-ad-connect-sync-architecture.md)
+* [Microsoft Entra Connect Sync: Understanding Declarative Provisioning](./concept-azure-ad-connect-sync-declarative-provisioning.md)
+* [Microsoft Entra Connect Sync: Understanding Declarative Provisioning Expressions](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Microsoft Entra Connect Sync: Understanding the default configuration](./concept-azure-ad-connect-sync-default-configuration.md)
+* [Microsoft Entra Connect Sync: Understanding Users, Groups, and Contacts](./concept-azure-ad-connect-sync-user-and-contacts.md)
+* [Microsoft Entra Connect Sync: Shadow attributes](./how-to-connect-syncservice-shadow-attributes.md)
 
 ## Next Steps
 
-- [Azure AD Connect sync](how-to-connect-sync-whatis.md).
+- [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md).
 - [What is hybrid identity?](../whatis-hybrid-identity.md).

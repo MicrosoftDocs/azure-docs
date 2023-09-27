@@ -5,8 +5,7 @@ description: Learn how to use the Multivariate Anomaly Detector with Azure Synap
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: tutorial
 ms.date: 08/03/2022
 ms.author: mbullwin
@@ -130,7 +129,7 @@ In this section, you'll create the following resources in the Azure portal:
     import synapse.ml
     ```
 
-3. Load your data. Compose your data in the following format, and upload it to a cloud storage that Spark supports like an Azure Storage Account. The timestamp column should be in `ISO8601` format, and the feature columns should be `string` type. **Download sample data [here](https://sparkdemostorage.blob.core.windows.net/mvadcsvdata/spark-demo-data.csv)**.
+3. Load your data. Compose your data in the following format, and upload it to a cloud storage that Spark supports like an Azure Storage Account. The timestamp column should be in `ISO8601` format, and the feature columns should be `string` type.
 
     ```python
         df = spark.read.format("csv").option("header", True).load("wasbs://[container_name]@[storage_account_name].blob.core.windows.net/[csv_file_name].csv")

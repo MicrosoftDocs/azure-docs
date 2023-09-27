@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory Application Proxy documentation
-summary: Azure Active Directory Application Proxy provides secure remote access and cloud scale security to your private applications.
+title: Microsoft Entra application proxy documentation
+summary: Microsoft Entra application proxy provides secure remote access and cloud scale security to your private applications.
 
 metadata:
   title: Application Proxy documentation
-  description: Azure Active Directory Application Proxy provides secure remote access and cloud scale security to your private applications.
+  description: Microsoft Entra application proxy provides secure remote access and cloud scale security to your private applications.
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity

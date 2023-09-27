@@ -5,8 +5,7 @@ description: 'Use this quickstart to perform Entity Linking, using C#, Python, J
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 02/17/2023
 ms.author: aahi

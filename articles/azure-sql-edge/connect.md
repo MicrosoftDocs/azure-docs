@@ -3,13 +3,16 @@ title: Connect and query Azure SQL Edge
 description: Learn how to connect to and query Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 07/28/2023
+ms.date: 09/14/2023
 ms.service: sql-edge
 ms.topic: conceptual
 ---
 # Connect and query Azure SQL Edge
 
-In Azure SQL Edge, after you deploy a container, you can connect to the database engine from any of the following locations:
+> [!IMPORTANT]  
+> Azure SQL Edge no longer supports the ARM64 platform.
+
+In Azure SQL Edge, after you deploy a container, you can connect to the Database Engine from any of the following locations:
 
 - Inside the container
 - From another Docker container running on the same host

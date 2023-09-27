@@ -28,12 +28,12 @@ When you've finished the Azure Active Directory B2C (Azure AD B2C) tutorials, yo
 1. Make sure you're using the directory that contains your Azure AD B2C tenant: 
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
-1. In the Azure portal, search for and select the **Azure Active Directory** service.
+1. In the Azure portal, search for and select the **Microsoft Entra ID** service.
 1. In the left menu, under **Manage**, select **Properties**.
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.
 1. Repeat step two to make sure you're using the directory that contains your Azure AD B2C tenant.
-1. In the Azure portal, search for and select the **Azure Active Directory** service
+1. In the Azure portal, search for and select the **Microsoft Entra ID** service
 1. On the **Overview** page, select **Manage tenants**. 
 1. On the **Manage tenants** page, select (by check marking) the tenant you want to delete, and then, at the top of the page, select the **Delete** button. The **Required action** column indicates the resources you need to remove before you can delete the tenant.
 
@@ -90,12 +90,12 @@ Once you delete all the tenant resources, you can now delete the tenant itself:
 1. Make sure you're using the directory that contains your Azure AD B2C tenant:
     1.  Select the **Directories + subscriptions** icon in the portal toolbar.
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch** button next to it.
-1. In the Azure portal, search for and select the **Azure Active Directory** service.
+1. In the Azure portal, search for and select the **Microsoft Entra ID** service.
 1. If you haven't already granted yourself access management permissions, do the following:
 
    1. Under **Manage**, select **Properties**.
    1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
-   1. Sign out of the Azure portal and then sign back in to refresh your access, and select the **Azure Active Directory** service.
+   1. Sign out of the Azure portal and then sign back in to refresh your access, and select the **Microsoft Entra ID** service.
 
 1. On the **Overview** page, select **Manage tenants**.
 

@@ -3,8 +3,9 @@ title: Sign up for Azure AI Video Indexer and upload your first video - Azure
 description: Learn how to sign up and upload your first video using the Azure AI Video Indexer website.
 ms.topic: quickstart
 ms.date: 08/24/2022
-ms.author: juliako
 ms.custom: mode-other
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Quickstart: How to sign up and upload your first video

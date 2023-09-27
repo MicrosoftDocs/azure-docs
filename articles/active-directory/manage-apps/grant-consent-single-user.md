@@ -23,7 +23,7 @@ In this article, you'll learn how to grant consent on behalf of a single user by
 
 When a user grants consent for themselves, the following events occur more often:
 
-1. A service principal for the client application is created, if it doesn't already exist. A service principal is the instance of an application or a service in your Azure Active Directory (Azure AD) tenant. Access that's granted to the app or service is associated with this service principal object.
+1. A service principal for the client application is created, if it doesn't already exist. A service principal is the instance of an application or a service in your Microsoft Entra tenant. Access that's granted to the app or service is associated with this service principal object.
 
 1. For each API to which the application requires access, a delegated permission grant to that API is created for the permissions that are needed by the application, for access on behalf of the user. A delegated permission grant authorizes an application to access an API on behalf of a user, when that user has signed in.
 
@@ -37,7 +37,7 @@ To grant consent to an application on behalf of one user, you need:
 
 ## Grant consent on behalf of a single user
 
-Before you start, record the following details from the Azure portal:
+Before you start, record the following details from the Microsoft Entra admin center:
 
 - The app ID for the app that you're granting consent. For purposes of this article, we'll call it the "client application."
 - The API permissions that are required by the client application. Find out the app ID of the API and the permission IDs or claim values.

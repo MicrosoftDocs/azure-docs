@@ -23,6 +23,37 @@ This archive page retains updates from older months.
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update
 
+## January 2023
+
+### Data flow
+
+- Flowlets now support schema drift [Learn more](connector-office-365.md?tabs=data-factory)
+- SQL CDC incremental extract now supports numeric columns [Learn more](connector-sql-server.md?tabs=data-factory#native-change-data-capture)
+
+### Data movement
+
+New top-level CDC resource - native CDC configuration in 3 simple steps [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-the-public-preview-of-a-new-top-level-cdc-resource-in/ba-p/3720519)
+
+### Orchestration
+
+Orchestrate Synapse notebooks and Synapse spark job definitions natively [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/orchestrate-and-operationalize-synapse-notebooks-and-spark-job/ba-p/3724379)
+
+### Region expansion
+
+- Continued region expansion - China North 3 now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+- Continued region expansion - Switzerland West now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+
+### SQL Server Integration Services (SSIS)
+
+Express virtual network injection for SSIS now generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
+
+### Developer productivity
+
+- Added support for favoriting resources on home page
+- Save column width for pipeline monitoring
+- Monitor filter updates for faster searches
+- Directly launch Pipeline Template Gallery through Azure portal
+
 ## December 2022
 
 ### Data flow

@@ -4,20 +4,21 @@ description: Learn how to deploy an Azure Elastic SAN (preview) with the Azure p
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 09/12/2023
 ms.author: rogarana
 ms.custom: references_regions, ignite-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Deploy an Elastic SAN (preview)
 
-This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
+This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out this optional survey [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp). 
 
 ## Prerequisites
 
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
     - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+There are no additional registration steps required.
 
 ## Limitations
 
@@ -42,55 +43,93 @@ This article explains how to deploy and configure an elastic storage area networ
 
 # [PowerShell](#tab/azure-powershell)
 
-Replace all placeholder text with your own values when assigning values to variables and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are to be deployed. |
-| `<ElasticSanName>`               | The name of the Elastic SAN to be created. |
+| `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
+| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
-| `<Location>`                     | The region where new resources will be created. |
+| `<Location>`                     | The region where the new resources will be created. |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses **locally-redundant** storage.
 
 ```azurepowershell
-## Variables
-$RgName = "<ResourceGroupName>"
-## Select the same availability zone as where you plan to host your workload
-$Zone = 1
-## Select the same region as your Azure virtual network
-$Location = "<Location>"
-$EsanName = "<ElasticSanName>"
+# Define some variables.
+$RgName     = "<ResourceGroupName>"
+$EsanName   = "<ElasticSanName>"
 $EsanVgName = "<ElasticSanVolumeGroupName>"
 $VolumeName = "<VolumeName>"
+$Location   = "<Location>"
+$Zone       = <Zone>
 
-## Create the SAN, itself
+# Connect to Azure
+Connect-AzAccount
+
+# Create the SAN.
 New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -AvailabilityZone $Zone -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
 ```
+
+The following command creates an Elastic SAN that uses **zone-redundant** storage.
+
+```azurepowershell
+# Define some variables.
+$RgName     = "<ResourceGroupName>"
+$EsanName   = "<ElasticSanName>"
+$EsanVgName = "<ElasticSanVolumeGroupName>"
+$VolumeName = "<VolumeName>"
+$Location   = "<Location>"
+
+# Create the SAN
+New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_ZRS
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-Replace all placeholder text with your own values when assigning values to variables and use the same variables in of all the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. Replace all placeholder text with your own values and use the same variables in of all the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
-| `<ResourceGroupName>`            | The name of the resource group where the resources are to be deployed. |
-| `<ElasticSanName>`               | The name of the Elastic SAN to be created. |
+| `<ResourceGroupName>`            | The name of the resource group where the resources will be deployed. |
+| `<ElasticSanName>`               | The name of the Elastic SAN to be created.<br>*The Elastic SAN name must be between 3 and 24 characters long. The name may only contain lowercase letters, numbers, hyphens and underscores, and must begin and end with a letter or a number. Each hyphen and underscore must be preceded and followed by an alphanumeric character.* |
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
-| `<Location>`                     | The region where new resources will be created. |
+| `<Location>`                     | The region where the new resources will be created. |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses locally redundant storage. To create one that uses zone-redundant storage, replace `Premium_LRS` with `Premium_ZRS`.
+The following command creates an Elastic SAN that uses **locally-redundant** storage.
 
 ```azurecli
-## Variables
+# Define some variables.
 RgName="<ResourceGroupName>"
 EsanName="<ElasticSanName>"
 EsanVgName="<ElasticSanVolumeGroupName>"
+VolumeName="<VolumeName>"
+Location="<Location>"
+Zone=<Zone>
+
+# Connect to Azure
+az login
+
+# Create an Elastic SAN
+az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}" --availability-zones $Zone
+```
+
+The following command creates an Elastic SAN that uses **zone-redundant** storage.
+
+```azurecli
+# Define some variables.
+RgName="<ResourceGroupName>"
+EsanName="<ElasticSanName>"
+EsanVgName="<ElasticSanVolumeGroupName>"
+VolumeName="<VolumeName>"
 Location="<Location>"
 
-az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_LRS,tier:Premium}"
+az elastic-san create -n $EsanName -g $RgName -l $Location --base-size-tib 100 --extended-capacity-size-tib 20 --sku "{name:Premium_ZRS,tier:Premium}"
 ```
+
 ---
 
 ## Create volume groups
@@ -109,7 +148,7 @@ Now that you've configured the basic settings and provisioned your storage, you 
 The following sample command creates an Elastic SAN volume group in the Elastic SAN you created previously. Use the same variables and values you defined when you [created the Elastic SAN](#create-the-san).
 
 ```azurepowershell
-## Create the volume group, this script only creates one.
+# Create the volume group, this script only creates one.
 New-AzElasticSanVolumeGroup -ResourceGroupName $RgName -ElasticSANName $EsanName -Name $EsanVgName
 ```
 
@@ -144,10 +183,10 @@ The following sample command creates a single volume in the Elastic SAN volume g
 > [!IMPORTANT]
 > The volume name is part of your volume's iSCSI Qualified Name, and can't be changed once created.
 
-Use the same variables you set for , then run the following script:
+Use the same variables, then run the following script:
 
 ```azurepowershell
-## Create the volume, this command only creates one.
+# Create the volume, this command only creates one.
 New-AzElasticSanVolume -ResourceGroupName $RgName -ElasticSanName $EsanName -VolumeGroupName $EsanVgName -Name $VolumeName -sizeGiB 2000
 ```
 

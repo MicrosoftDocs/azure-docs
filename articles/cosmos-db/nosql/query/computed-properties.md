@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -363,7 +363,7 @@ To add a composite index on two properties in which, one is computed as `cp_myCo
 
 Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. While in preview, RU charges that are related to computed properties are subject to change.
 
-## Next steps
+## Related content
 
 - [Manage indexing policies](../how-to-manage-indexing-policy.md)
 - [Model document data](../../modeling-data.md)

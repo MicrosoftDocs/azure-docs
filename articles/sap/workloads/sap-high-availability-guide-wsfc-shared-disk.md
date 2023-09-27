@@ -176,9 +176,9 @@ Following are some of the important points to consider for Azure Premium shared 
 
 ### Supported OS versions
 
-Both Windows Servers 2016 and 2019 are supported (use the latest data center images).
+Windows Servers 2016, 2019 and higher are supported (use the latest data center images).
 
-We strongly recommend using **Windows Server 2019 Datacenter**, as:
+We strongly recommend using at least **Windows Server 2019 Datacenter**, as:
 - Windows 2019 Failover Cluster Service is Azure aware
 - There is added integration and awareness of Azure Host Maintenance and improved experience by monitoring for Azure schedule events.
 - It is possible to use Distributed network name(it is the default option). Therefore, there is no need to have a dedicated IP address for the cluster network name. Also, there is no need to configure this IP address on Azure Internal Load Balancer. 

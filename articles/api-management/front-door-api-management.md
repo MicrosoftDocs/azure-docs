@@ -92,7 +92,7 @@ In the following example, the same operation in the Demo Conference API is calle
 
 ## Restrict incoming traffic to API Management instance
 
-Use API Management policies to ensure that your API Management instance accepts traffic only from Azure Front Door. You can accomplish this restriction using one or both of the [following methods](../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-):
+Use API Management policies to ensure that your API Management instance accepts traffic only from Azure Front Door. You can accomplish this restriction using one or both of the [following methods](../frontdoor/front-door-faq.yml#what-are-the-steps-to-restrict-the-access-to-my-backend-to-only-azure-front-door-):
 
 1. Restrict incoming IP addresses to your API Management instances
 1. Restrict traffic based on the value of the `X-Azure-FDID` header

@@ -25,7 +25,7 @@ In Update Management, you can view information about your machine, missing updat
 To view update assessment from an Azure Arc-enabled server:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, under **Operation**, select **Guest + host updates** and select **Go to Updates using Update management center**.
+1. Navigate to **Servers - Azure Arc** and select your server from the list. From the left menu, under **Operation**, select **Guest + host updates** and select **Go to Updates using Update Manager**.
 
 In Update Management, you can view information about your Azure Arc-enabled machine, total updates, assess updates, scheduled update deployments, and so on.
 

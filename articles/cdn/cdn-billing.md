@@ -54,7 +54,7 @@ If you're using Azure Blob storage as the origin for your content, you also incu
 - Transfers in GB: The amount of data transferred to fill the CDN caches.
 
 > [!NOTE]
-> Starting October 2019, If you are using Azure CDN from Microsoft, the cost of data transfer from Origins hosted in Azure to CDN PoPs is free of charge. Azure CDN from Verizon and Azure CDN from Akamai are subject to the rates described as followed.
+> Starting October 2019, If you are using Azure CDN from Microsoft, the cost of data transfer from Origins hosted in Azure to CDN PoPs is free of charge. Azure CDN from Edgio and Azure CDN from Akamai are subject to the rates described as followed.
 
 For more information about Azure Storage billing, see [Plan and manage costs for Azure Storage](../storage/common/storage-plan-manage-costs.md).
 

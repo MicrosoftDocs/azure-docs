@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -97,7 +97,7 @@ Queries are common with ``DateTime`` values. To execute these queries efficientl
 
 For more information about how to configure indexing policies, see [indexing policies](../../index-policy.md).
 
-## Next Steps
+## Related content
 
 - [Manage indexing policies](../how-to-manage-indexing-policy.md)
 - [Model document data](../../modeling-data.md)

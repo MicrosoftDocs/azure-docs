@@ -6,8 +6,7 @@ services: cognitive-services
 author: rwallerms
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.topic: overview
 ms.date: 11/15/2021
 ms.author: rwaller

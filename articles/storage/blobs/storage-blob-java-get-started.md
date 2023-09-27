@@ -14,6 +14,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # Get started with Azure Blob Storage and Java
 
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
+
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Java. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 [API reference](/java/api/overview/azure/storage-blob-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Samples](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-java/issues)

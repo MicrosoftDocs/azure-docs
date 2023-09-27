@@ -1,5 +1,5 @@
 ---
-title: Build resilience in external user authentication with Azure Active Directory
+title: Build resilience in external user authentication with Microsoft Entra ID
 description: A guide for IT admins and architects to building resilient authentication for external users
 services: active-directory
 author: janicericketts
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 # Build resilience in external user authentication
 
-[Azure Active Directory B2B collaboration](../external-identities/what-is-b2b.md) (Azure AD B2B) is a feature of [External Identities](../external-identities/external-collaboration-settings-configure.md) that enables collaboration with other organizations and individuals. It enables the secure onboarding of guest users into your Azure AD tenant without having to manage their credentials. External users bring their identity and credentials with them from an external identity provider (IdP) so they don't have to remember a new credential. 
+[Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) (Microsoft Entra B2B) is a feature of [External Identities](../external-identities/external-collaboration-settings-configure.md) that enables collaboration with other organizations and individuals. It enables the secure onboarding of guest users into your Microsoft Entra tenant without having to manage their credentials. External users bring their identity and credentials with them from an external identity provider (IdP) so they don't have to remember a new credential. 
 
 ## Ways to authenticate external users
 
@@ -23,7 +23,7 @@ You can choose the methods of external user authentication to your directory. Yo
 With every external IdP, you take a dependency on the availability of that IdP. With some methods of connecting to IdPs, there are things you can do to increase your resilience.
 
 > [!NOTE] 
-> Azure AD B2B has the built-in ability to authenticate any user from any [Azure Active Directory](../index.yml) tenant or with a personal [Microsoft Account](https://account.microsoft.com/account). You do not have to do any configuration with these built-in options.
+> Microsoft Entra B2B has the built-in ability to authenticate any user from any [Microsoft Entra ID](../index.yml) tenant or with a personal [Microsoft Account](https://account.microsoft.com/account). You do not have to do any configuration with these built-in options.
 
 ### Considerations for resilience with other IdPs
 

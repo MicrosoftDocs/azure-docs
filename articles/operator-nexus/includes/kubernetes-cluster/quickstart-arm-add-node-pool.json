@@ -58,7 +58,7 @@
       },
       "agentVmSku": {
         "type": "string",
-        "defaultValue": "NC_M4_v1",
+        "defaultValue": "NC_P10_56_v1",
         "metadata": {
           "description": "VM size of the agent nodes"
         }

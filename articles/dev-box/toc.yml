@@ -10,8 +10,11 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up Microsoft Dev Box
+    - name: Set up Dev Box with Azure portal
       href: quickstart-configure-dev-box-service.md
+    - name: Set up Dev Box with an ARM template
+      displayName: Resource Manager
+      href: quickstart-configure-dev-box-arm-template.md  
     - name: Create a dev box
       href: quickstart-create-dev-box.md
 - name: Tutorials
@@ -37,6 +40,8 @@ items:
       href: how-to-project-admin.md
     - name: Provide access to dev box users
       href: how-to-dev-box-user.md
+    - name: Authenticate to REST APIs
+      href: how-to-authenticate.md
     - name: Configure an Azure compute gallery
       href: how-to-configure-azure-compute-gallery.md
     - name: Manage a dev center
@@ -62,7 +67,11 @@ items:
     - name: Configure Dev Box Hibernation
       href: how-to-configure-dev-box-hibernation.md
     - name: Hibernate your Dev Box
-      href: how-to-hibernate-your-dev-box.md  
+      href: how-to-hibernate-your-dev-box.md
+    - name: Determine resource usage and quota
+      href: how-to-determine-your-quota-usage.md
+    - name: Request a quota limit increase
+      href: how-to-request-quota-increase.md   
     - name: Configure Azure Diagnostic Logs
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference

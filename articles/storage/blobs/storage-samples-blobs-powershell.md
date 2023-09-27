@@ -5,7 +5,7 @@ author: stevenmatthew
 
 ms.author: shaas
 ms.date: 11/07/2017
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ---

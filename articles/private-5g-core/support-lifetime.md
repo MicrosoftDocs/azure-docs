@@ -6,7 +6,7 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 09/21/2023
 ms.custom: template-concept
 ---
 
@@ -19,6 +19,6 @@ The following table shows the support status for different Packet Core releases.
 
 | Release | Support Status |
 |---------|----------------|
-| AP5GC 2307 | Supported until AP5GC 2309 released |
-| AP5GC 2306 | Supported until AP5GC 2308 released | 
-| AP5GC 2305 and earlier | Out of Support |
+| AP5GC 2308 | Supported until AP5GC 2311 released |
+| AP5GC 2307 | Supported until AP5GC 2310 released |
+| AP5GC 2306 and earlier | Out of Support |

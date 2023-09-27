@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: xiada
 ms.service: spring-apps
 ms.topic: include
-ms.date: 07/11/2023
+ms.date: 08/31/2023
 ---
 
 <!--
@@ -25,7 +25,7 @@ You can delete the Azure resource group, which includes all the resources in the
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-Use the following command to delete all the Azure resources used in this sample application.
+Use the following command to delete all the Azure resources used in this sample application:
 
 ```bash
 azd down
@@ -34,12 +34,11 @@ azd down
 The following list describes the command interactions:
 
 - **Total resources to delete: \<resources-total>, are you sure you want to continue?**: Press <kbd>y</kbd>.
-- **Would you like to permanently delete these resources instead, allowing their names to be reused?**: Press <kbd>y</kbd>. Press <kbd>n</kbd> if you want to reuse the Key Vault.
 
 The console outputs messages similar to the following example:
 
 ```output
-SUCCESS: Your Azure resources have been deleted.
+SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
 ```
 
 ---

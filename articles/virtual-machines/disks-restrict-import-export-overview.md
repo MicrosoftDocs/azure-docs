@@ -37,4 +37,4 @@ You can use private endpoints to restrict the upload and download of managed dis
 
 ## Configure the Network access policy
 
-Each managed disk and snapshot has its own NetworkAccessPolicy parameter that can prevent the resource from being exported. You can use the [Azure CLI](/cli/azure/disk?view=azure-cli-latest#az-disk-update) or [Azure PowerShell module](/powershell/module/az.compute/new-azdiskconfig) to set the parameter to **DenyAll**, which prevents the resource from being exported.
+Each managed disk and snapshot has its own NetworkAccessPolicy parameter that can prevent the resource from being exported. You can use the [Azure CLI](/cli/azure/disk#az-disk-update) or [Azure PowerShell module](/powershell/module/az.compute/new-azdiskconfig) to set the parameter to **DenyAll**, which prevents the resource from being exported.

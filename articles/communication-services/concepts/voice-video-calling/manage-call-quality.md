@@ -79,7 +79,7 @@ The following sections detail the tools to implement at different phases of a ca
 <!-- This is not possible yet ... ~~You could also
   have callers with poor network conditions join from [PSTN (Public
   Switched Telephone Network) voice
-  calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
+  calling](/en-us/azure/communication-services/concepts/telephony/telephony-concept).~~ -->
 
 
 <!-- TODO need to add a Permissions section. - filippos for input
@@ -116,7 +116,7 @@ Maybe you want to build your own Network Diagnostic Tool or to perform a deeper 
   <!-- - ~~If a user has a poor network connection, you can instruct them to
     join their audio from [PSTN (Public Switched Telephone Network)
     voice
-    calling](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/telephony-concept)
+    calling](/en-us/azure/communication-services/concepts/telephony/telephony-concept)
     before they join.~~ -->
 
   - For example, if a user's hardware test has an issue, you can notify the users

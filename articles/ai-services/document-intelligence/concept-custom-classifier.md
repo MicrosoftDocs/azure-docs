@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use the custom classification model to train a model to identify and split the documents you process within your application.
 author: vkurpad
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

@@ -27,7 +27,7 @@ In this how-to, you'll learn how to configure the SDKs used by your application 
 
 This how-to assumes you know how to:
 
-- Provision your app using the Azure portal. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
+- Provision your app. For more information, see the instructions for creating an app in [the Android tutorial](./tutorial-v2-android.md#create-a-project)
 - Integrate your application with the [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 
 ## Methods for SSO
@@ -98,7 +98,7 @@ You must register a redirect URI that is compatible with the broker. The redirec
 
 The format of the redirect URI is: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
-You can use [keytool](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) to generate a Base64-encoded signature hash using your app's signing keys, and then use the Azure portal to generate your redirect URI using that hash.
+You can use [keytool](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) to generate a Base64-encoded signature hash using your app's signing keys, and then generate your redirect URI using that hash.
 
 Linux and macOS:
 
@@ -114,16 +114,14 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Once you've generated a signature hash with _keytool_, use the Azure portal to generate the redirect URI:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you registered your application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations**.
-1. Under **Manage**, select **App registrations**, then select your application.
-1. Under **Manage**, select **Authentication** > **Add a platform** > **Android**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. Browse to **Identity** > **Applications** > **App registrations**.
+1. Select your application, and then select **Authentication** > **Add a platform** > **Android**.
 1. In the **Configure your Android app** pane that opens, enter the **Signature hash** that you generated earlier and a **Package name**.
 1. Select the **Configure** button.
 
-The Azure portal generates the redirect URI for you and displays it in the **Android configuration** pane's **Redirect URI** field.
+The redirect URI is generated for you and is displayed in the **Android configuration** pane's **Redirect URI** field.
 
 For more information about signing your app, see [Sign your app](https://developer.android.com/studio/publish/app-signing) in the Android Studio User Guide.
 
@@ -178,6 +176,9 @@ By default, applications integrated with MSAL use the system browser's Custom Ta
 If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users won't have a single sign-on experience across the device or between native apps and web apps.
 
 If the application uses MSAL with a broker like Microsoft Authenticator or Intune Company Portal, then users can have SSO experience across applications if they have an active sign-in with one of the apps.
+
+> [!NOTE]
+> MSAL with broker utilizes WebViews instead of Custom Tabs. As a result, the Single Sign-On (SSO) state is not extended to other apps that use Custom Tabs.
 
 ### WebView
 

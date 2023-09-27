@@ -64,13 +64,13 @@ If you are deleting multiple sites, repeat this step for each site.
 
 ## Delete the AKS cluster
 
-The Azure Kubernetes Service (AKS) cluster is an orchestration layer used to manage the packet core software components. To delete the Azure Kubernetes Service (AKS) connected cluster, follow [Remove the Azure Kubernetes service](https://learn.microsoft.com/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge#remove-the-azure-kubernetes-service).
+The Azure Kubernetes Service (AKS) cluster is an orchestration layer used to manage the packet core software components. To delete the Azure Kubernetes Service (AKS) connected cluster, follow [Remove the Azure Kubernetes service](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge#remove-the-azure-kubernetes-service).
 
 If you are deleting multiple sites, repeat this step for each site.
 
 ## Reset ASE
 
- Azure Stack Edge (ASE) hardware runs the packet core software at the network edge. To reset your ASE device, follow [Reset and reactivate your Azure Stack Edge device](https://learn.microsoft.com/azure/databox-online/azure-stack-edge-reset-reactivate-device).
+ Azure Stack Edge (ASE) hardware runs the packet core software at the network edge. To reset your ASE device, follow [Reset and reactivate your Azure Stack Edge device](/azure/databox-online/azure-stack-edge-reset-reactivate-device).
 
 If you are deleting multiple sites, repeat this step for each site.
 

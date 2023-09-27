@@ -53,8 +53,9 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP addresses<sup>1,2</sup> | 10 for Basic. | Contact support. |
 | Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
-| Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
+| Public IP prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
+| Custom IP prefixes | 5 | Contact support. |
 
 <sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
 

@@ -40,7 +40,7 @@ After you test and verify the new revision, you can then point production traffi
 This article shows you how to implement blue-green deployment in a container app. To run the following examples, you need a container app environment where you can create a new app.
 
 > [!NOTE]
-> Refer to [containerapps-blue-green repository](https://github.com/Azure-Samples/containerapps-blue-green) for a complete example of a github workflow that implements blue-green deployment for Container Apps.
+> Refer to [containerapps-blue-green repository](https://github.com/Azure-Samples/containerapps-blue-green) for a complete example of a GitHub workflow that implements blue-green deployment for Container Apps.
 
 ## Create a container app with multiple active revisions enabled
 

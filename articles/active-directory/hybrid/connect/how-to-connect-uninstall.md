@@ -1,6 +1,6 @@
 ---
-title: Uninstall Azure AD Connect
-description: This document describes how to uninstall Azure AD Connect.
+title: Uninstall Microsoft Entra Connect
+description: This document describes how to uninstall Microsoft Entra Connect.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -13,22 +13,24 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Uninstall Azure AD Connect
+# Uninstall Microsoft Entra Connect
 
-This document describes how to correctly uninstall Azure AD Connect.
+This document describes how to correctly uninstall Microsoft Entra Connect.
 
-## Uninstall Azure AD Connect from the server
-The first thing you need to do is remove Azure AD Connect from the server that it is running on.  Use the following steps:
+<a name='uninstall-azure-ad-connect-from-the-server'></a>
 
- 1. On the server running Azure AD Connect, navigate to **Control Panel**.
+## Uninstall Microsoft Entra Connect from the server
+The first thing you need to do is remove Microsoft Entra Connect from the server that it is running on.  Use the following steps:
+
+ 1. On the server running Microsoft Entra Connect, navigate to **Control Panel**.
  2. Click **Uninstall a program**
  ![Uninstall a program](media/how-to-connect-uninstall/uninstall-1.png)</br>
  
- 3. Select **Azure AD Connect**.
- ![Select Azure AD Connect](media/how-to-connect-uninstall/uninstall-2.png)</br>
+ 3. Select **Microsoft Entra Connect**.
+ ![Select Microsoft Entra Connect](media/how-to-connect-uninstall/uninstall-2.png)</br>
  
  4. When prompted, click **Yes** to confirm.
- 5. This confirmation will bring up the Azure AD Connect screen.  Click **Remove**.
+ 5. This confirmation will bring up the Microsoft Entra Connect screen.  Click **Remove**.
  ![Remove](media/how-to-connect-uninstall/uninstall-3.png)</br>
  
  6. Once this action completes, click **Exit**.
@@ -39,7 +41,6 @@ The first thing you need to do is remove Azure AD Connect from the server that i
 
 ## Next steps
 
-- Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
-- [Install Azure AD Connect using an existing ADSync database](how-to-connect-install-existing-database.md)
-- [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md)
-
+- Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).
+- [Install Microsoft Entra Connect using an existing ADSync database](how-to-connect-install-existing-database.md)
+- [Install Microsoft Entra Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md)

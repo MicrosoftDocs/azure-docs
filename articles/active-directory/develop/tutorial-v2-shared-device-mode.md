@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Use shared-device mode in your Android application
 
-In this tutorial, Android developers and Azure Active Directory (Azure AD) tenant administrators learn about the code, Authenticator app, and tenant settings required to enable shared-device mode for an Android app.
+In this tutorial, Android developers and Microsoft Entra tenant administrators learn about the code, Authenticator app, and tenant settings required to enable shared-device mode for an Android app.
 
 In this tutorial:
 
@@ -27,7 +27,7 @@ In this tutorial:
 > - Enable and detect shared-device mode
 > - Detect single or multiple account mode
 > - Detect a user switch, and enable global sign-in and sign-out
-> - Set up tenant and register the application in the Azure portal
+> - Set up tenant and register the application
 > - Set up an Android device in shared-device mode
 > - Run the sample app
 
@@ -232,26 +232,26 @@ private void registerAccountChangeBroadcastReceiver(){
 
 ## Administrator guide
 
-The following steps describe setting up your application in the Azure portal and putting your device into shared-device mode.
+The following steps describe setting up your application and putting your device into shared-device mode.
 
-### Register your application in Azure Active Directory
+### Register the application
 
-First, register your application within your organizational tenant. Then provide these values below in auth_config.json in order for your application to run correctly.
+First, register the application within your organizational tenant. Then provide these values below in auth_config.json in order for your application to run correctly.
 
-For information on how to do this, refer to [Register your application](./tutorial-v2-android.md#register-your-application-with-azure-ad).
+For information on how to do this, refer to [Register your application](./tutorial-v2-android.md).
 
 > [!NOTE]
 > When you register your app, please use the quickstart guide on the left-hand side and then select **Android**. This will lead you to a page where you'll be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You'll then receive a configuration object that you can use for your app that you'll cut and paste into your auth_config.json file.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="Configure your Android app page in Azure portal quickstart":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="Configure your Android app page":::
 
-You should select **Make this change for me** and then provide the values the quickstart asks for in the Azure portal. When that's done, we'll generate all the configuration files you need.
+You should select **Make this change for me** and then provide the values the quickstart asks for. When that's done, we'll generate all the configuration files you need.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Configure your project page in Azure portal quickstart":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Configure your project page":::
 
 ## Set up a tenant
 
-For testing purposes, set up the following in your tenant: at least two employees, one Cloud Device Administrator, and one Global Administrator. In the Azure portal, set the Cloud Device Administrator by modifying Organizational Roles. In the Azure portal, access your Organizational Roles by selecting **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**. Add the users that can put a device into shared mode.
+For testing purposes, set up the following in your tenant: at least two employees, one Cloud Device Administrator, and one Global Administrator. Set the Cloud Device Administrator by modifying Organizational Roles. Access your Organizational Roles by selecting **Identity** > **Roles & admins** > **Roles & admins** > **All roles**, and then select **Cloud Device Administrator**. Add the users that can put a device into shared mode.
 
 ## Set up an Android device in shared mode
 
@@ -285,11 +285,11 @@ The device is now in shared mode.
 
 Any sign-ins and sign-outs on the device will be global, meaning they apply to all apps that are integrated with MSAL and Microsoft Authenticator on the device. You can now deploy applications to the device that use shared-device mode features.
 
-## View the shared device in the Azure portal
+## View the shared device
 
-Once you've put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure portal.
+Once you've put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type**.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="All devices pane shown in the Azure portal":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Screenshot that shows the all devices pane":::
 
 ## Running the sample app
 

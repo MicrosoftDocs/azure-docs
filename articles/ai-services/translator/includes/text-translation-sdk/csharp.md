@@ -3,8 +3,7 @@ title: "Quickstart: Translator Text C# SDK"
 description: 'Text translation processing using the C# programming language'
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -71,9 +70,10 @@ To interact with the Translator service using the client library, you need to cr
 
 **Translate text**
 
-```csharp
+  > [!NOTE]
+  > In this example we are using the global endpoint. If you're using a regional endpoint, see [Create a Text Translation client](../../create-translator-resource.md#create-a-text-translation-client).
 
-// Using the global endpoint (default)
+```csharp
 
 using Azure;
 using Azure.AI.Translation.Text;

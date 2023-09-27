@@ -1,12 +1,13 @@
 ---
 title: Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 description: Learn how to request billing ownership of Azure billing products from other users for a Microsoft Partner Agreement (MPA).
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 09/22/2023
 ms.author: banders
 ---
 
@@ -186,7 +187,7 @@ The partners should work with the customer to get access to subscriptions. The p
 
 ### Power BI connectivity
 
-The Cost Management connector for Power BI doesn't currently support Microsoft Partner Agreements.  The connector only supports Enterprise Agreements and direct Microsoft Customer Agreements. For more information about Cost Management connector support, see [Create visuals and reports with the Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). After you transfer a subscription from one of the agreements to a Microsoft Partner Agreement, your Power BI reports stop working.
+The Cost Management connector for Power BI supports Enterprise Agreements, direct Microsoft Customer Agreements and Microsoft Partner Agreements on Billing Account and Billing Profile scopes. For more information about Cost Management connector support, see [Create visuals and reports with the Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). After you transfer a subscription from one of the agreements to a Microsoft Partner Agreement, your Power BI reports stop working.
 
 As an alternative, you can always use Exports in Cost Management to save the consumption and usage information and then use it in Power BI. For more information, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
 

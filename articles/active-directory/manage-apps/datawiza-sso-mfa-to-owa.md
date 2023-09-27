@@ -12,9 +12,9 @@ ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-#  Configure Datawiza Access Proxy for Microsoft Entra ID single sign-on and multi-factor authentication for Outlook Web Access
+#  Configure Datawiza Access Proxy for Microsoft Entra single sign-on and multifactor authentication for Outlook Web Access
 
-In this tutorial, learn how to configure Datawiza Access Proxy (DAP) to enable Microsoft Entra ID single sign-on (SSO) and Microsoft Entra ID Multi-factor Authentication (MFA) for Outlook Web Access (OWA). Help solve issues when modern identity providers (IdPs) integrate with legacy OWA, which supports Kerberos token authentication to identify users.
+In this tutorial, learn how to configure Datawiza Access Proxy (DAP) to enable Microsoft Entra single sign-on (SSO) and Microsoft Entra multifactor authentication for Outlook Web Access (OWA). Help solve issues when modern identity providers (IdPs) integrate with legacy OWA, which supports Kerberos token authentication to identify users.
 
 Often, legacy app and modern SSO integration are a challenge because there's no modern protocol support. Datawiza Access Proxy removes the protocol support
 gap, reduces integration overhead, and improves application security.
@@ -61,7 +61,7 @@ DAP integration architecture includes the following components:
 
 -   **Key distribution center (KDC)** - distributes and manages secret keys and tickets in a Kerberos authentication system
 
--   **DAP** - a reverse-proxy that implements Open ID Connect (OIDC), OAuth, or Security Assertion Markup Language (SAML) for user sign in. DAP integrates with protected applications by using:
+-   **DAP** - a reverse-proxy that implements OpenID Connect (OIDC), OAuth, or Security Assertion Markup Language (SAML) for user sign in. DAP integrates with protected applications by using:
 
     -   HTTP headers
 
@@ -85,12 +85,12 @@ The following diagram illustrates the user flow from user browser to OWA.
 | Step | Description |
 |:----|:------|
 | 1. | User browser requests access to DAP-protected OWA.|
-| 2. | The user browser is directed to Azure AD.|
-| 3. | The Microsoft Entra ID sign in page appears.|
+| 2. | The user browser is directed to Microsoft Entra ID.|
+| 3. | The Microsoft Entra sign-in page appears.|
 | 4.|  The user enters credentials.|
 | 5.|  Upon authentication, the user browser is directed to DAP.|
-| 6. | DAP and Azure AD exchange tokens.|
-| 7. | Azure AD issues the username and relevant information to DAP.|
+| 6. | DAP and Microsoft Entra ID exchange tokens.|
+| 7. | Microsoft Entra ID issues the username and relevant information to DAP.|
 | 8.| DAP accesses the KDC with credentials. DAP requests a Kerberos ticket.|
 | 9.| KDC returns a Kerberos ticket.|
 |10.| DAP redirects the user browser to OWA.|
@@ -107,9 +107,9 @@ You need the following components. Prior DAP experience isn't necessary.
 
     -   If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 
--   An Azure AD tenant linked to the Azure account
+-   A Microsoft Entra tenant linked to the Azure account
 
-    -   See, [Quickstart: Create a new tenant in Azure AD](../fundamentals/create-new-tenant.md)
+    -   See, [Quickstart: Create a new tenant in Microsoft Entra ID](../fundamentals/create-new-tenant.md)
 
 -   Docker and Docker Compose are required to run DAP
 
@@ -120,12 +120,12 @@ You need the following components. Prior DAP experience isn't necessary.
 -   User identities synchronized from an on-premises directory to Microsoft Entra ID, or created in Microsoft Entra ID and flowed back to your on-premises
     directory
 
-    -   See, [Azure AD Connect sync: Understand and customize
+    -   See, [Microsoft Entra Connect Sync: Understand and customize
         synchronization](../hybrid/connect/how-to-connect-sync-whatis.md)
 
--   An account with Microsoft Entra ID Application Administrator permissions
+-   An account with Microsoft Entra Application Administrator permissions
 
-    -   See, Application Administrator and other roles on, [Microsoft Entra ID built-in
+    -   See, Application Administrator and other roles on, [Microsoft Entra built-in
         roles](../roles/permissions-reference.md)
 
 -   An Exchange Server environment. Supported versions:
@@ -134,7 +134,7 @@ You need the following components. Prior DAP experience isn't necessary.
 
     -   Microsoft OWA IWA - IIS 7 or later
 
--   A Windows Server instance configured with IIS and Microsoft Entra ID Services running as a domain controller (DC) and implementing
+-   A Windows Server instance configured with IIS and Microsoft Entra services running as a domain controller (DC) and implementing
     Kerberos (IWA) SSO
 
     -   It's unusual for large production environments to have an application server (IIS) that also functions as a DC.
@@ -306,14 +306,14 @@ Use the following instructions to integrate OWA with Microsoft Entra ID.
 
 ### Configure IdP
 
-DCMC integration features help complete Microsoft Entra ID configuration. Instead, DCMC calls Microsoft Graph API to perform the tasks. The feature reduces
+DCMC integration features help complete Microsoft Entra configuration. Instead, DCMC calls Microsoft Graph API to perform the tasks. The feature reduces
 time, effort, and errors.
 
 1.  On **Configure IdP**, enter a **Name**.
 
 2.  For **Protocol**, select **OIDC**.
 
-3.  For **Identity Provider**, select **Microsoft Azure Active Directory**.
+3.  For **Identity Provider**, select **Microsoft Entra ID**.
 
 4.  Enable **Automatic Generator**.
 
@@ -373,32 +373,24 @@ time, effort, and errors.
 
 6.  Select **Save**.
 
-## Optional: Enable Microsoft Entra ID Multi-Factor Authentication
+<a name='optional-enable-microsoft-entra-id-multi-factor-authentication'></a>
+
+## Optional: Enable Microsoft Entra multifactor authentication
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To provide more sign-in security, you can enforce Microsoft Entra ID Multi-Factor Authentication. The process starts in the Azure portal.
+To provide more sign-in security, you can enforce Microsoft Entra multifactor authentication. The process starts in the Microsoft Entra admin center.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
-
-2. Select **Azure Active Directory**.
-
-3. Select **Manage**
-
-4. Select **Properties**
-
-5. Under **Tenant properties**, select **Manage security defaults**
-
-    ![Screenshot shows the manage security defaults.](media/datawiza-access-proxy/manage-security-defaults.png)
-
-6. For **Enable Security defaults**, select **Yes**
-
-7. Select **Save**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+2. Browse to **Identity** > **Overview** > **Properties** tab.
+3. Under **Security defaults**, select **Manage security defaults**.
+4. On the **Security defaults** pane, toggle the dropdown menu to select **Enabled**.
+5. Select **Save**.
 
 ## Next steps
 
--   [Video: Enable SSO and MFA for Oracle JD Edwards with Azure AD via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
+-   [Video: Enable SSO and MFA for Oracle JD Edwards with Microsoft Entra ID via Datawiza](https://www.youtube.com/watch?v=_gUGWHT5m90)
 
--   [Tutorial: Configure Secure Hybrid Access with Azure AD and Datawiza](./datawiza-configure-sha.md)
+-   [Tutorial: Configure Secure Hybrid Access with Microsoft Entra ID and Datawiza](./datawiza-configure-sha.md)
 
 -   Go to docs.datawiza.com for [Datawiza user guides](https://docs.datawiza.com/)

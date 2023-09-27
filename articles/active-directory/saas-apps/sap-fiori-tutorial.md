@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori'
-description: Learn how to configure single sign-on between Azure Active Directory and SAP Fiori.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with SAP Fiori'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SAP Fiori.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,60 +14,62 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with SAP Fiori
 
-In this tutorial, you'll learn how to integrate SAP Fiori with Azure Active Directory (Azure AD). When you integrate SAP Fiori with Azure AD, you can:
+In this tutorial, you'll learn how to integrate SAP Fiori with Microsoft Entra ID. When you integrate SAP Fiori with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to SAP Fiori.
-* Enable your users to be automatically signed-in to SAP Fiori with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to SAP Fiori.
+* Enable your users to be automatically signed-in to SAP Fiori with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SAP Fiori single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * SAP Fiori supports **SP** initiated SSO
 
 > [!NOTE]
-> For SAP Fiori initiated iFrame Authentication, we recommend using the **IsPassive** parameter in the SAML AuthnRequest for silent authentication. For more details of the **IsPassive** parameter refer to [Azure AD SAML single sign-on](../develop/single-sign-on-saml-protocol.md) information.
+> For SAP Fiori initiated iFrame Authentication, we recommend using the **IsPassive** parameter in the SAML AuthnRequest for silent authentication. For more details of the **IsPassive** parameter refer to [Microsoft Entra SAML single sign-on](../develop/single-sign-on-saml-protocol.md) information.
 
 ## Adding SAP Fiori from the gallery
 
-To configure the integration of SAP Fiori into Azure AD, you need to add SAP Fiori from the gallery to your list of managed SaaS apps.
+To configure the integration of SAP Fiori into Microsoft Entra ID, you need to add SAP Fiori from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **SAP Fiori** in the search box.
 1. Select **SAP Fiori** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for SAP Fiori
+<a name='configure-and-test-azure-ad-sso-for-sap-fiori'></a>
 
-Configure and test Azure AD SSO with SAP Fiori using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SAP Fiori.
+## Configure and test Microsoft Entra SSO for SAP Fiori
 
-To configure and test Azure AD SSO with SAP Fiori, perform the following steps:
+Configure and test Microsoft Entra SSO with SAP Fiori using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in SAP Fiori.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with SAP Fiori, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure SAP Fiori SSO](#configure-sap-fiori-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create SAP Fiori test user](#create-sap-fiori-test-user)** - to have a counterpart of B.Simon in SAP Fiori that is linked to the Azure AD representation of user.
+    1. **[Create SAP Fiori test user](#create-sap-fiori-test-user)** - to have a counterpart of B.Simon in SAP Fiori that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Open a new web browser window and sign in to your SAP Fiori company site as an administrator.
 
@@ -118,7 +120,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. In the **Provider Name** box, replace **T01122** with **http:\//T01122**, and then select **Save**.
 
     > [!NOTE]
-    > By default, the provider name is in the format \<sid>\<client>. Azure AD expects the name in the format \<protocol>://\<name>. We recommend that you maintain the provider name as https\://\<sid>\<client> so you can configure multiple SAP Fiori ABAP engines in Azure AD.
+    > By default, the provider name is in the format \<sid>\<client>. Microsoft Entra ID expects the name in the format \<protocol>://\<name>. We recommend that you maintain the provider name as https\://\<sid>\<client> so you can configure multiple SAP Fiori ABAP engines in Microsoft Entra ID.
 
     ![The updated provider name in the SAML 2.0 Configuration of ABAP System T01/122 page in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -128,7 +130,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![The Download Metadata link in the SAP SAML 2.0 Metadata dialog box](./media/sapfiori-tutorial/tutorial-sapnetweaver-generatesp.png)
 
-1. In the Azure portal, on the **SAP Fiori** application integration page, find the **Manage** section and select **single sign-on**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP Fiori** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -181,35 +184,41 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SAP Fiori.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **SAP Fiori**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+In this section, you'll enable B.Simon to use single sign-on by granting access to SAP Fiori.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **SAP Fiori**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure SAP Fiori SSO
 
 1. Sign in to the SAP system and go to transaction code **SAML2**. A new browser window opens with the SAML configuration page.
 
-1. To configure endpoints for a trusted identity provider (Azure AD), select the **Trusted Providers** tab.
+1. To configure endpoints for a trusted identity provider (Microsoft Entra ID), select the **Trusted Providers** tab.
 
     ![The Trusted Providers tab in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-samlconfig.png)
 
@@ -217,7 +226,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![The Add and Upload Metadata File options in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-uploadmetadata.png)
 
-1. Upload the metadata file that you downloaded in the Azure portal. Select **Next**.
+1. Upload the metadata file that you downloaded. Select **Next**.
 
     ![Select the metadata file to upload in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
 
@@ -257,15 +266,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![The Supported NameID Formats dialog box and options in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameid.png)
 
-    The values for **User ID Source** and **User ID Mapping Mode** determine the link between the SAP user and the Azure AD claim.  
+    The values for **User ID Source** and **User ID Mapping Mode** determine the link between the SAP user and the Microsoft Entra claim.  
 
-    **Scenario 1**: SAP user to Azure AD user mapping
+    **Scenario 1**: SAP user to Microsoft Entra user mapping
 
     1. In SAP, under **Details of NameID Format "Unspecified"**, note the details:
 
         ![Screenshot that shows the 'Details of NameID Format "Unspecified"' dialog box in S A P.](./media/sapfiori-tutorial/nameiddetails.png)
 
-    1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Azure AD.
+    1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Microsoft Entra ID.
 
         ![Screenshot that shows the "User Attributes & Claims" dialog box.](./media/sapfiori-tutorial/claimsaad1.png)
 
@@ -275,7 +284,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
         ![The Details of NameID Format "Unspecified" dialog box in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
-    1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Azure AD.
+    1. In the Azure portal, under **User Attributes & Claims**, note the required claims from Microsoft Entra ID.
 
         ![The User Attributes and Claims dialog box in the Azure portal](./media/sapfiori-tutorial/claimsaad2.png)
 
@@ -293,7 +302,7 @@ In this section, you create a user named Britta Simon in SAP Fiori. Work with yo
 
 ## Test SSO
 
-1. After the identity provider Azure AD is activated in SAP Fiori, try to access one of the following URLs to test single sign-on (you shouldn't be prompted for a username and password):
+1. After the identity provider Microsoft Entra ID is activated in SAP Fiori, try to access one of the following URLs to test single sign-on (you shouldn't be prompted for a username and password):
 
     * `https://<sap-url>/sap/bc/bsp/sap/it00/default.htm`
     * `https://<sap-url>/sap/bc/bsp/sap/it00/default.htm`
@@ -301,7 +310,7 @@ In this section, you create a user named Britta Simon in SAP Fiori. Work with yo
     > [!NOTE]
     > Replace `<sap-url>` with the actual SAP host name.
 
-1. The test URL should take you to the following test application page in SAP. If the page opens, Azure AD single sign-on is successfully set up.
+1. The test URL should take you to the following test application page in SAP. If the page opens, Microsoft Entra single sign-on is successfully set up.
 
     ![The standard test application page in SAP](./media/sapfiori-tutorial/testingsso.png)
 

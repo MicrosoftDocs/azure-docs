@@ -5,8 +5,7 @@ description: An overview of recommendations and guidelines when using keyword re
 services: cognitive-services
 author: hasyashah
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: hasshah

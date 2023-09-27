@@ -34,13 +34,13 @@ Cloud provisioning works with Single Sign-on.  Currently there is not an option 
 1. Call `Enable-AzureADSSOForest`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.
 
    > [!NOTE]
-   >The domain administrator credentials username must be entered in the SAM account name format  (contoso\johndoe or contoso.com\johndoe). We use the domain portion of the username to locate the Domain Controller of the Domain Administrator using DNS.
+   >The domain administrator credentials username must be entered in the SAM account name format (`contoso\johndoe` or `contoso.com\johndoe`). We use the domain portion of the username to locate the Domain Controller of the Domain Administrator using DNS.
 
    >[!NOTE]
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
 2. Repeat the preceding step for each Active Directory forest where you want to set up the feature.
 
-### Step 5. Enable the feature on your tenant
+### Step 5: Enable the feature on your tenant
 
 To turn on the feature on your tenant, call `Enable-AzureADSSO -Enable $true`.

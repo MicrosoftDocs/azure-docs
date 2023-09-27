@@ -1,8 +1,8 @@
 ---
 title: What is Azure Managed Grafana? 
 description: Read an overview of Azure Managed Grafana. Understand why and how to use Managed Grafana. 
-author: mcleanbyron 
-ms.author: mcleans 
+author: maud-lv 
+ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: overview 
 ms.date: 3/23/2023

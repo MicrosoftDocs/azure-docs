@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/26/2022
+ms.date: 09/13/2023
 ---
 
 # Enterprise security and governance for Azure Machine Learning
 
-In this article, you'll learn about security and governance features available for Azure Machine Learning. These features are useful for administrators, DevOps, and MLOps who want to create a secure configuration that is compliant with your companies policies. With Azure Machine Learning and the Azure platform, you can:
+In this article, you learn about security and governance features available for Azure Machine Learning. These features are useful for administrators, DevOps, and MLOps who want to create a secure configuration that is compliant with your companies policies. With Azure Machine Learning and the Azure platform, you can:
 
 * Restrict access to resources and operations by user account or groups
 * Restrict incoming and outgoing network communications
@@ -50,7 +50,7 @@ Each workspace has an associated system-assigned [managed identity](../active-di
 | Azure Container Registry | Contributor |
 | Resource group that contains the workspace | Contributor |
 
-The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token is not accessible to users and cannot be used by them to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
+The system-assigned managed identity is used for internal service-to-service authentication between Azure Machine Learning and other Azure resources. The identity token isn't accessible to users and they can't use it to gain access to these resources. Users can only access the resources through [Azure Machine Learning control and data plane APIs](how-to-assign-roles.md), if they have sufficient RBAC permissions.
 
 We don't recommend that admins revoke the access of the managed identity to the resources mentioned in the preceding table. You can restore access by using the [resync keys operation](how-to-change-storage-access-key.md).
 
@@ -77,15 +77,19 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) and [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using a virtual network reduces the attack surface for your solution, as well as the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use an [Azure Machine Learning managed virtual network](how-to-managed-network.md) or [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). Using a virtual network reduces the attack surface for your solution, and the chances of data exfiltration.
 
 You don't have to pick one or the other. For example, you can use a managed virtual network to secure managed compute resources and an Azure Virtual Network for your unmanaged resources or to secure client access to the workspace.
 
-* __Azure Machine Learning managed virtual network__ (preview) provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
+* __Azure Machine Learning managed virtual network__ provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications. The following managed compute resources are secured with a managed network:
 
-    [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+    * Serverless compute (including Spark serverless)
+    * Compute cluster
+    * Compute instance
+    * Managed online endpoints
+    * Batch online endpoints
 
-    For more information, see [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md).
+    For more information, see [Azure Machine Learning managed virtual network](how-to-managed-network.md).
 
 * __Azure Virtual Networks__ provides a more customizable virtual network offering. However, you're responsible for configuration and management. You may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
 
@@ -103,7 +107,7 @@ You don't have to pick one or the other. For example, you can use a managed virt
 
 ## Data encryption
 
-Azure Machine Learning uses a variety of compute resources and data stores on the Azure platform. To learn more about how each of these supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
+Azure Machine Learning uses various compute resources and data stores on the Azure platform. To learn more about how each of these resources supports data encryption at rest and in transit, see [Data encryption with Azure Machine Learning](concept-data-encryption.md).
 
 ## Data exfiltration prevention
 

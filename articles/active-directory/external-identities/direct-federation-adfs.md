@@ -1,6 +1,6 @@
 ---
 title: Set up SAML/WS-Fed IdP federation with an AD FS for B2B
-description: Learn how to set up AD FS as an identity provider (IdP) for SAML/WS-Fed IdP federation so guests can sign in to your Azure AD apps
+description: Learn how to set up AD FS as an identity provider (IdP) for SAML/WS-Fed IdP federation so guests can sign in to your Microsoft Entra apps
 
 services: active-directory
 ms.service: active-directory
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Example: Configure SAML/WS-Fed based identity provider federation with AD FS
 
 >[!NOTE]
->- *Direct federation* in Azure Active Directory is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
+>- *Direct federation* in Microsoft Entra External ID is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
 
 This article describes how to set up [SAML/WS-Fed IdP federation](direct-federation.md) using Active Directory Federation Services (AD FS) as either a SAML 2.0 or WS-Fed IdP. To support federation, certain attributes and claims must be configured at the IdP. To illustrate how to configure an IdP for federation, we’ll use Active Directory Federation Services (AD FS) as an example. We’ll show how to set up AD FS both as a SAML IdP and as a WS-Fed IdP.
 
@@ -27,7 +27,7 @@ This article describes how to set up [SAML/WS-Fed IdP federation](direct-federat
 
 ## Configure AD FS for SAML 2.0 federation
 
-Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed below. To illustrate the SAML configuration steps, this section shows how to set up AD FS for SAML 2.0.
+Microsoft Entra B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed below. To illustrate the SAML configuration steps, this section shows how to set up AD FS for SAML 2.0.
 
 To set up federation, the following attributes must be received in the SAML 2.0 response from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
 
@@ -76,7 +76,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 6. Leave the other settings in their default options. Continue to select **Next**, and finally select **Close** to close the wizard.
 7. In **AD FS Management**, under **Relying Party Trusts**, right click the relying party trust you just created and select **Properties**.
 8. In the **Monitoring** tab, uncheck the box **Monitor relying party**.
-9. In the **Identifiers** tab, enter ``https://login.microsoftonline.com/<tenant ID>/`` in the **Relying party identifier** text box using the tenant ID of the service partner’s Azure AD tenant. Select **Add**.
+9. In the **Identifiers** tab, enter ``https://login.microsoftonline.com/<tenant ID>/`` in the **Relying party identifier** text box using the tenant ID of the service partner’s Microsoft Entra tenant. Select **Add**.
 
 > [!NOTE]
 > Be sure to include a slash (/) after the tenant ID, for example: `https://login.microsoftonline.com/00000000-27d4-489f-a23b-00000000084d/`.
@@ -112,7 +112,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 
 ## Configure AD FS for WS-Fed federation
 
-Azure AD B2B can be configured to federate with IdPs that use the WS-Fed protocol with the specific requirements listed below. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. Here, we’ll use Active Directory Federation Services (AD FS) as an example of the WS-Fed IdP. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, download the Azure AD Identity Provider Compatibility Docs.
+Microsoft Entra B2B can be configured to federate with IdPs that use the WS-Fed protocol with the specific requirements listed below. Currently, the two WS-Fed providers have been tested for compatibility with Microsoft Entra External ID include AD FS and Shibboleth. Here, we’ll use Active Directory Federation Services (AD FS) as an example of the WS-Fed IdP. For more information about establishing a relying party trust between a WS-Fed compliant provider with Microsoft Entra External ID, download the Microsoft Entra identity provider compatibility docs.
 
 To set up federation, the following attributes must be received in the WS-Fed message from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
  
@@ -145,7 +145,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 7. Optionally, in the **Configure Certificate** page, if you have a token encryption certificate, select **Browse** to locate a certificate file. Select **Next**.
 8. In the **Configure URL** page, select the **Enable support for the WS-Federation Passive protocol** check box. Under **Relying party WS-Federation Passive protocol URL**, enter the following URL: `https://login.microsoftonline.com/login.srf`
 9. Select **Next**.
-10. In the **Configure Identifiers** page, enter the following URLs and select **Add**. In the second URL, enter the tenant ID of service partner's Azure AD tenant.
+10. In the **Configure Identifiers** page, enter the following URLs and select **Add**. In the second URL, enter the tenant ID of service partner's Microsoft Entra tenant.
       - `urn:federation:MicrosoftOnline`
       - `https://login.microsoftonline.com/<tenant ID>/` 
 
@@ -181,4 +181,4 @@ An AD FS server must already be set up and functioning before you begin this pro
 10. Select **OK**. The AD FS server is now configured for federation using WS-Fed.
 
 ## Next steps
-Next, you'll [configure SAML/WS-Fed IdP federation in Azure AD](direct-federation.md#step-3-configure-samlws-fed-idp-federation-in-azure-ad) either in the Azure portal or by using the Microsoft Graph API.
+Next, you'll [configure SAML/WS-Fed IdP federation in Microsoft Entra External ID](direct-federation.md#step-3-configure-samlws-fed-idp-federation-in-azure-ad) either in the Azure portal or by using the Microsoft Graph API.

@@ -5,7 +5,7 @@ description: Learn to use the Azure Blob storage trigger and bindings in Azure F
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 11/11/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Blob storage bindings for Azure Functions overview
@@ -64,6 +64,8 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
@@ -96,7 +98,7 @@ Functions version 1.x doesn't support isolated worker process.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -237,7 +239,8 @@ This section describes the function app configuration settings available for fun
     "version": "2.0",
     "extensions": {
         "blobs": {
-            "maxDegreeOfParallelism": 4
+            "maxDegreeOfParallelism": 4,
+            "poisonBlobThreshold": 1
         }
     }
 }
@@ -246,6 +249,7 @@ This section describes the function app configuration settings available for fun
 |Property  |Default | Description |
 |---------|---------|---------|
 |maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for all blob-triggered functions in a given function app. The minimum allowed value is 1.|
+|poisonBlobThreshold|5|The integer number of times to try processing a message before moving it to the poison queue. The minimum allowed value is 1.|
 
 ## Next steps
 

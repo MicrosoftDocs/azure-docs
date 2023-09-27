@@ -1,8 +1,8 @@
 ---
-title: Administrator guide | Microsoft Docs
+title: Administrator guide
 description: This guide helps administrators who create and manage lab plans by using Azure Lab Services. 
 ms.topic: how-to
-ms.date: 07/04/2022
+ms.date: 08/28/2023
 ms.custom: devdivchpfy22
 ---
 

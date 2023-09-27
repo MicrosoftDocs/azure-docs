@@ -6,8 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: ignite-fall-2021
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi

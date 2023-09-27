@@ -2,7 +2,7 @@
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/22/2022
+ms.date: 08/03/2023
 ms.devlang: golang, rust
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
@@ -29,8 +29,6 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
 
 # [Rust](#tab/rust)
@@ -41,11 +39,11 @@ Before you get started, make sure you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version 3.x. Use the `func --version` command to check that it is correctly installed.
-
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
 
 ---
+
+[!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

@@ -86,7 +86,7 @@ The Azure Stack Edge service collects personal information in the following scen
 
 To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge Pro FPGA](azure-stack-edge-manage-shares.md).
 
-For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trust-center).
 
 ## Next steps
 

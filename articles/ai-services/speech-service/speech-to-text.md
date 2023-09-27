@@ -5,8 +5,7 @@ description: Get an overview of the benefits and capabilities of the speech to t
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 04/05/2023
 ms.author: eur

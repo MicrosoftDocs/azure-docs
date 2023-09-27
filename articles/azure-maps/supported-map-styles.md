@@ -14,9 +14,6 @@ services: azure-maps
 
 Azure Maps supports several different built-in map styles as described in this article.
 
->[!important]
->The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps].
-
 ## road
 
 A **road** map is a standard map that displays roads. It also displays natural and artificial features, and the labels for those features.
@@ -167,7 +164,7 @@ Learn about how to set a map style in Azure Maps:
 > [Choose a map style]
 
 [Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
-[Map image]: /rest/api/maps/render/getmapimage
-[Map tile]: /rest/api/maps/render/getmaptile
+[Map image]: /rest/api/maps/render-v2/get-map-static-image
+[Map tile]: /rest/api/maps/render-v2/get-map-tile
 [Satellite tile]: /rest/api/maps/render/getmapimagerytilepreview
 [Choose a map style]: choose-map-style.md

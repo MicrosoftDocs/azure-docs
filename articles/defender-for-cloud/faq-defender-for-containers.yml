@@ -123,6 +123,11 @@ sections:
           - For the Docker v2 format, the manifest media type would be **application/vnd.docker.distribution.manifest.v1+json** or **application/vnd.docker.distribution.manifest.v2+json**, as documented [here](https://docs.docker.com/registry/spec/manifest-v2-2/).
           - For the OCI image format, the manifest media type would be **application/vnd.oci.image.manifest.v1+json**, and config media type **application/vnd.oci.image.config.v1+json**, as documented [here](https://specs.opencontainers.org/image-spec/media-types/).
 
+      - question: |
+          What's the agentless discovery for Kubernetes refresh interval?
+        answer: |
+          Agentless information in Defender for Containers is updated through a snapshot mechanism. It can take up to **6 hours** to see results in cloud security explorer.
+
 additionalContent: |
 
   ## Next steps

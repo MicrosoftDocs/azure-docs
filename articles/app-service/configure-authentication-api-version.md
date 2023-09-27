@@ -4,6 +4,8 @@ description: Upgrade your App Service authentication API to V2 or pin it to a sp
 ms.topic: article
 ms.date: 02/17/2023
 ms.custom: seodec18, devx-track-azurecli, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Manage the API and runtime versions of App Service authentication
@@ -17,17 +19,17 @@ There are two versions of the management API for App Service authentication. The
 > [!WARNING]
 > Migration to V2 will disable management of the App Service Authentication/Authorization feature for your application through some clients, such as its existing experience in the Azure portal, Azure CLI, and Azure PowerShell. This cannot be reversed.
 
-The V2 API does not support creation or editing of Microsoft Account as a distinct provider as was done in V1. Rather, it leverages the converged [Microsoft identity platform](../active-directory/develop/v2-overview.md) to sign-in users with both Azure AD and personal Microsoft accounts. When switching to the V2 API, the V1 Azure Active Directory (Azure AD) configuration is used to configure the Microsoft identity platform provider. The V1 Microsoft Account provider will be carried forward in the migration process and continue to operate as normal, but it is recommended that you move to the newer Microsoft Identity Platform model. See [Support for Microsoft Account provider registrations](#support-for-microsoft-account-provider-registrations) to learn more.
+The V2 API doesn't support creation or editing of Microsoft Account as a distinct provider as was done in V1. Rather, it uses the converged [Microsoft identity platform](../active-directory/develop/v2-overview.md) to sign-in users with both Azure AD and personal Microsoft accounts. When switching to the V2 API, the V1 Azure Active Directory (Azure AD) configuration is used to configure the Microsoft identity platform provider. The V1 Microsoft Account provider will be carried forward in the migration process and continue to operate as normal, but you should move to the newer Microsoft Identity Platform model. See [Support for Microsoft Account provider registrations](#support-for-microsoft-account-provider-registrations) to learn more.
 
 The automated migration process will move provider secrets into application settings and then convert the rest of the configuration into the new format. To use the automatic migration:
 
 1. Navigate to your app in the portal and select the **Authentication** menu option.
 1. If the app is configured using the V1 model, you'll see an **Upgrade** button.
-1. Review the description in the confirmation prompt. If you're ready to perform the migration, click **Upgrade** in the prompt.
+1. Review the description in the confirmation prompt. If you're ready to perform the migration, select **Upgrade** in the prompt.
 
 ### Manually managing the migration
 
-The following steps will allow you to manually migrate the application to the V2 API if you do not wish to use the automatic version mentioned above.
+The following steps will allow you to manually migrate the application to the V2 API if you don't wish to use the automatic version mentioned above.
 
 #### Moving secrets to application settings
 
@@ -63,9 +65,9 @@ The following steps will allow you to manually migrate the application to the V2
    > [!NOTE]
    > The application settings for this configuration should be marked as slot-sticky, meaning that they will not move between environments during a [slot swap operation](./deploy-staging-slots.md). This is because your authentication configuration itself is tied to the environment. 
 
-1. Create a new JSON file named `authsettings.json`. Take the output that you received previously and remove each secret value from it. Write the remaining output to the file, making sure that no secret is included. In some cases, the configuration may have arrays containing empty strings. Make sure that `microsoftAccountOAuthScopes` does not, and if it does, switch that value to `null`.
+1. Create a new JSON file named `authsettings.json`. Take the output that you received previously and remove each secret value from it. Write the remaining output to the file, making sure that no secret is included. In some cases, the configuration may have arrays containing empty strings. Make sure that `microsoftAccountOAuthScopes` doesn't, and if it does, switch that value to `null`.
 
-1. Add a property to `authsettings.json` which points to the application setting name you created earlier for each provider:
+1. Add a property to `authsettings.json` that points to the application setting name you created earlier for each provider:
  
    * Azure AD: `clientSecretSettingName`
    * Google: `googleClientSecretSettingName`
@@ -137,10 +139,10 @@ You've now migrated the app to store identity provider secrets as application se
 
 #### Support for Microsoft Account provider registrations
 
-If your existing configuration contains a Microsoft Account provider and does not contain an Azure AD provider, you can switch the configuration over to the Azure AD provider and then perform the migration. To do this:
+If your existing configuration contains a Microsoft Account provider and doesn't contain an Azure AD provider, you can switch the configuration over to the Azure AD provider and then perform the migration. To do this:
 
 1. Go to [**App registrations**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal and find the registration associated with your Microsoft Account provider. It may be under the "Applications from personal account" heading.
-1. Navigate to the "Authentication" page for the registration. Under "Redirect URIs" you should see an entry ending in `/.auth/login/microsoftaccount/callback`. Copy this URI.
+1. Navigate to the "Authentication" page for the registration. Under "Redirect URIs", you should see an entry ending in `/.auth/login/microsoftaccount/callback`. Copy this URI.
 1. Add a new URI that matches the one you just copied, except instead have it end in `/.auth/login/aad/callback`. This will allow the registration to be used by the App Service Authentication / Authorization configuration.
 1. Navigate to the App Service Authentication / Authorization configuration for your app.
 1. Collect the configuration for the Microsoft Account provider.

@@ -1,6 +1,6 @@
 ---
-title: Suspended domains in Azure AD Domain Services | Microsoft Docs
-description: Learn about the different health states for an Azure AD DS managed domain and how to restore a suspended domain.
+title: Suspended domains in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn about the different health states for a Microsoft Entra Domain Services managed domain and how to restore a suspended domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
 ---
-# Understand the health states and resolve suspended domains in Azure Active Directory Domain Services
+# Understand the health states and resolve suspended domains in Microsoft Entra Domain Services
 
-When Azure Active Directory Domain Services (Azure AD DS) is unable to service a managed domain for a long period of time, it puts the managed domain into a suspended state. If a managed domain remains in a suspended state, it's automatically deleted. To keep your Azure AD DS managed domain healthy and avoid suspension, resolve any alerts as quickly as you can.
+When Microsoft Entra Domain Services is unable to service a managed domain for a long period of time, it puts the managed domain into a suspended state. If a managed domain remains in a suspended state, it's automatically deleted. To keep your Domain Services managed domain healthy and avoid suspension, resolve any alerts as quickly as you can.
 
 This article explains why managed domains are suspended, and how to recover a suspended domain.
 
@@ -41,7 +41,7 @@ A managed domain that's configured correctly and without problems is in the *Run
 
 * The Azure platform can regularly monitor the health of the managed domain.
 * Domain controllers for the managed domain are patched and updated regularly.
-* Changes from Azure Active Directory are regularly synchronized to the managed domain.
+* Changes from Microsoft Entra ID are regularly synchronized to the managed domain.
 * Regular backups are taken for the managed domain.
 
 ## Needs Attention state
@@ -60,7 +60,7 @@ When a managed domain is in the *Needs Attention* state, the Azure platform may 
 
 * The managed domain is in an unhealthy state and ongoing health monitoring may stop until the alert is resolved.
 * Domain controllers for the managed domain can't be patched or updated.
-* Changes from Azure Active Directory may not be synchronized to the managed domain.
+* Changes from Microsoft Entra ID may not be synchronized to the managed domain.
 * Backups for the managed domain may not be taken.
 * If you resolve non-critical alerts that are impacting the managed domain, the health should return to the *Running* state.
 * Critical alerts are triggered for configuration issues where the Azure platform can't reach the domain controllers. If these critical alerts aren't resolved within 15 days, the managed domain enters the *Suspended* state.
@@ -70,7 +70,7 @@ When a managed domain is in the *Needs Attention* state, the Azure platform may 
 A managed domain enters the **Suspended** state for one of the following reasons:
 
 * One or more critical alerts haven't been resolved in 15 days.
-    * Critical alerts can be caused by a misconfiguration that blocks access to resources that are needed by Azure AD DS. For example, the alert [AADDS104: Network Error][alert-nsg] has been unresolved for more than 15 days in the managed domain.
+    * Critical alerts can be caused by a misconfiguration that blocks access to resources that are needed by Domain Services. For example, the alert [AADDS104: Network Error][alert-nsg] has been unresolved for more than 15 days in the managed domain.
 * There's a billing issue with the Azure subscription or the Azure subscription has expired.
 
 Managed domains are suspended when the Azure platform can't manage, monitor, patch, or back up the domain. A managed domain stays in a *Suspended* state for 15 days. To maintain access to the managed domain, resolve critical alerts immediately.
@@ -83,17 +83,17 @@ The following behavior is experienced when a managed domain is in the *Suspended
 * Secure LDAP access to the managed domain over the internet, if enabled, stops working.
 * There are failures in authenticating to the managed domain, logging on to domain-joined VMs, or connecting over LDAP/LDAPS.
 * Backups for the managed domain are no longer taken.
-* Synchronization with Azure AD stops.
+* Synchronization with Microsoft Entra ID stops.
 
 ### How do you know if your managed domain is suspended?
 
-You see an [alert][resolve-alerts] on the Azure AD DS Health page in the Azure portal that notes the domain is suspended. The state of the domain also shows *Suspended*.
+You see an [alert][resolve-alerts] on the Domain Services Health page in the Microsoft Entra admin center that notes the domain is suspended. The state of the domain also shows *Suspended*.
 
 ### Restore a suspended domain
 
 To restore the health of a managed domain that's in the *Suspended* state, complete the following steps:
 
-1. In the Azure portal, search for and select **Domain services**.
+1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Domain services**.
 1. Choose your managed domain from the list, such as *aaddscontoso.com*, then select **Health**.
 1. Select the alert, such as *AADDS503* or *AADDS504*, depending on the cause of suspension.
 1. Choose the resolution link that's provided in the alert and follow the steps to resolve it.
@@ -111,7 +111,7 @@ If a managed domain stays in the *Suspended* state for 15 days, it's deleted. Th
 When a managed domain enters the *Deleted* state, the following behavior is seen:
 
 * All resources and backups for the managed domain are deleted.
-* You can't restore the managed domain. You must create a replacement managed domain to reuse Azure AD DS.
+* You can't restore the managed domain. You must create a replacement managed domain to reuse Domain Services.
 * After it's deleted, you aren't billed for the managed domain.
 
 ## Next steps
@@ -120,5 +120,5 @@ To keep your managed domain healthy and minimize the risk of it becoming suspend
 
 <!-- INTERNAL LINKS -->
 [alert-nsg]: alert-nsg.md
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
 [resolve-alerts]: troubleshoot-alerts.md

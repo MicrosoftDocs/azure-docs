@@ -27,7 +27,6 @@ There's no limit to the number of users in a group.
 - It's important to specify the Cluster facing IP addresses for the jump hosts. These IP addresses may be different than the public facing IP address used to access the jump host.
 - Once added, users are able to access bare metal machines from any specified jump host IP including a jump host IP defined in another bare metal machine keyset group.
 - Existing SSH access remains when adding the first bare metal machine keyset. However, the keyset command limits an existing user's SSH access to the specified jump host IPs in the keyset commands.
-- Currently, only IPv4 jump host addresses are supported. There is a known issue that IPv4 jump host addresses may be mis-parsed and lost if IPv6 addresses are also specified in the `--jump-hosts-allowed` argument of an `az networkcloud cluster baremetalmachinekeyset` command. Use only IPv4 addresses until IPv6 support is added.
 
 ## Prerequisites
 

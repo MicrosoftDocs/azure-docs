@@ -2,12 +2,12 @@
 title: Manage a public IP address with Azure Bastion
 titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with Azure Bastion and how to change the configuration.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 06/28/2021
+ms.date: 09/19/2023
 ms.custom: template-how-to 
 ---
 
@@ -19,7 +19,7 @@ Azure Bastion is deployed to provide secure management connectivity to virtual m
 
 An Azure Bastion host requires a public IP address for its configuration.
 
-In this article, you'll learn how to create an Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion doesn't support public IP prefixes.
+In this article, you learn how to create an Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion supports assigning an IP address within an IP prefix range but not assigning the IP prefix range itself. 
 
 >[!NOTE]
 >[!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
@@ -32,13 +32,13 @@ In this article, you'll learn how to create an Azure Bastion host using an exist
 
 ## Create Azure Bastion using existing IP
 
-In this section, you'll create an Azure Bastion host. You'll select the IP address you created in the prerequisites as the public IP for bastion host.
+In this section, you create an Azure Bastion host. You select the IP address you created in the prerequisites as the public IP for bastion host.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the search box at the top of the portal, enter **Bastion**.
 
-3. In the search results, select **Bastions**.
+3. In the search results, select **Bastion**.
 
 4. Select **+ Create**.
 
@@ -52,8 +52,9 @@ In this section, you'll create an Azure Bastion host. You'll select the IP addre
     | **Instance details** |  |
     | Name | Enter **myBastionHost**. |
     | Region | Select **(US) West US 2**. |
+    | Tier | Select **Basic**. |
     | **Configure virtual network** |   |
-    | Virtual network | Select **Create new**. </br> Enter **myVNet** in **Name**. </br> Leave the default address space of **10.4.0.0/16**. </br> Leave the default subnet of **10.4.0.0/24**. </br> In the text box under the **default** subnet, enter **AzureBastionSubnet**. </br> In address range, enter **10.4.1.0/27**. </br> Select **OK**. |
+    | Virtual network | Select **Create new**. </br> Enter **myVNet** in **Name**. </br> Leave the default address space of **10.4.0.0/16**. </br> Leave the default subnet of **10.4.0.0/24**. </br> In the text box under the **default** subnet, enter **AzureBastionSubnet**. </br> In address range, enter **10.4.1.0/26**. </br> Select **OK**. |
     | Subnet | Select **AzureBastionSubnet**. |
     | **Public IP address** |   |
     | Public IP address | Select **Use existing**. |

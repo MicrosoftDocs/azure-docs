@@ -230,8 +230,6 @@ The following XML snippet is an example of a RESTful technical profile configure
 
 ## OAuth2 bearer authentication 
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 Bearer token authentication is defined in [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). In bearer token authentication, Azure AD B2C sends an HTTP request with a token in the authorization header.
 
 ```http
@@ -242,7 +240,6 @@ A bearer token is an opaque string. It can be a JWT access token or any string t
 
 - **Bearer token**. To be able to send the bearer token in the Restful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
 - **Static bearer token**. Use this approach when your REST API issues a long-term access token. To use a static bearer token, create a policy key and make a reference from the RESTful technical profile to your policy key. 
-
 
 ## Using OAuth2 Bearer  
 
@@ -276,16 +273,18 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 
 You can obtain an access token in one of several ways: by obtaining it [from a federated identity provider](idp-pass-through-user-flow.md), by calling a REST API that returns an access token, by using an [ROPC flow](../active-directory/develop/v2-oauth-ropc.md), or by using the [client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The client credentials flow is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user.
 
-#### Acquiring an Azure AD access token 
+<a name='acquiring-an-azure-ad-access-token-'></a>
 
-The following example uses a REST API technical profile to make a request to the Azure AD token endpoint using the client credentials passed as HTTP basic authentication. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
+#### Acquiring a Microsoft Entra access token 
 
-Before the technical profile can interact with Azure AD to obtain an access token, you need to register an application. Azure AD B2C relies the Azure AD platform. You can create the app in your Azure AD B2C tenant, or in any Azure AD tenant you manage. To register an application:
+The following example uses a REST API technical profile to make a request to the Microsoft Entra token endpoint using the client credentials passed as HTTP basic authentication. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). 
+
+Before the technical profile can interact with Microsoft Entra ID to obtain an access token, you need to register an application. Azure AD B2C relies the Microsoft Entra platform. You can create the app in your Azure AD B2C tenant, or in any Microsoft Entra tenant you manage. To register an application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD or Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
+1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra ID or Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the left menu, select **Microsoft Entra ID**. Or, select **All services** and search for and select **Microsoft Entra ID**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *Client_Credentials_Auth_app*.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
@@ -294,7 +293,7 @@ Before the technical profile can interact with Azure AD to obtain an access toke
 
 For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. The secret will be used by your application to acquire an access token.
 
-1. In the **Azure AD - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
+1. In the **Microsoft Entra ID - App registrations** page, select the application you created, for example *Client_Credentials_Auth_app*.
 1. In the left menu, under **Manage**, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.
@@ -320,7 +319,7 @@ You need to store the client ID and the client secret value that you previously 
     - **Name**: `SecureRESTClientSecret`.
     - **Secret**: enter your client secret that you previously recorded
 
-For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tenant. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
+For the ServiceUrl, replace your-tenant-name with the name of your Microsoft Entra tenant. See the [RESTful technical profile](restful-technical-profile.md) reference for all options available.
 
 ```xml
 <TechnicalProfile Id="REST-AcquireAccessToken">
@@ -399,7 +398,7 @@ After you add the above snippets, your technical profile should look like the fo
 
 ### Call the REST technical profile 
 
-To call the `REST-GetProfile` technical profile, you first need to acquire an Azure AD access token using the `REST-AcquireAccessToken` technical profile. The following example shows how to call the `REST-GetProfile` technical profile from a [validation technical profile](validation-technical-profile.md):
+To call the `REST-GetProfile` technical profile, you first need to acquire a Microsoft Entra access token using the `REST-AcquireAccessToken` technical profile. The following example shows how to call the `REST-GetProfile` technical profile from a [validation technical profile](validation-technical-profile.md):
 
 ```xml
 <ValidationTechnicalProfiles>
@@ -488,15 +487,18 @@ Add the validation technical profile reference to the sign up technical profile,
 
 
 
+
+
 For example:
-    ```XML
-    <ValidationTechnicalProfiles>
-       ....
-       <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
-       ....
-    </ValidationTechnicalProfiles>
-    ```
-    
+```ruby
+```XML
+<ValidationTechnicalProfiles>
+   ....
+   <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+   ....
+</ValidationTechnicalProfiles>
+```
+```
 
 ::: zone-end
 
@@ -530,7 +532,6 @@ To configure a REST API technical profile with API key authentication, create th
 1. In the **Secret** box, enter the REST API key.
 1. For **Key usage**, select **Encryption**.
 1. Select **Create**.
-
 
 ### Configure your REST API technical profile to use API key authentication
 

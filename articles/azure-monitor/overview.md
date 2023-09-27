@@ -118,7 +118,7 @@ For detailed information about data collection, see [data collection](./best-pra
 
 ## Data platform
 
-Azure Monitor stores data in data stores for each of the three pillars of observability, plus an addition one:
+Azure Monitor stores data in data stores for each of the three pillars of observability, plus an additional one:
  - metrics 
  - logs 
  - distributed traces  

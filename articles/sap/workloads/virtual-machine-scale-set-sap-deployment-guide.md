@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurepowershell
-ms.date: 06/30/2023
+ms.date: 09/25/2023
 ---
 
 # Virtual Machine Scale Sets for SAP workload
@@ -75,7 +75,7 @@ az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexibl
 
 # Create flexible scale set for deployment of SAP workload in a single zone of a region with platform fault domain count set to 1
 # Make sure you include --zones in a region with availability zones, even if you want to deploy all component on a single zone
-az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexible --zones {1} --platform-fault-domain-count 1
+az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexible --zones 1 --platform-fault-domain-count 1
 
 # Create flexible scale set for deployment of SAP workload in a region with no zones with platform fault domain count set to 1
 az vmss create -n $VMSSName -g $RGName -l $Location --orchestration-mode flexible --platform-fault-domain-count 1

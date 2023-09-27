@@ -8,6 +8,8 @@ ms.topic: sample
 ms.date: 04/21/2022
 ms.custom: mvc, devx-track-azurecli, seo-azure-cli, ignite-2022
 keywords: azure cli samples, azure cli examples, azure cli code samples
+ms.author: msangapu
+author: msangapu-msft
 ---
 # CLI samples for Azure App Service
 

@@ -59,7 +59,7 @@ Within minutes of launching Defender for Cloud for the first time, you might see
 
 ## Enable all paid plans on your subscription
 
-To enable all of the Defender for Cloud's protections, you need to enable the other paid plans for each of the workloads that you want to protect.
+To enable all of Defender for Cloud's protections, you need to enable the plans for the workloads that you want to protect.
 
 > [!NOTE]
 >
@@ -68,7 +68,7 @@ To enable all of the Defender for Cloud's protections, you need to enable the ot
 > - You can enable **Microsoft Defender for open-source relational databases** at the resource level only.
 > - The Microsoft Defender plans available at the workspace level are: **Microsoft Defender for Servers**, **Microsoft Defender for SQL servers on machines**.
 
-When you enabled Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
+When you enable Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
 
 **To enable additional paid plans on a subscription**:
 

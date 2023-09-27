@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect sync service features and configuration
-description: Describes service side features for Azure AD Connect sync service.
+title: Microsoft Entra Connect Sync service features and configuration
+description: Describes service side features for Microsoft Entra Connect Sync service.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,21 +18,21 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync service features
+# Microsoft Entra Connect Sync service features
 
-The synchronization feature of Azure AD Connect has two components:
+The synchronization feature of Microsoft Entra Connect has two components:
 
-* The on-premises component named **Azure AD Connect sync**, also called **sync engine**.
-* The service residing in Azure AD also known as **Azure AD Connect sync service**
+* The on-premises component named **Microsoft Entra Connect Sync**, also called **sync engine**.
+* The service residing in Microsoft Entra ID also known as **Microsoft Entra Connect Sync service**
 
-This topic explains how the following features of the **Azure AD Connect sync service** work and how you can configure them using Windows PowerShell.
+This topic explains how the following features of the **Microsoft Entra Connect Sync service** work and how you can configure them using PowerShell.
 
-These settings are configured by the [Azure Active Directory Module for Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
+These settings are configured by the [Azure AD PowerShell module](/previous-versions/azure/jj151815(v=azure.100)). Download and install it separately from Microsoft Entra Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
 
-To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.
+To see the configuration in your Microsoft Entra directory, run `Get-MsolDirSyncFeatures`.
 ![Get-MsolDirSyncFeatures result](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
 
-To see the configuration in your Azure AD directory using the Graph Powershell, use the following commands:
+To see the configuration in your Microsoft Entra directory using the Graph Powershell, use the following commands:
 ```powershell
 Connect-MgGraph -Scopes OnPremDirectorySynchronization.Read.All, OnPremDirectorySynchronization.ReadWrite.All
 
@@ -63,7 +63,7 @@ UserWritebackEnabled                             : True
 AdditionalProperties                             : {}
 ```
 
-Many of these settings can only be changed by Azure AD Connect.
+Many of these settings can only be changed by Microsoft Entra Connect.
 
 The following settings can be configured by `Set-MsolDirSyncFeature`:
 
@@ -75,19 +75,19 @@ The following settings can be configured by `Set-MsolDirSyncFeature`:
 After you have enabled a feature, it cannot be disabled again.
 
 > [!NOTE]
-> From August 24, 2016 the feature *Duplicate attribute resiliency* is enabled by default for new Azure AD directories. This feature will also be rolled out and enabled on directories created before this date. You will receive an email notification when your directory is about to get this feature enabled.
+> From August 24, 2016 the feature *Duplicate attribute resiliency* is enabled by default for new Microsoft Entra directories. This feature will also be rolled out and enabled on directories created before this date. You will receive an email notification when your directory is about to get this feature enabled.
 > 
 > 
 
-The following settings are configured by Azure AD Connect and cannot be modified by `Set-MsolDirSyncFeature`:
+The following settings are configured by Microsoft Entra Connect and cannot be modified by `Set-MsolDirSyncFeature`:
 
 | DirSyncFeature | Comment |
 | --- | --- |
-| DeviceWriteback |[Azure AD Connect: Enabling device writeback](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Azure AD Connect sync: Directory extensions](how-to-connect-sync-feature-directory-extensions.md) |
+| DeviceWriteback |[Microsoft Entra Connect: Enabling device writeback](how-to-connect-device-writeback.md) |
+| DirectoryExtensions |[Microsoft Entra Connect Sync: Directory extensions](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
-| Password Hash Sync |[Implementing password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md) |
-|Pass-through Authentication|[User sign-in with Azure Active Directory Pass-through Authentication](how-to-connect-pta.md)|
+| Password Hash Sync |[Implementing password hash synchronization with Microsoft Entra Connect Sync](how-to-connect-password-hash-synchronization.md) |
+|Pass-through Authentication|[User sign-in with Microsoft Entra pass-through authentication](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |Group writeback|
 | UserWriteback |Not currently supported. |
 
@@ -97,11 +97,11 @@ Instead of failing to provision objects with duplicate UPNs / proxyAddresses, th
 
 ## UserPrincipalName soft match
 
-When this feature is enabled, soft-match is enabled for UPN in addition to the [primary SMTP address](https://support.microsoft.com/kb/2641663), which is always enabled. Soft-match is used to match existing cloud users in Azure AD with on-premises users.
+When this feature is enabled, soft-match is enabled for UPN in addition to the [primary SMTP address](https://support.microsoft.com/kb/2641663), which is always enabled. Soft-match is used to match existing cloud users in Microsoft Entra ID with on-premises users.
 
 If you need to match on-premises AD accounts with existing accounts created in the cloud and you are not using Exchange Online, then this feature is useful. In this scenario, you generally don’t have a reason to set the SMTP attribute in the cloud.
 
-This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
+This feature is on by default for newly created Microsoft Entra directories. You can see if this feature is enabled for you by running:  
 
 ```powershell
 ## Using the MSOnline module
@@ -112,7 +112,7 @@ $Config = Get-MgDirectoryOnPremisSynchronization
 $Config.Features.SoftMatchOnUpnEnabled
 ```
 
-If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
+If this feature is not enabled for your Microsoft Entra directory, then you can enable it by running:  
 
 ```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
@@ -140,7 +140,7 @@ Historically, updates to the UserPrincipalName attribute using the sync service 
 
 Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync or pass-through authentication.
 
-This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
+This feature is on by default for newly created Microsoft Entra directories. You can see if this feature is enabled for you by running:  
 
 ```powershell
 ## Using the MSOnline module
@@ -151,7 +151,7 @@ $config = Get-MgDirectoryOnPremisSynchronization
 $config.Features.SynchronizeUpnForManagedUsersEnabled
 ```
 
-If this feature is not enabled for your Azure AD directory, then you can enable it by running:  
+If this feature is not enabled for your Microsoft Entra directory, then you can enable it by running:  
 
 ```powershell
 Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
@@ -161,5 +161,5 @@ After enabling this feature, existing userPrincipalName values will remain as-is
 
 ## See also
 
-* [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+* [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

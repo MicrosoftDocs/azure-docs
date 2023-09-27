@@ -5,8 +5,7 @@ description: Learn how to use Docker containers for Key Phrase Extraction on-pre
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 04/11/2023
 ms.author: jboback

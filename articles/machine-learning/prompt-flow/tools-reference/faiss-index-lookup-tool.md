@@ -16,18 +16,17 @@ ms.date: 06/30/2023
 
 Faiss Index Lookup is a tool tailored for querying within a user-provided Faiss-based vector store. In combination with our Large Language Model (LLM) tool, it empowers users to extract contextually relevant information from a domain knowledge base.
 
-## Requirements
-- embeddingstore --extra-index-url https://azuremlsdktestpypi.azureedge.net/embeddingstore
-
 ## Prerequisites
 - Prepare an accessible path on Azure Blob Storage. Here's the guide if a new storage account needs to be created:  [Azure Storage Account](../../../storage/common/storage-account-create.md).
-- Create related Faiss-based index files on Azure Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files, which can be prepared either by employing our EmbeddingStore SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss). Please refer to [the sample notebook for creating Faiss index](https://aka.ms/pf-sample-build-faiss-index) for building index using EmbeddingStore SDK.
+- Create related Faiss-based index files on Azure Blob Storage. We support the LangChain format (index.faiss + index.pkl) for the index files, which can be prepared either by employing promptflow-vectordb SDK or following the quick guide from [LangChain documentation](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss). Please refer to [the sample notebook for creating Faiss index](https://aka.ms/pf-sample-build-faiss-index) for building index using promptflow-vectordb SDK.
 - Based on where you put your own index files, the identity used by the promptflow runtime should be granted with certain roles. Please refer to [Steps to assign an Azure role](../../../role-based-access-control/role-assignments-steps.md):
 
     | Location | Role |
     | ---- | ---- |
     | workspace datastores or workspace default blob | AzureML Data Scientist |
     | other blobs | Storage Blob Data Reader |
+> [!NOTE]
+> When legacy tools switching to code first mode, if you encounter "'embeddingstore.tool.faiss_index_lookup.search' is not found" error, please refer to the [Troubleshoot Guidance](./troubleshoot-guidance.md).
 
 ## Inputs
 
@@ -41,7 +40,7 @@ The tool accepts the following inputs:
 
 ## Outputs
 
-The following is an example for JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by our EmbeddingStore SDK. For the Faiss Index Search, the following fields are populated:
+The following is an example for JSON format response returned by the tool, which includes the top-k scored entities. The entity follows a generic schema of vector search result provided by promptflow-vectordb SDK. For the Faiss Index Search, the following fields are populated:
 
 | Field Name | Type | Description |
 | ---- | ---- | ----------- |

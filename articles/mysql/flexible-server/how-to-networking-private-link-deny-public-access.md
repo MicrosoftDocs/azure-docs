@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Deny Public Network Access in Azure Database for MySQL - Flexible Server using Azure portal (Preview)
+# Deny Public Network Access in Azure Database for MySQL - Flexible Server using Azure portal 
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -47,3 +47,4 @@ This article describes how you can configure an Azure Database for MySQL flexibl
 - Learn how to [manage connectivity](concepts-networking.md) to your Azure Database for MySQL flexible Server.
 - Learn how to [add another layer of encryption to your Azure Database for MySQL flexible server using [Customer Managed Keys](concepts-customer-managed-key.md).
 - Learn how to configure and use [Azure AD authentication](concepts-azure-ad-authentication.md) on your Azure Database for MySQL flexible server.
+

@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Gateway overview | Microsoft Docs
 description: Describes Azure Data Box Gateway, a virtual appliance storage solution that enables you to transfer data into Azure
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
 ms.date: 05/26/2021
-ms.author: alkohli
+ms.author: shaas
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
 # What is Azure Data Box Gateway?

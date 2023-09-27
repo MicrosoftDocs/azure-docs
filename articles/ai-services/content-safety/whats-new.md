@@ -5,8 +5,7 @@ description: Stay up to date on recent releases and updates to Azure AI Content 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: overview
 ms.date: 04/07/2023

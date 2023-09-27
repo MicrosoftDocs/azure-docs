@@ -1845,7 +1845,7 @@ Learn more about migrating to Azure Maps:
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[road tiles]: /rest/api/maps/render/getmaptile
+[road tiles]: /rest/api/maps/render-v2/get-map-tile
 [satellite tiles]: /rest/api/maps/render/getmapimagerytile
 [Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
 [Search for points of interest]: map-search-location.md

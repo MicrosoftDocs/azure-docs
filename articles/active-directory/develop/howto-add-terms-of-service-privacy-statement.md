@@ -1,6 +1,6 @@
 ---
 title: Terms of Service and privacy statement for apps
-description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
+description: Learn how you can configure the terms of service and privacy statement for apps registered to use Microsoft Entra ID.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # Configure terms of service and privacy statement for an app
 
-Developers who build and manage multi-tenant apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
+Developers who build and manage multi-tenant apps that integrate with Microsoft Entra ID and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
 
 You are responsible for creating the terms of service and privacy statement documents for your app, and for providing the URLs to these documents. For multi-tenant apps that fail to provide these links, the user consent experience for your app will show an alert, which may discourage users from consenting to your app.
 
@@ -47,27 +47,25 @@ Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-st
 
 When the terms of service and privacy statement are ready, you can add links to these documents in your app using one of these methods:
 
-* [Through the Azure portal](#azure-portal)
+* [Through the Microsoft Entra admin center](#entra-admin-center)
 * [Using the app object JSON](#app-object-json)
 * [Using the Microsoft Graph API](#msgraph-rest-api)
 
-### <a name="azure-portal"></a>Using the Azure portal
+### <a name="entra-admin-center"></a>Using the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Follow these steps in the Azure portal.
+Follow these steps to add links:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).
-2. Navigate to the **App registrations** section and select your app.
-3. Under **Manage**, select **Branding & properties**.
-4. Fill out the **Terms of service URL** and **Privacy statement URL** fields.
-5. Select **Save**.
-
-    ![App properties contains terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](../roles/permissions-reference.md#application-developer).
+1. Browse to **Identity** > **User experiences** > **Company branding**.
+1. Select **Getting started**, and then select **Edit** for the **Default sign-in experience**.
+1. Select **Footer** and fill out the URL for **Terms of Use** and **Privacy & Cookies**.
+1. Select **Review + save**.
 
 ### <a name="app-object-json"></a>Using the app object JSON
 
-If you prefer to modify the app object JSON directly, you can use the manifest editor in the Azure portal or Application Registration Portal to include links to your app's terms of service and privacy statement.
+If you prefer to modify the app object JSON directly, you can use the manifest editor to include links to your app's terms of service and privacy statement.
 
 1. Navigate to the **App Registrations** section and select your app.
 2. Open the **Manifest** pane.
@@ -101,4 +99,4 @@ PATCH https://graph.microsoft.com/v1.0/applications/{applicationObjectId}
 
 > [!NOTE]
 > * Be careful not to overwrite any pre-existing values you have assigned to any of these fields: `supportUrl`, `marketingUrl`, and `logoUrl`
-> * The Microsoft Graph API only works when you sign in with an Azure AD account. Personal Microsoft accounts are not supported.
+> * The Microsoft Graph API only works when you sign in with a Microsoft Entra account. Personal Microsoft accounts are not supported.

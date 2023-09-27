@@ -4,8 +4,7 @@ description: In this quickstart, get started using Content Safety to analyze tex
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: include
 ms.date: 04/11/2023

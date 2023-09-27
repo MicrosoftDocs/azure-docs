@@ -177,7 +177,7 @@ When the user selects the **Sign in** link, which triggers the `/auth/signin` ro
 
 # [Python](#tab/python)
 
-When the user selects the **Sign in** link, they're brought to the Microsoft Identity Platform authorization endpoint. 
+When the user selects the **Sign in** link, they're brought to the Microsoft identity platform authorization endpoint. 
 
 A successful sign-in redirects the user to the `auth_response` route, which completes the sign-in process using [`auth.complete_login`](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth.complete_log_in), renders errors if any, and redirects the now authenticated user to the home page. 
 
@@ -306,7 +306,7 @@ In the Python quickstart, the sign-out button is located in the *templates/index
 
 In previous versions of the ASP.NET core templates, the `Account` controller was embedded with the web app. That's no longer the case because the controller is now part of the **Microsoft.Identity.Web.UI** NuGet package. See [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) for details.
 
-- Sets an OpenID redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has completed the sign-out.
+- Sets an OpenID redirect URI to `/Account/SignedOut` so that the controller is called back when Microsoft Entra ID has completed the sign-out.
 - Calls `Signout()`, which lets the OpenID Connect middleware contact the Microsoft identity platform `logout` endpoint. The endpoint then:
 
   - Clears the session cookie from the browser.
@@ -407,7 +407,7 @@ In the Python quickstart, the post-logout redirect URI just displays the *index.
 
 ## Protocol
 
-If you want to learn more about sign-out, read the protocol documentation that's available from [Open ID Connect](./v2-protocols-oidc.md).
+If you want to learn more about sign-out, read the protocol documentation that's available from [OpenID Connect](./v2-protocols-oidc.md).
 
 ## Next steps
 

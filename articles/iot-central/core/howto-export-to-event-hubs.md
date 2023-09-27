@@ -32,8 +32,6 @@ Event Hubs destinations let you configure the connection with a *connection stri
 
 # [Connection string](#tab/connection-string)
 
-
-
 If you don't have an existing Event Hubs namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Event Hubs namespace, and event hub. It then prints the connection string to use when you configure the data export in IoT Central:
 
 ```azurecli-interactive
@@ -113,6 +111,8 @@ To create the Event Hubs destination in IoT Central on the **Data export** page:
 1. Enter the host name of your Event Hubs resource. Then enter the case-sensitive event hub name. A host name looks like: `contoso-waste.servicebus.windows.net`.
 
 1. Select **Save**.
+
+If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshoot-data-export.md).
 
 ---
 

@@ -172,12 +172,12 @@ description: Steps on how to integrate CallKit with ACS Calling SDK
   }
   ```
   
- ## CallKit Integration (within App)
+## CallKit Integration (within App)
   
   If you wish to integrate the CallKit within the app and not use the CallKit implementation in the SDK, refer to the quickstart sample [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
   But one of the important things to take care of is to start the audio at the right time. Like following
   
- ```Swift
+```Swift
 let outgoingAudioOptions = OutgoingAudioOptions()
 outgoingAudioOptions.muted = true
 

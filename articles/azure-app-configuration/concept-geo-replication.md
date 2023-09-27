@@ -1,8 +1,8 @@
 ---
 title: Geo-replication in Azure App Configuration
 description: Details of the geo-replication feature in Azure App Configuration. 
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: 
 ms.topic: conceptual
@@ -43,6 +43,12 @@ To add once these links become available:
 ## Cost and billing 
 
 Each replica created will add extra charges. Reference the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/) for details. As an example, if your origin is a standard tier configuration store and you have five replicas, you would be charged the rate of six standard tier configuration stores for your system, but each of your replica's isolated quota and requests are included in this charge.
+
+## Monitoring
+
+To offer insights into the characteristics of the geo-replication feature, App Configuration provides a metric named **Replication Latency**. The replication latency metric describes how long it takes for data to replicate from one region to another.
+
+For more information on the replication latency metric and other App Configuration metrics see [Monitoring App Configuration data reference](./monitor-app-configuration-reference.md).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Take a point-in-time snapshot of a persistent volume and restore it
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/03/2023
+ms.date: 09/12/2023
 ms.author: kendownie
 ---
 
@@ -15,8 +15,7 @@ ms.author: kendownie
 
 - This article requires version 2.0.64 or later of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
 - You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs). 
-- Follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md) to assign [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the AKS managed identity and install Azure Container Storage Preview.
-- This article assumes you've already created a storage pool and persistent volume claim (PVC) using either [Azure Disks](use-container-storage-with-managed-disks.md) or [ephemeral disk (local storage)](use-container-storage-with-local-disk.md). Azure Elastic SAN Preview doesn't support volume snapshots.
+- This article assumes you've already installed Azure Container Storage on your AKS cluster, and that you've created a storage pool and persistent volume claim (PVC) using either [Azure Disks](use-container-storage-with-managed-disks.md) or [ephemeral disk (local storage)](use-container-storage-with-local-disk.md). Azure Elastic SAN Preview doesn't support volume snapshots.
 
 ## Create a volume snapshot class
 
@@ -132,16 +131,16 @@ Now you can create a new persistent volume claim that uses the volume snapshot a
 > [!TIP]
 > If you already created a restored persistent volume claim and want to apply the yaml file again to correct an error or make a change, you'll need to first delete the old persistent volume claim before applying the yaml file again: `kubectl delete pvc <pvc-name>`.
 
-## Delete the original pod
+## Delete the original pod (optional)
 
-Before you create a new pod, you'll need to delete the original pod that you created the snapshot from.
+Before you create a new pod, you might want to delete the original pod that you created the snapshot from.
 
-1. Run `kubectl get pods` to list the pods. Make sure you're deleting the right one.
+1. Run `kubectl get pods` to list the pods. Make sure you're deleting the right pod.
 1. To delete the pod, run `kubectl delete pod <pod-name>`.
 
 ## Create a new pod using the restored snapshot
 
-Once you've deleted the original pod, you can create a new pod using the restored persistent volume claim. Create the pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
+Next, create a new pod using the restored persistent volume claim. Create the pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pod2.yaml`.
 

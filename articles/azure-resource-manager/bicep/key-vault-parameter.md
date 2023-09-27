@@ -202,6 +202,15 @@ module sql './sql.bicep' = {
 }
 ```
 
+Also, `getSecret` function (or with the namespace qualifier `az.getSecret`) can be used in a `.bicepparam` file to retrieve the value of a secret from a key vault.
+
+```bicep
+using './main.bicep'
+
+param secureUserName = getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretUserName', 'exampleSecretVersion')
+param securePassword = az.getSecret('exampleSubscription', 'exampleResourceGroup', 'exampleKeyVault', 'exampleSecretPassword')
+```
+
 ## Reference secrets in parameters file
 
 If you don't want to use a module, you can reference the key vault directly in the parameters file. The following image shows how the parameters file references the secret and passes that value to the Bicep file.

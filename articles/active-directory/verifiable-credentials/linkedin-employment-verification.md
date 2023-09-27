@@ -76,7 +76,7 @@ Currently the solution works through the embedded webview. In the future LinkedI
 
 ### How do users sign-in?
 
-The Webapp is protected using Microsoft Entra Azure Active directory. Users sign-in according to the administrator's policy, either with passwordless, regular username and password, with or without MFA, etc. This is proof a user is allowed to get issued a verified employee ID.
+The Webapp is protected using Microsoft Entra ID. Users sign-in according to the administrator's policy, either with passwordless, regular username and password, with or without MFA, etc. This is proof a user is allowed to get issued a verified employee ID.
 
 ### What happens when an employee leaves the organization?
 

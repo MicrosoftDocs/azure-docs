@@ -1,8 +1,7 @@
 ---
 title: Plan your app - question answering
 description: Learn how to plan your question answering app. Understand how question answering works and interacts with other Azure services and some project concepts.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: conceptual

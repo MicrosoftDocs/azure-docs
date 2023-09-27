@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Media Stats (Windows)
-titleSuffix: An Azure Communication Services concept document
-description: Provides usage samples of the Media Stats feature Windows Native.
+title: Azure Communication Services media quality statistics (Windows)
+titleSuffix: An Azure Communication Services concept article
+description: Get usage samples of the media quality statistics feature for Windows native.
 author: jsaurezle-msft
 ms.author: jsaurezlee
 
@@ -12,64 +12,63 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-## Media quality statistics for ongoing call
+## Media quality statistics for an ongoing call
 
-[!INCLUDE [public-preview-notes](../../../../includes/public-preview-include.md)]
-
-Media quality statistics is an extended feature of the core `CommunicationCall` API. You first need to obtain the MediaStats feature API object:
+Media quality statistics is an extended feature of the core `CommunicationCall` API. You first need to obtain the `MediaStatsCallFeature` API object:
 
 ```csharp
 MediaStatsCallFeature mediaStatsCallFeature = call.Features.MediaStats;
 ```
 
-The Media Stats feature object have the following API structure:
-- `SampleReported`: Event for listening for periodic reports of the Media Stats.
-- `SampleIntervalInSeconds`: Gets and sets the interval in seconds of the Media Stats report generation. If not specified, sdk use defaults.
-- A `MediaStatsReport` object that contains the definition of the Outgoing and Incoming Media Stats categorized by Audio, Video and Screen Share.
-  - `OutgoingMediaStats`: The list of Media Stats for Outgoing media.
-    - `Audio`: The list of Media Stats for the Outgoing Audio.
-    - `Video`: The list of Media Stats for the Outgoing Video.
-    - `ScreenShare`: The list of Media Stats for the Outgoing Screen Share. 
-  - `IncomingStats`: The list of Media Stats for Incoming media.
-    - `Audio`: The list of Media Stats for the Incoming Audio.
-    - `Video`: The list of Media Stats for the Incoming Video.
-    - `ScreenShare`: The list of Media Stats for the Incoming Screen Share. 
+The `MediaStatsCallFeature` feature object has the following API structure:
+
+- The `SampleReported` event listens for periodic reports of the media statistics.
+- `SampleIntervalInSeconds` gets and sets the interval, in seconds, of the media statistics report generation. If it's not specified, the SDK uses defaults.
+- A `MediaStatsReport` object contains the definition of the outgoing and incoming media statistics, categorized by audio, video, and screen share.
+  - `OutgoingMediaStats`: The list of media statistics for outgoing media.
+    - `Audio`: The list of media statistics for the outgoing audio.
+    - `Video`: The list of media statistics for the outgoing video.
+    - `ScreenShare`: The list of media statistics for the outgoing screen share.
+  - `IncomingStats`: The list of media statistics for incoming media.
+    - `Audio`: The list of media statistics for the incoming audio.
+    - `Video`: The list of media statistics for the incoming video.
+    - `ScreenShare`: The list of media statistics for the incoming screen share.
   - `GeneratedAt`: The date when the report was generated.
-  - `GetIncomingMediaStatsFromParticipant`: Gets the `IncomingMediaStats` for a `RemoteParticipant`.
+  - `GetIncomingMediaStatsFromParticipant`: Gets the `IncomingMediaStats` value for `RemoteParticipant`.
 
 Then, subscribe to the `SampleReported` event to get regular updates about the current media quality statistics:
 
 ```csharp
 mediaStatsCallFeature.SampleReported += MediaStatsCallFeature_SampleReported;
-// Optional, set the interval for Media Stats report generation
+// Optionally, set the interval for media statistics report generation
 mediaStatsCallFeature.SampleReportedIntervalInSeconds = 15;
 
 private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsReportEventArgs args)
-    // Obtain the Media Stats Report instance.
+    // Obtain the media statistics report instance
     MediaStatsReport report = args.Report;
 
-    // Obtain the Outgoing Media Stats for Audio
+    // Obtain the outgoing media statistics for audio
     IReadOnlyList<OutgoingAudioMediaStats> outgoingAudioMediaStats = report.OutgoingMediaStats.Audio;
 
-    // Obtain the Outgoing Media Stats for Video
+    // Obtain the outgoing media statistics for video
     IReadOnlyList<OutgoingVideoMediaStats> outgoingVideoMediaStats = report.OutgoingMediaStats.Video;
 
-    // Obtain the Outgoing Media Stats for Screen Share
+    // Obtain the outgoing media statistics for screen share
     IReadOnlyList<OutgoingScreenShareMediaStats> outgoingScreenShareMediaStats = report.OutgoingMediaStats.ScreenShare;
 
-    // Obtain the Incoming Media Stats for Audio
+    // Obtain the incoming media statistics for audio
     IReadOnlyList<IncomingAudioMediaStats> incomingAudioMediaStats = report.IncomingMediaStats.Audio;
 
-    // Obtain the Incoming Media Stats for Video
+    // Obtain the incoming media statistics for video
     IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats = report.IncomingMediaStats.Video;
 
-    // Obtain the Incoming Media Stats for Screen Share
+    // Obtain the incoming media statistics for screen share
     IReadOnlyList<IncomingScreenShareMediaStats> incomingScreenShareMediaStats = report.IncomingMediaStats.ScreenShare;
 }
 ```
 
-Also, `MediaStatsReport` have a helper method to obtain the `IncomingMediaStats` for a particular `RemoteParticipant`.
-For example, in order to get the `IncomingMediaStats` for all the `RemoteParticipants` in the call you can:
+Also, `MediaStatsReport` has a helper method to obtain the `IncomingMediaStats` value for a particular `RemoteParticipant` instance.
+For example, to get the `IncomingMediaStats` value for all the remote participants in the call, you can use:
 
 ```csharp
 private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsReportEventArgs args)
@@ -77,16 +76,16 @@ private void MediaStatsCallFeature_SampleReported(object sender, MediaStatsRepor
     foreach (RemoteParticipant remoteParticipant in remoteParticipants)
     {
         IncomingMediaStatsDetails incomingMediaStatsDetails = report.GetIncomingMediaStatsFromParticipant(remoteParticipant.Identifier);
-        // Obtain the Incoming Media Stats for Audio
+        // Obtain the incoming media statistics for audio
         IReadOnlyList<IncomingAudioMediaStats> incomingAudioMediaStats = incomingMediaStatsDetails.Audio;
     
-        // Obtain the Incoming Media Stats for Video
+        // Obtain the incoming media statistics for video
         IReadOnlyList<IncomingVideoMediaStats> incomingVideoMediaStats = incomingMediaStatsDetails.Video;
     
-        // Obtain the Incoming Media Stats for Screen Share
+        // Obtain the incoming media statistics for screen share
         IReadOnlyList<IncomingScreenShareMediaStats> incomingScreenShareMediaStats = incomingMediaStatsDetails.ScreenShare;
     }
 }
 ```
 
-[!INCLUDE [native matrics](media-stats-native-metrics.md)]
+[!INCLUDE [native metrics](media-stats-native-metrics.md)]

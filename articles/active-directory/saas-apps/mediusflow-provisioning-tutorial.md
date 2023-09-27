@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure MediusFlow for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to MediusFlow.
+title: 'Tutorial: Configure MediusFlow for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to automatically provision and de-provision user accounts from Microsoft Entra ID to MediusFlow.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,14 +15,14 @@ ms.author: thwimmer
 
 # Tutorial: Configure MediusFlow for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both MediusFlow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [MediusFlow](https://www.mediusflow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both MediusFlow and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users and groups to [MediusFlow](https://www.mediusflow.com/) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in MediusFlow
 > * Remove users in MediusFlow when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and MediusFlow
+> * Keep user attributes synchronized between Microsoft Entra ID and MediusFlow
 > * Provision groups and group memberships in MediusFlow
 > * Single sign-on to MediusFlow (recommended)
 
@@ -30,27 +30,29 @@ This tutorial describes the steps you need to perform in both MediusFlow and Azu
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md) 
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * An active MediusFlow subscription with a Quality assurance or Production tenant.
 * A user account in MediusFlow with admin access rights to be able to carry out the configuration within MediusFlow.
 * The companies added in the MediusFlow tenant where the users should be provisioned to.
 
-## Step 1. Plan your provisioning deployment
+## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and MediusFlow](../app-provisioning/customize-application-attributes.md). 
+3. Determine what data to [map between Microsoft Entra ID and MediusFlow](../app-provisioning/customize-application-attributes.md). 
 
-## Step 2. Configure MediusFlow to support provisioning with Azure AD
+<a name='step-2-configure-mediusflow-to-support-provisioning-with-azure-ad'></a>
+
+## Step 2: Configure MediusFlow to support provisioning with Microsoft Entra ID
 
 ### Activate the Microsoft 365 app within MediusFlow
-Start by enabling the access of the Azure AD login and the Azure AD configuration feature within MediusFlow by performing the following steps:
+Start by enabling the access of the Microsoft Entra login and the Microsoft Entra configuration feature within MediusFlow by performing the following steps:
 
 #### User login
 To enable the login flow to Microsoft 365/Azure AD refer to [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
 
 #### User transfer configuration
-To enable the configuration portal of the users for provisioning from Azure AD refer to [this](
+To enable the configuration portal of the users for provisioning from Microsoft Entra ID refer to [this](
 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) article.
 
 #### Configure user provisioning
@@ -63,7 +65,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 	![Verify](./media/mediusflow-provisioning-tutorial/2-verify-connection.png)
 
-3. Provide the Azure AD tenant ID.
+3. Provide the Microsoft Entra tenant ID.
 
 	![provide Tenant ID](./media/mediusflow-provisioning-tutorial/3-provide-azuread-tenantid.png)
 
@@ -77,7 +79,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 	:::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot of the MediusFlow admin console that shows the fifth integration step. The Use user provisioning and Ok buttons are highlighted." border="false":::
 
-6. Click on **Generate Secret Key**. Copy and save this value.This value will be entered in the **Secret Token** field in the **Provisioning** tab of your MediusFLow application in the Azure portal.
+6. Click on **Generate Secret Key**. Copy and save this value.This value will be entered in the **Secret Token** field in the **Provisioning** tab of your MediusFLow application.
 
 	:::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Generate secret key and Copy buttons are highlighted." border="false":::
 
@@ -97,34 +99,39 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 	:::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Save button is highlighted." border="false":::
 
-11. To get the user provisioning link click on **Copy SCIM Link**. Copy and save this value. This value is entered in the **Tenant URL** field in the **Provisioning** tab of your MediusFLow application in the Azure portal.
+11. To get the user provisioning link click on **Copy SCIM Link**. Copy and save this value. This value is entered in the **Tenant URL** field in the **Provisioning** tab of your MediusFLow application.
  
 	:::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Copy S C I M link button is highlighted." border="false":::
 
-## Step 3. Add MediusFlow from the Azure AD application gallery
+<a name='step-3-add-mediusflow-from-the-azure-ad-application-gallery'></a>
 
-Add MediusFlow from the Azure AD application gallery to start managing provisioning to MediusFlow. If you have previously setup MediusFlow for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+## Step 3: Add MediusFlow from the Microsoft Entra application gallery
 
-## Step 4. Define who will be in scope for provisioning 
+Add MediusFlow from the Microsoft Entra application gallery to start managing provisioning to MediusFlow. If you have previously setup MediusFlow for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+## Step 4: Define who will be in scope for provisioning 
+
+The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to MediusFlow 
+## Step 5: Configure automatic user provisioning to MediusFlow 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Microsoft Entra ID.
 
-### To configure automatic user provisioning for MediusFlow in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-mediusflow-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+### To configure automatic user provisioning for MediusFlow in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **MediusFlow**.
+1. In the applications list, select **MediusFlow**.
 
 	![The MediusFlow link in the Applications list](common/all-applications.png)
 
@@ -136,7 +143,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the tenant URL value retrieved earlier in **Tenant URL**. Input the secret Token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to MediusFlow. If the connection fails, ensure your MediusFlow account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the tenant URL value retrieved earlier in **Tenant URL**. Input the secret Token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Microsoft Entra ID can connect to MediusFlow. If the connection fails, ensure your MediusFlow account has Admin permissions and try again.
 
       ![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
@@ -146,9 +153,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 7. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to MediusFlow**.
+8. Under the **Mappings** section, select **Synchronize Microsoft Entra users to MediusFlow**.
 
-9. Review the user attributes that are synchronized from Azure AD to MediusFlow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in MediusFlow for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the MediusFlow API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Microsoft Entra ID to MediusFlow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in MediusFlow for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the MediusFlow API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
@@ -171,9 +178,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText5|String|
 
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to MediusFlow**.
+10. Under the **Mappings** section, select **Synchronize Microsoft Entra groups to MediusFlow**.
 
-11. Review the group attributes that are synchronized from Azure AD to MediusFlow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in MediusFlow for update operations. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Microsoft Entra ID to MediusFlow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in MediusFlow for update operations. Select the **Save** button to commit any changes.
 
     | Attribute | Type |
     |--|--|
@@ -183,7 +190,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for MediusFlow, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Microsoft Entra provisioning service for MediusFlow, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -195,9 +202,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
-## Step 6. Monitor your deployment
+## Step 6: Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -211,7 +218,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

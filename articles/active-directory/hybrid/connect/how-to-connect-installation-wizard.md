@@ -1,5 +1,5 @@
 ---
-title: 'Re-running the Azure AD Connect install wizard'
+title: 'Re-running the Microsoft Entra Connect install wizard'
 description: Explains how the installation wizard works the second time you run it.
 keywords: The Azure AD Connect installation wizard lets you configure maintenance settings the second time you run it
 services: active-directory
@@ -18,13 +18,13 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Running the installation wizard a second time
-The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
+# Microsoft Entra Connect Sync: Running the installation wizard a second time
+The first time you run the Microsoft Entra Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
 
 >[!IMPORTANT]
 >Be aware that you cannot run the installation wizard while a synchronization is in progress.  Please verify that a synchronization is not running before  launching the wizard.
 
-You can find the installation wizard in the start menu named **Azure AD Connect**.
+You can find the installation wizard in the start menu named **Microsoft Entra Connect**.
 
 ![Start menu](./media/how-to-connect-installation-wizard/startmenu.png)
 
@@ -32,7 +32,7 @@ When you start the installation wizard, you see a page with these options:
 
 ![Page with a list of additional tasks](./media/how-to-connect-installation-wizard/additionaltasks.png)
 
-If you have installed ADFS with Azure AD Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](how-to-connect-fed-management.md#manage-ad-fs).
+If you have installed ADFS with Microsoft Entra Connect, you have even more options. The additional options you have for ADFS are documented in [ADFS management](how-to-connect-fed-management.md#manage-ad-fs).
 
 Select one of the tasks and click **Next** to continue.
 
@@ -63,7 +63,7 @@ The other options from the initial installation cannot be changed and are not av
 * Enable group-based filtering.
 
 ## Refresh directory schema
-This option is used if you have changed the schema in one of your on-premises AD DS forests. For example, you might have installed Exchange or upgraded to a Windows Server 2012 schema with device objects. In this case, you need to instruct Azure AD Connect to read the schema again from AD DS and update its cache. This action also regenerates the Sync Rules. If you add the Exchange schema, as an example, the Sync Rules for Exchange are added to the configuration.
+This option is used if you have changed the schema in one of your on-premises AD DS forests. For example, you might have installed Exchange or upgraded to a Windows Server 2012 schema with device objects. In this case, you need to instruct Microsoft Entra Connect to read the schema again from AD DS and update its cache. This action also regenerates the Sync Rules. If you add the Exchange schema, as an example, the Sync Rules for Exchange are added to the configuration.
 
 When you select this option, all the directories in your configuration are listed. You can keep the default setting and refresh all forests or unselect some of them.
 
@@ -84,9 +84,9 @@ This option allows you to change the user sign-in method to and from password ha
 For more information on this option, see [user sign-in](plan-connect-user-signin.md#changing-the-user-sign-in-method).
 
 ## Next steps
-* Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md).
+* Learn more about the configuration model used by Microsoft Entra Connect Sync in [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

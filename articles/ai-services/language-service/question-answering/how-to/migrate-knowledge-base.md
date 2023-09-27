@@ -1,8 +1,7 @@
 ---
 title: Move projects - custom question answering
 description: Moving a custom question answering project requires exporting a project from one resource, and then importing into another.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback

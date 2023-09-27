@@ -252,11 +252,11 @@ For more information, see the [Indoor maps wayfinding service] how-to article.
 
 ## Using indoor maps
 
-### Render V2-Get Map Tile API
+### Render - Get Map Tile API
 
-The Azure Maps [Render V2-Get Map Tile API] has been extended to support Creator tilesets.
+The Azure Maps [Render - Get Map Tile] API has been extended to support Creator tilesets.
 
-Applications can use the Render V2-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module].
+Applications can use the Render - Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render service, see [Indoor Maps Module].
 
 ### Web Feature service API
 
@@ -283,7 +283,7 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
  You can use the Azure Maps Creator List, Update, and Delete API to list, update, and delete your datasets, tilesets, and feature statesets.
 
 >[!NOTE]
->When you review a list of items to determine whether to delete them, consider the impact of that deletion on all dependent API or applications. For example, if you delete a tileset that's being used by an application by means of the [Render V2-Get Map Tile API], the application fails to render that tileset.
+>When you review a list of items to determine whether to delete them, consider the impact of that deletion on all dependent API or applications. For example, if you delete a tileset that's being used by an application by means of the [Render - Get Map Tile] API, the application fails to render that tileset.
 
 ### Example: Updating a dataset
 
@@ -306,31 +306,31 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Data maintenance]: #data-maintenance
 [feature statesets]: #feature-statesets
 [Indoor Maps module]: #indoor-maps-module
-[Render service]: #render-v2-get-map-tile-api
+[Render service]: #render---get-map-tile-api
 [tilesets]: #tilesets
 [Upload a drawing package]: #upload-a-drawing-package
 
 <!-----	REST API Links	------->
 [Alias API]: /rest/api/maps/v2/alias
 [Conversion service]: /rest/api/maps/v2/conversion
-[Creator - map configuration Rest API]: /rest/api/maps/v20220901preview/map-configuration
+[Creator - map configuration Rest API]: /rest/api/maps/2023-03-01-preview/map-configuration
 [Data Upload]: /rest/api/maps/data-v2/update
 [Dataset Create]: /rest/api/maps/v2/dataset/create
 [Dataset service]: /rest/api/maps/v2/dataset
 [Feature State service]: /rest/api/maps/v2/feature-state
 [Feature State Update API]: /rest/api/maps/v2/feature-state/update-states
 [Geofence service]: /rest/api/maps/spatial/postgeofence
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
-[routeset]: /rest/api/maps/v20220901preview/routeset
-[Style - Create]: /rest/api/maps/v20220901preview/style/create
-[style]: /rest/api/maps/v20220901preview/style
+[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[routeset]: /rest/api/maps/2023-03-01-preview/routeset
+[Style - Create]: /rest/api/maps/2023-03-01-preview/style/create
+[style]: /rest/api/maps/2023-03-01-preview/style
 [Tileset Create]: /rest/api/maps/v2/tileset/create
 [Tileset List]: /rest/api/maps/v2/tileset/list
 [Tileset service]: /rest/api/maps/v2/tileset
-[tileset]: /rest/api/maps/v20220901preview/tileset
-[wayfinding path]: /rest/api/maps/v20220901preview/wayfinding/get-path
-[wayfinding service]: /rest/api/maps/v20220901preview/wayfinding
-[wayfinding]: /rest/api/maps/v20220901preview/wayfinding
+[tileset]: /rest/api/maps/2023-03-01-preview/tileset
+[wayfinding path]: /rest/api/maps/2023-03-01-preview/wayfinding/get-path
+[wayfinding service]: /rest/api/maps/2023-03-01-preview/wayfinding
+[wayfinding]: /rest/api/maps/2023-03-01-preview/wayfinding
 [Web Feature service]: /rest/api/maps/v2/wfs
 
 <!--- learn.microsoft.com Links ------------>

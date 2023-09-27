@@ -8,7 +8,7 @@ ms.author: anboisve
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 06/07/2023
+ms.date: 08/07/2023
 ---
 
 # Quickstart: Create an Azure Stream Analytics job by using an ARM template

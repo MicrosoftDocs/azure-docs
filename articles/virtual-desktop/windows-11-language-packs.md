@@ -51,7 +51,7 @@ To create the content repository you'll use to add languages and features to you
      > If you're working with limited storage, you can use the mounted "Languages and Optional Features" ISO as a repository. To learn how to create a repository, see [Build a custom FOD and language pack repository](/windows-hardware/manufacture/desktop/languages-overview#build-a-custom-fod-and-language-pack-repository).
 
      >[!IMPORTANT]
-     > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
+     > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include "Jpan."
      >
      > [!div class="mx-imgBorder"]
      > ![An example of the Japanese language packs with the "Jpan" language tag in their file names.](media/language-pack-example.png)
@@ -142,7 +142,7 @@ You can create a custom image by following these steps:
 
     The script might take a while to finish depending on the number of languages you need to install. You can also install additional languages after initial setup by running the script again with a different *$targetLanguage* parameter.
 
-5. To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand table](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx ) as a CSV file, then save it in the same folder as your PowerShell script.
+5. To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand table](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx) as a CSV file, then save it in the same folder as your PowerShell script.
 
 6. Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 

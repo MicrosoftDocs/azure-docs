@@ -1,6 +1,6 @@
 ---
 title: Understand how users are assigned to apps
-description: Understand how users get assigned to an app that is using Azure Active Directory for identity management.
+description: Understand how users get assigned to an app that is using Microsoft Entra ID for identity management.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -18,7 +18,9 @@ ms.custom: enterprise-apps
 
 This article helps you to understand how users get assigned to an application in your tenant.
 
-## How do users get assigned an application in Azure AD?
+<a name='how-do-users-get-assigned-an-application-in-azure-ad'></a>
+
+## How do users get assigned an application in Microsoft Entra ID?
 
 There are several ways a user can be assigned an application. Assignment can be performed by an administrator, a business delegate, or sometimes, the user themselves. Below describes the ways users can get assigned to applications:
 

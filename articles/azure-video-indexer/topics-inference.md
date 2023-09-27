@@ -1,13 +1,11 @@
 ---
-title: Azure AI Video Indexer topics inference overview 
-titleSuffix: Azure AI Video Indexer 
+title: Azure AI Video Indexer topics inference overview  
 description: An introduction to Azure AI Video Indexer topics inference component responsibly.
-author: Juliako
-ms.author: juliako
-manager: femila
 ms.service: azure-video-indexer
 ms.date: 06/15/2022
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Topics inference  

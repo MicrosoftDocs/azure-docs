@@ -5,8 +5,7 @@ description: An overview of the sentiment analysis feature in Azure AI services,
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 07/19/2023
 ms.author: aahi

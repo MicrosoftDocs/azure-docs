@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Label tips and tricks for Document Intelligence Studio
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: vikurpad
@@ -62,9 +61,9 @@ When creating a project, select the batch layout option to prepare all documents
 * Learn more about custom template models:
 
   > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md )
+  > [Custom template models](concept-custom-template.md)
 
 * Learn more about custom neural models:
 
   > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md )
+  > [Custom neural models](concept-custom-neural.md)

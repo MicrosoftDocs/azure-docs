@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service.
 author: abhims14
 ms.author: abhishekum
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 01/29/2021
 ms.service: dms
 ms.topic: quickstart

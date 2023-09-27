@@ -1,14 +1,14 @@
 ---
 title: Overview of creating Linux images for Azure
 description: How to bring your Linux VM images or create new images to use in Azure.
-author: danielsollondon
+author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 06/22/2020
-ms.author: danis
+ms.date: 09/01/2023
+ms.author: cynthn
 ms.reviewer: cynthn
 
 ---
@@ -55,9 +55,9 @@ These are [prerequisites](./create-upload-generic.md) for creating an image.
 
 
 ### Specialized images
-These are images that are completely configured and do not require VM or special parameters. The platform will just turn the VM on and you will need to handle uniqueness within the VM, like setting a hostname, to avoid DNS conflicts on the same VNET. 
+These are images that are completely configured and don't require VM or special parameters. The platform will just turn the VM on and you will need to handle uniqueness within the VM, like setting a hostname, to avoid DNS conflicts on the same VNET. 
 
-Provisioning agents are not required for these images, however you may want to have extension handling capabilities. You can install the Linux Agent but disable the provisioning option. Even though you do not need a provisioning agent, the image must fulfill [prerequisites](./create-upload-generic.md)  for Azure Images.
+Provisioning agents aren't required for these images, however you may want to have extension handling capabilities. You can install the Linux Agent but disable the provisioning option. Even though you don't need a provisioning agent, the image must fulfill [prerequisites](./create-upload-generic.md)  for Azure Images.
 
 
 ## Image storage options
@@ -69,7 +69,7 @@ When bringing your Linux image you have two options:
 
 ### Managed images
 
-Managed images can be used to create multiple VMs, but they have a lot of limitations. Managed images can only be created from a generalized source (VM or VHD). They can only be used to create VMs in the same region and they can't be shared across subscriptions and tenants.
+Managed images can be used to create multiple VMs, but they have many limitations. Managed images can only be created from a generalized source (VM or VHD). They can only be used to create VMs in the same region and they can't be shared across subscriptions and tenants.
 
 Managed images can be used for development and test environments, where you need a couple of simple generalized images to use within single region and subscription. 
 
@@ -101,7 +101,9 @@ If you still need to create your own image, ensure it meets the [image prerequis
 - [CentOS-based Distributions](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
 - [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [FreeBSD](freebsd-intro-on-azure.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
+- [OpenBSD](create-upload-openbsd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES & openSUSE](suse-create-upload-vhd.md)
 - [Ubuntu](create-upload-ubuntu.md)

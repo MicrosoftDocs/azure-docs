@@ -38,7 +38,7 @@ The app architecture and registrations are illustrated in the following diagram:
 
 ![Diagram of a web app with web A P I call registrations and tokens.](./media/client-credentials-grant-flow/application-architecture.png)
 
-## Step 1. Register the web API app
+## Step 1: Register the web API app
 
 In this step you register the web API (**App 2**) with its scopes. Later you'll grant your application (**App 1**) permission to those scopes. If you already have such app registration, skip to the next step [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes).
 
@@ -82,7 +82,7 @@ can't contain spaces. The following example demonstrates two app roles, read and
 
 1. At the top of the page, select **Save** to save the manifest changes.
  
-## Step 2. Register an application
+## Step 2: Register an application
 
 To enable your app to sign in with Azure AD B2C using client credentials flow, you can use an existing application or register a new one (**App 1**). 
 
@@ -135,7 +135,7 @@ To grant your app (**App 1**) permissions, follow these steps:
 1. Select **Yes**.
 1. Select **Refresh**, and then verify that **Granted for ...** appears under **Status** for both scopes.
 
-## Step 3. Obtain an access token
+## Step 3: Obtain an access token
 
 There are no specific actions to enable the client credentials for user flows or custom policies. Both Azure AD B2C user flows and custom policies support the client credentials flow. If you haven't done so already, create a [user flow or a custom policy](add-sign-up-and-sign-in-policy.md). Then, use your favorite API development application to generate an authorization request. Construct a call like this example with the following information as the body of the POST request:
 
@@ -206,7 +206,7 @@ curl --location --request POST 'https://<your-tenant>.b2clogin.com/<your-tenant>
 --form 'scope="<Your API id uri>/.default"'
 ```
 
-## Step 4. Customize the token
+## Step 4: Customize the token
 
 ::: zone pivot="b2c-user-flow"
 

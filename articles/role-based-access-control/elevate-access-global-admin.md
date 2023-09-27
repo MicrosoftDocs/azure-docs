@@ -42,7 +42,7 @@ You should remove this elevated access once you have made the changes you need t
 
 Follow these steps to elevate access for a Global Administrator using the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 
     If you are using Azure AD Privileged Identity Management, [activate your Global Administrator role assignment](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 

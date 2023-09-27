@@ -238,4 +238,4 @@ When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), 
 ## Next steps
 
 - Learn more about how to [request access tokens](access-tokens.md).
-- Learn how to build [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json).
+- Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).

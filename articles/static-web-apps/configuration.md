@@ -323,7 +323,7 @@ The `platform` section controls platform specific settings, such as the API lang
 
 ## Networking
 
-The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`.
+The `networking` section controls the network configuration of your static web app. To restrict access to your app, specify a list of allowed IP address blocks in `allowedIpRanges`. For more information about the number of allowed IP address blocks, see [Quotas in Azure Static Web Apps](../static-web-apps/quotas.md). 
 
 > [!NOTE]
 > Networking configuration is only available in the Azure Static Web Apps Standard plan.
@@ -344,7 +344,7 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 
 When one or more IP address blocks are specified, requests originating from IP addresses that don't match a value in `allowedIpRanges` are denied access.
 
-In addition to IP address blocks, you can also specify [service tags](../virtual-network/service-tags-overview.md) in the `allowedIpRanges` array to restrict traffic to certain Azure services.
+In addition to IP address blocks, you can also specify [service tags](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) in the `allowedIpRanges` array to restrict traffic to certain Azure services.
 
 ```json
 "networking": {

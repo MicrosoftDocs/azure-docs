@@ -24,7 +24,7 @@ Use the IIS Authentication section of the Azure Multi-Factor Authentication (MFA
 >
 > To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >>
-> When you use cloud-based Azure Multi-Factor Authentication, there is no alternative to the IIS plugin provided by Azure Multi-Factor Authentication (MFA) Server. Instead, use Web Application Proxy (WAP) with Active Directory Federation Services (AD FS) or Azure Active Directory's Application Proxy.
+> When you use cloud-based Azure Multi-Factor Authentication, there is no alternative to the IIS plugin provided by Azure Multi-Factor Authentication (MFA) Server. Instead, use Web Application Proxy (WAP) with Active Directory Federation Services (AD FS) or Microsoft Entra application proxy.
 
 ![IIS Authentication in MFA Server](./media/howto-mfaserver-iis/iis.png)
 

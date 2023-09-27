@@ -314,7 +314,7 @@ Another way to run playbooks automatically in response to **alerts** is to call 
 
 **This method will be deprecated as of March 2026.**
 
-Beginning **June 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules, and these playbooks will still run until March 2006. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md) before then.
+Beginning **June 2023**, you can no longer add playbooks to analytics rules in this way. However, you can still see the existing playbooks called from analytics rules, and these playbooks will still run until March 2026. You are strongly encouraged to [create automation rules to call these playbooks instead](migrate-playbooks-to-automation-rules.md) before then.
 
 ## Run a playbook on demand
 

@@ -5,8 +5,7 @@ description: Speaker recognition provides algorithms that verify and identify sp
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 01/08/2022
 ms.author: eur

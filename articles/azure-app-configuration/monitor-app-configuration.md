@@ -2,8 +2,8 @@
 title: Monitor Azure App Configuration 
 description: Start here to learn how to monitor App Configuration
 services: azure-app-configuration
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.custom: horz-monitor
@@ -101,6 +101,7 @@ You can analyze metrics for App Configuration with metrics from other Azure serv
 * Http Incoming Request Duration 
 * Throttled Http Request Count (Http status code 429 Responses)
 * Daily Storage Usage
+* Replication Latency
 
 In the portal, navigate to the **Metrics** section and select the **Metric Namespaces** and **Metrics** you want to analyze. This screenshot shows you the metrics view when selecting **Http Incoming Request Count** for your configuration store.
 

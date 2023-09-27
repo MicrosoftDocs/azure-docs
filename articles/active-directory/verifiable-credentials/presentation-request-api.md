@@ -111,7 +111,7 @@ The payload contains the following properties.
 |---------|---------|---------|
 | `includeQRCode` |  Boolean | Optional. Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values are `true` (default) or `false`. When you set the value to `false`, use the return `url` property to render a deep link.  |
 | `includeReceipt` |  Boolean | Optional. Determines whether a receipt should be included in the response of this request. Possible values are `true` or `false` (default). The receipt contains the original payload sent from the authenticator to the Verifiable Credentials service. The receipt is useful for troubleshooting or if you have the need to ge the full details of the payload. There's otherwise no need be set this value to `true `by default. In the `OpenId Connect SIOP` request, the receipt contains the ID token from the original request. |
-| `authority` | string|  Your decentralized identifier (DID) of your verifier Azure AD tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
+| `authority` | string|  Your decentralized identifier (DID) of your verifier Microsoft Entra tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the verifier. |
 |`callback`|  [Callback](#callback-type)| Mandatory. Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process after the results are returned to the application.|
 | `requestedCredentials` | collection| A collection of [RequestCredential](#requestcredential-type) objects.|
@@ -237,7 +237,9 @@ The following example demonstrates a callback payload after the verifiable crede
       },
       "domainValidation": {
         "url": "https://contoso.com/"
-      }
+      },
+      "issuanceDate": "yyyy-MM-ddTHH:mm:ssZ",
+      "expirationDate": "yyyy-MM-ddTHH:mm:ssZ"
     }
   ],
   "receipt": {

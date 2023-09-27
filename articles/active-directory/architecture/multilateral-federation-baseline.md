@@ -22,7 +22,7 @@ Microsoft often speaks with research universities that operate in hybrid environ
 
 Applications drive much of the need for different authentication protocols and different identity management (IdM) mechanisms.
 
-In research university environments, research apps often drive IdM requirements. A university might use a federation provider, such as Shibboleth, as a primary identity provider (IdP). If so, Azure Active Directory (Azure AD) is often configured to federate with Shibboleth. If Microsoft 365 apps are also in use, Azure AD enables you to configure integration.
+In research university environments, research apps often drive IdM requirements. A university might use a federation provider, such as Shibboleth, as a primary identity provider (IdP). If so, Microsoft Entra ID is often configured to federate with Shibboleth. If Microsoft 365 apps are also in use, Microsoft Entra ID enables you to configure integration.
 
 Applications used in research universities operate in various parts of the overall IT footprint:
 
@@ -32,11 +32,11 @@ Applications used in research universities operate in various parts of the overa
 
 * Some applications use legacy authentication protocols such as Central Authentication Service to enable single sign-on.
 
-* Student and faculty applications often use multiple authentication mechanisms. For example, some are integrated with Shibboleth or other federation providers, whereas others are integrated with Azure AD.
+* Student and faculty applications often use multiple authentication mechanisms. For example, some are integrated with Shibboleth or other federation providers, whereas others are integrated with Microsoft Entra ID.
 
-* Microsoft 365 applications are integrated with Azure AD.
+* Microsoft 365 applications are integrated with Microsoft Entra ID.
 
-* Windows Server Active Directory might be in use and synchronized with Azure AD.
+* Windows Server Active Directory might be in use and synchronized with Microsoft Entra ID.
 
 * Lightweight Directory Access Protocol (LDAP) is in use at many universities that might have an external LDAP directory or identity registry. These registries are often used to house confidential attributes, role hierarchy information, and even certain types of users, such as applicants.
 
@@ -50,9 +50,9 @@ Baseline architectures often evolve over time, introducing complexity and rigidn
 
   Higher education also experiences fragmented service ownership. The people responsible for key services such as enterprise resource planning, learning management systems, division, and department solutions might resist efforts to change or modify the systems that they operate.
 
-* **Can't take advantage of all Microsoft 365 capabilities for all apps** (for example, Intune, Conditional Access, passwordless): Many universities want to move toward the cloud and use their existing investments in Azure AD. However, with a different federation provider as their primary IdP, universities can't take advantage of all the Microsoft 365 capabilities for the rest of their apps.
+* **Can't take advantage of all Microsoft 365 capabilities for all apps** (for example, Intune, Conditional Access, passwordless): Many universities want to move toward the cloud and use their existing investments in Microsoft Entra ID. However, with a different federation provider as their primary IdP, universities can't take advantage of all the Microsoft 365 capabilities for the rest of their apps.
 
-* **Complexity of a solution**: There are many components to manage. Some components are in the cloud, and some are on-premises or in infrastructure as a service (IaaS) instances. Apps are operated in many places. From a user perspective, this experience can be disjointed. For example, users sometime see a Shibboleth sign-in page and other times see an Azure AD sign-in page.
+* **Complexity of a solution**: There are many components to manage. Some components are in the cloud, and some are on-premises or in infrastructure as a service (IaaS) instances. Apps are operated in many places. From a user perspective, this experience can be disjointed. For example, users sometime see a Shibboleth sign-in page and other times see a Microsoft Entra sign-in page.
 
 We present three solutions to solve these challenges, while also addressing the following requirements:
 
@@ -70,10 +70,10 @@ See these related articles about multilateral federation:
 
 [Multilateral federation introduction](multilateral-federation-introduction.md)
 
-[Multilateral federation Solution 1: Azure AD with Cirrus Bridge](multilateral-federation-solution-one.md)
+[Multilateral federation Solution 1: Microsoft Entra ID with Cirrus Bridge](multilateral-federation-solution-one.md)
 
-[Multilateral federation Solution 2: Azure AD with Shibboleth as a SAML proxy](multilateral-federation-solution-two.md)
+[Multilateral federation Solution 2: Microsoft Entra ID with Shibboleth as a SAML proxy](multilateral-federation-solution-two.md)
 
-[Multilateral federation Solution 3: Azure AD with AD FS and Shibboleth](multilateral-federation-solution-three.md)
+[Multilateral federation Solution 3: Microsoft Entra ID with AD FS and Shibboleth](multilateral-federation-solution-three.md)
 
 [Multilateral federation decision tree](multilateral-federation-decision-tree.md)

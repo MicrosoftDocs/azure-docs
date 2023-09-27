@@ -9,9 +9,9 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 06/19/2023
+ms.date: 09/20/2023
 ms.author: rolyon
-ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: seohack1, devx-track-azurecli
 ---
 # Troubleshoot Azure RBAC
 
@@ -19,11 +19,9 @@ This article describes some common solutions for issues related to Azure role-ba
 
 ## Azure role assignments
 
-### Symptom - Unable to assign a role
+### Symptom - Add role assignment option is disabled
 
-You're unable to assign a role in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the following permissions error:
-
-`The client with object id does not have authorization to perform action`
+You're unable to assign a role in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled
 
 **Cause**
 
@@ -32,6 +30,50 @@ You're currently signed in with a user that doesn't have permission to assign ro
 **Solution**
 
 Check that you're currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you're trying to assign the role.
+
+### Symptom - Roles or principals are not listed
+
+When you try to assign a role in the Azure portal, some roles or principals are not listed. For example, on the **Role** tab, you see a reduced set of roles.
+
+:::image type="content" source="./media/shared/constrained-roles-assign.png" alt-text="Screenshot of role assignments constrained to specific roles." lightbox="./media/shared/constrained-roles-assign.png":::
+
+Or, on the **Select members** pane, you see a reduced set of principals.
+
+:::image type="content" source="./media/shared/constrained-principals-assign.png" alt-text="Screenshot of role assignments constrained to specific groups." lightbox="./media/shared/constrained-principals-assign.png":::
+
+**Cause**
+
+There are restrictions on the role assignments you can add. For example, you are constrained in the roles that you can assign or constrained in the principals you can assign roles to.
+
+**Solution**
+
+View the [roles assigned to you](check-access.md). Check if there is a condition that constrains the role assignments you can add. For more information, see [Delegate Azure access management to others](delegate-role-assignments-overview.md).
+
+:::image type="content" source="./media/troubleshooting/role-assignments-condition.png" alt-text="Screenshot of role assignments that include a condition." lightbox="./media/troubleshooting/role-assignments-condition.png":::
+
+### Symptom - Unable to assign a role
+
+You are unable to assign a role and you get an error similar to the following:
+
+`Failed to add {securityPrincipal} as {role} for {scope} : The client '{clientName}' with object id '{objectId}' does not have authorization or an ABAC condition not fulfilled to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{subscriptionId}/Microsoft.Authorization/roleAssignments/{roleAssignmentId}' or the scope is invalid. If access was recently granted, please refresh your credentials.`
+
+**Cause 1**
+
+You are currently signed in with a user that does not have permission to assign roles at the selected scope.
+
+**Solution 1**
+
+Check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
+
+**Cause 2**
+
+There are restrictions on the role assignments you can add. For example, you are constrained in the roles that you can assign or constrained in the principals you can assign roles to.
+
+**Solution 2**
+
+View the [roles assigned to you](check-access.md). Check if there is a condition that constrains the role assignments you can add. For more information, see [Delegate Azure access management to others](delegate-role-assignments-overview.md).
+
+:::image type="content" source="./media/troubleshooting/role-assignments-condition.png" alt-text="Screenshot of role assignments that include a condition." lightbox="./media/troubleshooting/role-assignments-condition.png":::
 
 ### Symptom - Unable to assign a role using a service principal with Azure CLI
 
@@ -401,13 +443,27 @@ When you try to create a resource, you get the following error message:
 
 `The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)`
 
-**Cause**
+**Cause 1**
 
 You're currently signed in with a user that doesn't have write permission to the resource at the selected scope.
 
-**Solution**
+**Solution 1**
 
 Check that you're currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
+
+**Cause 2**
+
+The currently signed in user has a role assignment with the following criteria:
+
+- Role includes a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) data action
+- Role assignment includes an ABAC condition that uses a [GUID comparison operators](conditions-format.md#guid-comparison-operators)
+
+**Solution 2**
+
+At this time, you can't have a role assignment with a Microsoft.Storage data action and an ABAC condition that uses a GUID comparison operator. Here are a couple of options to resolve this error:
+
+- If the role is a custom role, remove any Microsoft.Storage data actions
+- Modify the role assignment condition so that it does not use GUID comparison operators
 
 ### Symptom - Guest user gets authorization failed
 

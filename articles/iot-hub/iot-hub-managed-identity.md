@@ -24,14 +24,17 @@ In IoT Hub, managed identities can be used for egress connectivity from IoT Hub 
 
 ## System-assigned managed identity
 
-### Add and remove a system-assigned managed identity in Azure portal
+### Enable or disable system-assigned managed identity in Azure portal
 
-1. Sign in to the Azure portal and navigate to your desired IoT hub.
-2. Navigate to **Identity** in your IoT Hub portal
-3. Under **System-assigned** tab, select **On** and click **Save**.
-4. To remove system-assigned managed identity from an IoT hub, select **Off** and click **Save**.
+1. Sign in to the Azure portal and navigate to your IoT hub.
+2. Select **Identity** from the **Security settings** section of the navigation menu.
+3. Select the **System-assigned** tab.
+4. Set the system-assigned managed identity **Status** to **On** or **Off**, then select **Save**.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Screenshot showing where to turn on system-assigned managed identity for an I O T hub.":::
+   >[!NOTE]
+   >You can't turn off system-assigned managed identity while it's in use. Make sure that no custom endpoints are using system-assigned managed identity authentication before disabling the feature.
+
+   :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="Screenshot showing where to turn on system-assigned managed identity for an IoT hub.":::
 
 ### Enable system-assigned managed identity at hub creation time using ARM template
 

@@ -28,12 +28,14 @@ The identifier for a directory extension attribute is of the form `extension_xxx
 
 Register directory extension attributes in one of the following ways:
 
-- Configure Azure AD Connect to create them and to sync data into them from on-premises. See [Azure AD Connect Sync Directory Extensions](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).
+- Configure Microsoft Entra Connect to create them and to sync data into them from on-premises. See [Microsoft Entra Connect Sync Directory Extensions](../hybrid/connect/how-to-connect-sync-feature-directory-extensions.md).
 - Use Microsoft Graph to register, set the values of, and read from [directory extensions](/graph/extensibility-overview#directory-azure-ad-extensions). [PowerShell cmdlets](/powershell/azure/active-directory/using-extension-attributes-sample) are also available.
 
-### Emit claims with data from Azure AD Connect
+<a name='emit-claims-with-data-from-azure-ad-connect'></a>
 
-Directory extension attributes created and synced using Azure AD Connect are always associated with the application ID used by Azure AD Connect. These attributes can be used as a source for claims both by configuring them as claims in **Enterprise Applications** configuration in the Portal. After a directory extension attribute is created using AD Connect, it's displayed in the SAML SSO claims configuration.
+### Emit claims with data from Microsoft Entra Connect
+
+Directory extension attributes created and synced using Microsoft Entra Connect are always associated with the application ID used by Microsoft Entra Connect. These attributes can be used as a source for claims both by configuring them as claims in **Enterprise Applications** configuration in the Portal. After a directory extension attribute is created using AD Connect, it's displayed in the SAML SSO claims configuration.
 
 ### Emit claims using Graph or PowerShell
 

@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -61,7 +61,7 @@ This example uses the function to select two expressions from the item.
 
 - This function doesn't use the index.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`CONTAINS`](contains.md)

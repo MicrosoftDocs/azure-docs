@@ -47,7 +47,7 @@ After this transformation, you copy the data as outlined in the chapter [Move da
 
 - [Understand Spark code concepts for U-SQL developers](understand-spark-code-concepts.md)
 - [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
-- [.NET for Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
+- [.NET for Apache Spark](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [What is Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

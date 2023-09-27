@@ -1,8 +1,7 @@
 ---
 title: Troubleshooting - question answering
 description: The curated list of the most frequently asked questions regarding question answering will help you adopt the feature faster and with better results.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: troubleshooting

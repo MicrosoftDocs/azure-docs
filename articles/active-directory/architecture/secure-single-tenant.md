@@ -1,6 +1,6 @@
 ---
-title: Resource isolation in a single tenant to secure with Azure Active Directory 
-description: Introduction to resource isolation in a single tenant in Azure Active Directory.
+title: Resource isolation in a single tenant to secure with Microsoft Entra ID 
+description: Introduction to resource isolation in a single tenant in Microsoft Entra ID.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -21,7 +21,7 @@ Many separation scenarios can be achieved within a single tenant. If possible, w
 
 ## Outcomes
 
-**Resource separation** - With Azure AD directory roles, security groups, Conditional Access policies, Azure resource groups, Azure management groups, administrative units (AU's), and other controls, you can restrict resource access to specific users, groups, and service principals. Resources can be managed by separate administrators, and have separate users, permissions, and access requirements.
+**Resource separation** - With Microsoft Entra directory roles, security groups, Conditional Access policies, Azure resource groups, Azure management groups, administrative units (AU's), and other controls, you can restrict resource access to specific users, groups, and service principals. Resources can be managed by separate administrators, and have separate users, permissions, and access requirements.
 
 If a set of resources require unique tenant-wide settings, or there's minimal risk tolerance for unauthorized access by tenant members, or critical impact could be caused by configuration changes, you must achieve isolation in multiple tenants.
 
@@ -29,11 +29,11 @@ If a set of resources require unique tenant-wide settings, or there's minimal ri
 
 If a set of resources require unique tenant-wide settings, or the tenant's settings must be administered by a different entity, you must achieve isolation with multiple tenants.
 
-**Administrative separation** - With Azure AD delegated administration, you can segregate the administration of resources such as applications and APIs, users and groups, resource groups, and Conditional Access policies.
+**Administrative separation** - With Microsoft Entra ID delegated administration, you can segregate the administration of resources such as applications and APIs, users and groups, resource groups, and Conditional Access policies.
 
 Global administrators can discover and obtain full access to any trusting resources. You can set up auditing and alerts to know when an administrator changes a resource if they're authenticated.
 
-You can also use administrative units (AU) in Azure AD to provide some level of administrative separation. Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](../roles/permissions-reference.md) role to regional support specialists, so they can manage users only in the region that they support.
+You can also use administrative units (AU) in Microsoft Entra ID to provide some level of administrative separation. Administrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the [Helpdesk Administrator](../roles/permissions-reference.md) role to regional support specialists, so they can manage users only in the region that they support.
 
 ![Diagram that shows administrative units.](media/secure-single-tenant/administrative-units.png)
 
@@ -42,7 +42,7 @@ Administrative Units can be used to separate [user, groups and device objects](.
 By using Privileged Identity Management (PIM) you can define who in your organization is the best person to approve the request for highly privileged roles. For example, admins requiring global administrator access to make tenant-wide changes.
 
 >[!NOTE]
->Using PIM requires and Azure AD P2 license per human.
+>Using PIM requires and Microsoft Entra ID P2 license per human.
 
 If you must ensure that global administrators are unable to manage a specific resource, you must isolate that resource in a separate tenant with separate global administrators. This can be especially important for backups, see [multi-user authorization guidance](../../backup/multi-user-authorization.md) for examples of this.
 
@@ -52,16 +52,16 @@ One of the most common uses for multiple environments in a single tenant is to s
 
 The following diagram illustrates the nonproduction environments and the production environment.
 
-![Diagram that shows Azure AD tenant boundary.](media/secure-single-tenant/tenant-boundary.png)
+![Diagram that shows Microsoft Entra tenant boundary.](media/secure-single-tenant/tenant-boundary.png)
 
-In this diagram, there are nonproduction Azure resources and nonproduction instances Azure AD integrated applications with equivalent nonproduction directory objects. In this example, the nonproduction resources in the directory are used for testing purposes.
+In this diagram, there are nonproduction Azure resources and nonproduction instances Microsoft Entra integrated applications with equivalent nonproduction directory objects. In this example, the nonproduction resources in the directory are used for testing purposes.
 
 >[!NOTE]
->You cannot have more than one Microsoft 365 environment in a single Azure AD tenant. However, you can have multiple Dynamics 365 environments in a single Azure AD tenant.
+>You cannot have more than one Microsoft 365 environment in a single Microsoft Entra tenant. However, you can have multiple Dynamics 365 environments in a single Microsoft Entra tenant.
 
 Another scenario for isolation within a single tenant could be separation between locations, subsidiary or implementation of tiered administration (according to the "[Enterprise Access Model](/security/compass/privileged-access-access-model)").
 
-Azure RBAC role assignments allow scoped administration of Azure resources. Similarly, Azure AD allows granular management of Azure AD trusting applications through multiple capabilities such as Conditional Access, user and group filtering, administrative unit assignments and application assignments.
+Azure RBAC role assignments allow scoped administration of Azure resources. Similarly, Microsoft Entra ID allows granular management of Microsoft Entra ID trusting applications through multiple capabilities such as Conditional Access, user and group filtering, administrative unit assignments and application assignments.
 
 If you must ensure full isolation (including staging of organization-level configuration) of Microsoft 365 services, you need to choose a [multiple tenant isolation](../../backup/multi-user-authorization.md).
 
@@ -86,7 +86,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 
 For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
-This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there's to lower levels. Top-level scopes affect all Azure resources in the Azure AD tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](https://www.microsoft.com/security/business/identity-access/microsoft-entra-permissions-management) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
+This is a hierarchical structure, so the higher up in the hierarchy, the more scope, visibility, and impact there's to lower levels. Top-level scopes affect all Azure resources in the Microsoft Entra tenant boundary. This also means that permissions can be applied at multiple levels. The risk this introduces is that assigning roles higher up the hierarchy could provide more access lower down the scope than intended. [Microsoft Entra](https://www.microsoft.com/security/business/identity-access/microsoft-entra-permissions-management) (formally CloudKnox) is a Microsoft product that provides visibility and remediation to help reduce the risk. A few details are as follows:
 
 * The root management group defines Azure Policies and RBAC role assignments that will be applied to all subscriptions and resources.
 
@@ -96,13 +96,15 @@ Both top-level scopes should be strictly monitored. It's important to plan for o
 
 Consider isolating sensitive or test resources according to [Azure landing zone conceptual architecture](/azure/cloud-adoption-framework/ready/landing-zone/). For example, Identity subscription should be assigned to separated management group and all subscriptions for development purposes could be separated in "Sandbox" management group. More details can be found in the [Enterprise-Scale documentation](/azure/cloud-adoption-framework/ready/enterprise-scale/faq). Separation for testing purposes within a single tenant is also considered in the [management group hierarchy of the reference architecture](/azure/cloud-adoption-framework/ready/enterprise-scale/testing-approach).
 
-### Scoped management for Azure AD trusting applications
+<a name='scoped-management-for-azure-ad-trusting-applications'></a>
 
-The pattern to scope management of Azure AD trusting applications is outlined in the following section. 
+### Scoped management for Microsoft Entra ID trusting applications
 
-Azure AD supports configuring multiple instances of custom and SaaS apps, but not most Microsoft services, against the same directory with [independent user assignments](../manage-apps/assign-user-or-group-access-portal.md). The above example contains both a production and a test version of the travel app. You can deploy preproduction versions against the corporate tenant to achieve app-specific configuration and policy separation that enables workload owners to perform testing with their corporate credentials. Nonproduction directory objects such as test users and test groups are associated to the nonproduction application with separate [ownership](https://aka.ms/AzureADSecuredAzure/14a) of those objects.
+The pattern to scope management of Microsoft Entra ID trusting applications is outlined in the following section. 
 
-There are tenant-wide aspects that affect all trusting applications in the Azure AD tenant boundary including:
+Microsoft Entra ID supports configuring multiple instances of custom and SaaS apps, but not most Microsoft services, against the same directory with [independent user assignments](../manage-apps/assign-user-or-group-access-portal.md). The above example contains both a production and a test version of the travel app. You can deploy preproduction versions against the corporate tenant to achieve app-specific configuration and policy separation that enables workload owners to perform testing with their corporate credentials. Nonproduction directory objects such as test users and test groups are associated to the nonproduction application with separate [ownership](https://aka.ms/AzureADSecuredAzure/14a) of those objects.
+
+There are tenant-wide aspects that affect all trusting applications in the Microsoft Entra tenant boundary including:
 
 * Global Administrators can manage all tenant-wide settings.
 
@@ -114,13 +116,13 @@ Configuration settings such authentication methods allowed, hybrid configuration
 >Microsoft Graph API Permissions and consent permissions cannot be scoped to a group or members of Administrative Units. Those permissions will be assigned on directory-level, only resource-specific consent allows scope on resource-level (currently limited to [Microsoft Teams Chat permissions](/microsoftteams/platform/graph-api/rsc/resource-specific-consent))
 
 >[!IMPORTANT]
->The lifecycle of Microsoft SaaS services such as Office 365, Microsoft Dynamics, and Microsoft Exchange are bound to the Azure AD tenant. As a result, multiple instances of these services necessarily require multiple Azure AD tenants. Check the documentation for individual services to learn more about specific management scoping capabilities.
+>The lifecycle of Microsoft SaaS services such as Office 365, Microsoft Dynamics, and Microsoft Exchange are bound to the Microsoft Entra tenant. As a result, multiple instances of these services necessarily require multiple Microsoft Entra tenants. Check the documentation for individual services to learn more about specific management scoping capabilities.
 
 ## Next steps
 
 * [Introduction to delegated administration and isolated environments](secure-introduction.md)
 
-* [Azure AD fundamentals](./secure-fundamentals.md)
+* [Microsoft Entra fundamentals](./secure-fundamentals.md)
 
 * [Azure resource management fundamentals](secure-resource-management.md)
 

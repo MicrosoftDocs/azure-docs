@@ -1,12 +1,12 @@
 ---
-title: Use Azure AD Multi-Factor Authentication with NPS
-description: Learn how to use Azure AD Multi-Factor Authentication capabilities with your existing Network Policy Server (NPS) authentication infrastructure
+title: Use Microsoft Entra multifactor authentication with NPS
+description: Learn how to use Microsoft Entra multifactor authentication capabilities with your existing Network Policy Server (NPS) authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -16,29 +16,29 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-azure-ad-ps-ref
 ---
-# Integrate your existing Network Policy Server (NPS) infrastructure with Azure AD Multi-Factor Authentication
+# Integrate your existing Network Policy Server (NPS) infrastructure with Microsoft Entra multifactor authentication
 
-The Network Policy Server (NPS) extension for Azure AD Multi-Factor Authentication adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers.
+The Network Policy Server (NPS) extension for Microsoft Entra multifactor authentication adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers.
 
-The NPS extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
+The NPS extension acts as an adapter between RADIUS and cloud-based Microsoft Entra multifactor authentication to provide a second factor of authentication for federated or synced users.
 
 ## How the NPS extension works
 
-When you use the NPS extension for Azure AD Multi-Factor Authentication, the authentication flow includes the following components:
+When you use the NPS extension for Microsoft Entra multifactor authentication, the authentication flow includes the following components:
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers.
 1. **NPS Server** connects to Active Directory Domain Services (AD DS) to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.
-1. **NPS Extension** triggers a request to Azure AD Multi-Factor Authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
+1. **NPS Extension** triggers a request to Microsoft Entra multifactor authentication for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.
    >[!NOTE]
    >Although NPS doesn't support [number matching](how-to-mfa-number-match.md), the latest NPS extension does support time-based one-time password (TOTP) methods, such as the TOTP available in Microsoft Authenticator. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. 
    >
    >After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with a TOTP method instead. Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**.
 
-1. **Azure AD MFA** communicates with Azure Active Directory (Azure AD) to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
+1. **Microsoft Entra multifactor authentication** communicates with Microsoft Entra ID to retrieve the user's details and performs the secondary authentication using a verification method configured to the user.
 
 The following diagram illustrates this high-level authentication request flow:
 
-![Diagram of the authentication flow for user authenticating through a VPN server to NPS server and the Azure AD Multi-Factor Authentication NPS extension](./media/howto-mfa-nps-extension/auth-flow.png)
+![Diagram of the authentication flow for user authenticating through a VPN server to NPS server and the Microsoft Entra multifactor authentication NPS extension](./media/howto-mfa-nps-extension/auth-flow.png)
 
 ### RADIUS protocol behavior and the NPS extension
 
@@ -46,27 +46,27 @@ As RADIUS is a UDP protocol, the sender assumes packet loss and awaits a respons
 
 ![Diagram of RADIUS UDP packet flow and requests after timeout on response from NPS server](./media/howto-mfa-nps-extension/radius-flow.png)
 
-The NPS server may not respond to the VPN server's original request before the connection times out as the MFA request may still be being processed. The user may not have successfully responded to the MFA prompt, so the Azure AD Multi-Factor Authentication NPS extension is waiting for that event to complete. In this situation, the NPS server identifies additional VPN server requests as a duplicate request. The NPS server discards these duplicate VPN server requests.
+The NPS server may not respond to the VPN server's original request before the connection times out as the MFA request may still be being processed. The user may not have successfully responded to the MFA prompt, so the Microsoft Entra multifactor authentication NPS extension is waiting for that event to complete. In this situation, the NPS server identifies additional VPN server requests as a duplicate request. The NPS server discards these duplicate VPN server requests.
 
 ![Diagram of NPS server discarding duplicate requests from RADIUS server](./media/howto-mfa-nps-extension/discard-duplicate-requests.png)
 
-If you look at the NPS server logs, you may see these additional requests being discarded. This behavior is by design to protect the end user from getting multiple requests for a single authentication attempt. Discarded requests in the NPS server event log don't indicate there's a problem with the NPS server or the Azure AD Multi-Factor Authentication NPS extension.
+If you look at the NPS server logs, you may see these additional requests being discarded. This behavior is by design to protect the end user from getting multiple requests for a single authentication attempt. Discarded requests in the NPS server event log don't indicate there's a problem with the NPS server or the Microsoft Entra multifactor authentication NPS extension.
 
 To minimize discarded requests, we recommend that VPN servers are configured with a timeout of at least 60 seconds. If needed, or to reduce discarded requests in the event logs, you can increase the VPN server timeout value to 90 or 120 seconds.
 
-Due to this UDP protocol behavior, the NPS server could receive a duplicate request and send another MFA prompt, even after the user has already responded to the initial request. To avoid this timing condition, the Azure AD Multi-Factor Authentication NPS extension continues to filter and discard duplicate requests for up to 10 seconds after a successful response has been sent to the VPN server.
+Due to this UDP protocol behavior, the NPS server could receive a duplicate request and send another MFA prompt, even after the user has already responded to the initial request. To avoid this timing condition, the Microsoft Entra multifactor authentication NPS extension continues to filter and discard duplicate requests for up to 10 seconds after a successful response has been sent to the VPN server.
 
 ![Diagram of NPS server continuing to discard duplicate requests from VPN server for ten seconds after a successful response is returned](./media/howto-mfa-nps-extension/delay-after-successful-authentication.png)
 
-Again, you may see discarded requests in the NPS server event logs, even when the Azure AD Multi-Factor Authentication prompt was successful. This is expected behavior, and doesn't indicate a problem with the NPS server or Azure AD Multi-Factor Authentication NPS extension.
+Again, you may see discarded requests in the NPS server event logs, even when the Microsoft Entra multifactor authentication prompt was successful. This is expected behavior, and doesn't indicate a problem with the NPS server or Microsoft Entra multifactor authentication NPS extension.
 
 ## Plan your deployment
 
 The NPS extension automatically handles redundancy, so you don't need a special configuration.
 
-You can create as many Azure AD Multi-Factor Authentication-enabled NPS servers as you need. If you do install multiple servers, you should use a difference client certificate for each one of them. Creating a certificate for each server means that you can update each cert individually, and not worry about downtime across all your servers.
+You can create as many Microsoft Entra multifactor authentication-enabled NPS servers as you need. If you do install multiple servers, you should use a difference client certificate for each one of them. Creating a certificate for each server means that you can update each cert individually, and not worry about downtime across all your servers.
 
-VPN servers route authentication requests, so they need to be aware of the new Azure AD Multi-Factor Authentication-enabled NPS servers.
+VPN servers route authentication requests, so they need to be aware of the new Microsoft Entra multifactor authentication-enabled NPS servers.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure AD Multi-Factor Authentication is available to customers with [licenses for Azure AD Multi-Factor Authentication](./concept-mfa-howitworks.md) (included with Azure AD Premium P1 and Premium P2 or Enterprise Mobility + Security). Consumption-based licenses for Azure AD Multi-Factor Authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
+The NPS Extension for Microsoft Entra multifactor authentication is available to customers with [licenses for Microsoft Entra multifactor authentication](./concept-mfa-howitworks.md) (included with Microsoft Entra ID P1 and Premium P2 or Enterprise Mobility + Security). Consumption-based licenses for Microsoft Entra multifactor authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
 
 ### Software
 
@@ -89,23 +89,20 @@ You need to manually install the following library:
 The following libraries are installed automatically with the extension.
 
 - [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [PowerShell module version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
-The Microsoft Azure Active Directory Module for Windows PowerShell is also installed through a configuration script you run as part of the setup process, if not already present. There's no need to install this module ahead of time if it's not already installed.
+The PowerShell module is also installed through a configuration script you run as part of the setup process, if not already present. There's no need to install this module ahead of time if it's not already installed.
 
-### Azure Active Directory
+### Obtain the directory tenant ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-Everyone using the NPS extension must be synced to Azure AD using Azure AD Connect, and must be registered for MFA.
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Microsoft Entra tenant. To get the tenant ID, complete the following steps:
 
-When you install the extension, you need the *Tenant ID* and admin credentials for your Azure AD tenant. To get the tenant ID, complete the following steps:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. Search for and select the **Azure Active Directory**.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
-
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Network requirements
 
@@ -133,11 +130,11 @@ Additionally, connectivity to the following URLs is required to complete the [se
 
 ## Prepare your environment
 
-Before you install the NPS extension, prepare you environment to handle the authentication traffic.
+Before you install the NPS extension, prepare your environment to handle the authentication traffic.
 
 ### Enable the NPS role on a domain-joined server
 
-The NPS server connects to Azure AD and authenticates the MFA requests. Choose one server for this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS. The NPS server must be set up as the primary and secondary authentication server for your environment. It can't proxy RADIUS requests to another server.
+The NPS server connects to Microsoft Entra ID and authenticates the MFA requests. Choose one server for this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS. The NPS server must be set up as the primary and secondary authentication server for your environment. It can't proxy RADIUS requests to another server.
 
 1. On your server, open **Server Manager**. Select **Add Roles and Features Wizard** from the *Quickstart* menu.
 2. For your installation type, choose **Role-based or feature-based installation**.
@@ -152,20 +149,20 @@ Depending on which VPN solution you use, the steps to configure your RADIUS auth
 
 ### Sync domain users to the cloud
 
-This step may already be complete on your tenant, but it's good to double-check that Azure AD Connect has synchronized your databases recently.
+This step may already be complete on your tenant, but it's good to double-check that Microsoft Entra Connect has synchronized your databases recently.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Select **Azure Active Directory** > **Azure AD Connect**
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Hybrid management** > **Microsoft Entra Connect**.
 3. Verify that your sync status is **Enabled** and that your last sync was less than an hour ago.
 
-If you need to kick off a new round of synchronization, see [Azure AD Connect sync: Scheduler](../hybrid/connect/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+If you need to kick off a new round of synchronization, see [Microsoft Entra Connect Sync: Scheduler](../hybrid/connect/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### Determine which authentication methods your users can use
 
 There are two factors that affect which authentication methods are available with an NPS extension deployment:
 
 * The password encryption algorithm used between the RADIUS client (VPN, Netscaler server, or other) and the NPS servers.
-   - **PAP** supports all the authentication methods of Azure AD Multi-Factor Authentication in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
+   - **PAP** supports all the authentication methods of Microsoft Entra multifactor authentication in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
    - **CHAPV2** and **EAP** support phone call and mobile app notification.  
 
 * The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
@@ -179,30 +176,33 @@ You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#ve
 
 ### Register users for MFA
 
-Before you deploy and use the NPS extension, users that are required to perform Azure AD Multi-Factor Authentication need to be registered for MFA. To test the extension as you deploy it, you also need at least one test account that is fully registered for Azure AD Multi-Factor Authentication.
+Before you deploy and use the NPS extension, users that are required to perform Microsoft Entra multifactor authentication need to be registered for MFA. To test the extension as you deploy it, you also need at least one test account that is fully registered for Microsoft Entra multifactor authentication.
 
 If you need to create and configure a test account, use the following steps:
 
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account.
 2. Follow the prompts to set up a verification method.
-3. In the Azure portal as an admin user, [create a Conditional Access policy](howto-mfa-getstarted.md#plan-conditional-access-policies) to require multi-factor authentication for the test account.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** >  **Multifactor authentication** and enable for the test account.
 
 > [!IMPORTANT]
 >
-> Make sure that users have successfully registered for Azure AD Multi-Factor Authentication. If users have previously only registered for self-service password reset (SSPR), *StrongAuthenticationMethods* is enabled for their account. Azure AD Multi-Factor Authentication is enforced when *StrongAuthenticationMethods* is configured, even if the user only registered for SSPR.
+> Make sure that users have successfully registered for Microsoft Entra multifactor authentication. If users have previously only registered for self-service password reset (SSPR), *StrongAuthenticationMethods* is enabled for their account. Microsoft Entra multifactor authentication is enforced when *StrongAuthenticationMethods* is configured, even if the user only registered for SSPR.
 >
-> Combined security registration can be enabled that configures SSPR and Azure AD Multi-Factor Authentication at the same time. For more information, see [Enable combined security information registration in Azure Active Directory](howto-registration-mfa-sspr-combined.md).
+> Combined security registration can be enabled that configures SSPR and Microsoft Entra multifactor authentication at the same time. For more information, see [Enable combined security information registration in Microsoft Entra ID](howto-registration-mfa-sspr-combined.md).
 >
 > You can also [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options) if they previously only enabled SSPR.
 >
-> Users who connect to the NPS server using username and password will be required to complete a multi-factor authentication prompt.
+> Users who connect to the NPS server using username and password will be required to complete a multifactor authentication prompt.
 
 ## Install the NPS extension
 
 > [!IMPORTANT]
 > Install the NPS extension on a different server than the VPN access point.
 
-### Download and install the NPS extension for Azure AD MFA
+<a name='download-and-install-the-nps-extension-for-azure-ad-mfa'></a>
+
+### Download and install the NPS extension for Microsoft Entra multifactor authentication
 
 To download and install the NPS extension, complete the following steps:
 
@@ -223,7 +223,7 @@ If you later upgrade an existing NPS extension install, to avoid a reboot of the
 The installer creates a PowerShell script at `C:\Program Files\Microsoft\AzureMfa\Config` (where `C:\` is your installation drive). This PowerShell script performs the following actions each time it's run:
 
 * Creates a self-signed certificate.
-* Associates the public key of the certificate to the service principal on Azure AD.
+* Associates the public key of the certificate to the service principal on Microsoft Entra ID.
 * Stores the certificate in the local machine certificate store.
 * Grants access to the certificate's private key to Network User.
 * Restarts the NPS service.
@@ -254,8 +254,8 @@ To provide load-balancing capabilities or for redundancy, repeat these steps on 
    .\AzureMfaNpsExtnConfigSetup.ps1
    ```
 
-1. When prompted, sign in to Azure AD as a Global administrator.
-1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied from the Azure portal in the prerequisites section.
+1. When prompted, sign in to Microsoft Entra ID as a Global administrator.
+1. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied in the prerequisites section.
 1. A success message is shown when the script is finished.  
 
 If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
@@ -272,7 +272,7 @@ For customers that use the Azure Government or Azure operated by 21Vianet clouds
 
 1. If you're an Azure Government or Azure operated by 21Vianet customer, open **Registry Editor** on the NPS server.
 1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
-1. For Azure Government customers, set the following key values.:
+1. For Azure Government customers, set the following key values:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
@@ -309,8 +309,8 @@ This section includes design considerations and suggestions for successful NPS e
 
 ### Configuration limitations
 
-- The NPS extension for Azure AD Multi-Factor Authentication doesn't include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
-- The NPS extension uses the UPN from the on-premises AD DS environment to identify the user on Azure AD Multi-Factor Authentication for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom AD DS field other than UPN. For more information, see the article, [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
+- The NPS extension for Microsoft Entra multifactor authentication doesn't include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
+- The NPS extension uses the UPN from the on-premises AD DS environment to identify the user on Microsoft Entra multifactor authentication for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom AD DS field other than UPN. For more information, see the article, [Advanced configuration options for the NPS extension for multifactor authentication](howto-mfa-nps-extension-advanced.md).
 - Not all encryption protocols support all verification methods.
    - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
    - **CHAPV2** and **EAP** support phone call and mobile app notification
@@ -333,26 +333,26 @@ This setting determines what to do when a user isn't enrolled for MFA. When the 
 
 When the key is set to *FALSE* and the user isn't enrolled, authentication proceeds without performing MFA. If a user is enrolled in MFA, they must authenticate with MFA even if *REQUIRE_USER_MATCH* is set to *FALSE*.
 
-You can choose to create this key and set it to *FALSE* while your users are onboarding, and may not all be enrolled for Azure AD Multi-Factor Authentication yet. However, since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
+You can choose to create this key and set it to *FALSE* while your users are onboarding, and may not all be enrolled for Microsoft Entra multifactor authentication yet. However, since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
 
 ## Troubleshooting
 
 ### NPS extension health check script
 
-The [Azure AD MFA NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose one of available options.
+The [Microsoft Entra multifactor authentication NPS Extension health check script](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) performs a basic health check when troubleshooting the NPS extension. Run the script and choose one of available options.
 
 ### How to fix the error "Service principal was not found" while running `AzureMfaNpsExtnConfigSetup.ps1` script? 
 
-If for any reason the "Azure Multi-Factor Auth Client" service principal was not created in the tenant , it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
+If for any reason the "Azure multifactor authentication Client" service principal was not created in the tenant, it can be manually created by running the `New-MsolServicePrincipal` cmdlet as shown below. 
 
 ```powershell
 import-module MSOnline
 Connect-MsolService
 New-MsolServicePrincipal -AppPrincipalId 981f26a1-7f43-403b-a875-f8b09b8cd720 -DisplayName "Azure Multi-Factor Auth Client"
 ```
-Once done, sign in to the [Azure portal](https://portal.azure.com) > **Azure Active Directory** > **Enterprise Applications** > Search for "Azure Multi-Factor Auth Client" > Check properties for this app > Confirm if the service principal is enabled or disabled > Click on the application entry > Go to Properties of the app > If the option "Enabled for users to sign-in?" is set to `No` in Properties of this app, please set it to `Yes`.
+Once done, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Browse to **Identity** > **Applications** > **Enterprise applications** > and search for "Azure multifactor authentication Client". Then click **Check properties for this app**. Confirm if the service principal is enabled or disabled. Click the application entry > **Properties**. If the option **Enabled for users to sign-in?** is set to **No**, set it to **Yes**.
 
-Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the `Service principal was not found` error. 
+Run the `AzureMfaNpsExtnConfigSetup.ps1` script again and it should not return the **Service principal was not found** error. 
 
 ### How do I verify that the client cert is installed as expected?
 
@@ -360,7 +360,9 @@ Look for the self-signed certificate created by the installer in the cert store,
 
 Self-signed certificates generated by the `AzureMfaNpsExtnConfigSetup.ps1` script have a validity lifetime of two years. When verifying that the certificate is installed, you should also check that the certificate hasn't expired.
 
-### How can I verify that my client certificate is associated to my tenant in Azure AD?
+<a name='how-can-i-verify-that-my-client-certificate-is-associated-to-my-tenant-in-azure-ad'></a>
+
+### How can I verify that my client certificate is associated to my tenant in Microsoft Entra ID?
 
 Open PowerShell command prompt and run the following commands:
 
@@ -394,12 +396,12 @@ This error could be due to one of several reasons. Use the following steps to tr
 
 1. Restart your NPS server.
 2. Verify that client cert is installed as expected.
-3. Verify that the certificate is associated with your tenant on Azure AD.
+3. Verify that the certificate is associated with your tenant on Microsoft Entra ID.
 4. Verify that `https://login.microsoftonline.com/` is accessible from the server running the extension.
 
 ### Why does authentication fail with an error in HTTP logs stating that the user is not found?
 
-Verify that AD Connect is running, and that the user is present in both the on-premises AD DS environment and in Azure AD.
+Verify that AD Connect is running, and that the user is present in both the on-premises AD DS environment and in Microsoft Entra ID.
 
 ### Why do I see HTTP connect errors in logs with all my authentications failing?
 
@@ -413,7 +415,7 @@ To check if you have a valid certificate, check the local *Computer Account's Ce
 
 ### Why do I see discarded requests in the NPS server logs?
 
-A VPN server may send repeated requests to the NPS server if the timeout value is too low. The NPS server detects these duplicate requests and discards them. This behavior is by design, and doesn't indicate a problem with the NPS server or the Azure AD Multi-Factor Authentication NPS extension.
+A VPN server may send repeated requests to the NPS server if the timeout value is too low. The NPS server detects these duplicate requests and discards them. This behavior is by design, and doesn't indicate a problem with the NPS server or the Microsoft Entra multifactor authentication NPS extension.
 
 For more information on why you see discarded packets in the NPS server logs, see [RADIUS protocol behavior and the NPS extension](#radius-protocol-behavior-and-the-nps-extension) at the start of this article.
 
@@ -432,14 +434,14 @@ It's recommended that older and weaker cipher suites be disabled or removed unle
 
 ### Additional troubleshooting
 
-Additional troubleshooting guidance and possible solutions can be found in the article, [Resolve error messages from the NPS extension for Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Additional troubleshooting guidance and possible solutions can be found in the article, [Resolve error messages from the NPS extension for Microsoft Entra multifactor authentication](howto-mfa-nps-extension-errors.md).
 
 ## Next steps
 
 - [Overview and configuration of Network Policy Server in Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
-- Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
+- Configure alternate IDs for login, or set up an exception list for IPs that shouldn't perform two-step verification in [Advanced configuration options for the NPS extension for multifactor authentication](howto-mfa-nps-extension-advanced.md)
 
 - Learn how to integrate [Remote Desktop Gateway](howto-mfa-nps-extension-rdg.md) and [VPN servers](howto-mfa-nps-extension-vpn.md) using the NPS extension
 
-- [Resolve error messages from the NPS extension for Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
+- [Resolve error messages from the NPS extension for Microsoft Entra multifactor authentication](howto-mfa-nps-extension-errors.md)

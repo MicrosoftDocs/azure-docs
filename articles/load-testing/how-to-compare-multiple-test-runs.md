@@ -96,7 +96,7 @@ Use the following steps to view metrics trends across test runs:
 
     You can select a test run that you want to analyze and open the results dashboard for that test run.
 
-### Use a baseline test run
+## Use a baseline test run
 
 You can mark a test run as baseline to compare the client-side metrics of the recent test runs with those of the baseline. 
 

@@ -311,7 +311,7 @@ example, you can:
   Azure Synapse Analytics, etc.) to perform batch analytics or train machine
   learning models based on very large, indexed pools of historical data.
 - Store projections (also called "materialized views") in databases ([SQL
-  Database](../stream-analytics/sql-database-output.md), [Azure Cosmos DB](../stream-analytics/azure-cosmos-db-output.md) ).
+  Database](../stream-analytics/sql-database-output.md), [Azure Cosmos DB](../stream-analytics/azure-cosmos-db-output.md)).
 
 ### Stateless replication applications in Azure Functions
 

@@ -6,8 +6,7 @@ services: cognitive-services
 
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: eur

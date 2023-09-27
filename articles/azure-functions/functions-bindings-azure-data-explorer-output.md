@@ -22,7 +22,7 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-# [In-process](#tab/in-process)
+### [In-process](#tab/in-process)
 
 More samples for the Azure Data Explorer output binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-csharp).
 
@@ -54,7 +54,7 @@ public class Product
 
 <a id="http-trigger-write-one-record-c"></a>
 
-### HTTP trigger, write one record
+#### HTTP trigger, write one record
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database. The function uses data provided in an HTTP POST request as a JSON body.
 
@@ -92,7 +92,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.OutputBindingSamples
 
 <a id="http-trigger-write-to-two-tables-c"></a>
 
-### HTTP trigger, write to two tables
+#### HTTP trigger, write to two tables
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds records to a database in two different tables (`Products` and `ProductsChangeLog`). The function uses data provided in an HTTP POST request as a JSON body and multiple output bindings.
 
@@ -163,7 +163,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.OutputBindingSamples
 
 <a id="http-trigger-write-records-using-iasynccollector-c"></a>
 
-### HTTP trigger, write records using IAsyncCollector
+#### HTTP trigger, write records using IAsyncCollector
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that ingests a set of records to a table. The function uses data provided in an HTTP POST body JSON array.
 
@@ -204,7 +204,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.Samples.OutputBindingSamples
 }
 ```
 
-# [Isolated process](#tab/isolated-process)
+### [Isolated process](#tab/isolated-process)
 
 More samples for the Azure Data Explorer output binding are available in the [GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto/tree/main/samples/samples-outofproc).
 
@@ -235,7 +235,7 @@ public class Product
 
 <a id="http-trigger-write-one-record-c-oop"></a>
 
-### HTTP trigger, write one record
+#### HTTP trigger, write one record
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database. The function uses data provided in an HTTP POST request as a JSON body.
 
@@ -265,7 +265,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindin
 
 <a id="http-trigger-write-records-with-mapping-oop"></a>
 
-### HTTP trigger, write records with mapping
+#### HTTP trigger, write records with mapping
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of records to a database. The function uses mapping that transforms a `Product` to `Item`.
 
@@ -316,6 +316,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Kusto.SamplesOutOfProc.OutputBindin
     }
 }
 ```
+---
 
 ::: zone-end
 

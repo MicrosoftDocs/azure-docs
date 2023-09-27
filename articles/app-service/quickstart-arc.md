@@ -5,6 +5,8 @@ ms.topic: quickstart
 ms.date: 06/30/2022
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
+author: msangapu-msft
+ms.author: msangapu
 ---
 
 # Create an App Service app on Azure Arc (Preview)

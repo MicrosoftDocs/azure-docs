@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure AD-managed identities for Azure resources documentation
-summary: Learn how to use managed identities in Azure AD.
+title: Microsoft Entra managed identities for Azure resources documentation
+summary: Learn how to use managed identities in Microsoft Entra ID.
 
 metadata:
-  title: Azure AD-managed identities for Azure resources documentation
-  description: Learn how to use managed identities for Azure resources in Azure AD.
+  title: Microsoft Entra managed identities for Azure resources documentation
+  description: Learn how to use managed identities for Azure resources in Microsoft Entra ID.
   services: active-directory
   ms.service: active-directory
   ms.subservice: msi

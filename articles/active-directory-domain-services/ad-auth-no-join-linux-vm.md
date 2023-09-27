@@ -224,11 +224,11 @@ The final step is to check that the flow works properly. To check this, try logg
 [centosuser@centos8 ~]su - ADUser@contoso.com
 Last login: Wed Oct 12 15:13:39 UTC 2022 on pts/0
 [ADUser@Centos8 ~]$ exit
-
 ```
+
 Now you are ready to use AD authentication on your Linux VM.
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md

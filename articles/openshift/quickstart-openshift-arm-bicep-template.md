@@ -516,7 +516,7 @@ resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.A
   }
 }
 
-resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-04-30' = {
+resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-04-01' = {
   name: clusterName
   location: location
   tags: tags

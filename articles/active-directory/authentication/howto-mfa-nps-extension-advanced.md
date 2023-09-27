@@ -1,5 +1,5 @@
 ---
-title: Configure the Azure AD MFA NPS extension
+title: Configure the Microsoft Entra multifactor authentication NPS extension
 description: After you install the NPS extension, use these steps for advanced configuration like allowed IP lists and UPN replacement.
 
 services: multi-factor-authentication
@@ -15,15 +15,15 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Advanced configuration options for the NPS extension for Multi-Factor Authentication
+# Advanced configuration options for the NPS extension for multifactor authentication
 
-The Network Policy Server (NPS) extension extends your cloud-based Azure AD Multi-Factor Authentication features into your on-premises infrastructure. This article assumes that you already have the extension installed, and now want to know how to customize the extension for your needs.
+The Network Policy Server (NPS) extension extends your cloud-based Microsoft Entra multifactor authentication features into your on-premises infrastructure. This article assumes that you already have the extension installed, and now want to know how to customize the extension for your needs.
 
 ## Alternate login ID
 
 Since the NPS extension connects to both your on-premises and cloud directories, you might encounter an issue where your on-premises user principal names (UPNs) don't match the names in the cloud. To solve this problem, use alternate login IDs. 
 
-Within the NPS extension, you can designate an Active Directory attribute to be used as the UPN for Azure AD Multi-Factor Authentication. This enables you to protect your on-premises resources with two-step verification without modifying your on-premises UPNs. 
+Within the NPS extension, you can designate an Active Directory attribute to be used as the UPN for Microsoft Entra multifactor authentication. This enables you to protect your on-premises resources with two-step verification without modifying your on-premises UPNs. 
 
 To configure alternate login IDs, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and edit the following registry values:
 
@@ -37,7 +37,7 @@ To troubleshoot problems with alternate login IDs, use the recommended steps for
 
 ## IP exceptions
 
-If you need to monitor server availability, like if load balancers verify which servers are running before sending workloads, you don't want these checks to be blocked by verification requests. Instead, create a list of IP addresses that you know are used by service accounts, and disable Multi-Factor Authentication requirements for that list.
+If you need to monitor server availability, like if load balancers verify which servers are running before sending workloads, you don't want these checks to be blocked by verification requests. Instead, create a list of IP addresses that you know are used by service accounts, and disable multifactor authentication requirements for that list.
 
 To configure an IP allowed list, go to `HKLM\SOFTWARE\Microsoft\AzureMfa` and configure the following registry value:
 
@@ -52,5 +52,5 @@ When a request comes in from an IP address that exists in the `IP_WHITELIST`, tw
 
 ## Next steps
 
-- [Resolve error messages from the NPS extension for Azure AD Multi-Factor Authentication](howto-mfa-nps-extension-errors.md)
+- [Resolve error messages from the NPS extension for Microsoft Entra multifactor authentication](howto-mfa-nps-extension-errors.md)
 - [Use REQUIRE_USER_MATCH to prepare for users that aren't enrolled for MFA](howto-mfa-nps-extension.md#configure-your-nps-extension)

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 07/30/2023
+ms.date: 09/20/2023
 ms.author: phjensen
 ---
 
@@ -68,7 +68,7 @@ This format makes the file parse-able with the Linux commands `watch`, `grep`, `
 #       8. AZACSNAP_VERSION,
 #       9. AZACSNAP_CONFIG_FILE,
 #       10. VOLUME
-FIELDS_TO_INCLUDE="1,2,3,4,5,6,7"
+FIELDS_TO_INCLUDE="1,2,3,5,4,6,7"
 SCREEN_REFRESH_SECS=2
 #
 # Use AzAcSnap global settings file (.azacsnaprc) if available,
@@ -83,40 +83,51 @@ cd ${MAINLOG_LOCATION}
 echo "Changing current working directory to ${MAINLOG_LOCATION}"
 #
 # Default MAINLOG filename.
+HOSTNAME=$(hostname)
 MAINLOG_FILENAME="azacsnap.log"
 #
-echo "Parsing '${MAINLOG_FILENAME}'"
 # High-level explanation of how commands used.
 # `watch` - continuously monitoring the command output.
-# `column` - provide pretty output.
 # `grep` - filter only backup runs.
 # `head` and `tail` - add/remove column headers.
+# `sed` to remove millisecs from date.
+# `awk` format output for `column`.
+# `column` - provide pretty output.
+FIELDS_FOR_AWK=$(echo "${FIELDS_TO_INCLUDE}" | sed 's/^/\\\$/g' | sed 's/,/,\\\$/g')
+PRINTOUT="{OFS=\\\",\\\";print ${FIELDS_FOR_AWK}}"
+#
+echo -n "Parsing '${MAINLOG_FILENAME}' for field #s ${FIELDS_TO_INCLUDE} = "
+bash -c "cat ${MAINLOG_FILENAME} | grep -e \"DATE\" | head -n1 -  | awk -F\",\" \"${PRINTOUT}\" "
+#
 watch -t -n ${SCREEN_REFRESH_SECS} \
   "\
-  echo -n "Monitoring AzAcSnap @  "; \
+  echo -n \"Monitoring AzAcSnap on '${HOSTNAME}' @ \" ; \
   date ; \
   echo ; \
   cat ${MAINLOG_FILENAME} \
-    | grep  -e "DATE" -e ",backup," \
-    | ( sleep 1; head -n1 - ; sleep 1; tail -n+2 - | tail -n20; sleep 1 ) \
-    | cut -f${FIELDS_TO_INCLUDE} -d"," | column -s"," -t
+    | grep -e \"DATE\" -e \",backup,\" \
+    | ( sleep 1; head -n1 - ; sleep 1; tail -n+2 - | tail -n20 \
+      | sed 's/\(:[0-9][0-9]\)\.[0-9]\{7\}/\1/' ; sleep 1 ) \
+    | awk -F\",\" \"${PRINTOUT}\" \
+    | column -s\",\" -t \
   "
+exit 0
 ```
 
 Produces the following output refreshed every two seconds.
 
 ```output
-Monitoring AzAcSnap @Fri May  5 11:26:36 NZST 2023
+Monitoring AzAcSnap on 'azacsnap' @ Thu Sep 21 11:27:40 NZST 2023
 
-DATE_TIME                          OPERATION_NAME  STATUS   SID  DATABASE_TYPE  DURATION         SNAPSHOT_NAME
-2023-05-05T00:00:03.5705791+12:00  backup          started  PR1  Hana                            daily_archive__F4F02562F6B
-2023-05-05T00:02:11.5495104+12:00  backup          SUCCESS  PR1  Hana           0:02:08.2778958  daily_archive__F4F02562F6B
-2023-05-05T03:00:02.8123179+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F08C604CD
-2023-05-05T03:01:08.6609302+12:00  backup          SUCCESS  PR1  Hana           0:01:06.1536665  pr1_hourly__F4F08C604CD
-2023-05-05T06:00:02.8871149+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F0F35FAB9
-2023-05-05T06:01:09.0608121+12:00  backup          SUCCESS  PR1  Hana           0:01:06.4537885  pr1_hourly__F4F0F35FAB9
-2023-05-05T09:00:03.1769836+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F15A5F8E2
-2023-05-05T09:01:08.6898938+12:00  backup          SUCCESS  PR1  Hana           0:01:05.8221419  pr1_hourly__F4F15A5F8E2
+DATE_TIME                  OPERATION_NAME  STATUS   DATABASE_TYPE  SID       DURATION         SNAPSHOT_NAME
+2023-09-21T07:00:02+12:00  backup          started  Oracle         ORATEST1                   all-volumes__F6B07A2D77A
+2023-09-21T07:02:10+12:00  backup          SUCCESS  Oracle         ORATEST1  0:02:08.0338537  all-volumes__F6B07A2D77A
+2023-09-21T08:00:03+12:00  backup          started  Oracle         ORATEST1                   all-volumes__F6B09C83210
+2023-09-21T08:02:12+12:00  backup          SUCCESS  Oracle         ORATEST1  0:02:09.9954439  all-volumes__F6B09C83210
+2023-09-21T09:00:03+12:00  backup          started  Oracle         ORATEST1                   all-volumes__F6B0BED814B
+2023-09-21T09:00:03+12:00  backup          started  Hana           PR1                        pr1_hourly__F6B0BED817F
+2023-09-21T09:01:10+12:00  backup          SUCCESS  Hana           PR1       0:01:07.8575664  pr1_hourly__F6B0BED817F
+2023-09-21T09:02:12+12:00  backup          SUCCESS  Oracle         ORATEST1  0:02:09.4572157  all-volumes__F6B0BED814B
 ```
 
 

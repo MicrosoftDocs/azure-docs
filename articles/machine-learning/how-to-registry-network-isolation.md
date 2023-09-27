@@ -115,6 +115,8 @@ To connect to a registry that's secured behind a VNet, use one of the following 
 * [Azure Bastion](/azure/bastion/bastion-overview) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the registry.  
 
 ### Share assets from workspace to registry 
+> [!NOTE]
+> Currently, sharing an asset from secure workspace to a Azure machine learning registry is not supported if the storage account containing the asset has public access disabled.
 
 Create a private endpoint to the registry, storage and ACR from the VNet of the workspace. If you're trying to connect to multiple registries, create private endpoint for each registry and associated storage and ACRs. For more information, see the [How to create a private endpoint](#how-to-create-a-private-endpoint) section.
 

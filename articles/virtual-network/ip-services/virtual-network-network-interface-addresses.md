@@ -2,13 +2,13 @@
 title: Configure IP addresses for an Azure network interface
 description: Learn how to add, change, and remove private and public IP addresses for a network interface.
 services: virtual-network
-author: asudbring
+ms.date: 08/24/2023
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/06/2022
-ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 

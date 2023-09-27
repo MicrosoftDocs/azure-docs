@@ -4,17 +4,15 @@ titleSuffix: Azure OpenAI Service
 description: Learn how to generate images with Azure OpenAI Service by using the Python SDK and the endpoint and access keys for your Azure OpenAI resource.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/08/2023
 keywords: 
 ---
 
-Use this guide to get started calling the Azure OpenAI Service image generation APIs by using the Python SDK.
+Use this guide to get started generating images with the Azure OpenAI SDK for Python.
 
-> [!NOTE]
-> The image generation API creates an image from a text prompt. It doesn't edit existing images or create variations.
+[Library source code](https://github.com/openai/openai-python/tree/main/openai) | [Package](https://github.com/openai/openai-python) | [Samples](https://github.com/openai/openai-python/tree/main/examples)
 
 ## Prerequisites
 
@@ -27,7 +25,9 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Retrieve key and endpoint
+## Set up
+
+### Retrieve key and endpoint
 
 To successfully call the Azure OpenAI APIs, you need the following information about your Azure OpenAI resource:
 
@@ -40,9 +40,18 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
 
+Create and assign persistent environment variables for your key and endpoint.
+
+[!INCLUDE [environment-variables](environment-variables.md)]
+
+
+## Create a new Python application
+
+Open a command prompt and browse to your project folder. Create a new python file, _quickstart.py_.
+
 ## Install the Python SDK
 
-Open a command prompt and browse to your project folder. Install the OpenAI Python SDK by using the following command: 
+Install the OpenAI Python SDK by using the following command: 
 
 ```bash
 pip install openai
@@ -55,63 +64,64 @@ pip install requests
 pip install pillow 
 ```
 
-## Create a new Python application
+## Generate images with DALL-E
 
-Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
+Open _quickstart.py in your preferred editor or IDE.
 
-1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
+Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
 
-    ```python
-    import openai
-    import os
-    import requests
-    from PIL import Image
+```python
+import openai
+import os
+import requests
+from PIL import Image
 
-    openai.api_base = '<your_endpoint>'  # Enter your endpoint here
-    openai.api_key = '<your_key>'        # Enter your API key here
+# Get endpoint and key from environment variables
+openai.api_base = os.environ['AZURE_OPENAI_ENDPOINT']
+openai.api_key = os.environ['AZURE_OPENAI_KEY']     
 
-    # Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
-    openai.api_version = '2023-06-01-preview'
-    openai.api_type = 'azure'
+# Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
+openai.api_version = '2023-06-01-preview'
+openai.api_type = 'azure'
 
-    # Create an image by using the image generation API
-    generation_response = openai.Image.create(
-        prompt='A painting of a dog',    # Enter your prompt text here
-        size='1024x1024',
-        n=2
-    )
+# Create an image by using the image generation API
+generation_response = openai.Image.create(
+    prompt='A painting of a dog',    # Enter your prompt text here
+    size='1024x1024',
+    n=2
+)
 
-    # Set the directory for the stored image
-    image_dir = os.path.join(os.curdir, 'images')
+# Set the directory for the stored image
+image_dir = os.path.join(os.curdir, 'images')
 
-    # If the directory doesn't exist, create it
-    if not os.path.isdir(image_dir):
-        os.mkdir(image_dir)
+# If the directory doesn't exist, create it
+if not os.path.isdir(image_dir):
+    os.mkdir(image_dir)
 
-    # Initialize the image path (note the filetype should be png)
-    image_path = os.path.join(image_dir, 'generated_image.png')
+# Initialize the image path (note the filetype should be png)
+image_path = os.path.join(image_dir, 'generated_image.png')
 
-    # Retrieve the generated image
-    image_url = generation_response["data"][0]["url"]  # extract image URL from response
-    generated_image = requests.get(image_url).content  # download the image
-    with open(image_path, "wb") as image_file:
-        image_file.write(generated_image)
+# Retrieve the generated image
+image_url = generation_response["data"][0]["url"]  # extract image URL from response
+generated_image = requests.get(image_url).content  # download the image
+with open(image_path, "wb") as image_file:
+    image_file.write(generated_image)
 
-    # Display the image in the default image viewer
-    image = Image.open(image_path)
-    image.show()
-    ```
+# Display the image in the default image viewer
+image = Image.open(image_path)
+image.show()
+```
 
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post your key publicly. For production, use a secure way of storing and accessing your credentials. For more information, see [Azure Key Vault](../../../key-vault/general/overview.md).
 
-1. Run the application with the `python` command:
+Run the application with the `python` command:
 
-    ```console
-    python quickstart.py
-    ```
+```console
+python quickstart.py
+```
 
-    The script loops until the generated image is ready.
+The script loops until the generated image is ready.
 
 ## Output
 

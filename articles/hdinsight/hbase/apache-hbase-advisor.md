@@ -6,7 +6,7 @@ author: yeturis
 ms.author: sairamyeturi
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/20/2022
+ms.date: 09/15/2023
 #Customer intent: The azure advisories help to tune the cluster/query. This doc gives a much deeper understanding of the various advisories including the recommended configuration tunings.
 ---
 # Apache HBase advisories in Azure HDInsight
@@ -15,9 +15,9 @@ This article describes several advisories to help you optimize the Apache HBase 
 
 ## Optimize HBase to read most recently written data
 
-If your usecase involves reading the most recently written data from HBase, this advisory can help you. For high performance, it's optimal that HBase reads are to be served from memstore, instead of the remote storage.
+If your use case involves reading the most recently written data from HBase, this advisory can help you. For high performance, it is optimal that HBase reads are to be served from `memstore`, instead of the remote storage.
 
-The query advisory indicates that for a given column family in a table > 75% reads that are getting served from memstore. This indicator suggests that even if a flush happens on the memstore the recent file needs to be accessed and that needs to be in cache. The data is first written to memstore the system accesses the recent data there. There's a chance that the internal HBase flusher threads detect that a given region has reached 128M (default) size and can trigger a flush. This scenario happens to even the most recent data that was written when the memstore was around 128M in size. Therefore, a later read of those recent records may require a file read rather than from memstore. Hence it is best to optimize that even recent data that is recently flushed can reside in the cache.
+The query advisory indicates that for a given column family in a table > 75% reads that are getting served from `memstore`. This indicator suggests that even if a flush happens on the `memstore` the recent file needs to be accessed and that needs to be in cache. The data is first written to `memstore` the system accesses the recent data there. There's a chance that the internal HBase flusher threads detect that a given region has reached 128M (default) size and can trigger a flush. This scenario happens to even the most recent data that was written when the `memstore` was around 128M in size. Therefore, a later read of those recent records may require a file read rather than from `memstore`. Hence it is best to optimize that even recent data that is recently flushed can reside in the cache.
 
 To optimize the recent data in cache, consider the following configuration settings:
 
@@ -41,25 +41,25 @@ To optimize the recent data in cache, consider the following configuration setti
 
 ## Optimize the flush queue
 
-This advisory indicates that HBase flushes may need tuning. The current configuration for flush handlers may not be high enough to handle with write traffic which may lead to slow down of flushes .
+This advisory indicates that HBase flushes may need tuning. The current configuration for flush handlers may not be high enough to handle with write traffic that may lead to slow down of flushes.
 
 In the region server UI, notice if the flush queue grows beyond 100. This threshold indicates the flushes are slow and you may have to tune the   `hbase.hstore.flusher.count` configuration. By default, the value is 2. Ensure that the max flusher threads don't increase beyond 6.
 
-Additionally, see if you have a recommendation for region count tuning. If we yes, we suggest you to try the region tuning to see if that helps in faster flushes. Otherwise, tuning the flusher threads may help you.
+Additionally, see if you have a recommendation for region count tuning. If yes, we suggest you to try the region tuning to see if that helps in faster flushes. Otherwise, tuning the flusher threads may help you.
 
 ## Region count tuning
 
-The region count tuning advisory indicates that HBase has blocked updates, and the region count may be more than the optimally supported heap size. You can tune the heap size, memstore size, and the region count.
+The region count tuning advisory indicates that HBase has blocked updates, and the region count may be more than the optimally supported heap size. You can tune the heap size, `memstore` size, and the region count.
 
 As an example scenario:
 
-- Assume the heap size for the region server is 10 GB. By default the `hbase.hregion.memstore.flush.size` is `128M`. The default value for `hbase.regionserver.global.memstore.size` is `0.4`. Which means that out of the 10 GB, 4 GB is allocated for memstore (globally).
+- Assume the heap size for the region server is 10 GB. By default the `hbase.hregion.memstore.flush.size` is `128M`. The default value for `hbase.regionserver.global.memstore.size` is `0.4`. Which means that out of the 10 GB, 4 GB is allocated for `memstore` (globally).
 
 - Assume there's an even distribution of the write load on all the regions and assuming every region grows upto 128 MB only then the max number of regions in this setup is `32` regions. If a given region server is configured to have 32 regions, the system better avoids blocking updates.
 
-- With these settings in place, the number of regions is 100. The 4-GB global memstore is now split across 100 regions. So effectively each region gets only 40 MB for memstore. When the writes are uniform, the system does frequent flushes and smaller size of the order < 40 MB. Having many flusher threads might increase the flush speed `hbase.hstore.flusher.count`.
+- With these settings in place, the number of regions is 100. The 4-GB global `memstore` is now split across 100 regions. So effectively each region gets only 40 MB for `memstore`. When the writes are uniform, the system does frequent flushes and smaller size of the order < 40 MB. Having many flusher threads might increase the flush speed `hbase.hstore.flusher.count`.
 
-The advisory means that it would be good to reconsider the number of regions per server, the heap size, and the global memstore size configuration along with the tuning of flush threads to avoid updates getting blocked.
+The advisory means that it would be good to reconsider the number of regions per server, the heap size, and the global `memstore` size configuration along with the tuning of flush threads to avoid updates getting blocked.
 
 ## Compaction queue tuning
 

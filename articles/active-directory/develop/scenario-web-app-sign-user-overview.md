@@ -58,7 +58,7 @@ If you develop with Python, try the following quickstart:
 
 You add authentication to your web app so that it can sign in users. Adding authentication enables your web app to access limited profile information in order to customize the experience for users.
 
-Web apps authenticate a user in a web browser. In this scenario, the web app directs the user's browser to sign them in to Azure Active Directory (Azure AD). Azure AD returns a sign-in response through the user's browser, which contains claims about the user in a security token. Signing in users takes advantage of the [Open ID Connect](./v2-protocols-oidc.md) standard protocol, simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps).
+Web apps authenticate a user in a web browser. In this scenario, the web app directs the user's browser to sign them in to Microsoft Entra ID. Microsoft Entra ID returns a sign-in response through the user's browser, which contains claims about the user in a security token. Signing in users takes advantage of the [OpenID Connect](./v2-protocols-oidc.md) standard protocol, simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps).
 
 ![Web app signs in users](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 

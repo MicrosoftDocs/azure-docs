@@ -77,10 +77,9 @@ To enable data collection, you create a new role in Finance and Operations with 
 
 To collect the managed identity application ID from Azure Active Directory: 
 
-1. In the [Azure Active Directory portal](https://aad.portal.azure.com/), select **Enterprise Applications**.
-
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise applications**.
 1. Change the application type filter to **Managed Identities**.
-
 1. Search for and open the Function App created in the [previous step](#deploy-the-azure-resource-manager-arm-template). Copy the Application ID and save it for later use. 
 
 ### Create a role for data collection in Finance and Operations 

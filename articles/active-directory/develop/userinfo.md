@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/26/2022
 ms.author: dmwendia
 ms.reviewer: ludwignick
@@ -83,7 +83,7 @@ The claims shown in the response are all those that the UserInfo endpoint can re
 
 You can't add to or customize the information returned by the UserInfo endpoint.
 
-To customize the information returned by the identity platform during authentication and authorization, use [claims mapping]( active-directory-claims-mapping.md) and [optional claims]( active-directory-optional-claims.md) to modify security token configuration.
+To customize the information returned by the identity platform during authentication and authorization, use [claims mapping](active-directory-claims-mapping.md) and [optional claims](active-directory-optional-claims.md) to modify security token configuration.
 
 ## Next steps
 

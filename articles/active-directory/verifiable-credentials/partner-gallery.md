@@ -1,5 +1,5 @@
 ---
-title: Identity Proofing and Verification (IDV) Partner gallery for Entra Verified ID
+title: Identity Proofing and Verification (IDV) Partner gallery for Microsoft Entra Verified ID
 description: Learn how to integrate with our IDV partners to tailor your end-user experience to your needs.
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
@@ -10,11 +10,9 @@ ms.date: 08/26/2022
 ms.author: barclayn
 ---
 
-# Entra Verified ID IDV partners
+# Microsoft Entra Verified ID IDV partners
 
 Our IDV partner network extends Microsoft Entra Verified ID's capabilities to help you build seamless end-user experiences. With Verified ID, you can integrate with IDV partners to enable remote onboarding using their identity verification and proofing services.
-
-To be considered into Entra Verified ID partner documentation, submit your application [request](https://aka.ms/isvconnectvc)
 
 ## Partner list
 

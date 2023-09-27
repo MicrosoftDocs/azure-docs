@@ -3,8 +3,7 @@ title: Improve recognition accuracy with phrase list
 description: Phrase lists can be used to customize speech recognition results based on context. 
 author: ut-karsh
 ms.author: umaheshwari
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
 ms.date: 09/01/2022 

@@ -133,7 +133,7 @@ Within an Azure AD B2C custom policy, you can integrate your own business logic 
 - Within the **base policy**, we highly recommend avoiding making any changes. When necessary, make comments where the changes are made.
 - When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](./disable-email-verification.md) for an example of how to make the change.
 - To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
-- Avoid writing to the Azure AD directory during sign-in, which may lead to throttling issues.
+- Avoid writing to the Microsoft Entra directory during sign-in, which may lead to throttling issues.
 - If your policy has external dependencies, such as REST APIs, makes sure they're highly available.
 - For a better user experience, make sure your custom HTML templates, are globally deployed using [online content delivery](../cdn/index.yml). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and improve response speed.
 - If you want to make a change to user journey, copy the entire user journey from the base policy to the extension policy. Provide a unique user journey ID to the user journey you've copied. Then in the [relying party policy](relyingparty.md), change the [default user journey](relyingparty.md#defaultuserjourney) element to point to the new user journey.
@@ -144,7 +144,7 @@ When developing with Azure AD B2C policies, you may run into errors or exception
 
 - Integrate Application Insights with Azure AD B2C to [diagnose exceptions](troubleshoot-with-application-insights.md).
 - The [Azure AD B2C extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) can help you access and [visualize the logs](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) based on a policy name and time.
-- The most common error in setting up custom policies is improperly formatted XML. Use [XML schema validation](troubleshoot-custom-policies.md) to identify errors before you upload your XML file.
+- The most common error in setting up custom policies is improperly formatted XML. Use [XML schema validation](./troubleshoot.md) to identify errors before you upload your XML file.
 
 ## Continuous integration
 

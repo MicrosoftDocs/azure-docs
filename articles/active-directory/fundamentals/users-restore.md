@@ -1,6 +1,6 @@
 ---
 title: Restore or permanently remove recently deleted user
-description: How to view restorable users, restore a deleted user, or permanently delete a user with Azure Active Directory.
+description: How to view restorable users, restore a deleted user, or permanently delete a user with Microsoft Entra ID.
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -12,30 +12,24 @@ ms.topic: how-to
 ms.date: 11/07/2022
 ms.author: barclayn 
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
 ---
-
-# Restore or remove a recently deleted user using Azure Active Directory
+# Restore or remove a recently deleted user
 
 After you delete a user, the account remains in a suspended state for 30 days. During that 30-day window, the user account can be restored, along with all its properties. After that 30-day window passes, the permanent deletion process is automatically started and can't be stopped. During this time, the management of soft-deleted users is blocked. This limitation also applies to restoring a soft-deleted user via a match during Tenant sync cycle for on-premises hybrid scenarios.
 
-You can view your restorable users, restore a deleted user, or permanently delete a user using Azure Active Directory (Azure AD) in the Azure portal.
+You can view your restorable users, restore a deleted user, or permanently delete a user using the Microsoft Entra admin center.
 
->[!Important]
->Neither you nor Microsoft customer support can restore a permanently deleted user.
+> [!IMPORTANT]
+> Neither you nor Microsoft customer support can restore a permanently deleted user.
 
 ## Required permissions
 
 You must have one of the following roles to restore and permanently delete users.
 
-- Global administrator
-
+- Global Administrator
 - Partner Tier1 Support
-
 - Partner Tier2 Support
-
-- User administrator
+- User Administrator
 
 ## View your restorable users
 
@@ -45,9 +39,9 @@ You can see all the users that were deleted less than 30 days ago. These users c
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the organization.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
 
-2. Select **Azure Active Directory**, select **Users**, and then select **Deleted users**.
+1. Browse to **Identity** > **Users** > **Deleted users**.
 
     Review the list of users that are available to restore.
 
@@ -62,7 +56,7 @@ When a user account is deleted from the organization, the account is in a suspen
 
 ### To restore a user
 
-1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Mary Parker_.
+1. On the **Deleted users** page, search for and select one of the available users. For example, _Mary Parker_.
 
 2. Select **Restore user**.
 
@@ -77,7 +71,7 @@ You can permanently delete a user from your organization without waiting the 30 
 
 ### To permanently delete a user
 
-1. On the **Users - Deleted users** page, search for and select one of the available users. For example, _Rae Huff_.
+1. On the **Deleted users** page, search for and select one of the available users. For example, _Rae Huff_.
 
 2. Select **Delete permanently**.
 
@@ -95,4 +89,4 @@ After you've restored or deleted your users, you can:
 
 - [Add guest users from another organization](../external-identities/what-is-b2b.md)
 
-For more information about other available user management tasks, [Azure AD user management documentation](../enterprise-users/index.yml).
+For more information about other available user management tasks, [Microsoft Entra user management documentation](../enterprise-users/index.yml).

@@ -30,7 +30,7 @@ When using Identity Protection, consider the following:
 
 - Identity Protection is on by default.
 - Identity Protection is available for both local and social identities, such as Google or Facebook. For social identities, Conditional Access must be activated. Detection is limited because the social account credentials are managed by the external identity provider.
-- In Azure AD B2C tenants, only a subset of the [Azure AD Identity Protection risk detections](../active-directory/identity-protection/overview-identity-protection.md) is available. The following risk detections are supported by Azure AD B2C:  
+- In Azure AD B2C tenants, only a subset of the [Microsoft Entra ID Protection risk detections](../active-directory/identity-protection/overview-identity-protection.md) is available. The following risk detections are supported by Azure AD B2C:  
 
 |Risk detection type  |Description  |
 |---------|---------|
@@ -40,7 +40,7 @@ When using Identity Protection, consider the following:
 |Unfamiliar sign-in properties     | Sign-in with properties we've not seen recently for the given user.        |
 |Admin confirmed user compromised    | An admin has indicated that a user was compromised.             |
 |Password spray     | Sign-in through a password spray attack.      |
-|Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
+|Microsoft Entra threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
 
 ## Pricing tier
 

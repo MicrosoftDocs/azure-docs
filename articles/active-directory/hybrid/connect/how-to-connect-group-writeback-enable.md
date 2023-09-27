@@ -1,6 +1,6 @@
 ---
-title: 'Enable Azure AD Connect group writeback'
-description: This article describes how to enable group writeback in Azure AD Connect by using PowerShell and a wizard. 
+title: 'Enable Microsoft Entra Connect group writeback'
+description: This article describes how to enable group writeback in Microsoft Entra Connect by using PowerShell and a wizard. 
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Enable Azure AD Connect group writeback 
+# Enable Microsoft Entra Connect group writeback 
 
-Group writeback is a feature that allows you to write cloud groups back to your on-premises Active Directory instance by using Azure Active Directory (Azure AD) Connect sync. 
+Group writeback is a feature that allows you to write cloud groups back to your on-premises Active Directory instance by using Microsoft Entra Connect Sync. 
 
 This article walks you through enabling group writeback. 
  
@@ -27,15 +27,15 @@ Group writeback requires enabling both the original and new versions of the feat
 > [!NOTE] 
 > We recommend that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This method will provide a clear contingency plan if a major rollback is necessary. 
 >
->The enhanced group writeback feature is enabled on the tenant and not per Azure AD Connect client instance. Please be sure that all Azure AD Connect client instances are updated to a minimal build version of 1.6.4.0 or later.
+>The enhanced group writeback feature is enabled on the tenant and not per Microsoft Entra Connect client instance. Please be sure that all Microsoft Entra Connect client instances are updated to a minimal build version of 1.6.4.0 or later.
 
 > [!NOTE]
-> If you don't want to writeback all existing Microsoft 365 groups to Active Directory, you need to make changes to group writeback default behaviour before performing the steps in this article to enable the feature. See [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md).
+> If you don't want to writeback all existing Microsoft 365 groups to Active Directory, you need to make changes to group writeback default behaviour before performing the steps in this article to enable the feature. See [Modify Microsoft Entra Connect group writeback default behavior](how-to-connect-modify-group-writeback.md).
 > Also the new and original versions of the feature need to be enabled in the order documented. If the original feature is enabled first, all existing Microsoft 365 groups will be written back to Active Directory.
 
 ### Enable group writeback by using PowerShell 
 
-1. On your Azure AD Connect server, open a PowerShell prompt as an administrator. 
+1. On your Microsoft Entra Connect server, open a PowerShell prompt as an administrator. 
 2. Disable the sync scheduler after you verify that no synchronization operations are running: 
 
    ``` PowerShell 
@@ -56,26 +56,28 @@ Group writeback requires enabling both the original and new versions of the feat
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $true  
    ``` 
-6. Run a full sync cycle if group writeback was previously configured and will not be configured in the ⁠Azure AD Connect wizard:
+6. Run a full sync cycle if group writeback was previously configured and will not be configured in the ⁠Microsoft Entra Connect wizard:
    ``` PowerShell 
    Start-ADSyncSyncCycle -PolicyType Initial
    ``` 
 
 
-### Enable group writeback by using the Azure AD Connect wizard 
+<a name='enable-group-writeback-by-using-the-azure-ad-connect-wizard-'></a>
+
+### Enable group writeback by using the Microsoft Entra Connect wizard 
 If the original version of group writeback was not previously enabled, continue with the following steps: 
 
-1. On your Azure AD Connect server, open the Azure AD Connect wizard.
+1. On your Microsoft Entra Connect server, open the Microsoft Entra Connect wizard.
 2. Select **Configure**, and then select **Next**. 
 3. Select **Customize synchronization options**, and then select **Next**. 
-4. On the **Connect to Azure AD** page, enter your credentials. Select **Next**. 
+4. On the **Connect to Microsoft Entra ID** page, enter your credentials. Select **Next**. 
 5. On the **Optional features** page, verify that the options you previously configured are still selected. 
 6. Select **Group Writeback**, and then select **Next**. 
 7. On the **Writeback** page, select an Active Directory organizational unit (OU) to store objects that are synchronized from Microsoft 365 to your on-premises organization. Select **Next**. 
 8. On the **Ready to configure** page, select **Configure**. 
 9. On the **Configuration complete** page, select **Exit**. 
 
-After you finish this procedure, group writeback is configured automatically. If you experience permission issues while exporting the object to Active Directory, open Windows PowerShell as an administrator on the Azure AD Connect server. Then run the following commands. This step is optional. 
+After you finish this procedure, group writeback is configured automatically. If you experience permission issues while exporting the object to Active Directory, open Windows PowerShell as an administrator on the Microsoft Entra Connect server. Then run the following commands. This step is optional. 
  
 ``` PowerShell 
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN> 
@@ -91,7 +93,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions –ADConnectorAccountDN $AzureADConne
 
 ## Optional configuration 
 
-To make it easier to find groups being written back from Azure AD to Active Directory, there's an option to write back the group distinguished name by using the cloud display name: 
+To make it easier to find groups being written back from Microsoft Entra ID to Active Directory, there's an option to write back the group distinguished name by using the cloud display name: 
 
 - Default format: 
 `CN=Group_3a5c3221-c465-48c0-95b8-e9305786a271, OU=WritebackContainer, DC=domain, DC=com`  
@@ -102,10 +104,10 @@ To make it easier to find groups being written back from Azure AD to Active Dire
 When you're configuring group writeback, a checkbox appears at the bottom of the configuration window. Select it to enable this feature. 
 
 > [!NOTE]
-> Groups being written back from Azure AD to Active Directory will have a source of authority in the cloud. Any changes made on-premises to groups that are written back from Azure AD will be overwritten in the next sync cycle. 
+> Groups being written back from Microsoft Entra ID to Active Directory will have a source of authority in the cloud. Any changes made on-premises to groups that are written back from Microsoft Entra ID will be overwritten in the next sync cycle. 
 
 ## Next steps 
 
-- [Azure AD Connect group writeback](how-to-connect-group-writeback-v2.md) 
-- [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 
-- [Disable Azure AD Connect group writeback](how-to-connect-group-writeback-disable.md) 
+- [Microsoft Entra Connect group writeback](how-to-connect-group-writeback-v2.md) 
+- [Modify Microsoft Entra Connect group writeback default behavior](how-to-connect-modify-group-writeback.md) 
+- [Disable Microsoft Entra Connect group writeback](how-to-connect-group-writeback-disable.md) 

@@ -405,7 +405,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | denyAction | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```

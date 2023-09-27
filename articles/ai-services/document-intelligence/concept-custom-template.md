@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use the custom template document model to train a model to extract data from structured or templated forms.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -351,6 +350,7 @@ The following table lists the supported languages for print text by the most rec
   |:-----|:----:|
   |`Rwa`|`rwk`|
   |Sadri (Devanagari)|`sck`|
+  |Sakha|`sah`|
   |Samburu|`saq`|
   |Samoan (Latin)|`sm`|
   |Sango|`sg`|
@@ -419,7 +419,6 @@ The following table lists the supported languages for print text by the most rec
   |Western Frisian|`fy`|
   |Wolof|`wo`|
   |Xhosa|`xh`|
-  |Yakut|`sah`|
   |Yucatec Maya|`yua`|
   |Zapotec|`zap`|
   |Zarma|`dje`|

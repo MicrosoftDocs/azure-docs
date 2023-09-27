@@ -18,7 +18,7 @@ The following table contains information about the VMs that Azure Private 5G Cor
 | AP5GC Cluster Control Plane VM | Standard_F4s_v1 | 4 | 4 | Ephemeral - 128 | Control Plane of the Kubernetes cluster used for AP5GC |
 | AP5GC Cluster Node VM | Standard_F16s_HPN | 16 | 32 | Ephemeral - 128 </br> Persistent - 102 GB | AP5GC workload node |
 | Control plane upgrade reserve |  | 4 | 4 | 0 | Used by ASE during upgrade of the control plane VM |
-| **Total requirements** |  | **24** | **44** | **Ephemeral - 336** </br> **Persistent - 102** </br> **Total - 438** |  |
+| **Total requirements** |  | **28** | **44** | **Ephemeral - 336** </br> **Persistent - 102** </br> **Total - 438** |  |
 
 ## Remaining usable resource on Azure Stack Edge Pro
 

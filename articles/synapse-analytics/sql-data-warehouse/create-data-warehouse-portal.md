@@ -3,7 +3,6 @@ title: "Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) (Azu
 description: Create and query a dedicated SQL pool (formerly SQL DW) using the Azure portal
 author: pimorano
 ms.author: pimorano
-manager: craigg
 ms.reviewer: wiassaf
 ms.date: 02/21/2023
 ms.service: synapse-analytics

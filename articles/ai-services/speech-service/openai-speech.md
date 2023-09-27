@@ -5,8 +5,7 @@ description: In this how-to guide, you can use Speech to converse with Azure Ope
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: build-2023, build-2023-dataai, devx-track-python
 ms.topic: how-to
 ms.date: 04/15/2023

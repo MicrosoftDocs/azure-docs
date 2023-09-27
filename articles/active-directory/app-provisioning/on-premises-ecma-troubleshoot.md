@@ -16,11 +16,11 @@ ms.collection: M365-identity-device-management
 # Troubleshoot on-premises application provisioning
 
 ## Troubleshoot test connection issues
-After you configure the provisioning agent and ECMA host, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. Be sure to wait 10 to 20 minutes after assigning an initial agent or changing the agent before testing the connection. If after this time the test connection fails, try the following troubleshooting steps:
+After you configure the provisioning agent and ECMA host, it's time to test connectivity from the Microsoft Entra provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. Be sure to wait 10 to 20 minutes after assigning an initial agent or changing the agent before testing the connection. If after this time the test connection fails, try the following troubleshooting steps:
 
  1. Check that the agent and ECMA host are running:
      1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
-     2. Under **Services**, make sure the **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*.
+     2. Under **Services**, make sure the **Microsoft Entra Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*.
     
         ![Screenshot that shows that the ECMA service is running.](./media/on-premises-ecma-troubleshoot/tshoot-1.png)
 
@@ -42,7 +42,7 @@ After you configure the provisioning agent and ECMA host, it's time to test conn
  1. Ensure that you've assigned one or more agents to the application in the Azure portal.
  1. After you assign an agent, you need to wait 10 to 20 minutes for the registration to complete. The connectivity test won't work until the registration completes.
  1. Ensure that you're using a valid certificate that has not expired. Go to the **Settings** tab of the ECMA host to view the certificate expiration date. If the certificate has expired, click `Generate certificate` to generate a new certificate.
- 1. Restart the provisioning agent by going to the taskbar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right-click **Stop**, and then select **Start**.
+ 1. Restart the provisioning agent by going to the taskbar on your VM by searching for the Microsoft Entra Connect provisioning agent. Right-click **Stop**, and then select **Start**.
  1. If you continue to see `The ECMA host is currently importing data from the target application` even after restarting the ECMA Connector Host and the provisioning agent, and waiting for the initial import to complete, then you may need to cancel and start over configuring provisioning to the application in the Azure portal.
 
  1. When you provide the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace `localhost` with your host name, but it isn't required. Replace `connectorName` with the name of the connector you specified in the ECMA host. The error message 'invalid resource' generally indicates that the URL does not follow the expected format.
@@ -198,9 +198,9 @@ After the ECMA Connector Host schema mapping has been configured, start the serv
 
 ## Understand incoming SCIM requests
 
-Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app supports. The requests from the host to the agent to Azure AD rely on SCIM. You can learn more about the SCIM implementation in [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](use-scim-to-provision-users-and-groups.md).
+Requests made by Microsoft Entra ID to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app supports. The requests from the host to the agent to Microsoft Entra ID rely on SCIM. You can learn more about the SCIM implementation in [Tutorial: Develop and plan provisioning for a SCIM endpoint in Microsoft Entra ID](use-scim-to-provision-users-and-groups.md).
 
-The Azure AD provisioning service generally makes a get-user call to check for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) in three situations: at the beginning of each provisioning cycle, before performing on-demand provisioning and when **test connection** is selected. This check ensures the target endpoint is available and returning SCIM-compliant responses to the Azure AD provisioning service.
+The Microsoft Entra provisioning service generally makes a get-user call to check for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) in three situations: at the beginning of each provisioning cycle, before performing on-demand provisioning and when **test connection** is selected. This check ensures the target endpoint is available and returning SCIM-compliant responses to the Microsoft Entra provisioning service.
 
 
 ## How do I troubleshoot the provisioning agent?
@@ -210,7 +210,7 @@ You might experience the following error scenarios.
 
 You might receive an error message that states:
 
-"Service 'Microsoft Azure AD Connect Provisioning Agent' failed to start. Check that you have sufficient privileges to start the system services." 
+"Service 'Microsoft Entra Connect Provisioning Agent' failed to start. Check that you have sufficient privileges to start the system services." 
 
 This problem is typically caused by a group policy that prevented permissions from being applied to the local NT Service sign-in account created by the installer (NT SERVICE\AADConnectProvisioningAgent). These permissions are required to start the service.
 
@@ -218,7 +218,7 @@ To resolve this problem:
 
  1. Sign in to the server with an administrator account.
  2. Open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
- 3. Under **Services**, double-click **Microsoft Azure AD Connect Provisioning Agent**.
+ 3. Under **Services**, double-click **Microsoft Entra Connect Provisioning Agent**.
  4. On the **Log On** tab, change **This account** to a domain admin. Then restart the service. 
 
 This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
@@ -260,7 +260,7 @@ By default, the agent emits minimal error messages and stack trace information. 
 
 To gather more information for troubleshooting agent-related problems:
 
- 1. Install the AADCloudSyncTools PowerShell module as described in [AADCloudSyncTools PowerShell Module for Azure AD Connect cloud sync](../hybrid/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+ 1. Install the `AADCloudSyncTools` PowerShell module as described in [`AADCloudSyncTools` PowerShell module for Microsoft Entra Connect cloud sync](../hybrid/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
  2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information. Use the following switches to fine-tune your data collection. Use:
 
       - **SkipVerboseTrace** to only export current logs without capturing verbose logs (default = false).
@@ -269,7 +269,7 @@ To gather more information for troubleshooting agent-related problems:
 
 ---------------------
 
-By using Azure AD, you can monitor the provisioning service in the cloud and collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the [Azure portal UI, APIs, and log analytics](../reports-monitoring/concept-provisioning-logs.md). The ECMA host also generates logs on-premises. It shows each provisioning request that was received and the response that was sent to Azure AD.
+By using Microsoft Entra ID, you can monitor the provisioning service in the cloud and collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the [Azure portal UI, APIs, and log analytics](../reports-monitoring/concept-provisioning-logs.md). The ECMA host also generates logs on-premises. It shows each provisioning request that was received and the response that was sent to Microsoft Entra ID.
 
 ### Agent installation fails
 * The error `System.ComponentModel.Win32Exception: The specified service already exists` indicates that the previous ECMA host was unsuccessfully uninstalled. Uninstall the host application. Go to program files, and remove the ECMA host folder. You might want to store the configuration file for backup. 

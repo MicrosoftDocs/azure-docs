@@ -97,7 +97,7 @@ This use case demonstrates how a user can travel across regions and maintain the
 
 1. The user's email is located to have been signed up in NOAM Azure AD B2C tenant.
 
-1. The EMEA Azure AD B2C tenant performs an Azure AD ROPC flow against the NOAM Azure AD B2C tenant to verify credentials.
+1. The EMEA Azure AD B2C tenant performs a Microsoft Entra ROPC flow against the NOAM Azure AD B2C tenant to verify credentials.
    >[!NOTE]
    >This call will also fetch a token for the user to perform a Graph API call. The EMEA Azure AD B2C tenant performs a Graph API call to the NOAM Azure AD B2C tenant to fetch the user's profile. This call is authenticated by the access token for Graph API acquired in the last step.
 

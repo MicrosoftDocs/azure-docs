@@ -33,7 +33,7 @@ To verify that the agent is running, follow these steps:
 
  1. Sign in to the server with an administrator account.
  2. Open **Services** either by navigating to it or by going to *Start/Run/Services.msc*.
- 3. Under **Services**, make sure that **Microsoft Azure AD Sync** is present and the status is **Running**.
+ 3. Under **Services**, make sure that **Microsoft Entra ID Sync** is present and the status is **Running**.
 
 
 ### Verify the connect sync version

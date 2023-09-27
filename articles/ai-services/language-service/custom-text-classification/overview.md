@@ -5,8 +5,7 @@ description: Customize an AI model to classify documents and other content using
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 06/17/2022
 ms.author: aahi

@@ -6,8 +6,7 @@ services: cognitive-services
 author: eric-urban
 ms.author: eur
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 07/05/2019
 ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python

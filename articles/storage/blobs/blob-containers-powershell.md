@@ -5,7 +5,7 @@ description: Learn how to manage Azure storage containers using Azure PowerShell
 services: storage
 author: stevenmatthew
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/03/2022
 ms.author: shaas
@@ -51,7 +51,7 @@ The following example illustrates three options for the creation of blob contain
 
 To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. Remember to replace the placeholder values in brackets with your own values.
 
- ```azurepowershell
+```azurepowershell
 # Create variables
  $containerName  = "individual-container"
  $prefixName     = "loop"

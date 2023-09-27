@@ -4,8 +4,7 @@ description: Customize a C# .NET chat bot with a Personalizer loop to provide th
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.devlang: csharp

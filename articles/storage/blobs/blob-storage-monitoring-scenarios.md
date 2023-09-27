@@ -3,7 +3,7 @@ title: Best practices for monitoring Azure Blob Storage
 description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Blob Storage.
 recommendations: false
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 07/30/2021
@@ -124,8 +124,11 @@ For the "when" portion of your audit, the `TimeGenerated` field shows when the l
 For the "what" portion of your audit, the `Uri` field shows the item was modified or read.
 
 For the "how" portion of your audit, the `OperationName` field shows which operation was executed.
-
+> [!TIP] 
+> For example, if you suspect that a blob or container has been deleted by mistake, then add a `where` clause that returns only log entries where the `OperationName` is set to either [Delete blob](/rest/api/storageservices/delete-blob) or [Delete Container](/rest/api/storageservices/delete-container).
 For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports including the use of an account key, a SAS token, or Azure Active Directory (Azure AD) authentication.
+
+If the request is authorized by using Azure AD, you can use the `RequestObjectId` field to identify the "who". Shared Key and SAS authentication provide no means of auditing individual identities. In those cases, the `callerIPAddress` and `userAgentHeader` fields might help you to identify the source of the operation. If a SAS token was used to authorize an operation, you can identify that token, and if you've mapped tokens to token recipients at your end, you can identify which user, organization, or application has performed the operation. See [Identifying the SAS token used to authorize a request](#identifying-the-sas-token-used-to-authorize-a-request).
 
 #### Identifying the security principal used to authorize a request
 

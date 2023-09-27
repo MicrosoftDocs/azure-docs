@@ -81,6 +81,10 @@ Elastic SAN supports the [internet Small Computer Systems Interface](https://en.
 - VERIFY (16)
 - SYNCHRONIZE CACHE (10)
 - SYNCHRONIZE CACHE (16)
+- RESERVE
+- RELEASE
+- PERSISTENT RESERVE IN
+- PERSISTENT RESERVE OUT
 
 The following iSCSI features aren't currently supported:
 - CHAP authorization
@@ -91,7 +95,7 @@ The following iSCSI features aren't currently supported:
 
 ## Next steps
 
-For a video that goes over the general planning and deployment with a few example scenarios, see [Getting started with Azure Elastic SAN](/shows/inside-azure-for-it/getting-started-with-azure-elastic-san).
+- [Networking options for Elastic SAN Preview](elastic-san-networking-concepts.md)
+- [Deploy an Elastic SAN Preview](elastic-san-create.md)
 
-[Networking options for Elastic SAN Preview](elastic-san-networking-concepts.md)
-[Deploy an Elastic SAN Preview](elastic-san-create.md)
+For a video that goes over the general planning and deployment with a few example scenarios, see [Getting started with Azure Elastic SAN](/shows/inside-azure-for-it/getting-started-with-azure-elastic-san).

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/23/2022
+ms.date: 06/02/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro GPU so I can use it to compute at the edge and to transfer data to Azure. 
 ---
@@ -98,6 +98,7 @@ Before you begin, make sure that:
 
     - A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
     - A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
+    - A minimum of 100-Mbps is required for the internet connection on AP5GC networks.
 
 ## Create a new resource
 

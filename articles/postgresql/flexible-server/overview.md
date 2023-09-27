@@ -122,7 +122,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :x: $$ | :x: $ | :x: $ | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: | :x: $ | :x: $ | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported.

@@ -83,7 +83,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
    ```bash
-   sudo /etc/adu/du-config.json
+   sudo nano /etc/adu/du-config.json
    ```
 
 1. Restart the Device Update agent.
@@ -147,6 +147,10 @@ Read the license terms before you use a package. Your installation and use of a 
            "ADUGroup": "<CustomTagValue>"
        },
    ```
+
+   :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information." lightbox="media/import-update/device-twin-ppr.png":::
+
+   _This screenshot shows the section where the tag needs to be added in the twin._
 
 ## Import the update
 

@@ -148,7 +148,7 @@ module exampleModule 'module.bicep' = {
 }
 ```
 
-For an example template, see [Create resource group](#create-resource-group).
+For an example template, see [Create resource group with Bicep](create-resource-group.md).
 
 ### Scope to tenant
 
@@ -248,53 +248,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 
 ## Create resource group
 
-From a resource group deployment, you can switch to the level of a subscription and create a resource group. The following template deploys a storage account to the target resource group, and creates a new resource group in the specified subscription.
-
-```bicep
-@maxLength(11)
-param storagePrefix string
-
-param firstStorageLocation string = resourceGroup().location
-
-param secondResourceGroup string
-param secondSubscriptionID string = ''
-param secondLocation string
-
-var firstStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
-
-// resource deployed to target resource group
-module firstStorageAcct 'storage2.bicep' = {
-  name: 'storageModule1'
-  params: {
-    storageLocation: firstStorageLocation
-    storageName: firstStorageName
-  }
-}
-
-// module deployed to subscription
-module newRG 'resourceGroup.bicep' = {
-  name: 'newResourceGroup'
-  scope: subscription(secondSubscriptionID)
-  params: {
-    resourceGroupName: secondResourceGroup
-    resourceGroupLocation: secondLocation
-  }
-}
-```
-
-The preceding example uses the following Bicep file for the module that creates the new resource group.
-
-```bicep
-targetScope='subscription'
-
-param resourceGroupName string
-param resourceGroupLocation string
-
-resource newRG 'Microsoft.Resources/resourceGroups@2021-01-01' = {
-  name: resourceGroupName
-  location: resourceGroupLocation
-}
-```
+For information about creating resource groups, see [Create resource group with Bicep](create-resource-group.md).
 
 ## Next steps
 

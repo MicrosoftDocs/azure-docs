@@ -28,8 +28,8 @@ The following providers and their corresponding Kubernetes distributions have su
 | Provider name | Distribution name | Version |
 | ------------ | ----------------- | ------- |
 | RedHat       | [OpenShift Container Platform](https://www.openshift.com/products/container-platform) | [4.9.43](https://docs.openshift.com/container-platform/4.9/release_notes/ocp-4-9-release-notes.html), [4.10.23](https://docs.openshift.com/container-platform/4.10/release_notes/ocp-4-10-release-notes.html), 4.11.0-rc.6, [4.13.4](https://docs.openshift.com/container-platform/4.13/release_notes/ocp-4-13-release-notes.html) |
-| VMware       | [Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) |TKGm 2.2; upstream K8s v1.25.7+vmware.2 <br>TKGm 2.1.0; upstream K8s v1.24.9+vmware.1 <br>TKGm 1.6.0; upstream K8s v1.23.8+vmware.2 <br>TKGm 1.5.3; upstream K8s v1.22.8+vmware.1 <br>TKGm 1.4.0; upstream K8s v1.21.2+vmware.1 <br>TKGm 1.3.1; upstream K8s v1.20.5+vmware.2 <br>TKGm 1.2.1; upstream K8s v1.19.3+vmware.1 |
-| Canonical    | [Charmed Kubernetes](https://ubuntu.com/kubernetes) | [1.24](https://ubuntu.com/kubernetes/docs/1.24/components) |
+| VMware       | [Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) |TKGm 2.3; upstream K8s v1.26.5+vmware.2<br>TKGm 2.2; upstream K8s v1.25.7+vmware.2 <br>TKGm 2.1.0; upstream K8s v1.24.9+vmware.1 <br>TKGm 1.6.0; upstream K8s v1.23.8+vmware.2|
+| Canonical    | [Charmed Kubernetes](https://ubuntu.com/kubernetes)|[1.24](https://ubuntu.com/kubernetes/docs/1.24/components), [1.28](https://ubuntu.com/kubernetes/docs/1.28/components) |
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | RKE CLI version: [v1.3.13](https://github.com/rancher/rke/releases/tag/v1.3.13); Kubernetes versions: 1.24.2, 1.23.8  |
 | Nutanix      | [Nutanix Kubernetes Engine](https://www.nutanix.com/products/kubernetes-engine)    | Version [2.5](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Kubernetes-Engine-v2_5:Nutanix-Kubernetes-Engine-v2_5); upstream K8s v1.23.11 |
 | Kublr	| [Kublr Managed K8s](https://kublr.com/managed-kubernetes/) Distribution |[Kublr 1.26.0](https://docs.kublr.com/releasenotes/1.26/release-1.26.0/); Upstream K8s Versions: 1.21.3, 1.22.10, 1.22.17, 1.23.17, 1.24.13, 1.25.6, 1.26.4 |
@@ -60,4 +60,7 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 * [Learn how to connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)
 * Learn about the [Azure Arc agents](conceptual-agent-overview.md) deployed on Kubernetes clusters when connecting them to Azure Arc.
+
+
+
 

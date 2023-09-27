@@ -16,7 +16,7 @@ ms.custom: aaddev, has-adal-ref, engagement-fy23
 
 # OAuth 2.0 and OpenID Connect (OIDC) in the Microsoft identity platform
 
-Knowing about OAuth or OpenID Connect (OIDC) at the protocol level isn't required to use the Microsoft identity platform. However, you'll encounter protocol terms and concepts as you use the identity platform to add authentication to your apps. As you work with the Azure portal, our documentation, and authentication libraries, knowing some fundamentals can assist your integration and overall experience.
+Knowing about OAuth or OpenID Connect (OIDC) at the protocol level isn't required to use the Microsoft identity platform. However, you'll encounter protocol terms and concepts as you use the identity platform to add authentication to your apps. As you work with the Microsoft Entra admin center, our documentation, and authentication libraries, knowing some fundamentals can assist your integration and overall experience.
 
 ## Roles in OAuth 2.0
 
@@ -78,9 +78,9 @@ https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
 #       and **tenant identifiers** such as the tenant ID or domain name.
 ```
 
-To find the endpoints for an application you've registered, in the [Azure portal](https://portal.azure.com) navigate to:
+To find the endpoints for an application you've registered, in the [Microsoft Entra admin center](https://entra.microsoft.com) navigate to:
 
-**Azure Active Directory** > **App registrations** > \<YOUR-APPLICATION\> > **Endpoints**
+**Identity** > **Applications** > **App registrations** > \<YOUR-APPLICATION\> > **Endpoints**
 
 ## Next steps
 

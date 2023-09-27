@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/24/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -50,7 +50,7 @@ The following example shows how to use this function to build a repeating string
   - `(length(string_expr) * numeric_expr) <= 10,000`
 - If `numeric_expr` is *negative* or *nonfinite*, the result is `undefined`.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [`REPLACE`](replace.md)

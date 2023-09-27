@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Remove unused apps (preview)
+title: Microsoft Entra recommendation - Remove unused apps (preview)
 description: Learn why you should remove unused apps.
 services: active-directory
 author: shlipsey3
@@ -8,13 +8,12 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/24/2023
+ms.date: 09/21/2023
 ms.author: sarahlipsey
 ms.reviewer: saumadan
-ms.collection: M365-identity-device-management
 ---
-# Azure AD recommendation: Remove unused applications (preview)
-[Azure AD recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
+# Microsoft Entra recommendation: Remove unused applications (preview)
+[Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 
 This article covers the recommendation to investigate unused applications. This recommendation is called `UnusedApps` in the recommendations API in Microsoft Graph. 
 
@@ -31,9 +30,9 @@ Removing unused applications improves the security posture and promotes good app
 Applications that the recommendation identified appear in the list of **Impacted resources** at the bottom of the recommendation. 
 
 1. Take note of the application name and ID that the recommendation identified.
-1. Go to **Azure AD** > **App registration** and locate the application that was surfaced as part of this recommendation.
+1. Browse to **Identity** > **Applications** > **App registrations** and locate the application that was surfaced as part of this recommendation.
 
-    ![Screenshot of the Azure AD app registration page.](media/recommendation-remove-unused-apps/app-registrations-list.png)
+    ![Screenshot of the Microsoft Entra app registration page.](media/recommendation-remove-unused-apps/app-registrations-list.png)
 
 1. Determine if the identified application is needed.
     - If the application is no longer needed, remove it from your tenant.
@@ -56,6 +55,6 @@ Take note of the following common scenarios or known limitations of the "Remove 
 
 ## Next steps
 
-- [Review the Azure AD recommendations overview](overview-recommendations.md)
-- [Learn how to use Azure AD recommendations](howto-use-recommendations.md)
+- [Review the Microsoft Entra recommendations overview](overview-recommendations.md)
+- [Learn how to use Microsoft Entra recommendations](howto-use-recommendations.md)
 - [Explore the Microsoft Graph API properties for recommendations](/graph/api/resources/recommendation)

@@ -3,7 +3,7 @@ title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 04/23/2023
 ---
 
 # Manually run a non HTTP-triggered function
@@ -78,5 +78,4 @@ Open Postman and follow these steps:
 
 ## Next steps
 
-- [Strategies for testing your code in Azure Functions](./functions-test-a-function.md)
 - [Event Grid local testing with viewer web app](./event-grid-how-tos.md#local-testing-with-viewer-web-app)

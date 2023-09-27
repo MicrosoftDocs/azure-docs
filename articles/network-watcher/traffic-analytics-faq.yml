@@ -2,13 +2,12 @@
 metadata:
   title: "Traffic analytics FAQ"
   titleSuffix: Azure Network Watcher
-  description: Get answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
-  services: network-watcher
+  description: Find answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
+  ms.author: halkazwini
   author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 07/31/2023
-  ms.author: halkazwini
+  ms.date: 09/21/2023
 title: Traffic analytics frequently asked questions (FAQ)
 summary: |
   This article provides answers to the most frequently asked questions about traffic analytics in Azure Network Watcher.  
@@ -125,71 +124,9 @@ sections:
           You can configure traffic analytics using Windows PowerShell version 6.2.1 and higher. To configure flow logging and traffic analytics for a specific network security group using PowerShell, see [Enable network security group flow logs and traffic analytics](./network-watcher-nsg-flow-logging-powershell.md#create-a-flow-log-and-traffic-analytics-workspace).
                     
       - question: |
-          Can I configure traffic analytics using an Azure Resource Manager template or client?
+          Can I configure traffic analytics using an Azure Resource Manager template or a Bicep file?
         answer: |
-          Currently, you can't use an Azure Resource Manager template to configure traffic analytics, but you can use an Azure Resource Manager client. See the following examples.
-          
-          **Set cmdlet example:**
-          
-          ```
-          #Requestbody parameters
-          $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
-          $TAstorageId = "/subscriptions/<storage subscription id>/resourcegroups/<storage resource group name> /providers/microsoft.storage/storageaccounts/<storage account name>"
-          $networkWatcherResourceGroupName = "<network watcher resource group name>"
-          $networkWatcherName = "<network watcher name>"
-          
-          $requestBody = 
-          @"
-          {
-              'targetResourceId': '${TAtargetUri}',
-              'properties': 
-              {
-                  'storageId': '${TAstorageId}',
-                  'enabled': '<true to enable flow log or false to disable flow log>',
-                  'retentionPolicy': 
-                  {
-                      days: <enter number of days like to retail flow logs in storage account>,
-                      enabled: <true to enable retention or false to disable retention>
-                  }
-              },
-              'flowAnalyticsConfiguration':
-              {
-                          'networkWatcherFlowAnalyticsConfiguration':
-                {
-                  'enabled':<true to enable traffic analytics or false to disable traffic analytics>
-                  'workspaceId':'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
-                  'workspaceRegion':'<workspace region>',
-                  'workspaceResourceId':'/subscriptions/<workspace subscription id>/resourcegroups/<workspace resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
-                  
-                }
-          
-              }
-          }
-          "@
-          $apiversion = "2016-09-01"
-          
-          armclient login
-          armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
-          ```
-          
-          **Get cmdlet example:**
-
-          ```
-          #Requestbody parameters
-          $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
-          
-          
-          $requestBody = 
-          @"
-          {
-              'targetResourceId': '${TAtargetUri}'
-          }
-          “@
-          
-          
-          armclient login
-          armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/queryFlowLogStatus?api-version=${apiversion}" $requestBody
-          ```
+          Yes, you can use an Azure Resource Manager template or a Bicep file to configure traffic analytics. For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md) and [Configure NSG flow logs using a Bicep file](quickstart-configure-network-security-group-flow-logs-from-bicep.md).
 
       - question: |
           How is traffic analytics priced?

@@ -5,8 +5,7 @@ description: This document helps developers migrate code from Long Audio REST AP
 services: cognitive-services
 author: heikora
 manager: dongli
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 09/01/2022
 ms.author: heikora

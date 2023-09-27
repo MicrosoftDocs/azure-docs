@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -86,7 +86,7 @@ This final example query uses a combination of a ``SELECT`` clause, the ``VALUE`
   - ``SELECT * FROM ... AS from_alias ...`` is equivalent to: ``SELECT from_alias FROM ... AS from_alias ...``.
   - ``SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`` is equivalent to: ``SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]``.
 
-## Next steps
+## Related content
 
 - [``FROM`` clause](from.md)
 - [``WHERE`` clause](where.md)

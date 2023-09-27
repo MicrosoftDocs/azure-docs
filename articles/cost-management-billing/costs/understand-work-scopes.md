@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2023
+ms.date: 09/22/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -133,7 +133,7 @@ The following tables show how Cost Management features can be utilized by each r
 | **Budgets/Reservation utilization alerts** | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update |
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Cost Allocation Rules** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Cost Allocation Rules** | Create, Read, Update, Delete | Read |
 
 #### Department scope
 

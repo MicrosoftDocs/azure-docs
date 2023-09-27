@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Playvox for automatic user provisioning by using Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Playvox.
+title: 'Tutorial: Configure Playvox for automatic user provisioning by using Microsoft Entra ID'
+description: Learn how to automatically provision and de-provision user accounts from Microsoft Entra ID to Playvox.
 services: active-directory
 documentationcenter: ''
 author: twimmers
@@ -19,20 +19,20 @@ ms.author: thwimmer
 
 # Tutorial: Configure Playvox for automatic user provisioning
 
-This tutorial describes the steps to follow in both Playvox and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users or groups to [Playvox](https://www.playvox.com) by using the Azure AD Provisioning service. For important details on what this service does and how it works, and for frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps to follow in both Playvox and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users or groups to [Playvox](https://www.playvox.com) by using the Microsoft Entra provisioning service. For important details on what this service does and how it works, and for frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Playvox.
 > * Remove users in Playvox when they don't need access anymore.
-> * Keep user attributes synchronized between Azure AD and Playvox.
+> * Keep user attributes synchronized between Microsoft Entra ID and Playvox.
 
 ## Prerequisites
 
 The scenario in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. For example, an account might have the Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator role.
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md).
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning. For example, an account might have the Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator role.
 * A user account in [Playvox](https://www.playvox.com) with Super Admin permissions.
 
 ## Step 1: Plan your provisioning deployment
@@ -41,9 +41,11 @@ The scenario in this tutorial assumes that you already have the following prereq
 
 2. Determine who will be [in scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-3. Determine what data to [map between Azure AD and Playvox](../app-provisioning/customize-application-attributes.md).
+3. Determine what data to [map between Microsoft Entra ID and Playvox](../app-provisioning/customize-application-attributes.md).
 
-## Step 2: Configure Playvox to support provisioning by using Azure AD
+<a name='step-2-configure-playvox-to-support-provisioning-by-using-azure-ad'></a>
+
+## Step 2: Configure Playvox to support provisioning by using Microsoft Entra ID
 
 1. Log in to the Playvox admin console and go to **Settings > API Keys**.
 
@@ -61,15 +63,17 @@ The scenario in this tutorial assumes that you already have the following prereq
 
     ![Screenshot of the Details API Key message box, with the BASE64 KEY value highlighted.](media/playvox-provisioning-tutorial/token.png)
 
-## Step 3: Add Playvox from the Azure AD application gallery
+<a name='step-3-add-playvox-from-the-azure-ad-application-gallery'></a>
 
-To start to manage provisioning to Playvox, add Playvox to your Azure AD tenant from the application gallery. To learn more, see [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal.md).
+## Step 3: Add Playvox from the Microsoft Entra application gallery
+
+To start to manage provisioning to Playvox, add Playvox to your Microsoft Entra tenant from the application gallery. To learn more, see [Quickstart: Add an application to your Microsoft Entra tenant](../manage-apps/add-application-portal.md).
 
 If you've previously set up Playvox for single sign-on (SSO), you can use the same application. However, we recommend that you create a separate app when testing the integration initially.
 
 ## Step 4: Define who will be in scope for provisioning
 
-You use the Azure AD provisioning service to scope who will be provisioned, based either on assignment to the application or on attributes of the user or group. To scope who will be provisioned to your app based on assignment, see [Manage user assignment for an app in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md) to learn how to assign users or groups to the application. To scope who will be provisioned based solely on attributes of the user or group, use a scoping filter as described in [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+You use the Microsoft Entra provisioning service to scope who will be provisioned, based either on assignment to the application or on attributes of the user or group. To scope who will be provisioned to your app based on assignment, see [Manage user assignment for an app in Microsoft Entra ID](../manage-apps/assign-user-or-group-access-portal.md) to learn how to assign users or groups to the application. To scope who will be provisioned based solely on attributes of the user or group, use a scoping filter as described in [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 Remember these points:
 
@@ -79,11 +83,12 @@ Remember these points:
 
 ## Step 5: Configure automatic user provisioning to Playvox
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups, based on user or group assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users or groups, based on user or group assignments in Microsoft Entra ID.
 
-To configure automatic user provisioning for Playvox in Azure AD:
+To configure automatic user provisioning for Playvox in Microsoft Entra ID:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise applications**, and then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
 
     ![Partial screenshot of the Azure portal, with Enterprise applications and All applications items highlighted](common/enterprise-applications.png)
 
@@ -103,7 +108,7 @@ To configure automatic user provisioning for Playvox in Azure AD:
 
     `https://{tenant}.playvox.com/scim/v1`
 
-    Enter the **Secret Token** that you copied earlier in Step 2. Then, select **Test Connection** to ensure that Azure AD can connect to Playvox. If the connection fails, make sure your Playvox account has Admin permissions and try again.
+    Enter the **Secret Token** that you copied earlier in Step 2. Then, select **Test Connection** to ensure that Microsoft Entra ID can connect to Playvox. If the connection fails, make sure your Playvox account has Admin permissions and try again.
 
     ![Partial screenshot showing the Admin Credentials section, including Tenant URL and Secret Token text boxes, and with the Test Connection link highlighted.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -113,9 +118,9 @@ To configure automatic user provisioning for Playvox in Azure AD:
 
 7. Select **Save**.
 
-8. In the **Mappings** section, select **Synchronize Azure Active Directory Users to Playvox**.
+8. In the **Mappings** section, select **Synchronize Microsoft Entra users to Playvox**.
 
-9. Review the user attributes that are synchronized from Azure AD to Playvox in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Playvox for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), make sure that the Playvox API supports filtering users based on that attribute. Select **Save** to commit any changes.
+9. Review the user attributes that are synchronized from Microsoft Entra ID to Playvox in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Playvox for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), make sure that the Playvox API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
    |Attribute|Type|Supported for filtering|
    |---|---|---|
@@ -130,7 +135,7 @@ To configure automatic user provisioning for Playvox in Azure AD:
 
 10. To configure scoping filters, see the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Playvox, change the **Provisioning Status** to **On** in the **Settings** section.
+11. To enable the Microsoft Entra provisioning service for Playvox, change the **Provisioning Status** to **On** in the **Settings** section.
 
     ![Partial screenshot  of Settings section, showing the Provisioning Status set to On.](common/provisioning-toggle-on.png)
 
@@ -142,7 +147,7 @@ To configure automatic user provisioning for Playvox in Azure AD:
 
     ![Partial screenshot showing Save and Discard options.](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer than later cycles. Later cycles occur approximately every 40 minutes, provided that the Azure AD provisioning service is running.
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer than later cycles. Later cycles occur approximately every 40 minutes, provided that the Microsoft Entra provisioning service is running.
 
 ## Step 6: Monitor your deployment
 
@@ -155,7 +160,7 @@ After you've configured provisioning, use the following resources to monitor you
 ## Additional resources
 
 * [Managing user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

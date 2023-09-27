@@ -38,7 +38,7 @@ There are two ways to install the Azure Communication Calling SDK for Unity.
 
 1. Download the [SDK](https://dev.azure.com/aipmr/MixedReality-Unity-Packages/_artifacts/feed/Unity-packages/Npm/com.azure.communication.calling/overview/1.0.0-beta.1) from the public npm feed and import it in Unity Editor's package manager, found under the Windows tab.
 
-2. Download the [Mixed Reality Feature Tool](https://learn.microsoft.com/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
+2. Download the [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) from Microsoft and install it via the mixed reality tool manager.
 
 
 #### Set up the app framework
@@ -1946,7 +1946,7 @@ The next table listed the classes and interfaces handle some of the major featur
 | `CallAgent` | The `CallAgent` is used to start and manage calls. |
 | `Call` | The `CommunicationCall` is used to manage an ongoing call. |
 | `CallTokenCredential` | The `CallTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
-|` CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
+| `CallIdentifier` | The `CallIdentifier` is used to represent the identity of the user, which can be one of the following options: `UserCallIdentifier`, `PhoneNumberCallIdentifier` etc. |
 
 ### Authenticate the client
 

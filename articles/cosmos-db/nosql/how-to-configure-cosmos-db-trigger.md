@@ -28,7 +28,7 @@ To enable logging when using Azure Functions trigger for Azure Cosmos DB, locate
 {
   "version": "2.0",
   "logging": {
-    "fileLoggingMode": "always",
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "Host.Triggers.CosmosDB": "Warning"
     }

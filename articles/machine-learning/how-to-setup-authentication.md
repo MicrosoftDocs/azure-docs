@@ -275,7 +275,7 @@ For information and samples on authenticating with MSAL, see the following artic
 
 * JavaScript - [How to migrate a JavaScript app from ADAL.js to MSAL.js](../active-directory/develop/msal-compare-msal-js-and-adal-js.md).
 * Node.js - [How to migrate a Node.js app from Microsoft Authentication Library to MSAL](../active-directory/develop/msal-node-migration.md).
-* Python - [Microsoft Authentication Library to MSAL migration guide for Python](../active-directory/develop/migrate-python-adal-msal.md).
+* Python - [Microsoft Authentication Library to MSAL migration guide for Python](/entra/msal/python/advanced/migrate-python-adal-msal).
 
 ## Use managed identity authentication
 

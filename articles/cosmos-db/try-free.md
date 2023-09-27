@@ -94,7 +94,7 @@ Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosm
 * [API for PostgreSQL](postgresql/quickstart-create-portal.md)
 * [API for MongoDB](mongodb/quickstart-python.md#object-model)
 * [API for Apache Cassandra](cassandra/adoption.md)
-* [API for Apache Gremlin](gremlin/quickstart-console.md#add-a-graph)
+* [API for Apache Gremlin](gremlin/quickstart-console.md)
 * [API for Table](table/quickstart-dotnet.md)
 
 You can also get started with one of the learning resources in the Data Explorer.

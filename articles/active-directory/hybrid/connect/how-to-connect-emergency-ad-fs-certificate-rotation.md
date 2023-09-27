@@ -37,7 +37,7 @@ You can also get the thumbprint by using AD FS Management. Go to **Service** > *
 ## Determine whether AD FS renews the certificates automatically
 By default, AD FS is configured to generate token signing and token decryption certificates automatically. It does so both during the initial configuration and when the certificates are approaching their expiration date.
 
-You can run the following Windows PowerShell command: `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`.
+You can run the following PowerShell command: `Get-AdfsProperties | FL AutoCert*, Certificate*`.
 
 The `AutoCertificateRollover` property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically. Do either of the following:
 
@@ -120,11 +120,13 @@ Now that you've added the first certificate, made it primary, and removed the ol
 1. On the **Actions** pane, select **Add Token-Signing Certificate**.
 1. Select the new certificate from the list of displayed certificates, and then select **OK**.
 
-## Update Azure AD with the new token-signing certificate
+<a name='update-azure-ad-with-the-new-token-signing-certificate'></a>
 
-1. Open the Microsoft Azure Active Directory Module for Windows PowerShell. Alternatively, open Windows PowerShell, and then run the `Import-Module msonline` command.
+## Update Microsoft Entra ID with the new token-signing certificate
 
-1. Connect to Azure Active Directory (Azure AD) by running the following command: 
+1. Open the Azure AD PowerShell module. Alternatively, open Windows PowerShell, and then run the `Import-Module msonline` command.
+
+1. Connect to Microsoft Entra ID by running the following command: 
 
    `Connect-MsolService`
    
@@ -137,9 +139,9 @@ Now that you've added the first certificate, made it primary, and removed the ol
     >
     > Replace \<servername\> with the name of the AD FS server and then, at the prompt, enter the administrator credentials for the AD FS server.
 
-1. Optionally, verify whether an update is required by checking the current certificate information in Azure AD. To do so, run the following command: `Get-MsolFederationProperty`. Enter the name of the Federated domain when prompted.
+1. Optionally, verify whether an update is required by checking the current certificate information in Microsoft Entra ID. To do so, run the following command: `Get-MsolFederationProperty`. Enter the name of the Federated domain when prompted.
 
-1. To update the certificate information in Azure AD, run the following command: `Update-MsolFederatedDomain` and then enter the domain name when prompted.
+1. To update the certificate information in Microsoft Entra ID, run the following command: `Update-MsolFederatedDomain` and then enter the domain name when prompted.
 
     > [!Note]
     > If you receive an error when you run this command, run `Update-MsolFederatedDomain –SupportMultipleDomain` and then, at the prompt, enter the domain name.
@@ -170,10 +172,10 @@ If your federation partners can't consume your federation metadata, you must man
 
 
 ## Revoke the refresh tokens via PowerShell
-Now you want to revoke the refresh tokens for users who might have them and force them to log in again and get new tokens. This logs users out of their phones, current webmail sessions, and other places that are using tokens and refresh tokens. For more information, see [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?preserve-view=true&view=azureadps-2.0). Also see [Revoke user access in Azure Active Directory](../../enterprise-users/users-revoke-access.md).
+Now you want to revoke the refresh tokens for users who might have them and force them to log in again and get new tokens. This logs users out of their phones, current webmail sessions, and other places that are using tokens and refresh tokens. For more information, see [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?preserve-view=true&view=azureadps-2.0). Also see [Revoke user access in Microsoft Entra ID](../../enterprise-users/users-revoke-access.md).
 
 ## Next steps
 
 - [Manage SSL certificates in AD FS and WAP in Windows Server 2016](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
 - [Obtain and configure token signing and token decryption certificates for AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
-- [Renew federation certificates for Microsoft 365 and Azure Active Directory](how-to-connect-fed-o365-certs.md)
+- [Renew federation certificates for Microsoft 365 and Microsoft Entra ID](how-to-connect-fed-o365-certs.md)

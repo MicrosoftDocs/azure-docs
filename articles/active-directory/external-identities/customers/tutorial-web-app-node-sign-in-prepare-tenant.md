@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Prepare your customer tenant to sign in users in a Node.js web app'
-description: Learn how to prepare your Azure Active Directory (Azure AD) tenant for customers to sign in users in your Node.js web application.
+description: Learn how to prepare your Microsoft Entra ID for customers tenant to sign in users in your Node.js web application.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -12,12 +12,12 @@ ms.subservice: ciam
 ms.topic: tutorial
 ms.date: 07/27/2023
 ms.custom: developer, devx-track-js
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Microsoft Entra ID for customers tenant
 ---
 
 # Tutorial: Prepare your customer tenant to sign in users in a Node.js web app
 
-This tutorial demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant to sign in users in a Node.js web application.
+This tutorial demonstrates how to prepare your Microsoft Entra ID for customers tenant to sign in users in a Node.js web application.
 
 
 In this tutorial, you'll;
@@ -33,7 +33,7 @@ If you've already registered a web application in the Microsoft Entra admin cent
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
+- Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>. 
 
 ## Register the web app
 

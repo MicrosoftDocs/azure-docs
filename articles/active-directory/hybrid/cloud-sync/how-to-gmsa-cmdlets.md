@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets'
-description: Learn how to use the Azure AD Connect cloud provisioning agent gMSA powershell cmdlets.
+title: 'Microsoft Entra Connect cloud provisioning agent gMSA PowerShell cmdlets'
+description: Learn how to use the Microsoft Entra Connect cloud provisioning agent gMSA powershell cmdlets.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -13,9 +13,9 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets
+# Microsoft Entra Connect cloud provisioning agent gMSA PowerShell cmdlets
 
-The purpose of this document is to describe the Azure AD Connect cloud provisioning agent gMSA PowerShell cmdlets. These cmdlets allow you to have more granularity on the permissions that are applied on the service account (gMSA). By default, Azure AD Connect cloud sync applies all permissions similar to Azure AD Connect on the default gMSA or a custom gMSA, during cloud provisioning agent install.
+The purpose of this document is to describe the Microsoft Entra Connect cloud provisioning agent gMSA PowerShell cmdlets. These cmdlets allow you to have more granularity on the permissions that are applied on the service account (gMSA). By default, Microsoft Entra Connect cloud sync applies all permissions similar to Microsoft Entra Connect on the default gMSA or a custom gMSA, during cloud provisioning agent install.
 
 This document will cover the following cmdlets:
 
@@ -55,11 +55,11 @@ The following prerequisites are required to use these cmdlets.
 
 |Permission type|Description|
 |-----|-----|
-|BasicRead| See [BasicRead](../connect/how-to-connect-configure-ad-ds-connector-account.md#configure-basic-read-only-permissions) permissions for Azure AD Connect|
-|PasswordHashSync|See [PasswordHashSync](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-hash-synchronization) permissions for Azure AD Connect|
-|PasswordWriteBack|See [PasswordWriteBack](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-writeback) permissions for Azure AD Connect|
-|HybridExchangePermissions|See [HybridExchangePermissions](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) permissions for Azure AD Connect|
-|ExchangeMailPublicFolderPermissions| See [ExchangeMailPublicFolderPermissions](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders) permissions for Azure AD Connect|
+|BasicRead| See [BasicRead](../connect/how-to-connect-configure-ad-ds-connector-account.md#configure-basic-read-only-permissions) permissions for Microsoft Entra Connect|
+|PasswordHashSync|See [PasswordHashSync](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-hash-synchronization) permissions for Microsoft Entra Connect|
+|PasswordWriteBack|See [PasswordWriteBack](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-password-writeback) permissions for Microsoft Entra Connect|
+|HybridExchangePermissions|See [HybridExchangePermissions](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-hybrid-deployment) permissions for Microsoft Entra Connect|
+|ExchangeMailPublicFolderPermissions| See [ExchangeMailPublicFolderPermissions](../connect/how-to-connect-configure-ad-ds-connector-account.md#permissions-for-exchange-mail-public-folders) permissions for Microsoft Entra Connect|
 |CloudHR| Applies 'Create/delete User objects' on 'This object and all descendant objects'|
 |All| Applies all the above permissions|
 

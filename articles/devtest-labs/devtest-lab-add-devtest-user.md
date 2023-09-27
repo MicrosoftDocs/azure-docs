@@ -4,7 +4,7 @@ description: Learn about the Azure DevTest Labs Owner, Contributor, and DevTest 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/26/2022
+ms.date: 09/30/2023
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 

@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Create a customer identity and access management (CIAM) tenant (preview)
 
-Azure Active Directory (Azure AD) offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Azure AD can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+Microsoft Entra ID offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Microsoft Entra ID can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
 In this article, you learn how to:
 
@@ -34,9 +34,8 @@ In this article, you learn how to:
 
 ## Create a new customer tenant  
 
-1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. From the left menu, select **Azure Active Directory** > **Overview**.
-1. On the overview page, select **Manage tenants**
+1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Contributor](/azure/role-based-access-control/built-in-roles#contributor). 
+1. Browse to **Identity** > **Overview** > **Manage tenants**.
 1. Select **Create**.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::
@@ -89,7 +88,7 @@ If you're not sure which directory contains your customer tenant, you can find t
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-overview.png" alt-text="Screenshot of the tenant details.":::
 
-You can find the same details if you go to **Azure Active Directory** either in the Microsoft Entra admin center or in the Azure portal. On the **Azure Active Directory** page, you can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Overview** > **Basic information**.
+You can find the same details if you go to **Microsoft Entra ID** either in the Microsoft Entra admin center or in the Azure portal. On the **Microsoft Entra ID** page, you can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Overview** > **Basic information**.
 
 ## Next steps
 - [Register an app](how-to-register-ciam-app.md)

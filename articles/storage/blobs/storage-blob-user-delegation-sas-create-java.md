@@ -16,6 +16,8 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # Create a user delegation SAS for a blob with Java
 
+[!INCLUDE [storage-dev-guide-selector-user-delegation-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-user-delegation-sas.md)]
+
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
 This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a blob using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).

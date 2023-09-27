@@ -43,7 +43,7 @@ The easiest way to make the REST call is from an Azure Cloud PowerShell command 
 
 Copy and paste the following script in to PowerShell to create the table in your workspace. Make sure to replace the {subscription}, {resource group}, {workspace name}, and {table name} in the script. Make sure that there are no extra blanks at the beginning or end of the parameters
 
- ```code
+```code
 $tableParams = @'
 {
     "properties": {

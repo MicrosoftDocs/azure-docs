@@ -115,7 +115,7 @@
         href: ./app-proxy-protect-ndes.md
       - name: Integrate with Application Proxy using PingAccess
         href: application-proxy-ping-access-publishing-guide.md
-      - name: Integrate with Azure AD Domain Services
+      - name: Integrate with Microsoft Entra Domain Services
         href: ../../active-directory-domain-services/deploy-azure-app-proxy.md?context=%2fazure%2factive-directory%2fapp-proxy%2fcontext%2fapp-proxy-context
       - name: Integrate with Power BI
         href: application-proxy-integrate-with-power-bi.md

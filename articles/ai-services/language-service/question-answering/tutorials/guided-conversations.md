@@ -1,8 +1,7 @@
 ---
 title: Add guided conversations with multi-turn prompts
 description: In this tutorial, learn how to make guided conversations with multi-turn prompts.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback

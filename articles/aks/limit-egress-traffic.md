@@ -147,6 +147,12 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you can create a route table.
 
+> [!IMPORTANT]
+> Outbound type of UDR requires a route for 0.0.0.0/0 and a next hop destination of NVA in the route table.
+> The route table already has a default 0.0.0.0/0 to the Internet. Without a public IP address for Azure to use for Source Network Address Translation (SNAT), simply adding this route won't provide you outbound Internet connectivity. AKS validates that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to a gateway, NVA, etc.
+> When using an outbound type of UDR, a load balancer public IP address for **inbound requests** isn't created unless you configure a service of type *loadbalancer*. AKS never creates a public IP address for **outbound requests** if you set an outbound type of UDR.
+> For more information, see [Outbound rules for Azure Load Balancer](../load-balancer/outbound-rules.md#scenario6out).
+
 1. Create an empty route table to be associated with a given subnet using the [`az network route-table create`][az-network-route-table-create] command. The route table will define the next hop as the Azure Firewall created above. Each subnet can have zero or one route table associated to it.
 
     ```azurecli
@@ -345,7 +351,7 @@ You can now start exposing services and deploying applications to this cluster. 
     metadata:
       name: voting-storage
     spec:
-      replicas: 1
+      replicas: 10
       selector:
         matchLabels:
           app: voting-storage
@@ -407,7 +413,7 @@ You can now start exposing services and deploying applications to this cluster. 
       MYSQL_USER: ZGJ1c2Vy
       MYSQL_PASSWORD: UGFzc3dvcmQxMg==
       MYSQL_DATABASE: YXp1cmV2b3Rl
-     MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
+      MYSQL_ROOT_PASSWORD: UGFzc3dvcmQxMg==
     ---
     # voting-storage-pv-claim.yaml
     apiVersion: v1
@@ -417,7 +423,7 @@ You can now start exposing services and deploying applications to this cluster. 
     spec:
       accessModes:
       - ReadWriteOnce
-    resources:
+      resources:
         requests:
           storage: 1Gi
     ---
@@ -435,9 +441,9 @@ You can now start exposing services and deploying applications to this cluster. 
       selector:
         app: voting-storage
     ---
-   # voting-app-deployment.yaml
+    # voting-app-deployment.yaml
     apiVersion: apps/v1
-   kind: Deployment
+    kind: Deployment
     metadata:
       name: voting-app
     spec:
@@ -451,32 +457,31 @@ You can now start exposing services and deploying applications to this cluster. 
             app: voting-app
         spec:
           containers:
-          - name: voting-app
-            image: mcr.microsoft.com/aks/samples/voting/app:2.0
-            imagePullPolicy: Always
-            ports:
-           - containerPort: 8080
-             name: http
-            env:
-            - name: MYSQL_HOST
-              value: "voting-storage"
-            - name: MYSQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: voting-storage-secret
-                  key: MYSQL_USER
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: voting-storage-secret
-                  key: MYSQL_PASSWORD
-            - name: MYSQL_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: voting-storage-secret
-                  key: MYSQL_DATABASE
-            - name: ANALYTICS_HOST
-              value: "voting-analytics"
+            - name: voting-app
+              image: mcr.microsoft.com/aks/samples/voting/app:2.0
+              imagePullPolicy: Always
+              ports:
+              - containerPort: 8080
+              env:
+                - name: MYSQL_HOST
+                  value: "voting-storage"
+                - name: MYSQL_USER
+                  valueFrom:
+                   secretKeyRef:
+                      name: voting-storage-secret
+                      key: MYSQL_USER
+                - name: MYSQL_PASSWORD
+                  valueFrom:
+                   secretKeyRef:
+                     name: voting-storage-secret
+                     key: MYSQL_PASSWORD
+                - name: MYSQL_DATABASE
+                  valueFrom:
+                    secretKeyRef:
+                     name: voting-storage-secret
+                     key: MYSQL_DATABASE
+                - name: ANALYTICS_HOST
+                  value: "voting-analytics"
     ---
     # voting-app-service.yaml
     apiVersion: v1
@@ -541,7 +546,7 @@ You can now start exposing services and deploying applications to this cluster. 
     apiVersion: v1
     kind: Service
     metadata:
-    name: voting-analytics
+      name: voting-analytics
       labels: 
         app: voting-analytics
     spec:

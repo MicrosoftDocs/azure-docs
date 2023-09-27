@@ -33,7 +33,7 @@ Part of service account governance includes:
 * Protecting them, based on requirements and purpose 
 * Managing account lifecycle, and their credentials   
 * Assessing service accounts, based on risk and permissions
-* Ensuring Active Directory (AD) and Azure Active Directory (Azure AD) have no unused service accounts, with permissions
+* Ensuring Active Directory (AD) and Microsoft Entra ID have no unused service accounts, with permissions
 
 ## New service account principles
 
@@ -137,7 +137,7 @@ Consider the following restrictions, although some might not be relevant to your
   * Learn more: [Set-ADAccountExpiration](/powershell/module/activedirectory/set-adaccountexpiration)
 * See, [Set-ADUser (Active Directory)](/powershell/module/activedirectory/set-aduser)
 * Password policy requirements
-  * See, [Password and account lockout policies on Azure AD Domain Services managed domains](../../active-directory-domain-services/password-policy.md)
+  * See, [Password and account lockout policies on Microsoft Entra Domain Services managed domains](../../active-directory-domain-services/password-policy.md)
 * Create accounts in an organizational unit location that ensures only some users will manage it
   *  See, [Delegating Administration of Account OUs and Resource OUs](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous)  
 * Set up and collect auditing that detects service account changes:

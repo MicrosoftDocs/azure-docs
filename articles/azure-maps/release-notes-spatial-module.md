@@ -42,7 +42,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
-[WmsClient.getFeatureInfoHtml]: https://learn.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient?view=azure-maps-typescript-latest#azure-maps-spatial-io-atlas-io-ogc-wfsclient-getfeatureinfo
+[WmsClient.getFeatureInfoHtml]: /javascript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient#azure-maps-spatial-io-atlas-io-ogc-wfsclient-getfeatureinfo
 [0.1.5]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.5
 [0.1.4]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.4
 [Azure Maps Spatial IO Samples]: https://samples.azuremaps.com/?search=Spatial%20IO%20Module

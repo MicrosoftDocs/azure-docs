@@ -66,16 +66,16 @@ resource hierarchy or individual resource to remediate.
 
 ## Policy definition ID
 
-If the `policyAssignmentId` is for an initiative assignment, the **policyDefinitionReferenceId** property must be used to specify which policy definition(s) in the initiative the subject resource(s) are to be remediated. As a remediation can only remediation in a scope of one definition,
-this property is a _string_. The value must match the value in the initiative definition in the
-`policyDefinitions.policyDefinitionReferenceId` field.
+If the `policyAssignmentId` is for an initiative assignment, the **policyDefinitionReferenceId** property must be used to specify which policy definition in the initiative the subject resource(s) are to be remediated. As a remediation can only remediate in a scope of one definition,
+this property is a _string_ and not an array. The value must match the value in the initiative definition in the
+`policyDefinitions.policyDefinitionReferenceId` field instead of the global identifier for policy definition `Id`.
 
 ## Resource count and parallel deployments
 
 Use **resource count** to  determine how many non-compliant resources to remediate in a given remediation task. The default value is 500, with the maximum number being 50,000. **Parallel deployments**  determines how many of those resources to remediate at the same time. The allowed range is between 1 to 30 with the default value being 10.  
 
 > [!NOTE]
-> Parallel deployments are the number of deployments within a singular remediation task with a maxmimum of 30. 100 remediation tasks can be ran simultaneously in the tenant.   
+> Parallel deployments are the number of deployments within a singular remediation task with a maximum of 30. There can be a maximum of 100 remediation tasks running in parallel for a single policy definition or policy reference within an initiative.
 
 ## Failure threshold
 

@@ -66,54 +66,6 @@ Here's how to assign a role to the Azure Virtual Desktop service principal using
 
 1. Select **Next**, then select **Review + assign** to complete the role assignment.
 
-# [Azure CLI](#tab/cli)
-
-Here's how to assign a role to the Azure Virtual Desktop service principal using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Find the ID of the subscription you want to add the role assignment to by listing all that are available to you with the following command:
-
-   ```azurecli
-   az account list --output table
-   ```
-
-3. Store the value for **SubscriptionId** in a variable by running the following command, replacing the subscription ID in this example with your own:
-
-   ```azurecli
-   subId=00000000-0000-0000-0000-000000000000
-   ```
-
-4. Assign the role to the Azure Virtual Desktop service principal by running the following command, replacing the value for the `role` parameter with the name of the role you need to assign. This example assigns the *Desktop Virtualization Power On Off Contributor* role to the subscription:
-
-   ```azurecli
-   az role assignment create \
-       --assignee "9cdead84-a844-4324-93f2-b2e6bb768d07" \
-       --role "Desktop Virtualization Power On Off Contributor" \
-       --scope "/subscriptions/$subId"
-   ```
-
-   Your output should be similar to the following:
-
-   ```output
-   {
-     "condition": null,
-     "conditionVersion": null,
-     "createdBy": null,
-     "createdOn": "2023-06-22T13:50:22.978226+00:00",
-     "delegatedManagedIdentityResourceId": null,
-     "description": null,
-     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/a211100e-aa52-4f8d-aac9-ad0833f969d0",
-     "name": "a211100e-aa52-4f8d-aac9-ad0833f969d0",
-     "principalId": "00000000-0000-0000-0000-000000000000",
-     "principalType": "ServicePrincipal",
-     "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/40c5ff49-9181-41f8-ae61-143b0e78555e",
-     "scope": "/subscriptions/00000000-0000-0000-0000-000000000000",
-     "type": "Microsoft.Authorization/roleAssignments",
-     "updatedBy": "effe20b0-5afb-4e68-a5d7-f8ef9873a070",
-     "updatedOn": "2023-06-22T13:50:23.335229+00:00"
-   }
-   ```
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -161,6 +113,55 @@ Here's how to assign a role to the Azure Virtual Desktop service principal using
    Description        : 
    ConditionVersion   : 
    Condition          :
+   ```
+
+# [Azure CLI](#tab/cli)
+
+Here's how to assign a role to the Azure Virtual Desktop service principal using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Find the ID of the subscription you want to add the role assignment to by listing all that are available to you with the following command:
+
+   ```azurecli
+   az account list --output table
+   ```
+
+3. Store the value for **SubscriptionId** in a variable by running the following command, replacing the subscription ID in this example with your own:
+
+   ```azurecli
+   subId=00000000-0000-0000-0000-000000000000
+   ```
+
+4. Assign the role to the Azure Virtual Desktop service principal by running the following command, replacing the value for the `role` parameter with the name of the role you need to assign. This example assigns the *Desktop Virtualization Power On Off Contributor* role to the subscription:
+
+   ```azurecli
+   az role assignment create \
+       --assignee "9cdead84-a844-4324-93f2-b2e6bb768d07" \
+       --role "Desktop Virtualization Power On Off Contributor" \
+       --scope "/subscriptions/$subId"
+   ```
+
+   Your output should be similar to the following:
+
+   ```output
+   {
+     "condition": null,
+     "conditionVersion": null,
+     "createdBy": null,
+     "createdOn": "2023-06-22T13:50:22.978226+00:00",
+     "delegatedManagedIdentityResourceId": null,
+     "description": null,
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/a211100e-aa52-4f8d-aac9-ad0833f969d0",
+     "name": "a211100e-aa52-4f8d-aac9-ad0833f969d0",
+     "principalId": "00000000-0000-0000-0000-000000000000",
+     "principalType": "ServicePrincipal",
+     "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/40c5ff49-9181-41f8-ae61-143b0e78555e",
+     "scope": "/subscriptions/00000000-0000-0000-0000-000000000000",
+     "type": "Microsoft.Authorization/roleAssignments",
+     "updatedBy": "effe20b0-5afb-4e68-a5d7-f8ef9873a070",
+     "updatedOn": "2023-06-22T13:50:23.335229+00:00"
+   }
    ```
 
 ---

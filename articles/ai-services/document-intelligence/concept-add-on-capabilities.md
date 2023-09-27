@@ -4,10 +4,9 @@ titleSuffix: Azure AI services
 description: How to increase service limit capacity with add-on capabilities.
 author: jaep3347
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/25/2023
 ms.author: lajanuar
 monikerRange: 'doc-intel-3.1.0'
 ---
@@ -19,19 +18,23 @@ monikerRange: 'doc-intel-3.1.0'
 
 # Document Intelligence add-on capabilities
 
-[!INCLUDE [applies to v3.1](includes/applies-to-v3-1.md)]
+[!INCLUDE [applies to v3.1](includes/applies-to-v3-1-v3-0.md)]
 
 > [!NOTE]
 >
-> Add-on capabilities for Document Intelligence Studio are available with the Read and Layout models for the `2023-07-31` (GA)release.
+> Add-on capabilities for Document Intelligence Studio are available with the Read and Layout models starting with the `2023-02-28-preview` and later releases.
+>
+> Add-on capabilities are available within all models except for the [Business card model](concept-business-card.md).
 
-Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are three add-on capabilities available for the `2023-07-31` (GA) release:
+Document Intelligence now supports more sophisticated analysis capabilities. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. The following add-on capabilities are available for`2023-02-28-preview` and later releases:
 
 * [`ocr.highResolution`](#high-resolution-extraction)
 
 * [`ocr.formula`](#formula-extraction)
 
 * [`ocr.font`](#font-property-extraction)
+
+* [`ocr.barcode`](#barcode-property-extraction)
 
 ## High resolution extraction
 
@@ -122,6 +125,28 @@ The `ocr.font` capability extracts all font properties of text extracted in the 
        }
      ]
    ```
+
+## Barcode property extraction
+
+The `ocr.barcode` capability extracts all identified barcodes in the `barcodes` collection as a top level object under `content`. Inside the `content`, detected barcodes are represented as `:barcode:`. Each entry in this collection represents a barcode and includes the barcode type as `kind` and the embedded barcode content as `value` along with its `polygon` coordinates. Initially, barcodes appear at the end of each page. The `confidence` is hard-coded for as 1.
+
+#### Supported barcode types
+
+| **Barcode Type**   | **Example**   |
+| --- | --- |
+| `QR Code` |:::image type="content" source="media/barcodes/qr-code.png" alt-text="Screenshot of the QR Code.":::|
+| `Code 39` |:::image type="content" source="media/barcodes/code-39.png" alt-text="Screenshot of the Code 39.":::|
+| `Code 93` |:::image type="content" source="media/barcodes/code-93.gif" alt-text="Screenshot of the Code 93.":::|
+| `Code 128` |:::image type="content" source="media/barcodes/code-128.png" alt-text="Screenshot of the Code 128.":::|
+| `UPC (UPC-A & UPC-E)` |:::image type="content" source="media/barcodes/upc.png" alt-text="Screenshot of the UPC.":::|
+| `PDF417` |:::image type="content" source="media/barcodes/pdf-417.png" alt-text="Screenshot of the PDF417.":::|
+| `EAN-8` |:::image type="content" source="media/barcodes/european-article-number-8.gif" alt-text="Screenshot of the European-article-number barcode ean-8.":::|
+| `EAN-13` |:::image type="content" source="media/barcodes/european-article-number-13.gif" alt-text="Screenshot of the European-article-number barcode ean-13.":::|
+| `Codabar` |:::image type="content" source="media/barcodes/codabar.png" alt-text="Screenshot of the Codabar.":::|
+| `Databar` |:::image type="content" source="media/barcodes/databar.png" alt-text="Screenshot of the Data bar.":::|
+| `Databar` Expanded |:::image type="content" source="media/barcodes/databar-expanded.gif" alt-text="Screenshot of the Data bar Expanded.":::|
+| `ITF` |:::image type="content" source="media/barcodes/interleaved-two-five.png" alt-text="Screenshot of the interleaved-two-of-five barcode (ITF).":::|
+| `Data Matrix` |:::image type="content" source="media/barcodes/datamatrix.gif" alt-text="Screenshot of the Data Matrix.":::|
 
 ## Next steps
 

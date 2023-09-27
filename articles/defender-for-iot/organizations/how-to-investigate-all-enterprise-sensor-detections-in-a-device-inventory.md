@@ -78,7 +78,8 @@ To export device inventory data, select the **Import/Export file** :::image type
 Save the exported file locally.
 
 > [!NOTE]
-> In the exported file, date values are based on the region settings for the machine you're using to access the OT sensor. We recommend exporting data only from a machine with the same region settings as the sensor that detected your data. For more information, see [Synchronize time zones on an OT sensor](how-to-manage-individual-sensors.md#synchronize-time-zones-on-an-ot-sensor).
+> The date format on the on-premises management console is always set to DD/MM/YYYY.
+> We recommend that you use the same date format on any machine where you'll be opening exported inventory files to ensure that dates in the exported inventory files are shown correctly.
 >
 
 ## Add to and enhance device inventory data

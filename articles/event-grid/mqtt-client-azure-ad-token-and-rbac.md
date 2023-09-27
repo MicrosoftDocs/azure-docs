@@ -1,5 +1,5 @@
 ---
-title: JWT authentication and RBAC authorization for clients with Azure AD identity
+title: Azure AD JWT authentication and RBAC authorization for clients with Azure AD identity
 description: Describes JWT authentication and RBAC roles to authorize clients with Azure AD identity to publish or subscribe MQTT messages
 ms.topic: conceptual
 ms.date: 8/11/2023
@@ -7,7 +7,7 @@ author: veyaddan
 ms.author: veyaddan
 ---
 
-# Authenticating and Authorizing access to publish or subscribe to MQTT messages
+# Azure AD JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages
 You can authenticate MQTT clients with Azure AD JWT to connect to Event Grid namespace.  You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Azure Active Directory identity, to publish or subscribe access to specific topic spaces.
 
 > [!IMPORTANT]

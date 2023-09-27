@@ -122,7 +122,7 @@ When you define a security admin rule, there are required and optional fields.
 
 #### Priority
 
-The priority of a security admin rule is an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 overrides an allow rule with a priority of 20. 
+The priority of a security admin rule is an integer between 1 and 4096. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 overrides an allow rule with a priority of 20. 
 
 #### <a name = "action"></a>Action
 

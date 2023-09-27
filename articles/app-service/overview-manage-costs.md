@@ -1,6 +1,8 @@
 ---
 title: Plan to manage costs for App Service
 description: Learn how to plan for and manage costs for Azure App Service by using cost analysis in the Azure portal.
+author: msangapu-msft
+ms.author: msangapu
 ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to

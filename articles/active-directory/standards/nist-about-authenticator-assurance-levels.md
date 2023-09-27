@@ -1,6 +1,6 @@
 ---
-title: NIST authenticator assurance levels with Azure Active Directory
-description: An overview of authenticator assurance levels as applied to Azure Active Directory
+title: NIST authenticator assurance levels with Microsoft Entra ID
+description: An overview of authenticator assurance levels as applied to Microsoft Entra ID
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -47,7 +47,7 @@ The standard includes AAL requirements for the following categories:
 
 In general, AAL1 isn't recommended because it accepts password-only solutions, the most easily compromised authentication. For more information, see the blog post, [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984). 
 
-While NIST doesn't require verifier impersonation (credential phishing) resistance until AAL3, we advise you to address this threat at all levels. You can select authenticators that provide verifier impersonation resistance, such as requiring devices are joined to Azure Active Directory (Azure AD) or hybrid Azure AD. If you're using Office 365, you can use Office 365 Advanced Threat Protection, and its [anti-phishing policies](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies).
+While NIST doesn't require verifier impersonation (credential phishing) resistance until AAL3, we advise you to address this threat at all levels. You can select authenticators that provide verifier impersonation resistance, such as requiring devices are joined to Microsoft Entra ID or hybrid Microsoft Entra ID. If you're using Office 365, you can use Office 365 Advanced Threat Protection, and its [anti-phishing policies](/microsoft-365/security/office-365-security/set-up-anti-phishing-policies).
 
 As you evaluate the needed NIST AAL for your organization, consider whether your entire organization must meet NIST standards. If there are specific user groups and resources that can be segregated, you can apply NIST AAL configurations to those user groups and resources. 
 
@@ -77,8 +77,8 @@ In addition, Microsoft is committed to [protecting and managing customer data](h
 
 [NIST authenticator types](nist-authenticator-types.md)
 
-[Achieve NIST AAL1 with Azure AD](nist-authenticator-assurance-level-1.md)
+[Achieve NIST AAL1 with Microsoft Entra ID](nist-authenticator-assurance-level-1.md)
 
-[Achieve NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
+[Achieve NIST AAL2 with Microsoft Entra ID](nist-authenticator-assurance-level-2.md)
 
-[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md)
+[Achieve NIST AAL3 with Microsoft Entra ID](nist-authenticator-assurance-level-3.md)

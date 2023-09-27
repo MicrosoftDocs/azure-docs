@@ -2,12 +2,12 @@
 title: Azure Data Box hardware additional terms 
 description: Describes additional terms for Azure Data Box hardware.
 services: databox
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 09/13/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 # Azure Data Box Hardware Additional Terms
 

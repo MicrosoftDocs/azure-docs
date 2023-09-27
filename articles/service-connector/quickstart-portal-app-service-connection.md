@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create a service connection in App Service from the Azure portal
 description: Quickstart showing how to create a service connection in App Service from the Azure portal
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: quickstart
@@ -67,6 +67,9 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
 
 1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
+
+> [!NOTE]
+> You need enough permissions to create connection successfully, for more details, see [Permission requirements](./concept-permission.md).
 
 ## View service connections in App Service
 

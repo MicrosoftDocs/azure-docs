@@ -21,3 +21,4 @@
 | P2S route limit - IKEv2                 | 256 for non-Windows **/** 25 for Windows           |
 | P2S route limit - OpenVPN               | 1000                         |
 | Max. flows                              | 100K for VpnGw1/AZ  **/**  512K for VpnGw2-4/AZ|
+| Traffic Selector Policies               | 100  |

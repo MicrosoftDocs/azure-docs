@@ -20,10 +20,6 @@
     href: ../../virtual-network/tutorial-restrict-network-access-to-resources.md?toc=/azure/networking/fundamentals/toc.json
   - name: Deploy and configure Azure Firewall using the Azure portal
     href: ../../firewall/tutorial-firewall-deploy-portal-policy.md?toc=/azure/networking/fundamentals/toc.json
-- name: Samples
-  items:
-  - name: Azure Resource Graph queries
-    href: ./resource-graph-samples.md
 - name: Concepts
   expanded: true
   items:
@@ -71,7 +67,6 @@
         href: ../../virtual-network/virtual-network-peering-overview.md?toc=/azure/networking/fundamentals/toc.json
       - name: Virtual network manager
         href: ../../virtual-network-manager/overview.md?toc=/azure/networking/fundamentals/toc.json
-
     - name: Private access to resources 
       href: ../../private-link/private-endpoint-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Connect on-premises to Azure - VPN encryption       
@@ -177,6 +172,8 @@
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Monitor Network Insights
       href:  ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
   - name: Troubleshooting
     items: 
     - name: Troubleshoot Microsoft.Network Failed provisioning state

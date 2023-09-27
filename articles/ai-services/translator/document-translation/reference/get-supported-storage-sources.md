@@ -6,8 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/18/2023
 ---

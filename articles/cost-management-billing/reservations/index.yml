@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 12/06/2022
+  ms.date: 08/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -75,8 +75,20 @@ landingContent:
         url: charge-back-usage.md
       - text: View reservation purchase and refund transactions
         url: view-purchase-refunds.md
-
     - linkListType: reference
       links:
       - text: Reservation APIs
         url: reservation-apis.md
+
+  # Card (optional)
+  - title: Limited-time offers
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: US West Dv3 VMs
+        url: limited-time-us-west.md
+      - text: Sweden Central select Linux VMs
+        url: limited-time-central-sweden.md
+      - text: Poland Central select VMs
+        url: limited-time-central-poland.md
+

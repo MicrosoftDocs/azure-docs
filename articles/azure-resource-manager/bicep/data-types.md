@@ -8,7 +8,7 @@ ms.date: 07/07/2023
 
 # Data types in Bicep
 
-This article describes the data types supported in [Bicep](./overview.md). [User-defined data types](./user-defined-data-types.md) are currently in preview.
+This article describes the data types supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
 
 ## Supported types
 

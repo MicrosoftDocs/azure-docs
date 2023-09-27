@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure AD device identity documentation
-summary: Learn how to configure and manage device identities in Azure AD.
+title: Microsoft Entra device identity documentation
+summary: Learn how to configure and manage device identities in Microsoft Entra ID.
 
 metadata:
-  title: Azure AD device identity documentation
-  description: Learn how to configure and manage device identities in Azure AD.
+  title: Microsoft Entra device identity documentation
+  description: Learn how to configure and manage device identities in Microsoft Entra ID.
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
@@ -29,15 +29,15 @@ landingContent:
             url: overview.md
           - text: What is enterprise state roaming?
             url: ./enterprise-state-roaming-enable.md
-          - text: Plan your Azure AD device deployment
+          - text: Plan your Microsoft Entra device deployment
             url: plan-device-deployment.md
       - linkListType: concept
         links:
-          - text: Azure AD registered devices
+          - text: Microsoft Entra registered devices
             url: concept-device-registration.md
-          - text: Azure AD joined devices
+          - text: Microsoft Entra joined devices
             url: concept-directory-join.md
-          - text: Hybrid Azure AD joined devices
+          - text: Microsoft Entra hybrid joined devices
             url: concept-hybrid-join.md
           - text: SSO to on-premises resources
             url: device-sso-to-on-premises-resources.md
@@ -45,23 +45,23 @@ landingContent:
             url: concept-primary-refresh-token.md
 
   # Card
-  - title: Configure and manage Azure AD joined devices
+  - title: Configure and manage Microsoft Entra joined devices
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Plan your Azure AD join implementation
+          - text: Plan your Microsoft Entra join implementation
             url: device-join-plan.md
-          - text: Manage the local administrators group on Azure AD joined devices
+          - text: Manage the local administrators group on Microsoft Entra joined devices
             url: assign-local-admin.md
-          - text: Find and manage stale devices in Azure AD
+          - text: Find and manage stale devices in Microsoft Entra ID
             url: manage-stale-devices.md
   
   # Card
-  - title: Configure and manage hybrid Azure AD joined devices
+  - title: Configure and manage Microsoft Entra hybrid joined devices
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Plan your hybrid Azure AD join implementation
+          - text: Plan your Microsoft Entra hybrid join implementation
             url: hybrid-join-plan.md
-          - text: Troubleshooting hybrid Azure AD joined devices
+          - text: Troubleshooting Microsoft Entra hybrid joined devices
             url: troubleshoot-hybrid-join-windows-current.md

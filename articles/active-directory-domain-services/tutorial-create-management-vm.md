@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a management VM for Azure Active Directory Domain Services | Microsoft Docs
-description: In this tutorial, you learn how to create and configure a Windows virtual machine that you use to administer Azure Active Directory Domain Services managed domain.
+title: Tutorial - Create a management VM for Microsoft Entra Domain Services | Microsoft Docs
+description: In this tutorial, you learn how to create and configure a Windows virtual machine that you use to administer Microsoft Entra Domain Services managed domain.
 author: justinha
 manager: amycolannino
 
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2022
+ms.date: 09/15/2023
 ms.author: justinha
 
-#Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services managed domain.
+#Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage a Microsoft Entra Domain Services managed domain.
 ---
 
-# Tutorial: Create a management VM to configure and administer an Azure Active Directory Domain Services managed domain
+# Tutorial: Create a management VM to configure and administer a Microsoft Entra Domain Services managed domain
 
-Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You administer this managed domain using the same Remote Server Administration Tools (RSAT) as with an on-premises Active Directory Domain Services domain. As Azure AD DS is a managed service, there are some administrative tasks that you can't perform, such as using remote desktop protocol (RDP) to connect to the domain controllers.
+Microsoft Entra Domain Services provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You administer this managed domain using the same Remote Server Administration Tools (RSAT) as with an on-premises Active Directory Domain Services domain. As Domain Services is a managed service, there are some administrative tasks that you can't perform, such as using remote desktop protocol (RDP) to connect to the domain controllers.
 
-This tutorial shows you how to configure a Windows Server VM in Azure and install the required tools to administer an Azure AD DS managed domain.
+This tutorial shows you how to configure a Windows Server VM in Azure and install the required tools to administer a Domain Services managed domain.
 
 In this tutorial, you learn how to:
 
@@ -35,23 +35,25 @@ To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, see the first tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, see the first tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
 * A Windows Server VM that is joined to the managed domain.
     * If needed, see the previous tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
-* An Azure Bastion host deployed in your Azure AD DS virtual network.
+* A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
+* An Azure Bastion host deployed in your Domain Services virtual network.
     * If needed, [create an Azure Bastion host][azure-bastion].
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and configure a management VM using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure a management VM using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-## Available administrative tasks in Azure AD DS
+<a name='available-administrative-tasks-in-azure-ad-ds'></a>
 
-Azure AD DS provides a managed domain for your users, applications, and services to consume. This approach changes some of the available management tasks you can do, and what privileges you have within the managed domain. These tasks and permissions may be different than what you experience with a regular on-premises Active Directory Domain Services environment. You also can't connect to domain controllers on the managed domain using Remote Desktop.
+## Available administrative tasks in Domain Services
+
+Domain Services provides a managed domain for your users, applications, and services to consume. This approach changes some of the available management tasks you can do, and what privileges you have within the managed domain. These tasks and permissions may be different than what you experience with a regular on-premises Active Directory Domain Services environment. You also can't connect to domain controllers on the managed domain using Remote Desktop.
 
 ### Administrative tasks you can perform on a managed domain
 
@@ -82,14 +84,14 @@ In the previous tutorial, a Windows Server VM was created and joined to the mana
 
 To get started, connect to the Windows Server VM as follows:
 
-1. In the Azure portal, select **Resource groups** on the left-hand side. Choose the resource group where your VM was created, such as *myResourceGroup*, then select the VM, such as *myVM*.
+1. In the Microsoft Entra admin center, select **Resource groups** on the left-hand side. Choose the resource group where your VM was created, such as *myResourceGroup*, then select the VM, such as *myVM*.
 1. In the **Overview** pane for your VM, select **Connect**, then **Bastion**.
 
-    ![Connect to Windows virtual machine using Bastion in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
+    ![Connect to Windows virtual machine using Bastion in the Microsoft Entra admin center](./media/join-windows-vm/connect-to-vm.png)
 
 1. Enter the credentials for your VM, then select **Connect**.
 
-   ![Connect through the Bastion host in the Azure portal](./media/join-windows-vm/connect-to-bastion.png)
+   ![Connect through the Bastion host in the Microsoft Entra admin center](./media/join-windows-vm/connect-to-bastion.png)
 
 If needed, allow your web browser to open pop-ups for the Bastion connection to be displayed. It takes a few seconds to make the connection to your VM.
 
@@ -127,15 +129,15 @@ With the administrative tools installed, let's see how to use them to administer
 
     ![List the available containers part of the managed domain](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
-1. To see the users and groups that belong to the managed domain, select the **AADDC Users** container. The user accounts and groups from your Azure AD tenant are listed in this container.
+1. To see the users and groups that belong to the managed domain, select the **AADDC Users** container. The user accounts and groups from your Microsoft Entra tenant are listed in this container.
 
     In the following example output, a user account named *Contoso Admin* and a group for *AAD DC Administrators* are shown in this container.
 
-    ![View the list of Azure AD DS domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
+    ![View the list of Domain Services domain users in the Active Directory Administrative Center](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. To see the computers that are joined to the managed domain, select the **AADDC Computers** container. An entry for the current virtual machine, such as *myVM*, is listed. Computer accounts for all devices that are joined to the managed domain are stored in this *AADDC Computers* container.
 
-Common Active Directory Administrative Center actions such as resetting a user account password or managing group membership are available. These actions only work for users and groups created directly in the managed domain. Identity information only synchronizes *from* Azure AD to Azure AD DS. There's no write back from Azure AD DS to Azure AD. You can't change passwords or managed group membership for users synchronized from Azure AD and have those changes synchronized back.
+Common Active Directory Administrative Center actions such as resetting a user account password or managing group membership are available. These actions only work for users and groups created directly in the managed domain. Identity information only synchronizes *from* Microsoft Entra ID to Domain Services. There's no write back from Domain Services to Microsoft Entra ID. You can't change passwords or managed group membership for users synchronized from Microsoft Entra ID and have those changes synchronized back.
 
 You can also use the *Active Directory Module for Windows PowerShell*, installed as part of the administrative tools, to manage common actions in your managed domain.
 
@@ -154,8 +156,8 @@ To safely interact with your managed domain from other applications, enable secu
 > [Configure secure LDAP for your managed domain](tutorial-configure-ldaps.md)
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/tutorial-create-host-portal.md
+[azure-bastion]: /azure/bastion/tutorial-create-host-portal

@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 06/30/2021
+ms.date: 09/12/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -55,7 +55,7 @@ The following bandwidth requirements are for the native Windows, Android, and iO
 
 ## Firewall configuration
 
-Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services can still work. The optimal experience is provided when the recommended ports and IP ranges are open.
+Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services will not work properly. The list of IP ranges and allow listed domains that need to be enabled are:
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |

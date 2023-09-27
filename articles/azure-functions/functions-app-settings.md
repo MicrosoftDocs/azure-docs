@@ -319,6 +319,21 @@ The following major runtime version values are supported:
 | `~2` | 2.x | No longer supported |
 | `~1` | 1.x | Supported |
 
+## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
+
+This app setting is a temporary way for Node.js apps to enable a breaking change that makes entry point errors easier to troubleshoot on Node.js v18 or lower. It's highly recommended to use `true`, especially for programming model v4 apps, which always use entry point files. The behavior without the breaking change (`false`) ignores entry point errors and doesn't log them in Application Insights.
+
+Starting with Node.js v20, the app setting has no effect and the breaking change behavior is always enabled.
+
+For Node.js v18 or lower, the app setting can be used and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+- If the error is thrown before (for example if you're using model v3 or your entry point file doesn't exist), the default behavior matches `false`.
+- If the error is thrown after (for example if you try to register duplicate model v4 functions), the default behavior matches `true`.
+
+|Key|Value|Description|
+|---|-----|-----------|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Block on entry point errors and log them in Application Insights.|
+|FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Ignore entry point errors and don't log them in Application Insights.|
+
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
 This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues after upgrading your function app from version 2.x to 3.x of the runtime.
@@ -507,7 +522,7 @@ Controls the timeout, in seconds, when connected to streaming logs. The default 
 |-|-|
 |SCM_LOGSTREAM_TIMEOUT|`1800`|
 
-The above sample value of `1800` sets a timeout of 30 minutes. To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
+The above sample value of `1800` sets a timeout of 30 minutes. For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 

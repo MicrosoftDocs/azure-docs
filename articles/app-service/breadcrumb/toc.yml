@@ -1,9 +1,13 @@
+items:
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
   - name: App Service
     tocHref: /azure/app-service/
+    topicHref: /azure/app-service/index
+  - name: App Service
+    tocHref: /azure/reliability/
     topicHref: /azure/app-service/index
     items:
     - name: Web Apps

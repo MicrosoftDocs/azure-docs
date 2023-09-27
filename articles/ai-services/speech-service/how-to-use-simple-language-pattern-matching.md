@@ -5,8 +5,7 @@ description: In this guide, you learn how to recognize intents and entities from
 services: cognitive-services
 author: chschrae
 manager: travisw
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/19/2022
 ms.author: chschrae

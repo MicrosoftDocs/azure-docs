@@ -2,8 +2,7 @@
 title: Smart URL refresh - question answering
 titleSuffix: Azure AI services
 description: Use the question answering smart URL refresh feature to keep your project up to date.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: PatrickFarley
 ms.author: pafarley
 ms.topic: how-to

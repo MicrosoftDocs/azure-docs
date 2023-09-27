@@ -96,7 +96,7 @@ it's important to prepare the infrastructure before you set up disaster recovery
 
 1.	In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault. 
 2.	On the vault home page, select **Enable Site Recovery**.
-3.	Navigate to the bottom of the page, and select **Prepare infrastructure (Classic)** under the **VMware machines to Azure** section. This opens the Prepare infrastructure pane.
+3.	Navigate to the bottom of the page, and select **Prepare infrastructure** under the **VMware machines to Azure** section. This opens the Prepare infrastructure pane.
 
 In the **Prepare infrastructure** pane, under **Deployment planning** tab do the following:
   > [!TIP]

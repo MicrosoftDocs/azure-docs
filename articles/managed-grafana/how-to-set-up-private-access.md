@@ -1,8 +1,8 @@
 ---
 title: How to set up private access (preview) in Azure Managed Grafana
 description: How to disable public access to your Azure Managed Grafana workspace and configure private endpoints.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
 ms.date: 02/16/2023

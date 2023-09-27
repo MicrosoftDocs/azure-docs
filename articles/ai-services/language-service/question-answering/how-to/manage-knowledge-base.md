@@ -1,8 +1,7 @@
 ---
 title: Manage projects - question answering
 description: Custom question answering allows you to manage projects by providing access to the project settings and content.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback

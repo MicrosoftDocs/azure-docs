@@ -10,6 +10,8 @@
       href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
+    - name: Quotas
+      href: event-hubs-quotas.md
     - name: Compare messaging services
       href: ../service-bus-messaging/compare-messaging-services.md      
 - name: Quickstarts
@@ -408,8 +410,6 @@
       href: /rest/api/eventhub
     - name: Resource Manager template
       href: /azure/templates/microsoft.eventhub/allversions
-    - name: Quotas
-      href: event-hubs-quotas.md
     - name: Apache Kafka configurations
       href: apache-kafka-configurations.md
     - name: Azure Policy built-ins

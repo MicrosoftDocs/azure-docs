@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Active Directory for CMMC compliance
-description: Learn how to configure Azure AD to meet CMMC requirements.
+title: Configure Microsoft Entra ID for CMMC compliance
+description: Learn how to configure Microsoft Entra ID to meet CMMC requirements.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -14,9 +14,9 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Configure Azure Active Directory for CMMC compliance
+# Configure Microsoft Entra ID for CMMC compliance
 
-Azure Active Directory helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To be compliant with requirements in CMMC, it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete other configurations or processes.
+Microsoft Entra ID helps you meet identity-related practice requirements in each Cybersecurity Maturity Model Certification (CMMC) level. To be compliant with requirements in CMMC, it's the responsibility of companies performing work with, and on behalf of, the US Dept. of Defense (DoD) to complete other configurations or processes.
 
 In CMMC Level 1, there are three domains that have one or more practices related to identity:
 

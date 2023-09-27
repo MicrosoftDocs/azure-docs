@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Unapproved | The device isn't approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
 | Unassigned | The device isn't assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
 
-Learn more about [Device status values](howto-manage-devices-individually.md#device-status-values).
+Learn more about [Device status values in the UI](howto-manage-devices-individually.md#device-status-values) and [Device status values in the REST API](howto-manage-devices-with-rest-api.md#get-a-device).
 
 ### Error codes
 

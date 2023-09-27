@@ -1,6 +1,6 @@
 ---
-title: User management permissions for Azure AD custom roles
-description: User management permissions for Azure AD custom roles in the Azure portal, PowerShell, or Microsoft Graph API.
+title: User management permissions for Microsoft Entra custom roles
+description: User management permissions for Microsoft Entra custom roles in the Microsoft Entra admin center, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer:
 ms.custom: it-pro
 ---
 
-# User management permissions for Azure AD custom roles
+# User management permissions for Microsoft Entra custom roles
 
-User management permissions can be used in custom role definitions in Azure Active Directory (Azure AD) to grant fine-grained access such as the following:
+User management permissions can be used in custom role definitions in Microsoft Entra ID to grant fine-grained access such as the following:
 
 - Read or update basic properties of users
 - Read identity of users
@@ -31,7 +31,7 @@ User management permissions can be used in custom role definitions in Azure Acti
 - Update password policies of users
 - Read assignments and memberships of users
 
-This article lists the permissions you can use in your custom roles for different user management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
+This article lists the permissions you can use in your custom roles for different user management scenarios. For information about how to create custom roles, see [Create and assign a custom role in Microsoft Entra ID](custom-create.md).
 
 ## License requirements
 
@@ -151,7 +151,7 @@ The following permissions are available to read assignments and memberships of u
 > | Permission | Description |
 > | ---------- | ----------- |
 > | microsoft.directory/users/appRoleAssignments/read | Read application role assignments for users |
-> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of a Microsoft Entra role, that is scoped to an administrative unit |
 > | microsoft.directory/users/memberOf/read | Read the group memberships of users |
 
 ## Full list of permissions
@@ -177,11 +177,11 @@ The following permissions are available to read assignments and memberships of u
 > | microsoft.directory/users/passwordPolicies/update | Update password policies properties of users |
 > | microsoft.directory/users/registeredDevices/read | Read registered devices of users |
 > | microsoft.directory/users/reprocessLicenseAssignment | Reprocess license assignments for users |
-> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of an Azure AD role, that is scoped to an administrative unit |
+> | microsoft.directory/users/scopedRoleMemberOf/read | Read user's membership of a Microsoft Entra role, that is scoped to an administrative unit |
 > | microsoft.directory/users/standard/read | Read basic properties on users |
 > | microsoft.directory/users/usageLocation/update | Update usage location of users |
 
 ## Next steps
 
-- [Create and assign a custom role in Azure Active Directory](custom-create.md)
-- [List Azure AD role assignments](view-assignments.md)
+- [Create and assign a custom role in Microsoft Entra ID](custom-create.md)
+- [List Microsoft Entra role assignments](view-assignments.md)

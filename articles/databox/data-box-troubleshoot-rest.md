@@ -2,14 +2,14 @@
 title: Azure Data Box troubleshooting for using the REST interface| Microsoft Docs 
 description: Describes how to troubleshoot issues seen in Azure Data Box when data copy is via the REST interface.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.custom: devx-track-python
 ms.topic: troubleshooting
 ms.date: 01/25/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Troubleshoot issues related to Azure Data Box Blob storage

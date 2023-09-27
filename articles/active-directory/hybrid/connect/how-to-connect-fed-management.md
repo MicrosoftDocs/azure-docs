@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect - AD FS management and customization
-description: This article discusses how to manage AD FS with Azure AD Connect and customize the AD FS user sign-in experience with Azure AD Connect and PowerShell.
+title: Microsoft Entra Connect - AD FS management and customization
+description: This article discusses how to manage AD FS with Microsoft Entra Connect and customize the AD FS user sign-in experience with Microsoft Entra Connect and PowerShell.
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, M365, federation, relying party
 services: active-directory
 documentationcenter: ''
@@ -19,9 +19,9 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ---
-# Manage and customize AD FS by using Azure AD Connect
+# Manage and customize AD FS by using Microsoft Entra Connect
 
-This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. 
+This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Microsoft Entra Connect. 
 
 You'll also learn about other common AD FS tasks that you might need to perform to completely configure an AD FS farm. These tasks are listed in the following table:
 
@@ -29,7 +29,7 @@ You'll also learn about other common AD FS tasks that you might need to perform 
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |Learn how to repair the federation trust with Microsoft 365. |
-| [Federate with Azure AD by using an alternative sign-in ID](#alternateid) | Learn how to configure federation by using an alternative sign-in ID.  |
+| [Federate with Microsoft Entra ID by using an alternative sign-in ID](#alternateid) | Learn how to configure federation by using an alternative sign-in ID.  |
 | [Add an AD FS server](#addadfsserver) |Learn how to expand an AD FS farm with an extra AD FS server. |
 | [Add an AD FS Web Application Proxy (WAP) server](#addwapserver) |Learn how to expand an AD FS farm with an additional WAP server. |
 | [Add a federated domain](#addfeddomain) |Learn how to add a federated domain. |
@@ -41,21 +41,21 @@ You'll also learn about other common AD FS tasks that you might need to perform 
 
 ## Manage AD FS
 
-You can perform various AD FS-related tasks in Azure AD Connect with minimal user intervention by using the Azure AD Connect wizard. After you've finished installing Azure AD Connect by running the wizard, you can run it again to perform other tasks.
+You can perform various AD FS-related tasks in Microsoft Entra Connect with minimal user intervention by using the Microsoft Entra Connect wizard. After you've finished installing Microsoft Entra Connect by running the wizard, you can run it again to perform other tasks.
 
 <a name="repairthetrust"></a>
 
 ## Repair the trust 
 
-You can use Azure AD Connect to check the current health of the AD FS and Azure AD trust and then take appropriate actions to repair the trust. To repair your Azure AD and AD FS trust, do the following:
+You can use Microsoft Entra Connect to check the current health of the AD FS and Microsoft Entra ID trust and then take appropriate actions to repair the trust. To repair your Microsoft Entra ID and AD FS trust, do the following:
 
-1. Select **Repair AAD and ADFS Trust** from the list of tasks.
+1. Select **Repair Microsoft Entra ID and ADFS Trust** from the list of tasks.
 
-   ![Screenshot of the "Additional tasks" page for repairing the Azure AD and AD FS trust.](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
+   ![Screenshot of the "Additional tasks" page for repairing the Microsoft Entra ID and AD FS trust.](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
-1. On the **Connect to Azure AD** page, provide your Hybrid Identity Administrator credentials for Azure AD, and then select **Next**.
+1. On the **Connect to Microsoft Entra ID** page, provide your Hybrid Identity Administrator credentials for Microsoft Entra ID, and then select **Next**.
 
-   ![Screenshot that shows the "Connect to Azure AD" page with example credentials entered.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![Screenshot that shows the "Connect to Microsoft Entra ID" page with example credentials entered.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 1. On the **Remote access credentials** page, enter the credentials for the domain administrator.
 
@@ -63,7 +63,7 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 
 1. Select **Next**.
 
-   Azure AD Connect checks for certificate health and shows any issues.
+   Microsoft Entra Connect checks for certificate health and shows any issues.
 
    ![Screenshot of the "Certificates" page displaying the state of the current certificates.](./media/how-to-connect-fed-management/RepairADTrust4.PNG)
 
@@ -74,23 +74,23 @@ You can use Azure AD Connect to check the current health of the AD FS and Azure 
 1. Select **Install** to repair the trust.
 
 > [!NOTE]
-> Azure AD Connect can repair or act on only certificates that are self-signed. Azure AD Connect can't repair third-party certificates.
+> Microsoft Entra Connect can repair or act on only certificates that are self-signed. Microsoft Entra Connect can't repair third-party certificates.
 
-## <a name="alternateid"></a>Federate with Azure AD by using alternateID 
+## <a name="alternateid"></a>Federate with Microsoft Entra ID by using alternateID 
 
 We recommend that you keep the *on-premises* User Principal Name (UPN) and the *cloud* User Principal Name the same. If the on-premises UPN uses a non-routable domain (for example, Contoso.local) or can't be changed because of local application dependencies, we recommend setting up an alternative sign-in ID.  By using an alternative sign-in ID, you can configure a sign-in experience where users can sign in with an attribute other than their UPN, such as an email address. 
 
-The choice of UPN in Azure AD Connect defaults to the userPrincipalName attribute in Active Directory. If you choose any other attribute for the UPN and are federating by using AD FS, Azure AD Connect configures AD FS for an alternative sign-in ID. 
+The choice of UPN in Microsoft Entra Connect defaults to the userPrincipalName attribute in Active Directory. If you choose any other attribute for the UPN and are federating by using AD FS, Microsoft Entra Connect configures AD FS for an alternative sign-in ID. 
 
 An example of choosing a different attribute for the UPN is shown in the following image:
 
-![Screenshot that shows the "Azure AD sign-in configuration" page for choosing a different attribute for the UPN.](./media/how-to-connect-fed-management/attributeselection.png)
+![Screenshot that shows the "Microsoft Entra sign-in configuration" page for choosing a different attribute for the UPN.](./media/how-to-connect-fed-management/attributeselection.png)
 
 Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
-1. **Configure the right set of issuance claims**: The issuance claim rules in the Azure AD relying party trust are modified to use the selected UserPrincipalName attribute as the alternative ID of the user.
+1. **Configure the right set of issuance claims**: The issuance claim rules in the Microsoft Entra ID relying party trust are modified to use the selected UserPrincipalName attribute as the alternative ID of the user.
 
-1. **Enable an alternative sign-in ID in the AD FS configuration**: The AD FS configuration is updated so that AD FS can look up users in the appropriate forests by using the alternative ID. This configuration is supported for AD FS on Windows Server 2012 R2 (with KB2919355) or later. If the AD FS servers are 2012 R2, Azure AD Connect checks for the presence of the required KB. If the KB isn't detected, a warning is displayed after the configuration is completed, as shown in the following image:
+1. **Enable an alternative sign-in ID in the AD FS configuration**: The AD FS configuration is updated so that AD FS can look up users in the appropriate forests by using the alternative ID. This configuration is supported for AD FS on Windows Server 2012 R2 (with KB2919355) or later. If the AD FS servers are 2012 R2, Microsoft Entra Connect checks for the presence of the required KB. If the KB isn't detected, a warning is displayed after the configuration is completed, as shown in the following image:
 
     ![Screenshot of the "Configuration complete" page displaying a warning for a missing KB on Windows Server 2012 R2.](./media/how-to-connect-fed-management/kbwarning.png)
 
@@ -102,21 +102,21 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 ## <a name="addadfsserver"></a>Add an AD FS server 
 
 > [!NOTE]
-> To add an AD FS server, Azure AD Connect requires a PFX certificate. Therefore, you can perform this operation only if you configured the AD FS farm by using Azure AD Connect.
+> To add an AD FS server, Microsoft Entra Connect requires a PFX certificate. Therefore, you can perform this operation only if you configured the AD FS farm by using Microsoft Entra Connect.
 
 1. Select **Deploy an additional Federation Server**, and then select **Next**.
 
    ![Screenshot of the "Additional tasks" pane for deploying an additional federation server.](./media/how-to-connect-fed-management/AddNewADFSServer1.PNG)
 
-1. On the **Connect to Azure AD** page, enter your Hybrid Identity Administrator credentials for Azure AD, and then select **Next**.
+1. On the **Connect to Microsoft Entra ID** page, enter your Hybrid Identity Administrator credentials for Microsoft Entra ID, and then select **Next**.
 
-   ![Screenshot that shows the "Connect to Azure AD" page with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Screenshot that shows the "Connect to Microsoft Entra ID" page with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 1. Provide the domain administrator credentials.
 
-   ![Screenshot that shows the "Connect to Azure AD" page, with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer3.PNG)
+   ![Screenshot that shows the "Connect to Microsoft Entra ID" page, with sample credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer3.PNG)
 
-1. Azure AD Connect asks for the password of the PFX file that you provided when you configured your new AD FS farm with Azure AD Connect. Select **Enter Password** to provide the password for the PFX file.
+1. Microsoft Entra Connect asks for the password of the PFX file that you provided when you configured your new AD FS farm with Microsoft Entra Connect. Select **Enter Password** to provide the password for the PFX file.
 
    ![Screenshot of the "Domain Administrator credentials" page, with example credentials entered.](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
@@ -128,16 +128,16 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
 1. Select **Next**, and then continue completing the final **Configure** page. 
 
-   After Azure AD Connect has finished adding the servers to the AD FS farm, you'll be given the option to verify the connectivity.
+   After Microsoft Entra Connect has finished adding the servers to the AD FS farm, you'll be given the option to verify the connectivity.
 
    ![Screenshot that shows the "Ready to configure" page with a list of actions to be completed after you select "Install".](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![Screenshot that shows the "Installation complete" page. ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    ![Screenshot that shows the "Installation complete" page.](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="addwapserver"></a>Add an AD FS WAP server 
 
 > [!NOTE]
-> To add a Web Application Proxy server, Azure AD Connect requires the PFX certificate. Therefore, you can perform this operation only after you've configured the AD FS farm by using Azure AD Connect.
+> To add a Web Application Proxy server, Microsoft Entra Connect requires the PFX certificate. Therefore, you can perform this operation only after you've configured the AD FS farm by using Microsoft Entra Connect.
 
 1. Select **Deploy Web Application Proxy** from the list of available tasks.
 
@@ -145,9 +145,9 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
 1. Provide the Azure Hybrid Identity Administrator credentials.
 
-   ![Screenshot that shows the "Connect to Azure AD" page with an example username and password entered.](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Screenshot that shows the "Connect to Microsoft Entra ID" page with an example username and password entered.](./media/how-to-connect-fed-management/wapserver2.PNG)
 
-1. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when you configured the AD FS farm with Azure AD Connect.
+1. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when you configured the AD FS farm with Microsoft Entra Connect.
    ![Certificate password](./media/how-to-connect-fed-management/WapServer3.PNG)
 
     ![Specify TLS/SSL certificate](./media/how-to-connect-fed-management/WapServer4.PNG)
@@ -170,43 +170,43 @@ Configuring an alternative sign-in ID for AD FS consists of two main steps:
 
 ## <a name="addfeddomain"></a>Add a federated domain 
 
-It's easy to add a domain to be federated with Azure AD by using Azure AD Connect. Azure AD Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Azure AD.
+It's easy to add a domain to be federated with Microsoft Entra ID by using Microsoft Entra Connect. Microsoft Entra Connect adds the domain for federation and modifies the claim rules to correctly reflect the issuer when you have multiple domains federated with Microsoft Entra ID.
 
-1. To add a federated domain, select **Add an additional Azure AD domain**.
+1. To add a federated domain, select **Add an additional Microsoft Entra domain**.
 
-   ![Screenshot of the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/AdditionalDomain1.PNG)
+   ![Screenshot of the "Additional tasks" pane for selecting "Add an additional Microsoft Entra domain".](./media/how-to-connect-fed-management/AdditionalDomain1.PNG)
 
-1. On the next page of the wizard, provide the global administrator credentials for Azure AD.
+1. On the next page of the wizard, provide the global administrator credentials for Microsoft Entra ID.
 
-   ![Screenshot that shows the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
+   ![Screenshot that shows the "Additional tasks" pane for selecting "Add an additional Microsoft Entra domain".](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
 
 1. On the **Remote access credentials** page, provide the domain administrator credentials.
 
-   ![Screenshot showing the "Additional tasks" pane for selecting "Add an additional Azure AD domain".](./media/how-to-connect-fed-management/additionaldomain3.PNG)
+   ![Screenshot showing the "Additional tasks" pane for selecting "Add an additional Microsoft Entra domain".](./media/how-to-connect-fed-management/additionaldomain3.PNG)
 
-1. On the next page, the wizard provides a list of Azure AD domains that you can federate your on-premises directory with. Choose the domain from the list.
+1. On the next page, the wizard provides a list of Microsoft Entra domains that you can federate your on-premises directory with. Choose the domain from the list.
 
-   ![Screenshot of the "Additional tasks" pane, showing how to add an additional Azure AD domain.](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
+   ![Screenshot of the "Additional tasks" pane, showing how to add an additional Microsoft Entra domain.](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    After you choose the domain, the wizard informs you about further actions that it will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Azure AD, the wizard helps you verify the domain. For more information, see [Add your custom domain name to Azure Active Directory](../../fundamentals/add-custom-domain.md).
+    After you choose the domain, the wizard informs you about further actions that it will take and the impact of the configuration. In some cases, if you select a domain that isn't yet verified in Microsoft Entra ID, the wizard helps you verify the domain. For more information, see [Add your custom domain name to Microsoft Entra ID](../../fundamentals/add-custom-domain.md).
 
 1. Select **Next**. 
 
-   The **Ready to configure** page lists the actions that Azure AD Connect will perform. 
+   The **Ready to configure** page lists the actions that Microsoft Entra Connect will perform. 
 
-   ![Screenshot of the "Additional tasks" pane that shows how to add an additional Azure AD domain.](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
+   ![Screenshot of the "Additional tasks" pane that shows how to add an additional Microsoft Entra domain.](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
 1. Select **Install** to finish the configuration.
 
 > [!NOTE]
-> Users in the added federated domain must be synchronized before they can sign in to Azure AD.
+> Users in the added federated domain must be synchronized before they can sign in to Microsoft Entra ID.
 
 ## Customize AD FS
 
 The following sections provide details about some of the common tasks that you might have to perform to customize your AD FS sign-in page.
 
 ## <a name="customlogo"></a>Add a custom company logo or illustration 
-To change the logo of the company that's displayed on the **Sign-in** page, use the following Windows PowerShell cmdlet and syntax.
+To change the logo of the company that's displayed on the **Sign-in** page, use the following PowerShell cmdlet and syntax.
 
 > [!NOTE]
 > The recommended dimensions for the logo are 260 x 35 \@ 96 dpi with a file size no greater than 10 KB.
@@ -219,7 +219,7 @@ Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 > The *TargetName* parameter is required. The default theme that's released with AD FS is named Default.
 
 ## <a name="addsignindescription"></a>Add a sign-in description 
-To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
+To add a sign-in page description to the **Sign-in page**, use the following PowerShell cmdlet and syntax.
 
 ```azurepowershell-interactive
 Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Select <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
@@ -228,10 +228,10 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ## <a name="modclaims"></a>Modify AD FS claim rules 
 AD FS supports a rich claim language that you can use to create custom claim rules. For more information, see [The Role of the Claim Rule Language](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11)).
 
-The following sections describe how you can write custom rules for some scenarios that relate to Azure AD and AD FS federation.
+The following sections describe how you can write custom rules for some scenarios that relate to Microsoft Entra ID and AD FS federation.
 
 ### Immutable ID conditional on a value being present in the attribute
-Azure AD Connect lets you specify an attribute to be used as a source anchor when objects are synced to Azure AD. If the value in the custom attribute isn't empty, you might want to issue an immutable ID claim.
+Microsoft Entra Connect lets you specify an attribute to be used as a source anchor when objects are synced to Microsoft Entra ID. If the value in the custom attribute isn't empty, you might want to issue an immutable ID claim.
 
 For example, you might select `ms-ds-consistencyguid` as the attribute for the source anchor and issue **ImmutableID** as `ms-ds-consistencyguid` in case the attribute has a value against it. If there's no value against the attribute, issue `objectGuid` as the immutable ID. You can construct the set of custom claim rules as described in the following section.
 
@@ -279,7 +279,7 @@ With this rule, you're simply checking the temporary flag `idflag`. You decide w
 
 ### SSO with a subdomain UPN
 
-You can add more than one domain to be federated by using Azure AD Connect, as described in [Add a new federated domain](#addadfsserver). Azure AD Connect versions 1.1.553.0 and later create the correct claim rule for `issuerID` automatically. If you can't use Azure AD Connect version 1.1.553.0 or later, we recommend that you use the [Azure AD RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool to generate and set correct claim rules for the Azure AD relying party trust.
+You can add more than one domain to be federated by using Microsoft Entra Connect, as described in [Add a new federated domain](#addadfsserver). Microsoft Entra Connect versions 1.1.553.0 and later create the correct claim rule for `issuerID` automatically. If you can't use Microsoft Entra Connect version 1.1.553.0 or later, we recommend that you use the [Microsoft Entra RPT Claim Rules](https://aka.ms/aadrptclaimrules) tool to generate and set correct claim rules for the Microsoft Entra ID relying party trust.
 
 ## Next steps
 

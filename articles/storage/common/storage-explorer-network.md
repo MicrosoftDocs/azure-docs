@@ -4,6 +4,7 @@ description: Documentation on connecting to your network in Azure Storage Explor
 services: storage
 author: MRayermannMSFT
 ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm

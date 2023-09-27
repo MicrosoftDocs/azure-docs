@@ -1,6 +1,6 @@
 ---
-title: Restrict Azure AD app to a set of users
-description: Learn how to restrict access to your apps registered in Azure AD to a selected set of users.
+title: Restrict Microsoft Entra app to a set of users
+description: Learn how to restrict access to your apps registered in Microsoft Entra ID to a selected set of users.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -13,38 +13,37 @@ ms.author: cwerner
 ms.reviewer: jmprieur, kkrishna
 ms.custom: aaddev, engagement-fy23
 
-#Customer intent: As a tenant administrator, I want to restrict an application that I have registered in Azuren-e AD to a select set of users available in my Azure AD tenant
+#Customer intent: As a tenant administrator, I want to restrict an application that I have registered in Azuren-e AD to a select set of users available in my Microsoft Entra tenant
 ---
 
-# Restrict your Azure AD app to a set of users in an Azure AD tenant
+# Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant
 
-Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully.
+Applications registered in a Microsoft Entra tenant are, by default, available to all users of the tenant who authenticate successfully.
 
-Similarly, in a [multi-tenant](howto-convert-app-to-be-multi-tenant.md) application, all users in the Azure AD tenant where the application is provisioned can access the application once they successfully authenticate in their respective tenant.
+Similarly, in a [multi-tenant](howto-convert-app-to-be-multi-tenant.md) application, all users in the Microsoft Entra tenant where the application is provisioned can access the application once they successfully authenticate in their respective tenant.
 
 Tenant administrators and developers often have requirements where an application must be restricted to a certain set of users or apps (services). There are two ways to restrict an application to a certain set of users, apps or security groups:
 
 - Developers can use popular authorization patterns like [Azure role-based access control (Azure RBAC)](howto-implement-rbac-for-apps.md).
-- Tenant administrators and developers can use built-in feature of Azure AD.
+- Tenant administrators and developers can use built-in feature of Microsoft Entra ID.
 
 ## Supported app configurations
 
 The option to restrict an app to a specific set of users, apps or security groups in a tenant works with the following types of applications:
 
 - Applications configured for federated single sign-on with SAML-based authentication.
-- Application proxy applications that use Azure AD preauthentication.
-- Applications built directly on the Azure AD application platform that use OAuth 2.0/OpenID Connect authentication after a user or admin has consented to that application.
+- Application proxy applications that use Microsoft Entra preauthentication.
+- Applications built directly on the Microsoft Entra application platform that use OAuth 2.0/OpenID Connect authentication after a user or admin has consented to that application.
 
 ## Update the app to require user assignment
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To update an application to require user assignment, you must be owner of the application under Enterprise apps, or be assigned one of **Global administrator**, **Application administrator**, or **Cloud application administrator** directory roles.
+To update an application to require user assignment, you must be owner of the application under Enterprise apps, or be at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch the tenant in which you want to register an application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **Enterprise Applications** then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant that contains the app registration to which you want to add an app role.
+1. Browse to **Identity** > **Applications** > **Enterprise applications**, then select **All applications**.
 1. Select the application you want to configure to require assignment. Use the filters at the top of the window to search for a specific application.
 1. On the application's **Overview** page, under **Manage**, select **Properties**.
 1. Locate the setting **Assignment required?** and set it to **Yes**. When this option is set to **Yes**, users and services attempting to access the application or services must first be assigned for this application, or they won't be able to sign-in or obtain an access token.
@@ -81,7 +80,7 @@ Follow the steps in this section to secure app-to-app authentication access for 
       New-MgServicePrincipal `
       -AppId $appId
       ```
-1. Explicitly assign client apps to resource apps (this functionality is available only in API and not in the Azure AD Portal):
+1. Explicitly assign client apps to resource apps (this functionality is available only in API and not in the Microsoft Entra admin center):
       ```powershell
       $clientAppId = “[guid]”
                      $clientId = (Get-MgServicePrincipal -Filter "AppId eq '$clientAppId'").Id
@@ -104,4 +103,4 @@ For more information about roles and security groups, see:
 
 - [How to: Add app roles in your application](./howto-add-app-roles-in-apps.md)
 - [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
-- [Azure Active Directory app manifest](./reference-app-manifest.md)
+- [Microsoft Entra app manifest](./reference-app-manifest.md)

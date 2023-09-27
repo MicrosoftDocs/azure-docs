@@ -28,7 +28,7 @@ Developers should adopt latest releases of MSAL and stay up to date. See [how to
 
 ## Optimize directory reads and writes
 
-The Microsoft Azure AD B2C directory service supports billions of authentications a day. It's designed for a high rate of reads per second. Optimize your writes to minimize dependencies and increase resilience.
+The Azure AD B2C directory service supports billions of authentications a day. It's designed for a high rate of reads per second. Optimize your writes to minimize dependencies and increase resilience.
 
 ### How to optimize directory reads and writes
 
@@ -44,7 +44,7 @@ The Microsoft Azure AD B2C directory service supports billions of authentication
 - **Understand throttling**: The directory implements both application and tenant level throttling rules. There are further rate limits for Read/GET, Write/POST, Update/PUT, and Delete/DELETE operations and each operation have different limits.
 
   - A write at the time of sign-in will fall under a POST for new users or PUT for existing users.
-  - A custom policy that creates or updates a user on every sign-in, can potentially hit an application level PUT or POST rate limit. The same limits apply when updating directory objects via Azure AD or Microsoft Graph. Similarly, examine the reads to keep the number of reads on every sign-in to the minimum.
+  - A custom policy that creates or updates a user on every sign-in, can potentially hit an application level PUT or POST rate limit. The same limits apply when updating directory objects via Microsoft Entra ID or Microsoft Graph. Similarly, examine the reads to keep the number of reads on every sign-in to the minimum.
   - Estimate peak load to predict the rate of directory writes and avoid throttling. Peak traffic estimates should include estimates for actions such as sign-up, sign-in, and Multi-factor authentication (MFA). Be sure to test both the Azure AD B2C system and your application for peak traffic. It's possible that Azure AD B2C can handle the load without throttling, when your downstream applications or services won't.
   - Understand and plan your migration timeline. When planning to migrate users to Azure AD B2C using Microsoft Graph, consider the application and tenant limits to calculate the time needed to complete the migration of users. If you split your user creation job or script using two applications, you can use the per application limit. It would still need to remain below the per tenant threshold.
   - Understand the effects of your migration job on other applications. Consider the live traffic served by other relying applications to make sure you don't cause throttling at the tenant level and resource starvation for your live application. For more information, see the [Microsoft Graph throttling guidance](/graph/throttling).
@@ -86,7 +86,7 @@ The most common disrupters of service are the code and configuration changes. Ad
 Protect your applications against known vulnerabilities such as Distributed Denial of Service (DDoS) attacks, SQL injections, cross-site scripting, remote code execution, and many others as documented in [OWASP Top 10](https://owasp.org/www-project-top-ten/). Deployment of a Web Application Firewall (WAF) can defend against common exploits and vulnerabilities.
 
 - Use Azure [WAF](../../web-application-firewall/overview.md), which provides centralized protection against attacks.
-- Use WAF with Azure AD [Identity Protection and Conditional Access to provide multi-layer protection](../../active-directory-b2c/conditional-access-identity-protection-overview.md) when using Azure AD B2C.
+- Use WAF with Microsoft Entra [Identity Protection and Conditional Access to provide multi-layer protection](../../active-directory-b2c/conditional-access-identity-protection-overview.md) when using Azure AD B2C.
 - Build resistance to bot-driven [sign-ups by integrating with a CAPTCHA system](https://github.com/azure-ad-b2c/samples/tree/master/policies/captcha-integration).
 
 ## Secrets rotation
@@ -95,7 +95,7 @@ Azure AD B2C uses secrets for applications, APIs, policies, and encryption. The 
 
 ### How to implement secret rotation
 
-- Use [managed identities](../managed-identities-azure-resources/overview.md) for supported resources to authenticate to any service that supports Azure AD authentication. When you use managed identities, you can manage resources automatically, including rotation of credentials.
+- Use [managed identities](../managed-identities-azure-resources/overview.md) for supported resources to authenticate to any service that supports Microsoft Entra authentication. When you use managed identities, you can manage resources automatically, including rotation of credentials.
 - Take an inventory of all the [keys and certificates configured](../../active-directory-b2c/policy-keys-overview.md) in Azure AD B2C. This list is likely to include keys used in custom policies, [APIs](../../active-directory-b2c/secure-rest-api.md), signing ID token, and certificates for SAML.
 - Using CICD, rotate secrets that are about to expire within two months from the anticipated peak season. The recommended maximum cryptoperiod of private keys associated to a certificate is one year.
 - Proactively monitor and rotate the API access credentials such as passwords, and certificates.

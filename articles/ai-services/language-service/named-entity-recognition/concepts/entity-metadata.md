@@ -5,13 +5,13 @@ description: Learn about entity metadata in the NER feature.
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 06/13/2023
 ms.author: jboback
 ms.custom: language-service-ner
 ---
+
 # Entity Metadata
 
 The Entity Metadata object captures optional additional information about detected entities, providing resolutions specifically for numeric and temporal entities. This attribute is populated only when there's supplementary data available, enhancing the comprehensiveness of the detected entities. The Metadata component encompasses resolutions designed for both numeric and temporal entities. It's important to handle cases where the Metadata attribute may be empty or absent, as its presence isn't guaranteed for every entity.

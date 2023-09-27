@@ -18,13 +18,13 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure AD?
+    - title: What is Microsoft Entra ID?
       itemType: overview # controls the icon image and super-title text
       url: ./fundamentals/whatis.md
-    - title: What's new in Azure AD?
+    - title: What's new in Microsoft Entra ID?
       itemType: whats-new
       url: ./fundamentals/whats-new.md
-    - title: Azure AD feature deployment guide
+    - title: Microsoft Entra feature deployment guide
       itemType: concept
       url: ./fundamentals/concept-secure-remote-workers.md
     - title: Microsoft Entra
@@ -46,7 +46,7 @@ conceptualContent:
               text: Best practices
             - url: /security/benchmark/azure/baselines/aad-security-baseline
               itemType: reference
-              text: Security baseline for Azure AD
+              text: Security baseline for Microsoft Entra ID
             - url: ./fundamentals/security-operations-introduction.md
               itemType: concept
               text: Security operations guide
@@ -121,19 +121,19 @@ additionalContent:
       items:
         # Card
         - title: Fundamentals
-          summary: Learn basic Azure Active Directory (Azure AD) concepts and processes.
+          summary: Learn basic Microsoft Entra concepts and processes.
           url: ./fundamentals/index.yml
         # Card
         - title: Architecture
-          summary: Learn basic Azure Active Directory (Azure AD) architecture.
+          summary: Learn basic Microsoft Entra architecture.
           url: ./architecture/index.yml
         # Card
         - title: Enterprise users
-          summary: Create Azure AD tenants, manage user accounts, roles, and groups, and assign app access.
+          summary: Create Microsoft Entra tenants, manage user accounts, roles, and groups, and assign app access.
           url: ./enterprise-users/index.yml
         # Card
         - title: Roles
-          summary: Manage admin permissions and apply the principle of least privilege using Azure AD role-based access control.
+          summary: Manage admin permissions and apply the principle of least privilege using Microsoft Entra role-based access control.
           url: ./roles/index.yml
         # Card
         - title: Privileged Identity Management (PIM)
@@ -153,7 +153,7 @@ additionalContent:
           url: ../active-directory-b2c/index.yml
         # Card
         - title: Application provisioning
-          summary: Create and manage user identities in applications by provisioning from Azure AD.
+          summary: Create and manage user identities in applications by provisioning from Microsoft Entra ID.
           url: ./app-provisioning/index.yml
         # Card
         - title: Hybrid identity
@@ -175,7 +175,7 @@ additionalContent:
           url: ./authentication/index.yml
         # Card
         - title: Device identity
-          summary: Register and join devices to Azure AD for device management and Conditional Access.
+          summary: Register and join devices to Microsoft Entra ID for device management and Conditional Access.
           url: ./devices/index.yml
         # Card
         - title: Identity Protection
@@ -185,15 +185,15 @@ additionalContent:
       items:
         # Card
         - title: Application management
-          summary: Develop, add, or connect an app to Azure AD and manage access.
+          summary: Develop, add, or connect an app to Microsoft Entra ID and manage access.
           url: ./manage-apps/index.yml
         # Card
         - title: Microsoft identity platform
-          summary: Build your app on the Microsoft identity platform and use Azure AD as your authentication service.
+          summary: Build your app on the Microsoft identity platform and use Microsoft Entra ID as your authentication service.
           url: ./develop/index.yml
         # Card
         - title: Managed identities
-          summary: Create an application identity that can connect to resources using Azure AD authentication.
+          summary: Create an application identity that can connect to resources using Microsoft Entra authentication.
           url: ./managed-identities-azure-resources/index.yml
         # Card
         - title: Domain services
@@ -201,7 +201,7 @@ additionalContent:
           url: ../active-directory-domain-services/index.yml
         # Card
         - title: Third-party applications
-          summary: Integrate cloud-enabled, software as a service (SaaS) apps with Azure AD.
+          summary: Integrate cloud-enabled, software as a service (SaaS) apps with Microsoft Entra ID.
           url: ./saas-apps/tutorial-list.md
     - title: Monitor and audit
       items:

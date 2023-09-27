@@ -5,8 +5,7 @@ description: The instructions to implement voice activation and above-lock capab
 services: cognitive-services
 author: cfogg6
 manager: trrwilson
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: travisw

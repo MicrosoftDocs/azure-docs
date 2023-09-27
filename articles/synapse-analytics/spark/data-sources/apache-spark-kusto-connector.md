@@ -76,11 +76,10 @@ df.write \
 In addition, you can also batch write data by providing additional ingestion properties. For more info on the supported ingestion properties, you can visit the [Kusto ingestion properties reference material](/azure/data-explorer/ingestion-properties).
 
 
- ```python
+```python
 extentsCreationTime = sc._jvm.org.joda.time.DateTime.now().plusDays(1)
 csvMap = "[{\"Name\":\"ColA\",\"Ordinal\":0},{\"Name\":\"ColB\",\"Ordinal\":1}]"
 # Alternatively use an existing csv mapping configured on the table and pass it as the last parameter of SparkIngestionProperties or use none
-
 
 sp = sc._jvm.com.microsoft.kusto.spark.datasink.SparkIngestionProperties(
         False, ["dropByTags"], ["ingestByTags"], ["tags"], ["ingestIfNotExistsTags"], extentsCreationTime, csvMap, None)

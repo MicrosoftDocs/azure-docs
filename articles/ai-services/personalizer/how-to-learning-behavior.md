@@ -4,8 +4,7 @@ description: Apprentice mode gives you confidence in the Personalizer service an
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 07/26/2022
 ---

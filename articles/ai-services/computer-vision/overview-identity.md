@@ -5,8 +5,8 @@ description: The Azure AI Face service provides AI algorithms that you use to de
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: face-api
+ms.service: azure-ai-vision
+ms.subservice: azure-ai-face
 ms.topic: overview
 ms.date: 07/04/2023
 ms.author: pafarley

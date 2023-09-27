@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 09/13/2023
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -18,4 +18,4 @@ ms.devlang: javascript
 
 ## Next steps
 
-* [Understand Search integration for the search-enabled website](tutorial-javascript-search-query-integration.md)
+[Explore the JavaScript search code](tutorial-javascript-search-query-integration.md)

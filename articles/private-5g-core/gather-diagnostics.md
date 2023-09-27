@@ -37,14 +37,11 @@ You must already have an AP5GC site deployed to collect diagnostics.
         1. Copy the contents of the **URL** field in the **Container properties** view.
 1. Create a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) and assign it to the storage account created above with the **Storage Blob Data Contributor** role.  
     > [!TIP]
-    > Make sure the same User-assigned identity is used during site creation.
+    > You may have already created and associated a user-assigned identity when creating the site.
 1. Navigate to the **Packet core control plane** resource for the site.
-1. Select **Identity** under **Settings** on the left side menu.
-1. Toggle **Modify user assigned managed identity?** to **Yes** and select **+ Add**.
-1. In the **Add user assigned managed identity** select the user-signed managed identity you created.
+1. Select **Identity** under **Settings** in the left side menu.
 1. Select **Add**.
-1. Select **Next**.
-1. Select **Create**.
+1. Select the user-signed managed identity you created and select **Add**.
 
 ## Gather diagnostics for a site
 

@@ -1,6 +1,6 @@
 ---
-title: Enable downlevel devices for hybrid Azure Active Directory join
-description: Configure older operating systems for hybrid Azure AD join
+title: Enable downlevel devices for Microsoft Entra hybrid join
+description: Configure older operating systems for Microsoft Entra hybrid join
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable older operating systems
 
-If some of your domain-joined devices are Windows [downlevel devices](hybrid-join-plan.md#windows-down-level-devices), you must complete the following steps to allow them to hybrid Azure AD join:
+If some of your domain-joined devices are Windows [downlevel devices](hybrid-join-plan.md#windows-down-level-devices), you must complete the following steps to allow them to Microsoft Entra hybrid join:
 
 - Configure the local intranet settings for device registration
 - Install Microsoft Workplace Join for Windows downlevel computers
@@ -28,7 +28,7 @@ If some of your domain-joined devices are Windows [downlevel devices](hybrid-joi
 
 ## Configure the local intranet settings for device registration
 
-To complete hybrid Azure AD join of your Windows downlevel devices, and avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
+To complete Microsoft Entra hybrid join of your Windows downlevel devices, and avoid certificate prompts when devices authenticate to Microsoft Entra ID, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (For seamless SSO)
@@ -42,9 +42,9 @@ To register Windows downlevel devices, organizations must install [Microsoft Wor
 
 You can deploy the package by using a software distribution system like [Microsoft Configuration Manager](/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
-The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD by using the user credentials after it authenticates with Azure AD.
+The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Microsoft Entra ID by using the user credentials after it authenticates with Microsoft Entra ID.
 
 ## Next steps
 
-- [Hybrid Azure AD join verification](how-to-hybrid-join-verify.md)
-- [Use Conditional Access to require compliant or hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)
+- [Microsoft Entra hybrid join verification](how-to-hybrid-join-verify.md)
+- [Use Conditional Access to require compliant or Microsoft Entra hybrid joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md)

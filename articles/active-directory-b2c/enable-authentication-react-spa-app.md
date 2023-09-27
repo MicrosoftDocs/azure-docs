@@ -25,7 +25,7 @@ Review the prerequisites and integration steps in the [Configure authentication 
 
 ## Step 1: Create a React app project
 
-You can use an existing React app, or [create a new React App](https://reactjs.org/docs/create-a-new-react-app.html). To create a new project, run the following commands in your command shell:
+You can use an existing React app, or [create a new React App](https://react.dev/learn/start-a-new-react-project). To create a new project, run the following commands in your command shell:
 
 
 ```
@@ -58,7 +58,7 @@ npm i bootstrap react-bootstrap
 
 The sample code is made up of the following components. Add these components from the sample React app to your own app: 
 
-- [public/index.html](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/public/index.html)- The [bundling process](https://reactjs.org/docs/code-splitting.html) uses this file as a template and injects the React components into the `<div id="root">` element. If you open it directly in the browser, you'll see an empty page. 
+- [public/index.html](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/public/index.html)- The [bundling process](https://legacy.reactjs.org/docs/code-splitting.html) uses this file as a template and injects the React components into the `<div id="root">` element. If you open it directly in the browser, you'll see an empty page. 
 
 - [src/authConfig.js](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/3-Authorization-II/2-call-api-b2c/SPA/src/authConfig.js) -   A configuration file that contains information about your Azure AD B2C identity provider and the web API service. The React app uses this information to establish a trust relationship with Azure AD B2C, sign in and sign out the user, acquire tokens, and validate the tokens. 
 

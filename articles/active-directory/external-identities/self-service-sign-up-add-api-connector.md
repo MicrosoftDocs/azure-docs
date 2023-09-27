@@ -20,27 +20,26 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 > [!IMPORTANT]
 >
-> - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting July 12, 2021**,  if Microsoft Entra B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Microsoft Entra B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## Create an API connector
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
-4. Select **All API connectors**, and then select **New API connector**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **Overview**.
+1. Select **All API connectors**, and then select **New API connector**.
 
     :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-new.png" alt-text="Screenshot of adding a new API connector to External Identities.":::
 
-5. Provide a display name for the call. For example, **Check approval status**.
-6. Provide the **Endpoint URL** for the API call.
-7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](self-service-sign-up-secure-api-connector.md).
+1. Provide a display name for the call. For example, **Check approval status**.
+1. Provide the **Endpoint URL** for the API call.
+1. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](self-service-sign-up-secure-api-connector.md).
 
     :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-config.png" alt-text="Screenshot of configuring an API connector.":::
 
-8. Select **Save**.
+1. Select **Save**.
 
 ## The request sent to your API
 An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
@@ -74,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Only user properties and custom attributes listed in the **Azure Active Directory** > **External Identities** > **Custom user attributes** experience are available to be sent in the request.
+Only user properties and custom attributes listed in the **Identity** > **External Identities** > **Overview** > **Custom user attributes** experience are available to be sent in the request.
 
 Custom attributes exist in the **extension_\<extensions-app-id>_AttributeName**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
@@ -93,9 +92,8 @@ Additionally, the claims are typically sent in all request:
 
 Follow these steps to add an API connector to a self-service sign-up user flow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Under **Azure services**, select **Azure Active Directory**.
-3. In the left menu, select **External Identities**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **External Identities** > **Overview**.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
@@ -108,7 +106,7 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 
 ## After federating with an identity provider during sign-up
 
-An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes.
+An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, or Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes.
 
 ### Example request sent to the API at this step
 ```http
@@ -135,7 +133,7 @@ The exact claims sent to the API depend on which information is provided by the 
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 - Blocking response
@@ -158,7 +156,7 @@ See an example of a [blocking response](#example-of-a-blocking-response).
 
 ## Before creating the user
 
-An API connector at this step in the sign-up process is invoked after the attribute collection page, if one is included. This step is always invoked before a user account is created in Azure AD. 
+An API connector at this step in the sign-up process is invoked after the attribute collection page, if one is included. This step is always invoked before a user account is created in Microsoft Entra ID. 
 
 ### Example request sent to the API at this step
 
@@ -193,7 +191,7 @@ The exact claims sent to the API depend on which information is collected from t
 
 ### Expected response types from the web API at this step
 
-When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Microsoft Entra ID during a user flow, it can return these responses:
 
 - Continuation response
 - Blocking response
@@ -306,11 +304,11 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * Azure AD will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
+    * Microsoft Entra ID will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md#overview-of-plans)
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
-* Your endpoints must comply with the Azure AD TLS and cipher security requirements. For more information, see [TLS and cipher suite requirements](../../active-directory-b2c/https-cipher-tls-requirements.md). 
+* Your endpoints must comply with the Microsoft Entra TLS and cipher security requirements. For more information, see [TLS and cipher suite requirements](../../active-directory-b2c/https-cipher-tls-requirements.md). 
  
 ### Use logging
 

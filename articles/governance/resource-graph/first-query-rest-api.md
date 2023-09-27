@@ -51,11 +51,10 @@ $authHeader = @{
 }
 
 # Invoke the REST API
-$restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-version=2020-01-01'
+$restUri = "https://management.azure.com/subscriptions/$($azContext.Subscription.Id)?api-version=2020-01-01"
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Replace `{subscriptionId}` in the `$restUri` variable to get information about your subscription.
 The `$response` variable holds the result of the `Invoke-RestMethod` cmdlet, which can be parsed
 with cmdlets such as
 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). If the REST

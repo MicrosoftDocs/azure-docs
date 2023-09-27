@@ -64,26 +64,6 @@ In addition, you'll need:
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) (WinRM) when creating session hosts using the Azure portal, as it's required by [PowerShell DSC](/powershell/dsc/overview).
 
-# [Azure CLI](#tab/cli)
-
-In addition, you'll need:
-
-- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
-
-   | Resource type | RBAC role |
-   |--|--|
-   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
-   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
-   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
-   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-
-   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
-
-- If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
-
-> [!IMPORTANT]
-> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
-
 # [Azure PowerShell](#tab/powershell)
 
 In addition, you'll need:
@@ -100,6 +80,26 @@ In addition, you'll need:
    Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
 
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
+
+> [!IMPORTANT]
+> If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
+
+# [Azure CLI](#tab/cli)
+
+In addition, you'll need:
+
+- The account must have the following built-in role-based access control (RBAC) roles as a minimum on a resource group or subscription to create the following resource types. If you want to assign the roles to a resource group, you'll need to create this first.
+
+   | Resource type | RBAC role |
+   |--|--|
+   | Host pool | [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) |
+   | Workspace | [Desktop Virtualization Workspace Contributor](rbac.md#desktop-virtualization-workspace-contributor) |
+   | Application group | [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) |
+   | Session hosts | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
+
+   Alternatively you can assign the [Contributor](../role-based-access-control/built-in-roles.md#contributor) RBAC role to create all of these resource types.
+
+- If you want to use Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!IMPORTANT]
 > If you want to create Azure Active Directory-joined session hosts, we only support this using the Azure portal with the Azure Virtual Desktop service.
@@ -210,48 +210,6 @@ If you also added session hosts to your host pool, there's some extra configurat
 
 [!INCLUDE [include-session-hosts-post-deployment](includes/include-session-hosts-post-deployment.md)]
 
-# [Azure CLI](#tab/cli)
-
-Here's how to create a host pool using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI. The following examples show you how to create a pooled host pool and a personal host pool.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
-
-   1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
-   
-      ```azurecli
-      az desktopvirtualization hostpool create \
-          --name <Name> \
-          --resource-group <ResourceGroupName> \
-          --host-pool-type Pooled \
-          --load-balancer-type BreadthFirst \
-          --preferred-app-group-type Desktop \
-          --max-session-limit <value> \
-          --location <AzureRegion>
-      ```
-
-   1. To create a personal host pool using the *Automatic* assignment type, run the following command:
-   
-      ```azurecli
-      az desktopvirtualization hostpool create \
-          --name <Name> \
-          --resource-group <ResourceGroupName> \
-          --host-pool-type Personal \
-          --load-balancer-type Persistent \
-          --preferred-app-group-type Desktop \
-          --personal-desktop-assignment-type Automatic \
-          --location <AzureRegion>
-      ```
-
-3. You can view the properties of your new host pool by running the following command:
-
-   ```azurecli
-   az desktopvirtualization hostpool show --name <Name> --resource-group <ResourceGroupName>
-   ```
-
 # [Azure PowerShell](#tab/powershell)
 
 Here's how to create a host pool using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. The following examples show you how to create a pooled host pool and a personal host pool.
@@ -300,6 +258,48 @@ Here's how to create a host pool using the [Az.DesktopVirtualization](/powershel
    Get-AzWvdHostPool -Name <Name> -ResourceGroupName <ResourceGroupName> | FL *
    ```
 
+# [Azure CLI](#tab/cli)
+
+Here's how to create a host pool using the [desktopvirtualization](/cli/azure/desktopvirtualization) extension for Azure CLI. The following examples show you how to create a pooled host pool and a personal host pool.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+2. Use the `az desktopvirtualization hostpool create` command with the following examples to create a host pool. More parameters are available; for more information, see the [az desktopvirtualization hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   1. To create a pooled host pool using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [app group type](environment-setup.md#app-groups), run the following command:
+   
+      ```azurecli
+      az desktopvirtualization hostpool create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --host-pool-type Pooled \
+          --load-balancer-type BreadthFirst \
+          --preferred-app-group-type Desktop \
+          --max-session-limit <value> \
+          --location <AzureRegion>
+      ```
+
+   1. To create a personal host pool using the *Automatic* assignment type, run the following command:
+   
+      ```azurecli
+      az desktopvirtualization hostpool create \
+          --name <Name> \
+          --resource-group <ResourceGroupName> \
+          --host-pool-type Personal \
+          --load-balancer-type Persistent \
+          --preferred-app-group-type Desktop \
+          --personal-desktop-assignment-type Automatic \
+          --location <AzureRegion>
+      ```
+
+3. You can view the properties of your new host pool by running the following command:
+
+   ```azurecli
+   az desktopvirtualization hostpool show --name <Name> --resource-group <ResourceGroupName>
+   ```
+
 ---
 
 ## Next steps
@@ -314,7 +314,8 @@ If you didn't complete the optional sections when creating a host pool, you'll s
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
 
-# [Azure CLI](#tab/cli)
+ 
+# [Azure PowerShell](#tab/powershell)
 
 Now that you've created a host pool, you'll still need to do the following tasks:
 
@@ -323,8 +324,8 @@ Now that you've created a host pool, you'll still need to do the following tasks
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
- 
-# [Azure PowerShell](#tab/powershell)
+
+# [Azure CLI](#tab/cli)
 
 Now that you've created a host pool, you'll still need to do the following tasks:
 

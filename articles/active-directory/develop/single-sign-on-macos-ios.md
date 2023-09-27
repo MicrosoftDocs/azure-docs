@@ -25,7 +25,7 @@ This type of SSO works between multiple apps distributed by the same Apple Devel
 
 - [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
 
-Microsoft provides apps called brokers that enable SSO between applications from different vendors as long as the mobile device is registered with Azure Active Directory (Azure AD). This type of SSO requires a broker application be installed on the user's device.
+Microsoft provides apps called brokers that enable SSO between applications from different vendors as long as the mobile device is registered with Microsoft Entra ID. This type of SSO requires a broker application be installed on the user's device.
 
 - **SSO between MSAL and Safari**
 
@@ -135,7 +135,7 @@ That's it! The Microsoft identity SDK will now share credentials across all your
 
 ## SSO through Authentication broker on iOS
 
-MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for Azure AD registered devices, and also helps your application follow Conditional Access policies.
+MSAL provides support for brokered authentication with Microsoft Authenticator. Microsoft Authenticator provides SSO for Microsoft Entra registered devices, and also helps your application follow Conditional Access policies.
 
 The following steps are how you enable SSO using an authentication broker for your app:
 

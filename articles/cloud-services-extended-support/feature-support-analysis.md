@@ -22,7 +22,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 |SKUs supported|D, Dv2, Dv3, Dav4 series, Ev3, Eav4 series, G series, H series|D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported|All SKUs|
 |Full control over VM, NICs, Disks|Limited control over NICs and VM via CS-ES APIs. No support for Disks|Yes|Limited control with virtual machine scale sets VM API|
 |RBAC Permissions Required|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write|
-|Accelerated networking|Yes|Yes|Yes|
+|Accelerated networking|No|Yes|Yes|
 |Spot instances and pricing|No|Yes, you can have both Spot and Regular priority instances|Yes, instances must either be all Spot or all Regular|
 |Mix operating systems|Extremely limited Windows support|Yes, Linux and Windows can reside in the same Flexible scale set|No, instances are the same operating system|
 |Disk Types|No Disk Support|Managed disks only, all storage types|Managed and unmanaged disks, All Storage Types

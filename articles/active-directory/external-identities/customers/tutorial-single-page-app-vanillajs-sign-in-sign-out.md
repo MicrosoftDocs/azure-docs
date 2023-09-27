@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add sign-in and sign-out to a Vanilla JavaScript single-page app (SPA) for a customer tenant
-description: Learn how to configure a Vanilla JavaScript single-page app (SPA) to sign in and sign out users with your Azure Active Directory (AD) for customers tenant.
+description: Learn how to configure a Vanilla JavaScript single-page app (SPA) to sign in and sign out users with your Microsoft Entra ID for customers tenant.
 services: active-directory
 author: OwenRichards1
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.subservice: ciam
 ms.custom: devx-track-js
 ms.topic: tutorial
 ms.date: 08/02/2023
-#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Azure Active Directory (AD) for customers tenant.
+#Customer intent: As a developer, I want to learn how to configure Vanilla JavaScript single-page app (SPA) to sign in and sign out users with my Microsoft Entra ID for customers tenant.
 ---
 
 # Tutorial: Add sign-in and sign-out to a Vanilla JavaScript single-page app for a customer tenant
@@ -435,7 +435,7 @@ Now that all the required code snippets have been added, the application can be 
     ```
 1. Open a new private browser, and enter the application URI into the browser, `http://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your Azure Active Directory (AD) for customers tenant, which starts the sign-up flow as a user for your application.
+1. In the **Create account** window, enter the email address registered to your Microsoft Entra ID for customers tenant, which starts the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the customer tenant, enter a new password and more account details, this sign-up flow is completed.
 
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.

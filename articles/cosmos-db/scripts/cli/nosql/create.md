@@ -51,6 +51,9 @@ This script uses the following commands. Each command in the table links to comm
 | [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Creates an Azure Cosmos DB for NoSQL container. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
+> [!IMPORTANT]
+> Use `az cosmsodb sql database create` to create a NoSQL database. The `az cosmosdb database create` command is deprecated.
+
 ## Next steps
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).

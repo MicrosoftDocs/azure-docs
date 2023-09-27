@@ -5,6 +5,7 @@ description: This article describes customer responsibilities developing Azure S
 author: KarlErickson
 ms.author: zhiyongli
 ms.service: spring-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 08/10/2023
 ---

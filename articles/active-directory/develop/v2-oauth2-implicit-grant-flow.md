@@ -43,7 +43,7 @@ The following diagram shows what the entire implicit sign-in flow looks like and
 To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authentication request and get an `id_token` from the Microsoft identity platform.
 
 > [!IMPORTANT]
-> To successfully request an ID token and/or an access token, the app registration in the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page must have the corresponding implicit grant flow enabled, by selecting **ID tokens** and **access tokens** in the **Implicit grant and hybrid flows** section. If it's not enabled, an `unsupported_response` error will be returned:
+> To successfully request an ID token and/or an access token, the app registration in the [Microsoft Entra admin center - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page must have the corresponding implicit grant flow enabled, by selecting **ID tokens** and **access tokens** in the **Implicit grant and hybrid flows** section. If it's not enabled, an `unsupported_response` error will be returned:
 >
 > `The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'`
 
@@ -63,7 +63,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `tenant` | required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](./v2-protocols.md#endpoints).Critically, for guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to correctly sign them into the resource tenant.|
-| `client_id` | required | The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
+| `client_id` | required | The Application (client) ID that the [Microsoft Entra admin center - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `response_type` | required | Must include `id_token` for OpenID Connect sign-in. It may also include the `response_type`, `token`. Using `token` here will allow your app to receive an access token immediately from the authorize endpoint without having to make a second request to the authorize endpoint. If you use the `token` response_type, the `scope` parameter must contain a scope indicating which resource to issue the token for (for example, `user.read` on Microsoft Graph). It can also contain `code` in place of `token` to provide an authorization code, for use in the [authorization code flow](v2-oauth2-auth-code-flow.md). This `id_token`+`code` response is sometimes called the hybrid flow.  |
 | `redirect_uri` | recommended |The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except it must be URL-encoded. |
 | `scope` | required |A space-separated list of [scopes](./permissions-consent-overview.md). For OpenID Connect (`id_tokens`), it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI. Optionally you may also want to include the `email` and `profile` scopes for gaining access to additional user data. You may also include other scopes in this request for requesting consent to various resources, if an access token is requested. |
@@ -95,7 +95,7 @@ code=0.AgAAktYV-sfpYESnQynylW_UKZmH-C9y_G1A
 | `access_token` |Included if `response_type` includes `token`. The access token that the app requested. The access token shouldn't be decoded or otherwise inspected, it should be treated as an opaque string. |
 | `token_type` |Included if `response_type` includes `token`. This will always be `Bearer`. |
 | `expires_in`|Included if `response_type` includes `token`. Indicates the number of seconds the token is valid, for caching purposes. |
-| `scope` |Included if `response_type` includes `token`. Indicates the scope(s) for which the access_token will be valid. May not include all the requested scopes if they weren't applicable to the user. For example, Azure AD-only scopes requested when logging in using a personal account. |
+| `scope` |Included if `response_type` includes `token`. Indicates the scope(s) for which the access_token will be valid. May not include all the requested scopes if they weren't applicable to the user. For example, Microsoft Entra-only scopes requested when logging in using a personal account. |
 | `id_token` | A signed JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The app can cache the values and display them, but it shouldn't rely on them for any authorization or security boundaries. For more information about ID tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested and `response_type` included `id_tokens`. |
 | `state` |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
@@ -171,7 +171,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `access_token` |Included if `response_type` includes `token`. The access token that the app requested, in this case for the Microsoft Graph. The access token shouldn't be decoded or otherwise inspected, it should be treated as an opaque string. |
 | `token_type` | This will always be `Bearer`. |
 | `expires_in` | Indicates the number of seconds the token is valid, for caching purposes. |
-| `scope` | Indicates the scope(s) for which the access token will be valid. May not include all of the scopes requested, if they weren't applicable to the user (in the case of Azure AD-only scopes being requested when a personal account is used to log in). |
+| `scope` | Indicates the scope(s) for which the access token will be valid. May not include all of the scopes requested, if they weren't applicable to the user (in the case of Microsoft Entra-only scopes being requested when a personal account is used to log in). |
 | `id_token` | A signed JSON Web Token (JWT). Included if `response_type` includes `id_token`. The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it shouldn't rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token` reference](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 | `state` |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 

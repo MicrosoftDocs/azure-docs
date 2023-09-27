@@ -83,6 +83,15 @@ Arc resource bridge consists of an appliance VM that is deployed to the on-premi
 To fix this, the credentials in the appliance VM need to be updated. For more information, see [Update credentials in the appliance VM](maintenance.md#update-credentials-in-the-appliance-vm).
 
 
+
+
+
+
+
+
+
+
+
 ## Networking issues
 
 ### Back-off pulling image error
@@ -100,7 +109,6 @@ When trying to set the configuration for Arc resource bridge, you may receive an
 `"message": "Post \"https://esx.lab.local/52b-bcbc707ce02c/disk-0.vmdk\": dial tcp: lookup esx.lab.local: no such host"`
 
 This occurs when a `.local` path is provided for a configuration setting, such as proxy, dns, datastore or management endpoint (such as vCenter). Arc resource bridge appliance VM uses Azure Linux OS, which doesn't support `.local` by default. A workaround could be to provide the IP address where applicable.
-
 
 ### Azure Arc resource bridge is unreachable
 
@@ -185,21 +193,7 @@ Error: Error in reading OVA file: failed to parse ovf: strconv.ParseInt: parsing
 value out of range.
 ```
 
-This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. When you install the Azure CLI, it's a 32-bit Windows Installer package. However, the Azure CLI `az arcappliance` extension needs to run in a 64-bit context.
-
-To resolve this issue, perform the following steps to configure your management machine with the Azure CLI 64-bit version:
-
-1. Uninstall the current version of the Azure CLI on Windows following these [steps](/cli/azure/install-azure-cli-windows#uninstall).
-1. Install version 3.6 or higher of [Python](https://www.python.org/downloads/windows/) (64-bit).
-
-   > [!IMPORTANT]
-   > After you install Python, make sure to confirm that its path is added to the PATH environmental variable.
-
-1. Install the [pip](https://pypi.org/project/pip/) package installer for Python.
-1. Verify Python is installed correctly by running `py` in a Command Prompt.
-1. From an elevated PowerShell console, run `pip install azure-cli` to install the Azure CLI from PyPI.
-
-After you complete these steps, you can get started using the Azure Arc appliance CLI extension in a new PowerShell console.
+This error occurs when you run the Azure CLI commands in a 32-bit context, which is the default behavior. The vSphere SDK only supports running in a 64-bit context. The specific error returned from the vSphere SDK is `Unable to import ova of size 6GB using govc`. To resolve the error, install and use Azure CLI 64-bit. 
 
 ### Error during host configuration
 
@@ -216,120 +210,164 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 ### Insufficient permissions
 
-When deploying the resource bridge on VMware Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
+When deploying the resource bridge on VMware vCenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that the user account being used to deploy the resource bridge has all of the following privileges in VMware vCenter and then try again.
 
-```
-"Datastore.AllocateSpace"
-"Datastore.Browse"
-"Datastore.DeleteFile"
-"Datastore.FileManagement"
-"Folder.Create"
-"Folder.Delete"
-"Folder.Move"
-"Folder.Rename"
-"InventoryService.Tagging.CreateTag"
-"Sessions.ValidateSession"
-"Network.Assign"
-"Resource.ApplyRecommendation"
-"Resource.AssignVMToPool"
-"Resource.HotMigrate"
-"Resource.ColdMigrate"
-"StorageViews.View"
-"System.Anonymous"
-"System.Read"
-"System.View"
-"VirtualMachine.Config.AddExistingDisk"
-"VirtualMachine.Config.AddNewDisk"
-"VirtualMachine.Config.AddRemoveDevice"
-"VirtualMachine.Config.AdvancedConfig"
-"VirtualMachine.Config.Annotation"
-"VirtualMachine.Config.CPUCount"
-"VirtualMachine.Config.ChangeTracking"
-"VirtualMachine.Config.DiskExtend"
-"VirtualMachine.Config.DiskLease"
-"VirtualMachine.Config.EditDevice"
-"VirtualMachine.Config.HostUSBDevice"
-"VirtualMachine.Config.ManagedBy"
-"VirtualMachine.Config.Memory"
-"VirtualMachine.Config.MksControl"
-"VirtualMachine.Config.QueryFTCompatibility"
-"VirtualMachine.Config.QueryUnownedFiles"
-"VirtualMachine.Config.RawDevice"
-"VirtualMachine.Config.ReloadFromPath"
-"VirtualMachine.Config.RemoveDisk"
-"VirtualMachine.Config.Rename"
-"VirtualMachine.Config.ResetGuestInfo"
-"VirtualMachine.Config.Resource"
-"VirtualMachine.Config.Settings"
-"VirtualMachine.Config.SwapPlacement"
-"VirtualMachine.Config.ToggleForkParent"
-"VirtualMachine.Config.UpgradeVirtualHardware"
-"VirtualMachine.GuestOperations.Execute"
-"VirtualMachine.GuestOperations.Modify"
-"VirtualMachine.GuestOperations.ModifyAliases"
-"VirtualMachine.GuestOperations.Query"
-"VirtualMachine.GuestOperations.QueryAliases"
-"VirtualMachine.Hbr.ConfigureReplication"
-"VirtualMachine.Hbr.MonitorReplication"
-"VirtualMachine.Hbr.ReplicaManagement"
-"VirtualMachine.Interact.AnswerQuestion"
-"VirtualMachine.Interact.Backup"
-"VirtualMachine.Interact.ConsoleInteract"
-"VirtualMachine.Interact.CreateScreenshot"
-"VirtualMachine.Interact.CreateSecondary"
-"VirtualMachine.Interact.DefragmentAllDisks"
-"VirtualMachine.Interact.DeviceConnection"
-"VirtualMachine.Interact.DisableSecondary"
-"VirtualMachine.Interact.DnD"
-"VirtualMachine.Interact.EnableSecondary"
-"VirtualMachine.Interact.GuestControl"
-"VirtualMachine.Interact.MakePrimary"
-"VirtualMachine.Interact.Pause"
-"VirtualMachine.Interact.PowerOff"
-"VirtualMachine.Interact.PowerOn"
-"VirtualMachine.Interact.PutUsbScanCodes"
-"VirtualMachine.Interact.Record"
-"VirtualMachine.Interact.Replay"
-"VirtualMachine.Interact.Reset"
-"VirtualMachine.Interact.SESparseMaintenance"
-"VirtualMachine.Interact.SetCDMedia"
-"VirtualMachine.Interact.SetFloppyMedia"
-"VirtualMachine.Interact.Suspend"
-"VirtualMachine.Interact.TerminateFaultTolerantVM"
-"VirtualMachine.Interact.ToolsInstall"
-"VirtualMachine.Interact.TurnOffFaultTolerance"
-"VirtualMachine.Inventory.Create"
-"VirtualMachine.Inventory.CreateFromExisting"
-"VirtualMachine.Inventory.Delete"
-"VirtualMachine.Inventory.Move"
-"VirtualMachine.Inventory.Register"
-"VirtualMachine.Inventory.Unregister"
-"VirtualMachine.Namespace.Event"
-"VirtualMachine.Namespace.EventNotify"
-"VirtualMachine.Namespace.Management"
-"VirtualMachine.Namespace.ModifyContent"
-"VirtualMachine.Namespace.Query"
-"VirtualMachine.Namespace.ReadContent"
-"VirtualMachine.Provisioning.Clone"
-"VirtualMachine.Provisioning.CloneTemplate"
-"VirtualMachine.Provisioning.CreateTemplateFromVM"
-"VirtualMachine.Provisioning.Customize"
-"VirtualMachine.Provisioning.DeployTemplate"
-"VirtualMachine.Provisioning.DiskRandomAccess"
-"VirtualMachine.Provisioning.DiskRandomRead"
-"VirtualMachine.Provisioning.FileRandomAccess"
-"VirtualMachine.Provisioning.GetVmFiles"
-"VirtualMachine.Provisioning.MarkAsTemplate"
-"VirtualMachine.Provisioning.MarkAsVM"
-"VirtualMachine.Provisioning.ModifyCustSpecs"
-"VirtualMachine.Provisioning.PromoteDisks"
-"VirtualMachine.Provisioning.PutVmFiles"
-"VirtualMachine.Provisioning.ReadCustSpecs"
-"VirtualMachine.State.CreateSnapshot"
-"VirtualMachine.State.RemoveSnapshot"
-"VirtualMachine.State.RenameSnapshot"
-"VirtualMachine.State.RevertToSnapshot"
-```
+
+**Datastore** 
+
+- Allocate space 
+
+- Browse datastore 
+
+- Low level file operations 
+
+**Folder** 
+
+- Create folder 
+
+**vSphere Tagging** 
+
+- Assign or Unassign vSphere Tag
+
+**Network** 
+
+- Assign network 
+
+**Resource** 
+
+- Assign virtual machine to resource pool 
+
+- Migrate powered off virtual machine 
+
+- Migrate powered on virtual machine 
+
+**Sessions** 
+
+- Validate session 
+
+**vApp** 
+
+- Assign resource pool 
+
+- Import 
+
+**Virtual machine** 
+
+- Change Configuration 
+
+  - Acquire disk lease 
+
+  - Add existing disk 
+
+  - Add new disk 
+
+  - Add or remove device 
+
+  - Advanced configuration 
+
+  - Change CPU count 
+
+  - Change Memory 
+
+  - Change Settings 
+
+  - Change resource 
+
+  - Configure managedBy 
+
+  - Display connection settings 
+
+  - Extend virtual disk 
+
+  - Modify device settings 
+
+  - Query Fault Tolerance compatibility 
+
+  - Query unowned files 
+
+  - Reload from path 
+
+  - Remove disk 
+
+  - Rename 
+
+  - Reset guest information 
+
+  - Set annotation 
+
+  - Toggle disk change tracking 
+
+  - Toggle fork parent 
+
+  - Upgrade virtual machine compatibility 
+
+- Edit Inventory 
+
+  - Create from existing 
+
+  - Create new 
+
+  - Register 
+
+  - Remove 
+
+  - Unregister 
+
+- Guest operations 
+
+  - Guest operation alias modification 
+
+  - Guest operation modifications 
+
+  - Guest operation program execution 
+
+  - Guest operation queries 
+
+- Interaction 
+
+  - Connect devices 
+
+  - Console interaction 
+
+  - Guest operating system management by VIX API 
+
+  - Install VMware Tools 
+
+  - Power off 
+
+  - Power on 
+
+  - Reset 
+
+  - Suspend 
+
+- Provisioning 
+
+  - Allow disk access 
+
+  - Allow file access 
+
+  - Allow read-only disk access 
+
+  - Allow virtual machine download 
+
+  - Allow virtual machine files upload 
+
+  - Clone virtual machine 
+
+  - Deploy template 
+  
+  - Mark as template 
+
+  - Mark as virtual machine 
+
+- Snapshot management 
+
+  - Create snapshot 
+
+  - Remove snapshot 
+
+  - Revert to snapshot 
 
 ## Next steps
 
@@ -342,3 +380,5 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 - Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+

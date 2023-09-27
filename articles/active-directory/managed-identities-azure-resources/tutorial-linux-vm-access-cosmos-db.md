@@ -83,7 +83,7 @@ The response includes the details of the system-assigned managed identity (note 
 
 ### Grant your Linux VM's system-assigned identity access to the Azure Cosmos DB account access keys
 
-Azure Cosmos DB does not natively support Azure AD authentication. However, you can use a managed identity to retrieve an Azure Cosmos DB access key from the Resource Manager, then use the key to access Azure Cosmos DB. In this step, you grant your system-assigned managed identity access to the keys to the Azure Cosmos DB account.
+Azure Cosmos DB does not natively support Microsoft Entra authentication. However, you can use a managed identity to retrieve an Azure Cosmos DB access key from the Resource Manager, then use the key to access Azure Cosmos DB. In this step, you grant your system-assigned managed identity access to the keys to the Azure Cosmos DB account.
 
 To grant the system-assigned managed identity access to the Azure Cosmos DB account in Azure Resource Manager using the Azure CLI, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in Retrieve the principalID of the Linux VM's MI.  Azure Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 
@@ -123,7 +123,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     ```
  
     > [!NOTE]
-    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     > In the following response, the access_token element as been shortened for brevity.
     
     ```json

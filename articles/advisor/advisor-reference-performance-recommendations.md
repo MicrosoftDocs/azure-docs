@@ -593,6 +593,12 @@ We noticed that your Azure Cosmos DB applications are using Gateway mode via the
 
 Learn more about [Azure Cosmos DB account - CosmosDBGatewayMode (Configure your Azure Cosmos DB applications to use Direct connectivity in the SDK)](/azure/cosmos-db/performance-tips#networking).
 
+### Enhance Performance by Scaling Up for Optimal Resource Utilization
+
+Maximizing the efficiency of your system's resources is crucial for maintaining top-notch performance. Our system closely monitors CPU usage, and when it crosses the 90% threshold over a 12-hour period, a proactive alert is triggered. This alert not only informs Azure Cosmos DB for MongoDB vCore users of the elevated CPU consumption but also provides valuable guidance on scaling up to a higher tier. By upgrading to a more robust tier, you can unlock improved performance and ensure your system operates at its peak potential.
+
+Learn more about [Scaling and configuring Your Azure Cosmos DB for MongoDB vCore cluster](../cosmos-db/mongodb/vcore/how-to-scale-cluster.md)
+
 ## HDInsight
 
 ### Unsupported Kubernetes version is detected

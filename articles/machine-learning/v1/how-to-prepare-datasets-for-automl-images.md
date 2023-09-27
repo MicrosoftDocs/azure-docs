@@ -47,7 +47,7 @@ If you already have a data labeling project and you want to use that data, you c
 
 ## Use conversion scripts
 
-If you have labeled data in popular computer vision data formats, like VOC or COCO, [helper scripts](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to generate JSONL files for training and validation data are available in [notebook examples](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml).
+If you have labeled data in popular computer vision data formats, like VOC or COCO, [helper scripts](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/coco2jsonl.py) to generate JSONL files for training and validation data are available in [notebook examples](https://github.com/Azure/azureml-examples/tree/v1-archive/v1/python-sdk/tutorials/automl-with-azureml).
 
 If your data doesn't follow any of the previously mentioned formats, you can use your own script to generate JSON Lines files based on schemas defined in [Schema for JSONL files for AutoML image experiments](../reference-automl-images-schema.md).
 

@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 06/09/2023
+ms.date: 08/21/2023
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet connection (classic)
 
 This article helps you create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions.
 
-The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).**
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/classic-diagram.png" alt-text="Diagram showing classic VNet-to-VNet architecture.":::
 

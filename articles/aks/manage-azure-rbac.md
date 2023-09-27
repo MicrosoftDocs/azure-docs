@@ -23,7 +23,7 @@ This article covers how to use Azure RBAC for Kubernetes Authorization, which al
 * You need managed Azure AD integration enabled on your cluster before you can add Azure RBAC for Kubernetes authorization. If you need to enable managed Azure AD integration, see [Use Azure AD in AKS](managed-azure-ad.md).
 * If you have CRDs and are making custom role definitions, the only way to cover CRDs today is to use `Microsoft.ContainerService/managedClusters/*/read`. For the remaining objects, you can use the specific API groups, such as `Microsoft.ContainerService/apps/deployments/read`.
 * New role assignments can take up to five minutes to propagate and be updated by the authorization server.
-* This article requires that the Azure AD tenant configured for authentication is same as the tenant for the subscription that holds your AKS cluster.
+* Azure RBAC for Kubernetes Authorization requires that the Azure AD tenant configured for authentication is same as the tenant for the subscription that holds your AKS cluster.
 
 ## Create a new AKS cluster with managed Azure AD integration and Azure RBAC for Kubernetes Authorization
 

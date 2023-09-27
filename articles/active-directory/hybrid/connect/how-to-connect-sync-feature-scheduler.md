@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Scheduler'
-description: This topic describes the built-in scheduler feature in Azure AD Connect sync.
+title: 'Microsoft Entra Connect Sync: Scheduler'
+description: This topic describes the built-in scheduler feature in Microsoft Entra Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,13 +18,13 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Scheduler
-This topic describes the built-in scheduler in Azure AD Connect sync (sync engine).
+# Microsoft Entra Connect Sync: Scheduler
+This topic describes the built-in scheduler in Microsoft Entra Connect Sync (sync engine).
 
 This feature was introduced with build 1.1.105.0 (released February 2016).
 
 ## Overview
-Azure AD Connect sync synchronize changes occurring in your on-premises directory using a scheduler. There are two scheduler processes, one for password sync and another for object/attribute sync and maintenance tasks. This topic covers the latter.
+Microsoft Entra Connect Sync synchronize changes occurring in your on-premises directory using a scheduler. There are two scheduler processes, one for password sync and another for object/attribute sync and maintenance tasks. This topic covers the latter.
 
 In earlier releases, the scheduler for objects and attributes was external to the sync engine. It used Windows task scheduler or a separate Windows service to trigger the synchronization process. The scheduler is with the 1.1 releases built-in to the sync engine and do allow some customization. The new default synchronization frequency is 30 minutes.
 
@@ -48,9 +48,9 @@ To see your current configuration settings, go to PowerShell and run `Get-ADSync
 
 ![GetSyncScheduler](./media/how-to-connect-sync-feature-scheduler/getsynccyclesettings2016.png)
 
-If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This problem could happen if you run Azure AD Connect on a domain controller or on a server with higher PowerShell restriction levels than the default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
+If you see **The sync command or cmdlet is not available** when you run this cmdlet, then the PowerShell module is not loaded. This problem could happen if you run Microsoft Entra Connect on a domain controller or on a server with higher PowerShell restriction levels than the default settings. If you see this error, then run `Import-Module ADSync` to make the cmdlet available.
 
-* **AllowedSyncCycleInterval**. The shortest time interval between synchronization cycles allowed by Azure AD. You cannot synchronize more frequently than this setting and still be supported.
+* **AllowedSyncCycleInterval**. The shortest time interval between synchronization cycles allowed by Microsoft Entra ID. You cannot synchronize more frequently than this setting and still be supported.
 * **CurrentlyEffectiveSyncCycleInterval**. The schedule currently in effect. It has the same value as CustomizedSyncInterval (if set) if it is not more frequent than AllowedSyncInterval. If you use a build before 1.1.281 and you change CustomizedSyncCycleInterval, this change takes effect after next synchronization cycle. From build 1.1.281 the change takes effect immediately.
 * **CustomizedSyncCycleInterval**. If you want the scheduler to run at any other frequency than the default 30 minutes, then you configure this setting. In the picture above, the scheduler has been set to run every hour instead. If you set this setting to a value lower than AllowedSyncInterval, then the latter is used.
 * **NextSyncCyclePolicyType**. Either Delta or Initial. Defines if the next run should only process delta changes, or if the next run should do a full import and sync. The latter would also reprocess any new or changed rules.
@@ -69,9 +69,9 @@ You can change some of these settings with `Set-ADSyncScheduler`. The following 
 * SyncCycleEnabled
 * MaintenanceEnabled
 
-In earlier builds of Azure AD Connect, **isStagingModeEnabled** was exposed in Set-ADSyncScheduler. It is **unsupported** to set this property. The property **SchedulerSuspended** should only be modified by Connect. It is **unsupported** to set this with PowerShell directly.
+In earlier builds of Microsoft Entra Connect, **isStagingModeEnabled** was exposed in Set-ADSyncScheduler. It is **unsupported** to set this property. The property **SchedulerSuspended** should only be modified by Connect. It is **unsupported** to set this with PowerShell directly.
 
-The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server also affects the staging server (except IsStagingModeEnabled).
+The scheduler configuration is stored in Microsoft Entra ID. If you have a staging server, any change on the primary server also affects the staging server (except IsStagingModeEnabled).
 
 ### CustomizedSyncCycleInterval
 Syntax: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
@@ -189,10 +189,10 @@ The `Invoke-ADSyncRunProfile` cmdlet is synchronous, that is, it does not return
 When you schedule your Connectors, the recommendation is to schedule them in the following order:
 
 1. (Full/Delta) Import from on-premises directories, such as Active Directory
-2. (Full/Delta) Import from Azure AD
+2. (Full/Delta) Import from Microsoft Entra ID
 3. (Full/Delta) Synchronization from on-premises directories, such as Active Directory
-4. (Full/Delta) Synchronization from Azure AD
-5. Export to Azure AD
+4. (Full/Delta) Synchronization from Microsoft Entra ID
+5. Export to Microsoft Entra ID
 6. Export to on-premises directories, such as Active Directory
 
 This order is how the built-in scheduler runs the Connectors.
@@ -205,12 +205,12 @@ Get-ADSyncConnectorRunStatus
 ```
 
 ![Connector Run Status](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
-In the picture above, the first line is from a state where the sync engine is idle. The second line from when the Azure AD Connector is running.
+In the picture above, the first line is from a state where the sync engine is idle. The second line from when the Microsoft Entra Connector is running.
 
 ## Scheduler and installation wizard
 If you start the installation wizard, then the scheduler is temporarily suspended. This behavior is because it is assumed you make configuration changes and these settings cannot be applied if the sync engine is actively running. For this reason, do not leave the installation wizard open since it stops the sync engine from performing any synchronization actions.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
+Learn more about the [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

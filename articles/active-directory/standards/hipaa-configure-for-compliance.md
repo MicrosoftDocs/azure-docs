@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Active Directory for HIPAA compliance
-description: Introduction for guidance on how to configure Azure Active Directory for HIPAA compliance level.
+title: Configure Microsoft Entra ID for HIPAA compliance
+description: Introduction for guidance on how to configure Microsoft Entra ID for HIPAA compliance level.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configuring Azure Active Directory for HIPAA compliance
+# Configuring Microsoft Entra ID for HIPAA compliance
 
-Microsoft services such as Azure Active Directory (Azure AD) can help you meet identity-related requirements for the Health Insurance Portability and Accountability Act of 1996 (HIPAA).
+Microsoft services such as Microsoft Entra ID can help you meet identity-related requirements for the Health Insurance Portability and Accountability Act of 1996 (HIPAA).
 
 The HIPAA Security Rule (HSR) establishes standards to protect individuals’ electronic personal health information that is created, received, used, or maintained by a covered entity. The HSR is managed by the U.S. Department of Health and Human Services (HHS) and requires appropriate administrative, physical, and technical safeguards to ensure the confidentiality, integrity, and security of electronic protected health information.
 
@@ -37,7 +37,7 @@ Subpart § 164.304 defines technical safeguards as the technology and the polici
 
 The HSR defines subparts as standard, along with required and addressable implementation specifications. All must be implemented. The "addressable" designation denotes a specification is reasonable and appropriate. Addressable doesn't mean that an implementation specification is optional. Therefore, subparts that are defined as addressable are also required.
 
-The remaining articles in this series provide guidance and links to resources, organized by key areas and technical safeguards. For each key area, there's a table with the relevant safeguards listed, and links to Azure Active Directory (Azure AD) guidance to accomplish the safeguard.
+The remaining articles in this series provide guidance and links to resources, organized by key areas and technical safeguards. For each key area, there's a table with the relevant safeguards listed, and links to Microsoft Entra guidance to accomplish the safeguard.
 
 ## Learn more
 
@@ -51,7 +51,7 @@ The remaining articles in this series provide guidance and links to resources, o
 
 * [Part 164](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164) Subparts A and C describing the security and privacy requirements of Title 45
 
-* [HIPAA Security Risk Safeguard Tool](https://www.healthit.gov/providers-professionals/security-risk-assessment-tool)
+* [HIPAA Security Risk Safeguard Tool](https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool)
 
 * [NIST HSR Toolkit](http://scap.nist.gov/hipaa/)
 

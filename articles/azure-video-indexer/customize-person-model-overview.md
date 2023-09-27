@@ -4,6 +4,7 @@ description: This article gives an overview of what is a Person model in Azure A
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customize a Person model in Azure AI Video Indexer 

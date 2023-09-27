@@ -1,8 +1,7 @@
 ---
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 02/13/2023
 ms.author: jboback
@@ -49,7 +48,7 @@ npm init
 Install the npm package:
 
 ```console
-npm install @azure/ai-language-text
+npm install @azure/ai-text-analytics
 ```
 
 
@@ -73,7 +72,7 @@ const documents = [ "The employee's phone number is (555) 555-5555." ];
 async function main() {
     console.log(`PII recognition sample`);
   
-    const client = new TextAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
   
     const documents = ["My phone number is 555-555-5555"];
   

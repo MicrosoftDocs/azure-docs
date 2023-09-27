@@ -1,14 +1,14 @@
 ---
-title: Authorize test console of API Management developer portal using OAuth 2.0 user authorization
+title: Authorize test console of API Management developer portal using OAuth 2.0
 titleSuffix: Azure API Management
-description: Learn how to set up OAuth 2.0 user authorization for the interactive test console in the Azure API Management developer portal. This article shows an example using Azure Active Directory as an OAuth 2.0 provider.
+description: Set up OAuth 2.0 user authorization for the test console in the Azure API Management developer portal. This example uses Azure AD as an OAuth 2.0 provider.
 services: api-management
 documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/09/2022
+ms.date: 09/12/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -29,7 +29,7 @@ If you haven't yet created an API Management service instance, see [Create an AP
 
 ## Scenario overview
 
-Configuring OAuth 2.0 user authorization in API Management only enables the developer portal’s test console as a client to acquire a token from the authorization server. The configuration for each OAuth 2.0 provider is different, although the steps are similar, and the required pieces of information used to configure OAuth 2.0 in your API Management service instance are the same. This article shows an example using Azure Active Directory as an OAuth 2.0 provider.
+Configuring OAuth 2.0 user authorization in API Management only enables the developer portal's test console (and the test console in the Azure portal) as a client to acquire a token from the authorization server. The configuration for each OAuth 2.0 provider is different, although the steps are similar, and the required pieces of information used to configure OAuth 2.0 in your API Management service instance are the same. This article shows an example using Azure Active Directory as an OAuth 2.0 provider.
 
 The following are the high level configuration steps:
 
@@ -256,9 +256,13 @@ Optionally:
     > [!IMPORTANT]
     > When making OAuth 2.0-related changes, be sure to to republish the developer portal after every modification as relevant changes (for example, scope change) otherwise cannot propagate into the portal and subsequently be used in trying out the APIs.
 
-After saving the OAuth 2.0 server configuration, configure an API or APIs to use this configuration, as shown in the next section.
-
 ## Configure an API to use OAuth 2.0 user authorization
+
+After saving the OAuth 2.0 server configuration, configure an API or APIs to use this configuration.
+
+> [!IMPORTANT]
+> * Configuring OAuth 2.0 user authorization settings for an API enables API Management to acquire a token from the authorization server when you use the test console in the Azure portal or developer portal. The authorization server settings are also added to the API definition and documentation. 
+> * For OAuth 2.0 authorization at runtime, the client app must acquire and present the token and you need to configure token validation in API Management or the backend API. For an example, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
 
 1. Select **APIs** from the **API Management** menu on the left.
 

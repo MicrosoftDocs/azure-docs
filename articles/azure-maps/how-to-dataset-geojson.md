@@ -76,7 +76,7 @@ To create a dataset:
 1. Enter the following URL to the dataset service. The request should look like the following URL (replace {udid} with the `udid` obtained in [Check the GeoJSON package upload status] section):
 
   ```http
-  https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Subscription-key}
+  https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&udid={udid}&subscription-key={Your-Azure-Maps-Subscription-key}
   ```
 
 1. Copy the value of the `Operation-Location` key in the response header. The `Operation-Location` key is also known as the `status URL` and is required to check the status of the dataset creation process and to get the `datasetId`, which is required to create a tileset.
@@ -88,12 +88,12 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 1. Enter the status URL you copied in [Create a dataset]. The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. In the Header of the HTTP response, copy the value of the unique identifier contained in the `Resource-Location` key.
 
-    > `https://us.atlas.microsoft.com/datasets/**c9c15957-646c-13f2-611a-1ea7adc75174**?api-version=2022-09-01-preview`
+    > `https://us.atlas.microsoft.com/datasets/**c9c15957-646c-13f2-611a-1ea7adc75174**?api-version=2023-03-01-preview`
 
 See [Next steps] for links to articles to help you complete your indoor map.
 
@@ -108,7 +108,7 @@ One thing to consider when adding to an existing dataset is how the feature IDs 
 If your original dataset was created from a GoeJSON source and you wish to add another facility created from a drawing package, you can append it to your existing dataset by referencing its `conversionId`, as demonstrated by this HTTP POST request:
 
 ```shttp
-https://us.atlas.microsoft.com/datasets?api-version=2022-09-01-preview&conversionId={conversionId}&outputOntology=facility-2.0&datasetId={datasetId}
+https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&conversionId={conversionId}&outputOntology=facility-2.0&datasetId={datasetId}
 ```
 
 | Identifier   | Description                                                       |
@@ -163,7 +163,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
 [Creator resource]: how-to-manage-creator.md
 [Data Upload API]: /rest/api/maps/data-v2/upload
-[Dataset Create API]: /rest/api/maps/v20220901preview/dataset/create
+[Dataset Create API]: /rest/api/maps/2023-03-01-preview/dataset/create
 [Dataset Create]: /rest/api/maps/v2/dataset/create
 [dataset]: creator-indoor-maps.md#datasets
 [Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2

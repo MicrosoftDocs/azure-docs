@@ -38,7 +38,7 @@ At the top of the workbook, using the drop-down, specify the source and target i
 Theses fields are the source and target of identities.  The rest of the filters that appear are based on the selection of source and target.
 You can scope your search so that it is more granular using the additional fields.  Use the table below as a reference for queries.
 
-For example, if you wanted to see data from your cloud sync workflow, your source would be Active Directory and your target would be Azure AD.
+For example, if you wanted to see data from your cloud sync workflow, your source would be Active Directory and your target would be Microsoft Entra ID.
 
 
 >[!NOTE]

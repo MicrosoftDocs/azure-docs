@@ -5,8 +5,7 @@ description: In this quickstart, you use speaker recognition to confirm who is s
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 01/08/2022
 ms.author: eur

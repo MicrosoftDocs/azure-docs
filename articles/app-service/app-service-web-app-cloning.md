@@ -6,7 +6,8 @@ ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
 ms.custom: seodec18, devx-track-azurepowershell
-
+author: msangapu-msft
+ms.author: msangapu
 ---
 # Azure App Service App Cloning Using PowerShell
 

@@ -5,8 +5,7 @@ description: Quick reference, detailed description, and best practices on the qu
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: alexeyo
@@ -82,7 +81,7 @@ You can use real-time text to speech with the [Speech SDK](speech-sdk.md) or the
 
 #### Batch synthesis
 
-These limits aren't adjustable.
+These limits aren't adjustable. For more information on batch synthesis latency, refer to [the batch synthesis latency and best practices](batch-synthesis.md#batch-synthesis-latency-and-best-practices).
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|

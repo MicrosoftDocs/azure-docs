@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Kronos Workforce Dimensions'
-description: Learn how to configure single sign-on between Azure Active Directory and Kronos Workforce Dimensions.
+title: 'Tutorial: Microsoft Entra SSO integration with Kronos Workforce Dimensions'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Kronos Workforce Dimensions.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,61 +14,64 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure AD SSO integration with Kronos Workforce Dimensions
+# Tutorial: Microsoft Entra SSO integration with Kronos Workforce Dimensions
 
-In this tutorial, you'll learn how to integrate Kronos Workforce Dimensions with Azure Active Directory (Azure AD). When you integrate Kronos Workforce Dimensions with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Kronos Workforce Dimensions with Microsoft Entra ID. When you integrate Kronos Workforce Dimensions with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Kronos Workforce Dimensions.
-* Enable your users to be automatically signed-in to Kronos Workforce Dimensions with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Kronos Workforce Dimensions.
+* Enable your users to be automatically signed-in to Kronos Workforce Dimensions with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Kronos Workforce Dimensions single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Kronos Workforce Dimensions supports **SP** initiated SSO.
 
 ## Add Kronos Workforce Dimensions from the gallery
 
-To configure the integration of Kronos Workforce Dimensions into Azure AD, you need to add Kronos Workforce Dimensions from the gallery to your list of managed SaaS apps.
+To configure the integration of Kronos Workforce Dimensions into Microsoft Entra ID, you need to add Kronos Workforce Dimensions from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Kronos Workforce Dimensions** in the search box.
 1. Select **Kronos Workforce Dimensions** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Kronos Workforce Dimensions
+<a name='configure-and-test-azure-ad-sso-for-kronos-workforce-dimensions'></a>
 
-Configure and test Azure AD SSO with Kronos Workforce Dimensions using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Kronos Workforce Dimensions.
+## Configure and test Microsoft Entra SSO for Kronos Workforce Dimensions
 
-To configure and test Azure AD SSO with Kronos Workforce Dimensions, perform the following steps:
+Configure and test Microsoft Entra SSO with Kronos Workforce Dimensions using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Kronos Workforce Dimensions.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Kronos Workforce Dimensions, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Kronos Workforce Dimensions SSO](#configure-kronos-workforce-dimensions-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Kronos Workforce Dimensions test user](#create-kronos-workforce-dimensions-test-user)** - to have a counterpart of B.Simon in Kronos Workforce Dimensions that is linked to the Azure AD representation of user.
+    1. **[Create Kronos Workforce Dimensions test user](#create-kronos-workforce-dimensions-test-user)** - to have a counterpart of B.Simon in Kronos Workforce Dimensions that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Kronos Workforce Dimensions** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kronos Workforce Dimensions** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -87,35 +90,41 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | `https://<CUSTOMER>-sso.<ENVIRONMENT>.mykronos.com/` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Kronos Workforce Dimensions Client support team](mailto:support@kronos.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [Kronos Workforce Dimensions Client support team](mailto:support@kronos.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Kronos Workforce Dimensions.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Kronos Workforce Dimensions**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Kronos Workforce Dimensions.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kronos Workforce Dimensions**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Kronos Workforce Dimensions SSO
 
@@ -126,11 +135,11 @@ To configure single sign-on on **Kronos Workforce Dimensions** side, you need to
 In this section, you create a user called Britta Simon in Kronos Workforce Dimensions. Work with [Kronos Workforce Dimensions support team](mailto:support@kronos.com) to add the users in the Kronos Workforce Dimensions platform. Users must be created and activated before you use single sign-on.
 
 > [!NOTE]
-> Original Microsoft documentation advises to contact UKG Support via email to create your Azure AD Users. While this option is available please consider the following self-service options. 
+> Original Microsoft documentation advises to contact UKG Support via email to create your Microsoft Entra users. While this option is available please consider the following self-service options. 
 
 ### Manual Process 
 
-There are two ways to manually create your Azure AD users in WFD.  You can either select an existing user, duplicate them and then update the necessary fields to make that user unique.  This process can be time consuming and requires knowledge of the WFD User Interface. The alternative is to create the user via the WFD API which is much quicker. This option requires knowledge of using API Tools such as Postman to send the request to the API instead. The following instructions will assist with importing a prebuilt example into the Postman API Tool. 
+There are two ways to manually create your Microsoft Entra users in WFD.  You can either select an existing user, duplicate them and then update the necessary fields to make that user unique.  This process can be time consuming and requires knowledge of the WFD User Interface. The alternative is to create the user via the WFD API which is much quicker. This option requires knowledge of using API Tools such as Postman to send the request to the API instead. The following instructions will assist with importing a prebuilt example into the Postman API Tool. 
 
 #### Setup 
 
@@ -138,7 +147,7 @@ There are two ways to manually create your Azure AD users in WFD.  You can eithe
 
     a. Workforce Dimensions - Create User.postman_collection.json 
 
-    b. AAD to WFD Env Variables.json 
+    b. Microsoft Entra ID to WFD Env Variables.json 
 
 1. In the left-pane, select the **Environments** button. 
 
@@ -147,7 +156,7 @@ There are two ways to manually create your Azure AD users in WFD.  You can eithe
     > [!NOTE]
     > access_token and refresh_token should be empty as these will automatically populate as a result of the Obtain Access Token HTTP Request.   
 
-1. Open the **Create Azure AD User in WFD** HTTP Request and update highlighted properties within the JSON payload: 
+1. Open the **Create Microsoft Entra user in WFD** HTTP Request and update highlighted properties within the JSON payload: 
 
     ```  
     { 
@@ -324,7 +333,7 @@ There are two ways to manually create your Azure AD users in WFD.  You can eithe
     ```
 
     > [!NOTE]
-    > The personInformation.emailAddress.address and the user.userAccount.userName must both match the targeted Azure AD User you are trying to create in WFD. 
+    > The personInformation.emailAddress.address and the user.userAccount.userName must both match the targeted Microsoft Entra user you are trying to create in WFD. 
 
 1. In the upper-righthand corner, select the **Environments** drop-down-box and select **AAD_to_WFD_Env_Variables**. 
 
@@ -337,7 +346,7 @@ There are two ways to manually create your Azure AD users in WFD.  You can eithe
 
 1. Once an **access_token** is obtained, select the **AAD_to_WFD_Env_Variables** HTTP Request and click the **Send** button.  If the request is successful you will receive a 200 HTTP status back. 
 
-1. Login to WFD with the **Super User** account and confirm the new Azure AD User was created within the WFD instance. 
+1. Login to WFD with the **Super User** account and confirm the new Microsoft Entra user was created within the WFD instance. 
 
 ### Automated Process 
 
@@ -350,7 +359,7 @@ The automated process consists of a flat-file in CSV format which allows the use
     * **personInformation.accessAssignment.accessProfileName**: Specific Access Profile Name from WFD instance. 
 
     * **personInformation.emailAddresses.address**: 
-    Must match the User Principle Name in Azure Active Directory. 
+    Must match the User Principle Name in Microsoft Entra ID. 
 
     * **personInformation.personNumber**: Must be unique across the WFD instance. 
 
@@ -391,9 +400,9 @@ The automated process consists of a flat-file in CSV format which allows the use
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
-* Click on **Test this application** in Azure portal. This will redirect to Kronos Workforce Dimensions Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application**, this will redirect to Kronos Workforce Dimensions Sign-on URL where you can initiate the login flow. 
 
 * Go to Kronos Workforce Dimensions Sign-on URL directly and initiate the login flow from there.
 

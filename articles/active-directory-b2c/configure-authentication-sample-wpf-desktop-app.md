@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Configure authentication in a sample WPF desktop app by using Azure AD B2C
 
-This article uses a sample [Windows Presentation Foundation (WPF) desktop](/visualstudio/designers/getting-started-with-wpf) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your desktop apps.
+This article uses a sample [Windows Presentation Foundation (WPF) desktop](/visualstudio/get-started/csharp/tutorial-wpf) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your desktop apps.
 
 ## Overview
 
@@ -54,7 +54,7 @@ The application registration and architecture are illustrated in the following d
 
 ## Prerequisites
 
-A computer that's running [Visual Studio 2019](https://www.visualstudio.com/downloads/) with .NET desktop development.
+A computer that's running [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with .NET desktop development.
 
 ## Step 1: Configure your user flow
 
@@ -103,7 +103,7 @@ This sample acquires an access token with the relevant scopes that the desktop a
 
 ## Step 4: Get the WPF desktop app sample
 
-1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git), or clone the sample web application from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git). 
+1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop), or clone the sample web application from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop). 
 
     ```bash
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

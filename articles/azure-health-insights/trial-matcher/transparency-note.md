@@ -27,12 +27,13 @@ Organizations can use the Trial Matcher model to match patients to potentially s
 
 
 ### Key terms
-| Term | What is it |  |  | | | 
-|----------|--|--|--|--|--| 
-| Patient centric | Trial Matcher, when powering a single patient trial search, helps a patient narrow down the list of potentially suitable clinical trials based on the patient’s clinical information. | | 
-| Trial centric | Trial Matcher, when powering search for eligible patients to clinical trial, is   provided with list of clinical trials (one or more) and multiple patients’ information. The model is using the matching technology to find which patients could potentially be suitable for each trial. | |
-| Evidence | For each trial that the model concludes the patient is not eligible for, the model returns the relevant patient information and the eligibility criteria that the model used to exclude the patient from trial eligibility. | |
-| Gradual matching | The model can provide patient information with gradual matching. In this mode, the user can send requests to Trial Matcher gradually, primarily via conversational intelligence or chat-like scenarios. | |
+
+| Term | What is it |  
+|----------|---------------|
+| Patient centric | Trial Matcher, when powering a single patient trial search, helps a patient narrow down the list of potentially suitable clinical trials based on the patient’s clinical information. | 
+| Trial centric | Trial Matcher, when powering search for eligible patients to clinical trial, is   provided with list of clinical trials (one or more) and multiple patients’ information. The model is using the matching technology to find which patients could potentially be suitable for each trial. | 
+| Evidence | For each trial that the model concludes the patient is not eligible for, the model returns the relevant patient information and the eligibility criteria that the model used to exclude the patient from trial eligibility. | 
+| Gradual matching | The model can provide patient information with gradual matching. In this mode, the user can send requests to Trial Matcher gradually, primarily via conversational intelligence or chat-like scenarios. | 
 
 
 

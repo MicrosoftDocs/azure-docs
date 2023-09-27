@@ -52,9 +52,6 @@ To integrate with Delinea Secret Server make sure you have:
 
 - **Delinea Secret Server**: must be configured to export logs via Syslog 
 
-   [Learn more about configure Secret Server](https://thy.center/ss/link/syslog)
-
-
 ## Vendor installation instructions
 
 1. Linux Syslog agent configuration

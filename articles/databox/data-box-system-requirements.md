@@ -2,14 +2,15 @@
 title: Microsoft Azure Data Box system requirements| Microsoft Docs
 description: Learn about important system requirements for your Azure Data Box and for clients that connect to the Data Box. 
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
 ms.date: 10/21/2022
-ms.author: alkohli
+ms.author: shaas
 ---
+
 # Azure Data Box system requirements 
 
 This article describes important system requirements for your Microsoft Azure Data Box and for clients that connect to the Data Box. We recommend you review the information carefully before you deploy your Data Box and then refer to it when you need to during deployment and operation.
@@ -32,9 +33,9 @@ The software requirements include supported operating systems, file transfer pro
 
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
-> [!IMPORTANT] 
-> Connection to Data Box shares is not supported via REST for export orders.
-
+> [!IMPORTANT]
+> Connection to Data Box shares is not supported via REST for export orders. 
+> Transporting data from on-premises NFS clients into Data Box using NFSv4 is supported. However, to copy data from Data Box to Azure, Data Box supports only REST-based transport. Azure file share with NFSv4.1 does not support REST for data access/transfer.
 ### Supported storage accounts
 
 > [!Note]
@@ -64,3 +65,4 @@ The following table lists the ports that need to be opened in your firewall to a
 ## Next steps
 
 * [Deploy your Azure Data Box](data-box-deploy-ordered.md)
+

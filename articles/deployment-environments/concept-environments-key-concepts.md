@@ -73,6 +73,14 @@ An environment definition is a combination of an IaC template and a manifest fil
 
 To learn about the structure of an ARM template, the sections of a template, and the properties that are available in those sections, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-## Next steps
+## Resources shared with Microsoft Dev Box
 
-[Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
+Azure Deployment Environments and Microsoft Dev Box are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise. You can configure projects for Deployment Environments and projects for Dev Box resources in the same dev center. 
+
+To learn more about the components common to Deployment Environments and Dev Box, see [Components common to Microsoft Dev Box and Azure Deployment Environments](/azure/dev-box/concept-common-components).
+
+## Related content
+
+- [What is Azure Deployment Environments?](overview-what-is-azure-deployment-environments.md)
+- [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
+- [What is Microsoft Dev Box?](../dev-box/overview-what-is-microsoft-dev-box.md)

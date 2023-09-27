@@ -55,7 +55,7 @@ Managed identities for Azure resources can now perform all operations on files i
 
 ## Get an access token 
 
-This section shows how to obtain an access token and call the Data Lake Store file system. Azure Data Lake Store natively supports Azure AD authentication, so it can directly accept access tokens obtained via using managed identities for Azure resources. To authenticate to the Data Lake Store file system, you send an access token issued by Azure AD to your Data Lake Store file system endpoint. The access token is in an authorization header in the format "Bearer \<ACCESS_TOKEN_VALUE\>".  To learn more about Data Lake Store support for Azure AD authentication, see [Authentication with Data Lake Store using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
+This section shows how to obtain an access token and call the Data Lake Store file system. Azure Data Lake Store natively supports Microsoft Entra authentication, so it can directly accept access tokens obtained via using managed identities for Azure resources. To authenticate to the Data Lake Store file system, you send an access token issued by Microsoft Entra ID to your Data Lake Store file system endpoint. The access token is in an authorization header in the format "Bearer \<ACCESS_TOKEN_VALUE\>".  To learn more about Data Lake Store support for Microsoft Entra authentication, see [Authentication with Data Lake Store using Microsoft Entra ID](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 
 In this tutorial, you authenticate to the REST API for the Data Lake Store file system by using cURL to make REST requests.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory security operations guide
-description: Learn to monitor, identify, and alert on security issues with accounts, applications, devices, and infrastructure in Azure Active Directory.
+title: Microsoft Entra security operations guide
+description: Learn to monitor, identify, and alert on security issues with accounts, applications, devices, and infrastructure in Microsoft Entra ID.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -17,17 +17,17 @@ ms.custom:
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory security operations guide
+# Microsoft Entra security operations guide
 
-Microsoft has a successful and proven approach to [Zero Trust security](https://aka.ms/Zero-Trust) using [Defense in Depth](https://www.cisa.gov/sites/default/files/recommended_practices/NCCIC_ICS-CERT_Defense_in_Depth_2016_S508C.pdf) principles that use identity as a control plane. Organizations continue to embrace a hybrid workload world for scale, cost savings, and security. Azure Active Directory (Azure AD) plays a pivotal role in your strategy for identity management. Recently, news surrounding identity and security compromise has increasingly prompted enterprise IT to consider their identity security posture as a measurement of defensive security success.
+Microsoft has a successful and proven approach to [Zero Trust security](https://aka.ms/Zero-Trust) using [Defense in Depth](https://www.cisa.gov/sites/default/files/recommended_practices/NCCIC_ICS-CERT_Defense_in_Depth_2016_S508C.pdf) principles that use identity as a control plane. Organizations continue to embrace a hybrid workload world for scale, cost savings, and security. Microsoft Entra ID plays a pivotal role in your strategy for identity management. Recently, news surrounding identity and security compromise has increasingly prompted enterprise IT to consider their identity security posture as a measurement of defensive security success.
 
 Increasingly, organizations must embrace a mixture of on-premises and cloud applications, which users access with both on–premises and cloud-only accounts. Managing users, applications, and devices both on-premises and in the cloud poses challenging scenarios.
 
 ## Hybrid identity
 
-Azure Active Directory creates a common user identity for authentication and authorization to all resources, regardless of location. We call this *hybrid identity*.
+Microsoft Entra ID creates a common user identity for authentication and authorization to all resources, regardless of location. We call this *hybrid identity*.
 
-To achieve hybrid identity with Azure AD, one of three authentication methods can be used, depending on your scenarios. The three methods are:
+To achieve hybrid identity with Microsoft Entra ID, one of three authentication methods can be used, depending on your scenarios. The three methods are:
 
 * [Password hash synchronization (PHS)](../hybrid/connect/whatis-phs.md)
 * [Pass-through authentication (PTA)](../hybrid/connect/how-to-connect-pta.md)
@@ -41,7 +41,7 @@ As you audit your current security operations or establish security operations f
 
 ### Audience
 
-The Azure AD SecOps Guide is intended for enterprise IT identity and security operations teams and managed service providers that need to counter threats through better identity security configuration and monitoring profiles. This guide is especially relevant for IT administrators and identity architects advising Security Operations Center (SOC) defensive and penetration testing teams to improve and maintain their identity security posture.
+The Microsoft Entra SecOps Guide is intended for enterprise IT identity and security operations teams and managed service providers that need to counter threats through better identity security configuration and monitoring profiles. This guide is especially relevant for IT administrators and identity architects advising Security Operations Center (SOC) defensive and penetration testing teams to improve and maintain their identity security posture.
 
 ### Scope
 
@@ -49,7 +49,7 @@ This introduction provides the suggested prereading and password audit and strat
 
 * [User accounts](security-operations-user-accounts.md). Guidance specific to non-privileged user accounts without administrative privilege, including anomalous account creation and usage, and unusual sign-ins.
 
-* [Privileged accounts](security-operations-privileged-accounts.md). Guidance specific to privileged user accounts that have elevated permissions to perform administrative tasks. Tasks include Azure AD role assignments, Azure resource role assignments, and access management for Azure resources and subscriptions.
+* [Privileged accounts](security-operations-privileged-accounts.md). Guidance specific to privileged user accounts that have elevated permissions to perform administrative tasks. Tasks include Microsoft Entra role assignments, Azure resource role assignments, and access management for Azure resources and subscriptions.
 
 * [Privileged Identity Management (PIM)](security-operations-privileged-identity-management.md). Guidance specific to using PIM to manage, control, and monitor access to resources.
 
@@ -79,10 +79,10 @@ Microsoft has many products and services that enable you to customize your IT en
 
 * Cloud-based Azure environments
 
-  * [Monitor sign-ins with the Azure AD sign-in log](../reports-monitoring/concept-all-sign-ins.md)
+  * [Monitor sign-ins with the Microsoft Entra sign-in log](../reports-monitoring/concept-all-sign-ins.md)
   * [Audit activity reports in the Azure portal](../reports-monitoring/concept-audit-logs.md)
-  * [Investigate risk with Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
-  * [Connect Azure AD Identity Protection data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
+  * [Investigate risk with Microsoft Entra ID Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
+  * [Connect Microsoft Entra ID Protection data to Microsoft Sentinel](../../sentinel/data-connectors/azure-active-directory-identity-protection.md)
 
 * Active Directory Domain Services (AD DS)
 
@@ -96,12 +96,12 @@ Microsoft has many products and services that enable you to customize your IT en
 
 The log files you use for investigation and monitoring are:
 
-* [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
+* [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md)
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 * [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-From the Azure portal, you can view the Azure AD Audit logs. Download logs as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
+From the Azure portal, you can view the Microsoft Entra audit logs. Download logs as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Microsoft Entra logs with other tools that allow for greater automation of monitoring and alerting:
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** - Enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
@@ -109,7 +109,7 @@ From the Azure portal, you can view the Azure AD Audit logs. Download logs as co
 
 * **[Azure Monitor](../../azure-monitor/overview.md)** - Enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
-* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Azure AD logs can be integrated to other SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Azure Active Directory logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* **[Azure Event Hubs](../../event-hubs/event-hubs-about.md)** integrated with a SIEM. Microsoft Entra logs can be integrated to other SIEMs such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hubs integration. For more information, see [Stream Microsoft Entra logs to an Azure event hub](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 * **[Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)** - Enables you to discover and manage apps, govern across apps and resources, and check the compliance of your cloud apps.
 
@@ -125,7 +125,7 @@ The remainder of this article describes what to monitor and alert on. Where ther
 
 * **Risky sign-ins** contains information surrounding the circumstance of a sign-in that might indicate suspicious circumstances. For more information on investigating information from this report, see [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md).
 
-* **Risk detections** contains information on risk signals detected by Azure AD Identity Protection that informs sign-in and user risk. For more information, see the [Azure AD security operations guide for user accounts](security-operations-user-accounts.md).
+* **Risk detections** contains information on risk signals detected by Microsoft Entra ID Protection that informs sign-in and user risk. For more information, see the [Microsoft Entra security operations guide for user accounts](security-operations-user-accounts.md).
 
 For more information, see [What is Identity Protection](../identity-protection/overview-identity-protection.md).
 
@@ -145,65 +145,65 @@ If you don't plan to use Microsoft Defender for Identity, monitor your domain co
 
 As part of an Azure hybrid environment, the following items should be baselined and included in your monitoring and alerting strategy.
 
-* **PTA Agent** - The pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Azure AD Pass-through Authentication agent: Version release history](../hybrid/connect/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps.
+* **PTA Agent** - The pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Microsoft Entra pass-through authentication agent: Version release history](../hybrid/connect/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps.
 
-* **AD FS/WAP** - Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+* **AD FS/WAP** - Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
 
-* **Azure AD Connect Health Agent** - The agent used to provide a communications link for Azure AD Connect Health. For information on installing the agent, see [Azure AD Connect Health agent installation](../hybrid/connect/how-to-connect-health-agent-install.md).
+* **Microsoft Entra Connect Health Agent** - The agent used to provide a communications link for Microsoft Entra Connect Health. For information on installing the agent, see [Microsoft Entra Connect Health agent installation](../hybrid/connect/how-to-connect-health-agent-install.md).
 
-* **Azure AD Connect Sync Engine** - The on-premises component, also called the sync engine. For information on the feature, see [Azure AD Connect sync service features](../hybrid/connect/how-to-connect-syncservice-features.md).
+* **Microsoft Entra Connect Sync Engine** - The on-premises component, also called the sync engine. For information on the feature, see [Microsoft Entra Connect Sync service features](../hybrid/connect/how-to-connect-syncservice-features.md).
 
-* **Password Protection DC agent** - Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
+* **Password Protection DC agent** - Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see [Enforce on-premises Microsoft Entra Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
 
-* **Password Filter DLL** - The password filter DLL of the DC Agent receives user password-validation requests from the operating system. The filter forwards them to the DC Agent service that's running locally on the DC. For information on using the DLL, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
+* **Password Filter DLL** - The password filter DLL of the DC Agent receives user password-validation requests from the operating system. The filter forwards them to the DC Agent service that's running locally on the DC. For information on using the DLL, see [Enforce on-premises Microsoft Entra Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md).
 
-* **Password writeback Agent** - Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time. For more information on this feature, see [How does self-service password reset writeback work in Azure Active Directory](../authentication/concept-sspr-writeback.md).
+* **Password writeback Agent** - Password writeback is a feature enabled with [Microsoft Entra Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time. For more information on this feature, see [How does self-service password reset writeback work in Microsoft Entra ID](../authentication/concept-sspr-writeback.md).
 
-* **Azure AD Application Proxy Connector** - Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Azure ADF Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
+* **Microsoft Entra application proxy Connector** - Lightweight agents that sit on-premises and facilitate the outbound connection to the Application Proxy service. For more information, see [Understand Azure ADF Application Proxy connectors](../app-proxy/application-proxy-connectors.md).
 
 ## Components of cloud-based authentication
 
 As part of an Azure cloud-based environment, the following items should be baselined and included in your monitoring and alerting strategy.
 
-* **Azure AD Application Proxy** - This cloud service provides secure remote access to on-premises web applications. For more information, see [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy-connectors.md).
+* **Microsoft Entra application proxy** - This cloud service provides secure remote access to on-premises web applications. For more information, see [Remote access to on-premises applications through Microsoft Entra application proxy](../app-proxy/application-proxy-connectors.md).
 
-* **Azure AD Connect** - Services used for an Azure AD Connect solution. For more information, see [What is Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md).
+* **Microsoft Entra Connect** - Services used for a Microsoft Entra Connect solution. For more information, see [What is Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect.md).
 
-* **Azure AD Connect Health** - Service Health provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. For more information, see [Azure AD Connect Health](../hybrid/connect/whatis-azure-ad-connect.md).
+* **Microsoft Entra Connect Health** - Service Health provides you with a customizable dashboard that tracks the health of your Azure services in the regions where you use them. For more information, see [Microsoft Entra Connect Health](../hybrid/connect/whatis-azure-ad-connect.md).
 
-* **Azure AD multifactor authentication** - Multifactor authentication requires a user to provide more than one form of proof for authentication. This approach can provide a proactive first step to securing your environment. For more information, see [Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md).
+* **Microsoft Entra multifactor authentication** - multifactor authentication requires a user to provide more than one form of proof for authentication. This approach can provide a proactive first step to securing your environment. For more information, see [Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
-* **Dynamic groups** - Dynamic configuration of security group membership for Azure AD Administrators can set rules to populate groups that are created in Azure AD based on user attributes. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](../external-identities/use-dynamic-groups.md).
+* **Dynamic groups** - Dynamic configuration of security group membership for Microsoft Entra Administrators can set rules to populate groups that are created in Microsoft Entra ID based on user attributes. For more information, see [Dynamic groups and Microsoft Entra B2B collaboration](../external-identities/use-dynamic-groups.md).
 
-* **Conditional Access** - Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. For more information, see [What is Conditional Access](../conditional-access/overview.md).
+* **Conditional Access** - Conditional Access is the tool used by Microsoft Entra ID to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane. For more information, see [What is Conditional Access](../conditional-access/overview.md).
 
 * **Identity Protection** - A tool that enables organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to your SIEM. For more information, see [What is Identity Protection](../identity-protection/overview-identity-protection.md).
 
-* **Group-based licensing** - Licenses can be assigned to groups rather than directly to users. Azure AD stores information about license assignment states for users.
+* **Group-based licensing** - Licenses can be assigned to groups rather than directly to users. Microsoft Entra ID stores information about license assignment states for users.
 
-* **Provisioning Service** - Provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. For more information, see [How Application Provisioning works in Azure Active Directory](../app-provisioning/how-provisioning-works.md).
+* **Provisioning Service** - Provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. For more information, see [How Application Provisioning works in Microsoft Entra ID](../app-provisioning/how-provisioning-works.md).
 
 * **Graph API** - The Microsoft Graph API is a RESTful web API that enables you to access Microsoft Cloud service resources. After you register your app and get authentication tokens for a user or service, you can make requests to the Microsoft Graph API. For more information, see [Overview of Microsoft Graph](/graph/overview).
 
-* **Domain Service** - Azure Active Directory Domain Services (AD DS) provides managed domain services such as domain join, group policy. For more information, see [What is Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md).
+* **Domain Service** - Microsoft Entra Domain Services (AD DS) provides managed domain services such as domain join, group policy. For more information, see [What is Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md).
 
 * **Azure Resource Manager** - Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. For more information, see [What is Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
-* **Managed identity** - Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. For more information, see [What are managed identities for Azure resources](../managed-identities-azure-resources/overview.md).
+* **Managed identity** - Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. For more information, see [What are managed identities for Azure resources](../managed-identities-azure-resources/overview.md).
 
-* **Privileged Identity Management** - PIM is a service in Azure AD that enables you to manage, control, and monitor access to important resources in your organization. For more information, see [What is Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
+* **Privileged Identity Management** - PIM is a service in Microsoft Entra ID that enables you to manage, control, and monitor access to important resources in your organization. For more information, see [What is Microsoft Entra Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
-* **Access reviews** - Azure AD access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed regularly to make sure only the right people have continued access. For more information, see [What are Azure AD access reviews](../governance/access-reviews-overview.md).
+* **Access reviews** - Microsoft Entra access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed regularly to make sure only the right people have continued access. For more information, see [What are Microsoft Entra access reviews](../governance/access-reviews-overview.md).
 
-* **Entitlement management** - Azure AD entitlement management is an [identity governance](../governance/identity-governance-overview.md) feature. Organizations can manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration. For more information, see [What is Azure AD entitlement management](../governance/entitlement-management-overview.md).
+* **Entitlement management** - Microsoft Entra entitlement management is an [identity governance](../governance/identity-governance-overview.md) feature. Organizations can manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration. For more information, see [What is Microsoft Entra entitlement management](../governance/entitlement-management-overview.md).
 
 * **Activity logs** - The Activity log is an Azure [platform log](../../azure-monitor/essentials/platform-logs-overview.md) that provides insight into subscription-level events. This log includes such information as when a resource is modified or when a virtual machine is started. For more information, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md).
 
-* **Self-service password reset service** - Azure AD self-service password reset (SSPR) gives users the ability to change or reset their password. The administrator or help desk isn't required. For more information, see [How it works: Azure AD self-service password reset](../authentication/concept-sspr-howitworks.md).
+* **Self-service password reset service** - Microsoft Entra self-service password reset (SSPR) gives users the ability to change or reset their password. The administrator or help desk isn't required. For more information, see [How it works: Microsoft Entra self-service password reset](../authentication/concept-sspr-howitworks.md).
 
 * **Device services** - Device identity management is the foundation for [device-based Conditional Access](../conditional-access/concept-conditional-access-grant.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices. For more information, see [What is a device identity](../devices/overview.md).
 
-* **Self-service group management** - You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure AD. The owner of the group can approve or deny membership requests and can delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists. For more information, see [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md).
+* **Self-service group management** - You can enable users to create and manage their own security groups or Microsoft 365 groups in Microsoft Entra ID. The owner of the group can approve or deny membership requests and can delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists. For more information, see [Set up self-service group management in Microsoft Entra ID](../enterprise-users/groups-self-service-management.md).
 
 * **Risk detections** - Contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 

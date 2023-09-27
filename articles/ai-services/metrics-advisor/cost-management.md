@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn about cost management and pricing for Azure AI Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: conceptual
 ms.date: 09/06/2022
 ms.author: mbullwin

@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to develop a chat flow in Prompt flow that can easily create a chatbot that handles chat input and output with Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: how-to
 author: Zhong-J
 ms.author: jinzhong
 ms.reviewer: lagayhar
-ms.date: 06/30/2023
+ms.date: 09/12/2023
 ---
 
 # Develop a chat flow
@@ -28,11 +28,32 @@ To create a chat flow, you can **either** clone an existing chat flow sample fro
 
 :::image type="content" source="./media/how-to-develop-a-chat-flow/create-chat-flow.png" alt-text="Screenshot of the Prompt flow gallery highlighting chat flow and Chat with Wikipedia. " lightbox = "./media/how-to-develop-a-chat-flow/create-chat-flow.png":::
 
+After selecting  **Clone**, as shown in the right panel, the new flow will be saved in a specific folder within your workspace file share storage. You can customize the folder name according to your preferences.
+
+:::image type="content" source="./media/how-to-develop-a-chat-flow/specify-flow-folder-name.png" alt-text="Screenshot of specify the flow folder name when creating a flow. " lightbox = "./media/how-to-develop-a-chat-flow/specify-flow-folder-name.png":::
+
+## Develop a chat flow
+
+### Authoring page
 In chat flow authoring page, the chat flow is tagged with a "chat" label to distinguish it from standard flow and evaluation flow. To test the chat flow, select "Chat" button to trigger a chat box for conversation.
 
 :::image type="content" source="./media/how-to-develop-a-chat-flow/chat-input-output.png" alt-text="Screenshot of Chat with Wikipedia with the chat button highlighted. " lightbox = "./media/how-to-develop-a-chat-flow/chat-input-output.png":::
 
-## Develop a chat flow
+At the left, it's the flatten view, the main working area where you can author the flow, for example add a new node, edit the prompt, select the flow input data, etc.
+
+:::image type="content" source="./media/how-to-develop-a-chat-flow/flatten-view.png" alt-text="Screenshot of web classification highlighting the main working area." lightbox = "./media/how-to-develop-a-chat-flow/flatten-view.png":::
+
+The top right corner shows the folder structure of the flow. Each flow has a folder that contains a flow.dag.yaml file, source code files, and system folders. You can export or import a flow easily for testing, deployment, or collaborative purposes.
+
+:::image type="content" source="./media/how-to-develop-a-chat-flow/folder-structure-view.png" alt-text="Screenshot of web classification highlighting the folder structure area." lightbox = "./media/how-to-develop-a-chat-flow/folder-structure-view.png":::
+
+In addition to inline editing the node in flatten view, you can also turn on the **Raw file mode** toggle and select the file name to edit the file in the opening file tab.
+
+:::image type="content" source="./media/how-to-develop-a-chat-flow/file-edit-tab.png" alt-text="Screenshot of the file edit tab under raw file mode." lightbox = "./media/how-to-develop-a-chat-flow/file-edit-tab.png":::
+
+In the bottom right corner, it's the graph view for visualization only. You can zoom in, zoom out, auto layout, etc.
+
+:::image type="content" source="./media/how-to-develop-a-chat-flow/graph-view.png" alt-text="Screenshot of web classification highlighting graph view area." lightbox = "./media/how-to-develop-a-chat-flow/graph-view.png":::
 
 ### Develop flow inputs and outputs
 

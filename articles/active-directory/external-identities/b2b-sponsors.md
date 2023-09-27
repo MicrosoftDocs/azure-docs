@@ -1,6 +1,6 @@
 ---
-title: Add sponsors to a guest user in the Azure portal - Azure AD (preview)
-description: Shows how an admin can add sponsors to guest users in Azure Active Directory (Azure AD) B2B collaboration.
+title: Add sponsors to a guest user in the Microsoft Entra admin center - External ID (preview)
+description: Shows how an admin can add sponsors to guest users in Microsoft Entra B2B collaboration.
 
 services: active-directory
 ms.service: active-directory
@@ -13,7 +13,7 @@ author: csmulligan
 manager: CelesteDG
 ms.collection: M365-identity-device-management
 
-# Customer intent: As a tenant administrator, I want to know how to add sponsors to guest users in Azure AD.
+# Customer intent: As a tenant administrator, I want to know how to add sponsors to guest users in Microsoft Entra External ID.
 ---
 # Sponsors field for B2B users (preview)
 
@@ -35,7 +35,7 @@ When a sponsor leaves the organization, as part of the offboarding process the t
 
 ## Other scenarios using the B2B sponsors feature
 
-The Azure Active Directory B2B collaboration sponsor feature serves as a foundation for other scenarios that aim to provide a full governance lifecycle for external partners. These scenarios aren't part of the sponsor feature but rely on it for managing guest users:
+The Microsoft Entra B2B collaboration sponsor feature serves as a foundation for other scenarios that aim to provide a full governance lifecycle for external partners. These scenarios aren't part of the sponsor feature but rely on it for managing guest users:
 
 - Administrators can transfer sponsorship to another user or group, if the guest user starts working on a different project.
 - When requesting new access packages, sponsors can be added as approvers to provide additional support in Entitlement Management, which can help reduce the workload on existing reviewers.
@@ -44,9 +44,9 @@ The Azure Active Directory B2B collaboration sponsor feature serves as a foundat
 
 You can add up to five sponsors when inviting a new guest user. If you don’t specify a sponsor, the inviter will be added as a sponsor. To invite a guest user, you need to have the Global Administrator role or a limited administrator directory role such as Guest Inviter or User Administrator. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) . 
-1. Navigate to **Azure Active Directory** > **Users**. 
-1. Select **Invite external user** from the menu.  
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Invite external user** from the menu. 
 1. Entered the details on the Basics tab and select **Next: Properties**. 
 1. You can add sponsors under  **Job information** on the **Properties** tab, 
    :::image type="content" source="media/b2b-sponsors/add-sponsors.png" alt-text="Screenshot showing the Add sponsor option."::: 
@@ -60,9 +60,8 @@ You can also add sponsors with the Microsoft Graph API, using invitation manager
 
 When you invite a guest user, you became their sponsor by default. If you need to manually change the guest user's sponsor, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Search for and select **Azure Active Directory** from any page.
-3. Under **Manage**, select **Users**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
 4. In the list, select the user's name to open their user profile
 5. Under **Properties** > **Job information** check the **Sponsors** field. If the guest user already has a sponsor, you can select **View** to see the sponsor's name.
    :::image type="content" source="media/b2b-sponsors/sponsors-under-properties.png" alt-text="Screenshot of the sponsors field under the job information.":::

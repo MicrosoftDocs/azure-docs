@@ -1,6 +1,6 @@
 ---
-title: 'What is federation with Azure AD?'
-description: Describes federation with Azure AD.
+title: 'What is federation with Microsoft Entra ID?'
+description: Describes federation with Microsoft Entra ID.
 services: active-directory
 author: billmath
 manager: amycolannino
@@ -14,11 +14,11 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# What is federation with Azure AD?
+# What is federation with Microsoft Entra ID?
 
 Federation is a collection of domains that have established trust. The level of trust may vary, but typically includes authentication and almost always includes authorization. A typical federation might include a number of organizations that have established trust for shared access to a set of resources.
 
-You can federate your on-premises environment with Azure AD and use this federation for authentication and authorization.  This sign-in method ensures that all user authentication occurs on-premises.  This method allows administrators to implement more rigorous levels of access control. Federation with AD FS and PingFederate is available.
+You can federate your on-premises environment with Microsoft Entra ID and use this federation for authentication and authorization.  This sign-in method ensures that all user authentication occurs on-premises.  This method allows administrators to implement more rigorous levels of access control. Federation with AD FS and PingFederate is available.
 
 ![Federated identity](../media/whatis-hybrid-identity/federated-identity.png)
 
@@ -30,7 +30,7 @@ You can federate your on-premises environment with Azure AD and use this federat
 ## Next Steps
 
 - [What is hybrid identity?](./../whatis-hybrid-identity.md)
-- [What is Azure AD Connect and Connect Health?](whatis-azure-ad-connect.md)
+- [What is Microsoft Entra Connect and Connect Health?](whatis-azure-ad-connect.md)
 - [What is password hash synchronization?](whatis-phs.md)
 - [What is federation?](whatis-fed.md)
 - [What is single-sign on?](how-to-connect-sso.md)

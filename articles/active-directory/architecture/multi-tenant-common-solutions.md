@@ -1,6 +1,6 @@
 ---
-title: Common solutions for multi-tenant user management in Azure Active Directory
-description: Learn about common solutions used to configure user access across Azure Active Directory tenants with guest accounts 
+title: Common solutions for multi-tenant user management in Microsoft Entra ID
+description: Learn about common solutions used to configure user access across Microsoft Entra tenants with guest accounts 
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -15,13 +15,13 @@ ms.collection: M365-identity-device-management
 ---
 # Common solutions for multi-tenant user management
 
-This article is the fourth in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. The following articles in the series provide more information as described.
+This article is the fourth in a series of articles that provide guidance for configuring and providing user lifecycle management in Microsoft Entra multi-tenant environments. The following articles in the series provide more information as described.
 
 - [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series.
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
-- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
+- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Microsoft Entra Conditional Access, additional access control, and Office 365. 
 
-The guidance helps to you achieve a consistent state of user lifecycle management. Lifecycle management includes provisioning, managing, and deprovisioning users across tenants using the available Azure tools that include [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) (B2B) and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
+The guidance helps to you achieve a consistent state of user lifecycle management. Lifecycle management includes provisioning, managing, and deprovisioning users across tenants using the available Azure tools that include [Microsoft Entra B2B collaboration](../external-identities/what-is-b2b.md) (B2B) and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md).
 
 Microsoft recommends a single tenant wherever possible. If single tenancy doesn't work for your scenario, reference the following solutions that Microsoft customers have successfully implemented for these challenges:
 
@@ -73,7 +73,7 @@ A customer with multiple peer organizations needs to share on-premises applicati
 
 Peer organizations are synchronizing external users in a mesh topology, enabling resource allocation to cloud applications across tenants. The customer offers following functionality.
 
-- Share applications in Azure AD.
+- Share applications in Microsoft Entra ID.
 - Automated user lifecycle management in resource tenant on home tenant (reflecting add, modify, and delete).
 
 The following diagram illustrates this scenario, where only internal users in Company A access Company A's on-premises apps.
@@ -95,7 +95,7 @@ Along with the current functionality, they want to offer the following.
 Company A provides SSO to on-premises apps for its own internal users using Azure Application Proxy as illustrated in the following diagram.
 
 :::image type="complex" source="media/multi-tenant-common-solutions/app-access-scenario.png" alt-text="Diagram illustrates example of application access.":::
-   Diagram title: Azure Application Proxy architecture solution. On the top left, a box labeled https: //sales.constoso.com contains a globe icon to represent a website. Below it, a group of icons represent the User and are connected by an arrow from the User to the website. On the top right, a cloud shape labeled Azure Active Directory contains an icon labeled Application Proxy Service. An arrow connects the website to the cloud shape. On the bottom right, a box labeled DMZ has the subtitle On-premises. An arrow connects the cloud shape to the DMZ box, splitting in two to point to icons labeled Connector. Below the Connector icon on the left, an arrow points down and splits in two to point to icons labeled App 1 and App 2. Below the Connector icon on the right, an arrow points down to an icon labeled App 3.
+   Diagram title: Azure Application Proxy architecture solution. On the top left, a box labeled https: //sales.constoso.com contains a globe icon to represent a website. Below it, a group of icons represent the User and are connected by an arrow from the User to the website. On the top right, a cloud shape labeled Microsoft Entra ID contains an icon labeled Application Proxy Service. An arrow connects the website to the cloud shape. On the bottom right, a box labeled DMZ has the subtitle On-premises. An arrow connects the cloud shape to the DMZ box, splitting in two to point to icons labeled Connector. Below the Connector icon on the left, an arrow points down and splits in two to point to icons labeled App 1 and App 2. Below the Connector icon on the right, an arrow points down to an icon labeled App 3.
 :::image-end:::
 
 Admins in tenant A perform the following steps to enable their external users to access the same on-premises applications.
@@ -106,11 +106,11 @@ Admins in tenant A perform the following steps to enable their external users to
 
 The following articles provide additional information about B2B collaboration.
 
-- [Grant B2B users in Azure AD access to your on-premises resources](../external-identities/hybrid-cloud-to-on-premises.md) describes how you can provide B2B users access to on-premises apps.
-- [Azure Active Directory B2B collaboration for hybrid organizations](../external-identities/hybrid-organizations.md) describes how you can give your external partners access to apps and resources in your organization.
+- [Grant B2B users in Microsoft Entra ID access to your on-premises resources](../external-identities/hybrid-cloud-to-on-premises.md) describes how you can provide B2B users access to on-premises apps.
+- [Microsoft Entra B2B collaboration for hybrid organizations](../external-identities/hybrid-organizations.md) describes how you can give your external partners access to apps and resources in your organization.
 
 ## Next steps
 
-- [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments.
+- [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series of articles that provide guidance for configuring and providing user lifecycle management in Microsoft Entra multi-tenant environments.
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
-- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
+- [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Microsoft Entra Conditional Access, additional access control, and Office 365. 

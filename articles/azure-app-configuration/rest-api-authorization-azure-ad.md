@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration REST API - Azure Active Directory authorization
 description: Use Azure Active Directory for authorization against Azure App Configuration by using the REST API
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020

@@ -5,7 +5,7 @@ description: Learn how to manage Azure storage containers using the Azure portal
 services: storage
 author: stevenmatthew
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: shaas

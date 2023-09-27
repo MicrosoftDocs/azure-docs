@@ -5,8 +5,7 @@ description: Learn about which regions are supported by document summarization.
 services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 06/11/2023

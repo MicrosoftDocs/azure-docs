@@ -4,7 +4,7 @@ description: Learn how to view, edit, save, and store ARM virtual machine (VM) t
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/09/2023
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

@@ -76,13 +76,8 @@ The **Alert Triggers** subtab in the **Activity**, **Rule-Based Anomaly**, **Sta
     - **Modified By**: The name of the user who modified the alert.
 
 
-
-
-
-
 ## Next steps
 
 - For information on activity alerts and alert triggers, see [Create and view activity alerts and alert triggers](how-to-create-alert-trigger.md).
 - For information on rule-based anomalies and anomaly triggers, see [Create and view rule-based anomalies and anomaly triggers](product-rule-based-anomalies.md).
-- For information on finding outliers in identity's behavior, see [Create and view statistical anomalies and anomaly triggers](product-statistical-anomalies.md).
 - For information on permission analytics triggers, see [Create and view permission analytics triggers](product-permission-analytics.md).

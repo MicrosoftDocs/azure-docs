@@ -1,6 +1,6 @@
 ---
 title: Naming standards for the automation framework
-description: Explanation of naming conventions for the SAP on Azure Deployment Automation Framework.
+description: Explanation of naming conventions for SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -10,36 +10,32 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Naming conventions for SAP automation framework
+# Naming conventions for SAP Deployment Automation Framework
 
-The [SAP on Azure Deployment Automation Framework](deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Standard naming helps you deploy the automation framework smoothly. For example, consistent naming helps you to:
+[SAP Deployment Automation Framework](deployment-framework.md) uses standard naming conventions. Consistent naming helps the automation framework run correctly with Terraform. Standard naming helps you deploy the automation framework smoothly. For example, consistent naming helps you to:
 
 - Deploy the SAP virtual network infrastructure into any supported Azure region.
-
-- Do multiple deployments with partitioned virtual networks. 
-
-- Deploy the SAP system into any SAP workload zone. 
-
-- Run regular and high availability (HA) instances
-
+- Do multiple deployments with partitioned virtual networks.
+- Deploy the SAP system into any SAP workload zone.
+- Run regular and high availability instances.
 - Do disaster recovery and fall forward behavior.
 
-Review the standard terms, area paths, variable names before you begin your deployment. If necessary, you can also [configure custom naming](naming-module.md).
+Review the standard terms, area paths, and variable names before you begin your deployment. If necessary, you can also [configure custom naming](naming-module.md).
 
 ## Placeholder values
 
 The naming convention's example formats use the following placeholder values.
 
-| Placeholder | Concept | Character limit | Example | 
+| Placeholder | Concept | Character limit | Example |
 | ----------- | ------- | --------------- | ------- |
 | `{ENVIRONMENT}` | Environment | 5 | `DEV`, `PROTO`, `NP`, `PROD` |
 | `{REGION_MAP}` | [Region](#azure-region-names) map | 4 | `weus` for `westus` |
-| `{SAP_VNET}` | SAP virtual network (VNet) | 7 |  `SAP0` |
+| `{SAP_VNET}` | SAP virtual network | 7 |  `SAP0` |
 | `{SID}` | SAP system identifier | 3 | `X01` |
 | `{PREFIX}` | SAP resource prefix | | `DEV-WEEU-SAP01-X01` |
-| `{DEPLOY_VNET}` | Deployer VNet | 7 |  |
-| `{REMOTE_VNET}` | Remote VNet | 7 |  |
-| `{LOCAL_VNET}` |Local VNet | 7 |  |
+| `{DEPLOY_VNET}` | Deployer virtual network | 7 |  |
+| `{REMOTE_VNET}` | Remote virtual network | 7 |  |
+| `{LOCAL_VNET}` |Local virtual network | 7 |  |
 | `{CODENAME}` | Logical name for version |  | `version1`, `beta` |
 | `{VM_NAME}` | VM name |  |  |
 | `{SUBNET}` | Subnet |  |  |
@@ -55,7 +51,7 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 
 | Concept | Character limit | Format | Example |
 | ------- | --------------- | ------ | ------- |
-| Resource Group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-INFRASTRUCTURE` |  `MGMT-WEEU-DEP00-INFRASTRUCTURE` |
+| Resource group | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-INFRASTRUCTURE` |  `MGMT-WEEU-DEP00-INFRASTRUCTURE` |
 | Virtual network | 38 (64)  | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}-vnet` | `MGMT-WEEU-DEP00-vnet` |
 | Subnet | 80 | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_deployment-subnet` | `MGMT-WEEU-DEP00_deployment-subnet` |
 | Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}{DIAG}{RND}` | `mgmtweeudep00diagxxx` |
@@ -69,7 +65,7 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 | Key vault | 24 | `{ENVIRONMENT}{REGION_MAP}{DEPLOY_VNET}{USER}{RND}` (deployment credentials) | `MGMTWEEUDEP00userxxx` |
 | Public IP address | | `{ENVIRONMENT}-{REGION_MAP}-{DEPLOY_VNET}_{COMPUTER_NAME}-pip` | `MGMT-WEEU-DEP00_permweeudep00deploy00-pip` |
 
-### SAP Library names
+### SAP library names
 
 For an explanation of the **Format** column, see the [definitions for placeholder values](#placeholder-values).
 
@@ -79,7 +75,7 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 | Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}saplib(12CHAR){RND}` | `mgmtweeusaplibxxx` |
 | Storage account | 24 | `{ENVIRONMENT}{REGION_MAP}tfstate(12CHAR){RND}` | `mgmtweeutfstatexxx` |
 
-### SAP Workload zone names
+### SAP workload zone names
 
 For an explanation of the **Format** column, see the [definitions for placeholder values](#placeholder-values).
 
@@ -104,7 +100,7 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 | NetApp account |  | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}_netapp_account` | `DEV-WEEU-SAP01_netapp_account` |
 | NetApp capacity pool | 24 | `{ENVIRONMENT}{REGION_MAP}{SAP_VNET}_netapp_pool` | `DEV-WEEU-SAP01_netapp_pool` |
 
-### SAP System names
+### SAP system names
 
 For an explanation of the **Format** column, see the [definitions for placeholder values](#placeholder-values).
 
@@ -118,18 +114,16 @@ For an explanation of the **Format** column, see the [definitions for placeholde
 | Network security group | 80 | `{PREFIX}_utility-nsg` | `DEV-WEEU-SAP01_X01_dbSubnet-nsg` |
 | Network interface component | | `{PREFIX}_{VM_NAME}-{SUBNET}-nic` | `-app-nic`, `-web-nic`, `-admin-nic`, `-db-nic` |
 | Computer name (database) | 14 | `{SID}d{DBSID}##{OS flag l/w}{primary/secondary 0/1}{RND}` | `DEV-WEEU-SAP01-X01_x01dxdb00l0xxx` |
-| Computer name (non-database) | 14 | `{SID}{ROLE}##{OS flag l/w}{RND}` | `DEV-WEEU-SAP01-X01_x01app01l538`, `DEV-WEEU-SAP01-X01_x01scs01l538` |
+| Computer name (nondatabase) | 14 | `{SID}{ROLE}##{OS flag l/w}{RND}` | `DEV-WEEU-SAP01-X01_x01app01l538`, `DEV-WEEU-SAP01-X01_x01scs01l538` |
 | VM | | `{PREFIX}_{COMPUTER-NAME}` | |
 | Disk | | `{PREFIX}_{VM_NAME}-{disk_type}{counter}` | `{VM-NAME}-sap00`, `{VM-NAME}-data00`, `{VM-NAME}-log00`, `{VM-NAME}-backup00` |
 | OS disk | | `{PREFIX}_{VM_NAME}-osDisk` | `DEV-WEEU-SAP01-X01_x01scs00lxxx-OsDisk` |
 | Azure load balancer (utility)| 80 | `{PREFIX}_db-alb` | `DEV-WEEU-SAP01-X01_db-alb` |
 | Load balancer front-end IP address (utility)| | `{PREFIX}_dbAlb-feip` | `DEV-WEEU-SAP01-X01_dbAlb-feip` |
-| Load balancer backend pool (utility)| | `{PREFIX}_dbAlb-bePool` | `DEV-WEEU-SAP01-X01_dbAlb-bePool` |
+| Load balancer back-end pool (utility)| | `{PREFIX}_dbAlb-bePool` | `DEV-WEEU-SAP01-X01_dbAlb-bePool` |
 | Load balancer health probe (utility)| | `{PREFIX}_dbAlb-hp` | `DEV-WEEU-SAP01-X01_dbAlb-hp`|
 | Key vault (user) | 24 | `{SHORTPREFIX}u{RND}` | `DEVWEEUSAP01uX01xxx` |
 | NetApp volume (utility) | 24 | `{PREFIX}-utility` | `DEV-WEEU-SAP01-X01_sapmnt` |
-
-
 
 > [!NOTE]
 > Disk numbering starts at zero. The naming convention uses a two-character format; for example, `00`.
@@ -142,7 +136,7 @@ You can set the mapping under the variable `_region_mapping` in the name generat
 
 Then, you can use the `_region_mapping` variable elsewhere, such as an area path. The format for an area path is `{ENVIRONMENT}-{REGION_MAP}-{SAP_VNET}-{ARTIFACT}` where:
 
-- `{ENVIRONMENT}` is the name of the environment, or workload zone.
+- `{ENVIRONMENT}` is the name of the environment or workload zone.
 - `{REGION_MAP}` is the short form of the Azure region name.
 - `{SAP_VNET}` is the SAP virtual network within the environment.
 - `{ARTIFACT}` is the deployment artifact within the virtual network, such as `INFRASTRUCTURE`.

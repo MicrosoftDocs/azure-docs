@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integrate Azure Active Directory single sign-on (SSO) with Maverics Identity Orchestrator SAML Connector'
-description: Learn how to configure single sign-on between Azure Active Directory and Maverics Identity Orchestrator SAML Connector.
+title: 'Tutorial: Integrate Microsoft Entra single sign-on (SSO) with Maverics Identity Orchestrator SAML Connector'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Maverics Identity Orchestrator SAML Connector.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,22 +12,22 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Integrate Azure AD single sign-on with Maverics Identity Orchestrator SAML Connector
+# Integrate Microsoft Entra single sign-on with Maverics Identity Orchestrator SAML Connector
 
-Strata's Maverics Identity Orchestrator provides a simple way to integrate on-premises applications with Azure Active Directory (Azure AD) for authentication and access control. The Maverics Orchestrator is capable of modernizing authentication and authorization for apps that currently rely on headers, cookies, and other proprietary authentication methods. Maverics Orchestrator instances can be deployed on-premises or in the cloud. 
+Strata's Maverics Identity Orchestrator provides a simple way to integrate on-premises applications with Microsoft Entra ID for authentication and access control. The Maverics Orchestrator is capable of modernizing authentication and authorization for apps that currently rely on headers, cookies, and other proprietary authentication methods. Maverics Orchestrator instances can be deployed on-premises or in the cloud. 
 
-This hybrid access tutorial demonstrates how to migrate an on-premises web application that's currently protected by a legacy web access management product to use Azure AD for authentication and access control. Here are the basic steps:
+This hybrid access tutorial demonstrates how to migrate an on-premises web application that's currently protected by a legacy web access management product to use Microsoft Entra ID for authentication and access control. Here are the basic steps:
 
 1. Set up the Maverics Orchestrator
 1. Proxy an application
-1. Register an enterprise application in Azure AD
+1. Register an enterprise application in Microsoft Entra ID
 1. Authenticate via Azure and authorize access to the application
 1. Add headers for seamless application access
 1. Work with multiple applications
 
 ## Prerequisites
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Maverics Identity Orchestrator SAML Connector SSO-enabled subscription. To get the Maverics software, contact [Strata sales](mailto:sales@strata.io).
 * At least one application that uses header-based authentication. The examples work against an application called Connectulum, hosted at `https://app.connectulum.com`.
 * A Linux machine to host the Maverics Orchestrator
@@ -127,16 +127,18 @@ appgateways:
 
 To confirm that proxying is working as expected, restart the Maverics service, and make a request to the application through the Maverics proxy. You can optionally make a request to specific application resources.
 
-## Step 3: Register an enterprise application in Azure AD
+<a name='step-3-register-an-enterprise-application-in-azure-ad'></a>
 
-Now, create a new enterprise application in Azure AD that will be used for authenticating end users.
+## Step 3: Register an enterprise application in Microsoft Entra ID
+
+Now, create a new enterprise application in Microsoft Entra ID that will be used for authenticating end users.
 
 > [!NOTE]
-> When you use Azure AD features like Conditional Access, it's important to create an enterprise application per on-premises application. This permits per-app Conditional Access, per-app risk evaluation, per-app assigned permissions, and so on. Generally, an enterprise application in Azure AD maps to an Azure connector in Maverics.
+> When you use Microsoft Entra features like Conditional Access, it's important to create an enterprise application per on-premises application. This permits per-app Conditional Access, per-app risk evaluation, per-app assigned permissions, and so on. Generally, an enterprise application in Microsoft Entra ID maps to an Azure connector in Maverics.
 
-To register an enterprise application in Azure AD:
+To register an enterprise application in Microsoft Entra ID:
 
-1. In your Azure AD tenant, go to **Enterprise applications**, and then select **New Application**. In the Azure AD gallery, search for **Maverics Identity Orchestrator SAML Connector**, and then select it.
+1. In your Microsoft Entra tenant, go to **Enterprise applications**, and then select **New Application**. In the Microsoft Entra gallery, search for **Maverics Identity Orchestrator SAML Connector**, and then select it.
 
 1. On the Maverics Identity Orchestrator SAML Connector **Properties** pane, set **User assignment required?** to **No** to enable the application to work for all users in your directory.
 
@@ -150,7 +152,7 @@ To register an enterprise application in Azure AD:
 
 1. Enter a **Reply URL** of `https://sonar.maverics.com/acs`. You'll use this value when you define the `samlConsumerServiceURL` field for your Azure connector in the next section.
 
-1. Enter a **Sign on URL** of `https://sonar.maverics.com/`. This field won't be used by Maverics, but it is required in Azure AD to enable users to get access to the application through the Azure AD My Apps portal.
+1. Enter a **Sign on URL** of `https://sonar.maverics.com/`. This field won't be used by Maverics, but it is required in Microsoft Entra ID to enable users to get access to the application through the Microsoft Entra My Apps portal.
 
 1. Select **Save**.
 
@@ -245,11 +247,11 @@ connectors:
 
 To confirm that authentication is working as expected, make a request to an application resource through the Maverics proxy. The protected application should now be receiving headers on the request. 
 
-Feel free to edit the header keys if your application expects different headers. All claims that come back from Azure AD as part of the SAML flow are available to use in headers. For example, you can include another header of `secondary_email: azureSonarApp.email`, where `azureSonarApp` is the connector name and `email` is a claim returned from Azure AD. 
+Feel free to edit the header keys if your application expects different headers. All claims that come back from Microsoft Entra ID as part of the SAML flow are available to use in headers. For example, you can include another header of `secondary_email: azureSonarApp.email`, where `azureSonarApp` is the connector name and `email` is a claim returned from Microsoft Entra ID. 
 
 ## Step 6: Work with multiple applications
 
-Let's now take a look at what's required to proxy to multiple applications that are on different hosts. To achieve this step, configure another App Gateway, another enterprise application in Azure AD, and another connector.
+Let's now take a look at what's required to proxy to multiple applications that are on different hosts. To achieve this step, configure another App Gateway, another enterprise application in Microsoft Entra ID, and another connector.
 
 Your config file should now contain this code:
 
@@ -333,9 +335,9 @@ Don't want to rework your network and proxy traffic through the Maverics Orchest
 
 ## Wrap-up
 
-At this point, you've installed the Maverics Orchestrator, created and configured an enterprise application in Azure AD, and configured the Orchestrator to proxy to a protected application while requiring authentication and enforcing policy. To learn more about how the Maverics Orchestrator can be used for distributed identity management use cases, [contact Strata](mailto:sales@strata.io).
+At this point, you've installed the Maverics Orchestrator, created and configured an enterprise application in Microsoft Entra ID, and configured the Orchestrator to proxy to a protected application while requiring authentication and enforcing policy. To learn more about how the Maverics Orchestrator can be used for distributed identity management use cases, [contact Strata](mailto:sales@strata.io).
 
 ## Next steps
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)

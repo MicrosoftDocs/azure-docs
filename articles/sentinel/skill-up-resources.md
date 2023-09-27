@@ -76,7 +76,7 @@ Finally, do you want to try it yourself? The Microsoft Sentinel All-In-One Accel
 
 Thousands of organizations and service providers are using Microsoft Sentinel. As is usual with security products, most organizations don't go public about it. Still, here are a few who have:
 
-* Find [public customer use cases](https://customers.microsoft.com/home).
+* Find [public customer use cases](https://customers.microsoft.com/).
 * [Insight](https://www.insightcdct.com/) released a use case about [an NBA team adopts Microsoft Sentinel](https://www.insightcdct.com/Resources/Case-Studies/Case-Studies/NBA-Team-Adopts-Azure-Sentinel-for-a-Modern-Securi).
 * Stuart Gregg, Security Operations Manager at ASOS, posted a much more detailed [blog post from the Microsoft Sentinel experience, focusing on hunting](https://medium.com/@stuart.gregg/proactive-phishing-with-azure-sentinel-part-1-b570fff3113).
  

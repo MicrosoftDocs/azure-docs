@@ -9,7 +9,7 @@ metadata:
   author: Dickson-Mwendia
   manager: CelesteDG
   ms.author: dmwendia
-  ms.date: 04/01/2022
+  ms.date: 09/21/2023
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: landing-page
@@ -38,7 +38,7 @@ landingContent:
           - text: JavaScript
             url: tutorial-v2-javascript-auth-code.md
           - text: React
-            url: ./single-page-app-tutorial-01-register-app.md
+            url: tutorial-single-page-app-react-register-app.md
   - title: "Scenario in depth"
     linkLists:
       - linkListType: how-to-guide

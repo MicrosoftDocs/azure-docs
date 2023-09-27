@@ -29,14 +29,14 @@ An account in the Microsoft identity platform consists of:
   - Picture, Given Name, Family Name, Title, Office Location
 - An account has a source of authority or system of record. This is the system where the account is created and where the credentials associated with that account are stored. In multi-tenant systems like the Microsoft identity platform, the system of record is the `tenant` where the account was created. This tenant is also referred as the `home tenant`.
 - Accounts in the Microsoft identity platform have the following systems of record:
-  - Azure Active Directory, including Azure Active Directory B2C.
+  - Microsoft Entra ID, including Azure Active Directory B2C.
   - Microsoft account (Live).
 - Accounts from systems of record outside of the Microsoft identity platform are represented within the Microsoft identity platform including:
   - identities from connected on-premises directories (Windows Server Active Directory)
   - external identities from LinkedIn, GitHub, and so on.
   In these cases, an account has both an origin system of record and a system of record within the Microsoft identity platform.
-- The Microsoft identity platform allows one account to be used to access resources belonging to multiple organizations (Azure Active Directory tenants).
-  - To record that an account from one system of record (AAD Tenant A) has access to a resource in another system of record (AAD Tenant B), the account must be represented in the tenant where the resource is defined. This is done by creating a local record of the account from system A in system B.
+- The Microsoft identity platform allows one account to be used to access resources belonging to multiple organizations (Microsoft Entra tenants).
+  - To record that an account from one system of record (Microsoft Entra tenant A) has access to a resource in another system of record (Microsoft Entra tenant B), the account must be represented in the tenant where the resource is defined. This is done by creating a local record of the account from system A in system B.
   - This local record, that is the representation of the account, is bound to the original account.
   - MSAL exposes this local record as a `Tenant Profile`.
   - Tenant Profile can have different attributes that are appropriate to the local context, such as Job Title, Office Location, Contact Information, etc.
@@ -53,7 +53,7 @@ In the above diagram:
 
 - The account `bob@contoso.com` is created in the on-premises Windows Server Active Directory (origin on-premises system of record).
 - The account `tom@live.com` is created in the Microsoft account tenant.
-- `bob@contoso.com` has access to at least one resource in the following Azure Active Directory tenants:
+- `bob@contoso.com` has access to at least one resource in the following Microsoft Entra tenants:
   - contoso.com (cloud system of record - linked to on-premises system of record)
   - fabrikam.com
   - woodgrovebank.com
@@ -62,9 +62,9 @@ In the above diagram:
   - contoso.com
   - fabrikam.com
   - A tenant profile for `tom@live.com` exists in each of these tenants.
-- Information about Tom and Bob in other tenants may differ from that in the system of record. They may differ by attributes such as Job title, Office Location, and so on. They may be members of groups and/or roles within each organization (Azure Active Directory Tenant). We refer to this information as bob@contoso.com tenant profile.
+- Information about Tom and Bob in other tenants may differ from that in the system of record. They may differ by attributes such as Job title, Office Location, and so on. They may be members of groups and/or roles within each organization (Microsoft Entra tenant). We refer to this information as bob@contoso.com tenant profile.
 
-In the diagram, bob@contoso.com and tom@live.com have access to resources in different Azure Active Directory tenants. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
+In the diagram, bob@contoso.com and tom@live.com have access to resources in different Microsoft Entra tenants. For more information, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
 ## Accounts and single sign-on (SSO)
 
@@ -116,7 +116,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 > To see a list of claims available from the account object, refer to the [ID token claims reference](./id-token-claims-reference.md).
 
 > [!TIP]
-> To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](./optional-claims.md)
+> To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Microsoft Entra app](./optional-claims.md)
 
 ### Access tenant profile claims
 

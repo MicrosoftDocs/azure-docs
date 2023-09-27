@@ -268,13 +268,15 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     ```
 
 1. **Enable the fixed-rate sampling module.** Add this snippet to [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md):
+
+    In this example, SamplingPercentage is 20, so **20%** of all items will be sampled. Values in Metrics Explorer will be multiplied by (100/20) = **5** to compensate.
    
     ```xml
     <TelemetryProcessors>
         <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
             <!-- Set a percentage close to 100/N where N is an integer. -->
             <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-            <SamplingPercentage>10</SamplingPercentage>
+            <SamplingPercentage>20</SamplingPercentage>
         </Add>
     </TelemetryProcessors>
     ```

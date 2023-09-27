@@ -1,6 +1,6 @@
 ---
-title: The Azure AD Connect Sync Service Manager Metaverse Search| Microsoft Docs'
-description: Understand the Metaverse Search tab in the Synchronization Service Manager for Azure AD Connect.
+title: The Microsoft Entra Connect Sync Service Manager Metaverse Search| Microsoft Docs'
+description: Understand the Metaverse Search tab in the Synchronization Service Manager for Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -26,6 +26,6 @@ The metaverse search tab is useful for troubleshooting data-related problems. In
 In the search results, select an object and **Properties** to see the [metaverse object properties](tshoot-connect-object-not-syncing.md#metaverse-object-properties).
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
+Learn more about the [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

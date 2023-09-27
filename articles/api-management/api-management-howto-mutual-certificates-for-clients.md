@@ -72,6 +72,9 @@ Configure the policy to validate one or more attributes including certificate is
 
 You can also create policy expressions with the [`context` variable](api-management-policy-expressions.md#ContextVariables) to check client certificates. Examples in the following sections show expressions using the `context.Request.Certificate` property and other `context` properties.
 
+> [!NOTE]
+> Mutual certificate authentication might not function correctly when the API Management gateway endpoint is exposed through the Application Gateway. This is because Application Gateway functions as a Layer 7 load balancer, establishing a distinct SSL connection with the backend API Management service. Consequently, the certificate attached by the client in the initial HTTP request will not be forwarded to APIM. However, as a workaround, you can transmit the certificate using the server variables option. For detailed instructions, refer to [Mutual Authentication Server Variables](../application-gateway/rewrite-http-headers-url.md#mutual-authentication-server-variables).
+
 > [!IMPORTANT]
 > * Starting May 2021, the `context.Request.Certificate` property only requests the certificate when the API Management instance's [`hostnameConfiguration`](/rest/api/apimanagement/current-ga/api-management-service/create-or-update#hostnameconfiguration) sets the `negotiateClientCertificate` property to True. By default, `negotiateClientCertificate` is set to False.
 > * If TLS renegotiation is disabled in your client, you may see TLS errors when requesting the certificate using the `context.Request.Certificate` property. If this occurs, enable TLS renegotiation settings in the client. 

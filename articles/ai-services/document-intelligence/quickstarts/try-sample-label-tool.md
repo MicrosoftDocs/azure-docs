@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: In this quickstart, you'll learn to use the Document Intelligence Sample Labeling tool to manually label documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar

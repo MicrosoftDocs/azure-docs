@@ -5,8 +5,7 @@ description: Learn how to identify and link entities found in text with the enti
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: aahi

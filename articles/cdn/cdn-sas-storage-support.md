@@ -63,7 +63,7 @@ This option is the simplest and uses a single SAS token, which is passed from Az
 
 ### Option 2: Using CDN security token authentication with a rewrite rule
 
-To use Azure CDN security token authentication, you must have an **Azure CDN Premium from Verizon** profile. This option is the most secure and customizable. Client access is based on the security parameters that you set on the security token. Once you've created and set up the security token, it's required on all CDN endpoint URLs. However, because of the URL Rewrite rule, the SAS token isn't required on the CDN endpoint. If the SAS token later becomes invalid, Azure CDN can't revalidate the content from the origin server.
+To use Azure CDN security token authentication, you must have an **Azure CDN Premium from Edgio** profile. This option is the most secure and customizable. Client access is based on the security parameters that you set on the security token. Once you've created and set up the security token, it's required on all CDN endpoint URLs. However, because of the URL Rewrite rule, the SAS token isn't required on the CDN endpoint. If the SAS token later becomes invalid, Azure CDN can't revalidate the content from the origin server.
 
 1. [Create an Azure CDN security token](./cdn-token-auth.md#setting-up-token-authentication) and activate it by using the rules engine for the CDN endpoint and path where your users can access the file.
 
@@ -101,7 +101,7 @@ Because SAS parameters aren't visible to Azure CDN, Azure CDN can't change its d
 | --- | --- |
 | Start | The time that Azure CDN can begin to access the blob file. Due to clock skew (when a clock signal arrives at different times for different components), choose a time 15 minutes earlier if you want the asset to be available immediately. |
 | End | The time after which Azure CDN can no longer access the blob file. Previously cached files on Azure CDN are still accessible. To control the file expiry time, either set the appropriate expiry time on the Azure CDN security token or purge the asset. |
-| Allowed IP addresses | Optional. If you're using **Azure CDN from Verizon**, you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](./cdn-pop-list-api.md). If you're using **Azure CDN from Akamai**, you can't set the IP ranges parameter because the IP addresses aren't static.|
+| Allowed IP addresses | Optional. If you're using **Azure CDN from Edgio**, you can set this parameter to the ranges defined in [Azure CDN from Edgio Edge Server IP Ranges](./cdn-pop-list-api.md). If you're using **Azure CDN from Akamai**, you can't set the IP ranges parameter because the IP addresses aren't static.|
 | Allowed protocols | The protocol(s) allowed for a request made with the account SAS. The HTTPS setting is recommended.|
 
 ## Next steps

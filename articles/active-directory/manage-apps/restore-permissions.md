@@ -1,6 +1,6 @@
 ---
-title: Restore revoked permissions granted to applications in Azure Active Directory
-description: Learn how to review and restore revoked permissions for an application in Azure Active Directory.
+title: Restore revoked permissions granted to applications in Microsoft Entra ID
+description: Learn how to review and restore revoked permissions for an application in Microsoft Entra ID.
 services: active-directory
 author: Jackson-Woods
 manager: CelesteDG
@@ -22,7 +22,7 @@ ms.custom: enterprise-apps
 
 In this article, you learn how to restore previously revoked permissions that were granted to an application. You can restore permissions for an application that was granted permissions to access your organization's data. You can also restore permissions for an application that was granted permissions to act as a user.
 
-Currently, restoring permissions is only possible through Microsoft Graph PowerShell and Microsoft Graph API calls. You can't restore permissions through the Azure portal. In this article, you learn how to restore permissions using Microsoft Graph PowerShell.
+Currently, restoring permissions is only possible through Microsoft Graph PowerShell and Microsoft Graph API calls. You can't restore permissions through the Microsoft Entra admin center. In this article, you learn how to restore permissions using Microsoft Graph PowerShell.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ You can try different methods for restoring permissions:
 - If you know the specific permission that was revoked, you can grant it again manually using [PowerShell](/powershell/microsoftgraph/tutorial-grant-delegated-api-permissions?view=graph-powershell-1.0&preserve-view=true) or the [Microsoft Graph API](/graph/permissions-grant-via-msgraph?tabs=http&pivots=grant-delegated-permissions).
 - If you don't know the revoked permissions, you can use the scripts provided in this article to detect and restore revoked permissions.
 
-First, set the servicePrincipalId value in the script to the ID value for the enterprise app whose permissions you want to restore. This ID is also called the `object ID` in the Azure portal **Enterprise applications** page.
+First, set the servicePrincipalId value in the script to the ID value for the enterprise app whose permissions you want to restore. This ID is also called the `object ID` in the Microsoft Entra admin center **Enterprise applications** page.
 
 Then, run each script with `$ForceGrantUpdate = $false` in order to see a list of delegated or app-only permissions that maybe have been removed. Even if the permissions have already been restored, revoke events from your audit logs may still appear in the script results.
 

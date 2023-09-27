@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Learn about what is new with Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: whats-new
 ms.date: 12/16/2022
 ms.author: mbullwin

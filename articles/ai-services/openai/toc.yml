@@ -29,6 +29,8 @@ items:
       href: dall-e-quickstart.md
     - name: Use your data (preview)
       href: use-your-data-quickstart.md
+    - name: Whisper (preview)
+      href: whisper-quickstart.md
 - name: Concepts
   items:
     - name: Abuse monitoring

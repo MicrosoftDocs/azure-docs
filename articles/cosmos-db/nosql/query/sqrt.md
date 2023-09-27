@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -47,7 +47,7 @@ The following example returns the square roots of various numeric values.
 - This function doesn't use the index.
 - If you attempt to find the square root value that results in an imaginary number, you get an error that the value can't be represented in JSON. For example, ``SQRT(-25)`` gives this error.
 
-## Next steps
+## Related content
 
 - [System functions](system-functions.yml)
 - [``POWER``](power.md)

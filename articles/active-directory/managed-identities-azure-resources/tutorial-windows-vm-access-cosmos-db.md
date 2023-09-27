@@ -61,7 +61,7 @@ Next, add a data collection in the Azure Cosmos DB account that you can query in
 
 ## Grant access
 
-This section shows how to grant Windows VM system-assigned managed identity access to the Azure Cosmos DB account access keys. Azure Cosmos DB does not natively support Azure AD authentication. However, you can use a system-assigned managed identity to retrieve an Azure Cosmos DB access key from Resource Manager, and use the key to access Azure Cosmos DB. In this step, you grant your Windows VM system-assigned managed identity access to the keys to the Azure Cosmos DB account.
+This section shows how to grant Windows VM system-assigned managed identity access to the Azure Cosmos DB account access keys. Azure Cosmos DB does not natively support Microsoft Entra authentication. However, you can use a system-assigned managed identity to retrieve an Azure Cosmos DB access key from Resource Manager, and use the key to access Azure Cosmos DB. In this step, you grant your Windows VM system-assigned managed identity access to the keys to the Azure Cosmos DB account.
 
 To grant the Windows VM system-assigned managed identity access to the Azure Cosmos DB account in Azure Resource Manager using PowerShell, update the following values:
 
@@ -97,7 +97,7 @@ You need to install the latest version of [Azure CLI](/cli/azure/install-azure-c
    ```
 
    > [!NOTE]
-   > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+   > The value of the "resource" parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
     
    Next, extract the "Content" element, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
     

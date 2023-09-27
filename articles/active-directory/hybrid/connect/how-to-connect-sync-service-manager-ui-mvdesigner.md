@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect MV Designer'
-description: Understand the Metaverse Designer tab in the Synchronization Service Manager for Azure AD Connect.
+title: Microsoft Entra Connect MV Designer'
+description: Understand the Metaverse Designer tab in the Synchronization Service Manager for Microsoft Entra Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -25,6 +25,6 @@ ms.collection: M365-identity-device-management
 For most customers, there is nothing to configure here.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
+Learn more about the [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md).

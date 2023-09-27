@@ -5,11 +5,10 @@ description: Language identification is used to determine the language being spo
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 9/19/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -578,7 +577,6 @@ SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-Language detection with a custom endpoint isn't supported by the Speech SDK for JavaScript. For example, if you include "fr-FR" as shown here, the custom endpoint will be ignored.
 
 ```Javascript
 var enLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("en-US");
@@ -593,7 +591,7 @@ var autoDetectSourceLanguageConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fr
 You use Speech translation when you need to identify the language in an audio source and then translate it to another language. For more information, see [Speech translation overview](speech-translation.md).
 
 > [!NOTE]
-> Speech translation with language identification is only supported with Speech SDKs in C#, C++, and Python. 
+> Speech translation with language identification is only supported with Speech SDKs in C#, C++, JavaScript, and Python. 
 > Currently for speech translation with language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 ::: zone pivot="programming-language-csharp"
 

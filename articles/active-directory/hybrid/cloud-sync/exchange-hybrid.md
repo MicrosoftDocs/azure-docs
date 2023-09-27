@@ -41,15 +41,13 @@ Before deploying Exchange Hybrid with cloud sync you must meet the following pre
 ## How to enable
 Exchange Hybrid Writeback is disabled by default.  
 
- 1.  In the Azure portal, select **Azure Active Directory**.
- 2.  On the left, select **Azure AD Connect**.
- 3.  On the left, select **Cloud sync**.
- 4.  Click on an existing configuration.
- 5.  At the top, select **Properties**.  You should see Exchange hybrid writeback disabled.
- 6.  Select the pencil next to **Basic**. 
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3.  Click on an existing configuration.
+ 4.  At the top, select **Properties**.  You should see Exchange hybrid writeback disabled.
+ 5.  Select the pencil next to **Basic**. 
    :::image type="content" source="media/exchange-hybrid/exchange-hybrid-1.png" alt-text="Screenshot of the basic properties." lightbox="media/exchange-hybrid/exchange-hybrid-1.png":::
  
- 7. On the right, place a check in **Exchange hybrid writeback** and click **Apply**. 
+ 6. On the right, place a check in **Exchange hybrid writeback** and click **Apply**. 
    :::image type="content" source="media/exchange-hybrid/exchange-hybrid-2.png" alt-text="Screenshot of enabling Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-2.png":::
  
  >[!NOTE]
@@ -58,7 +56,7 @@ Exchange Hybrid Writeback is disabled by default.
 ## Attributes synchronized
 Cloud sync writes Exchange On-line attributes back to users in order to enable Exchange hybrid scenarios.  The following table is a list of the attributes and the mappings.
 
-|Azure AD attribute|AD attribute|Object Class|Mapping Type|
+|Microsoft Entra attribute|AD attribute|Object Class|Mapping Type|
 |-----|-----|-----|-----|
 |cloudAnchor|msDS-ExternalDirectoryObjectId|User, InetOrgPerson|Direct| 
 |cloudLegacyExchangeDN|proxyAddresses|User, Contact, InetOrgPerson|Expression| 
@@ -79,17 +77,15 @@ Provisioning on-demand with Exchange hybrid writeback requires two steps.  You n
 Provisioning on-demand with Exchange hybrid use the following steps
 
 
- 1. In the Azure portal, select **Azure Active Directory**.
- 2. On the left, select **Azure AD Connect**.
- 3. On the left, select **Cloud sync**.
- 4. Under **Configuration**, select your configuration.
- 5. On the left, select **Provision on demand**.
- 6. Enter the distinguished name of a user and select the **Provision** button.
- 7. A success screen appears with four green check marks. 
+ [!INCLUDE [sign in](../../../../includes/cloud-sync-sign-in.md)]
+ 3. Under **Configuration**, select your configuration.
+ 4. On the left, select **Provision on demand**.
+ 5. Enter the distinguished name of a user and select the **Provision** button.
+ 6. A success screen appears with four green check marks. 
     :::image type="content" source="media/exchange-hybrid/exchange-hybrid-3.png" alt-text="Screenshot of the initial Exchange writeback." lightbox="media/exchange-hybrid/exchange-hybrid-3.png":::
  
- 8. Click **Next**.  On the **Writeback exchange attributes to Active Directory** tab, the synchronization starts.  
- 9. You should see the success details.
+ 7. Click **Next**.  On the **Writeback exchange attributes to Active Directory** tab, the synchronization starts.  
+ 8. You should see the success details.
     :::image type="content" source="media/exchange-hybrid/exchange-hybrid-4.png" alt-text="Screenshot of Exchange attributes being written back." lightbox="media/exchange-hybrid/exchange-hybrid-4.png":::
    
     >[!NOTE]
@@ -101,4 +97,4 @@ You can use MS Graph API to enable Exchange hybrid writeback.  For more informat
 ## Next steps
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)

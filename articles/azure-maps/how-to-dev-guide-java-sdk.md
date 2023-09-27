@@ -391,9 +391,9 @@ public class Demo{
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
 [Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
-[Azure Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
+[Azure Identity library]: /java/api/overview/azure/identity-readme?source=recommendations
 [Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/
-[Java Version 8]: /azure/developer/java/fundamentals/?view=azure-java-stable
+[Java Version 8]: /azure/developer/java/fundamentals
 [maven]: /azure/developer/java/sdk/get-started-maven
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 

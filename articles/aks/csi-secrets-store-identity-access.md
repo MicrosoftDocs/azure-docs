@@ -4,7 +4,7 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang 
 ms.author: nickoman
 ms.topic: article
-ms.date: 07/25/2023
+ms.date: 09/02/2023
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
@@ -85,8 +85,6 @@ Before you begin, you must have the following prerequisites:
     metadata:
       annotations:
         azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-      labels:
-        azure.workload.identity/use: "true"
       name: ${SERVICE_ACCOUNT_NAME}
       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
     EOF
@@ -142,7 +140,10 @@ Before you begin, you must have the following prerequisites:
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-wi
+      labels:  
+        azure.workload.identity/use: "true"
     spec:
+      serviceAccountName: "workload-identity-sa"
       containers:
         - name: busybox
           image: registry.k8s.io/e2e-test-images/busybox:1.29-4
@@ -165,7 +166,7 @@ Before you begin, you must have the following prerequisites:
 
 ## Access with a user-assigned managed identity
 
-1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity you created when you [enabled a managed identity on your AKS cluster][use-managed-identity].
+1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on when you [enabled the Azure Key Vault Provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support).
 
     ```azurecli-interactive
     az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv

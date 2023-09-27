@@ -1,6 +1,6 @@
 ---
-title: Use Azure Monitor Workbooks with Azure AD Domain Services | Microsoft Docs
-description: Learn how to use Azure Monitor Workbooks to review security audits and understand issues in an Azure Active Directory Domain Services managed domain.
+title: Use Azure Monitor Workbooks with Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to use Azure Monitor Workbooks to review security audits and understand issues in a Microsoft Entra Domain Services managed domain.
 author: justinha
 manager: amycolannino
 
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 09/21/2023
 ms.author: justinha
 
 ---
-# Review security audit events in Azure Active Directory Domain Services using Azure Monitor Workbooks
+# Review security audit events in Microsoft Entra Domain Services using Azure Monitor Workbooks
 
-To help you understand the state of your Azure Active Directory Domain Services (Azure AD DS) managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Azure AD DS includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
+To help you understand the state of your Microsoft Entra Domain Services managed domain, you can enable security audit events. These security audit events can then be reviewed using Azure Monitor Workbooks that combine text, analytics queries, and parameters into rich interactive reports. Domain Services includes workbook templates for security overview and account activity that let you dig into audit events and manage your environment.
 
-This article shows you how to use Azure Monitor Workbooks to review security audit events in Azure AD DS.
+This article shows you how to use Azure Monitor Workbooks to review security audit events in Domain Services.
 
 ## Before you begin
 
@@ -24,25 +24,25 @@ To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
 * Security audit events enabled for your managed domain that stream data to a Log Analytics workspace.
-    * If needed, [enable security audits for Azure AD DS][enable-security-audits].
+    * If needed, [enable security audits for Domain Services][enable-security-audits].
 
 ## Azure Monitor Workbooks overview
 
-When security audit events are turned on in Azure AD DS, it can be hard to analyze and identify issues in the managed domain. Azure Monitor lets you aggregate these security audit events and query the data. With Azure Monitor Workbooks, you can visualize this data to make it quicker and easier to identify issues.
+When security audit events are turned on in Domain Services, it can be hard to analyze and identify issues in the managed domain. Azure Monitor lets you aggregate these security audit events and query the data. With Azure Monitor Workbooks, you can visualize this data to make it quicker and easier to identify issues.
 
 Workbook templates are curated reports that are designed for flexible reuse by multiple users and teams. When you open a workbook template, the data from your Azure Monitor environment is loaded. You can use templates without an impact on other users in your organization, and can save your own workbooks based on the template.
 
-Azure AD DS includes the following two workbook templates:
+Domain Services includes the following two workbook templates:
 
 * Security overview report
 * Account activity report
 
-For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
+For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](/azure/azure-monitor/visualize/workbooks-overview).
 
 ## Use the security overview report workbook
 
@@ -50,7 +50,7 @@ To help you better understand usage and identify potential security threats, the
 
 To access the workbook template for the security overview report, complete the following steps:
 
-1. Search for and select **Azure AD Domain Services** in the Azure portal.
+1. Search for and select **Microsoft Entra Domain Services** in the Azure portal.
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 
@@ -61,7 +61,7 @@ To access the workbook template for the security overview report, complete the f
 
     Choose a **Time range**, such as *Last 7 days*, as shown in the following example screenshot:
 
-    ![Select the Workbooks menu option in the Azure portal](./media/use-azure-monitor-workbooks/select-query-filters.png)
+    ![Select the Workbooks menu option](./media/use-azure-monitor-workbooks/select-query-filters.png)
 
     The **Tile view** and **Chart view** options can also be changed to analyze and visualize the data as desired.
 
@@ -79,7 +79,7 @@ To help you troubleshoot issues for a specific user account, the account activit
 
 To access the workbook template for the account activity report, complete the following steps:
 
-1. Search for and select **Azure AD Domain Services** in the Azure portal.
+1. Search for and select **Microsoft Entra Domain Services** in the Azure portal.
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 1. Choose the **Account Activity Report**.
@@ -97,7 +97,7 @@ As with the security overview report, you can drill down into the different tile
 
 ## Save and edit workbooks
 
-The two template workbooks provided by Azure AD DS are a good place to start with your own data analysis. If you need to get more granular in the data queries and investigations, you can save your own workbooks and edit the queries.
+The two template workbooks provided by Domain Services are a good place to start with your own data analysis. If you need to get more granular in the data queries and investigations, you can save your own workbooks and edit the queries.
 
 1. To save a copy of one of the workbook templates, select **Edit > Save as > Shared reports**, then provide a name and save it.
 1. From your own copy of the template, select **Edit** to enter the edit mode. You can choose the blue **Edit** button next to any part of the report and change it.
@@ -111,12 +111,12 @@ If you need to adjust password and lockout policies, see [Password and account l
 For problems with users, learn how to troubleshoot [account sign-in problems][troubleshoot-sign-in] or [account lockout problems][troubleshoot-account-lockout].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [enable-security-audits]: security-audit-events.md
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
 [azure-monitor-queries]: /azure/data-explorer/kusto/query/
-[kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer
+[kusto-queries]: /azure/data-explorer/kusto/query/tutorials/learn-common-operators?pivots=azuredataexplorer

@@ -31,7 +31,7 @@ To assign custom security attributes and add role assignments conditions in your
 - [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 > [!IMPORTANT]
-> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition builder.
+> By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition editor.
 
 ## Condition
 

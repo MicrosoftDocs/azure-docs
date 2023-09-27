@@ -6,44 +6,81 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: troubleshooting
-ms.date: 07/24/2023
+ms.date: 09/25/2023
 ms.author: greglin
 ---
 
 # Troubleshooting in Application Gateway for Containers (preview)
 
-Learn how to troubleshoot common problems in Application Gateway for Containers.
+This article provides some guidance to help you troubleshoot common problems in Application Gateway for Containers.
+
+## Find the version of ALB Controller
+
+Before you start troubleshooting, determine the version of ALB Controller that is deployed. You can determine which version of ALB Controller is running by using the following _kubectl_ command (ensure you substitute your namespace if not using the default namespace of `azure-alb-system`):
+
+```bash
+kubectl get deployment -n azure-alb-system -o wide
+```
+Example output:
+
+| NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
+| ------------------------ | ----- | ---------- | --------- | ---- | ----------------------- | ------------------------------------------------------------------------------- | -------- |
+| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**0.5.024542**           | app=alb-controller |
+| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**0.5.024542** | app=alb-controller-bootstrap |
+
+In this example, the ALB controller version is **0.5.024542**. 
+
+The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see [Install the ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller).
+
+> [!Tip]
+> The latest ALB Controller version can be found in the [ALB Controller release notes](alb-controller-release-notes.md#latest-release-recommended).
 
 ## Collect ALB Controller logs
-Logs may be collected from the ALB Controller by using the _kubectl logs_ command referencing the ALB Controller pod.
+Logs can be collected from the ALB Controller by using the _kubectl logs_ command referencing the ALB Controller pod.
 
 1. Get the running ALB Controller pod name
 
-    Execute the following kubectl command:
+    Run the following kubectl command. Ensure you substitute your namespace if not using the default namespace of `azure-alb-system`:
     ```bash
     kubectl get pods -n azure-alb-system
     ```
     
-    You should see the following (pod names may differ slightly from the following table):
+    You should see output similar to the following example. Pod names might differ slightly.
    
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
-    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
+    | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
+    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
 
-    Copy the name of the alb-controller pod (not the bootstrap pod, in this case, alb-controller-6648c5d5c-au234).
+    ALB controller uses an election provided by controller-runtime manager to determine an active and standby pod for high availability.
+    
+    Copy the name of each alb-controller pod (not the bootstrap pod, in this case, `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
+
+    # [Linux](#tab/active-pod-linux)
+    ```bash
+    kubectl logs alb-controller-6648c5d5c-sdd9t -n azure-alb-system -c alb-controller | grep "successfully acquired lease"
+    ```
+
+    # [Windows](#tab/active-pod-windows)
+    ```cli
+    kubectl logs alb-controller-6648c5d5c-sdd9t -n azure-alb-system -c alb-controller| findstr "successfully acquired lease"
+    ```
+    ---
+
+    You should see the following if the pod is primary: `successfully acquired lease azure-alb-system/alb-controller-leader-election`
 
 2. Collect the logs
     Logs from ALB Controller will be returned in JSON format.
     
     Execute the following kubectl command, replacing the name with the pod name returned in step 1:
     ```bash
-    kubectl logs -n azure-alb-system alb-controller-6648c5d5c-au234
+    kubectl logs -n azure-alb-system alb-controller-6648c5d5c-sdd9t
     ```
     
     Similarly, you can redirect the output of the existing command to a file by specifying the greater than (>) sign and the filename to write the logs to:
     ```bash
-    kubectl logs -n azure-alb-system alb-controller-6648c5d5c-au234 > alb-controller-logs.json
+    kubectl logs -n azure-alb-system alb-controller-6648c5d5c-sdd9t > alb-controller-logs.json
     ```
 
 ## Configuration errors

@@ -154,11 +154,14 @@ To make testing easier, we've published a sample app [here](https://github.com/A
 **Limitations and known issues** </br>
 While in private preview, a Communication Services user can do various actions using the Communication Services Chat SDK, including sending and receiving plain and rich text messages, typing indicators, read receipts, real-time notifications, and more. However, most of the Teams chat features aren't supported. Here are some key behaviors and known issues:
 - Communication Services users can only initiate chats. 
--    Communication Services users can't send or receive GIFs, images, or files. Links to files and images can be shared.
+-    Communication Services users can't send images, or files to the Teams user. But they can receive images and files from the Teams user. Links to files and images can also be shared.
 -    Communication Services users can delete the chat. This action removes the Teams user from the chat thread and hides the message history from the Teams client.
-- Known issue: Communication Services users aren't displayed correctly in the participant list. They're currently displayed as External, but their people cards show inconsistent data. 
+- Known issue: Communication Services users aren't displayed correctly in the participant list. They're currently displayed as External, but their people cards show inconsistent data. In addition, their displayname might not be shown properly in the Teams client.
+- Known issue: The typing event from Teams side might contain a blank display name.
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
 - Known issue: Editing of messages by the Teams user isn't supported. 
+
+Please refer to [Chat Capabilities](../interop/guest/capabilities.md) to learn more. 
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chats. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.

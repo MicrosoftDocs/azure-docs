@@ -1,6 +1,6 @@
 ---
 title: Elements of the B2B invitation email
-description: Azure Active Directory B2B collaboration invitation email template
+description: Microsoft Entra B2B collaboration invitation email template
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # The elements of the B2B collaboration invitation email
 
-Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. It’s [not required that you send an email to invite someone using B2B collaboration](redemption-experience.md#redemption-process-through-a-direct-link), but it gives the user all the information they need to decide if they accept your invite or not. It also gives them a link they can always refer to in the future when they need to return to your resources.
+Invitation emails are a critical component to bring partners on board as Microsoft Entra B2B collaboration users. It’s [not required that you send an email to invite someone using B2B collaboration](redemption-experience.md#redemption-process-through-a-direct-link), but it gives the user all the information they need to decide if they accept your invite or not. It also gives them a link they can always refer to in the future when they need to return to your resources.
 
 ![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)
 
@@ -37,7 +37,7 @@ We use a LinkedIn-like pattern for the From address. This pattern should make it
 
 > [!NOTE]
 > For the Azure service operated by [21Vianet in China](/azure/china), the sender address is Invites@oe.21vianet.com.  
-> For the [Azure AD Government](../../azure-government/index.yml), the sender address is invites@azuread.us.
+> For [Microsoft Entra ID for government](../../azure-government/index.yml), the sender address is invites@azuread.us.
 
 ### Reply To
 
@@ -87,16 +87,16 @@ The language presented to the guest user in the invitation email is determined b
 
 - The **messageLanguage** property of the [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) object if the Create invitation API is used
 -	The **preferredLanguage** property specified in the guest's [user object](/graph/api/resources/user)
--	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)
+-	The **Notification language** set in the properties of the guest user’s home tenant (for Microsoft Entra tenants only)
 -	The **Notification language** set in the properties of the resource tenant
 
 If none of these settings are configured, the language defaults to English (US).
 
 ## Next steps
 
-See the following articles on Azure AD B2B collaboration:
+See the following articles on Microsoft Entra B2B collaboration:
 
-- [What is Azure AD B2B collaboration](what-is-b2b.md)
-- [How do Azure Active Directory admins add B2B collaboration users?](add-users-administrator.md)
+- [What is Microsoft Entra B2B collaboration](what-is-b2b.md)
+- [How do Microsoft Entra admins add B2B collaboration users?](add-users-administrator.md)
 - [How do information workers add B2B collaboration users?](add-users-information-worker.md)
 - [B2B collaboration invitation redemption](redemption-experience.md)

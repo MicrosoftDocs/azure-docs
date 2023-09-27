@@ -1,6 +1,6 @@
 ---
-title: 'Change the Azure AD Connector account password'
-description: This topic documents how to restore the Azure AD Connector account.
+title: 'Change the Microsoft Entra Connector account password'
+description: This topic documents how to restore the Microsoft Entra Connector account.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,22 +18,22 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Change the Azure AD Connector account password
-The Azure AD Connector account is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the account using PowerShell.
+# Change the Microsoft Entra Connector account password
+The Microsoft Entra Connector account is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the account using PowerShell.
 
 ## Reset the credentials
-If the Azure AD Connector account cannot contact Azure AD due to authentication problems, the password can be reset.
+If the Microsoft Entra Connector account cannot contact Microsoft Entra ID due to authentication problems, the password can be reset.
 
-1. Sign in to the Azure AD Connect sync server and open PowerShell.
-2. To provide the Azure AD Global Administrator credentials, run `$credential = Get-Credential`.
+1. Sign in to the Microsoft Entra Connect Sync server and open PowerShell.
+2. To provide the Microsoft Entra Global Administrator credentials, run `$credential = Get-Credential`.
 3. Run the cmdlet `Add-ADSyncAADServiceAccount -AADCredential $credential`.
 
    If the cmdlet is successful, the PowerShell command prompt appears. 
    
-The cmdlet resets the password for the service account and updates it both in Azure AD and the sync engine.
+The cmdlet resets the password for the service account and updates it both in Microsoft Entra ID and the sync engine.
 
 ## Known issues these steps can solve
-This section is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD Connector account.
+This section is a list of errors reported by customers that were fixed by a credentials reset on the Microsoft Entra Connector account.
 
 ---
 Event 6900
@@ -48,5 +48,5 @@ AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for
 ## Next steps
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

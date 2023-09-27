@@ -37,10 +37,9 @@ To run this sample, you need:
 
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Browse to **Identity** > **Applications** > **App registrations**, select **New registration**.
 1. Enter a **Name** for your application, for example `Daemon-console`. Users of your app might see this name, and you can change it later.
 1. Select **Register**.
 1. Under **Manage**, select **Certificates & secrets**.
@@ -70,7 +69,7 @@ To register your application and add the app's registration information to your 
    - `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
 
 > [!TIP]
-> To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
+> To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Microsoft Entra admin center. To generate a new key, go to **Certificates & secrets** page.
 
 
 #### Step 4: Admin consent
@@ -79,7 +78,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Global tenant administrator
 
-If you're a global tenant administrator, go to **API Permissions** page in **App registrations** in the Azure portal and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
+If you're a global tenant administrator, go to **API Permissions** page in **App registrations** in the Microsoft Entra admin center and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
 
 ##### Standard user
@@ -109,7 +108,7 @@ Then, run the application via command prompt or console:
 python confidential_client_secret_sample.py parameters.json
 ```
 
-You should see on the console output some Json fragment representing a list of users in your Azure AD directory.
+You should see on the console output some JSON fragment representing a list of users in your Microsoft Entra directory.
 
 > [!IMPORTANT]
 > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) in the same GitHub repository for this sample, but in the second folder **2-Call-MsGraph-WithCertificate**.
@@ -144,8 +143,8 @@ app = msal.ConfidentialClientApplication(
 
 | Where: |Description |
 |---------|---------|
-| `config["secret"]` | Is the client secret created for the application in Azure portal. |
-| `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+| `config["secret"]` | Is the client secret created for the application in Microsoft Entra admin center. |
+| `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Microsoft Entra admin center. You can find this value in the app's **Overview** page in the Microsoft Entra admin center. |
 | `config["authority"]`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant ID.|
 
 For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication).
@@ -165,7 +164,7 @@ if not result:
 
 |Where:| Description |
 |---------|---------|
-| `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Azure portal.|
+| `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Microsoft Entra admin center (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under the **Expose an API** section in **App registrations** in the Microsoft Entra admin center.|
 
 For more information, please see the [reference documentation for `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client).
 

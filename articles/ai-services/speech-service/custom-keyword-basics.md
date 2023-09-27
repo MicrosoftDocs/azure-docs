@@ -5,8 +5,7 @@ description: When a user speaks the keyword, your device sends their dictation t
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 11/12/2021
 ms.author: eur

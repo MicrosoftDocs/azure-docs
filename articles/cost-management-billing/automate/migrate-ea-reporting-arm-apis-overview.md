@@ -4,16 +4,28 @@ titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2022
+ms.date: 09/15/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview
 
-This article helps developers that have built custom solutions using the [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) to migrate to Microsoft Cost Management APIs. Service principal support is available in the newer Cost Management APIs and they are still actively being developed. Consider migrating to them instead of using the older Azure Enterprise Reporting APIs. The older APIs are being deprecated. This article helps you understand the differences between the Azure Enterprise Reporting APIs and the Cost Management APIs, what to expect when you migrate to the Cost Management APIs, and the new capabilities that are available with the Cost Management APIs.
+This article informs developers that have built custom solutions using the [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) about important changes. The newer Microsoft Cost Management APIs now offer enhanced capabilities and support for service principals, making them a more robust choice for your projects.
+
+**Key points**:
+- Migration recommended - We strongly recommend that you consider migrating your custom solutions to the Microsoft Cost Management APIs. They're actively being developed and offer improved functionality.
+- Retirement date - The Azure Enterprise Reporting APIs will be retired on **May 1, 2024**. After this date, the APIs will stop responding to requests.
+
+**This article provides**:
+- An overview of the differences between [Azure Enterprise Reporting APIs](../manage/enterprise-api.md) and Cost Management APIs.
+- Guidance about what to expect when migrating to the Cost Management APIs.
+- Insight into the new capabilities available with the Cost Management APIs.
+
+**Call to action**:
+- To ensure a smooth transition, we encourage you to begin planning your migration to the Cost Management APIs well in advance of the retirement date.
 
 ## API differences
 

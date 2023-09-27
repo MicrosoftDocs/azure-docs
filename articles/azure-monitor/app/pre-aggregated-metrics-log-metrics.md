@@ -95,7 +95,7 @@ Selecting the [Enable alerting on custom metric dimensions](#custom-metrics-dime
 
 ## Next steps
 
-* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Near real time alerting](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric and TrackValue](./api-custom-events-metrics.md#getmetric)

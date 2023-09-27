@@ -1,5 +1,5 @@
 ---
-title: Azure AD Identity Protection risk-based access policies
+title: Microsoft Entra ID Protection risk-based access policies
 description: Identifying risk-based Conditional Access policies
 
 services: active-directory
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Access control policies can be applied to protect organizations when a sign-in or user is detected to be at risk. Such policies are called **risk-based policies**. 
 
-Azure AD Conditional Access offers two risk conditions: **Sign-in risk** and **User risk**. Organizations can create risk-based Conditional Access policies by configuring these two risk conditions and choosing an access control method. During each sign-in, Identity Protection sends the detected risk levels to Conditional Access, and the risk-based policies will apply if the policy conditions are satisfied.
+Microsoft Entra Conditional Access offers two risk conditions: **Sign-in risk** and **User risk**. Organizations can create risk-based Conditional Access policies by configuring these two risk conditions and choosing an access control method. During each sign-in, Identity Protection sends the detected risk levels to Conditional Access, and the risk-based policies will apply if the policy conditions are satisfied.
 
 ![Diagram that shows a conceptual risk-based Conditional Access policy.](./media/concept-identity-protection-policies/risk-based-conditional-access-diagram.png)
 
@@ -44,7 +44,7 @@ If risks are detected on a sign-in, users can perform the required access contro
 ![Screenshot of a sign-in risk-based Conditional Access policy.](./media/concept-identity-protection-policies/sign-in-risk-policy.png)
 
 > [!NOTE] 
-> Users must have previously registered for Azure AD multifactor authentication before triggering the sign-in risk policy.
+> Users must have previously registered for Microsoft Entra multifactor authentication before triggering the sign-in risk policy.
 
 ## User risk-based Conditional Access policy
 
@@ -57,7 +57,7 @@ A secure password change will remediate the user risk and close the risky user e
 
 ## Identity Protection policies
 
-While Identity Protection also offers a user interface for creating user risk policy and sign-in risk policy, we highly recommend that you [use Azure AD Conditional Access to create risk-based policies](howto-identity-protection-configure-risk-policies.md) for the following benefits:
+While Identity Protection also offers a user interface for creating user risk policy and sign-in risk policy, we highly recommend that you [use Microsoft Entra Conditional Access to create risk-based policies](howto-identity-protection-configure-risk-policies.md) for the following benefits:
 
 - Rich set of conditions to control access: Conditional Access offers a rich set of conditions such as applications and locations for configuration. The risk conditions can be used in combination with other conditions to create policies that best enforce your organizational requirements.
 - Multiple risk-based policies can be put in place to target different user groups or apply different access control for different risk levels.
@@ -66,13 +66,15 @@ While Identity Protection also offers a user interface for creating user risk po
 
 If you already have Identity Protection risk policies set up, we encourage you to [migrate them to Conditional Access](howto-identity-protection-configure-risk-policies.md#migrate-risk-policies-from-identity-protection-to-conditional-access).
 
-## Azure AD MFA registration policy
+<a name='azure-ad-mfa-registration-policy'></a>
 
-Identity Protection can help organizations roll out Azure AD multifactor authentication (MFA) using a policy requiring registration at sign-in. Enabling this policy is a great way to ensure new users in your organization have registered for MFA on their first day. Multifactor authentication is one of the self-remediation methods for risk events within Identity Protection. Self-remediation allows your users to take action on their own to reduce helpdesk call volume.
+## Microsoft Entra multifactor authentication registration policy
 
-More information about Azure AD multifactor authentication can be found in the article, [How it works: Azure AD multifactor authentication](../authentication/concept-mfa-howitworks.md).
+Identity Protection can help organizations roll out Microsoft Entra multifactor authentication using a policy requiring registration at sign-in. Enabling this policy is a great way to ensure new users in your organization have registered for MFA on their first day. Multifactor authentication is one of the self-remediation methods for risk events within Identity Protection. Self-remediation allows your users to take action on their own to reduce helpdesk call volume.
+
+More information about Microsoft Entra multifactor authentication can be found in the article, [How it works: Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 ## Next steps
 
-- [Enable Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
+- [Enable Microsoft Entra multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 - [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)

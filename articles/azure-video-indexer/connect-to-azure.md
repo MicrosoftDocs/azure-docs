@@ -3,8 +3,9 @@ title: Create a classic Azure AI Video Indexer account connected to Azure
 description: Learn how to create a classic Azure AI Video Indexer account connected to Azure.
 ms.topic: tutorial
 ms.date: 08/24/2022
-ms.author: itnorman
 ms.custom: ignite-fall-2021
+author: IngridAtMicrosoft
+ms.author: itnorman
 ---
 
 # Create a classic Azure AI Video Indexer account

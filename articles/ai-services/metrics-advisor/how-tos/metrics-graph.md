@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: How to configure your Metrics graph and visualize related anomalies in your data.
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: mbullwin

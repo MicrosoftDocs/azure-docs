@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -74,7 +74,7 @@ ORDER BY
     e.name
 ```
 
-## Next steps
+## Related content
 
 - [``ORDER BY`` clause](order-by.md)
 - [``OFFSET LIMIT`` clause](offset-limit.md)

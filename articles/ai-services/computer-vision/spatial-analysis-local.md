@@ -5,8 +5,7 @@ description: Use this guide to learn how to run Spatial Analysis on a recorded l
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 06/28/2022
 ms.author: pafarley

@@ -2,11 +2,11 @@
 title: Push settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to push key-values to an App Configuration Store
 services: azure-app-configuration
-author: mcleanbyron
+author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.author: mcleans
+ms.author: malev
 ---
 
 # Push settings to App Configuration with Azure Pipelines

@@ -5,8 +5,7 @@ description: Learn how to remediate common error codes when you use the Azure AI
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: troubleshooting
 ms.date: 04/01/2021
 ms.author: mbullwin

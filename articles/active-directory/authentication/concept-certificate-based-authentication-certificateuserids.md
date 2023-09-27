@@ -1,6 +1,6 @@
 ---
-title: Certificate user IDs for Azure AD certificate-based authentication 
-description: Learn about certificate user IDs for Azure AD certificate-based authentication without federation
+title: Certificate user IDs for Microsoft Entra certificate-based authentication 
+description: Learn about certificate user IDs for Microsoft Entra certificate-based authentication without federation
 
 services: active-directory
 ms.service: active-directory
@@ -19,7 +19,7 @@ ms.custom: has-adal-ref, has-azure-ad-ps-ref
 
 # Certificate user IDs 
 
-Users in Azure AD can have a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
+Users in Microsoft Entra ID can have a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
  
 ## Supported patterns for certificate user IDs
  
@@ -38,13 +38,13 @@ The values stored in **certificateUserIds** should be in the format described in
 For cloud-only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds. Cloud-only users can use both UX and MSGraph to write into certificateUserIds. For synched users, AD users with role **Hybrid Identity Administrator** can write into the attribute. Only Azure ADConnect can be used to update CertificateUserIds by syncing the value from on-prem for synched users. 
 
 >[!NOTE]
->Active Directory Administrators (including accounts with delegated administrative privilege over synched user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Azure AD for any synched accounts.
+>Active Directory Administrators (including accounts with delegated administrative privilege over synched user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Microsoft Entra ID for any synched accounts.
  
-## Update certificate user IDs in the Azure portal
+## Update certificate user IDs
  
-Tenant admins can use the following steps Azure portal to update certificate user IDs for a user account:
+Tenant admins can use the following steps to update certificate user IDs for a user account:
 
-1. In the Azure portal, click **All users (preview)**. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator). Search for and select **All users**. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/user.png" alt-text="Screenshot of test user account.":::
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 
 For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/microsoftgraph/installation):
 
-1. Start Windows PowerShell with administrator privileges.
+1. Start PowerShell with administrator privileges.
 1. Install and Import the Microsoft Graph PowerShell SDK
 
    ```powershell
@@ -157,11 +157,13 @@ For the configuration, you can use the [Azure Active Directory PowerShell Versio
       Update-MgUser -UserId $userObjectId -AuthorizationInfo $user.AuthorizationInfo
    ```
    
-## Update certificate user IDs using Azure AD Connect
+<a name='update-certificate-user-ids-using-azure-ad-connect'></a>
 
-To update certificate user IDs for federated users, configure Azure AD Connect to sync userPrincipalName to certificateUserIds. 
+## Update certificate user IDs using Microsoft Entra Connect
 
-1. On the Azure AD Connect server, find and start the **Synchronization Rules Editor**.
+To update certificate user IDs for federated users, configure Microsoft Entra Connect to sync userPrincipalName to certificateUserIds. 
+
+1. On the Microsoft Entra Connect server, find and start the **Synchronization Rules Editor**.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/sync-rules-editor.png" alt-text="Screenshot of Synchronization Rules Editor.":::
 
@@ -169,7 +171,7 @@ To update certificate user IDs for federated users, configure Azure AD Connect t
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/outbound.png" alt-text="Screenshot of outbound synchronization rule.":::
 
-1. Find the rule **Out to AAD – User Identity**, click **Edit**, and click **Yes** to confirm. 
+1. Find the rule **Out to Microsoft Entra ID – User Identity**, click **Edit**, and click **Yes** to confirm. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/user-identity.png" alt-text="Screenshot of user identity.":::
 
@@ -206,11 +208,13 @@ To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule
 1. Click **OK** to confirm. 
 
 > [!NOTE]
-> Make sure you use the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
+> Make sure you use the latest version of [Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
 
-For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/connect/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+For more information about declarative provisioning expressions, see [Microsoft Entra Connect: Declarative Provisioning Expressions](../hybrid/connect/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 
-## Synchronize alternativeSecurityId attribute from AD to Azure AD CBA CertificateUserIds
+<a name='synchronize-alternativesecurityid-attribute-from-ad-to-azure-ad-cba-certificateuserids'></a>
+
+## Synchronize alternativeSecurityId attribute from AD to Microsoft Entra CBA CertificateUserIds
 
 AlternativeSecurityId isn't part of the default attributes. An administrator needs to add the attribute to the person object, and then create the appropriate synchronization rules.
 
@@ -239,8 +243,8 @@ alt-security-identity-add.
 
    |Option | Value |
    |-------|-------|
-   |Name | Descriptive name of the rule, such as: Out to AAD - certificateUserIds |
-   |Connected System | Your Azure AD domain |
+   |Name | Descriptive name of the rule, such as: Out to Microsoft Entra ID - certificateUserIds |
+   |Connected System | Your Microsoft Entra domain |
    |Connected System Object Type | user |
    |Metaverse Object Type | person |
    |Precedence | Choose a random high number not currently used |
@@ -261,11 +265,11 @@ IIF(IsPresent([alternativeSecurityId]),
 
 ## Next steps
 
-- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-- [Azure AD CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
-- [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
-- [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Overview of Microsoft Entra CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Microsoft Entra CBA](concept-certificate-based-authentication-technical-deep-dive.md)
+- [How to configure Microsoft Entra CBA](how-to-certificate-based-authentication.md)
+- [Microsoft Entra CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
+- [Microsoft Entra CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
+- [Windows smart card logon using Microsoft Entra CBA](concept-certificate-based-authentication-smartcard.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)

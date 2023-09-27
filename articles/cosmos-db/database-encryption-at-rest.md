@@ -65,7 +65,7 @@ A: All Azure Cosmos DB regions have encryption turned on for all user data.
 A: There is no impact or changes to the performance SLAs now that encryption at rest is enabled for all existing and new accounts. You can read more on the [SLA for Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) page to see the latest guarantees.
 
 ### Q: Does the local emulator support encryption at rest?
-A: The emulator is a standalone dev/test tool and does not use the key management services that the managed Azure Cosmos DB service uses. Our recommendation is to enable BitLocker on drives where you are storing sensitive emulator test data. The [emulator supports changing the default data directory](local-emulator.md) as well as using a well-known location.
+A: The emulator is a standalone dev/test tool and does not use the key management services that the managed Azure Cosmos DB service uses. Our recommendation is to enable BitLocker on drives where you are storing sensitive emulator test data. The [emulator supports changing the default data directory](emulator.md) as well as using a well-known location.
 
 ## Next steps
 

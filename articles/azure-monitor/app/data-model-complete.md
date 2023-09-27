@@ -7,7 +7,7 @@ manager: carmonm
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 09/25/2023
 ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model
@@ -410,6 +410,20 @@ For more information, see [SDK version](https://github.com/MohanGsk/ApplicationI
 This field represents the node name used for billing purposes. Use it to override the standard detection of nodes.
 
 **Maximum length:** 256
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How would I measure the impact of a monitoring campaign?
+
+PageView Telemetry includes URL and you could parse the UTM parameter using a regex function in Kusto.
+          
+Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+
+### Why would a custom measurement succeed without error but the log doesn't show up?
+
+This can occur if you're using string values. Only numeric values work with custom measurements.
 
 ## Next steps
 

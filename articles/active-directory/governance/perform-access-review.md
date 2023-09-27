@@ -1,6 +1,6 @@
 ---
 title: Review access to groups & applications in access reviews
-description: Learn how to review access of group members or application access in Azure Active Directory access reviews.
+description: Learn how to review access of group members or application access in Microsoft Entra access reviews.
 services: active-directory
 author: owinfreyATL
 manager: amycolannino
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Review access to groups and applications in access reviews
 
-Microsoft Entra simplifies how enterprises manage access to groups and applications in Microsoft Entra and other Microsoft web services with a feature called access reviews. This article covers how a designated reviewer performs an access review for members of a group or users with access to an application. If you want to review access to an access package, read [Review access of an access package in entitlement management](entitlement-management-access-reviews-review-access.md).
+Microsoft Entra ID simplifies how enterprises manage access to groups and applications in Microsoft Entra ID and other Microsoft web services with a feature called access reviews. This article covers how a designated reviewer performs an access review for members of a group or users with access to an application. If you want to review access to an access package, read [Review access of an access package in entitlement management](entitlement-management-access-reviews-review-access.md).
 
 ## Perform access review by using My Access
 You can review access to groups and applications via My Access. My Access is a user-friendly portal for granting, approving, and reviewing access needs.
@@ -119,7 +119,7 @@ If you're the second-stage or third-stage reviewer, you'll also see the decision
 Approve or deny access as outlined in [Review access for one or more users](#review-access-for-one-or-more-users).
 
 > [!NOTE]
-> The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Azure portal. This action will close the active stage and start the next stage.
+> The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Microsoft Entra admin center. This action will close the active stage and start the next stage.
 
 ### Review access for B2B direct connect users in Teams shared channels and Microsoft 365 groups (preview)
 

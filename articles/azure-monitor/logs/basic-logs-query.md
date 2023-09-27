@@ -6,7 +6,6 @@ ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
 ms.date: 10/01/2022
-
 ---
 
 # Query Basic Logs in Azure Monitor
@@ -89,16 +88,16 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 }
 ```
 
+
 ---
 ## Pricing model
 The charge for a query on Basic Logs is based on the amount of data the query scans, which is influenced by the size of the table and the query's time range. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-> [!NOTE]
-> Billing of queries on Basic Logs is not yet enabled. You can query Basic Logs for free until early 2023.
 
 ## Next steps
 
 - [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
 - [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times](search-jobs.md).
+
