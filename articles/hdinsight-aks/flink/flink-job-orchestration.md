@@ -99,7 +99,7 @@ You can read more details about DAGs, Control Flow, SubDAGs, TaskGroups, etc. di
 
 ## DAG execution 
 
-Example code is available on the git; download the code locally on your computer and upload the wordcount.py to a blob storage. Follow the [steps](/azure/data-factory/how-does-managed-airflow-work#steps-to-import) to import DAG into your Managed Airflow created during setup. 
+Example code is available on the [git](https://github.com/Azure-Samples/hdinsight-aks/blob/main/flink/airflow-python-sample-code); download the code locally on your computer and upload the wordcount.py to a blob storage. Follow the [steps](/azure/data-factory/how-does-managed-airflow-work#steps-to-import) to import DAG into your Managed Airflow created during setup. 
 
 The wordcount.py is an example of orchestrating a Flink job submission using Apache Airflow with HDInsight on AKS. The example is based on the wordcount example provided on [Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/dataset/examples/).  
 
