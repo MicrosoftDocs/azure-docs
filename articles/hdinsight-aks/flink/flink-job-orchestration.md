@@ -172,7 +172,7 @@ The DAG expects to have setup for the Service Principal, as described during the
   'jarName':'WordCount.jar',
   'jarDirectory':'abfs://filesystem@<storageaccount>.dfs.core.windows.net', 
   'subscritpion':'<cluster subscription id>',
-  'rg':'<cluster rescource group>', 
+  'rg':'<cluster resource group>', 
   'poolNm':'<cluster pool name>',
   'clusterNm':'<cluster name>'
   }
