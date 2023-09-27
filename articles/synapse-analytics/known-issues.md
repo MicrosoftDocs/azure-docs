@@ -96,6 +96,12 @@ Deleting a Synapse workspace fails with the error message:
 
 **Workaround**: The problem can be mitigated by retrying the delete operation. The engineering team is aware of this behavior and working on a fix.
 
+### Unsuccessful updates to network settings may reflect as successful 
+
+When performing an operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation may fail, however the APIs and Portal UI for the workspace may return the newly set values.
+
+**Workaround**: The problem can be mitigated by retrying the operation and reverting the changes as needed. The engineering team is aware of this behavior and working on a fix.
+
 ## Recently Closed Known issues
 
 |Synapse Component|Issue|Status|Date Resolved
