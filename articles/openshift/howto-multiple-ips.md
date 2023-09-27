@@ -5,10 +5,18 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 08/10/2023
+ms.date: 09/27/2023
 #Customer intent: As an ARO SRE, I need to configure multiple outbound IP addresses per ARO cluster load balancers
 ---
 # Configure multiple IP addresses per ARO cluster load balancer
+
+
+
+
+
+
+
+
 
 This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use a custom DNS server. It contains the cluster requirements for a basic ARO deployment.
 
