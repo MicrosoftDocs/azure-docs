@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * Enabled and configured Enterprise Managed Users GitHub Enterprise to login with OIDC SSO through your Microsoft Entra tenant.
 
 > [!NOTE]
-> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is **not** currently supported for Microsoft Entra US Government Cloud environments. 
 
 ## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
