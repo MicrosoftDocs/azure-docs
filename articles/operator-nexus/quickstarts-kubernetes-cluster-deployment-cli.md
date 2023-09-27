@@ -145,7 +145,7 @@ After a few minutes, the command completes and returns information about the age
 
 ## Clean up resources
 
-[!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup-cli.md)]
+[!INCLUDE [quickstart-cleanup](./includes/kubernetes-cluster/quickstart-cleanup.md)]
 
 ## Next steps
 
