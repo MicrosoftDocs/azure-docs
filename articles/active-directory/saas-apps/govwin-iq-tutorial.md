@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Microsoft Entra SSO integration with GovWin IQ
 
-In this tutorial, you'll learn how to integrate GovWin IQ with Microsoft Entra ID. GovWin IQ by Deltek is the industry-leading platform providing the most comprehensive market intelligence for U.S. federal, state and local, as well as Canadian governments. When you integrate GovWin IQ with Microsoft Entra ID, you can:
+In this tutorial, you'll learn how to integrate GovWin IQ with Microsoft Entra ID. GovWin IQ by Deltek is the industry-leading platform providing the most comprehensive market intelligence for U.S. federal, state and local, and Canadian governments. When you integrate GovWin IQ with Microsoft Entra ID, you can:
 
 * Control in Microsoft Entra ID who has access to GovWin IQ.
 * Enable your users to be automatically signed-in to GovWin IQ with their Microsoft Entra accounts.
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate GovWin IQ with Microsoft Entra I
 To integrate Microsoft Entra ID with GovWin IQ, you need:
 
 * A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* An active GovWin IQ Subscription. Single Sign-On can be enabled at no cost. Make sure your Customer Success Manager has enabled a user at your organization as a SAML SSO Admin to perform the following steps.
+* An active GovWin IQ Subscription. Single sign-on can be enabled at no cost. Make sure your Customer Success Manager has enabled a user at your organization as a SAML SSO Admin to perform the following steps.
 * All users must have same email address in Azure as provisioned in GovWin IQ.
 
 ## Scenario description
@@ -83,7 +83,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
     Reply URL will be of the following pattern:
     `https://iq.govwin.com/cas/login?client_name=ORG_<ID>`
 
-	c. In the **Sign on URL** textbox, enter the value from the GovWIn IQ Sign on URL field. 
+	c. In the **Sign on URL** textbox, enter the value from the GovWIn IQ Sign On URL field. 
 
     Sign on URL will be of the following pattern: 
     `https://iq.govwin.com/cas/clientredirect?client_name=ORG_<ID>`
@@ -159,4 +159,4 @@ In this section, you test your Microsoft Entra single sign-on configuration with
 
 ## Next Steps
 
-Add all remaining users to the Microsft Entra ID GovWin IQ app to enable SSO access. Once you configure GovWin IQ you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Add all remaining users to the Microsoft Entra ID GovWin IQ app to enable SSO access. Once you configure GovWin IQ you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
