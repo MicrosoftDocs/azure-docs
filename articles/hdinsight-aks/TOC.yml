@@ -185,7 +185,7 @@ items:
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name:  Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md
-       - name:  Flink job - Azure REST API
+       - name:  Azure data factory managed airflow
         href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
