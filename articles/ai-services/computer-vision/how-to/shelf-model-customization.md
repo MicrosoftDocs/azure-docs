@@ -5,8 +5,7 @@ description: Learn how to use the Image Analysis model customization feature to 
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
 ms.date: 05/02/2023

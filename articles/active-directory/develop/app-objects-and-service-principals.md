@@ -1,6 +1,6 @@
 ---
-title: Apps & service principals in Azure AD
-description: Learn about the relationship between application and service principal objects in Azure Active Directory.
+title: Apps & service principals in Microsoft Entra ID
+description: Learn about the relationship between application and service principal objects in Microsoft Entra ID.
 author: rwike77
 manager: CelesteDG
 services: active-directory
@@ -15,13 +15,13 @@ ms.custom: contperf-fy21q4-portal, aaddev, identityplatformtop40, has-azure-ad-p
 ms.reviewer: sureshja
 ---
 
-# Application and service principal objects in Azure Active Directory
+# Application and service principal objects in Microsoft Entra ID
 
-This article describes application registration, application objects, and service principals in Azure Active Directory (Azure AD): what they are, how they're used, and how they're related to each other. A multi-tenant example scenario is also presented to illustrate the relationship between an application's application object and corresponding service principal objects.
+This article describes application registration, application objects, and service principals in Microsoft Entra ID, what they are, how they're used, and how they're related to each other. A multi-tenant example scenario is also presented to illustrate the relationship between an application's application object and corresponding service principal objects.
 
 ## Application registration
 
-To delegate identity and access management functions to Azure AD, an application must be registered with an Azure AD tenant. When you register your application with Azure AD, you're creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app, you choose whether it's a [single tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), or [multi-tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), and can optionally set a [redirect URI](reply-url.md). For step-by-step instructions on registering an app, see the [app registration quickstart](quickstart-register-app.md).
+To delegate identity and access management functions to Microsoft Entra ID, an application must be registered with a Microsoft Entra tenant. When you register your application with Microsoft Entra ID, you're creating an identity configuration for your application that allows it to integrate with Microsoft Entra ID. When you register an app, you choose whether it's a [single tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), or [multi-tenant](single-and-multi-tenant-apps.md#who-can-sign-in-to-your-app), and can optionally set a [redirect URI](reply-url.md). For step-by-step instructions on registering an app, see the [app registration quickstart](quickstart-register-app.md).
 
 When you've completed the app registration, you have a globally unique instance of the app (the application object) that lives within your home tenant or directory. You also have a globally unique ID for your app (the app/client ID). You can add secrets or certificates and scopes to make your app work, customize the branding of your app in the sign-in dialog, and more.
 
@@ -29,7 +29,7 @@ If you register an application, an application object and a service principal ob
 
 ## Application object
 
-An Azure AD application is defined by its one and only application object, which resides in the Azure AD tenant where the application was registered (known as the application's "home" tenant). An application object is used as a template or blueprint to create one or more service principal objects. A service principal is created in every tenant where the application is used. Similar to a class in object-oriented programming, the application object has some static properties that are applied to all the created service principals (or application instances).
+A Microsoft Entra application is defined by its one and only application object, which resides in the Microsoft Entra tenant where the application was registered (known as the application's "home" tenant). An application object is used as a template or blueprint to create one or more service principal objects. A service principal is created in every tenant where the application is used. Similar to a class in object-oriented programming, the application object has some static properties that are applied to all the created service principals (or application instances).
 
 The application object describes three aspects of an application: 
 
@@ -45,7 +45,7 @@ The Microsoft Graph [Application entity][ms-graph-app-entity] defines the schema
 
 ## Service principal object
 
-To access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This requirement is true for both users (user principal) and applications (service principal). The security principal defines the access policy and permissions for the user/application in the Azure AD tenant. This enables core features such as authentication of the user/application during sign-in, and authorization during resource access.
+To access resources that are secured by a Microsoft Entra tenant, the entity that requires access must be represented by a security principal. This requirement is true for both users (user principal) and applications (service principal). The security principal defines the access policy and permissions for the user/application in the Microsoft Entra tenant. This enables core features such as authentication of the user/application during sign-in, and authorization during resource access.
 
 There are three types of service principal:
 
@@ -53,7 +53,7 @@ There are three types of service principal:
 
   When an application is given permission to access resources in a tenant (upon registration or consent), a service principal object is created. When you register an application, a service principal is created automatically. You can also create service principal objects in a tenant using Azure PowerShell, Azure CLI, Microsoft Graph, and other tools.
 
-- **Managed identity** - This type of service principal is used to represent a [managed identity](../managed-identities-azure-resources/overview.md). Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. When a managed identity is enabled, a service principal representing that managed identity is created in your tenant. Service principals representing managed identities can be granted access and permissions, but can't be updated or modified directly.
+- **Managed identity** - This type of service principal is used to represent a [managed identity](../managed-identities-azure-resources/overview.md). Managed identities eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication. When a managed identity is enabled, a service principal representing that managed identity is created in your tenant. Service principals representing managed identities can be granted access and permissions, but can't be updated or modified directly.
 
 - **Legacy** - This type of service principal represents a legacy app, which is an app created before app registrations were introduced or an app created through legacy experiences. A legacy service principal can have credentials, service principal names, reply URLs, and other properties that an authorized user can edit, but doesn't have an associated app registration. The service principal can only be used in the tenant where it was created.
 
@@ -107,7 +107,7 @@ Any changes that you make to your application object are also reflected in its s
 
 ## Example
 
-The following diagram illustrates the relationship between an application's application object and corresponding service principal objects in the context of a sample multi-tenant application called **HR app**. There are three Azure AD tenants in this example scenario:
+The following diagram illustrates the relationship between an application's application object and corresponding service principal objects in the context of a sample multi-tenant application called **HR app**. There are three Microsoft Entra tenants in this example scenario:
 
 - **Adatum** - The tenant used by the company that developed the **HR app**
 - **Contoso** - The tenant used by the Contoso organization, which is a consumer of the **HR app**
@@ -120,7 +120,7 @@ In this example scenario:
 | Step | Description                                                                                                                                                                                                                                                                                           |
 | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1    | The process of creating the application and service principal objects in the application's home tenant.                                                                                                                                                                                            |
-| 2    | When Contoso and Fabrikam administrators complete consent, a service principal object is created in their company's Azure AD tenant and assigned the permissions that the administrator granted. Also note that the HR app could be configured/designed to allow consent by users for individual use. |
+| 2    | When Contoso and Fabrikam administrators complete consent, a service principal object is created in their company's Microsoft Entra tenant and assigned the permissions that the administrator granted. Also note that the HR app could be configured/designed to allow consent by users for individual use. |
 | 3    | The consumer tenants of the HR application (Contoso and Fabrikam) each have their own service principal object. Each represents their use of an instance of the application at runtime, governed by the permissions consented by the respective administrator.                                        |
 
 ## Next steps

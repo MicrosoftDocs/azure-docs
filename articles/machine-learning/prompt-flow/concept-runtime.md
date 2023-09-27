@@ -30,18 +30,6 @@ For users seeking further customization, Prompt flow offers the flexibility to c
 
 In addition to flow execution, the runtime is also utilized to validate and ensure the accuracy and functionality of the tools incorporated within the flow, when users make updates to the prompt or code content.
 
-Prompt flow offers two types of runtimes to customers: *Managed Online Deployment Runtime* and *Compute Instance Runtime*. Both runtime types provide the same capability for executing flows, but they differ in terms of scalability, resource sharing, user identity support, and ease of customizing the environment.
-
-The table below outlines the key differences between these runtime types:
-
-|Properties     | Managed online deployment runtime                            | Compute instance runtime                                     |
-| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Underlying resource   | [Azure Machine Learning managed online endpoints](../concept-endpoints-online.md) | [Azure Machine Learning compute instance](../concept-compute-instance.md) |
-| Scalability           | Multi-nodes                                                  | Single node                                                  |
-| Resource sharing      | Yes                                                          | No                                                           |
-| User identity support | No                                                           | Yes                                                          |
-| Ease of Customization | No                                                           | Yes                                                          |
-
 ## Next steps
 
 - [Create runtimes](how-to-create-manage-runtime.md)

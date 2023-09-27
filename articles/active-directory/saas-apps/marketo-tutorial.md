@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory SSO integration with Marketo'
-description: Learn how to configure single sign-on between Azure Active Directory and Marketo.
+title: 'Tutorial: Microsoft Entra SSO integration with Marketo'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Marketo.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,25 +12,25 @@ ms.topic: tutorial
 ms.date: 05/12/2023
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory SSO integration with Marketo
+# Tutorial: Microsoft Entra SSO integration with Marketo
 
-In this tutorial, you learn how to integrate Marketo with Azure Active Directory (Azure AD).
-Integrating Marketo with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Marketo with Microsoft Entra ID.
+Integrating Marketo with Microsoft Entra ID provides you with the following benefits:
 
-* You can control in Azure AD who has access to Marketo.
-* You can enable your users to be automatically signed-in to Marketo (Single Sign-On) with their Azure AD accounts.
+* You can control in Microsoft Entra ID who has access to Marketo.
+* You can enable your users to be automatically signed-in to Marketo (Single Sign-On) with their Microsoft Entra accounts.
 * You can manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Marketo, you need the following items:
+To configure Microsoft Entra integration with Marketo, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Marketo single sign-on enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Marketo supports **IDP** initiated SSO.
 
@@ -39,7 +39,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 ## Add Marketo from the gallery
 
-To configure the integration of Marketo into Azure AD, you need to add Marketo from the gallery to your list of managed SaaS apps.
+To configure the integration of Marketo into Microsoft Entra ID, you need to add Marketo from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -48,23 +48,27 @@ To configure the integration of Marketo into Azure AD, you need to add Marketo f
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Marketo
+<a name='configure-and-test-azure-ad-sso-for-marketo'></a>
 
-In this section, you configure and test Azure AD single sign-on with Marketo based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Marketo needs to be established.
+## Configure and test Microsoft Entra SSO for Marketo
 
-To configure and test Azure AD single sign-on with Marketo, perform the following steps:
+In this section, you configure and test Microsoft Entra single sign-on with Marketo based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between a Microsoft Entra user and the related user in Marketo needs to be established.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD SSO with Britta Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD SSO.
+To configure and test Microsoft Entra single sign-on with Marketo, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra SSO with Britta Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra SSO.
 2. **[Configure Marketo SSO](#configure-marketo-sso)** - to configure the SSO settings on application side.
-    1. **[Create Marketo test user](#create-marketo-test-user)** - to have a counterpart of Britta Simon in Marketo that is linked to the Azure AD representation of user.
+    1. **[Create Marketo test user](#create-marketo-test-user)** - to have a counterpart of Britta Simon in Marketo that is linked to the Microsoft Entra representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Marketo** > **Single sign-on**.
@@ -99,7 +103,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user 
 
 In this section, you create a test user called B.Simon.
 
@@ -113,7 +119,9 @@ In this section, you create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you enable B.Simon to use Azure single sign-on by granting access to Marketo.
 
@@ -144,7 +152,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
    
     ![Configure Single Sign-On2](./media/marketo-tutorial/tutorial_marketo_11.png)
    
-    d. Copy the Munchkin ID shown on the screen and complete your Reply URL in the Azure AD configuration wizard.
+    d. Copy the Munchkin ID shown on the screen and complete your Reply URL in the Microsoft Entra configuration wizard.
    
     ![Configure Single Sign-On3](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
@@ -166,7 +174,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
    
     e. **Enabled** Single Sign-On settings.
    
-    f. Paste the **Azure AD Identifier**, in the **Issuer ID** textbox.
+    f. Paste the **Microsoft Entra Identifier**, in the **Issuer ID** textbox.
    
     g. In the **Entity ID** textbox, enter the URL as `http://saml.marketo.com/sp`.
    
@@ -177,7 +185,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
     > [!NOTE]
     > If your User Identifier is not UPN value then change the value in the Attribute tab.
    
-    i. Upload the certificate, which you have downloaded from Azure AD configuration wizard. **Save** the settings.
+    i. Upload the certificate, which you have downloaded from Microsoft Entra configuration wizard. **Save** the settings.
    
     j. Edit the Redirect Pages settings.
    
@@ -247,7 +255,7 @@ In this section, you create a user called Britta Simon in Marketo. follow these 
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
 
 * Click on **Test this application**, and you should be automatically signed in to the Marketo for which you set up the SSO
 

@@ -15,10 +15,10 @@ Versions of the Functions runtime support specific versions of .NET. To learn mo
 
 The following table shows the highest level of .NET or .NET Framework that can be used with a specific version of Functions. 
 
-| Functions runtime version | In-process<br/>([.NET class library](../articles/azure-functions/functions-dotnet-class-library.md)) | Isolated worker process<br/>([.NET Isolated](../articles/azure-functions/dotnet-isolated-process-guide.md)) |
-| ---- | ---- | --- |
-| Functions 4.x | .NET 6.0<sup>1</sup>  | .NET 6.0<sup>1</sup><br/>.NET 7.0<sup>2</sup><br/>.NET Framework 4.8<sup>3</sup><br/>.NET 8.0 (Preview)<sup>4</sup> |
-| Functions 1.x<sup>5</sup> | .NET Framework 4.8 | n/a |
+| Functions runtime version | Isolated worker process<br/>([.NET Isolated](../articles/azure-functions/dotnet-isolated-process-guide.md)) | In-process<br/>([.NET class library](../articles/azure-functions/functions-dotnet-class-library.md)) |
+| ---- | --- | ---- |
+| Functions 4.x | .NET 6.0<sup>1</sup><br/>.NET 7.0<sup>2</sup><br/>.NET Framework 4.8<sup>3</sup><br/>.NET 8.0 (Preview)<sup>4</sup> | .NET 6.0<sup>1</sup>  |
+| Functions 1.x<sup>5</sup> | n/a | .NET Framework 4.8 |
 
 <sup>1</sup> Per the [.NET Official Support Policy], .NET 6 will reach end of support on November 12, 2024.
 

@@ -10,6 +10,8 @@ author: IngridAtMicrosoft
 
 # Tutorial: Deploy Azure AI Video Indexer by using an ARM template
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 In this tutorial, you'll create an Azure AI Video Indexer account by using the Azure Resource Manager template (ARM template, which is in preview). The resource will be deployed to your subscription and will create the Azure AI Video Indexer resource based on parameters defined in the *avam.template* file.

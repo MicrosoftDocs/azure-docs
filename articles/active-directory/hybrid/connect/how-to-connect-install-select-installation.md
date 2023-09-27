@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Select your installation type'
-description: This topic walks you through how to select the installation type to use for Azure AD Connect
+title: 'Microsoft Entra Connect: Select your installation type'
+description: This topic walks you through how to select the installation type to use for Microsoft Entra Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,8 +18,8 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Select which installation type to use for Azure AD Connect
-Azure AD Connect has two installation types for new installation: Express and customized. This topic helps you to decide which option to use during installation.
+# Select which installation type to use for Microsoft Entra Connect
+Microsoft Entra Connect has two installation types for new installation: Express and customized. This topic helps you to decide which option to use during installation.
 
 ## Express
 Express is the most common option and is used by about 90% of all new installations. It was designed to provide a configuration that works for the most common customer scenarios.
@@ -32,7 +32,7 @@ It assumes:
 
 You get:
 
-- [Password hash synchronization](how-to-connect-password-hash-synchronization.md) from on-premises to Azure AD for single sign-on.
+- [Password hash synchronization](how-to-connect-password-hash-synchronization.md) from on-premises to Microsoft Entra ID for single sign-on.
 - A configuration that synchronizes [users, groups, contacts, and Windows 10 computers](concept-azure-ad-connect-sync-default-configuration.md).
 - Synchronization of all eligible objects in all domains and all OUs.
 - [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) is enabled to make sure you always use the latest available version.
@@ -40,7 +40,7 @@ You get:
 Options where you can still use Express:
 
 - If you do not want to synchronize all OUs, you can still use Express and on the last page, unselect **Start the synchronization process...***. Then run the installation wizard again and change the OUs in [configuration options](how-to-connect-installation-wizard.md#customize-synchronization-options) and enable scheduled sync.
-- You want to enable one of the features in Azure AD Premium, such as Password writeback. First go through express to get the initial installation completed. Then run the installation wizard again and change the [configuration options](how-to-connect-installation-wizard.md#customize-synchronization-options).
+- You want to enable one of the features in Microsoft Entra ID P1 or P2, such as Password writeback. First go through express to get the initial installation completed. Then run the installation wizard again and change the [configuration options](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## Custom
 The customized path allows many more options than express. It should be used in all cases where the configuration described in previous section for express is not representative for your organization.
@@ -67,7 +67,7 @@ If you are currently using Azure AD Sync, then you can follow the [same steps](h
 - Swing-migration to install Connect on a new server while the existing Azure AD Sync server is still operational.
 
 ## Migrate from FIM2010 or MIM2016
-If you are currently using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016 with the Azure AD Connector, then your only option is a migration. Follow the steps described in [swing-migration](how-to-upgrade-previous-version.md#swing-migration). In the steps, replace any mention of Azure AD Sync with FIM2010/MIM2016.
+If you are currently using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016 with the Microsoft Entra Connector, then your only option is a migration. Follow the steps described in [swing-migration](how-to-upgrade-previous-version.md#swing-migration). In the steps, replace any mention of Azure AD Sync with FIM2010/MIM2016.
 
 ## Next steps
 Depending on the option you have selected to use, use the table of content to the left to find your article with the detailed steps.
