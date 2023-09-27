@@ -12,7 +12,7 @@ ms.date: 08/22/2023
 
 # Reliability in Azure Image Builder (AIB)
 
-This article contains [specific reliability recommendations for Image Builder](#reliability-recommendations) and [cross-regional resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
+This article contains [specific reliability recommendations for Image Builder](#reliability-recommendations) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
 
 Azure Image Builder (AIB) is a regional service with a cluster that serves single regions. The AIB regional setup keeps data and resources within the regional boundary. AIB as a service doesn't do fail over for cluster and SQL database in region down scenarios.
@@ -31,14 +31,48 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 ### Reliability recommendations summary
 
 
-## Disaster recovery: cross-region failover
+| Category | Priority |Recommendation |  
+|---------------|--------|---|
+| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Use generation 2 virtual machine source images](#-run-production-workloads-on-two-or-more-vms-using-virtual-machine-scale-sets-flex) |
+|[**Disaster Recovery**](#disaster-recovery)|:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Replicate image templates to a secondary region](#-deploy-vms-across-availability-zones-or-use-virtual-machine-scale-sets-flex-with-zones) | 
 
-If a region-wide disaster occurs, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md).
+
+### High availability
+ 
+#### :::image type="icon" source="media/icon-recommendation-low.svg"::: **Use generation 2 virtual machine (VM) source images** 
+
+When building your image templates, use source images that support generation 2 VMs. Generation 2 VMs support key features that aren’t supported in generation 1 VMs such as:
+
+- Increased memory
+- Support for disks greater than 2TB
+- New UEFI-based boot architecture instead, which can improve boot and installation times
+- Intel Software Guard Extensions (Intel SGX)
+- Virtualized persistent memory (vPMEM)
+
+
+For more information on generation 2 VM features and capabilities, see [Generation 2 VMs: Features and capabilities](/azure/virtual-machines/generation-2#features-and-capabilities).
+
+### Disaster recovery
+
+#### :::image type="icon" source="media/icon-recommendation-low.svg"::: **Replicate image templates to a secondary region** 
+
+The Azure Image Builder service that's used to deploy Image Templates doesn’t currently support availability zones. Therefore, when building your image templates, you should replicate them to a secondary region, preferably to your primary region’s [paired region](./availability-zones-overview.md#paired-and-unpaired-regions). With a secondary region, you can quickly recover from a region failure and continue to deploy virtual machines from your image templates. For more information, see [Cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity).
+
+
+# [Azure Resource Graph](#tab/graph)
+
+:::code language="kusto" source="~/azure-proactive-resiliency-library/docs/content/services/compute/image-templates/code/it-2/it-2.kql":::
+
+----
+
+## Cross-region disaster recovery and business continuity
+
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
 To ensure fast and easy recovery for Azure Image Builder (AIB), it's recommended that you run an image template in region pairs or multiple regions when designing your AIB solution. You should also replicate resources from the start when you're setting up your image templates.
 
 
-### Cross-region disaster recovery in multi-region geography
+### Multi-region geography disaster recovery
 
 When a regional disaster occurs, Microsoft is responsible for outage detection, notifications, and support for AIB. However, you're responsible for setting up disaster recovery for the control (service side) and data planes.
 
@@ -89,6 +123,6 @@ In regards to your data processing information, refer to the Azure Image Builder
 
 ## Next steps
 
-- [Reliability in Azure](../reliability/overview.md)
+- [Reliability in Azure](overview.md)
 - [Enable Azure VM disaster recovery between availability zones](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
 - [Azure Image Builder overview](../virtual-machines//image-builder-overview.md)
