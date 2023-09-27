@@ -28,7 +28,7 @@ ms.date: 08/29/2023
 
 ## Create the Python app
 
-1. From the project directory, open the *main.py* file and replace its contents with the following code:
+1. From the project directory, open the *main.py* file and add the following code:
 
    ```python
    import os
@@ -98,34 +98,7 @@ ms.date: 08/29/2023
    python main.py
    ```
 
-### View the output
-
-```output
-Answer from assistant:
-===
-Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-===
-Context information (e.g. citations) from chat extensions:
-===
-tool: {
-  "citations": [
-    {
-      "content": "...",
-      "id": null,
-      "title": "...",
-      "filepath": "...",
-      "url": "...",
-      "metadata": {
-        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
-      },
-      "chunk_id": "2"
-    },
-    ...
-  ],
-  "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
-}
-===
-```
+   The application will print the response in a JSON format suitable for use in many scenarios. It will include both answers to your query and citations from your uploaded files.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue when running the code samples.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=dotnet&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Create-dotnet-application)
