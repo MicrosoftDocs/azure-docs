@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
-ms.date: 08/18/2023
+ms.date: 09/27/2023
 ms.custom: event-tier1-build-2022, devx-track-azurecli, moe-wsvnet
 ---
 
@@ -66,7 +66,9 @@ To begin, you need an Azure subscription, CLI or SDK to interact with Azure Mach
 
     For more information on how to create a new workspace or to upgrade your existing workspace to use a manged virtual network, see [Configure a managed virtual network to allow internet outbound](how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-internet-outbound).
 
-    When the workspace is configured with a private endpoint, the Azure Container Registry for the workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
+    When the workspace is configured with a private endpoint,
+       1. The Azure Container Registry for the workspace must be configured for __Premium__ tier to allow access via private endpoint. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
+       1. The workspace should be set with the image build compute as creation of deployment will involve building images. For more information, see [](how-to-configure-private-link.md#create-a-workspace-that-uses-a-private-endpoint).
 
 1. Configure the defaults for the CLI so that you can avoid passing in the values for your workspace and resource group multiple times.
 
