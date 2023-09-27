@@ -86,7 +86,7 @@ The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you 
 
 ### Microsoft Graph activity logs
 
-The `MicrosoftGraphActivityLogs` logs provide details of Microsoft Graph API requests. Route these logs to Azure Monitor logs with `AuditLogs​` and `SignInLogs​` to cross reference details of token requests for sign-in logs and changes to directory resources for audit logs. You can use these logs to identify activities that a compromised user account conducted in your tenant or to investigate problematic or unexpected behaviors for client applications, such as extreme call volumes.
+The `MicrosoftGraphActivityLogs` provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. You can use these logs to identify activities that a compromised user account conducted in your tenant or to investigate problematic or unexpected behaviors for client applications, such as extreme call volumes. Route these logs to the same Log Analytics workspace with `SignInLogs​` to cross reference details of token requests for sign-in logs. For more information, see []
 
 ### Network access traffic logs
 

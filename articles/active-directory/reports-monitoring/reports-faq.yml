@@ -181,11 +181,6 @@ sections:
           Sign-ins using the FIDO2 keys are an example of non-interactive sign-ins that show up in the interactive sign-in logs.
 
           At this time, these non-interactive logs are always included in the interactive sign-in log. 
-      - question: |
-          Why are there `MicrosoftGraphActivityLogs` events that don't correlate to a Service Principal sign-in?
-          
-        answer:
-          Every time a token is used to call a Microsoft Graph endpoint, the `MicrosoftGraphActivityLogs` are updated with that call. Some of those calls are first-party, app-only calls, which aren't published to the Service Principal sign-in logs. When a `MicrosoftGraphActivityLogs` shows a `uniqueTokenIdentifier` that you can't locate in the sign-in logs, the token identifier is referencing a first-party app-only token.
 
   - name: Conditional Access
     questions:
@@ -248,6 +243,12 @@ sections:
         answer: |
           You may need to sign in to Microsoft Graph separately from the Microsoft Entra admin center. Select your profile icon on the upper-right corner and sign in to the right directory.
           You may be trying to run a query that you don't have permissions for. Select **Modify Permissions** and select the **Consent** button. Follow the sign-in prompts.
+
+      - question: |
+          Why are there `MicrosoftGraphActivityLogs` events that don't correlate to a Service Principal sign-in?
+          
+        answer:
+          Every time a token is used to call a Microsoft Graph endpoint, the `MicrosoftGraphActivityLogs` are updated with that call. Some of those calls are first-party, app-only calls, which aren't published to the Service Principal sign-in logs. When a `MicrosoftGraphActivityLogs` shows a `uniqueTokenIdentifier` that you can't locate in the sign-in logs, the token identifier is referencing a first-party app-only token.
 
   - name: Identity recommendations
     questions:
