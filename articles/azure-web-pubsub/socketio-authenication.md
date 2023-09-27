@@ -158,3 +158,5 @@ io.on('connect', (socket) => {
   // ... some code uses `session`
 });
 ```
+
+A complete sample is given in [chat-with-auth](https://github.com/Azure/azure-webpubsub/blob/main/sdk/webpubsub-socketio-extension/examples/chat-with-auth).
