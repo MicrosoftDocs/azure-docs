@@ -21,31 +21,31 @@ Next, create a passwordless connection with Service Connector.
 
 The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
 
-### [User-assigned managed identity](#tab/user)
+    ### [User-assigned managed identity](#tab/user)
+    
+    ```azurecli
+    az webapp connection create postgres-flexible \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $POSTGRESQL_HOST \
+        --database $DATABASE_NAME \
+        --user-identity client-id=XX subs-id=XX \
+        --client-type java
+    ```
 
-```azurecli
-az webapp connection create postgres-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $POSTGRESQL_HOST \
-    --database $DATABASE_NAME \
-    --user-identity client-id=XX subs-id=XX \
-    --client-type java
-```
-
-### [System-assigned managed identity](#tab/system)
-
-```azurecli
-az webapp connection create postgres-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $POSTGRESQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity \
-    --client-type java
-```
+    ### [System-assigned managed identity](#tab/system)
+    
+    ```azurecli
+    az webapp connection create postgres-flexible \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $POSTGRESQL_HOST \
+        --database $DATABASE_NAME \
+        --system-identity \
+        --client-type java
+    ```
 
 ### [Azure Database for MySQL](#tab/mysql)
 
