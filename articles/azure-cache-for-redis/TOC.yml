@@ -94,7 +94,7 @@
     - name: Artificial Intelligence
       items:
       - name: Vector Search
-        href: cache-overview-vector-simiarlity.md
+        href: cache-overview-vector-similarity.md
     - name: Resiliency
       items:
       - name: High availability
