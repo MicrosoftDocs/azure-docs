@@ -65,7 +65,7 @@ Sample input-vnf-nsd.json
 |**network-functions**   |  *publisher*:   The name of the publisher that this NFDV is published under.     |
 |   |      *publisher_resource_group*: The resource group that the publisher is hosted in.   | 
 |    |   *name*:   The name of the existing Network Function Definition Group to deploy using this NSD.    |
-|    |    *version*:   The name of the existing Network Function Definition Group to deploy using this NSD.   |
+|    |    *version*:   The version of the existing Network Function Definition to base this NSD on. This NSD is able to deploy any NFDV with deployment parameters compatible with this version.   |
 |     |     *publisher_offering_location*:  The region that the NFDV is published to.  |
 |     |   *publisher_scope*: The scope that the publisher is published under. Currently only 'private' is supported.      |
 |    |  *type*:   Type of Network Function. Valid values are cnf or vnf.     |
