@@ -222,7 +222,7 @@
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
     - name: Data security dashboard
-      href: data-aware-security-dashboard.md  
+      href: data-aware-security-dashboard-overview.md  
   - name: Improve your container security posture
     items:
     - name: Agentless container posture
