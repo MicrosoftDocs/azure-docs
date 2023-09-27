@@ -14,7 +14,7 @@ Apache Airflow is an open-source platform that programmatically creates, schedul
 
 The following diagram shows the placement of Airflow, Key Vault, and HDInsight on AKS in Azure. 
 
-:::image type="content" source="./media/flink-job-orchestration/azure-tenant.png" alt-text="Screenshot shows the placement of airflow, key vault, and HDInsight on AKS in azure." lightbox="./media/flink-job-orchestration/azure-tenant.png":::
+:::image type="content" source="./media/flink-job-orchestration/azure-tenant.png" alt-text="Screenshot shows the placement of airflow, key vault, and HDInsight on AKS in Azure." lightbox="./media/flink-job-orchestration/azure-tenant.png":::
 
 Multiple Azure Service Principals are created based on the scope to limit the access it needs and to manage the client credential life cycle independently. 
 
@@ -115,7 +115,7 @@ The DAG expects to have setup for the Service Principal, as described during the
 
 1. Execute the DAG from the [Airflow UI](https://airflow.apache.org/docs/apache-airflow/stable/ui.html), you can open the Azure Data Factory Managed Airflow UI by clicking on Monitor icon. 
 
-    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-1.png" alt-text="Screenshot shows open the azure data factory managed airflow UI by clicking on monitor icon." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-1.png":::
+    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-1.png" alt-text="Screenshot shows open the Azure data factory managed airflow UI by clicking on monitor icon." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-1.png":::
 
 1. Select the “FlinkWordCountExample” DAG from the “DAGs” page.  
 
@@ -123,7 +123,7 @@ The DAG expects to have setup for the Service Principal, as described during the
 
 1. Click on the “execute” icon from the top right corner and select “Trigger DAG w/ config”.  
 
-    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-3.png" alt-text="Screenshot shows select execuute icon." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-3.png":::
+    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-3.png" alt-text="Screenshot shows select execute icon." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-3.png":::
 
             
 1. Pass required configuration JSON 
