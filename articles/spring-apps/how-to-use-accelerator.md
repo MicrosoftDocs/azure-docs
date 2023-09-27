@@ -308,30 +308,30 @@ az spring application-accelerator customized-accelerator create \
 
 1. Change the *accelerator.yaml* file in your accelerator project. Select **Imports** under the **Accelerator** section and select **InvokeFragment** in the **Engine** section to reference Fragment in accelerator.
 
-Use the following YAML query as an example:
+   Use the following YAML query as an example:
 
-```yaml
-accelerator:
-    ...
-  # options for the UI
-  options:
-    ...
-  imports:
-  - name: <fragment-accelerator-name>
-  ...
-
-engine:
-  chain:
-    ...
-  - merge:
-    - include: [ "**" ]
-    - type: InvokeFragment
-      reference: <fragment-accelerator-name>
-```
+   ```yaml
+   accelerator:
+       ...
+     # options for the UI
+     options:
+       ...
+     imports:
+     - name: <fragment-accelerator-name>
+     ...
+   
+   engine:
+     chain:
+       ...
+     - merge:
+       - include: [ "**" ]
+       - type: InvokeFragment
+         reference: <fragment-accelerator-name>
+   ```
 
 1. Synchronize the change with the Dev Tools Portal.
 
-To reflect the changes on the Dev Tools Portal more quickly, you can provide a tiny value to the **Git interval** field of your customized accelerator, which indicates how frequently Git repository updates.
+   To reflect the changes on the Dev Tools Portal more quickly, you can provide a tiny value to the **Git interval** field of your customized accelerator, which indicates how frequently Git repository updates.
 
 1. Synchronize the change with your customized accelerator on the Azure portal by using the Azure portal or the Azure CLI.
 
