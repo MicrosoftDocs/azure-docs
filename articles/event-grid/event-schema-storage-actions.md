@@ -9,10 +9,10 @@ ms.date: 08/30/2023
 
 # Azure Storage Actions as an Event Grid source
 
-This article provides the properties and schema for Azure Storage Actions events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). To learn more about Azure Storage Actions, see [What is Azure Storage Actions?](../azure-storage-actions/overview.md).
+This article provides the properties and schema for Azure Storage Actions events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). To learn more about Azure Storage Actions, see [What is Azure Storage Actions?](../storage-actions/overview.md).
 
 > [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../azure-storage-actions/overview.md#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../storage-actions/overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > To enroll, see \<sign-up form link here\>.
 
