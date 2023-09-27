@@ -113,7 +113,7 @@ Service monitoring is offered to analyze user traffic and routing. The following
 
 To onboard a Peering Service connection:
 
-- Work with Internet Service provider (ISP) or Internet Exchange (IX) Partner to obtain a Peering Service to connect your network with the Microsoft network.
+- Work with internet service provider (ISP) or Internet Exchange (IX) Partner to obtain a Peering Service to connect your network with the Microsoft network.
 
 - Ensure the [connectivity provider](location-partners.md) is partnered with Microsoft for Peering Service. 
 
