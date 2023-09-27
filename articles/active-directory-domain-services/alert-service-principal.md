@@ -16,7 +16,7 @@ ms.author: justinha
 ---
 # Known issues: Service principal alerts in Microsoft Entra Domain Services
 
-[Service principals](../active-directory/develop/app-objects-and-service-principals.md) are applications that the Azure platform uses to manage, update, and maintain a Microsoft Entra Domain Services managed domain. If a service principal is deleted, functionality in the managed domain is impacted.
+[Service principals](/azure/active-directory/develop/app-objects-and-service-principals) are applications that the Azure platform uses to manage, update, and maintain a Microsoft Entra Domain Services managed domain. If a service principal is deleted, functionality in the managed domain is impacted.
 
 This article helps you troubleshoot and resolve service principal-related configuration alerts.
 
@@ -109,7 +109,7 @@ After you delete both applications, the Azure platform automatically recreates t
 If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
 
 <!-- EXTERNAL LINKS -->
 [New-AzureAdServicePrincipal]: /powershell/module/azuread/new-azureadserviceprincipal

@@ -3,6 +3,7 @@ title: Automate continuous integration with GitHub Actions
 description: Learn how to automate continuous integration in Azure Data Factory with GitHub Actions.
 ms.service: data-factory
 ms.subservice: ci-cd
+ms.custom: devx-track-arm-template
 author: olmoloce
 ms.author: olmoloce
 ms.reviewer: kromerm

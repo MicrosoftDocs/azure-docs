@@ -28,6 +28,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## September 2023
 
+- **Flexible Maintenance for Azure Database for MySQL - Flexible server(Public Preview)**
+Flexible Maintenance for Azure Database for MySQL - Flexible Server enables a tailored maintenance schedule to suit your operational rhythm. This feature allows you to reschedule maintenance tasks within a maximum 14-day window and initiate on-demand maintenance, granting you unprecedented control over server upkeep timing. Stay tuned for more customizable experiences in the future. [Learn more](concepts-maintenance.md).
+
 - **Universal Cross Region Read Replica on Azure Database for MySQL- Flexible Server (General Availability)**
 Azure Database for MySQL - Flexible server now supports Universal Read Replicas in Public regions. The feature allows you to replicate your data from an instance of Azure Database for MySQL Flexible Server to a read-only server in Universal region which could be any region from the list of Azure supported region where flexible server is available. [Learn more](concepts-read-replicas.md)
 
