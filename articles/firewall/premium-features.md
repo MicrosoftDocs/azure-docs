@@ -16,14 +16,14 @@ ms.custom: references_regions
 
 Azure Firewall Premium provides advanced threat protection that meets the needs of highly sensitive and regulated environments, such as the payment and healthcare industries. 
 
-Organizations can use Premium stock-keeping unit (SKU) features like IDPS and TLS inspection to prevent malware and viruses from spreading across networks in both lateral and horizontal directions. To meet the increased performance demands of IDPS and TLS inspection, Azure Firewall Premium uses a more powerful virtual machine, SKU. Like the Standard SKU, the Premium SKU can seamlessly scale up to 100 Gbps and integrate with availability zones to support the service level agreement (SLA) of 99.99 percent. The Premium SKU complies with Payment Card Industry Data Security Standard (PCI DSS) environment needs.
+Organizations can use Premium stock-keeping unit (SKU) features like IDPS and TLS inspection to prevent malware and viruses from spreading across networks in both lateral and horizontal directions. To meet the increased performance demands of IDPS and TLS inspection, Azure Firewall Premium uses a more powerful virtual machine SKU. Like the Standard SKU, the Premium SKU can seamlessly scale up to 100 Gbps and integrate with availability zones to support the service level agreement (SLA) of 99.99 percent. The Premium SKU complies with Payment Card Industry Data Security Standard (PCI DSS) environment needs.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Azure Firewall Premium overview diagram":::
 
 Azure Firewall Premium includes the following features:
 
 - **TLS inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
-- **IDPS** - A network intrusion detection and prevention system (IDPS) allow you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
+- **IDPS** - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
 - **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL along with any additional path. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
 - **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
 
@@ -33,7 +33,7 @@ To compare Azure Firewall features for all Firewall SKUs, see [Choose the right 
 
 The TLS (Transport Layer Security) protocol primarily provides cryptography for privacy, integrity, and authenticity using certificates between two or more communicating applications. It runs in the application layer and is widely used to encrypt the HTTP protocol.
 
-Encrypted traffic has a possible security risk and can hide illegal user activity and malicious traffic. Azure Firewall without TLS inspection (as shown in the following diagram) has no visibility in the data that flows in the encrypted TLS tunnel, and so can't provide full protection coverage.
+Encrypted traffic has a possible security risk and can hide illegal user activity and malicious traffic. Azure Firewall without TLS inspection (as shown in the following diagram) has no visibility into the data that flows in the encrypted TLS tunnel, so it can't provide full-protection coverage.
 
 The second diagram shows how Azure Firewall Premium terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS. The firewall creates two dedicated TLS connections: one with the Web Server (contoso.com) and another connection with the client. Using the customer provided CA certificate, it generates an on-the-fly certificate, which replaces the Web Server certificate and shares it with the client to establish the TLS connection between the firewall and the client.
 
@@ -66,9 +66,9 @@ To learn more about TLS inspection, see [Building a POC for TLS inspection in Az
 
 ## IDPS
 
-A network intrusion detection and prevention system (IDPS) allow you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
+A network intrusion detection and prevention system (IDPS) allows you to monitor your network for malicious activity, log information about this activity, report it, and optionally attempt to block it. 
 
-Azure Firewall Premium provides signature based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network level traffic (Layers 3-7), they're fully managed, and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic. Spoke-to-spoke (East-West) includes traffic that goes from/to an on-premises network. You can configure your IDPS private IP address ranges using the **Private IP ranges** preview feature. For more information, see [IDPS Private IP ranges](#idps-private-ip-ranges).
+Azure Firewall Premium provides signature-based IDPS to allow rapid detection of attacks by looking for specific patterns, such as byte sequences in network traffic, or known malicious instruction sequences used by malware. The IDPS signatures are applicable for both application and network-level traffic (Layers 3-7). They're fully managed and continuously updated. IDPS can be applied to inbound, spoke-to-spoke (East-West), and outbound traffic. Spoke-to-spoke (East-West) includes traffic that goes from/to an on-premises network. You can configure your IDPS private IP address ranges using the **Private IP ranges** preview feature. For more information, see [IDPS Private IP ranges](#idps-private-ip-ranges).
 
 The Azure Firewall signatures/rulesets include:
 - An emphasis on fingerprinting actual malware, Command and Control, exploit kits, and in the wild malicious activity missed by traditional prevention methods.
@@ -100,7 +100,7 @@ IDPS signature rules allow you to:
 - Get a holistic view of the entire 55,000 signatures
 - Smart search
 
-   This allows you to search through the entire signatures database by any type of attribute. For example, you can search for specific CVE-ID to discover what signatures are taking care of this CVE by typing the ID in the search bar.
+   This action allows you to search through the entire signatures database by any type of attribute. For example, you can search for specific CVE-ID to discover what signatures are taking care of this CVE by typing the ID in the search bar.
 
 
 IDPS signature rules have the following properties:
