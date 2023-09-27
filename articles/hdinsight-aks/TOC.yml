@@ -184,7 +184,9 @@ items:
       - name:  Azure Cosmos DB (Apache Cassandra)
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name:  Azure Event Hubs
-        href: ./flink/flink-how-to-setup-event-hub.md  
+        href: ./flink/flink-how-to-setup-event-hub.md
+      - name:  Azure data factory managed airflow
+        href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
       - name:  Elastic and Kibana
