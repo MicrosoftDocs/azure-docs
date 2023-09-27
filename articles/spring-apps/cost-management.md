@@ -62,7 +62,6 @@ If you collect more logs, metrics, and traces than you can use or afford, you mu
 
 If you forget to switch off debug mode for apps, a large amount of data is collected and sent to monitoring platforms. Forgetting to deactivate debug mode could be unnecessary and costly.
 
-
 ## Next steps
 
 [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md)
