@@ -199,7 +199,7 @@ When you begin to query logs in simple mode and then switch to advanced mode, th
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-advanced.png" alt-text="Screenshot that shows a query in Log Analytics advanced mode.":::
 
-For simple queries on a table, simple mode displays the table name at the right of the top query bar. For more complex queries, displays **User Query** at the right of the top query bar. Click **User Query** to return to the query editor and continue working on your query at any time.
+For straightforward queries on a single table, Log Analytics displays the table name at the right of the top query bar in simple mode. For more complex queries, Log Analytics displays **User Query** at the right of the top query bar. Select **User Query** to return to the query editor and continue working on your query at any time.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-switch-modes-user-query.png" alt-text="Screenshot that shows the User Query button, which lets you return to the query editor when you're in simple mode.":::
 
