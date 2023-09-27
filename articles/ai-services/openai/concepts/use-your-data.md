@@ -293,6 +293,7 @@ While Power Virtual Agents has features that leverage Azure OpenAI such as [gene
 
 > [!NOTE]
 > Deploying to Power Virtual Agents from Azure OpenAI is only available to US regions.
+> Power Virtual Agents supports Azure Cognitive Search indexes with keyword or semantic search only. Other data sources and advanced features may not be supported.
 
 #### Using the web app
 

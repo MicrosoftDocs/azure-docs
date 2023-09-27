@@ -8,12 +8,12 @@ author: b-ahibbard
 ms.author: anfdocs
 ms.date: 09/21/2023
 ---
-# Access SMB volumes from Azure Active Directory joined Windows virtual machines
+# Access SMB volumes from Azure Active Directory-joined Windows virtual machines
 
 You can use Azure Active Directory (Azure AD) with the Hybrid Authentication Management module to authenticate credentials in your hybrid cloud. This solution enables Azure AD to become the trusted source for both cloud and on-premises authentication, circumventing the need for clients connecting to Azure NetApp Files to join the on-premises AD domain. 
 
 >[!NOTE]
->This process does not eliminate the need for Active Directory Domain Services (AD DS) as Azure NetApp Files requires connectivity to AD DS. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md).
+>Using Azure AD for authenticating [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md) allows Azure AD users to access Azure NetApp Files SMB shares. This means your end users can access Azure NetApp Files SMB shares without requiring a line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined VMs. Cloud-only identities aren't currently supported. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning](understand-guidelines-active-directory-domain-service-site.md).
 
 :::image type="content" source="../media/azure-netapp-files/diagram-windows-joined-active-directory.png" alt-text="Diagram of SMB volume joined to Azure Active Directory." lightbox="../media/azure-netapp-files/diagram-windows-joined-active-directory.png":::
 
@@ -38,7 +38,7 @@ The configuration process takes you through five process:
 * Add the CIFS SPN to the computer account
 * Register a new Azure AD application
 * Sync CIFS password from AD DS to the Azure AD application registration 
-* Configure the Azure AD joined VM to use Kerberos authentication
+* Configure the Azure AD-joined VM to use Kerberos authentication
 * Mount the Azure NetApp Files SMB volumes 
 
 ### Add the CIFS SPN to the computer account 
@@ -88,7 +88,7 @@ The configuration process takes you through five process:
     * `$servicePrincipalName`: The SPN details from mounting the Azure NetApp Files volume. Use the CIFS/FQDN format. For example: `CIFS/NETBIOS-1234.CONTOSO.COM`
     * `$targetApplicationID`: Application (client) ID of the Azure AD application.
     * `$domainCred`: use `Get-Credential` (should be an AD DS domain administrator)
-    * `$cloudCred`: use `Get-Credential` (should be an AD DS domain administrator)
+    * `$cloudCred`: use `Get-Credential` (should be an Azure AD global administrator)
 
     ```powershell
     $servicePrincipalName = CIFS/NETBIOS-1234.CONTOSO.COM
@@ -105,9 +105,9 @@ The configuration process takes you through five process:
     Import-AzureADKerberosOnPremServicePrincipal -Domain $domain -DomainCredential $domainCred -CloudCredential $cloudCred -ServicePrincipalName $servicePrincipalName -ApplicationId $targetApplicationId 
     ```
 
-### Configure the Azure AD joined VM to use Kerberos authentication
+### Configure the Azure AD-joined VM to use Kerberos authentication
 
-1. Log in to the Azure AD joined VM using hybrid credentials with administrative rights (for example: user@mydirectory.onmicrosoft.com).
+1. Log in to the Azure AD-joined VM using hybrid credentials with administrative rights (for example: user@mydirectory.onmicrosoft.com).
 1. Configure the VM: 
     1. Navigate to **Edit group policy** > **Computer Configuration** > **Administrative Templates** > **System** > **Kerberos**.
     1. Enable **Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon**.
@@ -119,7 +119,7 @@ The configuration process takes you through five process:
 
 ### Mount the Azure NetApp Files SMB volumes 
 
-1. Log into to the Azure AD joined VM using a hybrid identity account synced from AD DS.
+1. Log into to the Azure AD-joined VM using a hybrid identity account synced from AD DS.
 2. Mount the Azure NetApp Files SMB volume using the info provided in the Azure portal. For more information, see [Mount SMB volumes for Windows VMs](mount-volumes-vms-smb.md).
 3. Confirm the mounted volume is using Kerberos authentication and not NTLM authentication. Open a command prompt, issue the `klist` command; observe the output in the cloud TGT (krbtgt) and CIFS server ticket information.
 

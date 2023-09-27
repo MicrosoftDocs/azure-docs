@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 09/25/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -23,6 +23,8 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### September 2023
+* Preview: Geo-redundant backup and restore
+    * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md)
 * Preview: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) is now available in all supported regions.
     * See [how to maximize IOPS on your cluster](./resources-compute.md#maximum-iops-for-your-compute--storage-configuration).
 * General availability: Azure Cosmos DB for PostgreSQL is now available in Australia Central, Canada East, and Qatar Central.
@@ -136,6 +138,7 @@ might have constrained capabilities.  For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
+* [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
 * [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
 * [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 * [Azure CLI support for Azure Cosmos DB for PostgreSQL](/cli/azure/cosmosdb/postgres)
