@@ -35,3 +35,6 @@ armclient get /subscriptions/<subscription>/resourceGroups/<resourceGroup> /prov
 11.	Go to the Key Vault, go to access policies, select the Principal ID from list and check the permissions it has OR create a new access policy specifically for the Principal ID you found by running the command above. 
 12.	Ensure that following permissions are assigned to the Principal ID: *Secret permission* and both *Secret Management Operations and Privileged Management Operations*.
 
+## Next steps
+Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
+

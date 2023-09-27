@@ -89,7 +89,7 @@ After you have saved the script on the Linux server, you can follow these steps:
 1.	Open the terminal on the server and execute the following command to execute the script as a root user:
 `sudo su -`
 2.	Change directory to where you have saved the script and execute the script using the `bash deploy.sh` command.
-3.	Follow the instructions in the script and sign in- in with your Azure user account when prompted.
+3.	Follow the instructions in the script and sign in with your Azure user account when prompted.
 4.	The script performs the following steps:
     1. Installing required CLI extensions.
     2. Registering Azure Resource Providers.
@@ -101,7 +101,7 @@ After you have saved the script on the Linux server, you can follow these steps:
 After the script is executed successfully, configure the appliance through the portal. 
 
 > [!Note] 
-> If you encounter any issue during script execution, you need to run the script in *delete* mode by adding the following after line # 19 in the ‘deploy.sh’ script:
+> If you encounter any issue during script execution, you need to run the script in *delete* mode by adding the following after line #19 in the `deploy.sh` script:
 >
 > export DELETE= “true”
 
@@ -114,13 +114,12 @@ After successfully setting up the appliance using the installer script, you need
 2.	On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
 3.	You will be navigated to the **Overview** > **Manage** > **Appliances** page with a filtered list of appliances with pending action.
 4.	Find the Kubernetes-based appliance that you have just set up and select **Credentials unavailable** status to configure the appliance.
-
-5.	You will be navigated to the **Manage credentials** page where you need to add credentials to initiate discovery of Spring Boot applications, running on your servers.
-6.	Select **Add credentials** and choose a credential type from Linux (Non-domain) or Domain credentials, provide a friendly name, username and password and select **Save**.
+5.	In the **Manage credentials** page, add the credentials to initiate discovery of the Spring Boot applications running on your servers.
+6.	Select **Add credentials**, choose a credential type from Linux (non-domain) or Domain credentials, provide a friendly name, username, and password. Select **Save**.
 
    >[!Note]
-   >- The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
-  >- After the credentials have been successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
+   > - The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
+  > - After the credentials have been successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
 
 7.	After adding a credential, you need to refresh the page to see the **Sync status** of the credential. If status is **Incomplete**, you can select the status to review the error encountered and take the recommended action.
 After the credentials have been successfully synced, wait for 24 hours before you can review the discovered inventory by filtering for the specific workload in the **Discovered servers** page.
