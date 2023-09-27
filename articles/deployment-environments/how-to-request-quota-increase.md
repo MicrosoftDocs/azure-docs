@@ -13,14 +13,7 @@ ms.date: 08/22/2023
 
 This article describes how to submit a support request for increasing the number of resources available to Azure Deployment Environments in your Azure subscription. 
 
-When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
-
-The time it takes to increase your quota varies depending on the number of resources requested in which region. You won't go through the process of requesting extra capacity often, but to ensure you have the resources when you need them, you should:
-
-- Request capacity as far in advance as possible.
-- If possible, be flexible on the region where you're requesting capacity.
-- Recognize that capacity remains assigned for the lifetime of a subscription. When deployment environments resources are deleted, the capacity remains assigned to the subscription. 
-- Request extra capacity only if you need more than is already assigned to your subscription. 
+If your organization uses Deployment Environments extensively, you may encounter a quota limit during deployment. When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
 Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
@@ -33,21 +26,22 @@ Learn more about the general [process for creating Azure support requests](/azur
 
 Submitting a support request for additional quota is quicker if you gather the required information before you begin the request process. 
 
-- **Determine your current quota usage**
+- **Identify the quota type**
 
-   For each of your subscriptions, you can check your current usage of each Deployment Environments resource type in each region. Determine your current usage by following these steps: [Determine usage and quota](./how-to-determine-your-quota-usage.md).
-
-- **Determine the region for the additional quota**
-
-   Deployment Environments resources can exist in many regions. You can choose to deploy resources in multiple regions close to your Deployment Environments users. For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
-
-- **Choose the quota type of the additional quota.**
-
-   The following Deployment Environments resources are limited by subscription. You can request increases in the number of resources for each of these types.
+   If you reach the quota limit for a Deployment Environments resource, you see a notification indicating which quota type is affected during deployment. Take note of it and submit a request for that quota type.
+   
+   The following resources are limited by subscription.  
 
    - Runtime limit per month (mins)
    - Runtime limit per deployment (mins)
    - Storage limit per environment (GBs)
+
+
+- **Determine the region for the additional quota**
+
+   Deployment Environments resources can exist in many regions. You should choose the region where your Deployment Environments Project exists for best performance. 
+
+   For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 ## Submit a new support request
 
@@ -125,5 +119,4 @@ To complete the support request, enter the following information:
  
 ## Related content
 
-- To learn how to check your quota usage, see [Determine usage and quota](./how-to-determine-your-quota-usage.md).
 - Check the default quota for each resource type by subscription type: [Azure Deployment Environments limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-deployment-environments-limits)
