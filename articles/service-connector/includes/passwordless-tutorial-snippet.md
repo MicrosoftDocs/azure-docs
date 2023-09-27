@@ -16,8 +16,8 @@ Next, we use Azure App Service as an example to create a connection using manage
 
 If you use:
 
-* Azure Spring Apps, use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
-* Azure Container Apps, use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
+* Azure Spring Apps: use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
+* Azure Container Apps: use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
 
 > [!NOTE]
 > If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](./quickstart-portal-app-service-connection.md), [Azure Spring Apps](./quickstart-portal-spring-cloud-connection.md), or [Azure Container Apps](./quickstart-portal-container-apps.md), and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
