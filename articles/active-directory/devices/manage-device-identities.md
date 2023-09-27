@@ -1,6 +1,6 @@
 ---
-title: Manage devices in Microsoft Entra ID using the Azure portal
-description: This article describes how to use the Azure portal to manage device identities and monitor related event information.
+title: Manage devices in Microsoft Entra ID using the Microsoft Entra admin center
+description: This article describes how to use the Microsoft Entra admin center to manage device identities and monitor related event information.
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: myra-ramdenbourg
 
 ms.collection: M365-identity-device-management
 ---
-# Manage device identities by using the Azure portal
+# Manage device identities using the Microsoft Entra admin center
 
 Microsoft Entra ID provides a central place to manage device identities and monitor related event information.
 
@@ -24,7 +24,7 @@ Microsoft Entra ID provides a central place to manage device identities and moni
 You can access the devices overview by completing these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
-1. Go to **Microsoft Entra ID** > **Devices**.
+1. Go to **Identity** > **Devices** > **Overview**.
 
 In the devices overview, you can view the number of total devices, stale devices, noncompliant devices, and unmanaged devices. You'll also find links to Intune, Conditional Access, BitLocker keys, and basic monitoring. 
 
@@ -149,7 +149,7 @@ The exported list includes these device identity attributes:
 
 ## Configure device settings
 
-If you want to manage device identities by using the Azure portal, the devices need to be either [registered or joined](overview.md) to Microsoft Entra ID. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
+If you want to manage device identities by using the Microsoft Entra admin center, the devices need to be either [registered or joined](overview.md) to Microsoft Entra ID. As an administrator, you can control the process of registering and joining devices by configuring the following device settings.
 
 You must be assigned one of the following roles to view device settings:
 
