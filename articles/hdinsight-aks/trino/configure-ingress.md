@@ -12,7 +12,7 @@ This article describes how to expose Apache Superset to the Internet.
 
 ## Configure ingress
 
-The following instructions add a second layer of authentication in the form of an OAuth authorization proxy using OAuth2 Proxy. It adds more layer of preventative security to your Superset access.
+The following instructions add a second layer of authentication in the form of an Oauth authorization proxy using Oauth2Proxy. It adds more layer of preventative security to your Superset access.
 
 1. Get a TLS certificate for your hostname and place it into your Key Vault and call it `aks-ingress-tls`. Learn how to put a certificate into an [Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios).
 
@@ -20,10 +20,9 @@ The following instructions add a second layer of authentication in the form of a
 
    |Secret Name|Description|
    |-|-|
-   |client-id|Your Azure service principal client ID. OAuth proxy requires this ID to be a secret.|
-   |oauth2proxy-redis-password|Proxy cache password.|
-   |oauth2proxy-cookie-secret|Cookie secret, 32 characters long.|
-
+   |client-id|Your Azure service principal client ID. Oauth proxy requires this ID to be a secret.|
+   |oauth2proxy-redis-password|Proxy cache password. The password used by the Oauth proxy to access the back end Redis deployment instance on Kubernetes. Generate a strong password.|
+   |oauth2proxy-cookie-secret|Cookie secret, used to encrypt the cookie data. This cookie secret must be 32 characters long.|
 1. Add these callbacks in your Azure AD application configuration.
 
    * `https://{{YOUR_HOST_NAME}}/oauth2/callback`
@@ -31,9 +30,12 @@ The following instructions add a second layer of authentication in the form of a
     * `https://{{YOUR_HOST_NAME}}/oauth-authorized/azure`
       - for Superset
 
-1. Deploy the basic ingress ngninx controller. For more information, see [here](/azure/aks/ingress-basic?tabs=azure-cli#basic-configuration).
+1. Deploy the basic ingress ngninx controller into the `default` namespace. For more information, see [here](/azure/aks/ingress-basic?tabs=azure-cli#basic-configuration).
 
-1. Create TLS Secret Provider Class.
+> [!NOTE] 
+> The ingress nginx controller steps use Kubernetes namespace `ingress-basic`. Please modify to use the `default` namespace. e.g. `NAMESPACE=default`
+
+1. Create TLS secret provider class.
 
    This step describes how the TLS certificate is read from the Key Vault and transformed into a Kubernetes secret to be used by ingress:
 
@@ -74,7 +76,7 @@ The following instructions add a second layer of authentication in the form of a
        tenantId: "{{KEY_VAULT_TENANT_ID}}"
    ```
 
-1. Create OAuth Proxy Secret Provider Class.
+1. Create OauthProxy Secret Provider Class.
 
    Update in the following yaml:
    * `{{MSI_CLIENT_ID}}` - The client ID of the managed identity assigned to the Superset cluster (`$MANAGED_IDENTITY_RESOURCE`).
@@ -84,7 +86,7 @@ The following instructions add a second layer of authentication in the form of a
    Refer to [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/src/trino/oauth2-secretprovider.yml).
    
 
-1. Create configuration for the OAuth Proxy.
+1. Create configuration for the Oauth Proxy.
 
    Update in the following yaml:
    * `{{hostname}}` - The internet facing host name.
@@ -94,7 +96,7 @@ The following instructions add a second layer of authentication in the form of a
 
    Refer to [sample code](https://github.com/Azure-Samples/hdinsight-aks/blob/main/src/trino/oauth2-values.yml).
 
-1. Deploy OAuth proxy resources.
+1. Deploy Oauth proxy resources.
 
    ```bash
    kubectl apply -f oauth2-secretprovider.yaml
@@ -124,13 +126,13 @@ The following instructions add a second layer of authentication in the form of a
 
     1. Enter the DNS name label.
 
-1. Verify that your ingress for OAuth is configured.
+1. Verify that your ingress for Oauth is configured.
 
       Run `kubectl get ingress` to see the ingresses created. You should see an `EXTERNAL-IP` associated with the ingress.
       Likewise, when running `kubectl get services` you should see that `ingress-nginx-controller` has been assigned an `EXTERNAL-IP`.
-      You can open `http://<hostname>/oauth2` to test OAuth.
+      You can open `http://<hostname>/oauth2` to test Oauth.
 
-1. Define an ingress to link OAuth and Superset. This step causes any calls to any path to be first redirected to /oauth for authorization, and upon success, allowed to access the Superset service.
+1. Define an ingress to link Oauth and Superset. This step causes any calls to any path to be first redirected to /oauth for authorization, and upon success, allowed to access the Superset service.
 
     Update in the following yaml:
     * `{{hostname}}` - The internet facing host name.
@@ -180,21 +182,37 @@ The following instructions add a second layer of authentication in the form of a
    
     Open `https://{{hostname}}/` in your browser.
 
-## Troubleshooting Ingress
+### Troubleshooting ingress
 
-#### Invalid security certificate: Kubernetes Ingress Controller Fake Certificate
+> [!TIP] 
+> To reset the ingress deployment, execute the following commands:
+> ```bash
+> kubectl delete secret ingress-tls-csi
+> kubectl delete secret oauth2-secret
+> helm uninstall oauth2-proxy
+> helm uninstall ingress-nginx
+> kubectl delete ingress azure-trino-superset
+> ```
+> After deleting the resources, you need to restart these instructions from the beginning.
 
-These issues cause a TLS certificate verification error in your browser/client. 
-The usual cause of this issue is that your certificate is misconfigured.
+#### Invalid security certificate: Kubernetes ingress controller fake certificate
 
-* Verify you can see your certificate in Kubernetes: `kubectl get secret ingress-tls-csi --output yaml`
-* Verify your CN matches the CN provided in your certificate.
+This issue causes a TLS certificate verification error in your browser/client. To see this error, inspect the certificate in a browser.
+
+The usual cause of this issue is that your certificate is misconfigured:
+
+* Verify that you can see your certificate in Kubernetes: `kubectl get secret ingress-tls-csi --output yaml`
+
+* Verify that your CN matches the CN provided in your certificate.
+
+    * The CN mismatch gets logged in the ingress pod. These logs can be seen by running `kubectl logs <ingress pod>`. The following error appears in the :
+
+        `SSL certificate "default/ingress-tls-csi" does not contain a Common Name or Subject Alternative Name for server "{server name}": x509: certificate is valid for {invalid hostname}, not {actual hostname}`
 
 #### 404 / nginx
 
 Nginx can't find the underlying service. Make sure Superset is deployed: `kubectl get services`
 
-#### 503 Service Temporarily Unavailable / nginx
+#### 503 Service temporarily unavailable / nginx
 
 The service is running but inaccessible. Check the service port numbers and service name.
-
