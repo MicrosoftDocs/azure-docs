@@ -83,7 +83,7 @@ This section guides you through the steps to configure the Microsoft Entra provi
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input `https://api.getM-Files.com/scim/v2/` as your M-Files Tenant URL and your [SCIM API key](https://learning.M-Files.com/docs/administration/scim-provisioning/scim-provisioning-overview/#generating-scim-api-key) as the Secret Token. Click **Test Connection** to ensure Microsoft Entra ID can connect to M-Files. If the connection fails, ensure your M-Files account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your M-Files Tenant URL and Secret Token. Click **Test Connection** to ensure Microsoft Entra ID can connect to M-Files. If the connection fails, ensure your M-Files account has Admin permissions and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
