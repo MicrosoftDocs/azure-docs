@@ -33,7 +33,7 @@ Alerts help track important events in your network by notifying you with an emai
 
 1. Select **See all signals** just under the dropdown menu or from inside the dropdown menu.
 
-      :::image type="content" source="media/packet-core-alerts-signal-list.png" alt-text="Screenshot of Azure portal showing alert signal selection menu." lightbox="media/alert3.png":::
+      :::image type="content" source="media/packet-core-alerts-signal-list.png" alt-text="Screenshot of Azure portal showing alert signal selection menu." lightbox="media/packet-core-alerts-signal-list.png":::
 
 1. Select the signal you want the alert to be based on and follow the rest of the create instructions.
 1. Once you've reached the end of the create instructions, select **Review + create** to create your alert.
