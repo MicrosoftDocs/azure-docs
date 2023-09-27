@@ -179,27 +179,27 @@ sudo rm -f ~/.bash_history
 15. To bring a Generation 2 VM on Azure, follow these steps:
 
 
-    1. Change directory to the boot EFI directory:
+1. Change directory to the boot EFI directory:
 ```bash
 cd /boot/efi/EFI
 ```
 
-    2. Copy the ubuntu directory to a new directory named boot:
+2. Copy the ubuntu directory to a new directory named boot:
 ```bash
 sudo cp -r ubuntu/ boot
 ```
 
-    3. Change directory to the newly created boot directory:
+3. Change directory to the newly created boot directory:
 ```bash
 cd boot
 ```
     
-    4. Rename the shimx64.efi file:
+4. Rename the shimx64.efi file:
 ```bash
 sudo mv shimx64.efi bootx64.efi
 ```
 
-    5. Rename the grub.cfg file to bootx64.cfg:
+5. Rename the grub.cfg file to bootx64.cfg:
 ```bash
 sudo mv grub.cfg bootx64.cfg 
 ```
