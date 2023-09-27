@@ -7,7 +7,7 @@ ms.author: guywild
 ms.reviewer: roygal
 ms.date: 09/04/2023
 
-# Customer intent: As a troubleshooter, I want to get insights from log data without using Kusto Query Language (KQL).
+# Customer intent: As an analyst or DevOps troubleshooter, I want to get insights from log data without using Kusto Query Language (KQL).
 
 ---
 
