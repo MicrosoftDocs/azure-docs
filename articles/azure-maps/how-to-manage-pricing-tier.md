@@ -45,26 +45,26 @@ To change your pricing tier from Gen1 to Gen2 in the ARM template, update `prici
 
 <!------
 ```json
-        "pricingTier": { 
-            "type": "string", 
-            "allowedValues":[ 
-                "G2"
-            ], 
-            "defaultValue": "G2",
-            "metadata": { 
-                "description": "The pricing tier SKU for the account." 
-            } 
-        }, 
-        "kind": { 
-            "type": "string", 
-            "allowedValues":[ 
-                "Gen2" 
-            ], 
-            "defaultValue": "Gen2", 
-            "metadata": { 
-                "description": "The pricing tier for the account." 
-            } 
-        } 
+  "pricingTier": { 
+      "type": "string", 
+      "allowedValues":[ 
+          "G2"
+      ], 
+      "defaultValue": "G2",
+      "metadata": { 
+          "description": "The pricing tier SKU for the account." 
+      } 
+  }, 
+  "kind": { 
+      "type": "string", 
+      "allowedValues":[ 
+          "Gen2" 
+      ], 
+      "defaultValue": "Gen2", 
+      "metadata": { 
+          "description": "The pricing tier for the account." 
+      } 
+  } 
 ```
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json" highlight="27-46":::

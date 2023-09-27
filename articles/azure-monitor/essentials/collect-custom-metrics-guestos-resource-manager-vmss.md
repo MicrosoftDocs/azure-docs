@@ -190,100 +190,105 @@ The following code from the MSI extension also adds the diagnostics extension an
 ...
 ```
 
-
-Add a **dependsOn** for the storage account to ensure it's created in the correct order: 
+Add a **dependsOn** for the storage account to ensure it's created in the correct order:
 
 ```json
-"dependsOn": [ 
-"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
-"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
-//add this line below
-"[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
+"dependsOn": [
+  "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+  "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+  //add this line below
+  "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
+]
 ```
 
 Create a storage account if one isn't already created in the template: 
 
 ```json
 "resources": [
-// add this code    
-{
+  // add this code
+  {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
     "apiVersion": "2015-05-01-preview",
     "location": "[resourceGroup().location]",
     "properties": {
-    "accountType": "Standard_LRS"
+      "accountType": "Standard_LRS"
     }
-},
-// end added code
-{ 
+  },
+  // end added code
+  {
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[variables('virtualNetworkName')]",
+    ...
+  }
+]
 ```
 
-Save and close both files. 
+Save and close both files.
 
-## Deploy the Resource Manager template 
+## Deploy the Resource Manager template
 
-> [!NOTE]  
-> You must be running the Azure Diagnostics extension version 1.5 or higher **and** have the **autoUpgradeMinorVersion:** property set to **true** in your Resource Manager template. Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template. 
+> [!NOTE]
+> You must be running the Azure Diagnostics extension version 1.5 or higher **and** have the **autoUpgradeMinorVersion:** property set to **true** in your Resource Manager template. Azure then loads the proper extension when it starts the VM. If you don't have these settings in your template, change them and redeploy the template.
 
+To deploy the Resource Manager template, use Azure PowerShell:
 
-To deploy the Resource Manager template, use Azure PowerShell:  
+1. Launch PowerShell.
 
-1. Launch PowerShell. 
 1. Sign in to Azure using `Login-AzAccount`.
+
 1. Get your list of subscriptions by using `Get-AzSubscription`.
+
 1. Set the subscription you'll create, or update the virtual machine: 
 
    ```powershell
-   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
-1. Create a new resource group for the VM being deployed. Run the following command: 
+
+1. Create a new resource group for the VM being deployed. Run the following command:
 
    ```powershell
-    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>"
    ```
 
    > [!NOTE]  
    > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](./metrics-custom-overview.md#supported-regions).
- 
-1. Run the following commands to deploy the VM:  
 
-   > [!NOTE]  
-   > If you want to update an existing scale set, add **-Mode Incremental** to the end of the command. 
- 
+1. Run the following commands to deploy the VM:
+
+   > [!NOTE]
+   > If you want to update an existing scale set, add **-Mode Incremental** to the end of the command.
+
    ```powershell
-   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"
    ```
 
-1. After your deployment succeeds, you should find the virtual machine scale set in the Azure portal. It should emit metrics to Azure Monitor. 
+1. After your deployment succeeds, you should find the virtual machine scale set in the Azure portal. It should emit metrics to Azure Monitor.
 
-   > [!NOTE]  
-   > You might run into errors around the selected **vmSkuSize**. In that case, go back to your **azuredeploy.json** file and update the default value of the **vmSkuSize** parameter. We recommend that you try **Standard_DS1_v2**. 
+   > [!NOTE]
+   > You might run into errors around the selected **vmSkuSize**. In that case, go back to your **azuredeploy.json** file and update the default value of the **vmSkuSize** parameter. We recommend that you try **Standard_DS1_v2**.
 
+## Chart your metrics
 
-## Chart your metrics 
+1. Sign in to the Azure portal.
 
-1. Sign in to the Azure portal. 
+1. In the left-hand menu, select **Monitor**.
 
-1. In the left-hand menu, select **Monitor**. 
-
-1. On the **Monitor** page, select **Metrics**. 
+1. On the **Monitor** page, select **Metrics**.
 
    :::image source="media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png" alt-text="A screenshot showing the metrics menu item on the Azure Monitor menu page." lightbox="media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png":::
 
-1. Change the aggregation period to **Last 30 minutes**.  
+1. Change the aggregation period to **Last 30 minutes**.
 
-1. In the resource drop-down menu, select the virtual machine scale set you created.  
+1. In the resource drop-down menu, select the virtual machine scale set you created.
 
-1. In the namespaces drop-down menu, select **Virtual Machine Guest**.  
+1. In the namespaces drop-down menu, select **Virtual Machine Guest**.
 
-1. In the metrics drop-down menu, select **Memory\%Committed Bytes in Use**.  
+1. In the metrics drop-down menu, select **Memory\%Committed Bytes in Use**.
+
    :::image source="media/collect-custom-metrics-guestos-resource-manager-vmss/create-metrics-chart.png" alt-text="A screenshot showing the selection of namespace metric and aggregation for a metrics chart." lightbox="media/collect-custom-metrics-guestos-resource-manager-vmss/create-metrics-chart.png":::
 
 You can then also choose to use the dimensions on this metric to chart it for a particular VM or to plot each VM in the scale set. 
-
 
 ## Next steps
 
