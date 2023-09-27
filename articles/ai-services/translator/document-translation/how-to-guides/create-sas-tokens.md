@@ -1,8 +1,7 @@
 ---
 title: Create shared access signature (SAS) tokens for storage containers and blobs
 description: How to create Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar

@@ -4,6 +4,7 @@ description: This article suggests different integration options for managing mu
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: ikbarmen
+author: IngridAtMicrosoft
 ---
 
 # Manage multiple tenants

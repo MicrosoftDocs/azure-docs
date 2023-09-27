@@ -85,7 +85,7 @@ Your application will access a SignalR Service instance. Use the following steps
 
 1. Execute the following command in your terminal to create a new JavaScript Functions project.
 
-```
+```bash
 func init --worker-runtime node --language javascript --name my-app
 ```
 
@@ -361,7 +361,7 @@ The `--publish-local-settings` option publishes your local settings from the _lo
 
 ### Enable App Service Authentication
 
-Azure Functions supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google. You will use **Microsoft** as the identity provider for this tutorial.
+Azure Functions supports authentication with Microsoft Entra ID, Facebook, Twitter, Microsoft account, and Google. You will use **Microsoft** as the identity provider for this tutorial.
 
 1. Go to the resource page of your function app on Azure portal.
 1. Select **Settings** -> **Authentication**.
@@ -371,9 +371,9 @@ Azure Functions supports authentication with Azure Active Directory, Facebook, T
 1. Select **Microsoft** from the **Identity provider** list.
    :::image type="content" source="media/signalr-tutorial-authenticate-azure-functions/function-app-select-identity-provider.png" alt-text="Screenshot of 'Add an identity provider' page.":::
 
-   Azure Functions supports authentication with Azure Active Directory, Facebook, Twitter, Microsoft account, and Google. For more information about the supported identity providers, see the following articles:
+   Azure Functions supports authentication with Microsoft Entra ID, Facebook, Twitter, Microsoft account, and Google. For more information about the supported identity providers, see the following articles:
 
-   - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+   - [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
    - [Microsoft account](../app-service/configure-authentication-provider-microsoft.md)

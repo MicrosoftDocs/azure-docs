@@ -14,8 +14,11 @@ ms.author: lianwei
 Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability, but it's still a regional service.
 Your service instance is always running in one region and doesn't fail over to another region when there's a region-wide outage.
 
-Instead, our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them aren't available.
-With this feature, you're able to recover when a disaster takes place, but you need to set up the right system topology by yourself. You learn how to do so in this document.
+For regional disaster recovery, we recommend the following two approaches:
+
+- **Enable Geo-Replication** (Easy way). This feature will handle regional failover for you automatically. When enabled, there remains just one Azure SignalR instance and no code changes are introduced. Check [geo-replication](howto-enable-geo-replication.md) for details.
+- **Utilize Multiple Endpoints in Service SDK**. Our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them aren't available. With this feature, you're able to recover when a disaster takes place, but you need to set up the right system topology by yourself. You learn how to do so **in this document**.
+
 
 ## High available architecture for SignalR service
 

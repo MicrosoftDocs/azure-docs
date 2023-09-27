@@ -5,7 +5,7 @@ description: Learn how to Use Health Monitor to gain insights into BlobFuse2 mou
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ---

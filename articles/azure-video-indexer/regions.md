@@ -1,11 +1,10 @@
 ---
 title: Regions in which Azure AI Video Indexer is available  
 description: This article talks about Azure regions in which Azure AI Video Indexer is available.
-author: Juliako
-manager: femila
 ms.topic: article
 ms.date: 09/14/2020
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Azure regions in which Azure AI Video Indexer exists

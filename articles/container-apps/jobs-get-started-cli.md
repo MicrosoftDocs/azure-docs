@@ -1,17 +1,17 @@
 ---
-title: Create a job with Azure Container Apps (preview)
+title: Create a job with Azure Container Apps
 description: Learn to create an on-demand or scheduled job in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 05/08/2023
+ms.date: 08/17/2023
 ms.author: cshoe
 zone_pivot_groups: container-apps-job-types
 ---
 
-# Create a job with Azure Container Apps (preview)
+# Create a job with Azure Container Apps
 
 Azure Container Apps [jobs](jobs.md) allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
 

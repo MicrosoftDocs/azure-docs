@@ -53,18 +53,18 @@ The local auth method is used when `AuthType` is set to null.
 | --------- | ---------------------------------------------------------- | -------- | ------------- | ---------------------------------------- |
 | AccessKey | The key string in base64 format for building access token. | Y        | null          | ABCDEFGHIJKLMNOPQRSTUVWEXYZ0123456789+=/ |
 
-### Use Azure Active Directory
+### Use Microsoft Entra ID
 
-The Azure AD auth method is used when `AuthType` is set to `azure`, `azure.app` or `azure.msi`.
+The Microsoft Entra ID auth method is used when `AuthType` is set to `azure`, `azure.app` or `azure.msi`.
 
 | Key            | Description                                                                             | Required | Default value | Example value                              |
 | -------------- | --------------------------------------------------------------------------------------- | -------- | ------------- | ------------------------------------------ |
 | ClientId       | A GUID of an Azure application or an Azure identity.                                    | N        | null          | `00000000-0000-0000-0000-000000000000`     |
-| TenantId       | A GUID of an organization in Azure Active Directory.                                    | N        | null          | `00000000-0000-0000-0000-000000000000`     |
+| TenantId       | A GUID of an organization in Microsoft Entra ID.                                        | N        | null          | `00000000-0000-0000-0000-000000000000`     |
 | ClientSecret   | The password of an Azure application instance.                                          | N        | null          | `***********************.****************` |
 | ClientCertPath | The absolute path of a client certificate (cert) file to an Azure application instance. | N        | null          | `/usr/local/cert/app.cert`                 |
 
-A different `TokenCredential` is used to generate Azure AD tokens depending on the parameters you have given.
+A different `TokenCredential` is used to generate Microsoft Entra tokens depending on the parameters you have given.
 
 - `type=azure`
 
@@ -78,7 +78,7 @@ A different `TokenCredential` is used to generate Azure AD tokens depending on t
 
   1. A user-assigned managed identity is used if `clientId` has been given in connection string.
 
-     ```
+     ```text
      Endpoint=xxx;AuthType=azure.msi;ClientId=<client_id>
      ```
 
@@ -94,7 +94,7 @@ A different `TokenCredential` is used to generate Azure AD tokens depending on t
 
 - `type=azure.app`
 
-  `clientId` and `tenantId` are required to use [Azure AD application with service principal](../active-directory/develop/howto-create-service-principal-portal.md).
+  `clientId` and `tenantId` are required to use [Microsoft Entra application with service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
   1. [ClientSecretCredential(clientId, tenantId, clientSecret)](/dotnet/api/azure.identity.clientsecretcredential) is used if `clientSecret` is given.
 
@@ -126,17 +126,17 @@ You can also use Azure CLI to get the connection string:
 az signalr key list -g <resource_group> -n <resource_name>
 ```
 
-## Connect with an Azure AD application
+## Connect with a Microsoft Entra application
 
-You can use an [Azure AD application](../active-directory/develop/app-objects-and-service-principals.md) to connect to your SignalR service. As long as the application has the right permission to access SignalR service, no access key is needed.
+You can use a [Microsoft Entra application](../active-directory/develop/app-objects-and-service-principals.md) to connect to your SignalR service. As long as the application has the right permission to access SignalR service, no access key is needed.
 
-To use Azure AD authentication, you need to remove `AccessKey` from connection string and add `AuthType=azure.app`. You also need to specify the credentials of your Azure AD application, including client ID, client secret and tenant ID. The connection string looks as follows:
+To use Microsoft Entra authentication, you need to remove `AccessKey` from connection string and add `AuthType=azure.app`. You also need to specify the credentials of your Microsoft Entra application, including client ID, client secret and tenant ID. The connection string looks as follows:
 
 ```text
 Endpoint=https://<resource_name>.service.signalr.net;AuthType=azure.app;ClientId=<client_id>;ClientSecret=<client_secret>;TenantId=<tenant_id>;Version=1.0;
 ```
 
-For more information about how to authenticate using Azure AD application, see [Authorize from Azure Applications](signalr-howto-authorize-application.md).
+For more information about how to authenticate using Microsoft Entra application, see [Authorize from Azure Applications](signalr-howto-authorize-application.md).
 
 ## Authenticate with Managed identity
 
@@ -163,16 +163,16 @@ For more information about how to configure managed identity, see [Authorize fro
 
 ### Use the connection string generator
 
-It may be cumbersome and error-prone to build connection strings manually. To avoid making mistakes, SignalR provides a connection string generator to help you generate a connection string that includes Azure AD identities like `clientId`, `tenantId`, etc. To use the tool open your SignalR instance in Azure portal, select **Connection strings** from the left side menu.
+It may be cumbersome and error-prone to build connection strings manually. To avoid making mistakes, SignalR provides a connection string generator to help you generate a connection string that includes Microsoft Entra identities like `clientId`, `tenantId`, etc. To use the tool open your SignalR instance in Azure portal, select **Connection strings** from the left side menu.
 
 :::image type="content" source="media/concept-connection-string/generator.png" alt-text="Screenshot showing connection string generator of SignalR service in Azure portal.":::
 
-In this page you can choose different authentication types (access key, managed identity or Azure AD application) and input information like client endpoint, client ID, client secret, etc. Then connection string is automatically generated. You can copy and use it in your application.
+In this page you can choose different authentication types (access key, managed identity or Microsoft Entra application) and input information like client endpoint, client ID, client secret, etc. Then connection string is automatically generated. You can copy and use it in your application.
 
 > [!NOTE]
 > Information you enter won't be saved after you leave the page. You will need to copy and save your connection string to use in your application.
 
-For more information about how access tokens are generated and validated, see [Authenticate via Azure Active Directory Token](signalr-reference-data-plane-rest-api.md#authenticate-via-azure-active-directory-token-azure-ad-token) in [Azure SignalR service data plane REST API reference](signalr-reference-data-plane-rest-api.md) .
+For more information about how access tokens are generated and validated, see [Authenticate via Microsoft Entra token](signalr-reference-data-plane-rest-api.md#authenticate-via-microsoft-entra-token) in [Azure SignalR service data plane REST API reference](signalr-reference-data-plane-rest-api.md) .
 
 ## Client and server endpoints
 

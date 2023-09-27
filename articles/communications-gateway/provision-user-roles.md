@@ -44,7 +44,7 @@ You need to use the Azure portal to configure user roles.
     - Know who needs access.
     - Know the appropriate user role or roles to assign them.
     - Are signed in with a user account with a role that can change role assignments for the subscription, such as **Owner** or **User Access Administrator**.
-1. If you're managing access to the Number Management Portal, ensure that you're signed in with a user that can change roles for enterprise applications. For example, you could be a Global Administrator, Cloud Application Administrator or Application Administrator. For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+1. If you're managing access to the Number Management Portal, ensure that you're signed in with a user account that can change roles for enterprise applications. For example, you could be a Global Administrator, Cloud Application Administrator or Application Administrator. For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
 ### 2.2 Assign a user role
 

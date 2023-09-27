@@ -40,13 +40,17 @@ In addition to the catalog owner and access package manager roles, you can also 
 
 ## As a catalog owner, delegate to an access package manager
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 Follow these steps to assign a user to the access package manager role:
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global administrator, Identity Governance administrator, or Catalog owner
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Catalogs** and then open the catalog you want to add administrators to.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to add administrators to.
 
 1. In the left menu, select **Roles and administrators**.
 
@@ -60,11 +64,13 @@ Follow these steps to assign a user to the access package manager role:
 
 Follow these steps to remove a user from the access package manager role:
 
-**Prerequisite role:** Global administrator, User administrator, or Catalog owner
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, or Catalog owner
 
-1. In the Azure portal, select **Azure Active Directory** and then select **Identity Governance**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
-1. In the left menu, select **Catalogs** and then open the catalog you want to add administrators to.
+1. Browse to **Identity governance** > **Entitlement management** > **Catalogs**.
+
+1. On the **Catalogs** page open the catalog you want to add administrators to.
 
 1. In the left menu, select **Roles and administrators**.
 

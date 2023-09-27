@@ -5,7 +5,7 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 07/07/2023
+ms.date: 08/28/2023
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
@@ -13,6 +13,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Upload a blob with .NET
+
+[!INCLUDE [storage-dev-guide-selector-upload](../../../includes/storage-dev-guides/storage-dev-guide-selector-upload.md)]
 
 This article shows how to upload a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can upload data to a block blob from a file path, a stream, a binary object, or a text string. You can also open a blob stream and write to it, or upload large blobs in blocks.
 
@@ -95,6 +97,9 @@ The following table shows the available options for the checksum algorithm, as d
 | None | 1 | No selected algorithm. Don't calculate or request checksums.
 | MD5 | 2 | Standard MD5 hash algorithm. |
 | StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
+
+> [!NOTE]
+> If the checksum specified in the request doesn't match the checksum calculated by the service, the upload operation fails. The operation is not retried when using a default retry policy. In .NET, a `RequestFailedException` is thrown with status code 400 and error code `Md5Mismatch` or `Crc64Mismatch`, depending on which algorithm is used.
 
 ### Upload with index tags
 

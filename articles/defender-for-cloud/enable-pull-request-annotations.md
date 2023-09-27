@@ -149,7 +149,7 @@ Once you've completed these steps, you can select the build pipeline you created
 1. (Optional) Select a category from the drop-down menu. 
 
     > [!NOTE]
-    > Only secret scan results and Infrastructure-as-Code misconfigurations for ARM/Bicep templates are currently supported.
+    > Only Infrastructure-as-Code misconfigurations (ARM, Bicep, Terraform, CloudFormation, Dockerfiles, Helm Charts, and more) results are currently supported.
 
 1. (Optional) Select a severity level from the drop-down menu.
 

@@ -63,6 +63,12 @@ We recommend configuring the Azure Front Door customer certificate secret to ‘
 Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#certificate-renewal-and-changing-certificate-types).
 ## Compute
 
+### Migrate Virtual Machines to Availability Zones
+
+By migrating virtual machines to Availability Zones, you can ensure the isolation of your VMs from potential failures in other zones. With this, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions. 
+
+Learn more about [Availability Zones](../reliability/availability-zones-overview.md).
+
 ### Enable Backups on your Virtual Machines
 
 Enable backups for your virtual machines and secure your data
@@ -489,6 +495,13 @@ Learn more about [Static Web App - StaticWebAppsUpgradeToStandardSKU (Consider u
 We identified the below thread resulted in an unhandled exception for your App and application code should be fixed to prevent impact to application availability. A crash happens when an exception in your code goes un-handled and terminates the process.
 
 Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code should be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
+
+### Consider changing your App Service configuration to 64-bit
+
+We identified your application is running in 32-bit and the memory is reaching the 2GB limit. 
+Consider switching to 64-bit processes so you can take advantage of the additional memory available in your Web Worker role. This action triggers a web app restart, so schedule accordingly.
+
+Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-service/web-apps-performance-faqs#i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue).
 
 ## Next steps
 

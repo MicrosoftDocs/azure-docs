@@ -1,11 +1,11 @@
 ---
 title: Customize Language model with Azure AI Video Indexer website
 description: Learn how to customize a Language model with the Azure AI Video Indexer website.
-author: anikaz
-manager: johndeu
 ms.topic: article
 ms.date: 08/10/2020
+ms.custom: prevauth-anikaz
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customize a Language model with the Azure AI Video Indexer website

@@ -1,6 +1,6 @@
 ---
 title: Add users, groups, or devices to an administrative unit
-description: Add users, groups, or devices to an administrative unit in Azure Active Directory
+description: Add users, groups, or devices to an administrative unit in Microsoft Entra ID
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,14 +18,14 @@ ms.collection: M365-identity-device-management
 
 # Add users, groups, or devices to an administrative unit
 
-In Azure Active Directory (Azure AD), you can add users, groups, or devices to an administrative unit to limit the scope of role permissions. Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. For additional details on what scoped administrators can do, see [Administrative units in Azure Active Directory](administrative-units.md).
+In Microsoft Entra ID, you can add users, groups, or devices to an administrative unit to limit the scope of role permissions. Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. For additional details on what scoped administrators can do, see [Administrative units in Microsoft Entra ID](administrative-units.md).
 
 This article describes how to add users, groups, or devices to administrative units manually. For information about how to add users or devices to administrative units dynamically using rules, see [Manage users or devices for an administrative unit with dynamic membership rules](admin-units-members-dynamic.md).
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Free licenses for administrative unit members
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID Free licenses for administrative unit members
 - To add existing users, groups, or devices:
     - Privileged Role Administrator or Global Administrator
 - To create new groups:
@@ -35,22 +35,22 @@ This article describes how to add users, groups, or devices to administrative un
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
-You can add users, groups, or devices to administrative units using the Azure portal. You can also add users in a bulk operation or create a new group in an administrative unit.
+You can add users, groups, or devices to administrative units using the Microsoft Entra admin center. You can also add users in a bulk operation or create a new group in an administrative unit.
 
 ### Add a single user, group, or device to administrative units
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity**.
 
-1. Select one of the following:
+1. Browse to one of the following:
 
-    - **Users**
-    - **Groups**
+    - **Users** > **All users**
+    - **Groups** > **All groups**
     - **Devices** > **All devices**
   
 1. Select the user, group, or device you want to add to administrative units.
@@ -65,11 +65,11 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Add users, groups, or devices to a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit you want to add users, groups, or devices to.
+1. Select the administrative unit you want to add users, groups, or devices to.
 
 1. Select one of the following:
 
@@ -85,13 +85,11 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Add users to an administrative unit in a bulk operation
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit you want to add users to.
-
-1. Select the administrative unit to which you want to add users.
+1. Select the administrative unit you want to add users to.
 
 1. Select **Users** > **Bulk operations** > **Bulk add members**.
 
@@ -111,11 +109,11 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Create a new group in an administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#groups-administrator).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit you want to create a new group in.
+1. Select the administrative unit you want to create a new group in.
 
 1. Select **Groups**.
 
@@ -261,7 +259,7 @@ Body
 
 ## Next steps
 
-- [Administrative units in Azure Active Directory](administrative-units.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Administrative units in Microsoft Entra ID](administrative-units.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)
 - [Manage users or devices for an administrative unit with dynamic membership rules](admin-units-members-dynamic.md)
 - [Remove users, groups, or devices from an administrative unit](admin-units-members-remove.md)
