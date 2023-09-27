@@ -75,7 +75,7 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type the URL:
     `http://www.diffchecker.com/saml/metadata`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -133,22 +133,20 @@ In this section, you create a user called B.Simon in Diffchecker. Work with [Di
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
 #### SP initiated:
  
-* Click on **Test this application** in Azure portal. This will redirect to Diffchecker Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Microsoft Entra admin center. This will redirect to Diffchecker Sign on URL where you can initiate the login flow.  
  
 * Go to Diffchecker Sign-on URL directly and initiate the login flow from there.
  
 #### IDP initiated:
  
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Diffchecker for which you set up the SSO.
+* Click on **Test this application** in Microsoft Entra admin center and you should be automatically signed in to the Diffchecker for which you set up the SSO.
  
 You can also use Microsoft My Apps to test the application in any mode. When you click the Diffchecker tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Diffchecker for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-
 ## Next Steps
 
-Once you configure Diffchecker you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
-
+Once you configure Diffchecker you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
