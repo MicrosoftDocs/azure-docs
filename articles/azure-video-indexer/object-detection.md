@@ -139,6 +139,7 @@ To examine object detection more thoroughly, use [Get Video Index](https://api-p
 
 Certainly! Here's the list with every five words separated by ":::column-end:::" and ":::column:::" for a better column layout:
 
+:::row::
 :::column:::
 - airplane
 - apple
@@ -216,6 +217,7 @@ Certainly! Here's the list with every five words separated by ":::column-end:::"
 - vase
 - wine glass
 :::column-end:::
+:::row-end:::
 
 ## Limitations
 
