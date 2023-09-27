@@ -225,7 +225,7 @@ New-AzNetworkCloudAgentPool -KubernetesClusterName $CLUSTER_NAME `
 
 After a few minutes, the command completes and returns information about the agent pool. For more advanced options, see [Quickstart: Deploy an Azure Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md).
 
-[!INCLUDE [quickstart-review-nodepool](./includes/kubernetes-cluster/quickstart-review-nodepool.md)]
+[!INCLUDE [quickstart-review-nodepool](./includes/kubernetes-cluster/quickstart-review-nodepool-ps.md)]
 
 ## Clean up resources
 
