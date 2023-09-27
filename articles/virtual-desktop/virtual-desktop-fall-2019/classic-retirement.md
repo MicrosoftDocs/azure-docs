@@ -34,7 +34,7 @@ Beginning **September 30, 2023**, you'll no longer be able to create new Azure V
 To avoid service disruptions, migrate to Azure Virtual Desktop before September 30, 2026. Here are some articles to help you migrate:
 
 - [Migrate manually from Azure Virtual Desktop (classic)](../manual-migration.md)
-- [Migrate automatically from Azure Virtual Desktop (classic)](../automated-migration.md)
+- [Migrate automatically from Azure Virtual Desktop (classic)](../automatic-migration.md)
 
 ## Exemption process
 
@@ -59,4 +59,4 @@ To be able to continue creating tenants in Azure Virtual Desktop (classic), you 
 
 ## Help and support
 
-If you have a support plan and you need technical help, see [Azure Virtual Desktop (classic) troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md#create-a-support-request) for information on how to create a support request. You can also ask community experts questions at [Azure Virtual Desktop - Microsoft Q&A](https://learn.microsoft.com/answers/tags/221/azure-virtual-desktop).
+If you have a support plan and you need technical help, see [Azure Virtual Desktop (classic) troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md#create-a-support-request) for information on how to create a support request. You can also ask community experts questions at [Azure Virtual Desktop - Microsoft Q&A](/answers/tags/221/azure-virtual-desktop).
