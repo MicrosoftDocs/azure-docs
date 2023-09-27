@@ -123,86 +123,98 @@ Application requests to most Azure services must be authorized. For the API for 
 
 1. Import the `gremlin` module.
 
-    ```javascript
-    import gremlin from 'gremlin'
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="imports":::
 
 1. Create `accountName` and `accountKey` string variables. Store the `COSMOS_GREMLIN_ENDPOINT` and `COSMOS_GREMLIN_KEY` environment variables as the values for each respective variable.
 
-    ```javascript
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="environment_variables":::
 
 1. Use `PlainTextSaslAuthenticator` to create a new object for the account's credentials.
 
-    ```javascript
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="authenticate_client":::
 
-1. Use `Client` to connect using the remote server credentials and the **GraphSON 2.0** serializer.
+1. Use `Client` to connect using the remote server credentials and the **GraphSON 2.0** serializer. Then, use `Open` to create a new connection to the server.
 
-    ```javascript
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="connect_client":::
 
-1. TODO
+## Create vertices
 
-    ```javascript
-    
-    ```
+Now that the application is connected to the account, use the standard Gremlin syntax to create vertices.
 
-1. TODO
 
-    ```javascript
-    
-    ```
+1. Use `submit` to run a command server-side on the API for Gremlin account. Create a **product** vertex with the following properties:
 
-1. TODO
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518371` |
+    | **`name`** | `Kiama classic surfboard` |
+    | **`price`** | `285.55` |
+    | **`category`** | `surfboards` |
 
-    ```javascript
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="create_vertices_1":::
 
-1. TODO
+1. Create a second **product** vertex with these properties:
 
-    ```javascript
-    
-    ```
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518403` |
+    | **`name`** | `Montau Turtle Surfboard` |
+    | **`price`** | `600.00` |
+    | **`category`** | `surfboards` |
 
-1. TODO
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="create_vertices_2":::
 
-    ```javascript
-    
-    ```
+1. Create a third **product** vertex with these properties:
 
-1. TODO
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518409` |
+    | **`name`** | `Bondi Twin Surfboard` |
+    | **`price`** | `585.50` |
+    | **`category`** | `surfboards` |
 
-    ```javascript
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="create_vertices_3":::
 
-1. TODO
+## Create edges
 
-    ```javascript
-    
-    ```
+Create edges using the Gremlin syntax to define relationships between vertices.
 
-1. TODO
+1. Create an edge from the `Montau Turtle Surfboard` product named **replaces** to the `Kiama classic surfboard` product.
 
-    ```javascript
-    
-    ```
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="create_edges_1":::
 
-1. TODO
+    > [!TIP]
+    > This edge defintion uses the `g.V(['<partition-key>', '<id>'])` syntax. Alternatively, you can use `g.V('<id>').has('category', '<partition-key>')`.
 
-    ```javascript
-    
-    ```
+1. Create another **replaces** edge from the same product to the `Bondi Twin Surfboard`.
 
-1. TODO
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="create_edges_2":::
 
-    ```javascript
-    
+## Query vertices &amp; edges
+
+Use the Gremlin syntax to traverse the graph and discover relationships between vertices.
+
+1. Traverse the graph and find all vertices that `Montau Turtle Surfboard` replaces.
+
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="query_vertices_edges":::
+
+1. Write to the console the result of this traversal.
+
+    :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="output_vertices_edges":::
+
+## Run the code
+
+Validate that your application works as expected by running the application. The application should execute with no errors or warnings. The output of the application includes data about the created and queried items.
+
+1. Open the terminal in the Node.js project folder.
+
+1. Use `npm <script>` to run the application. Observe the output from the application.
+
+    ```bash
+    npm start
     ```
 
 ## Clean up resources
