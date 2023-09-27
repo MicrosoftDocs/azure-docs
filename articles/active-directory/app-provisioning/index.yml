@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Application and HR provisioning documentation
-summary: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
+summary: Microsoft Entra app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Microsoft Entra ID also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
 
 metadata:
   title: Application provisioning documentation
-  description: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
+  description: Microsoft Entra app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Microsoft Entra ID also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
   ms.service: active-directory
   ms.subservice: app-provisioning
   ms.workload: identity

@@ -5,8 +5,7 @@ description: Learn how to use the Multivariate Anomaly Detector with Azure Synap
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: tutorial
 ms.date: 08/03/2022
 ms.author: mbullwin

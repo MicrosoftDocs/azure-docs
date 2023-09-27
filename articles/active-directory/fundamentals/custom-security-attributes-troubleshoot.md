@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot custom security attributes in Azure AD (Preview)
-description: Learn how to troubleshoot custom security attributes in Azure Active Directory.
+title: Troubleshoot custom security attributes in Microsoft Entra ID (Preview)
+description: Learn how to troubleshoot custom security attributes in Microsoft Entra ID.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.date: 06/29/2023
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot custom security attributes in Azure AD (Preview)
+# Troubleshoot custom security attributes in Microsoft Entra ID (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
@@ -21,21 +21,21 @@ ms.collection: M365-identity-device-management
 
 ## Symptom - Custom security attributes page is disabled
 
-When signed in to the Azure portal as Global Administrator and you try to access the **Custom security attributes** page, it is disabled.
+When signed in to the [Microsoft Entra admin center](https://entra.microsoft.com) and you try to access the **Custom security attributes** page, it is disabled.
 
 ![Custom security attributes page disabled in Azure portal.](./media/custom-security-attributes-troubleshoot/attributes-disabled.png)
 
 **Cause**
 
-Custom security attributes require an Azure AD Premium P1 or P2 license.
+Custom security attributes require a Microsoft Entra ID P1 or P2 license.
 
 **Solution**
 
-Open **Azure Active Directory** > **Overview** and check the license for your tenant.
+Browse to **Identity** > **Overview** and check the license for your tenant.
 
 ## Symptom - Add attribute set is disabled
 
-When signed in to the Azure portal as Global Administrator and you try to click the **Custom security attributes** > **Add attribute set** option, it is disabled.
+When signed in to the [Microsoft Entra admin center](https://entra.microsoft.com) and you try to click the **Custom security attributes** > **Add attribute set** option, it is disabled.
 
 ![Add attribute set option disabled in Azure portal.](./media/custom-security-attributes-troubleshoot/attribute-set-add-disabled.png)
 
@@ -45,7 +45,7 @@ You don't have permissions to add an attribute set. To add an attribute set and 
 
 **Solution**
 
-Make sure that you are assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) role at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+Make sure that you are assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) role at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md).
 
 ## Symptom - Error when you try to assign a custom security attribute
 
@@ -62,7 +62,7 @@ You don't have permissions to assign custom security attributes. To assign custo
 
 **Solution**
 
-Make sure that you are assigned the [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) role at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+Make sure that you are assigned the [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) role at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md).
 
 ## Symptom - Cannot filter custom security attributes for users or applications
 
@@ -72,7 +72,7 @@ You don't have permissions to filter custom security attributes. To read and fil
 
 **Solution 1**
 
-Make sure that you are assigned one of the following Azure AD built-in roles at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+Make sure that you are assigned one of the following Microsoft Entra built-in roles at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md).
 
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 - [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader)
@@ -83,7 +83,7 @@ You are assigned the Attribute Assignment Reader or Attribute Assignment Adminis
 
 **Solution 2**
 
-You can delegate the management of custom security attributes at the tenant scope or at the attribute set scope. Make sure you have been assigned access to an attribute set at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+You can delegate the management of custom security attributes at the tenant scope or at the attribute set scope. Make sure you have been assigned access to an attribute set at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md).
 
 **Cause 3**
 
@@ -91,7 +91,7 @@ There are no custom security attributes defined and assigned yet for your tenant
 
 **Solution 3**
 
-Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
+Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attribute definitions in Microsoft Entra ID](custom-security-attributes-add.md), [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
 
 ## Symptom - Custom security attributes cannot be deleted
 
@@ -101,15 +101,15 @@ Currently, you can only activate and deactivate custom security attribute defini
 
 **Solution**
 
-Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](custom-security-attributes-add.md).
+Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attribute definitions in Microsoft Entra ID](custom-security-attributes-add.md).
 
 ## Symptom - Cannot add a role assignment at an attribute set scope using PIM
 
-When you try to add an eligible Azure AD role assignment using [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), you cannot set the scope to an attribute set.
+When you try to add an eligible Microsoft Entra role assignment using [Microsoft Entra Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), you cannot set the scope to an attribute set.
 
 **Cause**
 
-PIM currently does not support adding an eligible Azure AD role assignment at an attribute set scope.
+PIM currently does not support adding an eligible Microsoft Entra role assignment at an attribute set scope.
 
 ## Symptom - Insufficient privileges when using Graph Explorer
 
@@ -139,7 +139,7 @@ You are not assigned the required custom security attribute role to make the API
 
 **Solution 2**
 
-Make sure that you are assigned the required custom security attribute role. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+Make sure that you are assigned the required custom security attribute role. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md).
 
 ## Symptom - Request_UnsupportedQuery error
 
@@ -163,5 +163,5 @@ If required, add `ConsistencyLevel=eventual` in the request or the header. You m
 
 ## Next steps
 
-- [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)
+- [Manage access to custom security attributes in Microsoft Entra ID](custom-security-attributes-manage.md)
 - [Troubleshoot Azure role assignment conditions](../../role-based-access-control/conditions-troubleshoot.md)

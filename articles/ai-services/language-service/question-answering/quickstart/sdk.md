@@ -1,8 +1,7 @@
 ---
 title: "Quickstart: Use SDK to create and manage project - custom question answering"
 description: This quickstart shows you how to create and manage your project using custom question answering.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: quickstart
 ms.date: 06/06/2022
 author: jboback

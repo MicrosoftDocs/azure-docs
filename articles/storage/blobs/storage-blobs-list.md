@@ -15,6 +15,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # List blobs with .NET
 
+[!INCLUDE [storage-dev-guide-selector-list-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-blob.md)]
+
 This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## Prerequisites

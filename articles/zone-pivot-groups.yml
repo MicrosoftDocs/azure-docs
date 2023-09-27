@@ -448,7 +448,7 @@ groups:
   prompt: Choose a programming model
   pivots:
   - id: nodejs-model-v4
-    title: v4 (preview)
+    title: v4
   - id: nodejs-model-v3
     title: v3
 - id: functions-container-hosting
@@ -1092,6 +1092,8 @@ groups:
     title: Azure PowerShell
   - id: development-environment-azure-portal
     title: Azure portal
+  - id: development-environment-azd
+    title: Azure Developer CLI
 - id: app-service-ide-oss
   title: Development environment
   prompt: Choose a development environment
@@ -2719,3 +2721,18 @@ groups:
     title: Includes templates
   - id: templates-extends
     title: Extends templates
+# Owner: sidandrews
+- id: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
+  title: Azure Cosmos DB APIs
+  prompt: Choose an API
+  pivots:
+  - id: api-nosql
+    title: NoSQL
+  - id: api-mongodb
+    title: MongoDB
+  - id: api-apache-cassandra
+    title: Apache Cassandra
+  - id: api-apache-gremlin
+    title: Apache Gremlin
+  - id: api-table
+    title: Table

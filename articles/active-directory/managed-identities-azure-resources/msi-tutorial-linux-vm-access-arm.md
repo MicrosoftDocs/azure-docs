@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Use a user-assigned managed identity on a Linux VM to access Azure Resource Manager
 
-This tutorial explains how to create a user-assigned managed identity, assign it to a Linux Virtual Machine (VM), and then use that identity to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure. They enable authentication to services that support Azure AD authentication, without needing to embed credentials into your code. 
+This tutorial explains how to create a user-assigned managed identity, assign it to a Linux Virtual Machine (VM), and then use that identity to access the Azure Resource Manager API. Managed identities for Azure resources are automatically managed by Azure. They enable authentication to services that support Microsoft Entra authentication, without needing to embed credentials into your code. 
 
 In this tutorial, you learn how to:
 
@@ -78,7 +78,7 @@ az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscripti
 
 ## Grant access to a Resource Group in Azure Resource Manager
 
-Managed identities are identities that your code can use to request access tokens to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code will access the Azure Resource Manager API.  
+Managed identities are identities that your code can use to request access tokens to authenticate to resource APIs that support Microsoft Entra authentication. In this tutorial, your code will access the Azure Resource Manager API.  
 
 Before your code can access the API, you need to grant the identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained. Update the value for `<SUBSCRIPTION ID>` and `<RESOURCE GROUP>` as appropriate for your environment. Additionally, replace `<UAMI PRINCIPALID>` with the `principalId` property returned by the `az identity create` command in [Create a user-assigned managed identity](#create-a-user-assigned-managed-identity):
 
@@ -123,7 +123,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
    ```
     
     > [!NOTE]
-    > The value of the `resource` parameter must be an exact match for what is expected by Azure AD. When using the Resource Manager resource ID, you must include the trailing slash on the URI. 
+    > The value of the `resource` parameter must be an exact match for what is expected by Microsoft Entra ID. When using the Resource Manager resource ID, you must include the trailing slash on the URI. 
     
     The response includes the access token you need to access Azure Resource Manager. 
     

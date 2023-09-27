@@ -19,12 +19,12 @@ ms.collection: M365-identity-device-management
 
 # Activate your group membership or ownership in Privileged Identity Management
 
-You can use Privileged Identity Management (PIM) In Microsoft Entra ID, previously known as Azure Active Directory (Azure AD), to have just-in-time membership in the group or just-in-time ownership of the group.
+You can use Privileged Identity Management (PIM) In Microsoft Entra ID to have just-in-time membership in the group or just-in-time ownership of the group.
 
 This article is for eligible members or owners who want to activate their group membership or ownership in PIM.
 
 >[!IMPORTANT]
->When a group membership or ownership is activated, Azure AD PIM temporarily adds an active assignment. Azure AD PIM creates an active assignment (adds user as member or owner of the group) within seconds. When deactivation (manual or through activation time expiration) happens, Azure AD PIM removes user’s group membership or ownership within seconds as well.
+>When a group membership or ownership is activated, Microsoft Entra PIM temporarily adds an active assignment. Microsoft Entra PIM creates an active assignment (adds user as member or owner of the group) within seconds. When deactivation (manual or through activation time expiration) happens, Microsoft Entra PIM removes user’s group membership or ownership within seconds as well.
 >
 >Application may provide access to users based on their group membership. In some situations, application access may not immediately reflect the fact that user was added to the group or removed from it. If application previously cached the fact that user is not member of the group – when user tries to access application again, access may not be provided. Similarly, if application previously cached the fact that user is member of the group – when group membership is deactivated, user may still get access. Specific situation depends on the application’s architecture. For some applications, signing out and signing back in may help to get access added or removed.
 
