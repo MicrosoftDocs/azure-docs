@@ -128,7 +128,9 @@ To change the time range and number of records displayed, use the **Time range**
 **Filter by column**
 
 1. Select **Filter** and choose a column.
-1. Select an operator and enter a value for the filter, or enter text or numbers in the **Search** box.
+1. Select an operator and a value to filter by, or enter text or numbers in the **Search** box.
+
+    If you filter by selecting values from a list, you can select multiple values. If the list is long, you'll see a **Not all results are shown** message. Scroll to the bottom of the list and select **Load more** to retrieve more values.  
     
     :::image type="content" source="media/log-analytics-explorer/log-analytics-filter.png" alt-text="Screenshot that shows the filter menu that opens when you select Filter in Log Analytics simple mode.":::
 
