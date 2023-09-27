@@ -12,9 +12,7 @@ author: IngridAtMicrosoft
 [!INCLUDE [regulation](./includes/header.md)]
 
 > [!IMPORTANT]
-> Due to the [Azure Media Services retirement announcement](https://aka.ms/ams-retirement), Azure Video Indexer announces [Azure AI Video Indexer features adjustments following Media Services Retirement](https://azure.microsoft.com/updates/videoindexer-2/).
-> 
->See [Changes related to Azure Media Service (AMS) retirement](/azure/azure-video-indexer/azure-video-indexer-azure-media-services-retirement-announcement) to understand what this means for your Azure Video Indexer account.
+> Due to the [Azure Media Services retirement announcement](https://aka.ms/ams-retirement), Azure Video Indexer announces [Azure AI Video Indexer features adjustments](https://azure.microsoft.com/updates/videoindexer-2/). See [Changes related to Azure Media Service (AMS) retirement](/azure/azure-video-indexer/azure-video-indexer-azure-media-services-retirement-announcement) to understand what this means for your Azure Video Indexer account.
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
