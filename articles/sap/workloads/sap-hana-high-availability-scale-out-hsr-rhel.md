@@ -1322,13 +1322,12 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
       #site id: 1
       #site name: HANA_S1
       ```
-DO TUK
 
 1. Verify the cluster configuration for a failure scenario, when a node loses access to the NFS share (`/hana/shared`).  
 
-   The SAP HANA resource agents depend on binaries, stored on `/hana/shared`, to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. One test that you can perform is to remount the `/hana/shared` file system as *Read only*. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site.  
+   The SAP HANA resource agents depend on binaries, stored on `/hana/shared`, to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. A test that can be performed, is to create a temporary firewall rule to block access to the `/hana/shared` NFS mounted file system on one of the primary site VMs. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site. 
 
-   **Expected result**: When you remount `/hana/shared` as *Read only*, the monitoring operation that performs a read/write operation on the file system will fail. This is because it isn't able to write to the file system, and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.  
+   **Expected result**: When you block the access to the `/hana/shared` NFS mounted file system on one of the primary site VMs, the monitoring operation that performs read/write operation on file system, will fail, as it is not able to access the file system and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.    
      
    You can check the state of the cluster resources by running `crm_mon` or `pcs status`. Resource state before starting the test:
       ```bash
@@ -1359,14 +1358,19 @@ DO TUK
       #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
       ```
 
-   To simulate failure for `/hana/shared` on one of the primary replication site VMs, run the following command:
-      ```bash
-      # Execute as root 
-      mount -o ro /hana/shared
-      # Or if the preceding command returns an error
-      sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
-      ```
-  
+   To simulate failure for `/hana/shared`:
+
+   * If using NFS on ANF, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
+   * If using NFS on Azure Files, first determine the IP address of the private end point for your storage account.
+
+   Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS file system by executing the following command on one of the primary HANA system replication site VMs.
+
+   In this example, the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
+
+     ```bash
+     iptables -A INPUT -s 10.23.1.7 -j DROP; iptables -A OUTPUT -d 10.23.1.7 -j DROP
+     ```
+
    The HANA VM that lost access to `/hana/shared` should restart or stop, depending on the cluster configuration. The cluster resources are migrated to the other HANA system replication site.  
          
    If the cluster hasn't started on the VM that was restarted, start the cluster by running the following: 
