@@ -286,10 +286,10 @@
           href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md
 - name: Reliability Guidance
   items:
-  - name: Overview
-    href: reliability-guidance-overview.md
   - name: Reliability by service
     items:
+    - name: Overview
+      href: reliability-guidance-overview.md
     - name: Azure API Management
       href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure App Configuration
