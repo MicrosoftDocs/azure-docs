@@ -56,6 +56,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
 </dependency>
+
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -76,6 +77,7 @@ The easiest way to connect your Spring Boot application to App Configuration is 
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
 </dependency>
+
 <dependencyManagement>
     <dependencies>
         <dependency>

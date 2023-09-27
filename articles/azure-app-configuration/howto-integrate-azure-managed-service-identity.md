@@ -186,7 +186,7 @@ spring.cloud.azure.credential.client-id= <client_id>
 ```
 
 > [!NOTE]
-> For more info see [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication) .
+> For more information see [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication).
 
 :::zone-end
 

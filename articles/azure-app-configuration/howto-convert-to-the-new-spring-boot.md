@@ -39,6 +39,7 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
 </dependency>
+
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -71,6 +72,7 @@ All of the group and artifact IDs in the Azure libraries for Spring Boot have be
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-feature-management-web</artifactId>
 </dependency>
+
 <dependencyManagement>
     <dependencies>
         <dependency>
