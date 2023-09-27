@@ -36,6 +36,8 @@ landingContent:
             url: ./workloads/sap-high-availability-architecture-scenarios.md
           - text: Azure Availability Zones for SAP workloads
             url: ./workloads/high-availability-zones.md
+          - text: SAP HANA data tiering and archiving guidance
+            url: ./workloads/hana-tiering-guidance.md
       - linkListType: how-to-guide
         links:
           - text: How to deploy SAP on Azure VMs
