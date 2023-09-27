@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/20/2023
+ms.date: 09/26/2023
 ms.author: radeltch
 
 ---
@@ -939,28 +939,28 @@ You chose to deploy /hana/shared' on [NFS share on Azure Files](../../storage/fi
  
 1. **[AH]** Verify that the Azure NetApp Files volumes are mounted under `/hana/shared`, on all HANA DB VMs on both sites.
 
-- Example, if using Azure NetApp Files:
-    ```bash
-    sudo nfsstat -m
-    # Verify that flag vers is set to 4.1 
-    # Example from SITE 1, hana-s1-db1
-    /hana/shared from 10.23.1.7:/HN1-shared-s1
-     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.11,local_lock=none,addr=10.23.1.7
-    # Example from SITE 2, hana-s2-db1
-    /hana/shared from 10.23.1.7:/HN1-shared-s2
-     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
-    ```
-- Example, if using Azure Files NFS: 
+   - Example, if using Azure NetApp Files:
+       ```bash
+       sudo nfsstat -m
+       # Verify that flag vers is set to 4.1 
+       # Example from SITE 1, hana-s1-db1
+       /hana/shared from 10.23.1.7:/HN1-shared-s1
+        Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.11,local_lock=none,addr=10.23.1.7
+       # Example from SITE 2, hana-s2-db1
+       /hana/shared from 10.23.1.7:/HN1-shared-s2
+        Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
+       ```
+   - Example, if using Azure Files NFS: 
 
-    ```bash
-    sudo nfsstat -m
-    # Example from SITE 1, hana-s1-db1
-    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1
-     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.19,local_lock=none,addr=10.23.0.35
-    # Example from SITE 2, hana-s2-db1
-    sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2
-     Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.22,local_lock=none,addr=10.23.0.35
-    ```
+       ```bash
+       sudo nfsstat -m
+       # Example from SITE 1, hana-s1-db1
+       sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1
+        Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.19,local_lock=none,addr=10.23.0.35
+       # Example from SITE 2, hana-s2-db1
+       sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2
+        Flags: rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.22,local_lock=none,addr=10.23.0.35
+       ```
 
 1. **[1]** Configure and clone the attribute resources, and configure the constraints, as follows:  
 
