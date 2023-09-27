@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting your <astronomer> deployment
-description: This article provides information about getting support and troubleshooting an <astronomer> integration.
+title: Troubleshooting your productname deployment
+description: This article provides information about getting support and troubleshooting an productname integration.
 author: flang-msft
 
 ms.author: franlanglois
@@ -11,30 +11,30 @@ ms.custom: event-tier1-build-2022
 
 ---
 
-# Troubleshooting <astronomer> integration with Azure
+# Troubleshooting productname integration with Azure
 
-You can get support for your <astronomer> deployment through a **New Support request**. The procedure for creating the request is here. In addition, we have included other troubleshooting for problems you might experience in creating and using an <astronomer> deployment.
+You can get support for your productname deployment through a **New Support request**. The procedure for creating the request is here. In addition, we have included other troubleshooting for problems you might experience in creating and using an productname deployment.
 
 ## Getting support  
 
-1. To contact support about an <astronomer> resource, select the resource in the Resource menu.
+1. To contact support about an productname resource, select the resource in the Resource menu.
 
 1. Select the **New Support request** in Resource menu on the left.
 
 1. Select **Raise a support ticket** and fill out the details.
 
-    :::image type="content" source="media/astronomer-troubleshoot/astronomer-support-request.png" alt-text="Screenshot of a new <astronomer> support ticket.":::
+    :::image type="content" source="media/astronomer-troubleshoot/astronomer-support-request.png" alt-text="Screenshot of a new productname support ticket.":::
 
 ## Troubleshooting
 
-### Unable to create an <astronomer> resource as not a subscription owner  
+### Unable to create an productname resource as not a subscription owner  
 
-The <astronomer> integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
+The productname integration can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
 ## Next steps
 
-- Learn about [managing your instance](astronomer-manage.md) of <astronomer>.
-- Get started with <astronomer> – An Azure Native ISV Service on
+- Learn about [managing your instance](astronomer-manage.md) of productname.
+- Get started with productname – An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/astronomer.astronomerPLUS%2FastronomerDeployments)
