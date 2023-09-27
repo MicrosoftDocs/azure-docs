@@ -170,11 +170,11 @@ When you choose a name for your service principal, make sure that the name is un
 1. Give the service principal Contributor and User Access Administrator permissions.
 
     ```cloudshell-interactive
-    export         subscriptionId="<subscriptionId>"
+    export    ARM_SUBSCRIPTION_ID="<subscriptionId>"
     export control_plane_env_code="MGMT"
 
     az ad sp create-for-rbac --role="Contributor"           \
-      --scopes="/subscriptions/${subscriptionId}"           \
+      --scopes="/subscriptions/${ARM_SUBSCRIPTION_ID}"      \
       --name="${control_plane_env_code}-Deployment-Account"
     ```
 
@@ -207,7 +207,7 @@ When you choose a name for your service principal, make sure that the name is un
 
     az role assignment create --assignee ${appId} \
       --role "User Access Administrator" \
-      --scope /subscriptions/${subscriptionId}
+      --scope /subscriptions/${ARM_SUBSCRIPTION_ID}
     ```
 
 If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
@@ -273,6 +273,10 @@ If you don't assign the User Access Administrator role to the service principal,
     # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
     enable_firewall_for_keyvaults_and_storage = false
 
+    # public_network_access_enabled controls if storage account and key vaults have public network access enabled
+    public_network_access_enabled = true
+
+
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
@@ -304,32 +308,42 @@ For example, choose **North Europe** as the deployment location, with the four-c
 
 The sample SAP library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY` folder.
 
+Set the environment variables for the service principal:
+
+```bash
+
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<appId>"
+export   ARM_CLIENT_SECRET="<password>"
+export       ARM_TENANT_ID="<tenantId>"
+
+```
+
 1. Create the deployer and the SAP library. Add the service principal details to the deployment key vault.
 
     ```bash
 
-    export subscriptionId="<subscriptionId>"
-    export         spn_id="<appId>"
-    export     spn_secret="<password>"
-    export      tenant_id="<tenantId>"
-    export       env_code="MGMT"
-    export      vnet_code="DEP00"
-    export    region_code="<region_code>"
+    export            env_code="MGMT"
+    export           vnet_code="DEP00"
+    export         region_code="<region_code>"
 
     export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
     export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
-    export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+    
 
     cd $CONFIG_REPO_PATH
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/deploy_controlplane.sh                                                                                               \
-        --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars \
-        --library_parameter_file LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars                                   \
-        --subscription "${subscriptionId}"                                                                                                                      \
-        --spn_id "${spn_id}"                                                                                                                                    \
-        --spn_secret "${spn_secret}"                                                                                                                            \
-        --tenant_id "${tenant_id}"                                                                                                                              \
-        --auto-approve
+    deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+    library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
+
+    ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+        --deployer_parameter_file "${deployer_parameter_file}"         \
+        --library_parameter_file "${library_parameter_file}"            \
+        --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+        --spn_id "${ARM_CLIENT_ID}"                                    \
+        --spn_secret "${ARM_CLIENT_SECRET}"                            \
+        --tenant_id "${ARM_TENANT_ID}"
+
     ```
 
     If you run into authentication issues, run `az logout` to sign out and clear the `token-cache`. Then run `az login` to reauthenticate.
@@ -549,7 +563,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010ms
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
 
     ```
 
@@ -559,7 +573,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010ms
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
     kv_name:                       <Deployer KeyVault Name>
 
     ```
@@ -570,9 +584,9 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0010
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
     kv_name:                       <Deployer KeyVault Name>
-    check_storage_account:         false
+    BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
 
     ```
 
@@ -733,14 +747,15 @@ Deploy the SAP system.
 export             sap_env_code="DEV"
 export              region_code="<region_code>"
 export                vnet_code="SAP01"
+export                      SID="X00"
 
 export         CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
-cd ${CONFIG_REPO_PATH}/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-X00
+cd ${CONFIG_REPO_PATH}/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-${SID}
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh                          \
-    --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-X00.tfvars" \
+    --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-${SID}.tfvars" \
     --type sap_system
 ```
 
@@ -750,8 +765,8 @@ The deployment command for the `northeurope` example looks like:
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-    --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
-    --type sap_system                                  \
+    --parameterfile DEV-NOEU-SAP01-X00.tfvars        \
+    --type sap_system                                \
     --auto-approve
 ```
 
@@ -837,14 +852,14 @@ Before you begin, sign in to your Azure account. Then, check that you're in the 
 Go to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
 
 ```bash
-export sap_env_code="DEV"
-export  region_code="NOEU"
-export    vnet_code="SAP01"
+export  sap_env_code="DEV"
+export   region_code="NOEU"
+export sap_vnet_code="SAP02"
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${vnet_code}-X00
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-${sap_vnet_code}-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                   \
-  --parameterfile "${sap_env_code}-${region_code}-${vnet_code}-X00.tfvars" \
+  --parameterfile "${sap_env_code}-${region_code}-${sap_vnet_code}-X00.tfvars" \
   --type sap_system
 ```
 
@@ -854,14 +869,14 @@ Go to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folde
 
 ```bash
 
-export sap_env_code="DEV"
-export  region_code="NOEU"
-export    vnet_code="SAP01"
+export  sap_env_code="DEV"
+export   region_code="NOEU"
+export sap_vnet_code="SAP01"
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-${sap_vnet_code}-INFRASTRUCTURE
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                                       \
-      --parameterfile ${sap_env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars \
+      --parameterfile ${sap_env_code}-${region_code}-${sap_vnet_code}-INFRASTRUCTURE.tfvars \
       --type sap_landscape
 ```
 
