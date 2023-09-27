@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/26/2023
+ms.date: 09/27/2023
 
 ms.author: justinha
 author: mjsantani
@@ -140,7 +140,8 @@ Here are a few sample JSONs you can use to get started!
   {
   "registrationEnforcement": {
           "authenticationMethodsRegistrationCampaign": {
-              "snoozeDurationInDays": 0,
+              "snoozeDurationInDays": 1,
+              "enforceRegistrationAfterAllowedSnoozes": true,
               "state": "enabled",
               "excludeTargets": [],
               "includeTargets": [
@@ -163,7 +164,8 @@ Here are a few sample JSONs you can use to get started!
   {
   "registrationEnforcement": {
         "authenticationMethodsRegistrationCampaign": {
-            "snoozeDurationInDays": 0,
+            "snoozeDurationInDays": 1,
+            "enforceRegistrationAfterAllowedSnoozes": true,
             "state": "enabled",
             "excludeTargets": [],
             "includeTargets": [
@@ -190,7 +192,8 @@ Here are a few sample JSONs you can use to get started!
   {
   "registrationEnforcement": {
           "authenticationMethodsRegistrationCampaign": {
-              "snoozeDurationInDays": 0,
+              "snoozeDurationInDays": 1,
+              "enforceRegistrationAfterAllowedSnoozes": true,
               "state": "enabled",
               "excludeTargets": [
                   {
