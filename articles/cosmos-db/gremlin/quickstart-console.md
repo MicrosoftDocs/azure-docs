@@ -18,7 +18,9 @@ ms.date: 09/27/2023
 
 [!INCLUDE[Gremlin devlang](includes/quickstart-devlang.md)]
 
-In this quickstart, you use the Gremlin console to connect to an Azure Cosmos DB for Gremlin account. Azure Cosmos DB for Gremlin supports the v2 version of the GraphSON serializer making it straightforward to use the service with existing Apache Gremlin tooling like the console.
+Azure Cosmos DB for Apache Gremlin is a fully managed graph database service implementing the popular [`Apache Tinkerpop`](https://tinkerpop.apache.org/), a graph computing framework using the Gremlin query language. The API for Gremlin gives you a low-friction way to get started using Gremlin with a service that can grow and scale out as much as you need with minimal management.
+
+In this quickstart, you use the Gremlin console to connect to a newly created Azure Cosmos DB for Gremlin account.
 
 ## Prerequisites
 
@@ -152,7 +154,9 @@ az group delete \
 
 ## How did we solve the problem?
 
-To solve the problem of connecting to the API for Gremlin account, you used the `tinkerpop/gremlin-console` container image to run the gremlin console in a manner that didn't require a local installation. Then, you used the configuration stored in the **remote-secure.yaml** file to connect from the running container the API for Gremlin account. From there, you ran multiple common Gremlin commands.
+Azure Cosmos DB for Apache Gremlin solved our problem by offering Gremlin as a service. With this offering, you aren't required to stand up your own Gremlin server instances or manage your own infrastructure. Even more, you can scale your solution as your needs grow over time.
+
+To connect to the API for Gremlin account, you used the `tinkerpop/gremlin-console` container image to run the gremlin console in a manner that didn't require a local installation. Then, you used the configuration stored in the **remote-secure.yaml** file to connect from the running container the API for Gremlin account. From there, you ran multiple common Gremlin commands.
 
 ## Next step
 
