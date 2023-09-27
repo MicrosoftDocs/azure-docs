@@ -15,8 +15,6 @@ ms.author: pafarley
 
 This guide shows you how to upgrade your existing code from the public preview version of Azure AI Content Safety to the GA version.
 
-#### [REST API](#tab/rest)
-
 ## REST API calls
 
 In all API calls, be sure to change the _api-version_ parameter in your code:
@@ -132,41 +130,6 @@ The **blocklistItems** API call with an item ID (retrieve a single item):
 }
 ```
 
-#### [C#](#tab/csharp)
-
-## Data types
-
-The following data types have been renamed:
-
-| Public preview term                | GA term            |  
-|-------------------------|-------------------------------|  
-| **TextBlockItemInfo**   | **TextblocklistItemInfo**     |  
-| **BlockItemId**         | **blocklistItemId**           |  
-| **AddblocklistItemsOptions** | **AddBlocklistItemsOptions** |  
-| **RemoveBlockItemsOptions** | **RemoveBlocklistItemsOptions**|
-
-## Methods
-
-The following client methods have been renamed:
-
-| Public preview term                 | GA term              |  
-|--------------------------|----------------------------------|  
-| **AddBlockItems**      | **AddblocklistItems**       |  
-| **RemoveblocklistItems** | **RemoveBlocklistItems** |
-
-#### [Python](#tab/python)
-
-## Data types
-
-The following data types have been renamed:
-
-| Public preview term    | GA term              |  
-|-------------------------------|-------------------------------------|  
-| **TextBlockItemInfo**         | **TextblocklistItemInfo**           |  
-| **AddBlockItemsOptions**      | **AddBlocklistItemsOptions**        |  
-| **RemoveBlockItemsOptions**   | **RemoveblocklistItemsOptions**     |
-
----
 
 ## Next steps
 
