@@ -20,7 +20,7 @@ In this tutorial, you'll learn how to automatically shut-down virtual machines (
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the Azure portal, navigate to the virtual machine you want to configure auto-shutdown for.
-2. In the virtual machine's detail page, select on "Auto-shutdown" under the **Operations** section.
+2. In the virtual machine's detail page, select "Auto-shutdown" under the **Operations** section.
 3. In the "Auto-shutdown" configuration screen, toggle the switch to "On".
 4. Set the time you want the virtual machine to shut down.
 5. Select "Save" to save the auto-shutdown configuration.
