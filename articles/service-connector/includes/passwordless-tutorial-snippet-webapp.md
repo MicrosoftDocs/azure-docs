@@ -143,15 +143,15 @@ If you meet any problem when creating a connection, refer to [Troubleshooting](.
 
 ## Connect to database with Azure Active Directory authentication
 
-In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
+In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. The pattern is as follows:
 
 1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity. 
-1. Get an access token for the resource URI respective to the database type.
+2. Get an access token for the resource URI respective to the database type.
     - For Azure SQL Database: `https://database.windows.net/.default`
     - For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`
     - For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`
-1. Add the token to your connection string.
-1. Open the connection.
+3. Add the token to your connection string.
+4. Open the connection.
 
 ## [Azure SQL Database](#tab/sqldatabase)
 
