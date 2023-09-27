@@ -8,21 +8,21 @@ ms.date: 09/22/2023
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
-# Background
+# How to use authentication in Web PubSub for Socket.IO
+## Background
 [Socket.IO protocol](https://socket.io/docs/v4/socket-io-protocol/) is an application layer protocol, which is built on a transport layer protocol named [Engine.IO protocol](https://socket.io/docs/v4/engine-io-protocol/). 
 Engine.IO is responsible for establishing the low-level connection between the server and the client. An Engine.IO connection manages exactly one real connection, which is either a HTTP long-polling connection or a WebSocket connection.
 
 [Native authentication mechanism provided by Socket.IO library](https://socket.io/docs/v4/middlewares/#sending-credentials) are applied on Socket.IO connection level. The Engine.IO connection has already been built successfully before the authentication takes effect. The underlying Engine.IO connection could be built between client and server without any authentication mechanism. Attackers could make use of Engine.IO connection without any authentication to consume customer's resource without any restriction. 
 
-# Authentication for Socket.IO connection
+## Authentication for Socket.IO connection
 This level of authentication is NOT recommended in production environment. For it doesn't provide any protection for the low-level Engine.IO connection, which makes your resource easy to be attacked.
 
-# Authentication for Engine.IO connection
+## Authentication for Engine.IO connection
 This level of authentication is recommended for it protects the Engine.IO connection.
 However, Socket.IO library didn't provide a native and easy-to-use feature for it. Our server SDK provides a negotiation mechanism and APIs to realize it.
 
-## Negotiation mechanism
- Client sends negotiation request containing authentication information to server before the Engine.IO connection is built. Here are the details how the mechanism works:
+Client sends negotiation request containing authentication information to server before the Engine.IO connection is built. Here are the details how the mechanism works:
  
 1. Before connecting with the service endpoint, the client sends negotiation to the server, which carries information required by authentication. 
 2. The server receives the negotiation request, parse the authentication information and authenticate the client according to the parsed information. Then the server responds the request with an access token. 
@@ -30,7 +30,7 @@ However, Socket.IO library didn't provide a native and easy-to-use feature for i
 
 The web application which handles negotiation request could be an independent one or a part of Socket.IO application.
 
-## Usage
+### Usage of simple negotiation
 - Server-side
 
 1. Create a Socket.IO server supported by the service
@@ -89,16 +89,16 @@ var socket = io(json.endpoint, {
 
 A complete sample is given in [chat-with-negotiate](https://github.com/Azure/azure-webpubsub/blob/main/sdk/webpubsub-socketio-extension/examples/chat-with-negotiate/index.js).
 
-## Integration with Passport library
+### Integration with Passport library
 
-### Background
+#### Background
 In Node.js ecosystem, the most dominant Web authentication workflow is [`express`](https://www.npmjs.com/package/express) + [`express-session`](https://www.npmjs.com/package/express-session) + [`passport`](https://www.npmjs.com/package/passport). Here is a list explaning their roles:
 - `express`: a backend framework
 - `express-session`: an official session management library supported by Express team.
 - `passport`: an authentication package for express. It focuses on request authentication and supports over 500 authentication strategies, including local authentication (username and password), OAuth (Google, GitHub, Facebook), JWT, OpenID, and more.
   - After a successful authentication, `passport` provides a object describing the authenticated user. This object is assigned to the `user` property in the express request variable. And the property could be accessed in subsequent middleware.
 
-### Usage
+#### Usage
 
 We provide a method to create `ConfigureNegotiateOptions` that puts information related to passport into negotiation response. And an express middleware `restorePassport` is provided to restore passport object into request.
 
