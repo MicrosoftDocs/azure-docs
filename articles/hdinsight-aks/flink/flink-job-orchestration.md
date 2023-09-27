@@ -119,7 +119,7 @@ The DAG expects to have setup for the Service Principal, as described during the
 
 1. Select the “FlinkWordCountExample” DAG from the “DAGs” page.  
 
-    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-2.png" alt-text="Screenshot shows select the flink word count example." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-2.png":::
+    :::image type="content" source="./media/flink-job-orchestration/airflow-user-interface-step-2.png" alt-text="Screenshot shows select the Flink word count example." lightbox="./media/flink-job-orchestration/airflow-user-interface-step-2.png":::
 
 1. Click on the “execute” icon from the top right corner and select “Trigger DAG w/ config”.  
 
@@ -158,7 +158,7 @@ The DAG expects to have setup for the Service Principal, as described during the
 
 1. Validate the job from “Apache Flink Dashboard”  
 
-    :::image type="content" source="./media/flink-job-orchestration/apache-flink-dashboard.png" alt-text="Screenshot shows apache flink dashboard." lightbox="./media/flink-job-orchestration/apache-flink-dashboard.png":::
+    :::image type="content" source="./media/flink-job-orchestration/apache-flink-dashboard.png" alt-text="Screenshot shows apache Flink dashboard." lightbox="./media/flink-job-orchestration/apache-flink-dashboard.png":::
 
 ## Example code 
 
