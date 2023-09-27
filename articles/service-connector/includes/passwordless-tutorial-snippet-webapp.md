@@ -8,14 +8,14 @@ ms.author: xiaofanzhou
 
 ### Install the Service Connector passwordless extension
 
-[!INCLUDE [CLI-samples-clean-up](./includes/install-passwordless-extension.md)]
+[!INCLUDE [CLI-samples-clean-up](./install-passwordless-extension.md)]
 
 ## Create passwordless connection
 
 Next, create a passwordless connection with Service Connector.
 
 > [!NOTE]
-> If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](./quickstart-portal-app-service-connection.md) and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
+> If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md) and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
 
 ## [Azure Database for PostgreSQL](#tab/postgresql)
 
@@ -49,7 +49,7 @@ az webapp connection create postgres-flexible \
 
 ## [Azure Database for MySQL](#tab/mysql)
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
 ```azurecli
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -67,7 +67,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 * `GroupMember.Read.All`
 * `Application.Read.All`
 
-For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication.md).
+For more information, see the [Permissions](../../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../../mysql/flexible-server/concepts-azure-ad-authentication.md).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 

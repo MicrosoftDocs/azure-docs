@@ -8,7 +8,7 @@ ms.author: xiaofanzhou
 
 ### Install the Service Connector passwordless extension
 
-[!INCLUDE [CLI-samples-clean-up](./includes/install-passwordless-extension.md)]
+[!INCLUDE [CLI-samples-clean-up](./install-passwordless-extension.md)]
 
 ## Create passwordless connection
 
@@ -17,10 +17,10 @@ Next, we use Azure App Service as an example to create a connection using manage
 If you use:
 
 * Azure Spring Apps: use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
-* Azure Container Apps: use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
+* Azure Container Apps: use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
 
 > [!NOTE]
-> If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](./quickstart-portal-app-service-connection.md), [Azure Spring Apps](./quickstart-portal-spring-cloud-connection.md), or [Azure Container Apps](./quickstart-portal-container-apps.md), and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
+> If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md), [Azure Spring Apps](../quickstart-portal-spring-cloud-connection.md), or [Azure Container Apps](../quickstart-portal-container-apps.md), and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
 
 ::: zone pivot="postgresql"
 
@@ -70,7 +70,7 @@ az webapp connection create postgres-flexible \
 
 ::: zone pivot="mysql"
 
-Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
+Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
 ```azurecli
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
@@ -88,7 +88,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 * `GroupMember.Read.All`
 * `Application.Read.All`
 
-For more information, see the [Permissions](../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../mysql/flexible-server/concepts-azure-ad-authentication.md).
+For more information, see the [Permissions](../../mysql/flexible-server/concepts-azure-ad-authentication.md#permissions) section of [Active Directory authentication](../../mysql/flexible-server/concepts-azure-ad-authentication.md).
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
