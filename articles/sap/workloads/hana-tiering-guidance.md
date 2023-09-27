@@ -5,7 +5,7 @@ ms.workload: infrastructure-services
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: conceptual
-ms.date: 27/09/2023
+ms.date: 09/27/2023
 author: manvendravikramsingh
 ms.author: manvsingh
 
@@ -26,7 +26,7 @@ Most organizations choose to offload less accessed SAP data to HANA storage tier
 
 Customers can refer to the table below for data tier characteristics and choose to move data to the temperature tier as per desired usage.
 
-|  | Hot Data | Warm Data | Cold Data |
+| Classification | Hot Data | Warm Data | Cold Data |
 | ------------ | --- |----- | ---- |
 | Frequently accessed | High | Medium | Low |
 | Expected performance | High | Medium | Low |
