@@ -68,7 +68,7 @@ Required: Make Prerequisites the first H2 after the H1.
 ## Prerequisites
 
 1. Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the build-in Contributor or Owner role at the subscription scope.
-1. You must have [deployed your private mobile network](#how-to-guide-deploy-a-private-mobile-network-azure-portal).
+1. You must have [deployed your private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal).
 
 <!-- 4. Task H2s ------------------------------------------------------------------------------
 
@@ -92,7 +92,7 @@ For portal-based procedures, minimize bullets and numbering.
 ## Create an alert rule for your packet core control/data plane
 
 1. Navigate to the packet core control/data plane you want to create an alert for.
-  1. You can do this by searching for it under **All resources** or from the **Overview** page of the site that contains the packet core you want to add alerts for.
+  - You can do this by searching for it under **All resources** or from the **Overview** page of the site that contains the packet core you want to add alerts for.
 
 1. Select **Alerts** from the **Monitoring** tab on the resource menu.
 
