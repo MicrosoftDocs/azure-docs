@@ -1,6 +1,6 @@
 ---
-title: Auto-shutdown Virtual Machines
-description: Learn how to setup Auto-shutdown virtual machines in Azure.
+title: Auto-shutdown the VM
+description: Learn how to set up auto-shutdown for VMs in Azure.
 author: ericd-mst-github
 ms.author: erd
 ms.service: virtual-machines
@@ -10,25 +10,20 @@ ms.date: 09/27/2023
 
 ---
 
-# Tutorial: Auto-shutdown Virtual Machines
+# Auto-shutdown the VM
 
-In this tutorial, you will learn how to automatically shut down virtual machines (VMs) in Azure. The Auto-shutdown feature for Azure VMs can help reduce costs by shutting down the VMs during off hours when they are not needed and automatically restarting them when they are needed again.
+In this tutorial, you'll learn how to automatically shut-down virtual machines (VMs) in Azure. The auto-shutdown feature for Azure VMs can help reduce costs by shutting down the VMs during off hours when they aren't needed and automatically restarting them when they're needed again.
 
-## Prerequisites
-
-- An Azure subscription
-- A virtual machine already deployed in Azure
-
-## Configure Auto-shutdown for a virtual machine
+## Configure auto-shutdown for a virtual machine
 
 ### [Portal](#tab/portal)
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the Azure portal, navigate to the virtual machine you want to configure auto-shutdown for.
-2. In the virtual machine's blade, click on "Auto-shutdown" under the **Operations** section.
-3. In the "Auto-shutdown" blade, toggle the switch to "On".
+2. In the virtual machine's detail page, select on "Auto-shutdown" under the **Operations** section.
+3. In the "Auto-shutdown" configuration screen, toggle the switch to "On".
 4. Set the time you want the virtual machine to shut down.
-5. Click "Save" to save the auto-shutdown configuration.
+5. Select "Save" to save the auto-shutdown configuration.
 
 ### [CLI](#tab/cli)
 
@@ -88,16 +83,16 @@ for VM_ID in $(az vm list -g $RESOURCE_GROUP_NAME --query "[].id" -o tsv); do
 done
 ```
 
-The above scripts use the `az vm auto-shutdown` and `az vm restart` commands to set the `auto-shutdown` and `restart` properties of all the VMs in the specified resource group. The `--ids` option is used to specify the VMs by their IDs, and the `--time` and `--auto-start-`enabled options are used to set the auto-shutdown and auto-start properties, respectively.
+The above scripts use the `az vm auto-shutdown` and `az vm restart` commands to set the `auto-shutdown` and `restart` properties of all the VMs in the specified resource group. The `--ids` option is used to specify the VMs by their IDs, and the `--time` and `--auto-start-`enabled options are used to set the auto-shutdown and autostart properties, respectively.
 
-Both scripts also prompt to choose whether to auto-restart the machines or leave them off until they are manually restarted. The choice is used to set the -`-auto-shutdown-enabled` property of the VMs.
+Both scripts also prompt to choose whether to auto-restart the machines or leave them off until they're manually restarted. The choice is used to set the -`-auto-shutdown-enabled` property of the VMs.
 
 
-### [Powershell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
-Currently, there is no cmdlet available to set auto-shutdown for VMs directly. Instead, you can use `New-AzPolicyAssignment` to create a policy definition that ensures VMs shut down on a schedule.
+Currently, there's no cmdlet available to set auto-shutdown for VMs directly. Instead, you can use `New-AzPolicyAssignment` to create a policy definition that sets VMs shut down on a schedule.
 
-To configure auto-shutdown for a single virtual machine using PowerShell, you can use the script provided below: 
+To configure the new policy definition for a single virtual machine using PowerShell, you can use the script provided as an example: 
 
 ```azurepowershell-interactive
 # Parameters
@@ -148,7 +143,7 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
 New-AzPolicyAssignment -Name "AutoShutdownVMsPolicy" -Scope $vm.Id -PolicyDefinition $policyDefinition
 ```
 
-To configure auto-shutdown for multiple virtual machines using PowerShell, you can use the script provided below: 
+To configure the new policy definition for multiple virtual machines using PowerShell, you can use the script as an example:
 
 ```powershell-interactive
 # Parameters
@@ -196,18 +191,20 @@ New-AzPolicyAssignment -Name "AutoShutdownVMsPolicy" -Scope "/subscriptions/<sub
 
 Write-Host "Policy assigned successfully to $resourceGroupName."
 ```
-If needed, modify `$resourceGroupName` and `<subscription_id>` with the appropriate values for your environment in either script. Both scripts first defines the desired policy, which checks if each VM has an associated shutdown schedule. Using the Azure PowerShell cmdlet, it then creates and assigns this policy to the target resource group. Any VMs without the requisite shutdown schedule will be flagged, prompting remedial action to ensure cost-saving practices are consistently applied across resources.
+If needed, modify `$resourceGroupName` and `<subscription_id>` with the appropriate values for your environment in either script. Both scripts first define the desired policy, which checks if each VM has an associated shutdown schedule. Any VMs without the requisite shutdown schedule are flagged, prompting remedial action to ensure cost-saving practices are consistently applied across resources.
 
+---
 
 ## Clean up resources
 
 If you no longer need the virtual machine, delete it with the following steps:
 
-1. In the virtual machine's blade, click on "Delete" under the "Operations" section.
-2. Follow the prompts to delete the virtual machine.
+1. Navigate to the virtual machine's **Overview** page on the left
+1. Select on "Delete" from the top middle option.
+1. Follow the prompts to delete the virtual machine.
 
 ## Next steps
 
-Learn how to create a virtual machine in Azure:
-> [!div class="nextstepaction"]
-> [Create a Windows virtual machine in the Azure portal](https://learn.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+Learn about sizes and how to resize a VM:
+- Types of virtual machine [sizes.](./sizes.md)
+- Change the [size of a virtual machine](./resize-vm.md).
