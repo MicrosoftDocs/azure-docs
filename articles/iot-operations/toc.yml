@@ -26,7 +26,7 @@ items:
         items: 
         - name: Manage assets remotely
           href: manage-devices-assets/howto-manage-assets-remotely.md
-    - name: Route messages
+    - name: Publish/Subscribe with MQTT
       items:
       - name: Overview
         href: route-messages/overview-route-messages.md
