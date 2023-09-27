@@ -36,8 +36,8 @@ The Troubleshoot & repair process takes between 10 to 40 minutes to complete. Du
 - VM extension check
 - Windows Guest OS readiness
 
-> [!NOTE]
-> Running Troubleshoot & repair essentially restarts your Dev Box. Any unsaved data on your Dev Box will be lost. 
+> [!WARNING]
+> Running Troubleshoot & repair may effectively restart your Dev Box. Any unsaved data on your Dev Box will be lost. 
 
 To run Troubleshoot & repair on your dev box, follow these steps:
 
