@@ -131,8 +131,7 @@ Run the following command to create the deployer and the SAP library. The comman
 
 # [Linux](#tab/linux)
 
-
-Run the following command to deploy the control plane:
+Set the environment variables for the service principal:
 
 ```bash
 
@@ -140,6 +139,13 @@ export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 export       ARM_CLIENT_ID="<appId>"
 export   ARM_CLIENT_SECRET="<password>"
 export       ARM_TENANT_ID="<tenantId>"
+
+```
+
+Run the following command to deploy the control plane:
+
+```bash
+
 export            env_code="MGMT"
 export         region_code="WEEU"
 export           vnet_code="DEP00"
@@ -299,10 +305,7 @@ Rerun the control plane deployment to enable private endpoints for the storage a
 
 ```bash
 
-export ARM_SUBSCRIPTION_ID="<subscriptionId>"
-export       ARM_CLIENT_ID="<appId>"
-export   ARM_CLIENT_SECRET="<password>"
-export       ARM_TENANT_ID="<tenantId>"
+
 export            env_code="MGMT"
 export         region_code="WEEU"
 export           vnet_code="DEP00"
