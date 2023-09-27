@@ -56,11 +56,11 @@ If you use more app instances than you need, you should adjust the number of ins
 
 ## Streamline monitoring data collection 
 
-If you collect more logs, metrics, and traces than you can effectively use or afford, you must determine what's absolutely necessary for troubleshooting, capacity planning, and monitoring production. For example, you can reduce the frequency of application performance monitoring or be more selective about which logs, metrics, and traces you send to data aggregation tools.
+If you collect more logs, metrics, and traces than you can use or afford, you must determine what's necessary for troubleshooting, capacity planning, and monitoring production. For example, you can reduce the frequency of application performance monitoring or be more selective about which logs, metrics, and traces you send to data aggregation tools.
 
 ## Deactivate debug mode 
 
-If you forget to switch off debug mode for apps, a large amount of data will be collected and sent to monitoring platforms. Forgetting to deactivate debug mode could be unnecessary and costly.
+If you forget to switch off debug mode for apps, a large amount of data is collected and sent to monitoring platforms. Forgetting to deactivate debug mode could be unnecessary and costly.
 
 
 ## Next steps
