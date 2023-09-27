@@ -19,10 +19,14 @@ Next, create a passwordless connection with Service Connector.
 
 ### [Azure Database for PostgreSQL](#tab/postgresql)
 
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI commands use a `--client-type` parameter.
+
+1. Optionally run the command `az webapp connection create postgres-flexible -h` to get a list of all supported client types.
+
+1. Choose a client type and run the corresponding command.
 
     #### [User-assigned managed identity](#tab/user)
-    
+
     ```azurecli
     az webapp connection create postgres-flexible \
         --resource-group $RESOURCE_GROUP \
@@ -33,9 +37,9 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
         --user-identity client-id=XX subs-id=XX \
         --client-type java
     ```
-    
+
     #### [System-assigned managed identity](#tab/system)
-    
+
     ```azurecli
     az webapp connection create postgres-flexible \
         --resource-group $RESOURCE_GROUP \
@@ -46,7 +50,7 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
         --system-identity \
         --client-type java
     ```
-    
+
     ---
 
 ### [Azure Database for MySQL](#tab/mysql)
@@ -73,10 +77,14 @@ For more information, see the [Permissions](../../mysql/flexible-server/concepts
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create mysql-flexible -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI commands use a `--client-type` parameter.
+
+1. Optionally run the command `az webapp connection create mysql-flexible -h` to get the supported client types.
+
+1. Choose a client type and run the corresponding command.
 
     #### [User-assigned managed identity](#tab/user)
-    
+
     ```azurecli
     az webapp connection create mysql-flexible \
         --resource-group $RESOURCE_GROUP \
@@ -87,9 +95,9 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
         --user-identity client-id=XX subs-id=XX mysql-identity-id=$IDENTITY_RESOURCE_ID \
         --client-type java
     ```
-    
+
     #### [System-assigned managed identity](#tab/system)
-    
+
     ```azurecli
     az webapp connection create mysql-flexible \
     --resource-group $RESOURCE_GROUP \
@@ -100,14 +108,18 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
     --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
     --client-type java
     ```
-    
+
     ---
 
 ### [Azure SQL Database](#tab/sqldatabase)
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI commands use a `--client-type` parameter.
+
+1. Optionally run the `az webapp connection create sql -h` to get the supported client types.
+
+1. Choose a client type and run the corresponding command.
 
     #### [User-assigned managed identity](#tab/user)
-    
+
     ```azurecli
     az webapp connection create sql \
         --resource-group $RESOURCE_GROUP \
@@ -118,9 +130,9 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
         --user-identity client-id=XX subs-id=XX \
         --client-type dotnet
     ```
-    
+
     #### [System-assigned managed identity](#tab/system)
-    
+
     ```azurecli
     az webapp connection create sql \
         --resource-group $RESOURCE_GROUP \
@@ -131,7 +143,7 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
         --system-identity \
         --client-type dotnet
     ```
-    
+
     ---
 
 ---
