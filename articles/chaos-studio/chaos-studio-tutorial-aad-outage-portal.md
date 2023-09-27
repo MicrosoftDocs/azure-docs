@@ -26,3 +26,8 @@ Azure Chaos Studio Preview can't inject faults against a resource until that res
 1. Search for **Chaos Studio** in the search bar.
 1. Select **Targets** and find your virtual machine scale set resource.
 1. Select the network security group resource and select **Enable targets** > **Enable service-direct targets**.
+
+      [![Screenshot that shows the Targets screen in Chaos Studio, with the network security group resource selected.](images/tutorial-aad-outage-enable.png) ](images/tutorial-aad-outage-enable.png#lightbox)
+1. Select **Review + Enable** > **Enable**.
+
+You've now successfully added your network security group to Chaos Studio.
