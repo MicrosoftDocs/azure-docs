@@ -2,7 +2,7 @@
 author: xiaofanzhou
 ms.service: service-connector
 ms.topic: include
-ms.date: 05/21/2023
+ms.date: 09/27/2023
 ms.author: xiaofanzhou
 ---
 
@@ -21,33 +21,33 @@ Next, create a passwordless connection with Service Connector.
 
 The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
 
-#### [User-assigned managed identity](#tab/postgresql/user)
-
-```azurecli
-az webapp connection create postgres-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $POSTGRESQL_HOST \
-    --database $DATABASE_NAME \
-    --user-identity client-id=XX subs-id=XX \
-    --client-type java
-```
-
-#### [System-assigned managed identity](#tab/postgresql/system)
-
-```azurecli
-az webapp connection create postgres-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $POSTGRESQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity \
-    --client-type java
-```
-
----
+    #### [User-assigned managed identity](#tab/user)
+    
+    ```azurecli
+    az webapp connection create postgres-flexible \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $POSTGRESQL_HOST \
+        --database $DATABASE_NAME \
+        --user-identity client-id=XX subs-id=XX \
+        --client-type java
+    ```
+    
+    #### [System-assigned managed identity](#tab/system)
+    
+    ```azurecli
+    az webapp connection create postgres-flexible \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $POSTGRESQL_HOST \
+        --database $DATABASE_NAME \
+        --system-identity \
+        --client-type java
+    ```
+    
+    ---
 
 ### [Azure Database for MySQL](#tab/mysql)
 
@@ -75,23 +75,23 @@ Then, connect your app to a MySQL database with a system-assigned managed identi
 
 The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create mysql-flexible -h` to get the supported client types, and choose the one that matches your application.
 
-#### [User-assigned managed identity](#tab/mysql/user)
-
-```azurecli
-az webapp connection create mysql-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $MYSQL_HOST \
-    --database $DATABASE_NAME \
-    --user-identity client-id=XX subs-id=XX mysql-identity-id=$IDENTITY_RESOURCE_ID \
-    --client-type java
-```
-
-#### [System-assigned managed identity](#tab/mysql/system)
-
-```azurecli
-az webapp connection create mysql-flexible \
+    #### [User-assigned managed identity](#tab/user)
+    
+    ```azurecli
+    az webapp connection create mysql-flexible \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $MYSQL_HOST \
+        --database $DATABASE_NAME \
+        --user-identity client-id=XX subs-id=XX mysql-identity-id=$IDENTITY_RESOURCE_ID \
+        --client-type java
+    ```
+    
+    #### [System-assigned managed identity](#tab/system)
+    
+    ```azurecli
+    az webapp connection create mysql-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
     --target-resource-group $RESOURCE_GROUP \
@@ -99,62 +99,62 @@ az webapp connection create mysql-flexible \
     --database $DATABASE_NAME \
     --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
     --client-type java
-```
-
----
+    ```
+    
+    ---
 
 ### [Azure SQL Database](#tab/sqldatabase)
 The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
 
-#### [User-assigned managed identity](#tab/sqldatabase/user)
+    #### [User-assigned managed identity](#tab/user)
+    
+    ```azurecli
+    az webapp connection create sql \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $SQL_HOST \
+        --database $DATABASE_NAME \
+        --user-identity client-id=XX subs-id=XX \
+        --client-type dotnet
+    ```
+    
+    #### [System-assigned managed identity](#tab/system)
+    
+    ```azurecli
+    az webapp connection create sql \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $SQL_HOST \
+        --database $DATABASE_NAME \
+        --system-identity \
+        --client-type dotnet
+    ```
+    
+    ---
 
-```azurecli
-az webapp connection create sql \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $SQL_HOST \
-    --database $DATABASE_NAME \
-    --user-identity client-id=XX subs-id=XX \
-    --client-type dotnet
-```
-
-#### [System-assigned managed identity](#tab/sqldatabase/system)
-
-```azurecli
-az webapp connection create sql \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $SQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity \
-    --client-type dotnet
-```
-
----
 ---
 
 This Service Connector command completes the following tasks in the background:
 
-- Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
-- Set the Azure Active Directory admin to the current signed-in user.
-- Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
-- Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type. 
-  - For App Service, the configurations are set in the **App Settings** blade.
+* Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
+* Set the Azure Active Directory admin to the current signed-in user.
+* Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
+* Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
+* For App Service, the configurations are set in the **App Settings** blade.
 
-
-If you meet any problem when creating a connection, refer to [Troubleshooting](../tutorial-passwordless.md#troubleshooting) for help.
+If you encounter any problem when creating a connection, refer to [Troubleshooting](../tutorial-passwordless.md#troubleshooting) for help.
 
 ## Connect to database with Azure Active Directory authentication
 
 In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. The pattern is as follows:
 
-1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity. 
+1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity.
 2. Get an access token for the resource URI respective to the database type.
-    - For Azure SQL Database: `https://database.windows.net/.default`
-    - For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`
-    - For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`
+    * For Azure SQL Database: `https://database.windows.net/.default`
+    * For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`
+    * For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`
 3. Add the token to your connection string.
 4. Open the connection.
 
