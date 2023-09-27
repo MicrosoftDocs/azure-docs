@@ -49,7 +49,7 @@ In this tutorial, you learn how to:
 
    It takes a few minutes for the cache to create. You can move on to the next step in the meantime.
 
-:::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Enterprise tier Basics tab":::
+:::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Screenshot showing the Enterprise tier Basics tab filled out.":::
 
 ## Set up your development environment
 
