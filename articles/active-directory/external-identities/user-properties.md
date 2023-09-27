@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/18/2023
+ms.date: 09/27/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, has-azure-ad-ps-ref
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.collection: M365-identity-device-management
 # Customer intent: As a tenant administrator, I want to learn about B2B collaboration guest user properties and states before and after invitation redemption.
 ---
