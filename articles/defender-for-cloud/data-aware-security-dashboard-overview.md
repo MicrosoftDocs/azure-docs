@@ -49,7 +49,7 @@ The data security overview section provides a general overview of your cloud dat
 - **Sensitive resources** – displays how many resources are sensitive.
 - **Sensitive resources requiring attention** - displays the number of sensitive resources that have either high severity security alerts or attack paths.
 
-## Top Issues
+## Top issues
 
 The **Top issues** section provides a highlighted view of top active and potential risks to sensitive data.
 
