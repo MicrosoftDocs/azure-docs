@@ -98,7 +98,7 @@ ms.date: 08/29/2023
    python main.py
    ```
 
-   The application will print the response in a JSON format suitable for use in many scenarios. It will include both answers to your query and citations from your uploaded files.
+   The application prints the response in a JSON format suitable for use in many scenarios. It includes both answers to your query and citations from your uploaded files.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue when running the code samples.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=dotnet&Pillar=AOAI&Product=ownData&Page=quickstart&Section=Create-dotnet-application)
