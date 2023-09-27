@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Troubleshoot connection issues to Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Connection problems may be caused by a variety of things, including:
 
 * Firewall settings

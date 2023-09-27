@@ -46,4 +46,4 @@ Learn more about [multi-dimensional metrics](../azure-monitor/essentials/data-pl
 
 ## Related resources
 
-- [Aggregation types in Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicewebpubsub )
+- [Aggregation types in Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicewebpubsub)

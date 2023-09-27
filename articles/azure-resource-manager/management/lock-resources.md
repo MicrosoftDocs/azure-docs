@@ -2,7 +2,7 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 08/24/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
@@ -67,7 +67,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
   For example, if a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), which is a control plane operation, the deletion fails. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use a control plane operation.
   
-- A read-only lock or cannot-delete lock on a **network security group (NSG)** prevents the creation of a traffic flow log for the NSG.
+- A read-only lock on a **network security group (NSG)** prevents the creation of the corresponding NSG flow log. A cannot-delete lock on a **network security group (NSG)** doesn't prevent the creation or modification of the corresponding NSG flow log.
 
 - A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 

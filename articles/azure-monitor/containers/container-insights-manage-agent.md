@@ -18,7 +18,7 @@ Container insights uses a containerized version of the Log Analytics agent for L
 
 Container insights uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Arc-enabled Kubernetes.
 
-If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [Agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [Agent release announcements](https://aka.ms/ci-logs-agent-release-notes).
 
 ### Upgrade the agent on an AKS cluster
 
@@ -104,3 +104,4 @@ With the rise of Kubernetes and the OSS ecosystem, Container Insights migrate to
 ## Next steps
 
 If you experience issues when you upgrade the agent, review the [troubleshooting guide](container-insights-troubleshoot.md) for support.
+

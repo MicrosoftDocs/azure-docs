@@ -1,6 +1,6 @@
 ---
-title: Authorize managed identity requests to a SignalR resource
-description: This article provides information about authorizing request to SignalR resources with Azure AD from managed identities
+title: Authorize requests to SignalR resources with Microsoft Entra managed identities
+description: This article provides information about authorizing request to SignalR resources with Microsoft Entra managed identities
 author: vicancy
 ms.author: lianwei
 ms.date: 03/28/2023
@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize managed identity requests to a SignalR resource
+# Authorize requests to SignalR resources with Microsoft Entra managed identities
 
-Azure SignalR Service supports Azure Active Directory (Azure AD) authorizing requests from Azure resources using [managed identities for Azure resources
+Azure SignalR Service supports Microsoft Entra ID for authorizing requests from [Microsoft Entra managed identities
 ](../active-directory/managed-identities-azure-resources/overview.md).
 
-This article shows how to configure your SignalR resource and code to authorize a managed identity request to a SignalR resource.
+This article shows how to configure your SignalR resource and code to authorize requests to a SignalR resource from a managed identity.
 
 ## Configure managed identities
 
@@ -47,7 +47,7 @@ See [How to use managed identities for App Service and Azure Functions](../app-s
 
 The following steps describe how to assign a `SignalR App Server` role to a system-assigned identity over a SignalR resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-> [!Note]
+> [!NOTE]
 > A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
 
 1. From the [Azure portal](https://portal.azure.com/), navigate to your SignalR resource.
@@ -128,7 +128,7 @@ If you only configure the service URI, then the `DefaultAzureCredential` is used
 
 In the Azure portal, use the following example to configure a `DefaultAzureCredential`. If you don't configure any [environment variables listed here](/dotnet/api/overview/azure/identity-readme#environment-variables), then the system-assigned identity is used to authenticate.
 
-```
+```bash
 <CONNECTION_NAME_PREFIX>__serviceUri=https://<SIGNALR_RESOURCE_NAME>.service.signalr.net
 ```
 
@@ -144,7 +144,7 @@ Here's a config sample of `DefaultAzureCredential` in the `local.settings.json` 
 
 If you want to use system-assigned identity independently and without the influence of [other environment variables](/dotnet/api/overview/azure/identity-readme#environment-variables), you should set the `credential` key with the connection name prefix to `managedidentity`. Here's an application settings sample:
 
-```
+```bash
 <CONNECTION_NAME_PREFIX>__serviceUri = https://<SIGNALR_RESOURCE_NAME>.service.signalr.net
 <CONNECTION_NAME_PREFIX>__credential = managedidentity
 ```
@@ -153,7 +153,7 @@ If you want to use system-assigned identity independently and without the influe
 
 If you want to use user-assigned identity, you need to assign `clientId`in addition to the `serviceUri` and `credential` keys with the connection name prefix. Here's the application settings sample:
 
-```
+```bash
 <CONNECTION_NAME_PREFIX>__serviceUri = https://<SIGNALR_RESOURCE_NAME>.service.signalr.net
 <CONNECTION_NAME_PREFIX>__credential = managedidentity
 <CONNECTION_NAME_PREFIX>__clientId = <CLIENT_ID>
@@ -163,6 +163,6 @@ If you want to use user-assigned identity, you need to assign `clientId`in addit
 
 See the following related articles:
 
-- [Overview of Azure AD for SignalR](signalr-concept-authorize-azure-active-directory.md)
-- [Authorize request to SignalR resources with Azure AD from Azure applications](signalr-howto-authorize-application.md)
+- [Overview of Microsoft Entra ID for SignalR](signalr-concept-authorize-azure-active-directory.md)
+- [Authorize request to SignalR resources with Microsoft Entra applications](signalr-howto-authorize-application.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

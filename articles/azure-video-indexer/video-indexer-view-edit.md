@@ -1,14 +1,15 @@
 ---
 title: View Azure AI Video Indexer insights
 description: This article demonstrates how to view Azure AI Video Indexer insights.
-author: Juliako
-manager: femila
 ms.topic: article
 ms.date: 04/12/2023
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # View Azure AI Video Indexer insights
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows you how to view the Azure AI Video Indexer insights of a video.
 

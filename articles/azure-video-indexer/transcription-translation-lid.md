@@ -1,16 +1,16 @@
 ---
-title: Azure AI Video Indexer media transcription, translation and language identification overview 
-titleSuffix: Azure AI Video Indexer 
+title: Azure AI Video Indexer media transcription, translation and language identification overview  
 description: An introduction to Azure AI Video Indexer media transcription, translation and language identification components responsibly.
-author: Juliako
-ms.author: juliako
-manager: femila
 ms.service: azure-video-indexer
 ms.date: 06/15/2022
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Media transcription, translation and language identification  
+# Media transcription, translation and language identification
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer transcription, translation and language identification automatically detects, transcribes, and translates the speech in media files into over 50 languages. 
 

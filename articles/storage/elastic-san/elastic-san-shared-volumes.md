@@ -26,7 +26,7 @@ See [Support for Azure Storage features](elastic-san-introduction.md#support-for
 
 ## Regional availability
 
-Currently, only Elastic SAN volumes in France Central can be used as shared volumes.
+All regions that Elastic SAN is available in can use shared volumes.
 
 ## How it works
 

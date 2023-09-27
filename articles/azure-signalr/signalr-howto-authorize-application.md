@@ -1,6 +1,6 @@
 ---
-title: Authorize request to SignalR resources with Azure AD from Azure applications
-description: This article provides information about authorizing request to SignalR resources with Azure AD from Azure applications
+title: Authorize requests to SignalR resources with Microsoft Entra applications
+description: This article provides information about authorizing request to SignalR resources with Microsoft Entra applications
 author: vicancy
 ms.author: lianwei
 ms.date: 02/03/2023
@@ -10,22 +10,20 @@ ms.devlang: csharp
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize request to SignalR resources with Azure AD from Azure applications
+# Authorize requests to SignalR resources with Microsoft Entra applications
 
-Azure SignalR Service supports Azure Active Directory (Azure AD) authorizing requests from [Azure applications](../active-directory/develop/app-objects-and-service-principals.md).
+Azure SignalR Service supports Microsoft Entra ID for authorizing requests from [Microsoft Entra applications](../active-directory/develop/app-objects-and-service-principals.md).
 
-This article shows how to configure your SignalR resource and codes to authorize the request to a SignalR resource from an Azure application.
+This article shows how to configure your SignalR resource and codes to authorize requests to a SignalR resource from a Microsoft Entra application.
 
 ## Register an application
 
-The first step is to register an Azure application.
+The first step is to register a Microsoft Entra application.
 
-1. On the [Azure portal](https://portal.azure.com/), search for and select **Azure Active Directory**
+1. On the [Azure portal](https://portal.azure.com/), search for and select **Microsoft Entra ID**
 2. Under **Manage** section, select **App registrations**.
 3. Select **New registration**.
-
    ![Screenshot of registering an application.](./media/signalr-howto-authorize-application/register-an-application.png)
-
 4. Enter a display **Name** for your application.
 5. Select **Register** to confirm the register.
 
@@ -67,7 +65,7 @@ To learn more about adding credentials, see
 
 The following steps describe how to assign a `SignalR App Server` role to a service principal (application) over a SignalR resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-> [!Note]
+> [!NOTE]
 > A role can be assigned to any scope, including management group, subscription, resource group or a single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md)
 
 1. From the [Azure portal](https://portal.azure.com/), navigate to your SignalR resource.
@@ -103,14 +101,14 @@ To learn more about how to assign and manage Azure role assignments, see these a
 
 The best practice is to configure identity and credentials in your environment variables:
 
-| Variable                        | Description                                                                                                       |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `AZURE_TENANT_ID`               | The Azure Active Directory tenant(directory) ID.                                                                  |
-| `AZURE_CLIENT_ID`               | The client(application) ID of an App Registration in the tenant.                                                  |
-| `AZURE_CLIENT_SECRET`           | A client secret that was generated for the App Registration.                                                      |
-| `AZURE_CLIENT_CERTIFICATE_PATH` | A path to a certificate and private key pair in PEM or PFX format, which can authenticate the App Registration.   |
-| `AZURE_USERNAME`                | The username, also known as upn, of an Azure Active Directory user account.                                       |
-| `AZURE_PASSWORD`                | The password for the Azure Active Directory user account. Password isn't supported for accounts with MFA enabled. |
+| Variable                        | Description                                                                                                     |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `AZURE_TENANT_ID`               | The Microsoft Entra tenant ID.                                                                                  |
+| `AZURE_CLIENT_ID`               | The client(application) ID of an App Registration in the tenant.                                                |
+| `AZURE_CLIENT_SECRET`           | A client secret that was generated for the App Registration.                                                    |
+| `AZURE_CLIENT_CERTIFICATE_PATH` | A path to a certificate and private key pair in PEM or PFX format, which can authenticate the App Registration. |
+| `AZURE_USERNAME`                | The username, also known as upn, of a Microsoft Entra user account.                                            |
+| `AZURE_PASSWORD`                | The password of the Microsoft Entra user account. Password isn't supported for accounts with MFA enabled.       |
 
 You can use either [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) or [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) to configure your SignalR endpoints.
 
@@ -138,7 +136,7 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 To learn how `DefaultAzureCredential` works, see [DefaultAzureCredential Class](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
 
-#### Use different credentials while using multiple endpoints.
+#### Use different credentials while using multiple endpoints
 
 For some reason, you may want to use different credentials for different endpoints.
 
@@ -160,11 +158,11 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### Azure Functions SignalR bindings
 
-Azure Functions SignalR bindings use [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) on portal or [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) at local to configure Azure application identities to access your SignalR resources.
+Azure Functions SignalR bindings use [application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) on portal or [`local.settings.json`](../azure-functions/functions-develop-local.md#local-settings-file) at local to configure Microsoft Entra application identities to access your SignalR resources.
 
 Firstly, you need to specify the service URI of the SignalR Service, whose key is `serviceUri` starting with a **connection name prefix** (defaults to `AzureSignalRConnectionString`) and a separator (`__` on Azure portal and `:` in the local.settings.json file). The connection name can be customized with the binding property [`ConnectionStringSetting`](../azure-functions/functions-bindings-signalr-service.md). Continue reading to find the sample.
 
-Then you choose to configure your Azure application identity in [pre-defined environment variables](#configure-identity-in-pre-defined-environment-variables) or [in SignalR specified variables](#configure-identity-in-signalr-specified-variables).
+Then you choose to configure your Microsoft Entra application identity in [pre-defined environment variables](#configure-identity-in-pre-defined-environment-variables) or [in SignalR specified variables](#configure-identity-in-signalr-specified-variables).
 
 #### Configure identity in pre-defined environment variables
 
@@ -185,7 +183,7 @@ For example, to use client secret credentials, configure as follows in the `loca
 
 On Azure portal, add settings as follows:
 
-```
+```bash
  <CONNECTION_NAME_PREFIX>__serviceUri=https://<SIGNALR_RESOURCE_NAME>.service.signalr.net
 AZURE_CLIENT_ID = ...
 AZURE_TENANT_ID = ...
@@ -217,7 +215,7 @@ In the `local.settings.json` file:
 
 On Azure portal, add settings as follows:
 
-```
+```bash
 <CONNECTION_NAME_PREFIX>__serviceUri = https://<SIGNALR_RESOURCE_NAME>.service.signalr.net
 <CONNECTION_NAME_PREFIX>__clientId = ...
 <CONNECTION_NAME_PREFIX>__clientSecret = ...
@@ -228,6 +226,6 @@ On Azure portal, add settings as follows:
 
 See the following related articles:
 
-- [Overview of Azure AD for SignalR](signalr-concept-authorize-azure-active-directory.md)
-- [Authorize request to SignalR resources with Azure AD from managed identities](signalr-howto-authorize-managed-identity.md)
+- [Overview of Microsoft Entra ID for SignalR](signalr-concept-authorize-azure-active-directory.md)
+- [Authorize request to SignalR resources with Microsoft Entra managed identities](signalr-howto-authorize-managed-identity.md)
 - [Disable local authentication](./howto-disable-local-auth.md)

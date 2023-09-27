@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.custom: UpdateFrequency2
-ms.date: 06/30/2023
+ms.date: 09/30/2023
 ---
 
 # Resize a lab VM in Azure DevTest Labs

@@ -2,6 +2,7 @@
 title: Migrate Azure Cosmos DB extension for Azure Functions to version 4.x 
 description: This article shows you how to upgrade your existing function apps using the Azure Cosmos DB extension version 3.x to be able to use version 4.x of the extension. 
 ms.service: azure-functions
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
 ms.date: 08/16/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -29,17 +30,19 @@ This article walks you through the process of migrating your function app to run
 
 Update your `.csproj` project file to use the latest extension version for your process model. The following `.csproj` file uses version 4 of the Azure Cosmos DB extension.
 
-### [In-process model](#tab/in-process)
+### [Isolated worker model](#tab/isolated-process)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="4.3.0" />
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.14.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.CosmosDB" Version="4.4.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.10.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -53,19 +56,17 @@ Update your `.csproj` project file to use the latest extension version for your 
 </Project>
 ```
 
-### [Isolated worker model](#tab/isolated-worker)
+### [In-process model](#tab/in-process)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.14.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.CosmosDB" Version="4.4.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.10.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="4.3.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

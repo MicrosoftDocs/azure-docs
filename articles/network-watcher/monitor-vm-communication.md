@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Monitor network communication between two VMs - Azure portal'
+titleSuffix: Azure Network Watcher
 description: In this tutorial, learn how to monitor network communication between two Azure virtual machines with Azure Network Watcher's connection monitor capability.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 07/17/2023
-ms.author: halkazwini
-ms.custom: template-tutorial, engagement-fy23
-# Customer intent: I need to monitor the communication between two virtual machines in Azure. If the communication fails, I need to be alerted and I want to know why it failed, so that I can resolve the problem. 
+ms.date: 08/24/2023
+#CustomerIntent: As an Azure administrator, I want to monitor the communication between two virtual machines in Azure so I can be alerted if the communication fails to take actions. I alow want to know why the communication failed, so that I can resolve the problem. 
 ---
 
 # Tutorial: Monitor network communication between two virtual machines using the Azure portal
@@ -22,9 +22,13 @@ In this tutorial, you learn how to:
 > * Monitor communication between the two virtual machines
 > * Diagnose a communication problem between the two virtual machines
 
+:::image type="content" source="./media/monitor-vm-communication/vm-connection-monitor-architecture-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription.
 
 ## Sign in to Azure
 

@@ -39,7 +39,7 @@ In the following example, the `GraphBeta` section specifies these settings.
  },
  "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
-    "Scopes": "user.read"
+    "Scopes": ["user.read"]
     }
 }
 ```
@@ -67,9 +67,13 @@ Instead of a client secret, you can provide a client certificate. The following 
   },
   "GraphBeta": {
     "BaseUrl": "https://graph.microsoft.com/beta",
-    "Scopes": "user.read"
+    "Scopes": ["user.read"]
   }
 }
 ```
+
+> [!WARNING]
+>
+> If you forget to change the `Scopes` to an array, when you try to use the `IDownstreamApi` the scopes will appear null, and `IDownstreamApi` will attempt an anonymous (unauthenticated) call to the downstream API, which will result in a `401/unauthenticated`.
 
 *Microsoft.Identity.Web* provides several ways to describe certificates, both by configuration or by code. For details, see [Microsoft.Identity.Web - Using certificates](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) on GitHub.

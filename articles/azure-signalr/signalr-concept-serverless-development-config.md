@@ -282,7 +282,7 @@ Configure your SignalR clients to use the API Management URL.
 
 ### Using App Service Authentication
 
-Azure Functions has built-in authentication, supporting popular providers such as Facebook, Twitter, Microsoft Account, Google, and Azure Active Directory. This feature can be integrated with the `SignalRConnectionInfo` binding to create connections to Azure SignalR Service that have been authenticated to a user ID. Your application can send messages using the `SignalR` output binding that are targeted to that user ID.
+Azure Functions has built-in authentication, supporting popular providers such as Facebook, Twitter, Microsoft Account, Google, and Microsoft Entra ID. This feature can be integrated with the `SignalRConnectionInfo` binding to create connections to Azure SignalR Service that have been authenticated to a user ID. Your application can send messages using the `SignalR` output binding that are targeted to that user ID.
 
 In the Azure portal, in your Function app's _Platform features_ tab, open the _Authentication/authorization_ settings window. Follow the documentation for [App Service Authentication](../app-service/overview-authentication-authorization.md) to configure authentication using an identity provider of your choice.
 

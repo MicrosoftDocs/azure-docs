@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Enterprise State Roaming in Azure Active Directory
+title: Troubleshoot Enterprise State Roaming in Microsoft Entra ID
 description: Provides answers to some questions IT administrators might have about settings and app data sync.
 
 services: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting Enterprise State Roaming settings in Azure Active Directory
+# Troubleshooting Enterprise State Roaming settings in Microsoft Entra ID
 
 This article provides information on how to troubleshoot and diagnose issues with Enterprise State Roaming, and provides a list of known issues.
 
@@ -29,9 +29,9 @@ This article provides information on how to troubleshoot and diagnose issues wit
 Before you start troubleshooting, verify that the user and device have been configured properly, and that all the requirements of Enterprise State Roaming are met by the device and the user. 
 
 1. Windows 10 or newer, with the latest updates, and a minimum Version 1511 (OS Build 10586 or later) is installed on the device. 
-1. The device is Azure AD joined or hybrid Azure AD joined. For more information, see [how to get a device under the control of Azure AD](overview.md).
-1. Ensure that **Enterprise State Roaming** is enabled for the tenant in Azure AD as described in [To enable Enterprise State Roaming](enterprise-state-roaming-enable.md). You can enable roaming for all users or for only a selected group of users.
-1. The user is assigned an Azure Active Directory Premium license.  
+1. The device is Microsoft Entra joined or Microsoft Entra hybrid joined. For more information, see [how to get a device under the control of Microsoft Entra ID](overview.md).
+1. Ensure that **Enterprise State Roaming** is enabled for the tenant in Microsoft Entra ID as described in [To enable Enterprise State Roaming](enterprise-state-roaming-enable.md). You can enable roaming for all users or for only a selected group of users.
+1. The user is assigned a Microsoft Entra ID P1 or P2 license.  
 1. The device must be restarted and the user must sign in again to access Enterprise State Roaming features.
 
 ## Information to include when you need help
@@ -41,7 +41,7 @@ If you can't solve your issue with the guidance that follows, you can contact ou
 * **General description of the error**: Are there error messages seen by the user? If there was no error message, describe the unexpected behavior you noticed, in detail. What features are enabled for sync and what is the user expecting to sync? Are multiple features not syncing or is it isolated to one?
 * **Users affected** – Is sync working/failing for one user or multiple users? How many devices are involved per user? Are all of them not syncing or are some of them syncing and some not syncing?
 * **Information about the user** – What identity is the user using to sign in to the device? How is the user signing in to the device? Are they part of a selected security group allowed to sync? 
-* **Information about the device** – Is this device Azure AD-joined or domain-joined? What build is the device on? What are the most recent updates?
+* **Information about the device** – Is this device Microsoft Entra joined or domain-joined? What build is the device on? What are the most recent updates?
 * **Date / Time / Timezone** – What was the precise date and time you saw the error (include the timezone)?
 
 Including this information helps us solve your problem as quickly as possible.
@@ -58,31 +58,31 @@ This section gives suggestions on how to troubleshoot and diagnose problems rela
    * Locking and unlocking the screen (Win + L) can help trigger a sync.
    * You must be signing in with the same account on both PCs for sync to work – as Enterprise State Roaming is tied to the user account and not the machine account.
 
-**Potential issue**: If the controls in the **Settings** page aren't available, and you see the message “Some Windows features are only available if you're using a Microsoft account or work account.” This issue might arise for devices that are set up to be domain-joined and registered to Azure AD, but the device hasn't yet successfully authenticated to Azure AD. A possible cause is that the device policy must be applied, but this application happens asynchronously, and could be delayed by a few hours. 
+**Potential issue**: If the controls in the **Settings** page aren't available, and you see the message “Some Windows features are only available if you're using a Microsoft account or work account.” This issue might arise for devices that are set up to be domain-joined and registered to Microsoft Entra ID, but the device hasn't yet successfully authenticated to Microsoft Entra ID. A possible cause is that the device policy must be applied, but this application happens asynchronously, and could be delayed by a few hours. 
 
 ### Verify the device registration status
 
-Enterprise State Roaming requires the device to be registered with Azure AD. Although not specific to Enterprise State Roaming, using the following instructions can help confirm that the Windows 10 or newer Client is registered, and confirm thumbprint, Azure AD settings URL, NGC status, and other information.
+Enterprise State Roaming requires the device to be registered with Microsoft Entra ID. Although not specific to Enterprise State Roaming, using the following instructions can help confirm that the Windows 10 or newer Client is registered, and confirm thumbprint, Microsoft Entra settings URL, NGC status, and other information.
 
 1. Open the command prompt unelevated. To do this in Windows, open the Run launcher (Win + R) and type “cmd” to open.
-1. Once the command prompt is open, type “*dsregcmd.exe /status*”.
-1. For expected output, the **AzureAdJoined** field value should be “YES”, **WamDefaultSet** field value should be “YES”, and the **WamDefaultGUID** field value should be a GUID with “(AzureAd)” at the end.
+1. Once the command prompt is open, type `*dsregcmd.exe /status*`.
+1. For expected output, the **AzureAdJoined** field value should be `YES`, **WamDefaultSet** field value should be `YES`, and the **WamDefaultGUID** field value should be a GUID with `(AzureAD)` at the end.
 
-**Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Azure AD, and the device doesn't sync. If it's showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Azure AD. The user may have to wait a few hours for the policy to be applied. Other troubleshooting steps may include retrying autoregistration by signing out and back in, or launching the task in Task Scheduler. In some cases, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
+**Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Microsoft Entra ID, and the device doesn't sync. If it's showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Microsoft Entra ID. The user may have to wait a few hours for the policy to be applied. Other troubleshooting steps may include retrying autoregistration by signing out and back in, or launching the task in Task Scheduler. In some cases, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
 
-**Potential issue**: The field for **SettingsUrl** is empty and the device doesn't sync. The user may have last logged in to the device before Enterprise State Roaming was enabled in the Azure portal. Restart the device and have the user login. Optionally, in the portal, try having the IT Admin navigate to **Azure Active Directory** > **Devices** > **Enterprise State Roaming** disable and re-enable **Users may sync settings and app data across devices**. Once re-enabled, restart the device and have the user login. If this doesn't resolve the issue, **SettingsUrl** may be empty if there's a bad device certificate. In this case, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
+**Potential issue**: The field for **SettingsUrl** is empty and the device doesn't sync. The user may have last logged in to the device before Enterprise State Roaming was enabled. Restart the device and have the user login. Optionally, in the portal, try having the IT Admin navigate to **Identity** > **Devices** > **Overview** > **Enterprise State Roaming** disable and re-enable **Users may sync settings and app data across devices**. Once re-enabled, restart the device and have the user login. If this doesn't resolve the issue, **SettingsUrl** may be empty if there's a bad device certificate. In this case, running “*dsregcmd.exe /leave*” in an elevated command prompt window, rebooting, and trying registration again may help with this issue.
 
 ## Enterprise State Roaming and multifactor authentication 
 
-Under certain conditions, Enterprise State Roaming can fail to sync data if Azure AD Multifactor Authentication is configured. For more information on these symptoms, see the support document [KB3193683](https://support.microsoft.com/kb/3193683). 
+Under certain conditions, Enterprise State Roaming can fail to sync data if Microsoft Entra multifactor authentication is configured. For more information on these symptoms, see the support document [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potential issue**: If your device is configured to require Multifactor Authentication on the Azure portal, you may fail to sync settings while signing in to a Windows 10 or newer device using a password. This type of Multifactor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 or newer devices with their Windows Hello for Business PIN or by completing Multifactor Authentication while accessing other Azure services like Microsoft 365.
+**Potential issue**: If your device is configured to require multifactor authentication on the Microsoft Entra admin center, you may fail to sync settings while signing in to a Windows 10 or newer device using a password. This type of multifactor authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 or newer devices with their Windows Hello for Business PIN or by completing multifactor authentication while accessing other Azure services like Microsoft 365.
 
-**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multifactor Authentication Conditional Access policy and the access token on the device expires. Ensure that you sign in and sign out using the Windows Hello for Business PIN or complete Multifactor Authentication while accessing other Azure services like Microsoft 365.
+**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services multifactor authentication Conditional Access policy and the access token on the device expires. Ensure that you sign in and sign out using the Windows Hello for Business PIN or complete multifactor authentication while accessing other Azure services like Microsoft 365.
 
 ### Event Viewer
 
-For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > **Applications and Services Logs** > **Microsoft** > **Windows** > **SettingSync-Azure** and for identity-related issues with sync **Applications and Services Logs** > **Microsoft** > **Windows** > **AAD**.
+For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > **Applications and Services Logs** > **Microsoft** > **Windows** > **SettingSync-Azure** and for identity-related issues with sync **Applications and Services Logs** > **Microsoft** > **Windows** > **Microsoft Entra ID**.
 
 ## Known issues
 
@@ -106,19 +106,21 @@ None.
 
 ### Domain-joined device is not syncing after leaving corporate network 	
 
-Domain-joined devices registered to Azure AD may experience sync failure if the device is off-site for extended periods of time, and domain authentication can't complete.
+Domain-joined devices registered to Microsoft Entra ID may experience sync failure if the device is off-site for extended periods of time, and domain authentication can't complete.
 
 **Recommended action**  
 Connect the device to a corporate network so that sync can resume.
 
 ---
 
-### Azure AD Joined device is not syncing and the user has a mixed case User Principal Name.
+<a name='azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name'></a>
 
-If the user has a mixed case UPN (for example, UserName instead of username) and the user is on an Azure AD Joined device, which has upgraded from Windows 10 Build 10586 to 14393, the user's device may fail to sync. 
+### Microsoft Entra joined device is not syncing and the user has a mixed case User Principal Name.
+
+If the user has a mixed case UPN (for example, UserName instead of username) and the user is on a Microsoft Entra joined device, which has upgraded from Windows 10 Build 10586 to 14393, the user's device may fail to sync. 
 
 **Recommended action**  
-The user will need to unjoin and rejoin the device to the cloud. To do this, login as the Local Administrator user and unjoin the device by going to **Settings** > **System** > **About** and select "Manage or disconnect from work or school". Clean up the following files, and then Azure AD Join the device again in **Settings** > **System** > **About** and selecting "Connect to Work or School". Continue to join the device to Azure Active Directory and complete the flow.
+The user will need to unjoin and rejoin the device to the cloud. To do this, login as the Local Administrator user and unjoin the device by going to **Settings** > **System** > **About** and select "Manage or disconnect from work or school". Clean up the following files, and then Microsoft Entra join the device again in **Settings** > **System** > **About** and selecting "Connect to Work or School". Continue to join the device to Microsoft Entra ID and complete the flow.
 
 In the cleanup step, clean up the following files:
 - Settings.dat in `C:\Users\<Username>\AppData\Local\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy\Settings\`

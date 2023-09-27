@@ -6,13 +6,13 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 08/31/2023
 ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to an App Service origin with Private Link
 
-This article will guide you through how to configure Azure Front Door Premium tier to connect to your App service privately using the Azure Private Link service.
+This article guides you through how to configure Azure Front Door Premium tier to connect to your App service privately using the Azure Private Link service.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Private Link to an App Service in Azure Front Door Premium
  
-In this section, you'll map the Private Link service to a private endpoint created in Azure Front Door's private network. 
+In this section, you map the Private Link service to a private endpoint created in Azure Front Door's private network. 
 
 1. Within your Azure Front Door Premium profile, under *Settings*, select **Origin groups**.
 
@@ -37,7 +37,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-app-service.png" alt-text="Screenshot of enabling private link to a Web App.":::
 
-1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the App service you want Azure Front Door Premium to connect with privately.
+1. The following table has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the App service you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
@@ -50,7 +50,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
     | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
     | Region | Select the region that is the same or closest to your origin. |
-    | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. You can select *site*. |
+    | Target sub resource | The type of subresource for the resource selected previously that your private endpoint can access. You can select *site*. |
     | Request message | Custom message to see while approving the Private Endpoint. |
 
 1. Select **Add** to save your configuration. Then select **Update** to save the origin group settings.
@@ -67,7 +67,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
     :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-pending-approval.png" alt-text="Screenshot of pending private endpoint request.":::
 
-1. Once approved, it should look like the screenshot below. It will take a few minutes for the connection to fully establish. You can now access your app service from Azure Front Door Premium. Direct access to the App Service from the public internet gets disabled after private endpoint gets enabled.
+1. Once approved, it should look like the following screenshot. It takes a few minutes for the connection to fully establish. You can now access your app service from Azure Front Door Premium. Direct access to the App Service from the public internet gets disabled after private endpoint gets enabled.
 
     :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-approved.png" alt-text="Screenshot of approved endpoint request.":::
 
