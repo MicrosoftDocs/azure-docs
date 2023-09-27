@@ -16,9 +16,9 @@ ms.date: 09/26/2023
 
 # Run Jupyter notebooks in your workspace
 
-This article shows how to run your Jupyter notebooks inside your workspace of Azure Machine Learning studio.  There are other ways to run the notebook as well: [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io) or [VS Code for the Web](./how-to-launch-vs-code-remote.md).
- 
-We recommend you try VS Code for the Web to take advantage of the rich development environment it provides.  VS Code for the Web gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing.  For more information about using VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
+This article shows how to run your Jupyter notebooks inside your workspace of Azure Machine Learning studio.  There are other ways to run the notebook as well: [Jupyter](https://jupyter.org/), [JupyterLab](https://jupyterlab.readthedocs.io), and [Visual Studio Code](./how-to-launch-vs-code-remote.md). VS Code Desktop can be configured to access your compute instance. Or use VS Code for the Web, directly from the browser, and without any required installations or dependencies.
+
+We recommend you try VS Code for the Web to take advantage of the easy integration and rich development environment it provides.  VS Code for the Web gives you many of the features of VS Code Desktop that you love, including search and syntax highlighting while browsing and editing.  For more information about using VS Code Desktop and VS Code for the Web, see [Launch Visual Studio Code integrated with Azure Machine Learning (preview)](how-to-launch-vs-code-remote.md) and [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
 
 No matter which solution you use to run the notebook, you'll have access to all the files from your workspace. For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
 
