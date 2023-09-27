@@ -85,15 +85,11 @@ See the section [Glossary of updated terminology](new-name.md#glossary-of-update
 1. Replace the Azure AD icon with the Microsoft Entra ID icon.
 1. Replace titles or text containing `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` with `Microsoft Entra ID`.
 
-## Communicate the change to your customers
-
-To help your customers with the transition, it's helpful to add a note: "Azure Active Directory is now Microsoft Entra ID" or follow the new name with "formerly Azure Active Directory" for the first year.
-
 ## Sample PowerShell script
 
 You can use following PowerShell script to rename Azure AD references in your documentation or content. This code sample:
 
-- Scans .resx and .resjson files the file system from the starting current folder and within all nested folders.
+- Scans .resx and .resjson files in the file system within a folder and all subfolders.
 - Edits files by replacing any references to `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` with the correct terminology according to [New name for Azure AD](new-name.md).
 
 ```powershell
@@ -362,6 +358,10 @@ foreach ($file in $filteredFiles) {
 }
 
 ```
+
+## Communicate the change to your customers
+
+To help your customers with the transition, it's helpful to add a note: "Azure Active Directory is now Microsoft Entra ID" or follow the new name with "formerly Azure Active Directory" for the first year.
 
 ## Next steps
 
