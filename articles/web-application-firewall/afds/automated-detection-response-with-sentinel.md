@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 09/27/2023
 ---
 
 # Automated detection and response for Azure WAF with Microsoft Sentinel
@@ -68,6 +68,20 @@ Repeat this procedure for the WAF policy resource.
 1. Select **Create**.
 1. Select your workspace, and then select **Add**.
 
+## Configure the Logic App Contributor role assignment
+
+Your account must have owner permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
+
+1. In the Azure portal, select the resource group that contains the playbook.
+1. In the left pane, select **Access control (IAM)**.
+1. Select **Role assignments**.
+1. Select **Add** then **Add role assignment**.
+1. Select search for **Logic App Contributor**, select it, and then select **Next**.
+1. Select **Select members**.
+1. Search for your account and select it.
+1. Select **Select**.
+1. Select **Next**.
+1. Select **Review + assign**.
 
 ## Configure detection and response
 
@@ -85,7 +99,7 @@ There are detection query templates for SQLi and XSS attacks in Sentinel for Azu
 1. Select **Rule templates**. It may take a few minutes for the templates to appear.
 1. Select the **Front Door Premium WAF - SQLi Detection** template.
 1. On the right pane, select **Create rule**.
-1. Accept all the defaults and click through to **Automated response**. You can edit these settings later to customize the rule.
+1. Accept all the defaults and continue through to **Automated response**. You can edit these settings later to customize the rule.
    > [!TIP]
    > If you see an error in the rule query, it might be because you don't have any WAF logs in your workspace. You can generate some logs by sending test traffic to your web app. For example, you can simulate a SQLi attack by sending a request like this: `http://x.x.x.x/?text1=%27OR%27%27=%27`. Replace `x.x.x.x` with your Front Door URL.
 
