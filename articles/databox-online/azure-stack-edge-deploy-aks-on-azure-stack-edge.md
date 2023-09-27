@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/30/2023
+ms.date: 09/26/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes service on Azure Stack Edge.
 ---
@@ -244,7 +244,9 @@ Follow these steps to deploy the AKS cluster.
 
 1. Select **Add** to configure AKS.
 
-1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**. 
+1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. Select a VM node size that's appropriate for the workload size you're deploying. In this example, we've selected VM size **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
+
+   For SAP deployments, select VM node size **Standard_DS5_v2**.
 
    > [!NOTE]
    > If the node size dropdown menu isn’t populated, wait a few minutes so that it's synchronized after VMs are enabled in the preceding step.

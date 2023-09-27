@@ -2,7 +2,7 @@
 title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 09/27/2023
 ms.custom: contperf-fy21q1, contperf-fy21q3-portal, devx-track-arm-template
 ---
 # What is Azure Resource Manager?
@@ -29,7 +29,7 @@ All capabilities that are available in the portal are also available through Pow
 If you're new to Azure Resource Manager, there are some terms you might not be familiar with.
 
 * **resource** - A manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are examples of resources. Resource groups, subscriptions, management groups, and tags are also examples of resources.
-* **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
+* **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide which resources belong in a resource group based on what makes the most sense for your organization. See [What is a resource group?](#resource-groups).
 * **resource provider** - A service that supplies Azure resources. For example, a common resource provider is `Microsoft.Compute`, which supplies the virtual machine resource. `Microsoft.Storage` is another common resource provider. See [Resource providers and types](resource-providers-and-types.md).
 * **declarative syntax** - Syntax that lets you state "Here's what I intend to create" without having to write the sequence of programming commands to create it. ARM templates and Bicep files are examples of declarative syntax. In those files, you define the properties for the infrastructure to deploy to Azure.
 * **ARM template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment overview](../templates/overview.md).
@@ -67,7 +67,9 @@ For information about managing identities and access, see [Azure Active Director
 
 You can deploy templates to tenants, management groups, subscriptions, or resource groups.
 
-## Resource groups
+## <a name="resource-groups"></a>What is a resource group?
+
+A resource group is a container that enables you to manage related resources for an Azure solution. By using the resource group, you can coordinate changes to the related resources. For example, you can deploy an update to the resource group and have confidence that the resources are updated in a coordinated operation. Or, when you're finished with the solution, you can delete the resource group and know that all of the resources are deleted.
 
 There are some important factors to consider when defining your resource group:
 
@@ -89,7 +91,7 @@ There are some important factors to consider when defining your resource group:
 
   To ensure state consistency for the resource group, all [control plane operations](./control-plane-and-data-plane.md) are routed through the resource group's location. When selecting a resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to your current location. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
   
-  If a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. 
+  If a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions still function as expected, but you can't update them. 
    
   For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
@@ -111,7 +113,7 @@ There are some important factors to consider when defining your resource group:
 
 The Azure Resource Manager service is designed for resiliency and continuous availability. Resource Manager and control plane operations (requests sent to `management.azure.com`) in the REST API are:
 
-* Distributed across regions. Azure Resource Manager has a separate instance in each region of Azure, meaning that a failure of the Azure Resource Manager instance in one region won't impact the availability of Azure Resource Manager or other Azure services in another region. Although Azure Resource Manager is distributed across regions, some services are regional. This distinction means that while the initial handling of the control plane operation is resilient, the request may be susceptible to regional outages when forwarded to the service.
+* Distributed across regions. Azure Resource Manager has a separate instance in each region of Azure, meaning that a failure of the Azure Resource Manager instance in one region doesn't affect the availability of Azure Resource Manager or other Azure services in another region. Although Azure Resource Manager is distributed across regions, some services are regional. This distinction means that while the initial handling of the control plane operation is resilient, the request may be susceptible to regional outages when forwarded to the service.
 
 * Distributed across Availability Zones (and regions) in locations that have multiple Availability Zones. This distribution ensures that when a region loses one or more zones, Azure Resource Manager can either fail over to another zone or to another region to continue to provide control plane capability for the resources.
 

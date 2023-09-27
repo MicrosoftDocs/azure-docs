@@ -27,6 +27,7 @@ As your needs change or requirements for automation increase you can also manage
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 * If using the Python SDK: 
    1. [Install the SDK v2](https://aka.ms/sdk-v2-install).
+   1. Install azure-identity: `pip install azure-identity`.  If in a notebook cell, use `%pip install azure-identity`.
    1. Provide your subscription details
 
       [!notebook-python[](~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb?name=subscription_id)]

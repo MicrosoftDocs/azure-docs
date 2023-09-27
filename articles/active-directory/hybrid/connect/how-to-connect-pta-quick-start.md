@@ -148,7 +148,7 @@ First, you can do it interactively by just running the downloaded Authentication
 Second, you can create and run an unattended deployment script. This is useful when you want to deploy multiple Authentication Agents at once, or install Authentication Agents on Windows servers that don't have user interface enabled, or that you can't access with Remote Desktop. Here are the instructions on how to use this approach:
 
 1. Run the following command to install an Authentication Agent: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. You can register the Authentication Agent with our service using Windows PowerShell. Create a PowerShell Credentials object `$cred` that contains a global administrator username and password for your tenant. Run the following command, replacing *\<username\>* and *\<password\>*:
+2. You can register the Authentication Agent with our service via PowerShell. Create a PowerShell Credentials object `$cred` that contains a global administrator username and password for your tenant. Run the following command, replacing `<username>` and `<password>`:
 
   ```powershell
   $User = "<username>"

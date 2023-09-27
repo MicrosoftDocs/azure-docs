@@ -59,7 +59,7 @@ sections:
         answer: |
           When multiple Microsoft Entra accounts from different Microsoft Entra tenants are on the same device, you must update the device's registry to communicate with the Azure Rights Management service for each Microsoft Entra tenant.  
           
-          1. Find the GUID for each Microsoft Entra tenant. Open the Azure portal and select a Microsoft Entra tenant. The GUID for the tenant is on the Properties page for the selected tenant (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), labeled **Directory ID**. 
+          1. Find the GUID for each Microsoft Entra tenant. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Identity** > **Overview** > **Properties** > **Tenant ID**.
           2. After you have the GUID, you'll need to add the registry key
              **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
              From the **tenant ID GUID** key, create a new Multi-String value (REG-MULTI-SZ) named **AllowedRMSServerUrls**. For its data, specify the licensing distribution point URLs of the other Azure tenants that the device accesses.

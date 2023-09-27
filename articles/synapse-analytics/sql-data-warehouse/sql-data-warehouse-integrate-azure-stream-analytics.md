@@ -2,12 +2,11 @@
 title: Use Azure Stream Analytics in dedicated SQL pool
 description: Tips for using Azure Stream Analytics with dedicated SQL pool in Azure Synapse for developing real-time solutions.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 10/07/2022
 ms.author: wiassaf
+ms.date: 10/07/2022
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 

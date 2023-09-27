@@ -108,7 +108,7 @@ Along with data migration, the tool automatically provides the following built-i
 - Migration of permissions of database objects on your source server such as GRANTS/REVOKES to the target server.
 
 > [!NOTE]  
-> This functionality is enabled only for flexible servers in **North Europe** region. It will be enabled for flexible servers in other Azure regions soon. In the meantime, you can follow the steps mentioned in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md#migrate-the-roles) to perform user/roles migration
+> This functionality is enabled only for flexible servers in **Central US**, **Canada Central**, **France Central**, **Japan East** and **Australia East** regions. It will be enabled for flexible servers in other Azure regions soon. In the meantime, you can follow the steps mentioned in this [doc](../single-server/how-to-upgrade-using-dump-and-restore.md#migrate-the-roles) to perform user/roles migration
 
 ## Limitations
 

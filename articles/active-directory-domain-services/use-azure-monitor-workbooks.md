@@ -42,7 +42,7 @@ Domain Services includes the following two workbook templates:
 * Security overview report
 * Account activity report
 
-For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
+For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](/azure/azure-monitor/visualize/workbooks-overview).
 
 ## Use the security overview report workbook
 
@@ -111,12 +111,12 @@ If you need to adjust password and lockout policies, see [Password and account l
 For problems with users, learn how to troubleshoot [account sign-in problems][troubleshoot-sign-in] or [account lockout problems][troubleshoot-account-lockout].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [enable-security-audits]: security-audit-events.md
 [password-policy]: password-policy.md
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
 [azure-monitor-queries]: /azure/data-explorer/kusto/query/
-[kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer
+[kusto-queries]: /azure/data-explorer/kusto/query/tutorials/learn-common-operators?pivots=azuredataexplorer
