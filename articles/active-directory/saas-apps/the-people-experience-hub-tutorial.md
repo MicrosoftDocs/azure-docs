@@ -137,11 +137,11 @@ In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by 
 
     1. **Enable SAML 2.0 Single sign-on** toggle on.
 
-    1. Copy **EntityID** value, paste this value into the **Identifier** textbox in the **Basic SAML Configuration** section.
+    1. Copy **EntityID** value, paste this value into the **Identifier** textbox in the **Basic SAML Configuration** section in Microsoft Entra admin center.
 
-    1. Copy **Login URL** value, paste this value into the **Sign on URL** textbox in the **Basic SAML Configuration** section.
+    1. Copy **Login URL** value, paste this value into the **Sign on URL** textbox in the **Basic SAML Configuration** section in Microsoft Entra admin center.
 
-    1. Copy **Reply URL** value, paste this value into the **Reply URL** textbox in the **Basic SAML Configuration** section.
+    1. Copy **Reply URL** value, paste this value into the **Reply URL** textbox in the **Basic SAML Configuration** section in Microsoft Entra admin center.
 
     1. In the **SSO Login URL** textbox, paste the **Login URL** value, which you copied from the Microsoft Entra admin center.
 
@@ -168,7 +168,6 @@ In this section, you'll enable B.Simon to use Microsoft Entra single sign-on by 
     1. In the **Last Name** textbox, enter the last name of the user.
 
     1. Click **Create User**.
-
 
 ## Test SSO 
 
