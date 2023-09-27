@@ -58,6 +58,9 @@ This discovery process is agentless that is, nothing is installed on the target 
 > [!Note]
 > Allow web apps and SQL discovery to run for sometime before creating assessments for Azure App Service or Azure SQL. If the discovery of web apps and SQL Server instances and databases is not allowed to complete, the respective instances are marked as **Unknown** in the assessment report.
 
+> [!Note]
+> In a project containing multiple appliances, it's possible the Web app discovery and assessment agent of one appliance ends up discovering a web app running on a server discovered by another appliance. This doesn't impede the discovery or assessment experience of the web app.
+
 ## Next steps
 
 - Learn how to create an [Azure SQL assessment](./how-to-create-azure-sql-assessment.md).
