@@ -48,7 +48,7 @@ For more information, see [Develop C# class library functions using Azure Functi
 | [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
 | .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)  |
 
-<sup>*</sup> Preview support for .NET 8 function apps is currently limited to Linux applications. To develop using .NET 8 Preview SDKs in Visual Studio, you must use [Visual Studio 2022 Preview](https://visualstudio.microsoft.com/vs/preview/).
+<sup>*</sup> See [Preview .NET versions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#preview-net-versions) for details on support, current restrictions, and instructions for using the preview version.
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
