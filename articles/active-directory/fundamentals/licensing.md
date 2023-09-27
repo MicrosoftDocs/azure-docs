@@ -31,11 +31,11 @@ This article discusses Entra services' licensing. It is intended for IT decision
 
 [!INCLUDE [Authentication](../includes/licensing-authentication.md)]
 
-## Azure AD connect V2
+## Microsoft Entra Connect
 
 [!INCLUDE [Information about free tier services](../includes/licensing-free-license.md)]
 
-## Azure AD connect health
+## Microsoft Entra Connect health
 
 [!INCLUDE [Services available in the P1](../includes/licensing-p1-license.md)]
 
