@@ -67,7 +67,7 @@ You can specify custom tags for the new productname resource in Azure by adding 
 
     :::image type="content" source="media/astronomer-create/astronomer-review-and-create.png" alt-text="screenshot of review and create astronomer resource":::
 
-1. Once you've reviewed all the information select **Create**. Azure now deploys the productnameaaS resource.
+1. Once you've reviewed all the information select **Create**. Azure now deploys the productname resource.
 
    :::image type="content" source="media/astronomer-create/astronomer-deploy.png" alt-text="Screenshot showing productname deployment in process.":::
 
