@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 09/25/2023
+ms.date: 09/27/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -88,24 +88,6 @@ The following are constraints with this preview of Confidential Containers (prev
 
 * List of limitation(s)
 
-## Export environmental variables
-
-To help simplify steps to configure the identities required, the steps below define environmental variables for reference on the cluster.
-
-Create these variables using the following commands. Replace the default values for `RESOURCE_GROUP`, `LOCATION`, `SERVICE_ACCOUNT_NAME`, `SUBSCRIPTION`, `USER_ASSIGNED_IDENTITY_NAME`, `FEDERATED_IDENTITY_CREDENTIAL_NAME`, `KEYVAULT_NAME`, and `KEYVAULT_SECRET_NAME`.
-
-```bash
-export RESOURCE_GROUP="myResourceGroup"
-export LOCATION="westcentralus"
-export SERVICE_ACCOUNT_NAMESPACE="default"
-export SERVICE_ACCOUNT_NAME="workload-identity-sa"
-export SUBSCRIPTION="$(az account show --query id --output tsv)"
-export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity"
-export KEYVAULT_NAME="azwi-kv-tutorial"
-export KEYVAULT_SECRET_NAME="my-secret"
-```
-
 ## Deploy a new cluster
 
 Create an AKS cluster using the [az aks create][az-aks-create] command and specifying the following parameters:
@@ -158,25 +140,12 @@ Use the following command to enable Confidential Containers (preview) by creatin
 
 ## Configure container
 
-Perform the following steps to complete the configuration of the workload identity, key vault, and deploy an application as a Confidential container (preview).
+Before you configure access to the Azure Key Vault Managed HSM and secret, and deploy an application as a Confidential container, you need to complete the configuration of the workload identity. To configure the workload identity, perform the following steps described in the [Deploy and configure workload identity][deploy-and-configure-workload-identity] article:
 
-1. Get the OIDC Issuer URL and save it to an environmental variable using the following command. Replace the default value for the arguments `-n`, which is the name of the cluster.
-
-    ```azurecli-interactive
-    export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
-    ```
-
-1. Set a specific subscription as the current active subscription using the [`az account set`][az-account-set] command.
-
-    ```azurecli-interactive
-    az account set --subscription "${SUBSCRIPTION}"
-    ```
-
-1. Create a managed identity using the [`az identity create`][az-identity-create] command.
-
-    ```azurecli-interactive
-    az identity create --name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
-    ```
+* Retrieve the OIDC Issuer URL
+* Create a managed identity
+* Create Kubernetes service account
+* Establish federated identity credential
 
 1. Set an access policy for the managed identity to access the Key Vault secret using the following commands.
 
@@ -187,43 +156,6 @@ Perform the following steps to complete the configuration of the workload identi
     ```azurecli-interactive
     az keyvault set-policy --name "${KEYVAULT_NAME}" --secret-permissions get --spn "${USER_ASSIGNED_CLIENT_ID}"
     ```
-
-1. Create a Kubernetes service account and annotate it with the client ID of the managed identity created in the previous step using the [`az aks get-credentials`][az-aks-get-credentials] command. Replace the default value for the cluster name and the resource group name.
-
-    ```azurecli-interactive
-    az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
-    ```
-
-1. Copy the following multi-line input into your terminal and run the command to create the service account.
-
-    ```bash
-    cat <<EOF | kubectl apply -f -
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      annotations:
-        azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-      labels:
-        azure.workload.identity/use: "true"
-      name: ${SERVICE_ACCOUNT_NAME}
-      namespace: ${SERVICE_ACCOUNT_NAMESPACE}
-    EOF
-    ```
-
-    The following output resembles successful creation of the identity:
-
-    ```output
-    Serviceaccount/workload-identity-sa created
-    ```
-
-1. Create the federated identity credential between the managed identity, service account issuer, and subject using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
-
-    ```azurecli-interactive
-    az identity federated-credential create --name ${FEDERATED_IDENTITY_CREDENTIAL_NAME} --identity-name ${USER_ASSIGNED_IDENTITY_NAME} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
-    ```
-
-    > [!NOTE]
-    > It takes a few seconds for the federated identity credential to propagate after it's initially added. If a token request is immediately available after adding the federated identity credential, you may experience failure for a couple minutes, as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
 
 1. Configure the application to be deployed as a Confidential container (preview) by copying the following YAML file and save it as `myapplication.yml`.
 
@@ -327,3 +259,4 @@ kubectl delete pod pod-name
 [azure-key-vault-managed-hardware-security-module]: ../key-vault/managed-hsm/overview.md
 [create-managed-hsm]: ../key-vault/managed-hsm/quick-create-cli.md
 [upgrade-cluster-enable-workload-identity]: workload-identity-deploy-cluster.md#update-an-existing-aks-cluster
+[deploy-and-configure-workload-identity]: workload-identity-deploy-cluster.md
