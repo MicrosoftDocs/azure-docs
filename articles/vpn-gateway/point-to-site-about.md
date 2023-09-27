@@ -41,7 +41,7 @@ The validation of the client certificate is performed by the VPN gateway and hap
 
 Azure AD  authentication allows users to connect to Azure using their Azure Active Directory credentials. Native Azure AD authentication is only supported for OpenVPN protocol and also requires the use of the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554). The supported client operation systems are Windows 10 or later and macOS.
 
-With native Azure AD authentication, you can use Azure AD's conditional access and Multi-Factor Authentication (MFA) features for VPN.
+With native Azure AD authentication, you can use Azure AD's conditional access and multifactor authentication (MFA) features for VPN.
 
 At a high level, you need to perform the following steps to configure Azure AD authentication:
 
