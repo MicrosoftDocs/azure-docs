@@ -116,12 +116,12 @@ Tabular fields are also useful when extracting repeating information within a do
 * Learn more about custom template models:
 
   > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md )
+  > [Custom template models](concept-custom-template.md)
 
 * Learn more about custom neural models:
 
   > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md )
+  > [Custom neural models](concept-custom-neural.md)
 
 * View the REST API:
 

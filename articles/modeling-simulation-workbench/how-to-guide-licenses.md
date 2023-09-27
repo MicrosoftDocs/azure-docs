@@ -6,7 +6,7 @@ ms.author: lynnar
 ms.reviewer: yochu
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
-ms.date: 01/01/2023
+ms.date: 09/15/2023
 # Customer intent: As a Modeling and Simulation Workbench Chamber Admin, I want to activate a license service in Modeling and Simulation Workbench chamber so that chamber users can run applications requiring licenses.
 ---
 
@@ -33,18 +33,6 @@ This section lists the steps associated with uploading a license for a FLEXlm ba
 1. Select the *chamber license service* for the license file you are uploading. Select **Enable** to enable the service. Then upload the license file from your storage space.
 1. Select the **Update** button in the **Update license** popup to activate your license service.
 1. The Workbench applies the new license to the license service and prompts a restart that may affect actively running jobs.
-
-## Upload/update license key for connector remote desktop access
-
-Complete the following steps to enable remote desktop access via a connector license key.
-
-1. Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
-1. Search for *Modeling and Simulation Workbench* and choose the workbench you want to provision from the resource list.
-1. Select **Settings > Chamber** in the left side menu. A resource list displays. Select the chamber you want to upload the data to.
-1. Select **Settings > Connector** in the left side menu. Select the displayed connector.
-1. Select **Add License** on the **Connector Overview** page. The Add license window displays.
-1. Enter the License Key URL for the license file using format https://\<keyVaultName\>.vault.azure.net/secrets/\<secretName\>/\<secretGuid\>, and select **Add.**
-1. The Workbench applies the new license key and updates the remote desktop service. This may cause interruptions to active remote desktop sessions.
 
 ## Next steps
 

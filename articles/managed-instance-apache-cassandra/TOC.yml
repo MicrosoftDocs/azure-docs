@@ -33,8 +33,6 @@
   items:
     - name: Security overview
       href: security.md
-    - name: Compare to Azure Cosmos DB for Apache Cassandra
-      href: compare-cosmosdb-managed-instance.md
     - name: Frequently asked questions
       displayName: cost, region, monitor, backup
       href: faq.md  

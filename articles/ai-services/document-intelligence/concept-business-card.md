@@ -86,11 +86,11 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. On the Document Intelligence Studio home page, select **Business cards**.
 
-1. You can analyze the sample business card or select the **+ Add** button to upload your own sample.
+1. You can analyze the sample business card or upload your own files.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/business-card-analyze.png" alt-text="Screenshot of analyze business card menu.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)

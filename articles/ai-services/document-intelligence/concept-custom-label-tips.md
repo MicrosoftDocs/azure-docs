@@ -62,9 +62,9 @@ When creating a project, select the batch layout option to prepare all documents
 * Learn more about custom template models:
 
   > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md )
+  > [Custom template models](concept-custom-template.md)
 
 * Learn more about custom neural models:
 
   > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md )
+  > [Custom neural models](concept-custom-neural.md)

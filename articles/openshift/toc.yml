@@ -36,6 +36,8 @@
           href: howto-gpu-workloads.md
         - name: Segregate worker nodes into subnets
           href: howto-segregate-machinesets.md
+        - name: Tag ARO resources using Azure Policy
+          href: howto-tag-resources.md
         - name: Manually update cluster certificates
           href: howto-update-certificates.md
         - name: Use Admin Kubeconfig

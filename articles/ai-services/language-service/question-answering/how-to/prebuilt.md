@@ -195,7 +195,7 @@ pa|Punjabi, Panjabi
 pl|Polish
 ps|Pashto, Pushto
 pt|Portuguese
-ro|Romanian, Moldovan
+ro|Romanian
 ru|Russian
 sa|Sanskrit
 sd|Sindhi

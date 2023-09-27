@@ -8,7 +8,7 @@ ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 03/02/2023
+ms.date: 09/19/2023
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
@@ -213,11 +213,12 @@ If you are creating or updating a Kubernetes online deployment, you can see [Com
 
 ### ERROR: ImageBuildFailure
 
-This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"The build log is available in the workspace blob store '[storage-account-name]' under the path '/azureml/ImageLogs/your-image-id/build.log'"`. In this case, "azureml" is the name of the blob container in the storage account.
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location may be returned as part of the error. For example, `"the build log under the storage account '[storage-account-name]' in the container '[container-name]' at the path '[path-to-the-log]'"`.
 
 This is a list of common image build failure scenarios:
 
 * [Azure Container Registry (ACR) authorization failure](#container-registry-authorization-failure)
+* [Image build compute not set in a private workspace with VNet](#image-build-compute-not-set-in-a-private-workspace-with-vnet)
 * [Generic or unknown failure](#generic-image-build-failure)
 
 We also recommend reviewing the default [probe settings](reference-yaml-deployment-managed-online.md#probesettings) in case of ImageBuild timeouts. 
@@ -229,6 +230,10 @@ The desynchronization of a workspace resource's keys can cause this error and it
 However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys), which may resolve the authorization failure.
 
 Container registries that are behind a virtual network may also encounter this error if set up incorrectly. You must verify that the virtual network that you have set up properly.
+
+#### Image build compute not set in a private workspace with VNet
+
+If the error message mentions `"failed to communicate with the workspace's container registry"` and you're using virtual networks and the the workspace's Azure Container Registry is private and configured with a private endpoint, you will need to [enable Azure Container Registry](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) to allow building images in the virtual network. 
 
 #### Generic image build failure
 
@@ -547,7 +552,7 @@ Others:
 * [InvalidDeploymentSpec](#error-invaliddeploymentspec)
 * [PodUnschedulable](#error-podunschedulable)
 * [PodOutOfMemory](#error-podoutofmemory)
-* [InferencingClientCallFailed](#error-inferencingclientcallfailed )
+* [InferencingClientCallFailed](#error-inferencingclientcallfailed)
 
 
 ### ERROR: ACRSecretError 
@@ -569,7 +574,7 @@ This is because extension cannot get principal credential from Azure because the
 
 This is because the Kubernetes cluster request AAD token failed or timeout, please check your network accessibility then try again. 
 
-* You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute ) to check the outbound proxy, make sure the cluster can connect to workspace. 
+* You can follow the [Configure required network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute) to check the outbound proxy, make sure the cluster can connect to workspace. 
 * The workspace endpoint url can be found in online endpoint CRD in cluster. 
 
 If your workspace is a private workspace which disabled public network access, the Kubernetes cluster should only communicate with that private workspace through the private link. 
@@ -725,7 +730,7 @@ This is a list of common model consumption errors resulting from the endpoint `i
 
 Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
-- Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+- Use metric "Network bytes" to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
     - `ms-azureml-bandwidth-request-delay-ms`: delay time in milliseconds it took for the request stream transfer.
     - `ms-azureml-bandwidth-response-delay-ms`: delay time in milliseconds it took for the response stream transfer.

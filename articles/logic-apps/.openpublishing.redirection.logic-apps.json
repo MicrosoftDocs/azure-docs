@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/connectors/connectors-overview.md",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/apis-list.md",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/connectors/index.md",
+            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-create-integration-account.md",
             "redirect_url": "/azure/logic-apps/enterprise-integration/create-integration-account",
             "redirect_document_id": true
@@ -49,11 +64,6 @@
             "source_path_from_root": "/articles/logic-apps/quickstart-create-first-logic-app-workflow.md",
             "redirect_url": "/azure/logic-apps/quickstart-create-example-consumption-workflow",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/connectors/apis-list.md",
-            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/biztalk-services/biztalk-backup-restore.md",
@@ -439,16 +449,6 @@
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-manage-from-vs.md",
             "redirect_url": "/azure/logic-apps/manage-logic-apps-with-visual-studio",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/index.md",
-            "redirect_url": "https://learn.microsoft.com/connectors/connectors",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/connectors/connectors-overview.md",
-            "redirect_url": "/azure/connectors/introduction",
-            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-connector-http.md",

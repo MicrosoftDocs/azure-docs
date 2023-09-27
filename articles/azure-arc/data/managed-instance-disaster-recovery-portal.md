@@ -68,6 +68,17 @@ To set the synchronization mode:
 
 1. Under **Edit configuration**, select your desired mode, and select **Apply**.
 
+## Monitor failover group status in the portal
+
+After you use the portal to change a failover group, the portal automatically reports the status as the change is applied. Changes that the portal reports include:
+
+- Add failover group
+- Edit failover group configuration
+- Start failover
+- Delete failover group
+
+After you initiate the change, the portal automatically refreshes the status every two minutes. The portal automatically refreshes for two minutes. 
+
 ## Delete failover group
 
 1. From Failover Groups**, select **Delete Failover Group**.

@@ -14,15 +14,21 @@ services: azure-maps
 
 When you use [Azure Maps Services], the API requests you make generate transactions. Your transaction usage is available for review in your [Azure portal] Metrics report. For more information, see [View Azure Maps API usage metrics]. These transactions can be either billable or nonbillable usage, depending on the service and the feature. It’s important to understand which usage generates a billable transaction and how it’s calculated so you can plan and budget for the costs associated with using Azure Maps. Billable transactions show up in your Cost Analysis report within the Azure portal.
 
-The following table summarizes the Azure Maps services that generate transactions, billable and nonbillable, along with any notable aspects that are helpful to understand in how the number of transactions are calculated.
+> [!NOTE]
+>
+> **Azure Maps Gen1 pricing tier retirement**
+>
+> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
 ## Azure Maps Transaction information by service
+
+The following table summarizes the Azure Maps services that generate transactions, billable and nonbillable, along with any notable aspects that are helpful to understand in how the number of transactions are calculated.
 
 | Azure Maps Service | Billable | Transaction Calculation | Meter |
 |--------------------|----------|-------------------------|-------|
 | [Data v1]<br>[Data v2]<br>[Data registry] | Yes, except for `MapDataStorageService.GetDataStatus` and `MapDataStorageService.GetUserData`, which are nonbillable| One request = 1 transaction| <ul><li>Location Insights Data (Gen2 pricing)</li></ul>|
 | [Geolocation]| Yes| One request = 1 transaction| <ul><li>Location Insights Geolocation (Gen2 pricing)</li><li>Standard S1 Geolocation Transactions (Gen1 S1 pricing)</li><li>Standard Geolocation Transactions (Gen1 S0 pricing)</li></ul>|
-| [Render v1]<br>[Render v2] | Yes, except for Terra maps (`MapTile.GetTerraTile` and `layer=terra`) which are nonbillable.|<ul><li>15 tiles = 1 transaction</li><li>One request for Get Copyright = 1 transaction</li><li>One request for Get Map Attribution = 1 transaction</li><li>One request for Get Static Map = 1 transaction</li><li>One request for Get Map Tileset = 1 transaction</li></ul> <br> For Creator related usage, see the [Creator table]. |<ul><li>Maps Base Map Tiles (Gen2 pricing)</li><li>Maps Imagery Tiles (Gen2 pricing)</li><li>Maps Static Map Images (Gen2 pricing)</li><li>Maps Traffic Tiles (Gen2 pricing)</li><li>Maps Weather Tiles (Gen2 pricing)</li><li>Standard Hybrid Aerial Imagery Transactions (Gen1 S0 pricing)</li><li>Standard Aerial Imagery Transactions (Gen1 S0 pricing)</li><li>Standard S1 Aerial Imagery Transactions (Gen1 S1 pricing)</li><li>Standard S1 Hybrid Aerial Imagery Transactions (Gen1 S1 pricing)</li><li>Standard S1 Rendering Transactions (Gen1 S1 pricing)</li><li>Standard S1 Tile Transactions (Gen1 S1 pricing)</li><li>Standard S1 Weather Tile Transactions (Gen1 S1 pricing)</li><li>Standard Tile Transactions (Gen1 S0 pricing)</li><li>Standard Weather Tile Transactions (Gen1 S0 pricing)</li><li>Maps Copyright (Gen2 pricing, Gen1 S0 pricing and Gen1 S1 pricing)</li></ul>|
+| [Render] | Yes, except for Terra maps (`MapTile.GetTerraTile` and `layer=terra`) which are nonbillable.|<ul><li>15 tiles = 1 transaction</li><li>One request for Get Copyright = 1 transaction</li><li>One request for Get Map Attribution = 1 transaction</li><li>One request for Get Static Map = 1 transaction</li><li>One request for Get Map Tileset = 1 transaction</li></ul> <br> For Creator related usage, see the [Creator table]. |<ul><li>Maps Base Map Tiles (Gen2 pricing)</li><li>Maps Imagery Tiles (Gen2 pricing)</li><li>Maps Static Map Images (Gen2 pricing)</li><li>Maps Traffic Tiles (Gen2 pricing)</li><li>Maps Weather Tiles (Gen2 pricing)</li><li>Standard Hybrid Aerial Imagery Transactions (Gen1 S0 pricing)</li><li>Standard Aerial Imagery Transactions (Gen1 S0 pricing)</li><li>Standard S1 Aerial Imagery Transactions (Gen1 S1 pricing)</li><li>Standard S1 Hybrid Aerial Imagery Transactions (Gen1 S1 pricing)</li><li>Standard S1 Rendering Transactions (Gen1 S1 pricing)</li><li>Standard S1 Tile Transactions (Gen1 S1 pricing)</li><li>Standard S1 Weather Tile Transactions (Gen1 S1 pricing)</li><li>Standard Tile Transactions (Gen1 S0 pricing)</li><li>Standard Weather Tile Transactions (Gen1 S0 pricing)</li><li>Maps Copyright (Gen2 pricing, Gen1 S0 pricing and Gen1 S1 pricing)</li></ul>|
 | [Route] | Yes | One request = 1 transaction<br><ul><li>If using the Route Matrix, each cell in the Route Matrix request generates a billable Route transaction.</li><li>If using Batch Directions, each origin/destination coordinate pair in the Batch request call generates a billable Route transaction. Note, the billable Route transaction usage results generated by the batch request has **-Batch** appended to the API name of your Azure portal metrics report.</li></ul> | <ul><li>Location Insights Routing (Gen2 pricing)</li><li>Standard S1 Routing Transactions (Gen1 S1 pricing)</li><li>Standard Services API Transactions (Gen1 S0 pricing)</li></ul> |
 | [Search v1]<br>[Search v2] | Yes | One request = 1 transaction.<br><ul><li>If using Batch Search, each location in the Batch request generates a billable Search transaction. Note, the billable Search transaction usage results generated by the batch request has **-Batch** appended to the API name of your Azure portal metrics report.</li></ul> | <ul><li>Location Insights Search</li><li>Standard S1 Search Transactions (Gen1 S1 pricing)</li><li>Standard Services API Transactions (Gen1 S0 pricing)</li></ul> |
 | [Spatial] | Yes, except for `Spatial.GetBoundingBox`, `Spatial.PostBoundingBox` and `Spatial.PostPointInPolygonBatch`, which are nonbillable.| One request = 1 transaction.<br><ul><li>If using Geofence, five requests = 1 transaction</li></ul> | <ul><li>Location Insights Spatial Calculations (Gen2 pricing)</li><li>Standard S1 Spatial Transactions (Gen1 S1 pricing)</li></ul> |
@@ -40,7 +46,7 @@ The following table summarizes the Azure Maps services that generate transaction
 | [Conversion] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing) |
 | [Dataset] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning (Gen2 pricing)|
 | [Feature State]  | Yes, except for `FeatureState.CreateStateset`, `FeatureState.DeleteStateset`, `FeatureState.GetStateset`, `FeatureState.ListStatesets`, `FeatureState.UpdateStatesets` | One request = 1 transaction | Azure Maps Creator Feature State (Gen2 pricing)     |
-| [Render v2] | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For everything else for Render v2, see Render v2 section in the above table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
+| [Render] | Yes, only with `GetMapTile` with Creator Tileset ID and `GetStaticTile`.<br>For everything else for Render, see Render section in the above table.| One request = 1 transaction<br>One tile = 1 transaction | Azure Maps Creator Map Render (Gen2 pricing) |
 | [Tileset] | Part of a provisioned Creator resource and not transactions based.| Not transaction-based     | Map Provisioning    (Gen2 pricing) |
 | [WFS] | Yes| One request = 1 transaction | Azure Maps Creator Web Feature (WFS) (Gen2 pricing) |
 
@@ -81,8 +87,7 @@ The following table summarizes the Azure Maps services that generate transaction
 [Geolocation]: /rest/api/maps/geolocation
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Pricing calculator]: https://azure.microsoft.com/pricing/calculator/
-[Render v1]: /rest/api/maps/render
-[Render v2]: /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render-v2
 [Route]: /rest/api/maps/route
 [Search v1]: /rest/api/maps/search
 [Search v2]: /rest/api/maps/search-v2

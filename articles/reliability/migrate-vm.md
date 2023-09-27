@@ -14,13 +14,15 @@ ms.custom: references_regions, subject-reliability
 
 This guide describes how to migrate Virtual Machines (VMs) and Virtual Machine Scale Sets from non-availability zone support to availability zone support. We take you through the different options for migration, including how you can use availability zone support for Disaster Recovery solutions.
 
-Virtual Machine (VM) and Virtual Machine Scale Sets are zonal services, which means that VM resources can be deployed by using one of the following methods:
+Virtual Machine (VM) and Virtual Machine Scale Sets are availability zone enabled services, which means that VM resources can be deployed by using one of the following methods:
 
-- VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
+- **Zonal**: VM resources are deployed to a specific, self-selected availability zone to achieve more stringent latency or performance requirements.
 
-- VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
+- **Zone-redundant**: VM resources are replicated to one or more zones within the region to improve the resiliency of the application and data in a High Availability (HA) architecture.
 
-When you migrate resources to availability zone support, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets, to ensure high-availability of your compute resources.
+To ensure high-availability of your compute resources, we recommend that you select multiple zones for your new VMs and Virtual Machine Scale Sets when you migrate to availability zones.
+
+For more information on availability zone support for VM services, see [Reliability in Virtual Machines](./reliability-virtual-machines.md). For availability zone support for Virtual Machine scale sets, see [Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md).
 
 ## Prerequisites
 
@@ -146,7 +148,7 @@ The following requirements should be part of a disaster recovery strategy that h
 
 ## Next Steps
 
-Learn more about:
+- [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Reliability in Virtual Machines](./reliability-virtual-machines.md)
+- [Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md)
 
-> [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)

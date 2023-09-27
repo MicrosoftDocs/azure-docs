@@ -52,9 +52,9 @@ See how data is extracted from health insurance cards using the Document Intelli
 
 1. You can analyze the sample insurance card document or select the **➕ Add** button to upload your own sample.
 
-1. Select the **Analyze** button:
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
 
-    :::image type="content" source="media/studio/insurance-card-analyze.png" alt-text="Screenshot of analyze health insurance card window in the Document Intelligence Studio.":::
+    :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
     > [!div class="nextstepaction"]
     > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us)

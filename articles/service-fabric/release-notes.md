@@ -40,6 +40,8 @@ Instead, you should enable Automatic OS upgrades through Virtual Machine Scale S
 | March 1, 2023 | Azure Service Fabric 9.1 Second Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU2.md) |
 | April 6, 2023 | Azure Service Fabric 9.1 Third Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU3.md) |
 | May 15, 2023 | Azure Service Fabric 9.1 Fourth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU4.md) |
+| June 19, 2023 | Azure Service Fabric 9.1 Fifth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU5.md) |
+| August 30, 2023 | Azure Service Fabric 9.1 Sixth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU6.md) |
 
 ## Service Fabric 9.0
 

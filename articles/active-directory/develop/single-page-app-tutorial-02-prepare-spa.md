@@ -93,7 +93,7 @@ To learn more about these packages refer to the documentation in [msal-browser](
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
 
-1. Replace the following values with the values from the Azure portal.
+1. Replace the following values with the values from the Microsoft Entra admin center.
     - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     - `authority` - This is composed of two parts:
         - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).
@@ -106,7 +106,7 @@ To learn more about these packages refer to the documentation in [msal-browser](
 
    :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/authConfig.js" :::
 
-1. Replace the following values with the values from the Azure portal.
+1. Replace the following values with the values from the Microsoft Entra admin center.
     - `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     - `authority` - This is composed of two parts:
         - The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](authentication-national-cloud.md#azure-ad-authentication-endpoints).

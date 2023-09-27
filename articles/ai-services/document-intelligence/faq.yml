@@ -196,7 +196,7 @@ sections:
 
           - [C#/.NET](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0)
 
-          - [Java](https://oss.sonatype.org/#nexus-search; quick-azure-ai-formrecognizer)
+          - [Java](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer)
 
           - [JavaScript/TypeScript](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.4)
 

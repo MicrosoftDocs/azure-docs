@@ -13,12 +13,12 @@ ms.author: jomondi
 ms.reviewer: phsignor, jawoods
 ms.custom: contperf-fy21q2, has-azure-ad-ps-ref
 zone_pivot_groups: enterprise-apps-all
-#customer intent: As an admin, I want configure permission classifications for applications in Azure AD
+#customer intent: As an admin, I want configure permission classifications for applications in Microsoft Entra ID
 ---
 
 # Configure permission classifications
 
-In this article, you learn how to configure permissions classifications in Azure Active Directory (Azure AD). Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
+In this article, you learn how to configure permissions classifications in Microsoft Entra ID. Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
 
 Three permission classifications are supported: "Low", "Medium" (preview), and "High" (preview). Currently, only delegated permissions that don't require admin consent can be classified.
 

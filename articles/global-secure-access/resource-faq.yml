@@ -23,11 +23,11 @@ sections:
           Add the following feature flag to the Microsoft Entra admin center:
             - `?feature.msaljs=true&exp.msaljsexp=true`
             - For example, you work for Contoso and you have allow listed Fabrikam as a partner tenant. You may see the error message for the Fabrikam tenant's Microsoft Entra admin center.
-            - If you received the "access denied" error message for this URL: `https://entra.microsoft.com/#home` then add the feature flag as follows: `https://entra.microsoft.com/?feature.msaljs%253Dtrue%2526exp.msaljsexp%253Dtrue#home`
+            - If you received the "access denied" error message for this URL: `https://entra.microsoft.com/` then add the feature flag as follows: `https://entra.microsoft.com/?feature.msaljs%253Dtrue%2526exp.msaljsexp%253Dtrue#home`
       - question: | 
           Does Global Secure Access allow B2B logins?
         answer: |
-          At this time, B2B logins are only supported when the user is accessing the service from a device that is Azure AD joined to the tenant that matches their sign-in credentials.
+          At this time, B2B logins are only supported when the user is accessing the service from a device that is Microsoft Entra joined to the tenant that matches their sign-in credentials.
           For example, Bob works at Fabrikam and is working on a project for Contoso. Contoso provided Bob a device and a Contoso identity, such as v-Bob@contoso.com. To access Contoso's Global Secure Access using the Contoso device, Bob can use either Bob@Fabrikam.com or v-Bob@Contoso.com.
           However, Bob can't use the Fabrikam device that is joined to the Fabrikam tenant to access Contoso's Global Secure Access.
       - question: | 

@@ -63,6 +63,9 @@ sections:
       - question: Can I use a smart card, or other device that connects to my physical machine with Dev Box?
         answer: Yes. Dev Box supports a broad range of devices that connect to the physical machine via remote desktop redirection. For more information, see [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
 
+      - question: What if I use Linus as my development environment?
+        answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
+
   - name: Dev Box hibernation
     questions:
       - question: Can I use auto-stop schedules to hibernate Dev Boxes on a schedule? # Question.

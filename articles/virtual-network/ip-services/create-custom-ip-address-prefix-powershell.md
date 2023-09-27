@@ -139,7 +139,7 @@ The following steps display the procedure for provisioning a sample customer ran
 
 Create a resource group in the desired location for provisioning the BYOIP range. 
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 $rg =@{
     Name = 'myResourceGroup'
     Location = 'WestUS2'
@@ -151,7 +151,7 @@ New-AzResourceGroup @rg
 
 The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. For the `-AuthorizationMessage` parameter, substitute your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. Use the variable **$byoipauthsigned** for the `-SignedMessage` parameter created in the certificate readiness section.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 $prefix =@{
     Name = 'myCustomIPPrefix'
     ResourceGroupName = 'myResourceGroup'
@@ -165,9 +165,10 @@ $myCustomIpPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
 
 The range is pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:  
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Get-AzCustomIpPrefix -ResourceId $myCustomIpPrefix.Id
 ```
+
 Sample output is shown below, with some fields removed for clarity:
 
 ```

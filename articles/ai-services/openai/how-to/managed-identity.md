@@ -45,13 +45,13 @@ Assigning yourself to the "Cognitive Services User" role will allow you to use y
 1. Get your user information
 
     ```azurecli
-    export user=$(az account show -o json | jq -r .user.name)
+    export user=$(az account show --query "user.name" -o tsv)
     ```
 
 2. Assign yourself to “Cognitive Services User” role.
 
     ```azurecli
-    export resourceId=$(az group show -g $myResourceGroupName -o json | jq -r .id)
+    export resourceId=$(az group show -g $RG --query "id" -o tsv)
     az role assignment create --role "Cognitive Services User" --assignee $user --scope $resourceId
     ```
 
@@ -61,7 +61,7 @@ Assigning yourself to the "Cognitive Services User" role will allow you to use y
 3. Acquire an Azure AD access token. Access tokens expire in one hour. you'll then need to acquire another one.
 
     ```azurecli
-    export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com -o json | jq -r .accessToken)
+    export accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com --query "accessToken" -o tsv)
     ```
 
 4. Make an API call

@@ -7,10 +7,9 @@ ms.date: 05/02/2023
 ---
 
 
-<!--
 At this time, a test or preview build is not available for the next release.
 
--->
+<!--
 
 Sept 2023 preview release is now available.
 
@@ -38,6 +37,8 @@ Sept 2023 preview release is now available.
 |Arc-enabled Kubernetes helm chart extension version|1.23.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 957 |
+
+-->
 
 <!--
 ### Release notes

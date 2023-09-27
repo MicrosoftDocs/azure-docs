@@ -22,7 +22,7 @@ For more information, see [Global Secure Access network traffic dashboard](conce
 
 ## Audit logs
 
-The Microsoft Entra ID audit log is a valuable source of information when researching or troubleshooting changes to your Microsoft Entra ID environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as filtering policy, forwarding profiles, remote network management, and more.
+The Microsoft Entra audit log is a valuable source of information when researching or troubleshooting changes to your Microsoft Entra environment. Changes related to Global Secure Access are captured in the audit logs in several categories, such as filtering policy, forwarding profiles, remote network management, and more.
 
 For more information, see [Global Secure Access audit logs](how-to-access-audit-logs.md).
 
@@ -44,4 +44,4 @@ For more information, see [Enriched Office 365 logs](how-to-view-enriched-logs.m
 
 ## Next steps
 
-- [Learn how to access, store, and analyze Azure AD activity logs](/azure/active-directory/reports-monitoring/howto-access-activity-logs)
+- [Learn how to access, store, and analyze activity logs](/azure/active-directory/reports-monitoring/howto-access-activity-logs)

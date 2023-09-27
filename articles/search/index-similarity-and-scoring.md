@@ -18,7 +18,7 @@ Relevance applies to full text search only. Filter queries, autocomplete and sug
 In Azure Cognitive Search, you can tune search relevance and boost search scores through these mechanisms:
 
 + Scoring algorithm configuration
-+ Semantic ranking (in preview, described in [this article](semantic-ranking.md))
++ Semantic ranking (in preview, described in [this article](semantic-search-overview.md))
 + Scoring profiles
 + Custom scoring logic enabled through the *featuresMode* parameter
 

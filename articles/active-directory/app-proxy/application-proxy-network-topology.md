@@ -1,6 +1,6 @@
 ---
-title: Network topology considerations for Azure Active Directory Application Proxy
-description: Covers network topology considerations when using Azure Active Directory Application Proxy.
+title: Network topology considerations for Microsoft Entra application proxy
+description: Covers network topology considerations when using Microsoft Entra application proxy.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/13/2022
+ms.date: 09/14/2023
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
 
-# Optimize traffic flow with Azure Active Directory Application Proxy
+# Optimize traffic flow with Microsoft Entra application proxy
 
-This article explains how to optimize traffic flow and network topology considerations when using Azure Active Directory (Azure AD) Application Proxy for publishing and accessing your applications remotely.
+This article explains how to optimize traffic flow and network topology considerations when using Microsoft Entra application proxy for publishing and accessing your applications remotely.
 
 ## Traffic flow
 
-When an application is published through Azure AD Application Proxy, traffic from the users to the applications flows through three connections:
+When an application is published through Microsoft Entra application proxy, traffic from the users to the applications flows through three connections:
 
-1. The user connects to the Azure AD Application Proxy service public endpoint on Azure
+1. The user connects to the Microsoft Entra application proxy service public endpoint on Azure
 1. The Application Proxy connector connects to the Application Proxy service (outbound)
 1. The Application Proxy connector connects to the target application
 
@@ -29,9 +29,9 @@ When an application is published through Azure AD Application Proxy, traffic fro
 
 ## Optimize connector groups to use closest Application Proxy cloud service
 
-When you sign up for an Azure AD tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the **default** Application Proxy cloud service instances for your tenant are chosen in the same region as your Azure AD tenant, or the closest region to it.
+When you sign up for a Microsoft Entra tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the **default** Application Proxy cloud service instances for your tenant are chosen in the same region as your Microsoft Entra tenant, or the closest region to it.
 
-For example, if your Azure AD tenant's country or region is the United Kingdom, all your Application Proxy connectors at **default** will be assigned to use service instances in European data centers. When your users access published applications, their traffic goes through the Application Proxy cloud service instances in this location.
+For example, if your Microsoft Entra tenant's country or region is the United Kingdom, all your Application Proxy connectors at **default** will be assigned to use service instances in European data centers. When your users access published applications, their traffic goes through the Application Proxy cloud service instances in this location.
 
 If you have connectors installed in regions different from your default region, it may be beneficial to change which region your connector group is optimized for to improve performance accessing these applications. Once a region is specified for a connector group it will connect to Application Proxy cloud services in the designated region.
 
@@ -40,12 +40,11 @@ In order to optimize the traffic flow and reduce latency to a connector group as
 > [!IMPORTANT]
 > Connectors must be using at least version 1.5.1975.0 to use this capability.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an application administrator of the directory that uses Application Proxy. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other admin alias on that domain.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Select your username in the upper-right corner. Verify you're signed in to a directory that uses Application Proxy. If you need to change directories, select **Switch directory** and choose a directory that uses Application Proxy.
-1. In left navigation panel, select **Azure Active Directory**.
-1. Under **Manage**, select **Application proxy**.
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Application proxy**.
 1. Select **New Connector Group**, provide a **Name** for the connector group.
-1. Next, under **Advanced Settings** and select the drop down under Optimize for a specific region and select the region closest to the connectors.
+1. Next, under **Advanced Settings** and select the drop-down under Optimize for a specific region and select the region closest to the connectors.
 1. Select **Create**.
     
     :::image type="content" source="./media/application-proxy-network-topology/geo-routing.png" alt-text="Configure a new connector group." lightbox="./media/application-proxy-network-topology/geo-routing.png":::
@@ -59,7 +58,7 @@ In order to optimize the traffic flow and reduce latency to a connector group as
 
 All proxy solutions introduce latency into your network connection. No matter which proxy or VPN solution you choose as your remote access solution, it always includes a set of servers enabling the connection to inside your corporate network.
 
-Organizations typically include server endpoints in their perimeter network. With Azure AD Application Proxy, however, traffic flows through the proxy service in the cloud while the connectors reside on your corporate network. No perimeter network is required.
+Organizations typically include server endpoints in their perimeter network. With Microsoft Entra application proxy, however, traffic flows through the proxy service in the cloud while the connectors reside on your corporate network. No perimeter network is required.
 
 The next sections contain additional suggestions to help you reduce latency even further. 
 
@@ -106,7 +105,7 @@ If you have ExpressRoute set up with Microsoft peering, you can use the faster E
 
 If you have a dedicated VPN or ExpressRoute set up with private peering between Azure and your corporate network, you have another option. In this configuration, the virtual network in Azure is typically considered as an extension of the corporate network. So you can install the connector in the Azure datacenter, and still satisfy the low latency requirements of the connector-to-app connection.
 
-Latency is not compromised because traffic is flowing over a dedicated connection. You also get improved Application Proxy service-to-connector latency because the connector is installed in an Azure datacenter close to your Azure AD tenant location.
+Latency is not compromised because traffic is flowing over a dedicated connection. You also get improved Application Proxy service-to-connector latency because the connector is installed in an Azure datacenter close to your Microsoft Entra tenant location.
 
 :::image type="content" source="./media/application-proxy-network-topology/application-proxy-expressroute-private.png" alt-text="Diagram showing connector installed within an Azure datacenter" lightbox="./media/application-proxy-network-topology/application-proxy-expressroute-private.png":::
 
@@ -114,13 +113,13 @@ Latency is not compromised because traffic is flowing over a dedicated connectio
 
 Although the focus of this article is connector placement, you can also change the placement of the application to get better latency characteristics.
 
-Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location. If you're considering this option, see [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
+Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location. If you're considering this option, see [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md).
 
 Additionally, consider organizing your connectors using [connector groups](application-proxy-connector-groups.md) to target apps that are in different locations and networks.
 
 ## Common use cases
 
-In this section, we walk through a few common scenarios. Assume that the Azure AD tenant (and therefore proxy service endpoint) is located in the United States (US). The considerations discussed in these use cases also apply to other regions around the globe.
+In this section, we walk through a few common scenarios. Assume that the Microsoft Entra tenant (and therefore proxy service endpoint) is located in the United States (US). The considerations discussed in these use cases also apply to other regions around the globe.
 
 For these scenarios, we call each connection a "hop" and number them for easier discussion:
 

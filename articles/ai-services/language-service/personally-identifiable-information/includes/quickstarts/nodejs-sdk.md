@@ -49,7 +49,7 @@ npm init
 Install the npm package:
 
 ```console
-npm install @azure/ai-language-text
+npm install @azure/ai-text-analytics
 ```
 
 
@@ -73,7 +73,7 @@ const documents = [ "The employee's phone number is (555) 555-5555." ];
 async function main() {
     console.log(`PII recognition sample`);
   
-    const client = new TextAnalysisClient(endpoint, new AzureKeyCredential(key));
+    const client = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
   
     const documents = ["My phone number is 555-555-5555"];
   

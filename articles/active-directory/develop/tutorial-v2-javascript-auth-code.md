@@ -202,7 +202,7 @@ After you sign in, select **See Profile** to view the user profile information r
 
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's email.
+The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Microsoft Entra admin center. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's email.
 
 As you add scopes, your users might be prompted to provide additional consent for the added scopes.
 

@@ -38,7 +38,7 @@ When the evaluation has finished, the tool generates a report of the affected po
 
 ## Running the tool
 
-You can find the **What If** tool under **Azure Active Directory** > **Security** > **Conditional Access** > **What If**.
+You can find the **What If** tool in the **Microsoft Entra admin center** > **Protection** > **Conditional Access** > **Policies** > **What If**.
 
 :::image type="content" source="./media/what-if-tool/portal-showing-location-of-what-if-tool.png" alt-text="Screenshot of the Conditional Access Policies page. In the toolbar, the What if item is highlighted." border="false" lightbox="media/what-if-tool/portal-showing-location-of-what-if-tool.png":::
 
