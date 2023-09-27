@@ -115,14 +115,12 @@ For **server connections**, the failover and recovery work the same way as it do
 > [!NOTE]
 > *  This failover mechanism is for Azure SignalR service. Regional outages of app server are beyond the scope of this document.
 
-## Disable or enable the regional endpoint
+## Disable or enable the replica endpoint
 When setting up a replica, you have the option to enable or disable its endpoint. If it's disabled, the primary FQDN's DNS resolution won't include the replica, and therefore, traffic won't be directed to it.
 
 ![Diagram of Azure SignalR replica endpoint setting. ](./media/howto-enable-geo-replication/signalr-replica-endpoint-setting.png "Replica Endpoint Setting")
 
-You can also enable of disable the endpoint after it's been created.
-
-On the primary resource's replica blade:
+You can also enable of disable the endpoint after it's been created. On the primary resource's replicas blade, click the ellipsis button on the right side of the replica and choose **Enable Endpoint** or **Disable Endpoint**:
 
 ![Diagram of Azure SignalR replica endpoint modification. ](./media/howto-enable-geo-replication/signalr-replica-endpoint-modify.png "Replica Endpoint Modify")
 
