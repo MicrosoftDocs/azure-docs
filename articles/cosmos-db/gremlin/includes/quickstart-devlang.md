@@ -9,8 +9,8 @@ ms.date: 09/27/2023
 
 > [!div class="op_single_selector"]
 >
-> - [Gremlin console](../quickstart-console.md)
-> - [.NET](../quickstart-dotnet.md)
-> - [Node.js](../quickstart-nodejs.md)
+> - [Console](../quickstart-console.md)
 > - [Python](../quickstart-python.md)
+> - [Node.js](../quickstart-nodejs.md)
+> - [.NET](../quickstart-dotnet.md)
 >
