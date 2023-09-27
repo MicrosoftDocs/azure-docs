@@ -19,7 +19,7 @@ ms.date: 08/29/2023
    cd openai-python
    ```
 
-1. Install the Python Libraries you'll need.
+1. Install the following Python Libraries:
 
    ```cmd
    pip install "openai>=0.27.6"
