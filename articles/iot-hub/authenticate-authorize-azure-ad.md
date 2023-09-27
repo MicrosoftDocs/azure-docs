@@ -15,14 +15,14 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Archite
 
 You can use Azure Active Directory (Azure AD) to authenticate requests to Azure IoT Hub service APIs, like create device identity and invoke direct method. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access IoT Hub service APIs to an Azure AD security principal. This security principal could be a user, group, or application service principal.
 
-Authenticating access by using Azure AD and controlling permissions by using Azure RBAC provides improved security and ease of use over [security tokens](iot-hub-dev-guide-sas.md). To minimize potential security issues inherent in security tokens, we recommend that you [use Azure AD with your IoT hub whenever possible](#azure-ad-access-and-shared-access-policies). 
+Authenticating access by using Azure AD and controlling permissions by using Azure RBAC provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you [use Azure AD with your IoT hub whenever possible](#azure-ad-access-and-shared-access-policies). 
 
 > [!NOTE]
-> Authentication with Azure AD isn't supported for the IoT Hub *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](iot-hub-dev-guide-sas.md#use-a-symmetric-key-in-the-identity-registry) or [X.509](iot-hub-x509ca-overview.md) to authenticate devices to IoT Hub.
+> Authentication with Azure AD isn't supported for the IoT Hub *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](authenticate-authorize-sas.md) or [X.509](authenticate-authorize-x509.md) to authenticate devices to IoT Hub.
 
 ## Authentication and authorization
 
-*Authentication* is the process of proving that you are who you say you are. This is achieved by verifying of the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*. *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
+*Authentication* is the process of proving that you are who you say you are. Authentication verifies the identity of a user or device to IoT Hub. It's sometimes shortened to *AuthN*. *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
 
 When an Azure AD security principal requests access to an IoT Hub service API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://iothubs.azure.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md). 
 
@@ -96,7 +96,7 @@ The following table describes the permissions available for IoT Hub service API 
 
 ## Azure AD access and shared access policies
 
-By default, IoT Hub supports service API access through both Azure AD and [shared access policies and security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies. 
+By default, IoT Hub supports service API access through both Azure AD and [shared access policies and security tokens](authenticate-authorize-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies. 
 
 1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment) to your IoT hub. Follow the [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
 1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
