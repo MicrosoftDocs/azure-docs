@@ -1,18 +1,21 @@
 ---
-title: Vector query how-to
+title: Hybrid query how-to
 titleSuffix: Azure Cognitive Search
-description: Learn how to build queries for vector search.
+description: Learn how to build hybrid queries that combine vector similarity search with full text search and optional semantic ranking.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 09/27/2023
 ---
 
-# How to query vector data in a search index
+# How to create a hybrid query using vector search and full text search
 
 > [!IMPORTANT]
+> Hybrid search uses the [vector features](vector-search-overview.md) currently in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+<!-- > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
 In Azure Cognitive Search, if you added vector fields to a search index, this article explains how to:
@@ -393,3 +396,10 @@ Multiple sets are created if the query targets multiple vector fields, or if the
 ## Next steps
 
 As a next step, we recommend reviewing the demo code for [Python](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-python), [C#](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-dotnet) or [JavaScript](https://github.com/Azure/cognitive-search-vector-pr/tree/main/demo-javascript).
+ -->
+
+## See also
+
++ [Learn more about Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md)
++ [Learn more about hybrid search](hybrid-search-overview.md)
++ [Learn more about vector search](vector-search-overview.md)

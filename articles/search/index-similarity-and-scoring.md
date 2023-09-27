@@ -2,11 +2,12 @@
 title: BM25 relevance scoring
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of BM25 relevance and scoring in Azure Cognitive Search, and what a developer can do to customize the scoring result.
+
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 09/27/2023
 ---
 
 # BM25 relevance and scoring for full text search

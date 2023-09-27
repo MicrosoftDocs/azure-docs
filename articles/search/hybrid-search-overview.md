@@ -1,7 +1,7 @@
 ---
-title: Vector search
+title: Hybrid search
 titleSuffix: Azure Cognitive Search
-description: Describes concepts, scenarios, and availability of the vector search feature in Azure Cognitive Search.
+description: Describes concepts and architecture of hybrid query processing and document retrieval. Hybrid queries combine vector search and full text search.
 
 author: robertklee
 ms.author: robertlee
@@ -10,12 +10,47 @@ ms.topic: conceptual
 ms.date: 09/27/2023
 ---
 
-# Vector search in Azure Cognitive Search
+# Hybrid search using vectors and full text in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
+> Hybrid search uses the [vector features](vector-search-overview.md) currently in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article is a high-level introduction to vector support in Azure Cognitive Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
+Hybrid search is a combination of full text and vector queries that execute against a search index that contains both searchable plain text content and generated embeddings. For query purposes, hybrid search is:
+
++ A query request that includes `search` and `vectors` parameters
++ Parallel query execution
++ Merged results in the query response
+
+This article explains the concepts, benefits, and limitations of hybrid search.
+
+## Architecture overview and diagram
+
+A search index can have fields that contain plain text and numbers, geo coordinates for geospatical search, and vectors for a mathematical representation of a chunk of text or image, audio, and video.
+
+The search index provides the fields with the content and attributes that support hybrid scenarios:
+
+It's a vector query string
+
+It's a full text query using `search`
+
+Add filters for include or exclude criteria. Applies to the document as a whole. In
+
+Add semantic ranking over the full text part of the query.
+
+## Benefits
+
+Combines the strengths of similarity search and keyword search
+
+Find matches that are similar to the query string
+
+Find exact matches on strings for sceanrios where "similar" isn't useful.
+
+Semantic ranking can help in hybrid search scenarios. 
+
+## Limitations
+
+
+<!-- This article is a high-level introduction to vector support in Azure Cognitive Search. It also explains integration with other Azure services and covers [terminology and concepts](#vector-search-concepts) related to vector search development.
 
 We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -66,7 +101,7 @@ Scenarios for vector search include:
 
 + **Multi-lingual search**. Use a multi-lingual embeddings model to represent your document in multiple languages in a single vector space to find documents regardless of the language they are in.
 
-+ [**Hybrid search**](hybrid-search-overview.md). Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
++ **Hybrid search**. Vector search is implemented at the field level, which means you can build queries that include both vector fields and searchable text fields. The queries execute in parallel and the results are merged into a single response. Optionally, add [semantic search (preview)](semantic-search-overview.md) for even more accuracy with L2 reranking using the same language models that power Bing.
 
 + **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine processes the filter after the vector query executes, trimming search results from query response.
 
@@ -135,3 +170,4 @@ Azure Cognitive Search uses Hierarchical Navigable Small Worlds (HNSW), which is
 + [Learn more about vector indexing](vector-search-how-to-create-index.md)
 + [Learn more about vector queries](vector-search-how-to-query.md)
 + [Azure Cognitive Search and LangChain: A Seamless Integration for Enhanced Vector Search Capabilities](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/azure-cognitive-search-and-langchain-a-seamless-integration-for/ba-p/3901448)
+ -->
