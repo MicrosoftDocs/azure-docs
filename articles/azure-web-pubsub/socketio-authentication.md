@@ -52,7 +52,9 @@ const configureNegotiateOptions = (req) => {
     const query = parse(req.url || "", true).query
     const username = query["username"] ?? "annoyomous";
     const expirationMinutes = Number.parseInt(query["expirationMinutes"]) ?? 600;
-    // Authenicate `username`, `expirationMinutes` and query
+    if (!authentiacte(username)) {
+        throw new Error(`Authentication Failed for username = ${username}`);
+    }
     return {
         userId: username,
         expirationTimeInMinutes: expirationMinutes
@@ -159,4 +161,4 @@ io.on('connect', (socket) => {
 });
 ```
 
-A complete sample is given in [chat-with-auth](https://github.com/Azure/azure-webpubsub/blob/main/sdk/webpubsub-socketio-extension/examples/chat-with-auth).
+A complete sample is given in [chat-with-auth-passport](https://github.com/Azure/azure-webpubsub/blob/main/sdk/webpubsub-socketio-extension/examples/chat-with-auth-passport).
