@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: zetia
 ms.author: zetia
-ms.reviewer: chenlujiao
+ms.reviewer: 
 ms.custom: devplatv2, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ms.date: 09/26/2023
 ---
@@ -37,6 +37,6 @@ In AKS cluster, you can leverage the built-in ability to collect container logs.
 
     :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/aks-portal-query-inference-server-logs.png" alt-text="Diagram illustrating how to enable log minitor in AKS." lightbox="./media/how-to-attach-kubernetes-to-workspace/aks-portal-query-inference-server-logs.png":::
 
-## Customer managed cluster
+## Azure Arc enabled cluster
 
 In Arc Kubernetes cluster, you can reference the [Azure Monitor](../azure-monitor/index.yml) document to upload logs to **Log Analytics** from your cluster by utilizing **Azure Monitor Agent**
