@@ -12,13 +12,23 @@ ms.date: 08/22/2023
 
 # Reliability in Azure Image Builder (AIB)
 
-This article describes reliability support in Azure Image Builder.  Azure Image Builder doesn't currently support availability zones at this time, however it does support [cross-regional resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
+This article contains [specific reliability recommendations for Image Builder](#reliability-recommendations) and [cross-regional resiliency with disaster recovery](#disaster-recovery-cross-region-failover). 
 
 
 Azure Image Builder (AIB) is a regional service with a cluster that serves single regions. The AIB regional setup keeps data and resources within the regional boundary. AIB as a service doesn't do fail over for cluster and SQL database in region down scenarios.
 
 
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+
+
+>![!NOTE]
+> Azure Image Builder doesn't support [availability zones](./availability-zones-overview.md).
+
+## Reliability recommendations
+
+[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
+ 
+### Reliability recommendations summary
 
 
 ## Disaster recovery: cross-region failover
