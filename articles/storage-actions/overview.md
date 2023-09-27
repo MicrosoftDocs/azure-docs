@@ -72,7 +72,7 @@ Azure Storage Tasks events allow applications to react to events, such as the co
 
 Azure Storage Tasks events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering. Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service will send data about that event to the endpoint.
 
-See the [Azure Storage Tasks events schema](../event-grid/event-schema-storage-tasks.md?toc=/azure/storage-tasks/toc.json) article to view the full list of the events that Azure Storage Tasks supports.
+See the [Azure Storage Tasks events schema](../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json) article to view the full list of the events that Azure Storage Tasks supports.
 
 ## Supported Regions
 
