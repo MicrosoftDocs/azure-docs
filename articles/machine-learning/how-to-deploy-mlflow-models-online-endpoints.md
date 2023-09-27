@@ -28,8 +28,8 @@ For no-code-deployment, Azure Machine Learning
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
     * A scoring script to perform inference.
 
-> [!WARNING]
-> __Workspaces without public network access:__ Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or indicate the environment to use in the deployment as explained in [Customizing MLflow model deployments](#customizing-mlflow-model-deployments).
+> [!TIP]
+> __Workspaces without public network access:__ MLflow models have to be [packaged before deployment (preview)](how-to-package-models.md#package-models-before-deployments) to online endpoints without egress connectivity. Azure Machine Learning performs dynamic installation of packages when deploying MLflow models which requires an internet connection unless model packaging is use.
 
 
 ## About this example
@@ -333,6 +333,19 @@ version = registered_model.version
     )
     ```
 
+    If your endpoint doesn't have egress connectivity, use the argument `with-package=True`:
+
+    ```python
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_F4s_v2",
+        instance_count=1,
+        with_package=True,
+    )
+    ```
+
     # [Python (MLflow SDK)](#tab/mlflow)
 
     ```python
@@ -373,6 +386,12 @@ version = registered_model.version
     # [Azure CLI](#tab/cli)
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-ncd.sh" ID="create_sklearn_deployment":::
+
+    If your endpoint doesn't have egress connectivity, use the flag `--with-package`:
+
+    ```azurecli
+    az ml online-deployment create --with-package --name sklearn-deployment --endpoint $ENDPOINT_NAME -f endpoints/online/ncd/sklearn-deployment.yaml --all-traffic
+    ```
 
     # [Python (Azure Machine Learning SDK)](#tab/sdk)
 
@@ -535,7 +554,6 @@ You will typically select this workflow when:
 > - You need to customize the way the model is run, for instance, use an specific flavor to load it with `mlflow.<flavor>.load_model()`.
 > - You need to do pre/pos processing in your scoring routine when it is not done by the model itself.
 > - The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.
-> - Your endpoint is under a private link-enabled workspace.
 
 > [!IMPORTANT]
 > If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.

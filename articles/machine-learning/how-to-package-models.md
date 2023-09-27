@@ -221,7 +221,7 @@ To create a model package, we need to create a package specification. The packag
 | `inferencing_server.type`               | `azureml_online` <br /> `custom` | Use `azureml_online` to Azure Machine Learning inferenginc server, or `custom` for a custom online server like TensorFlow serving, Torch Serve, etc. | Yes |
 | `inferencing_server.code_configuration` | `object`  | The code configuration with the inference routine. It should contain at least one Python file with methods `init` and `run`. | Yes, unless model is MLflow. |
 | `model_configuration`                   | `object`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`              | `readonly_mount` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `readonly_mount` and `copy`. Defaults to `readonly_mount`. | No.  |
+| `model_configuration.mode`              | `download` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `download` and `copy`. Defaults to `download`. | No.  |
 
 __package-moe.yml__
 
@@ -250,7 +250,7 @@ To create a model package, we need to create a package specification. The packag
 | `base_environment_source.resource_id` | `str`                 | The resource ID of the base environment to use. Use format `azureml:<name>:<version>` or a long-format resource id. |  |
 | `inferencing_server`                  | `AzureMLOnlineInferencingServer` <br /> `CustomOnlineInferenceServer` | The inferencing server to use. Use `AzureMLOnlineInferencingServer` to Azure Machine Learning inferenginc server, or `CustomOnlineInferenceServer` for a custom online server like TensorFlow serving, Torch Serve, etc. <br /><br />When using `AzureMLInferencingServer` and the model type is not Mlflow, a code configuration section should be indicated containing at least one Python file with methods `init` and `run`. <br /><br />When using `CustomOnlineInferenceServer`, an online server configuration section should be indicated.  | Yes |
 | `model_configuration`                 | `ModelConfiguration`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.ReadonlyMount` and `ModelInputMode.Copy`. | No. Defaults to `ModelInputMode.ReadonlyMount`. |
+| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` and `ModelInputMode.COPY`. | No. Defaults to `ModelInputMode.DOWNLOAD`. |
 
 
 ```python
@@ -391,7 +391,20 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
 
     Deploying a precreated package is not supported by the moment in studio. Use the Azure CLI or Azure Machine Learning SDK for Python.
 
-1. At this point, the deployment is ready to be consumed. We can test how it is working:
+1. At this point, the deployment is ready to be consumed. We can test how it is working by creating a sample request file:
+
+    __sample-request.json__
+
+    ```json
+    {
+        "data": [
+            [1,2,3,4,5,6,7,8,9,10], 
+            [10,9,8,7,6,5,4,3,2,1]
+        ]
+    }
+    ```
+
+1. Let's send the request to the endpoint: 
 
     # [Azure CLI](#tab/cli)
 
@@ -413,10 +426,14 @@ Model packages can be deployed directly to Online Endpoint in Azure Machine Lear
 
     TODO
 
+1. You should see two numeric predictions being generated.
+
 
 ## Create packages to deploy outside of Azure Machine Learning
 
 Model packages can be deployed outside of Azure Machine Learning if needed.  To guarantee portability, you only need to ensure that the **model configuration** in your package has the mode set to **copy**. That means that the model itself is copied inside of the generated docker image instead of referenced from the model registry in Azure Machine Learning.
+
+The following example shows how to configure copy in a package:
 
 # [Azure CLI](#tab/cli)
 
@@ -462,7 +479,7 @@ TODO
 
 ---
     
-To see an example about [how to deploy Azure Machine Learning models to Azure App Service](how-to-package-models-app-service.md).
+See an example about [how to deploy Azure Machine Learning models to Azure App Service](how-to-package-models-app-service.md).
 
 ## Next steps
 

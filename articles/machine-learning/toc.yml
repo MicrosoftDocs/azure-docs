@@ -1061,6 +1061,8 @@
           href: package-models.md
         - name: Deploy models to endpoints
           href: concept-endpoints.md
+        - name: Deploy models outside Azure Machine Learning
+          href: how-to-package-models-app-service.md
     - name: Automation
       items:
         - name: Schedule Job

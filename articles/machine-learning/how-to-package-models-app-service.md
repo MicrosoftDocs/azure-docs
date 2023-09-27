@@ -13,87 +13,77 @@ ms.topic: how-to
 
 # Package and deploy models outside Azure Machine Learning
 
-Models can be deployed outside of Azure Machine Learning for online serving be using [Model packages](package-models.md), a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. In this article you learn how package a model and deploy it to an Azure App Service.
+Models can be deployed outside of Azure Machine Learning for online serving by creating [model packages](package-models.md), a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Packages can be moved across workspaces and even outside of Azure Machine Learning. To learn more about model packages in general, read [Model packages for deployment](package-models.md).
 
-Packages can be moved across workspaces and even outside of Azure Machine Learning. To learn more about model packages in general, read [Model packages for deployment](package-models.md)
+In this article you learn how package a model and deploy it to an Azure App Service.
 
 ## Prerequisites
 
 Follow these steps to prepare your environment:
 
-### Connect to your workspace
+1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
 
-First, let's connect to Azure Machine Learning workspace where we are going to work on.
-
-# [Azure CLI](#tab/cli)
-
-```azurecli
-az account set --subscription <subscription>
-az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-```
-
-# [Python](#tab/sdk)
-
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we connect to the workspace in which you perform deployment tasks.
-
-1. Import the required libraries:
-
-    ```python
-    from azure.ai.ml import MLClient, Input
-    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
-    from azure.ai.ml.constants import AssetTypes
-    from azure.identity import DefaultAzureCredential
-    ```
-
-2. If you are running in a Compute Instance in Azure Machine Learning, create an `MLClient` as follows:
-
-    ```python
-    ml_client = MLClient.from_config(DefaultAzureCredential())
-    ```
-
-    Otherwise, configure workspace details and get a handle to the workspace:
-
-    ```python
-    subscription_id = "<subscription>"
-    resource_group = "<resource-group>"
-    workspace = "<workspace>"
+    # [Azure CLI](#tab/cli)
     
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```azurecli
+    az account set --subscription <subscription>
+    az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
     ```
-
----
-
-
-### Registering the model
-
-In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
+    
+    # [Python](#tab/sdk)
+    
+    The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we connect to the workspace in which you perform deployment tasks.
+    
+    1. Import the required libraries:
+    
+        ```python
+        from azure.ai.ml import MLClient, Input
+        from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
+        from azure.ai.ml.constants import AssetTypes
+        from azure.identity import DefaultAzureCredential
+        ```
+    
+    2. If you are running in a Compute Instance in Azure Machine Learning, create an `MLClient` as follows:
+    
+        ```python
+        ml_client = MLClient.from_config(DefaultAzureCredential())
+        ```
+    
+        Otherwise, configure workspace details and get a handle to the workspace:
+    
+        ```python
+        subscription_id = "<subscription>"
+        resource_group = "<resource-group>"
+        workspace = "<workspace>"
+        
+        ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+        ```
+    
+1. Packages require the model to be registered in either your workspace or in an Azure Machine Learning registry. In this example we have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    
-# [Azure CLI](#tab/cli)
-
-```azurecli
-MODEL_NAME='heart-classifier-mlflow'
-MODEL_PATH='model'
-az ml model create --name $MODEL_NAME --path $MODEL_PATH --type mlflow_model
-```
-
-# [Python](#tab/sdk)
-
-```python
-model_name = "heart-classifier-mlflow"
-model_path = "model"
-model = ml_client.models.create_or_update(
-    Model(name=model_name, path=model_path, type=AssetTypes.MLFLOW_MODEL)
-)
-```
-
----
-
-
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    MODEL_NAME='heart-classifier-mlflow'
+    MODEL_PATH='model'
+    az ml model create --name $MODEL_NAME --path $MODEL_PATH --type mlflow_model
+    ```
+    
+    # [Python](#tab/sdk)
+    
+    ```python
+    model_name = "heart-classifier-mlflow"
+    model_path = "model"
+    model = ml_client.models.create_or_update(
+        Model(name=model_name, path=model_path, type=AssetTypes.MLFLOW_MODEL)
+    )
+    ```
+    
 ## Deploy a model package to Azure App Service
 
-In this example, we showcase how to package the previously registered MLflow model to deploy it to Azure App Service.
+Let's see how to package the previously registered MLflow model to deploy it to Azure App Service.
 
-1. Deploying a model outside of Azure Machine Learning requires creating a package specification. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md).
+1. Deploying a model outside of Azure Machine Learning requires creating a package specification. To create a package completely disconected from Azure Machine Learning we indicate the package to **copy** the artifacts inside of the package as done in the next example:
 
     # [Azure CLI](#tab/cli)
 
@@ -116,13 +106,15 @@ In this example, we showcase how to package the previously registered MLflow mod
     package_config = ModelPackage(
         target_environment_name="heart-classifier-mlflow-pkg",
         inferencing_server=AzureMLOnlineInferencingServer(),
-        model_configuration=ModelConfiguration(mode="copy")
+        model_configuration=ModelConfiguration(
+            mode="copy"
+        )
     )
     ```
     ---
     
     > [!TIP]
-    > Notice that we have indicated **model configuration** using *copy* for the property **mode**. This guarantees all the model artifacts are copied inside of the generated docker image instead of downloaded from Azure Machine Learning model registry, allowing true portability outside of Azure Machine Learning.
+    > Notice that we have indicated **model configuration** using *copy* for the property **mode**. This guarantees all the model artifacts are copied inside of the generated docker image instead of downloaded from Azure Machine Learning model registry, allowing true portability outside of Azure Machine Learning. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md).
 
 1. Let's start the package operation. The result of the package operation is an environment.
 
@@ -138,9 +130,9 @@ In this example, we showcase how to package the previously registered MLflow mod
     model_package = ml_client.models.begin_package(model_name, model.version, package_config)
     ```
 
-1. Each environment in Azure Machine Learning has a corresponding docker image generated. We are going to use that image in our deployment. Images are hosted in Azure Container Registry. We will need the name of the generated image:
+1. Each environment in Azure Machine Learning has a corresponding docker image. We are going to use that image in our deployment. Images are hosted in Azure Container Registry. We will need the name of the generated image:
 
-    1. Go to Azure Machine Learning studio.
+    1. Go to [Azure Machine Learning studio](https://ml.azure.com).
 
     1. Select the section **Environments**.
 
@@ -153,9 +145,11 @@ In this example, we showcase how to package the previously registered MLflow mod
     :::image type="content" source="./media/model-packaging/model-package-container-name.png" alt-text="An screenshot showing the section where the Azure container registry image name is displayed in Azure Machine Learning studio."::: 
 
 
-1. Go to [Azure portal](https://portal.azure.com) and create a new App Service.
+1. Now, let's deploy this package in an App Service.
 
-    1. Select the subscription and resource group you are using.
+    1. Go to [Azure portal](https://portal.azure.com) and create a new App Service resource.
+
+    1. In the creation wizard, select the subscription and resource group you are using.
 
     1. On __Instance details__, give the app a name.
     
