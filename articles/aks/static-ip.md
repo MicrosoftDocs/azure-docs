@@ -42,7 +42,7 @@ This article shows you how to create a static public IP address and assign it to
 
     ```azurecli-interactive
     az network public-ip create \
-        --resource-group myNetworkResourceGroup \
+        --resource-group <node resource group> \
         --name myAKSPublicIP \
         --sku Standard \
         --allocation-method static
