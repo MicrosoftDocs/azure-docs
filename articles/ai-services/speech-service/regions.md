@@ -5,8 +5,7 @@ description: A list of available regions and endpoints for the Speech service, i
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 09/16/2022
 ms.author: eur

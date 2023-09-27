@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Approve or deny requests for Azure resource roles in Privileged Identity Management
 
-Microsoft Entra Privileged Identity Management (PIM) enables you to configure roles so that they require approval for activation, and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each role to reduce workload for the privileged role administrator. Delegated approvers have 24 hours to approve requests. If a request isn't approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window isn't configurable.
+Microsoft Entra Privileged Identity Management (PIM) enables you to configure roles so that they require approval for activation, and choose users or groups from your Microsoft Entra organization as delegated approvers. We recommend selecting two or more approvers for each role to reduce workload for the privileged role administrator. Delegated approvers have 24 hours to approve requests. If a request isn't approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window isn't configurable.
 
 Follow the steps in this article to approve or deny requests for Azure resource roles.
 
@@ -101,4 +101,4 @@ Here's some information about workflow notifications:
 ## Next steps
 
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](./pim-approval-workflow.md)
+- [Approve or deny requests for Microsoft Entra roles in Privileged Identity Management](./pim-approval-workflow.md)

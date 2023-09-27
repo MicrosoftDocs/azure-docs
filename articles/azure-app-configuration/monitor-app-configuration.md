@@ -2,8 +2,8 @@
 title: Monitor Azure App Configuration 
 description: Start here to learn how to monitor App Configuration
 services: azure-app-configuration
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.custom: horz-monitor

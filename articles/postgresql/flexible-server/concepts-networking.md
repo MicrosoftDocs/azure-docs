@@ -132,10 +132,11 @@ The hub is a virtual network that acts as a central location for managing extern
 
 The spokes are also virtual networks in Azure, used to isolate individual workloads. The traffic flow between the on-premises headquarters and Azure is connected through ExpressRoute or Site to Site VPN, connected to the hub virtual network. The virtual networks from the spokes to the hub are peered, and enable communication to on-premises resources. You can implement the hub and each spoke in separate subscriptions or resource groups.
 
-There are two main patterns for connecting spoke virtual networks to each other:
+There are three main patterns for connecting spoke virtual networks to each other:
 
-* Spokes directly connected to each other. Virtual network peerings or VPN tunnels are created between the spoke virtual networks to provide direct connectivity without traversing the hub virtual network.
-* Spokes communicate over a network appliance. Each spoke virtual network has a peering to Virtual WAN or to a hub virtual network. An appliance routes traffic from spoke to spoke. The appliance can be managed by Microsoft (as with Virtual WAN) or by you.
+* **Spokes directly connected to each other**. Virtual network peerings or VPN tunnels are created between the spoke virtual networks to provide direct connectivity without traversing the hub virtual network.
+* **Spokes communicate over a network appliance**.  Each spoke virtual network has a peering to Virtual WAN or to a hub virtual network. An appliance routes traffic from spoke to spoke. The appliance can be managed by Microsoft (as with Virtual WAN) or by you.
+* **Virtual Network Gateway attached to the hub network and make use of User Defined Routes (UDR)**, to enable communication between the spokes.
 
 :::image type="content" source="./media/how-to-manage-virtual-network-portal/hub-spoke-architecture.png" alt-text="Diagram that shows basic hub and spoke architecture with hybrid connectivity via Express Hub.":::
 

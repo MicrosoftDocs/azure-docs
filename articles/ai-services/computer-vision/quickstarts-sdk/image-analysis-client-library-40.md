@@ -5,13 +5,12 @@ description: Learn how to tag images in your application using Image Analysis 4.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: quickstart
 ms.date: 01/24/2023
 ms.author: pafarley
 ms.devlang: csharp, golang, java, javascript, python
-ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-dotnet
+ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-dotnet, devx-track-extended-java
 zone_pivot_groups: programming-languages-computer-vision-40
 keywords: Azure AI Vision, Azure AI Vision service
 ---
