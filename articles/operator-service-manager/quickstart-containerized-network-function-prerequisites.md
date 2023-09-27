@@ -76,7 +76,9 @@ For deployments of Containerized Network Functions (CNFs), it's crucial to have 
 az aosm nfd generate-config
 ``````
 
-- **Azure Container Registry (ACR) Reference** - You must specify a reference to an existing Azure Container Registry that contains the necessary CNF images. Currently, only one ACR is supported per CNF. The images to be used are automatically populated based on the Helm package schema.
+- **Images for your CNF** - Here are the options:
+  - A reference to an existing Azure Container Registry that contains the images for your CNF. Currently, only one ACR and namespace are supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on this ACR. To use this option, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file.
+  - The image name of the source docker image from local machine. This is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed.
 - **Optional: Mapping File (path_to_mappings)**: Optionally, you can provide a file (on disk) named path_to_mappings. This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. You can either leave the values as blank strings to have every value as a deployment parameter or use the `--interactive` option to interactively make choices.
 
 When configuring the `input.json` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `input.json` should resemble the following structure:
@@ -103,29 +105,12 @@ When configuring the `input.json` file, ensure that you list the Helm packages i
 ``````
 Following these guidelines ensures a well organized and structured approach to deploy Containerized Network Functions (CNFs) with Helm packages and associated configurations.
 
-### Download and install nginx image to ARC
+### Download nginx image to local docker repo
 
 This particular step might seem frivolous when considering the quickstart process. This step involves some superfluous file manipulation. This file manipulation showcases the capability of the AZ AOSM CLI in copying ACR images on your behalf. 
 
-To download and install the nginx image to an ACR, complete the following steps.
+Issue the following command: `docker pull nginx:stable`
 
-1. [Create an ACR](../container-registry/container-registry-get-started-azure-cli.md) using the Azure CLI.
-1. Push the `nginx: stable` image to your ACR:
-
-```azurecli
-az login 
-az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-```
-
-```azurecli
-az acr login --name <your acr name> 
-docker pull nginx:stable 
-docker tag nginx:stable <your acr name>.azurecr.io/samples/nginx:stable 
-docker push <your acr name>.azurecr.io/samples/nginx:stable
-```
-
-> [!NOTE]
-> These steps were taken (with modifications for the 'stable' tag name) from [Container Registry get started docker](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli).
 
 ## Dive into Helm charts
 

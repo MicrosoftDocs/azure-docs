@@ -40,8 +40,9 @@ Here's sample input-cnf-nfd.json file:
     "version": "1.0.0",
     "acr_artifact_store_name": "nginx-nsd-acr",
     "location": "uksouth",
-    "source_registry_id": "/subscriptions/56951e4c-2008-4bca-88ba-d2d2eab9fede/resourcegroups/source-acr-rg/providers/Microsoft.ContainerRegistry/registries/sourcepublisheracr",
-    "source_registry_namespace": "samples",
+    "images": {
+        "source_local_docker_image": "nginx:stable"
+    },
     "helm_packages": [
         {
             "name": "nginxdemo",
@@ -58,7 +59,8 @@ Here's sample input-cnf-nfd.json file:
 - **location** - The Azure location to use when creating resources.
 - **nf_name** - The name of the NF definition.
 - **version** - The version of the NF definition in A.B.C format.
-- **source_registry_namespace** - Optional. The namespace of the repository of the source acr registry from which to pull. For example if your repository is samples/prod/nginx then set to samples/prod. Leave blank if the image is in the root namespace. For more information, see [Best practices repository namespace](/azure/container-registry/container-registry-best-practices).
+- **images**:
+   - *source_local_docker_image* - Optional. The image name of the source docker image from your local machine. For limited use case where the CNF only requires a single docker image that exists in the local docker repository. 
 - **helm_packages**:
   - *name* - The name of the Helm package.
   - *path_to_chart* - The file path of Helm Chart on the local disk. Accepts .tgz, .tar or .tar.gz. Use Linux slash (/) file separator even if running on Windows.
