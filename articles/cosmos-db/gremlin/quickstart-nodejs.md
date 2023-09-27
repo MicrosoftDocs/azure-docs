@@ -37,7 +37,7 @@ In this quickstart, you use the `gremlin` library to connect to a newly created 
 
 ## Setting up
 
-This section walks you through creating an API for Gremlin account and setting up a .NET project to use the library to connect to the account.
+This section walks you through creating an API for Gremlin account and setting up a Node.js project to use the library to connect to the account.
 
 ### Create an API for Gremlin account
 
@@ -125,7 +125,7 @@ Application requests to most Azure services must be authorized. For the API for 
 
     :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="imports":::
 
-1. Create `accountName` and `accountKey` string variables. Store the `COSMOS_GREMLIN_ENDPOINT` and `COSMOS_GREMLIN_KEY` environment variables as the values for each respective variable.
+1. Create `accountName` and `accountKey` variables. Store the `COSMOS_GREMLIN_ENDPOINT` and `COSMOS_GREMLIN_KEY` environment variables as the values for each respective variable.
 
     :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="environment_variables":::
 
@@ -137,10 +137,9 @@ Application requests to most Azure services must be authorized. For the API for 
 
     :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="connect_client":::
 
-## Create vertices
+### Create vertices
 
 Now that the application is connected to the account, use the standard Gremlin syntax to create vertices.
-
 
 1. Use `submit` to run a command server-side on the API for Gremlin account. Create a **product** vertex with the following properties:
 
@@ -178,7 +177,7 @@ Now that the application is connected to the account, use the standard Gremlin s
 
     :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="create_vertices_3":::
 
-## Create edges
+### Create edges
 
 Create edges using the Gremlin syntax to define relationships between vertices.
 
@@ -193,7 +192,7 @@ Create edges using the Gremlin syntax to define relationships between vertices.
 
     :::code language="javascript" source="~/cosmos-db-apache-gremlin-javascript-samples/001-quickstart/app.js" id="create_edges_2":::
 
-## Query vertices &amp; edges
+### Query vertices &amp; edges
 
 Use the Gremlin syntax to traverse the graph and discover relationships between vertices.
 
