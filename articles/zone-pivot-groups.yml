@@ -1810,8 +1810,6 @@ groups:
     title: JavaScript 
   - id: programming-language-python
     title: Python
-  - id: programming-language-go
-    title: Go
   - id: rest-api
     title: REST
 # Owner: pafarley
