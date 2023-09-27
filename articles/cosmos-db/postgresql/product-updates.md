@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 09/07/2023
+ms.date: 09/25/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -23,6 +23,8 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### September 2023
+* Preview: Geo-redundant backup and restore
+    * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md)
 * General availability: Azure Cosmos DB for PostgreSQL is now available in Australia Central, Canada East, and Qatar Central.
     * See [all supported regions](./resources-regions.md).
 
@@ -136,6 +138,7 @@ might have constrained capabilities.  For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
+* [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
 * [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 * [Azure CLI support for Azure Cosmos DB for PostgreSQL](/cli/azure/cosmosdb/postgres)
 * Azure SDKs: [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/1.0.0-beta.1), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql@v0.1.0), [Java](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/1.0.0-beta.1/overview), [JavaScript](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0-beta.1), and [Python](https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/1.0.0b1/)
