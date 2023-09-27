@@ -10,21 +10,23 @@ ms.author: barclayn
 ms.custom: include file,licensing
 ---
 
-The following table provides a list of the features that are available in the various versions of Azure AD for Multi-Factor Authentication. Plan out your needs for securing user authentication, then determine which approach meets those requirements. For example, although Azure AD Free provides security defaults that provide Azure AD Multi-Factor Authentication, only the mobile authenticator app can be used for the authentication prompt, including SMS and phone calls. This approach may be a limitation if you can't ensure the mobile authentication app is installed on a user's personal device.
+The following table lists features that are available for authentication in the various versions of Microsoft Entra ID. Plan out your needs for securing user sign-in, then determine which approach meets those requirements. For example, although Microsoft Entra ID Free provides security defaults with multifactor authentication, only Microsoft Authenticator can be used for the authentication prompt, including text and voice calls. This approach may be a limitation if you can't make sure that Authenticator is installed on a user's personal device.
 
-| Feature | Azure AD Free - Security defaults (enabled for all users) | Azure AD Free - Global Administrators only | Office 365 | Azure AD Premium P1 | Azure AD Premium P2 |
+| Feature | Entra ID Free - Security defaults (enabled for all users) | Entra ID Free - Global Administrators only | Office 365 | Entra ID Premium P1 | Entra ID Premium P2 |
 | --- |:---:|:---:|:---:|:---:|:---:|
-| Protect Azure AD tenant admin accounts with MFA | ● | ● (*Azure AD Global Administrator* accounts only) | ● | ● | ● |
-| Mobile app as a second factor | ● | ● | ● | ● | ● |
-| Phone call as a second factor | | | ● | ● | ● |
-| SMS as a second factor | | ● | ● | ● | ● |
-| Admin control over verification methods | | ● | ● | ● | ● |
-| Fraud alert | | | | ● | ● |
-| MFA Reports | | | | ● | ● |
-| Custom greetings for phone calls | | | | ● | ● |
-| Custom caller ID for phone calls | | | | ● | ● |
-| Trusted IPs | | | | ● | ● |
-| Remember MFA for trusted devices | | ● | ● | ● | ● |
-| MFA for on-premises applications | | | | ● | ● |
-| Conditional Access | | | | ● | ● |
-| Risk-based Conditional Access | | | | | ● |
+| Protect Azure AD tenant admin accounts with MFA | &#x2705 | &#x2705 (*Azure AD Global Administrator* accounts only) | &#x2705 | &#x2705 | &#x2705 |
+| Mobile app as a second factor | &#x2705 | &#x2705 | &#x2705 | &#x2705 | &#x2705 |
+| Phone call as a second factor | | | &#x2705 | &#x2705 | &#x2705 |
+| SMS as a second factor | | &#x2705 | &#x2705 | &#x2705 | &#x2705 |
+| Admin control over verification methods | | &#x2705 | &#x2705 | &#x2705 | &#x2705 |
+| Fraud alert | | | | &#x2705 | &#x2705 |
+| MFA Reports | | | | &#x2705 | &#x2705 |
+| Custom greetings for phone calls | | | | &#x2705 | &#x2705 |
+| Custom caller ID for phone calls | | | | &#x2705 | &#x2705 |
+| Trusted IPs | | | | &#x2705 | &#x2705 |
+| Remember MFA for trusted devices | | &#x2705 | &#x2705 | &#x2705 | &#x2705 |
+| MFA for on-premises applications | | | | &#x2705 | &#x2705 |
+| Conditional Access | | | | &#x2705 | &#x2705 |
+| Risk-based Conditional Access | | | | | &#x2705 |
+| Self-service password reset (SSPR) |&#x2705|&#x2705|&#x2705|&#x2705|&#x2705|
+| SSPR with writeback | | | |&#x2705|&#x2705|
