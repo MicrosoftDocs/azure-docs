@@ -34,7 +34,7 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
 | [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Use generation 2 virtual machine source images](#-use-generation-2-virtual-machine-vm-source-images) |
-|[**Disaster Recovery**](#disaster-recovery)|:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Replicate image templates to a secondary region](#-replicate-image-templates-to-a-secondary-regions) | 
+|[**Disaster Recovery**](#disaster-recovery)|:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Replicate image templates to a secondary region](#-replicate-image-templates-to-a-secondary-region) | 
 
 
 ### High availability
