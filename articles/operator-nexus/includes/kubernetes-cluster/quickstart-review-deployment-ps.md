@@ -1,7 +1,7 @@
 ---
-author: dramasamy
-ms.author: dramasamy
-ms.date: 06/26/2023
+author: rashirg
+ms.author: rajeshwarig
+ms.date: 09/27/2023
 ms.topic: include
 ms.service: azure-operator-nexus
 ---
@@ -20,6 +20,6 @@ Additionally, to get a list of agent pool names associated with the ```myNexusK8
 
 ```azurepowershell-interactive
  Get-AzNetworkCloudAgentPool -KubernetesClusterName myNexusK8sCluster `
- -ResourceGroupName myResourceGroup
+ -ResourceGroupName myResourceGroup `
  -SubscriptionId mySubscription
 ```

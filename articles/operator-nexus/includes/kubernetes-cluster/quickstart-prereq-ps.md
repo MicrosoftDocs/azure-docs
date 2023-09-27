@@ -1,10 +1,10 @@
 ---
-author: dramasamy
-ms.author: dramasamy
-ms.date: 06/26/2023
+author: rashirg
+ms.author: rajeshwarig
+ms.date: 09/27/2023
 ms.topic: include
 ms.service: azure-operator-nexus
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecpowershell
 ---
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

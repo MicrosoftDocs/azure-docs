@@ -196,10 +196,10 @@ $SSH_PUBLIC_KEY = @{
 }
 $ADMIN_USERNAME="azureuser"
 $CNI_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
-$IPAMENABLED="True"
+$IPAM_ENABLED="True"
 $PLUGIN_TYPE="SRIOV"
 $L3_NETWORK_ATTACHMENT = New-AzNetworkCloudL3NetworkAttachmentConfigurationObject -NetworkId $CNI_ARM_ID `
--IpamEnabled $IPAMENABLED `
+-IpamEnabled $IPAM_ENABLED `
 -PluginType $PLUGIN_TYPE
 ```
 
@@ -211,7 +211,7 @@ New-AzNetworkCloudAgentPool -KubernetesClusterName $CLUSTER_NAME `
 -ResourceGroupName $RESOURCE_GROUP `
 -Count $AGENT_POOL_COUNT `
 -Location $LOCATION `
--Mode "$AGENT_POOL_MODE `
+-Mode $AGENT_POOL_MODE `
 -VMSkuName $AGENT_POOL_VM_SIZE `
 -SubscriptionId $SUBSCRIPTION `
 -AdministratorConfigurationAdminUsername $ADMIN_USERNAME `
