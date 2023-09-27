@@ -28,7 +28,7 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Autosuggest                           | [Search]                                  |
 | Directions (including truck)          | [Route directions]                        |
 | Distance Matrix                       | [Route Matrix]                            |
-| Imagery – Static Map                  | [Render]                                  |
+| Imagery – Static Map                  | [Render - Get Map Static Image]           |
 | Isochrones                            | [Route Range]                             |
 | Local Insights                        | [Search] + [Route Range]                  |
 | Local Search                          | [Search]                                  |
@@ -321,7 +321,7 @@ The Azure Maps vector tiles contain the raw road geometry data that can be used 
 
 ## Retrieve a map image (Static Map)
 
-Azure Maps provides an API for rendering the static map images with data overlaid. The Azure Maps [Map image render] API is comparable to the static map API in Bing Maps.
+Azure Maps provides an API for rendering the static map images with data overlaid. The Azure Maps [Get Map Static Image] API is comparable to the static map API in Bing Maps.
 
 > [!NOTE]
 > Azure Maps requires the center, all pushpins and path locations to be coordinates in `longitude,latitude` format whereas Bing Maps uses the `latitude,longitude` format. Addresses will need to be geocoded first.
@@ -360,7 +360,7 @@ For more information, see [Render custom data on a raster map].
 In addition to being able to generate a static map image, the Azure Maps render service also enables direct access to map tiles in raster (PNG) and vector format:
 
 * [Map tiles] – Retrieve raster (PNG) and vector tiles for the base maps (roads, boundaries, background).
-* [Map imagery tile] – Retrieve aerial and satellite imagery tiles.
+* [Get Map Tile] – Retrieve aerial and satellite imagery tiles.
 
 ### Pushpin URL parameter format comparison
 
@@ -704,8 +704,8 @@ Learn more about the Azure Maps REST services.
 [Localization support in Azure Maps]: supported-languages.md
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
-[Map image render]: /rest/api/maps/render/getmapimagerytile
-[Map imagery tile]: /rest/api/maps/render/getmapimagerytile
+[Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [Map Tiles]: /rest/api/maps/render-v2/get-map-tile
 [nearby search]: /rest/api/maps/search/getsearchnearby
 [NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
@@ -714,7 +714,7 @@ Learn more about the Azure Maps REST services.
 [POST Route directions]: /rest/api/maps/route/postroutedirections
 [quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
 [Render custom data on a raster map]: how-to-render-custom-data.md
-[Render]: /rest/api/maps/render-v2/get-map-static-image
+[Render v2 - Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
 [Route directions]: /rest/api/maps/route/getroutedirections
 [Route Matrix]: /rest/api/maps/route/postroutematrixpreview
 [Route Range]: /rest/api/maps/route/getrouterange
