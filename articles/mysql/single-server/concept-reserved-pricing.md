@@ -64,7 +64,7 @@ The following table describes required fields.
 | Region | The Azure region that's covered by the Azure Database for MySQL reserved capacity reservation.
 | Deployment Type | The Azure Database for MySQL resource type that you want to buy the reservation for.
 | Performance Tier | The service tier for the Azure Database for MySQL servers.
-| Term | One year
+| Term | One year or three years
 | Quantity | The amount of compute resources being purchased within the Azure Database for MySQL reserved capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Database for MySQL servers with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify quantity as 16 to maximize the benefit for all servers.
 
 ## Reserved instances API support
