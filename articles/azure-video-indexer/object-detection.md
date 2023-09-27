@@ -137,86 +137,84 @@ To examine object detection more thoroughly, use [Get Video Index](https://api-p
 
 ## Supported objects
 
-Certainly! Here's the list with every five words separated by ":::column-end:::" and ":::column:::" for a better column layout:
-
-:::row::
-:::column:::
-- airplane
-- apple
-- backpack
-- banana
-- baseball bat
-:::column-end:::
-:::column:::
-- baseball glove
-- bed
-- bicycle
-- bottle
-- bowl
-:::column-end:::
-:::column:::
-- broccoli
-- bus
-- cake
-- car
-- carrot
-:::column-end:::
-:::column:::
-- cell phone
-- chair
-- clock
-- computer mouse
-- couch
-:::column-end:::
-:::column:::
-- cup
-- dining table
-- donut
-- fire hydrant
-- fork
-:::column-end:::
-:::column:::
-- frisbee
-- handbag
-- hot dog
-- kite
-- laptop
-:::column-end:::
-:::column:::
-- microwave
-- motorcycle
-- necktie
-- parking meter
-- pizza
-:::column-end:::
-:::column:::
-- potted plant
-- refrigerator
-- remote
-- sandwich
-- scissors
-:::column-end:::
-:::column:::
-- skateboard
-- skis
-- snowboard
-- spoon
-- sports ball
-:::column-end:::
-:::column:::
-- suitcase
-- surfboard
-- tennis racket
-- toaster
-- toothbrush
-:::column-end:::
-:::column:::
-- traffic light
-- train
-- umbrella
-- vase
-- wine glass
-:::column-end:::
+:::row:::
+    :::column:::
+        - airplane
+        - apple
+        - backpack
+        - banana
+        - baseball bat
+    :::column-end:::
+    :::column:::
+        - baseball glove
+        - bed
+        - bicycle
+        - bottle
+        - bowl
+    :::column-end:::
+    :::column:::
+        - broccoli
+        - bus
+        - cake
+        - car
+        - carrot
+    :::column-end:::
+    :::column:::
+        - cell phone
+        - chair
+        - clock
+        - computer mouse
+        - couch
+    :::column-end:::
+    :::column:::
+        - cup
+        - dining table
+        - donut
+        - fire hydrant
+        - fork
+    :::column-end:::
+    :::column:::
+        - frisbee
+        - handbag
+        - hot dog
+        - kite
+        - laptop
+    :::column-end:::
+    :::column:::
+        - microwave
+        - motorcycle
+        - necktie
+        - parking meter
+        - pizza
+    :::column-end:::
+    :::column:::
+        - potted plant
+        - refrigerator
+        - remote
+        - sandwich
+        - scissors
+    :::column-end:::
+    :::column:::
+        - skateboard
+        - skis
+        - snowboard
+        - spoon
+        - sports ball
+    :::column-end:::
+    :::column:::
+        - suitcase
+        - surfboard
+        - tennis racket
+        - toaster
+        - toothbrush
+    :::column-end:::
+    :::column:::
+        - traffic light
+        - train
+        - umbrella
+        - vase
+        - wine glass
+    :::column-end:::
 :::row-end:::
 
 ## Limitations
