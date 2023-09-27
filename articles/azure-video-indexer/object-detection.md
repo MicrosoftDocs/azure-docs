@@ -144,71 +144,59 @@ To examine object detection more thoroughly, use [Get Video Index](https://api-p
         - backpack
         - banana
         - baseball bat
-    :::column-end:::
-    :::column:::
         - baseball glove
         - bed
         - bicycle
         - bottle
         - bowl
+        - broccoli
     :::column-end:::
     :::column:::
-        - broccoli
         - bus
         - cake
         - car
         - carrot
-    :::column-end:::
-    :::column:::
         - cell phone
         - chair
         - clock
         - computer mouse
         - couch
-    :::column-end:::
-    :::column:::
         - cup
         - dining table
+    :::column-end:::
+    :::column:::
         - donut
         - fire hydrant
         - fork
-    :::column-end:::
-    :::column:::
         - frisbee
         - handbag
         - hot dog
         - kite
         - laptop
-    :::column-end:::
-    :::column:::
         - microwave
         - motorcycle
         - necktie
-        - parking meter
-        - pizza
     :::column-end:::
     :::column:::
+        - parking meter
+        - pizza
         - potted plant
         - refrigerator
         - remote
         - sandwich
         - scissors
-    :::column-end:::
-    :::column:::
         - skateboard
         - skis
         - snowboard
         - spoon
-        - sports ball
     :::column-end:::
     :::column:::
+        - sports ball
         - suitcase
         - surfboard
         - tennis racket
         - toaster
         - toothbrush
-    :::column-end:::
-    :::column:::
         - traffic light
         - train
         - umbrella
