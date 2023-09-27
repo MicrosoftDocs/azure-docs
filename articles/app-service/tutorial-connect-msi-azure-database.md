@@ -1052,14 +1052,24 @@ You're now ready to develop and debug your app with the SQL Database as the back
 - [How do I add the managed identity to an Azure AD group?](#how-do-i-add-the-managed-identity-to-an-azure-ad-group)
 - [I get the error `mysql: unknown option '--enable-cleartext-plugin'`.](#i-get-the-error-mysql-unknown-option---enable-cleartext-plugin)
 - [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
+
 #### Does managed identity support SQL Server?
+
 Azure Active Directory and managed identities aren't supported for on-premises SQL Server. 
+
 #### I get the error `Login failed for user '<token-identified principal>'.`
+
 The managed identity you're attempting to request a token for is not authorized to access the Azure database.
+
 #### I made changes to App Service authentication or the associated app registration. Why do I still get the old token?
+
 The back-end services of managed identities also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you modify the configuration *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires. The best way to work around this is to test your changes with a new InPrivate (Edge)/private (Safari)/Incognito (Chrome) window. That way, you're sure to start from a new authenticated session.
+
+
 #### How do I add the managed identity to an Azure AD group?
+
 If you want, you can add the identity to an [Azure AD group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant  access to the Azure AD group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
+
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group-name> --name <app-name> --query principalId --output tsv)
@@ -1073,8 +1083,7 @@ To grant database permissions for an Azure AD group, see documentation for the r
 
 If you're using a MariaDB client, the `--enable-cleartext-plugin` option isn't required.
 
-
-#### I get the error `SSL connection is required. Please specify SSL options and retry`.	
+#### I get the error `SSL connection is required. Please specify SSL options and retry`.
 
 Connecting to the Azure database requires additional settings and is beyond the scope of this tutorial. For more information, see one of the following links:
 
