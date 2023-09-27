@@ -7,7 +7,7 @@ ms.date: 09/27/2023
 
 # Azure Kubernetes Service (AKS) Windows image alignment with Center for Internet Security (CIS) benchmark
 
-As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Windows images used by AKS. This security configuration is based on the Azure X security baseline, which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)][security-concepts-aks-apps-clusters]. For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Windows image used by AKS. This security configuration is based on the Azure X security baseline, which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)][security-concepts-aks-apps-clusters]. For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Windows, see [Windows security baseline][Windows-security-baseline].
 
 ## Windows Server 2019 and 2022
 
@@ -279,3 +279,4 @@ For more information about AKS security, see the following articles:
 <!-- INTERNAL LINKS -->
 [cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
 [security-concepts-aks-apps-clusters]: concepts-security.md
+[windows-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-windows.md
