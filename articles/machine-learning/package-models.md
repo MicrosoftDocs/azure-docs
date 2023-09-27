@@ -19,7 +19,7 @@ After you train a machine learning model, you need to deploy it so others can co
 
 In general, before deploying a model you want to collect all the dependencies it requires for running successfuly so you can deploy it in a reproducible and robut approach.
 
-:::image type="content" source="media/model-packaging/model-package-dependencies.png" alt-text="Screenshot that shows the dependencies that are collected by a model package operation." width=:::
+:::image type="content" source="media/model-packaging/model-package-dependencies.png" alt-text="Screenshot that shows the dependencies that are collected by a model package operation." :::
 
 Typically, model's dependencies include:
 
