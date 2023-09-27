@@ -139,7 +139,7 @@ sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waage
 ```
 
 ```bash
-cat <<EOF | sudo tee -a /etc/waagent.conf << EOF
+cat <<EOF | sudo tee -a /etc/waagent.conf
 # For Azure Linux agent version >= 2.2.45, this is the option to configure,
 # enable, or disable the provisioning behavior of the Linux agent.
 # Accepted values are auto (default), waagent, cloud-init, or disabled.
