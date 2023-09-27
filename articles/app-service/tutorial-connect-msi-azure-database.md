@@ -9,6 +9,8 @@ ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
 ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity
+zone_pivot_group_filename: app-service/zone-pivot-groups.json
+zone_pivot_groups: connection-type
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -46,6 +48,8 @@ What you will learn:
 Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+::: zone pivot="manual"
 
 ## 1. Grant database access to Azure AD user
 
@@ -970,6 +974,14 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
 -----
 
+::: zone-end
+
+::: zone pivot="serviceconnector"
+
+[!INCLUDE [passwordless-tutorial-snippet-webapp](/articles/service-connector/includes/passwordless-tutorial-snippet-webapp.md)]
+
+::: zone-end
+
 ## 4. Set up your dev environment
 
  This sample code uses `DefaultAzureCredential` to get a useable token for your Azure database from Azure Active Directory and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Azure AD user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
@@ -1035,43 +1047,29 @@ You're now ready to develop and debug your app with the SQL Database as the back
 ## Frequently asked questions
 
 - [Does managed identity support SQL Server?](#does-managed-identity-support-sql-server)
-- [I get the error `Login failed for user '<token-identified principal>'.`](#i-get-the-error-login-failed-for-user-token-identified-principal)
-- [I made changes to App Service authentication or the associated app registration. Why do I still get the old token?](#i-made-changes-to-app-service-authentication-or-the-associated-app-registration-why-do-i-still-get-the-old-token)
-- [How do I add the managed identity to an Azure AD group?](#how-do-i-add-the-managed-identity-to-an-azure-ad-group)
-- [I get the error `mysql: unknown option '--enable-cleartext-plugin'`.](#i-get-the-error-mysql-unknown-option---enable-cleartext-plugin)
-- [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
-
-#### Does managed identity support SQL Server?
-
-Azure Active Directory and managed identities aren't supported for on-premises SQL Server. 
-
-#### I get the error `Login failed for user '<token-identified principal>'.`
-
-The managed identity you're attempting to request a token for is not authorized to access the Azure database.
-
-#### I made changes to App Service authentication or the associated app registration. Why do I still get the old token?
-
-The back-end services of managed identities also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you modify the configuration *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires. The best way to work around this is to test your changes with a new InPrivate (Edge)/private (Safari)/Incognito (Chrome) window. That way, you're sure to start from a new authenticated session.
-
-
-#### How do I add the managed identity to an Azure AD group?
-
-If you want, you can add the identity to an [Azure AD group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant  access to the Azure AD group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
-
-```azurecli-interactive
-groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
-msiobjectid=$(az webapp identity show --resource-group <group-name> --name <app-name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiobjectid
-az ad group member list -g $groupid
-```
-
-To grant database permissions for an Azure AD group, see documentation for the respective database type.
-
-#### I get the error `mysql: unknown option '--enable-cleartext-plugin'`.
-
-If you're using a MariaDB client, the `--enable-cleartext-plugin` option isn't required.
-
-#### I get the error `SSL connection is required. Please specify SSL options and retry`.
+- [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](#tutorial-connect-to-azure-databases-from-app-service-without-secrets-using-a-managed-identity)
+  - [Prerequisites](#prerequisites)
+  - [1. Grant database access to Azure AD user](#1-grant-database-access-to-azure-ad-user)
+- [Azure SQL Database](#azure-sql-database)
+- [Azure Database for MySQL](#azure-database-for-mysql)
+- [Azure Database for PostgreSQL](#azure-database-for-postgresql)
+  - [2. Configure managed identity for app](#2-configure-managed-identity-for-app)
+  - [3. Modify your code](#3-modify-your-code)
+- [.NET Framework](#net-framework)
+- [.NET 6](#net-6)
+- [Node.js](#nodejs)
+- [Python](#python)
+- [Java](#java)
+  - [4. Set up your dev environment](#4-set-up-your-dev-environment)
+- [Visual Studio Windows](#visual-studio-windows)
+- [Visual Studio for macOS](#visual-studio-for-macos)
+- [Visual Studio Code](#visual-studio-code)
+- [Azure CLI](#azure-cli)
+- [Azure PowerShell](#azure-powershell)
+  - [5. Test and publish](#5-test-and-publish)
+  - [Frequently asked questions](#frequently-asked-questions)
+      - [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
+  - [Next steps](#next-steps)
 
 Connecting to the Azure database requires additional settings and is beyond the scope of this tutorial. For more information, see one of the following links:
 

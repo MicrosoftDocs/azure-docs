@@ -1,0 +1,10 @@
+# YamlMime:ZonePivotGroups
+groups:
+- id: connection-type
+  title: Types of creating connection in app service
+  prompt: Choose the type to create connection
+  pivots:
+  - id: manual
+    title: Manual
+  - id: serviceconnector
+    title: Service Connector
