@@ -6,17 +6,14 @@ ms.date: 09/26/2023
 ---
 
 # Azure Resource Notifications overview
-Azure Resource Notifications (ARN) represent the cutting-edge unified pub/sub service catering to all Azure resources. ARN taps into a diverse range of publishers, and this wealth of data is now accessible through ARN's dedicated system topics.
+Azure Resource Notifications (ARN) represent the cutting-edge unified pub/sub service catering to all Azure resources. ARN taps into a diverse range of publishers, and this wealth of data is now accessible through ARN's dedicated system topics in Azure Event Grid.
 
 Here are the key advantages:
 
-**Comprehensive Payloads:** Notifications delivered through ARN encompass the entire resource payload. This direct access leads to a reduction in read throttling, thereby enhancing your overall experience.
-
-**Enhanced Filtering Capabilities:** The availability of payloads opens up a plethora of filtering options. Leverage the properties within the payload to fine-tune the notifications stream, tailoring it to your specific scenarios.
-
-**Expanded Dataset Access**: ARN taps into multiple publishers, allowing it to offer datasets that may not be accessible through standard system topics.
-
-**Robust Role-Based Access Control (RBAC):** ARN is fortified with a robust RBAC capability. This empowers you to configure users/service principals to subscribe exclusively to the data they have authorization for, within the scope of their acc
+- **Comprehensive payloads:** Notifications delivered through ARN encompass the entire resource payload. This direct access leads to a reduction in read throttling, thereby enhancing your overall experience.
+- **Enhanced filtering capabilities:** The availability of payloads opens up a plethora of filtering options. Use the properties within the payload to fine-tune the notifications stream, tailoring it to your specific scenarios.
+**Expanded dataset access**: ARN taps into multiple publishers, allowing it to offer datasets that may not be accessible through standard system topics.
+**Robust Role-Based Access Control (RBAC):** ARN is fortified with a robust RBAC capability. This feature empowers you to configure users or service principals to subscribe exclusively to the data they have authorization for, within the scope of their acc
 
 ## RBAC for ARN system topics 
 
@@ -25,15 +22,15 @@ As of today, you need the following generic permissions provided by Event Grid t
 - `microsoft.eventgrid/eventsubscription/write`
 - `microsoft.eventgrid/systemtopic/eventsubscriptions/write`
 
-In addition to the above, we now require that you grant specific permissions, outlined below,  to users/security principals for accessing ARN system topics. For each topic type, we are exposing a distinct permission, ensuring precise and tailored access:
+In addition to these permissions, you need to grant the following permissions to users or security principals for accessing ARN system topics. For each topic type,  distinct permissions are exposed, ensuring precise and tailored access:
 
 | Topic Type | Permission |
 | ---------- | ---------- | 
-| HealthResources | Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action |
+| HealthResources | `Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action` |
 
-To enhance customer experience, we are introducing a built-in role definition that encompasses all the requisite permissions for receiving data through any ARN system topic. This includes permissions mandated by Event Grid for system topic and event subscription creation. This built-in role definition will be regularly updated to incorporate additional topic types as they become accessible through our service. As a result, users assigned this built-in role will automatically gain access to all upcoming ARN topic types. You have the option to either utilize the provided built-in role definition or craft your own custom role definitions to enforce access control.
+To enhance customer experience, a built-in role definition that encompasses all the requisite permissions for receiving data through any ARN system topic is available. This role includes permissions mandated by Event Grid for system topic and event subscription creation. This built-in role definition will be regularly updated to incorporate more topic types as they become accessible through our service. As a result, users assigned this built-in role will automatically gain access to all upcoming ARN topic types. You have the option to either utilize the provided built-in role definition or craft your own custom role definitions to enforce access control.
 
-Built-in role definition: 
+### Built-in role definition: 
 
 ```json
 {
