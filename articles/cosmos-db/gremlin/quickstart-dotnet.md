@@ -30,7 +30,7 @@ In this quickstart, you use the `Gremlin.Net` library to connect to a newly crea
   - No Azure subscription? [Sign up for a free Azure account](https://azure.microsoft.com/free/).
   - Don't want an Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no subscription required.
 - [.NET (LTS)](https://dotnet.microsoft.com/)
-  - Don't have .NET installed? Try this quickstart in a devcontainer. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/codespaces-blank?quickstart=1)
+  - Don't have .NET installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).
 - [Azure Command-Line Interface (CLI)](/cli/azure/)
 
 [!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
@@ -87,7 +87,7 @@ Add the `Gremlin.NET` NuGet package to the .NET project.
 
 ### Configure environment variables
 
-To use the *NAME* and *URI* values obtained earlier in this quickstart, persist them to new environment variables on the local machine running the application. 
+To use the *NAME* and *URI* values obtained earlier in this quickstart, persist them to new environment variables on the local machine running the application.
 
 1. To set the environment variable, use your terminal to persist the values as `COSMOS_ENDPOINT` and `COSMOS_KEY` respectively.
 
@@ -130,11 +130,11 @@ Application requests to most Azure services must be authorized. For the API for 
 
 1. Create a new instance of `GremlinServer` using the account's credentials.
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="1-7" id="authenticate_client":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="authenticate_client":::
 
 1. Create a new instance of `GremlinClient` using the remote server credentials and the **GraphSON 2.0** serializer.
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="9-12" id="authenticate_client":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="connect_client":::
 
 ## Create vertices
 
@@ -150,7 +150,7 @@ Now that the application is connected to the account, use the standard Gremlin s
     | **`price`** | `285.55` |
     | **`category`** | `surfboards` |
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="1-3" id="create_vertices":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_vertices_1":::
 
 1. Create a second **product** vertex with these properties:
 
@@ -162,7 +162,7 @@ Now that the application is connected to the account, use the standard Gremlin s
     | **`price`** | `600.00` |
     | **`category`** | `surfboards` |
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="9-11" id="create_vertices":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_vertices_2":::
 
 1. Create a third **product** vertex with these properties:
 
@@ -174,7 +174,7 @@ Now that the application is connected to the account, use the standard Gremlin s
     | **`price`** | `585.50` |
     | **`category`** | `surfboards` |
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="5-7" id="create_vertices":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_vertices_3":::
 
 ## Create edges
 
@@ -182,14 +182,14 @@ Create edges using the Gremlin syntax to define relationships between vertices.
 
 1. Create an edge from the `Montau Turtle Surfboard` product named **replaces** to the `Kiama classic surfboard` product.
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="1-3" id="create_edges":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_edges_1":::
 
     > [!TIP]
     > This edge defintion uses the `g.V(['<partition-key>', '<id>'])` syntax. Alternatively, you can use `g.V('<id>').has('category', '<partition-key>')`.
 
 1. Create another **replaces** edge from the same product to the `Bondi Twin Surfboard`.
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="5-7" id="create_edges":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="create_edges_2":::
 
 ## Query vertices &amp; edges
 
@@ -197,15 +197,11 @@ Use the Gremlin syntax to traverse the graph and discover relationships between 
 
 1. Traverse the graph and find all vertices that `Montau Turtle Surfboard` replaces.
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="1-3" id="query_vertices_edges":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="query_vertices_edges":::
 
-1. Write to the console the static string `[CREATED PRODUCT]\t68719518403`.
+1. Write to the console the static string `[CREATED PRODUCT]\t68719518403`. Then, iterate over each matching vertex using a `foreach` loop and write to the console a message that starts with `[REPLACES PRODUCT]` and includes the matching product `id` field as a suffix.
 
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="5" id="query_vertices_edges":::
-
-1. Iterate over each matching vertex using a `foreach` loop and write to the console a message that starts with `[REPLACES PRODUCT]` and includes the matching product `id` field as a suffix.
-
-    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" range="6-9" id="query_vertices_edges":::
+    :::code language="csharp" source="~/cosmos-db-apache-gremlin-dotnet-samples/001-quickstart/Program.cs" id="output_vertices_edges":::
 
 ## Run the code
 
@@ -231,14 +227,7 @@ Validate that your application works as expected by running the application. The
 
 When you no longer need the API for Gremlin account, delete the corresponding resource group.
 
-1. Open your terminal in any folder.
-
-1. Use `az group delete` to delete the resource group.
-
-    ```azurecli-interactive
-    az group delete \
-        --name $resourceGroupName
-    ```
+[!INCLUDE[Delete account](includes/delete-account-cli.md)]
 
 ## Next step
 

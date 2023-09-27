@@ -30,7 +30,7 @@ In this quickstart, you use the `gremlin` library to connect to a newly created 
   - No Azure subscription? [Sign up for a free Azure account](https://azure.microsoft.com/free/).
   - Don't want an Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no subscription required.
 - [Node.js (LTS)](https://nodejs.org/)
-  - Don't have Node.js installed? Try this quickstart in a devcontainer. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/codespaces-blank?quickstart=1)
+  - Don't have Node.js installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).codespaces.new/github/codespaces-blank?quickstart=1)
 - [Azure Command-Line Interface (CLI)](/cli/azure/)
 
 [!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
@@ -45,11 +45,171 @@ The API for Gremlin account should be created prior to using the Node.js library
 
 [!INCLUDE[Create account, database, and graph](includes/create-account-database-graph-cli.md)]
 
+### Create a new Node.js console application
 
+Create a Node.js console application in an empty folder using your preferred terminal.
 
+1. Open your terminal in an empty folder.
 
+1. Initialize a new module
 
+    ```bash
+    npm init es6 --yes
+    ```
 
+1. Create the **app.js** file
+
+    ```bash
+    touch app.js
+    ```
+
+### Install the npm package
+
+Add the `gremlin` npm package to the Node.js project.
+
+1. Open the **package.json** file and replace the contents with this JSON configuration.
+
+    ```json
+    {
+      "main": "app.js",
+      "type": "module",
+      "scripts": {
+        "start": "node app.js"
+      },
+      "dependencies": {
+        "gremlin": "^3.*"
+      }
+    }
+    ```
+
+1. Use the `npm install` command to install all packages specified in the **package.json** file.
+
+    ```bash
+    npm install
+    ```
+
+### Configure environment variables
+
+To use the *NAME* and *URI* values obtained earlier in this quickstart, persist them to new environment variables on the local machine running the application.
+
+1. To set the environment variable, use your terminal to persist the values as `COSMOS_ENDPOINT` and `COSMOS_KEY` respectively.
+
+    ```bash
+    export COSMOS_GREMLIN_ENDPOINT="<account-name>"
+    export COSMOS_GREMLIN_KEY="<account-key>"
+    ```
+
+1. Validate that the environment variables were set correctly.
+
+    ```bash
+    printenv COSMOS_GREMLIN_ENDPOINT
+    printenv COSMOS_GREMLIN_KEY
+    ```
+
+## Code examples
+
+- [Authenticate the client](#authenticate-the-client)
+- [Create vertices](#create-vertices)
+- [Create edges](#create-edges)
+- [Query vertices &amp; edges](#query-vertices--edges)
+
+The code in this article connects to a database named `cosmicworks` and a graph named `products`. The code then adds vertices and edges to the graph before traversing the added items.
+
+### Authenticate the client
+
+Application requests to most Azure services must be authorized. For the API for Gremlin, use the *NAME* and *URI* values obtained earlier in this quickstart.
+
+1. Open the **app.js** file.
+
+1. Import the `gremlin` module.
+
+    ```javascript
+    import gremlin from 'gremlin'
+    ```
+
+1. Create `accountName` and `accountKey` string variables. Store the `COSMOS_GREMLIN_ENDPOINT` and `COSMOS_GREMLIN_KEY` environment variables as the values for each respective variable.
+
+    ```javascript
+    
+    ```
+
+1. Use `PlainTextSaslAuthenticator` to create a new object for the account's credentials.
+
+    ```javascript
+    
+    ```
+
+1. Use `Client` to connect using the remote server credentials and the **GraphSON 2.0** serializer.
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+1. TODO
+
+    ```javascript
+    
+    ```
+
+## Clean up resources
+
+When you no longer need the API for Gremlin account, delete the corresponding resource group.
+
+[!INCLUDE[Delete account](includes/delete-account-cli.md)]
 
 ## Next step
 

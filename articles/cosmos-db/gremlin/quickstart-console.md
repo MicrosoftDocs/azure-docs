@@ -28,7 +28,7 @@ In this quickstart, you use the Gremlin console to connect to a newly created Az
   - No Azure subscription? [Sign up for a free Azure account](https://azure.microsoft.com/free/).
   - Don't want an Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no subscription required.
 - [Docker host](https://www.docker.com/)
-  - Don't have Docker installed? Try this quickstart in a devcontainer. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/codespaces-blank?quickstart=1)
+  - Don't have Docker installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).
 - [Azure Command-Line Interface (CLI)](/cli/azure/)
 
 [!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
@@ -146,12 +146,9 @@ Now that the console is connected to the account, use the standard Gremlin synta
 
 ## Clean up resources
 
-When you no longer need the API for Gremlin account, delete the corresponding resource group using `az group delete`.
+When you no longer need the API for Gremlin account, delete the corresponding resource group.
 
-```azurecli-interactive
-az group delete \
-    --name $resourceGroupName
-```
+[!INCLUDE[Delete account](includes/delete-account-cli.md)]
 
 ## How did we solve the problem?
 

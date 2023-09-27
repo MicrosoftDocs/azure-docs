@@ -30,7 +30,7 @@ In this quickstart, you use the `gremlinpython` library to connect to a newly cr
   - No Azure subscription? [Sign up for a free Azure account](https://azure.microsoft.com/free/).
   - Don't want an Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no subscription required.
 - [Python (latest)](https://www.python.org/)
-  - Don't have Python installed? Try this quickstart in a devcontainer. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/codespaces-blank?quickstart=1)
+  - Don't have Python installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).
 - [Azure Command-Line Interface (CLI)](/cli/azure/)
 
 [!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
@@ -53,6 +53,11 @@ The API for Gremlin account should be created prior to using the Python library.
 
 
 
+## Clean up resources
+
+When you no longer need the API for Gremlin account, delete the corresponding resource group.
+
+[!INCLUDE[Delete account](includes/delete-account-cli.md)]
 
 ## Next step
 
