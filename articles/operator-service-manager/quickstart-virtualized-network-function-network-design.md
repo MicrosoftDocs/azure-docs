@@ -68,9 +68,9 @@ Sample input-vnf-nsd.json
 |    |    *version*:   The name of the existing Network Function Definition Group to deploy using this NSD.   |
 |     |     *publisher_offering_location*:  The region that the NFDV is published to.  |
 |     |   *publisher_scope*: The scope that the publisher is published under. Currently only 'private' is supported.      |
-|    |  *type*:   Type of Network Function. Valid values are 'cnf' or 'vnf'.     |
+|    |  *type*:   Type of Network Function. Valid values are cnf or vnf.     |
 |    |    *multiple_instances*: Valid values are true or false.  WhetherControls if the NSD should allow arbitrary numbers of this type of NF.  If set to false only a single instance is allowed. Only supported on VNFs. For CNFs, set to false.     |
-|**nsd_name**     |    Network Service Design Group Name. This is the collection of Network Service Design Versions. Created if it doesn't exist.     |
+|**nsd_name**     |    Network Service Design Group Name. The collection of Network Service Design Versions. Created if it doesn't exist.     |
 |**nsd_version**    |   Version of the NSD to be created. The format should be A.B.C.      |
 |**nsdv_description**     |  Description of the NSDV.       |
 
@@ -92,7 +92,7 @@ These files are created:
 |**configMappings**     |      Converts the config group values inputs to the deployment parameters required for each NF.   |
 |**nsd_definition.bicep**     |   A bicep template for creating the NSDV itself.      |
 |**schemas**    |     Defines to the inputs required in the config group values for this NSDV.    |
-|**ubuntu-vm-nfdg_nf.bicep**    |   A bicep template for deploying the NF.  This will be uploaded to the artifact store.      |
+|**ubuntu-vm-nfdg_nf.bicep**    |   A bicep template for deploying the NF.  Uploaded to the artifact store.      |
 
 ## Publish the Network Service Design (NSD)
 
