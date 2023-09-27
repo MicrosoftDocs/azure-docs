@@ -67,7 +67,7 @@ For information about managing identities and access, see [Azure Active Director
 
 You can deploy templates to tenants, management groups, subscriptions, or resource groups.
 
-## What is a resource group?
+## <a id="resource-groups">What is a resource group?</a>
 
 A resource group is a container that enables you to manage related resources for an Azure solution. By using the resource group, you can coordinate changes to the related resources. For example, you can deploy an update to the resource group and have confidence that the resources are updated in a coordinated operation. Or, when you're finished with the solution, you can delete the resource group and know that all of the resources are deleted.
 
