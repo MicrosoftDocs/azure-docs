@@ -116,11 +116,7 @@ You can configure your cloud deployment using YAML. Take a look at the sample YA
 
 __tfserving-endpoint.yml__
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container/tfserving/half-plus-two/tfserving-endpoint.yml":::
-
 __tfserving-deployment.yml__
-
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/custom-container//tfserving/half-plus-two/tfserving-deployment.yml":::
 
 # [Python SDK](#tab/python)
 
