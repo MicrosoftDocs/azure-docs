@@ -34,7 +34,7 @@ Simple mode lets you [get started quickly by retrieving data from one or more ta
 
 This section orients you with the controls available in Log Analytics simple mode.
 
-:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-experience.png" alt-text="Screenshot that shows Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-experience.png":::
+:::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png" alt-text="Screenshot that shows Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-user-interface.png":::
 
 ### Top query bar
 
