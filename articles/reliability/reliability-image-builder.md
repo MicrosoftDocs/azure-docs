@@ -21,7 +21,7 @@ Azure Image Builder (AIB) is a regional service with a cluster that serves singl
 For an architectural overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 
->![!NOTE]
+>[!NOTE]
 > Azure Image Builder doesn't support [availability zones](./availability-zones-overview.md).
 
 ## Reliability recommendations
@@ -33,8 +33,8 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 | Category | Priority |Recommendation |  
 |---------------|--------|---|
-| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Use generation 2 virtual machine source images](#-run-production-workloads-on-two-or-more-vms-using-virtual-machine-scale-sets-flex) |
-|[**Disaster Recovery**](#disaster-recovery)|:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Replicate image templates to a secondary region](#-deploy-vms-across-availability-zones-or-use-virtual-machine-scale-sets-flex-with-zones) | 
+| [**High Availability**](#high-availability) |:::image type="icon" source="media/icon-recommendation-low.svg":::| [Use generation 2 virtual machine source images](#-use-generation-2-virtual-machine-vm-source-images) |
+|[**Disaster Recovery**](#disaster-recovery)|:::image type="icon" source="media/icon-recommendation-low.svg"::: |[Replicate image templates to a secondary region](#-replicate-image-templates-to-a-secondary-regions) | 
 
 
 ### High availability
