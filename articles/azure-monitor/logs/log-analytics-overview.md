@@ -27,7 +27,7 @@ When you start Log Analytics, a dialog appears that contains [example queries](.
 If you want to start with an empty script and write it yourself, close the example queries. Select **Queries** at the top of the screen to get them back.
 
 > [!TIP]
-> The new Log Analytics, which offers [simple and advanced modes for exploring data](../logs/log-analytics-simple-mode.md), is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor.
+> [Log Analytics simple mode](../logs/log-analytics-simple-mode.md) is currently in preview and available to a limited number of customers. To try it, select **Try Log Analytics simple mode** at the top right corner of the Log Analytics query editor.
 > :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
 ## Log Analytics interface

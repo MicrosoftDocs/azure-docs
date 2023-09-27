@@ -24,7 +24,7 @@ This article explains the new Log Analytics experience and how to use simple mod
 
 ## Try Log Analytics simple mode
 
-Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try the new Log Analytics** at the top right corner of the Log Analytics query editor.
+Simple mode is currently in preview and available to a limited number of customers. To try it, select **Try Log Analytics simple mode** at the top right corner of the Log Analytics query editor.
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
