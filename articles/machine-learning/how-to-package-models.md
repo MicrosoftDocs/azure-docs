@@ -51,7 +51,7 @@ In the model detail page in [Azure Machine Learning studio](https://ml.azure/com
 
 ---
 
-Azure Machine Learning will package the model first and then execute the deployment. 
+Azure Machine Learning will package the model first and then execute the deployment. Notice that when using packages, if you indicate a base environment with conda or pip dependencies, you don't need to include the dependencies of the inference server (`azureml-inference-server-http`). It is automatically added for you.
 
 > [!TIP] 
 > Packaging MLflow models before deployment is highly advisable and required for endpoints without outbound networking connectivity. MLflow models indicate their dependencies in the model itself, which requires dynamic installation of packages. When an MLflow model is packaged, this dynamic installation is performed at packaging time, avoiding the installation of software at deployment time.
@@ -214,14 +214,14 @@ To create a model package, we need to create a package specification. The packag
 | Attribute                               | Type      | Description | Required |
 |-----------------------------------------|-----------|-------------|----------|
 | `target_environment_name`               | `str`     | The name of the package to create. Packages are materialized as environments is Azure Machine Learning | Yes |
-| `base_environment_source`               | `object`  | The base image to use to create the package. | Yes, unless model is MLflow. |
-| `base_environment_source.type`          | `str`     | Only using another environment as the base image (`type: environment_asset`) is supported.  |  |
+| `base_environment_source`               | `object`  | The base image to use to create the package where dependencies for the model are indicated. | Yes, unless model is MLflow. |
+| `base_environment_source.type`          | `str`     | The type of the base image. Only using another environment as the base image is supported (`type: environment_asset`) is supported.  |  |
 | `base_environment_source.resource_id`   | `str`     | The resource ID of the base environment to use. Use format `azureml:<name>:<version>` or a long resource id.   |  |
 | `inferencing_server`                    | `object`  | The inferencing server to use. | Yes |
 | `inferencing_server.type`               | `azureml_online` <br /> `custom` | Use `azureml_online` to Azure Machine Learning inferenginc server, or `custom` for a custom online server like TensorFlow serving, Torch Serve, etc. | Yes |
 | `inferencing_server.code_configuration` | `object`  | The code configuration with the inference routine. It should contain at least one Python file with methods `init` and `run`. | Yes, unless model is MLflow. |
 | `model_configuration`                   | `object`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`              | `download` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `download` and `copy`. Defaults to `download`. | No.  |
+| `model_configuration.mode`              | `download` <br /> `copy` | Indicate how the model would be placed in the package. Possible values are `download` and `copy`. Defaults to `download`. | No  |
 
 __package-moe.yml__
 
@@ -245,12 +245,12 @@ To create a model package, we need to create a package specification. The packag
 | Attribute                             | Type                  | Description | Required |
 |---------------------------------------|-----------------------|-------------|----------|
 | `target_environment_name`             | `str`                 | The name of the package to create. Packages are materialized as environments is Azure Machine Learning | Yes |
-| `base_environment_source`             | `BaseEnvironment`     | The base image to use to create the package. | Yes, unless model type is MLflow. |
-| `base_environment_source.type`        | `BaseEnvironmentType` | Only using another environment as the base image (`type=BaseEnvironmentType.EnvironmentAsset`) is supported.  |  |
+| `base_environment_source`             | `BaseEnvironment`     | The base image to use to create the package where dependencies for the model are indicated. | Yes, unless model type is MLflow. |
+| `base_environment_source.type`        | `BaseEnvironmentType` | The type of the base image. Only using another environment as the base image is supported (`BaseEnvironmentType.EnvironmentAsset`).  |  |
 | `base_environment_source.resource_id` | `str`                 | The resource ID of the base environment to use. Use format `azureml:<name>:<version>` or a long-format resource id. |  |
 | `inferencing_server`                  | `AzureMLOnlineInferencingServer` <br /> `CustomOnlineInferenceServer` | The inferencing server to use. Use `AzureMLOnlineInferencingServer` to Azure Machine Learning inferenginc server, or `CustomOnlineInferenceServer` for a custom online server like TensorFlow serving, Torch Serve, etc. <br /><br />When using `AzureMLInferencingServer` and the model type is not Mlflow, a code configuration section should be indicated containing at least one Python file with methods `init` and `run`. <br /><br />When using `CustomOnlineInferenceServer`, an online server configuration section should be indicated.  | Yes |
 | `model_configuration`                 | `ModelConfiguration`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` and `ModelInputMode.COPY`. | No. Defaults to `ModelInputMode.DOWNLOAD`. |
+| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` and `ModelInputMode.COPY`. Defaults to `ModelInputMode.DOWNLOAD`. | No |
 
 
 ```python
