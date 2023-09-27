@@ -25,6 +25,13 @@ This article explains the concepts, benefits, and limitations of hybrid search.
 
 ## Architecture overview and diagram
 
+<!-- ## Hybrid search
+
+By performing similarity searches over vector representations of your data, you can find information that's similar to your search query, even if the search terms don't match up perfectly to the indexed content. In practice, we often need to expand lexical matches with semantic matches to guarantee good recall. The notion of composing term queries with vector queries is called *hybrid search*.
+
+In Azure Cognitive Search, embeddings are indexed alongside textual and numerical fields allowing you to issue hybrid term and vector queries and take advantage of existing functionalities like filtering, faceting, sorting, scoring profiles, and [semantic search](semantic-search-overview.md) in a single search request.
+Hybrid search combines results from both term and vector queries, which use different ranking functions such as BM25 and cosine similarity. To present these results in a single ranked list, a method of merging the ranked result lists is needed. -->
+
 A search index can have fields that contain plain text and numbers, geo coordinates for geospatical search, and vectors for a mathematical representation of a chunk of text or image, audio, and video.
 
 The search index provides the fields with the content and attributes that support hybrid scenarios:
