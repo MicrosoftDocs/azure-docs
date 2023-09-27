@@ -7,7 +7,7 @@ ms.author: mansha
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
-ms.topic: quickstart
+ms.topic: quickstart-sdk
 ms.date: 09/27/2023
 # CustomerIntent: As a Python developer, I want to use a library for my programming language so that I can create and traverse vertices and edges in code.
 ---
@@ -37,7 +37,7 @@ In this quickstart, you use the `gremlinpython` library to connect to a newly cr
 
 ## Setting up
 
-This section walks you through creating an API for Gremlin account an setting up a .NET project to use the library to connect to the account.
+This section walks you through creating an API for Gremlin account and setting up a .NET project to use the library to connect to the account.
 
 ### Create an API for Gremlin account
 
