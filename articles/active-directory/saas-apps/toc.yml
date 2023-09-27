@@ -3332,6 +3332,8 @@
         href: looop-provisioning-tutorial.md
       - name: LogMeIn
         href: logmein-provisioning-tutorial.md
+      - name: M-Files
+        href: m-files-provisioning-tutorial.md
       - name: Maptician
         href: maptician-provisioning-tutorial.md
       - name: Markit Procurement Service
