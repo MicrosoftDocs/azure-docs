@@ -43,7 +43,7 @@ To complete this tutorial, you need the following resources and privileges:
 * A working Microsoft Entra tenant with at least a Microsoft Entra ID P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Microsoft Entra SSPR](concept-sspr-licensing.md).
-* An account with [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator).  
+* An account with [Global Administrator Privileges](../roles/permissions-reference.md#global-administrator).  
 * Microsoft Entra ID configured for self-service password reset.
     * If needed, [complete the previous tutorial to enable Microsoft Entra SSPR](tutorial-enable-sspr.md).
 * An existing on-premises AD DS environment configured with a current version of Microsoft Entra Connect.
