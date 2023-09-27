@@ -264,4 +264,4 @@ sections:
       - question: |
           Can I set up a secure LDAP connection with Microsoft Entra ID?
         answer: |
-           No. Microsoft Entra ID doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Microsoft Entra Domain Services (Microsoft Entra DS) instance on your Microsoft Entra tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md)
+           No. Microsoft Entra ID doesn't support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Microsoft Entra Domain Services instance on your Microsoft Entra tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see [Configure secure LDAP for a Microsoft Entra Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md)

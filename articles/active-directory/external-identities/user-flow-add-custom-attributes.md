@@ -29,7 +29,7 @@ You can create custom attributes in the Microsoft Entra admin center and use the
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-The `<extensions-app-id>` is specific to your tenant. To find this identifier, navigate to **Identity** > **App registrations** > **All applications**. Search for the app that starts with `aad-extensions-app` and select it. On the app's Overview page, note the Application (client) ID.
+The `<extensions-app-id>` is specific to your tenant. To find this identifier, navigate to **Identity** > **Applications** > **App registrations** > **All applications**. Search for the app that starts with "aad-extensions-app" and select it. On the app's Overview page, note the Application (client) ID.
 
 ## Create a custom attribute
 

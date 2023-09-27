@@ -133,14 +133,14 @@
       items:
         - name: React
           items:
-          - name: 1 - Register your app
-            href: single-page-app-tutorial-01-register-app.md
-          - name: 2 - Prepare your app
-            href: single-page-app-tutorial-02-prepare-spa.md
-          - name: 3 - Sign in users
-            href: single-page-app-tutorial-03-sign-in-users.md
-          - name: 4 - Get user data from web API
-            href: single-page-app-tutorial-04-call-api.md
+          - name: Register your app
+            href: tutorial-single-page-app-react-register-app.md
+          - name: Prepare your app
+            href: tutorial-single-page-app-react-prepare-spa.md
+          - name: Sign in users
+            href: tutorial-single-page-app-react-sign-in-users.md
+          - name: Get user data from web API
+            href: tutorial-single-page-app-react-call-api.md
         - name: Angular
           href: tutorial-v2-angular-auth-code.md
         - name: Blazor WebAssembly
@@ -808,6 +808,10 @@
               href: single-sign-out-saml-protocol.md
             - name: Token exchange scenarios
               href: scenario-token-exchange-saml-oauth.md
+        - name: WS-Federation
+          items:
+          - name: Federation metadata
+            href: federation-metadata.md
     - name: App registration reference
       items:
         - name: Application manifest
