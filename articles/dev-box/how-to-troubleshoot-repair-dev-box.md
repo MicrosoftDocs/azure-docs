@@ -42,14 +42,23 @@ The Troubleshoot & repair process takes between 10 to 40 minutes to complete. Du
 To run Troubleshoot & repair on your dev box, follow these steps:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
-1. Check that the dev box you want to troubleshoot is running. 
+
+1. Check that the dev box you want to troubleshoot is running.
+ 
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-running-tile.png" alt-text="Screenshot showing the dev box tile with the status Running."::: 
-1. If it's not running, start it, and check whether you can connect to it with RDP.
+
+1. If the dev box is not running, start it, and check whether you can connect to it with RDP.
+
 1. If your dev box is running and you still can't connect to it with RDP, on the Actions menu, select **Troubleshoot & repair**.
+
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" alt-text="Screenshot showing the Troubleshoot and repair option for a dev box.":::
+
 1. In the Troubleshoot and repair connectivity message box, select *Yes, I want to troubleshoot this dev box*, and then select **Troubleshoot**.
-   While waiting for the process to complete, you can leave your dev portal as is, or close it and come back. The process continues in the background.
+
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshooting-confirm.png" alt-text="Screenshot showing the Troubleshoot and repair connectivity confirmation message with Yes, I want to troubleshoot this dev box highlighted."::: 
+
+   While waiting for the process to complete, you can leave your dev portal as is, or close it and come back. The process continues in the background.
+
 1. After the RDP connectivity issue is resolved, you can connect to dev box again through [a browser](/azure/dev-box/quickstart-create-dev-box#connect-to-a-dev-box), or [a Remote Desktop client](/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=windows).
 
 ## Troubleshoot & repair results
