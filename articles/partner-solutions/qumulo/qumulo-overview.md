@@ -4,7 +4,7 @@ description: Learn about what Azure Native Qumulo Scalable File Service offers y
 
 ms.topic: overview
 ms.custom: template-overview
-ms.date: 01/18/2023
+ms.date: 09/27/2023
 
 ---
 
