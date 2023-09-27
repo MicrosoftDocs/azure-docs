@@ -200,14 +200,14 @@ After creating the connection, you can use the connection string in your applica
 :::zone pivot="postgresql"
 
 
-[!INCLUDE [code sample for postgres aad connection](./includes/code-postgres-aad.md)]
+[!INCLUDE [code sample for postgres aad connection](./code-postgres-aad.md)]
 
 
 :::zone-end
 
 :::zone pivot="mysql"
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql aad connection](./code-mysql-aad.md)]
 
 
 :::zone-end
@@ -215,7 +215,8 @@ After creating the connection, you can use the connection string in your applica
 
 :::zone pivot="sql"
 
-[!INCLUDE [code sample for sql aad connection](./includes/code-sql-aad.md)]
+
+[!INCLUDE [code sample for sql aad connection](./code-sql-aad.md)]
 
 
 :::zone-end

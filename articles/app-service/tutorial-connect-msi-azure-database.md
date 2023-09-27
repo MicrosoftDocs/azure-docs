@@ -978,7 +978,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
 ::: zone pivot="serviceconnector"
 
-[!INCLUDE [passwordless-tutorial-snippet-webapp](/articles/service-connector/includes/passwordless-tutorial-snippet-webapp.md)]
+[!INCLUDE [passwordless-tutorial-snippet-webapp](../service-connector/includes/passwordless-tutorial-snippet-webapp.md)]
 
 ::: zone-end
 
@@ -1068,10 +1068,7 @@ You're now ready to develop and debug your app with the SQL Database as the back
 - [Azure PowerShell](#azure-powershell)
   - [5. Test and publish](#5-test-and-publish)
   - [Frequently asked questions](#frequently-asked-questions)
-      - [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
   - [Next steps](#next-steps)
-
-Connecting to the Azure database requires additional settings and is beyond the scope of this tutorial. For more information, see one of the following links:
 
 [Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-ssl-connection-security.md)
 [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../mysql/howto-configure-ssl.md)

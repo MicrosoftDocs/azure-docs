@@ -155,12 +155,12 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 ## [Azure SQL Database](#tab/sqldatabase)
 
-[!INCLUDE [code sample for postgres aad connection](./includes/code-postgres-aad.md)]
+[!INCLUDE [code sample for postgres aad connection](./code-postgres-aad.md)]
 
 # [Azure Database for MySQL](#tab/mysql)
 
-[!INCLUDE [code sample for mysql aad connection](./includes/code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql aad connection](./code-mysql-aad.md)]
 
 ## [Azure Database for PostgreSQL](#tab/postgresql)
 
-[!INCLUDE [code sample for sql aad connection](./includes/code-sql-aad.md)]
+[!INCLUDE [code sample for sql aad connection](./code-sql-aad.md)]

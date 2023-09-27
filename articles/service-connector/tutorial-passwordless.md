@@ -39,9 +39,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 Sign in with the Azure CLI via `az login`. If you're using Azure Cloud Shell or are already logged in, confirm your authenticated account with `az account show`.
 
 
-<!-- include passwordless snippet -->
-[!include](includes/passwordless-tutorial-snippet.md)
-
+[!INCLUDE [passwordless snippet](./includes/passwordless-tutorial-snippet.md)]
 
 ## Deploy the application to an Azure hosting service
 
@@ -62,7 +60,6 @@ For Azure Container Apps, you can deploy the application code via the `az contai
 ---
 
 Then you can check the log or call the application to see if it can connect to the database on Azure successfully.
-
 
 
 ### Troubleshooting
