@@ -12,7 +12,7 @@ ms.author: allensu
 # HTTP application routing add-on for Azure Kubernetes Service (AKS) (retired)
 
 > [!CAUTION]
-> The HTTP application routing add-on is [retired](https://azure.microsoft.com/updates/retirement-http-application-routing-addon-preview-for-aks-will-retire-03032025) and isn't recommended for production use. We recommend migrating to the [Application Routing add-on](./app-routing-migration.md) instead.
+> HTTP application routing add-on (preview) for Azure Kubernetes Service (AKS) will be [retired](https://azure.microsoft.com/updates/retirement-http-application-routing-addon-preview-for-aks-will-retire-03032025) on 03 March 2025. We recommend migrating to the [Application Routing add-on](./app-routing-migration.md) by that date.
 
 The HTTP application routing add-on makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster by:
 
