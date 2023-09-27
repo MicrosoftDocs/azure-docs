@@ -250,13 +250,13 @@ You can connect your function to other Azure services by adding input and output
 ::: zone pivot="programming-language-csharp"  
 For example, the way you define an output binding that writes data to a storage queue depends on your process model:
 
-### [In-process](#tab/in-process)
-
-Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
-
 ### [Isolated process](#tab/isolated-process)
 
 Update the function method to add a binding parameter defined by using the `QueueOutput` attribute. You can use a `MultiResponse` object to return multiple messages or multiple output streams. 
+
+### [In-process](#tab/in-process)
+
+Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
 
 ---
 
