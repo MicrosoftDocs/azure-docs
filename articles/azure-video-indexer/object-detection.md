@@ -21,28 +21,35 @@ Review [transparency note overview](/legal/azure-video-indexer/transparency-note
 | **Key** | **Definition** |
 | --- | --- |
 | ID | Incremental number of IDs of the detected objects in the media file |
-| Type | Type of objects e.g., Car 
+| Type | Type of objects,  for example, Car 
 | ThumbnailID | GUID representing a single detection of the object |
 | displayName | Name to be displayed in the VI portal experience |
 | WikiDataID | A unique identifier in the WikiData structure |
 | Instances | List of all instances that were tracked  
-| Confidence | A score between 0-1indecating the object detection confidence. |
-| adjustedStart | adjustedEnd |
-| start | | 
-| end | |
+| Confidence | A score between 0-1 indicating the object detection confidence |
+| adjustedStart | adjusted start time of the video when using the editor | 
+| adjustedEnd | adjusted end time of the video when using the editor |
+| start | the time that the object appears in the frame | 
+| end | the time that the object no longer appears in the frame |
 
 ## JSON response
 
-Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request. Detected objects will appear in the downloaded *insights.json* file under “detected Objects”. Every time the object is detected, it is given an id. In this example, a cup was detected twice, but the id indicates that it was the 23rd object detected in the video.
+Object detection is included in the insights that are the result of an [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request. 
+
+### Detected and tracked objects
+
+Detected and tracked objects appear under “detected Objects” in the downloaded *insights.json* file. Every time a unique object is detected, it's given an ID. That object is also tracked, meaning that the model watches for the detected object to return to the frame.  If it does, another instance is added to JSON that lists the same detected object ID with different start and end times and other information.
+
+In this example, the first car was detected and given an ID of 1 since it was also the first object detected. Then, a different car was detected and that car was given the ID of 23 since it was the 23rd object detected. Later, the first car appeared again and another instance was added to the JSON. The resulting JSON is given in the following example:
 
 ```json
 detectedObjects: [
     {
     id: 1,
-    type: "Cup",
+    type: "Car",
     thumbnailId: "1c0b9fbb-6e05-42e3-96c1-abe2cd48t33",
-    displayName: "cup",
-    wikiDataId: "Q13194",
+    displayName: "car",
+    wikiDataId: "Q1420",
     instances: [
         {
         confidence: 0.468,
@@ -55,10 +62,10 @@ detectedObjects: [
     },
     {
     id: 23,
-    type: "Cup",
+    type: "Car",
     thumbnailId: "1c0b9fbb-6e05-42e3-96c1-abe2cd48t34",
-    displayName: "cup",
-    wikiDataId: "Q13194",
+    displayName: "car",
+    wikiDataId: "Q1420",
     instances: [
         {
         confidence: 0.427,
@@ -68,75 +75,31 @@ detectedObjects: [
         end: "0:00:14.24"
         }    
     ]
-    }
+    },
+    id: 1,
+    type: "Car",
+    thumbnailId: "1c0b9fbb-6e05-42e3-96c1-abe2cd48t35",
+    displayName: "car",
+    wikiDataId: "Q1420",
+    instances: [
+        {
+        confidence: 0.468,
+        adjustedStart: "0:00:00",
+        adjustedEnd: "0:00:16.34",
+        start: "0:00:00",
+        end: "0:00:16.34"
+        }    
+    ]
+    },
 ]
 ```
 
-## Supported objects
-
-- airplane
-- apple
-- backpack
-- baseball bat
-- baseball glove
-- bed
-- bicycle
-- boat
-- bowl
-- broccoli
-- bus
-- cake
-- car
-- carrot
-- chair
-- clock
-- computer mouse
-- couch
-- cup
-- dining table
-- donut
-- fire hydrant
-- fork
-- frisbee
-- handbag
-- hot dog
-- kite
-- knife
-- laptop
-- microwave
-- monitor
-- motorcycle
-- orange
-- oven
-- parking meter
-- pizza
-- potted plant
-- refrigerator
-- remote
-- sandwich
-- scissors
-- skateboard
-- skis
-- snowboard
-- spoon
-- sports ball
-- suitcase
-- surfboard
-- tennis racket
-- tie
-- toilet
-- toothbrush
-- traffic light
-- train
-- umbrella
-- vase
-- wine glass
 
 You can interact with the insight with the web portal or with the API.
 
 ## [Web Portal](#tab/webportal)
 
-Once you have uploaded a video, you can view the insights. In the insights pane you can view the list of objects detected and their main instances.
+Once you have uploaded a video, you can view the insights. On the insights tab, you can view the list of objects detected and their main instances.
 
 ### Insights
 Select the **Insights** tab. The objects are in descending order of the number of appearances in the video.
@@ -148,11 +111,11 @@ Select the **Timeline** tab.
 
 :::image type="content" source="media/object-detection/timeline-tab.png" alt-text="screenshot of the interface of the timeline tab":::
 
-Under the timeline all the detection of the object will be displayed according to the time of appearance. When hovering on a specific detection the percentage of certainty of detection of the object will be presented. 
+Under the timeline tab, all object detection is displayed according to the time of appearance. When you hover over a specific detection, it shows the detection percentage of certainty. 
 
 ### Player
 
-The player will automatically mark the detected object with a bounding box. The selected object from the insights pane will be highlighted in blue with the objects type and serial number also displayed.
+The player automatically marks the detected object with a bounding box. The selected object from the insights pane is highlighted in blue with the objects type and serial number also displayed.
  
 Filter the bounding boxes around objects by selecting bounding box icon on the player.
 
@@ -166,16 +129,98 @@ Download the insights by selecting **Download** and then **Insights (JSON)**.
 
 ## [API](#tab/api)
 
-Object detection is part of the [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) process.
+When you use the [Upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) request with the standard or advanced video presets, object detection is included in the indexing.
 
-To get the resulting JSON, use [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
+To examine object detection more thoroughly, use [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index).
 
 ---
 
+## Supported objects
+
+Certainly! Here's the list with every five words separated by ":::column-end:::" and ":::column:::" for a better column layout:
+
+:::column:::
+- airplane
+- apple
+- backpack
+- banana
+- baseball bat
+:::column-end:::
+:::column:::
+- baseball glove
+- bed
+- bicycle
+- bottle
+- bowl
+:::column-end:::
+:::column:::
+- broccoli
+- bus
+- cake
+- car
+- carrot
+:::column-end:::
+:::column:::
+- cell phone
+- chair
+- clock
+- computer mouse
+- couch
+:::column-end:::
+:::column:::
+- cup
+- dining table
+- donut
+- fire hydrant
+- fork
+:::column-end:::
+:::column:::
+- frisbee
+- handbag
+- hot dog
+- kite
+- laptop
+:::column-end:::
+:::column:::
+- microwave
+- motorcycle
+- necktie
+- parking meter
+- pizza
+:::column-end:::
+:::column:::
+- potted plant
+- refrigerator
+- remote
+- sandwich
+- scissors
+:::column-end:::
+:::column:::
+- skateboard
+- skis
+- snowboard
+- spoon
+- sports ball
+:::column-end:::
+:::column:::
+- suitcase
+- surfboard
+- tennis racket
+- toaster
+- toothbrush
+:::column-end:::
+:::column:::
+- traffic light
+- train
+- umbrella
+- vase
+- wine glass
+:::column-end:::
+
 ## Limitations
 
-- Up to 20 detections per frame for standard and advanced processing.
-- The video area should not exceed 1920 x 1080 pixels.
-- Object size should not be greater than 90 percent of the frame.
-- A very high frame rate (> 30 FPS) may result in slower indexing, with little added value to the quality of the detection and tracking.
+- Up to 20 detections per frame for standard and advanced processing and 35 tracks per class.
+- The video area shouldn't exceed 1920 x 1080 pixels.
+- Object size shouldn't be greater than 90 percent of the frame.
+- A high frame rate (> 30 FPS) may result in slower indexing, with little added value to the quality of the detection and tracking.
 - Other factors that may affect the accuracy of the object detection include low light conditions, camera motion, and occlusion.
