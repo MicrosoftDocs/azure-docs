@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Manage favorites
 
-Ther **Favorites** list in the Azure portal lets you quickly go to the services you use most often. We've already added some common services to your **Favorites** list, but you may want to customize it by adding or removing items. You're the only one who sees the changes you make to **Favorites**.
+The **Favorites** list in the Azure portal lets you quickly go to the services you use most often. We've already added some common services to your **Favorites** list, but you may want to customize it by adding or removing items. You're the only one who sees the changes you make to **Favorites**.
 
 You can view your **Favorites** list in the Azure portal menu, or from the **Favorites** section within **All services**.
 
