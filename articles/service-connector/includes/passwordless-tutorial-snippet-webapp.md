@@ -139,6 +139,8 @@ This Service Connector command completes the following tasks in the background:
   - For App Service, the configurations are set in the **App Settings** blade.
 
 
+If you meet any problem, refer to [Troubleshooting](../tutorial-passwordless.md#troubleshooting) for help.
+
 ## Connect to database with Azure Active Directory authentication
 
 In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. `DefaultAzureCredential` is flexible enough to adapt to both the development environment and the Azure environment. When running locally, it can retrieve the logged-in Azure user from the environment of your choice (Visual Studio, Visual Studio Code, Azure CLI, or Azure PowerShell). When running in Azure, it retrieves the managed identity. So it's possible to have connectivity to database both at development time and in production. The pattern is as follows:
