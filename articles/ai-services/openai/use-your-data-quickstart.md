@@ -67,6 +67,12 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [Go quickstart](includes/use-your-data-go.md)]
+
+::: zone-end
+
 ::: zone pivot="rest-api"
 
 [!INCLUDE [REST API quickstart](includes/use-your-data-rest.md)]
