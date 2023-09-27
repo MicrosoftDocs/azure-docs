@@ -36,7 +36,7 @@ Follow the steps listed under section [Manage Users: Assign Users to Role](/azur
 ### Step 2: FHIR server integration with samples
 For integration with Azure Health Data Services samples, you would need to follow the steps in samples open source solution. 
 
-**[Click on the link](https://aka.ms/azure-health-data-services-smart-on-fhir-sample)** to navigate to Azure Health Data Service Samples OSS. This step listed in the document will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
+**[Click on the link](https://aka.ms/azure-health-data-services-smart-on-fhir-sample)** to navigate to Azure Health Data Service Samples OSS. This step listed in the document enables integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg) compliance, using Azure Active Directory as the identity provider workflow.  
@@ -104,7 +104,7 @@ Add the reply URL to the public client application that you created earlier for 
 
 ### Step 3:  Get a test patient
 
-To test the FHIR service and the SMART on FHIR proxy, you'll need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
+To test the FHIR service and the SMART on FHIR proxy, you need to have at least one patient in the database. If you've not interacted with the API yet, and you don't have data in the database, see [Access the FHIR service using Postman](./../fhir/use-postman.md) to load a patient. Make a note of the ID of a specific patient.
 
 ### Step 4:  Download the SMART on FHIR app launcher
 
@@ -146,7 +146,7 @@ After you start the SMART on FHIR app launcher, you can point your browser to `h
 
 ![Screenshot showing SMART on FHIR app launcher.](media/smart-on-fhir/smart-on-fhir-app-launcher.png)
 
-When you enter **Patient**, **Encounter**, or **Practitioner** information, you'll notice that the **Launch context** is updated. When you're using the FHIR service, the launch context is simply a JSON document that contains information about patient, practitioner, and more. This launch context is base64 encoded and passed to the SMART on FHIR app as the `launch` query parameter. According to the SMART on FHIR specification, this variable is opaque to the SMART on FHIR app and passed on to the identity provider. 
+When you enter **Patient**, **Encounter**, or **Practitioner** information, you notice that the **Launch context** is updated. When you're using the FHIR service, the launch context is simply a JSON document that contains information about patient, practitioner, and more. This launch context is base64 encoded and passed to the SMART on FHIR app as the `launch` query parameter. According to the SMART on FHIR specification, this variable is opaque to the SMART on FHIR app and passed on to the identity provider. 
 
 The SMART on FHIR proxy uses this information to populate fields in the token response. The SMART on FHIR app *can* use these fields to control which patient it requests data for and how it renders the application on the screen. The SMART on FHIR proxy supports the following fields:
 
