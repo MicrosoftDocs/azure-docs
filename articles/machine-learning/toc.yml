@@ -945,7 +945,7 @@
               href: how-to-use-batch-azure-data-factory.md
             - name: Run batch endpoints from Event Grid events in storage
               href: how-to-use-event-grid-batch.md
-    - name: Package and deploy models outside Azure Machine Learning
+    - name: Deploy models outside Azure Machine Learning
       href: how-to-package-models-app-service.md
     - name: Model optimization
       items:

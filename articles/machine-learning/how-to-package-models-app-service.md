@@ -13,9 +13,9 @@ ms.topic: how-to
 
 # Package and deploy models outside Azure Machine Learning
 
-Model packages is a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Packages can be moved across workspaces and even outside of Azure Machine Learning. In this article you learn how package a model and deploy it to an Azure App Service.
+Models can be deployed outside of Azure Machine Learning for online serving be using [Model packages](package-models.md), a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. In this article you learn how package a model and deploy it to an Azure App Service.
 
-To learn more about model packages in general, read [Model packages for deployment](package-models.md)
+Packages can be moved across workspaces and even outside of Azure Machine Learning. To learn more about model packages in general, read [Model packages for deployment](package-models.md)
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ az ml model create --name $MODEL_NAME --path $MODEL_PATH --type mlflow_model
 model_name = "heart-classifier-mlflow"
 model_path = "model"
 model = ml_client.models.create_or_update(
-        Model(name=model_name, path=model_path, type=AssetTypes.MLFLOW_MODEL)
+    Model(name=model_name, path=model_path, type=AssetTypes.MLFLOW_MODEL)
 )
 ```
 
@@ -91,11 +91,15 @@ model = ml_client.models.create_or_update(
 
 ## Deploy a model package to Azure App Service
 
-1. To deploy a model outside of Azure Machine Learning we need to create a package specification. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md).
+In this example, we showcase how to package the previously registered MLflow model to deploy it to Azure App Service.
+
+1. Deploying a model outside of Azure Machine Learning requires creating a package specification. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md).
 
     # [Azure CLI](#tab/cli)
+
+    Create a package YAML specification:
     
-    __package-docker.yml__
+    __package-azure-app.yml__
     
     ```yml
     $schema: http://azureml/sdk-2-0/ModelVersionPackage.json
@@ -134,7 +138,7 @@ model = ml_client.models.create_or_update(
     model_package = ml_client.models.begin_package(model_name, model.version, package_config)
     ```
 
-1. We need to get the details of the image the model created. To do that:
+1. Each environment in Azure Machine Learning has a corresponding docker image generated. We are going to use that image in our deployment. Images are hosted in Azure Container Registry. We will need the name of the generated image:
 
     1. Go to Azure Machine Learning studio.
 
@@ -142,14 +146,14 @@ model = ml_client.models.create_or_update(
 
     1. Select the tab **Custom environments**.
 
-    1. Look for the environment named *heart-classifier-mlflow-package*.
+    1. Look for the environment named *heart-classifier-mlflow-package*, which is the name of the package we just created.
 
     1. Copy the value in the field **Azure container registry**.
 
     :::image type="content" source="./media/model-packaging/model-package-container-name.png" alt-text="An screenshot showing the section where the Azure container registry image name is displayed in Azure Machine Learning studio."::: 
 
 
-1. Go to Azure portal and create a new App Service.
+1. Go to [Azure portal](https://portal.azure.com) and create a new App Service.
 
     1. Select the subscription and resource group you are using.
 
