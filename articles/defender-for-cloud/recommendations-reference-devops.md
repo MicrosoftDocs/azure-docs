@@ -11,7 +11,7 @@ ms.custom: generated
 
 # Security recommendations for DevOps resources - a reference guide
 
-This article lists the recommendations you might see in Microsoft Defender for Cloud if you've [connected an Azure DevOps](quickstart-onboard-devops.md) or [Github](quickstart-onboard-github.md) environment from the **Environment settings** page. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
+This article lists the recommendations you might see in Microsoft Defender for Cloud if you've [connected an Azure DevOps](quickstart-onboard-devops.md) or [GitHub](quickstart-onboard-github.md) environment from the **Environment settings** page. The recommendations shown in your environment depend on the resources you're protecting and your customized configuration.
 
 To learn about how to respond to these recommendations, see
 [Remediate recommendations in Defender for Cloud](implement-security-recommendations.md).
