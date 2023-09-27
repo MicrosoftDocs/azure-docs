@@ -70,7 +70,7 @@ To change your pricing tier from Gen1 to Gen2 in the ARM template, update `prici
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json" range="27-46":::
 --->
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json" highlight="12-32":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json" highlight="27-47":::
 
 ## Next steps
 
