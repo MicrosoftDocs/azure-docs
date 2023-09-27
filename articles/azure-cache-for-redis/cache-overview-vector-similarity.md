@@ -73,7 +73,7 @@ Azure Cache for Redis can be used effectively as a vector database to store embe
 Redis has a wide range of vector search capabilities through the [RediSearch module](cache-redis-modules.md#redisearch), which is available in the Enterprise tier of Azure Cache for Redis. These include:
 
 - Multiple distance metrics, including `Euclidean`, `Cosine`, and `Internal Product`.
-- Support for both KNN (using `FLAT`) and ANN (using`HNSW`) indexing methods.
+- Support for both KNN (using `FLAT`) and ANN (using `HNSW`) indexing methods.
 - Vector storage in hash or JSON data structures
 - Top K queries
 - [Vector range queries](https://redis.io/docs/interact/search-and-query/search/vectors/#creating-a-vss-range-query) (i.e., find all items within a specific vector distance)
