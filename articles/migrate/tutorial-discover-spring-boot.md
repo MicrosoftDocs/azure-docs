@@ -44,7 +44,7 @@ After you have performed server discovery and software inventory using the Azure
 2. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 1. Select the project where you have set up the Azure Migrate appliance as part of prerequisites above.
 1. You would see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
-5.	You can proceed by selecting the link on the message which will help you get started with onboarding Kubernetes-based appliance.
+5.	You can proceed by selecting the link on the message, which will help you get started with onboarding Kubernetes-based appliance.
 6.	In Step 1: Set up an appliance, select **Bring your own Kubernetes cluster** - You must bring your own Kubernetes cluster running on-premises, connect it to Azure Arc and use the installer script to set up the appliance.
 
 **Support** | **Details**
@@ -82,21 +82,21 @@ After you have performed server discovery and software inventory using the Azure
 After you have saved the script on the Linux server, you can follow these steps:
 
 > [!Note]
-> - If you have chosen to deploy a packaged K8s cluster and are running the installation script on any other Linux OS except Ubuntu than please ensure to install the snap module by following the instructions [here](https://snapcraft.io/docs/installing-snap-on-red-hat), before executing the script.
+> - If you have chosen to deploy a packaged Kubernetes cluster and are running the installation script on any other Linux OS except Ubuntu, ensure to install the snap module by following the instructions [here](https://snapcraft.io/docs/installing-snap-on-red-hat), before executing the script.
 > - Also, ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the `yum install curl` command.
 
 
 1.	Open the terminal on the server and execute the following command to execute the script as a root user:
 `sudo su -`
 2.	Change directory to where you have saved the script and execute the script using the `bash deploy.sh` command.
-3.	Follow the instructions in the script and login in with your Azure user account when prompted.
+3.	Follow the instructions in the script and sign in- in with your Azure user account when prompted.
 4.	The script performs the following steps:
-    1. 	Installing required CLI extensions
-    2. Registering Azure Resource Providers
-    3. Checking for prerequisites like connectivity to required endpoints
-    4. Setting up MicroK8s Kubernetes cluster
-    5. Install the required operators on the cluster
-    6. Creating the required Migrate resources
+    1. Installing required CLI extensions.
+    2. Registering Azure Resource Providers.
+    3. Checking for prerequisites like connectivity to required endpoints.
+    4. Setting up MicroK8s Kubernetes cluster.
+    5. Installing the required operators on the cluster.
+    6. Creating the required Migrate resources.
 
 After the script is executed successfully, configure the appliance through the portal. 
 
@@ -111,18 +111,18 @@ The *delete* mode helps to clean up any existing components installed on the ser
 
 After successfully setting up the appliance using the installer script, you need to configure the appliance by following these steps:
 1.	Go to the Azure Migrate project where you started onboarding of the Kubernetes-based appliance.
-2.	On thw **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
+2.	On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
 3.	You will be navigated to the **Overview** > **Manage** > **Appliances** page with a filtered list of appliances with pending action.
 4.	Find the Kubernetes-based appliance that you have just set up and select **Credentials unavailable** status to configure the appliance.
 
 5.	You will be navigated to the **Manage credentials** page where you need to add credentials to initiate discovery of Spring Boot applications, running on your servers.
-6.	Select **Add credentials** and choose a credential type from Linux (Non-domain) or Domain credentials, provide a friendly name, username and password and click **Save**.
+6.	Select **Add credentials** and choose a credential type from Linux (Non-domain) or Domain credentials, provide a friendly name, username and password and select **Save**.
 
    >[!Note]
    >- The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
   >- After the credentials have been successfully synced, they would be used for discovery of the specific workload in the next discovery cycle. 
 
-7.	After adding a credential, you need to refresh the page to see the **Sync status** of the credential. If status is **Incomplete**, you can click on the status to review the error encountered and take the recommended action.
+7.	After adding a credential, you need to refresh the page to see the **Sync status** of the credential. If status is **Incomplete**, you can select the status to review the error encountered and take the recommended action.
 After the credentials have been successfully synced, wait for 24 hours before you can review the discovered inventory by filtering for the specific workload in the **Discovered servers** page.
 
 > [!Note]

@@ -12,19 +12,19 @@ ms.custom: engagement-fy23
 
 # Troubleshoot common issues during discovery and assessment of Spring Boot apps
 
-For errors related to the access policy on the Key Vault, you need to find the principal ID of the appliance extension running on the connected cluster. You can do that by following the steps below: 
+For errors related to the access policy on the Key Vault, follow these steps to find the Principal ID of the appliance extension running on the connected cluster. 
 
 ## Assigning required Key Vault permissions to Migrate appliance extension 
  
 1.	Go to your Azure Migrate project. 
 2.	Navigate to Azure Migrate: Discovery and assessment> **Overview** > **Manage** > **Appliances** and find the name of the Kubernetes-based appliance whose service principal you need to find. 
  
-3.	You can also find the associated Key Vault with the appliance by selecting the appliance name and finding the Key Vault name in appliance properties. 
+3.	You can also find the Key Vault associated with the appliance by selecting the appliance name and finding the Key Vault name in appliance properties. 
 4.	Go to your workstation and open PowerShell as an administrator.
 5.	Install the [ARM Client](https://github.com/projectkudu/ARMClient/releases/download/v1.9/ARMClient.zip) zip folder.
-6.	Unzip the folder and on PowerShell window, switch to the directory with the extracted folder. 
-7.	Run the following command to login to your Azure subscription:  `armclient login` 
-8.	After successfully logging in, run the following command by adding the appliance name: 
+6.	Unzip the folder and on a PowerShell window, switch to the directory with the extracted folder. 
+7.	Run the following command to sign in to your Azure subscription:  `armclient login` 
+8.	After successfully signing in, run the following command by adding the appliance name: 
  
 ```
 armclient get /subscriptions/<subscription>/resourceGroups/<resourceGroup> /providers/Microsoft.Kubernetes/connectedClusters/<applianceName>/Providers/Microsoft.KubernetesConfiguration/extensions/credential-sync-agent   ?api-version=2022-03-01

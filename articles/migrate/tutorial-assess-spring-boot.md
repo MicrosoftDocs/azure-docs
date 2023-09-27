@@ -79,7 +79,7 @@ Run an assessment as follows:
 
    **Assessed entities**
 
-   This section displays the number of servers selected for the assessments, number of Spring Boot runtime in the selected servers, and the number of distinct Sprint Boot app instances that were assessed. 
+   This section displays the number of servers selected for the assessments, number of Spring Boot runtimes in the selected servers, and the number of distinct Sprint Boot app instances that were assessed. 
 
    **Migration scenario**
 
