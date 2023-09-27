@@ -1,5 +1,5 @@
 ---
-title: Auto upgrade Azure Kubernetes Service (AKS) cluster node OS images
+title: Auto-Upgrade Azure Kubernetes Service (AKS) Node OS Images
 description: Learn how to automatically upgrade Azure Kubernetes Service (AKS) cluster node operating system images.
 ms.topic: article
 ms.custom: build-2023, devx-track-azurecli
@@ -8,7 +8,7 @@ author: nickomang
 ms.date: 02/03/2023
 ---
 
-# Auto upgrade Azure Kubernetes Service cluster node OS images 
+# Auto-upgrade Azure Kubernetes Service cluster node OS images 
 
 AKS now supports an exclusive channel dedicated to controlling node-level OS security updates. This channel referred to as the node OS auto-upgrade channel, can't be used for cluster-level Kubernetes version upgrades. To automatically upgrade Kubernetes versions, continue to use the cluster [auto-upgrade][Autoupgrade] channel.
 
@@ -17,7 +17,7 @@ AKS now supports an exclusive channel dedicated to controlling node-level OS sec
 Node-level OS security updates come in at a faster cadence than the Kubernetes patch or minor version updates. So AKS introduces a separate, dedicated Node OS auto-upgrade channel. Auto-upgrades grant you flexibility and customized strategy for node-level OS security updates. You choose a separate plan for cluster-level Kubernetes version [auto-upgrades][Autoupgrade].
 It's highly recommended to use both cluster-level [auto-upgrades][Autoupgrade] and the node OS auto-upgrade channel together. Scheduling can be fine-tuned by applying two separate sets of [maintenance windows][planned-maintenance] - `aksManagedAutoUpgradeSchedule` for the cluster [auto-upgrade][Autoupgrade] channel and `aksManagedNodeOSUpgradeSchedule` for the node OS auto-upgrade channel.
 
-## Use node OS auto-upgrade
+## How to auto upgrade OS images in AKS
 
 The selected channel determines the timing of upgrades. When making changes to node OS auto-upgrade channels, allow up to 24 hours for the changes to take effect. 
 
@@ -45,7 +45,7 @@ To set the node os auto-upgrade channel on existing cluster, update the *node-os
 az aks update --resource-group myResourceGroup --name myAKSCluster --node-os-upgrade-channel SecurityPatch
 ```
 
-## Cadence and Ownership
+## Update Ownership and Cadence
 
 The default cadence means there's no planned maintenance window applied.
 
