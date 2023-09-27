@@ -36,7 +36,7 @@ Follow the steps listed under section [Manage Users: Assign Users to Role](/azur
 ### Step 2: FHIR server integration with samples
 For integration with Azure Health Data Services samples, you would need to follow the steps in samples open source solution. 
 
-**[Click on the link](https://aka.ms/azure-health-data-services-smart-on-fhir-sample)** to navigate to Azure Health Data Service Samples OSS. This step listed in the document enables integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
+**[Click on the link](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)** to navigate to Azure Health Data and AI Samples Open source solution. This step listed in the document enables integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples can be used to demonstrate how Azure Health Data Services and other open-source tools can be used together to demonstrate [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg) compliance, using Azure Active Directory as the identity provider workflow.  
