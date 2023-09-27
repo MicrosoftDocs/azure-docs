@@ -1,7 +1,7 @@
 ---
 title: Authentication
 description: Learn how to authenticate with Web PubSub for Socket.IO. 
-keywords: Socket.IO, Socket.IO on Azure, authenication
+keywords: Socket.IO, Socket.IO on Azure, authentication
 author: xingsy97
 ms.author: siyuanxing
 ms.date: 09/22/2023
@@ -9,23 +9,23 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 # Background
-[Socket.IO protocol](https://socket.io/docs/v4/socket-io-protocol/) is an application layer protocol which is built on a transport layer protocol named [Engine.IO protocol](https://socket.io/docs/v4/engine-io-protocol/). 
+[Socket.IO protocol](https://socket.io/docs/v4/socket-io-protocol/) is an application layer protocol, which is built on a transport layer protocol named [Engine.IO protocol](https://socket.io/docs/v4/engine-io-protocol/). 
 Engine.IO is responsible for establishing the low-level connection between the server and the client. An Engine.IO connection manages exactly one real connection, which is either a HTTP long-polling connection or a WebSocket connection.
 
-[Native authentication mechanism provided by Socket.IO library](https://socket.io/docs/v4/middlewares/#sending-credentials) are mainly applied on Socket.IO connection level. The Engine.IO connection has already been built successfully before the authentication takes effect. The underlying Engine.IO connection could be built between client and server without any authentication mechanism. Attackers could make use of Engine.IO connection without any authentication to consume customer's resource without any restriction. 
+[Native authentication mechanism provided by Socket.IO library](https://socket.io/docs/v4/middlewares/#sending-credentials) are applied on Socket.IO connection level. The Engine.IO connection has already been built successfully before the authentication takes effect. The underlying Engine.IO connection could be built between client and server without any authentication mechanism. Attackers could make use of Engine.IO connection without any authentication to consume customer's resource without any restriction. 
 
 # Authentication for Socket.IO connection
-This level of authentication is NOT recommended in production environment. As mentioned above, it doesn't provide any protection for the low-level Engine.IO connection, which makes your resource easy to be attacked.
+This level of authentication is NOT recommended in production environment. For it doesn't provide any protection for the low-level Engine.IO connection, which makes your resource easy to be attacked.
 
 # Authentication for Engine.IO connection
 This level of authentication is recommended for it protects the Engine.IO connection.
 However, Socket.IO library didn't provide a native and easy-to-use feature for it. Our server SDK provides a negotiation mechanism and APIs to realize it.
 
-## Negotiation mechaism
-Negotation request is sent by client to deliver authentication information to server before the Engine.IO connection is built. Steps below explain how the mechanism works:
+## Negotiation mechanism
+ Client sends negotiation request containing authentication information to server before the Engine.IO connection is built. Here are the details how the mechanism works:
  
-1. Before connecting with the service endpoint, the client send negotiation to the server, which carries information required by authentication. 
-2. The server receives the negotiation request, parse the authenication information and authenicate the client according to the parsed information. Then the server responds the request with an access token. 
+1. Before connecting with the service endpoint, the client sends negotiation to the server, which carries information required by authentication. 
+2. The server receives the negotiation request, parse the authentication information and authenticate the client according to the parsed information. Then the server responds the request with an access token. 
 3. The client connects with the service endpoint with the access token given by server. The access token is put into the query string of Socket.IO request.
 
 The web application which handles negotiation request could be an independent one or a part of Socket.IO application.
@@ -45,7 +45,7 @@ const wpsOptions = { hub: "eio_hub", connectionString: process.env.WebPubSubConn
 azure.useAzureSocketIO(io, wpsOptions);
 ```
 
-2. Define a `ConfigureNegotiateOptions`, which parses authenication information from the negotiation request and executes the authenication. If the authenication is passed, the method will return required information to generate an access token.
+2. Define a `ConfigureNegotiateOptions`, which parses authentication information from the negotiation request and executes the authentication. If the authentication is passed, the method returns required information to generate an access token.
 
 ```javascript
 const configureNegotiateOptions = (req) => {
@@ -77,7 +77,7 @@ if (!negotiateResponse.ok) {
 const json = await negotiateResponse.json();
 ```
 
-2. Let the client connects with our service endpoint with the information in negotiation response.
+2. Let the client connect with our service endpoint with the information in negotiation response.
 ```javascript
 var socket = io(json.endpoint, {
   path: json.path,
@@ -90,19 +90,19 @@ A complete sample is given in [chat-with-negotiate](https://github.com/Azure/azu
 ## Integration with Passport library
 
 ### Background
-In Node.js ecosystem, the most dominant Web authentication workflow is [`express`](https://www.npmjs.com/package/express) + [`express-session`](https://www.npmjs.com/package/express-session) + [`passport`](https://www.npmjs.com/package/passport). Their roles are explained below:
+In Node.js ecosystem, the most dominant Web authentication workflow is [`express`](https://www.npmjs.com/package/express) + [`express-session`](https://www.npmjs.com/package/express-session) + [`passport`](https://www.npmjs.com/package/passport). Here is a list explaning their roles:
 - `express`: a backend framework
 - `express-session`: an official session management library supported by Express team.
-- `passport`: an authentication package for express. It focuses on request authentication and supports over 500 authentication strategies, including local authentication (username and password), OAuth (Google, Github, Facebook), JWT, OpenID, and more.
-  - After a successful authentication, `passport` provides a object describing the authenticated user. This object is assigned to the `user` property in the express request variable. And the property could be accesssed in subsequent middlewares.
+- `passport`: an authentication package for express. It focuses on request authentication and supports over 500 authentication strategies, including local authentication (username and password), OAuth (Google, GitHub, Facebook), JWT, OpenID, and more.
+  - After a successful authentication, `passport` provides a object describing the authenticated user. This object is assigned to the `user` property in the express request variable. And the property could be accessed in subsequent middleware.
 
 ### Usage
 
-We provide a method to create `ConfigureNegotiateOptions` which puts information related to passport into negotiation response. And a express middleware `restorePassport` is provided to restore passport object into reqeust.
+We provide a method to create `ConfigureNegotiateOptions` that puts information related to passport into negotiation response. And an express middleware `restorePassport` is provided to restore passport object into request.
 
-Socket.IO provides a [example](https://github.com/socketio/socket.io/blob/4.6.2/examples/passport-example/index.js) showing how to use passport authenication with native Socket.IO library.
+Socket.IO provides a [example](https://github.com/socketio/socket.io/blob/4.6.2/examples/passport-example/index.js) showing how to use passport authentication with native Socket.IO library.
 
-This part of code uses a set of Socket.IO middlewares to restore passport object into request.
+This part of code uses a set of Socket.IO middleware to restore passport object into request.
 ```javascript
 const io = require('socket.io')(server);
 
@@ -146,10 +146,10 @@ io.use((socket, next) => {
 });
 ```
 
-Note that session object is not restored and it's inaccessible by Socket.IO middleware. Usages below won't work because `session` is always null
+Session object isn't restored and it's inaccessible by Socket.IO middleware. `socket.request.session` doesn't work for it's always null.
 ```javascript
 io.use((socket, next) => {
-  var session = socket.request.session;
+  var session = socket.request.session; 
   // ... some code uses `session`
 });
 
