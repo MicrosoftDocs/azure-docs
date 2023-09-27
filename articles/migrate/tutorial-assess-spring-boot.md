@@ -1,8 +1,8 @@
 ---
 title: Tutorial to assess Spring Boot apps for migration to Azure Spring Apps
 description: Learn how to create assessment for Azure Spring Apps in Azure Migrate
-author: sunish-vohra
-ms.author: sunishvohra-MS
+author: sunishvohra-ms 
+ms.author: sunishvohra
 ms.topic: tutorial
 ms.date: 06/06/2023
 ms.custom: engagement-fy23
@@ -37,37 +37,21 @@ Run an assessment as follows:
     ![Overview page for Azure Migrate.](./media/tutorial-assess-webapps/discover-assess-migrate.png)
 
 2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Web apps on Azure**.
-
-    ![image](https://github.com/Vikram1988/Azure-Migrate-discovery-and-assessment-of-Spring-Boot-apps/assets/100133984/0519e18f-34ea-4050-9b83-07b9deae038d)
-
-
 3. In **Create assessment**, you will be able to see the assessment type pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Spring Boot to Azure Apps**. 
 
 4. Select **Edit** to review the assessment properties.
 
-     ![image](https://github.com/Vikram1988/Azure-Migrate-discovery-and-assessment-of-Spring-Boot-apps/assets/100133984/ff3d0ec5-4dbb-4c24-bc8b-467685b7bb64)
+The following are included in Azure Spring Apps assessment properties:
 
-
-5. Here's what's included in the assessment properties:
-
-    **Property** | **Details**
-    --- | ---
-    **Target location** | The Azure region to which you want to migrate. Azure Spring Apps configuration and cost recommendations are based on the location that you specify.
-    **Environment Type** | 
-
-    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
-        - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
-        - When you select *None*, the Azure compute cost is based on the Pay as you go rate or based on actual usage.
-        - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' setting is not applicable.
-        
-        **Option** | **Description**
-        ----- | -----
-        **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer.
-        **Currency** | The billing currency for your account.
-        **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
-        **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the default settings for reserved instances and discount (%) properties.
-        **Tier** | Specifies the level or grade to be used for assessment. Only Standard Tier is currently supported.
+    | **Property** | **Details** |
+    | --- | --- |
+    | **Target location** | The Azure region to which you want to migrate. Azure Spring Apps configuration and cost recommendations are based on the location that you specify. |
+    | **Environment type** | Specifies the environment to apply pricing applicable to Production or Dev/Test. |
+    | **Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer. |
+    | **Currency** | The billing currency for your account. |
+    | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. |
+    | **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings. |
+    | **Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 years reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 years savings plan) provide more flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. <br><br> When you select **None**, the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than **None**, the **Discount (%)** setting isn't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.|
 
 1. Select **Save** if you made any changes.
 1. In **Create assessment**, select **Next**.
@@ -76,10 +60,6 @@ Run an assessment as follows:
 1. Select the appliance and select the servers that you want to add to the group. Select **Next**.
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
-
-    ![image](https://github.com/Vikram1988/Azure-Migrate-discovery-and-assessment-of-Spring-Boot-apps/assets/100133984/995020a3-e68d-486d-85c9-d952ba9710e0)
-
-
 1. Select the number next to **Web apps on Azure** in the **Assessment** section. 
 
 1. Select the assessment name, which you wish to view.
@@ -93,18 +73,9 @@ Run an assessment as follows:
 
    The Overview screen contains 3 sections: Essentials, Assessed entities, and Migration scenario. 
 
-     **Essentials**
+   **Essentials**
 
-      **Field** | **Description**
-      ----- | -----
-      **Group** | 
-      **Status** | 
-      **Discovery source** |
-      **Target location** | 
-      **Currency** | 
-
-  ![image](https://github.com/Vikram1988/Azure-Migrate-discovery-and-assessment-of-Spring-Boot-apps/assets/100133984/d05d1754-8b41-4b5c-bfa7-a8b3b66d4f9f)
-
+   The Essentials section displays the group the assessed entity belongs to, its status, the location, discovery source, and currency in US dollars.
 
    **Assessed entities**
 
@@ -122,10 +93,7 @@ This indicates the distribution of the assessed web apps. You can drill down to 
 
 ### Review readiness
 
-1. In Assessments, select the name of the assessment that you want to view. 
-
-    ![image](https://github.com/Vikram1988/Azure-Migrate-discovery-and-assessment-of-Spring-Boot-apps/assets/100133984/ca899fcb-64b2-42e9-a45d-e6e713bc4e4f)
-
+1. In **Assessments**, select the name of the assessment that you want to view. 
 
 1. Select Azure Spring Apps to view more details about each app and instances. Review the Azure Spring Apps readiness column in the table for the assessed web apps:  
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
@@ -141,12 +109,11 @@ This indicates the distribution of the assessed web apps. You can drill down to 
     Not ready  | No | No
     Unknown  | No | No
 
-![image](https://github.com/Vikram1988/Azure-Migrate-discovery-and-assessment-of-Spring-Boot-apps/assets/100133984/5811ccd1-fe7f-4fef-bd17-5cc3e26a6b9c)
-
 
 ### Review cost estimates
 
 The assessment summary shows the estimated monthly costs for hosting you web apps. One or more apps can be configured to run on the same computing resources. 
 
-![image](https://github.com/Vikram1988/Azure-Migrate-discovery-and-assessment-of-Spring-Boot-apps/assets/100133984/d0f2434d-4660-435b-ad2a-48c41dab02e3)
+## Next steps
 
+Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
