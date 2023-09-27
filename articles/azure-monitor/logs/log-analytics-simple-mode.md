@@ -1,6 +1,6 @@
 ---
 title: Analyze data using Log Analytics simple mode 
-description: This article explains the new Log Analytics experience and how to use simple mode to explore and analyze data in Azure Monitor Logs.
+description: This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
@@ -20,7 +20,7 @@ The new Log Analytics offers two ways to explore data:
 
 You can switch seamlessly between simple and advance mode, and advanced users can share complex queries, which anyone can continue working with in simple mode. 
 
-This article explains the new Log Analytics experience and how to use simple mode to explore and analyze data in Azure Monitor Logs.     
+This article explains how to use Log Analytics simple mode to explore and analyze data in Azure Monitor Logs.     
 
 ## Try Log Analytics simple mode
 
@@ -28,9 +28,11 @@ Simple mode is currently in preview and available to a limited number of custome
 
 :::image type="content" source="media/log-analytics-explorer/try-new-log-analytics.png" alt-text="A GIF showing the Try new Log Analytics button.":::
 
-## The simple mode experience
+## How simple mode works
 
-This section explains the elements of the Log Analytics simple mode experience.
+Simple mode lets you [get started quickly by retrieving data from one or more tables with one click](#get-started-in-simple-mode). You then use a set of intuitive controls to [explore and analyze the retrieved data](#explore-and-analyze-data-in-simple-mode).  
+
+This section orients you with the controls available in Log Analytics simple mode.
 
 :::image type="content" source="media/log-analytics-explorer/log-analytics-simple-mode-experience.png" alt-text="Screenshot that shows Log Analytics simple mode." lightbox="media/log-analytics-explorer/log-analytics-simple-mode-experience.png":::
 
@@ -47,7 +49,6 @@ In simple mode, the top bar has controls for working with data and switching to 
 | **Search**|Search through query results to find all instances of a particular string.|
 | **Queries** | Open the example queries dialog that appears when you first open Log Analytics. |
 
-For more information about using these controls to navigate and analyze data, see [Explore and analyze data in simple mode](#explore-and-analyze-data-in-simple-mode).
 ### Left pane
 
 The collapsible left pane gives you access to tables in the workspace, sample and saved queries, query history, and filter options for the current query.
