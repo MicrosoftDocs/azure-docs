@@ -203,6 +203,8 @@ If you no longer need the virtual machine, delete it with the following steps:
 1. Select on "Delete" from the top middle option.
 1. Follow the prompts to delete the virtual machine.
 
+For more information on how to delete a virtual machine, see [delete a VM](./delete.md).
+
 ## Next steps
 
 Learn about sizes and how to resize a VM:
