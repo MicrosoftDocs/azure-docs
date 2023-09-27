@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Library for Node.js'
+title: 'Quickstart: Gremlin library for Node.js'
 titleSuffix: Azure Cosmos DB for Apache Gremlin
 description: In this quickstart, connect to Azure Cosmos DB for Apache Gremlin using Node.js. Then, create and traverse vertices and edges.
 author: manishmsfte
@@ -12,7 +12,7 @@ ms.date: 09/27/2023
 # CustomerIntent: As a Node.js developer, I want to use a library for my programming language so that I can create and traverse vertices and edges in code.
 ---
 
-# Quickstart: Azure Cosmos DB for Apache Gremlin library for Python
+# Quickstart: Azure Cosmos DB for Apache Gremlin library for Node.js
 
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
@@ -35,10 +35,23 @@ In this quickstart, you use the `gremlin` library to connect to a newly created 
 
 [!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-## Create an API for Gremlin account and relevant resources
+## Setting up
+
+This section walks you through creating an API for Gremlin account an setting up a .NET project to use the library to connect to the account.
+
+### Create an API for Gremlin account
 
 The API for Gremlin account should be created prior to using the Node.js library. Additionally, it helps to also have the database and graph in place.
 
 [!INCLUDE[Create account, database, and graph](includes/create-account-database-graph-cli.md)]
 
-##
+
+
+
+
+
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Create and query data using Azure Cosmos DB for Apache Gremlin](tutorial-query.md)

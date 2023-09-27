@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Library for Python'
+title: 'Quickstart: Gremlin library for Python'
 titleSuffix: Azure Cosmos DB for Apache Gremlin
 description: In this quickstart, connect to Azure Cosmos DB for Apache Gremlin using Python. Then, create and traverse vertices and edges.
 author: manishmsfte
@@ -35,10 +35,26 @@ In this quickstart, you use the `gremlinpython` library to connect to a newly cr
 
 [!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-## Create an API for Gremlin account and relevant resources
+## Setting up
+
+This section walks you through creating an API for Gremlin account an setting up a .NET project to use the library to connect to the account.
+
+### Create an API for Gremlin account
 
 The API for Gremlin account should be created prior to using the Python library. Additionally, it helps to also have the database and graph in place.
 
 [!INCLUDE[Create account, database, and graph](includes/create-account-database-graph-cli.md)]
 
-##
+
+
+
+
+
+
+
+
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Create and query data using Azure Cosmos DB for Apache Gremlin](tutorial-query.md)
