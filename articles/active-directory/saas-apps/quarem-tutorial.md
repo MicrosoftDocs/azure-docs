@@ -75,11 +75,14 @@ Follow these steps to enable Microsoft Entra SSO in the Microsoft Entra admin ce
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type a value using the following pattern:
+    a. In the **Identifier** textbox, type the URL:
     `https://na.quarem.net`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern:
+    b. In the **Reply URL** textbox, type the URL:
     `https://na.quarem.net/sso`
+
+    c. In the **Logout URL** textbox, type the URL:
+    `https://na.quarem.net/logoutUser`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -121,12 +124,12 @@ In this section, you create a user called B.Simon in Quarem. Work with [Quarem 
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options.
+In this section, you test your Microsoft Entra single sign-on configuration with following options.
  
-* Click on Test this application in Azure portal and you should be automatically signed in to the Quarem for which you set up the SSO.
+* Click on Test this application in Microsoft Entra admin center and you should be automatically signed in to the Quarem for which you set up the SSO.
  
 * You can use Microsoft My Apps. When you click the Quarem tile in the My Apps, you should be automatically signed in to the Quarem for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure Quarem you can enforce session control, which protects exfiltration and infiltration of your organization�s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Quarem you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
