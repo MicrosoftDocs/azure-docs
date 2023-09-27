@@ -17,7 +17,7 @@ Next, create a passwordless connection with Service Connector.
 > [!NOTE]
 > If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md) and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
 
-## [Azure Database for PostgreSQL](#tab/postgresql)
+### [Azure Database for PostgreSQL](#tab/postgresql)
 
 The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
 
@@ -47,7 +47,7 @@ az webapp connection create postgres-flexible \
     --client-type java
 ```
 
-## [Azure Database for MySQL](#tab/mysql)
+### [Azure Database for MySQL](#tab/mysql)
 
 Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
@@ -153,7 +153,7 @@ In this section, connectivity to the Azure database in your code follows the `De
 3. Add the token to your connection string.
 4. Open the connection.
 
-## [Azure SQL Database](#tab/sqldatabase)
+### [Azure SQL Database](#tab/sqldatabase)
 
 [!INCLUDE [code sample for postgres aad connection](./code-postgres-aad.md)]
 
@@ -161,6 +161,6 @@ In this section, connectivity to the Azure database in your code follows the `De
 
 [!INCLUDE [code sample for mysql aad connection](./code-mysql-aad.md)]
 
-## [Azure Database for PostgreSQL](#tab/postgresql)
+### [Azure Database for PostgreSQL](#tab/postgresql)
 
 [!INCLUDE [code sample for sql aad connection](./code-sql-aad.md)]
