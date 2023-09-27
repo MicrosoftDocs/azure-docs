@@ -236,6 +236,9 @@
     - name: Reference list of GCP recommendations
       displayName: gcp, recommendations
       href: recommendations-reference-gcp.md
+    - name: Reference list of DevOps recommendations
+      displayName: devops, recommendations
+      href: recommendations-reference-devops.md
     - name: Reference list of attack paths and cloud security graph components
       displayName: attack, paths, security, graph, components
       href: attack-path-reference.md
