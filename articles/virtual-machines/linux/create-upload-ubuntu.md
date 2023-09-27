@@ -170,7 +170,6 @@ sudo rm -f /var/log/waagent.log
 ```bash
 sudo waagent -force -deprovision+user
 sudo rm -f ~/.bash_history
-sudo export HISTSIZE=0
 ```
 
 13. Click **Action -> Shut Down** in Hyper-V Manager.
