@@ -74,6 +74,12 @@ There are many open-source and third-party integrations you can install on your 
 | [Linkerd][linkerd] | An open-source service mesh. | [Linkerd Getting Started][linkerd-install] |
 | [Consul][consul] | An open-source, identity-based networking solution. | [Getting Started with Consul Service Mesh for Kubernetes][consul-install] |
 
+### Third-party integrations for Windows containers
+
+Microsoft has collaborated with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Windows containers on AKS.
+
+For more details, see [Windows AKS partner solutions][windows-aks-partner-solutions].
+
 <!-- LINKS -->
 [http-app-routing]: http-application-routing.md
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
@@ -112,3 +118,4 @@ There are many open-source and third-party integrations you can install on your 
 [github-actions]: /azure/developer/github/github-actions
 [github-actions-aks]: kubernetes-action.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+[windows-aks-partner-solutions]: windows-aks-partner-solutions.md

@@ -19,7 +19,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 
 * **Target Flexible Server is deployed**, inheriting all feature set and properties (including server parameters and firewall rules) from source Single Server. Source Single Server is set to read-only and backup from source Single Server is copied to the target Flexible Server.
 * **DNS switch and cutover** are performed successfully within the planned maintenance window with minimal downtime, allowing maintenance of the same connection string post-migration. Client applications seamlessly connect to the target flexible server without any user driven manual updates. In addition to both connection string formats (Single and Flexible Server) being supported on migrated Flexible Server, both username formats – username@server_name and username are also supported on the migrated Flexible Server.
-* The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. Stopped Single Server is deleted post days set as it's Backup Retention Period.
+* The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. Stopped Single Server is deleted 7 days after the migration.
 
 > [!NOTE]
 > In-place migration is only for Single Server database workloads with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled. All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure MySQL Import to migrate.

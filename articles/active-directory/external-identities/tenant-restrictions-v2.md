@@ -1,5 +1,5 @@
 ---
-title: Configure tenant restrictions - Azure AD
+title: Configure tenant restrictions - Microsoft Entra ID
 description: Use tenant restrictions to control the types of external accounts your users can use on your networks and the devices you manage. You can scope settings to apps, groups, and users for specified tenants.
 services: active-directory
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.date: 09/12/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: it-pro, devx-track-dotnet
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
@@ -30,8 +30,8 @@ For example, suppose a user in your organization has created a separate account 
 |---------|---------|
 |**1**     | Contoso configures **Tenant restrictions** in their cross-tenant access settings to block all external accounts and external apps. Contoso enforces the policy on each Windows device by updating the local computer configuration with Contoso's tenant ID and the tenant restrictions policy ID.       |
 |**2**     |  A user with a Contoso-managed Windows device tries to sign in to an external app using an account from an unknown tenant. The Windows device adds an HTTP header to the authentication request. The header contains Contoso's tenant ID and the tenant restrictions policy ID.        |
-|**3**     | *Authentication plane protection:* Azure AD uses the header in the authentication request to look up the tenant restrictions policy in the Azure AD cloud. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
-|**4**     | *Data plane protection (preview):* The user tries to access the external application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Azure AD compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Azure AD blocks the session so the user can't access the application.        |
+|**3**     | *Authentication plane protection:* Microsoft Entra ID uses the header in the authentication request to look up the tenant restrictions policy in the Microsoft Entra cloud. Because Contoso's policy blocks external accounts from accessing external tenants, the request is blocked at the authentication level.        |
+|**4**     | *Data plane protection (preview):* The user tries to access the external application by copying an authentication response token they obtained outside of Contoso's network and pasting it into the Windows device. However, Microsoft Entra ID compares the claim in the token to the HTTP header added by the Windows device. Because they don't match, Microsoft Entra ID blocks the session so the user can't access the application.        |
 |||
 
 Tenant restrictions v2 provides options for both authentication plane protection and data plane protection. 
@@ -47,11 +47,11 @@ While [tenant restrictions v1](../manage-apps/tenant-restrictions.md) provide au
 In your organization's [cross-tenant access settings](cross-tenant-access-overview.md), you can configure a tenant restrictions v2 policy. After you create the policy, there are three ways to apply the policy in your organization.
 
 - **Universal tenant restrictions v2**. This option provides both authentication plane and data plane protection without a corporate proxy. [Universal tenant restrictions](/azure/global-secure-access/how-to-universal-tenant-restrictions) use Global Secure Access (preview) to tag all traffic no matter the operating system, browser, or device form factor. It allows support for both client and remote network connectivity.
-- **Authentication plane tenant restrictions v2**. You can deploy a corporate proxy in your organization and [configure the proxy to set tenant restrictions v2 signals](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy) on all traffic to Microsoft Entra and Microsoft Accounts (MSA).
-- **Windows tenant restrictions v2**. For your corporate-owned Windows devices, you can enforce both authentication plane and data plane protection by enforcing tenant restrictions directly on devices. Tenant restrictions are enforced upon resource access, providing data path coverage and protection against token infiltration. A corporate proxy isn't required for policy enforcement. Devices can be Azure AD managed or domain-joined devices that are managed via Group Policy.
+- **Authentication plane tenant restrictions v2**. You can deploy a corporate proxy in your organization and [configure the proxy to set tenant restrictions v2 signals](#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy) on all traffic to Microsoft Entra ID and Microsoft Accounts (MSA).
+- **Windows tenant restrictions v2**. For your corporate-owned Windows devices, you can enforce both authentication plane and data plane protection by enforcing tenant restrictions directly on devices. Tenant restrictions are enforced upon resource access, providing data path coverage and protection against token infiltration. A corporate proxy isn't required for policy enforcement. Devices can be Microsoft Entra ID managed or domain-joined devices that are managed via Group Policy.
 
 > [!NOTE]
-> This article describes how to configure tenant restrictions v2 using the Azure portal. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
+> This article describes how to configure tenant restrictions v2 using the Microsoft Entra admin center. You can also use the [Microsoft Graph cross-tenant access API](/graph/api/resources/crosstenantaccesspolicy-overview?view=graph-rest-beta&preserve-view=true) to create these same tenant restrictions policies.
 
 ### Supported scenarios
 
@@ -59,7 +59,7 @@ Tenant restrictions v2 can be scoped to specific users, groups, organizations, o
 
 - All Office apps (all versions/release channels).
 - Universal Windows Platform (UWP) .NET applications.
-- Auth plane protection for all applications that authenticate with Azure AD, including all Microsoft first-party applications and any third-party applications that use Azure AD for authentication.
+- Auth plane protection for all applications that authenticate with Microsoft Entra ID, including all Microsoft first-party applications and any third-party applications that use Microsoft Entra ID for authentication.
 - Data plane protection for SharePoint Online and Exchange Online.
 - Anonymous access protection for SharePoint Online, OneDrive for business, and Teams (with Federation Controls configured).
 - Authentication and Data plane protection for Microsoft tenant or Consumer accounts.
@@ -69,7 +69,7 @@ Tenant restrictions v2 can be scoped to specific users, groups, organizations, o
 
 - Anonymous blocking to consumer OneDrive account. Customers can work around at proxy level by blocking https://onedrive.live.com/.
 - When a user accesses a third-party app, like Slack, using an anonymous link or non-Azure AD account.
-- When a user copies an Azure AD-issued token from a home machine to a work machine and uses it to access a third-party app like Slack.
+- When a user copies a Microsoft Entra ID-issued token from a home machine to a work machine and uses it to access a third-party app like Slack.
 - Per-user tenant restrictions for Microsoft Accounts.
 
 
@@ -79,14 +79,14 @@ The following table compares the features in each version.
 
 |  |Tenant restrictions v1  |Tenant restrictions v2  |
 |----------------------|---------|---------|
-|**Policy enforcement**    | The corporate proxy enforces the tenant restriction policy in the Azure AD control plane.         |     Options: <br></br>- Universal tenant restrictions in Global Secure Access (preview), which uses policy signaling to tag all traffic, providing both authentication and data plane support on all platforms. <br></br>- Authentication plane-only protection, where the corporate proxy sets tenant restrictions v2 signals on all traffic. <br></br>- Windows device management, where devices are configured to point Microsoft traffic to the tenant restriction policy, and the policy is enforced in the cloud.     |
-|**Malicious tenant requests** | Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.         |    Azure AD blocks malicious tenant authentication requests to provide authentication plane protection.     |
+|**Policy enforcement**    | The corporate proxy enforces the tenant restriction policy in the Microsoft Entra ID control plane.         |     Options: <br></br>- Universal tenant restrictions in Global Secure Access (preview), which uses policy signaling to tag all traffic, providing both authentication and data plane support on all platforms. <br></br>- Authentication plane-only protection, where the corporate proxy sets tenant restrictions v2 signals on all traffic. <br></br>- Windows device management, where devices are configured to point Microsoft traffic to the tenant restriction policy, and the policy is enforced in the cloud.     |
+|**Malicious tenant requests** | Microsoft Entra ID blocks malicious tenant authentication requests to provide authentication plane protection.         |    Microsoft Entra ID blocks malicious tenant authentication requests to provide authentication plane protection.     |
 |**Granularity**           | Limited.        |   Tenant, user, group, and application granularity. (User-level granularity isn't supported with Microsoft Accounts.)      |
 |**Anonymous access**      | Anonymous access to Teams meetings and file sharing is allowed.         |   Anonymous access to Teams meetings is blocked. Access to anonymously shared resources (“Anyone with the link”) is blocked.      |
 |**Microsoft Accounts**          |Uses a Restrict-MSA header to block access to consumer accounts.         |  Allows control of Microsoft Accounts (MSA and Live ID) authentication on both the identity and data planes.<br></br>For example, if you enforce tenant restrictions by default, you can create a Microsoft Accounts-specific policy that allows users to access specific apps with their Microsoft Accounts, for example: <br> Microsoft Learn (app ID `18fbca16-2224-45f6-85b0-f7bf2b39b3f3`), or <br> Microsoft Enterprise Skills Initiative (app ID `195e7f27-02f9-4045-9a91-cd2fa1c2af2f`).       |
-|**Proxy management**      | Manage corporate proxies by adding tenants to the Azure AD traffic allowlist.         |   For corporate proxy authentication plane protection, configure the proxy to set tenant restrictions v2 signals on all traffic.      |
+|**Proxy management**      | Manage corporate proxies by adding tenants to the Microsoft Entra traffic allowlist.         |   For corporate proxy authentication plane protection, configure the proxy to set tenant restrictions v2 signals on all traffic.      |
 |**Platform support**      |Supported on all platforms. Provides only authentication plane protection.        |     Universal tenant restrictions in Global Secure Access (preview) support any operating system, browser, or device form factor.<br></br>Corporate proxy authentication plane protection supports macOS, Chrome browser, and .NET applications.<br></br>Windows device management supports Windows operating systems and Microsoft Edge.     |
-|**Portal support**        |No user interface in the Azure portal for configuring the policy.         |   User interface available in the Azure portal for setting up the cloud policy.      |
+|**Portal support**        |No user interface in the Microsoft Entra admin center for configuring the policy.         |   User interface available in the Microsoft Entra admin center for setting up the cloud policy.      |
 |**Unsupported apps**      |     N/A    |   Block unsupported app use with Microsoft endpoints by using Windows Defender Application Control (WDAC) or Windows Firewall  (for example, for Chrome, Firefox, and so on). See [Block Chrome, Firefox and .NET applications like PowerShell](#block-chrome-firefox-and-net-applications-like-powershell).      |
 
 ### Migrate tenant restrictions v1 policies to v2
@@ -114,7 +114,7 @@ When your users need access to external organizations and apps, we recommend ena
 
 ### Tenant restrictions and Microsoft Teams (preview)
 
-Teams by default has open federation, which means we don't block anyone joining a meeting hosted by an external tenant. For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions v2 to block anonymous access to Teams meetings. To enforce tenant restrictions for Teams, you need to configure tenant restrictions v2 in your Azure AD cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
+Teams by default has open federation, which means we don't block anyone joining a meeting hosted by an external tenant. For greater control over access to Teams meetings, you can use [Federation Controls](/microsoftteams/manage-external-access) in Teams to allow or block specific tenants, along with tenant restrictions v2 to block anonymous access to Teams meetings. To enforce tenant restrictions for Teams, you need to configure tenant restrictions v2 in your Microsoft Entra cross-tenant access settings. You also need to set up Federation Controls in the Teams Admin portal and restart Teams. Tenant restrictions implemented on the corporate proxy won't block anonymous access to Teams meetings, SharePoint files, and other resources that don't require authentication.
 
 - Teams currently allows users to join <i>any</i> externally hosted meeting using their corporate/home provided identity. You can use outbound cross-tenant access settings to control users with corporate/home provided identity to join externally hosted Teams meetings.
 - Tenant restrictions prevent users from using an externally issued identity to join Teams meetings.
@@ -167,7 +167,7 @@ OneDrive for consumer accounts (via onedrive.live.com) doesn't support tenant re
 
 To configure tenant restrictions, you need:
 
-- Azure AD Premium P1 or P2
+- Microsoft Entra ID P1 or P2
 - Account with a role of Global administrator or Security administrator
 - Windows devices running Windows 10, Windows 11 with the latest updates
 
@@ -175,7 +175,7 @@ To configure tenant restrictions, you need:
 
 ### Step 1: Configure default tenant restrictions v2
 
-Settings for tenant restrictions v2 are located in the Azure portal under **Cross-tenant access settings**. First, configure the default tenant restrictions you want to apply to all users, groups, apps, and organizations. Then, if you need partner-specific configurations, you can add a partner's organization and customize any settings that differ from your defaults.
+Settings for tenant restrictions v2 are located in the Microsoft Entra admin center under **Cross-tenant access settings**. First, configure the default tenant restrictions you want to apply to all users, groups, apps, and organizations. Then, if you need partner-specific configurations, you can add a partner's organization and customize any settings that differ from your defaults.
 
 #### To configure default tenant restrictions
 
@@ -329,7 +329,7 @@ Suppose you use tenant restrictions to block access by default, but you want to 
    > Blocking the MSA tenant will not block:
    > - User-less traffic for devices. This includes traffic for Autopilot, Windows Update, and organizational telemetry.
    > - B2B authentication of consumer accounts.
-   > - "Passthrough" authentication, used by many Azure apps and Office.com, where apps use Azure AD to sign in consumer users in a consumer context.
+   > - "Passthrough" authentication, used by many Azure apps and Office.com, where apps use Microsoft Entra ID to sign in consumer users in a consumer context.
 
 ## Configure client-side tenant restrictions v2
 
@@ -341,7 +341,7 @@ There are three options for enforcing tenant restrictions v2 for clients:
 
 ### Option 1: Universal tenant restrictions v2 as part of Microsoft Entra Global Secure Access (preview)
 
-Universal tenant restrictions v2 as part of [Microsoft Entra Global Secure Access](/azure/global-secure-access/overview-what-is-global-secure-access) is recommended because it provides authentication and data plane protection for all devices and platforms. This option provides more protection against sophisticated attempts to bypasses authentication. For example, attackers might try to allow anonymous access to a malicious tenant’s apps, such as anonymous meeting join in Teams. Or, attackers might attempt to import to your organizational device an access token lifted from a device in the malicious tenant. Universal tenant restrictions v2 prevents these attacks by sending tenant restrictions v2 signals on the authentication plane (Microsoft Entra and Microsoft Account) and data plane (Microsoft cloud applications).
+Universal tenant restrictions v2 as part of [Microsoft Entra Global Secure Access](/azure/global-secure-access/overview-what-is-global-secure-access) is recommended because it provides authentication and data plane protection for all devices and platforms. This option provides more protection against sophisticated attempts to bypasses authentication. For example, attackers might try to allow anonymous access to a malicious tenant’s apps, such as anonymous meeting join in Teams. Or, attackers might attempt to import to your organizational device an access token lifted from a device in the malicious tenant. Universal tenant restrictions v2 prevents these attacks by sending tenant restrictions v2 signals on the authentication plane (Microsoft Entra ID and Microsoft Account) and data plane (Microsoft cloud applications).
 
 ### Option 2: Set up tenant restrictions v2 on your corporate proxy
 
@@ -370,7 +370,7 @@ Tenant restrictions v2 policies can't be directly enforced on non-Windows 10, Wi
 
 #### Tenant restrictions v2 with no support for break and inspect
 
-For non-Windows platforms, you can break and inspect traffic to add the tenant restrictions v2 parameters into the header via proxy. However, some platforms don't support break and inspect, so tenant restrictions v2 don't work. For these platforms, the following features of Azure AD can provide protection:
+For non-Windows platforms, you can break and inspect traffic to add the tenant restrictions v2 parameters into the header via proxy. However, some platforms don't support break and inspect, so tenant restrictions v2 don't work. For these platforms, the following features of Microsoft Entra ID can provide protection:
 
 - [Conditional Access: Only allow use of managed/compliant devices](/mem/intune/protect/conditional-access-intune-common-ways-use#device-based-conditional-access)
 - [Conditional Access: Manage access for guest/external users](/microsoft-365/security/office-365-security/identity-access-policies-guest-access)
@@ -383,7 +383,7 @@ Although these alternatives provide protection, certain scenarios can only be co
 
 ### Option 3: Enable tenant restrictions on Windows managed devices (preview)
 
-After you create a tenant restrictions v2 policy, you can enforce the policy on each Windows 10, Windows 11, and Windows Server 2022 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Azure AD managed to enforce tenant restrictions v2; domain-joined devices that are managed with Group Policy are also supported.
+After you create a tenant restrictions v2 policy, you can enforce the policy on each Windows 10, Windows 11, and Windows Server 2022 device by adding your tenant ID and the policy ID to the device's **Tenant Restrictions** configuration. When tenant restrictions are enabled on a Windows device, corporate proxies aren't required for policy enforcement. Devices don't need to be Microsoft Entra ID managed to enforce tenant restrictions v2; domain-joined devices that are managed with Group Policy are also supported.
 
 > [!NOTE]
 > Tenant restrictions V2 on Windows is a partial solution that protects the authentication and data planes for some scenarios. It works on managed Windows devices and does not protect .NET stack, Chrome, or Firefox. The Windows solution provides a temporary solution until general availability of Universal tenant restrictions in [Microsoft Entra Global Secure Access (preview)](/azure/global-secure-access/overview-what-is-global-secure-access).
@@ -411,7 +411,7 @@ To test the tenant restrictions v2 policy on a device, follow these steps.
 
 1. Retrieve the **Tenant ID** and **Policy ID** you recorded earlier (in step 7 under [To configure default tenant restrictions](#to-configure-default-tenant-restrictions)) and enter them in the following fields (leave all other fields blank):
 
-   - **Azure AD Directory ID**: Enter the **Tenant ID** you recorded earlier. by signing in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an administrator and browsing to **Identity** > **Overview** and selecting the **Overview** tab.
+   - **Microsoft Entra Directory ID**: Enter the **Tenant ID** you recorded earlier. by signing in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an administrator and browsing to **Identity** > **Overview** and selecting the **Overview** tab.
    - **Policy GUID**: The ID for your cross-tenant access policy. It's the **Policy ID** you recorded earlier. You can also find this ID by using the Graph Explorer command [https://graph.microsoft.com/v1.0/policies/crossTenantAccessPolicy/default](https://graph.microsoft.com/v1.0/policies/crossTenantAccessPolicy/default).
 
    :::image type="content" source="media/tenant-restrictions-v2/windows-cloud-policy-details.png" alt-text="Screenshot of Windows Cloud Policy Details.":::
@@ -447,7 +447,7 @@ View events related to tenant restrictions in Event Viewer.
 
 ## Sign-in logs
 
-Azure AD sign-in logs let you view details about sign-ins with a tenant restrictions v2 policy in place. When a B2B user signs into a resource tenant to collaborate, a sign-in log is generated in both the home tenant and the resource tenant. These logs include information such as the application being used, email addresses, tenant name, and tenant ID for both the home tenant and the resource tenant. The following example shows a successful sign-in:
+Microsoft Entra sign-in logs let you view details about sign-ins with a tenant restrictions v2 policy in place. When a B2B user signs into a resource tenant to collaborate, a sign-in log is generated in both the home tenant and the resource tenant. These logs include information such as the application being used, email addresses, tenant name, and tenant ID for both the home tenant and the resource tenant. The following example shows a successful sign-in:
 
 :::image type="content" source="media/tenant-restrictions-v2/sign-in-details-success.png" alt-text="Screenshot showing activity details for a successful sign-in." lightbox="media/tenant-restrictions-v2/sign-in-details-success-large.png":::
 
@@ -465,7 +465,7 @@ Select an event in the log to get more details about the event, for example:
  
 :::image type="content" source="media/tenant-restrictions-v2/audit-log-details.png" alt-text="Screenshot showing Audit Log Details.":::
 
-You can also export these logs from Azure AD and use the reporting tool of your choice to get customized reports.
+You can also export these logs from Microsoft Entra ID and use the reporting tool of your choice to get customized reports.
 
 ## Microsoft Graph
 

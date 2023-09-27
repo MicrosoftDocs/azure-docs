@@ -6,8 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 07/22/2022
 ms.author: pafarley

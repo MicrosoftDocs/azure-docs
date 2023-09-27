@@ -4,8 +4,7 @@ description: Learning settings determine the *hyperparameters* of the model trai
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ---

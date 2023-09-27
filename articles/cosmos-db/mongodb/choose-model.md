@@ -39,6 +39,7 @@ Here are a few key factors to help you decide which is the right option for you.
 - Your workload has more long-running queries, complex aggregation pipelines, distributed transactions, joins, etc.
 - You prefer high-capacity vertical and horizontal scaling with familiar vCore-based cluster tiers such as M30, M40, M50 and more.
 - You're running applications requiring 99.995% availability.
+- You need native support for storing and searching vector embeddings.
 
 [**Get started with Azure Cosmos DB for MongoDB vCore**](./vcore/quickstart-portal.md)
 

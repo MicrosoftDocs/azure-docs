@@ -34,7 +34,7 @@ You have two options to start your quickstart application:
 
 ### Option 1: Register and auto configure your app and then download your code sample
 
-1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) quickstart experience.
+1. Go to the [AMicrosoft Entra admin center - App registrations](https://entra.microsoft.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/UwpQuickstartPage/sourceType/docs) quickstart experience.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application.
 
@@ -45,10 +45,9 @@ You have two options to start your quickstart application:
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To register your application and add the app's registration information to your solution, follow these steps:
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Browse to **Identity** > **Applications** > **App registrations**, select **New registration**.
 1. Enter a **Name** for your application, for example `UWP-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
 1. In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 1. Select **Register** to create the application, and then record the **Application (client) ID** for use in a later step.
@@ -73,7 +72,7 @@ To register your application and add the app's registration information to your 
    private const string ClientId = "Enter_the_Application_Id_here";
    ```
 
-   You can find the **Application (client) ID** on the app's **Overview** pane in the Azure portal (**Azure Active Directory** > **App registrations** > *{Your app registration}*).
+   You can find the **Application (client) ID** on the app's **Overview** pane in the Microsoft Entra admin center (**Identity** > **Applications** > **App registrations** > *{Your app registration}*).
 1. Create and then select a new self-signed test certificate for the package:
     1. In the **Solution Explorer**, double-click the *Package.appxmanifest* file.
     1. Select **Packaging** > **Choose Certificate...** > **Create...**.
@@ -99,7 +98,7 @@ When the app's window appears, you can select the **Call Microsoft Graph API** b
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft Identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
+MSAL ([Microsoft.Identity.Client](/dotnet/api/microsoft.identity.client?)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by the Microsoft identity platform. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -122,7 +121,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-The value of `ClientId` is the **Application (client) ID** of the app you registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal.
+The value of `ClientId` is the **Application (client) ID** of the app you registered in the Microsoft Entra admin center. You can find this value in the app's **Overview** page in the Microsoft Entra admin center.
 
 ### Requesting tokens
 

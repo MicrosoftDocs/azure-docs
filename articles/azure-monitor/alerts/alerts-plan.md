@@ -1,5 +1,5 @@
 ---
-title: 'Azure Monitor best practices: Alerts and automated actions'
+title: 'Plan your Alerts and automated actions'
 description: Recommendations for deployment of Azure Monitor alerts and automated actions.
 ms.topic: conceptual
 author: bwren
@@ -9,7 +9,7 @@ ms.reviewer: bwren
 
 ---
 
-# Deploy Azure Monitor: Alerts and automated actions
+# Plan your alerts and automated actions
 
 This article provides guidance on alerts in Azure Monitor. Alerts proactively notify you of important data or patterns identified in your monitoring data. You can view alerts in the Azure portal. You can create alerts that:
 

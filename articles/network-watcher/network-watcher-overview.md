@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: overview
-ms.date: 09/13/2023
+ms.date: 09/15/2023
 # Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
 
@@ -16,7 +16,7 @@ Azure Network Watcher provides a suite of tools to monitor, diagnose, view metri
 Network Watcher consists of three major sets of tools and capabilities:
 
 - [Monitoring](#monitoring)
-- [Network diagnostics tools](#network-diagnostics-tools)
+- [Network diagnostic tools](#network-diagnostic-tools)
 - [Traffic](#traffic)
 
 :::image type="content" source="./media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
@@ -39,9 +39,9 @@ Network Watcher offers two monitoring tools that help you view and monitor resou
 
 **Connection monitor** provides end-to-end connection monitoring for Azure and hybrid endpoints. It helps you understand network performance between various endpoints in your network infrastructure. For more information, see [Connection monitor overview](connection-monitor-overview.md) and [Monitor network communication between two virtual machines](connection-monitor.md).
 
-## Network diagnostics tools
+## Network diagnostic tools
 
-Network Watcher offers seven network diagnostics tools that help troubleshoot and diagnose network issues:
+Network Watcher offers seven network diagnostic tools that help troubleshoot and diagnose network issues:
 
 - IP flow verify
 - NSG diagnostics
@@ -65,7 +65,7 @@ Network Watcher offers seven network diagnostics tools that help troubleshoot an
 
 ### Effective security rules
 
-**Effective security rules** allows you to view the effective security rules applied to a network interface. It shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. For more information, see [Effective security rules overview](network-watcher-security-group-view-overview.md) and [View details of a security rule](diagnose-vm-network-traffic-filtering-problem.md#view-details-of-a-security-rule).
+**Effective security rules** allows you to view the effective security rules applied to a network interface. It shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. For more information, see [Effective security rules overview](effective-security-rules-overview.md) and [View details of a security rule](diagnose-vm-network-traffic-filtering-problem.md#view-details-of-a-security-rule).
 
 ### Connection troubleshoot
 
@@ -128,5 +128,5 @@ To view the latest Network Watcher feature updates, see [Service updates](https:
 
 ## Related content
 
-- To get started using Network Watcher diagnostics tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
-- [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).
+- To get started using Network Watcher diagnostic tools, see [Quickstart: Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md).
+- To learn more about Network Watcher, see [Training module: Introduction to Azure Network Watcher](/training/modules/intro-to-azure-network-watcher).

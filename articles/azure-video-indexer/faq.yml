@@ -142,11 +142,11 @@ sections:
         answer: |
           Yes, the content and its insights are kept within the Azure region (except for Singapore and Brazil South regions) unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
 
-          Customer data in a region is replicated for BCDR reasons to the [paired region](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies).
+          Customer data in a region is replicated for BCDR reasons to the [paired region](../availability-zones/cross-region-replication-azure.md#azure-paired-regions).
 
       - question: What is the privacy policy for Azure AI Video Indexer?
         answer: |
-          Azure AI Video Indexer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+          Azure AI Video Indexer is covered by the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement). The privacy statement explains the personal data Microsoft processes, how Microsoft processes it, and for what purposes Microsoft processes it. To learn more about privacy, visit the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
       - question: What certifications does Azure AI Video Indexer have?
         answer: |
@@ -228,11 +228,11 @@ sections:
       - question: Does Azure AI Video Indexer offer a trial account?
         answer: Yes, Azure AI Video Indexer offers a trial account that that provides you with 2,400 free indexing minutes when using the [Azure AI Video Indexer](https://www.videoindexer.ai/) website or the Azure AI Video Indexer API (see [developer portal](https://api-portal.videoindexer.ai/)).
 
-  - name: How to opt-out results for specific AI models 
+  - name: How to opt out results for specific AI models 
     questions:
-      - question: How to opt-out a specific result from a public AI model?
+      - question: How to opt out a specific result from a public AI model?
         answer: |
-          Send a detailed explanation of your request to "Video Indexer Customer Support" <visupport@microsoft.com>. Including: AI model you are referring to, the result you'd like to opt-out, the reason we should opt-out the results and an explanation of why you are asking this.
+          Send a detailed explanation of your request to "Video Indexer Customer Support" <visupport@microsoft.com>. Including: AI model you are referring to, the result you'd like to opt out, the reason we should opt out the results and an explanation of why you are asking this.
 
       - question: How long does it take?
         answer: Processing the request might take few weeks.

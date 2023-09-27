@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # How to create and manage read replicas in Azure Database for MariaDB using the Azure portal
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 In this article, you will learn how to create and manage read replicas in the Azure Database for MariaDB service using the Azure portal.
 
 ## Prerequisites

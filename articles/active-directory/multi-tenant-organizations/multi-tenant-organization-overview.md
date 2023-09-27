@@ -1,6 +1,6 @@
 ---
-title: What is a multi-tenant organization in Azure Active Directory? (Preview)
-description: Learn about multi-tenant organizations in Azure Active Directory and Microsoft 365.
+title: What is a multi-tenant organization in Microsoft Entra ID? (Preview)
+description: Learn about multi-tenant organizations in Microsoft Entra ID and Microsoft 365.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: overview
-ms.date: 08/22/2023
+ms.date: 09/14/2023
 ms.author: rolyon
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# What is a multi-tenant organization in Azure Active Directory? (Preview)
+# What is a multi-tenant organization in Microsoft Entra ID? (Preview)
 
 > [!IMPORTANT]
 > Multi-tenant organization is currently in PREVIEW.
 > See the [Product Terms](https://aka.ms/EntraPreviewsTermsOfUse) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Multi-tenant organization is a feature in Azure Active Directory (Azure AD) and Microsoft 365 that enables you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
+Multi-tenant organization is a feature in Microsoft Entra ID and Microsoft 365 that enables you to form a tenant group within your organization. Each pair of tenants in the group is governed by cross-tenant access settings that you can use to configure B2B or cross-tenant synchronization.
 
 ## Why use multi-tenant organization?
 
@@ -33,11 +33,11 @@ Here are the primary goals of multi-tenant organization:
 
 ## Who should use it?
 
-Organizations that own multiple Azure AD tenants and want to streamline intra-organization cross-tenant collaboration in Microsoft 365.
+Organizations that own multiple Microsoft Entra tenants and want to streamline intra-organization cross-tenant collaboration in Microsoft 365.
 
 The multi-tenant organization capability is built on the assumption of reciprocal provisioning of B2B member users across multi-tenant organization tenants.
 
-As such, the multi-tenant organization capability assumes the simultaneous use of Azure AD cross-tenant synchronization or an alternative bulk provisioning engine for [external identities](../external-identities/user-properties.md).
+As such, the multi-tenant organization capability assumes the simultaneous use of Microsoft Entra cross-tenant synchronization or an alternative bulk provisioning engine for [external identities](../external-identities/user-properties.md).
 
 ## Benefits
 
@@ -45,10 +45,10 @@ Here are the primary benefits of a multi-tenant organization:
 
 - Differentiate in-organization and out-of-organization external users
 
-    In Azure AD, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization. This differentiation facilitates the application of different policies for in-organization and out-of-organization external users.
+    In Microsoft Entra ID, external users originating from within a multi-tenant organization can be differentiated from external users originating from outside the multi-tenant organization. This differentiation facilitates the application of different policies for in-organization and out-of-organization external users.
 - Improved collaborative experience in Microsoft Teams
 
-    In new Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
+    In new Microsoft Teams, multi-tenant organization users can expect an improved collaborative experience across tenants with chat, calling, and meeting start notifications from all connected tenants across the multi-tenant organization. Tenant switching is more seamless and faster. For more information, see [Announcing more seamless collaboration in Microsoft Teams for multi-tenant organizations](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/announcing-more-seamless-collaboration-in-microsoft-teams-for/ba-p/3901092) and [Microsoft Teams: Advantages of the new architecture](https://techcommunity.microsoft.com/t5/microsoft-teams-blog/microsoft-teams-advantages-of-the-new-architecture/ba-p/3775704).
 
 - Improved people search experience across tenants
 
@@ -126,7 +126,7 @@ The multi-tenant organization capability has been designed with the following co
 
 ## External user segmentation
 
-By defining a multi-tenant organization, as well as pivoting on the Azure AD user property of userType, [external identities](../external-identities/user-properties.md) are segmented as follows:
+By defining a multi-tenant organization, as well as pivoting on the Microsoft Entra user property of userType, [external identities](../external-identities/user-properties.md) are segmented as follows:
 
 - External members originating from within a multi-tenant organization
 - External guests originating from within a multi-tenant organization
@@ -184,7 +184,7 @@ If you want to add more than five tenants or 100,000 internal users per tenant, 
 
 ## License requirements
 
-The multi-tenant organization capability is in preview, and you can start using it if you have Azure AD Premium P1 licenses or above in all multi-tenant organization tenants. Licensing terms will be released at general availability. To find the right license for your requirements, see [Compare generally available features of Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+The multi-tenant organization capability is in preview, and you can start using it if you have Microsoft Entra ID P1 licenses or above in all multi-tenant organization tenants. Licensing terms will be released at general availability. To find the right license for your requirements, see [Compare generally available features of Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 
