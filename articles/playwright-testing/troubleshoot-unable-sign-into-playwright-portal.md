@@ -24,7 +24,7 @@ To resolve this issue, you need to enable the service principal for Microsoft Pl
 > [!IMPORTANT]
 > To enable the service principal, you need to be a tenant admin.
 
-Follow these steps to enable the Microsoft Plawright Testing service principal:
+Follow these steps to enable the Microsoft Playwright Testing service principal:
 
 1. Open an elevated Windows PowerShell command prompt (run Windows PowerShell as an administrator).
  
