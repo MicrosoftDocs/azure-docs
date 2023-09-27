@@ -205,7 +205,7 @@ The usual cause of this issue is that your certificate is misconfigured:
 
 * Verify that your CN matches the CN provided in your certificate.
 
-    * The CN mismatch gets logged in the ingress pod. These logs can be seen by running `kubectl logs <ingress pod>`. The following error appears in the :
+    * The CN mismatch gets logged in the ingress pod. These logs can be seen by running `kubectl logs <ingress pod>`. The following error appears in the logs:
 
         `SSL certificate "default/ingress-tls-csi" does not contain a Common Name or Subject Alternative Name for server "{server name}": x509: certificate is valid for {invalid hostname}, not {actual hostname}`
 
