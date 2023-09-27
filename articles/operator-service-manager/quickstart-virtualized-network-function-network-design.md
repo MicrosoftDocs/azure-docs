@@ -54,7 +54,7 @@ Sample input-vnf-nsd.json
     "nsd_version": "1.0.0",
     "nsdv_description": "Plain ubuntu VM"
 }
-``````
+```
 
 |Variable  |Description  |
 |---------|---------|
