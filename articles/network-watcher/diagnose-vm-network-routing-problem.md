@@ -2,19 +2,18 @@
 title: 'Tutorial: Diagnose a VM network routing problem - Azure portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
-services: network-watcher
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 02/28/2023
-ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I want to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
+ms.date: 09/26/2023
+
+# CustomerIntent: As an Azure administrator, I want to diagnose virtual machine (VM) network routing problem that prevents it from communicating with the internet.
 ---
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
 
-When you deploy a virtual machine (VM), Azure creates several [system default routes](/azure/virtual-network/virtual-networks-udr-overview#system-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) for it. You can create [custom routes](/azure/virtual-network/virtual-networks-udr-overview#custom-routes?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json&tabs=json) to override some of Azure's system routes. Sometimes, a custom route can result in a VM not being able to communicate with the intended destination. You can use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) capability to troubleshoot and diagnose the VM routing problem that's preventing it from correctly communicating with other resources.
+In this tutorial, You use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) tool to troubleshoot and diagnose a VM routing problem that's preventing it from correctly communicating with other resources. Next hop shows you that the routing problem is caused by a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes).
 
 In this tutorial, you learn how to:
 
@@ -26,21 +25,19 @@ In this tutorial, you learn how to:
 > * Create a custom route
 > * Diagnose a routing problem
 
-If you prefer, you can diagnose a virtual machine network routing problem using the [Azure CLI](diagnose-vm-network-routing-problem-cli.md) or [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md) tutorials.
+If you prefer, you can diagnose a virtual machine network routing problem using the [Azure CLI](diagnose-vm-network-routing-problem-cli.md) or [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md) versions of the tutorial.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
 ## Create a virtual network
 
 In this section, you create a virtual network.
 
-1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** in the search results.
 
     :::image type="content" source="./media/diagnose-vm-network-routing-problem/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -50,9 +47,9 @@ In this section, you create a virtual network.
     | --- | --- |
     | **Project Details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
+    | Resource Group | Select **Create new**. </br> Enter ***myResourceGroup*** in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
-    | Name | Enter *myVNet*. |
+    | Name | Enter ***myVNet***. |
     | Region | Select **East US**. |
 
 1. Select the **IP Addresses** tab, or select **Next: IP Addresses** button at the bottom of the page.
@@ -61,9 +58,9 @@ In this section, you create a virtual network.
 
     | Setting | Value |
     | --- | --- |
-    | IPv4 address space | Enter *10.0.0.0/16*. |
-    | Subnet name | Enter *mySubnet*. |
-    | Subnet address range | Enter *10.0.0.0/24*. |
+    | IPv4 address space | Enter ***10.0.0.0/16***. |
+    | Subnet name | Enter ***mySubnet***. |
+    | Subnet address range | Enter ***10.0.0.0/24***. |
 
 1. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page. 
 
@@ -71,9 +68,9 @@ In this section, you create a virtual network.
 
     | Setting | Value |
     | --- | --- |
-    | Bastion name | Enter *myBastionHost*. |
-    | AzureBastionSubnet address space | Enter *10.0.3.0/24*. |
-    | Public IP Address | Select **Create new**. </br> Enter *myBastionIP* for **Name**. </br> Select **OK**. |
+    | Bastion name | Enter ***myBastionHost***. |
+    | AzureBastionSubnet address space | Enter ***10.0.3.0/24***. |
+    | Public IP Address | Select **Create new**. </br> Enter ***myBastionIP*** for **Name**. </br> Select **OK**. |
 
 1. Select the **Review + create** tab or select the **Review + create** button.
 
@@ -85,7 +82,7 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
 
 ### Create first virtual machine
 
-1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** in the search results.
 
 2. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -97,7 +94,7 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
     | Subscription | Select your Azure subscription. |
     | Resource Group | Select **myResourceGroup**. |
     | **Instance details** |  |
-    | Virtual machine name | Enter *myVM*. |
+    | Virtual machine name | Enter ***myVM***. |
     | Region | Select **(US) East US**. |
     | Availability Options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
@@ -139,13 +136,13 @@ In this section, you create two virtual machines: **myVM** and **myNVA**. You us
 
 ### Create second virtual machine
 
-Follow the previous steps that you used to create **myVM** virtual machine and enter *myNVA* for the virtual machine name.
+Follow the previous steps that you used to create **myVM** virtual machine and enter ***myNVA*** for the virtual machine name.
 
 ## Test network communication using Network Watcher next hop
 
 Use the next hop capability of Network Watcher to determine which route Azure is using to route traffic from **myVM**, which has one network interface with one IP configuration
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** in the search results.
 
 1. Under **Network diagnostic tools**, select **Next hop**. Enter or select the following values:
 
@@ -155,8 +152,8 @@ Use the next hop capability of Network Watcher to determine which route Azure is
     | Resource group | Select **myResourceGroup**. |
     | Virtual machine | Select **myVM**. |
     | Network interface | Leave the default. |
-    | Source IP address | Enter *10.0.0.4* or the IP of your VM if it's different. |
-    | Destination IP address | Enter *13.107.21.200* to test the communication to `www.bing.com`. |
+    | Source IP address | Enter ***10.0.0.4*** or the IP of your VM if it's different. |
+    | Destination IP address | Enter ***13.107.21.200*** to test the communication to `www.bing.com`. |
 
 1. Select **Next hop** button to start the test. The test result shows information about the next hop like the next hop type, its IP address, and the route table ID used to route traffic. The result of testing **13.107.21.200** shows that the next hop type is **Internet** and the route table ID is **System Route** which means traffic destined to `www.bing.com` from **myVM** is routed to the internet using Azure default system route.
 
@@ -174,7 +171,7 @@ Use the next hop capability of Network Watcher to determine which route Azure is
 
 To further analyze routing, review the effective routes for **myVM** network interface.
 
-1. In the search box at the top of the portal, enter *virtual machines*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** in the search results.
 
 1. Under **Settings**, select **Networking**, then select the network interface.
 
@@ -198,7 +195,7 @@ Next, you create a static custom route to override Azure default system routes a
 
 In this section, you create a static custom route (user-defined route) in a route table that forces all traffic destined outside the virtual network to a specific IP address. Forcing traffic to a virtual network appliance is a common scenario.
 
-1. In the search box at the top of the portal, enter *route tables*. Select **Route tables** in the search results.
+1. In the search box at the top of the portal, enter ***route tables***. Select **Route tables** in the search results.
 
 1. Select **+ Create** to create a new route table. In the **Create Route table** page, enter or select the following values:
 
@@ -209,7 +206,7 @@ In this section, you create a static custom route (user-defined route) in a rout
     | Resource group | Select **myResourceGroup**. |
     | **Instance Details** |  |
     | Region | Select **East US**. |
-    | Name | Enter *myRouteTable*. |
+    | Name | Enter ***myRouteTable***. |
     | Propagate gateway routes | Leave the default. |
 
 1. Select **Review + create**. 
@@ -224,11 +221,11 @@ In this section, you create a static custom route (user-defined route) in a rout
 
     | Setting | Value  |
     | ------- | ------ |
-    | Route name | Enter *myRoute*. |
+    | Route name | Enter ***myRoute***. |
     | Address prefix destination | Select **IP Addresses**. |
-    | Destination IP addresses/CIDR ranges | Enter *0.0.0.0/0*. |
+    | Destination IP addresses/CIDR ranges | Enter ***0.0.0.0/0***. |
     | Next hop type | Select **Virtual appliance**. |
-    | next hop address | Enter *10.0.0.5*. |
+    | next hop address | Enter ***10.0.0.5***. |
 
 1. Select **Add**.
 
@@ -272,18 +269,19 @@ The custom route with prefix 0.0.0.0/0 overrode Azure default route and caused a
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all of the resources it contains:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the search box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
-2. Select **Delete resource group**.
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
-## Next steps
+1. Select **Delete resource group**.
 
-In this tutorial, you created a virtual machine and used Network Watcher next hop to diagnose routing to different destinations. To learn more about routing in Azure, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
-For outbound VM connections, you can use Network Watcher [connection troubleshoot](network-watcher-connectivity-portal.md) capability to determine the latency, allowed and denied network traffic between the VM and an endpoint, and the route to an endpoint.
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-To learn how to monitor communication between two virtual machines, advance to the next tutorial.
+## Next step
+
+To learn how to monitor communication between two virtual machines, advance to the next tutorial:
+
 > [!div class="nextstepaction"]
 > [Monitor a network connection](monitor-vm-communication.md)

@@ -7,7 +7,7 @@ author: msjuergent
 manager: bburns
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/24/2023
+ms.date: 09/26/2023
 ms.author: juergent
 ---
 
@@ -56,6 +56,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- September 26, 2023: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add instructions for deploying /hana/shared (only) on NFS on Azure Files
 - September 12, 2023: Adding support to handle Azure scheduled events for [Pacemaker clusters running on RHEL](./high-availability-guide-rhel-pacemaker.md).
 - August 24, 2023: Support of priority-fencing-delay cluster property on two-node pacemaker cluster to address split-brain situation in RHEL is updated on [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md), [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md), [High availability of SAP HANA Scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), and [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md) documents.
 - August 03, 2023: Change of recommendation to use a /25 IP range for delegated subnet for ANF for SAP workload [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
