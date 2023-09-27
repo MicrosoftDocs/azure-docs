@@ -61,10 +61,6 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
 
-# [Studio](#tab/studio)
-
-Navigate to [Azure Machine Learning studio](https://ml.azure.com).
-
 ---
 
 
@@ -90,18 +86,12 @@ model = ml_client.models.create_or_update(
 )
 ```
 
-# [Studio](#tab/studio)
-
-To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Select **Register model** and select where your model is located. Fill out the required fields, and then select __Register__.
-
-:::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
-
 ---
 
 
-## Creating a portable model package
+## Deploy a model package to Azure App Service
 
-1. To create a model package, we need to create a package specification. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md).
+1. To deploy a model outside of Azure Machine Learning we need to create a package specification. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md).
 
     # [Azure CLI](#tab/cli)
     
@@ -125,17 +115,12 @@ To create a model in Azure Machine Learning, open the Models page in Azure Machi
         model_configuration=ModelConfiguration(mode="copy")
     )
     ```
-    
-    # [Studio](#tab/studio)
-    
-    TODO
-    
     ---
     
     > [!TIP]
     > Notice that we have indicated **model configuration** using *copy* for the property **mode**. This guarantees all the model artifacts are copied inside of the generated docker image instead of downloaded from Azure Machine Learning model registry, allowing true portability outside of Azure Machine Learning.
 
-1. Let's start the package operation:
+1. Let's start the package operation. The result of the package operation is an environment.
 
     # [Azure CLI](#tab/cli)
     
@@ -148,18 +133,64 @@ To create a model in Azure Machine Learning, open the Models page in Azure Machi
     ```python
     model_package = ml_client.models.begin_package(model_name, model.version, package_config)
     ```
-    
-    # [Studio](#tab/studio)
-    
-    TODO
-    
-    ---
-    
-    The result of the package operation is an environment.
 
-## Deploy a model package to Azure App Service
+1. We need to get the details of the image the model created. To do that:
 
-TODO
+    1. Go to Azure Machine Learning studio.
+
+    1. Select the section **Environments**.
+
+    1. Select the tab **Custom environments**.
+
+    1. Look for the environment named *heart-classifier-mlflow-package*.
+
+    1. Copy the value in the field **Azure container registry**.
+
+    :::image type="content" source="./media/model-packaging/model-package-container-name.png" alt-text="An screenshot showing the section where the Azure container registry image name is displayed in Azure Machine Learning studio."::: 
+
+
+1. Go to Azure portal and create a new App Service.
+
+    1. Select the subscription and resource group you are using.
+
+    1. On __Instance details__, give the app a name.
+    
+    1. On __Publish__, select __Docker container__.
+
+    1. On __Operative System__, select __Linux__.
+
+        :::image type="content" source="./media/model-packaging/model-package-web-app-config.png" alt-text="An screenshot showing how to configure the app service to deploy the generated docker container image.":::
+
+    1. Configure the rest of the page as needed and click on **Next**.
+
+    1. On the **Docker** tab, on **Options**, select **Single Container**.
+    
+    1. On **Image Source**, select **Azure Container Registry**.
+
+    1. Configure **Azure container registry options** as follows:
+
+        1. On **Registry**, select the Azure Container Registry associated with Azure Machine Learning workspace.
+
+        1. On **Image**, select the image that you found on step 3.5 of this tutorial.
+
+        1. On **Tag**, select **latest**.
+        
+        :::image type="content" source="./media/model-packaging/model-package-web-app-docker.png" alt-text="An screenshot showing the section Docker of the wizard, where the docker image associated with the package is indicated.":::
+
+    1. Configure the rest of the wizard as needed.
+
+    1. Click on **Create**. The model is now deployed in the App Service just created.
+
+    1. Depending on the infererence server you used, the way you use to invoke and get predictions. In this example, we have used the Azure Machine Learning inferencing server, which creates predictios under the route `/score`. For more information about the input formats and features please see the details of the package [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/).
+
+    1. Test the model deployment to see if it works. 
+
+        ```bash
+        cat -A sample-request.json | curl http://heart-classifier-mlflow-pkg.azurewebsites.net/score \
+            --request POST \
+            --header 'Content-Type: application/json' \
+            --data-binary @-
+        ```
 
 ## Next steps
 
