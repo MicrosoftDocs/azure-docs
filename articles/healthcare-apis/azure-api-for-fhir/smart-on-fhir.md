@@ -159,7 +159,7 @@ Notice that the SMART on FHIR app launcher updates the **Launch URL** informatio
 </details>
      
 ## Migrate from SMART on FHIR Proxy to SMART on FHIR (Enhanced)
-[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smartonfhirproxymigration.md)]
+[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
 
 ## Next steps
 
