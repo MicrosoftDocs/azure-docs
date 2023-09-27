@@ -96,6 +96,9 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
 
 1. To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
 
+++ Note: SAS cannot be generated on the folder-level as Flat-namespace blob containers don't have real folders, and 
+   don't support folder-level security. 
+
 ## Create SAS tokens with Azure Storage Explorer
 
 Azure Storage Explorer is a free standalone app that enables you to easily manage your Azure cloud storage resources from your desktop.
