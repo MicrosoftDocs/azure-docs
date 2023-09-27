@@ -221,7 +221,9 @@ The following steps illustrate how to manage the blobs (and virtual directories)
      1. Select the blob you wish to delete.
      2. On the main pane's toolbar, select **Delete**.
      3. Select **Yes** to the confirmation dialog.
-   ++ To delete the blobs along with snaphots
+   
+   * **Delete a blob along with snapshots**
+   
      1. Select the blob you wish to delete.
      2. On the main pane's toolbar, select **Delete**.
      3. Select **Yes** to the confirmation dialog.
