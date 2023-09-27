@@ -36,7 +36,7 @@ Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
    
    - Are joined to an Active Directory domain. Session hosts joined to Microsoft Entra ID aren't supported.
    
-   - Have the latest version of FSLogix installed. For more information, see [Install FSLogix](/virtual-desktop/fslogix-install-ht).
+   - Have the latest version of FSLogix installed. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
 
 ## Configure OneDrive to launch with a RemoteApp
 
