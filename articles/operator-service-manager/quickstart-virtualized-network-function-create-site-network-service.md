@@ -68,7 +68,8 @@ On the **Choose a Network Service Design** page, select the Publisher, Network S
     :::image type="content" source="media/review-create-virtual-network-function.png" alt-text="Screenshot showing the Set initial configuration tab, then Review and Create.":::
 
 1. Select a **Configuration Group Value** resource for each schema listed in the selected network service design. The dropdown options include only the configuration group resources that conform to the given schema and are available in your subscription (selected on the **Basics** tab).
-1. Enter the following json configuration into the editor panel.
+
+
 
     ```json
     {
@@ -97,6 +98,6 @@ Wait for the deployment to reach the 'Succeeded' state. After completion, your V
 ### Access your Virtual Network Function (VNF)
 
 1. To access your Virtual Network Function (VNF), go to the Site Network Service object in the Azure portal.
-1. Select the link under "Current State -> Resources." The link takes you to the managed resource group created by Azure Operator Service Manager.
+1. Select the link under **Current State -> Resources**. The link takes you to the managed resource group created by Azure Operator Service Manager.
 
 Congratulations! You have successfully created a Site Network Service for Ubuntu VM as a Virtual Network Function (VNF) in Azure. You can now manage and monitor your Virtual Network Function (VNF) through the Azure portal.
