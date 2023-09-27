@@ -16,7 +16,7 @@ This article guides you through planning for and creating an Azure Communication
 
 You must have completed [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
 
-[!INCLUDE [communications-gateway-tsp-with-oc-restriction](includes/communications-gateway-tsp-with-oc-restriction.md)]
+[!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
 
 [!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
 

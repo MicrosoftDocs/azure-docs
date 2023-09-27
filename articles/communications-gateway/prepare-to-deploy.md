@@ -16,7 +16,7 @@ The following sections describe the information you need to collect and the deci
 
 ## Prerequisites
 
-[!INCLUDE [communications-gateway-tsp-with-oc-restriction](includes/communications-gateway-tsp-with-oc-restriction.md)]
+[!INCLUDE [communications-gateway-tsp-restriction](includes/communications-gateway-tsp-restriction.md)]
 
 [!INCLUDE [communications-gateway-deployment-prerequisites](includes/communications-gateway-deployment-prerequisites.md)]
 

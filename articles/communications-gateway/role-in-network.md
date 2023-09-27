@@ -14,7 +14,9 @@ ms.custom: template-concept
 Azure Communications Gateway sits at the edge of your network. This position allows it to manipulate signaling and media to meet the requirements of your networks and your chosen communications services. Azure Communications Gateway includes many interoperability settings by default, and you can arrange further interoperability configuration.
 
 > [!TIP]
-> This section provides a brief overview of Azure Communications Gateway's interoperability features. For detailed information about interoperability with Operator Connect and Teams Phone Mobile, see [Interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile for Microsoft Teams](interoperability-operator-connect.md).
+> This section provides a brief overview of Azure Communications Gateway's interoperability features. For detailed information about interoperability with a specific communications service, see:
+> - [Interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md).
+> - [Interoperability of Azure Communications Gateway with Microsoft Teams Direct Routing](interoperability-teams-direct-routing.md).
 
 ## Role and position in the network
 
@@ -72,6 +74,7 @@ For full details of the media interworking features available in Azure Communica
 
 ## Next steps
 
-- Learn about [Interoperability for Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md)
+- Learn about [interoperability for Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md)
+- Learn about [interoperability for Microsoft Teams Direct Routing](interoperability-teams-direct-routing.md)
 - Learn about [onboarding and Inclusive Benefits](onboarding.md)
 - Learn about [planning an Azure Communications Gateway deployment](get-started.md)

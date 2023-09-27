@@ -50,6 +50,10 @@ items:
     href: emergency-calling-operator-connect.md
   - name: Use the Number Management Portal
     href: manage-enterprise-operator-connect.md
+- name: Integration with Microsoft Teams Direct Routing
+  items:
+  - name: Overview of interoperability
+    href: interoperability-teams-direct-routing.md
 - name: Maintenance
   items:
   - name: Set up user roles

@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
-  ms.date: 07/17/2023
+  ms.date: 09/12/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -75,6 +75,13 @@ landingContent:
           - text: Manage enterprises and numbers in the Number Management Portal
             url: manage-enterprise-operator-connect.md
 
+  # Card
+  - title: Use Azure Communications Gateway for Microsoft Teams Direct Routing
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Overview of interoperability
+            url: interoperability-teams-direct-routing.md
 
   # Card
   - title: Manage Azure Communications Gateway

@@ -32,11 +32,13 @@ Read the following articles to learn about Azure Communications Gateway.
 - [Plan and manage costs for Azure Communications Gateway](plan-and-manage-costs.md), to learn about costs for Azure Communications Gateway.
 - [Azure Communications Gateway limits, quotas and restrictions](limits.md), to learn about the limits and quotas associated with the Azure Communications Gateway
 
-Read the following articles to learn about Operator Connect and Teams Phone Mobile with Azure Communications Gateway.
+For Operator Connect and Teams Phone Mobile, also read:
 
 - [Overview of interoperability of Azure Communications Gateway with Operator Connect and Teams Phone Mobile](interoperability-operator-connect.md)
 - [Mobile Control Point in Azure Communications Gateway for Teams Phone Mobile](mobile-control-point.md).
 - [Emergency calling for Operator Connect and Teams Phone Mobile with Azure Communications Gateway](emergency-calling-operator-connect.md)
+
+For Microsoft Teams Direct Routing, read [Overview of interoperability of Azure Communications Gateway with Microsoft Teams Direct Routing](interoperability-teams-direct-routing.md).
 
 As part of your planning, ensure your network can support the connectivity and interoperability requirements in these articles.
 
