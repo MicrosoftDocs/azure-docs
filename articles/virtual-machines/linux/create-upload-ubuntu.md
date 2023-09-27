@@ -184,22 +184,22 @@ sudo rm -f ~/.bash_history
 cd /boot/efi/EFI
 ```
 
-2. Copy the ubuntu directory to a new directory named boot:
+1. Copy the ubuntu directory to a new directory named boot:
 ```bash
 sudo cp -r ubuntu/ boot
 ```
 
-3. Change directory to the newly created boot directory:
+1. Change directory to the newly created boot directory:
 ```bash
 cd boot
 ```
     
-4. Rename the shimx64.efi file:
+1. Rename the shimx64.efi file:
 ```bash
 sudo mv shimx64.efi bootx64.efi
 ```
 
-5. Rename the grub.cfg file to bootx64.cfg:
+1. Rename the grub.cfg file to bootx64.cfg:
 ```bash
 sudo mv grub.cfg bootx64.cfg 
 ```
