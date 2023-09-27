@@ -42,7 +42,7 @@ GPT-3.5 models can understand and generate natural language or code. The most ca
 
 - `gpt-35-turbo`
 - `gpt-35-turbo-16k`
-- `gpt-35-turboinstruct`
+- `gpt-35-turbo-instruct`
 
 The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.  `gpt-35-turbo-instruct` supports 4097 max input tokens.
 
