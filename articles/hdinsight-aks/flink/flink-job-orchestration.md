@@ -137,7 +137,7 @@ The DAG expects to have setup for the Service Principal, as described during the
 
       "subscritpion":"<cluster subscription id>", 
 
-      "rg":"<cluster rescource group>", 
+      "rg":"<cluster resource group>", 
 
       "poolNm":"<cluster pool name>", 
 
