@@ -1109,6 +1109,8 @@
         href: gofluent-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
+      - name: GovWin IQ
+        href: govwin-iq-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
       - name: gr8 People
@@ -2601,6 +2603,8 @@
         href: textmagic-tutorial.md
       - name: The Funding Portal
         href: the-funding-portal-tutorial.md
+      - name: The People Experience Hub
+        href: the-people-experience-hub-tutorial.md
       - name: Theom
         href: theom-tutorial.md
       - name: ThirdLight

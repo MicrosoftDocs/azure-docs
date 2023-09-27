@@ -68,6 +68,9 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
 
+> [!NOTE]
+> You need enough permissions to create connection successfully, for more details, see [Permission requirements](./concept-permission.md).
+
 ## View service connections in App Service
 
 1. The **Service Connector** tab displays existing App Service connections.

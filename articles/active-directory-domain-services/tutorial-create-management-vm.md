@@ -156,8 +156,8 @@ To safely interact with your managed domain from other applications, enable secu
 > [Configure secure LDAP for your managed domain](tutorial-configure-ldaps.md)
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
-[azure-bastion]: ../bastion/tutorial-create-host-portal.md
+[azure-bastion]: /azure/bastion/tutorial-create-host-portal
