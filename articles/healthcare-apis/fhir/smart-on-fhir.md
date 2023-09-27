@@ -166,7 +166,7 @@ Inspect the token response to see how the launch context fields are passed on to
      </details>
      
 ## Migrate from SMART on FHIR Proxy to SMART on FHIR (Enhanced)
-[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smartonfhirproxymigration.md)]
+[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
 
 ## Next steps
 
