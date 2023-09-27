@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Authentication with Azure Functions - Azure SignalR"
-description: In this tutorial, you learn how to authenticate Azure SignalR Service clients for Azure Functions binding
+title: "Tutorial: Authentication with Azure Functions - Azure SignalR Service"
+description: In this tutorial, you learn how to authenticate Azure SignalR Service clients for Azure Functions binding.
 author: Y-Sindo
 ms.service: signalr
 ms.topic: tutorial
@@ -12,45 +12,39 @@ ms.custom:
 
 # Tutorial: Azure SignalR Service authentication with Azure Functions
 
-A step by step tutorial to build a chat room with authentication and private messaging using Azure Functions, App Service Authentication, and SignalR Service.
+In this step-by-step tutorial, you build a chat room with authentication and private messaging by using these technologies:
 
-## Introduction
+- [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=serverlesschatlab-tutorial-antchu): Back-end API for authenticating users and sending chat messages.
+- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu): Service for broadcasting new messages to connected chat clients.
+- [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu): Storage service required by Azure Functions.
+- [Azure App Service](https://azure.microsoft.com/products/app-service/): Service that provides a mechanism for authenticating users.
 
-### Technologies used
+## Prerequisites
 
-- [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=serverlesschatlab-tutorial-antchu) - Backend API for authenticating users and sending chat messages
-- [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) - Broadcast new messages to connected chat clients
-- [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu) - Required by Azure Functions
-
-### Prerequisites
-
-- An Azure account with an active subscription.
-  - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
-- [Node.js](https://nodejs.org/en/download/) (Version 18.x)
-- [Azure Functions Core Tools](../azure-functions/functions-run-local.md?#install-the-azure-functions-core-tools) (Version 4)
+- An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
+- [Node.js](https://nodejs.org/en/download/) (version 18.x).
+- [Azure Functions Core Tools](../azure-functions/functions-run-local.md?#install-the-azure-functions-core-tools) (version 4).
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ## Create essential resources on Azure
 
-### Create an Azure SignalR service resource
+### Create an Azure SignalR Service resource
 
-Your application will access a SignalR Service instance. Use the following steps to create a SignalR Service instance using the Azure portal.
+Your application will access an Azure SignalR Service instance. Use the following steps to create an Azure SignalR Service instance by using the Azure portal:
 
-1. Select on the **Create a resource** (**+**) button for creating a new Azure resource.
-
+1. In the [Azure portal](https://portal.azure.com/), select the **Create a resource** (**+**) button.
 1. Search for **SignalR Service** and select it.
 1. Select **Create**.
-
 1. Enter the following information.
 
    | Name               | Value                                          |
    | ------------------ | ---------------------------------------------- |
-   | **Resource group** | Create a new resource group with a unique name |
-   | **Resource name**  | A unique name for the SignalR Service instance |
-   | **Region**         | Select a region close to you                   |
-   | **Pricing Tier**   | Free                                           |
-   | **Service mode**   | Serverless                                     |
+   | **Resource group** | Create a new resource group with a unique name. |
+   | **Resource name**  | Enter a unique name for the Azure SignalR Service instance. |
+   | **Region**         | Select a region close to you .                  |
+   | **Pricing Tier**   | Select **Free**.                                           |
+   | **Service mode**   | Select **Serverless**.                                     |
 
 1. Select **Review + Create**.
 1. Select **Create**.
@@ -60,21 +54,18 @@ Your application will access a SignalR Service instance. Use the following steps
 ### Create an Azure Function App and an Azure Storage account
 
 1. From the home page in the Azure portal, select on the **Create a resource** (**+**).
-
 1. Search for **Function App** and select it.
 1. Select **Create**.
-
 1. Enter the following information.
 
    | Name                  | Value                                                          |
    | --------------------- | -------------------------------------------------------------- |
-   | **Resource group**    | Use the same resource group with your SignalR Service instance |
+   | **Resource group**    | Use the same resource group with your Azure SignalR Service instance |
    | **Function App name** | A unique name for the Function app instance                    |
    | **Runtime stack**     | Node.js                                                        |
    | **Region**            | Select a region close to you                                   |
 
 1. By default, a new Azure Storage account will also be created in the same resource group together with your function app. If you want to use another storage account in the function app, switch to **Hosting** tab to choose an account.
-
 1. Select **Review + Create**, then select **Create**.
 
 ## Create an Azure Functions project locally
@@ -82,18 +73,17 @@ Your application will access a SignalR Service instance. Use the following steps
 ### Initialize a function app
 
 1. From a command line, create a root folder for your project and change to the folder.
-
 1. Execute the following command in your terminal to create a new JavaScript Functions project.
 
-```bash
-func init --worker-runtime node --language javascript --name my-app
-```
+   ```bash
+   func init --worker-runtime node --language javascript --name my-app
+   ```
 
 By default, the generated project includes a _host.json_ file containing the extension bundles which include the SignalR extension. For more information about extension bundles, see [Register Azure Functions binding extensions](../azure-functions/functions-bindings-register.md#extension-bundles).
 
 ### Configure application settings
 
-When running and debugging the Azure Functions runtime locally, application settings are read by the function app from _local.settings.json_. Update this file with the connection strings of the SignalR Service instance and the storage account that you created earlier.
+When running and debugging the Azure Functions runtime locally, application settings are read by the function app from _local.settings.json_. Update this file with the connection strings of the Azure SignalR Service instance and the storage account that you created earlier.
 
 1. Replace the content of _local.settings.json_ with the following code:
 
@@ -110,7 +100,7 @@ When running and debugging the Azure Functions runtime locally, application sett
 
    - Enter the Azure SignalR Service connection string into the `AzureSignalRConnectionString` setting.
 
-     Navigate to your SignalR Service in the Azure portal. In the **Settings** section, locate the **Keys** setting. Select the **Copy** button to the right of the connection string to copy it to your clipboard. You can use either the primary or secondary connection string.
+     Navigate to your Azure SignalR Service instance in the Azure portal. In the **Settings** section, locate the **Keys** setting. Select the **Copy** button to the right of the connection string to copy it to your clipboard. You can use either the primary or secondary connection string.
 
    - Enter the storage account connection string into the `AzureWebJobsStorage` setting.
 
@@ -175,13 +165,13 @@ When the chat app first opens in the browser, it requires valid connection crede
    };
    ```
 
-   This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client uses this information to connect to the SignalR Service instance.
+   This function takes the SignalR connection information from the input binding and returns it to the client in the HTTP response body. The SignalR client uses this information to connect to the Azure SignalR Service instance.
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
 
 ### Create a function to send chat messages
 
-The web app also requires an HTTP API to send chat messages. You'll create an HTTP triggered function named `sendMessage` that sends messages to all connected clients using SignalR Service.
+The web app also requires an HTTP API to send chat messages. You'll create an HTTP triggered function named `sendMessage` that sends messages to all connected clients using Azure SignalR Service.
 
 1. From the root project folder, create an HTTP trigger function named `sendMessage` from the template with the command:
 
@@ -221,7 +211,7 @@ The web app also requires an HTTP API to send chat messages. You'll create an HT
    Two changes are made to the original file:
 
    - Changes the route to `messages` and restricts the HTTP trigger to the `POST` HTTP method.
-   - Adds a SignalR Service output binding that sends a message returned by the function to all clients connected to a SignalR Service hub named `default`.
+   - Adds an Azure SignalR Service output binding that sends a message returned by the function to all clients connected to an Azure SignalR Service hub named `default`.
 
 1. Replace the content of _sendMessage/index.js_ with the following code:
 
@@ -245,7 +235,7 @@ The web app also requires an HTTP API to send chat messages. You'll create an HT
    };
    ```
 
-   This function takes the body from the HTTP request and sends it to clients connected to SignalR Service, invoking a function named `newMessage` on each client.
+   This function takes the body from the HTTP request and sends it to clients connected to Azure SignalR Service, invoking a function named `newMessage` on each client.
 
    The function can read the sender's identity and can accept a `recipient` value in the message body to allow you to send a message privately to a single user. You'll use these functionalities later in the tutorial.
 
@@ -259,9 +249,7 @@ The chat application's UI is a simple single-page application (SPA) created with
 
 1. Create a new folder named _content_ in the root directory of your function project.
 1. In the _content_ folder, create a new file named _index.html_.
-
 1. Copy and paste the content of [index.html](https://github.com/aspnet/AzureSignalR-samples/blob/da0aca70f490f3d8f4c220d0c88466b6048ebf65/samples/ServerlessChatWithAuth/content/index.html) to your file. Save the file.
-
 1. From the root project folder, create an HTTP trigger function named `index` from the template with the command:
 
    ```bash
@@ -334,7 +322,6 @@ You have been running the function app and chat application locally. You'll now 
 So far, the chat app works anonymously. In Azure, you'll use [App Service Authentication](../app-service/overview-authentication-authorization.md) to authenticate the user. The user ID or username of the authenticated user is passed to the `SignalRConnectionInfo` binding to generate connection information authenticated as the user.
 
 1. Open _negotiate/function.json_.
-
 1. Insert a `userId` property to the `SignalRConnectionInfo` binding with value `{headers.x-ms-client-principal-name}`. This value is a [binding expression](../azure-functions/functions-triggers-bindings.md) that sets the user name of the SignalR client to the name of the authenticated user. The binding should now look like this.
 
    ```json
@@ -383,12 +370,9 @@ Azure Functions supports authentication with Microsoft Entra ID, Facebook, Twitt
 
 ### Try the application
 
-1. Open **https://\<YOUR-FUNCTION-APP-NAME\>.azurewebsites.net/api/index**
-
+1. Open **https://\<YOUR-FUNCTION-APP-NAME\>.azurewebsites.net/api/index**.
 1. Select **Login** to authenticate with your chosen authentication provider.
-
 1. Send public messages by entering them into the main chat box.
-
 1. Send private messages by clicking on a username in the chat history. Only the selected recipient will receive these messages.
 
 :::image type="content" source="./media/signalr-tutorial-authenticate-azure-functions/online-chat-client-ui.png" alt-text="Screenshot of the authenticated online client chat app using Azure SignalR Service and Azure Functions.":::
@@ -408,7 +392,7 @@ To clean up the resources created in this tutorial, delete the resource group us
 
 ## Next steps
 
-In this tutorial, you learned how to use Azure Functions with Azure SignalR Service. Read more about building real-time serverless applications with SignalR Service bindings for Azure Functions.
+In this tutorial, you learned how to use Azure Functions with Azure SignalR Service. Read more about building real-time serverless applications with Azure SignalR Service bindings for Azure Functions.
 
 > [!div class="nextstepaction"] 
 > [Real-time apps with Azure SignalR Service and Azure Functions](signalr-concept-azure-functions.md)
