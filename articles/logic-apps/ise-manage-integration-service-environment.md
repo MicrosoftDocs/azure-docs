@@ -21,7 +21,7 @@ ms.date: 09/27/2023
 > before this date are supported through August 31, 2024. For more information, see the following resources:
 >
 > - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
-> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+> - [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
 > - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 > - [Export ISE workflows to a Standard logic app](export-from-ise-to-standard-logic-app.md)
 > - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
@@ -35,7 +35,7 @@ This article shows how to perform management tasks for your [integration service
 
 * Check your ISE's network health.
 
-* Manage the resources such as multi-tenant based logic apps, connections, integration accounts, and connectors in your ISE.
+* Manage the resources such as multitenant based logic apps, connections, integration accounts, and connectors in your ISE.
 
 * Add capacity, restart your ISE, or delete your ISE, follow the steps in this topic. To add these artifacts to your ISE, see [Add artifacts to your integration service environment](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
