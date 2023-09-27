@@ -11,7 +11,7 @@ ms.author: franlanglois
 
 # What are the best practices for the Enterprise and Enterprise Flash tiers
 
-Here are the best the practices when using the Enterprise and Enterprise Flash tiers of Azure Cache for Redis.
+Here are the best practices when using the Enterprise and Enterprise Flash tiers of Azure Cache for Redis.
 
 ## Zone Redundancy
 
@@ -147,7 +147,7 @@ For example, consider these tips:
 
 - Identify in advance which other cache in the geo-replication group to switch over to if a region goes down.
 - Ensure that firewalls are set so that any applications and clients can access the identified backup cache.
-- Each cache in the geo-replication group has its own access key. Determine how the application switches to a different access keys when targeting a backup cache.
+- Each cache in the geo-replication group has its own access key. Determine how the application switches to different access keys when targeting a backup cache.
 - If a cache in the geo-replication group goes down, a buildup of metadata starts to occur in all the caches in the geo-replication group. The metadata can't be discarded until writes can be synced again to all caches. You can prevent the metadata build-up by _force unlinking_ the cache that is down. Consider monitoring the available memory in the cache and unlinking if there's memory pressure, especially for write-heavy workloads.
 
 It's also possible to use a [circuit breaker pattern](/azure/architecture/patterns/circuit-breaker). Use the pattern to automatically redirect traffic away from a cache experiencing a region outage, and towards a backup cache in the same geo-replication group. Use Azure services such as [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) or [Azure Load Balancer](../load-balancer/load-balancer-overview.md) to enable the redirection.
