@@ -139,7 +139,7 @@ This Service Connector command completes the following tasks in the background:
   - For App Service, the configurations are set in the **App Settings** blade.
 
 
-If you meet any problem, refer to [Troubleshooting](../tutorial-passwordless.md#troubleshooting) for help.
+If you meet any problem when creating a connection, refer to [Troubleshooting](../tutorial-passwordless.md#troubleshooting) for help.
 
 ## Connect to database with Azure Active Directory authentication
 
