@@ -281,7 +281,7 @@ Writing and maintaining accelerators can become repetitive and verbose as new ac
 
 Use following steps to reference a Fragment in your accelerator:
 
-1. Publish the new accelerator of Fragment type using the Azure portal or the Azure CLI.
+Publish the new accelerator of Fragment type using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
