@@ -7,7 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Enable the matched person insight (preview)
+# Enable the matched person insight
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 

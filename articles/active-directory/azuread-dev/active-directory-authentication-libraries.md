@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Authentication Libraries
+title: Azure Active Directory Authentication Library
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
 author: rwike77
@@ -15,7 +15,7 @@ ms.custom: aaddev
 ROBOTS: NOINDEX
 ---
 
-# Azure Active Directory Authentication Libraries
+# Azure Active Directory Authentication Library
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -26,7 +26,7 @@ The Azure Active Directory Authentication Library (ADAL) v1.0 enables applicatio
 - Support for asynchronous method calls
 
 > [!NOTE]
-> Looking for the Azure AD v2.0 libraries (MSAL)? Checkout the [MSAL library guide](../develop/reference-v2-libraries.md).
+> Looking for the Azure AD v2.0 libraries? Checkout the [MSAL library guide](../develop/reference-v2-libraries.md).
 
 
 > [!WARNING]

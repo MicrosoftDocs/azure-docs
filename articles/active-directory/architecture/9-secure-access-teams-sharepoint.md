@@ -34,7 +34,7 @@ Sharing in Microsoft 365 is partially governed by the **External Identities, Ext
 Learn more:
 
 * [Microsoft Entra admin center](https://entra.microsoft.com)
-* [External Identities in Azure AD](../external-identities/external-identities-overview.md)
+* [External Identities in Microsoft Entra ID](../external-identities/external-identities-overview.md)
 
 ### Guest user access
 

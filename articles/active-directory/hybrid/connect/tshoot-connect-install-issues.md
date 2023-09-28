@@ -47,7 +47,7 @@ However, if you don’t meet the express installation criteria and must do the c
 * [Custom installation of Microsoft Entra Connect](./how-to-connect-install-custom.md)
 * [Microsoft Entra Connect: Upgrade from a previous version to the latest](./how-to-upgrade-previous-version.md)
 * [Microsoft Entra Connect: What is staging server?](./plan-connect-topologies.md#staging-server)
-* [What is the ADConnectivityTool PowerShell Module?](./how-to-connect-adconnectivitytools.md)
+* [What is the `ADConnectivityTool` PowerShell module?](./how-to-connect-adconnectivitytools.md)
 
 ## Next steps
 - [Microsoft Entra Connect Sync](how-to-connect-sync-whatis.md).
