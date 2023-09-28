@@ -120,6 +120,8 @@ items:
       items:
       - name: Terminology
         href: concepts-pull-delivery.md
+      - name: Publisher and subscriber operations
+        href: publisher-subscriber-operations.md
     - name: Quickstarts
       items:
       - name: Publish and subscribe using namespace topics
