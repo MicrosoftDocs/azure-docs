@@ -8,7 +8,7 @@ ms.date: 09/11/2023
 ms.author: kesheth
 ms.custom: "include file"
 ---
- 
+    
 > [!IMPORTANT]
 > **SMART on FHIR proxy is retiring in September 2026**, transition to the SMART on FHIR (Enhanced) by that date. Beginning September 2026, applications relying on SMART on FHIR proxy will report errors in accessing the FHIR service.
 
