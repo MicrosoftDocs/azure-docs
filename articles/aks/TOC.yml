@@ -597,6 +597,8 @@
           href: ../azure-monitor/containers/container-insights-onboard.md
         - name: Collect Prometheus metrics
           href: ../azure-monitor/containers/container-insights-prometheus.md
+        - name: Monitor Kubernetes object events
+          href: events.md
         - name: Monitor kube-audit events
           href: monitor-apiserver.md
         - name: Monitor reference

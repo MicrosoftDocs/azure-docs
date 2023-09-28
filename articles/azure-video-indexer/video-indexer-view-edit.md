@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # View Azure AI Video Indexer insights
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 This article shows you how to view the Azure AI Video Indexer insights of a video.
 
 1. Browse to the [Azure AI Video Indexer](https://www.videoindexer.ai/) website and sign in.
