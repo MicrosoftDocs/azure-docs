@@ -58,10 +58,15 @@ Workbooks supports many visualizations and Azure integrations. For more informat
 
 ## Troubleshooting
 
+If you receive a message indicating that "You currently do not have any Prometheus data ingested to this Azure Monitor workspace":
+
+-	Verify that you have turned on metrics collection in the Monitored clusters blade of your Azure Monitor workspace.
+
 If your workbook query does not return data:
 
--	Check that you have sufficient permissions to perform **microsoft.monitor/accounts/read** assigned through Access Control (IAM) in your Azure Monitor workspace
--	Verify that you have turned on metrics collection in the Monitored clusters blade of your Azure Monitor workspace.
+-	Check that you have sufficient permissions to perform **microsoft.monitor/accounts/read** assigned through Access Control (IAM) in your Azure Monitor workspace.
+-	Confirm if your Networking settings supports query access. You may need to enable private access through your private endpoint or change settings to allow public access.
+-	If you have adblock enabled in your browser, you may need to pause or disable and refresh the workbook in order to view data.
 
 
 ## Next steps
