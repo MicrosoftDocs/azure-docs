@@ -3,7 +3,7 @@ title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
 author: eriklindeman
 ms.author: eriklind
-ms.date: 12/07/2020
+ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
 ms.custom:
@@ -31,8 +31,7 @@ Also:
 > * Best practices to improve performance and user experience.
 > * Tips on how to make your application using more advanced features available in Azure Maps.
 
-If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps tile services ([road tiles]
-\| [satellite tiles]). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
+If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. If so, use the [Get Map Tile] API. The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
 * Cesium - A 3D map control for the web. [Cesium documentation].
 * Leaflet – Lightweight 2D map control for the web. [Leaflet code sample] \| [Leaflet documentation].
@@ -1845,8 +1844,7 @@ Learn more about migrating to Azure Maps:
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[road tiles]: /rest/api/maps/render-v2/get-map-tile
-[satellite tiles]: /rest/api/maps/render/getmapimagerytile
+[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
 [Search for points of interest]: map-search-location.md
 [Setting the map view]: #setting-the-map-view
