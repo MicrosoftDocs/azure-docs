@@ -177,7 +177,7 @@ A client renews an event lock to extend the time they can hold on to a received 
 
 A client requests to renew a lock within 1 hour from the time the lock was created, that is, from the time the event was first received. It's the window of time on which lock renewal requests should succeed. It isn't the effective limit for the total lock duration (through continuous lock renewals). If an event subscription’s `receiveLockDurationInSeconds` is set to 300 (5 minutes) and the request comes in at minute 00:59:59 (1 second before the 1 hour limit (right) since the lock was first created when the message was received, then the lock renewal should succeed. It results in an effective total lock time of about 1:04:59. Hence, 1 hour is NOT an absolute limit for total lock duration, but it's for the time window within which a lock renewal can be requested regardless of the `receiveLockDurationInSeconds` value. If a subsequent lock renewal request comes in when the effective total lock time is more than 1 hour, then that request should fail as the lock has been extended beyond 1 hour.
 
-Here's an example of the REST API command to renew locks. For more information about the operation and the command, see [REST API - Renews Locks](/rest/api/eventgrid/dataplanepreview-version2023-09-01/).
+Here's an example of the REST API command to renew locks. For more information about the operation and the command, see [REST API - Renews Locks](/rest/api/eventgrid/).
 
 ```http
 https://{namespaceName}.{region}.eventgrid.azure.net/topics/{topicResourceName}/eventsubscriptions/{eventSubscriptionName}:renewLock&api-version={apiVersion}
