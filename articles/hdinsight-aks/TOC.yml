@@ -228,7 +228,11 @@ items:
     - name: Use cases
       items:
       - name: Fraud detection with the Flink DataStream API
-        href: ./flink/fraud-detection-flink-datastream-api.md   
+        href: ./flink/fraud-detection-flink-datastream-api.md
+    - name: Troubleshoot
+      items:
+      - name: Flink cluster configuration
+        href: ./flink/flink-cluster-configuration.md   
 - name: Apache Spark
   items:
   - name: What is Apache Spark in HDInsight on AKS?
