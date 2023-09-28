@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 09/27/2023
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, template-how-to
+ROBOTS: NOINDEX
 ---
 
 # Add an IPv4 application to IPv6 in Azure virtual network using PowerShell
