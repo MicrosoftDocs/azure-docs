@@ -13,8 +13,6 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: lhuangnorth, jogro
 
-f2d19332-a09d-48c8-a53b-c49ae5502dfc
-
 ms.collection: M365-identity-device-management
 ---
 # Require an app protection policy on Windows devices (preview)
