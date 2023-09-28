@@ -2425,10 +2425,10 @@ Assign the Tenant Creator role to users who need to do the following tasks:
 
 ## Usage Summary Reports Reader
 
-Assign the Usage Summary Reports Reader role to users who need to do the following tasks:
+Assign the Usage Summary Reports Reader role to users who need to do the following tasks in the Microsoft 365 admin center:
 
-- View the Usage reports and Adoption Score in Microsoft 365 admin center
-- Read organizational insights, but not personally identifiable information (PII) of users in Microsoft 365 admin center
+- View the Usage reports and Adoption Score
+- Read organizational insights, but not personally identifiable information (PII) of users
 
 This role only allows users to view organizational-level data with the following exceptions:
 
