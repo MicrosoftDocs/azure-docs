@@ -339,7 +339,7 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
 1. Select **Managed identity** for **Assign access to** and click **Select members**. Select **Data collection rule**,  search your DCR by name and click **Select**.
 
-![Assign Access To Managed Identity.](media/ingest-logs-event-hub/assign-access-to-managed-identity.png)
+[ ![Screenshot of how to assign access to managed identity.](media/ingest-logs-event-hub/assign-access-to-managed-identity.png) ](media/ingest-logs-event-hub/assign-access-to-managed-identity.png#lightbox)
 
 4. Select **Review + assign** and verify the details before saving your role assignment.
 
