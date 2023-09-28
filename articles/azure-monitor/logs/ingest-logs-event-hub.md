@@ -427,10 +427,7 @@ To check your destination table for ingested events:
     
     You should see events from your event hub.
 
-`
-```json
 :::image type="content" source="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" lightbox="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" alt-text="Screenshot showing the results of a simple query on a custom table. The results consist of events ingested from an event hub.":::
-```
 ## Clean up resources
 
 In this tutorial, you created the following resources:
