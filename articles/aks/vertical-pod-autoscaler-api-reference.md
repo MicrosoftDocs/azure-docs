@@ -100,7 +100,7 @@ This reference is based on version 0.13.0 of the AKS implementation of VPA.
 
 ## Next steps
 
-See [Vertical Pod Autoscaler][vertical-pod-autoscaler] to undesrstand how to improve cluster resource utilization and free up CPU and memory for other pods.
+See [Vertical Pod Autoscaler][vertical-pod-autoscaler] to understand how to improve cluster resource utilization and free up CPU and memory for other pods.
 
 <!-- EXTERNAL LINKS -->
 [object-metadata-ref]: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata
