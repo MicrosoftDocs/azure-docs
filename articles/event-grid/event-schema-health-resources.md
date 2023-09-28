@@ -8,7 +8,7 @@ ms.date: 09/26/2023
 # Azure Resource Notifications - Health Resources events in Azure Event Grid
 Mission critical customers need to access availability status information for standalone virtual machines (VMs) as well as for the VMs that are a part of Virtual Machine Scale Sets across all Azure subscriptions in near-real time. The Health Resources system topic addresses this need by providing accurate, reliable, and complete health information in a way that can be conveniently consumed. The system topic also supports an annotated event, which helps you with inferring the availability state of your resources. This information is crucial in understanding reasons and causes for changes in availability, and in taking quicker and more deterministic mitigation actions. 
 
-This article provides the schema and examples for events raised by Azure Resource Notifications - Health Resources, and links to an article that shows how to create a system topic. 
+This article provides the schema and examples for events raised by Azure Resource Notifications - Health Resources, and links to an article that shows how to create a system topic and event subscriptions to the topic. 
 
 ## Event types
 Azure Resource Notifications - Health Resources supports the following event types: 

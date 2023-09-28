@@ -17,7 +17,7 @@ Here are the key advantages:
 
 ## RBAC for ARN system topics 
 
-As of today, you need the following generic permissions provided by Event Grid to create system topics and event subscriptions
+As of today, you need the following generic permissions provided by Event Grid to create system topics and event subscriptions.
 
 - `microsoft.eventgrid/eventsubscription/write`
 - `microsoft.eventgrid/systemtopic/eventsubscriptions/write`
@@ -28,7 +28,7 @@ In addition to these permissions, you need to grant the following permissions to
 | ---------- | ---------- | 
 | HealthResources | `Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action` |
 
-To enhance customer experience, a built-in role definition that encompasses all the requisite permissions for receiving data through any ARN system topic is available. This role includes permissions mandated by Event Grid for system topic and event subscription creation. This built-in role definition will be regularly updated to incorporate more topic types as they become accessible through our service. As a result, users assigned this built-in role will automatically gain access to all upcoming ARN topic types. You have the option to either utilize the provided built-in role definition or craft your own custom role definitions to enforce access control.
+To enhance customer experience, a built-in role definition that encompasses all the requisite permissions for receiving data through any ARN system topic is available. This role includes permissions mandated by Event Grid for system topic and event subscription creation. This built-in role definition will be regularly updated to incorporate more topic types as they become accessible through our service. As a result, users assigned this built-in role will automatically gain access to all upcoming ARN topic types. You can choose to either utilize the provided built-in role definition or craft your own custom role definitions to enforce access control.
 
 ### Built-in role definition: 
 
