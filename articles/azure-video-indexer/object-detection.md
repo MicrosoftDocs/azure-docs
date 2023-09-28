@@ -151,9 +151,9 @@ To examine object detection more thoroughly, use [Get Video Index](https://api-p
         - bowl
         - broccoli
         - bus
+        - cake
     :::column-end:::
     :::column:::
-        - cake
         - car
         - carrot
         - cell phone
@@ -165,10 +165,10 @@ To examine object detection more thoroughly, use [Get Video Index](https://api-p
         - dining table
         - donut
         - fire hydrant
-    :::column-end:::
-    :::column:::
         - fork
         - frisbee
+    :::column-end:::
+    :::column:::
         - handbag
         - hot dog
         - kite
@@ -179,11 +179,11 @@ To examine object detection more thoroughly, use [Get Video Index](https://api-p
         - necktie
         - orange
         - oven
-    :::column-end:::
-    :::column:::
         - parking meter
         - pizza
         - potted plant
+    :::column-end:::
+    :::column:::
         - refrigerator
         - remote
         - sandwich
@@ -193,12 +193,12 @@ To examine object detection more thoroughly, use [Get Video Index](https://api-p
         - snowboard
         - spoon
         - sports ball
-    :::column-end:::
-    :::column:::
         - suitcase
         - surfboard
         - teddy bear
         - television
+    :::column-end:::
+    :::column:::
         - tennis racket
         - toaster
         - toilet
