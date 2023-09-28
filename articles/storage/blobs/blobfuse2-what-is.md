@@ -2,7 +2,7 @@
 title: What is BlobFuse? - BlobFuse2
 titleSuffix: Azure Storage
 description: An overview of how to use BlobFuse to mount an Azure Blob Storage container through the Linux file system.
-ms.author: akashdubey-ms
+author: akashdubey-ms
 ms.author: akashdubey
 ms.reviewer: tamram
 ms.service: azure-blob-storage

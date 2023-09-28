@@ -3,7 +3,7 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to

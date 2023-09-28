@@ -3,7 +3,7 @@ title: Network routing preference
 titleSuffix: Azure Storage
 description: Network routing preference enables you to specify how network traffic is routed to your account from clients over the internet.
 services: storage
-ms.author: akashdubey-ms
+author: akashdubey-ms
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 03/13/2023

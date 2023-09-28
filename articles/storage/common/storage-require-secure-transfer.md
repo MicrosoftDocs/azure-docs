@@ -3,7 +3,7 @@ title: Require secure transfer to ensure secure connections
 titleSuffix: Azure Storage
 description: Learn how to require secure transfer for requests to Azure Storage. When you require secure transfer for a storage account, any requests originating from an insecure connection are rejected.
 services: storage
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to

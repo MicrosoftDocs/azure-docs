@@ -3,7 +3,7 @@ title: Check the Last Sync Time property for a storage account
 titleSuffix: Azure Storage
 description: Learn how to check the Last Sync Time property for a geo-replicated storage account. The Last Sync Time property indicates the last time at which all writes from the primary region were successfully written to the secondary region.
 services: storage
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to

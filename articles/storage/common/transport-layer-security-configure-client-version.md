@@ -3,7 +3,7 @@ title: Configure Transport Layer Security (TLS) for a client application
 titleSuffix: Azure Storage
 description: Configure a client application to communicate with Azure Storage using a minimum version of Transport Layer Security (TLS).
 services: storage
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to

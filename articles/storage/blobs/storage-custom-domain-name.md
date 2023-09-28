@@ -2,7 +2,7 @@
 title: Map a custom domain to an Azure Blob Storage endpoint
 titleSuffix: Azure Storage
 description: Map a custom domain to a Blob Storage or web endpoint in an Azure storage account.
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-blob-storage
 ms.topic: how-to

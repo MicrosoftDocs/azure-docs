@@ -2,7 +2,7 @@
 title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using Azure CLI and Azure attribute-based access control (Azure ABAC).
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-blob-storage
 ms.topic: tutorial

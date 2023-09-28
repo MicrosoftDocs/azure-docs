@@ -2,7 +2,7 @@
 title: How to use the 'blobfuse2 completion' command to generate the autocompletion script for BlobFuse2
 titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 completion' command to generate the autocompletion script for BlobFuse2.
-ms.author: akashdubey-ms
+author: akashdubey-ms
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022

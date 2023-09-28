@@ -3,7 +3,7 @@ title: Data redundancy
 titleSuffix: Azure Storage
 description: Understand data redundancy in Azure Storage. Data in your Microsoft Azure Storage account is replicated for durability and high availability.
 services: storage
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual

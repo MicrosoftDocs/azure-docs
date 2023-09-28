@@ -2,7 +2,7 @@
 title: Security considerations for Azure role assignment conditions in Azure Blob Storage
 titleSuffix: Azure Storage
 description: Security considerations for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
-ms.author: akashdubey-ms
+author: akashdubey-ms
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
