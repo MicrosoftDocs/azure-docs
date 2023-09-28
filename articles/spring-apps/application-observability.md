@@ -72,7 +72,7 @@ AppPlatformLogsforSpring
 | project TimeGenerated , ServiceName , AppName , InstanceName , Log , _ResourceId 
 ```
 
-:::image type="content" source="media/tutorial-applications-observability/show-application-logs-abnormal.png" alt-text="Screenshot of the Azure portal that shows the Logs page with the example query and query results." lightbox="media/tutorial-applications-observability/show-application-logs-abnormal.png":::
+:::image type="content" source="media/application-observability/show-application-logs-abnormal.png" alt-text="Screenshot of the Azure portal that shows the Logs page with the example query and query results." lightbox="media/application-observability/show-application-logs-abnormal.png":::
 
 #### Show the error and exception number of each application
 
@@ -103,7 +103,7 @@ AppPlatformLogsforSpring
 | project-keep InstanceName, Log
 ```
 
-:::image type="content" source="media/tutorial-applications-observability/show-error-logs.png" alt-text="Screenshot of the Azure portal that shows the Logs page with the example query and root cause logs." lightbox="media/tutorial-applications-observability/show-error-logs.png":::
+:::image type="content" source="media/application-observability/show-error-logs.png" alt-text="Screenshot of the Azure portal that shows the Logs page with the example query and root cause logs." lightbox="media/application-observability/show-error-logs.png":::
 
 ### 4.2. Investigate request failures
 
@@ -117,11 +117,11 @@ Use the following steps to investigate request failures in the application clust
 
 1. On the **Failure** page, select the `PUT` operation that has the most failed requests count, select **1 Samples** to go into the details, and then select the suggested sample.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the Select a sample operation pane with the suggested failure sample." lightbox="media/tutorial-applications-observability/application-insights-failure-suggested-sample.png":::
+   :::image type="content" source="media/application-observability/application-insights-failure-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the Select a sample operation pane with the suggested failure sample." lightbox="media/application-observability/application-insights-failure-suggested-sample.png":::
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the failure exception." lightbox="media/tutorial-applications-observability/application-insights-e2e-exception.png":::
+   :::image type="content" source="media/application-observability/application-insights-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the failure exception." lightbox="media/application-observability/application-insights-e2e-exception.png":::
 
 ## 5. Improve the application performance using Application Insights
 
@@ -137,11 +137,11 @@ To use Application Insights to investigate the performance issues, use the follo
 
 1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to go into the details, and then select the suggested sample.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the Select a sample operation pane with the suggested performance sample." lightbox="media/tutorial-applications-observability/application-insights-performance-suggested-sample.png":::
+   :::image type="content" source="media/application-observability/application-insights-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the Select a sample operation pane with the suggested performance sample." lightbox="media/application-observability/application-insights-performance-suggested-sample.png":::
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel. 
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the performance issue." lightbox="media/tutorial-applications-observability/application-insights-e2e-performance.png":::
+   :::image type="content" source="media/application-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the performance issue." lightbox="media/application-observability/application-insights-e2e-performance.png":::
 
 [!INCLUDE [clean-up-resources-portal](includes/tutorial-applications-observability/clean-up-resources.md)]
 
