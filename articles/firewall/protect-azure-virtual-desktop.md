@@ -44,9 +44,10 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 | --------- | -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `login.microsoftonline.com` |
 | Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | Service Tag      | `WindowsVirtualDesktop`, `AzureFrontDoor.Frontend`, `AzureMonitor` |
-| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | *                                 |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | `20.118.99.224`, `40.83.235.53` (`azkms.core.windows.net`) |
-| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | `23.102.135.246` (`kms.core.windows.net`) |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `gcs.prod.monitoring.core.windows.net` |
+| Rule Name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP, UDP | 53                | IP Address       | [Address of the DNS serverv used]  |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | `azkms.core.windows.net` |
+| Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 1688              | IP address       | `kms.core.windows.net` |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `mrsglobalsteus2prod.blob.core.windows.net` |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 443               | FQDN             | `wvdportalstorageblob.blob.core.windows.net` |
 | Rule name | IP Address or Group  | IP Group or VNet or Subnet IP Address | TCP      | 80                | FQDN             | `oneocsp.microsoft.com` |
