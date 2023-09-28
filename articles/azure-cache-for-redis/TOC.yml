@@ -37,65 +37,7 @@
       href: cache-rust-get-started.md
 - name: Deployment and configuration
   items:
-  - name: Use Azure Functions
-    items:
-    - name: Create a simple Function app for Redis triggers 
-      href: cache-tutorial-functions-getting-started.md
-    - name: Using Azure Functions to create a write-behind cache
-      href: cache-tutorial-write-behind.md
-  - name: Use Azure Kubernetes Service with a cache
-    items:
-    - name: Connect an AKS application to a cache
-      href: cache-tutorial-aks-get-started.md
-    - name: Use active geo-replication with an AKS-hosted application
-      href: cache-tutorial-active-replication.md      
-  - name: Artificial Intelligence
-    items:
-    - name: Vector similarity search
-      href: cache-tutorial-vector-similarity.md
-  - name: ASP.NET
-    items:
-    - name: Use session state provider
-      href: cache-aspnet-session-state-provider.md
-    - name: Use output cache provider
-      href: cache-aspnet-output-cache-provider.md
-  - name: Java Spring
-    items:
-    - name: Use Spring Boot Initializer
-      href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-  - name: Azure Event Grid
-    items:
-    - name: Route events with Azure portal  
-      href: cache-event-grid-quickstart-portal.md
-    - name: Route events with Azure CLI 
-      href: cache-event-grid-quickstart-cli.md
-    - name: Route events with PowerShell 
-      href: cache-event-grid-quickstart-powershell.md
-  - name: Create leaderboards
-    href: cache-web-app-cache-aside-leaderboard.md
-  - name: Deploy a machine learning model 
-    href: cache-ml.md
-- name: Samples
-  items:
-  - name: PowerShell samples
-    items:
-    - name: Manage with Azure PowerShell
-      href: cache-how-to-manage-redis-cache-powershell.md
-  - name: Azure CLI samples
-    items:
-    - name: Overview
-      href: cli-samples.md
-    - name: Create and manage Azure Cache for Redis
-      href: scripts/create-manage-cache.md
-    - name: Create and managed premium Azure Cache for Redis
-      href: scripts/create-manage-premium-cache-cluster.md
-- name: Concepts
-  items:
-    - name: Artificial Intelligence
-      items:
-      - name: Vector Search
-        href: cache-overview-vector-similarity.md
-    - name: Resiliency
+    - name: Plan - old toc
       items:
       - name: Choose a cache tier
         href: cache-overview.md#choosing-the-right-tier
@@ -283,6 +225,22 @@
   items:
   - name: Tutorials
     items:
+    - name: Use Azure Functions
+      items:
+      - name: Create a simple Function app for Redis triggers 
+        href: cache-tutorial-functions-getting-started.md
+      - name: Using Azure Functions to create a write-behind cache
+        href: cache-tutorial-write-behind.md
+    - name: Use Azure Kubernetes Service with a cache
+      items:
+      - name: Connect an AKS application to a cache
+        href: cache-tutorial-aks-get-started.md
+      - name: Use active geo-replication with an AKS-hosted application
+        href: cache-tutorial-active-replication.md      
+    - name: Artificial Intelligence
+      items:
+      - name: Vector similarity search
+        href: cache-tutorial-vector-similarity.md
     - name: ASP.NET
       items:
       - name: Use session state provider
@@ -305,14 +263,12 @@
       href: cache-web-app-cache-aside-leaderboard.md
     - name: Deploy a machine learning model 
       href: cache-ml.md
-    - name: Use Azure Functions
-      items:
-      - name: Create a simple Function app for Redis triggers 
-        href: cache-tutorial-functions-getting-started.md
-      - name: Using Azure Functions to create a write-behind cache
-        href: cache-tutorial-write-behind.md
   - name: Concepts
     items:
+      - name: Artificial Intelligence
+        items:
+        - name: Vector Search
+          href: cache-overview-vector-similarity.md
       - name: Best practices - top node or move into right top node
         items:
          - name: Client libraries
