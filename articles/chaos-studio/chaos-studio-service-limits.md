@@ -22,8 +22,8 @@ Chaos Studio applies limits to the number of resources, duration of activities, 
 | Branches per experiment | 9 | The maximum number of parallel tracks that can execute within an experiment. |
 | Steps per experiment | 4 | The maximum number of steps that execute in series within an experiment. |
 | Action duration (hours) | 12 | The maximum time duration of an individual action. |
-| Concurrent experiments executing per region and subscription | 5 | The number of experiments that can run at the same time within a region and subscription. |
 | Total experiment duration (hours) | 12 | The maximum duration of an individual experiment, including all actions. |
+| Concurrent experiments executing per region and subscription | 5 | The number of experiments that can run at the same time within a region and subscription. |
 | Experiment history retention time (days) | 120 | The time period after which individual results of experiment executions are automatically removed. |
 | Number of experiment resources per region and subscription | 500 | The maximum number of experiment resources a subscription can store in a given region. |
 | Number of targets per action | 50 | The maximum number of resources an individual action can target for execution. For example, the maximum Virtual Machines that can be shut down by a single Virtual Machine Shutdown fault. |
