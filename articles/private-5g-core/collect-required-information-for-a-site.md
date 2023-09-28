@@ -61,6 +61,19 @@ Collect all the values in the following table to define the packet core instance
    | The virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface. | **ASE N2 virtual subnet** (for 5G) or **ASE S1-MME virtual subnet** (for 4G). |
    | The virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface. | **ASE N3 virtual subnet** (for 5G) or **ASE S1-U virtual subnet** (for 4G). |
 
+## Collect UE Usage Tracking values
+
+If you want to configure UE Usage Tracking for your site, collect all the values in the following table to define the packet core instances's associated Event Hub.
+
+> [!NOTE]
+> You must already have an [Azure Event Hub](/azure/event-hubs) with an associated user assigned managed identity with the **Resource Policy Contributor** role before you can collect the information in the following table.
+
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   |The namespace for the Azure Event Hub that your site will use for UE usage tracking. |**Azure Event Hub Namespace**|
+   |The name of the Azure Event Hub that your site will use for UE usage tracking.|**Event Hub name**|
+   |The user assigned managed identity that has the **Resource Policy Contributor** role for the Event Hub and is assigned to the **Packet Core Control Plane** for the site. |**User Assigned Managed Identity**|
+
 ## Collect data network values
 
 You can configure up to three data networks per site. During site creation, you'll be able to choose whether to attach an existing data network or create a new one.

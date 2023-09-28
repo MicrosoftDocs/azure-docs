@@ -45,6 +45,8 @@ In this step, you'll create an additional packet core instance for a site in you
     > [!NOTE]
     > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site supports 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
 
+1. If you want to enable UE Metric monitoring, select **Enable** from the **UE Metric monitoring** dropdown. Use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+
 1. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site supports 5G UEs) or **ASE SGi virtual subnet** (if this site supports 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
