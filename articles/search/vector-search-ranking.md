@@ -35,6 +35,8 @@ Vector queries execute against an embedding space consisting of vectors generate
 
 For example, if a query request is about hotels, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about hotels. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
 
+Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable` are returned in search results, along with their search score.
+
 ## Similarity metrics used to measure nearness
 
 A similarity metric measures the distance between neighboring vectors. Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are listed in the following table.

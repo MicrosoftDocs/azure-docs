@@ -25,13 +25,15 @@ RRF works by taking the search results from multiple methods, assigning a recipr
 
 Here's a simple explanation of the RRF process:
 
-1. Obtain search results from multiple queries executing in parallel for full text search and vector search
+1. Obtain search results from multiple queries executing in parallel for full text search and vector search.
 
 1. Assign reciprocal rank scores for result in each of the ranked lists. RRF generates a new **`@search.score`** for each match in each result set. For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as `1/(rank + k)`, where `rank` is the position of the document in the list, and `k` is a constant, which was experimentally observed to perform best if it's set to a small value like 60.
 
 1. Combine scores. For each document, the engine sums the reciprocal rank scores obtained from each search system, producing a combined score for each document. 
 
-1. Rank documents based on combined scores and sort them. The resulting list is the fused ranking.
+1. Rank documents based on combined scores and sort them. The resulting list is the fused ranking. 
+
+Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable` are returned in search results, along with their search score.
 
 ### Parallel query execution
 
@@ -54,7 +56,7 @@ The following chart identifies the scoring property returned on each match, algo
 | hybrid search | `@search.score` | RRF algorithm | No upper limit, but the score gets bigger as more unique vectors or vector fields as more queries execute in parallel. |
 | semantic ranking | `@search.rerankerScore` | Semantic ranking | 1.00 - 4.00 |
 
-Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`) is always reported separately in the query response. Semantic ranking can rerank full text, vector, and hybrid search results, assuming those results include semantically rich content.
+Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`) is always reported separately in the query response. Semantic ranking can rerank full text and hybrid search results, assuming those results include fields having semantically rich content.
 
 ## Number of ranked results in a hybrid query response
 
