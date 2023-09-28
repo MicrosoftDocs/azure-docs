@@ -38,8 +38,8 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
-* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#domain-services-contributor) Azure role to create the required Domain Services resources.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#domain-services-contributor) Azure role to create the required Domain Services resources.
 
 Although not required for Domain Services, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Microsoft Entra tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
 
@@ -251,16 +251,16 @@ To see this managed domain in action, create and join a virtual machine to the d
 
 <!-- INTERNAL LINKS -->
 [tutorial-create-instance]: tutorial-create-instance.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [network-considerations]: network-considerations.md
-[create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
+[create-dedicated-subnet]: /azure/virtual-network/virtual-network-manage-subnet#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
-[password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
-[resource-forests]: concepts-resource-forest.md
-[availability-zones]: ../reliability/availability-zones-overview.md
+[configure-sspr]: /azure/active-directory/authentication/tutorial-enable-sspr
+[password-hash-sync-process]: /azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization#password-hash-sync-process-for-azure-ad-domain-services
+[resource-forests]: ./concepts-forest-trust.md
+[availability-zones]: /azure/reliability/availability-zones-overview
 [concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

@@ -320,3 +320,13 @@ sections:
           Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of flows per virtual machine is 250k.
 
           The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.
+
+      - question: What is the SNAT TCP/UDP Port Reuse Behavior in Azure Firewall?
+        answer: |
+           Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.
+
+           As a workaround for certain architectures, you can deploy and scale with [NAT Gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md) to provide a wider pool of SNAT ports for variability and availability.
+
+
+
+

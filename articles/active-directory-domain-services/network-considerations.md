@@ -80,7 +80,7 @@ Virtual network peering is a mechanism that connects two virtual networks in the
 
 ![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
-For more information, see [Azure virtual network peering overview](../virtual-network/virtual-network-peering-overview.md).
+For more information, see [Azure virtual network peering overview](/azure/virtual-network/virtual-network-peering-overview).
 
 ### Virtual Private Networking (VPN)
 
@@ -88,7 +88,7 @@ You can connect a virtual network to another virtual network (VNet-to-VNet) in t
 
 ![Virtual network connectivity using a VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Microsoft Entra admin center](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Microsoft Entra admin center](/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
 
 ## Name resolution when connecting virtual networks
 
@@ -107,8 +107,8 @@ Don't lock the networking resources used by Domain Services. If networking resou
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Domain Services hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic standard public IP address      | Domain Services communicates with the synchronization and management service using a Standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/ip-services/public-ip-addresses.md). |
-| Azure standard load balancer            | Domain Services uses a Standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Dynamic standard public IP address      | Domain Services communicates with the synchronization and management service using a Standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](/azure/virtual-network/ip-services/public-ip-addresses). |
+| Azure standard load balancer            | Domain Services uses a Standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview) |
 | Network address translation (NAT) rules | Domain Services creates and uses two Inbound NAT rules on the load balancer for secure PowerShell remoting. If a Standard SKU load balancer is used, it will have an Outbound NAT Rule too. For the Basic SKU load balancer, no Outbound NAT rule is required. |
 | Load balancer rules                     | When a managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
 
@@ -117,7 +117,7 @@ Don't lock the networking resources used by Domain Services. If networking resou
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic in an Azure virtual network. When you deploy a managed domain, a network security group is created with a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
+A [network security group (NSG)](/azure/virtual-network/network-security-groups-overview) contains a list of rules that allow or deny network traffic in an Azure virtual network. When you deploy a managed domain, a network security group is created with a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
 The following sections cover network security groups and Inbound and Outbound port requirements.
 
@@ -203,6 +203,6 @@ You must also route inbound traffic from the IP addresses included in the respec
 
 For more information about some of the network resources and connection options used by Domain Services, see the following articles:
 
-* [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
-* [Azure VPN gateways](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
-* [Azure network security groups](../virtual-network/network-security-groups-overview.md)
+* [Azure virtual network peering](/azure/virtual-network/virtual-network-peering-overview)
+* [Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings)
+* [Azure network security groups](/azure/virtual-network/network-security-groups-overview)
