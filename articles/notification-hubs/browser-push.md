@@ -23,22 +23,22 @@ This article describes how to send browser push notifications to single users th
 At a high level, the process is:
 
 1. [Set credentials](#set-credentials):
-   - In the Azure portal
-   - Using the REST API
+   - [In the Azure portal](#set-credentials-in-azure-portal)
+   - [Using the REST API](#set-credentials-using-rest-api)
    - Using the .NET SDK
 
 2. [Create registrations and installations](#create-registrations-and-installations).
 
 3. [Send push notifications](#send-push-notifications):
-   - Direct sends
-   - Batch sends
-   - Debug/test sends
+   - [Direct sends](#create-direct-sends)
+   - [Batch (audience) sends](#create-audience-sends)
+   - [Debug/test sends](#create-debugtest-sends)
 
 ## Overview
 
 Web push (or browser push) is a type of notification that customers get on their desktop browsers, or in some cases mobile browsers, on a per-website basis.  
 
-Azure Notification Hubs now supports [browser push](https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications) for all major browsers, including Microsoft Edge, Google Chrome, and Mozilla Firefox. Apple Safari isn't included. For Apple Safari, you can use existing APNS support as described in [Configuring Safari Push Notifications](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/PushNotifications/PushNotifications.html#//apple_ref/doc/uid/TP40013225-CH3-SW1), with certificate-based authentication.
+Azure Notification Hubs now supports [*browser push*](https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications) for all major browsers, including Microsoft Edge, Google Chrome, and Mozilla Firefox. Apple Safari isn't included. For Apple Safari, you can use existing APNS support as described in [Configuring Safari Push Notifications](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/PushNotifications/PushNotifications.html#//apple_ref/doc/uid/TP40013225-CH3-SW1), with certificate-based authentication.
 
 Browser push is supported across platforms on devices with the following operating systems and browsers.
 
