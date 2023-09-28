@@ -89,7 +89,7 @@ See the section [Glossary of updated terminology](new-name.md#glossary-of-update
 
 You can use following PowerShell script to rename Azure AD references in your documentation or content. This code sample:
 
-- Scans .resx and .resjson files in the file system within a folder and all subfolders.
+- Scans .resx and .resjson files within a specified folder and all nested folders.
 - Edits files by replacing any references to `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` with the correct terminology according to [New name for Azure AD](new-name.md).
 
 ```powershell
