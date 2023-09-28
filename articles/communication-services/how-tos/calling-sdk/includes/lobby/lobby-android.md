@@ -36,7 +36,7 @@ identifiers.add(new MicrosoftTeamsUserIdentifier("<USER_ID>"));
 ```
 
 ### Admit participant from lobby
-MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit participants from Teams MeetingLobby. Method `admit` accepts identifiers collection and `AdmitLobbyParticipantOptions` as input, and it will return `AdmitOperationResult` object as result.
+MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit participants from Teams MeetingLobby. Method `admit` accepts identifiers collection and `AdmitLobbyParticipantOptions` as input, and it returns `AdmitOperationResult` object as result.
 
 ```java
 AdmitLobbyParticipantOptions admitLobbyParticipantOptionsptions = null;
@@ -57,7 +57,7 @@ for (CommunicationIdentifier identifier : identifiers)
 ```
 
 ### Admit all participants from lobby
-MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit all participants from Teams MeetingLobby. Method `admitAll` accepts `AdmitLobbyParticipantOptions` as input, and it will return `AdmitOperationResult` object as result.
+MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit all participants from Teams MeetingLobby. Method `admitAll` accepts `AdmitLobbyParticipantOptions` as input, and it returns `AdmitOperationResult` object as result.
 
 ```java
 AdmitLobbyParticipantOptions admitLobbyParticipantOptionsptions = null;
@@ -66,7 +66,7 @@ Log.i(TAG, String.format("Admit all result. success count: %s , failure count: %
 ```
 
 ### Handle lobby updated event
-You could subscribe to the `addOnLobbyParticipantsUpdatedListener` event listener to handle the changes in the `participants` collection. This event will be triggered when the participants are added or removed from the lobby and it will provide the added or removed participants list.
+You could subscribe to the `addOnLobbyParticipantsUpdatedListener` event listener to handle the changes in the `participants` collection. This event is triggered when the participants are added or removed from the lobby and it provides the added or removed participants list.
 
 ```java
 //To register listener:

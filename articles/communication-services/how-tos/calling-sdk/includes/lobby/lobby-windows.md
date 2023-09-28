@@ -32,7 +32,7 @@ var identifiers = lobbyParticipants.Select(p => p.Identifier).ToList().AsReadOnl
 ```
 
 ### Admit participant from lobby
-MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit participants from Teams MeetingLobby. Method `AdmitAsync` accepts identifiers collection and `AdmitLobbyParticipantOptions` as input, and it will return `AdmitOperationResult` object as result.
+MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit participants from Teams MeetingLobby. Method `AdmitAsync` accepts identifiers collection and `AdmitLobbyParticipantOptions` as input, and it returns `AdmitOperationResult` object as result.
 
 ```csharp
 AdmitLobbyParticipantOptions admitOptions = new AdmitLobbyParticipantOptions();
@@ -57,7 +57,7 @@ foreach (CallIdentifier identifier in identifiers)
 ```
 
 ### Admit all participants from lobby
-MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit all participants from Teams MeetingLobby. Method `AdmitAllAsync` accepts `AdmitLobbyParticipantOptions` as input, and it will return `AdmitOperationResult` object as result.
+MeetingLobby object allows user with the Organizer, Co-organizer and Presenter roles to admit all participants from Teams MeetingLobby. Method `AdmitAllAsync` accepts `AdmitLobbyParticipantOptions` as input, and it returns `AdmitOperationResult` object as result.
 
 ```csharp
 AdmitLobbyParticipantOptions admitOptions = new AdmitLobbyParticipantOptions();
@@ -70,7 +70,7 @@ foreach (RemoteParticipant participant in result.FailureParticipants.ToList<Remo
 ```
 
 ### Handle lobby updated event
-You could subscribe to the `LobbyParticipantsUpdated` event to handle the changes in the `Participants` collection. This event will be triggered when the participants are added or removed from the lobby and it will provide the added or removed participants list.
+You could subscribe to the `LobbyParticipantsUpdated` event to handle the changes in the `Participants` collection. This event is triggered when the participants are added or removed from the lobby and it provides the added or removed participants list.
 ```csharp
 //When call.State == CallState.Connected
 meetingLobby.LobbyParticipantsUpdated += Lobby_OnLobbyParticipantsUpdated;

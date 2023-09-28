@@ -42,7 +42,17 @@ To update or check current meeting join & lobby policies in Teams admin center:
 | getParticipants | ✔️ | ✔️ | ✔️ | ✔️ |
 | lobbyParticipantsUpdated | ✔️ | ✔️ | ✔️ | ✔️ |
 
+::: zone pivot="platform-web"
 [!INCLUDE [Lobby Client-side JavaScript](./includes/lobby/lobby-web.md)]
+::: zone-end
+
+::: zone pivot="platform-web"
+[!INCLUDE [Lobby Client-side Android](./includes/lobby/lobby-android.md)]
+::: zone-end
+
+::: zone pivot="platform-web"
+[!INCLUDE [Lobby Client-side Windows](./includes/lobby/lobby-windows.md)]
+::: zone-end
 
 
 ## Next steps
