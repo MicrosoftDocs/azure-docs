@@ -15,7 +15,7 @@ AKS now supports an exclusive channel dedicated to controlling node-level OS sec
 
 ## How does node OS auto-upgrade work with cluster auto-upgrade?
 
-Node-level OS security updates come in at a faster cadence than Kubernetes patch or minor version updates. This is the main reason for introducing a separate, dedicated Node OS auto-upgrade channel. With this feature, you can have a flexible and customized strategy for node-level OS security updates and a separate plan for cluster-level Kubernetes version auto-upgrades [auto-upgrade][Autoupgrade].
+Node-level OS security updates come in at a faster cadence than Kubernetes patch or minor version updates. This is the main reason for introducing a separate, dedicated Node OS auto-upgrade channel. With this feature, you can have a flexible and customized strategy for node-level OS security updates and a separate plan for cluster-level Kubernetes version [auto-upgrades][Autoupgrade].
 It's highly recommended to use both cluster-level [auto-upgrades][Autoupgrade] and the node OS auto-upgrade channel together. Scheduling can be fine-tuned by applying two separate sets of [maintenance windows][planned-maintenance] - `aksManagedAutoUpgradeSchedule` for the cluster [auto-upgrade][Autoupgrade] channel and `aksManagedNodeOSUpgradeSchedule` for the node OS auto-upgrade channel.
 
 ## Using node OS auto-upgrade

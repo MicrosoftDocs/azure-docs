@@ -49,7 +49,7 @@ Use the following table to compare feature and functional differences between th
 
 <sup>5</sup> ASP.NET Core types are not supported for .NET Framework.
 
-<sup>6</sup> The isolated worker model supports .NET 8 as a preview, currently for Linux applications only. .NET 8 is not yet available for the in-process model. See the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap) for more information about .NET 8 plans.
+<sup>6</sup> The isolated worker model supports .NET 8 [as a preview](./dotnet-isolated-process-guide.md#preview-net-versions). For information about .NET 8 plans, including future options for the in-process model, see the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap).
 
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
