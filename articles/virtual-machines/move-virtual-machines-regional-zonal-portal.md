@@ -46,7 +46,8 @@ To select the VMs for the move, follow these steps:
     :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling.png" alt-text="Screenshot of Availability + scaling option."::: 
 
     Alternatively, in the **DemoTestVM1** overview plane, you can select **Availability + scale** > **Availability + scaling**.
-    :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling-home.png" alt-text="Screenshot of Availability + scaling homepage."::: 
+        :::image type="content" source="./media/tutorial-move-regional-zonal/scaling-pane.png" alt-text="Screenshot of Availability + scaling pane."::: 
+    
  
 ### Select the target availability zones
 
@@ -54,6 +55,7 @@ To select the target availability zones, follow these steps:
 
 1.	Under **Target availability zone**, select the desired target availability zones for the VM. For example, Zone 1.
  
+    :::image type="content" source="./media/tutorial-move-regional-zonal/availability-scaling-home.png" alt-text="Screenshot of Availability + scaling homepage."::: 
     
     >[!Important]
     >If you select an unsupported VM to move, the validation fails. In this case, you must restart the workflow with the correct selection of VM. Refer to the [Support Matrix](../reliability/migrate-vm.md#support-matrix) to learn more about unsupported VMs type.
@@ -73,6 +75,7 @@ To select the target availability zones, follow these steps:
 To review the properties of the VM before you commit the move, follow these steps: 
 
 1.	On the **Review properties** pane, review the VM properties.
+    
     #### VM properties 
     
     Find more information on the impact of the move on the VM properties. 

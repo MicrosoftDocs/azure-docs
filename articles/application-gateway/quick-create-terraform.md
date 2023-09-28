@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Direct web traffic using Terraform'
+title: 'Quickstart: Direct web traffic with Azure Application Gateway - Terraform'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use Terraform to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway

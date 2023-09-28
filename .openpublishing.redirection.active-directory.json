@@ -5461,6 +5461,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-azure-ad-sla-performance.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/reference-sla-performance",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-filter-audit-log.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-customize-filter-logs",
       "redirect_document_id": true
