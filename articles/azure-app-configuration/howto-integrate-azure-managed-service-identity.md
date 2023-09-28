@@ -128,7 +128,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     using Azure.Identity;
     ```
 
-1. To access values stored in App Configuration, update the `Builder` configuration to use the the `AddAzureAppConfiguration()` method.
+1. To access values stored in App Configuration, update the `Builder` configuration to use the `AddAzureAppConfiguration()` method.
 
     ### [.NET 6.0+](#tab/core6x)
 
