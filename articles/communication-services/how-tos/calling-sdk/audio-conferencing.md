@@ -23,7 +23,7 @@ In this article, you'll learn how to use implement the funtionality using Azure 
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Policy settings to configure service number for audio conferencing [Audio Conferencing Policy Configuration](https://learn.microsoft.com/en-us/microsoftteams/set-up-audio-conferencing-in-teams)
 
-[!INCLUDE [Audio Conferencing Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
+[!INCLUDE [Audio Conferencing Client-side JavaScript](./includes/audio-conferencing/audio-conferencing-web.md)]
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
