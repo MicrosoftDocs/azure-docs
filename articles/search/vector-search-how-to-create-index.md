@@ -96,9 +96,9 @@ Although you can add a field to an index, there's no portal (Import data wizard)
 
    + Name the configuration. The name must be unique within the index.
    + "hnsw" is the Approximate Nearest Neighbors (ANN) algorithm used to create the proximity graph during indexing. Currently, only Hierarchical Navigable Small World (HNSW) is supported. 
-   + "Bi-directional link count" default is 4. The range is 2 to 100. Lower values should return less noise in the results. 
-   + "efConstruction" default is 400. It's the number of nearest neighbors used during indexing.
-   + "efSearch default is 500. It's the number of nearest neighbors used during search.
+   + "Bi-directional link count" default is 4. The range is 4 to 10. Lower values should return less noise in the results. 
+   + "efConstruction" default is 400. The range is 100 to 1,000. It's the number of nearest neighbors used during indexing.
+   + "efSearch default is 500. The range is 100 to 1,000. It's the number of nearest neighbors used during search.
    + "Similarity metric" should be "cosine" if you're using Azure OpenAI, otherwise use the similarity metric of the embedding model. Supported values are `cosine`, `dotProduct`, `euclidean`.
 
    If you're familiar with HNSW parameters, you might be wondering about how to set the "k" number of nearest neighbors to return in the result. In Cognitive Search, that value is set on the [query request](vector-search-how-to-query.md).
