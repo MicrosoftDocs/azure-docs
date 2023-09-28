@@ -329,7 +329,7 @@ Use following steps to reference a fragment in your accelerator:
 
 1. Synchronize the change with the Dev Tools Portal.
 
-   To reflect the changes on the Dev Tools Portal more quickly, you can provide a value for the **Git interval** field of your customized accelerator. The **Git interval** indicates how frequently the system will check for updates in the Git repository.
+   To reflect the changes on the Dev Tools Portal more quickly, you can provide a value for the **Git interval** field of your customized accelerator. The **Git interval** indicates how frequently the system checks for updates in the Git repository.
 
 1. Synchronize the change with your customized accelerator on the Azure portal by using the Azure portal or the Azure CLI.
 
@@ -381,7 +381,7 @@ Use the following steps to bootstrap a new project using accelerators:
 
 ### Configure accelerators with a self-signed certificate
 
-When you set up a private Git repository and enable HTTPS with a self-signed certificate, you should configure the CA certificate name to the accelerator for client cert verification from the accelerator to the Git repository.
+When you set up a private Git repository and enable HTTPS with a self-signed certificate, you should configure the CA certificate name to the accelerator for client certificate verification from the accelerator to the Git repository.
 
 Use the following steps to configure accelerators with a self-signed certificate:
 
@@ -417,7 +417,7 @@ As certificates expire, you need to rotate certificates in Spring Cloud Apps by 
 1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 1. Synchronize the certificates using the Azure portal or the Azure CLI.
 
-The accelerators will not automatically use the latest certificate. You should sync one or all certificates by using the Azure portal or the Azure CLI.
+The accelerators won't automatically use the latest certificate. You should sync one or all certificates by using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
