@@ -15,8 +15,6 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Archite
 
 IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device at the physical layer as part of the Transport Layer Security (TLS) standard connection establishment. 
 
-Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to it. Before a device or module can connect, there must be an entry for that device or module in the IoT hub's identity registry. A device or module authenticates with the IoT hub based on credentials stored in the identity registry.
-
 An X.509 CA certificate is a digital certificate that can sign other certificates. A digital certificate is considered an X.509 certificate if it conforms to the certificate formatting standard prescribed by IETF's RFC 5280 standard. A certificate authority (CA) means that its holder can sign other certificates.
 
 This article describes how to use X.509 certificate authority (CA) certificates to authenticate devices connecting to IoT Hub, which includes the following steps:
@@ -38,7 +36,7 @@ This article describes authentication using **X.509 certificates**. You can use 
 
 X.509 certificates are used for authentication in IoT Hub, not authorization. Unlike with Azure Active Directory and shared access signatures, you can't customize permissions with X.509 certificates.
 
-## Enforcing X.509 authentication
+## Enforce X.509 authentication
 
 For additional security, an IoT hub can be configured to not allow SAS authentication for devices and modules, leaving X.509 as the only accepted authentication option. Currently, this feature isn't available in Azure portal. To configure, set `disableDeviceSAS` and `disableModuleSAS` to `true` on the IoT Hub resource properties:
 
@@ -94,6 +92,8 @@ The proof of possession step involves a cryptographic challenge and response pro
 Learn how to [register your CA certificate](tutorial-x509-test-certs.md#register-your-subordinate-ca-certificate-to-your-iot-hub).
 
 ## Authenticate devices signed with X.509 CA certificates
+
+Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to it. Before a device or module can connect, there must be an entry for that device or module in the IoT hub's identity registry. A device or module authenticates with the IoT hub based on credentials stored in the identity registry.
 
 With your X.509 CA certificate registered and devices signed into a certificate chain of trust, the final step is device authentication when the device connects. When an X.509 CA-signed device connects, it uploads its certificate chain for validation. The chain includes all intermediate CA and device certificates. With this information, IoT Hub authenticates the device in a two-step process. IoT Hub cryptographically validates the certificate chain for internal consistency, and then issues a proof-of-possession challenge to the device. IoT Hub declares the device authentic on a successful proof-of-possession response from the device. This declaration assumes that the device's private key is protected and that only the device can successfully respond to this challenge. We recommend using secure chips like Hardware Secure Modules (HSM) in devices to protect private keys.
 
