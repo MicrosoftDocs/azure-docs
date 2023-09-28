@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 09/15/2023
+ms.date: 09/28/2023
 ---
 
 <!-- 
@@ -39,7 +39,7 @@ The following list describes the command interaction:
 
 The console outputs messages similar to the following example:
 
-```text
+```output
 SUCCESS: Your application was removed from Azure in xx minutes xx seconds.
 ```
 
