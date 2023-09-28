@@ -55,11 +55,11 @@ The following steps help create a Conditional Access policy requiring an app pro
    > [!WARNING]
    > Selecting **All apps** prevents users from signing in.
 1. Under **Conditions**:
-   1. **Device platforms**, set **Configure** to **Yes**.
+   1. **Device platforms** set **Configure** to **Yes**.
       1. Under **Include**, **Select device platforms**.
       1. Choose **Windows** only.
       1. Select **Done**.
-   1. **Client apps**, set **Configure** to **Yes**. 
+   1. **Client apps** set **Configure** to **Yes**. 
       1. Select **Browser** only.
 1. Under **Access controls** > **Grant**, select **Grant access**.
    1. Select **Require app protection policy** and **Require device to be marked as compliant**.
@@ -89,7 +89,7 @@ This process opens a window offering to allow Windows to remember your account a
 
 ![Screenshot showing the stay signed in to all your apps window. Uncheck the allow my organization to manage my device checkbox.](./media/how-to-app-protection-policy-windows/stay-signed-in-to-all-your-apps.png)
 
-After selecting **OK**, you may see a progress window while policy is applied. After a few moments, you should see a window saying "you're all set", app protection policies are applied.
+After selecting **OK**, you may see a progress window while policy is applied. After a few moments, you should see a window saying **You're all set**, app protection policies are applied.
 
 ## Troubleshooting
 
@@ -108,7 +108,7 @@ To resolve these possible scenarios:
 
 #### All apps selected
 
-If your policy for Windows devices targets **All apps** your users won't be able to sign in. Your policy should only target **Office 365**.
+If your policy for Windows devices targets **All apps** your users aren't able to sign in. Your policy should only target **Office 365**.
 
 ### Existing account
 
