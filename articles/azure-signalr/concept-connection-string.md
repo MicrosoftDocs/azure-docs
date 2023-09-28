@@ -55,7 +55,7 @@ The service uses the local authentication method when `AuthType` is set to `null
 
 ### Use Microsoft Entra ID
 
-The services uses the Microsoft Entra ID authentication method when `AuthType` is set to `azure`, `azure.app`, or `azure.msi`.
+The service uses the Microsoft Entra ID authentication method when `AuthType` is set to `azure`, `azure.app`, or `azure.msi`.
 
 | Key            | Description                                                                             | Required | Default value | Example value                              |
 | -------------- | --------------------------------------------------------------------------------------- | -------- | ------------- | ------------------------------------------ |
@@ -68,7 +68,7 @@ The service uses a different `TokenCredential` value to generate Microsoft Entra
 
 - `type=azure`
 
-  The services uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential):
+  The service uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential):
 
   ```text
   Endpoint=xxx;AuthType=azure
