@@ -39,7 +39,7 @@ All the other settings are optional
 
 ![Screenshot that shows the Diagnostic Settings blade and required information](images/Step2A.png)
 
-## Step3: Run the chaos experiment
+## Step 3: Run the chaos experiment
 Once you have completed Step 2, your experiment is now configured to emit telemetry to Azure Monitor upon the next Chaos Experiment execution!  It typically takes time (20 minutes) for the logs to populate. Once populated you can view the log events from the logs tab. Events include experiment start and stop as well as details about the faults executed. You can even turn the logs into chart visualizations or overlay your existing livesite visualizations with chaos metadata.
 
 <br/>
