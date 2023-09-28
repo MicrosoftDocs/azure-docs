@@ -533,7 +533,7 @@ After the virtual switches are created, you can enable the switches for Kubernet
    
     If prompted, confirm the option you specified and then select **Apply**.
 
-    To use PowerShell to specify the workload, see detailed steps in [Change Kubernetes workload profiles](azure-stack-edge-connect-powershell-interface#change-kubernetes-workload-profiles).
+    To use PowerShell to specify the workload, see detailed steps in [Change Kubernetes workload profiles](azure-stack-edge-connect-powershell-interface.md#change-kubernetes-workload-profiles).
 
    ![Screenshot of the Workload selection options on the Kubernetes page of the local UI for two node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/azure-stack-edge-kubernetes-workload-selection.png)
 

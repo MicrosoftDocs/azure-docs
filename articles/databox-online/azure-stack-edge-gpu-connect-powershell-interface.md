@@ -94,9 +94,9 @@ If the compute role is configured on your device, you can also get the compute l
 
 ## Change Kubernetes workload profiles
 
-After you have formed and configured a cluster and you have created new virtual switches, you can add or delete virtual networks associated with your virtual switches. For detailed steps, see [Configure virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy?pivots=two-node#configure-virtual-switches-1).
+After you have formed and configured a cluster and you have created new virtual switches, you can add or delete virtual networks associated with your virtual switches. For detailed steps, see [Configure virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-virtual-switches-1).
 
-After virtual switches are created, you can enable the switches for Kubernetes compute traffic to specify a Kubernets workload profile. To do so using the local UI, use the steps in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy?pivots=two-node#configure-compute-ips-1). To do so using PowerShell, use the following steps:
+After virtual switches are created, you can enable the switches for Kubernetes compute traffic to specify a Kubernets workload profile. To do so using the local UI, use the steps in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1). To do so using PowerShell, use the following steps:
 
 1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
 2. Use the `Get-HcsApplianceInfo` cmdlet to get current `KubernetesPlatform` and `KubernetesWorkloadProfile` settings for your device.
