@@ -183,7 +183,7 @@ You can use the IoT Hub [identity registry](iot-hub-devguide-identity-registry.m
 
 A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with the **DeviceConnect** permission to create *device-scoped* or *module-scoped* tokens. These tokens enable a device or module to connect to your IoT hub.
 
-![Steps of the token service pattern](./media/iot-hub-devguide-security/tokenservice.png)
+![Diagram that shows the steps of the token service pattern.](./media/iot-hub-devguide-security/tokenservice.png)
 
 Here are the main steps of the token service pattern:
 
