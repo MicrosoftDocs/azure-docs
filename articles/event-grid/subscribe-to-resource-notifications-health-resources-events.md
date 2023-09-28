@@ -107,13 +107,34 @@ Currently, you can't create a system topic for the Azure Resource Notifications 
 
 ---
 
-## Delete system topic and event subscription
+## Delete event subscription and system topic
 
 # [Azure CLI](#tab/azure-cli)
-To delete a system topic, use the [`az eventgrid system-topic delete`](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-delete) command, and to delete an event subscription, use the [`az eventgrid system-topic event-subscription delete`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-delete) command.
+
+To delete the event subscription, use the [`az eventgrid system-topic event-subscription delete`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-delete) command. Here's an example:
+
+```azurecli-interactive
+az eventgrid system-topic event-subscription delete --name firstEventSubscription --resourcegroup sampletestrg --system-topic-name arnSystemTopicHealth
+```
+
+To delete the system topic, use the [`az eventgrid system-topic delete`](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-delete) command. Here's an example:
+
+```azurecli-interactive
+az eventgrid system-topic delete --name arnsystemtopicHealth --resource-group sampletestrg
+```
 
 # [Azure PowerShell](#tab/azure-powershell)
-To delete a system topic, use the [`Remove-AzEventGridSystemTopic`](/powershell/module/az.eventgrid/remove-azeventgridsystemtopic) command, and to delete an event subscription, use the [`Remove-AzEventGridSystemTopicEventSubscription`](/powershell/module/az.eventgrid/remove-azeventgridsystemtopiceventsubscription) command.
+To delete an event subscription, use the [`Remove-AzEventGridSystemTopicEventSubscription`](/powershell/module/az.eventgrid/remove-azeventgridsystemtopiceventsubscription) command. Here's an example:
+
+```azurepowershell-interactive
+Remove-AzEventGridSystemTopicEventSubscription -EventSubscriptionName firstEventSubscription -ResourceGroupName sampletestrg -SystemTopicName arnSystemTopicHealth
+```
+
+To delete the system topic, use the [`Remove-AzEventGridSystemTopic`](/powershell/module/az.eventgrid/remove-azeventgridsystemtopic) command. Here's an example:
+
+```azurepowershell-interactive
+Remove-AzEventGridSystemTopic -ResourceGroupName sampletestrg -Name arnsystemtopicHealth
+```
 
 
 # [Azure portal](#tab/azure-portal)
@@ -125,7 +146,7 @@ To delete a system topic, use the [`Remove-AzEventGridSystemTopic`](/powershell/
 
 ---
 
-## Additional filtering examples
+## Filtering examples
 
 ### Subscribe to Platform Initiated annotations belonging to Unplanned category.
 You might want to filter to events that require an action. Near real-time alerts are critical in enabling quick mitigation actions. By filtering to Azure initiated and unplanned activity, you can become instantly aware of unanticipated activity across the workloads that requires immediate attention. You might want to redeploy or trigger communication to your end-users to notify the impact.
