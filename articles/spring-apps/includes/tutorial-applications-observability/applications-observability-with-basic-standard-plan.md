@@ -247,6 +247,8 @@ To set up an action group, use the following steps:
 
 1. On the **Email/SMS message/Push/Voice** page, select **Email**, enter your production email address, and then select **OK** to finish the configuration. You can also add other notification types if you want, such as SMS, Azure mobile app notification, Voice, and so on.
 
+   :::image type="content" source="../../media/tutorial-applications-observability/email-action-creation.png" alt-text="Screenshot of the Azure portal that shows the Create action group page with the Email/SMS message/Push/Voice pane open." lightbox="../../media/tutorial-applications-observability/email-action-creation.png":::
+
 1. Select **Review and Create** to review your selections. Select **Create** to create the action group.
 
 ### 3.2. Set up an alert rule
@@ -257,7 +259,7 @@ To set up an alert rule, use the following steps:
 
 1. On the navigation menu, select **Alert**, select **Alert rules** to go to the Alert rules list page, and then select **Create** to create an alert rule.
 
-1. On the **Create an alert rule** page, for **signal name**, open the dropdown list, and then select **See all signals**. 
+1. On the **Create an alert rule** page, for **signal name**, open the dropdown list, and then select **See all signals**.
 
 1. In the **Metrics** area, select **App CPU Usage**, and then select **Apply**.
 
@@ -274,6 +276,8 @@ To set up an alert rule, use the following steps:
    - For **Operator**, use the default **=**.
    - For **Dimension values**, select **Select all**.
    - For **When to evaluate**, keep the default value.
+
+   :::image type="content" source="../../media/tutorial-applications-observability/alert-rule-creation-app-cpu-usage.png" alt-text="Screenshot of the Azure portal that shows the Create an alert rule page." lightbox="../../media/tutorial-applications-observability/alert-rule-creation-app-cpu-usage.png":::
 
 1. Navigate to the **Actions** tab on the **Create an alert rule** page, and then select **Select action groups**.
 
@@ -305,6 +309,8 @@ To set up an alert rule, use the following steps:
    - **Alert rule name**: *network-in-high-alert*
 
 1. After you've created all the alert rules, you can view the alert rules list.
+
+   :::image type="content" source="../../media/tutorial-applications-observability/alert-rule-list.png" alt-text="Screenshot of the Azure portal that shows the Alert rules page." lightbox="../../media/tutorial-applications-observability/alert-rule-list.png":::
 
 ### 3.3. Pin alerts to the dashboard
 
