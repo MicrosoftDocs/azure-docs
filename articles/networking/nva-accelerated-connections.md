@@ -79,7 +79,7 @@ This feature is supported on all SKUs supported by Accelerated Networking except
 This feature enablement and deployment is supported using following methods: 
 
 * PowerShell
-* ARM templates via Azure Portal
+* ARM templates via Azure portal
 * Azure CLI
 * Terraform
 * SDK Package Deployment
