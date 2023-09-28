@@ -45,7 +45,7 @@ items:
         href: app/opentelemetry-overview.md
       - name: Create a resource
         href: app/create-workspace-resource.md
-      - name: Auto-instrumentation
+      - name: Autoinstrumentation
         items:
         - name: Supported Scenarios
           href: app/codeless-overview.md
@@ -114,6 +114,21 @@ items:
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Application Insights SDK (Classic API)
         items:
+        - name: Client-side JavaScript
+          items:
+          - name: Get Started with JavaScript SDK
+            displayName: browser, client-side, Javascript (Web) SDK Loader Script
+            href: app/javascript-sdk.md
+          - name: Configure JavaScript SDK
+            href: app/javascript-sdk-configuration.md
+          - name: Enable React, React Native, Angular
+            href: app/javascript-framework-extensions.md
+          - name: Enable Click Analytics
+            href: app/javascript-feature-extensions.md
+          - name: Upgrade
+            href: app/javascript-sdk-upgrade.md
+          - name: Troubleshooting
+            href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
         - name: .NET
           items:
             - name: ASP.NET Core
@@ -172,21 +187,6 @@ items:
             href: app/opencensus-python-dependency.md
           - name: Requests
             href: app/opencensus-python-request.md
-        - name: Client-side JavaScript
-          items:
-          - name: Get Started with JavaScript SDK
-            displayName: browser, client-side, Javascript (Web) SDK Loader Script
-            href: app/javascript-sdk.md
-          - name: Configure JavaScript SDK
-            href: app/javascript-sdk-configuration.md
-          - name: Enable React, React Native, Angular
-            href: app/javascript-framework-extensions.md
-          - name: Enable Click Analytics
-            href: app/javascript-feature-extensions.md
-          - name: Upgrade
-            href: app/javascript-sdk-upgrade.md
-          - name: Troubleshooting
-            href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
         - name: Advanced SDK topics
           items:
           - name: Application Insights API summary
