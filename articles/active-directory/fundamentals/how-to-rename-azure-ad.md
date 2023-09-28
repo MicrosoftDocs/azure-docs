@@ -87,12 +87,12 @@ See the section [Glossary of updated terminology](new-name.md#glossary-of-update
 
 ## Sample PowerShell script
 
-You can use following PowerShell script to rename Azure AD references in your documentation or content. This code sample:
+You can use following PowerShell script as a baseline to rename Azure AD references in your documentation or content. This code sample:
 
 - Scans .resx files within a specified folder and all nested folders.
 - Edits files by replacing any references to `Azure Active Directory (Azure AD)`, `Azure Active Directory`, `Azure AD`, `AAD` with the correct terminology according to [New name for Azure AD](new-name.md).
 
-You can edit the script according to your needs and the scope of files you need to update. You may need to account for edge cases and modify the script according to how you've defined the messages in your source files. The script is not fully automated. If you use the script as-is, you must review the outputs and may need to make additional adjustments to follow the guidance in [New name for Azure AD](new-name.md).
+Edit the baseline script according to your needs and the scope of files you need to update. You may need to account for edge cases and modify the script according to how you've defined the messages in your source files. The script is not fully automated. If you use the script as-is, you must review the outputs and may need to make additional adjustments to follow the guidance in [New name for Azure AD](new-name.md).
 
 ```powershell
 # Define the old and new terminology
