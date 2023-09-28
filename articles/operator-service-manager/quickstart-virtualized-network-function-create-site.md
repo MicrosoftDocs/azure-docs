@@ -66,4 +66,4 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
 ## Next steps
 
-- Complete [Quickstart: Create a Virtualized Network Function (VNF) Site Network Service (SNS) for Ubuntu Virtual Machine (VM)](quickstart-virtualized-network-function-create-site-network-service.md)
+- Complete [Quickstart: Create a Virtualized Network Function (VNF) Site Network Service (SNS) for Ubuntu Virtual Machine (VM)](quickstart-virtualized-network-function-create-site-network-service.md).
