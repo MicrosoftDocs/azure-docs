@@ -10,14 +10,18 @@ ms.service: azure-operator-service-manager
 
 # Quickstart: Create a virtualized network functions (VNF) site for an Ubuntu virtual machine
 
-This article shows you how to create a Site using the Azure portal.  A site is the collection of assets that represent one or more instances of nodes in a network service that should be discussed and managed in a similar manner. 
+This article shows you how to create a Site using the Azure portal.  A site is the collection of assets that represent one or more instances of nodes in a network service that should be discussed and managed in a similar manner.
 
 A site may represent:
-- A physical location such as DC or rack(s). 
-- A node in the network that needs to be upgraded separately (early or late) vs other nodes. 
-- Resources serving particular class of customer. 
 
-Sites can be within a single Azure region or an on-premises location. If collocated, they can span multiple NFVIs (such as multiple K8s clusters in a single Azure region). 
+- A physical location such as DC or rack(s).
+- A node in the network that needs to be upgraded separately (early or late) vs other nodes.
+- Resources serving particular class of customer.
+
+Sites can be within a single Azure region or an on-premises location. If collocated, they can span multiple NFVIs (such as multiple K8s clusters in a single Azure region).
+
+> [!IMPORTANT]
+> You must create a site prior to creating a site network service.
 
 ## Prerequisites
 
@@ -29,12 +33,19 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 1. Select **Create a resource**.
 1. Search for **Sites**, then select **Create**.
-1. On the **Basics tab**, enter or select your **Subscription**, **Resource group**, and the **Name** and **Region** of your instance. 
+1. On the **Basics tab**,  enter or select the following information and accept the defaults for the remaining settings:
 
-    :::image type="content" source="media/create-site-basic-virtual-network-function.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
-   
-    > [!NOTE]
-    > The site must be located in the same region as the prerequisite resources.  
+|Setting  |Value  |
+|---------|---------|
+|**Subscription**     | Select the **Subscription**         |
+|**Resource Group**     |   Select **OperatorResourceGroup**      |
+|**Name**     |   Enter *ubuntu-vm-site*      |
+|**Region**     |    Select **UK South**     |
+
+   :::image type="content" source="media/create-site-basic-virtual-network-function.png" alt-text="Screenshot showing the Basic tab to enter Project details and Instance details for your site.":::
+
+> [!NOTE]
+ > The site must be located in the same region as the [prerequisite resources](quickstart-containerized-network-function-prerequisites.md).  
 
 1. Navigate to the resource group that contains the network service design version and select **Network Service Design Version**.
 
@@ -44,7 +55,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
     :::image type="content" source="media/network-service-design-version-name.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and location of the NFVIs.":::
 
-1. Navigate to the **NFVI** tab of the **Create site** screen and enter "ubuntu_NFVI" for the **NFVI name**, select Azure Core as the **NFVI type** and select UK South for the **NFVI location**.
+1. Navigate to the **Add NFVI** tab of the **Create site** screen and enter *ubuntu_NFVI*" for the **NFVI name**, select **Azure Core** as the **NFVI type** and select **UK South** for the **NFVI location**.
 
     :::image type="content" source="media/create-site-add-ubuntu.png" alt-text="Screenshot showing the NFVI tab where you enter the name, type and location of the NFVI.":::
 
@@ -55,4 +66,4 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
 ## Next steps
 
-- Complete [Quickstart: Create a Virtualized Network Function (VNF) Site Network Service (SNS) for Ubuntu Virtual Machine (VM)](quickstart-virtualized-network-function-create-site-network-service.md)
+- Complete [Quickstart: Create a Virtualized Network Function (VNF) Site Network Service (SNS) for Ubuntu Virtual Machine (VM)](quickstart-virtualized-network-function-create-site-network-service.md).
