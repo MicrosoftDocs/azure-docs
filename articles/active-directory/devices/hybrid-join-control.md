@@ -58,7 +58,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**.
       1. Value name: **TenantId**.
       1. Value type: **REG_SZ**.
-      1. Value data: The GUID or **Tenant ID** of your Microsoft Entra instance (This value can be found in the **Azure portal** > **Microsoft Entra ID** > **Properties** > **Tenant ID**).
+      1. Value data: The GUID or **Tenant ID** of your Microsoft Entra tenant, which can be found in **Identity** > **Overview** > **Properties** > **Tenant ID**.
    1. Select **OK**.
 1. Right-click on the Registry and select **New** > **Registry Item**.
    1. On the **General** tab, configure the following.

@@ -18,7 +18,7 @@ ms.author: justinha
 
 Applications and services often need an identity to authenticate themselves with other resources. For example, a web service may need to authenticate with a database service. If an application or service has multiple instances, such as a web server farm, manually creating and configuring the identities for those resources gets time consuming.
 
-Instead, a group managed service account (gMSA) can be created in the Microsoft Entra Domain ServiceS managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
+Instead, a group managed service account (gMSA) can be created in the Microsoft Entra Domain Services managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
 
 This article shows you how to create a gMSA in a managed domain using Azure PowerShell.
 
@@ -98,8 +98,8 @@ Applications and services can now be configured to use the gMSA as needed.
 For more information about gMSAs, see [Getting started with group managed service accounts][gmsa-start].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [create-custom-ou]: create-ou.md

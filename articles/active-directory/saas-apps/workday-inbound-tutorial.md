@@ -1030,7 +1030,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 5. Select **Edit attribute list for Workday**.
 
-    ![Screenshot that shows the "Workday to Microsoft Entra user Provisioning - Provisioning" page with the "Edit attribute list for Workday" action highlighted.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Screenshot that shows the "Workday to Microsoft Entra user provisioning - Provisioning" page with the "Edit attribute list for Workday" action highlighted.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Scroll to the bottom of the attribute list to where the input fields are.
 
