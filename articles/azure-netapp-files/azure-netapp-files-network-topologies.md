@@ -71,6 +71,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   UK South
 *   UK West
 *	US Gov Virginia (public preview)
+*   US Gov Texas (public preview)
 *	West Europe
 *   West US
 *   West US 2
