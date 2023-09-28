@@ -22,11 +22,11 @@ In a hybrid environment, group policies configured in an on-premises AD DS envir
 This article shows you how to install the Group Policy Management tools, then edit the built-in GPOs and create custom GPOs.
 
 If you are interested in server management strategy, including machines in Azure and
-[hybrid connected](../azure-arc/servers/overview.md),
+[hybrid connected](/azure/azure-arc/servers/overview),
 consider reading about the
-[guest configuration](../governance/machine-configuration/overview.md)
+[guest configuration](/azure/governance/machine-configuration/overview)
 feature of
-[Azure Policy](../governance/policy/overview.md).
+[Azure Policy](/azure/governance/policy/overview).
 
 ## Before you begin
 
@@ -122,8 +122,8 @@ To group similar policy settings, you often create additional GPOs instead of ap
 For more information on the available Group Policy settings that you can configure using the Group Policy Management Console, see [Work with Group Policy preference items][group-policy-console].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md

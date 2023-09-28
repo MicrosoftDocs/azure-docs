@@ -5,8 +5,7 @@ description: This is a list of natural languages that the Content Safety API sup
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-safety
+ms.service: azure-ai-content-safety
 ms.topic: conceptual
 ms.date: 08/01/2023
 ms.author: pafarley
