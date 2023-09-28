@@ -19,7 +19,7 @@ This article is for developers who need a deeper understanding of relevance scor
 
 ## Scoring algorithms used in vector search
 
-Hierarchical Navigable Small World (HNSW) is the scoring algorithm used for vector search. It follows the principle of [Approximate Nearest Neighbors (ANN)](vector-search-overview.md#approximate-nearest-neighbors), where  the search surface area is reduced to a small set of candidate vectors similar to the query vector.
+Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
 
 HNSW has configuration parameters. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
 
