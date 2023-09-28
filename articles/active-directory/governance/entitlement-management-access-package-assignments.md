@@ -74,6 +74,7 @@ You can also retrieve assignments to an access package in PowerShell with the `G
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayName eq 'Marketing Campaign'"
+if ($null -eq $accesspackage) { throw "no access package"}
 $assignments = @(Get-MgEntitlementManagementAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop)
 $assignments | ft Id,state,{$_.Target.id},{$_.Target.displayName}
 ```
@@ -83,6 +84,7 @@ Note that the preceding query will return expired and delivering assignments as 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayName eq 'Marketing Campaign'"
+if ($null -eq $accesspackage) { throw "no access package"}
 $accesspackageId = $accesspackage.Id
 $filter = "accessPackage/id eq '" + $accesspackageId + "' and state eq 'Delivered'"
 $assignments = @(Get-MgEntitlementManagementAssignment -Filter $filter -ExpandProperty target -All -ErrorAction Stop)
@@ -175,7 +177,8 @@ You can assign a user to an access package in PowerShell with the `New-MgEntitle
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
-$accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty assignmentpolicies
+$accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty "assignmentpolicies"
+if ($null -eq $accesspackage) { throw "no access package"}
 $policy = $accesspackage.AssignmentPolicies[0]
 $userid = "cdbdf152-82ce-479c-b5b8-df90f561d5c7"
 $params = @{
@@ -201,6 +204,7 @@ Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Directory.Read.All"
 $members = @(Get-MgGroupMember -GroupId "a34abd69-6bf8-4abd-ab6b-78218b77dc15" -All)
 
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty "assignmentPolicies"
+if ($null -eq $accesspackage) { throw "no access package"}
 $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgBetaEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -RequiredGroupMember $members
 ```
@@ -213,6 +217,7 @@ If you wish to add an assignment for a user who is not yet in your directory, yo
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
 $accesspackage = Get-MgEntitlementManagementAccessPackage -Filter "displayname eq 'Marketing Campaign'" -ExpandProperty "assignmentPolicies"
+if ($null -eq $accesspackage) { throw "no access package"}
 $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgBetaEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
