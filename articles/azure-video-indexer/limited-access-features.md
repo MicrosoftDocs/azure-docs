@@ -7,7 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Limited Access features of Azure AI Video Indexer 
+# Limited Access features of Azure AI Video Indexer
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 [!INCLUDE [Gate notice](../ai-services/computer-vision/includes/identity-gate-notice.md)]
 

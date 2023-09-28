@@ -1,13 +1,12 @@
 ---
-title: Striim quick start 
+title: Striim quick start
 description: Get started quickly with Striim and Azure Synapse Analytics.
-author: WilliamDAssafMSFT  
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 10/12/2018
+author: WilliamDAssafMSFT
 ms.author: wiassaf
+ms.date: 10/12/2018
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: seo-lt-2019
 ---
 
