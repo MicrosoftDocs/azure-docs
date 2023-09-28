@@ -11,7 +11,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy23
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
 
-This article describes how to discover Spring Boot applications running on servers in your datacenter, using Azure Migrate: Discovery and assessment tool. The discovery process is completely agentless, that is, no agents are installed on the target servers.
+This article describes how to discover Spring Boot applications running on servers in your datacenter, using Azure Migrate: Discovery and assessment tool. The discovery process is completely agentless; no agents are installed on the target servers.
 
 In this tutorial, you learn how to:
 - Set up Kubernetes based appliance for discovery of Spring Boot applications
@@ -51,7 +51,7 @@ After you have performed server discovery and software inventory using the Azure
 ---- | ----
 **Validated Kubernetes distros** | See [Azure Arc-enabled Kubernetes validation](https://learn.microsoft.com/azure/azure-arc/kubernetes/validation-program).
 **Hardware configuration required** | 6 GB RAM, with 30GB storage, 4 Core CPU
-**Network Requirements** | Access to the following endpoints: <br/><br/> - api.snapcraft.io <br/><br/> - https://dc.services.visualstudio.com/v2/track <br/><br/> - https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud <br/><br/> - https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud
+**Network Requirements** | Access to the following endpoints: <br/><br/> - api.snapcraft.io <br/><br/> - https://dc.services.visualstudio.com/v2/track <br/><br/> - [Azure Arc-enabled Kubernetes network requirements](https://learn.microsoft.com/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud) <br/><br/> - [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
 #### Bring your own Kubernetes cluster (alternate option)
 
@@ -65,7 +65,7 @@ After you have performed server discovery and software inventory using the Azure
 3.	You can select a key vault from the drop-down or **Create new** key vault. This key vault is used to process the credentials provided in the project to start discovery of Spring Boot applications.
 
     > [!Note]
-    > The Key Vault can be chosen or created in the same subscription and region as that of the Azure Migrate project. When creating/selecting a key vault, make sure it does not have purge protection enabled else there be will issues in processing of credentials through the key vault.
+    > The Key Vault can be chosen or created in the same subscription and region as that of the Azure Migrate project. When creating/selecting a key vault, make sure that purge protection is disabled else there be will issues in processing of credentials through the key vault.
 
 4.	After providing the appliance name and key vault, select **Generate script** to generate an installer script that you can copy and paste on a Linux server on-premises. Before executing the script, ensure that you meet the following prerequisites on the Linux server:
 
@@ -73,13 +73,13 @@ After you have performed server discovery and software inventory using the Azure
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
     **Hardware configuration required** | 6 GB RAM, with 30GB storage, 4 Core CPU
-    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud
+    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](https://learn.microsoft.com/cli/azure/azure-cli-endpoints?tabs=azure-cloud)
 
-5.	After copying the script, you can go to your Linux server, save the script as *Deploy.sh* on the server.
+5.	After copying the script, go to your Linux server, save the script as *Deploy.sh* on the server.
 
 #### Execute the installer script
 
-After you have saved the script on the Linux server, you can follow these steps:
+After you have saved the script on the Linux server, follow these steps:
 
 > [!Note]
 > - If you have chosen to deploy a packaged Kubernetes cluster and are running the installation script on any other Linux OS except Ubuntu, ensure to install the snap module by following the instructions [here](https://snapcraft.io/docs/installing-snap-on-red-hat), before executing the script.
@@ -110,9 +110,9 @@ The *delete* mode helps to clean up any existing components installed on the ser
 ## Configure Kubernetes-based appliance
 
 After successfully setting up the appliance using the installer script, you need to configure the appliance by following these steps:
-1.	Go to the Azure Migrate project where you started onboarding of the Kubernetes-based appliance.
+1.	Go to the Azure Migrate project where you started onboarding the Kubernetes-based appliance.
 2.	On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
-3.	You will be navigated to the **Overview** > **Manage** > **Appliances** page with a filtered list of appliances with pending action.
+3.	In **Overview** > **Manage** > **Appliances**, a filtered list of appliances appears with actions pending.
 4.	Find the Kubernetes-based appliance that you have just set up and select **Credentials unavailable** status to configure the appliance.
 5.	In the **Manage credentials** page, add the credentials to initiate discovery of the Spring Boot applications running on your servers.
 6.	Select **Add credentials**, choose a credential type from Linux (non-domain) or Domain credentials, provide a friendly name, username, and password. Select **Save**.

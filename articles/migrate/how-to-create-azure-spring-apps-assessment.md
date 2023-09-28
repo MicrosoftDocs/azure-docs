@@ -15,12 +15,12 @@ As part of your migration journey to Azure, you assess your on-premises workload
 This article shows you how to assess discovered Spring Boot apps for migration to Azure Spring Apps, using the Azure Migrate for Spring apps.
 
 > [!Note]
-> Discovery and assessment of Spring Boot apps is now in preview. If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
+> Discovery and assessment of Spring Boot apps is now in preview. If you want to try out this feature in an existing project, ensure that you meet the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Before you start
 
 - Ensure you've [created](./create-manage-projects.md) an Azure Migrate project and have Azure Migrate for Spring apps added.
-- Set up an Azure Migrate appliance. The [appliance](migrate-appliance.md) discovers on-premises servers and sends metadata and performance data to Azure Migrate. The same appliance discovers Spring Boot apps running in your environment.
+- Set up an Azure Migrate appliance. The [appliance](migrate-appliance.md) discovers on-premises servers and sends metadata and performance data to Azure Migrate. The same appliance discovers Spring Boot apps that are running in your environment.
 
 ## Azure Spring Apps assessment overview
 
@@ -34,7 +34,7 @@ An Azure Spring Apps assessment provides the following sizing criteria:
 
 ## Run an assessment
 
-Run an assessment as follows:
+Run an assessment using the following steps:
 
 1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
@@ -44,7 +44,7 @@ Run an assessment as follows:
 
     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-inline.png" alt-text="Screenshot of dropdown to choose assessment type as Web apps on Azure." lightbox="./media/how-to-create-azure-spring-apps-assessment/assess-expanded.png":::
 
-3. In **Create assessment**, you'll see the assessment type pre-selected as **Web apps on Azure**, the scenario pre-selected as **Spring Boot to Azure Spring Apps**, and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
+   In **Create assessment**, you'll see the assessment type pre-selected as **Web apps on Azure**, the scenario pre-selected as **Spring Boot to Azure Spring Apps**, and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
 4. Select **Edit** to review the assessment properties.
 
     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-inline.png" alt-text="Screenshot of Edit button from where assessment properties can be customized." lightbox="./media/how-to-create-azure-spring-apps-assessment/assess-webapps-expanded.png":::
@@ -58,8 +58,8 @@ Run an assessment as follows:
     | **Offer/Licensing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer. |
     | **Currency** | The billing currency for your account. |
     | **Discount (%)** | Any subscription-specific discounts that you receive on top of the Azure offer. The default setting is 0%. |
-    | **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Leave the settings for reserved instances, and discount (%) properties with their default settings. |
-    | **Savings options (compute)** | Specify the savings option that you want the assessment to consider, to help optimize your Azure Compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 years reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 years savings plan) provide more flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. <br><br> When you select **None**, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than **None**, the **Discount (%)** setting isn't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.|
+    | **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br/><br/> Retain the settings for reserved instances, and discount (%) properties with their default settings. |
+    | **Savings options (compute)** | Specify the savings option that you want the assessment to consider, to help optimize your Azure Compute cost. <br><br> We recommend [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 years reserved) for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 years savings plan) provide more flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. <br><br> When you select **None**, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than **None**, the **Discount (%)** setting isn't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.|
 
 1. In **Create assessment**, select **Next**.
 1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment.
@@ -74,7 +74,7 @@ Run an assessment as follows:
 
      :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-navigation-inline.png" alt-text="Screenshot of navigation to created assessment." lightbox="./media/how-to-create-azure-spring-apps-assessment/assessment-webapps-navigation-expanded.png":::
 
-1. Select the assessment name that you wish to view.
+1. Select the assessment name that you want to view.
 
 ## Review an assessment
 
@@ -88,7 +88,7 @@ Run an assessment as follows:
 
 ### Overview
 
-This card shows the distribution of assessed apps based on their readiness. In addition, it estimates the monthly costs for apps marked with **Ready** or **Ready with conditions** status, and the cost estimation is based upon the current memory consumption and estimated CPU consumption of your apps.
+This card shows the distribution of assessed apps based on their readiness. In addition, it estimates the monthly costs for apps marked with **Ready** or **Ready with conditions** status. The cost estimation is based upon the current memory consumption and estimated CPU consumption of your apps.
 
 ### Azure Spring Apps
 

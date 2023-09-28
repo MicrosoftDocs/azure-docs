@@ -362,13 +362,13 @@ Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuratio
 
 ## Spring Boot web apps data
 
-Azure Migrate appliance used for discovery can also collect data on Spring Boot web applications.
+The Azure Migrate appliance used for discovery can also collect data on Spring Boot web applications.
 
 Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
 
 **Entity** | **Data**
 --- | ---
-Web apps | Application Name <br/>Maven artifact name <br/>JAR file location <br/>JAR file checksum <br/>JAR file size<br/>Spring Boot version<br/>Maven build JDK version <br/> Application property files <br/>Certificates file names <br/> Static content location <br/> Application port <br/> Binding ports (including app port) <br/> Logging configuration <br/> JAR file last modified time
+Web apps | Application name <br/>Maven artifact name <br/>JAR file location <br/>JAR file checksum <br/>JAR file size<br/>Spring Boot version<br/>Maven build JDK version <br/> Application property files <br/>Certificates file names <br/> Static content location <br/> Application port <br/> Binding ports (including app port) <br/> Logging configuration <br/> JAR file last modified time
 OS runtime | OS installed JDK version <br/> JVM options <br/> JVM heap memory <br/> OS name <br/> OS version <br/> Environment variables
 
 
