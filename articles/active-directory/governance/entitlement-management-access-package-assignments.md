@@ -200,6 +200,28 @@ $policy = $accesspackage.AssignmentPolicies[0]
 $req = New-MgBetaEntitlementManagementAccessPackageAssignmentRequest -AccessPackageId $accesspackage.Id -AssignmentPolicyId $policy.Id -TargetEmail "sample@example.com"
 ```
 
+## Configure access assignment as part of a lifecycle workflow
+
+In the Microsoft Entra Lifecycle Workflows feature, you can add a [Request user access package assignment](lifecycle-workflow-tasks.md#request-user-access-package-assignment) task to an onboarding workflow. The task can specify an access package which users should have. When the workflow runs for a user, then an access package assignment request will be created automatically.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a global administrator.
+
+1. Browse to **Identity governance** > **Lifecycle workflows** > **Workflows**.
+
+1. Select an employee onboarding or move workflow.
+
+1. Select **Tasks** and select **Add task**.
+
+1. Select **Request user access package assignment** and select **Add**.
+
+1. Select the newly added task.
+
+1. Select **Select Access package**, and choose the access package that new or moving users should be assigned to.
+
+1. Select **Select Policy**, and choose the access package assignment policy in that access package.
+
+1. Select **Save**.
+
 ## Remove an assignment
 
 You can remove an assignment that a user or an administrator had previously requested.
@@ -244,6 +266,26 @@ if ($assignment -ne $null) {
    New-MgEntitlementManagementAssignmentRequest -BodyParameter $params
 }
 ```
+
+## Configure assignment removal as part of a lifecycle workflow
+
+In the Microsoft Entra Lifecycle Workflows feature, you can add a [Remove access package assignment for user](lifecycle-workflow-tasks.md#remove-access-package-assignment-for-user) task to an offboarding workflow. That task can specify an access package the user might be assigned to. When the workflow runs for a user, then their access package assignment will be removed automatically.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a global administrator.
+
+1. Browse to **Identity governance** > **Lifecycle workflows** > **Workflows**.
+
+1. Select an employee offboarding workflow.
+
+1. Select **Tasks** and select **Add task**.
+
+1. Select **Remove access package assignment for user** and select **Add**.
+
+1. Select the newly added task.
+
+1. Select **Select Access packages**, and choose one or more access packages that users being offboarded should be removed from.
+
+1. Select **Save**.
 
 ## Next steps
 

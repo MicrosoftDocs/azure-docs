@@ -4,7 +4,7 @@ description: Learn ways to improve the performance of NFS Azure file shares at s
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 09/21/2023
+ms.date: 09/26/2023
 ms.author: kendownie
 ---
 
@@ -17,6 +17,31 @@ This article explains how you can improve performance for NFS Azure file shares.
 | Standard file shares (GPv2), LRS/ZRS | ![No, this article doesn't apply to standard SMB Azure file shares LRS/ZRS.](../media/icons/no-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![No, this article doesn't apply to standard SMB Azure file shares GRS/GZRS.](../media/icons/no-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![No, this article doesn't apply to premium SMB Azure file shares.](../media/icons/no-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
+
+## Increase read-ahead size to improve read throughput
+
+The `read_ahead_kb` kernel parameter in Linux represents the amount of data that should be "read ahead" or prefetched during a sequential read operation. Linux kernel versions prior to 5.4 set the read-ahead value to the equivalent of 15 times the mounted file system's `rsize` (the client-side mount option for read buffer size). This sets the read-ahead value high enough to improve client sequential read throughput in most cases.
+
+However, beginning with Linux kernel version 5.4, the Linux NFS client uses a default `read_ahead_kb` value of 128 KiB. This small value might reduce the amount of read throughput for large files. Customers upgrading from Linux releases with the larger read-ahead value to those with the 128 KiB default might experience a decrease in sequential read performance.
+
+For Linux kernels 5.4 or later, we recommend persistently setting the `read_ahead_kb` to 15 MiB for improved performance.
+
+To change this value, set the read-ahead size by adding a rule in udev, a Linux kernel device manager. Follow these steps:
+
+1. In a text editor, create the */etc/udev/rules.d/99-nfs.rules* file by entering and saving the following text:
+
+   ```output
+   SUBSYSTEM=="bdi" \
+   , ACTION=="add" \
+   , PROGRAM="/usr/bin/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes" \
+   , ATTR{read_ahead_kb}="15360"
+   ```
+
+1. In a console, apply the udev rule by running the [udevadm](https://www.man7.org/linux/man-pages/man8/udevadm.8.html) command as a superuser and reloading the rules files and other databases. You only need to run this command once, to make udev aware of the new file.
+
+   ```bash
+   sudo udevadm control --reload
+   ```
 
 ## `Nconnect`
 

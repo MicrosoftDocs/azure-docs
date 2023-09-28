@@ -664,6 +664,38 @@ After the debugger is attached, the process execution resumes, and you'll be abl
 
 Because your isolated worker process app runs outside the Functions runtime, you need to attach the remote debugger to a separate process. To learn more about debugging using Visual Studio, see [Remote Debugging](functions-develop-vs.md?tabs=isolated-process#remote-debugging).
 
+## Preview .NET versions
+
+Azure Functions currently can be used with the following preview versions of .NET:
+
+| Operating system | .NET preview version |
+| - | - |
+| Windows | .NET 8 Preview 7 | 
+| Linux | .NET 8 RC1 |
+
+### Using a preview .NET SDK
+
+To use Azure Functions with a preview version of .NET, you need to update your project by:
+
+1. Installing the relevant .NET SDK version in your development
+1. Changing the `TargetFramework` setting in your `.csproj` file
+
+When deploying to a function app in Azure, you also need to ensure that the framework is made available to the app. To do so on Windows, you can use the following CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v8.0".
+
+```azurecli
+az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
+```
+
+### Considerations for using .NET preview versions
+
+Keep these considerations in mind when using Functions with preview versions of .NET: 
+
+If you author your functions in Visual Studio, you must use [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/), which supports building Azure Functions projects with .NET preview SDKs. You should also ensure you have the latest Functions tools and templates. To update these, navigate to `Tools->Options`, select `Azure Functions` under `Projects and Solutions`, and then click the `Check for updates` button, installing updates as prompted.
+
+During the preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause the application to fail when deployed. To address this, you can configure which version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). First, identify which versions you have installed using `dotnet --list-sdks` and note the version that matches what the service supports. Then you can run `dotnet new globaljson --sdk-version <sdk-version> --force`, substituting `<sdk-version>` for the version you noted in the previous command. For example, `dotnet new globaljson --sdk-version dotnet-sdk-8.0.100-preview.7.23376.3 --force` will cause the system to use the .NET 8 Preview 7 SDK when building your project.
+
+Note that due to just-in-time loading of preview frameworks, function apps running on Windows may experience increased cold start times when compared against earlier GA versions.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

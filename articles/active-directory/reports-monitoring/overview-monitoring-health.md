@@ -1,6 +1,6 @@
 ---
-title: What is Microsoft Entra Monitoring and health?
-description: Provides a general overview of Microsoft Entra Monitoring and health.
+title: What is Microsoft Entra monitoring and health?
+description: Provides a general overview of Microsoft Entra monitoring and health.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -14,9 +14,9 @@ ms.reviewer: besiler
 
 ---
 
-# What is Microsoft Entra Monitoring and health?
+# What is Microsoft Entra monitoring and health?
 
-The features of Microsoft Entra Monitoring and health provide a comprehensive view of identity related activity in your environment. This data enables you to:
+The features of Microsoft Entra monitoring and health provide a comprehensive view of identity related activity in your environment. This data enables you to:
 
 - Determine how your users utilize your apps and services.
 - Detect potential risks affecting the health of your environment.

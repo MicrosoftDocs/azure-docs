@@ -6214,6 +6214,16 @@
       "source_path_from_root": "/articles/cosmos-db/rag-data-openai.md",
       "redirect_url": "/azure/cosmos-db/vector-search",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/quickstart-java.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/quickstart-php.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console",
+      "redirect_document_id": false
     }
   ]
 }

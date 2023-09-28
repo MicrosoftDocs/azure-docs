@@ -131,7 +131,7 @@ sections:
           In many cases, non-interactive sign-ins have all the same characteristics, except for the date and time of the sign-in. If the time aggregate is set to 24 hours, the logs appear to show the sign-ins at the same time. Each of these grouped rows can be expanded to view the exact time stamp.
 
       - question: |
-          I'm seeing User IDs in the username field of my sign-ins log. Why is this happening?
+          I'm seeing User IDs in the username field of my sign-in log. Why is this happening?
         answer: |
           With passwordless authentication, User IDs appear as the username. To confirm this scenario, look at the details of the sign-in event in question. The *authenticationDetail* field says *passwordless*.
 
@@ -186,11 +186,11 @@ sections:
       - question: |
           What Conditional Access details can I see in the sign-in logs?
         answer: |
-          You can troubleshoot Conditional Access policies through all sign-ins log. Review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+          You can troubleshoot Conditional Access policies through all sign-in logs. Review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 
           To get started:
           
-          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Microsoft Entra ID** then select **Sign-ins log**.
+          - Sign in to the [Azure portal](https://portal.azure.com) and go to **Microsoft Entra ID** then select **Sign-ins**.
           - Select the sign-in that you want to troubleshoot.
           - Navigate to the **Conditional Access** tab.
           Here, you can view all the policies that impacted the sign-in and the result for each policy. 
@@ -215,14 +215,14 @@ sections:
           - **Not enabled**: The policy may be in a disabled state. 
               
       - question: |
-          The policy name in the sign-ins log doesn't match the policy name in Conditional Access. Why?
+          The policy name in the sign-in log doesn't match the policy name in Conditional Access. Why?
         answer: |
-          The policy name in the sign-ins log is based on the Conditional Access policy name at the time of the sign-in. The name can be inconsistent with the policy name in Conditional Access if you updated the policy name after the sign-in.
+          The policy name in the sign-in log is based on the Conditional Access policy name at the time of the sign-in. The name can be inconsistent with the policy name in Conditional Access if you updated the policy name after the sign-in.
 
       - question: |
-          My sign-in was blocked due to a Conditional Access policy, but the sign-ins log shows that the sign-in succeeded. Why?
+          My sign-in was blocked due to a Conditional Access policy, but the sign-in log shows that the sign-in succeeded. Why?
         answer: |
-          Currently the sign-ins log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a  policy.
+          Currently the sign-in log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a  policy.
 
   - name: Microsoft Graph APIs
     questions:

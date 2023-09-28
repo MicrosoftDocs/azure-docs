@@ -86,7 +86,7 @@ landingContent:
       - linkListType: tutorial  
         links:
           - text: Log VM network traffic
-            url: network-watcher-nsg-flow-logging-portal.md           
+            url: nsg-flow-logs-tutorial.md           
   
   # Card (optional)
   - title: Traffic analytics
