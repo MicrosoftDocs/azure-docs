@@ -10,7 +10,7 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
 # How-to: Configure your experiment to emit Experiment Fault Events to App Insights
-In this guide, we will show you the steps needed to configure a Chaos Studio **Agent-based** Experiment to emit telemetry to App Insights. These events will show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. This is the recommended logging solution for **Agent-based** experiements in Chaos Studio
+In this guide, we will show you the steps needed to configure a Chaos Studio **Agent-based** Experiment to emit telemetry to App Insights. These events will show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. This is the primary logging solution for **Agent-based** experiements in Chaos Studio.
 
 ## Prerequisites
 - An Azure subscription
@@ -40,3 +40,14 @@ Once you have clicked "Manage Actions" in Step 2, you will see the page in the b
 <br/>
 
 ![Screenshot of Targets Deployment Page](images/Step3A_appins.png)
+
+## Step 4: Run the chaos experiment
+Once you have completed Step 3, your Chaos Target is now configured to emit telemetry to the App Insights Resource you configured! If you navigate to your specific Application Insights Resource and open the "Logs" blade under the "Monitoring" section, you should see the Agent heartbeating as well as any actions the Agent is taking on your Target Platform. You can now run your experiment and see logging in your Application Insights Resource. See screenshot below for example App Insights Resource running succesfully on an Agent-based Chaos Target platform. 
+
+<br/>
+
+To query your logs, navigate to the "Logs" tab in the Application Insights Resource to get your desired logging information your desired format.
+
+<br/>
+
+![Screenshot of Logs tab in Application Insights Resource](images/Step4A_appins.png)
