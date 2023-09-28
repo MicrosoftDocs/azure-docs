@@ -13,6 +13,8 @@ author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: lhuangnorth, jogro
 
+f2d19332-a09d-48c8-a53b-c49ae5502dfc
+
 ms.collection: M365-identity-device-management
 ---
 # Require an app protection policy on Windows devices (preview)
@@ -23,7 +25,9 @@ App protection policies apply mobile application management (MAM) to specific ap
 
 ## Prerequisites
 
-Customers interested in the public preview need to opt in using the [MAM for Windows Public Preview Sign Up Form](https://aka.ms/MAMforWindowsPublic).
+- [Windows 11 Version 22H2 (OS build 22621)](/windows/release-health/windows11-release-information#windows-11-current-versions) or newer.
+- [Configured app protection policy targeting Windows devices](/mem/intune/apps/app-protection-policy-settings-windows).
+- Currently unsupported in sovereign clouds.
 
 ## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
@@ -36,6 +40,12 @@ The following policy is put in to [Report-only mode](howto-conditional-access-in
 
 The following steps help create a Conditional Access policy requiring an app protection policy when using a Windows device. The app protection policy must also be configured and assigned to your users in Microsoft Intune. For more information about how to create the app protection policy, see the article [Preview: App protection policy settings for Windows](/mem/intune/apps/app-protection-policy-settings-windows). The following policy includes multiple controls allowing devices to either use app protection policies for mobile application management (MAM) or be managed and compliant with mobile device management (MDM) policies.
 
+> [!TIP]
+> App protection policies (MAM) support unmanaged devices:
+> 
+> - If a device is already managed through mobile device management (MDM), then Intune MAM enrollment is blocked, and app protection policy settings aren't applied. 
+> - If a device becomes managed after MAM enrollment, app protection policy settings are no longer applied.
+
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
@@ -44,6 +54,8 @@ The following steps help create a Conditional Access policy requiring an app pro
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose at least your organization's emergency access or break-glass accounts.
 1. Under **Target resources** > **Cloud apps** > **Include**, select **Office 365**.
+   > [!WARNING]
+   > Selecting **All apps** prevents users from signing in.
 1. Under **Conditions**:
    1. **Device platforms**, set **Configure** to **Yes**.
       1. Under **Include**, **Select device platforms**.
@@ -95,6 +107,10 @@ To resolve these possible scenarios:
 
 - Wait a few minutes and try again in a new tab.
 - Contact your administrator to check that Microsoft Intune MAM policies are applying to your account correctly.
+
+#### All apps selected
+
+If your policy for Windows devices targets **All apps** your users won't be able to sign in. Your policy should only target **Office 365**.
 
 ### Existing account
 
