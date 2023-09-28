@@ -41,10 +41,10 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
     | Name                | *my-grafana*        | Enter a unique resource name. It will be used as the domain name in your Managed Grafana instance URL.                                                                                                                                                                                                                   |
     | Pricing Plan        | *Essential*          | Choose between an Essential and a Standard plan. The Standard tier offers additional features. [More information about pricing plans](overview.md#service-tiers).                                                                                       |
 
-1. If you've chosen the Standard plan, you can enable zone redundancy for your service further down this page.
+1. If you've chosen the Standard plan, optionally enable zone redundancy for your new instance.
 1. Select **Next : Advanced >** to access additional options:
     - **Enable API key creation** is set to **Disable** by default.
-    - If you've opted for the Standard plan, you can acess the **Deterministic outbound IP** feature, which is set to **Disable** by default.
+    - If you've opted for the Standard plan, optionally enable the **Deterministic outbound IP** feature, which is set to **Disable** by default.
 
 1. Select **Next : Permission >** to control access rights for your Grafana instance and data sources:
    1. **System assigned managed identity** is set to **On**.
@@ -52,8 +52,6 @@ Get started by creating an Azure Managed Grafana workspace using the Azure porta
    1. The box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked by default.
 
    1. The box **Include myself** under **Grafana administrator role** is checked. This option grants you the Grafana administrator role, and lets you manage access rights. You can give this right to more members by selecting **Add**. If this option grays out for you, ask someone with the Owner role on the subscription to assign you the Grafana Admin role.
-
-    :::image type="content" source="media/quickstart-portal/create-form-permission.png" alt-text="Screenshot of the Azure portal. Create workspace form. Permission.":::
 
 1. Optionally select **Next : Tags** and add tags to categorize resources.
 

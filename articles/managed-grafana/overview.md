@@ -48,7 +48,7 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 | [Zone redundancy](how-to-enable-zone-redundancy.md)                                      | -                                   | ✔                                                      |
 | [Deterministic outbound IPs](how-to-deterministic-ip.md)                                 | -                                   | ✔                                                      |
 | [Private endpoints](how-to-set-up-private-access.md)                                     | -                                   | ✔                                                      |
-| Alerting                                                                                 | -                                   | ✔                                                      |
+| [Alerting](https://grafana.com/docs/grafana/latest/alerting/)                                                                                 | -                                   | ✔                                                      |
 | [Emails, via SMTP](how-to-smtp-settings.md)                                              | -                                   | ✔                                                      |
 | [Reporting/image rendering](how-to-use-reporting-and-image-rendering.md)                 | -                                   | ✔                                                      |
 | [API keys](how-to-create-api-keys.md) and [service accounts](how-to-service-accounts.md) | ✔                                  | ✔                                                      |
@@ -61,7 +61,6 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 ## Quotas
 
 Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential and Standard pricing plans, see [Limitations: quotas](known-limitations.md).
-                                        | 1               | 20               |
 
 ## Next steps
 

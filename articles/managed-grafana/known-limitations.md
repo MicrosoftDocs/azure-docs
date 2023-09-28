@@ -42,17 +42,17 @@ Azure Managed Grafana has the following known limitations:
 
 ## Quotas
 
-| Limit                                |                                                                                                              | Essential       | Standard         |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------|-----------------|------------------|
-| Alert rules                          | Max number of alert rules that can be created                                                                | Not supported   | 100 per instance |
-| Dashboards                           | Max number of dashboards that can be created                                                                 | 20 per instance | Unlimited        |
-| Data sources                         | Max number of datasources that can be created                                                                | 5 per instance  | Unlimited        |
-| Users                                | Max number of users that can be created                                                                      | Unlimited       | Unlimited        |
-| API keys                             | Max number of API keys that can be created                                                                   | 2 per instance  | 100 per instance |
-| Data query timeout                   | Max wait duration for the reception of data query response headers, before Grafana times out | 200 seconds     | 200 seconds      |
-| Data source query size               | The maximum number of bytes that are read/accepted from responses of outgoing HTTP requests              | 80 MB           | 80 MB            |
-| Render image or PDF report wait time | Max wait duration for an image or report PDF rendering request to complete before Grafana times out.         | Not supported   | 220 seconds      |
-| Instance count                       | Max number of instances in a single subscription per Azure region    
+| Limit                                | Description                                                                                                     | Essential       | Standard         |
+|--------------------------------------|------------------------------------------------------------------------------------------------------|-----------------|------------------|
+| Alert rules                          | Max number of alert rules that can be created                                                        | Not supported   | 100 per instance |
+| Dashboards                           | Max number of dashboards that can be created                                                         | 20 per instance | Unlimited        |
+| Data sources                         | Max number of datasources that can be created                                                        | 5 per instance  | Unlimited        |
+| Users                                | Max number of users that can be created                                                              | Unlimited       | Unlimited        |
+| API keys                             | Max number of API keys that can be created                                                           | 2 per instance  | 100 per instance |
+| Data query timeout                   | Max wait duration for the reception of data query response headers, before Grafana times out         | 200 seconds     | 200 seconds      |
+| Data source query size               | The maximum number of bytes that are read/accepted from responses of outgoing HTTP requests          | 80 MB           | 80 MB            |
+| Render image or PDF report wait time | Max wait duration for an image or report PDF rendering request to complete before Grafana times out. | Not supported   | 220 seconds      |
+| Instance count                       | Max number of instances in a single subscription per Azure region                                    |                 |                  |
 
 ## Next steps
 

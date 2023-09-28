@@ -21,7 +21,7 @@ In this how-to guide, learn how to enable zone redundancy for Azure Managed Graf
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Sign in to Azure
 

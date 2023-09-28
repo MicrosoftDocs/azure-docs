@@ -34,7 +34,7 @@ For screen-capturing in alerts, the Grafana software only allows 30 seconds to s
 To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance in the standard ervice tier. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana instance in the standard service tier. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
 - An SMTP server. If you don't have one yet, you may want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 - Email set up for your Azure Managed Grafana instance. [Configure SMTP settings](how-to-smtp-settings.md).
 
