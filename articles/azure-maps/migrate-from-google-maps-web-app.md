@@ -29,7 +29,7 @@ Also:
 > [!div class="checklist"]
 > * How to accomplish common mapping tasks using the Azure Maps Web SDK.
 > * Best practices to improve performance and user experience.
-> * Tips on how to make your application using more advanced features available in Azure Maps.
+> * Tips on how to make your application use more advanced features available in Azure Maps.
 
 If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps [Render] services ([road tiles] | [satellite tiles]). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
@@ -39,7 +39,7 @@ If migrating an existing web application, check to see if it's using an open-sou
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
 * [Azure Maps React Component] - A react wrapper for the Azure Maps control.
 * [Vue Azure Maps] - An Azure Maps component for Vue application.
@@ -120,7 +120,7 @@ Both SDKs have the same steps to load a map:
 
 **Some key differences**
 
-* Google maps requires an account key to be specified in the script reference of the API. Authentication credentials for Azure Maps are specified as options of the map class. This credential can be a subscription key or Azure Active Directory information.
+* Google Maps requires an account key to be specified in the script reference of the API. Authentication credentials for Azure Maps are specified as options of the map class. This credential can be a subscription key or Azure Active Directory information.
 * Google Maps accepts a callback function in the script reference of the API, which is used to call an initialization function to load the map. With Azure Maps, the onload event of the page should be used.
 * When referencing the `div` element in which the map renders, the `Map` class in Azure Maps only requires the `id` value while Google Maps requires a `HTMLElement` object.
 * Coordinates in Azure Maps are defined as Position objects, which can be specified as a simple number array in the format `[longitude, latitude]`.
@@ -128,7 +128,7 @@ Both SDKs have the same steps to load a map:
 * Azure Maps doesn't add any navigation controls to the map canvas. So, by default, a map doesn't have zoom buttons and map style buttons. But, there are control options for adding a map style picker, zoom buttons, compass or rotation control, and a pitch control.
 * An event handler is added in Azure Maps to monitor the `ready` event of the map instance. This event fires when the map has finished loading the WebGL context and all the needed resources. Add any code you want to run after the map completes loading, to this event handler.
 
-The basic examples below uses Google Maps to load a map centered over New York at coordinates. The longitude: -73.985, latitude: 40.747, and the map is at zoom level of 12.
+The following examples use Google Maps to load a map centered over New York at coordinates. The longitude: -73.985, latitude: 40.747, and the map is at zoom level of 12.
 
 #### Before: Google Maps
 
@@ -227,7 +227,7 @@ Running this code in a browser displays a map that looks like the following imag
 For more information on how to set up and use the Azure Maps map control in a web app, see [Use the Azure Maps map control].
 
 > [!NOTE]
-> Unlike Google Maps, Azure Maps does not require an initial center and a zoom level to load the map. If this information is not provided when loading the map, Azure maps will try to determine city of the user. It will center and zoom the map there.
+> Unlike Google Maps, Azure Maps does not require an initial center and a zoom level to load the map. If this information is not provided when loading the map, Azure Maps will try to determine city of the user. It will center and zoom the map there.
 
 **More resources:**
 
@@ -796,7 +796,7 @@ map.events.add('click', marker, function () {
 
 Google Maps supports loading and dynamically styling GeoJSON data via the `google.maps.Data` class. The functionality of this class aligns more with the data-driven styling of Azure Maps. But, there's a key difference. With Google Maps, you specify a callback function. The business logic for styling each feature it processed individually in the UI thread. But in Azure Maps, layers support specifying data-driven expressions as styling options. These expressions are processed at render time on a separate thread. The Azure Maps approach improves rendering performance. This advantage is noticed when larger data sets need to be rendered quickly.
 
-The following examples load a GeoJSON feed of all earthquakes over the last seven days from the USGS. Earthquakes data renders as scaled circles on the map. The color and scale of each circle is based on the magnitude of each earthquake, which is stored in the `"mag"` property of each feature in the data set. If the magnitude is greater than or equal to five, the circle is red. If it's greater or equal to three, but less than five, the circle is orange. If it's less than three, the circle is green. The radius of each circle will be the exponential of the magnitude multiplied by 0.1.
+The following examples load a GeoJSON feed of all earthquakes over the last seven days from the USGS. Earthquakes data renders as scaled circles on the map. The color and scale of each circle is based on the magnitude of each earthquake, which is stored in the `"mag"` property of each feature in the data set. If the magnitude is greater than or equal to five, the circle is red. If it's greater or equal to three, but less than five, the circle is orange. If it's less than three, the circle is green. The radius of each circle is the exponential of the magnitude multiplied by 0.1.
 
 #### Before: Google Maps
 
@@ -957,7 +957,7 @@ GeoJSON is the base data type in Azure Maps. Import it into a data source using 
 
 ### Marker clustering
 
-When visualizing many data points on the map, points may overlap each other. Overlapping makes the map looks cluttered, and the map becomes difficult to read and use. Clustering point data is the process of combining data points that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. Cluster data points to improve user experience and map performance.
+When visualizing many data points on the map, points may overlap each other. Overlapping makes the map look cluttered, and the map becomes difficult to read and use. Clustering point data is the process of combining data points that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. Cluster data points to improve user experience and map performance.
 
 In the following examples, the code loads a GeoJSON feed of earthquake data from the past week and adds it to the map. Clusters are rendered as scaled and colored circles. The scale and color of the circles depends on the number of points they contain.
 
@@ -1351,7 +1351,7 @@ map.layers.add(new atlas.layer.TileLayer({
 
 ### Show traffic data
 
-Traffic data can be overlaid both Azure and Google maps.
+Traffic data can be overlaid both Azure and Google Maps.
 
 #### Before: Google Maps
 
@@ -1390,7 +1390,7 @@ If you select one of the traffic icons in Azure Maps, more information is displa
 
 ### Add a ground overlay
 
-Both Azure and Google maps support overlaying georeferenced images on the map. Georeferenced images move and scale as you pan and zoom the map. In Google Maps, georeferenced images are known as ground overlays while in Azure Maps they're referred to as image layers. They're great for building floor plans, overlaying old maps, or imagery from a drone.
+Both Azure and Google Maps support overlaying georeferenced images on the map. Georeferenced images move and scale as you pan and zoom the map. In Google Maps, georeferenced images are known as ground overlays while in Azure Maps they're referred to as image layers. They're great for building floor plans, overlaying old maps, or imagery from a drone.
 
 #### Before: Google Maps
 
@@ -1509,7 +1509,7 @@ Use the `atlas.layer.ImageLayer` class to overlay georeferenced images. This cla
 
 ### Add KML data to the map
 
-Both Azure and Google maps can import and render KML, KMZ and GeoRSS data on the map. Azure Maps also supports GPX, GML, spatial CSV files, GeoJSON, Well Known Text (WKT), Web-Mapping Services (WMS), Web-Mapping Tile Services (WMTS), and Web Feature Services (WFS). Azure Maps reads the files locally into memory and in most cases can handle larger KML files.
+Both Azure and Google Maps can import and render KML, KMZ and GeoRSS data on the map. Azure Maps also supports GPX, GML, spatial CSV files, GeoJSON, Well Known Text (WKT), Web-Mapping Services (WMS), Web-Mapping Tile Services (WMTS), and Web Feature Services (WFS). Azure Maps reads the files locally into memory and in most cases can handle larger KML files.
 
 #### Before: Google Maps
 

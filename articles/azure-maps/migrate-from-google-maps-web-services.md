@@ -3,7 +3,7 @@ title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
 author: eriklindeman
 ms.author: eriklind
-ms.date: 06/23/2021
+ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -36,21 +36,21 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 | Google Maps service API | Azure Maps service API                         |
 |-------------------------|------------------------------------------------|
 | Directions              | [Route]                                        |
-| Distance Matrix         | [Post Route Matrix]                                 |
+| Distance Matrix         | [Post Route Matrix]                            |
 | Geocoding               | [Search]                                       |
 | Places Search           | [Search]                                       |
 | Place Autocomplete      | [Search]                                       |
 | Snap to Road            | See [Calculate routes and directions] section. |
 | Speed Limits            | See [Reverse geocode a coordinate] section.    |
 | Static Map              | [Render]                                       |
-| Time Zone               | [Timezone]                                    |
+| Time Zone               | [Timezone]                                     |
 
 The following service APIs aren't currently available in Azure Maps:
 
 * Geolocation - Azure Maps does have a service called Geolocation, but it provides IP Address to location information, but doesn't currently support cell tower or WiFi triangulation.
 * Places details and photos - Phone numbers and website URL are available in the Azure Maps search API.
 * Map URLs
-* Nearest Roads - This is achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but is not currently available as a service.
+* Nearest Roads - Achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but isn't currently available as a service.
 * Static street view
 
 Azure Maps has several other REST web services that may be of interest:
@@ -192,7 +192,7 @@ Calculate routes and directions using Azure Maps. Azure Maps has many of the sam
 
 * Arrival and departure times.
 * Real-time and predictive based traffic routes.
-* Different modes of transportation. Such as, driving, walking, bicycling.
+* Different modes of transportation. Such as driving, walking and bicycling.
 
 > [!NOTE]
 > Azure Maps requires all waypoints to be coordinates. Addresses must be geocoded first.
@@ -224,17 +224,17 @@ The table cross-references the Google Maps API parameters with the comparable AP
 > [!TIP]
 > By default, the Azure Maps route API only returns a summary. It returns the distance and times and the coordinates for the route path. Use the `instructionsType` parameter to retrieve turn-by-turn instructions. And, use the `routeRepresentation` parameter to filter out the summary and route path.
 
-Azure Maps routing API has other features that aren't available in Google Maps. When migrating your app, consider using these features, you might find them useful.
+Azure Maps routing API has other features that aren't available in Google Maps. When migrating your app, consider using these features:
 
 * Support for route type: shortest, fastest, trilling, and most fuel efficient.
-* Support for other travel modes: bus, motorcycle, taxi, truck, and van.
+* Support for other travel modes: bus, motorcycle, taxi, truck and van.
 * Support for 150 waypoints.
 * Compute multiple travel times in a single request; historic traffic, live traffic, no traffic.
 * Avoid other road types: carpool roads, unpaved roads, already used roads.
 * Specify custom areas to avoid.
-* Limit the elevation, which the route may ascend.
-* Route based on engine specifications. Calculate routes for combustion or electric vehicles based on engine specifications, and the remaining fuel or charge.
-* Support commercial vehicle route parameters. Such as, vehicle dimensions, weight, number of axels, and cargo type.
+* Limit the elevation that the route may ascend.
+* Route based on engine specifications. Calculate routes for combustion or electric vehicles based on engine specifications and the remaining fuel or charge.
+* Support commercial vehicle route parameters. Such as vehicle dimensions, weight, number of axels and cargo type.
 * Specify maximum vehicle speed.
 
 In addition, the route service in Azure Maps supports [Get Route Range]. Calculating routable ranges is also known as isochrones. It entails generating a polygon covering an area that can be traveled to in any direction from an origin point. All under a specified amount of time or amount of fuel or charge.
@@ -256,10 +256,10 @@ The table cross-references the Google Maps API parameters with the comparable AP
 | `format`  | `format` – specified as part of URL path. Currently only PNG supported. |
 | `key`     | `subscription-key` – For more information, see [Authentication with Azure Maps]. |
 | `language`| `language` – For more information, see [Localization support in Azure Maps].  |
-| `maptype` | `layer` and `style` – See [Supported map styles] documentation. |
+| `maptype` | `layer` and `style` – For more information, see [Supported map styles]. |
 | `markers` | `pins`        |
 | `path`    | `path`        |
-| `region`  | *N/A* – This is a geocoding related feature. Use the `countrySet` parameter when using the Azure Maps geocoding API.  |
+| `region`  | *N/A* – A geocoding related feature. Use the `countrySet` parameter when using the Azure Maps geocoding API.  |
 | `scale`   | *N/A*         |
 | `size`    | `width` and `height` – Max size is 8192 x 8192. |
 | `style`   | *N/A*         |
@@ -271,7 +271,7 @@ The table cross-references the Google Maps API parameters with the comparable AP
 
 For more information, see [Render custom data on a raster map].
 
-In addition to being able to generate a static map image, the Azure Maps render service provides the ability to directly access map tiles in raster (PNG) and vector format:
+In addition to being able to generate a static map image, the Azure Maps render service enables direct access of map tiles in raster (PNG) and vector format:
 
 * [Get Map Static Image]: Retrieve raster (PNG) and vector tiles for the base maps (roads, boundaries, background).
 * [Get Map Tile]: Retrieve aerial and satellite imagery tiles.
@@ -364,7 +364,7 @@ Add three pins with the label values '1', '2', and '3':
 
 **Before: Google Maps**
 
-Add lines and polygon to a static map image using the `path` parameter in the URL. The `path` parameter takes in a style and a list of locations to be rendered on the map, as shown below:
+Add lines and polygon to a static map image using the `path` parameter in the URL. The `path` parameter takes in a style and a list of locations to be rendered on the map:
 
 ```text
 &path=pathStyles|pathLocation1|pathLocation2|...
@@ -374,7 +374,7 @@ Use other styles by adding extra `path` parameters to the URL with a different s
 
 Path locations are specified with the `latitude1,longitude1|latitude2,longitude2|…` format. Paths can be encoded or contain addresses for points.
 
-Add path styles with the `optionName:value` format, separate multiple styles by the pipe (\|) characters. And, separate option names and values with a colon (:). Like this: `optionName1:value1|optionName2:value2`. The following style option names can be used to style paths in Google Maps:
+Add path styles with the `optionName:value` format, separate multiple styles by the pipe (\|) characters. Also separate option names and values with a colon (:). For example: `optionName1:value1|optionName2:value2`. The following style option names can be used to style paths in Google Maps:
 
 * `color` – The color of the path or polygon outline. Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values: black, brown, green, purple, yellow, blue, gray, orange, red, white.
 * `fillColor` – The color to fill the path area with (polygon). Can be a 24-bit hex color (`0xrrggbb`), a 32-bit hex color (`0xrrggbbbaa`) or one of the following values: black, brown, green, purple, yellow, blue, gray, orange, red, white.
