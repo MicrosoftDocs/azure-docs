@@ -7,12 +7,7 @@ ms.custom: references_regions
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-<<<<<<< HEAD
-ms.date: 08/31/2023
-
-=======
 ms.date: 09/12/2023
->>>>>>> c59edb5e3e1534d2579fea3da12839cfb290f1c4
 
 ---
 

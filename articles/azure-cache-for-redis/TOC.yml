@@ -37,9 +37,6 @@
       href: cache-rust-get-started.md
 - name: Deployment and configuration
   items:
-<<<<<<< HEAD
-    - name: Plan - old toc
-=======
   - name: Use Azure Functions
     items:
     - name: Create a simple Function app for Redis triggers 
@@ -99,7 +96,6 @@
       - name: Vector Search
         href: cache-overview-vector-similarity.md
     - name: Resiliency
->>>>>>> c59edb5e3e1534d2579fea3da12839cfb290f1c4
       items:
       - name: Choose a cache tier
         href: cache-overview.md#choosing-the-right-tier
@@ -234,7 +230,7 @@
       href: ../azure-functions/functions-bindings-cache.md
     - name: Role-based access control - authentication
       href: cache-configure-role-based-access-control.md
-    - name: Azure AD for authentication -autthentication
+    - name: Azure AD for authentication -authentication
       href: cache-azure-active-directory-for-authentication.md
 - name: Resiliency
   items:
