@@ -10,12 +10,14 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2023
 ---
 # How-to: Configure your experiment to emit Experiment Fault Events to App Insights
-In this guide, we will show you the steps needed to integrate an Experiment to emit telemetry to Azure Monitor. These events will show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. You should be able to overlay this data on top of your existing Azure Monitor or external monitoring dashboards.
+In this guide, we will show you the steps needed to configure a Chaos Studio **Agent-based** Experiment to emit telemetry to App Insights. These events will show the start and stop of each fault as well as the type of fault executed and the resource the fault was executed against. This is the recommended logging solution for **Agent-based** experiements in Chaos Studio
 
 ## Prerequisites
 - An Azure subscription
-- An existing Chaos Studio Experiment [How to create your first Chaos Experiment](chaos-studio-quickstart-azure-portal.md)
-- An existing Log Analytics Workspace [How to Create a Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal)
+- An existing Chaos Studio **Agent-based** Experiment [How to create your first Chaos Experiment](chaos-studio-quickstart-azure-portal.md)
+- An existing Log Analytics Workspace (required for Application Insights Resource as well) [How to Create a Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal)
+- An existing Application Insights Resource [How to Create an Application Insights Resource](https://learn.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource)
+- A User-Assigned Managed Identity (Required for Agent-based Chaos Experiments) [How to create a User-Assigned Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 
 ## Step 1: Navigate to Diagnostic Settings tab in your Chaos Experiment
 Navigate to the Chaos Experiment you want to emit telemetry to Azure Monitor and open it. Then navigate to the "Diagnostic settings" tab under the "Monitoring" section as shown in the below screenshot:
