@@ -19,35 +19,24 @@ In this guide, we will show you the steps needed to configure a Chaos Studio **A
 - An existing Application Insights Resource [How to Create an Application Insights Resource](https://learn.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource)
 - A User-Assigned Managed Identity (Required for Agent-based Chaos Experiments) [How to create a User-Assigned Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 
-## Step 1: Navigate to Diagnostic Settings tab in your Chaos Experiment
-Navigate to the Chaos Experiment you want to emit telemetry to Azure Monitor and open it. Then navigate to the "Diagnostic settings" tab under the "Monitoring" section as shown in the below screenshot:
+## Step 1: Copy the Instrumentation Key from your Application Insights Resource
+Once you have met all the pre-requisite steps, copy the **Instrumentation Key** found in the overview page of your Application Insights Resource (see red arrow in the screenshot below)
 
 <br/>
 
-![Screenshot that shows Diagnostic Settings in Chaos Experiment](images/Step1A.png)
+![Screenshot that shows Instrumentation Key in App Insights](images/Step1A_appins.png)
 
-## Step 2: Connect your Chaos Experiment to your desired Log Analytics Workspace
-Once you are in the "Diagostic Settings" tab within your Chaos Experiment, select "Add Diagnostic Setting."
-Here you will see a page like the screenshot below which will ask for the following details:
-1. **Diagnostic Setting Name**: You can define this as any String you want, much like a Resource Group Name
-2. **Category Groups**: Here you will choose which category of logging you want to output to the log analytics workspace. 
-3. **Subscription**: This is the subscription which includes the Log Analytics Workspace you would like to use
-4. **Log Analytics Workspace**: This is where you will select your desired Log Analytics Workspace
-<br/>
-All the other settings are optional
+## Step 2: Enable the Target Platform for your Agent-Based Fault with Application Insights
+Navigate to the Chaos Studio overview page and click on the **Targets** blade under the "Experiments Management" section. Find the target platform, ensure it is enabled for agent-based faults, and select "Manage Actions" in the right-most column. See screenshot below for an example:
 <br/>
 
 <br/>
 
-![Screenshot that shows the Diagnostic Settings blade and required information](images/Step2A.png)
+![Screenshot that shows the Chaos Targets Page](images/Step2A_appins.png)
 
-## Step3: Run the chaos experiment
-Once you have completed Step 2, your experiment is now configured to emit telemetry to Azure Monitor upon the next Chaos Experiment execution!  It typically takes time (20 minutes) for the logs to populate. Once populated you can view the log events from the logs tab. Events include experiment start and stop as well as details about the faults executed. You can even turn the logs into chart visualizations or overlay your existing livesite visualizations with chaos metadata.
-
-<br/>
-
-To query your logs, navigate to the "Logs" tab in your Chaos Experiment Resource to get your desired logging information your desired format.
+## Step 3: Add your Application Insights account and Instrumentation key
+Once you have clicked "Manage Actions" in Step 2, you will see the page in the below screenshot. After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once this is complete, you can click "Review+Create" to deploy your resource. 
 
 <br/>
 
-![Screenshot of Logs tab in Chaos Experiment Resource](images/Step3A.png)
+![Screenshot of Targets Deployment Page](images/Step3A_appins.png)
