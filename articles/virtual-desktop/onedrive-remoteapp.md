@@ -32,7 +32,7 @@ Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
 
 - Session hosts in the host pool that:
 
-   - Are running Windows 11 Insider Preview Enterprise multi-session, build 25905 or later. For more information on the Windows Insider Program, see [Getting started with the Windows Insider Program](https://www.microsoft.com/windowsinsider/getting-started).
+   - Are running Windows 11 Insider Preview Enterprise multi-session, version 22H2, build 25905 or later. To get Insider Preview builds for multi-session, you need to start with a non-Insider build, join session hosts to the Windows Insider Program, then install the preview build. For more information on the Windows Insider Program, see [Getting started with the Windows Insider Program](https://www.microsoft.com/windowsinsider/getting-started).
    
    - Are joined to an Active Directory domain. Session hosts joined to Microsoft Entra ID aren't supported.
    
