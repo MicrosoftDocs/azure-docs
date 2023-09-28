@@ -143,7 +143,7 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroupName -Name $vmName
 New-AzPolicyAssignment -Name "AutoShutdownVMsPolicy" -Scope $vm.Id -PolicyDefinition $policyDefinition
 ```
 
-To configure the new policy definition for multiple virtual machines using PowerShell, you can use the script as an example:
+To configure the new policy definition for multiple virtual machines using Azure PowerShell, you can use the script as an example:
 
 ```azurepowershell-interactive
 # Parameters
