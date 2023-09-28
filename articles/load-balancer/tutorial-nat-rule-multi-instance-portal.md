@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Create a multiple virtual machines inbound NAT rule - Azure portal"
+title: "Tutorial: Create a multiple virtual machine inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
 description: In this tutorial, learn how to configure port forwarding using Azure Load Balancer to create a connection to multiple virtual machines in an Azure virtual network.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 03/10/2022
+ms.date: 09/27/2023
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Create a multiple virtual machines inbound NAT rule using the Azure portal
+# Tutorial: Create a multiple virtual machine inbound NAT rule using the Azure portal
 
 Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Create virtual network and virtual machines
 
-A virtual network and subnet is required for the resources in the tutorial. In this section, you'll create a virtual network and virtual machines for the later steps.
+A virtual network and subnet is required for the resources in the tutorial. In this section, you create a virtual network and virtual machines for the later steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -80,7 +80,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 8. Select **Create**.
 
-9. At the **Generate new key pair** prompt, select **Download private key and create resource**. Your key file will be downloaded as myKey.pem. Ensure you know where the .pem file was downloaded, you'll need the path to the key file in later steps.
+9. At the **Generate new key pair** prompt, select **Download private key and create resource**. Your key file is downloaded as myKey.pem. Ensure you know where the .pem file was downloaded, you need the path to the key file in later steps.
 
 8. Follow the steps 1 through 8 to create another VM with the following values and all the other settings the same as **myVM1**:
 
@@ -104,7 +104,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 ## Create a load balancer
 
-You'll create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
+You create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -208,7 +208,7 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 ## Create a multiple VMs inbound NAT rule
 
-In this section, you'll create a multiple instance inbound NAT rule to the backend pool of the load balancer.
+In this section, you create a multiple instance inbound NAT rule to the backend pool of the load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -238,7 +238,7 @@ In this section, you'll create a multiple instance inbound NAT rule to the backe
 
 ## Create a NAT gateway
 
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
+In this section, you create a NAT gateway for outbound internet access for resources in the virtual network. 
 
 For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
 
@@ -328,7 +328,7 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 
 ## Test the web server
 
-You'll open your web browser in this section and enter the IP address for the load balancer you retrieved in the previous step.
+You open your web browser in this section and enter the IP address for the load balancer you retrieved in the previous step.
 
 1. Open your web browser.
 
