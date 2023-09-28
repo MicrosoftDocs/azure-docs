@@ -35,7 +35,7 @@ azd down
 
 The following list describes the command interaction:
 
-- **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Enter `y`.
+- **Total resources to delete: [your-resources-total], are you sure you want to continue?**: Press <kbd>y</kbd>.
 
 The console outputs messages similar to the following example:
 
