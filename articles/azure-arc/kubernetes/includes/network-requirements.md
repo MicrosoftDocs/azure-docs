@@ -81,7 +81,7 @@ GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01
 |`guestnotificationservice.azure.cn`<br/>`*.guestnotificationservice.azure.cn`<br/>`sts.chinacloudapi.cn`<br/>`https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`*.servicebus.chinacloudapi.cn` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.chinacloudapi.cn/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
-|*.arc.azure.cn | Required to manage connected clusters in Azure portal.|
+|`*.arc.azure.cn` | Required to manage connected clusters in Azure portal.|
 |`https://<region>.obo.arc.azure.cn:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
 |`dl.k8s.io`| Required when [automatic agent upgrade](../agent-upgrade.md#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) is enabled. |
-|`mcr.azk8s.cn`<br/>`quay.azk8s.cn`<br/>`registryk8s.azk8s.cn`<br/>`k8sgcr.azk8s.cn`<br/>`usgcr.azk8s.cn`<br/>`dockerhub.azk8s.cn/\<repo-name\>/\<image-name\>:\<version\>`<br/>`|Container registry proxy servers for Azure China VMs.|
+|`mcr.azk8s.cn`<br/>`quay.azk8s.cn`<br/>`registryk8s.azk8s.cn`<br/>`k8sgcr.azk8s.cn`<br/>`usgcr.azk8s.cn`<br/>`dockerhub.azk8s.cn/<repo-name>/<image-name>:<version>`<br/>`|Container registry proxy servers for Azure China VMs.|
