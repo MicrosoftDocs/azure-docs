@@ -23,7 +23,7 @@ Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [ap
 
 HNSW has configuration parameters. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
 
-Scoring algorithms are specified in `vectorConfiguration` in a search index, and then specified on the field definition (also in the index):
+Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` in a search index, and then specified on the field definition (also in the index):
 
 + [Create a vector index](vector-search-how-to-create-index.md)
 
