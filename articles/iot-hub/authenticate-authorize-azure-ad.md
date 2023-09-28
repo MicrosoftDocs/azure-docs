@@ -15,7 +15,7 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Archite
 
 You can use Azure Active Directory (Azure AD) to authenticate requests to Azure IoT Hub service APIs, like **create device identity** and **invoke direct method**. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access IoT Hub service APIs to an Azure AD security principal. This security principal could be a user, group, or application service principal.
 
-Authenticating access by using Azure AD and controlling permissions by using Azure RBAC provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you [use Azure AD with your IoT hub whenever possible](#azure-ad-access-and-shared-access-policies). 
+Authenticating access by using Azure AD and controlling permissions by using Azure RBAC provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you [enforce Azure AD authentication whenever possible](#enforce-azure-ad-authentication). 
 
 > [!NOTE]
 > Authentication with Azure AD isn't supported for the IoT Hub *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](authenticate-authorize-sas.md) or [X.509](authenticate-authorize-x509.md) to authenticate devices to IoT Hub.
