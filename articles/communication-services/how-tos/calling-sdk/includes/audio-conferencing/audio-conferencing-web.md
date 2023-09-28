@@ -23,14 +23,13 @@ Use the following API, to get the audio conferencing details of a meeting
 ```js
 const details: SDK.TeamsMeetingAudioConferencingDetails = audioConferencingFeature.getTeamsMeetingAudioConferencingDetails();
 console.log(`Meeting Conference Id: ${details.phoneConferenceId}`);
+details.phoneNumbers.array.forEach(dialInPhoneNumber => {
+    if (dialInPhoneNumber.tollPhoneNumber) { 
+        console.log(`Dial-In Toll PhoneNumber: ${dialInPhoneNumber.tollPhoneNumber.phoneNumber}`);
+    }
 
-if (details.phoneNumbers[0].tollPhoneNumber) { 
-    this.elements.teamsMeetingAudioConferencingDetails.innerHTML +=
-    `<h3> Toll Number: ${details.phoneNumbers[0].tollPhoneNumber.phoneNumber}</h3>`;
-}
-
-if (details.phoneNumbers[0].tollFreePhoneNumber) { 
-    this.elements.teamsMeetingAudioConferencingDetails.innerHTML +=
-    `<h3> TollFree Number: ${details.phoneNumbers[0].tollFreePhoneNumber.phoneNumber}</h3>`;
-}
+    if (dialInPhoneNumber.tollFreePhoneNumber) { 
+        console.log(`Dial-In TollFree PhoneNumber: ${dialInPhoneNumber.tollFreePhoneNumber.phoneNumber}`);
+    } 
+})
 ```
