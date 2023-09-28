@@ -66,10 +66,10 @@ You can check whether you enabled an access key by going to the **Keys** page fo
 
 In the live trace tool, you can:
 
-* **Capture**: Begin to capture real-time live traces from the Azure SignalR Service instance.
-* **Clear**: Clear the captured real-time live traces.
-* **Export**: Export live traces to a file. The currently supported file format is CSV.
-* **Filter**: Filter the captured real-time live traces with one specific keyword. Separators (for example, space, comma, or semicolon), if present, are treated as part of the keyword.
+* Begin to capture real-time live traces from the Azure SignalR Service instance.
+* Clear the captured real-time live traces.
+* Export live traces to a file. The currently supported file format is CSV.
+* Filter the captured real-time live traces with one specific keyword. Separators (for example, space, comma, or semicolon), if present, are treated as part of the keyword.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-live-trace/live-trace-tool-capture.png" alt-text="Screenshot of capturing live traces with the live trace tool.":::
 
@@ -102,7 +102,7 @@ The real-time live traces that the tool captures contain detailed information fo
 
 ## Next steps
 
-Learn how to handle the common problems with the live trace tool:
+Learn how to handle common problems with the live trace tool:
 
 * To troubleshoot typical problems based on live traces, see the [troubleshooting guide](./signalr-howto-troubleshoot-guide.md).
 * For self-diagnosis to find the root cause directly or narrow down the problem, see the [introduction to troubleshooting methods](./signalr-howto-troubleshoot-method.md).

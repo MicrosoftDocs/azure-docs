@@ -86,7 +86,7 @@ Similar to authenticating via `AccessKey`, a [JWT](https://en.wikipedia.org/wiki
 
 The difference is that in this scenario, Microsoft Entra ID generates the JWT. For more information, see [Learn how to generate Microsoft Entra tokens](../active-directory/develop/reference-v2-libraries.md).
 
-You can also use *role-based access control (RBAC)* to authorize the request from your client/server to Azure SignalR Service. For more information, see [Authorize access with Microsoft Entra ID for Azure SignalR Service](./signalr-concept-authorize-azure-active-directory.md).
+You can also use *role-based access control (RBAC)* to authorize the request from your client or server to Azure SignalR Service. For more information, see [Authorize access with Microsoft Entra ID for Azure SignalR Service](./signalr-concept-authorize-azure-active-directory.md).
 
 ### Implement the negotiation endpoint
 

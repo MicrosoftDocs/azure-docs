@@ -16,8 +16,8 @@ A connection string contains information about how to connect to Azure SignalR S
 
 When an application needs to connect to Azure SignalR Service, it needs the following information:
 
-- The HTTP endpoint of the Azure SignalR Service instance.
-- The way to authenticate with the service endpoint.
+- The HTTP endpoint of the Azure SignalR Service instance
+- The way to authenticate with the service endpoint
 
 A connection string contains such information.
 
@@ -27,7 +27,7 @@ A connection string consists of a series of key/value pairs separated by semicol
 
 A typical connection string might look like this example:
 
-> `Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;Version=1.0;``
+> `Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;Version=1.0;`
 
 The connection string contains:
 
@@ -68,29 +68,25 @@ The service uses a different `TokenCredential` value to generate Microsoft Entra
 
 - `type=azure`
 
-  The service uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential):
+  - The service uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential):
 
-  ```text
-  Endpoint=xxx;AuthType=azure
-  ```
+     ```text
+     Endpoint=xxx;AuthType=azure
+     ```
 
 - `type=azure.msi`
 
-  - The service uses a user-assigned managed identity if the connection string uses `clientId`:
+  - The service uses a user-assigned managed identity ([ManagedIdentityCredential(clientId)](/dotnet/api/azure.identity.managedidentitycredential)) if the connection string uses `clientId`:
 
      ```text
      Endpoint=xxx;AuthType=azure.msi;ClientId=<client_id>
      ```
 
-    The service uses [ManagedIdentityCredential(clientId)](/dotnet/api/azure.identity.managedidentitycredential).
-
-  - The service uses a system-assigned managed identity:
+  - The service uses a system-assigned managed identity ([ManagedIdentityCredential()](/dotnet/api/azure.identity.managedidentitycredential)):
 
      ```text
      Endpoint=xxx;AuthType=azure.msi;
      ```
-
-    The service uses [ManagedIdentityCredential()](/dotnet/api/azure.identity.managedidentitycredential).
 
 - `type=azure.app`
 

@@ -34,7 +34,7 @@ You can add a managed identity to Azure SignalR Service in the Azure portal or t
 
 ### Add a system-assigned identity
 
-To add a system-managed identity to your Azure SignalR Service instance:
+To add a system-assigned managed identity to your Azure SignalR Service instance:
 
 1. In the Azure portal, browse to your Azure SignalR Service instance.
 1. Select **Identity**.
@@ -52,7 +52,7 @@ To add a user-assigned identity to your Azure SignalR Service instance, you need
 1. In the Azure portal, browse to your Azure SignalR Service instance.
 1. Select **Identity**.
 1. On the **User assigned** tab, select **Add**.
-1. In the **User assigned managed identities** drop-down menu, select the identity.
+1. On the **User assigned managed identities** dropdown menu, select the identity.
 
    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Screenshot that shows selections for adding a user-assigned identity in the portal.":::
 1. Select **Add**.

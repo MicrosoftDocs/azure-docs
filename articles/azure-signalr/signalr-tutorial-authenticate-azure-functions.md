@@ -17,7 +17,7 @@ In this step-by-step tutorial, you build a chat room with authentication and pri
 - [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=serverlesschatlab-tutorial-antchu): Back-end API for authenticating users and sending chat messages.
 - [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu): Service for broadcasting new messages to connected chat clients.
 - [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu): Storage service that Azure Functions requires.
-- [Azure App Service](https://azure.microsoft.com/products/app-service/): Service that provides a mechanism for authenticating users.
+- [Azure App Service](https://azure.microsoft.com/products/app-service/): Service that provides user authentication.
 
 ## Prerequisites
 
@@ -112,7 +112,7 @@ In the preceding code:
 
 ### Create a function to authenticate users to Azure SignalR Service
 
-When the chat app first opens in the browser, it requires valid connection credentials to connect to Azure SignalR Service. Create an HTTP triggered function named `negotiate` in your function app to return this connection information.
+When the chat app first opens in the browser, it requires valid connection credentials to connect to Azure SignalR Service. Create an HTTP trigger function named `negotiate` in your function app to return this connection information.
 
 > [!NOTE]
 > This function must be named `negotiate` because the SignalR client requires an endpoint that ends in `/negotiate`.
@@ -357,7 +357,7 @@ Azure Functions supports authentication with Microsoft Entra ID, Facebook, Twitt
 1. Select **Add identity provider**.
    :::image type="content" source="./media/signalr-tutorial-authenticate-azure-functions/function-app-authentication.png" alt-text="Screenshot of the function app Authentication page and the button for adding an identity provider.":::
 
-1. In the **Identity provider** list, select **Microsoft**, and then select **Add**.
+1. In the **Identity provider** list, select **Microsoft**. Then select **Add**.
    :::image type="content" source="media/signalr-tutorial-authenticate-azure-functions/function-app-select-identity-provider.png" alt-text="Screenshot of the page for adding an identity provider.":::
 
 The completed settings create an app registration that associates your identity provider with your function app.

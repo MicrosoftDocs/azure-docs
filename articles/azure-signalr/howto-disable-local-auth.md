@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 There are two ways to authenticate to Azure SignalR Service resources: Microsoft Entra ID and access key. Microsoft Entra ID offers superior security and ease of use compared to the access key method.
 
-With Microsoft Entra ID, you don't need to store tokens in your code, which reduces the risk of potential security vulnerabilities. We highly recommend using Microsoft Entra ID for your Azure SignalR Service resources whenever possible.
+With Microsoft Entra ID, you don't need to store tokens in your code, reducing the risk of potential security vulnerabilities. We highly recommend using Microsoft Entra ID for your Azure SignalR Service resources whenever possible.
 
 > [!IMPORTANT]
 > Disabling local authentication can have the following consequences:

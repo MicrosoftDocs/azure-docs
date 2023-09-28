@@ -52,7 +52,7 @@ Microsoft Entra ID authorizes access rights to secured resources through [Azure 
 
 You might have to determine the scope of access that the security principal should have before you assign any Azure RBAC role to a security principal. We recommend that you grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
 
-You can scope access to Azure SignalR Service resources at the following levels, beginning with the narrowest scope:
+You can scope access to Azure SignalR Service resources at the following levels, beginning with the narrowest scope.
 
 | Scope                       | Description                                                                          |
 | --------------------------- | ------------------------------------------------------------------------------------ |
