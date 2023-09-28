@@ -702,7 +702,7 @@ Learn more about the Azure Maps REST services.
 [Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street
 [free account]: https://azure.microsoft.com/free/
 [Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch
-[Get Search Fuzzy]: /rest/api/maps/get-search-fuzzy
+[Get Search Fuzzy]: /rest/api/maps/search/get-search-fuzzy
 [Geolocation API]: /rest/api/maps/geolocation/get-ip-to-location
 [Localization support in Azure Maps]: supported-languages.md
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
