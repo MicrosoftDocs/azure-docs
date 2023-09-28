@@ -26,7 +26,7 @@ Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure
 > * Show traffic data
 > * Add a ground overlay
 
-If migrating an existing web application, check to see if it's using an open-source map control library such as Cesium, Leaflet, and OpenLayers. If it's and you would prefer to continue to use that library, you can connect it to the Azure Maps tile services ([road tiles] \| [satellite tiles]). The following links provide details on how to use Azure Maps in commonly used open-source map control libraries.
+If migrating an existing web application, check to see if it's using an open-source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you would prefer to continue to use that library, you can connect it to the Azure Maps [Get Map Tile] API. The following links provide details on how to use Azure Maps in commonly used open-source map control libraries.
 
 * [Cesium] - A 3D map control for the web. <!--[Cesium code samples] \|--> [Cesium plugin]
 * [Leaflet] – Lightweight 2D map control for the web. [Leaflet code samples] \| [Leaflet plugin]
@@ -81,7 +81,7 @@ Azure Maps more [open-source modules for the web SDK] that extend its capabiliti
 
 The following are some of the key differences between the Bing Maps and Azure Maps Web SDKs to be aware of:
 
-* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is available for embedding the Web SDK into apps if preferred. For more information, see [Use the Azure Maps map control] in the Web SDK documentation. This package also includes TypeScript definitions.
+* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is available for embedding the Web SDK into apps if preferred. For more information, see [Use the Azure Maps map control]. This package also includes TypeScript definitions.
 * Bing Maps provides two hosted branches of their SDK; Release and Experimental. The Experimental branch may receive multiple updates a day when new development is taking place. Azure Maps only hosts a release branch, however experimental features are created as custom modules in the open-source Azure Maps code samples project. Bing Maps used to have a frozen branch as well that was updated less frequently, thus reducing the risk of breaking changes due to a release. In Azure Maps, you can use the npm module and point to any previous minor version release.
 
 > [!TIP]
@@ -1753,8 +1753,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
 [Pushpin clustering]: #pushpin-clustering
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[road tiles]: /rest/api/maps/render-v2/get-map-tile
-[satellite tiles]: /rest/api/maps/render/getmapimagerytile
+[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 [Setting the map view]: #setting-the-map-view
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
 [Show traffic data]: #show-traffic-data
