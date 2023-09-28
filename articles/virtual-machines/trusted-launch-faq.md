@@ -388,7 +388,7 @@ The virtual TPM AK public certificate provides users with visibility for informa
 
 #### Download instructions
 
-Below is the package certificate, compromised of. p7b (full Certificate Authority) and .cer (intermediate CA), revealing the signing and certificate authority. Use certificate tooling to inspect and assess details of certificates.
+Below is the package certificate, compromised of. p7b (full Certificate Authority) and .cer (intermediate CA), revealing the signing and certificate authority. Copy the relevant content below and use certificate tooling to inspect and assess details of certificates.
 
 <details>
 <summary>Select to view the .p7b content</summary>
