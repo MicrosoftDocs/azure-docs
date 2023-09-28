@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/07/2023
+ms.date: 09/28/2023
 ms.author: anfdocs
 ---
 # Delegate a subnet to Azure NetApp Files 
@@ -21,7 +21,7 @@ You must delegate a subnet to Azure NetApp Files. When you create a volume, you 
 
 ## Considerations
 
-* The wizard for creating a new subnet defaults to a /24 network mask, which provides for 251 available IP addresses. You should consider a larger subnet (for example, /23 network mask) in scenarios such as SAP HANA where many volumes and storage endpoints are anticipated. You can also stay with the default network mask /24 as proposed by the wizard if you don't need to reserve many client or VM IP addresses in your Azure Virtual Network (VNet). Note that the network mask of the delegated network cannot be changed after the initial creation. 
+* When creating the delegated subnet for Azure NetApp Files, the size of the subnet matters. A subnet with a /28 network mask will provide (only) 11 usable IP addresses, which might be insufficient for certain use cases. In that case, you should plan for a larger delegated subnet. For instance, a subnet with a /26 network mask will provide 59 and a /24 network mask will provide 251 available IP addresses respectively. You should consider even larger subnets (for example, /23 network mask) in scenarios where application volume group for SAP HANA is being used and where many volumes and storage endpoints are anticipated. Note that the network mask of the delegated network cannot be changed after the initial creation. Make sure to plan your VNet and delegated subnet sizes consciously. 
 * In each VNet, only one subnet can be delegated to Azure NetApp Files.   
    Azure enables you to create multiple delegated subnets in a VNet.  However, any attempts to create a new volume will fail if you use more than one delegated subnet.  
    You can have only a single delegated subnet in a VNet. A NetApp account can deploy volumes into multiple VNets, each having its own delegated subnet.  
