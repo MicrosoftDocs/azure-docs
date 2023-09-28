@@ -392,22 +392,30 @@ Below is the package certificate, compromised of. p7b (full Certificate Authorit
 
 <details>
 <summary>Select to view the .p7b content</summary>
+
 [!INCLUDE [p7b](../virtual-machines/includes/trusted-launch-tpm-certs/full-certificate-authority.md)]
+
 </details>
 
 <details>
 <summary>Select to view the json content for the full certificate authority</summary>
+
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/full-certificate-authority-json.md)]
+
 </details>
 
 <details>
 <summary>Select to view the intermediate CA content</summary>
+
 [!INCLUDE [cert](../virtual-machines/includes/trusted-launch-tpm-certs/intermediate-ca.md)]
+
 </details>
 
 <details>
 <summary>Select to view the json content of the intermediate CA</summary>
+
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/intermediate-ca-json.md)]
+
 </details>
 
 > [!WARNING]
