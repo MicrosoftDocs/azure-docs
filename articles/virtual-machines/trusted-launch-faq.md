@@ -490,7 +490,6 @@ Full Certificate Authority Details
 Valid # 01/Jun/2048
 Serial # 51f431da2c92088a4e29e0d929de4aa7
 Thumbnail# cdb9bc34197a5355f652f1583fbd4e9a1d4801f0
-```
 </details>
 
 <details>
