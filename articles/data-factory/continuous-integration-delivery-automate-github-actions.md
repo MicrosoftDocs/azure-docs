@@ -95,6 +95,9 @@ The workflow is composed of two jobs:
    
     :::image type="content" source="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" lightbox="media/continuous-integration-delivery-github-actions/saving-package-json-file.png" alt-text="Screenshot of saving the package.json file in GitHub.":::
 
+> [!IMPORTANT]
+> Make sure to place the build folder under the root folder of your connected repository. In the above example and workflow, the root folder is ADFroot. If you are not sure what is your root folder, navigate to your Data Factory instance, Manage tab -> Git configuration -> Root folder.
+
 2. Navigate to the Actions tab -> New workflow
    
    :::image type="content" source="media/continuous-integration-delivery-github-actions/new-workflow.png" lightbox="media/continuous-integration-delivery-github-actions/new-workflow.png" alt-text="Screenshot of creating a new workflow in GitHub.":::
