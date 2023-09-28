@@ -388,32 +388,16 @@ The virtual TPM AK public certificate provides users with visibility for informa
 
 #### Download instructions
 
-Below is the package certificate, compromised of. p7b (full Certificate Authority) and .cer (intermediate CA), revealing the signing and certificate authority. Copy the relevant content below and use certificate tooling to inspect and assess details of certificates.
+Below is the package certificate, compromised of. p7b (Full Certificate Authority) and .cer (Intermediate CA), revealing the signing and certificate authority. Copy the relevant content below and use certificate tooling to inspect and assess details of certificates.
 
 
 [!INCLUDE [p7b](../virtual-machines/includes/trusted-launch-tpm-certs/full-certificate-authority.md)]
 
-
-<details>
-<summary>Select to view the json content for the full certificate authority</summary>
-
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/full-certificate-authority-json.md)]
-
-</details>
-
-<details>
-<summary>Select to view the intermediate CA content</summary>
 
 [!INCLUDE [cert](../virtual-machines/includes/trusted-launch-tpm-certs/intermediate-ca.md)]
 
-</details>
-
-<details>
-<summary>Select to view the json content of the intermediate CA</summary>
-
 [!INCLUDE [json](../virtual-machines/includes/trusted-launch-tpm-certs/intermediate-ca-json.md)]
-
-</details>
 
 > [!WARNING]
 > Do not share the contents of the `.p7b` or `.cert` files with unauthorized parties. Additionally, be cautious when handling the `.json` file as it contains information about the intermediate certificate authority.

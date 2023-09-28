@@ -10,6 +10,9 @@ ms.author: erd
 ms.custom: include file
 ---
 
+<details>
+<summary>Select to view the json content for the full certificate authority</summary>
+
 Full Certificate Authority json for TPM cert:
 
 ```json
@@ -108,3 +111,5 @@ HttsnHIgZBGUqvGuK0pcKrYWhCzaXqEy1JOolaFJCv4i72jL65HY/ciWNTv4L5Xz
 dmojU0k/9m3fjwOEQU6Bva15+rzZFFnWy4m1MQA=
 -----END CERTIFICATE-----
 ```
+
+</details>

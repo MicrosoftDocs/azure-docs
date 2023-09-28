@@ -10,6 +10,9 @@ ms.author: erd
 ms.custom: include file
 ---
 
+<details>
+<summary>Select to view the json content of the intermediate CA</summary>
+
 Intermediate Certificate Authority json for TPM cert:
 
 ```json
@@ -46,3 +49,5 @@ VS1vVqG4zC0EfRnO65ogPPfrtK6ZiFmVHSWP9vPkFcUNYDnYQXW/TArO/JCe2I++
 GClM7AcDQwWLxcopzskGQdHNM1zMsprRRwYaVpTJH67xeNda6+Y7IOPJYTvyoXHP
 -----END CERTIFICATE-----
 ```
+
+</details>
