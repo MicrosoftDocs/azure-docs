@@ -375,31 +375,31 @@ Save the above script on your machine with a name as *CtDcrCreation.json*. For m
 >        "fileCollectionFrequency": 2700,
 >        "fileinfo": [
 >            {
->               "name": "ChangeTrackingCustomPath_witems1",
->               "enabled": true,
+>                "name": "ChangeTrackingCustomPath_witems1",
+>                "enabled": true,
 >                "description": "",
->              "path": "D:\\testing\\*",
->               "recurse": true,
->               "maxContentsReturnable": 5000000,
->               "maxOutputSize": 500000,
->               "checksum": "sha256",
->               "pathType": "File",
->              "groupTag": "Custom"
+>                "path": "D:\\testing\\*",
+>                "recurse": true,
+>                "maxContentsReturnable": 5000000,
+>                "maxOutputSize": 500000,
+>                "checksum": "sha256",
+>                "pathType": "File",
+>                "groupTag": "Custom"
 >            },
 >            {
->              "name": "ChangeTrackingCustomPath_witems2",
->               "enabled": true,
->             "description": "",
->               "path": "E:\\test1",
->              "recurse": false,
->              "maxContentsReturnable": 5000000,
->               "maxOutputSize": 500000,
->              "checksum": "sha256",
->               "pathType": "File",
->              "groupTag": "Custom"
+>                "name": "ChangeTrackingCustomPath_witems2",
+>                "enabled": true,
+>                "description": "",
+>                "path": "E:\\test1",
+>                "recurse": false,
+>                "maxContentsReturnable": 5000000,
+>                "maxOutputSize": 500000,
+>                "checksum": "sha256",
+>                "pathType": "File",
+>                "groupTag": "Custom"
 >           }
 >       ]
->   }
+> }
 >```
 
 ## Next steps
