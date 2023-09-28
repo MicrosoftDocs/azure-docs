@@ -94,8 +94,9 @@ detectedObjects: [
 ]
 ```
 
+## Try object detection
 
-You can interact with the insight with the web portal or with the API.
+You can try out object detection with the web portal or with the API.
 
 ## [Web Portal](#tab/webportal)
 
