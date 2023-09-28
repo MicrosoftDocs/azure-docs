@@ -16,4 +16,4 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |`pas.windows.net`|Azure Active Directory|Always| Public |
 |`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`[region].his.arc.azure.com`, `gbl.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
-|`[*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
+|`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
