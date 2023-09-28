@@ -5726,11 +5726,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/ai-services/translator/translator-how-to-signup.md",
-            "redirect_url": "/azure/ai-services/translator/translator-how-to-signup",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cognitive-services/translator/v2-0-reference.md",
             "redirect_url": "/azure/ai-services/Translator/migrate-to-v3",
             "redirect_document_id": false
