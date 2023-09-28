@@ -37,7 +37,7 @@ Spring Boot registers several metrics, such as JVM, web server, and logging-rela
 
 1. Select **Apply splitting**. For **Values**, open the corresponding dropdown list, and then select **Cloud role name**.
 
-:::image type="content" source="../../media/tutorial-applications-observability/jvm-memory-used-chart.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance jvm memory used page." lightbox="../../media/tutorial-applications-observability/jvm-memory-used-chart.png":::
+:::image type="content" source="../../media/application-observability/jvm-memory-used-chart.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance jvm memory used page." lightbox="../../media/application-observability/jvm-memory-used-chart.png":::
 
 > [!NOTE]
 > The metrics are available after the application is deployed and running.
@@ -53,7 +53,7 @@ The following list shows the custom metrics details:
 
 You can define a `REST API access` chart with custom metrics and update the **Aggregation** to **Count** for each metric.
 
-:::image type="content" source="../../media/tutorial-applications-observability/custom-metrics.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance overview page." lightbox="../../media/tutorial-applications-observability/custom-metrics.png":::
+:::image type="content" source="../../media/application-observability/custom-metrics.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance overview page." lightbox="../../media/application-observability/custom-metrics.png":::
 
 ### 2.2. Monitor the availability of the application
 
@@ -120,7 +120,7 @@ Use the following steps to pin the various charts to the dashboard.
 
 1. Select **Apply splitting**. For **Values**, open the corresponding dropdown list and then select **App**.
 
-   :::image type="content" source="../../media/tutorial-applications-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal that shows the app CPU usage." lightbox="../../media/tutorial-applications-observability/chart-app-cpu-usage.png":::
+   :::image type="content" source="../../media/application-observability/chart-app-cpu-usage.png" alt-text="Screenshot of the Azure portal that shows the app CPU usage." lightbox="../../media/application-observability/chart-app-cpu-usage.png":::
 
 1. Select **Save to dashboard** to open the dropdown list, then select **Pin to dashboard**. 
 
@@ -130,7 +130,7 @@ Use the following steps to pin the various charts to the dashboard.
 
 For the **App Memory Usage** metric, save the **App Memory Usage** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-app-memory-usage.png" alt-text="Screenshot of the Azure portal that shows the app memory usage." lightbox="../../media/tutorial-applications-observability/chart-app-memory-usage.png":::
+:::image type="content" source="../../media/application-observability/chart-app-memory-usage.png" alt-text="Screenshot of the Azure portal that shows the app memory usage." lightbox="../../media/application-observability/chart-app-memory-usage.png":::
 
 ##### Pin the "App Network In" chart
 
@@ -143,7 +143,7 @@ For the **App Memory Usage** metric, save the **App Memory Usage** chart to the 
 
 1. Save the **App Network In Usage** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-app-network-in-usage.png" alt-text="Screenshot of the Azure portal that shows the app network in usage." lightbox="../../media/tutorial-applications-observability/chart-app-network-in-usage.png":::
+:::image type="content" source="../../media/application-observability/chart-app-network-in-usage.png" alt-text="Screenshot of the Azure portal that shows the app network in usage." lightbox="../../media/application-observability/chart-app-network-in-usage.png":::
 
 ##### Pin the "Availability" chart
 
@@ -159,7 +159,7 @@ For the **App Memory Usage** metric, save the **App Memory Usage** chart to the 
 
 1. Select **Apply splitting**. For **Values**, open the corresponding dropdown, select **Test name**, and then save the **Availability** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-availability.png" alt-text="Screenshot of the Azure portal that shows the availability chart." lightbox="../../media/tutorial-applications-observability/chart-availability.png":::
+:::image type="content" source="../../media/application-observability/chart-availability.png" alt-text="Screenshot of the Azure portal that shows the availability chart." lightbox="../../media/application-observability/chart-availability.png":::
 
 #### HTTP request monitoring
 
@@ -169,25 +169,25 @@ The key data recorded in the process of the application serving users includes t
 
 For the **Server exception** and **Dependency call failures** metrics under the **Application Insights standard metrics** namespace, save the **Server exceptions and Dependency call failures** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal that shows the exceptions and failures." lightbox="../../media/tutorial-applications-observability/chart-exceptions-and-failures.png":::
+:::image type="content" source="../../media/application-observability/chart-exceptions-and-failures.png" alt-text="Screenshot of the Azure portal that shows the exceptions and failures." lightbox="../../media/application-observability/chart-exceptions-and-failures.png":::
 
 ##### Pin the "Failed requests" chart
 
 For the **Failed requests** metric under the **Application Insights standard metrics** namespace, save the **Failed requests** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-failed-requests.png" alt-text="Screenshot of the Azure portal that shows the failed requests." lightbox="../../media/tutorial-applications-observability/chart-failed-requests.png":::
+:::image type="content" source="../../media/application-observability/chart-failed-requests.png" alt-text="Screenshot of the Azure portal that shows the failed requests." lightbox="../../media/application-observability/chart-failed-requests.png":::
 
 ##### Pin the "Request count" chart
 
 For the **Server requests** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway** and **admin-server**, apply splitting for **Values** with **Cloud role name**, and then save the **Request count** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-request-count.png" alt-text="Screenshot of the Azure portal that shows the server requests." lightbox="../../media/tutorial-applications-observability/chart-request-count.png":::
+:::image type="content" source="../../media/application-observability/chart-request-count.png" alt-text="Screenshot of the Azure portal that shows the server requests." lightbox="../../media/application-observability/chart-request-count.png":::
 
 ##### Pin the "Response time" chart
 
 For the **Server response time** metric under the **Application Insights standard metrics** namespace, add a filter to filter the **Cloud role name** with **api-gateway**, and then save the **Response time** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-response-time.png" alt-text="Screenshot of the Azure portal that shows the response time." lightbox="../../media/tutorial-applications-observability/chart-response-time.png":::
+:::image type="content" source="../../media/application-observability/chart-response-time.png" alt-text="Screenshot of the Azure portal that shows the response time." lightbox="../../media/application-observability/chart-response-time.png":::
 
 #### Database performance monitoring
 
@@ -197,7 +197,7 @@ Database performance is the cornerstone of normal service for all applications. 
 
 For the **hikaricp_connection_active** metric under the **Log-based metrics** namespace, save the **Active MySQL connections** chart to the dashboard.
 
-:::image type="content" source="../../media/tutorial-applications-observability/chart-connection-active.png" alt-text="Screenshot of the Azure portal that shows the active connection." lightbox="../../media/tutorial-applications-observability/chart-connection-active.png":::
+:::image type="content" source="../../media/application-observability/chart-connection-active.png" alt-text="Screenshot of the Azure portal that shows the active connection." lightbox="../../media/application-observability/chart-connection-active.png":::
 
 #### Pin content from a resource page
 
@@ -213,13 +213,15 @@ To pin common panes of the Azure portal to the dashboard, use the following step
 
 1. On the **Pin to dashboard** page, select the dashboard you created, and then select **Pin** to pin the quickstart chart to the dashboard.
 
+   :::image type="content" source="../../media/application-observability/pin-application-map-blade-to-dashboard.png" alt-text="Screenshot of the Azure portal that shows the Application map page with the Pin to dashboard pane open." lightbox="../../media/application-observability/pin-application-map-blade-to-dashboard.png":::
+
 1. Repeat these steps to pin the **Live metrics**, **Failures**, and **Performance** panes to your dashboard as needed.
 
 #### View the dashboard
 
 To view the dashboard, go to your private PetClinic dashboard page to edit the tiles in the dashboard for easy monitoring.
 
-:::image type="content" source="../../media/tutorial-applications-observability/dashboard-page.png" alt-text="Screenshot of the Azure portal that shows the navigation menu with Dashboard highlighted." lightbox="../../media/tutorial-applications-observability/dashboard-page.png":::
+:::image type="content" source="../../media/application-observability/dashboard-page.png" alt-text="Screenshot of the Azure portal that shows the navigation menu with Dashboard highlighted." lightbox="../../media/application-observability/dashboard-page.png":::
 
 ## 3. Manage alerts
 

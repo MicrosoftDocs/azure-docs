@@ -88,7 +88,7 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
-:::image type="content" source="media/tutorial-applications-observability/show-application-logs-abnormal-num.png" alt-text="Screenshot of the Azure portal that shows abnormal logs number for the Azure Spring Apps instance." lightbox="media/tutorial-applications-observability/show-application-logs-abnormal-num.png":::
+:::image type="content" source="media/application-observability/show-application-logs-abnormal-num.png" alt-text="Screenshot of the Azure portal that shows abnormal logs number for the Azure Spring Apps instance." lightbox="media/application-observability/show-application-logs-abnormal-num.png":::
 
 #### Query the customers service log with a key word
 
@@ -109,7 +109,7 @@ Use the following steps to investigate request failures in the application clust
 
 1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page. Then, select **Failures**.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-failures.png" alt-text="Screenshot of the Azure portal that shows the failures." lightbox="media/tutorial-applications-observability/application-insights-failures.png":::
+   :::image type="content" source="media/application-observability/application-insights-failures.png" alt-text="Screenshot of the Azure portal that shows the failures." lightbox="media/application-observability/application-insights-failures.png":::
 
 1. On the **Failure** page, select the `PUT` operation that has the most failed requests count, select **1 Samples** to go into the details, and then select the suggested sample.
 
@@ -125,7 +125,7 @@ To use Application Insights to investigate the performance issues, use the follo
 
 1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page. Then, select **Performance**.
 
-   :::image type="content" source="media/tutorial-applications-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the performance page." lightbox="media/tutorial-applications-observability/application-insights-performance.png":::
+   :::image type="content" source="media/application-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the performance page." lightbox="media/application-observability/application-insights-performance.png":::
 
 1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to go into the details, and then select the suggested sample.
 
