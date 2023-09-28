@@ -8,7 +8,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Media transcription, translation and language identification  
+# Media transcription, translation and language identification
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer transcription, translation and language identification automatically detects, transcribes, and translates the speech in media files into over 50 languages. 
 
