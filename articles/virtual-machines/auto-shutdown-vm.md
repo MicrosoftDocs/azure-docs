@@ -92,7 +92,7 @@ Both scripts also prompt to choose whether to auto-restart the machines or leave
 
 Currently, there's no cmdlet available to set auto-shutdown for VMs directly. Instead, you can use `New-AzPolicyAssignment` to create a policy definition that sets VMs shut down on a schedule.
 
-To configure the new policy definition for a single virtual machine using PowerShell, you can use the script provided as an example: 
+To configure the new policy definition for a single virtual machine using Azure PowerShell, you can use the script provided as an example: 
 
 ```azurepowershell-interactive
 # Parameters
