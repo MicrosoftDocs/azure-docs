@@ -324,7 +324,7 @@ If you provide your own DNS solution, it needs to:
 
 > [!IMPORTANT]
 > If you're using Windows DNS Servers as Custom DNS Servers forwarding DNS requests to Azure DNS Servers, make sure you increase the Forwarding Timeout value higher than 4 seconds to allow Azure Recursive DNS Servers to perform proper recursion operations.
-> For further information about this please refer to [Forwarders and conditional forwarders resolution timeouts](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/forwarders-resolution-timeouts)
+> For further information about this please refer to [Forwarders and conditional forwarders resolution timeouts](https://learn.microsoft.com/troubleshoot/windows-server/networking/forwarders-resolution-timeouts)
 > This recommendation may also apply to other DNS Server platforms with forwarding timeout value of 3 seconds or lower.
 > Failing to do so may result in Private DNS Zone records being resolved with public IP addresses.
 
