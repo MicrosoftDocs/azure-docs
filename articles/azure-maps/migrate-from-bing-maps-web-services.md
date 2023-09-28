@@ -28,16 +28,16 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Autosuggest                           | [Search]                                  |
 | Directions (including truck)          | [Get Route Directions]                    |
 | Distance Matrix                       | [Post Route Matrix]                       |
-| Imagery – Static Map                  | [Get Map Static Image]           |
-| Isochrones                            | [Get Route Range]                             |
-| Local Insights                        | [Search] + [Get Route Range]                  |
+| Imagery – Static Map                  | [Get Map Static Image]                    |
+| Isochrones                            | [Get Route Range]                         |
+| Local Insights                        | [Search] + [Get Route Range]              |
 | Local Search                          | [Search]                                  |
 | Location Recognition (POIs)           | [Search]                                  |
 | Locations (forward/reverse geocoding) | [Search]                                  |
 | Snap to Road                          | [Post Route Directions]                   |
 | Spatial Data Services (SDS)           | [Search] + [Route] + other Azure Services |
 | Time Zone                             | [Timezone]                                |
-| Traffic Incidents                     | [Traffic Incident Details]                |
+| Traffic Incidents                     | [Get Traffic Incident Detail]            |
 
 The following service APIs aren't currently available in Azure Maps:
 
@@ -264,7 +264,7 @@ There are several ways to snap coordinates to roads in Azure Maps.
 
 **Using the route direction API to snap coordinates**
 
-Azure Maps can snap coordinates to roads by using the [route directions] API. This service can be used to reconstruct a logical route between a set of coordinates and is comparable to the Bing Maps Snap to Road API.
+Azure Maps can snap coordinates to roads by using the [Get Route Directions] API. This service can be used to reconstruct a logical route between a set of coordinates and is comparable to the Bing Maps Snap to Road API.
 
 There are two different ways to use the route directions API to snap coordinates to roads.
 
@@ -359,7 +359,7 @@ For more information, see [Render custom data on a raster map].
 
 In addition to being able to generate a static map image, the Azure Maps render service also enables direct access to map tiles in raster (PNG) and vector format:
 
-* [Map tiles] – Retrieve raster (PNG) and vector tiles for the base maps (roads, boundaries, background).
+* [Get Map Static Image] – Retrieve raster (PNG) and vector tiles for the base maps (roads, boundaries, background).
 * [Get Map Tile] – Retrieve aerial and satellite imagery tiles.
 
 ### Pushpin URL parameter format comparison
@@ -467,7 +467,7 @@ For example, in Azure Maps, a blue line with 50% opacity and a thickness of four
 
 Azure Maps provides an API for calculating the travel times and distances between a set of locations as a distance matrix. The Azure Maps distance matrix API is comparable to the distance matrix API in Bing Maps:
 
-* [Route matrix]: Asynchronously calculates travel times and distances for a set of origins and destinations. Up to 700 cells per request is supported (the number of origins multiplied by the number of destinations). With that constraint in mind, examples of possible matrix dimensions are: `700x1`, `50x10`, `10x10`, `28x25`, `10x70`.
+* [Post Route Matrix]: Asynchronously calculates travel times and distances for a set of origins and destinations. Up to 700 cells per request is supported (the number of origins multiplied by the number of destinations). With that constraint in mind, examples of possible matrix dimensions are: `700x1`, `50x10`, `10x10`, `28x25`, `10x70`.
 
 > [!NOTE]
 > A request to the distance matrix API can only be made using a `POST` request with the origin and destination information in the body of the request. Additionally, Azure Maps requires all origins and destinations to be coordinates. Addresses will need to be geocoded first.
@@ -678,7 +678,6 @@ Learn more about the Azure Maps REST services.
 > [!div class="nextstepaction"]
 > [Best practices for Azure Maps Search service]
 
-[Get Search Address Reverse]: /rest/api/maps/search/get-search-address-reverse
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Cosmos DB geospatial capabilities overview]: ../cosmos-db/sql-query-geospatial-intro.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
@@ -687,59 +686,58 @@ Learn more about the Azure Maps REST services.
 [Azure SQL Spatial – Query nearest neighbor]: /sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor
 [Azure SQL Spatial Data Types overview]: /sql/relational-databases/spatial/spatial-data-types-overview
 [Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
-[Post Search Address Batch]: /rest/api/maps/search/post-search-address-batch
-[Post Search Address Reverse Batch]: /rest/api/maps/search/post-search-address-reverse-batch
-[Post Route Directions]: /rest/api/maps/route/post-route-directions
-[Post Route Directions Batch]: /rest/api/maps/route/post-route-directions-batch
 [Best practices for Azure Maps Route service]: how-to-use-best-practices-for-routing.md
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
-
-[Get Search Address]: /rest/api/maps/search/get-search-address
-[Get Search POI]: /rest/api/maps/search/get-search-poi
-[Get Search POI Category]: /rest/api/maps/search/get-search-poi-category
-
-[Get Route Directions]: /rest/api/maps/route/get-route-directions
-[Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street
 [free account]: https://azure.microsoft.com/free/
-[Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch
-[Get Search Fuzzy]: /rest/api/maps/search/get-search-fuzzy
+[fuzzy search]: /rest/api/maps/search/get-search-fuzzy
 [Geolocation API]: /rest/api/maps/geolocation/get-ip-to-location
-[Localization support in Azure Maps]: supported-languages.md
-[Manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
 [Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
-[nearby search]: /rest/api/maps/search/getsearchnearby
-[NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
-
-[quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
-[Render custom data on a raster map]: how-to-render-custom-data.md
-
-[Post Route Matrix]: /rest/api/maps/route/post-route-matrix
+[Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range
-[Route]: /rest/api/maps/route
-[Post Search Along Route]: /rest/api/maps/search/post-search-along-route
-[Search for a location using Azure Maps Search services]: how-to-search-for-address.md
-[Get Search Polygon]: /rest/api/maps/search/get-search-polygon
-[Search within geometry]: /rest/api/maps/search/post-search-inside-geometry
-[Search]: /rest/api/maps/search
-[Snap points to logical route path]: https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path
-[Spatial operations]: /rest/api/maps/spatial
+[Get Search Address Reverse Cross Street]: /rest/api/maps/search/get-search-address-reverse-cross-street
+[Get Search Address Reverse]: /rest/api/maps/search/get-search-address-reverse
 [Get Search Address Structured]: /rest/api/maps/search/get-search-address-structured
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Supported map styles]: supported-map-styles.md
+[Get Search Address]: /rest/api/maps/search/get-search-address
+[Get Search Fuzzy]: /rest/api/maps/search/get-search-fuzzy
+[Get Search POI Category]: /rest/api/maps/search/get-search-poi-category
+[Get Search POI]: /rest/api/maps/search/get-search-poi
+[Get Search Polygon]: /rest/api/maps/search/get-search-polygon
 [Get Timezone By Coordinates]: /rest/api/maps/timezone/get-timezone-by-coordinates
 [Get Timezone By ID]: /rest/api/maps/timezone/get-timezone-by-id
 [Get Timezone Enum IANA]: /rest/api/maps/timezone/get-timezone-enum-iana
 [Get Timezone Enum Windows]: /rest/api/maps/timezone/get-timezone-enum-windows
 [Get Timezone IANA Version]: /rest/api/maps/timezone/get-timezone-iana-version
 [Get Timezone Windows To IANA]: /rest/api/maps/timezone/get-timezone-windows-to-iana
-[Timezone]: /rest/api/maps/timezone
 [Get Traffic Flow Segment]: /rest/api/maps/traffic/get-traffic-flow-segment
 [Get Traffic Flow Tile]: /rest/api/maps/traffic/get-traffic-flow-tile
 [Get Traffic Incident Detail]: /rest/api/maps/traffic/get-traffic-incident-detail
 [Get Traffic Incident Tile]: /rest/api/maps/traffic/get-traffic-incident-tile
 [Get Traffic Incident Viewport]: /rest/api/maps/traffic/get-traffic-incident-viewport
+[Localization support in Azure Maps]: supported-languages.md
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
+[nearby search]: /rest/api/maps/search/getsearchnearby
+[NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
+[Post Route Directions Batch]: /rest/api/maps/route/post-route-directions-batch
+[Post Route Directions]: /rest/api/maps/route/post-route-directions
+[Post Route Matrix]: /rest/api/maps/route/post-route-matrix
+[Post Search Address Batch]: /rest/api/maps/search/post-search-address-batch
+[Post Search Address Reverse Batch]: /rest/api/maps/search/post-search-address-reverse-batch
+[Post Search Along Route]: /rest/api/maps/search/post-search-along-route
+[Post Search Fuzzy Batch]: /rest/api/maps/search/post-search-fuzzy-batch
+[Post Search Inside Geometry]: /rest/api/maps/search/post-search-inside-geometry
+[quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
+[Render custom data on a raster map]: how-to-render-custom-data.md
+[Route]: /rest/api/maps/route
+[Search for a location using Azure Maps Search services]: how-to-search-for-address.md
+[Search within geometry]: /rest/api/maps/search/post-search-inside-geometry
+[Search]: /rest/api/maps/search
+[Snap points to logical route path]: https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path
+[Spatial operations]: /rest/api/maps/spatial
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Supported map styles]: supported-map-styles.md
+[Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
 [turf js]: https://turfjs.org
 [Weather services]: /rest/api/maps/weather
