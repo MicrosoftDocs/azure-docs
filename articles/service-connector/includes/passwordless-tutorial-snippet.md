@@ -28,7 +28,7 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
 
 ### [User-assigned managed identity](#tab/user)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create postgres-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -41,7 +41,7 @@ az webapp connection create postgres-flexible \
 
 ### [System-assigned managed identity](#tab/system)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create postgres-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -54,7 +54,7 @@ az webapp connection create postgres-flexible \
 
 ### [Service principal](#tab/sp)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create postgres-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -72,7 +72,7 @@ az webapp connection create postgres-flexible \
 
 Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
 
-```azurecli
+```azurecli-interactive
 USER_IDENTITY_NAME=<YOUR_USER_ASSIGNED_MANAGEMED_IDENTITY_NAME>
 IDENTITY_RESOURCE_ID=$(az identity create \
     --name $USER_IDENTITY_NAME \
@@ -96,7 +96,7 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
 
 ### [User-assigned managed identity](#tab/user)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create mysql-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -109,7 +109,7 @@ az webapp connection create mysql-flexible \
 
 ### [System-assigned managed identity](#tab/system)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create mysql-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -122,7 +122,7 @@ az webapp connection create mysql-flexible \
 
 ### [Service principal](#tab/sp)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create mysql-flexible \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -142,7 +142,7 @@ The following Azure CLI commands use a `--client-type` parameter. Run the `az we
 
 ### [User-assigned managed identity](#tab/user)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create sql \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -155,7 +155,7 @@ az webapp connection create sql \
 
 ### [System-assigned managed identity](#tab/system)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create sql \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
@@ -168,7 +168,7 @@ az webapp connection create sql \
 
 ### [Service principal](#tab/sp)
 
-```azurecli
+```azurecli-interactive
 az webapp connection create sql \
     --resource-group $RESOURCE_GROUP \
     --name $APPSERVICE_NAME \
