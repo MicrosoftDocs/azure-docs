@@ -348,16 +348,20 @@ File size| sys.master_files| Recommended SKU size (Storage dimension)
 
 ## ASP.NET web apps data
 
-Azure Migrate appliance used for discovery of VMware VMs can also collect data on ASP.NET web applications.
+Azure Migrate appliance used for discovery of VMs can also collect data on ASP.NET web applications.
 
-> [!Note]
-> Currently this feature is only available for servers running in your VMware environment.
-
-Here's the web apps configuration data that the appliance collects from each Windows server discovered in your VMware environment.
+Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
 
 **Entity** | **Data**
 --- | ---
 Web apps | Application Name <br/>Configuration Path <br/>Frontend Bindings <br/>Enabled Frameworks <br/>Hosting Web Server<br/>Sub-Applications and virtual applications <br/>Application Pool name <br/>Runtime version <br/>Managed pipeline mode
+Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuration Location <br/>Version <br/>FQDN <br/>Credentials used for discovery <br/>List of Applications
+
+## Java web apps data
+
+**Entity** | **Data**
+--- | ---
+Web apps | Application name <br/> <br/>Frontend Bindings <br/>Enabled Frameworks <br/>Hosting Web Server<br/>Sub-Applications and virtual applications <br/>Application Pool name <br/>Runtime version <br/>Managed pipeline mode
 Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuration Location <br/>Version <br/>FQDN <br/>Credentials used for discovery <br/>List of Applications
 
 ## Application dependency data
