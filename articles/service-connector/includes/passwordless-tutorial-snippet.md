@@ -10,13 +10,13 @@ ms.author: xiaofanzhou
 
 [!INCLUDE [CLI-samples-clean-up](./install-passwordless-extension.md)]
 
-## Create passwordless connection
+## Create a passwordless connection
 
-Next, we use Azure App Service as an example to create a connection using managed identity. 
+Next, we use Azure App Service as an example to create a connection using managed identity.
 
 If you use:
 
-* Azure Spring Apps: use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database). 
+* Azure Spring Apps: use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database).
 * Azure Container Apps: use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
 
 > [!NOTE]
@@ -24,7 +24,7 @@ If you use:
 
 ::: zone pivot="postgresql"
 
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI command uses a `--client-type` parameter. Run the `az webapp connection create postgres-flexible -h` to get the supported client types, and choose the one that matches your application.
 
 ### [User-assigned managed identity](#tab/user)
 
@@ -82,7 +82,7 @@ IDENTITY_RESOURCE_ID=$(az identity create \
 ```
 
 > [!IMPORTANT]
-> After creating the user-assigned managed identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity:
+> After creating the user-assigned managed identity, ask your Global Administrator or Privileged Role Administrator to grant the following permissions for this identity:
 
 * `User.Read.All`
 * `GroupMember.Read.All`
@@ -92,7 +92,7 @@ For more information, see the [Permissions](../../mysql/flexible-server/concepts
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create mysql-flexible -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI command uses a `--client-type` parameter. Run the `az webapp connection create mysql-flexible -h` to get the supported client types, and choose the one that matches your application.
 
 ### [User-assigned managed identity](#tab/user)
 
@@ -138,7 +138,7 @@ az webapp connection create mysql-flexible \
 
 ::: zone pivot="sql"
 
-The following Azure CLI commands use a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
+The following Azure CLI command uses a `--client-type` parameter. Run the `az webapp connection create sql -h` to get the supported client types, and choose the one that matches your application.
 
 ### [User-assigned managed identity](#tab/user)
 
@@ -183,19 +183,17 @@ az webapp connection create sql \
 
 This Service Connector command completes the following tasks in the background:
 
-- Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
-- Set the Azure Active Directory admin to the current signed-in user.
-- Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
-- Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type. 
-  - For App Service, the configurations are set in the **App Settings** blade.
-  - For Spring Apps, the configurations are set when the application is launched.
-  - For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
+* Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
+* Set the Azure Active Directory admin to the current signed-in user.
+* Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
+* Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
+  * For App Service, the configurations are set in the **App Settings** blade.
+  * For Spring Apps, the configurations are set when the application is launched.
+  * For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
 
+## Connect to a database with Azure Active Directory
 
-
-## Connect to database with Azure Active Directory authentication
-
-After creating the connection, you can use the connection string in your application to connect to the database with Azure Active Directory authentication. For example, you can use the following solutions to connect to the database with Azure Active Directory authentication.
+After creating the connection, you can use the connection string in your application to connect to the database with Azure Active Directory. For example, you can use the following solutions to connect to the database with Azure Active Directory.
 
 :::zone pivot="postgresql"
 
