@@ -28,7 +28,7 @@ When running the command `az ml compute attach --resource-group <resource-group-
 
 ## Cause
 
-The "az ml compute attach" command currently does not support updating existing Kubernetes compute. 
+The `az ml compute attach` command currently does not support updating existing Kubernetes compute. 
 
 
 ## Next steps
