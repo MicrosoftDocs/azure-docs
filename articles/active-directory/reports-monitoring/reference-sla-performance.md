@@ -1,6 +1,6 @@
 ---
 title: Microsoft Entra SLA performance
-description: Learn about the Microsoft Entra SLA performance
+description: Learn about the Microsoft Entra service level performance and attainment
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,11 +8,10 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/22/2023
+ms.date: 09/27/2023
 ms.author: sarahlipsey
-ms.reviewer: besiler
+ms.reviewer: egreenberg14
 
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Entra SLA performance 
