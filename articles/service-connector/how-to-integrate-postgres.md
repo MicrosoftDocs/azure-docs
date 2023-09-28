@@ -119,7 +119,7 @@ Reference the connection details and sample codes in following tables, according
 ### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
-[!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-aad.md)]
+[!INCLUDE [code sample for postgresql system mi](./includes/code-postgres-me-id.md)]
 
 ::: zone-end
 
@@ -205,7 +205,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 ### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
-[!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-aad.md)]
+[!INCLUDE [code sample for postgresql user mi](./includes/code-postgres-me-id.md)]
 
 ::: zone-end
 
@@ -389,7 +389,7 @@ Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
 ### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for PostgreSQL.
-[!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-aad.md)]
+[!INCLUDE [code sample for postgresql service principal](./includes/code-postgres-me-id.md)]
 
 ::: zone-end
 

@@ -46,7 +46,7 @@ Supported authentication and clients for App Service, Container Apps, and Azure 
 
 ## Default environment variable names or application properties and Sample codes
 
-Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for MySQL. 
+Reference the connection details and sample codes in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for MySQL. **Please select the authentication types at the top of this page.**
 
 :::zone pivot="system-identity"
 
@@ -138,7 +138,7 @@ Reference the connection details and sample codes in following tables, according
 #### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for MySQL.
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
 
 ::: zone-end
@@ -240,7 +240,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 #### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for MySQL.
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
 ::: zone-end
 
@@ -457,7 +457,7 @@ Follow these steps and sample codes to connect to Azure Database for MySQL.
 #### Sample codes
 
 Follow these steps and sample codes to connect to Azure Database for MySQL.
-[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-aad.md)]
+[!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
 :::zone-end
 
