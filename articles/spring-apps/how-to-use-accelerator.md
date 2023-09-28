@@ -304,7 +304,7 @@ Use following steps to reference a fragment in your accelerator:
        --git-url <git-repo-URL>
    ```
 
-1. Change the *accelerator.yaml* file in your accelerator project. Use `imports` under the `accelerator` section and `InvokeFragment` in the `engine` section to reference fragment in accelerator.
+1. Change the *accelerator.yaml* file in your accelerator project. Use the `imports` instructions in the `accelerator` section and the `InvokeFragment` instructions in the `engine` section to reference fragment in accelerator.
 
    Use the following YAML query as an example:
 
