@@ -105,6 +105,12 @@
           href: application-volume-group-introduction.md
         - name: Requirements and considerations for application volume group for SAP HANA
           href: application-volume-group-considerations.md
+      - name: Application volume groups for Oracle
+        items: 
+        - name: Understand application volume group for Oracle
+          href: application-volume-group-oracle-introduction.md
+        - name: Requirements and considerations for application volume group for Oracle
+          href: application-volume-group-oracle-considerations.md
   - name: Data protection and resiliency
     items:
     - name: Understand data protection and disaster recovery options
