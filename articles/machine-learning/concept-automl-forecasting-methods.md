@@ -174,3 +174,4 @@ More general model groupings are possible via AutoML's Many-Models solution; see
 * Learn about how AutoML creates [features from the calendar](./concept-automl-forecasting-calendar-features.md).
 * Learn about how AutoML creates [lag features](./concept-automl-forecasting-lags.md).
 * Read answers to [frequently asked questions](./how-to-automl-forecasting-faq.md) about forecasting in AutoML.
+  
