@@ -404,49 +404,49 @@ In the Resource Manager template, add:
 Then use either cron or LogicApps expressions to define the schedule that starts or stops the instance in your parameter file:
  
 ```json
-"schedules": {
-  "value": {
-    "computeStartStop": [
-      {
-        "triggerType": "Cron",
-        "cron": {              
-          "timeZone": "UTC",
-          "expression": "0 18 * * *"
+  "schedules": {
+    "value": {
+      "computeStartStop": [
+        {
+          "triggerType": "Cron",
+          "cron": {
+            "timeZone": "UTC",
+            "expression": "0 18 * * *"
+          },
+          "action": "Stop",
+          "status": "Enabled"
         },
-        "action": "Stop",
-        "status": "Enabled"
-      },
-      {
-        "triggerType": "Cron",
-        "cron": {              
-          "timeZone": "UTC",
-          "expression": "0 8 * * *"
+        {
+          "triggerType": "Cron",
+          "cron": {
+            "timeZone": "UTC",
+            "expression": "0 8 * * *"
+          },
+          "action": "Start",
+          "status": "Enabled"
         },
-        "action": "Start",
-        "status": "Enabled"
-      },
-      { 
-        "triggerType": "Recurrence", 
-        "recurrence": { 
-          "frequency": "Day", 
-          "interval": 1, 
-          "timeZone": "UTC", 
-          "schedule": { 
-            "hours": [17], 
-            "minutes": [0]
-          } 
-        }, 
-        "action": "Stop", 
-        "status": "Enabled" 
-      } 
-    ]
+        { 
+          "triggerType": "Recurrence",
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "UTC",
+            "schedule": {
+              "hours": [17],
+              "minutes": [0]
+            }
+          }, 
+          "action": "Stop",
+          "status": "Enabled"
+        } 
+      ]
+    }
   }
-}
 ```
 
 * Action can have value of `Start` or `Stop`.
 * For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
-* For trigger type of `cron`, use standard cron syntax:  
+* For trigger type of `cron`, use standard cron syntax:
 
     ```cron
     // Crontab expression format: 
