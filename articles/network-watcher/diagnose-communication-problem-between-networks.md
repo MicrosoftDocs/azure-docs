@@ -15,6 +15,8 @@ ms.date: 09/28/2023
 
 This tutorial shows you how to use Azure Network Watcher [VPN troubleshoot](network-watcher-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue between two virtual networks. The virtual networks are connected via VPN gateways using VNet-to-VNet connections. 
 
+:::image type="content" source="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
