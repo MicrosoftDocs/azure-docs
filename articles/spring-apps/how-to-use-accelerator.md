@@ -304,9 +304,7 @@ Use following steps to reference a fragment in your accelerator:
        --git-url <git-repo-URL>
    ```
 
-1. Change the *accelerator.yaml* file in your accelerator project. Use the `imports` instructions in the `accelerator` section and the `InvokeFragment` instructions in the `engine` section to reference fragment in accelerator.
-
-   Use the following YAML query as an example:
+1. Change the *accelerator.yaml* file in your accelerator project. Use the `imports` instruction in the `accelerator` section and the `InvokeFragment` instruction in the `engine` section to reference the fragment in the accelerator, as shown in the following example:
 
    ```yaml
    accelerator:
@@ -329,7 +327,7 @@ Use following steps to reference a fragment in your accelerator:
 
 1. Synchronize the change with the Dev Tools Portal.
 
-   To reflect the changes on the Dev Tools Portal more quickly, you can provide a value for the **Git interval** field of your customized accelerator. The **Git interval** indicates how frequently the system checks for updates in the Git repository.
+   To reflect the changes on the Dev Tools Portal more quickly, you can provide a value for the **Git interval** field of your customized accelerator. The **Git interval** value indicates how frequently the system checks for updates in the Git repository.
 
 1. Synchronize the change with your customized accelerator on the Azure portal by using the Azure portal or the Azure CLI.
 
