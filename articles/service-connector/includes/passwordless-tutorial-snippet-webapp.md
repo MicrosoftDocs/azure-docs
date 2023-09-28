@@ -17,41 +17,41 @@ Next, create a passwordless connection with Service Connector.
 > [!NOTE]
 > If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md) and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution in Cloud Shell.
 
-### [Azure Database for PostgreSQL](#tab/postgresql)
-
+### [Azure SQL Database](#tab/sqldatabase)
 The following Azure CLI commands use a `--client-type` parameter.
 
-1. Optionally run the command `az webapp connection create postgres-flexible -h` to get a list of all supported client types.
+1. Optionally run the `az webapp connection create sql -h` to get the supported client types.
 
 1. Choose a client type and run the corresponding command.
 
     #### [User-assigned managed identity](#tab/user)
 
     ```azurecli
-    az webapp connection create postgres-flexible \
+    az webapp connection create sql \
         --resource-group $RESOURCE_GROUP \
         --name $APPSERVICE_NAME \
         --target-resource-group $RESOURCE_GROUP \
-        --server $POSTGRESQL_HOST \
+        --server $SQL_HOST \
         --database $DATABASE_NAME \
         --user-identity client-id=XX subs-id=XX \
-        --client-type java
+        --client-type dotnet
     ```
 
     #### [System-assigned managed identity](#tab/system)
 
     ```azurecli
-    az webapp connection create postgres-flexible \
+    az webapp connection create sql \
         --resource-group $RESOURCE_GROUP \
         --name $APPSERVICE_NAME \
         --target-resource-group $RESOURCE_GROUP \
-        --server $POSTGRESQL_HOST \
+        --server $SQL_HOST \
         --database $DATABASE_NAME \
         --system-identity \
-        --client-type java
+        --client-type dotnet
     ```
 
     ---
+
 
 ### [Azure Database for MySQL](#tab/mysql)
 
@@ -111,41 +111,41 @@ The following Azure CLI commands use a `--client-type` parameter.
 
     ---
 
-### [Azure SQL Database](#tab/sqldatabase)
+### [Azure Database for PostgreSQL](#tab/postgresql)
+
 The following Azure CLI commands use a `--client-type` parameter.
 
-1. Optionally run the `az webapp connection create sql -h` to get the supported client types.
+1. Optionally run the command `az webapp connection create postgres-flexible -h` to get a list of all supported client types.
 
 1. Choose a client type and run the corresponding command.
 
     #### [User-assigned managed identity](#tab/user)
 
     ```azurecli
-    az webapp connection create sql \
+    az webapp connection create postgres-flexible \
         --resource-group $RESOURCE_GROUP \
         --name $APPSERVICE_NAME \
         --target-resource-group $RESOURCE_GROUP \
-        --server $SQL_HOST \
+        --server $POSTGRESQL_HOST \
         --database $DATABASE_NAME \
         --user-identity client-id=XX subs-id=XX \
-        --client-type dotnet
+        --client-type java
     ```
 
     #### [System-assigned managed identity](#tab/system)
 
     ```azurecli
-    az webapp connection create sql \
+    az webapp connection create postgres-flexible \
         --resource-group $RESOURCE_GROUP \
         --name $APPSERVICE_NAME \
         --target-resource-group $RESOURCE_GROUP \
-        --server $SQL_HOST \
+        --server $POSTGRESQL_HOST \
         --database $DATABASE_NAME \
         --system-identity \
-        --client-type dotnet
+        --client-type java
     ```
 
     ---
-
 ---
 
 This Service Connector command completes the following tasks in the background:
