@@ -1,19 +1,21 @@
 ---
-title: Configure and manage enhanced soft delete for Azure Backup
-description: This article describes about how to configure and manage enhanced soft delete for Azure Backup.
-ms.topic: how-to
+title: Tutorial - Recover soft deleted data and recovery points using enhanced soft delete in Azure Backup
+description: Learn how to enable enhanced soft delete and recover your data and recover backups, if they're deleted.
+ms.topic: tutorial
 ms.date: 09/11/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Configure and manage enhanced soft delete in Azure Backup
+# Tutorial: Recover soft deleted data and recovery points using enhanced soft delete in Azure Backup
 
-This article describes how to configure and use enhanced soft delete to protect your data and recover backups, if they're deleted.
+This tutorial describes how to enable enhanced soft delete and recover your data and recover backups, if they're deleted.
+
+[Enhanced soft delete](backup-azure-enhanced-soft-delete-about.md) provides an improvement to the [soft delete](backup-azure-security-feature-cloud.md) capability in Azure Backup that enables you to recover your backup data in case of accidental or malicious deletion. With enhanced soft delete, you get the ability to make soft delete always-on, thus protecting it from being disabled by any malicious actors. So, enhanced soft delete provides better protection for your backups against various threats. This feature also allows you to provide a customizable soft delete retention period for which soft deleted data must be retained.
 
 >[!Note]
->Once you enable enhanced soft delete by enabling soft delete state to *always-on*, you can't disable it for that vault.
+>Once you enable the *always-on* state for soft delete, you can't disable it for that vault.
 
 ## Before you start
  
@@ -183,76 +185,10 @@ Follow these steps:
 
 ---
 
-## Unregister containers 
 
-In the case of workloads that group multiple backup items into a container, you can unregister a container if all its backup items are either deleted or soft deleted. 
-
-Here are some points to note:
-
-- You can unregister a container only if it has no protected items, that is, all backup items inside it are either deleted or soft deleted. 
-
-- Unregistering a container while its backup items are soft deleted (not permanently deleted) will change the state of the container to Soft deleted. 
-
-- You can re-register containers that are in soft deleted state to another vault. However, in such scenarios, the existing backups (that is soft deleted) will continue to be in the original vault and will be permanently deleted when the soft delete retention period expires. 
-
-- You can also *undelete* the container. Once undeleted, it's re-registered to the original vault.
-
-  You can undelete a container only if it's not registered to another vault. If it's registered, then you need to unregister it with the vault before performing the *undelete* operation.
-
-## Delete recovery points
-
-[Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points) is a part of enhanced soft delete that helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
-
-Follow these steps:
-
-1. Go to your *vault* > **Backup policies**.
-
-2. Select the *backup policy* you want to modify.
-
-3. Reduce the retention duration in the backup policy, and then select **Update**.
-
-4. Go to *vault* > **Backup items**.
-
-5. Select a *backup item* that is backed up using the modified policy, and view its details.
-
-6.	To view all recovery points for this item, select **Restore**, and then filter for the impacted recovery points.
-
-   The impacted recovery points are labeled as *being soft deleted* in the **Recovery type** column and will be retained as per the soft delete retention of the vault.
- 
-   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/select-restore-point-for-soft-delete.png" alt-text="Screenshot shows how to filter recovery points for soft delete.":::
-
-## Undelete recovery points
-
-You can *undelete* recovery points that are in soft deleted state so that they can last until their expiry by modifying the policy again to increase the retention of backups.
-
-Follow these steps:
-
-1. Go to your *vault* > **Backup policies**.
-
-2. Select the *backup policy* you want to modify.
-
-3. Increase the retention duration in the backup policy, and then select **Update**.
-
-4.	Go to *vault* > **Backup items**, select a *backup item* that is backed up using the modified policy, and then view its details.
-
-5.	To view all recovery points for this item, select **Restore**, and then filter for the impacted recovery points.
-
-   The impacted recovery points don't have the *soft deleted* label and can't in soft-deleted state. If there are recovery points that are still beyond the increased retention duration, these would continue to be in the soft-deleted state unless the retention is further increased.
-
-## Disable soft delete
-
-Follow these steps:
-
-1. Go to your *vault* > **Properties**.
-
-1. On the **Properties** page, under **Soft delete**, select **Update**.
-1. In the **Soft Delete settings** blade, clear the **Enable soft delete** checkbox to disable soft delete. 
-
->[!Note]
->- You can't disable soft delete if **Enable Always-on Soft Delete** is enabled for this vault.
->- You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
 >- MUA for soft delete is currently supported for Recovery Services vaults only.
 
 ## Next steps
 
-[About enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+- Learn more about [enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
+- Learn more about [soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points).
