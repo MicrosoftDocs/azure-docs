@@ -14,7 +14,7 @@ ms.author: steveesp
 This article helps you understand the **Accelerated Connections** feature. When Accelerated Connections is enabled on the virtual network interface (vNIC) with Accelerated Networking, networking performance is improved. This high-performance feature is available on Network Virtual Appliances (NVAs) deployed from Azure Marketplace and offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. To access this feature during limited GA, use the [sign-up form](https://go.microsoft.com/fwlink/?linkid=2223706).
 
 > [!IMPORTANT]
-> This feature is currently in public preview. This public preview is provided without a service-level agreement and shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is currently in limited general availability (GA), and customer sign-up is needed to use it.
 >
 
 Accelerated Connections supports the workloads that can send large amounts of active connections simultaneously. It supports these connections bursts with negligible degradation to VM throughput, latency or connections per second performance. The data path for the network traffic is highly optimized to offload the Software-defined networks (SDN) policies evaluation. The goal is to eliminate any bottlenecks in the cloud implementation and networking performance.

@@ -3,12 +3,12 @@ title: Authorize access to queues using Azure role assignment conditions
 titleSuffix: Azure Storage
 description: Authorize access to Azure queues using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Storage attributes.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
 ms.service: azure-queue-storage
 ms.topic: conceptual
 ms.date: 10/19/2022
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: nachakra
 ---
 
