@@ -84,5 +84,4 @@ For the purpose of cost estimation, we assume you include all your accessed apps
 The estimated cost applies for both Azure Spring Apps Standard Tier and Enterprise Tier. For Enterprise Tier, there will be additional cost on [software IP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.azure-spring-cloud-vmware-tanzu-2?tab=PlansAndPrice) and resource consumption for Tanzu components, which are not included in cost estimation.
 
 ## Next steps
-- [Review](best-practices-assessment.md) best practices for creating assessments.
 - Learn how to run an [Azure Spring Apps assessment](how-to-create-azure-spring-apps-assessment.md).
