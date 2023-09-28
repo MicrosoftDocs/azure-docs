@@ -80,6 +80,10 @@ The following list presents the set of features that are currently available in 
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
+| Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
+
+
 1. The capability to Mute Others is currently in public preview.
 2. The Share Screen capability can be achieved using Raw Media, if you want to learn, **how  to add Raw Media**, visit [the quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
 3. The Calling SDK doesn't have an explicit API, you need to use the OS (android & iOS) API to achieve it.
