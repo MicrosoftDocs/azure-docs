@@ -88,7 +88,7 @@ The above scripts use the `az vm auto-shutdown` and `az vm restart` commands to 
 Both scripts also prompt to choose whether to auto-restart the machines or leave them off until they're manually restarted. The choice is used to set the -`-auto-shutdown-enabled` property of the VMs.
 
 
-### [PowerShell](#tab/powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 Currently, there's no cmdlet available to set auto-shutdown for VMs directly. Instead, you can use `New-AzPolicyAssignment` to create a policy definition that sets VMs shut down on a schedule.
 
