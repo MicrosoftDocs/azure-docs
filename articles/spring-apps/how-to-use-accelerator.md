@@ -16,9 +16,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use [Application Accelerator for VMware Tanzu®](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-about-application-accelerator.html) with the Azure Spring Apps Enterprise plan to bootstrap developing your applications in a discoverable and repeatable way.
+This article shows you how to use [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-about-application-accelerator.html) (App Accelerator) with the Azure Spring Apps Enterprise plan to bootstrap developing your applications in a discoverable and repeatable way.
 
-Application Accelerator for VMware Tanzu helps you bootstrap developing your applications and deploying them in a discoverable and repeatable way. You can use Application Accelerator to create new projects based on published accelerator projects. For more information, see [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-about-application-accelerator.html) in the VMware documentation.
+App Accelerator helps you bootstrap developing your applications and deploying them in a discoverable and repeatable way. You can use App Accelerator to create new projects based on published accelerator projects. For more information, see [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-about-application-accelerator.html) in the VMware documentation.
 
 ## Prerequisites
 
@@ -254,7 +254,7 @@ The following table describes the customizable accelerator fields.
 | **Git branch**                     | `git-branch`              | The Git branch to check out and monitor for changes. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                            | Optional                                                       |
 | **Git commit**                     | `git-commit`              | The Git commit SHA to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                                | Optional                                                       |
 | **Git tag**                        | `git-tag`                 | The Git commit tag to check out. You should specify only the Git branch, Git commit, or Git tag.                                                                                                                                                                                                                                                                                | Optional                                                       |
-| **Git sub path**                   | `git-sub-path`            | Folder path inside the Git repository to consider as the root of the accelerator or fragment.                                                                                                                                                                                                                                                                                   | Optional                                                       |
+| **Git sub path**                   | `git-sub-path`            | The folder path inside the Git repository to consider as the root of the accelerator or fragment.                                                                                                                                                                                                                                                                               | Optional                                                       |
 | **Authentication type**            | `N/A`                     | The authentication type of the accelerator source repository. The type can be `Public`, `Basic auth`, or `SSH`.                                                                                                                                                                                                                                                                 | Required                                                       |
 | **User name**                      | `username`                | The user name to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                            | Required when the authentication type is `Basic auth`.         |
 | **Password/Personal access token** | `password`                | The password to access the accelerator source repository whose authentication type is `Basic auth`.                                                                                                                                                                                                                                                                             | Required when the authentication type is `Basic auth`.         |
@@ -275,23 +275,23 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 > [!NOTE]
 > It might take a few seconds for Dev Tools Portal to refresh the catalog and add an entry for your new accelerator. The refresh interval is configured as `git-interval` when you create the accelerator. After you change the accelerator, it will also take time to be reflected in Dev Tools Portal. The best practice is to change the `git-interval` to speed up for verification after you apply changes to the Git repo.
 
-### Reference Fragment in your own accelerators
+### Reference a fragment in your own accelerators
 
 Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. You create a project different from the next with similar aspects, requiring some form of copy-paste. To control this issue, Application Accelerators support a feature named Composition that allows the reuse of parts of an accelerator, called Fragments.
 
 Use following steps to reference a Fragment in your accelerator:
 
-Publish the new accelerator of Fragment type using the Azure portal or the Azure CLI.
+1. Publish the new accelerator of type `Fragment` using the Azure portal or the Azure CLI.
 
 #### [Azure portal](#tab/Portal)
 
 To create a Fragment accelerator, open the **Accelerators** section, select **Add Accelerator** under the **Customized Accelerators** section, and then select **Fragment**.
 
-:::image type="content" source="media/how-to-use-accelerator/add-fragment.png" alt-text="Screenshot of the Azure portal that shows the Customized Accelerators of Fragment type." lightbox="media/how-to-use-accelerator/add-fragment.png":::
+:::image type="content" source="media/how-to-use-accelerator/add-fragment.png" alt-text="Screenshot of the Azure portal that shows the Customized Accelerators of type Fragment." lightbox="media/how-to-use-accelerator/add-fragment.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to create a customized accelerator of Fragment type:
+Use the following command to create a customized accelerator of type `Fragment`:
 
 ```azurecli
 az spring application-accelerator customized-accelerator create \
