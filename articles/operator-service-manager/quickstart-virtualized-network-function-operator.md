@@ -31,7 +31,7 @@ az login
     ```
     
     > [!NOTE]
-  > The Resource Group you create here is used for further deployment.
+    > The Resource Group you create here is used for further deployment.
 
 1. Save the following Bicep script locally as *prerequisites.bicep*.
 
@@ -107,158 +107,158 @@ az login
     ```
 1. The script creates a Virtual Network, a Network Security Group and the Managed Identity.
 
-```azurecli
-{
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Resources/deployments/prerequisites",
-  "location": null,
-  "name": "prerequisites",
-  "properties": {
-    "correlationId": "ede35f3a-848b-4776-9c3c-9a43df8f760c",
-    "debugSetting": null,
-    "dependencies": [
-      {
-        "dependsOn": [
+    ```azurecli
+    {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Resources/deployments/prerequisites",
+      "location": null,
+      "name": "prerequisites",
+      "properties": {
+        "correlationId": "ede35f3a-848b-4776-9c3c-9a43df8f760c",
+        "debugSetting": null,
+        "dependencies": [
           {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
+            "dependsOn": [
+              {
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
+                "resourceGroup": "OperatorResourceGroup ",
+                "resourceName": "ubuntu-vm-vnet-nsg",
+                "resourceType": "Microsoft.Network/networkSecurityGroups"
+              }
+            ],
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
             "resourceGroup": "OperatorResourceGroup ",
-            "resourceName": "ubuntu-vm-vnet-nsg",
-            "resourceType": "Microsoft.Network/networkSecurityGroups"
+            "resourceName": "ubuntu-vm-vnet",
+            "resourceType": "Microsoft.Network/virtualNetworks"
           }
         ],
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
-        "resourceGroup": "OperatorResourceGroup ",
-        "resourceName": "ubuntu-vm-vnet",
-        "resourceType": "Microsoft.Network/virtualNetworks"
-      }
-    ],
-    "duration": "PT10.8321154S",
-    "error": null,
-    "mode": "Incremental",
-    "onErrorDeployment": null,
-    "outputResources": [
-      {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns",
-        "resourceGroup": "OperatorResourceGroup "
-      },
-      {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
-        "resourceGroup": "OperatorResourceGroup "
-      },
-      {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
-        "resourceGroup": "OperatorResourceGroup "
-      }
-    ],
-    "outputs": {
-      "managedIdentityId": {
-        "type": "String",
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns"
-      },
-      "vnetId": {
-        "type": "String",
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet"
-      }
-    },
-    "parameters": {
-      "identityName": {
-        "type": "String",
-        "value": "identity-for-ubuntu-vm-sns"
-      },
-      "location": {
-        "type": "String",
-        "value": "uksouth"
-      },
-      "subnetAddressPrefix": {
-        "type": "String",
-        "value": "10.0.0.0/28"
-      },
-      "subnetName": {
-        "type": "String",
-        "value": "ubuntu-vm-subnet"
-      },
-      "vnetAddressPrefixes": {
-        "type": "String",
-        "value": "10.0.0.0/24"
-      },
-      "vnetName": {
-        "type": "String",
-        "value": "ubuntu-vm-vnet"
-      }
-    },
-    "parametersLink": null,
-    "providers": [
-      {
-        "id": null,
-        "namespace": "Microsoft.Network",
-        "providerAuthorizationConsentState": null,
-        "registrationPolicy": null,
-        "registrationState": null,
-        "resourceTypes": [
+        "duration": "PT10.8321154S",
+        "error": null,
+        "mode": "Incremental",
+        "onErrorDeployment": null,
+        "outputResources": [
           {
-            "aliases": null,
-            "apiProfiles": null,
-            "apiVersions": null,
-            "capabilities": null,
-            "defaultApiVersion": null,
-            "locationMappings": null,
-            "locations": [
-              "uksouth"
-            ],
-            "properties": null,
-            "resourceType": "networkSecurityGroups",
-            "zoneMappings": null
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns",
+            "resourceGroup": "OperatorResourceGroup "
           },
           {
-            "aliases": null,
-            "apiProfiles": null,
-            "apiVersions": null,
-            "capabilities": null,
-            "defaultApiVersion": null,
-            "locationMappings": null,
-            "locations": [
-              "uksouth"
-            ],
-            "properties": null,
-            "resourceType": "virtualNetworks",
-            "zoneMappings": null
-          }
-        ]
-      },
-      {
-        "id": null,
-        "namespace": "Microsoft.ManagedIdentity",
-        "providerAuthorizationConsentState": null,
-        "registrationPolicy": null,
-        "registrationState": null,
-        "resourceTypes": [
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
+            "resourceGroup": "OperatorResourceGroup "
+          },
           {
-            "aliases": null,
-            "apiProfiles": null,
-            "apiVersions": null,
-            "capabilities": null,
-            "defaultApiVersion": null,
-            "locationMappings": null,
-            "locations": [
-              "uksouth"
-            ],
-            "properties": null,
-            "resourceType": "userAssignedIdentities",
-            "zoneMappings": null
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
+            "resourceGroup": "OperatorResourceGroup "
           }
-        ]
-      }
-    ],
-    "provisioningState": "Succeeded",
-    "templateHash": "14351698478455866420",
-    "templateLink": null,
-    "timestamp": "2023-09-12T14:29:41.595918+00:00",
-    "validatedResources": null
-  },
-  "resourceGroup": "OperatorResourceGroup ",
-  "tags": null,
-  "type": "Microsoft.Resources/deployments"
-}
-```
+        ],
+        "outputs": {
+          "managedIdentityId": {
+            "type": "String",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns"
+          },
+          "vnetId": {
+            "type": "String",
+            "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet"
+          }
+        },
+        "parameters": {
+          "identityName": {
+            "type": "String",
+            "value": "identity-for-ubuntu-vm-sns"
+          },
+          "location": {
+            "type": "String",
+            "value": "uksouth"
+          },
+          "subnetAddressPrefix": {
+            "type": "String",
+            "value": "10.0.0.0/28"
+          },
+          "subnetName": {
+            "type": "String",
+            "value": "ubuntu-vm-subnet"
+          },
+          "vnetAddressPrefixes": {
+            "type": "String",
+            "value": "10.0.0.0/24"
+          },
+          "vnetName": {
+            "type": "String",
+            "value": "ubuntu-vm-vnet"
+          }
+        },
+        "parametersLink": null,
+        "providers": [
+          {
+            "id": null,
+            "namespace": "Microsoft.Network",
+            "providerAuthorizationConsentState": null,
+            "registrationPolicy": null,
+            "registrationState": null,
+            "resourceTypes": [
+              {
+                "aliases": null,
+                "apiProfiles": null,
+                "apiVersions": null,
+                "capabilities": null,
+                "defaultApiVersion": null,
+                "locationMappings": null,
+                "locations": [
+                  "uksouth"
+                ],
+                "properties": null,
+                "resourceType": "networkSecurityGroups",
+                "zoneMappings": null
+              },
+              {
+                "aliases": null,
+                "apiProfiles": null,
+                "apiVersions": null,
+                "capabilities": null,
+                "defaultApiVersion": null,
+                "locationMappings": null,
+                "locations": [
+                  "uksouth"
+                ],
+                "properties": null,
+                "resourceType": "virtualNetworks",
+                "zoneMappings": null
+              }
+            ]
+          },
+          {
+            "id": null,
+            "namespace": "Microsoft.ManagedIdentity",
+            "providerAuthorizationConsentState": null,
+            "registrationPolicy": null,
+            "registrationState": null,
+            "resourceTypes": [
+              {
+                "aliases": null,
+                "apiProfiles": null,
+                "apiVersions": null,
+                "capabilities": null,
+                "defaultApiVersion": null,
+                "locationMappings": null,
+                "locations": [
+                  "uksouth"
+                ],
+                "properties": null,
+                "resourceType": "userAssignedIdentities",
+                "zoneMappings": null
+              }
+            ]
+          }
+        ],
+        "provisioningState": "Succeeded",
+        "templateHash": "14351698478455866420",
+        "templateLink": null,
+        "timestamp": "2023-09-12T14:29:41.595918+00:00",
+        "validatedResources": null
+      },
+      "resourceGroup": "OperatorResourceGroup ",
+      "tags": null,
+      "type": "Microsoft.Resources/deployments"
+    }
+    ```
 
 ## Locate Resource ID for managed identity
 
@@ -269,7 +269,7 @@ az login
 1. **Copy to clipboard**: Select the **Copy** button or icon next to the Resource ID.
 1. **Save copied Resource ID**: Save the copied Resource ID as this information is required for the **Config Group Values** when creating the Site Network Service.
 
-:::image type="content" source="media/identity-for-ubuntu-vm-sns.png" alt-text="Screenshot showing Managed Identity Properties and ID under Essentials." lightbox="media/identity-for-ubuntu-vm-sns.png":::
+    :::image type="content" source="media/identity-for-ubuntu-vm-sns.png" alt-text="Screenshot showing Managed Identity Properties and ID under Essentials." lightbox="media/identity-for-ubuntu-vm-sns.png":::
 
 ## Locate Resource ID for Virtual Network
 
@@ -281,7 +281,7 @@ az login
 1. **Copy to clipboard**: Select the **Copy** button or icon next to the Resource ID to copy it to your clipboard.
 1. **Save copied Resource ID**: Save the copied Resource ID as this information is required for the **Config Group Values** when creating the Site Network Service.
 
-:::image type="content" source="media/resource-id-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual network Properties and the Resource ID.":::
+    :::image type="content" source="media/resource-id-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual network Properties and the Resource ID.":::
 
 ## Update Service Network Slice (SNS) permissions
 
@@ -305,7 +305,7 @@ In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-s
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
 1. Select **Review and assign**.
 
-:::image type="content" source="media/managed-identity-select-members-ubuntu.png" alt-text="Screenshot showing Managed identity and + Select members.":::
+    :::image type="content" source="media/managed-identity-select-members-ubuntu.png" alt-text="Screenshot showing Managed identity and + Select members.":::
 
 ### Grant Managed Identity Operator role to itself
 
@@ -323,7 +323,7 @@ In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-s
 1. Select **Managed identity**.
 1. Select **+ Select members** and navigate to the user-assigned managed identity called *indentity-for-ubuntu-vm-sns* and proceed with the assignment.
 
-:::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected.":::
+    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected.":::
 
 Completion of all the tasks outlined in this article ensures that the Service Network Slice (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
