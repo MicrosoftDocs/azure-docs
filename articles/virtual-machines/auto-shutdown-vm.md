@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 4. Set the time you want the virtual machine to shut down.
 5. Select "Save" to save the auto-shutdown configuration.
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/azure-cli)
 
 To configure auto-shutdown for a single virtual machine using the Azure CLI, you can use the following script:
 
