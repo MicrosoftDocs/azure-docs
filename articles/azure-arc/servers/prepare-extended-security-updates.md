@@ -23,11 +23,18 @@ Delivering ESUs to your Windows Server 2012/2012 R2 machines provides the follow
 
 - **Keyless delivery:** The enrollment of ESUs on Azure Arc-enabled Windows Server 2012/2012 R2 machines won't require the acquisition or activation of keys.
 
-Other Azure services through Azure Arc-enabled servers are available, with offerings such as:
+## Access to Azure services
+
+For Azure Arc-enabled servers enrolled in WS2012 ESUs enabled by Azure Arc, free access is provided to these Azure services from October 10, 2023:
+
+* [Azure Update Manager](../../update-center/overview.md) - Unified management and governance of update compliance that includes not only Azure and hybrid machines, but also ESU update compliance for all your Windows Server 2012/2012 R2 machines.
+* [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview?tabs=python-2) - Track changes in virtual machines hosted in Azure, on-premises, and other cloud environments.
+* [Azure Policy Guest Configuration](/azure/cloud-adoption-framework/manage/azure-server-management/guest-configuration-policy) - Audit the configuration settings in a virtual machine. Guest configuration supports Azure VMs natively and non-Azure physical and virtual servers through Azure Arc-enabled servers.
+
+Other Azure services through Azure Arc-enabled servers are available as well, with offerings such as:
 
 * [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers.md) to help protect you from various cyber threats and vulnerabilities.
-* [Azure Update Manager (preview)](../../update-center/overview.md) - Unified management and governance of update compliance that includes not only Azure and hybrid machines, but also ESU update compliance for all your Windows Server 2012/2012 R2 machines.
-* [Azure Policy](../../governance/policy/overview.md) helps to enforce organizational standards and to assess compliance at-scale. Beyond providing an aggregated view to evaluate the overall state of the environment, Azure Policy helps to bring your resources to compliance through bulk and automatic remediation.
+* [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) - Collect security-related events and correlate them with other data sources.
 
     >[!NOTE]
     >Activation of ESU is planned for the third quarter of 2023. Using Azure services such as Azure Update Manager (preview) and Azure Policy to support managing ESU-eligible Windows Server 2012/2012 R2 machines are also planned for the third quarter.
