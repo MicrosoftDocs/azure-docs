@@ -493,7 +493,7 @@ Thumbnail# cdb9bc34197a5355f652f1583fbd4e9a1d4801f0
 </details>
 
 <details>
-<summary>Select to view json output for the full certificate authority</summary>
+<summary>Select to view the json output for the full certificate authority</summary>
 -----BEGIN CERTIFICATE-----
 MIIRKQYJKoZIhvcNAQcCoIIRGjCCERYCAQExADCCBbMGCSqGSIb3DQEHAaCCBaQE
 ggWgMIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0B
