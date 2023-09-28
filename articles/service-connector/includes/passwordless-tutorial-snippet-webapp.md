@@ -18,7 +18,8 @@ Next, create a passwordless connection with Service Connector.
 > If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md) and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution in Cloud Shell.
 
 ### [Azure SQL Database](#tab/sqldatabase)
-The following Azure CLI commands use a `--client-type` parameter.
+
+The following Azure CLI command uses a `--client-type` parameter.
 
 1. Optionally run the `az webapp connection create sql -h` to get the supported client types.
 
@@ -52,7 +53,6 @@ The following Azure CLI commands use a `--client-type` parameter.
 
     ---
 
-
 ### [Azure Database for MySQL](#tab/mysql)
 
 Azure Database for MySQL - Flexible Server requires a user-assigned managed identity to enable Azure Active Directory authentication. For more information, see [Set up Azure Active Directory authentication for Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/how-to-azure-ad.md). You can use the following command to create a user-assigned managed identity:
@@ -77,7 +77,7 @@ For more information, see the [Permissions](../../mysql/flexible-server/concepts
 
 Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector.
 
-The following Azure CLI commands use a `--client-type` parameter.
+The following Azure CLI command uses a `--client-type` parameter.
 
 1. Optionally run the command `az webapp connection create mysql-flexible -h` to get the supported client types.
 
@@ -113,7 +113,7 @@ The following Azure CLI commands use a `--client-type` parameter.
 
 ### [Azure Database for PostgreSQL](#tab/postgresql)
 
-The following Azure CLI commands use a `--client-type` parameter.
+The following Azure CLI command uses a `--client-type` parameter.
 
 1. Optionally run the command `az webapp connection create postgres-flexible -h` to get a list of all supported client types.
 

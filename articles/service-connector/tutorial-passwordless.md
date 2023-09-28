@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 07/17/2023
+ms.date: 09/28/2023
 ms.devlang: azurecli
 ms.custom: passwordless-dotnet, passwordless-java, devx-track-azurecli
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
@@ -32,7 +32,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 * An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 * An app deployed to [Azure App Service](../app-service/overview.md) in a [region supported by Service Connector](./concept-region-support.md).
 
-### Set up environment
+### Set up your environment
 
 #### Account
 
@@ -43,7 +43,7 @@ Sign in with the Azure CLI via `az login`. If you're using Azure Cloud Shell or 
 
 ## Deploy the application to an Azure hosting service
 
-Finally, deploy your application to an Azure hosting service. That source service can use managed identity to connect to the target database on Azure.
+Finally, deploy your application to an Azure hosting service. That source service can use a managed identity to connect to the target database on Azure.
 
 ### [App Service](#tab/appservice)
 
@@ -124,13 +124,13 @@ If you don't log in interactively, you may also get the error and `Interactive a
 
 ::: zone pivot="postgresql"
 
-If your database server is in Virtual Network, ensure your environment that runs the Azure CLI command can access the server in the Virtual Network.
+If your database server is in a virtual network, ensure your environment that runs the Azure CLI command can access the server in the virtual network.
 
 ::: zone-end
 
 ::: zone pivot="mysql"
 
-If your database server is in Virtual Network, ensure your environment that runs the Azure CLI command can access the server in the Virtual Network.
+If your database server is in a virtual network, ensure your environment that runs the Azure CLI command can access the server in the virtual network.
 
 ::: zone-end
 

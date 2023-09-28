@@ -8,7 +8,7 @@ ms.author: cephalin
 ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
-ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity
+ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
 zone_pivot_group_filename: app-service/zone-pivot-groups.json
 zone_pivot_groups: connection-type
 ---
