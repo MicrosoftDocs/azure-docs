@@ -17,31 +17,25 @@ ms.date: 09/27/2023
 
 This article is for developers who need a deeper understanding of relevance scoring for vector queries in Azure Cognitive Search.
 
-## Scoring alogrithms used in vector similarity search
+## Scoring algorithms used in vector similarity search
 
-Hierarchical Navigable Small World (HNSW) is the scoring algorithm used for vector similiarity search.
+Hierarchical Navigable Small World (HNSW) is the scoring algorithm used for vector similarity search. It follows the principle of [Approximate Nearest Neighbors (ANN)](vector-search-overview.md#approximate-nearest-neighbors), where  the search surface area is reduced to a small set of candidate vectors similar to the query vector.
 
-It follows the principle of Approximate Nearest Neighbors (ANN), finding vectors that are the closest match, and then scanning the nearest neihbors in vector space for additional matches.
+HNSW has configuration parameters. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector query.
 
-HNSW has a default configuration, which you can modify in a search index to create more configurations, one of which is specified on each vectory query.
+## Vector scoring concepts
 
-## Vector scoring fundamentals
+Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request would be fed into the same machine learning model that generated the embedding space for the vector index. This model would output a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the nearest vectors and returning the associated documents as the search result.
 
-Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. 
+For example, if a query request is about hotels, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about hotels. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
 
-Both the query and corpus must be vectors generated from the same model, such as the **text-embedding-ada-002** model in Azure OpenAI.
+## Number of ranked results in a vector query response
 
-A vector query specifies the `k` parameter, which determines how many nearest neighbors of the query vector should be returned in the results. 
+A vector query specifies the `k` parameter, which determines how many nearest neighbors of the query vector should be returned in the results. If `k` is larger than the number of documents in the index, then the number of documents determines the upper limit of what can be returned.
 
-Because similarity is relative rather than absolute, it's possible for the algorithm to find "similarity" in vectors that might not actually be a good match. For example, you could get positive results for a non-sensical or off-topic query.
+The search engine returns `k` number of matches, as long as there are enough documents in the index. If you're familiar with full text search, you know to expect zero results if the index doesn't contain a term or phrase. However, in vector search, similarity is relative to the input query vector, not absolute. It's possible to get positive results for a nonsensical or off-topic query. Less relevant results have a worse similarity score, but they're still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low. A [hybrid approach](hybrid-search-overview.md) that includes full text search can mitigate this problem.
 
-  `k` number of matches are returned as long as there are enough documents in the index. This is because with vector search, similarity is relative to the input query vector, not absolute. Less relevant results have a worse similarity score, but they are still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low.
-
-In a typical application, the input value within a query request would be fed into the same machine learning model that generated the embedding space for the vector index. This model would output a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the nearest vectors and returning the associated documents as the search result.
-
-For example, if a query request is about dogs, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about dogs. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
-
-### Similarity metrics used to measure nearness
+## Similarity metrics used to measure nearness
 
 A similarity metric measures the distance between neighboring vectors. Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are summarized in the following table.
 
