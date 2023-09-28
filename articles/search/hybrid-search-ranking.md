@@ -66,6 +66,5 @@ You can use `top`, `skip`, and `next` for paginated results. Paging results is h
 
 ## See also
 
-+ [How to create a hybrid query](hybrid-search-how-to-query.md)
 + [Learn more about hybrid search](hybrid-search-overview.md)
 + [Learn more about vector search](vector-search-overview.md)

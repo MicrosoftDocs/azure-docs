@@ -46,7 +46,7 @@ All results are returned in plain text, including vectors. If you use Search Exp
 
 If you aren't sure whether your search index already has vector fields, look for:
 
-+ A `vectorSearch` algorithm configuration embedded in the index schema.
++ A non-empty `vectorSearch` property containing algorithms and other vector-related configurations embedded in the index schema.
 
 + In the fields collection, look for fields of type `Collection(Edm.Single)`, with a `dimensions` attribute and a `vectorSearchConfiguration` set to the name of the `vectorSearch` algorithm configuration used by the field.
 
@@ -54,7 +54,7 @@ You can also send an empty query (`search=*`) against the index. If the vector f
 
 ## Convert query input into a vector
 
-To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library that provides this capability. Use the same embedding library that you used to generate embeddings in the source documents.
+To query a vector field, the query itself must be a vector. To convert a text query string provided by a user into a vector representation, your application must call an embedding library or API endpoint that provides this capability. **Use the same embedding that you used to generate embeddings in the source documents.**
 
 You can find multiple instances of query string conversion in the [cognitive-search-vector-pr](https://github.com/Azure/cognitive-search-vector-pr/) repository for each of the Azure SDKs.
 

@@ -123,7 +123,7 @@ A response from the above query might look like this:
 
 ## Benefits
 
-Hybrid search combines the strengths of similarity search and keyword search. The advantage of similarity search is finding information that's similar to your search query, even if the search terms don't match up perfectly to the indexed content. The advantage of full text search is precision, and the ability to apply semantic ranking that improves the quality of the initial results.
+Hybrid search combines the strengths of vector search and keyword search. The advantage of vector search is finding information that's similar to your search query, even if the search terms don't match up perfectly to the indexed content. The advantage of keyword or full text search is precision, and the ability to apply semantic ranking that improves the quality of the initial results.
 
 Benchmark testing on real-world and benchmark datasets indicates that hybrid retrieval with semantic ranking offers significant benefits in search relevance.
 
