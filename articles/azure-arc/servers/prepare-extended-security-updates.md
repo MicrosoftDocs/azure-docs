@@ -51,6 +51,9 @@ Connectivity options include public endpoint, proxy server, and private link or 
 
 [!INCLUDE [esu-network-requirements](./includes/esu-network-requirements.md)]
 
+> [!TIP]
+> To take advantage of the full range of offerings for Arc-enabled servers, such as extensions and remote connectivity, ensure that you allow the additional URLs that apply to your scenario. For more information, see [Connected machine agent networking requirements](network-requirements.md).
+
 ## Next steps
 
 * Find out more about [planning for Windows Server and SQL Server end of support](https://www.microsoft.com/en-us/windows-server/extended-security-updates) and [getting Extended Security Updates](/windows-server/get-started/extended-security-updates-deploy).
