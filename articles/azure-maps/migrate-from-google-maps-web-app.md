@@ -31,7 +31,7 @@ Also:
 > * Best practices to improve performance and user experience.
 > * Tips on how to make your application using more advanced features available in Azure Maps.
 
-If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. If so, use the [Get Map Tile] API. The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
+If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps [Render] services ([road tiles] | [satellite tiles]). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
 * Cesium - A 3D map control for the web. [Cesium documentation].
 * Leaflet – Lightweight 2D map control for the web. [Leaflet code sample] \| [Leaflet documentation].
@@ -52,7 +52,7 @@ If you don't have an Azure subscription, create a [free account] before you begi
 * A [subscription key]
 
 > [!NOTE]
-> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
+> For more information on authentication in Azure Maps, see [Manage authentication in Azure Maps].
 
 ## Key features support
 
@@ -81,7 +81,7 @@ The following are some key differences between the Google Maps and Azure Maps We
 * You first need to create an instance of the Map class in Azure Maps. Wait for the maps `ready` or `load` event to fire before programmatically interacting with the map. This order ensures that all the map resources have been loaded and are ready to be accessed.
 * Both platforms use a similar tiling system for the base maps. The tiles in Google Maps are 256 pixels in dimension; however, the tiles in Azure Maps are 512 pixels in dimension. To get the same map view in Azure Maps as Google Maps, subtract Google Maps zoom level by the number one in Azure Maps.
 * Coordinates in Google Maps are referred to as `latitude,longitude`, while Azure Maps uses `longitude,latitude`. The Azure Maps format is aligned with the standard `[x, y]`, which is followed by most GIS platforms.
-* Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [*atlas.data* namespace]. There's also the [*atlas.Shape*] class. Use this class to wrap GeoJSON objects, to make it easy to update and maintain the data bindable way.
+* Shapes in the Azure Maps Web SDK are based on the GeoJSON schema. Helper classes are exposed through the [atlas.data] namespace. There's also the [atlas.Shape] class. Use this class to wrap GeoJSON objects, to make it easy to update and maintain the data bindable way.
 * Coordinates in Azure Maps are defined as Position objects. A coordinate is specified as a number array in the format `[longitude,latitude]`. Or, it's specified using new atlas.data.Position(longitude, latitude).
     > [!TIP]
     > The Position class has a static helper method for importing coordinates that are in "latitude, longitude" format. The [atlas.data.Position.fromLatLng] method can often be replaced with the `new google.maps.LatLng` method in Google Maps code.
@@ -1735,8 +1735,8 @@ Learn more about migrating to Azure Maps:
 > [!div class="nextstepaction"]
 > [Migrate a web service]
 
-[*atlas.data* namespace]: /javascript/api/azure-maps-control/atlas.data
-[*atlas.Shape*]: /javascript/api/azure-maps-control/atlas.shape
+[atlas.data]: /javascript/api/azure-maps-control/atlas.data
+[atlas.Shape]: /javascript/api/azure-maps-control/atlas.shape
 [`atlas.layer.ImageLayer.getCoordinatesFromEdges`]: /javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-
 [Add a Bubble layer]: map-add-bubble-layer.md
 [Add a circle to the map]: map-add-shape.md#add-a-circle-to-the-map
@@ -1830,7 +1830,7 @@ Learn more about migrating to Azure Maps:
 [Load a map]: #load-a-map
 [Localization support in Azure Maps]: supported-languages.md
 [Localizing the map]: #localizing-the-map
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Marker clustering]: #marker-clustering
 [Migrate a web service]: migrate-from-google-maps-web-services.md
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
@@ -1843,8 +1843,10 @@ Learn more about migrating to Azure Maps:
 [Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
+[Render]:  /rest/api/maps/render-v2
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[road tiles]: /rest/api/maps/render-v2/get-map-tile
+[satellite tiles]: /rest/api/maps/render-v2/get-map-static-image
 [Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
 [Search for points of interest]: map-search-location.md
 [Setting the map view]: #setting-the-map-view

@@ -66,7 +66,7 @@ If you don't have an Azure subscription, create a [free account] before you begi
 * A [subscription key]
 
 > [!NOTE]
-> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
+> For more information on authentication in Azure Maps, see [Manage authentication in Azure Maps].
 
 ## Geocoding addresses
 
@@ -520,7 +520,7 @@ Learn more about Azure Maps REST services:
 [Get Timezone Windows To IANA]: /rest/api/maps/timezone/get-timezone-windows-to-iana
 [GitHub project]: https://github.com/perfahlen/AzureMapsRestServices
 [Localization support in Azure Maps]: supported-languages.md
-[manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [npm package]: https://www.npmjs.com/package/azure-maps-rest
 [NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit
 [Post Route Directions Batch]: /rest/api/maps/route/post-route-directions-batch
