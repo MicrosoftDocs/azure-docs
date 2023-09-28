@@ -27,7 +27,7 @@ This article shows you how to add IPv6 addresses to an application that is using
 
 ## Create IPv6 addresses
 
-Create public IPv6 address with with [az network public-ip create](/cli/azure/network/public-ip) for your Standard Load Balancer. The following example creates an IPv6 public IP address named *PublicIP_v6* in the *myResourceGroupSLB* resource group:
+Create public IPv6 address with [az network public-ip create](/cli/azure/network/public-ip) for your Standard Load Balancer. The following example creates an IPv6 public IP address named *PublicIP_v6* in the *myResourceGroupSLB* resource group:
 
 ```azurecli-interactive
 az network public-ip create \
