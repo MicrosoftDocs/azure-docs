@@ -5,8 +5,7 @@ description: Apply advanced language models to variety of use cases with Azure O
 manager: nitinme
 author: mrbullwinkle    
 ms.author: mbullwin
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: overview
 ms.date: 09/15/2023
 ms.custom: event-tier1-build-2022, build-2023, build-2023-dataai

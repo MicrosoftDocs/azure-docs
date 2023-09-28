@@ -2,14 +2,14 @@
 title: Extend API-driven provisioning to sync custom attributes
 description: Learn how to extend API-driven inbound provisioning to sync custom attributes.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2023
-ms.author: jfields
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -28,20 +28,21 @@ You have configured API-driven provisioning app. You're provisioning app is succ
 
 In this step, we'll add the two attributes "HireDate" and "JobCode" that are not part of the standard SCIM schema to the provisioning app and use them in the provisioning data flow.
 
-1. Log in to your [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
-1. Browse to **Enterprise applications** and open your API-driven provisioning app. 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Open your API-driven provisioning app. 
 1. Open the **Provisioning** blade. 
 1. Click on the **Edit Provisioning** button. 
 1. Expand the **Mappings** section and click on the attribute mapping link. <br>
-    :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/edit-attribute-mapping.png" alt-text="Screenshot of edit attribute mapping." lightbox="./media/inbound-provisioning-api-custom-attributes/edit-attribute-mapping.png":::
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/edit-attribute-mapping.png" alt-text="Screenshot of edit attribute mapping." lightbox="./media/inbound-provisioning-api-custom-attributes/edit-attribute-mapping.png":::
 1. Scroll down the **Attribute Mappings** page. Select **Show advanced options** and click on the **Edit attribute list for API** link.
-    :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/edit-api-attribute-list.png" alt-text="Screenshot of edit API attribute list." lightbox="./media/inbound-provisioning-api-custom-attributes/edit-api-attribute-list.png":::
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/edit-api-attribute-list.png" alt-text="Screenshot of edit API attribute list." lightbox="./media/inbound-provisioning-api-custom-attributes/edit-api-attribute-list.png":::
 1. Scroll down to the end of the **Edit Attribute List** page.
 1. Add the following two attributes to the list as SCIM schema extensions. You can use your own SCIM schema namespace. <br>
    `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:HireDate` <br>
    `urn:ietf:params:scim:schemas:extension:contoso:1.0:User:JobCode` <br>
-    :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/add-custom-attributes.png" alt-text="Screenshot of adding custom attributes." lightbox="./media/inbound-provisioning-api-custom-attributes/add-custom-attributes.png":::
-1.  **Save** your changes
+   :::image type="content" border="true" source="./media/inbound-provisioning-api-custom-attributes/add-custom-attributes.png" alt-text="Screenshot of adding custom attributes." lightbox="./media/inbound-provisioning-api-custom-attributes/add-custom-attributes.png":::
+1. **Save** your changes
 
 > [!NOTE]
 > If you'd like to add only a few additional attributes to the provisioning app, use Microsoft Entra admin center to extend the schema. If you'd like to add more custom attributes (let's say 20+ attributes), then we recommend using the [`UpdateSchema` mode of the CSV2SCIM PowerShell script](inbound-provisioning-api-powershell.md#extending-provisioning-job-schema) which automates the above manual process.

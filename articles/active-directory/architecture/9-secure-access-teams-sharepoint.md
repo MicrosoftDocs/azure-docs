@@ -33,15 +33,15 @@ Sharing in Microsoft 365 is partially governed by the **External Identities, Ext
 
 Learn more:
 
-* [Azure portal](https://portal.azure.com/)
+* [Microsoft Entra admin center](https://entra.microsoft.com)
 * [External Identities in Microsoft Entra ID](../external-identities/external-identities-overview.md)
 
 ### Guest user access
 
 Guest users are invited to have access to resources. 
 
-1. Sign in to the **Azure portal**
-1. Browse to **Microsoft Entra ID** > **External Identities** > **External collaboration settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **External Identities** > **External collaboration settings**.
 1. Find the **Guest user access** options. 
 1. To prevent guest-user access to other guest-user details, and to prevent enumeration of group membership, select **Guest users have limited access to properties and memberships of directory objects**.
 

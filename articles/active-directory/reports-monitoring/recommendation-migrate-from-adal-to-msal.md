@@ -1,6 +1,6 @@
 ---
 title: Migrate from ADAL to MSAL recommendation
-description: Learn why you should migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries.
+description: Learn why you should migrate from the Azure Active Directory Authentication Library to the Microsoft Authentication Libraries.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -13,7 +13,7 @@ ms.author: sarahlipsey
 ms.reviewer: jamesmantu
 ---
 
-# Microsoft Entra recommendation: Migrate from the Azure Active Directory Library to the Microsoft Authentication Libraries
+# Microsoft Entra recommendation: Migrate from the Azure Active Directory Authentication Library to the Microsoft Authentication Libraries
 
 [Microsoft Entra recommendations](overview-recommendations.md) is a feature that provides you with personalized insights and actionable guidance to align your tenant with recommended best practices.
 

@@ -5,8 +5,7 @@ description: This article will show you how to choose which recognition model to
 services: cognitive-services
 author: longli0
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: longl

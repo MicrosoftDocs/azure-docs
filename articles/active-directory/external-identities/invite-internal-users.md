@@ -73,7 +73,7 @@ You can use the Microsoft Entra admin center, PowerShell, or the invitation API 
 
 ## Use PowerShell to send a B2B invitation
 
-You'll need Azure AD PowerShell module version 2.0.2.130 or later. Use the following command to update to the latest AzureAD PowerShell module and invite the internal user to B2B collaboration:
+You'll need Azure AD PowerShell module version 2.0.2.130 or later. Use the following command to update to the latest module and invite the internal user to B2B collaboration:
 
 ```powershell
 Uninstall-Module AzureAD

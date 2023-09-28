@@ -40,9 +40,9 @@ For the application that the administrator added to their tenant, they want to s
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
 1. Browse to **Identity** > **Applications** > **Enterprise applications**.
-4. Select the application to which you want to grant tenant-wide admin consent.
-5. Under **Security**, select **Permissions**.
-6. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
+1. Select the application to which you want to grant tenant-wide admin consent.
+1. Under **Security**, select **Permissions**.
+1. Carefully review the permissions that the application requires. If you agree with the permissions the application requires, select **Grant admin consent**.
 
 ## Create a Conditional Access policy
 
