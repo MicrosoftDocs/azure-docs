@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 09/08/2023
 ---
 
-# Subscribe to events raised by Azure Resource Notifications - Health Resources
+# Subscribe to events raised by Azure Resource Notifications - Health Resources system topic
 This article explains the steps needed to subscribe to events published by Azure Resource Notifications - Health Resources. For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).
 
 ## Create Health Resources system topic
@@ -36,7 +36,7 @@ This article explains the steps needed to subscribe to events published by Azure
     ```
 
 # [Azure portal](#tab/azure-portal)
-Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
+
 
 ---
 
@@ -98,12 +98,12 @@ Currently, you can't create a system topic for the Azure Resource Notifications 
 7. Enter a name for the event subscription. 
 8. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
 
-    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/event-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page.":::
+    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/event-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page." lightbox="./media/subscribe-to-resource-notifications-health-resources-events/event-subscription.png":::
 9. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
     1. Select **Enable subject filtering**. 
     1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`
 
-        :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/filter.png" alt-text="Screenshot that shows the Filters tab of the Create Event Subscription page.":::
+        :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/filter.png" alt-text="Screenshot that shows the Filters tab of the Create Event Subscription page." lightbox="./media/subscribe-to-resource-notifications-health-resources-events/filter.png":::
 
 ---
 
