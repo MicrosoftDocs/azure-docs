@@ -6,11 +6,11 @@ ms.date: 09/27/2023
 ms.author: xiaofanzhou
 ---
 
-## Install the Service Connector passwordless extension
+## 1. Install the Service Connector passwordless extension
 
 [!INCLUDE [CLI-samples-clean-up](./install-passwordless-extension.md)]
 
-## Create a passwordless connection
+## 2. Create a passwordless connection
 
 Next, create a passwordless connection with Service Connector.
 
@@ -158,7 +158,7 @@ This Service Connector command completes the following tasks in the background:
 
 If you encounter any problem when creating a connection, refer to [Troubleshooting](../tutorial-passwordless.md#troubleshooting) for help.
 
-## Connect to database with Azure Active Directory authentication
+## 3. Modify your code
 
 In this section, connectivity to the Azure database in your code follows the `DefaultAzureCredential` pattern for all language stacks. The pattern is as follows:
 
