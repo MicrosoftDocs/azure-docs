@@ -1038,10 +1038,23 @@
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/edge/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-docs/cloud/*.md": "azure-video-analyzer",
-        "articles/azure-video-indexer/*.md": "azure-video-indexer"
+        "articles/azure-video-indexer/*.md": "azure-video-indexer",
+        "articles/ai-services/face/**/*.md": "azure-ai-vision",
+        "articles/ai-services/translator/**/*.md": "azure-ai-translator",
+        "articles/ai-services/personalizer/**/*.md": "azure-ai-personalizer",
+        "articles/ai-services/computer-vision/**/*.md": "azure-ai-vision",
+        "articles/ai-services/content-moderator/**/*.md": "azure-ai-content-moderator",
+        "articles/ai-services/language-service/**/*.md": "azure-ai-language",
+        "articles/ai-services/anomaly-detector/**/*.md": "azure-ai-anomaly-detector",
+        "articles/ai-services/custom-vision-service/**/*.md": "azure-ai-custom-vision",
+        "articles/ai-services/lus/**/*.md": "azure-ai-language"
       },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova"
+      },
+      "search.appverid": {
+        "articles/sentinel/**/*.md": "met150",
+        "articles/sentinel/**/*yml": "met150"
       },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
@@ -1084,20 +1097,9 @@
         "articles/cognitive-services/Bing-Video-Search/**/*.md": "bing-video-search",
         "articles/cognitive-services/Bing-visual-search/**/*.md": "bing-visual-search",
         "articles/cognitive-services/Bing-Web-Search/**/*.md": "bing-web-search",
-        "articles/ai-services/anomaly-detector/**/*.md": "anomaly-detector",
-        "articles/ai-services/computer-vision/**/*.md": "computer-vision",
-        "articles/ai-services/content-moderator/**/*.md": "content-moderator",
-        "articles/ai-services/custom-vision-service/**/*.md": "custom-vision",
-        "articles/ai-services/face/**/*.md": "face-api",
-        "articles/ai-services/document-intelligence/**/*.md": "forms-recognizer",
-        "articles/ai-services/immersive-reader/**/*.md": "immersive-reader",
+        "articles/ai-services/face/**/*.md": "azure-ai-face",
         "articles/ai-services/ink-recognizer/**/*.md": "ink-recognizer",
-        "articles/ai-services/lus/**/*.md": "language-understanding",
-        "articles/ai-services/metrics-advisor/**/*.md": "metrics-advisor",
-        "articles/ai-services/personalizer/**/*.md": "personalizer",
-        "articles/ai-services/qnamaker/**/*.md": "qna-maker",
-        "articles/ai-services/language-service/**/*.md": "language-service",
-        "articles/ai-services/translator/**/*.md": "translator-text",
+        "articles/ai-services/lus/**/*.md": "azure-ai-luis",
         "articles/media-services/azure-media-player/*.md": "media-player",
         "articles/media-services/latest/*.md": "rest-v3",
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",

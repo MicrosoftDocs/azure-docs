@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The [What If tool](what-if-tool.md) in Conditional Access is powerful when trying to understand why a policy was or wasn't applied to a user in a specific circumstance or if a policy would apply in a known state.
 
-The What If tool is located in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **What If**.
+The What If tool is located in the **Microsoft Entra admin center** > **Protection** > **Conditional Access** > **Policies** > **What If**.
 
 ![Conditional Access What If tool at default state](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
@@ -27,7 +27,7 @@ The What If tool is located in the **Azure portal** > **Azure Active Directory**
 
 The What If tool requires only a **User** or **Workload identity** to get started. 
 
-The following additional information is optional but will help to narrow the scope for specific cases.
+The following additional information is optional but helps narrow the scope for specific cases.
 
 * Cloud apps, actions, or authentication context
 * IP address 
@@ -40,7 +40,7 @@ The following additional information is optional but will help to narrow the sco
 * Service principal risk (Preview)
 * Filter for devices
 
-This information can be gathered from the user, their device, or the Azure AD sign-ins log.
+This information can be gathered from the user, their device, or the Microsoft Entra sign-ins log.
 
 ## Generating results
 
@@ -52,15 +52,15 @@ At any point, you can select **Reset** to clear any criteria input and return to
 
 ### Policies that will apply
 
-This list will show which Conditional Access policies would apply given the conditions. The list will include both the grant and session controls that apply including those from policies in report-only mode. Examples include requiring multifactor authentication to access a specific application. 
+This list shows which Conditional Access policies would apply given the conditions. The list includes both the grant and session controls that apply including policies in report-only mode. Examples include requiring multifactor authentication to access a specific application. 
 
-### Policies that will not apply
+### Policies that won't apply
 
-This list will show Conditional Access policies that wouldn't apply if the conditions applied. The list will include any policies and the reason why they don't apply including those from policies in report-only mode. Examples include users and groups that may be excluded from a policy.
+This list shows Conditional Access policies that wouldn't apply if the conditions applied. The list includes any policies and the reason why they don't apply including policies in report-only mode. Examples include users and groups that may be excluded from a policy.
 
 ## Use case
 
-Many organizations create policies based on network locations, permitting trusted locations and blocking locations where access should not occur.
+Many organizations create policies based on network locations, permitting trusted locations and blocking locations where access shouldn't occur.
 
 To validate that a configuration has been made appropriately, an administrator could use the What If tool to mimic access, from a location that should be allowed and from a location that should be denied.
 
@@ -73,6 +73,6 @@ This test could be expanded to incorporate other data points to narrow the scope
 ## Next steps
 
 * [What is Conditional Access report-only mode?](concept-conditional-access-report-only.md)
-* [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)
+* [What is Microsoft Entra ID Protection?](../identity-protection/overview-identity-protection.md)
 * [What is a device identity?](../devices/overview.md)
-* [How it works: Azure AD Multifactor Authentication](../authentication/concept-mfa-howitworks.md)
+* [How it works: Microsoft Entra multifactor authentication](../authentication/concept-mfa-howitworks.md)

@@ -1,6 +1,6 @@
 ---
 title: Manage emergency access admin accounts 
-description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
+description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Microsoft Entra organization. 
 services: active-directory 
 author: markwahl-msft
 manager: amycolannino
@@ -15,21 +15,21 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Manage emergency access accounts in Azure AD
+# Manage emergency access accounts in Microsoft Entra ID
 
-It is important that you prevent being accidentally locked out of your Azure Active Directory (Azure AD) organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
+It is important that you prevent being accidentally locked out of your Microsoft Entra organization because you can't sign in or activate another user's account as an administrator. You can mitigate the impact of accidental lack of administrative access by creating two or more *emergency access accounts* in your organization.
 
 Emergency access accounts are highly privileged, and they are not assigned to specific individuals. Emergency access accounts are limited to emergency or "break glass"' scenarios where normal administrative accounts can't be used. We recommend that you maintain a goal of restricting emergency account use to only the times when it is absolutely necessary.
 
-This article provides guidelines for managing emergency access accounts in Azure AD.
+This article provides guidelines for managing emergency access accounts in Microsoft Entra ID.
 
 ## Why use an emergency access account
 
 An organization might need to use an emergency access account in the following situations:
 
-- The user accounts are federated, and federation is currently unavailable because of a cell-network break or an identity-provider outage. For example, if the identity provider host in your environment has gone down, users might be unable to sign in when Azure AD redirects to their identity provider.
-- The administrators are registered through Azure AD Multi-Factor Authentication, and all their individual devices are unavailable or the service is unavailable. Users might be unable to complete Multi-Factor Authentication to activate a role. For example, a cell network outage is preventing them from answering phone calls or receiving text messages, the only two authentication mechanisms that they registered for their device.
-- The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it does not prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
+- The user accounts are federated, and federation is currently unavailable because of a cell-network break or an identity-provider outage. For example, if the identity provider host in your environment has gone down, users might be unable to sign in when Microsoft Entra ID redirects to their identity provider.
+- The administrators are registered through Microsoft Entra multifactor authentication, and all their individual devices are unavailable or the service is unavailable. Users might be unable to complete multifactor authentication to activate a role. For example, a cell network outage is preventing them from answering phone calls or receiving text messages, the only two authentication mechanisms that they registered for their device.
+- The person with the most recent Global Administrator access has left the organization. Microsoft Entra ID prevents the last Global Administrator account from being deleted, but it does not prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 - Unforeseen circumstances such as a natural disaster emergency, during which a mobile phone or other networks might be unavailable. 
 
 ## Create emergency access accounts
@@ -56,7 +56,7 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 1. Under **Usage location**, select the appropriate location.
 
-    :::image type="content" source="./media/security-emergency-access/create-emergency-access-account-azure-ad.png" alt-text="Creating an emergency access account in Azure AD." lightbox="./media/security-emergency-access/create-emergency-access-account-azure-ad.png":::
+    :::image type="content" source="./media/security-emergency-access/create-emergency-access-account-azure-ad.png" alt-text="Creating an emergency access account in Microsoft Entra ID." lightbox="./media/security-emergency-access/create-emergency-access-account-azure-ad.png":::
 
 1. Select **Create**.
 
@@ -68,16 +68,18 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 When configuring these accounts, the following requirements must be met:
 
-- The emergency access accounts should not be associated with any individual user in the organization. Make sure that your accounts are not connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD.
+- The emergency access accounts should not be associated with any individual user in the organization. Make sure that your accounts are not connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Microsoft Entra ID.
 - Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts. Consider the [dependencies of various authentication methods](../architecture/resilience-in-credentials.md), to avoid adding external requirements into the authentication process.
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.  
-- In Azure AD Privileged Identity Management, you should make the Global Administrator role assignment permanent rather than eligible for your emergency access accounts. 
+- In Microsoft Entra Privileged Identity Management, you should make the Global Administrator role assignment permanent rather than eligible for your emergency access accounts. 
 
-### Exclude at least one account from phone-based multi-factor authentication
+<a name='exclude-at-least-one-account-from-phone-based-multi-factor-authentication'></a>
 
-To reduce the risk of an attack resulting from a compromised password, Azure AD recommends that you require multi-factor authentication for all individual users. This group includes administrators and all others (for example, financial officers) whose compromised account would have a significant impact.
+### Exclude at least one account from phone-based multifactor authentication
 
-However, at least one of your emergency access accounts should not have the same multi-factor authentication mechanism as your other non-emergency accounts. This includes third-party multi-factor authentication solutions. If you have a Conditional Access policy to require [multi-factor authentication for every administrator](../authentication/howto-mfa-userstates.md) for Azure AD and other connected software as a service (SaaS) apps, you should exclude emergency access accounts from this requirement, and configure a different mechanism instead. Additionally, you should make sure the accounts do not have a per-user multi-factor authentication policy.
+To reduce the risk of an attack resulting from a compromised password, Microsoft Entra ID recommends that you require multifactor authentication for all individual users. This group includes administrators and all others (for example, financial officers) whose compromised account would have a significant impact.
+
+However, at least one of your emergency access accounts should not have the same multifactor authentication mechanism as your other non-emergency accounts. This includes third-party multifactor authentication solutions. If you have a Conditional Access policy to require [multifactor authentication for every administrator](../authentication/howto-mfa-userstates.md) for Microsoft Entra ID and other connected software as a service (SaaS) apps, you should exclude emergency access accounts from this requirement, and configure a different mechanism instead. Additionally, you should make sure the accounts do not have a per-user multifactor authentication policy.
 
 ### Exclude at least one account from Conditional Access policies
 
@@ -85,11 +87,11 @@ During an emergency, you do not want a policy to potentially block your access t
 
 ## Federation guidance
 
-Some organizations use AD Domain Services and AD FS or similar identity provider to federate to Azure AD. The emergency access for on-premises systems and the emergency access for cloud services should be kept distinct, with no dependency of one on the other. Mastering and or sourcing authentication for accounts with emergency access privileges from other systems adds unnecessary risk in the event of an outage of those system(s).
+Some organizations use AD Domain Services and AD FS or similar identity provider to federate to Microsoft Entra ID. The emergency access for on-premises systems and the emergency access for cloud services should be kept distinct, with no dependency of one on the other. Mastering and or sourcing authentication for accounts with emergency access privileges from other systems adds unnecessary risk in the event of an outage of those system(s).
 
 ## Store account credentials safely
 
-Organizations need to ensure that the credentials for emergency access accounts are kept secure and known only to individuals who are authorized to use them. Some customers use a smartcard for Windows Server AD, a [FIDO2 security key](../authentication/howto-authentication-passwordless-security-key.md) for Azure AD and others use passwords. A password for an emergency access account is usually separated into two or three parts, written on separate pieces of paper, and stored in secure, fireproof safes that are in secure, separate locations.
+Organizations need to ensure that the credentials for emergency access accounts are kept secure and known only to individuals who are authorized to use them. Some customers use a smartcard for Windows Server AD, a [FIDO2 security key](../authentication/howto-authentication-passwordless-security-key.md) for Microsoft Entra ID and others use passwords. A password for an emergency access account is usually separated into two or three parts, written on separate pieces of paper, and stored in secure, fireproof safes that are in secure, separate locations.
 
 If using passwords, make sure the accounts have strong passwords that do not expire. Ideally, the passwords should be at least 16 characters long and randomly generated.
 
@@ -99,7 +101,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Prerequisites
 
-1. [Send Azure AD sign-in logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to Azure Monitor.
+1. [Send Microsoft Entra sign-in logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to Azure Monitor.
 
 ### Obtain Object IDs of the break glass accounts
 
@@ -210,20 +212,20 @@ When you train staff members to use emergency access accounts and validate the e
 - Ensure that the emergency break glass process to use these accounts is documented and current.
 - Ensure that administrators and security officers who might need to perform these steps during an emergency are trained on the process.
 - Update the account credentials, in particular any passwords, for your emergency access accounts, and then validate that the emergency access accounts can sign-in and perform administrative tasks.
-- Ensure that users have not registered Multi-Factor Authentication or self-service password reset (SSPR) to any individual user’s device or personal details. 
-- If the accounts are registered for Multi-Factor Authentication to a device, for use during sign-in or role activation, ensure that the device is accessible to all administrators who might need to use it during an emergency. Also verify that the device can communicate through at least two network paths that do not share a common failure mode. For example, the device can communicate to the internet through both a facility's wireless network and a cell provider network.
+- Ensure that users have not registered multifactor authentication or self-service password reset (SSPR) to any individual user’s device or personal details. 
+- If the accounts are registered for multifactor authentication to a device, for use during sign-in or role activation, ensure that the device is accessible to all administrators who might need to use it during an emergency. Also verify that the device can communicate through at least two network paths that do not share a common failure mode. For example, the device can communicate to the internet through both a facility's wireless network and a cell provider network.
 
 These steps should be performed at regular intervals and for key changes:
 
 - At least every 90 days
 - When there has been a recent change in IT staff, such as a job change, a departure, or a new hire
-- When the Azure AD subscriptions in the organization have changed
+- When the Microsoft Entra subscriptions in the organization have changed
 
 ## Next steps
 
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](security-planning.md)
-- [Add users using Azure AD](../fundamentals/add-users.md) and [assign the new user to the Global Administrator role](../fundamentals/how-subscriptions-associated-directory.md)
-- [Sign up for Azure AD Premium](../fundamentals/get-started-premium.md), if you haven’t signed up already
+- [Securing privileged access for hybrid and cloud deployments in Microsoft Entra ID](security-planning.md)
+- [Add users using Microsoft Entra ID](../fundamentals/add-users.md) and [assign the new user to the Global Administrator role](../fundamentals/how-subscriptions-associated-directory.md)
+- [Sign up for Microsoft Entra ID P1 or P2](../fundamentals/get-started-premium.md), if you haven’t signed up already
 - [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md)
 - [Configure additional protections for Global Administrators in Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), if you are using Microsoft 365
 - [Start an access review of Global Administrators](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)

@@ -1,6 +1,6 @@
 ---
 title: B2B collaboration code and PowerShell samples
-description: Code and PowerShell samples for Azure Active Directory B2B collaboration
+description: Code and PowerShell samples for Microsoft Entra B2B collaboration
 
 services: active-directory
 ms.service: active-directory
@@ -16,7 +16,7 @@ ms.collection: engagement-fy23, M365-identity-device-management
 # Customer intent: As a tenant administrator, I want to bulk-invite external users to an organization from email addresses that I've stored in a .csv file.
 ---
 
-# Azure Active Directory B2B collaboration code and PowerShell samples
+# Microsoft Entra B2B collaboration code and PowerShell samples
 
 ## PowerShell example
 

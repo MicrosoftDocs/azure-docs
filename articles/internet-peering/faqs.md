@@ -1,13 +1,12 @@
 ---
 title: Internet peering - FAQ
-description: Internet peering frequently asked questions (FAQ)
+description: This article provides answers to some of the frequently asked questions asked about Internet peering.
 services: internet-peering
 author: halkazwini
-ms.service: internet-peering
-ms.topic: conceptual
-ms.date: 06/20/2023
 ms.author: halkazwini
-ms.custom: engagement-fy23, template-concept
+ms.service: internet-peering
+ms.topic: faq
+ms.date: 09/20/2023
 ---
 
 # Internet peering frequently asked questions (FAQ)
@@ -33,6 +32,10 @@ Our automated process allocates IP addresses and sends the information via email
 ### What Microsoft routes will be advertised over Peering Service connections?
 
 Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This will ensure not only communications, but other cloud services are accessible from the same connection.
+
+### Can I move Internet peering resources across resource groups or subscriptions?
+
+For a list of resources that can be moved, see [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md#microsoftpeering).
 
 ## Peering Service
 

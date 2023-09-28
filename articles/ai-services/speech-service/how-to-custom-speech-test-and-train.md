@@ -5,8 +5,7 @@ description: Learn about types of training and testing data for a Custom Speech 
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/24/2022
 ms.author: eur

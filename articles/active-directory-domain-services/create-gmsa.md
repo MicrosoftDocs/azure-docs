@@ -1,6 +1,6 @@
 ---
-title: Group managed service accounts for Azure AD Domain Services | Microsoft Docs
-description: Learn how to create a group managed service account (gMSA) for use with Azure Active Directory Domain Services managed domains
+title: Group managed service accounts for Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to create a group managed service account (gMSA) for use with Microsoft Entra Domain Services managed domains
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/23/2023
 ms.author: justinha
 
 ---
-# Create a group managed service account (gMSA) in Azure Active Directory Domain Services
+# Create a group managed service account (gMSA) in Microsoft Entra Domain Services
 
 Applications and services often need an identity to authenticate themselves with other resources. For example, a web service may need to authenticate with a database service. If an application or service has multiple instances, such as a web server farm, manually creating and configuring the identities for those resources gets time consuming.
 
-Instead, a group managed service account (gMSA) can be created in the Azure Active Directory Domain Services (Azure AD DS) managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
+Instead, a group managed service account (gMSA) can be created in the Microsoft Entra Domain Services managed domain. The Windows OS automatically manages the credentials for a gMSA, which simplifies the management of large groups of resources.
 
 This article shows you how to create a gMSA in a managed domain using Azure PowerShell.
 
@@ -28,11 +28,11 @@ To complete this article, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Azure AD DS managed domain.
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
+    * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 
 ## Managed service accounts overview
@@ -43,7 +43,9 @@ A group managed service account (gMSA) provides the same management simplificati
 
 For more information, see [group managed service accounts (gMSA) overview][gmsa-overview].
 
-## Using service accounts in Azure AD DS
+<a name='using-service-accounts-in-azure-ad-ds'></a>
+
+## Using service accounts in Domain Services
 
 As managed domains are locked down and managed by Microsoft, there are some considerations when using service accounts:
 
@@ -51,12 +53,12 @@ As managed domains are locked down and managed by Microsoft, there are some cons
     * You can't create a service account in the built-in *AADDC Users* or *AADDC Computers* OUs.
     * Instead, [create a custom OU][create-custom-ou] in the managed domain and then create service accounts in that custom OU.
 * The Key Distribution Services (KDS) root key is pre-created.
-    * The KDS root key is used to generate and retrieve passwords for gMSAs. In Azure AD DS, the KDS root is created for you.
+    * The KDS root key is used to generate and retrieve passwords for gMSAs. In Domain Services, the KDS root is created for you.
     * You don't have privileges to create another, or view the default, KDS root key.
 
 ## Create a gMSA
 
-First, create a custom OU using the [New-ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet. For more information on creating and managing custom OUs, see [Custom OUs in Azure AD DS][create-custom-ou].
+First, create a custom OU using the [New-ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet. For more information on creating and managing custom OUs, see [Custom OUs in Domain Services][create-custom-ou].
 
 > [!TIP]
 > To complete these steps to create a gMSA, [use your management VM][tutorial-create-management-vm]. This management VM should already have the required AD PowerShell cmdlets and connection to the managed domain.
@@ -96,8 +98,8 @@ Applications and services can now be configured to use the gMSA as needed.
 For more information about gMSAs, see [Getting started with group managed service accounts][gmsa-start].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [create-custom-ou]: create-ou.md

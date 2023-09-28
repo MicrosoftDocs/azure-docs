@@ -117,7 +117,7 @@ Stratum information isn't automatically conveyed from the Azure host to the Linu
 
 By default, chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too large, chrony fails to fix the drift. To overcome this, the `makestep` parameter in **/etc/chrony.conf** can be changed to force a time sync if the drift exceeds the threshold specified.
 
- ```bash
+```bash
 makestep 1.0 -1
 ```
 
