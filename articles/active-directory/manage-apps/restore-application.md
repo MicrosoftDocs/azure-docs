@@ -173,11 +173,23 @@ To permanently delete a soft deleted enterprise application, run the following q
 DELETE https://graph.microsoft.com/v1.0/directory/deletedItems/{object-id}
 ```
 
+# [C#](#tab/csharp)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-directory-deleteditem-csharp-snippets.md)]
+
 # [JavaScript](#tab/javascript)
 [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-directory-deleteditem-javascript-snippets.md)]
 
 # [Java](#tab/java)
 [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-directory-deleteditem-java-snippets.md)]
+
+# [Go](#tab/go)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-directory-deleteditem-go-snippets.md)]
+
+# [PowerShell](#tab/powershell)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-directory-deleteditem-powershell-snippets.md)]
+
+# [PHP](#tab/php)
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-directory-deleteditem-php-snippets.md)]
 
 ---
 
