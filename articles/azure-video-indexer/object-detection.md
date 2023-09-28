@@ -57,6 +57,13 @@ detectedObjects: [
         adjustedEnd: "0:00:02.44",
         start: "0:00:00",
         end: "0:00:02.44"
+        },
+        {
+        confidence: 0.53,
+        adjustedStart: "0:03:00",
+        adjustedEnd: "0:00:03.55",
+        start: "0:03:00",
+        end: "0:00:03.55"
         }    
     ]
     },
@@ -75,22 +82,7 @@ detectedObjects: [
         end: "0:00:14.24"
         }    
     ]
-    },
-    id: 1,
-    type: "Car",
-    thumbnailId: "1c0b9fbb-6e05-42e3-96c1-abe2cd48t35",
-    displayName: "car",
-    wikiDataId: "Q1420",
-    instances: [
-        {
-        confidence: 0.468,
-        adjustedStart: "0:00:00",
-        adjustedEnd: "0:00:16.34",
-        start: "0:00:00",
-        end: "0:00:16.34"
-        }    
-    ]
-    },
+    }
 ]
 ```
 
