@@ -38,9 +38,9 @@ Object detection is included in the insights that are the result of an [Upload](
 
 ### Detected and tracked objects
 
-Detected and tracked objects appear under “detected Objects” in the downloaded *insights.json* file. Every time a unique object is detected, it's given an ID. That object is also tracked, meaning that the model watches for the detected object to return to the frame.  If it does, another instance is added to JSON that lists the same detected object ID with different start and end times and other information.
+Detected and tracked objects appear under “detected Objects” in the downloaded *insights.json* file. Every time a unique object is detected, it's given an ID. That object is also tracked, meaning that the model watches for the detected object to return to the frame.  If it does, another instance is added to the instances for the object with different start and end times.
 
-In this example, the first car was detected and given an ID of 1 since it was also the first object detected. Then, a different car was detected and that car was given the ID of 23 since it was the 23rd object detected. Later, the first car appeared again and another instance was added to the JSON. The resulting JSON is given in the following example:
+In this example, the first car was detected and given an ID of 1 since it was also the first object detected. Then, a different car was detected and that car was given the ID of 23 since it was the 23rd object detected. Later, the first car appeared again and another instance was added to the JSON. Here is the resulting JSON:
 
 ```json
 detectedObjects: [
