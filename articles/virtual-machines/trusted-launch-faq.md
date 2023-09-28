@@ -391,7 +391,7 @@ The virtual TPM AK public certificate provides users with visibility for informa
 Below is the package certificate, compromised of. p7b (full Certificate Authority) and .cer (intermediate CA), revealing the signing and certificate authority. Use certificate tooling to inspect and assess details of certificates.
 
 <details>
-<summary>Select to view the p7b content</summary>
+<summary>Select to view the .p7b content</summary>
 -----BEGIN CERTIFICATE-----
 MIIRKQYJKoZIhvcNAQcCoIIRGjCCERYCAQExADCCBbMGCSqGSIb3DQEHAaCCBaQE
 ggWgMIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0B
@@ -494,7 +494,7 @@ Thumbnail# cdb9bc34197a5355f652f1583fbd4e9a1d4801f0
 </details>
 
 <details>
-<summary>Select to view the json output for the full certificate authority</summary>
+<summary>Select to view the json content for the full certificate authority</summary>
 -----BEGIN CERTIFICATE-----
 MIIRKQYJKoZIhvcNAQcCoIIRGjCCERYCAQExADCCBbMGCSqGSIb3DQEHAaCCBaQE
 ggWgMIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0B
@@ -592,7 +592,7 @@ dmojU0k/9m3fjwOEQU6Bva15+rzZFFnWy4m1MQA=
 </details>
 
 <details>
-<summary>Select to view the intermediate CA</summary>
+<summary>Select to view the intermediate CA content</summary>
 "Global Virtual TPM CA - XX" (intermediate CA) [.cer], 
 -----BEGIN CERTIFICATE-----
 MIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0BAQwF
@@ -633,7 +633,7 @@ Valid Until = November 3rd, 2025
 </details>
 
 <details>
-<summary>Select to view the json output of the intermediate CA</summary>
+<summary>Select to view the json content of the intermediate CA</summary>
 -----BEGIN CERTIFICATE-----
 MIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0BAQwF
 ADBpMQswCQYDVQQGEwJVUzEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9u
