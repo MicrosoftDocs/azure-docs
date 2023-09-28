@@ -53,6 +53,12 @@ spotlightIdentifiers.add(new CommunicationUserIdentifier("<USER_ID>"));
 spotlightIdentifiers.add(new MicrosoftTeamsUserIdentifier("<USER_ID>"));
 spotlightCallFeature.StartSpotlight(spotlightIdentifiers);
 ```
+The following API can also be used to start the spotlight of participants
+```java
+CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
+MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>);
+spotlightCallFeature.StartSpotlight(acsUser, teamsUser);
+```
 
 ### Remove spotlight from participants
 Any pinned participant in the call or meeting can be unpinned. Only Microsoft 365 users who have an organizer, coorganizer or presenter role can unpin other participants. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing 
@@ -66,7 +72,12 @@ spotlightIdentifiers.add(new CommunicationUserIdentifier("<USER_ID>"));
 spotlightIdentifiers.add(new MicrosoftTeamsUserIdentifier("<USER_ID>"));
 spotlightCallFeature.StopSpotlight(spotlightIdentifiers);
 ```
-
+The following API can also be used to remove the spotlight of participants
+```java
+CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
+MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>);
+spotlightCallFeature.StopSpotlight(acsUser, teamsUser);
+```
 ### Remove all spotlights
 All pinned participants can be unpinned using this API. Only MicrosoftTeamsUserIdentifier users who have an organizer, coorganizer or presenter role can unpin all participants.
 ```java

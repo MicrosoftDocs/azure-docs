@@ -96,7 +96,7 @@ spotlightFeature = self.call!.feature(Features.spotlight)
 spotlightFeature!.delegate = self.SpotlightDelegate
 
 public class SpotlightDelegate: SpotlightCallFeatureDelegate {
-    public func SpotlightCallFeature(_ spotlightCallFeature: SpotlightCallFeature, spotlightChanged args: SpotlightChangedEventArgs) {
+    public func SpotlightCallFeature(_ spotlightCallFeature: SpotlightCallFeature, didChangeSpotlight args: SpotlightChangedEventArgs) {
         args.added.forEach { participant in
             print("Spotlight participant " + Utilities.toMri(participant.identifier) +  "is ON")
         }
