@@ -127,13 +127,6 @@ To restore the enterprise application, run the following query:
    ```http
    POST https://graph.microsoft.com/v1.0/directory/deletedItems/{id}/restore
    ```
-      
-   # [JavaScript](#tab/javascript)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/restore-directory-deleteditem-javascript-snippets.md)]
-   
-   # [Java](#tab/java)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/restore-directory-deleteditem-java-snippets.md)]
-      
    ---
 
 Replace ID with the object ID of the service principal that you want to restore.
