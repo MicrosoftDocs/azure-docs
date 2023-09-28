@@ -144,13 +144,11 @@ az eventgrid system-topic event-subscription create \
 	--advanced-filter data.resourceInfo.properties.category StringEndsWith Unplanned 
 ```
 
-
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName firstEventSubscription -ResourceGroupName sampletestrg -SystemtopicName arnSystemTopicHealth -IncludedEventType Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated -Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources  -EndpointType eventhub -AdvancedFilter @(@{operator = "StringEndsWith"; key = "data.resourceInfo.properties.context" ; value ="Platform Initiated"}, @{operator = "StringEndsWith"; key = "data.resourceInfo.properties.category" ; value ="Unplanned"})
 ```
-
 
 # [Azure portal](#tab/azure-portal)
 
@@ -202,8 +200,7 @@ Operator = String contains
 Value = Microsoft.Compute/virtualMachines
 ```
 
-
-
+---
 
 
 ## Next steps
