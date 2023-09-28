@@ -14,13 +14,13 @@ In this guide, we'll show you the steps needed to configure a Chaos Studio **Age
 
 ## Prerequisites
 - An Azure subscription
-- An existing Chaos Studio **Agent-based** Experiment [How to create and execute an Agent-based experiment](chaos-studio-tutorial-agent-based-portal.md)
-- An existing Log Analytics Workspace (required for Application Insights Resource as well) [How to Create a Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md)
-- An existing Application Insights Resource [How to Create an Application Insights Resource](../azure-monitor/app/create-workspace-resource.md)
-- A User-Assigned Managed Identity (Required for Agent-based Chaos Experiments) [How to create a User-Assigned Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
+- An existing Chaos Studio [**Agent-based** Experiment](chaos-studio-tutorial-agent-based-portal.md)
+- [Required for Application Insights Resource as well] An existing [Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md)
+- An existing [Application Insights Resource](../azure-monitor/app/create-workspace-resource.md)
+- [Required for Agent-based Chaos Experiments] A [User-Assigned Managed Identity] (../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
 
 ## Step 1: Copy the Instrumentation Key from your Application Insights Resource
-Once you have met all the prerequisite steps, copy the **Instrumentation Key** found in the overview page of your Application Insights Resource (see red arrow in screenshot)
+Once you have met all the prerequisite steps, copy the **Instrumentation Key** found in the overview page of your Application Insights Resource (see screenshot)
 
 <br/>
 
@@ -35,14 +35,14 @@ Navigate to the Chaos Studio overview page and click on the **Targets** blade un
 ![Screenshot that shows the Chaos Targets Page](images/Step2A_appins.png)
 
 ## Step 3: Add your Application Insights account and Instrumentation key
-Once you have clicked "Manage Actions" in Step 2, the resource configuration page seen in the screenshot should come up . After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once you have filled out the required information, you can click "Review+Create" to deploy your resource. 
+At this point, the resource configuration page seen in the screenshot should come up . After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once you have filled out the required information, you can click "Review+Create" to deploy your resource. 
 
 <br/>
 
 ![Screenshot of Targets Deployment Page](images/Step3A_appins.png)
 
 ## Step 4: Run the chaos experiment
-Once you have completed Step 3, your Chaos Target is now configured to emit telemetry to the App Insights Resource you configured! If you navigate to your specific Application Insights Resource and open the "Logs" blade under the "Monitoring" section, you should see the Agent health status and any actions the Agent is taking on your Target Platform. You can now run your experiment and see logging in your Application Insights Resource. See screenshot for example of App Insights Resource running successfully on an Agent-based Chaos Target platform. 
+At this point, your Chaos Target is now configured to emit telemetry to the App Insights Resource you configured! If you navigate to your specific Application Insights Resource and open the "Logs" blade under the "Monitoring" section, you should see the Agent health status and any actions the Agent is taking on your Target Platform. You can now run your experiment and see logging in your Application Insights Resource. See screenshot for example of App Insights Resource running successfully on an Agent-based Chaos Target platform. 
 
 <br/>
 
