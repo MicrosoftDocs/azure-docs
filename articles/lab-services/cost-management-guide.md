@@ -54,7 +54,7 @@ In this example, adding the first and second rows (both start with "aaalab / doc
 
 :::image type="content" source="./media/cost-management-guide/cost-analysis.png" alt-text="Screenshot that shows an example cost analysis for a subscription for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis.png":::
 
-If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), the entries in are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using lab plans.
+If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), the entries are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using lab plans.
 
 | Tag name | Value |
 | -------- | ----- |

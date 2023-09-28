@@ -36,23 +36,28 @@ This checklist highlights the high-level migration process:
 
 When you use lab plans, you're now assigned your own [dedicated VM cores quota](./capacity-limits.md#per-customer-assigned-capacity).  This quota is assigned per-subscription. The initial number of VM cores assigned to your subscription is limited, so you need to request a core limit increase. 
 
-Even if you're already using lab accounts, you still need to request capacity because your VM cores are not automatically available for creating labs with lab plans. You can request your capacity to be transferred to lab plans.
+> [!IMPORTANT]
+> Even if you're already using lab accounts, you still need to request capacity because your VM cores are not automatically available for creating labs with lab plans. You can either request your capacity to be transferred to lab plans, or request new capacity.
 
 ### Transfer VM cores from lab accounts
 
-When you create a lab plan and you still have lab accounts in your Azure subscription, then you can select from the list of VM sizes that were available for lab accounts. In the Azure Lab Services user interface, these VM sizes are marked as *classic* VM sizes.
+When you create a lab plan and you still have lab accounts in your Azure subscription, then you can select from the list of VM sizes that were available for lab accounts. In the Azure Lab Services user interface, these VM sizes are marked as *classic* VM sizes. Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
 
 :::image type="content" source="./media/how-to-migrate-lab-acounts-to-lab-plans/create-lab-classic-virtual-machine-sizes.png" alt-text="Screenshot that shows the Create lab window, highlighting the classic VM sizes.":::
 
-You can request a transfer of the VM core capacity that was previously assigned to your lab accounts. After the transfer, you can then select from the *classic* VM sizes for creating labs in your lab plans.
+> [!IMPORTANT]
+> You can't request capacity for the classic VM sizes. You can only get access to the classic VM sizes by requesting a transfer of the VM core capacity that was previously assigned to your lab accounts. After the transfer, you can then select from the *classic* VM sizes for creating labs in your lab plans.
 
 To request a transfer of your lab account VM core capacity:
 
-1. Create an Azure support request.
+1. In the [Azure portal](https://portal.azure.com), create an Azure support request.
 
 1. Provide the following information in the support request:
+
     - The number of cores you want to transfer
+
     - The type VM sizes you need
+
     - The Azure region in which the capacity needs to be available
 
 > [!TIP]
@@ -72,7 +77,7 @@ To request additional VM cores:
 
 1. [Request a core limit increase](./how-to-request-capacity-increase.md?tabs=Labplans).
 
-    In the list of available VM sizes, you can choose from either the *default* or the *alternative* VM sizes (prefixed with *alternative* in the list).
+    In the list of available VM sizes, you can choose from either the *default* or the *alternative* VM sizes (prefixed with *alternative* in the list). Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
 
     > [!TIP]
     > It's recommended that you first request capacity for the default VM sizes. If you need more VM cores than available, request additional capacity from the list of alternative VM sizes.
@@ -90,7 +95,14 @@ For example, when you move from lab accounts to lab plans, you should first requ
 
 ## 2. Configure shared resources  
 
-You can reuse the same Azure Compute Gallery and licensing servers that you use with your lab accounts.  Optionally, you can also [configure more licensing servers](./how-to-create-a-lab-with-shared-resource.md) and galleries based on your needs. For VMs that require access to a licensing server, you'll create lab plans with [advanced networking](./how-to-connect-vnet-injection.md) enabled as shown in the next step.
+You can reuse the same Azure compute gallery and licensing servers that you use with your lab accounts.  Optionally, you can also [configure more licensing servers](./how-to-create-a-lab-with-shared-resource.md) and galleries based on your needs.
+
+If you're attaching an Azure compute gallery, the compute gallery and the lab plan must be in the same Azure region. Also, it's recommended that the [enabled regions](./create-and-configure-labs-admin.md#enable-regions) only has this Azure region selected.
+
+For VMs that require access to a licensing server, you'll create lab plans with [advanced networking](./how-to-connect-vnet-injection.md) enabled as shown in the next step.
+
+> [!IMPORTANT]
+> If you saved templates for labs created with lab accounts, you can reuse these templates for labs created with lab plans. However, the reverse is not supported. Templates you saved for labs created with lab plans can not be reused for labs created with lab accounts.
 
 ## 3. Create additional lab plans
 
@@ -128,6 +140,7 @@ Each of the VM sizes has been remapped to use a newer [Azure VM Compute SKU](./a
 
 Once you have capacity assigned to your subscription, you can [create and publish](./tutorial-setup-lab.md) representative labs to validate the educator and student experience. 
 Creating a selection of representative labs as a proof of concept is an optional but highly recommended step, which enables you to validate performance based on common student workloads. After a successful proof of concept is completed, you can submit capacity requests based on your immediate upcoming need, building incrementally to your full capacity requirement over time. 
+
 ### Lab strategies
 
 You cannot migrate existing labs to a lab plan. Instead, you must create new labs. Along with all the new enhancements, the requirement to create new labs provides a good opportunity to revisit your overall lab structure and plan changes where necessary.
@@ -140,8 +153,10 @@ You cannot migrate existing labs to a lab plan. Instead, you must create new lab
 
   Some organizations reuse the same labs each class session and change the lab user roster. With this approach, you must plan the creation of new labs to migrate to, typically at the start of a new session.
 
-> [!NOTE]
-> Although you cannot migrate existing labs, you can still reuse other assets such as Compute Galleries and images, and any licensing servers.
+Although you cannot migrate existing labs, you can still reuse other assets such as compute galleries and images, and any licensing servers.
+
+> [!TIP]
+> If you have concerns about migrating your labs to lab plans, you can reach out to the [Azure Lab Services customer engagement team](mailto:AzLabsCustEngagement@microsoft.com). Provide your organization name and subscription ID, along with the number of labs you're looking to migrate.
 
 ## 6. Update cost management reports
 
