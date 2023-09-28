@@ -38,6 +38,12 @@ This article supports both programming models.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
+# [Isolated process](#tab/isolated-process)
+
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
+
 # [In-process](#tab/in-process)
 
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a queue trigger and an input blob binding. The queue message contains the name of the blob, and the function logs the size of the blob.
@@ -53,12 +59,6 @@ public static void Run(
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
 
 ---
 
@@ -320,6 +320,15 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#blob-input).
 
+# [Isolated process](#tab/isolated-process)
+
+isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**BlobPath** | The path to the blob.|
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+
 # [In-process](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](/dotnet/api/microsoft.azure.webjobs.blobattribute), which takes the following parameters:
@@ -345,15 +354,6 @@ public static void Run(
 ```
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
-
-# [Isolated process](#tab/isolated-process)
-
-isolated worker process defines an input binding by using a `BlobInputAttribute` attribute, which takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**BlobPath** | The path to the blob.|
-|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
 ---
 
@@ -441,13 +441,13 @@ See the [Example section](#example) for complete examples.
 
 The binding types supported by Blob input depend on the extension package version and the C# modality used in your function app. 
 
-# [In-process](#tab/in-process)
-
-See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
-
 # [Isolated process](#tab/isolated-process)
 
 [!INCLUDE [functions-bindings-storage-blob-input-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-input-dotnet-isolated-types.md)]
+
+# [In-process](#tab/in-process)
+
+See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding-types) for a list of supported types.
 
 ---
 

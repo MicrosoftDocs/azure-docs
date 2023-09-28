@@ -5,12 +5,14 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 
 
 # Validate Operation : Overview
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In the [store profiles in Azure API for FHIR](store-profiles-in-fhir.md) article, you walked through the basics of FHIR profiles and storing them. This article will guide you through how to use `$validate` for validating resources against profiles. Validating a resource against a profile means checking if the resource conforms to the profile, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide.
 
