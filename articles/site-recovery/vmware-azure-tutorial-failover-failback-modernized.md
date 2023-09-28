@@ -1,9 +1,9 @@
 ---
-title: Fail over VMware VMs to Azure with Site Recovery - Modernized
+title: Run VMware VMs failover to Azure
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/19/2021
+ms.date: 09/28/2023
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 [Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
 
-## Before you start
+## Prerequisites
 
 Complete the previous tutorials:
 
@@ -38,12 +38,12 @@ Complete the previous tutorials:
 
 Before you run a failover, check the VM properties to make sure that the VMs meet [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-Verify properties as follows:
+follow these steps to verify VM properties:
 
 1. In **Protected Items**, select **Replicated Items**, and then select the VM you want to verify.
 
-2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
-   latest available recovery points. Select **Properties** to view more details.
+2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Select **Properties** to view more details.
+    :::image type="content" source="./media/vmware-azure-tutorial-failover-failback-modernized/replicated-items.png" alt-text="Replicated item properties.":::
 
 3. In **Compute and Network**, you can modify these properties as needed:
     * Azure name
@@ -172,6 +172,5 @@ After successfully enabling replication and initial replication, recovery points
 
 After failover, reprotect the Azure VMs to on-premises. After the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
 
-> [!div class="nextstepaction"]
-> [Reprotect Azure VMs](failover-failback-overview-modernized.md)
-> [Fail back from Azure](failover-failback-overview-modernized.md)
+- [Reprotect Azure VMs](failover-failback-overview-modernized.md)
+- [Fail back from Azure](failover-failback-overview-modernized.md)

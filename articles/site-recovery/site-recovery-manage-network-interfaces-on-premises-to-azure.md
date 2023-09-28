@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 09/28/2023
 ms.author: ankitadutta
 
 ---
@@ -26,6 +26,8 @@ For VMware and physical machines, and for Hyper-V (without System Center Virtual
 1. Under **Replicated items** in a Recovery Services vault, select any replicated item to access the settings for that replicated item.
 
 2. Select the **Compute and Network** tab to access the network settings for the replicated item.
+
+    :::image type="content" source="./media/site-recovery-manage-network-interfaces-on-premises-to-azure/compute-and-network-pane.png" alt-text="Replicated items pane.":::
 
 3. Under **Network properties**, choose a virtual network from the list of available network interfaces.
 
