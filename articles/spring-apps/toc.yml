@@ -248,7 +248,7 @@ items:
       - name: Health probes and graceful termination
         href: how-to-configure-health-probes-graceful-termination.md
       - name: Optimize application observability
-        href: tutorial-applications-observability.md
+        href: application-observability.md
     - name: Network
       items:
       - name: Custom DNS name
