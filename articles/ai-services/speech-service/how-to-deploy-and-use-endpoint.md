@@ -5,8 +5,7 @@ description: Learn about how to deploy and use a custom neural voice model.
 services: cognitive-services
 author: Ling-Cao
 manager: qiliao123
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: caoling
@@ -97,7 +96,7 @@ speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
 ```
 ::: zone-end
 
-To use a custom neural voice via [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#voice-element), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+To use a custom neural voice via [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">

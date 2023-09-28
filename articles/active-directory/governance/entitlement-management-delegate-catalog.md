@@ -31,7 +31,7 @@ There are three ways an organization can delegate with catalogs:
 - If there are resources that don't have owners, then administrators can create catalogs, add those resources to each catalog, and then [assign non-administrators as owners to a catalog](entitlement-management-catalog-create.md#add-more-catalog-owners).  This allows users who aren't administrators and aren't resource owners to manage their own access policies for those resources.
 - If resources have owners, then administrators can assign a collection of users, such as an `All Employees` dynamic group, to the catalog creators role, so a user who are in that group and own resources can create a catalog for their own resources.
 
-This article illustrates how to delegate to users who aren't administrators, so that they can create their own catalogs. You can add those users to the Azure AD entitlement management-defined catalog creator role. You can add individual users, or you can add a group whose members are then able to create catalogs.  After creating a catalog, they can subsequently add resources they own to their catalog.  They can create access packages and policies, including policies referencing existing [connected organizations](entitlement-management-organization.md).
+This article illustrates how to delegate to users who aren't administrators, so that they can create their own catalogs. You can add those users to the Microsoft Entra entitlement management-defined catalog creator role. You can add individual users, or you can add a group whose members are then able to create catalogs.  After creating a catalog, they can subsequently add resources they own to their catalog.  They can create access packages and policies, including policies referencing existing [connected organizations](entitlement-management-organization.md).
 
 If you have existing catalogs to delegate, then continue at the [create and manage a catalog of resources](entitlement-management-catalog-create.md#add-more-catalog-owners) article.
 
@@ -41,7 +41,7 @@ If you have existing catalogs to delegate, then continue at the [create and mana
 
 Follow these steps to assign a user to the catalog creator role.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
+**Prerequisite role:** Global Administrator or Identity Governance Administrator
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
@@ -61,15 +61,15 @@ Follow these steps to assign a user to the catalog creator role.
 
 To allow delegated roles, such as catalog creators and access package managers, to access the Microsoft Entra admin center to manage access packages, you should check the administration portal setting.
 
-**Prerequisite role:** Global administrator, Identity Governance administrator, or User administrator
+**Prerequisite role:** Global Administrator or Identity Governance Administrator
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Identity Governance Administrator](../roles/permissions-reference.md#identity-governance-administrator).
 
 1. Browse to **Identity** > **Users** > **User settings**.
 
-1. Make sure **Restrict access to Azure AD administration portal** is set to **No**.
+1. Make sure **Restrict access to Microsoft Entra administration portal** is set to **No**.
 
-    ![Azure AD user settings - Administration portal](./media/entitlement-management-delegate-catalog/user-settings.png)
+    ![Microsoft Entra user settings - Administration portal](./media/entitlement-management-delegate-catalog/user-settings.png)
 
 ## Manage role assignments programmatically (preview)
 
@@ -87,4 +87,3 @@ GET https://graph.microsoft.com/beta/roleManagement/entitlementManagement/roleAs
 - [Create and manage a catalog of resources](entitlement-management-catalog-create.md)
 - [Delegate access governance to access package managers](entitlement-management-delegate-managers.md)
 - [Delegate access governance to resource owners](entitlement-management-delegate.md)
-

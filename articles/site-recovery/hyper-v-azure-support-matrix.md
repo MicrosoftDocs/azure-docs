@@ -156,7 +156,7 @@ UEFI Secure boot | No | No
 Availability sets | Yes | Yes
 Availability zones | No | No
 HUB | Yes | Yes
-Managed disks | Yes, for failover.<br/><br/> Failback of managed disks isn't supported. | Yes, for failover.<br/><br/> Failback of managed disks isn't supported.
+Managed disks | Yes, for both failover and failback. | Yes, both failover and failback.
 
 ## Azure VM requirements
 

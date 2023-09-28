@@ -6,8 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 08/30/2023
-ms.service: azure-storage
-ms.subservice: storage-common-concepts
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: references_regions, engagement-fy23

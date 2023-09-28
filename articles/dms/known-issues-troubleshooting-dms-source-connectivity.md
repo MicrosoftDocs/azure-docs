@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn about how to troubleshoot known issues/errors associated with connecting Azure Database Migration Service to source databases.
 author: abhims14
 ms.author: abhishekum
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 02/20/2020
 ms.service: dms
 ms.topic: troubleshooting

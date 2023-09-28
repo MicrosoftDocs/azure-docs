@@ -15,7 +15,7 @@ ms.topic: reference
 
 A redirect URI, or reply URL, is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The authorization server sends the code or token to the redirect URI, so it's important you register the correct location as part of the app registration process.
 
-The Azure Active Directory (Azure AD) application model specifies these restrictions to redirect URIs:
+The Microsoft Entra application model specifies these restrictions to redirect URIs:
 
 * Redirect URIs must begin with the scheme `https`. There are some [exceptions for localhost](#localhost-exceptions) redirect URIs.
 
@@ -43,7 +43,7 @@ This table shows the maximum number of redirect URIs you can add to an app regis
 
 | Accounts being signed in | Maximum number of redirect URIs | Description |
 |--------------------------|---------------------------------|-------------|
-| Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant | 256 | `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs* |
+| Microsoft work or school accounts in any organization's Microsoft Entra tenant | 256 | `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs* |
 | Personal Microsoft accounts and work and school accounts | 100 | `signInAudience` field in the application manifest is set to *AzureADandPersonalMicrosoftAccount* |
 
 The maximum number of redirect URIs can't be raised for [security reasons](#restrictions-on-wildcards-in-redirect-uris). If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) as the solution.
@@ -66,8 +66,8 @@ Query parameters are **not allowed** in redirect URIs for any app registration c
 | App registration sign-in audience                                                                                                  | Supports query parameters in redirect URI                            |
 |------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Accounts in this organizational directory only (Contoso only - Single tenant)                                                      | :::image type="icon" source="media/common/yes.png" border="false"::: |
-| Accounts in any organizational directory (Any Azure AD directory - Multitenant)                                                    | :::image type="icon" source="media/common/yes.png" border="false"::: |
-| Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | :::image type="icon" source="media/common/no.png" border="false":::  |
+| Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant)                                                    | :::image type="icon" source="media/common/yes.png" border="false"::: |
+| Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | :::image type="icon" source="media/common/no.png" border="false":::  |
 | Personal Microsoft accounts only                                                                                                   | :::image type="icon" source="media/common/no.png" border="false":::  |
 
 ## Supported schemes
@@ -120,7 +120,7 @@ To add a redirect URI that uses the `http` scheme with the `127.0.0.1` loopback 
 
 Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI. As such, when a configured wildcard URI matches a redirect URI, query strings and fragments in the redirect URI are stripped.
 
-Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
+Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Microsoft Entra tenant.
 
 To add redirect URIs with wildcards to app registrations that sign in work or school accounts, use the application manifest editor in **App registrations** in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to section 3.1.2 of RFC 6749. and use only absolute URIs.
 
@@ -134,8 +134,8 @@ In this approach:
 
 1. Create a "shared" redirect URI per application to process the security tokens you receive from the authorization endpoint.
 1. Your application can send application-specific parameters (such as subdomain URL where the user originated or anything like branding information) in the state parameter. When using a state parameter, guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12).
-1. The application-specific parameters will include all the information needed for the application to render the correct experience for the user, that is, construct the appropriate application state. The Azure AD authorization endpoint strips HTML from the state parameter so make sure you are not passing HTML content in this parameter.
-1. When Azure AD sends a response to the "shared" redirect URI, it will send the state parameter back to the application.
+1. The application-specific parameters will include all the information needed for the application to render the correct experience for the user, that is, construct the appropriate application state. The Microsoft Entra authorization endpoint strips HTML from the state parameter so make sure you are not passing HTML content in this parameter.
+1. When Microsoft Entra ID sends a response to the "shared" redirect URI, it will send the state parameter back to the application.
 1. The application can then use the value in the state parameter to determine which URL to further send the user to. Make sure you validate for CSRF protection.
 
 > [!WARNING]

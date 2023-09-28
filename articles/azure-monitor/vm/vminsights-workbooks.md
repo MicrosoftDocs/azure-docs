@@ -4,7 +4,7 @@ description: Simplify complex reporting with predefined and custom parameterized
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 05/27/2022
+ms.date: 09/28/2023
 
 ---
 

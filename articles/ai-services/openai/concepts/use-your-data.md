@@ -4,12 +4,11 @@ titleSuffix: Azure OpenAI
 description: Use this article to learn about using your data for better text generation in Azure OpenAI.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 08/25/2023
+ms.date: 09/13/2023
 recommendations: false
 ---
 
@@ -67,9 +66,15 @@ There is an [upload limit](../quotas-limits.md), and there are some caveats abou
 
 ## Virtual network support & private endpoint support
 
-You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
+### Azure OpenAI resources
 
-If you have Azure OpenAI resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaionyourdata). The application will be reviewed in five business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
+You can protect Azure OpenAI resources in [virtual networks and private endpoints](/azure/ai-services/cognitive-services-virtual-networks) the same way as any Azure AI service.
+> [!NOTE]
+> If you disable public network access for your Azure OpenAI resources, you can call the `/extensions/chat/completions` API or chat with your existing index in Azure OpenAI Studio. However, vector search and blob/file ingestion in the studio is not supported.
+
+### Azure Cognitive Search resources
+
+If you have an Azure Cognitive Search resource protected by a private network, and want to allow Azure OpenAI on your data to access your search service, complete [an application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will send a private endpoint request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
@@ -79,9 +84,9 @@ After you approve the request in your search service, you can start using the [c
 
 > [!NOTE]
 > Virtual networks & private endpoints are only supported for the API, and not currently supported for Azure OpenAI Studio. 
-### Storage accounts in private virtual networks
+### Storage accounts
 
-Storage accounts in virtual networks and private endpoints are currently not supported by Azure OpenAI on your data.
+Storage accounts in virtual networks, firewalls, and private endpoints are currently not supported by Azure OpenAI on your data.
 
 ## Azure Role-based access controls (Azure RBAC)
 
@@ -92,6 +97,7 @@ To add a new data source to your Azure OpenAI resource, you need the following A
 |---------|---------|
 |[Cognitive Services Contributor](../how-to/role-based-access-control.md#cognitive-services-contributor) | You want to use Azure OpenAI on your data. |
 |[Search Index Data Contributor](/azure/role-based-access-control/built-in-roles#search-index-data-contributor)     | You have an existing Azure Cognitive Search index that you want to use, instead of creating a new one.        |
+|[Search Service Contributor](/azure/role-based-access-control/built-in-roles#search-service-contributor)     | You plan to create a new Azure Cognitive Search index.        |
 |[Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)     | You have an existing Blob storage container that you want to use, instead of creating a new one.        |
 
 ## Document-level access control
@@ -148,14 +154,14 @@ When using the API, pass the `filter` parameter in each API request. For example
 
 ## Schedule automatic index refreshes
 
-To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. to enable an automatic index refresh:
+To keep your Azure Cognitive Search index up-to-date with your latest data, you can schedule a refresh for it that runs automatically rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **blob storage** as the data source. To enable an automatic index refresh:
 
 1. [Add a data source](../quickstart.md) using Azure OpenAI studio.
 1. Under **Select or add data source** select **Indexer schedule** and choose the refresh cadence you would like to apply.
 
     :::image type="content" source="../media/use-your-data/indexer-schedule.png" alt-text="A screenshot of the indexer schedule in Azure OpenAI Studio." lightbox="../media/use-your-data/indexer-schedule.png":::
 
-After the data ingestion is set to a cadence other than once, Azure Cognitive Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. The intermediate assets created in the Azure Cognitive Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
+After the data ingestion is set to a cadence other than once, Azure Cognitive Search indexers will be created with a schedule equivalent to `0.5 * the cadence specified`. This means that at the specified cadence, the indexers will pull the documents that were added, modified, or deleted from the storage container, reprocess and index them. This ensures that the updated data gets preprocessed and indexed in the final index at the desired cadence automatically. To update your data, you only need to upload the additional documents from the Azure portal. From the portal, select **Storage Account** > **Containers**. Select the name of the original container, then **Upload**. The index will pick up the files automatically after the scheduled refresh period. The intermediate assets created in the Azure Cognitive Search resource will not be cleaned up after ingestion to allow for future runs. These assets are:
    - `{Index Name}-index`
    - `{Index Name}-indexer`
    - `{Index Name}-indexer-chunk`
@@ -183,7 +189,7 @@ Use the following sections to help you configure Azure OpenAI on your data for o
 
 ### System message
 
-Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 200 tokens. 
+Give the model instructions about how it should behave and any context it should reference when generating a response. You can describe the assistant's personality, what it should and shouldn't answer, and how to format responses. There's no token limit for the system message, but will be included with every API call and counted against the overall token limit. The system message will be truncated if it's greater than 400 tokens. 
 
 For example, if you're creating a chatbot where the data consists of transcriptions of quarterly financial earnings calls, you might use the following system message:
 
@@ -191,7 +197,8 @@ For example, if you're creating a chatbot where the data consists of transcripti
 
 This system message can help improve the quality of the response by specifying the domain (in this case finance) and mentioning that the data consists of call transcriptions. It helps set the necessary context for the model to respond appropriately. 
 
-> [!NOTE] 
+> [!NOTE]
+> The system message is used to modify how GPT assistant responds to a user question based on retrieved documentation. It does not affect the retrieval process. If you'd like to provide instructions for the retrieval process, it is better to include them in the questions.
 > The system message is only guidance. The model might not adhere to every instruction specified because it has been primed with certain behaviors such as objectivity, and avoiding controversial statements. Unexpected behavior may occur if the system message contradicts with these behaviors. 
 
 ### Maximum response 
@@ -206,7 +213,7 @@ This option encourages the model to respond using your data only, and is selecte
 
 Azure OpenAI on your data provides several search options you can use when you add your data source, leveraging the following types of search.
 
-* [Simple search](/azure/search/search-lucene-query-architecture)
+* [Keyword search](/azure/search/search-lucene-query-architecture)
 
 * [Semantic search](/azure/search/semantic-search-overview)
 * [Vector search](/azure/search/vector-search-overview) using Ada [embedding](./understand-embeddings.md) models, available in [select regions](models.md#embeddings-models-1). 
@@ -215,15 +222,16 @@ Azure OpenAI on your data provides several search options you can use when you a
 
 > [!IMPORTANT]
 > * [Semantic search](/azure/search/semantic-search-overview#availability-and-pricing) and [vector search](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) are subject to additional pricing. You need to choose **Basic or higher SKU** to enable semantic search or vector search. See [pricing tier difference](/azure/search/search-sku-tier) and [service limits](/azure/search/search-limits-quotas-capacity) for more information.
-> * Currently Azure OpenAI on your data supports semantic search for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.
+> * To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic
+> * If you enable vector search, you need to enable public network access for your Azure OpenAI resources.
 
 | Search option       | Retrieval type | Additional pricing? |Benefits|
 |---------------------|------------------------|---------------------| -------- |
-| *simple*            | Simple search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
+| *keyword*            | Keyword search                       | No additional pricing.                    |Performs fast and flexible query parsing and matching over searchable fields, using terms or phrases in any supported language, with or without operators.|
 | *semantic*          |  Semantic search  |  Additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                  |Improves the precision and relevance of search results by using a reranker (with AI models) to understand the semantic meaning of query terms and documents returned by the initial search ranker|
 | *vector*            | Vector search       | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.                    |Enables you to find documents that are similar to a given query input based on the vector embeddings of the content. |
-| *vector + simple*   | A hybrid of vector search and simple search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
-| *vector + semantic* + simple| A hybrid of vector search, semantic and simple search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
+| *hybrid (vector + keyword)*   | A hybrid of vector search and keyword search | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model.            |Performs similarity search over vector fields using vector embeddings, while also supporting flexible query parsing and full text search over alphanumeric fields using term queries.|
+| *hybrid (vector + keyword) + semantic* | A hybrid of vector search, semantic and keyword search for retrieval.     | [Additional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) on your Azure OpenAI account from calling the embedding model, and additional pricing for [semantic search](/azure/search/semantic-search-overview#availability-and-pricing) usage.                    |Leverages vector embeddings, language understanding and flexible query parsing to create rich search experiences and generative AI apps that can handle complex and diverse information retrieval scenarios. |
 
 The optimal search option can vary depending on your dataset and use-case. You may need to experiment with multiple options to determine which works best for your use-case.
 
@@ -258,9 +266,9 @@ Avoid asking long questions and break them down into multiple questions if possi
 
 **Multi-lingual support**  
 
-* Azure OpenAI on your data supports queries that are in the same language as the documents. For example, if your data is in Japanese, then queries need to be in Japanese too.  
+* Currently, keyword search and semantic search in Azure OpenAI on your data supports queries are in the same language as the data in the index. For example, if your data is in Japanese, then input queries also need to be in Japanese. For cross-lingual document retrieval, we recommend building the index with [Vector search](/azure/search/vector-search-overview) enabled.  
 
-* Currently Azure OpenAI on your data supports [semantic search](/azure/search/semantic-search-overview) for the following language: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic. Don't enable semantic search if your data is in other languages.   
+* To help improve the quality of the information retrieval and model response, we recommend enabling [semantic search](/azure/search/semantic-search-overview) for the following languages: English, French, Spanish, Portuguese, Italian, Germany, Chinese(Zh), Japanese, Korean, Russian, Arabic   
 
 * We recommend using a system message to inform the model that your data is in another language. For example:
 
@@ -279,17 +287,21 @@ After you connect Azure OpenAI to your data, you can deploy it using the **Deplo
 
 You can deploy your model to [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various Microsoft Teams, Websites, Power Platform solutions, Dynamics 365, and other [Azure Bot Service channels](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels). Power Virtual Agents acts as a conversational and generative AI platform, making the process of creating, publishing and deploying a bot to any number of channels simple and accessible.
 
-While Power Virtual Agents has features that leverage Azure OpenAI such as [generative answers](/power-virtual-agents/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. For more information, see [Use a connection to Azure OpenAI on your data](/power-virtual-agents/nlu-generative-answers-azure-openai).
+While Power Virtual Agents has features that leverage Azure OpenAI such as [generative answers](/power-virtual-agents/nlu-boost-conversations), deploying a model grounded on your data lets you create a chatbot that will respond using your data, and connect it to the Power Platform. The tenant used in the Azure OpenAI service and Power Platform should be the same. For more information, see [Use a connection to Azure OpenAI on your data](/power-virtual-agents/nlu-generative-answers-azure-openai).
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RW18YwQ]
 
-
+> [!NOTE]
+> Deploying to Power Virtual Agents from Azure OpenAI is only available to US regions.
+> Power Virtual Agents supports Azure Cognitive Search indexes with keyword or semantic search only. Other data sources and advanced features may not be supported.
 
 #### Using the web app
 
 You can also use the available standalone web app to interact with your model using a graphical user interface, which you can deploy using either Azure OpenAI studio or a [manual deployment](https://github.com/microsoft/sample-app-aoai-chatGPT). 
 
 ![A screenshot of the web app interface.](../media/use-your-data/web-app.png)
+
+##### Web app customization
 
 You can also customize the app's frontend and backend logic. For example, you could change the icon that appears in the center of the app by updating `/frontend/src/assets/Azure.svg` and then redeploying the app [using the Azure CLI](https://github.com/microsoft/sample-app-aoai-chatGPT#deploy-with-the-azure-cli).  See the source code for the web app, and more information [on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT).
 
@@ -303,12 +315,9 @@ When customizing the app, we recommend:
 
 - Pulling changes from the `main` branch for the web app's source code frequently to ensure you have the latest bug fixes and improvements.
 
-#### Important considerations
+##### Important considerations
 
-- Publishing creates an Azure App Service in your subscription. It may incur costs depending on the 
-
-[pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
-- You can customize the frontend and backend logic of the web app.
+- Publishing creates an Azure App Service in your subscription. It may incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) you select. When you're done with your app, you can delete it from the Azure portal.
 - By default, the app will only be accessible to you. To add authentication (for example, restrict access to the app to members of your Azure tenant):
 
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name you specified during publishing. Select the web app, and go to the **Authentication** tab on the left navigation menu. Then select **Add an identity provider**. 
@@ -340,7 +349,7 @@ Deleting your web app does not delete your Cosmos DB instance automatically. To 
 
 ### Using the API
 
-Consider setting the following parameters even if they are optional for using the API.
+After you upload your data through Azure OpenAI studio, you can make a call against Azure OpenAI models through APIs. Consider setting the following parameters even if they are optional for using the API.
 
 
 

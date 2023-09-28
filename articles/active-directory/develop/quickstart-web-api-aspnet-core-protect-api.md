@@ -17,12 +17,12 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 
 # Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform
 
-The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Microsoft Entra organization.
 
 ## Prerequisites
 
 - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure Active Directory tenant](quickstart-create-new-tenant.md)
+- [Microsoft Entra tenant](quickstart-create-new-tenant.md)
 - [.NET Core SDK 6.0+](https://dotnet.microsoft.com/)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -30,12 +30,11 @@ The following quickstart uses a ASP.NET Core web API code sample to demonstrate 
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-First, register the web API in your Azure AD tenant and add a scope by following these steps:
+First, register the web API in your Microsoft Entra tenant and add a scope by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. For **Name**, enter a name for the application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of the app will see this name, and can be changed later.
 1. Select **Register**.
 1. Under **Manage**, select **Expose an API** > **Add a scope**. For **Application ID URI**, accept the default by selecting **Save and continue**, and then enter the following details:
@@ -59,7 +58,7 @@ In this step, the sample code will be configured to work with the app registrati
 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 
 1. Open the solution in the *webapp* folder in your code editor.
-1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
+1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Microsoft Entra admin center.
 
    ```json
    "ClientId": "Enter_the_Application_Id_here",
@@ -123,7 +122,7 @@ The line that contains `.AddMicrosoftIdentityWebApi` adds the Microsoft identity
 
 | *appsettings.json* key | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ClientId`             | Application (client) ID of the application registered in the Azure portal.                                                                                       |
+| `ClientId`             | Application (client) ID of the application registered in the Microsoft Entra admin center.                                                                                       |
 | `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
 | `TenantId`             | Name of the tenant or its tenant ID (a GUID), or `common` to sign in users with work or school accounts or Microsoft personal accounts.                             |
 

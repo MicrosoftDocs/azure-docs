@@ -1,8 +1,8 @@
 ---
 title: Service Connector internals
 description: Learn about Service Connector internals, the architecture, the connections and how data is transmitted.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, engagement-fy23
 ms.topic: conceptual
@@ -45,7 +45,7 @@ Service Connector runs multiple tasks while creating or updating service connect
 - Configuring the network and firewall settings
 - Configuring connection information
 - Configuring authentication information
-- Creating or updating connection rollback in case of failure
+- Creating or updating connection rollback if failure occurs
 
 If a step fails during this process, Service Connector rolls back all previous steps to keep the initial settings in the source and target instances.
 
@@ -77,13 +77,33 @@ az containerapp connection list-configuration --resource-group <source-service-r
 
 ## Configuration naming convention
 
-Service Connector sets the connection configuration when creating a connection. The environment variable key-value pairs are determined by your client type and authentication type. For example, using the Azure SDK with a managed identity requires a client ID, client secret, etc. Using a JDBC driver requires a database connection string. Follow the conventions below to name the configurations:
+Service Connector sets the connection configuration when creating a connection. The environment variable key-value pairs are determined by your client type and authentication type. For example, using the Azure SDK with a managed identity requires a client ID, client secret, etc. Using a JDBC driver requires a database connection string. Follow these conventions to name the configurations:
 
 - Spring Boot client: the Spring Boot library for each target service has its own naming convention. For example, MySQL connection settings would be `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. Kafka connection settings would be `spring.kafka.properties.bootstrap.servers`.
 
 - Other clients:
   - The key name of the first connection configuration uses the format `<Cloud>_<Type>_<Name>`. For example, `AZURE_STORAGEBLOB_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_BOOTSTRAPSERVER`.
   - For the same type of target resource, the key name of the second connection configuration uses the format `<Cloud>_<Type>_<Connection Name>_<Name>`. For example, `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
+
+## Service network solution
+
+Service Connector offers three network solutions for users to choose from when creating a connection. These solutions are designed to facilitate secure and efficient communication between resources.
+
+1. **Firewall**: This solution allows connection through public network and compute resource will access target resource with public IP address. When selecting this option, Service Connector verifies the target resource's firewall settings and adds a rule to allow connections from the source resource's public IP address. If the resource's firewall has an option to allow all Azure resources accessing, Service Connector enables this setting. However, if the target resource denies all public network traffic by default, Service Connector doesn't modify this setting. In this case, you should choose another option or update the network settings manually before trying again.
+
+2. **Service Endpoint**: This solution enables compute resource to connect to target resources via a virtual network, ensuring that connection traffic doesn't pass through the public network. Its only available if certain preconditions are met:
+   - The compute resource must have virtual network integration enabled. For Azure App Service, this can be configured in its networking settings; for Azure Spring Apps, users must set VNet injection during the resource creation stage.
+   - The target service must support Service Endpoint. For a list of supported services, refer to [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+
+	When selecting this option, Service Connector adds the private IP address of the compute resource in the virtual network to the target resource's Virtual Network rules and enables the service endpoint in the source resource's subnet configuration. If the user lacks sufficient permissions or the resource's SKU or region doesn't support service endpoints, connection creation fails.
+
+3. **Private Endpoint**: This solution is a recommended way to connect resources via a virtual network and is only available if certain preconditions are met:
+- The compute resource must have virtual network integration enabled. For Azure App Service, this can be configured in its networking settings; for Azure Spring Apps, users must set VNet injection during the resource creation stage.
+- The target service must support private endpoints. For a list of supported services, refer to [Private-link resource](/azure/private-link/private-endpoint-overview#private-link-resource).
+
+	When selecting this option, Service Connector doesn't perform any more configurations in the compute or target resources. Instead, it verifies the existence of a valid private endpoint and fails the connection if not found. For convenience, users can select the "New Private Endpoint" checkbox in the Azure Portal when creating a connection. With it, Service Connector will automatically create all related resources for the private endpoint in the proper sequence, simplifying the connection creation process.
+
+
 
 ## Service connection validation
 
@@ -100,7 +120,7 @@ When a service connection is deleted, the connection information is also deleted
 
 ## Next steps
 
-Go to the concept article below to learn more about Service Connector.
+See the following concept article to learn more about Service Connector.
 
 > [!div class="nextstepaction"]
 > [High availability](./concept-availability.md)
