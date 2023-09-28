@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 09/26/2023
+ms.date: 09/28/2023
 ---
 
 <!-- 
@@ -53,7 +53,7 @@ Use the following steps to initialize the web application from Azure Developer C
 
    The console outputs messages similar to the following example:
 
-   ```text
+   ```output
    Initializing a new project (azd init)
 
    Downloading template code to: <your-local-path>
@@ -144,11 +144,11 @@ Use the following steps to connect your service instances:
 
 1. Add the following environment variables for the PostgreSQL connection, and then select **Save** to finish the app configuration update. Be sure to replace the placeholders with your own values you created previously.
 
-   ```bash
-   SPRING_DATASOURCE_URL=jdbc:postgresql://<your-PostgreSQL-server-name>:5432/<your-PostgreSQL-database-name>
-   SPRING_DATASOURCE_USERNAME=<your-PostgreSQL-admin-user>
-   SPRING_DATASOURCE_PASSWORD=<your-PostgreSQL-admin-password>
-   ```
+   | Environment variable         | Value                                                                                  |
+   |------------------------------|----------------------------------------------------------------------------------------|
+   | `SPRING_DATASOURCE_URL`      | `jdbc:postgresql://<your-PostgreSQL-server-name>:5432/<your-PostgreSQL-database-name>` |
+   | `SPRING_DATASOURCE_USERNAME` | `<your-PostgreSQL-admin-user>`                                                         |
+   | `SPRING_DATASOURCE_PASSWORD` | `<your-PostgreSQL-admin-password>`                                                     |
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection page for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png":::
 
@@ -179,7 +179,7 @@ Use the following steps to connect your service instances:
 
    The console outputs messages similar to the following example:
 
-   ```text
+   ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name>> in Azure Portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
@@ -289,7 +289,7 @@ Use the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-
 
    After the command is executed, you can see the following log signs that the deployment was successful.
 
-   ```text
+   ```output
    [INFO] App(simple-todo-api) is successfully updated.
    [INFO] Deployment Status: Running
    [INFO]   InstanceName:simple-todo-api--default-xxxxxxx-xxxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:NONE
@@ -317,7 +317,7 @@ Use Azure Developer CLI to package the app, provision the Azure resources requir
 
    The console outputs messages similar to the following example:
 
-   ```text
+   ```output
    Deploying services (azd deploy)
    
    WARNING: Feature 'springapp' is in alpha stage.
