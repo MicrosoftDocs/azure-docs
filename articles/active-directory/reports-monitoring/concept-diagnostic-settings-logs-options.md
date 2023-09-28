@@ -86,7 +86,9 @@ The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you 
 
 ### Microsoft Graph activity logs
 
-Microsoft Graph activity logs are an audit trail of all HTTP requests that the Microsoft Graph service received and processed for a tenant. All logs for API requests made from line of business applications, API clients, SDKs, and by Microsoft applications like Outlook, Microsoft Teams, or the Microsoft Entra admin center are available. For more information, see [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview?toc=/azure/active-directory/reports-monitoring/toc.json&bc=/azure/active-directory/reports-monitoring/breadcrumb/toc.json).
+Microsoft Graph activity logs are an audit trail of all HTTP requests that the Microsoft Graph service received and processed for a tenant. All logs for API requests made from line of business applications, API clients, SDKs, and by Microsoft applications like Outlook, Microsoft Teams, or the Microsoft Entra admin center are available. 
+
+The feature is currently in public preview. For more information, see [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview?toc=/azure/active-directory/reports-monitoring/toc.json&bc=/azure/active-directory/reports-monitoring/breadcrumb/toc.json).
 
 ### Network access traffic logs
 
