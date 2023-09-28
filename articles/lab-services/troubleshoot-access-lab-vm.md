@@ -34,7 +34,7 @@ To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or S
 
 ### Unable to connect to the lab VM with Remote Desktop (RDP) or Secure Shell (SSH)
 
-1. [Redeploy your lab VM](./how-to-reset-and-redeploy-vm.md#redeploy-vms) to another infrastructure node, while maintaining the user data. 
+1. [Redeploy your lab VM](./how-to-reset-and-redeploy-vm.md#redeploy-a-lab-vm) to another infrastructure node, while maintaining the user data. 
 
     This approach might help resolve issues with the underlying virtual machine. Learn more about [redeploying versus resetting a lab VM](#redeploy-versus-reset-a-lab-vm) and how they affect your user data.
 
@@ -42,7 +42,7 @@ To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or S
 
     A change in the organization's firewall or network settings might prevent your computer to connect to the lab VM.
 
-1. If you still can't connect to the lab VM, [reset the lab VM](./how-to-reset-and-redeploy-vm.md#reset-vms).
+1. If you still can't connect to the lab VM, [reimage the lab VM](./how-to-reset-and-redeploy-vm.md#reimage-a-lab-vm).
 
     > [!IMPORTANT]
     > Resetting a lab VM deletes the user data in the VM. Make sure to [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
@@ -61,7 +61,7 @@ The lab VM might be malfunctioning as a result of installing a software componen
 
 1. If the lab VM uses Windows, you might use the Windows System Restore built-in functionality to undo a previous change to the operating system. Verify with an educator or IT admin how to use [System Restore](https://support.microsoft.com/windows/use-system-restore-a5ae3ed9-07c4-fd56-45ee-096777ecd14e).
 
-1. If the lab VM is still in an incorrect state, [reset the lab VM](./how-to-reset-and-redeploy-vm.md#reset-vms).
+1. If the lab VM is still in an incorrect state, [reimage the lab VM](./how-to-reset-and-redeploy-vm.md#reimage-a-lab-vm).
 
     > [!IMPORTANT]
     > Resetting a lab VM deletes the user data in the VM. Make sure to [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
@@ -72,11 +72,11 @@ Azure Lab Services lets you redeploy, labeled *troubleshooting* in the Azure por
 
 When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node in within the Azure infrastructure, and then power it back on. You can think of a redeploy operation as a refresh of the underlying VM for your lab. All data that you saved in the [OS disk](/azure/virtual-machines/managed-disks-overview#os-disk) (usually the C: drive on Windows) of the VM will still be available after the redeploy operation. Any data on the [temporary disk](/azure/virtual-machines/managed-disks-overview#temporary-disk) (usually the D: drive on Windows) is lost after a redeploy operation and after a VM shutdown.
 
-Learn more about how to [redeploy a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#redeploy-vms).
+Learn more about how to [redeploy a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#redeploy-a-lab-vm).
 
 When you reset a lab VM, Azure Lab Services will shut down the VM, delete it, and recreate a new lab VM from the original template VM. You can think of a reset as a refresh of the entire VM. After you reset a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. To avoid losing data on the VM, [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
 
-Learn more about how to [reset a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#reset-vms).
+Learn more about how to [reimage a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#reimage-a-lab-vm).
 
 > [!NOTE]
 > Redeploying a VM is only available for lab VMs that you created in a lab plan. VMs that are connected to a lab account only support the reset operation.
@@ -100,6 +100,6 @@ Learn how to [set up a new lab](./tutorial-setup-lab.md#create-a-lab) and how to
 
 ## Next steps
 
-- As a student, learn how to [reset or deploy lab VMs](./how-to-reset-and-redeploy-vm.md).
+- As a student, learn how to [reimage or redeploy lab VMs](./how-to-reset-and-redeploy-vm.md).
 - As an admin or educator, [attach external file storage to a lab](./how-to-attach-external-storage.md).
 - As an educator, [use OneDrive to store user data](./how-to-prepare-windows-template.md#install-and-configure-onedrive).

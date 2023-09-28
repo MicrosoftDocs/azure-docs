@@ -117,7 +117,7 @@ To reset one or more lab VMs:
 
 When you use [lab plans](./lab-services-whats-new.md), lab users can now redeploy their lab VM. This operation is labeled **Troubleshoot** in Azure Lab Services. When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the VM to a new node within the Azure infrastructure, and then power it back on.
 
-Learn how [lab users can redeploy their lab VM](./how-to-reset-and-redeploy-vm.md#redeploy-vms).
+Learn how [lab users can redeploy their lab VM](./how-to-reset-and-redeploy-vm.md#redeploy-a-lab-vm).
 
 ## Connect to lab VMs
 
