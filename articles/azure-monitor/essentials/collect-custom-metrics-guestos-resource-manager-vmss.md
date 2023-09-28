@@ -54,24 +54,28 @@ Open the **azuredeploy.json** file.
 Add a variable to hold the storage account information in the Resource Manager template. Any logs or performance counters specified in the diagnostics config file are written to both the Azure Monitor metric store and the storage account you specify here: 
 
 ```json
-"variables": { 
-//add this line       
-"storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
+"variables": {
+  //add this line
+  "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ...
+}
 ```
  
 Find the virtual machine scale set definition in the resources section and add the **identity** section to the configuration. This addition ensures that Azure assigns it a system identity. This step also ensures that the VMs in the scale set can emit guest metrics about themselves to Azure Monitor:  
 
 ```json
-    { 
-      "type": "Microsoft.Compute/virtualMachineScaleSets", 
-      "name": "[variables('namingInfix')]", 
-      "location": "[resourceGroup().location]", 
-      "apiVersion": "2017-03-30", 
-      //add these lines below
-      "identity": { 
-           "type": "systemAssigned" 
-       }, 
-       //end of lines to add
+{ 
+  "type": "Microsoft.Compute/virtualMachineScaleSets", 
+  "name": "[variables('namingInfix')]", 
+  "location": "[resourceGroup().location]", 
+  "apiVersion": "2017-03-30", 
+  //add these lines below
+  "identity": { 
+       "type": "systemAssigned" 
+   }, 
+   //end of lines to add
+   ...
+}
 ```
 
 In the virtual machine scale set resource, find the **virtualMachineProfile** section. Add a new profile called **extensionsProfile** to manage extensions.  
