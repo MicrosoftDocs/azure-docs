@@ -9,6 +9,8 @@ ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
 ms.date: 04/12/2022
 ms.custom: mvc, devx-track-azurecli, ignite-2022, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity
+zone_pivot_group_filename: app-service/zone-pivot-groups.json
+zone_pivot_groups: connection-type
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
@@ -46,6 +48,8 @@ What you will learn:
 Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+::: zone pivot="manual"
 
 ## 1. Grant database access to Azure AD user
 
@@ -969,6 +973,14 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     -----
 
 -----
+
+::: zone-end
+
+::: zone pivot="serviceconnector"
+
+[!INCLUDE [passwordless-tutorial-snippet-webapp](../service-connector/includes/passwordless-tutorial-snippet-webapp.md)]
+
+::: zone-end
 
 ## 4. Set up your dev environment
 
