@@ -36,7 +36,7 @@ To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or S
 
 1. [Redeploy your lab VM](./how-to-reset-and-redeploy-vm.md#redeploy-a-lab-vm) to another infrastructure node, while maintaining the user data. 
 
-    This approach might help resolve issues with the underlying virtual machine. Learn more about [redeploying versus reimaging a lab VM](#redeploy-versus-reset-a-lab-vm) and how they affect your user data.
+    This approach might help resolve issues with the underlying virtual machine. Learn more about [redeploying versus reimaging a lab VM](#redeploy-versus-reimage-a-lab-vm) and how they affect your user data.
 
 1. [Verify your organization's firewall settings for your lab](./how-to-configure-firewall-settings.md) with the educator and IT admin.
 

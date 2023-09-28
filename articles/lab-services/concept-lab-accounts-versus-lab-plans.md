@@ -76,6 +76,6 @@ Lab accounts and labs have a parental relationship.  Moving to a sibling relatio
 
 ## Next steps
 
-If you're using lab accounts, follow these steps to [migrate your lab accounts to lab plans](./how-to-migrate-lab-acounts-to-lab-plans.md).
+If you're using lab accounts, follow these steps to [migrate your lab accounts to lab plans](./migrate-to-2022-update.md).
 
 If you're new to Azure Lab Services, get started by [creating a new lab plan](./quick-create-resources.md).
