@@ -122,9 +122,8 @@ Replace ID with the object ID of the service principal that you want to restore.
    
 :::zone pivot="ms-graph"
 
-1. To restore the enterprise application, run the following query:
+To restore the enterprise application, run the following query:
    
-   # [HTTP](#tab/http)
    ```http
    POST https://graph.microsoft.com/v1.0/directory/deletedItems/{id}/restore
    ```

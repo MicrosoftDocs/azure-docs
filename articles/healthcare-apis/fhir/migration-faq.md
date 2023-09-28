@@ -18,7 +18,7 @@ Azure API for FHIR will be retired on September 30, 2026.
 
 ## Are new deployments of Azure API for FHIR allowed?
 
-Due to the transition from Azure API for FHIR to Azure Health Data Services, after April 1, 2025 customers won't be able to create new deployments of Azure API of FHIR. Until April 1, 2025 new deployments are allowed.
+Due to the retirement of Azure API for FHIR after April 1, 2025 customers will not be able to create new deployments of Azure API of FHIR. Until April 1, 2025 new deployments are allowed.
 
 ## Why is Microsoft retiring Azure API for FHIR?
 
@@ -31,7 +31,7 @@ AHDS FHIR service offers a rich set of capabilities such as:
 - Consumption-based pricing model where customers pay only for used storage and throughput
 - Support for transaction bundles
 - Chained search improvements
-- Improved ingress and egress of data with \$import, \$export including new features such as incremental import (preview)
+- Improved ingress and egress of data with \$import, \$export including new features such as incremental import
 - Events to trigger new workflows when FHIR resources are created, updated or deleted
 - Connectors to Azure Synapse Analytics, Power BI and Azure Machine Learning for enhanced analytics
 
