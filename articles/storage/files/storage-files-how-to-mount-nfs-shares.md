@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 09/28/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -44,14 +44,27 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 
     :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
 
+## Recommended mount options
+
+We recommend using the following mount options when mounting NFS Azure file shares.
+
+| **Mount option** | **Recommended value** | **Description** |
+|******************|***********************|*****************|
+| `vers` | 4 | Specifies which version of the NFS protocol to use. Azure Files only supports NFS v4.1. |
+| `minorversion` | 1 | Specifies the minor version of the NFS protocol. Some Linux distros don't recognize minor versions on the `vers` parameter. So instead of `vers=4.1`, use `vers=4,minorversion=1`. |
+| `sec` | sys | Specifies the type of security to use when authenticating an NFS connection. Setting `sec=sys` uses the local UNIX UIDs and GIDs that use AUTH_SYS to authenticate NFS operations. |
+| `rsize` | 1048576 | Sets the maximum number of bytes to be transferred in a single NFS read operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
+| `wsize` | 1048576 | Sets the maximum number of bytes to be transferred in a single NFS write operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
+| `noresvport` | n/a | Tells the NFS client to use a non-privileged source port when communicating with an NFS server for the mount point. |
+
 ## Mount an NFS share using the Azure portal
 
 > [!NOTE]
-> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
+> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nconnect).
 
 1. Once the file share is created, select the share and select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script.
-1. Connect to your client and use the provided mounting script.
+1. Connect to your client and use the provided mounting script. Only the required mount options are provided in the script, but you can add others from [Recommended mount options](#recommended-mount-options).
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade.":::
 
