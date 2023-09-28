@@ -41,24 +41,11 @@ Before you run the commands, you need to set several variables to define the con
 | INITIAL_AGENT_POOL_NAME    | The name of the initial agent pool.                                                                                      |
 | INITIAL_AGENT_POOL_COUNT   | The number of nodes in the initial agent pool.                                                                           |
 | INITIAL_AGENT_POOL_VM_SIZE | The size of the virtual machine for the initial agent pool.                                                              |
-| MODE                       | The mode of the agent pool containing the node, values apply System or User or NotApplicable
-| AGENTPOOLCONFIGURATION     | The parameter specifies the agent pools created for running critical system services and workloads.                      |
-| SERVICELOADBALANCEBGPPEER  | The configuration of the BGP service Load balancer.                                                                      |
-| BGPADVERTISEMENT           | The parameter specifies the association of IP address pools to the communities and peers.                                |
-| BGPIPADDRESSPOOLS          | The list of pools of IP addresses that can be allocated to Load Balancer services.                                |
-| PEERADDRESS                | The IPV4 or IPV6 address use to connect the BGP session                                |
-| PEERASN                    | The autonomous system number expected from remote end of BGP session.                                |
-| BFDENABLED                | The indicator of BFD enablement for BgpPeer.                                |
-| BGPMULTIHOP                | The indicator to enable multi-hop peering support.                                |
-| PEERPORT                | The port used to connect the BGP session.                                |
-| PASSWORD               | The authentication password for routers.                                |
-| PEERADDRESS                | The IPV4 or IPV6 address use to connect the BGP session                                |
-| COMMUNITY               | The names of the BGP communities to be associated.                                |
-| ADDRESS               | The list of IP address ranges.                              |
-| IPPOOLNAME               | The names of the IP address pool.                                |
-| AUTOASSIGN               | The indicator if automatic allocation from pool should occur.                               |
-| ONLYUSEHOSTIP               | The indicator to prevent use of IP addresses ending with .0 and .255.                               |
-| IPADDRESSPOOL               | The names of the IP address pools associated.                                |
+| MODE                       | The mode of the agent pool containing the node, values apply System or User or NotApplicable                             |
+| AGENT_POOL_CONFIGURATION     | The parameter specifies the agent pools created for running critical system services and workloads.                    |
+| POD_CIDR                   | The network range for the Kubernetes pods in the cluster, in CIDR notation.                                              |
+| SERVICE_CIDR               | The network range for the Kubernetes services in the cluster, in CIDR notation.                                          |
+| DNS_SERVICE_IP             | The IP address for the Kubernetes DNS service.                                                                           |
 
 Once you've defined these variables, you can run the Azure PowerShell command to create the cluster. Add the ```-Debug``` flag at the end to provide more detailed output for troubleshooting purposes.
 
@@ -75,6 +62,9 @@ $LOCATION="<ClusterAzureRegion>"
 # Network parameters
 $CSN_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/cloudServicesNetworks/<csn-name>"
 $CNI_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
+$POD_CIDR="10.244.0.0/16"
+$SERVICE_CIDR="10.96.0.0/16"
+$DNS_SERVICE_IP="10.96.0.10"
 
 # AgentPoolConfiguration parameters
 $INITIAL_AGENT_POOL_COUNT="1"
@@ -93,49 +83,11 @@ $ADMIN_USERNAME="azureuser"
 $CONTROL_PLANE_COUNT="1"
 $CONTROL_PLANE_VM_SIZE="NC_G2_v1"
 
-# ServiceLoadBalancerBgpPeer parameters
-$SERVICELOADBALANCERPEERNAME="bgpeername"
-$PEERADDRESS="203.0.113.254"
-$PEERASN="64497"
-$BFDENABLED="False"
-$BGPMULTIHOP="False"
-$PASSWORD="passsword"
-$PEERPORT="1234"
-
-# BgpAdvertisement parameters
-$IPADDRESSPOOL="test-ip-pool1"
-$COMMUNITY="64515:100"
-
-# BgpIpAddressPool parameters
-$ADDRESS="10.12.40.0/27"
-$IPPOOLNAME="pool1"
-$AUTOASSIGN="True"
-$ONLYUSEHOSTIP="True"
-
-$AGENTPOOLCONFIGURATION = New-AzNetworkCloudInitialAgentPoolConfigurationObject `
+$AGENT_POOL_CONFIGURATION = New-AzNetworkCloudInitialAgentPoolConfigurationObject `
 -Count $INITIAL_AGENT_POOL_COUNT `
 -Mode $MODE `
 -Name $INITIAL_AGENT_POOL_NAME `
 -VmSkuName $INITIAL_AGENT_POOL_VM_SIZE
-
-$SERVICELOADBALANCEBGPPEER = New-AzNetworkCloudServiceLoadBalancerBgpPeerObject `
--Name $SERVICELOADBALANCERPEERNAME `
--PeerAddress $PEERADDRESS `
--PeerAsn $PEERASN `
--BfdEnabled $BFDENABLED `
--BgpMultiHop $BGPMULTIHOP `
--Password $PASSWORD `
--PeerPort $PEERPORT
-
-$BGPADVERTISEMENT = New-AzNetworkCloudBgpAdvertisementObject `
--IPAddressPool @($IPADDRESSPOOL) `
--Community @($COMMUNITY)
-
-$BGPIPADDRESSPOOLS=New-AzNetworkCloudIpAddressPoolObject `
--Address @($ADDRESS) `
--Name $IPPOOLNAME `
--AutoAssign $AUTOASSIGN `
--OnlyUseHostIP $ONLYUSEHOSTIP
 ```
 
 > [!IMPORTANT]
@@ -154,14 +106,14 @@ New-AzNetworkCloudKubernetesCluster -KubernetesClusterName $CLUSTER_NAME `
 -AadConfigurationAdminGroupObjectId $AAD_ADMIN_GROUP_OBJECT_ID `
 -AdminUsername $ADMIN_USERNAME `
 -SshPublicKey $SSH_PUBLIC_KEY `
--InitialAgentPoolConfiguration $AGENTPOOLCONFIGURATION `
--NetworkConfigurationCloudServicesNetworkId $CSN_ARM_ID `
--NetworkConfigurationCniNetworkId $CNI_ARM_ID `
 -ControlPlaneNodeConfigurationCount $CONTROL_PLANE_COUNT `
 -ControlPlaneNodeConfigurationVMSkuName $CONTROL_PLANE_VM_SIZE `
--BgpAdvertisement $BGPADVERTISEMENT `
--BgpPeer $SERVICELOADBALANCEBGPPEER `
--BgpIPAddressPool $BGPIPADDRESSPOOLS
+-InitialAgentPoolConfiguration $AGENT_POOL_CONFIGURATION `
+-NetworkConfigurationCloudServicesNetworkId $CSN_ARM_ID `
+-NetworkConfigurationCniNetworkId $CNI_ARM_ID `
+-NetworkConfigurationPodCidr $POD_CIDR `
+-NetworkConfigurationDnsServiceIP $SERVICE_CIDR `
+-NetworkConfigurationServiceCidr $DNS_SERVICE_IP
 ```
 
 After a few minutes, the command completes and returns information about the cluster. For more advanced options, see [Quickstart: Deploy an Azure Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md).
@@ -172,7 +124,7 @@ After a few minutes, the command completes and returns information about the clu
 
 ## Connect to the cluster
 
-[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect.md)]
+[!INCLUDE [quickstart-cluster-connect](./includes/kubernetes-cluster/quickstart-cluster-connect-ps.md)]
 
 ## Add an agent pool
 
@@ -186,21 +138,11 @@ $SUBSCRIPTION="<Azure subscription ID>"
 $CUSTOM_LOCATION="/subscriptions/<subscription_id>/resourceGroups/<managed_resource_group>/providers/microsoft.extendedlocation/customlocations/<custom-location-name>"
 $CUSTOM_LOCATION_TYPE="CustomLocation"
 $LOCATION="<ClusterAzureRegion>"
+$CLUSTER_NAME="myNexusK8sCluster"
 $AGENT_POOL_NAME="myNexusK8sCluster-nodepool-2"
 $AGENT_POOL_VM_SIZE="NC_G2_v1"
 $AGENT_POOL_COUNT="1"
-$AGENT_POOL_MODE="System"
-$AGENT_POOL_HUGEPAGE_SIZE="2M"
-$SSH_PUBLIC_KEY = @{
-    KeyData = "$(cat ~/.ssh/id_rsa.pub)"
-}
-$ADMIN_USERNAME="azureuser"
-$CNI_ARM_ID="/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.NetworkCloud/l3Networks/<l3Network-name>"
-$IPAM_ENABLED="True"
-$PLUGIN_TYPE="SRIOV"
-$L3_NETWORK_ATTACHMENT = New-AzNetworkCloudL3NetworkAttachmentConfigurationObject -NetworkId $CNI_ARM_ID `
--IpamEnabled $IPAM_ENABLED `
--PluginType $PLUGIN_TYPE
+$AGENT_POOL_MODE="User"
 ```
 
 After defining these variables, you can add an agent pool by executing the following Azure PowerShell command:
@@ -209,18 +151,13 @@ After defining these variables, you can add an agent pool by executing the follo
 New-AzNetworkCloudAgentPool -KubernetesClusterName $CLUSTER_NAME `
 -Name $AGENT_POOL_NAME `
 -ResourceGroupName $RESOURCE_GROUP `
--Count $AGENT_POOL_COUNT `
--Location $LOCATION `
--Mode $AGENT_POOL_MODE `
--VMSkuName $AGENT_POOL_VM_SIZE `
 -SubscriptionId $SUBSCRIPTION `
--AdministratorConfigurationAdminUsername $ADMIN_USERNAME `
--AdministratorConfigurationSshPublicKey $SSH_PUBLIC_KEY `
--AgentOptionHugepagesCount $AGENT_POOL_COUNT `
--AgentOptionHugepagesSize $AGENT_POOL_HUGEPAGE_SIZE `
--AttachedNetworkConfigurationL3Network $L3_NETWORK_ATTACHMENT `
 -ExtendedLocationName $CUSTOM_LOCATION `
--ExtendedLocationType $CUSTOM_LOCATION_TYPE
+-ExtendedLocationType $CUSTOM_LOCATION_TYPE `
+-Location $LOCATION `
+-Count $AGENT_POOL_COUNT `
+-Mode $AGENT_POOL_MODE `
+-VMSkuName $AGENT_POOL_VM_SIZE
 ```
 
 After a few minutes, the command completes and returns information about the agent pool. For more advanced options, see [Quickstart: Deploy an Azure Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md).

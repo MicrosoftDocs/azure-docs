@@ -38,7 +38,7 @@ ms.custom: devx-track-azurecpowershell
 
 * You need the `custom location` resource ID of your Azure Operator Nexus cluster.
 * You need to create [various networks](../../quickstarts-tenant-workload-prerequisites.md#create-networks-for-tenant-workloads) according to your specific workload requirements, and it's essential to have the appropriate IP addresses available for your workloads. To ensure a smooth implementation, it's advisable to consult the relevant support teams for assistance.
-
+* This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 <!-- LINKS - internal -->
 [install-azure-powershell]: /powershell/azure/install-az-ps
