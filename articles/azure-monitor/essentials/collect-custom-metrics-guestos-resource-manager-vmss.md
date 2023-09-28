@@ -82,112 +82,109 @@ In the **extensionProfile**, add a new extension to the template as shown in the
 The following code from the MSI extension also adds the diagnostics extension and configuration as an extension resource to the virtual machine scale set resource. Feel free to add or remove performance counters as needed: 
 
 ```json
-          "extensionProfile": { 
-            "extensions": [ 
-            // BEGINNING of added code  
-            // Managed identities for Azure resources   
-                { 
-                 "name": "VMSS-WAD-extension", 
-                 "properties": { 
-                       "publisher": "Microsoft.ManagedIdentity", 
-                       "type": "ManagedIdentityExtensionForWindows", 
-                       "typeHandlerVersion": "1.0", 
-                       "autoUpgradeMinorVersion": true, 
-                       "settings": { 
-                             "port": 50342 
-                           }, 
-                       "protectedSettings": {} 
-                     } 
-                                
-            }, 
-            // add diagnostic extension. (Remove this comment after pasting.)
-            { 
-              "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
-              "properties": { 
-                   "type": "IaaSDiagnostics", 
-                   "autoUpgradeMinorVersion": true, 
-                   "protectedSettings": { 
-                        "storageAccountName": "[variables('storageAccountName')]", 
-                        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1]", 
-                        "storageAccountEndPoint": "https://core.windows.net/" 
-                   }, 
-                   "publisher": "Microsoft.Azure.Diagnostics", 
-                   "settings": { 
-                        "WadCfg": { 
-                              "DiagnosticMonitorConfiguration": { 
-                                   "overallQuotaInMB": "50000", 
-                                   "PerformanceCounters": { 
-                                       "scheduledTransferPeriod": "PT1M", 
-                                       "sinks": "AzMonSink", 
-                                       "PerformanceCounterConfiguration": [ 
-                                          { 
-              "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
-                                              "sampleRate": "PT15S" 
-           }, 
-           { 
-              "counterSpecifier": "\\Memory\\Available Bytes", 
-              "sampleRate": "PT15S" 
-           }, 
-           { 
-              "counterSpecifier": "\\Memory\\Committed Bytes", 
-              "sampleRate": "PT15S" 
-           } 
-                                       ] 
-                                 }, 
-                                 "EtwProviders": { 
-                                       "EtwEventSourceProviderConfiguration": [ 
-                                           { 
-                                              "provider": "Microsoft-ServiceFabric-Actors", 
-                                              "scheduledTransferKeywordFilter": "1", 
-                                              "scheduledTransferPeriod": "PT5M", 
-                                              "DefaultEvents": { 
-                                              "eventDestination": "ServiceFabricReliableActorEventTable" 
-                                           } 
-                                           }, 
-                                           { 
-                                              "provider": "Microsoft-ServiceFabric-Services", 
-                                              "scheduledTransferPeriod": "PT5M", 
-                                              "DefaultEvents": { 
-                                                   "eventDestination": "ServiceFabricReliableServiceEventTable" 
-                                              } 
-                                           } 
-                                     ], 
-                                     "EtwManifestProviderConfiguration": [ 
-                                           { 
-                                              "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8", 
-                                              "scheduledTransferLogLevelFilter": "Information", 
-                                              "scheduledTransferKeywordFilter": "4611686018427387904", 
-                                              "scheduledTransferPeriod": "PT5M", 
-                                              "DefaultEvents": { 
-                                                   "eventDestination": "ServiceFabricSystemEventTable" 
-                                              } 
-                                          } 
-                                     ] 
-                               } 
-                               }, 
-                               "SinksConfig": { 
-                                     "Sink": [ 
-                                          { 
-                                              "name": "AzMonSink", 
-                                              "AzureMonitor": {} 
-                                          } 
-                                      ] 
-                               } 
-                         }, 
-                         "StorageAccount": "[variables('storageAccountName')]" 
-                         }, 
-                        "typeHandlerVersion": "1.11" 
-                  } 
-           } 
-            ] 
-          }
-          }
+  "extensionProfile": {
+    "extensions": [
+      // BEGINNING of added code
+      // Managed identities for Azure resources
+      {
+        "name": "VMSS-WAD-extension",
+        "properties": {
+          "publisher": "Microsoft.ManagedIdentity",
+          "type": "ManagedIdentityExtensionForWindows",
+          "typeHandlerVersion": "1.0",
+          "autoUpgradeMinorVersion": true,
+          "settings": {
+            "port": 50342
+          },
+          "protectedSettings": {}
+        }
+      },
+      // add diagnostic extension. (Remove this comment after pasting.)
+      { 
+        "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
+        "properties": { 
+          "type": "IaaSDiagnostics",
+          "autoUpgradeMinorVersion": true,
+          "protectedSettings": {
+            "storageAccountName": "[variables('storageAccountName')]",
+            "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net/"
+          },
+          "publisher": "Microsoft.Azure.Diagnostics", 
+          "settings": { 
+            "WadCfg": { 
+              "DiagnosticMonitorConfiguration": { 
+                "overallQuotaInMB": "50000", 
+                "PerformanceCounters": { 
+                  "scheduledTransferPeriod": "PT1M", 
+                  "sinks": "AzMonSink", 
+                  "PerformanceCounterConfiguration": [
+                    { 
+                      "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
+                      "sampleRate": "PT15S" 
+                    },
+                    { 
+                      "counterSpecifier": "\\Memory\\Available Bytes", 
+                      "sampleRate": "PT15S" 
+                    }, 
+                    { 
+                      "counterSpecifier": "\\Memory\\Committed Bytes", 
+                      "sampleRate": "PT15S" 
+                    }
+                  ]
+                },
+                "EtwProviders": {
+                  "EtwEventSourceProviderConfiguration": [
+                    { 
+                      "provider": "Microsoft-ServiceFabric-Actors", 
+                      "scheduledTransferKeywordFilter": "1", 
+                      "scheduledTransferPeriod": "PT5M", 
+                      "DefaultEvents": { 
+                        "eventDestination": "ServiceFabricReliableActorEventTable" 
+                      } 
+                    }, 
+                    { 
+                      "provider": "Microsoft-ServiceFabric-Services", 
+                      "scheduledTransferPeriod": "PT5M", 
+                      "DefaultEvents": { 
+                        "eventDestination": "ServiceFabricReliableServiceEventTable" 
+                      } 
+                    } 
+                  ], 
+                  "EtwManifestProviderConfiguration": [
+                    {
+                       "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8", 
+                       "scheduledTransferLogLevelFilter": "Information", 
+                       "scheduledTransferKeywordFilter": "4611686018427387904", 
+                       "scheduledTransferPeriod": "PT5M", 
+                       "DefaultEvents": { 
+                         "eventDestination": "ServiceFabricSystemEventTable" 
+                       } 
+                    } 
+                  ]
+                }
+              },
+              "SinksConfig": { 
+                 "Sink": [ 
+                    { 
+                    "name": "AzMonSink", 
+                    "AzureMonitor": {} 
+                    } 
+                 ]
+              }
+            },
+            "StorageAccount": "[variables('storageAccountName')]" 
+          },
+          "typeHandlerVersion": "1.11" 
+        }
       }
-    },
-    //end of added code plus a few brackets. Be sure that the number and type of brackets match properly when done. 
-    {
-      "type": "Microsoft.Insights/autoscaleSettings",
-...
+    ]
+  },
+  // end of added code. Be sure that the number and type of brackets match properly when done. 
+  {
+  "type": "Microsoft.Insights/autoscaleSettings",
+  ...
+  }
 ```
 
 Add a **dependsOn** for the storage account to ensure it's created in the correct order:
