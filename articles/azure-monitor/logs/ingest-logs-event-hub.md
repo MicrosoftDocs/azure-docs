@@ -12,7 +12,7 @@ ms.custom: references_regions
 # customer-intent: As a DevOps engineer, I want to ingest data from an event hub into a Log Analytics workspace so that I can monitor logs that I send to Azure Event Hubs.
 ---
 
-# Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Preview)
+# Tutorial: Ingest events from Azure Event Hubs into Azure Monitor Logs (Public Preview)
 
 [Azure Event Hubs](../../event-hubs/event-hubs-about.md) is a big data streaming platform that collects events from multiple sources to be ingested by Azure and external services. This article explains how to ingest data directly from an event hub into a Log Analytics workspace.
 
