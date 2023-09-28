@@ -2,6 +2,7 @@
 title: Supported languages in Azure Functions
 description: Learn which languages are supported for developing your Functions in Azure, the support level of the various language versions, and potential end-of-life dates.
 ms.topic: conceptual
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 08/27/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
