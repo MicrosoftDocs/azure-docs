@@ -2,8 +2,8 @@
 title: Set up App Insights for a Chaos Studio Agent-Based Experiments
 description: Understand the steps to connect App Insights to your Chaos Studio Agent-Based Experiment
 services: chaos-studio
-author: nikhilkaul-microsoft
-ms.topic: howto
+author: nikhilkaul-msft
+ms.topic: how-to
 ms.date: 09/27/2023
 ms.author: nikhilkaul
 ms.service: chaos-studio
@@ -15,9 +15,9 @@ In this guide, we will show you the steps needed to configure a Chaos Studio **A
 ## Prerequisites
 - An Azure subscription
 - An existing Chaos Studio **Agent-based** Experiment [How to create your first Chaos Experiment](chaos-studio-quickstart-azure-portal.md)
-- An existing Log Analytics Workspace (required for Application Insights Resource as well) [How to Create a Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal)
-- An existing Application Insights Resource [How to Create an Application Insights Resource](https://learn.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource)
-- A User-Assigned Managed Identity (Required for Agent-based Chaos Experiments) [How to create a User-Assigned Managed Identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+- An existing Log Analytics Workspace (required for Application Insights Resource as well) [How to Create a Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md)
+- An existing Application Insights Resource [How to Create an Application Insights Resource](../azure-monitor/app/create-workspace-resource.md)
+- A User-Assigned Managed Identity (Required for Agent-based Chaos Experiments) [How to create a User-Assigned Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
 
 ## Step 1: Copy the Instrumentation Key from your Application Insights Resource
 Once you have met all the pre-requisite steps, copy the **Instrumentation Key** found in the overview page of your Application Insights Resource (see red arrow in the screenshot below)
