@@ -6,7 +6,7 @@ ms.date: 09/08/2023
 ---
 
 # Subscribe to events raised by Azure Resource Notifications - Health Resources
-This article describes steps to subscribe to events published by Azure Resource Notification - Health Resources. For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).
+This article explains the steps needed to subscribe to events published by Azure Resource Notifications - Health Resources. For detailed information about these events, see [Azure Resource Notifications - Health Resources events](event-schema-health-resources.md).
 
 ## Create Health Resources system topic
 
@@ -31,7 +31,7 @@ This article describes steps to subscribe to events published by Azure Resource 
     ```
 2. Create a system topic of type `microsoft.resourcenotifications.healthresources` using the [New-AzEventGridSystemTopic](/powershell/module/az.eventgrid/new-azeventgridsystemtopic) command.
 
-    ```azurecli-interactive
+    ```azurepowershell-interactive
     New-AzEventGridSystemTopic -name SYSTEMTOPICNAME -resourcegroup RESOURCEGROUPNAME -source /subscriptions/AZURESUBSCRIPTIONID -topictype microsoft.resourcenotifications.healthresources -location global    
     ```
 
@@ -71,21 +71,21 @@ Create an event subscription for the above topic using the [New-AzEventGridSyste
 
 The following sample command creates an event subscription for the **AvailabilityStatusChanged** event. 
 
-```azurecli-interactive
+```azurepowershell-interactive
 New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIPTIONNAME -ResourceGroupName RESOURCEGROUPNAME -SystemtopicName SYSTEMTOPICNAME -IncludedEventType Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged -Endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBSNAMESPACE/eventhubs/EVENTHUB -EndpointType eventhub
 ```
 
 The following sample command creates an event subscription for the **ResourceAnnotated** event. 
 
-```azurecli-interactive
+```azurepowershell-interactive
 New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIPTIONNAME -ResourceGroupName RESOURCEGROUPNAME -SystemtopicName SYSTEMTOPICNAME -IncludedEventType Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated -Endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBSNAMESPACE/eventhubs/EVENTHUB -EndpointType eventhub
 ```
 
 If you don't specify `IncludedEventType`, all the event types are included by default.    
 
-To **filter events** from a specific resource, use the `--subject-begins-with` parameter. The example shows how to subscribe to `AvailabilityStatusChanged` events from resources in a specified resource group. 
+To **filter events** from a specific resource, use the `-SubjectBeginsWith` parameter. The example shows how to subscribe to `AvailabilityStatusChanged` events from resources in a specified resource group. 
 
-```azurecli-interactive
+```azurepowershell-interactive
 New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIPTIONNAME -ResourceGroupName RESOURCEGROUPNAME -SystemtopicName SYSTEMTOPICNAME -IncludedEventType Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged -Endpoint /subscriptions/AZURESUBSCRIPTIONID/ resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.EventHub/namespaces/EVENTHUBSNAMESPACE/eventhubs/EVENTHUB -EndpointType eventhub -SubjectBeginsWith /subscriptions/AZURESUBSCRIPTIONID/resourceGroups/SOURCERESOURCEGROUP/
 ```
 
@@ -125,29 +125,12 @@ To delete a system topic, use the [`Remove-AzEventGridSystemTopic`](/powershell/
 
 ---
 
-## Filtering examples
+## Additional filtering examples
 
 ### Subscribe to Platform Initiated annotations belonging to Unplanned category.
 You might want to filter to events that require an action. Near real-time alerts are critical in enabling quick mitigation actions. By filtering to Azure initiated and unplanned activity, you can become instantly aware of unanticipated activity across the workloads that requires immediate attention. You might want to redeploy or trigger communication to your end-users to notify the impact.
 
-#### Azure portal
-
-1. Choose **Resource Annotated** as the event type. 
-1. In the **Filters** tab of the event subscription, choose the following advanced filters.
-
-    ```
-    - Key = data.resourceInfo.properties.category
-    - Operator = StringEndsWith
-    - Value = Unplanned
-
-        AND 
-
-    - Key = data.resourceInfo.properties.context
-    - Operator = StringEndsWith
-    - Value = Platform Initiated
-    ```
-
-#### Azure CLI 
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az eventgrid system-topic event-subscription create \
@@ -161,8 +144,54 @@ az eventgrid system-topic event-subscription create \
 	--advanced-filter data.resourceInfo.properties.category StringEndsWith Unplanned 
 ```
 
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName firstEventSubscription -ResourceGroupName sampletestrg -SystemtopicName arnSystemTopicHealth -IncludedEventType Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated -Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources  -EndpointType eventhub -AdvancedFilter @(@{operator = "StringEndsWith"; key = "data.resourceInfo.properties.context" ; value ="Platform Initiated"}, @{operator = "StringEndsWith"; key = "data.resourceInfo.properties.category" ; value ="Unplanned"})
+```
+
+
+# [Azure portal](#tab/azure-portal)
+
+1. Choose **Resource Annotated** as the event type. 
+1. In the **Filters** tab of the event subscription, choose the following advanced filters.
+
+    ```
+    - Key = data.resourceInfo.properties.context 
+    - Operator = StringEndsWith 
+    - Value = Platform Initiated
+
+        AND
+
+    - Key = data.resourceInfo.properties.category 
+    - Operator = StringEndsWith 
+    - Value = Unplanned
+    ```
+
+---
+
 ### Subscribe to annotations scoped to a particular target type
 Having the ability to filter to the resource types that require attention or mitigation upon impact can enable you to focus on what matters. Even within VMs, perhaps you only care when health of the parent or entire virtual machine scale set is affected versus when an instance in a virtual machine scale set is affected. This filter allows you to precisely hone in on the type of resources for which you want the near real-time alerts.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az eventgrid system-topic event-subscription create \
+	--name firstEventSubscription \
+	--resource-group sampletestrg \
+	--system-topic-name arnSystemTopicHealth \
+	--included-event-types Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated \
+	--endpoint/subscriptions/000000000-0000-0000-0000-0000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources \
+	--endpoint-type evenhub \
+	--advanced-filter data.resourceInfo.targetResourceType StringContains Microsoft.Compute/virtualMachines
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName firstEventSubscription -ResourceGroupName sampletestrg -SystemtopicName arnSystemTopicHealth -IncludedEventType Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated -Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources  -EndpointType eventhub -AdvancedFilter @(@{operator = "StringContains"; key = "data.resourceInfo.properties.targetResourceType" ; value ="Microsoft.Compute/virtualMachines"})
+```
 
 #### Azure portal
 In the **Filters** tab of the event subscription, choose the following advanced filters.
@@ -173,18 +202,7 @@ Operator = String contains
 Value = Microsoft.Compute/virtualMachines
 ```
 
-#### Azure CLI
 
-```azurecli-interactive
-az eventgrid system-topic event-subscription create \
-	--name firstEventSubscription \
-	--resource-group sampletestrg \
-	--system-topic-name arnSystemTopicHealth \
-	--included-event-types Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated \
-	--endpoint/subscriptions/000000000-0000-0000-0000-0000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources \
-	--endpoint-type evenhub \
-	--advanced-filter data.resourceInfo.location StringContains Microsoft.Compute/virtualMachines
-```
 
 
 
