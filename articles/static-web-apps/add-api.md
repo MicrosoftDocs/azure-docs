@@ -24,13 +24,14 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code
 - [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code
+- [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for Visual Studio Code
 - [Node.js](https://nodejs.org/download/) to run the frontend app and API
 
 ## Create the static web app
 
 Before adding an API, create and deploy a frontend application to Azure Static Web Apps. Use an existing app that you've already deployed or create one by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
 
-In Visual Studio Code, open the root of your app's repository. The folder structure contains the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_ folder.
+In Visual Studio Code, open the root of your app's repository. Make sure to open the directory in a Dev Container when prompted. The folder structure contains the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_ folder.
 
 ```Files
 ├── .github
@@ -53,6 +54,7 @@ You create an Azure Functions project for your static web app's API. By default,
     | Prompt | Value |
     | --- | --- |
     | Select a language | **JavaScript** |
+    | Select a JavaScript programming model | **Model V3** |
     | Provide a function name | **message** |
 
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
@@ -219,7 +221,10 @@ To run your frontend app and API together locally, Azure Static Web Apps provide
 
 ### Install command line tools
 
-Ensure you have the necessary command line tools installed.
+Ensure you have the necessary command line tools installed with the Docker Dev container's terminal.
+
+The blue indicator in the bottom left should show something like "Dev Container: Azure Static Web Apps ..." if this instance of VS Code is running the Dev Container for this directory.
+If the dev container for this directory is not already open in the terminal, open it to necessary command line tools.
 
 ```bash
 npm install -g @azure/static-web-apps-cli
@@ -266,7 +271,7 @@ npm run build
 
 Run the frontend app and API together by starting the app with the Static Web Apps CLI. Running the two parts of your application this way allows the CLI to serve your frontend's build output from a folder, and makes the API accessible to the running app.
 
-1. In root of your repository, start the Static Web Apps CLI with the `start` command. Adjust the arguments if your app has a different folder structure.
+1. In root of your repository, start the Static Web Apps CLI with the `start` command. Adjust the arguments if your app has a different folder structure. The command should be run in the Dev Container.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -312,7 +317,7 @@ Before you can deploy your app to Azure, update your repository's GitHub Actions
 
 1. Open your workflow at _.github/workflows/azure-static-web-apps-\<DEFAULT-HOSTNAME>.yml_.
 
-1. Search for the property `api_location` and set the value to `api`.
+1. Search for the property `api_location` and set the value to `/api`. Ensure it is `/api` and not `api`.
 1. Save the file.
 
 ## Deploy changes
@@ -323,7 +328,7 @@ To publish changes to your static web app in Azure, commit and push your code to
 
 1. Select the **Git: Commit All** command.
 
-1. When prompted for a commit message, enter **feat: add API** and commit all changes to your local git repository.
+1. When prompted for a commit message, enter **feat: add API** and commit all changes to your local git repository. Save and close the commit file.
 
 1. Press <kbd>F1</kbd> to open the Command Palette.
 
