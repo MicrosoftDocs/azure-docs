@@ -24,7 +24,7 @@ The following Azure CLI commands use a `--client-type` parameter.
 
 1. Choose a client type and run the corresponding command.
 
-    #### [User-assigned managed identity](#tab/user)
+    #### [User-assigned managed identity](#tab/userassigned)
 
     ```azurecli-interactive
     az webapp connection create sql \
@@ -37,7 +37,7 @@ The following Azure CLI commands use a `--client-type` parameter.
         --client-type dotnet
     ```
 
-    #### [System-assigned managed identity](#tab/system)
+    #### [System-assigned managed identity](#tab/systemassigned)
 
     ```azurecli-interactive
     az webapp connection create sql \
@@ -83,7 +83,7 @@ The following Azure CLI commands use a `--client-type` parameter.
 
 1. Choose a client type and run the corresponding command.
 
-    #### [User-assigned managed identity](#tab/user)
+    #### [User-assigned managed identity](#tab/userassigned)
 
     ```azurecli-interactive
     az webapp connection create mysql-flexible \
@@ -96,7 +96,7 @@ The following Azure CLI commands use a `--client-type` parameter.
         --client-type java
     ```
 
-    #### [System-assigned managed identity](#tab/system)
+    #### [System-assigned managed identity](#tab/systemassigned)
 
     ```azurecli-interactive
     az webapp connection create mysql-flexible \
@@ -119,7 +119,7 @@ The following Azure CLI commands use a `--client-type` parameter.
 
 1. Choose a client type and run the corresponding command.
 
-    #### [User-assigned managed identity](#tab/user)
+    #### [User-assigned managed identity](#tab/userassigned)
 
     ```azurecli-interactive
     az webapp connection create postgres-flexible \
@@ -132,7 +132,7 @@ The following Azure CLI commands use a `--client-type` parameter.
         --client-type java
     ```
 
-    #### [System-assigned managed identity](#tab/system)
+    #### [System-assigned managed identity](#tab/systemassigned)
 
     ```azurecli-interactive
     az webapp connection create postgres-flexible \
