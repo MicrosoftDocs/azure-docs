@@ -20,7 +20,7 @@ The following table lists the difference between SMART on FHIR proxy and SMART o
 |Relies on first party Azure products|Yes, Azure products such as Azure API Management (APIM) need to be integrated|No|
 |Microsoft Support|Supported for FHIR service.Open-source sample support needs to be reported and monitored via [GitHub](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/issues)|Supported for FHIR service|
 
-### Migration Steps from SMART on FHIR Proxy to SMART on FHIR (Enhanced)
+### Migration Steps
 * Step 1: Set up FHIR SMART user role 
 Follow the steps listed under section [Manage Users: Assign Users to Role](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal). Any user added to SMART user role is able to access the FHIR Service, if their requests comply with the SMART on FHIR implementation Guide. 
 * Step 2: Deploy SMART on FHIR sample under [Azure Health Data and AI OSS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)
