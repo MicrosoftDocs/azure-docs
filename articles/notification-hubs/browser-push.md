@@ -27,7 +27,7 @@ At a high level, the process is:
    - Using the REST API
    - Using the .NET SDK
 
-2. [Create registrations and installations](#create-registrations-and-installations)
+2. [Create registrations and installations](#create-registrations-and-installations).
 
 3. [Send push notifications](#send-push-notifications):
    - Direct sends
@@ -55,21 +55,21 @@ Browser push support on tablet PCs:
 | Operating system | Browsers                                  |
 |------------------|-------------------------------------------|
 | Windows OS       | Chrome v48+<br>Firefox v44+<br>Opera v42+ |
-| IOS              | Not supported                             |
+| iOS              | Not supported.                             |
 | Android OS       | Chrome v48+<br>Firefox v44+<br>Opera v42+ |
 
 Browser push support on mobile devices:
 
 | Operating system | Browsers                                  |
 |------------------|-------------------------------------------|
-| IOS              | Not supported                             |
+| iOS              | Not supported.                            |
 | Android OS       | Chrome v48+<br>Firefox v44+<br>Opera v42+ |
 
 ## Set credentials
 
 To subscribe to browser push notifications on your web site, you can use VAPID keys. You can generate VAPID credentials by using services such as the [VAPID key generator](https://www.attheminute.com/vapid-key-generator/). The credentials should look similar to the following:
 
-```csharp
+```json
 { 
     "location": "South Central US", 
     "properties": { 
@@ -138,7 +138,7 @@ The following examples show the registration request body for a native registrat
 
 ### Installation request body
 
-```csharp
+```json
 {  
     "installationId": "installation-id", 
     "platform": "browser", 
@@ -207,7 +207,7 @@ To create a direct send notification, follow these steps:
 
 1. Create the message body. The message body is typically in this format:
 
-   ```csharp
+   ```json
    { 
      "title": "Some Title", 
      "body": "Some body of a message" 
