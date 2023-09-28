@@ -104,7 +104,7 @@ To reimage one or more lab VMs:
 
 1. Select one or multiple VMs from the list, and then select **Reimage** in the toolbar.
 
-    :::image type="content" source="./media/how-to-manage-vm-pool/reset-vm-button.png" alt-text="Screenshot of virtual machine pool.  Reset button is highlighted.":::
+    :::image type="content" source="./media/how-to-manage-vm-pool/reset-vm-button.png" alt-text="Screenshot of virtual machine pool.  Reimage button is highlighted.":::
 
 1. On the **Reimage virtual machine** dialog box, and then select **Reimage** to start the operation.
 
