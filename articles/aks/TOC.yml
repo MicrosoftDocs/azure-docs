@@ -751,4 +751,8 @@
     - name: FAQ
       href: faq.md
 - name: Support and troubleshooting
-  href: aks-support-help.md
+  items:
+    - name: Support options for AKS
+      href: aks-support-help.md
+    - name: Troubleshooting documentation for AKS
+      href: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes

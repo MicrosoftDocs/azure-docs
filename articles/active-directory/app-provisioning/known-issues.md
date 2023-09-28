@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/21/2023
+ms.date: 09/28/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -69,7 +69,7 @@ When two users in the source tenant have the same mail, and they both need to be
 ### Usage of Microsoft Entra B2B collaboration for cross-tenant access
 
 - B2B users are unable to manage certain Microsoft 365 services in remote tenants (such as Exchange Online), as there's no directory picker.
-- Azure Virtual Desktop currently doesn't support B2B users.
+- To learn about Azure Virtual Desktop support for B2B users, see [Prerequisites for Azure Virtual Desktop](../../virtual-desktop/prerequisites.md?tabs=portal).
 - B2B users with UserType Member aren't currently supported in Power BI. For more information, see [Distribute Power BI content to external guest users using Microsoft Entra B2B](/power-bi/guidance/whitepaper-azure-b2b-power-bi)
 - Converting a guest account into a Microsoft Entra member account or converting a Microsoft Entra member account into a guest isn't supported by Teams. For more information, see [Guest access in Microsoft Teams](/microsoftteams/guest-access).
 ::: zone-end
@@ -106,7 +106,7 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 
 #### Unsupported scoping filters
 
-Directory extensions and the **appRoleAssignments**, **userType**, and **accountExpires** attributes aren't supported as scoping filters.
+The **appRoleAssignments**, **userType**, and **accountExpires** attributes aren't supported as scoping filters.
 
 #### Multivalue directory extensions
 
