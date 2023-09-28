@@ -28,6 +28,7 @@ Once you have met all the pre-requisite steps, copy the **Instrumentation Key** 
 
 ## Step 2: Enable the Target Platform for your Agent-Based Fault with Application Insights
 Navigate to the Chaos Studio overview page and click on the **Targets** blade under the "Experiments Management" section. Find the target platform, ensure it is enabled for agent-based faults, and select "Manage Actions" in the right-most column. See screenshot below for an example:
+
 <br/>
 
 <br/>
