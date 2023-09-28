@@ -32,7 +32,7 @@
         },
         {
             "source_path": "troubleshoot-aks-hybrid-cluster.md",
-            "redirect_url": "index.yml",
+            "redirect_url": "overview.md",
             "redirect_document_id": false
         }
     ]
