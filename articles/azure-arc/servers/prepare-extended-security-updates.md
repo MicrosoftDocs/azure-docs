@@ -34,7 +34,7 @@ For Azure Arc-enabled servers enrolled in WS2012 ESUs enabled by Azure Arc, free
 Other Azure services through Azure Arc-enabled servers are available as well, with offerings such as:
 
 * [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers.md) to help protect you from various cyber threats and vulnerabilities.
-* [Azure Policy](../../governance/policy/overview.md) helps to enforce organizational standards and to assess compliance at-scale. Beyond providing an aggregated view to evaluate the overall state of the environment, Azure Policy helps to bring your resources to compliance through bulk and automatic remediation.
+* [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) - Collect security-related events and correlate them with other data sources.
 
     >[!NOTE]
     >Activation of ESU is planned for the third quarter of 2023. Using Azure services such as Azure Update Manager (preview) and Azure Policy to support managing ESU-eligible Windows Server 2012/2012 R2 machines are also planned for the third quarter.
