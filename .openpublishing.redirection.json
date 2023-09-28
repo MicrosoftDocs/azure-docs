@@ -22343,11 +22343,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/peering-service/create-connection.md",
-            "redirect_url": "/azure/peering-service/azure-portal",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/lighthouse/concepts/azure-delegated-resource-management.md",
             "redirect_url": "/azure/lighthouse/concepts/architecture",
             "redirect_document_id": true
