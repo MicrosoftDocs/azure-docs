@@ -5,7 +5,7 @@ description: Learn how network traffic flows between components when your Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.custom: event-tier1-build-2022, moe-wsvnet
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
@@ -144,10 +144,9 @@ The `public_network_access` flag of the Azure Machine Learning workspace also go
 
 #### Outbound communication
 
-__Outbound__ communication from a deployment can be secured at the workspace level by enabling managed virtual network isolation for your Azure Machine Learning workspace (preview). Enabling this setting causes Azure Machine Learning to create a managed virtual network for the workspace. Any deployments in the workspace's managed virtual network can use the virtual network's private endpoints for outbound communication.
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
+__Outbound__ communication from a deployment can be secured at the workspace level by enabling managed virtual network isolation for your Azure Machine Learning workspace. Enabling this setting causes Azure Machine Learning to create a managed virtual network for the workspace. Any deployments in the workspace's managed virtual network can use the virtual network's private endpoints for outbound communication.
 
-The [legacy network isolation method for securing outbound communication](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) worked by disabling a deployment's `egress_public_network_access` flag. We strongly recommend that you secure outbound communication for deployments by using a [workspace managed virtual network](concept-secure-online-endpoint.md) instead. Unlike the legacy approach, the `egress_public_network_access` flag for the deployment no longer applies when you use a workspace managed virtual network with your deployment (preview). Instead, outbound communication will be controlled by the rules set for the workspace's managed virtual network.
+The [legacy network isolation method for securing outbound communication](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) worked by disabling a deployment's `egress_public_network_access` flag. We strongly recommend that you secure outbound communication for deployments by using a [workspace managed virtual network](concept-secure-online-endpoint.md) instead. Unlike the legacy approach, the `egress_public_network_access` flag for the deployment no longer applies when you use a workspace managed virtual network with your deployment. Instead, outbound communication will be controlled by the rules set for the workspace's managed virtual network.
 
 :::moniker-end
 

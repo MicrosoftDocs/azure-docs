@@ -138,7 +138,7 @@ The following table is a summary of the custom settings wizard pages, the creden
 ### Create the AD DS Connector account
 
 > [!IMPORTANT]
-> A new PowerShell Module named *ADSyncConfig.psm1* was introduced with build 1.1.880.0 (released in August 2018). The module includes a collection of cmdlets that help you configure the correct Windows Server AD permissions for the Microsoft Entra DS Connector account.
+> A new PowerShell module named *ADSyncConfig.psm1* was introduced with build 1.1.880.0 (released in August 2018). The module includes a collection of cmdlets that help you configure the correct Windows Server AD permissions for the Microsoft Entra Domain Services Connector account.
 >
 > For more information, see [Microsoft Entra Connect: Configure AD DS Connector account permission](how-to-connect-configure-ad-ds-connector-account.md).
 

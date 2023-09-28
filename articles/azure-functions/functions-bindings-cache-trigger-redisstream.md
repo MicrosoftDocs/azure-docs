@@ -29,7 +29,15 @@ The `RedisStreamTrigger` reads new entries from a stream and surfaces those elem
 
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
-### [In-process](#tab/in-process)
+### [Isolated worker model](#tab/isolated-process)
+
+The isolated process examples aren't available in preview.
+
+```csharp
+//TBD
+```
+
+### [In-process model](#tab/in-process)
 
 ```csharp
 
@@ -40,14 +48,6 @@ public static void StreamsTrigger(
 {
     logger.LogInformation($"The entry pushed to the list listTest: '{entry}'");
 }
-```
-
-### [Isolated process](#tab/isolated-process)
-
-The isolated process examples aren't available in preview.
-
-```csharp
-//TBD
 ```
 
 ---
