@@ -13,7 +13,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2022
+ms.date: 09/28/2023
 ms.author: terrylan
 
 ---
@@ -46,5 +46,3 @@ In the cloud-enabled approach, you are also able to leverage cloud-based securit
 
 ## Next steps
 Learn more about shared responsibility and strategies to improve your security posture in the Well-Architected Framework's [overview of the security pillar](/azure/architecture/framework/security/overview).
-
-For more information on the division of responsibility between you and Microsoft in a SaaS, PaaS, and IaaS deployment, see [Shared responsibilities for cloud computing](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/).
