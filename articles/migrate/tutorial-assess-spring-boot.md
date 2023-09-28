@@ -4,12 +4,12 @@ description: Learn how to create assessment for Azure Spring Apps in Azure Migra
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.topic: tutorial
-ms.date: 06/06/2023
+ms.date: 09/28/2023
 ms.custom: engagement-fy23
 ---
 
 
-# Tutorial: Assess Spring Boot apps for migration to Azure Spring Apps
+# Tutorial: Assess Spring Boot apps for migration to Azure Spring Apps (preview)
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity. This article shows you how to assess discovered Spring Boot web apps in preparation for migration to Azure Spring Apps, using the Azure Migrate: Discovery and assessment tool. 
 

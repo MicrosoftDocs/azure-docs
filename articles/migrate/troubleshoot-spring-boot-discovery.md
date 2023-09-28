@@ -5,12 +5,12 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/06/2023
+ms.date: 09/28/2023
 ms.custom: engagement-fy23
 ---
 
 
-# Troubleshoot common issues during discovery and assessment of Spring Boot apps
+# Troubleshoot common issues during discovery and assessment of Spring Boot apps (preview)
 
 For errors related to the access policy on the Key Vault, follow these steps to find the Principal ID of the appliance extension running on the connected cluster. 
 

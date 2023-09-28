@@ -38,6 +38,8 @@
       href: tutorial-discover-aws.md
     - name: Discover GCP instances
       href: tutorial-discover-gcp.md
+    - name: Discover Spring Boot apps
+      href: tutorial-discover-spring-boot.md
   - name: Decide
     items:
     - name: Build a business case
@@ -70,6 +72,8 @@
       href: tutorial-assess-gcp.md
     - name: Assess ASP.NET web apps for migration to App Service
       href: tutorial-assess-webapps.md
+    - name: Assess Spring Boot web apps for migration
+      href: tutorial-assess-spring-boot.md
     - name: Build business case or assess imported servers for migration to Azure
       href: tutorial-discover-import.md
   - name: Migrate

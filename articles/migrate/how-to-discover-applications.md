@@ -85,7 +85,7 @@ Once connected, the appliance gathers configuration and performance data of SQL 
 - User can add both domain and non-domain credentials on appliance. Make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
 - After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
 
-## Discover Spring Boot apps
+## Discover Spring Boot apps (preview)
 
 - Software inventory identifies Spring Boot role existing on discovered servers. If a server has Spring Boot role enabled, Azure Migrate performs Spring Boot apps discovery on the server.
 - Users can add both domain and non-domain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
