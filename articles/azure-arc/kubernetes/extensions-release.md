@@ -137,7 +137,7 @@ Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0
 
 Changes made for this version:
 
-- Updated SSH key entry to use the [updated RSA SSH host key](https://bitbucket.org/blog/ssh-host-key-changes) to prevent failures in configurations with `ssh` authentication type for Bitbucket.
+- Updated SSH key entry to use the [Ed25519 SSH host key](https://bitbucket.org/blog/ssh-host-key-changes) to prevent failures in configurations with `ssh` authentication type for Bitbucket.
 
 ### 1.7.6 (August 2023)
 
