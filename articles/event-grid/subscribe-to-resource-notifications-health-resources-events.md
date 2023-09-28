@@ -191,7 +191,8 @@ az eventgrid system-topic event-subscription create \
 New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName firstEventSubscription -ResourceGroupName sampletestrg -SystemtopicName arnSystemTopicHealth -IncludedEventType Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated -Endpoint /subscriptions/000000000-0000-0000-0000-000000000000/resourceGroups/sampletestrg/providers/Microsoft.EventHub/namespaces/testEventHub/eventhubs/ehforsystemtopicresources  -EndpointType eventhub -AdvancedFilter @(@{operator = "StringContains"; key = "data.resourceInfo.properties.targetResourceType" ; value ="Microsoft.Compute/virtualMachines"})
 ```
 
-#### Azure portal
+# [Azure portal](#tab/azure-portal)
+
 In the **Filters** tab of the event subscription, choose the following advanced filters.
 
 ```
