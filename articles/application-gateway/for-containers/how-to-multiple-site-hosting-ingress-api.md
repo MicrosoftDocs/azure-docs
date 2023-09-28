@@ -15,6 +15,12 @@ ms.author: greglin
 This document helps you set up an example application that uses the Ingress API to demonstrate hosting multiple sites on the same Kubernetes Ingress resource / Application Gateway for Containers frontend. Steps are provided to:
 - Create an [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#ingressrule-v1-networking-k8s-io) resource with two hosts.
 
+## Background
+
+Application Gateway for Containers enables multi-site hosting by allowing you to configure more than one web application on the same port. Two or more unique sites can be hosted using unique backend services. See the following example scenario:
+
+![A diagram showing multisite hosting with Application Gateway for Containers.](./media/how-to-multiple-site-hosting-ingress-api/multiple-site-hosting.png)
+
 ## Prerequisites
 
 > [!IMPORTANT]
