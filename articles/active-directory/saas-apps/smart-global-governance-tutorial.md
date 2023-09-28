@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Smart Global Governance'
-description: Learn how to configure single sign-on between Azure Active Directory and Smart Global Governance.
+title: 'Tutorial: Microsoft Entra SSO integration with Smart Global Governance'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Smart Global Governance.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,26 +13,26 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Smart Global Governance
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with Smart Global Governance
 
-In this tutorial, you'll learn how to integrate Smart Global Governance with Azure Active Directory (Azure AD). When you integrate Smart Global Governance with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Smart Global Governance with Microsoft Entra ID. When you integrate Smart Global Governance with Microsoft Entra ID, you can:
 
-* Use Azure AD to control who can access Smart Global Governance.
-* Enable your users to be automatically signed in to Smart Global Governance with their Azure AD accounts.
+* Use Microsoft Entra ID to control who can access Smart Global Governance.
+* Enable your users to be automatically signed in to Smart Global Governance with their Microsoft Entra accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Microsoft Entra ID, see [Single sign-on to applications in Microsoft Entra ID](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Smart Global Governance subscription with single sign-on (SSO) enabled.
 
 ## Tutorial description
 
-In this tutorial, you'll configure and test Azure AD SSO in a test environment.
+In this tutorial, you'll configure and test Microsoft Entra SSO in a test environment.
 
 Smart Global Governance supports SP-initiated and IDP-initiated SSO.
 
@@ -40,7 +40,7 @@ After you configure Smart Global Governance, you can enforce session control, wh
 
 ## Add Smart Global Governance from the gallery
 
-To configure the integration of Smart Global Governance into Azure AD, you need to add Smart Global Governance from the gallery to your list of managed SaaS apps.
+To configure the integration of Smart Global Governance into Microsoft Entra ID, you need to add Smart Global Governance from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -49,22 +49,26 @@ To configure the integration of Smart Global Governance into Azure AD, you need 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Smart Global Governance
+<a name='configure-and-test-azure-ad-sso-for-smart-global-governance'></a>
 
-You'll configure and test Azure AD SSO with Smart Global Governance by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between an Azure AD user and the corresponding user in Smart Global Governance.
+## Configure and test Microsoft Entra SSO for Smart Global Governance
 
-To configure and test Azure AD SSO with Smart Global Governance, you'll take these high-level steps:
+You'll configure and test Microsoft Entra SSO with Smart Global Governance by using a test user named B.Simon. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the corresponding user in Smart Global Governance.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
-    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Smart Global Governance, you'll take these high-level steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use the feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on.
+    1. **[Grant access to the test user](#grant-access-to-the-test-user)** to enable the user to use Microsoft Entra single sign-on.
 1. **[Configure Smart Global Governance SSO](#configure-smart-global-governance-sso)** on the application side.
-    1. **[Create a Smart Global Governance test user](#create-a-smart-global-governance-test-user)** as a counterpart to the Azure AD representation of the user.
+    1. **[Create a Smart Global Governance test user](#create-a-smart-global-governance-test-user)** as a counterpart to the Microsoft Entra representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal:
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO in the Azure portal:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Smart Global Governance** application integration page, in the **Manage** section, select **single sign-on**.
@@ -100,7 +104,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -142,17 +148,17 @@ Work with the [Smart Global Governance support team](mailto:support.tech@smartg
 
 ## Test SSO 
 
-In this section, you'll test your Azure AD SSO configuration by using Access Panel.
+In this section, you'll test your Microsoft Entra SSO configuration by using Access Panel.
 
 When you select the Smart Global Governance tile in Access Panel, you should be automatically signed in to the Smart Global Governance instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
-- [Tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
+- [Tutorials on how to integrate SaaS apps with Microsoft Entra ID](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Microsoft Entra ID?](../conditional-access/overview.md)
 
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 

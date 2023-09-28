@@ -79,6 +79,8 @@
       href: security-features.md
     - name: Authenticate requests
       href: authentication.md
+    - name: Disable local authentication
+      href: disable-local-auth.md
     - name: Rotate keys
       href: rotate-keys.md
     - name: Use environment variables

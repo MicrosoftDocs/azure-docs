@@ -21,11 +21,11 @@ The default return value for an HTTP-triggered function is:
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries don't require an attribute. C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-output).
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
 
 A return value attribute isn't required. To learn more, see [Usage](#usage).
 
-# [Isolated process](#tab/isolated-process)
+# [In-process model](#tab/in-process)
 
 A return value attribute isn't required. To learn more, see [Usage](#usage).
 
@@ -83,16 +83,16 @@ To send an HTTP response, use the language-standard response patterns.
 ::: zone pivot="programming-language-csharp"
 The response type depends on the C# mode:
 
-# [In-process](#tab/in-process)
-
-The HTTP triggered function returns a type of [IActionResult] or `Task<IActionResult>`.
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The HTTP triggered function returns an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object or a `Task<HttpResponseData>`. If the app uses [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration), it could also use [IActionResult], `Task<IActionResult>`, [HttpResponse], or `Task<HttpResponse>`.
 
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult
 [HttpResponse]: /dotnet/api/microsoft.aspnetcore.http.httpresponse
+
+# [In-process model](#tab/in-process)
+
+The HTTP triggered function returns a type of [IActionResult] or `Task<IActionResult>`.
 
 ---
 

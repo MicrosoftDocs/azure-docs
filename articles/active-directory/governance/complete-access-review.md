@@ -25,8 +25,8 @@ As an administrator, you [create an access review of groups or applications](cre
  
 ## Prerequisites
  
-- Microsoft Azure AD Premium P2 or Microsoft Entra ID Governance
-- Global administrator, User administrator, or Identity Governance administrator to manage access of reviews on groups and applications. Global administrators and Privileged Role administrators can manage reviews of role-assignable groups See [Use Azure AD groups to manage role assignments](../roles/groups-concept.md)
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance
+- Global administrator, User administrator, or Identity Governance administrator to manage access of reviews on groups and applications. Global administrators and Privileged Role administrators can manage reviews of role-assignable groups See [Use Microsoft Entra groups to manage role assignments](../roles/groups-concept.md)
 - Security readers have read access.
  
 For more information, see [License requirements](access-reviews-overview.md#license-requirements).
@@ -100,7 +100,7 @@ If **Auto apply results to resource** wasn't enabled for the review, navigate to
  
 ![Apply access review changes](./media/complete-access-review/apply-changes.png)
  
-Select **Apply** to manually apply the changes. If a user's access was denied in the review, when you select **Apply**, Azure AD removes their membership or application assignment.
+Select **Apply** to manually apply the changes. If a user's access was denied in the review, when you select **Apply**, Microsoft Entra ID removes their membership or application assignment.
  
 ![Apply access review changes button](./media/complete-access-review/apply-changes-button.png)
  
@@ -110,7 +110,7 @@ Manually or automatically applying results doesn't have an effect on a group tha
 
 > [!NOTE]
 > Some denied users are unable to have results applied to them. Scenarios where this could happen include:
-> - Reviewing members of a synced on-premises Windows AD group: If the group is synced from on-premises  Windows AD, the group cannot be managed in Azure AD and therefore membership cannot be changed.
+> - Reviewing members of a synced on-premises Windows AD group: If the group is synced from on-premises  Windows AD, the group cannot be managed in Microsoft Entra ID and therefore membership cannot be changed.
 > - Reviewing a resource (role, group, application) with nested groups assigned: For users who have membership through a nested group, we will not remove their membership to the nested group and therefore they will retain access to the resource being reviewed.
 > - User not found / other errors can also result in an apply result not being supported.
  
@@ -128,4 +128,4 @@ Denied B2B direct connect users and teams lose access to all shared channels in 
  
 - [Manage access reviews](manage-access-review.md) 
 - [Create an access review of groups or applications](create-access-review.md)
-- [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md)
+- [Create an access review of users in a Microsoft Entra administrative role](../privileged-identity-management/pim-create-roles-and-resource-roles-review.md)

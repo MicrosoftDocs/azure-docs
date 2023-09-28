@@ -1,5 +1,5 @@
 ---
-title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
+title: Secure external access to Microsoft Teams, SharePoint, and OneDrive with Microsoft Entra ID 
 description: Secure access to Microsoft 365 services as a part of your external access security plan
 services: active-directory
 author: jricketts
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Secure external access to Microsoft Teams, SharePoint, and OneDrive with Azure Active Directory 
+# Secure external access to Microsoft Teams, SharePoint, and OneDrive with Microsoft Entra ID 
 
 Use this article to determine and configure your organization's external collaboration using Microsoft Teams, OneDrive for Business, and SharePoint. A common challenge is balancing security and ease of collaboration for end users and external users. If an approved collaboration method is perceived as restrictive and onerous, end users evade the approved method. End users might email unsecured content, or set up external processes and applications, such as a personal DropBox or OneDrive. 
 
@@ -23,23 +23,25 @@ Use this article to determine and configure your organization's external collabo
 
 This article is number 9 in a series of 10 articles. We recommend you review the articles in order. Go to the **Next steps** section to see the entire series.
 
-## External Identities settings and Azure Active Directory
+<a name='external-identities-settings-and-azure-active-directory'></a>
 
-Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration settings** in Azure Active Directory (Azure AD). If external sharing is disabled or restricted in Azure AD, it overrides sharing settings configured in Microsoft 365. An exception is if Azure AD B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
+## External Identities settings and Microsoft Entra ID
+
+Sharing in Microsoft 365 is partially governed by the **External Identities, External collaboration settings** in Microsoft Entra ID. If external sharing is disabled or restricted in Microsoft Entra ID, it overrides sharing settings configured in Microsoft 365. An exception is if Microsoft Entra B2B integration isn't enabled. You can configure SharePoint and OneDrive to support ad-hoc sharing via one-time password (OTP). The following screenshot shows the External Identities, External collaboration settings dialog. 
 
 :::image type="content" source="media/secure-external-access/9-external-collaboration-settings-new.png" alt-text="Screenshot of options and entries under External Identities, External collaboration settings.":::
 
 Learn more:
 
-* [Azure portal](https://portal.azure.com/)
-* [External Identities in Azure AD](../external-identities/external-identities-overview.md)
+* [Microsoft Entra admin center](https://entra.microsoft.com)
+* [External Identities in Microsoft Entra ID](../external-identities/external-identities-overview.md)
 
 ### Guest user access
 
 Guest users are invited to have access to resources. 
 
-1. Sign in to the **Azure portal**
-1. Browse to **Azure Active Directory** > **External Identities** > **External collaboration settings**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **External Identities** > **External collaboration settings**.
 1. Find the **Guest user access** options. 
 1. To prevent guest-user access to other guest-user details, and to prevent enumeration of group membership, select **Guest users have limited access to properties and memberships of directory objects**.
 
@@ -55,7 +57,7 @@ Guest invite settings determine who invites guests and how guests are invited. T
 
 * The IT team:
   * After training is complete, the IT team grants the Guest Inviter role
-  * Ensures there are sufficient Azure AD Premium P2 licenses for the Microsoft 365 group owners who will review
+  * Ensures there are sufficient Microsoft Entra ID P2 licenses for the Microsoft 365 group owners who will review
   * Creates a Microsoft 365 group access review
   * Confirms access reviews occur
   * Removes users added to SharePoint
@@ -81,7 +83,7 @@ Teams differentiates between external users (outside your organization) and gues
 
 Learn more: [Use guest access and external access to collaborate with people outside your organization](/microsoftteams/communicate-with-users-from-other-organizations). 
 
-The External Identities collaboration feature in Azure AD controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Azure AD settings.
+The External Identities collaboration feature in Microsoft Entra ID controls permissions. You can increase restrictions in Teams, but restrictions can't be lower than Microsoft Entra settings.
 
 Learn more:
 
@@ -99,16 +101,18 @@ Learn more:
 * [Get started with the SharePoint admin center](/sharepoint/get-started-new-admin-center)
 * [External sharing overview](/sharepoint/external-sharing-overview)
 
-### Integrating SharePoint and OneDrive with Azure AD B2B
+<a name='integrating-sharepoint-and-onedrive-with-azure-ad-b2b'></a>
 
-As a part of your strategy to govern external collaboration, it's recommended you enable SharePoint and OneDrive integration with Azure AD B2B. Azure AD B2B has guest-user authentication and management. With SharePoint and OneDrive integration, use one-time passcodes for external sharing of files, folders, list items, document libraries, and sites. 
+### Integrating SharePoint and OneDrive with Microsoft Entra B2B
+
+As a part of your strategy to govern external collaboration, it's recommended you enable SharePoint and OneDrive integration with Microsoft Entra B2B. Microsoft Entra B2B has guest-user authentication and management. With SharePoint and OneDrive integration, use one-time passcodes for external sharing of files, folders, list items, document libraries, and sites. 
 
 Learn more: 
 * [Email one-time passcode authentication](../external-identities/one-time-passcode.md)
-* [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration)
+* [SharePoint and OneDrive integration with Microsoft Entra B2B](/sharepoint/sharepoint-azureb2b-integration)
 * [B2B collaboration overview](../external-identities/what-is-b2b.md)
 
-If you enable Azure AD B2B integration, then SharePoint and OneDrive sharing is subject to the Azure AD organizational relationships settings, such as **Members can invite** and **Guests can invite**.
+If you enable Microsoft Entra B2B integration, then SharePoint and OneDrive sharing is subject to the Microsoft Entra organizational relationships settings, such as **Members can invite** and **Guests can invite**.
 
 ### Sharing policies in SharePoint and OneDrive
 
@@ -126,16 +130,16 @@ Use the guidance in this section when configuring external sharing.
   * Don't enable this functionality for governed collaboration
   * Use it for restrictions on individual sites
 * **New and existing guests** - Recommended, if integration is enabled
-  * Azure AD B2B integration enabled: new and current guests have an Azure AD B2B guest account you can manage with Azure AD policies
-  * Azure AD B2B integration not enabled: new guests don't have an Azure AD B2B account, and can't be managed from Azure AD
-  * Guests have an Azure AD B2B account, depending on how the guest was created
+  * Microsoft Entra B2B integration enabled: new and current guests have a Microsoft Entra B2B guest account you can manage with Microsoft Entra policies
+  * Microsoft Entra B2B integration not enabled: new guests don't have a Microsoft Entra B2B account, and can't be managed from Microsoft Entra ID
+  * Guests have a Microsoft Entra B2B account, depending on how the guest was created
 * **Existing guests** - Recommended, if you don't have integration enabled
   * With this option enabled, users can share with other users in your directory
 * **Only people in your organization** - Not recommended with external user collaboration
   * Regardless of integration status, users can share with other users in your organization
 * **Limit external sharing by domain** - By default, SharePoint allows external access. Sharing is allowed with external domains. 
   * Use this option to restrict or allow domains for SharePoint
-* **Allow only users in specific security groups to share externally** - Use this setting to restrict who shares content in SharePoint and OneDrive. The setting in Azure AD applies to all applications. Use the restriction to direct users to training about secure sharing. Completion is the signal to add them to a sharing security group. If this setting is selected, and users can't become an approved sharer, they might find unapproved ways to share. 
+* **Allow only users in specific security groups to share externally** - Use this setting to restrict who shares content in SharePoint and OneDrive. The setting in Microsoft Entra ID applies to all applications. Use the restriction to direct users to training about secure sharing. Completion is the signal to add them to a sharing security group. If this setting is selected, and users can't become an approved sharer, they might find unapproved ways to share. 
 * **Allow guests to share items they don’t own** - Not recommended. The guidance is to disable this feature.
 * **People who use a verification code must reauthenticate after this many days (default is 30)** - Recommended
 
@@ -155,7 +159,7 @@ In the SharePoint admin center, you can set how file and folder links are shared
 
    ![Screenshot of File and folder links options.](media/secure-external-access/9-file-folder-links.png)
 
-With Azure AD B2B integration enabled, sharing files and folders with users outside the organization results in the creation of a B2B user.
+With Microsoft Entra B2B integration enabled, sharing files and folders with users outside the organization results in the creation of a B2B user.
 
 1. For **Choose the type of link that's selected by default when users share files and folders in SharePoint and OneDrive**, select **Only people in your organization**.
 2. For **Choose the permission that's selected by default for sharing links**, select **Edit**.
@@ -169,28 +173,28 @@ Enabling Anyone links isn't recommended. If you enable it, set an expiration, an
 Learn more:
 
 * [External sharing overview](/sharepoint/external-sharing-overview)
-* [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration)
+* [SharePoint and OneDrive integration with Microsoft Entra B2B](/sharepoint/sharepoint-azureb2b-integration)
 
 ## Next steps
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md) 
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md) 
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md) 
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md)
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md)
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) (You're here)
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) (You're here)
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)

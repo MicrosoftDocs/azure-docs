@@ -5,17 +5,16 @@ description: This article explains which languages are supported by the Sentimen
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 09/18/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, ignite-2022
 ---
 
 # Sentiment Analysis and Opinion Mining language support 
 
-Use this article to learn which languages are supported by Sentiment Analysis and Opinion Mining.
+Use this article to learn which languages are supported by Sentiment Analysis and Opinion Mining. Both the cloud-based API and [Docker containers](./how-to/use-containers.md) support the same languages.
 
 > [!NOTE]
 > Languages are added as new [model versions](../concepts/model-lifecycle.md) are released.
