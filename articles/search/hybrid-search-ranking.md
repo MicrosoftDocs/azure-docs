@@ -33,7 +33,7 @@ Here's a simple explanation of the RRF process:
 
 1. Rank documents based on combined scores and sort them. The resulting list is the fused ranking. 
 
-Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable` are returned in search results, along with their search score.
+Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable`, or fields that are specified in `searchFields` in the query, are returned in search results, along with their search score.
 
 ### Parallel query execution
 
