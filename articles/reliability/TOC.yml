@@ -217,7 +217,7 @@
         - name: Azure App Service
           href: reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity
         - name: Azure Backup
-          href: ../backup/backup-overview.md
+          href: reliability-backup.md
         - name: Azure Batch
           href: reliability-batch.md#cross-region-disaster-recovery-and-business-continuity
         - name: Azure Bastion
