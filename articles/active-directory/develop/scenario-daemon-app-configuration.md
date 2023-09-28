@@ -206,7 +206,7 @@ import com.microsoft.aad.msal4j.SilentParameters;
 
 # [Node.js](#tab/nodejs)
 
-Install the packages by running `npm install` in the folder where *package.json* file resides. Then, import **msal-node** package:
+Install the packages by running `npm install` in the folder where `package.json` file resides. Then, import the `msal-node` package:
 
 ```JavaScript 
 const msal = require('@azure/msal-node');
@@ -520,7 +520,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Azure AD, plus additional client claims that you want to send.
+When you use `WithClientClaims`, MSAL.NET produces a signed assertion that contains the claims expected by Microsoft Entra ID, plus additional client claims that you want to send.
 This code shows how to do that:
 
 ```csharp
