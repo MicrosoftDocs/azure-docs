@@ -2,8 +2,8 @@
 title: Set up Azure Monitor for a Chaos Studio Experiment
 description: Understand the steps to connect Azure Monitor to your Chaos Studio Experiment
 services: chaos-studio
-author: nikhilkaul-microsoft
-ms.topic: howto
+author: nikhilkaul-msft
+ms.topic: how-to
 ms.date: 09/27/2023
 ms.author: nikhilkaul
 ms.service: chaos-studio
@@ -15,7 +15,7 @@ In this guide, we will show you the steps needed to integrate an Experiment to e
 ## Prerequisites
 - An Azure subscription
 - An existing Chaos Studio Experiment [How to create your first Chaos Experiment](chaos-studio-quickstart-azure-portal.md)
-- An existing Log Analytics Workspace [How to Create a Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal)
+- An existing Log Analytics Workspace [How to Create a Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md)
 
 ## Step 1: Navigate to Diagnostic Settings tab in your Chaos Experiment
 Navigate to the Chaos Experiment you want to emit telemetry to Azure Monitor and open it. Then navigate to the "Diagnostic settings" tab under the "Monitoring" section as shown in the below screenshot:
