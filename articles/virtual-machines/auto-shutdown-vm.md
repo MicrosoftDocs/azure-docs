@@ -145,7 +145,7 @@ New-AzPolicyAssignment -Name "AutoShutdownVMsPolicy" -Scope $vm.Id -PolicyDefini
 
 To configure the new policy definition for multiple virtual machines using PowerShell, you can use the script as an example:
 
-```powershell-interactive
+```azurepowershell-interactive
 # Parameters
 $resourceGroupName = "myResourceGroup"
 $location = "eastus" # Example: eastus, westeurope
