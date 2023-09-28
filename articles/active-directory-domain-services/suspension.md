@@ -120,5 +120,5 @@ To keep your managed domain healthy and minimize the risk of it becoming suspend
 
 <!-- INTERNAL LINKS -->
 [alert-nsg]: alert-nsg.md
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
 [resolve-alerts]: troubleshoot-alerts.md

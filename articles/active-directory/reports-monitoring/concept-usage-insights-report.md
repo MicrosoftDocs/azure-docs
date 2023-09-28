@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/24/2023
+ms.date: 09/26/2023
 ms.author: sarahlipsey
 ms.reviewer: madansr7
 ---
@@ -94,7 +94,7 @@ Viewing the AD FS application activity using Microsoft Graph retrieves a list of
 Add the following query, then select the **Run query** button.
 
    ```http
-   GET https://graph.microsoft.com/beta/reports/getRelyingPartyDetailedSummary
+   GET https://graph.microsoft.com/beta/reports/getRelyingPartyDetailedSummary(period='{period}')
    ```
 
 For more information, see [AD FS application activity in Microsoft Graph](/graph/api/resources/relyingpartydetailedsummary?view=graph-rest-beta&preserve-view=true).

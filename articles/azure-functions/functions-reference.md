@@ -4,7 +4,7 @@ description: Learn the Azure Functions concepts and techniques that you need to 
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 09/06/2023
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
