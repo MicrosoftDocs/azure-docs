@@ -392,7 +392,6 @@ Below is the package certificate, compromised of. p7b (full Certificate Authorit
 
 <details>
 <summary>Select to view the p7b content</summary>
-```text
 -----BEGIN CERTIFICATE-----
 MIIRKQYJKoZIhvcNAQcCoIIRGjCCERYCAQExADCCBbMGCSqGSIb3DQEHAaCCBaQE
 ggWgMIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0B
@@ -496,7 +495,6 @@ Thumbnail# cdb9bc34197a5355f652f1583fbd4e9a1d4801f0
 
 <details>
 <summary>Select to view the json output for the full certificate authority</summary>
-```json
 -----BEGIN CERTIFICATE-----
 MIIRKQYJKoZIhvcNAQcCoIIRGjCCERYCAQExADCCBbMGCSqGSIb3DQEHAaCCBaQE
 ggWgMIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0B
@@ -591,12 +589,10 @@ RhFYPN2PJzPmPmvSdJVJx8rTEhWRPOYfPDrHkUtkMKo6M1KNo9Q6MJoUklL/TWuQ
 HttsnHIgZBGUqvGuK0pcKrYWhCzaXqEy1JOolaFJCv4i72jL65HY/ciWNTv4L5Xz
 dmojU0k/9m3fjwOEQU6Bva15+rzZFFnWy4m1MQA=
 -----END CERTIFICATE-----
-```
 </details>
 
 <details>
 <summary>Select to view the intermediate CA</summary>
-```
 "Global Virtual TPM CA - XX" (intermediate CA) [.cer], 
 -----BEGIN CERTIFICATE-----
 MIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0BAQwF
@@ -630,16 +626,14 @@ imrUs+LqpPDNXyxbwvibcZidwSdhu0QmUoyYsgSP2Zff5E8ks53h2xQSM3zz2qaW
 VS1vVqG4zC0EfRnO65ogPPfrtK6ZiFmVHSWP9vPkFcUNYDnYQXW/TArO/JCe2I++
 GClM7AcDQwWLxcopzskGQdHNM1zMsprRRwYaVpTJH67xeNda6+Y7IOPJYTvyoXHP
 -----END CERTIFICATE-----
-Intermediate Certificate Authority
-Thumbprint = db1f3959dcce7091f87c43446be1f4ab2d3415b7
-Serial Number = 3300000002c0d17b4b8f979c35000000000002
+Intermediate Certificate Authority  
+Thumbprint = db1f3959dcce7091f87c43446be1f4ab2d3415b7  
+Serial Number = 3300000002c0d17b4b8f979c35000000000002  
 Valid Until = November 3rd, 2025
-```
 </details>
 
 <details>
 <summary>Select to view the json output of the intermediate CA</summary>
-```json
 -----BEGIN CERTIFICATE-----
 MIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0BAQwF
 ADBpMQswCQYDVQQGEwJVUzEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9u
@@ -672,7 +666,6 @@ imrUs+LqpPDNXyxbwvibcZidwSdhu0QmUoyYsgSP2Zff5E8ks53h2xQSM3zz2qaW
 VS1vVqG4zC0EfRnO65ogPPfrtK6ZiFmVHSWP9vPkFcUNYDnYQXW/TArO/JCe2I++
 GClM7AcDQwWLxcopzskGQdHNM1zMsprRRwYaVpTJH67xeNda6+Y7IOPJYTvyoXHP
 -----END CERTIFICATE-----
-```
 </details>
 
 > [!WARNING]
