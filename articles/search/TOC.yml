@@ -494,33 +494,33 @@
   items:
   - name: REST
     items:
-    - name: Search API
+    - name: Search REST API
       href: /rest/api/searchservice
-    - name: Management API
+    - name: Management REST API
       href: /rest/api/searchmanagement
   - name: .NET
     items:
-    - name: Search API
+    - name: Azure.Search.Documents
       href: /dotnet/api/overview/azure/search.documents-readme
-    - name: Management API
-      href: /dotnet/api/microsoft.azure.management.search
+    - name: Azure.ResourceManager.Search
+      href: /dotnet/api/overview/azure/resourcemanager.search-readme
   - name: Java
     items:
-    - name: Search API
+    - name: com.azure.search.documents
       href: /java/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: com.azure.resourcemanager.search
       href: /java/api/overview/azure/search/management
   - name: JavaScript
     items:
-    - name: Search API
+    - name: azure/search-documents
       href: /javascript/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure/arm-search
       href: /javascript/api/@azure/arm-search/
   - name: Python
     items:
-    - name: Search API
+    - name: azure-search-documents
       href: /python/api/overview/azure/search-documents-readme
-    - name: Management API
+    - name: azure-mgmt-search
       href: /python/api/azure-mgmt-search/
   - name: Resource management
     items:
@@ -626,19 +626,21 @@
         href: cognitive-search-skill-sentiment.md
 - name: Resources
   items:
-  - name: Azure Community Support
-    href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure Updates
-    href: https://azure.microsoft.com/updates/?product=search
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-cognitive-search
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Products by Region
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search
   - name: Demo sites
     href: resource-demo-sites.md
-  - name: Tools
+  - name: Tools and Accelerators
     href: resource-tools.md
   - name: Training
     href: resource-training.md
-  - name: Partner spotlight
-    href: resource-partners-knowledge-mining.md
-  - name: Partner data sources (Terms of Use)
-    href: search-data-sources-terms-of-use.md
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/search/
+  - name: Partner solutions
+    items:
+    - name: Partner spotlight
+      href: resource-partners-knowledge-mining.md
+    - name: Partner data sources (Terms of Use)
+      href: search-data-sources-terms-of-use.md

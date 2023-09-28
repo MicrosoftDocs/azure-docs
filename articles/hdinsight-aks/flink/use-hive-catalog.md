@@ -35,11 +35,11 @@ You may refer to this page for more details on [Apache Hive](https://nightlies.a
 
 Lets create an Apache Flink cluster with HMS on Azure portal, you can refer to the detailed instructions on [Flink cluster creation](../flink/flink-create-cluster-portal.md).
 
-:::image type="content" source="./media/use-hive-catalog/create-flink-cluster.png" alt-text="Screenshot showing how to create Flink cluster.":::
+:::image type="content" source="./media/use-hive-catalog/create-flink-cluster.png" alt-text="Screenshot showing how to create Flink cluster." lightbox="./media/use-hive-catalog/create-flink-cluster.png":::
 
 After cluster creation, check HMS is running or not on AKS side.
 
-:::image type="content" source="./media/use-hive-catalog/check-hms-status.png" alt-text="Screenshot showing how to check HMS status in Flink cluster.":::
+:::image type="content" source="./media/use-hive-catalog/check-hms-status.png" alt-text="Screenshot showing how to check HMS status in Flink cluster." lightbox="./media/use-hive-catalog/check-hms-status.png":::
 
 ### Prepare user order transaction data Kafka topic on HDInsight
 
@@ -76,9 +76,9 @@ Other commands:
 
 Testing DB:
 
-:::image type="content" source="./media/use-hive-catalog/test-database.png" alt-text="Screenshot showing how to test the database in Kafka.":::
+:::image type="content" source="./media/use-hive-catalog/test-database.png" alt-text="Screenshot showing how to test the database in Kafka." lightbox="./media/use-hive-catalog/test-database.png":::
 
-:::image type="content" source="./media/use-hive-catalog/cloud-shell-on-portal.png" alt-text="Screenshot showing how to run Cloud Shell on the portal.":::
+:::image type="content" source="./media/use-hive-catalog/cloud-shell-on-portal.png" alt-text="Screenshot showing how to run Cloud Shell on the portal." lightbox="./media/use-hive-catalog/cloud-shell-on-portal.png":::
 
 **Prepare the order table:**
 
@@ -149,11 +149,11 @@ wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.16.
 
 **Moving the planner jar**
 
-Move the jar flink-table-planner_2.12-1.16.0-0.0-SNAPSHOT.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner_2.12-1.16.0-0.0-SNAPSHOT.jar from /lib. You may refer to this [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
+Move the jar flink-table-planner_2.12-1.16.0-0.0.18.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner-loader-1.16.0-0.0.18.jar from /lib. Please refer to [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
 
 ```
-mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.16.0-0.0-SNAPSHOT.jar /opt/flink-webssh/lib/
-mv /opt/flink-webssh/lib/flink-table-planner-loader-1.16.0-0.0-SNAPSHOT.jar /opt/flink-webssh/opt/
+mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.16.0-0.0.18.jar /opt/flink-webssh/lib/
+mv /opt/flink-webssh/lib/flink-table-planner-loader-1.16.0-0.0.18.jar /opt/flink-webssh/opt/
 ```
 
 > [!NOTE]
@@ -223,11 +223,11 @@ CREATE TABLE mysql_user_orders (
 
 select * from mysql_user_orders;
 ```
-:::image type="content" source="./media/use-hive-catalog/create-my-sql-table.png" alt-text="Screenshot showing how to create mysql table.":::
+:::image type="content" source="./media/use-hive-catalog/create-my-sql-table.png" alt-text="Screenshot showing how to create mysql table." lightbox="./media/use-hive-catalog/create-my-sql-table.png":::
 
 ### Check tables registered in above Hive catalog on Flink SQL
 
-:::image type="content" source="./media/use-hive-catalog/show-tables.png" alt-text="Screenshot showing table output.":::
+:::image type="content" source="./media/use-hive-catalog/show-tables.png" alt-text="Screenshot showing table output." lightbox="./media/use-hive-catalog/show-tables.png":::
 
 
 ### Sink user transaction order info into master order table in MySQL on Flink SQL
@@ -239,12 +239,12 @@ INSERT INTO mysql_user_orders (order_date, customer_id, customer_name, price, pr
 ```
 :::image type="content" source="./media/use-hive-catalog/sink-user-transaction.png" alt-text="Screenshot showing how to sink user transaction." lightbox="./media/use-hive-catalog/sink-user-transaction.png":::
 
-:::image type="content" source="./media/use-hive-catalog/flink-ui.png" alt-text="Screenshot showing Flink UI.":::
+:::image type="content" source="./media/use-hive-catalog/flink-ui.png" alt-text="Screenshot showing Flink UI." lightbox="./media/use-hive-catalog/flink-ui.png":::
 
 ### Check if user transaction order data on Kafka is added in master table order in MySQL on Azure Cloud Shell
 
 
-:::image type="content" source="./media/use-hive-catalog/check-user-transaction.png" alt-text="Screenshot showing how to check user transaction.":::
+:::image type="content" source="./media/use-hive-catalog/check-user-transaction.png" alt-text="Screenshot showing how to check user transaction." lightbox="./media/use-hive-catalog/check-user-transaction.png":::
 
 ### Creating three more user orders on Kafka
 
@@ -273,7 +273,7 @@ FROM kafka_user_orders where product_id = 104;
 
 ### Check `product_id = 104` record is added in order table on MySQL on Azure Cloud Shell
 
-:::image type="content" source="./media/use-hive-catalog/record-added-to-order-table.png" alt-text="Screenshot showing the records added to the order table.":::
+:::image type="content" source="./media/use-hive-catalog/record-added-to-order-table.png" alt-text="Screenshot showing the records added to the order table." lightbox="./media/use-hive-catalog/record-added-to-order-table.png":::
 
 ### Reference
 * [Apache Hive](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/overview/)

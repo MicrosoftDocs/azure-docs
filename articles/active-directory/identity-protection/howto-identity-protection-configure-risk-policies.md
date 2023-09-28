@@ -1,6 +1,6 @@
 ---
-title: Risk policies - Azure Active Directory Identity Protection
-description: Enable and configure risk policies in Azure Active Directory Identity Protection
+title: Risk policies - Microsoft Entra ID Protection
+description: Enable and configure risk policies in Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure and enable risk policies
 
-As we learned in the previous article, [Risk-based access policies](concept-identity-protection-policies.md), there are two types of risk policies in Azure Active Directory (Azure AD) Conditional Access you can set up to automate the response to risks and allow users to self-remediate when risk is detected:
+As we learned in the previous article, [Risk-based access policies](concept-identity-protection-policies.md), there are two types of risk policies in Microsoft Entra Conditional Access you can set up to automate the response to risks and allow users to self-remediate when risk is detected:
 
 - Sign-in risk policy
 - User risk policy
@@ -34,10 +34,10 @@ Configured trusted [network locations](../conditional-access/location-condition.
 
 ### Risk remediation
 
-Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to [allow self-remediation using Azure AD multifactor authentication (MFA) and secure password change](howto-identity-protection-remediate-unblock.md#self-remediation-with-risk-based-policy).
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to [allow self-remediation using Microsoft Entra multifactor authentication and secure password change](howto-identity-protection-remediate-unblock.md#self-remediation-with-risk-based-policy).
 
 > [!WARNING]
-> Users must register for Azure AD MFA before they face a situation requiring remediation. For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them. Users not registered are blocked and require administrator intervention.
+> Users must register for Microsoft Entra multifactor authentication before they face a situation requiring remediation. For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them. Users not registered are blocked and require administrator intervention.
 > 
 > Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password change.
 
@@ -46,9 +46,9 @@ Organizations can choose to block access when risk is detected. Blocking sometim
 Microsoft recommends the below risk policy configurations to protect your organization:
 
 - User risk policy
-   - Require a secure password change when user risk level is **High**. Azure AD MFA is required before the user can create a new password with password writeback to remediate their risk. 
+   - Require a secure password change when user risk level is **High**. Microsoft Entra multifactor authentication is required before the user can create a new password with password writeback to remediate their risk. 
 - Sign-in risk policy
-   - Require Azure AD MFA when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
+   - Require Microsoft Entra multifactor authentication when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
 
 Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password change and multifactor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
 
@@ -142,7 +142,7 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 
 ## Next steps
 
-- [Enable Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
+- [Enable Microsoft Entra multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 - [What is risk](concept-identity-protection-risks.md)
 - [Investigate risk detections](howto-identity-protection-investigate-risk.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)

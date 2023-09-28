@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Kantega SSO for Confluence'
-description: Learn how to configure single sign-on between Azure Active Directory and Kantega SSO for Confluence.
+title: 'Tutorial: Microsoft Entra SSO integration with Kantega SSO for Confluence'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Kantega SSO for Confluence.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,64 +12,67 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with Kantega SSO for Confluence
+# Tutorial: Microsoft Entra SSO integration with Kantega SSO for Confluence
 
-In this tutorial, you'll learn how to integrate Kantega SSO for Confluence with Azure Active Directory (Azure AD). When you integrate Kantega SSO for Confluence with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Kantega SSO for Confluence with Microsoft Entra ID. When you integrate Kantega SSO for Confluence with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Kantega SSO for Confluence.
-* Enable your users to be automatically signed-in to Kantega SSO for Confluence with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to Kantega SSO for Confluence.
+* Enable your users to be automatically signed-in to Kantega SSO for Confluence with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
-To configure Azure AD integration with Kantega SSO for Confluence, you need the following items:
+To configure Microsoft Entra integration with Kantega SSO for Confluence, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a Microsoft Entra environment, you can get a [free account](https://azure.microsoft.com/free/).
 * Kantega SSO for Confluence single sign-on enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Kantega SSO for Confluence supports **SP and IDP** initiated SSO.
 
 ## Add Kantega SSO for Confluence from the gallery
 
-To configure the integration of Kantega SSO for Confluence into Azure AD, you need to add Kantega SSO for Confluence from the gallery to your list of managed SaaS apps.
+To configure the integration of Kantega SSO for Confluence into Microsoft Entra ID, you need to add Kantega SSO for Confluence from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Kantega SSO for Confluence** in the search box.
 1. Select **Kantega SSO for Confluence** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Kantega SSO for Confluence
+<a name='configure-and-test-azure-ad-sso-for-kantega-sso-for-confluence'></a>
 
-Configure and test Azure AD SSO with Kantega SSO for Confluence using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Kantega SSO for Confluence.
+## Configure and test Microsoft Entra SSO for Kantega SSO for Confluence
 
-To configure and test Azure AD SSO with Kantega SSO for Confluence, perform the following steps:
+Configure and test Microsoft Entra SSO with Kantega SSO for Confluence using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in Kantega SSO for Confluence.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with Kantega SSO for Confluence, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure Kantega SSO for Confluence SSO](#configure-kantega-sso-for-confluence-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Kantega SSO for Confluence test user](#create-kantega-sso-for-confluence-test-user)** - to have a counterpart of B.Simon in Kantega SSO for Confluence that is linked to the Azure AD representation of user.
+    1. **[Create Kantega SSO for Confluence test user](#create-kantega-sso-for-confluence-test-user)** - to have a counterpart of B.Simon in Kantega SSO for Confluence that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Kantega SSO for Confluence** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kantega SSO for Confluence** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
@@ -93,29 +96,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Kantega SSO for Confluence.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Kantega SSO for Confluence**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Kantega SSO for Confluence.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Kantega SSO for Confluence**.
+1. In the app's overview page, select **Users and groups**.
+1. Select **Add user/group**, then select **Users and groups** in the **Add Assignment** dialog.
+   1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+   1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+   1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Kantega SSO for Confluence SSO
 
@@ -153,13 +162,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "USERS & SECURITY" tab with the "Kantega Single Sign-on" action selected.](./media/kantegassoforconfluence-tutorial/security.png)
 
-1. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
+1. In the **SAML** section. Select **Microsoft Entra ID** from the **Add identity provider** dropdown.
 
-	![Screenshot that shows the "S A M L" section with "Add Identity provider" and "Azure Active Directory (Azure AD)" selected.](./media/kantegassoforconfluence-tutorial/azure.png)
+	![Screenshot that shows the "S A M L" section with "Add Identity provider" and "Microsoft Entra ID" selected.](./media/kantegassoforconfluence-tutorial/azure.png)
 
 1. Select subscription level as **Basic**.
 
-	![Screenshot that shows the "Preparing Azure AD" page with "Basic" selected.](./media/kantegassoforconfluence-tutorial/subscription.png)
+	![Screenshot that shows the "Preparing Microsoft Entra ID" page with "Basic" selected.](./media/kantegassoforconfluence-tutorial/subscription.png)
 
 1. On the **App properties** section, perform following steps:
 
@@ -173,7 +182,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "Metadata import" section with "Metadata file on my computer" selected.](./media/kantegassoforconfluence-tutorial/metadata.png)
 
-	a. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded from Azure portal.
+	a. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded previously.
 
 	b. Click **Next**.
 
@@ -181,7 +190,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "Name and S S O location" with the "Identity provider name" textbox highlighted, and the "Next" button selected.](./media/kantegassoforconfluence-tutorial/location.png)
 
-	a. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Azure AD).
+	a. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Microsoft Entra ID).
 
 	b. Click **Next**.
 
@@ -201,9 +210,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot of the "Summary" page with the "Finish" button selected.](./media/kantegassoforconfluence-tutorial/summary.png)
 
-1. On the **Known domains for Azure AD** section, perform following steps: 
+1. On the **Known domains for Microsoft Entra ID** section, perform following steps: 
 
-	![Screenshot that shows the "Known domains for Azure AD" page with the "Known domains" textbox highlighted and the "Save" button selected.](./media/kantegassoforconfluence-tutorial/domain.png)
+	![Screenshot that shows the "Known domains for Microsoft Entra ID" page with the "Known domains" textbox highlighted and the "Save" button selected.](./media/kantegassoforconfluence-tutorial/domain.png)
 
 	a. Select **Known domains** from the left panel of the page.
 
@@ -213,7 +222,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Kantega SSO for Confluence test user
 
-To enable Azure AD users to sign in to Confluence, they must be provisioned into Confluence. In the case of Kantega SSO for Confluence, provisioning is a manual task.
+To enable Microsoft Entra users to sign in to Confluence, they must be provisioned into Confluence. In the case of Kantega SSO for Confluence, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -241,19 +250,19 @@ To enable Azure AD users to sign in to Confluence, they must be provisioned into
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Kantega SSO for Confluence Sign on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Kantega SSO for Confluence Sign on URL where you can initiate the login flow.  
 
 * Go to Kantega SSO for Confluence Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Kantega SSO for Confluence for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Kantega SSO for Confluence for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Kantega SSO for Confluence tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kantega SSO for Confluence for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Kantega SSO for Confluence tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Kantega SSO for Confluence for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

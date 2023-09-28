@@ -29,10 +29,6 @@ Azure Arc-enabled VMware vSphere has a new refresh for the public preview. Now c
 
 VMware Cloud Director service for Azure VMware Solution is now available for enterprise. VMware Cloud Director service provides a multi-cloud control plane for managing multi-tenancy on infrastructure ranging from on-premises customer data centers, managed service provider facilities, and in the cloud. [Learn more](https://blogs.vmware.com/cloud/2023/08/15/cloud-director-service-ga-for-avs/)
 
-**Stretched Clusters Generally Available**
-
-Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically failover to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
-
 **Well-Architected Assessment Tool**
 
 Azure VMware Solution Well-Architected Assessment Tool is now available. Based upon the Microsoft Azure Well-Architected Framework, the assessment tool methodically checks how your workloads align with best practices for resiliency, security, efficiency, and cost optimization. [Learn more](https://aka.ms/avswafdocs)
@@ -44,6 +40,13 @@ VMware Cloud Universal now includes Azure VMware Solution. [Learn more](https://
 **Updated cloudadmin Permissions**
 
 Customers using the cloudadmin@vsphere.local credentials with the vSphere Client now have read-only access to the Management Resource Pool that contains the management and control plane of Azure VMware Solution (vCenter Server, NSX-T Data Center, HCX Manager, SRM Manager).
+
+## June 2023
+
+**Stretched Clusters Generally Available**
+
+Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically failover to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
+
 
 ## May 2023
 
@@ -214,3 +217,4 @@ Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://ww
 
 ## Post update
 Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
+

@@ -1,6 +1,6 @@
 ---
 title: Remove users, groups, or devices from an administrative unit
-description: Remove users, groups, or devices from an administrative unit in Azure Active Directory
+description: Remove users, groups, or devices from an administrative unit in Microsoft Entra ID
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -22,10 +22,10 @@ When users, groups, or devices in an administrative unit no longer need access, 
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Free licenses for administrative unit members
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID Free licenses for administrative unit members
 - Privileged Role Administrator or Global Administrator
-- AzureAD module when using PowerShell
+- Azure AD PowerShell module when using PowerShell
 - AzureADPreview module when using PowerShell for devices
 - Admin consent when using Graph explorer for Microsoft Graph API
 
@@ -141,4 +141,4 @@ DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-uni
 ## Next steps
 
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)

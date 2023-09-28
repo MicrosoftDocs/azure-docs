@@ -1,10 +1,10 @@
 ---
-title: Overview of customized images in Azure Update Manager (preview)
+title: Overview of customized images in Azure Update Manager
 description: This article describes customized image support, how to register and validate customized images for public preview, and limitations.
 ms.service: azure-update-manager
 author: snehasudhirG
 ms.author: sudhirsneha
-ms.date: 05/02/2023
+ms.date: 09/27/2023
 ms.topic: conceptual
 ---
 
@@ -20,61 +20,12 @@ This article describes customized image support, how to enable a subscription, a
 
 ## Asynchronous check to validate customized image support
 
-If you're using Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update Manager (preview) operations such as **Check for updates**, **One-time update**, **Schedule updates**, or **Periodic assessment** to validate if the VMs are supported for guest patching. If the VMs are supported, you can begin patching.
+If you're using Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update Manager operations such as **Check for updates**, **One-time update**, **Schedule updates**, or **Periodic assessment** to validate if the VMs are supported for guest patching. If the VMs are supported, you can begin patching.
 
 With marketplace images, support is validated even before Update Manager operation is triggered. Here, there are no preexisting validations in place and the Update Manager operations are triggered. Only their success or failure determines support.
 
 For instance, an assessment call attempts to fetch the latest patch that's available from the image's OS family to check support. It stores this support-related data in an Azure Resource Graph table, which you can query to see the support status for your Azure Compute Gallery image.
 
-## Enable a subscription for public preview
-
-To self-register your subscription for public preview in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-
-   :::image type="content" source="./media/manage-updates-customized-images/access-more-services.png" alt-text="Screenshot that shows how to access the More services option.":::
-
-1. On the **All services** page, search for **Preview features**.
-   
-    :::image type="content" source="./media/manage-updates-customized-images/access-preview-services.png" alt-text="Screenshot that shows how to access preview features.":::
-
-1. On the **Preview features** page, enter **gallery** and select **VM Guest Patch Gallery Image Preview**.
-
-   :::image type="content" source="./media/manage-updates-customized-images/access-gallery.png" alt-text="Screenshot that shows how to access the gallery.":::
-    
-1. On the **VM Guest Patch Gallery Image Preview** page, select **Register** to register your subscription.
-    
-   :::image type="content" source="./media/manage-updates-customized-images/register-preview.png" alt-text="Screenshot that shows how to register the Preview feature.":::
-
-## Prerequisites to test the Azure Compute Gallery custom images (preview)
-
-- Register the subscription for preview by following the steps in [Enable a subscription for public preview](#enable-a-subscription-for-public-preview).
-- Ensure that the VM where you intend to run the API calls is in the same subscription that's enrolled for the feature.
-
-## Check the preview
-
-Start the asynchronous support check by using either one of the following APIs:
-
-- API Action Invocation:
-  1. [Assess patches](/rest/api/compute/virtual-machines/assess-patches?tabs=HTTP).
-  1. [Install patches](/rest/api/compute/virtual-machines/install-patches?tabs=HTTP).
-
-- Portal operations. Try the preview:
-  1. [On-demand check for updates](view-updates.md)
-  1. [One-time update](deploy-updates.md)
-
-Validate the VM support state for Azure Resource Graph:
-
-- Table:
-
-  `patchassessmentresources`
-- Resource:
-
-  `Microsoft.compute/virtualmachines/patchassessmentresults/configurationStatus.vmGuestPatchReadiness.detectedVMGuestPatchSupportState. [Possible values: Unknown, Supported, Unsupported, UnableToDetermine]`
-        
-  :::image type="content" source="./media/manage-updates-customized-images/resource-graph-view.png" alt-text="Screenshot that shows the resource in Azure Resource Graph Explorer.":::
-
-We recommend that you run the Assess Patches API after the VM is provisioned and the prerequisites are set for public preview. This action validates the support state of the VM. If the VM is supported, you can run the Install Patches API to begin the patching.
 
 ## Limitations
 

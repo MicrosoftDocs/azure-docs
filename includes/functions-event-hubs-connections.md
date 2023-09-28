@@ -29,9 +29,9 @@ If you are using [version 5.x or higher of the extension](../articles/azure-func
 
 In this mode, the extension requires the following properties:
 
-| Property                  | Environment variable template                       | Description                                | Example value                                        |
-|---------------------------|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| Fully Qualified Namespace | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs namespace. | <event_hubs_namespace>.servicebus.windows.net |
+| Property   | Environment variable template     | Description     | Example value     |
+|--------------|----------|-----|----------|
+| Fully Qualified Namespace | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | The fully qualified Event Hubs namespace. | `myeventhubns.servicebus.windows.net`|
 
 Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
 

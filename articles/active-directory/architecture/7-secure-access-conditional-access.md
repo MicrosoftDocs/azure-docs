@@ -51,12 +51,12 @@ The following sections are best practices for governing external access with Con
 
 ### Entitlement management or groups
 
-If you can’t use connected organizations in entitlement management, create an Azure AD security group, or Microsoft 365 Group for partner organizations. Assign users from that partner to the group. You can use the groups in Conditional Access policies.
+If you can’t use connected organizations in entitlement management, create a Microsoft Entra security group, or Microsoft 365 Group for partner organizations. Assign users from that partner to the group. You can use the groups in Conditional Access policies.
 
 Learn more: 
 
 * [What is entitlement management?](../governance/entitlement-management-overview.md)
-* [Manage Azure Active Directory groups and group membership](../fundamentals/how-to-manage-groups.md)
+* [Manage Microsoft Entra groups and group membership](../fundamentals/how-to-manage-groups.md)
 * [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups?view=o365-worldwide&preserve-view=true)
 
 ### Conditional Access policy creation
@@ -93,13 +93,13 @@ You can block external users from accessing resources with Conditional Access po
 > [!NOTE]
 > After administrators confirm the settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
-Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
+Learn more: [Manage emergency access accounts in Microsoft Entra ID](../roles/security-emergency-access.md)
 
 ### Allow external access to specific external users
 
 There are scenarios when it's necessary to allow access for a small, specific group. 
 
-Before you begin, we recommend you create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Azure AD](../fundamentals/groups-view-azure-portal.md).
+Before you begin, we recommend you create a security group, which contains external users who access resources. See, [Quickstart: Create a group with members and view all groups and members in Microsoft Entra ID](../fundamentals/groups-view-azure-portal.md).
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 1. Browse to **Protection** > **Conditional Access**.
@@ -117,7 +117,7 @@ Before you begin, we recommend you create a security group, which contains exter
 > [!NOTE]
 > After administrators confirm the settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), they can move the **Enable policy** toggle from **Report-only** to **On**.
 
-Learn more: [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
+Learn more: [Manage emergency access accounts in Microsoft Entra ID](../roles/security-emergency-access.md)
 
 ### Service provider access
 
@@ -135,22 +135,22 @@ Learn more: [Conditional Access templates (Preview)](../conditional-access/conce
 
 Use the following series of articles to learn about securing external access to resources. We recommend you follow the listed order.
 
-1. [Determine your security posture for external access with Azure AD](1-secure-access-posture.md)
+1. [Determine your security posture for external access with Microsoft Entra ID](1-secure-access-posture.md)
 
 2. [Discover the current state of external collaboration in your organization](2-secure-access-current-state.md)
 
 3. [Create a security plan for external access to resources](3-secure-access-plan.md)
 
-4. [Secure external access with groups in Azure AD and Microsoft 365](4-secure-access-groups.md) 
+4. [Secure external access with groups in Microsoft Entra ID and Microsoft 365](4-secure-access-groups.md) 
 
-5. [Transition to governed collaboration with Azure AD B2B collaboration](5-secure-access-b2b.md) 
+5. [Transition to governed collaboration with Microsoft Entra B2B collaboration](5-secure-access-b2b.md) 
 
-6. [Manage external access with Azure AD entitlement management](6-secure-access-entitlement-managment.md) 
+6. [Manage external access with Microsoft Entra entitlement management](6-secure-access-entitlement-managment.md) 
 
 7. [Manage external access to resources with Conditional Access policies](7-secure-access-conditional-access.md) (You're here)
 
-8. [Control external access to resources in Azure AD with sensitivity labels](8-secure-access-sensitivity-labels.md) 
+8. [Control external access to resources in Microsoft Entra ID with sensitivity labels](8-secure-access-sensitivity-labels.md) 
 
-9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Azure AD](9-secure-access-teams-sharepoint.md) 
+9. [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business with Microsoft Entra ID](9-secure-access-teams-sharepoint.md) 
 
-10. [Convert local guest accounts to Azure Active Directory B2B guest accounts](10-secure-local-guest.md)
+10. [Convert local guest accounts to Microsoft Entra B2B guest accounts](10-secure-local-guest.md)
