@@ -17,7 +17,7 @@ During machine learning deployments using an AKS cluster, you may receive an inv
 
  
 
-[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 **Status:** Open
 
