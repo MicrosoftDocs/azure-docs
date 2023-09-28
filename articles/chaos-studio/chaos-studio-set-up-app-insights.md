@@ -14,7 +14,7 @@ In this guide, we will show you the steps needed to configure a Chaos Studio **A
 
 ## Prerequisites
 - An Azure subscription
-- An existing Chaos Studio **Agent-based** Experiment [chaos-studio-tutorial-agent-based-portal.md)
+- An existing Chaos Studio **Agent-based** Experiment [How to create and execute an Agent-based experiment](chaos-studio-tutorial-agent-based-portal.md)
 - An existing Log Analytics Workspace (required for Application Insights Resource as well) [How to Create a Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md)
 - An existing Application Insights Resource [How to Create an Application Insights Resource](../azure-monitor/app/create-workspace-resource.md)
 - A User-Assigned Managed Identity (Required for Agent-based Chaos Experiments) [How to create a User-Assigned Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
