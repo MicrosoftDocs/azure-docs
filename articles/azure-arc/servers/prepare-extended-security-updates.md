@@ -1,7 +1,7 @@
 ---
 title: How to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc
 description: Learn how to prepare to deliver Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 07/12/2023
+ms.date: 09/27/2023
 ms.topic: conceptual
 ---
 
@@ -34,7 +34,7 @@ Other Azure services through Azure Arc-enabled servers are available, with offer
 
 ## Prepare delivery of ESUs
 
-To prepare for this new offer, you need to plan and prepare to onboard your machines to Azure Arc-enabled servers through the installation of the [Azure Connected Machine agent](agent-overview.md) and establishing a connection to Azure.
+To prepare for this new offer, you need to plan and prepare to onboard your machines to Azure Arc-enabled servers through the installation of the [Azure Connected Machine agent](agent-overview.md) (version 1.34 or higher) and establishing a connection to Azure.
 
 - **Deployment options:** There are several at-scale onboarding options for Azure Arc-enabled servers, including running a [Custom Task Sequence](onboard-configuration-manager-custom-task.md) through Configuration Manager and deploying a [Scheduled Task through Group Policy](onboard-group-policy-powershell.md).
 
