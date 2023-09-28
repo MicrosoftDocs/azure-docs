@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 09/26/2023
+ms.date: 09/28/2023
 ---
 
 # Vertical Pod Autoscaling in Azure Kubernetes Service (AKS)
@@ -30,7 +30,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 ## Limitations
 
-* Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
+* Vertical Pod autoscaling supports a maximum of 1,000 pods associated with `VerticalPodAutoscaler` objects per cluster.
 
 * VPA might recommend more resources than available in the cluster. As a result, this prevents the pod from being assigned to a node and run, because the node doesn't have sufficient resources. You can overcome this limitation by setting the *LimitRange* to the maximum available resources per namespace, which ensures pods don't ask for more resources than specified. Additionally, you can set maximum allowed resource recommendations per pod in a `VerticalPodAutoscaler` object. Be aware that VPA cannot fully overcome an insufficient node resource issue. The limit range is fixed, but the node resource usage is changed dynamically.
 
@@ -70,7 +70,7 @@ The VPA object consists of three components:
 
 VPA admission controller is a binary that registers itself as a Mutating Admission Webhook. With each pod created, it gets a request from the apiserver and it evaluates if there's a matching VPA configuration, or find a corresponding one and use the current recommendation to set resource requests in the pod.
 
-A standalone job runs outside of the VPA admission controller, called `overlay-vpa-cert-webhook-check`. It's used to create/renew the certificates and register the VPA admission controller as a mutating admission webhook.
+A standalone job runs outside of the VPA admission controller, called `overlay-vpa-cert-webhook-check`. The `overlay-vpa-cert-webhook-check` is used to create and renew the certificates, and register the VPA admission controller as a `MutatingWebhookConfiguration`.
 
 For high availability, AKS supports two admission controller replicas.
 
