@@ -182,7 +182,7 @@
   items:
     - name: Use labels for per-environment configuration
       href: howto-labels-aspnet-core.md
-    - name: Create and manage Snapshots
+    - name: Manage and use snapshots
       href: howto-create-snapshots.md
     - name: Import or export configuration data
       href: howto-import-export-data.md

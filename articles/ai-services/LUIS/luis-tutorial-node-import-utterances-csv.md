@@ -67,22 +67,22 @@ The column entries that contain the utterances in the CSV have to be parsed into
 For example, the entry for "Turn on the lights" maps to this JSON:
 
 ```json
+{
+    "text": "Turn on the lights",
+    "intentName": "TurnOn",
+    "entityLabels": [
         {
-            "text": "Turn on the lights",
-            "intentName": "TurnOn",
-            "entityLabels": [
-                {
-                    "entityName": "Operation",
-                    "startCharIndex": 5,
-                    "endCharIndex": 6
-                },
-                {
-                    "entityName": "Device",
-                    "startCharIndex": 12,
-                    "endCharIndex": 17
-                }
-            ]
+            "entityName": "Operation",
+            "startCharIndex": 5,
+            "endCharIndex": 6
+        },
+        {
+            "entityName": "Device",
+            "startCharIndex": 12,
+            "endCharIndex": 17
         }
+    ]
+}
 ```
 
 In this example, the `intentName` comes from the user request under the **Request** column heading in the CSV file, and the `entityName` comes from the other columns with key information. For example, if there's an entry for **Operation** or **Device**, and that string also occurs in the actual request, then it can be labeled as an entity. The following code demonstrates this parsing process. You can copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_parse.js) it and save it to `_parse.js`.
