@@ -18,82 +18,98 @@ Follow the actions to [Create resource groups](../azure-resource-manager/managem
 
 ```azurecli
 az login
-az group create --name OperatorResourceGroup --location uksouth
-``````
-Save the following bicep script as pre-requisites.bicep
+```
+1. Select active subscription using the subscription ID.
 
-```azurecli
-pre-requisites.bicep
-param location string = resourceGroup().location
-param vnetName string = 'ubuntu-vm-vnet'
-param vnetAddressPrefixes string
-param subnetName string = 'ubuntu-vm-subnet'
-param subnetAddressPrefix string
-param identityName string = 'identity-for-ubuntu-vm-sns'
+    ```azurecli
+    az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ```
+1. Create the Resource Group.
+    
+    ```azurecli
+    az group create --name OperatorResourceGroup  --location uksouth
+    ```
+    
+    > [!NOTE]
+  > The Resource Group you create here is used for further deployment.
 
-resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-05-01' ={
-  name: '${vnetName}-nsg'
-  location: location
-}
+1. Save the following Bicep script locally as *prerequisites.bicep*.
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
-  name: vnetName
-  location: location
-  properties: {
-
-    addressSpace: {
-      addressPrefixes: [vnetAddressPrefixes]
+    ```json
+    param location string = resourceGroup().location
+    param vnetName string = 'ubuntu-vm-vnet'
+    param vnetAddressPrefixes string
+    param subnetName string = 'ubuntu-vm-subnet'
+    param subnetAddressPrefix string
+    param identityName string = 'identity-for-ubuntu-vm-sns'
+    
+    resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-05-01' ={
+      name: '${vnetName}-nsg'
+      location: location
     }
-    subnets: [
-      {
-        name: subnetName
-        properties: {
-          addressPrefix: subnetAddressPrefix
-          networkSecurityGroup: {
-            id:networkSecurityGroup.id
+    
+    resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+      name: vnetName
+      location: location
+      properties: {
+    
+        addressSpace: {
+          addressPrefixes: [vnetAddressPrefixes]
+        }
+        subnets: [
+          {
+            name: subnetName
+            properties: {
+              addressPrefix: subnetAddressPrefix
+              networkSecurityGroup: {
+                id:networkSecurityGroup.id
+              }
+            }
           }
+        ]
+      }
+    }
+    
+    resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
+      name: identityName
+      location: location
+    }
+    
+    output managedIdentityId string = managedIdentity.id
+    output vnetId string = virtualNetwork.id
+    ```
+
+1. Save the following json template locally as *prerequisites.parameters.json*.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "vnetAddressPrefixes": {
+          "value": "10.0.0.0/24"
+        },
+        "subnetAddressPrefix": {
+          "value": "10.0.0.0/28"
         }
       }
-    ]
-  }
-}
-
-resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
-  name: identityName
-  location: location
-}
-
-output managedIdentityId string = managedIdentity.id
-output vnetId string = virtualNetwork.id
-
-```
-Save the following schema as pre-requisites.parameters.json
-
-```pre-requisites.parameters.json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vnetAddressPrefixes": {
-      "value": "10.0.0.0/24"
-    },
-    "subnetAddressPrefix": {
-      "value": "10.0.0.0/28"
     }
-  }
-}
-``````
-## Start deployment of Virtual Network (VM)
+    ```
 
-Once all the scripts are saved locally, you may start deployment of the Virtual Network (VM).
+1. Ensure the scripts are saved locally.
 
-Issue the following command:
+## Deploy Virtual Network
+
+1. Start the deployment of the Virtual Network. Issue the following command:
+
+    ```azurecli
+    az deployment group create --name prerequisites --resource-group OperatorResourceGroup  --template-file pre-requisites.bicep --parameters pre-requisites.parameters.json
+    ```
+1. The script creates a Virtual Network, a Network Security Group and the Managed Identity.
 
 ```azurecli
-az deployment group create --name prerequisites --resource-group operatorresourcegroup --template-file pre-requisites.bicep --parameters pre-requisites.parameters.json
-Output:
 {
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.Resources/deployments/prerequisites",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Resources/deployments/prerequisites",
   "location": null,
   "name": "prerequisites",
   "properties": {
@@ -103,14 +119,14 @@ Output:
       {
         "dependsOn": [
           {
-            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
-            "resourceGroup": "OperatorResourceGroup",
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
+            "resourceGroup": "OperatorResourceGroup ",
             "resourceName": "ubuntu-vm-vnet-nsg",
             "resourceType": "Microsoft.Network/networkSecurityGroups"
           }
         ],
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
-        "resourceGroup": "OperatorResourceGroup",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
+        "resourceGroup": "OperatorResourceGroup ",
         "resourceName": "ubuntu-vm-vnet",
         "resourceType": "Microsoft.Network/virtualNetworks"
       }
@@ -121,26 +137,26 @@ Output:
     "onErrorDeployment": null,
     "outputResources": [
       {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns",
-        "resourceGroup": "OperatorResourceGroup"
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns",
+        "resourceGroup": "OperatorResourceGroup "
       },
       {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
-        "resourceGroup": "OperatorResourceGroup"
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/networkSecurityGroups/ubuntu-vm-vnet-nsg",
+        "resourceGroup": "OperatorResourceGroup "
       },
       {
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
-        "resourceGroup": "OperatorResourceGroup"
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet",
+        "resourceGroup": "OperatorResourceGroup "
       }
     ],
     "outputs": {
       "managedIdentityId": {
         "type": "String",
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns"
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-for-ubuntu-vm-sns"
       },
       "vnetId": {
         "type": "String",
-        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup/providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet"
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OperatorResourceGroup /providers/Microsoft.Network/virtualNetworks/ubuntu-vm-vnet"
       }
     },
     "parameters": {
@@ -238,64 +254,74 @@ Output:
     "timestamp": "2023-09-12T14:29:41.595918+00:00",
     "validatedResources": null
   },
-  "resourceGroup": "OperatorResourceGroup",
+  "resourceGroup": "OperatorResourceGroup ",
   "tags": null,
   "type": "Microsoft.Resources/deployments"
 }
-``````
+```
+
 ## Locate Resource ID for managed identity
 
-Locate and copy the Resource ID for the managed identity identity-for-ubuntu-vm-sns.
+1. **Login to Azure portal**: Open a web browser and sign in to the Azure portal (https://portal.azure.com/) using your Azure account credentials.
+1. **Navigate to All Services**: Under *Identity* select  *Managed identities*.
+1. **Locate the Managed Identity**: In the list of managed identities, find and select the one named **identity-for-ubuntu-vm-sns**. You should now be on the overview page for that managed identity.
+1. **Locate ID**: Select the properties section of the managed identity. You should see various information about the identity. Look for the **ID** field.
+1. **Copy to clipboard**: Select the **Copy** button or icon next to the Resource ID.
+1. **Save copied Resource ID**: Save the copied Resource ID as this information is required for the **Config Group Values** when creating the Site Network Service.
 
 :::image type="content" source="media/identity-for-ubuntu-vm-sns.png" alt-text="Screenshot showing Managed Identity Properties and ID under Essentials." lightbox="media/identity-for-ubuntu-vm-sns.png":::
 
-## Locate Resource ID for Virtual Network (VM)
+## Locate Resource ID for Virtual Network
 
-Locate and copy the Resource ID for the managed identity identity-for-ubuntu-vm-sns.
+1. **Login to Azure portal**: Open a web browser and sign in to the Azure portal (https://portal.azure.com/) using your Azure account credentials.
+1. **Navigate to Virtual Networks**: In the left-hand navigation pane, select *Virtual networks*.
+1. **Search for Virtual Networks**: In the list of virtual networks, you can either scroll through the list or use the search bar to find the *ubuntu-vm-vnet* virtual network.
+1. **Access Virtual Network**: Select the name of the *ubuntu-vm-vnet* virtual network. You should now be on the overview page for that virtual network.
+1. **Locate ID**: Select the properties section of the Virtual Network. You should see various information about the identity. Look for the Resource ID field.
+1. **Copy to clipboard**: Select the **Copy** button or icon next to the Resource ID to copy it to your clipboard.
+1. **Save copied Resource ID**: Save the copied Resource ID as this information is required for the **Config Group Values** when creating the Site Network Service.
 
 :::image type="content" source="media/resource-id-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual network Properties and the Resource ID.":::
 
-This information is located within the Properties section of the respective objects in the portal. The information also resides within the outputs generated when you execute command az deployment group create. These Resource IDs are required in the "SNS Config Group Values" during the creation of Site Network Service.
+## Update Service Network Slice (SNS) permissions
 
+To perform this task, you need either the 'Owner' or 'User Access Administrator' role in the respective Resource Group.
+In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-sns* inside your reference resource group. This identity plays a crucial role in deploying the Service Network Slice (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
 
-## Update permissions granted to Service Network Slice (SNS)
+### Grant Contributor role to Managed Identity
 
-The actions in this section require Owner or User Access Administrator privileges for your prerequisite Resource Group.
-The preceding steps included the creation of a Managed Identity named "identity-for-ubuntu-vm-sns" within your prerequisite resource group. This identity is used during the deployment of the Service Network Slice (SNS).
+1. Access the Azure portal and open the Resource Group created earlier in this case *OperatorResourceGroup*.
+1. Locate and select the Virtual Network named **ubuntu-vm-vnet**.
+1. In the side menu of the Virtual Network, select **Access Control (IAM)**.
+1. Choose **Add Role Assignment**.
 
-Assign Contributor permissions to this managed identity for other prerequisite resources, enabling the Virtual Machine to connect to the Virtual Network (VNET). The Service Network Slice (SNS) inherits these permissions through this managed identity.
+    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual Access control (IAM) area to Add role assignment.":::        
 
-Following these steps to update the permissions:
+1. Under the **Privileged administrator roles**, category pick *Contributor* then proceed with **Next**.
 
-1. Navigate to the Azure portal and access the Resource Group named 'pre-requisites resource group name.'
-1. Locate and select the Virtual Network named "ubuntu-vm-vnet," then select on it.
-1. In the Virtual Network's menu, select "Access Control (IAM)."
-1. Select "Add Role Assignment."
+    :::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the Add role assignment window and Contributor with description.":::
 
-:::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual Access control (IAM) area to Add role assignment.":::
-
-Under the Privileged administrator roles tab, choose Contributor then select the Next button.
-
-:::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the Add role assignment window and Contributor with description.":::
-
-Select Managed identity, then choose + Select members. Navigate to the user-assigned managed identity called "identity-for-ubuntu-vm-sns." Select 'Review and assign.'
+1. Select **Managed identity**.
+1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
+1. Select **Review and assign**.
 
 :::image type="content" source="media/managed-identity-select-members-ubuntu.png" alt-text="Screenshot showing Managed identity and + Select members.":::
 
-Follow the following steps to grant permissions:
+### Grant Managed Identity Operator role to itself
 
-1. Navigate to the Azure portal, search for Managed Identities.
-1. Locate and select the Managed Identities named "identity-for-ubuntu-vm-sns" then select it.
-1. In the Managed Identity menu, select "Access Control (IAM)."
-1. Select "Add Role Assignment."
+1. Go to the Azure portal and search for **Managed Identities**.
+1. Select *identity-for-ubuntu-vm-sns* from the list of **Managed Identities**.
+1. On the side menu, select **Access Control (IAM)**.
+1. Choose **Add Role Assignment** and select the **Managed Identity Operator** role.
 
-:::image type="content" source="media/access-control-add-role-assignment-ubuntu.png" alt-text="Screenshot showing Managed identity Access control (IAM) to Add role assignment.":::
+    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual Access control (IAM) area to Add role assignment."::: 
 
-Grant 'Managed Identity Operator' permissions over itself.
+1. Select the **Managed Identity Operator** role.
 
-:::image type="content" source="media/grant-operator-permissions-ubuntu.png" alt-text="Screenshot showing the Grant access to Azure resources banner.":::
+    :::image type="content" source="media/managed-identity-operator-role-virtual-network-function.png" alt-text="Screenshot showing the Managed Identity Operator role.":::
 
-Select 'Managed identity' then click on '+ Select members' and navigate to the user-assigned managed identity called "identity-for-ubuntu-vm-sns."
+1. Select **Managed identity**.
+1. Select **+ Select members** and navigate to the user-assigned managed identity called *indentity-for-ubuntu-vm-sns* and proceed with the assignment.
 
 :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected.":::
 
