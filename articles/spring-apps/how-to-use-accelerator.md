@@ -277,9 +277,9 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 
 ### Reference a fragment in your own accelerators
 
-Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. You create a project different from the next with similar aspects, requiring some form of copy-paste. To control this issue, Application Accelerators support a feature named Composition that allows the reuse of parts of an accelerator, called Fragments.
+Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. Some people create new projects by copying existing ones and making modifications, but this process can be tedious and error prone. To make the creation and maintenance of accelerators easier, Application Accelerator supports a feature named Composition that allows the reuse of parts of an accelerator, called *fragments*.
 
-Use following steps to reference a Fragment in your accelerator:
+Use following steps to reference a fragment in your accelerator:
 
 1. Publish the new accelerator of type `Fragment` using the Azure portal or the Azure CLI.
 
