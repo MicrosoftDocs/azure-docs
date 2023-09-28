@@ -5,11 +5,13 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 
 # Purge history operation for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 `$purge-history` is an operation that allows you to delete the history of a single FHIR resource. This operation isn't defined in the FHIR specification.
 
