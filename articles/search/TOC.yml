@@ -133,7 +133,7 @@
       href: hybrid-search-overview.md
     - name: Retrieval Augmented Generation (RAG)
       href: retrieval-augmented-generation-overview.md
-    - name: Other query types and composition
+    - name: Other query types
       href: search-query-overview.md
   - name: Relevance
     items:
