@@ -188,7 +188,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
           "auth_method": "azure_msi",
           "auth_params":
           {
-            "scope": "https://hilo.azurehdinsight.net/.default",
+            "scope": "https://clusteraccess.hdinsightaks.net/.default",
             "client_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }

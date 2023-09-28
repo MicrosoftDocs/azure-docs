@@ -16,6 +16,10 @@ keywords:
 
 ## September 2023
 
+### GPT-3.5 Turbo Instruct
+
+Azure OpenAI Service now supports the GPT-3.5 Turbo Instruct model. This model has performance comparable to `text-davinci-003` and is available to use with the Completions API. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+
 ### Whisper public preview
 
 Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whisper model. Get AI-generated text based on the speech audio you provide. To learn more, check out the [quickstart](./whisper-quickstart.md).

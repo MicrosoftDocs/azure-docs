@@ -1,15 +1,13 @@
 ---
 title: Table data types in Synapse SQL
-description: Recommendations for defining table data types in Synapse SQL. 
+description: Recommendations for defining table data types in Synapse SQL.
 author: filippopovic
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: sngun
-ms.custom: 
+ms.date: 04/15/2020
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Table data types in Synapse SQL
