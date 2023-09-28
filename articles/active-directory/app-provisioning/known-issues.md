@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/21/2023
+ms.date: 09/28/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -106,7 +106,7 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 
 #### Unsupported scoping filters
 
-Directory extensions and the **appRoleAssignments**, **userType**, and **accountExpires** attributes aren't supported as scoping filters.
+The **appRoleAssignments**, **userType**, and **accountExpires** attributes aren't supported as scoping filters.
 
 #### Multivalue directory extensions
 
