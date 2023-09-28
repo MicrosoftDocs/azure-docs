@@ -10,6 +10,8 @@ ms.author: erd
 ms.custom: include file
 ---
 
+Full Certificate Authority for TPM cert:
+
 ```text
 "Global Virtual TPM CA - XX" (Full Certificate Authority) [.p7b]
 -----BEGIN CERTIFICATE-----

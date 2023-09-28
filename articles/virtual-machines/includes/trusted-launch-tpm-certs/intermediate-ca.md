@@ -10,6 +10,8 @@ ms.author: erd
 ms.custom: include file
 ---
 
+Intermediate Certificate Authority for TPM cert:
+
 ```text
 "Global Virtual TPM CA - XX" (intermediate CA) [.cer], 
 -----BEGIN CERTIFICATE-----
