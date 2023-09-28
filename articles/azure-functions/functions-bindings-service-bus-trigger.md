@@ -47,7 +47,7 @@ This article supports both programming models.
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message and logs a Service Bus queue message:
 
 ```cs
-private readonly ILogger<ServiceBusQueueTriggerCSharp> _logger;
+        private readonly ILogger<ServiceBusQueueTriggerCSharp> _logger;
 
         public ServiceBusQueueTriggerCSharp(ILogger<ServiceBusQueueTriggerCSharp> logger)
         {
