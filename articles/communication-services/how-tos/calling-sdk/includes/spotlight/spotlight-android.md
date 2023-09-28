@@ -107,7 +107,7 @@ spotlightCallFeature.addOnSpotlightChangedListener(onSpotlightChanged);
 ```
 
 ### Get all spotlighted participants:
-To get information about all participants that have spotlight state on current call, you can use the following api. The returned array is sorted by the order the participants were spotlighted.
+To get information about all participants that have spotlight state on current call, you can use the following API. The returned array is sorted by the order the participants were spotlighted.
 
 ``` java
 List<SpotlightedParticipant> currentSpotlightedParticipants = spotlightCallFeature.getSpotlightedParticipants();
