@@ -71,7 +71,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
   1. In the authentication method, select Service Principal (manual).
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/new-service-connection.png" alt-text="Screenshot showing how to create a new service connection." lightbox="./media/run-flink-jobs-using-azure-pipelines/new-service-connection.png":::
+      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/new-service-connection.png" alt-text="Screenshot showing how to create a new service connection.":::
 
   1. Edit the service connection properties. Select the service principal you recently created.
 
