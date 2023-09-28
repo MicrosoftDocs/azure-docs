@@ -26,7 +26,7 @@ Get started with the Azure Communication Services Advanced Messaging, which exte
 - [Set-up Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
 - [Set-up Event subscription for SMS received and SMS delivery events.](../../telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
 - [Facebook login account](https://www.facebook.com/index.php)
--  Get phonenumber using options [Azure Communication Service Phonenumber](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp) Or bring your own phone number with given capabilities:
+- Phone number using [Azure Communication Service Phonenumber](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp) **or** bring your own phone number with the given capabilities:
     -  Able to send and receive SMS messages.
     -  Phonenumber isn't associated with a WhatsApp Business Account.
    
@@ -67,7 +67,7 @@ Provide the company details to be used in your Meta Business Account then click 
     
 :::image type="content" source="./media/register-whatsapp-account/create-new-business-account.png" alt-text="Screenshot that shows Filling out the details of your Meta Business account.":::
 
-Once Business account is created, please continue with [**Set up WhatsApp Profile**](#select-whatsapp-business-profile) step.
+Once Business account is created, continue with [**Set up WhatsApp Profile**](#select-whatsapp-business-profile) step.
 
 > [!NOTE]
 > More details on how-to and required information on Meta Business Account can be found [Here](https://www.facebook.com/business/tools/meta-business-suite)

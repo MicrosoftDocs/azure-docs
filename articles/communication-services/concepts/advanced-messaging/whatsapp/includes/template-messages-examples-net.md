@@ -232,7 +232,7 @@ And the template includes two prefilled reply buttons, `Yes` and `No`.
 
 Quick reply buttons are defined as `MessageTemplateQuickAction` objects and have three attributes:
 - `name`   
-The `name` is used to lookup the value in `MessageTemplateWhatsAppBindings`.   
+The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`.   
 - `text`   
 Using the quick reply buttons, the `text` attribute isn't used.
 - `payload`   
@@ -311,7 +311,7 @@ And the template includes a dynamic URL button with one parameter:
 
 Call to action buttons for website links are defined as `MessageTemplateQuickAction` objects and have three attributes:
 - `name`   
-The `name` is used to lookup the value in `MessageTemplateWhatsAppBindings`.
+The `name` is used to look up the value in `MessageTemplateWhatsAppBindings`.
 - `text`   
 Using the call to action button for website links, the `text` attribute defines the text that is appended to the URL.   
 For this example, our `text` value is `survey-code`. In the message received by the user, they're presented with a button that links them to the URL `https://www.example.com/survey-code`.
