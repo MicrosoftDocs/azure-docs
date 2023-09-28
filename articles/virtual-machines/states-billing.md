@@ -54,11 +54,11 @@ The following table provides a description of each instance state and indicates 
 Example of PowerState in JSON:
 
 ```json
-        {
-          "code": "PowerState/running",
-          "level": "Info",
-          "displayStatus": "VM running"
-        }
+{
+  "code": "PowerState/running",
+  "level": "Info",
+  "displayStatus": "VM running"
+}
 ```
 
 ## Provisioning states
