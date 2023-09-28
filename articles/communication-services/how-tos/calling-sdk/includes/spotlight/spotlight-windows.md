@@ -44,7 +44,7 @@ spotlightCallFeature = call.Features.Spotlight;
 ```
 
 ### Start spotlight for participants:
-Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer, coorganizer or presenter role can start spotlight for other participants. This action is idempotent, trying to start spotlight on a pinned participant does nothing
+Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer, co-organizer or presenter role can start spotlight for other participants. This action is idempotent, trying to start spotlight on a pinned participant does nothing
 
 To use this feature, a list of participants identifiers is required
 ```csharp
@@ -55,7 +55,7 @@ spotlightCallFeature.StartSpotlightAsync(spotlightIdentifiers);
 ```
 
 ### Remove spotlight from participants
-Any pinned participant in the call or meeting can be unpinned. Only Microsoft 365 users who have an organizer, coorganizer or presenter role can unpin other participants. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing 
+Any pinned participant in the call or meeting can be unpinned. Only Microsoft 365 users who have an organizer, co-organizer or presenter role can unpin other participants. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing 
 
 To use this feature, a list of participants identifiers is required
 ```csharp
@@ -67,7 +67,7 @@ spotlightCallFeature.StopSpotlightAsync(spotlightIdentifiers);
 
 
 ### Remove all spotlights
-All pinned participants can be unpinned using this API. Only MicrosoftTeamsUserIdentifier users who have an organizer, coorganizer or presenter role can unpin all participants.
+All pinned participants can be unpinned using this API. Only MicrosoftTeamsUserIdentifier users who have an organizer, co-organizer or presenter role can unpin all participants.
 ```csharp
 spotlightCallFeature.StopAllSpotlightAsync();
 ```
