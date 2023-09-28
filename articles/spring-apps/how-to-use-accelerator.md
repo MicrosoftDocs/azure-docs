@@ -283,30 +283,28 @@ Use following steps to reference a fragment in your accelerator:
 
 1. Publish the new accelerator of type `Fragment` using the Azure portal or the Azure CLI.
 
-#### [Azure portal](#tab/Portal)
+   #### [Azure portal](#tab/Portal)
 
-To create a Fragment accelerator, open the **Accelerators** section, select **Add Accelerator** under the **Customized Accelerators** section, and then select **Fragment**.
+   To create a fragment accelerator, open the **Accelerators** section, select **Add Accelerator** under the **Customized Accelerators** section, and then select **Fragment**.
 
-:::image type="content" source="media/how-to-use-accelerator/add-fragment.png" alt-text="Screenshot of the Azure portal that shows the Customized Accelerators of type Fragment." lightbox="media/how-to-use-accelerator/add-fragment.png":::
+   :::image type="content" source="media/how-to-use-accelerator/add-fragment.png" alt-text="Screenshot of the Azure portal that shows the Customized Accelerators of type `Fragment`." lightbox="media/how-to-use-accelerator/add-fragment.png":::
 
-#### [Azure CLI](#tab/Azure-CLI)
+   #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to create a customized accelerator of type `Fragment`:
+   Use the following command to create a customized accelerator of type `Fragment`:
 
-```azurecli
-az spring application-accelerator customized-accelerator create \
-    --resource-group <resource-group-name> \
-    --service <service-instance-name> \
-    --name <fragment-accelerator-name> \
-    --display-name <display-name> \
-    --type Fragment \
-    [--git-sub-path <sub project path>] \
-    --git-url <git-repo-URL>
-```
+   ```azurecli
+   az spring application-accelerator customized-accelerator create \
+       --resource-group <resource-group-name> \
+       --service <service-instance-name> \
+       --name <fragment-accelerator-name> \
+       --display-name <display-name> \
+       --type Fragment \
+       [--git-sub-path <sub project path>] \
+       --git-url <git-repo-URL>
+   ```
 
----
-
-1. Change the *accelerator.yaml* file in your accelerator project. Select **Imports** under the **Accelerator** section and select **InvokeFragment** in the **Engine** section to reference Fragment in accelerator.
+1. Change the *accelerator.yaml* file in your accelerator project. Use `imports` under the `accelerator` section and `InvokeFragment` in the `engine` section to reference fragment in accelerator.
 
    Use the following YAML query as an example:
 
@@ -331,29 +329,27 @@ az spring application-accelerator customized-accelerator create \
 
 1. Synchronize the change with the Dev Tools Portal.
 
-   To reflect the changes on the Dev Tools Portal more quickly, you can provide a tiny value to the **Git interval** field of your customized accelerator, which indicates how frequently Git repository updates.
+   To reflect the changes on the Dev Tools Portal more quickly, you can provide a value for the **Git interval** field of your customized accelerator. The **Git interval** indicates how frequently the system will check for updates in the Git repository.
 
 1. Synchronize the change with your customized accelerator on the Azure portal by using the Azure portal or the Azure CLI.
 
-#### [Azure portal](#tab/Portal)
+   #### [Azure portal](#tab/Portal)
 
-The following list shows the two ways you can sync changes:
+   The following list shows the two ways you can sync changes:
 
-- Create or update your customized accelerator.
-- Open the **Accelerators** section, and then select **Sync certificate**.
+   - Create or update your customized accelerator.
+   - Open the **Accelerators** section, and then select **Sync certificate**.
 
-#### [Azure CLI](#tab/Azure-CLI)
+   #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to sync changes for an accelerator:
+   Use the following command to sync changes for an accelerator:
 
-```azurecli
-az spring application-accelerator customized-accelerator sync-cert \
-    --name <customized-accelerator-name> \
-    --service <service-instance-name> \
-    --resource-group <resource-group-name>
-```
-
----
+   ```azurecli
+   az spring application-accelerator customized-accelerator sync-cert \
+       --name <customized-accelerator-name> \
+       --service <service-instance-name> \
+       --resource-group <resource-group-name>
+   ```
 
 For more information, see [Use fragments in Application Accelerator](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/application-accelerator-creating-accelerators-composition.html) in the VMware documentation.
 
