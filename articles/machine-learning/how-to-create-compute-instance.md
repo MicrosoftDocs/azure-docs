@@ -402,7 +402,7 @@ In the Resource Manager template, add:
 ```
 
 Then use either cron or LogicApps expressions to define the schedule that starts or stops the instance in your parameter file:
- 
+
 ```json
   "schedules": {
     "value": {
@@ -426,18 +426,18 @@ Then use either cron or LogicApps expressions to define the schedule that starts
           "status": "Enabled"
         },
         { 
-          "triggerType": "Recurrence",
-          "recurrence": {
-            "frequency": "Day",
-            "interval": 1,
-            "timeZone": "UTC",
-            "schedule": {
-              "hours": [17],
-              "minutes": [0]
+          "triggerType": "Recurrence",
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "timeZone": "UTC",
+            "schedule": {
+              "hours": [17],
+              "minutes": [0]
             }
           }, 
-          "action": "Stop",
-          "status": "Enabled"
+          "action": "Stop",
+          "status": "Enabled"
         } 
       ]
     }
