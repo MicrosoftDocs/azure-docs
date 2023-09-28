@@ -362,7 +362,7 @@ Web server | Server Name <br/>Server Type (currently only IIS) <br/>Configuratio
 
 ## Spring Boot web apps data
 
-Azure Migrate appliance used for discovery can also collect data on ASP.NET web applications.
+Azure Migrate appliance used for discovery can also collect data on Spring Boot web applications.
 
 Here's the web apps configuration data that the appliance collects from each Windows server discovered in your environment.
 
