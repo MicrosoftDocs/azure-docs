@@ -22,31 +22,31 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 We have identified calls to a FarmBeats API version that is scheduled for deprecation. We recommend switching to the latest FarmBeats API version to ensure uninterrupted access to FarmBeats, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+Learn more about - [Azure FarmBeats - FarmBeatsApiVersion (Upgrade to the latest FarmBeats API version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA Java SDK version
 
 We have identified calls to an Azure Data Manager for Agriculture (ADMA) Java SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+Learn more about [Azure FarmBeats - FarmBeatsJavaSdkVersion (Upgrade to the latest ADMA Java SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA DotNet SDK version
 
 We have identified calls to a ADMA DotNet SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+Learn more about [Azure FarmBeats - FarmBeatsDotNetSdkVersion (Upgrade to the latest ADMA DotNet SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA JavaScript SDK version
 
 We have identified calls to a ADMA JavaScript SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+Learn more about [Azure FarmBeats - FarmBeatsJavaScriptSdkVersion (Upgrade to the latest ADMA JavaScript SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA Python SDK version
 
 We have identified calls to a ADMA Python SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+Learn more about [Azure FarmBeats - FarmBeatsPythonSdkVersion (Upgrade to the latest ADMA Python SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ## API Management
 
