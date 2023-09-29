@@ -64,7 +64,7 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 ### Updated articles
 
 - [Bulk invite users via PowerShell](bulk-invite-powershell.md) - Editorial and link updates
-- [Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates
+- [Enforce multifactor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates
 - [Invite internal users to B2B](invite-internal-users.md) - Text corrections and screenshot updates
 - [Grant B2B users access to local apps](hybrid-cloud-to-on-premises.md) - Text corrections
 - [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
