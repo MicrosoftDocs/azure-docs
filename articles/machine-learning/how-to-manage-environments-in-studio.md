@@ -74,7 +74,7 @@ Click on the **Build log** tab within the details page to view the logs of an en
 * Image build analysis is an analysis of the build log used to see the cause of the image build failure.
 * Environment definition analysis provides information about the environment definition if it goes against best practices for reproducibility, supportability, or security.
 
-For an overview of common build failures, see https://aka.ms/azureml/environment/troubleshooting-guide
+For an overview of common build failures, see [How to troubleshoot for environments](https://aka.ms/azureml/environment/troubleshooting-guide).
 
 If you have feedback on the evironment log analysis, file it at https://aka.ms/azureml/environment/log-analysis-feedback
 
