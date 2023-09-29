@@ -37,6 +37,18 @@ This article explains the steps needed to subscribe to events published by Azure
 
 # [Azure portal](#tab/azure-portal)
 
+1. Sign into the [Azure portal](https://portal.azure.com).
+1. In the search bar, type **Event Grid System Topics**, and select it from the drop-down list. 
+1. On the **Event Grid system topics** page, select **+ Create** on the toolbar. 
+1. On the **Create Event Grid System Topic** page, select **Azure Resource Notifications - Health events** for **Topic type**.    
+
+    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/create-topic.png" alt-text="Screenshot that shows the Create topic page in the Azure portal.":::
+1. Select the **resource group** in which you want to create the system topic.
+1. Enter a **name** for the system topic.
+1. Select **Review + create** 
+
+    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/create-topic-full.png" alt-text="Screenshot that shows the full Create topic page with details in the Azure portal.":::    
+1. On the **Review + create** page, select **Create**. 
 ---
 
 ## Subscribe to events
