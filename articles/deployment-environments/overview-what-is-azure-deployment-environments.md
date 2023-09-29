@@ -80,6 +80,10 @@ Enable your development teams to quickly and easily create app infrastructure (P
 - **Integration with your existing toolchain**:
 Use APIs to provision environments directly from your preferred CI tool, integrated development environment (IDE), or automated release pipeline. You can also use the comprehensive command-line tool.
 
+## Components shared with Microsoft Dev Box
+
+[Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md) and Azure Deployment Environments are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
+
 ## Next steps
 Start using Azure Deployment Environments:
 
