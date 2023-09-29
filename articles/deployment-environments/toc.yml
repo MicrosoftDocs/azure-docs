@@ -39,6 +39,8 @@ items:
       href: how-to-configure-devcenter-environment-types.md
     - name: Add & delete project environment types
       href: how-to-configure-project-environment-types.md
+    - name: Request a quota limit increase
+      href: how-to-request-quota-increase.md  
     - name: Provide access to dev managers
       href: how-to-configure-project-admin.md
     - name: Provide access to developers

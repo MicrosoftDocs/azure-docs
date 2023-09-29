@@ -48,6 +48,30 @@ We have identified calls to a ADMA Python SDK version that is scheduled for depr
 
 Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
+### Upgrade to the latest ADMA Java SDK version
+
+We have identified calls to an Azure Data Manager for Agriculture (ADMA) Java SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsJavaSdkVersion (Upgrade to the latest ADMA Java SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
+### Upgrade to the latest ADMA DotNet SDK version
+
+We have identified calls to a ADMA DotNet SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsDotNetSdkVersion (Upgrade to the latest ADMA DotNet SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
+### Upgrade to the latest ADMA JavaScript SDK version
+
+We have identified calls to a ADMA JavaScript SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsJavaScriptSdkVersion (Upgrade to the latest ADMA JavaScript SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
+### Upgrade to the latest ADMA Python SDK version
+
+We have identified calls to a ADMA Python SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsPythonSdkVersion (Upgrade to the latest ADMA Python SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
 ## API Management
 
 ### Hostname certificate rotation failed
@@ -257,13 +281,13 @@ Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure F
 
 ### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
 
-Starting July 1, 2020, customers can't create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters continue as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+Starting July 1, 2020, customers can't create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
 Learn more about [HDInsight cluster - KafkaVersionRetirement (Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster)](https://aka.ms/hdiretirekafka).
 
 ### Deprecation of Older Spark Versions in HDInsight Spark cluster
 
-Starting July 1, 2020, customers can't create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters continue as is without support from Microsoft.
+Starting July 1, 2020, customers can't create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters run as is without support from Microsoft.
 
 Learn more about [HDInsight cluster - SparkVersionRetirement (Deprecation of Older Spark Versions in HDInsight Spark cluster)](https://aka.ms/hdiretirespark).
 
