@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 03/28/2023
+ms.date: 09/29/2023
 ---
 
 # About Azure Cache for Redis
@@ -63,10 +63,10 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Redis Modules](cache-redis-modules.md) |-|-|-|✔|Preview|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
-| [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
+| [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates) |✔|✔|✔|-|-|
 
 > [!NOTE]
-> The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module. 
+> The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module.
 
 ### Choosing the right tier
 
@@ -103,7 +103,7 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 
 Azure Cache for Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
-## Next steps
+## Related content
 
 - [Create an open-source Redis cache](quickstart-create-redis.md)
 - [Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md)
