@@ -1,5 +1,5 @@
 ---
-title: Set up App Insights for a Chaos Studio Agent-Based Experiments
+title: Set up App Insights for a Chaos Studio agent-based experiment
 description: Understand the steps to connect App Insights to your Chaos Studio Agent-Based Experiment
 services: chaos-studio
 author: nikhilkaul-msft
@@ -17,14 +17,14 @@ In this guide, we'll show you the steps needed to configure a Chaos Studio **Age
 - An existing Chaos Studio [**Agent-based** Experiment](chaos-studio-tutorial-agent-based-portal.md)
 - [Required for Application Insights Resource as well] An existing [Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md)
 - An existing [Application Insights Resource](../azure-monitor/app/create-workspace-resource.md)
-- [Required for Agent-based Chaos Experiments] A [User-Assigned Managed Identity] (../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
+- [Required for Agent-based Chaos Experiments] A [User-Assigned Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
 
 ## Step 1: Copy the Instrumentation Key from your Application Insights Resource
 Once you have met all the prerequisite steps, copy the **Instrumentation Key** found in the overview page of your Application Insights Resource (see screenshot)
 
 <br/>
 
-![Screenshot that shows Instrumentation Key in App Insights](images/Step1A_appins.png)
+[![Screenshot that shows Instrumentation Key in App Insights.](images/step1a-app-insights.png)](images/step1a-app-insights.png#lightbox)
 
 ## Step 2: Enable the Target Platform for your Agent-Based Fault with Application Insights
 Navigate to the Chaos Studio overview page and click on the **Targets** blade under the "Experiments Management" section. Find the target platform, ensure it's enabled for agent-based faults, and select "Manage Actions" in the right-most column. See screenshot below for an example:
@@ -32,14 +32,14 @@ Navigate to the Chaos Studio overview page and click on the **Targets** blade un
 
 <br/>
 
-![Screenshot that shows the Chaos Targets Page](images/Step2A_appins.png)
+[![Screenshot that shows the Chaos Targets Page.](images/step2a-app-insights.png)](images/step2a-app-insights.png#lightbox)
 
 ## Step 3: Add your Application Insights account and Instrumentation key
 At this point, the resource configuration page seen in the screenshot should come up . After configuring your managed identity, make sure Application Insights is "Enabled" and then select your desired Application Insights Account and enter the Instrumentation Key you copied in Step 1. Once you have filled out the required information, you can click "Review+Create" to deploy your resource. 
 
 <br/>
 
-![Screenshot of Targets Deployment Page](images/Step3A_appins.png)
+[![Screenshot of Targets Deployment Page.](images/step3a-app-insights.png)](images/step3a-app-insights.png#lightbox)
 
 ## Step 4: Run the chaos experiment
 At this point, your Chaos Target is now configured to emit telemetry to the App Insights Resource you configured! If you navigate to your specific Application Insights Resource and open the "Logs" blade under the "Monitoring" section, you should see the Agent health status and any actions the Agent is taking on your Target Platform. You can now run your experiment and see logging in your Application Insights Resource. See screenshot for example of App Insights Resource running successfully on an Agent-based Chaos Target platform. 
@@ -50,4 +50,4 @@ To query your logs, navigate to the "Logs" tab in the Application Insights Resou
 
 <br/>
 
-![Screenshot of Logs tab in Application Insights Resource](images/Step4A_appins.png)
+[![Screenshot of Logs tab in Application Insights Resource.](images/step4a-app-insights.png)](images/step4a-app-insights.png#lightbox)
