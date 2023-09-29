@@ -42,7 +42,7 @@ To use Managed Identity with ACS, follow these steps:
 
 3. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-    ![Screenshot that shows where to switch Status to On and then select Save.](/articles/communication-services/media/managed-identity/managed-identity-system-assigned.png)
+    ![Screenshot that shows where to switch Status to On and then select Save.](../media/managed-identity/managed-identity-system-assigned.png)
 
 # [Azure CLI](#tab/cli)
 
@@ -61,7 +61,7 @@ Assigning a user-assigned identity to your ACS resource requires that you first 
 
 First, you'll need to create a user-assigned managed identity resource.
 
-1. Create a user-assigned managed identity resource according to [these instructions](/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+1. Create a user-assigned managed identity resource according to [these instructions](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
 
 2. In the left navigation for your app's page, scroll down to the **Settings** group.
 
@@ -71,7 +71,7 @@ First, you'll need to create a user-assigned managed identity resource.
 
 5. Search for the identity you created earlier, select it, and select **Add**.
 
-    ![Managed identity in App Service](/articles/communication-services/media/managed-identity/managed-identity-user-assigned.png)
+    ![Managed identity in App Service](../media/managed-identity/managed-identity-user-assigned.png)
 
 # [Azure CLI](#tab/cli)
 
@@ -155,8 +155,8 @@ For Golang apps and functions, Code Samples on how to create or update your ACS 
 
 For more information on using the golang Management SDK, see [Azure Communication Management SDK for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/README.md)
 
------
 
+-----
 > [!NOTE]
 > A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 >
@@ -164,7 +164,7 @@ For more information on using the golang Management SDK, see [Azure Communicatio
 
 
 ## Next Steps
-Now that you have learned how to use Managed Identity with Azure Communication Services, consider implementing this feature in your own applications to simplify your authentication process and improve security. 
+Now that you have learned how to enable Managed Identity with Azure Communication Services, consider implementing this feature in your own applications to simplify your authentication process and improve security. 
 
 - [Managed Identities ](/articles/active-directory/managed-identities-azure-resources/overview)
 - [Manage user-assigned managed identities](/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
