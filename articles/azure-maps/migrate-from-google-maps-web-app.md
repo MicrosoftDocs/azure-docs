@@ -29,7 +29,7 @@ Also:
 > [!div class="checklist"]
 > * How to accomplish common mapping tasks using the Azure Maps Web SDK.
 > * Best practices to improve performance and user experience.
-> * Tips on how to make your application use more advanced features available in Azure Maps.
+> * Tips on how to make your application using more advanced features available in Azure Maps.
 
 If migrating an existing web application, check to see if it's using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you don't want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps [Render] services ([road tiles] | [satellite tiles]). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
 
