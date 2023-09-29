@@ -97,7 +97,7 @@ Configuring Application Gateway to override the host name and use the default do
 
 ### Authentication
 When you're using [the authentication feature](../overview-authentication-authorization.md) in App Service (also known as Easy Auth), your app will typically redirect to the sign-in page. Because App Service doesn't know the original host name of the request, the redirect would be done on the default domain name and usually result in an error. To work around default redirect, you can configure authentication to inspect a forwarded header and adapt the redirect domain to the original domain. Application Gateway uses a header called `X-Original-Host`.
-Using file-based configuration to configure authentication, you can configure App Service to adapt to the original host name. Add this configuration to your configuration file:
+Using [file-based configuration](../configure-authentication-file-based.md) to configure authentication, you can configure App Service to adapt to the original host name. Add this configuration to your configuration file:
 
 ```json
 {
