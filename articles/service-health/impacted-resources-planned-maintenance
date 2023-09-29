@@ -56,6 +56,6 @@ The list of impacted resources can be exported to an excel file by clicking on t
 :::image type="content" source="./media/impacted-resource-pm/ir-csv.PNG" alt-text="Screenshot of export to csv button":::
 
 ## Next steps
--  [Introduction to the Azure Service Health dashboard](service-health-overview.md)
+- [Introduction to the Azure Service Health dashboard](service-health-overview.md)
 - [Introduction to Azure Resource Health](resource-health-overview.md)
 - [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)
