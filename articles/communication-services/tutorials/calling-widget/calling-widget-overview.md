@@ -1,7 +1,7 @@
 ---
 title: Get Started with Azure Communication Services calling to Teams Call Queue and Auto Attendant
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate click to call.
+description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate calling a Teams Call Queue or Auto Attendant.
 author: dmceachern
 manager: alkwa
 services: azure-communication-services
