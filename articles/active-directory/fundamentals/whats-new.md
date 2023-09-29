@@ -63,7 +63,7 @@ We'll expand the existing FIDO2 authentication methods policy and end user regis
 **Service category:**  Microsoft Authenticator App                                  
 **Product capability:**  User Authentication                        
 
-Authenticator version and higher on Android version will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP). No changes in configuration are required in the Authenticator app or Azure Portal to enable this capability. For more information, see: [Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md).
+Authenticator version and higher on Android version will be FIPS 140 compliant for all Azure AD authentications using push multi-factor authentications (MFA), Passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP). No changes in configuration are required in the Authenticator app or Azure portal to enable this capability. For more information, see: [Authentication methods in Microsoft Entra ID - Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md).
 
 ---
 
@@ -142,7 +142,7 @@ For more information, see: [Microsoft Admin Portals (preview)](../conditional-ac
 **Service category:** Microsoft Graph                                  
 **Product capability:** Monitoring & Reporting                       
 
-The *MicrosoftGraphActivityLogs* provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity.
+The *MicrosoftGraphActivityLogs* provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity. For more information, see: [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview)
 
 ---
 
