@@ -11,7 +11,6 @@ ms.author: banders
 ms.reviewer: mattmcinnes
 ---
 
-
 # Save costs with Azure Dedicated Host reservations
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
@@ -97,9 +96,6 @@ For more information about how reservation discounts appear in usage data, see 
 You can make the following types of changes to a reservation after purchase:
 
 - Update reservation scope
-
-- Instance size flexibility (if applicable)
-
 - Ownership
 
 You can also split a reservation into smaller chunks and merge already split reservations. None of the changes cause a new commercial transaction or change the end date of the reservation.
@@ -147,3 +143,5 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
+
+
