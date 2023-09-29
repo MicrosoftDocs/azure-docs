@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory for customers"
 description: "New and updated documentation for the Azure Active Directory for customers documentation."
-ms.date: 09/01/2023
+ms.date: 09/29/2023
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: reference
@@ -14,6 +14,15 @@ manager: CelesteDG
 # Azure Active Directory for customers: What's new
 
 Welcome to what's new in Azure Active Directory for customers documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. 
+
+## September 2023
+
+### Updated articles
+
+- [Quickstart: Get started with our guide to run a sample app and sign in your users (preview)](quickstart-get-started-guide.md) Start the guide updates
+- [Manage Microsoft Entra ID for customers resources with Microsoft Graph](microsoft-graph-operations.md) - Editorial updates
+- [Planning for customer identity and access management (preview)](concept-planning-your-solution.md) - [BULK] - Editorial updates
+- [Create a sign-up and sign-in user flow for customers](how-to-user-flow-sign-up-sign-in-customers.md) - Disable sign-up in a user flow
 
 ## August 2023
 
