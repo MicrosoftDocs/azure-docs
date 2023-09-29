@@ -69,7 +69,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
+| [Prevent anonymous read access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
@@ -119,7 +119,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Metrics in Azure Monitor](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Object replication for block blobs](object-replication-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Point-in-time restore for block blobs](point-in-time-restore-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Prevent anonymous public access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Prevent anonymous read access](anonymous-read-access-prevent.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Soft delete for blobs](./soft-delete-blob-overview.md)	| &#x2705; | &#x2705;  | &#x2705; | &#x2705; |
 | [Soft delete for containers](soft-delete-container-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Static websites](storage-blob-static-website.md) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
