@@ -29,6 +29,9 @@ Execution of the preceding command generates an input.json file.
 > [!NOTE]
 > Edit the input.json file. Replace it with the values shown in the following sample. Save the file as **input-cnf-nfd.json**. Zip the ngnix configuration files in tgz format.
 
+> [!NOTE]
+> For this quickstart, we use source_local_docker_image. For further CNFs you may make in future, you have the option of using a reference to an existing Azure Container Registry which contains the images for your CNF. Currently, only one ACR and namespace is supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. To use this option in future, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file. You must have Reader/AcrPull permissions on this ACR.
+
 Here's sample input-cnf-nfd.json file:
 
 ```json

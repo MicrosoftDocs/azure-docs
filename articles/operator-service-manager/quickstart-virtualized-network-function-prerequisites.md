@@ -25,11 +25,30 @@ For local installation, sign into Azure CLI using the `az login`  command.
 
 To finish the authentication process, follow the steps displayed in your terminal. For other sign in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
+## Sign in with Azure CLI
+
+To sign in with Azure CLI, issue the following command.
+
+```azurecli
+az login
+```
+
+## Select subscription
+
+To change the active subscription using the subscription ID, issue the following command.
+
+```azurecli
+ change the active subscription using the subscription ID
+az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+## Install Azure Operator Service Manager (AOSM) CLI extension
+
 To install the Azure Operator Service Manager CLI extension, issue the following command.
 
 ```azurecli
 az extension add --name aosm
-``````
+```
+
 Run `az version` to determine the version and dependent libraries installed. Upgrade to the latest version by issuing command `az upgrade`.
 
 ## Register required resource providers
@@ -41,7 +60,7 @@ Prior to using the Azure Operator Service Manager you must first register the re
 az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
 az provider register –-namespace Microsoft.HybridNetwork/MsiForResourceEnabled
-``````
+```
 ## Verify registration status
 
 To verify the registration status of the resource providers, you can run the following commands:
@@ -50,7 +69,8 @@ To verify the registration status of the resource providers, you can run the fol
 # Query the Resource Provider
 az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
-``````
+az provider show --namespace Microsoft.HybridNetwork/MsiForResourceEnabled --query "{RegistrationState: registrationState, ProviderName: namespace}"
+```
 
 > [!NOTE]
 > It may take a few minutes for the resource provider registration to complete. Once the registration is successful, you can begin using the Network Function Manager (NFM) or Azure Operator Service Manager.
@@ -59,7 +79,7 @@ az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: reg
 
 ### Download and extract Ubuntu image
 
-If you already possess the Ubuntu image accessible through a SAS URL in Azure blob storage, you can save time by omitting this step. Keep in mind that the Ubuntu image is sizable, around 30 GB, so the transfer process may take a while.
+If you already possess the Ubuntu image accessible through a SAS URL in Azure blob storage, you can save time by omitting this step. Keep in mind that the Ubuntu image is sizable, around 650 MB, so the transfer process may take a while.
 
 ```bash
 # Download the Ubuntu image
@@ -67,110 +87,137 @@ wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-a
 
 # Extract the downloaded image
 tar -xzvf jammy-server-cloudimg-amd64-azure.vhd.tar.gz
-``````
+```
 
-### Convert Virtual Machine (VM) template
+### Virtual Machine (VM) ARM template
 
-Now convert the Virtual Machine (VM) bicep template into an ARM template.
 
-The following sample Ubuntu Virtual Machine (VM) bicep is used in this quickstart.
+The following sample ARM template for Ubuntu Virtual Machine (VM) is used in this quickstart.
 
 ```json
-param location string = resourceGroup().location
-param subnetName string
-param ubuntuVmName string = 'ubuntu-vm'
-param virtualNetworkId string
-param sshPublicKeyAdmin string
-param imageName string
-
-var imageResourceGroup = resourceGroup().name
-var subscriptionId = subscription().subscriptionId
-var vmSizeSku = 'Standard_D2s_v3'
-
-// Create the management nic
-resource ubuntuVmName_nic 'Microsoft.Network/networkInterfaces@2021-05-01' = {
-  name: '${ubuntuVmName}_nic'
-  location: location
-  properties: {
-    ipConfigurations: [
-      {
-        name: 'ipconfig1'
-        properties: {
-          subnet: {
-            id: '${virtualNetworkId}/subnets/${subnetName}'
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.21.1.54444",
+      "templateHash": "2626436546580286549"
+    }
+  },
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "subnetName": {
+      "type": "string"
+    },
+    "ubuntuVmName": {
+      "type": "string",
+      "defaultValue": "ubuntu-vm"
+    },
+    "virtualNetworkId": {
+      "type": "string"
+    },
+    "sshPublicKeyAdmin": {
+      "type": "string"
+    },
+    "imageName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "imageResourceGroup": "[resourceGroup().name]",
+    "subscriptionId": "[subscription().subscriptionId]",
+    "vmSizeSku": "Standard_D2s_v3"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2021-05-01",
+      "name": "[format('{0}_nic', parameters('ubuntuVmName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": {
+                "id": "[format('{0}/subnets/{1}', parameters('virtualNetworkId'), parameters('subnetName'))]"
+              },
+              "primary": true,
+              "privateIPAddressVersion": "IPv4"
+            }
           }
-          primary: true
-          privateIPAddressVersion: 'IPv4'
-        }
+        ]
       }
-    ]
-  }
-}
-
-resource ubuntuVmVirtualMachine 'Microsoft.Compute/virtualMachines@2021-07-01' = {
-  name: ubuntuVmName
-  location: location
-  properties: {
-    hardwareProfile: {
-      vmSize: vmSizeSku
-    }
-    storageProfile: {
-      imageReference: {
-        id: extensionResourceId('/subscriptions/${subscriptionId}/resourceGroups/${imageResourceGroup}', 'Microsoft.Compute/images', imageName)
-      }
-      osDisk: {
-        osType: 'Linux'
-        name: '${ubuntuVmName}_disk'
-        createOption: 'FromImage'
-        caching: 'ReadWrite'
-        writeAcceleratorEnabled: false
-        managedDisk: json('{"storageAccountType": "Premium_LRS"}')
-        deleteOption: 'Delete'
-        diskSizeGB: 30
-      }
-    }
-    osProfile: {
-      computerName: ubuntuVmName
-      adminUsername: 'azureuser'
-      linuxConfiguration: {
-        disablePasswordAuthentication: true
-        ssh: {
-          publicKeys: [
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2021-07-01",
+      "name": "[parameters('ubuntuVmName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('vmSizeSku')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "id": "[extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', variables('subscriptionId'), variables('imageResourceGroup')), 'Microsoft.Compute/images', parameters('imageName'))]"
+          },
+          "osDisk": {
+            "osType": "Linux",
+            "name": "[format('{0}_disk', parameters('ubuntuVmName'))]",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+            "writeAcceleratorEnabled": false,
+            "managedDisk": "[json('{\"storageAccountType\": \"Premium_LRS\"}')]",
+            "deleteOption": "Delete",
+            "diskSizeGB": 30
+          }
+        },
+        "osProfile": {
+          "computerName": "[parameters('ubuntuVmName')]",
+          "adminUsername": "azureuser",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "/home/azureuser/.ssh/authorized_keys",
+                  "keyData": "[parameters('sshPublicKeyAdmin')]"
+                }
+              ]
+            },
+            "provisionVMAgent": true,
+            "patchSettings": {
+              "patchMode": "ImageDefault",
+              "assessmentMode": "ImageDefault"
+            }
+          },
+          "secrets": [],
+          "allowExtensionOperations": true
+        },
+        "networkProfile": {
+          "networkInterfaces": [
             {
-              path: '/home/azureuser/.ssh/authorized_keys'
-              keyData: sshPublicKeyAdmin
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', format('{0}_nic', parameters('ubuntuVmName')))]"
             }
           ]
         }
-        provisionVMAgent: true
-        patchSettings: {
-          patchMode: 'ImageDefault'
-          assessmentMode: 'ImageDefault'
-        }
-      }
-      secrets: []
-      allowExtensionOperations: true
-    }
-    networkProfile: {
-      networkInterfaces: [
-        {
-          id: ubuntuVmName_nic.id
-        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', format('{0}_nic', parameters('ubuntuVmName')))]"
       ]
     }
-  }
+  ]
 }
-``````
+```
 
-Save the preceding json file as ubuntu-template.bicep on your local machine.
+Save the preceding json file as *ubuntu-template.json* on your local machine.
 
-Convert the Virtual Machine (VM) bicep template into an ARM template using the following command.
-
-```azurecli
-az bicep build -f ubuntu-template.bicep --outfile ubuntu-template.json
-``````
 
 ## Next steps
 
 - [Quickstart: Publish Ubuntu Virtual Machine (VM) as Virtual Network Function (VNF)](quickstart-publish-virtualized-network-function-definition.md)
-

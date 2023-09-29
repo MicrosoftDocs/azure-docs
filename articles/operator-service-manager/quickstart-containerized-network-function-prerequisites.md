@@ -33,7 +33,7 @@ Install the Azure Operator Service Manager (AOSM) CLI extension using this comma
 
 ```azurecli
 az extension add --name aosm
-``````
+```
 1. Run `az version` to see the version and dependent libraries that are installed.
 1. Run `az upgrade` to upgrade to the current version of Azure CLI.
 
@@ -45,7 +45,7 @@ Before you begin using the Azure Operator Service Manager, make sure to register
 # Register Resource Provider
 az provider register --namespace Microsoft.HybridNetwork
 az provider register --namespace Microsoft.ContainerRegistry
-``````
+```
 
 Verify the registration status of the resource providers. Execute the following commands.
 
@@ -53,7 +53,7 @@ Verify the registration status of the resource providers. Execute the following 
 # Query the Resource Provider
 az provider show -n Microsoft.HybridNetwork --query "{RegistrationState: registrationState, ProviderName: namespace}"
 az provider show -n Microsoft.ContainerRegistry --query "{RegistrationState: registrationState, ProviderName: namespace}"
-``````
+```
 
 > [!NOTE]
 > It may take a few minutes for the resource provider registration to complete. Once the registration is successful, you can proceed with using the Azure Operator Service Manager (AOSM).
@@ -74,11 +74,11 @@ For deployments of Containerized Network Functions (CNFs), it's crucial to have 
 
 ```azurecli
 az aosm nfd generate-config
-``````
+```
 
 - **Images for your CNF** - Here are the options:
   - A reference to an existing Azure Container Registry that contains the images for your CNF. Currently, only one ACR and namespace are supported per CNF. The images to be copied from this ACR are populated automatically based on the helm package schema. You must have Reader/AcrPull permissions on this ACR. To use this option, fill in `source_registry` and optionally `source_registry_namespace` in the input.json file.
-  - The image name of the source docker image from local machine. This is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed.
+  - The image name of the source docker image from local machine. This image name is for a limited use case where the CNF only requires a single docker image that exists in the local docker repository. To use this option, fill in `source_local_docker_image` in the input.json file. Requires docker to be installed.
 - **Optional: Mapping File (path_to_mappings)**: Optionally, you can provide a file (on disk) named path_to_mappings. This file should mirror `values.yaml`,  with your selected values replaced by deployment parameters. Doing so exposes them as parameters to the CNF. You can either leave the values as blank strings to have every value as a deployment parameter or use the `--interactive` option to interactively make choices.
 
 When configuring the `input.json` file, ensure that you list the Helm packages in the order they should be deployed. For instance, if package "A" must be deployed before package "B," your `input.json` should resemble the following structure:
@@ -102,15 +102,14 @@ When configuring the `input.json` file, ensure that you list the Helm packages i
         ]
     }
 ]
-``````
+```
 Following these guidelines ensures a well organized and structured approach to deploy Containerized Network Functions (CNFs) with Helm packages and associated configurations.
 
 ### Download nginx image to local docker repo
 
-This particular step might seem frivolous when considering the quickstart process. This step involves some superfluous file manipulation. This file manipulation showcases the capability of the AZ AOSM CLI in copying ACR images on your behalf. 
+For this quickstart, you  download docker to your local repository. The Azure Operator Service Manager (AOSM) Azure CLI extension pushes the image from there to the Azure Operator Service Manager (AOSM) Artifact Store ACR. The CLI extension also supports copying the image from an existing ACR. Copying the image is the expected default use-case, but  it's slower for a quickstart to create an ACR to copy from so this method isn't used here.
 
 Issue the following command: `docker pull nginx:stable`
-
 
 ## Dive into Helm charts
 
