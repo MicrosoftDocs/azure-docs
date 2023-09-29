@@ -38,7 +38,7 @@ In this section, you create two virtual network gateways to connect two virtual 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter ***virtual network gateways***. Select **Virtual network gateways** in the search results.
+1. In the search box at the top of the portal, enter ***virtual network gateways***. Select **Virtual network gateways** from the search results.
 
     :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-gateway-azure-portal.png" alt-text="Screenshot shows searching for virtual network gateways in the Azure portal.":::
 
@@ -243,4 +243,4 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 To learn how to log network communication to and from a virtual machine so that you can review the logs for anomalies, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Log network traffic to and from a VM](network-watcher-nsg-flow-logging-portal.md)
+> [Log network traffic to and from a virtual machine](nsg-flow-logs-tutorial.md)
