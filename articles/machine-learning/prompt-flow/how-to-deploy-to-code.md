@@ -255,6 +255,11 @@ az ml online-deployment create --file blue-deployment.yml --all-traffic
 ```
 
 This deployment might take up to 20 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
+You need to give following permissions to the system assigned identity after the endpoint is created:
+
+- AzureML Data Scientist role or a customized role with "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action" permission to workspace
+- Storage Blob Data Contributor permission, and Storage Table Data Contributor to the default storage of the workspace
+ 
 
 > [!TIP]
 >
