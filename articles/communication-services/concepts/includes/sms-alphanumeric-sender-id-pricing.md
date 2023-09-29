@@ -26,7 +26,6 @@ The following prices are exclusive of the required communications taxes and fees
 |-----------|---------|
 |Australia| $0.049 | 
 |Austria| $0.0932 | 
-|Croatia| $0.0572|
 |Czech Republic| $0.0490|
 |Denmark| $0.0499 | 
 |Estonia | $0.0845 |
@@ -41,7 +40,6 @@ The following prices are exclusive of the required communications taxes and fees
 |Norway| $0.0620|
 |Poland | $0.041 | 
 |Portugal | $0.045 | 
-|Romania| $0.0780|
 |Slovakia| $0.0650|
 |Slovenia| $0.0470|
 |Spain| $0.0833 | 
