@@ -31,9 +31,9 @@ Developers interested in scheduled business-to-consumer interactions should read
 
 The term “contact center” captures a large family of applications diverse across scale, channels, and organizational approach:
 
-1.  **Scale**. Small businesses may have a small number of employees operating as agents in a limited role, for example a restaurant offering a phone number for reservations. While an airline may have thousands of employees and vendors providing a 24/7 contact center.
-2.  **Channel**. Organizations can reach consumers through the phone system, apps, SMS, or consumer communication platforms such as WhatsApp.
-3.  **Organizational approach**. Most businesses have employees operate as agents using Teams or a licensed contact center as a service software (CCaaS). Other businesses may out-source the agent role or use specialized service providers who fully operate contact centers as a service.
+-   **Scale**. Small businesses may have a small number of employees operating as agents in a limited role, for example a restaurant offering a phone number for reservations. While an airline may have thousands of employees and vendors providing a 24/7 contact center.
+-   **Channel**. Organizations can reach consumers through the phone system, apps, SMS, or consumer communication platforms such as WhatsApp.
+-   **Organizational approach**. Most businesses have employees operate as agents using Teams or a licensed contact center as a service software (CCaaS). Other businesses may out-source the agent role or use specialized service providers who fully operate contact centers as a service.
 
 ## User Personas
 
@@ -84,7 +84,7 @@ A conversation between a user and a bot can be handed off to an agent in Teams. 
 
 The following list presents the set of features that are currently available for contact centers in Azure Communication Services. For detailed capability information, see [Azure Communication Services Calling SDK overview](/azure/communication-services/concepts/voice-video-calling/calling-sdk-features). Azure Communication Services Calling to Teams, including Teams Auto Attendant and Call Queue, requires setup to be completed as described in [Teams calling and chat interoperability](/azure/communication-services/concepts/interop/calling-chat).
 
-| Group of features          | Capability                             | Public Preview | General Availability |
+| Group of features          | Capability                             | Public preview | General availability |
 |----------------------------|----------------------------------------|----------------|----------------------|
 | DTMF Support in ACS UI SDK | Allows touch tone entry                | ❌             | ✔️                    |
 | Calling Capabilities       | Audio and video                        | ✔️              | ✔️                    |
@@ -126,10 +126,10 @@ The following list presents the set of features that are currently available for
 
 ### Additional Resources
 
-1.  [Teams calling and chat interoperability - An Azure Communication Services concept document](/azure/communication-services/concepts/interop/calling-chat)
-2.  [Quickstart: Join your calling app to a Teams call queue](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-call-queue)
-3.  [Quickstart - Teams Auto Attendant on Azure Communication Services](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-auto-attendant)
-4.  [Get started with a click to call experience using Azure Communication Services - An Azure Communication Services tutorial](/azure/communication-services/tutorials/calling-widget/calling-widget-overview)
+-   [Teams calling and chat interoperability - An Azure Communication Services concept document](/azure/communication-services/concepts/interop/calling-chat)
+-   [Quickstart: Join your calling app to a Teams call queue](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-call-queue)
+-   [Quickstart - Teams Auto Attendant on Azure Communication Services](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-auto-attendant)
+-   [Get started with a click to call experience using Azure Communication Services - An Azure Communication Services tutorial](/azure/communication-services/tutorials/calling-widget/calling-widget-overview)
 
 ## Extend your contact center voice solution to Teams users
 
