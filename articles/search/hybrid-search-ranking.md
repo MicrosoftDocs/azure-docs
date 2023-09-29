@@ -15,7 +15,7 @@ ms.date: 09/27/2023
 > [!IMPORTANT]
 > Hybrid search uses the [vector features](vector-search-overview.md) currently in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For hybrid search scoring, Cognitive Search uses the Reciprocal Rank Fusion (RRF) algorithm. RRF combines the results of different search methods, such as vector search and full text search, to produce a single relevance score. RRF is based on the concept of *reciprocal rank*, which is the inverse of the rank of the first relevant document in a list of search results. 
+For hybrid search scoring, Cognitive Search uses the Reciprocal Rank Fusion (RRF) algorithm. RRF combines the results of different search methods - such as vector search and full text search or multiple vector queries executing in parallel - to produce a single relevance score. RRF is based on the concept of *reciprocal rank*, which is the inverse of the rank of the first relevant document in a list of search results. 
 
 The goal of the technique is to take into account the position of the items in the original rankings, and give higher importance to items that are ranked higher in multiple lists. This can help improve the overall quality and reliability of the final ranking, making it more useful for the task of fusing multiple ordered search results.
 
@@ -27,7 +27,7 @@ RRF works by taking the search results from multiple methods, assigning a recipr
 
 Here's a simple explanation of the RRF process:
 
-1. Obtain search results from multiple queries executing in parallel for full text search and vector search.
+1. Obtain ranked search results from multiple queries executing in parallel for full text search and vector search.
 
 1. Assign reciprocal rank scores for result in each of the ranked lists. RRF generates a new **`@search.score`** for each match in each result set. For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as `1/(rank + k)`, where `rank` is the position of the document in the list, and `k` is a constant, which was experimentally observed to perform best if it's set to a small value like 60. **Note that this `k` value is a constant in the RRF algorithm and entirely separate from the `k` that controls the number of nearest neighbors.**
 

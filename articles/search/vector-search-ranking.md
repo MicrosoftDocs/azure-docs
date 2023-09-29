@@ -26,11 +26,17 @@ Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [ap
 The goal of indexing a new vector into a HNSW graph is to add it to the graph structure in a manner that allows for efficient nearest neighbor search. The following steps summarize the process:
 
 1. Initialization: Start with an empty HNSW graph, or the existing HNSW graph if it's not a new index.
+
 1. Entry point: This is the top-level of the hierarchical graph and serves as the starting point for indexing.
+
 1. Adding to the graph: Different hierarchical levels represent different granularities of the graph, with higher levels being more global, and lower levels being more granular. Each node in the graph represents a vector point. 
-  - Each node is connected to up to `m` neighbors that are nearby. This is the `m` parameter.
-  - The number of data points that will be considered as candidate connections is governed by the `efConstruction` parameter. This dynamic list will form the set of closest points in the existing graph for the algorithm to consider. Higher `efConstruction` values will result in more nodes being considered, which often leads to denser local neighborhoods for each vector.
-  - These connections use the configured similarity `metric` to determine distance. Some connections will be "long-distance" connections that connect across different hierarchical levels, creating shortcuts in the graph that enhance search efficiency.
+
+   - Each node is connected to up to `m` neighbors that are nearby. This is the `m` parameter.
+
+   - The number of data points that will be considered as candidate connections is governed by the `efConstruction` parameter. This dynamic list will form the set of closest points in the existing graph for the algorithm to consider. Higher `efConstruction` values will result in more nodes being considered, which often leads to denser local neighborhoods for each vector.
+
+   - These connections use the configured similarity `metric` to determine distance. Some connections will be "long-distance" connections that connect across different hierarchical levels, creating shortcuts in the graph that enhance search efficiency.
+
 1. Graph pruning and optimization: This may be performed after indexing all vectors to improve navigability and efficiency of the HNSW graph. 
 
 ### Querying vectors with the HNSW algorithm
@@ -38,20 +44,24 @@ The goal of indexing a new vector into a HNSW graph is to add it to the graph st
 In the HNSW algorithm, a vector query search operation is executed by navigating through this hierarchical graph structure. The following summarize the steps in the process:
 
 1. Initialization: The algorithm initiates the search at the top-level of the hierarchical graph. This entry point contains the set of vectors that serve as starting points for search.
+
 1. Traversal: Next, it traverses the graph level by level, navigating from the top-level to lower levels, selecting candidate nodes that are closer to the query vector based on the configured distance metric, such as cosine similarity.
+
 1. Pruning: To improve efficiency, the algorithm prunes the search space by only considering nodes that are likely to contain nearest neighbors. This is achieved by maintaining a priority queue of potential candidates and updating it as the search progresses. The length of this queue is configured by the parameter `efSearch`.
+
 1. Refinement: As the algorithm moves to lower, more granular levels, HNSW will consider more neighbors near the query, which allows the candidate set of vectors to be refined, improving accuracy.
+
 1. Completion: The search completes when the desired number of nearest neighbors have been identified, or when other stopping criteria are met. This desired number of nearest neighbors is governed by the query-time parameter `k`.
 
 HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
 
 Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` in a search index, and then specified on the field definition (also in the index):
 
-+ [Create a vector index](vector-search-how-to-create-index.md)
+- [Create a vector index](vector-search-how-to-create-index.md)
 
 Because many algorithm configuration parameters are used to initialize the vector index during index creation, they are immutable parameters and cannot be changed once the index is built. There is a subset of query-time parameters that may be modified.
 
-## How vector search works, intuitively explained
+## How vector search works
 
 Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request is fed into the same machine learning model that generated embeddings in the vector index. The output is a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the vectors that are closest to the query vector, and returning the associated documents as the search result.
 
@@ -73,13 +83,12 @@ For normalized embedding spaces, `dotProduct` is equivalent to the `cosine` simi
 
 If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
 
-There are some nuances with similarity scores. 
+There are some nuances with similarity scores: 
 
-Cosine similarity is defined as the cosine of the angle between two vectors.
+- Cosine similarity is defined as the cosine of the angle between two vectors.
+- Cosine distance is defined as `1 - cosine_similarity`.
 
-Cosine distance is defined as `1 - cosine_similarity`
-
-To create a monotonically decreasing function, the `@search.score` is defined as `1 / (1 + cosine_distance)`
+To create a monotonically decreasing function, the `@search.score` is defined as `1 / (1 + cosine_distance)`.
 
 Developers who need a cosine value instead of the synthetic value can use a formula to convert the search score back to cosine distance:
 
