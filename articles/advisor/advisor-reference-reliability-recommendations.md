@@ -28,7 +28,7 @@ Learn more about Azure FarmBeats [Democratizing agriculture intelligence: introd
 
 We have identified calls to an Azure Data Manager for Agriculture (ADMA) Java SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+Learn more about Azure FarmBeats [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA DotNet SDK version
 
