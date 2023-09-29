@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.custom: managed-identity
 ---
 
-# Introduction
+# How to use Managed Identity with Azure Communication Services
 Azure Communication Services (ACS) is a fully-managed communication platform that enables developers to build real-time communication features into their applications. By using Managed Identity with Azure Communication Services, you can simplify the authentication process for your application, while also increasing its security.This document covers how to use Managed Identity with Azure Communication Services.
 
 ## Using Managed Identity with ACS
@@ -34,7 +34,7 @@ To use Managed Identity with ACS, follow these steps:
 
 ## Add a system-assigned identity
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 1. In the left navigation of your app's page, scroll down to the **Settings** group.
 
@@ -42,9 +42,9 @@ To use Managed Identity with ACS, follow these steps:
 
 3. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-    ![Screenshot that shows where to switch Status to On and then select Save.](../media/managed-identity/managed-identity-system-assigned.png)
+    ![Screenshot that shows where to switch Status to On and then select Save.](/articles/communication-services/media/managed-identity/managed-identity-system-assigned.png)
 
-# [Azure CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 Run the `az communication identity assign` command to assign a system-assigned identity:
 
@@ -57,11 +57,11 @@ az communication identity assign --system-assigned --name myApp --resource-group
 
 Assigning a user-assigned identity to your ACS resource requires that you first create the identity and then add its resource identifier to your Communication service resource.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 First, you'll need to create a user-assigned managed identity resource.
 
-1. Create a user-assigned managed identity resource according to [these instructions](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+1. Create a user-assigned managed identity resource according to [these instructions](/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
 
 2. In the left navigation for your app's page, scroll down to the **Settings** group.
 
@@ -71,7 +71,7 @@ First, you'll need to create a user-assigned managed identity resource.
 
 5. Search for the identity you created earlier, select it, and select **Add**.
 
-    ![Managed identity in App Service](../media/managed-identity/managed-identity-user-assigned.png)
+    ![Managed identity in App Service](/articles/communication-services/media/managed-identity/managed-identity-user-assigned.png)
 
 # [Azure CLI](#tab/cli)
 
