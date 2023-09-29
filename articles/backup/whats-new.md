@@ -1,8 +1,8 @@
 ---
 title: What's new in Azure Backup
-description: Learn about new features in Azure Backup.
+description: Learn about the new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 09/14/2023
+ms.date: 09/29/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -17,6 +17,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - September 2023
+  - [Multi-user authorization using Resource Guard for Backup vault is now generally available](#multi-user-authorization-using-resource-guard-for-backup-vault-is-now-generally-available)
+  - [Enhanced soft delete for Azure Backup is now generally available](#enhanced-soft-delete-for-azure-backup-is-now-generally-available)
   - [Support for selective disk backup with enhanced policy for Azure VM is now generally available](whats-new.md#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-is-now-generally-available)
 - August 2023
   - [Save your MARS backup passphrase securely to Azure Key Vault (preview)](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-preview)
@@ -66,6 +68,22 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Multi-user authorization using Resource Guard for Backup vault is now generally available
+
+Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Backup vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
+
+For more information, see [MUA for Backup vault](multi-user-authorization-concept.md?tabs=backup-vault).
+
+## Enhanced soft delete for Azure Backup is now generally available
+
+Enhanced soft delete provides improvements to the existing [soft delete](backup-azure-security-feature-cloud.md) feature. With enhanced soft delete, you now get the ability to make soft delete always-on, thus protecting it from being disabled by any malicious actors.
+
+You can also customize soft delete retention period (for which soft deleted data must be retained). Enhanced soft delete is available for Recovery Services vaults and Backup vaults.
+
+>[!Note]
+>Once you enable the *always-on* state for soft delete, you can't disable it for that vault.
+
+For more information, see [Enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).
 
 ## Save your MARS backup passphrase securely to Azure Key Vault (preview)
 

@@ -1,7 +1,7 @@
 ---
 title: License provisioning guidelines for Extended Security Updates for Windows Server 2012
 description: Learn about license provisioning guidelines for Extended Security Updates for Windows Server 2012 through Azure Arc.
-ms.date: 09/14/2023
+ms.date: 09/27/2023
 ms.topic: conceptual
 ---
 
@@ -37,6 +37,15 @@ An additional scenario (scenario 1, below) is a candidate for VM/Virtual core li
 > In all cases, you are required to attest to their conformance with SA or SPLA. There is no exception for these requirements. Software Assurance or an equivalent Server Subscription is required for you to purchase Extended Security Updates on-premises and in hosted environments. You will be able to purchase Extended Security Updates from Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), a Server & Cloud Enrollment (SCE), and Enrollment for Education Solutions (EES). On Azure, you do not need Software Assurance to get free Extended Security Updates, but Software Assurance or Server Subscription is required to take advantage of the Azure Hybrid Benefit.
 >
 
+## Cost savings with migration and modernization of workloads
+
+As you migrate and modernize your Windows Server 2012 and Windows 2012 R2 infrastructure through the end of 2023, you can utilize the flexibility of monthly billing with Windows Server 2012 ESUs enabled by Azure Arc for cost savings benefits.
+
+As servers no longer require ESUs because they've been migrated to Azure, Azure VMware Solution (AVS), or Azure Stack HCI (where they’re eligible for free ESUs), or updated to Windows Server 2016 or higher, you can modify the number of cores associated with a license or delete/deactivate licenses. You can also link the license to a new scope of additional servers. See [Programmatically deploy and manage Azure Arc Extended Security Updates licenses](api-extended-security-updates.md) to learn more.
+
+> [!NOTE]
+> This process is not automatic; billing is tied to the activated licenses and you are responsible for modifying your provisioned licensing to take advantage of cost savings.
+> 
 ## Scenario based examples: Compliant and Cost Effective Licensing
 
 ### Scenario 1: Eight modern 32-core hosts (not Windows Server 2012). While each of these hosts are running four 8-core VMs, only one VM on each host is running Windows Server 2012 R2

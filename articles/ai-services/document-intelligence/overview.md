@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Azure AI Document Intelligence is a machine-learning based OCR and intelligent document processing service to automate extraction of key data from forms and documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: overview
 ms.date: 09/20/2023
 ms.author: lajanuar

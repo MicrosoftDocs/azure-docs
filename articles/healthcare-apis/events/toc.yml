@@ -28,7 +28,7 @@ items:
       href: events-use-metrics.md 
     - name: Enable diagnostic settings
       href: events-enable-diagnostic-settings.md
-  - name: Disable events and delete workspaces
+  - name: Disable events and delete events enabled workspaces
     href: events-disable-delete-workspace.md 
   - name: Troubleshoot
     expanded: false

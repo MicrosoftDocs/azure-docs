@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 09/25/2023
 ms.author: cherylmc
 
 ---
@@ -83,12 +83,13 @@ Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path all
 
 ### ExpressRoute Global Reach and Virtual WAN
 
-ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. 
-The following ExpressRoute circuit SKUs can be connected to Virtual WAN: Local, Standard, and Premium.
+ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. Virtual WAN supports Express Route circuit connections. The following ExpressRoute circuit SKUs can be connected to Virtual WAN: Local, Standard, and Premium.
 
-ExpressRoute Global Reach is an add-on feature for ExpressRoute. With Global Reach, you can link ExpressRoute circuits together to make a private network between your on-premises networks. Branches that are connected to Azure Virtual WAN using ExpressRoute require the ExpressRoute Global Reach to communicate with each other. Global Reach is not required for transitivity between site-to-site VPN and ExpressRoute connected branches.  
+There are two options to enable ExpressRoute to ExpressRoute transit connectivity when using Azure Virtual WAN:
 
-In this model, each branch that is connected to the virtual WAN hub using ExpressRoute can connect to VNets using the branch-to-VNet path. Branch-to-branch traffic won't transit the hub because ExpressRoute Global Reach enables a more optimal path over Azure WAN.
+* You can enable ExpressRoute to ExpressRoute transit connectivity by enabling ExpressRoute Global Reach on your ExpressRoute circuits. [Global Reach](../expressroute/expressroute-global-reach.md) is an ExpressRoute add-on feature that allows you to link ExpressRoute circuits in different peering locations together to make a private network. ExpressRoute to ExpressRoute transit connectivity between circuits with the Global Reach add-on will not transit the Virtual WAN hub because Global Reach enables a more optimal path over the global backbone.
+
+* You can use the Routing Intent feature with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the Virtual WAN Hub. This option doesn't require Global Reach. For more information, see the [ExpressRoute section](how-to-routing-policies.md#expressroute) in routing intent documentation.
 
 ### Branch-to-branch (b) and Branch-to-Branch cross-region (f)
 
@@ -129,7 +130,6 @@ The Azure Virtual WAN hubs interconnect all the networking end points across the
 Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager. [Azure Firewall Manager](../firewall-manager/index.yml) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
 
 For more information on deploying and orchestrating Next-Generation Firewall Network Virtual Appliances in the Virtual WAN hub, see [Integrated Network Virtual Appliances in the Virtual Hub](about-nva-hub.md). For more information on SaaS security solutions that can be deployed in the Virtual WAN hub, see [software-as-a-service](how-to-palo-alto-cloud-ngfw.md).
-
 
 :::image type="content" source="./media/virtual-wan-global-transit-network-architecture/secured-hub.png" alt-text="Diagram of secured virtual hub with Azure Firewall." lightbox="./media/virtual-wan-global-transit-network-architecture/secured-hub.png":::
 

@@ -25,6 +25,8 @@ items:
       href: concept-sign-in-log-activity-details.md
     - name: Provisioning logs
       href: concept-provisioning-logs.md
+    - name: Microsoft Graph activity logs
+      href: /graph/microsoft-graph-activity-logs-overview?toc=/azure/active-directory/reports-monitoring/toc.json&bc=/azure/active-directory/reports-monitoring/breadcrumb/toc.json
   - name: How-to guides 
     expanded: true
     items:

@@ -62,9 +62,9 @@ The following table describes the metrics that are available for Domain Services
 
 ## Azure Monitor alert
 
-You can configure metric alerts for Domain Services to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](../azure-monitor/alerts/alerts-overview.md). 
+You can configure metric alerts for Domain Services to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](/azure/azure-monitor/alerts/alerts-overview). 
 
-To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](../azure-monitor/roles-permissions-security.md). 
+To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](/azure/azure-monitor/roles-permissions-security). 
  
 In Azure Monitor or Domain Services Metrics, click **New alert** and configure a Domain Services instance as the scope. Then choose the metrics you want to measure from the list of available signals:
 

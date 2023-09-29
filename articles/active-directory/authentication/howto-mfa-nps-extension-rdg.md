@@ -154,7 +154,7 @@ Install the NPS extension on a server that has the Network Policy and Access Ser
 
 ### Configure certificates for use with the NPS extension using a PowerShell script
 
-Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS.
+Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a PowerShell script that configures a self-signed certificate for use with NPS.
 
 The script performs the following actions:
 
@@ -340,7 +340,7 @@ Once you have successfully authenticated using the secondary authentication meth
 
 ### View Event Viewer logs for successful logon events
 
-To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following Windows PowerShell command to query the Windows Terminal Services and Windows Security logs.
+To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following PowerShell command to query the Windows Terminal Services and Windows Security logs.
 
 To query successful sign-in events in the Gateway operational logs _(Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, use the following PowerShell commands:
 
