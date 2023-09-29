@@ -1,3 +1,4 @@
+---
 title: Azure Communication Services support for Managed Identity 
 description: Learn about using Managed Identity with Azure Comnmunication Services
 author: harazi
@@ -9,13 +10,12 @@ ms.date: 07/24/2023
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.custom: managed-identity
-
 ---
 
 # Introduction
-Azure Communication Services (ACS) is a fully-managed communication platform that enables developers to build real-time communication features into their applications. By using Managed Identity with Azure Communication Services, you can simplify the authentication process for your application, while also increasing its security. For more information on using Managed Identity with ACS, refer to theThis document covers how to use Managed Identity with Azure Communication Services.
+Azure Communication Services (ACS) is a fully-managed communication platform that enables developers to build real-time communication features into their applications. By using Managed Identity with Azure Communication Services, you can simplify the authentication process for your application, while also increasing its security.This document covers how to use Managed Identity with Azure Communication Services.
 
-# Using Managed Identity with ACS
+## Using Managed Identity with ACS
 
 ACS supports using Managed Identity to authenticate with the service. By leveraging Managed Identity, you can eliminate the need to manage your own access tokens and credentials.
 
@@ -26,7 +26,7 @@ Your ACS resource can be assigned two types of identity:
 
 To use Managed Identity with ACS, follow these steps:
 
-1. Grant your Managed Identity access to the Communication Services resource. This can be done through the Azure portal or the Azure CLI.
+1. Grant your Managed Identity access to the Communication Services resource. This can be done through the Azure portal, Azure CLI and the Azure Communication Management SDKs.
 2. Use the Managed Identity to authenticate with ACS. This can be done through the Azure SDKs or REST APIs that support Managed Identity.
 
 
@@ -88,6 +88,80 @@ az communication identity assign --name myApp --resource-group myResourceGroup -
 ```
 
 -----
+
+## Managed Identity using Azure Communication Management SDKs
+Managed Identity can also be assigned to your ACS resource using the Azure Communication Management SDKs. 
+This can be acheived by introducing the identity property in the resource definition either on creation or when updating the resource.
+
+# [.NET](#tab/dotnet)
+You can assign your managed identity to your ACS resource using the Azure Communication Management SDK for .NET by setting the `Identity` property on the `CommunicationServiceResourceData `.
+
+For example:
+
+```csharp
+public async Task CreateResourceWithSystemAssignedManagedIdentity()
+{
+    ArmClient armClient = new ArmClient(new DefaultAzureCredential());
+    SubscriptionResource subscription = await armClient.GetDefaultSubscriptionAsync();
+
+    //Create Resource group
+    ResourceGroupCollection rgCollection = subscription.GetResourceGroups();
+    // With the collection, we can create a new resource group with an specific name
+    string rgName = "myRgName";
+    AzureLocation location = AzureLocation.WestUS2;
+    ArmOperation<ResourceGroupResource> lro = await rgCollection.CreateOrUpdateAsync(WaitUntil.Completed, rgName, new ResourceGroupData(location));
+    ResourceGroupResource resourceGroup = lro.Value;
+
+    // get resource group collection
+    CommunicationServiceResourceCollection collection = resourceGroup.GetCommunicationServiceResources();
+    string communicationServiceName = "myCommunicationService";
+    
+    // Create Communication Service Resource
+    var identity = new ManagedServiceIdentity(ManagedServiceIdentityType.SystemAssigned);
+    CommunicationServiceResourceData data = new CommunicationServiceResourceData("global")
+    {
+        DataLocation = "UnitedStates",
+        Identity = identity
+    };
+    var communicationServiceLro = await collection.GetCommunicationServiceResources().CreateOrUpdateAsync(WaitUntil.Completed, communicationServiceName, data);
+    var resource = communicationServiceLro.Value;
+}
+```
+For more information on using the .Net Management SDK, see [Azure Communication Management SDK for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/README.md).
+
+For more information specific to managing your resource instance, see [Managing your Communication Service Resource instance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/samples/Sample1_ManagingCommunicationService.md)
+
+
+# [JavaScript](#tab/javascript)
+
+For Node.js apps and JavaScript functions, samples on how to create or update your ACS resource with a managed identity can be found in the [Azure Communication Management Developer Samples for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/arm-communication/samples-dev/communicationServicesCreateOrUpdateSample.ts)
+
+For more information on using the javascript Management SDK, see [Azure Communication Management SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/arm-communication/README.md)
+
+# [Python](#tab/python)
+
+For Python apps and functions, Code Samples on how to create or update your ACS resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/generated_samples/communication_services/create_or_update_with_system_assigned_identity.py)
+
+For more information on using the python Management SDK, see [Azure Communication Management SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/README.md)
+# [Java](#tab/java)
+
+For Java apps and functions, Code Samples on how to create or update your ACS resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-resourcemanager-communication/src/samples/java/com/azure/resourcemanager/communication/generated/CommunicationServicesCreateOrUpdateSamples.java).
+
+For more information on using the java Management SDK, see [Azure Communication Management SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-resourcemanager-communication/README.md)
+
+# [GoLang](#tab/go)
+
+For Golang apps and functions, Code Samples on how to create or update your ACS resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/services_client_example_test.go).
+
+For more information on using the golang Management SDK, see [Azure Communication Management SDK for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/README.md)
+
+
+
+> [!NOTE]
+> A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
+>
+>Removing all managed identity assignments from a resource can also be acheived by specifying the `type` property as `None`.
+
 
 # Next Steps
 Now that you have learned how to use Managed Identity with Azure Communication Services, consider implementing this feature in your own applications to simplify your authentication process and improve security. 
