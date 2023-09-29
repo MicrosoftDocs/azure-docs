@@ -100,7 +100,7 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 - General availability support for:
   - Chat Completion API version `2023-05-15`.
   - GPT-35-Turbo models.
-  - GPT-4 model series. Due to high demand access to this model series is currently only available by request. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
+  - GPT-4 model series. 
   
 If you are currently using the `2023-03-15-preview` API, we recommend migrating to the GA `2023-05-15` API. If you are currently using API version `2022-12-01` this API remains GA, but does not include the latest Chat Completion capabilities.
 
