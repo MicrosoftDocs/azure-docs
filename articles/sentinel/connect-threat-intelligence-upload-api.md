@@ -27,7 +27,7 @@ Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Mic
 **See also**: [Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md)
 
 ## Prerequisites  
-- In order to install, update and delete standalone content or solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role.
+- In order to install, update and delete standalone content or solutions in content hub, you need the **Microsoft Sentinel Contributor** role at the resource group level.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 - You must be able to register an Azure Active Directory (Azure AD) application. 
 - The Azure AD application must be granted the Microsoft Sentinel contributor role at the workspace level.

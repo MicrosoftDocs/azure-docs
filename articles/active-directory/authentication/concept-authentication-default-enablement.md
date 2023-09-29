@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2023
+ms.date: 09/29/2023
 
 ms.author: justinha
-author: mjsantani
+author: ChristianCB83
 manager: amycolannino
 
 ms.collection: M365-identity-device-management
@@ -55,7 +55,7 @@ The following table lists each setting that can be set to Microsoft managed and 
 
 | Setting                                                                                         | Configuration |
 |-------------------------------------------------------------------------------------------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | From Sept 25 to Oct 20, 2023, the Microsoft managed value for the registration campaign will change to Enabled for text message and voice call users across all tenants. |
+| [Registration campaign](how-to-mfa-registration-campaign.md)                                    | From Sept. 25 to Oct. 20, 2023, the Microsoft managed value for the registration campaign will change to Enabled for text message and voice call users across all tenants. |
 | [Location in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)           | Disabled      |
 | [Application name in Microsoft Authenticator notifications](how-to-mfa-additional-context.md)   | Disabled      |
 | [System-preferred MFA](concept-system-preferred-multifactor-authentication.md)                  | Enabled       |
