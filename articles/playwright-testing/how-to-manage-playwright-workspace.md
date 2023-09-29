@@ -130,7 +130,7 @@ To view the list of test runs in the Playwright portal:
 
 1. On the workspace home page, you can view the workspace activity log.
 
-    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal.":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal." lightbox="./media/how-to-manage-playwright-workspace/playwright-testing-activity-log.png":::
 
 ## Delete a workspace
 

@@ -47,7 +47,7 @@ To view the list of workspace access tokens:
 
     The **Access tokens** page displays the list of access tokens for the workspace.
 
-    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-view-tokens.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright portal.":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-view-tokens.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright portal." lightbox="./media/how-to-manage-access-tokens/playwright-testing-view-tokens.png":::
 
 ## Generate a workspace access token
 
@@ -65,17 +65,17 @@ To create a new workspace access token:
 
 1. On the **Access tokens** page, select **Generate new token**.
 
-    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal, highlighting the 'Generate new token' button.":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal, highlighting the 'Generate new token' button." lightbox="./media/how-to-manage-access-tokens/playwright-testing-generate-new-access-token.png":::
 
 1. Enter the access token details, and then select **Generate token**.
 
-    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button.":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button." lightbox="./media/how-to-manage-access-tokens/playwright-testing-generate-token.png":::
 
 1. Copy the access token for the workspace.
 
     You can save the access token in a CI/CD secrets store or use it in an environment variable for running tests interactively.
 
-    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal.":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal." lightbox="./media/how-to-manage-access-tokens/playwright-testing-copy-access-token.png":::
     
     > [!IMPORTANT]
     > You can only access the token value immediately after you've created it. You can't access the token value anymore at a later time.
@@ -95,7 +95,7 @@ You can only delete access tokens that you created in a workspace. To create an 
 
 1. On the **Access tokens** page, select **Delete** next to the access token that you want to delete.
 
-    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-delete-token.png" alt-text="Screenshot that shows how to delete an access tokenin the Playwright portal.":::
+    :::image type="content" source="./media/how-to-manage-access-tokens/playwright-testing-delete-token.png" alt-text="Screenshot that shows how to delete an access tokenin the Playwright portal." lightbox="./media/how-to-manage-access-tokens/playwright-testing-delete-token.png":::
 
 1. Select **Delete** on the deletion confirmation page.
 

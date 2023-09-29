@@ -25,7 +25,7 @@ You can configure the regional settings for your workspace in the Azure portal.
 
 1. Select the workspace settings icon, and then go to the **General** page to view the workspace settings.
 
-    :::image type="content" source="./media/how-to-optimize-regional-latency/playwright-testing-general-settings.png" alt-text="Screenshot that shows the workspace settings page in the Playwright Testing portal.":::
+    :::image type="content" source="./media/how-to-optimize-regional-latency/playwright-testing-general-settings.png" alt-text="Screenshot that shows the workspace settings page in the Playwright Testing portal." lightbox="./media/how-to-optimize-regional-latency/playwright-testing-general-settings.png":::
 
 1. Select **Select region** to go to your workspace in the Azure portal.
 
@@ -37,7 +37,7 @@ You can configure the regional settings for your workspace in the Azure portal.
 
 1. In your workspace, select **Region Management** in the left pane.
 
-    :::image type="content" source="./media/how-to-optimize-regional-latency/configure-workspace-region-management.png" alt-text="Screenshot that shows the Region Management page in the Azure portal.":::
+    :::image type="content" source="./media/how-to-optimize-regional-latency/configure-workspace-region-management.png" alt-text="Screenshot that shows the Region Management page in the Azure portal." lightbox="./media/how-to-optimize-regional-latency/configure-workspace-region-management.png":::
 
 1. Choose the corresponding  region selection option.
 

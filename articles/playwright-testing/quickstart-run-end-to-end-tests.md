@@ -36,13 +36,13 @@ To generate the access token, perform the following steps:
 
 1. In the workspace setup guide, in **Create an access token**, select **Generate token**.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-generate-token.png":::
 
 1. Copy the access token for the workspace.
 
     You need the access token value for configuring your environment in a later step.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-copy-access-token.png":::
 
 ## Configure the service region endpoint
 
@@ -54,7 +54,7 @@ To get the service endpoint URL, perform the following steps:
 
     The endpoint URL matches the Azure region that you selected when creating the workspace.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png" alt-text="Screenshot that shows how to copy the workspace region endpoint in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-region-endpoint.png":::
 
 ## Set up your environment
 
@@ -164,7 +164,7 @@ Perform the following steps to run your Playwright tests:
 
     The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 
-    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png" alt-text="Screenshot that shows the activity log for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-activity-log.png":::
 
 ## Optimize parallel worker configuration
 

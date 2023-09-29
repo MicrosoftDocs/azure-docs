@@ -42,15 +42,15 @@ To generate an access token and store it as a CI workflow secret, perform the fo
 
 1. Select the workspace settings icon, and then go to the **Access tokens** page.
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png":::
 
 1. Select **Generate new token** to create a new access token for your CI workflow.
 
 1. Enter the access token details, and then select **Generate token**.
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-token.png":::
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal." lightbox="./media/quickstart-automate-end-to-end-testing/playwright-testing-copy-access-token.png":::
 
 1. Store the access token in a CI workflow secret to avoid specifying the token in clear text in the workflow definition:
 
