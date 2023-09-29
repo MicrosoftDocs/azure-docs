@@ -3,7 +3,7 @@ title: Roles and permissions in Microsoft Sentinel
 description: Learn how Microsoft Sentinel assigns permissions to users using Azure role-based access control, and identify the allowed actions for each role.
 author: yelevin
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 09/29/2023
 ms.author: yelevin
 ---
 
@@ -86,11 +86,11 @@ This table summarizes the Microsoft Sentinel roles and their allowed actions in 
 | Microsoft Sentinel Contributor | -- | -- | &#10003; | &#10003; | &#10003; | &#10003;|
 | Microsoft Sentinel Playbook Operator | &#10003; | -- | -- | -- | -- | --|
 | Logic App Contributor | &#10003; | &#10003; | -- | -- | -- |-- |
-| Template Spec Contributor |  -- |  -- | -- | -- | -- |[**](#content-hub)&#10003;  |
+| Template Spec Contributor |  -- |  -- | -- | -- | -- |&#10003;[**](#content-hub)  |
 
 <a name=workbooks></a>* Users with these roles can create and delete workbooks with the [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) role. Learn about [Other roles and permissions](#other-roles-and-permissions).
 
-<a name=content-hub></a>** The requirement for the Template Spec Contributor role to install and manage content from content hub is still required for some edge cases.
+<a name=content-hub></a>** The requirement for the Template Spec Contributor role to install and manage content from content hub is still required for some edge cases in addition to Microsoft Sentinel Contributor.
 
 Review the [role recommendations](#role-and-permissions-recommendations) for which roles to assign to which users in your SOC.
 
