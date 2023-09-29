@@ -1,5 +1,5 @@
 items:
-- name: Microsoft Playwright Testing docs
+- name: Microsoft Playwright Testing documentation
   href: index.yml
 - name: Overview
   expanded: true
