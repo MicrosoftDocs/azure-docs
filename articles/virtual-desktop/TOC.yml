@@ -284,12 +284,17 @@
           - name: MSIXMGR tool parameters
             displayName: msix app attach, applications, apps
             href: msixmgr-tool-syntax-description.md 
-        - name: Use Microsoft Teams
-          displayName: applications, apps, webrtc
-          href: teams-on-avd.md
-        - name: Set up Windows Sandbox
-          displayName: applications, apps
-          href: sandbox.md
+        - name: Specific applications
+          items:
+          - name: Use Microsoft Teams
+            displayName: applications, apps, webrtc
+            href: teams-on-avd.md
+          - name: Use OneDrive with RemoteApp
+            displayName: applications, apps
+            href: onedrive-remoteapp.md
+          - name: Set up Windows Sandbox
+            displayName: applications, apps
+            href: sandbox.md
       - name: Customize session host images
         items:
         - name: Create custom images with Custom image templates

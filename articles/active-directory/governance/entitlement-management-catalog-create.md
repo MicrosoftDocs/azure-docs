@@ -187,8 +187,10 @@ You can also add a resource to a catalog in PowerShell with the `New-MgEntitleme
 Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"
 
 $g = Get-MgGroup -Filter "displayName eq 'Marketing'"
+if ($null -eq $g) {throw "no group" }
 
 $catalog = Get-MgEntitlementManagementCatalog -Filter "displayName eq 'Marketing'"
+if ($null -eq $catalog) { throw "no catalog" }
 $params = @{
   requestType = "adminAdd"
   resource = @{
