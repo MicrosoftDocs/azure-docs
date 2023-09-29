@@ -29,7 +29,7 @@ The Application Insights agents and SDKs for .NET, .NET Core, Java, Node.js, and
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](../app/nodejs.md)
 * [JavaScript](./javascript.md#enable-distributed-tracing)
-* [Python](opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 
 With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in the [Dependency auto-collection documentation](asp-net-dependencies.md#dependency-auto-collection).
 
@@ -52,7 +52,7 @@ The following pages consist of language-by-language guidance to enable and confi
 
 In addition to the Application Insights SDKs, Application Insights also supports distributed tracing through [OpenCensus](https://opencensus.io/). OpenCensus is an open-source, vendor-agnostic, single distribution of libraries to provide metrics collection and distributed tracing for services. It also enables the open-source community to enable distributed tracing with popular technologies like Redis, Memcached, or MongoDB. [Microsoft collaborates on OpenCensus with several other monitoring and cloud partners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-For more information on OpenCensus for Python, see [Set up Azure Monitor for your Python application](opencensus-python.md).
+For more information on OpenCensus for Python, see [Set up Azure Monitor for your Python application](/previous-versions/azure/azure-monitor/app/opencensus-python).
 
 The OpenCensus website maintains API reference documentation for [Python](https://opencensus.io/api/python/trace/usage.html), [Go](https://godoc.org/go.opencensus.io), and various guides for using OpenCensus.
 
@@ -303,7 +303,7 @@ When this code runs, the following prints in the console:
 
 Notice that there's a `spanId` present for the log message that's within the span. The `spanId` is the same as that which belongs to the span named `hello`.
 
-You can export the log data by using `AzureLogHandler`. For more information, see [Set up Azure Monitor for your Python application](./opencensus-python.md#logs).
+You can export the log data by using `AzureLogHandler`. For more information, see [Set up Azure Monitor for your Python application](/previous-versions/azure/azure-monitor/app/opencensus-python#logs).
 
 We can also pass trace information from one component to another for proper correlation. For example, consider a scenario where there are two components, `module1` and `module2`. Module1 calls functions in Module2. To get logs from both `module1` and `module2` in a single trace, we can use the following approach:
 

@@ -41,10 +41,10 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 | .NET Core and .NET Framework | Supported (V2.13.1+)| Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Supported (V2.7.2+) via [GetMetric](get-metric.md) |
 | Java                         | Not supported       | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not supported                           |
 | Node.js                      | Supported (V2.0.0+) | Supported via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Not supported                           |
-| Python                       | Not supported       | Supported                                 | Partially supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
+| Python                       | Not supported       | Supported                                 | Partially supported via [OpenCensus.stats](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics) |  
 
 > [!NOTE]
-> The metrics implementation for Python by using OpenCensus.stats is different from GetMetric. For more information, see the [Python documentation on metrics](./opencensus-python.md#metrics).
+> The metrics implementation for Python by using OpenCensus.stats is different from GetMetric. For more information, see the [Python documentation on metrics](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics).
 
 ### Codeless supported pre-aggregated metrics table
 
