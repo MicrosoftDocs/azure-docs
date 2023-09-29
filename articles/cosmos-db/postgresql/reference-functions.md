@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 11/01/2022
+ms.date: 09/29/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL functions
