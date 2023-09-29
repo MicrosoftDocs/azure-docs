@@ -50,6 +50,29 @@ Web applications often display the time based on the user's location. When you r
 
 You can mitigate the issue by [specifying the time zone in the Playwright configuration file](https://playwright.dev/docs/emulation#locale--timezone).
 
+## Test fails with `Path is not available when connecting remotely`
+
+You might encounter the `Path is not available when connecting remotely` error when you run your Playwright tests on remote browsers with Microsoft Playwright Testing. For example, when you're testing the functionality to download a file in your test code.
+
+The cause of this issue is that the `path()` function on the download file instance is not available when run on remote browsers.
+
+To resolve this issue, you should use the `saveAs()` function to save a local copy of the file on your client machine. Learn more about [downloads in the Playwright documentation](https://playwright.dev/docs/downloads).
+
+The following code snippet gives an example of how to use `saveAs()` instead of `path()` for reading the contents of a downloaded file:
+
+```typescript
+const downloadPromise = page.waitForEvent('download');
+await page.getByText('Download file').click();
+
+const download = await downloadPromise;
+
+// FAILS: download.path() fails when connecting to a remote browser
+// const result = fs.readFileSync(await download.path(), 'utf-8');
+
+// FIX: use saveAs() to download the file, when connecting to a remote browser
+await download.saveAs('/path/to/save/at/' + download.suggestedFilename());
+```
+
 ## Related content
 
 - [Manage workspace access](./how-to-manage-workspace-access.md)
