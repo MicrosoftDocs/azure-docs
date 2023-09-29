@@ -105,8 +105,7 @@ For volumes 100 TiB or under, if you've allocated at least 5 TiB of quota for a 
 For volumes 100 TiB or under, you can increase the `maxfiles` limit up to 531,278,150 if your volume quota is at least 25 TiB.
 
 >[!IMPORTANT]
-> When files or folders are allocated to an Azure NetApp Files volume, they count against the `maxfiles` limit. If a file or folder is deleted, the internal data structures for `maxfiles` allocation remain the same. For instance, if the files used in a volume increase to 63,753,378 and 100,000 files are deleted, the `maxfiles` allocation will remain at 63,753,378.
-
+> When files or folders are allocated to an Azure NetApp Files volume, they count against the `maxfiles` limit. If a file or folder is deleted, the internal data structures for `maxfiles` allocation remain the same. For instance, if the files used in a volume increase to 63,753,378 and 100,000 files are deleted, the `maxfiles` allocation will remain at 63,753,378. 
 > Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, the `maxfiles` limit for a 2 TiB volume is 63,753,378. If you create more than 63,753,378 files in that volume, the volume quota cannot be reduced below its corresponding index of 2 TiB.
 
 **For [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes):**
