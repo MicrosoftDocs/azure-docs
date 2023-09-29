@@ -141,7 +141,7 @@ items:
         - name: Azure Active Directory
           href: ./sql/active-directory-authentication.md
           displayName: authentication
-        - name: Multi-factor authentication
+        - name: Multifactor authentication
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
@@ -646,7 +646,7 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
       - name: Streaming ingestion
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
-      - name: Event Hub
+      - name: Event Hubs
         items:
           - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
