@@ -52,7 +52,7 @@ The following chart identifies the scoring property returned on each match, algo
 | Search method | Parameter | Scoring algorithm | Range |
 |---------------|-----------|-------------------|-------|
 | full-text search | `@search.score` | BM25 algorithm | No upper limit. |
-| vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0 - 1.00 (Cosine) | 
+| vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine), 0 to 1 for Euclidean and DotProduct | 
 | hybrid search | `@search.score` | RRF algorithm | No upper limit, but the score gets bigger as more unique vectors or vector fields as more queries execute in parallel. |
 | semantic ranking | `@search.rerankerScore` | Semantic ranking | 1.00 - 4.00 |
 
