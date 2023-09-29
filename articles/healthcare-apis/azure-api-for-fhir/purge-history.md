@@ -19,7 +19,7 @@ All past versions of a resource are considered obsolete and the current version 
 
 Azure API for FHIR allows you to manage history with 
 1. Disabling history
-   To disable history, one time support ticket needs to be created. After disable history configuration is set , history isn't created for resources on the FHIR server. Resource version is incremented.
+   To disable history, one time support ticket needs to be created. After disable history configuration is set, history isn't created for resources on the FHIR server. Resource version is incremented.
    Disabling history won't remove the existing history for any resources in your FHIR service. If you're looking to delete the existing history data in your FHIR service, you must use the $purge-history operation.
 
 1. Purge History: `$purge-history` is an operation that allows you to delete the history of a single FHIR resource. This operation isn't defined in the FHIR specification.
