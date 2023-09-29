@@ -43,6 +43,7 @@ In this tutorial;
     npm install @azure/msal-browser @azure/msal-angular
     ng generate component home
     ng generate component profile
+    ng generate component guarded
     ```
 
 1. Open _src/app/app.module.ts_. The `MsalModule` and `MsalInterceptor` need to be added to `imports` along with the `isIE` constant. You'll also add the material modules. Replace the entire contents of the file with the following snippet:
