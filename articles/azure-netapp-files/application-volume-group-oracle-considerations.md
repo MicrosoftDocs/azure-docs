@@ -37,7 +37,13 @@ Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performanc
 > [!IMPORTANT]
 > The use of application volume group for Oracle for applications other than Oracle is not supported. Reach out to your Azure NetApp Files specialist for guidance on using Azure NetApp Files multi-volume layouts with other database applications.
 
-
 ## Next steps
 
-* 
+* [Understand application volume group for Oracle](application-volume-group-oracle-introduction.md)
+* [Deploy application volume group for Oracle](application-volume-group-oracle-deploy-volumes.md)
+* [Manage volumes in an application volume group for Oracle](application-volume-group-manage-volumes-oracle.md)
+* [Configure application volume groups for Oracle using REST API](configure-application-volume-oracle-api.md) 
+* [Deploy application volume groups for Oracle using Azure Resource Manager](configure-application-volume-oracle-azure-resource-manager.md) 
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)
+* [Delete an application volume group](application-volume-group-delete.md)
+* [Application volume group FAQs](faq-application-volume-group.md)

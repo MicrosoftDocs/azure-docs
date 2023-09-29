@@ -177,6 +177,13 @@ You should understand the [requirements and considerations for application volum
     [ ![Screenshot that shows the list of volumes in a volume group for Oracle.](../media/azure-netapp-files/application-list-volume-group-oracle.png) ](../media/azure-netapp-files/application-list-volume-group-oracle.png#lightbox)
 
 
-## Next steps  
+## Next steps
 
-* 
+* [Understand application volume group for Oracle](application-volume-group-oracle-introduction.md)
+* [Requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md)
+* [Manage volumes in an application volume group for Oracle](application-volume-group-manage-volumes-oracle.md)
+* [Configure application volume groups for Oracle using REST API](configure-application-volume-oracle-api.md) 
+* [Deploy application volume groups for Oracle using Azure Resource Manager](configure-application-volume-oracle-azure-resource-manager.md) 
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)
+* [Delete an application volume group](application-volume-group-delete.md)
+* [Application volume group FAQs](faq-application-volume-group.md)

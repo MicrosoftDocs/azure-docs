@@ -48,6 +48,13 @@ You can manage a volume from its volume group. You can resize, delete, or change
 
     [![Screenshot that shows the Edit window for Oracle.](../media/azure-netapp-files/application-volume-edit-oracle.png)](../media/azure-netapp-files/application-volume-edit-oracle.png#lightbox)  
 
-## Next steps  
+## Next steps
 
-* 
+* [Understand application volume group for Oracle](application-volume-group-oracle-introduction.md)
+* [Requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md)
+* [Deploy application volume group for Oracle](application-volume-group-oracle-deploy-volumes.md)
+* [Configure application volume groups for Oracle using REST API](configure-application-volume-oracle-api.md) 
+* [Deploy application volume groups for Oracle using Azure Resource Manager](configure-application-volume-oracle-azure-resource-manager.md) 
+* [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)
+* [Delete an application volume group](application-volume-group-delete.md)
+* [Application volume group FAQs](faq-application-volume-group.md)
