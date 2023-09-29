@@ -43,9 +43,9 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container image with `docker pull`
 
-The Summarization container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `summarization`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/language`
+The Summarization container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `summarization`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization`
 
-To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/language/tags).
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization).
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the Microsoft Container Registry.
 
@@ -81,7 +81,7 @@ docker run -p 5000:5000 -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-co
 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
-> * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> * The `Eula`, `Billing`, `rai_terms` and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
 To run the *Summarization* container, execute the following `docker run` command. Replace the placeholders below with your own values:
 
