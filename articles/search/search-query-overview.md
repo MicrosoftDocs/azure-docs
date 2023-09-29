@@ -98,7 +98,23 @@ Geospatial search matches on a location's latitude and longitude coordinates for
 + Verify the incoming documents include the appropriate coordinates.
 + After indexing is complete, build a query that uses a filter and a [geo-spatial function](search-query-odata-geo-spatial-functions.md). 
 
-For more information and an example, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
+Geospatial search uses kilometers for distance. Coordinates are specified in this format: `(longitude, latitude`).
+
+Here's an example of a filter for geospatial search. This filter finds other `Location` fields in the search index that have coordinates within a 300-kilometer radius of the geography point (in this example, Washington D.C.). It returns address information in the result, and includes an optional `facets` clause for self-navigation based on location.
+
+```http
+POST https://{{searchServiceName}}.search.windows.net/indexes/hotels-vector-quickstart/docs/search?api-version=2023-07-01-Preview
+{
+    "count": true,
+    "search": "*",
+    "filter": "geo.distance(Location, geography'POINT(-77.03241 38.90166)') le 300",
+    "facets": [ "Address/StateProvince"],
+    "select": "HotelId, HotelName, Address/StreetAddress, Address/City, Address/StateProvince",
+    "top": 7
+}
+```
+
+For more information and examples, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
 
 ## Document look-up
 
