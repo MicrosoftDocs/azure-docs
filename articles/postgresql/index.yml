@@ -221,9 +221,9 @@ landingContent:
           - text: Azure CLI scripts for common tasks
             url: sample-scripts-azure-cli.md
 # Card 10
-  - title: Learning Path
+  - title: Get training
     linkLists:
-      - linkListType: training
+      - linkListType: learn
         links:
           - text: Azure Database for PostgreSQL
             url: /training/paths/introduction-to-azure-postgres/
