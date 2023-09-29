@@ -27,7 +27,7 @@ Vector search algorithms are specified in the json path `vectorSearch.algorithmC
 
 + [Create a vector index](vector-search-how-to-create-index.md)
 
-You can't change a vector configuration or configuration field assignment once the index is built.
+Because many algorithm configuration parameters are used to initialize the vector index during index creation, they are immutable parameters and cannot be changed once the index is built. There is a subset of query-time parameters that may be modified.
 
 ## How vector scoring works
 
