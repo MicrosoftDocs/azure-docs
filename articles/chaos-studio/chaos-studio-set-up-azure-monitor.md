@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Monitor for a Chaos Studio Experiment
+title: Set up Azure monitor for a Chaos Studio experiment
 description: Understand the steps to connect Azure Monitor to your Chaos Studio Experiment
 services: chaos-studio
 author: nikhilkaul-msft
@@ -22,7 +22,7 @@ Navigate to the Chaos Experiment you want to emit telemetry to Azure Monitor and
 
 <br/>
 
-![Screenshot that shows Diagnostic Settings in Chaos Experiment](images/Step1A.png)
+[![Screenshot that shows Diagnostic Settings in Chaos Experiment.](images/step-1a.png)](images/step-1a.png#lightbox)
 
 ## Step 2: Connect your Chaos Experiment to your desired Log Analytics Workspace
 Once you are in the "Diagnostic Settings" tab within your Chaos Experiment, select "Add Diagnostic Setting."
@@ -37,7 +37,7 @@ All the other settings are optional
 
 <br/>
 
-![Screenshot that shows the Diagnostic Settings blade and required information](images/Step2A.png)
+[![Screenshot that shows the Diagnostic Settings blade and required information.](images/step-2a.png)](images/step-2a.png#lightbox)
 
 ## Step 3: Run the chaos experiment
 Once you have completed Step 2, your experiment is now configured to emit telemetry to Azure Monitor upon the next Chaos Experiment execution!  It typically takes time (20 minutes) for the logs to populate. Once populated you can view the log events from the logs tab. Events include experiment start, stop, and details about the faults executed. You can even turn the logs into chart visualizations or overlay your existing live site visualizations with chaos metadata.
@@ -48,4 +48,4 @@ To query your logs, navigate to the "Logs" tab in your Chaos Experiment Resource
 
 <br/>
 
-![Screenshot of Logs tab in Chaos Experiment Resource](images/Step3A.png)
+[![Screenshot of Logs tab in Chaos Experiment Resource.](images/step-3a.png)](images/step-3a.png#lightbox)
