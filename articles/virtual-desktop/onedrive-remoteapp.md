@@ -18,7 +18,9 @@ You can use Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop, a
 
 ## User experience
 
-Once configured, when a user launches a RemoteApp, the OneDrive icon is integrated in the taskbar of their local Windows device. If you silently configure user accounts, the user should be automatically signed in and OneDrive should start synchronizing straight away. If a user launches another RemoteApp from the same host pool on the same session host, the same instance of OneDrive is used and another doesn't start.
+Once configured, when a user launches a RemoteApp, the OneDrive icon is integrated in the taskbar of their local Windows device. If a user launches another RemoteApp from the same host pool on the same session host, the same instance of OneDrive is used and another doesn't start.
+
+If your session hosts are joined to Microsoft Entra ID, you can [silently configure user accounts](/sharepoint/use-silent-account-configuration) so users are automatically signed in to OneDrive and start synchronizing straight away. Otherwise, users need to sign in to OneDrive on first use.
 
 The icon for the instance of OneDrive accompanying the RemoteApp in the system tray looks the same as if OneDrive is installed on a local device. You can differentiate the OneDrive icon from the remote session by hovering over the icon where the tooltip includes the word **Remote**.
 
@@ -34,8 +36,6 @@ Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
 
    - Are running Windows 11 Insider Preview Enterprise multi-session, version 22H2, build 25905 or later. To get Insider Preview builds for multi-session, you need to start with a non-Insider build, join session hosts to the Windows Insider Program, then install the preview build. For more information on the Windows Insider Program, see [Getting started with the Windows Insider Program](https://www.microsoft.com/windowsinsider/getting-started).
    
-   - Are joined to an Active Directory domain. Session hosts joined to Microsoft Entra ID aren't supported.
-   
    - Have the latest version of FSLogix installed. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
 
 ## Configure OneDrive to launch with a RemoteApp
@@ -44,7 +44,7 @@ To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, follo
 
 1. Download and install the latest version of the [OneDrive sync app](https://www.microsoft.com/microsoft-365/onedrive/download) per-machine on your session hosts. For more information, see [Install the sync app per-machine](/sharepoint/per-machine-installation).
 
-1. On your session hosts, [silently configure user accounts](/sharepoint/use-silent-account-configuration) for OneDrive.
+1. If your session hosts are joined to Microsoft Entra ID, [silently configure user accounts](/sharepoint/use-silent-account-configuration) for OneDrive on your session hosts, so users are automatically signed in to OneDrive.
 
 1. On your session hosts, set the following registry value:
 
