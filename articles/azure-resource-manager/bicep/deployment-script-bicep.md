@@ -659,7 +659,7 @@ With Microsoft.Resources/deploymentScripts version 2022-09-01, you can run deplo
     1. Under **Virtual networks**, add a subnet.
     1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this storage account**.
 
-      :::image type="content" source="./media/deployment-script-bicep/resource-manager-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of configuring storage account for accessing private network.":::
+        :::image type="content" source="./media/deployment-script-bicep/resource-manager-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of configuring storage account for accessing private network.":::
 
 The following Bicep file shows how to configure the environment:
 
