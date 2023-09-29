@@ -285,9 +285,29 @@ az ml online-deployment get-logs --name blue --endpoint basic-chat-endpoint
 
 ### Invoke the endpoint to score data by using your model
 
-```Azure CLI
-az ml online-endpoint invoke --name basic-chat-endpoint --request-file endpoints/online/model-1/sample-request.json
+You can create a sample-request.json file like this:
+
+```json
+{
+  "question": "What is Azure Machine Learning?",
+  "chat_history":  []
+}
 ```
+
+```Azure CLI
+az ml online-endpoint invoke --name basic-chat-endpoint --request-file sample-request.json
+```
+
+You can also call it with an HTTP client, for example with curl:
+
+```bash
+ENDPOINT_KEY=<your-endpoint-key>
+ENDPOINT_URI=<your-endpoint-uri>
+
+curl --request POST "$ENDPOINT_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data '{"question": "What is Azure Machine Learning?", "chat_history":  []}'
+```
+
+Note that you can get your endpoint key and your endpoint uri from the AzureML workspace in Endpoints > Consume > Basic consumption info.
 
 ## Next steps
 
