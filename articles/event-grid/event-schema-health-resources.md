@@ -9,24 +9,19 @@ ms.date: 09/26/2023
 Health Resources system topic provides accurate, reliable, and complete health information for single instance virtual machines (VMs), virtual machine scale sets, and VMs in virtual machine scale sets. This information provides deeper insights into the various service problems that affect these Azure resources. Health Resources offers two event types for consumption:
 
 - The `AvailabilityStatusChanged` event type provides insight into all the times your single instance VMs, VMs in virtual machine scale sets, or virtual machine scale sets themselves have been unavailable because of Azure service issues. For more information on the various health statuses, see [Azure Resource Health overview - Azure Service Health](../service-health/resource-health-overview.md#health-status).
-- The `ResourceAnnotated`` event type helps you to infer the availability state of your resources by providing crucial information on the reasons and causes for changes in availability. Using this data, you can take faster and more targeted mitigation measures. For more information on the various annotations emitted, see [Resource Health virtual machine Health Annotations](../service-health/resource-health-vm-annotation.md).
+- The `ResourceAnnotated` event type helps you to infer the availability state of your resources by providing crucial information on the reasons and causes for changes in availability. Using this data, you can take faster and more targeted mitigation measures. For more information on the various annotations emitted, see [Resource Health virtual machine Health Annotations](../service-health/resource-health-vm-annotation.md).
 
 This article provides the properties and the schema for Azure Resource Notifications Health Resources events. For an introduction to event schemas in general, see [Azure Event Grid event schema](event-schema.md). In addition, you can find samples of generated events and a link to a related article on how to create system topic for this topic type. 
 
 ## Event types
-Azure Resource Notifications - Health Resources supports the following event types: 
 
 | Event type | Description |
 | ---------- | ----------- |
 | `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged` | Raised when the availability status of a single instance VM, a virtual machine scale set, or a VM in a virtual machine scale set changes. |
-| `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated` | Raised when the health of a VM, a virtual machine scale set, or a VM in a virtual machine scale set, is impacted by availability impacting disruptions (see [Resource types and health checks](../service-health/resource-health-checks-resource-types.md)). The platform emits context as to why the disruption has occurred to assist you in responding appropriately.|
+| `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated` | Raised when the health of a VM, a virtual machine scale set, or a VM in a virtual machine scale set, is impacted by availability impacting disruptions. The platform emits context as to why the disruption has occurred to assist you in responding appropriately.|
 
-These events are emitted for standalone VMs and VMs that are a part of Virtual Machine Scale Sets in the Azure subscription in which the system topic is created. By default, the scope of these notifications is at Azure subscription level, which means that the user receives availability status notifications on all VMs (standalone or part of Virtual Machine Scale Sets) in the Azure subscription.
-
-The advantages of these new types of events are:
-
-- Ability to receive near real-time push-based notifications with the complete payload that can be used to perform the necessary mitigation actions to meet business service level agreements (SLAs).
-- Advanced filtering capabilities provided by Event Grid can be applied to the payload properties to filter notifications based on custom scenarios.
+## Role-based access control
+Currently, these events are exclusively emitted at the Azure subscription scope. It implies that the entity creating the event subscription for this topic type receives notifications throughout this Azure subscription. For security reasons, it's imperative to restrict the ability to create event subscriptions on this topic to principals with read access over the entire Azure subscription. To access data via this system topic, in addition to the generic permissions required by Event Grid, the following Azure Resource Notifications specific permission is necessary: `Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action`.
 
 ## Event schemas
 
@@ -44,16 +39,19 @@ Here's the schema:
             "id": string,
             "name": string,
             "type": string,
-            "properties": {
-                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>
+            "properties": { 
+                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>            
             }
         },
-        "apiVersion ": string 
+        "operationalInfo":{
+			"resourceEventTime": date-time
+		},
+        "apiVersion": string 
     }, 
     "eventType": string,
     "dataVersion": string, 
     "metadataVersion": string, 
-    "eventTime ": string 
+    "eventTime": string 
 }
 ```
 
@@ -88,10 +86,13 @@ Here's the schema:
             "id": string,
             "name": string,
             "type": string,
-            "properties": {
-                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>
+            "properties": { 
+                <<Different for AvailabilityStatusChanged event and ResourceAnnotated event>>            
             }
         },
+        "operationalInfo":{
+			"resourceEventTime": date-time
+		},
         "apiVersion": string 
     }, 
     "specversion": string

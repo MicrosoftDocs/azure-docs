@@ -34,30 +34,27 @@ To enhance customer experience, a built-in role definition that encompasses all 
 
 ```json
 {
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you create system topics and event subscriptions on all system topics
-exposed currently and in the future by Azure Resource Notifications.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/[guid]"
-  "name": "[guid]",
-  "permissions": [
-    {
-      "actions": [
+    "assignableScopes": [
+        "/"
+    ],
+    "description": "Lets you create system topics and event subscriptions on all system topics exposed currently and in the future by Azure Resource Notifications.",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/[guid]",
+    "name": "[guid]",
+    "permissions": [{
+    "actions": [
         "Microsoft.EventGrid/eventSubscription/write",
-        “Microsoft.EventGrid/systemTopics/eventSubscriptions/write",
+        "Microsoft.EventGrid/systemTopics/eventSubscriptions/write",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToResources/action",
-       "Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action” ,
-       “Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action”
-     ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure Resource Notifications System Topics Subscriber",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action"
+    ],
+    "notActions": [],
+    "dataActions": [],
+    "notDataActions": []
+    }],
+    "roleName": "Azure Resource Notifications System Topics Subscriber",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
