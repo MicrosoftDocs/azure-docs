@@ -32,10 +32,11 @@ When you click on one of these templates, it launches Custom deployment page in 
 |---|---|
 |Subscription| Select the Azure subscription in which resources are to be created.|
 |Resource Group|Create a new resource group, or select the resource group in your subscription from the drop-down list under which resources are to be created.|
-|Region|Select the region where the resources are to be deployed. Check [region availability](./overview.md#region-availability-public-preview) before selecting the region.|
+|Region|Select the region where the resource group is deployed.|
 |Cluster Pool Name| Enter the name of the cluster pool to be created. Cluster pool name length can't be more than 26 characters. It must start with an alphabet, end with an alphanumeric character, and must only contain alphanumeric characters and hyphens.|
 |Cluster Pool Version| Select the HDInsight on AKS cluster pool version. |
 |Cluster Pool Node VM Size|From the drop-down list, select the virtual machine size for the cluster pool based on your requirement.|
+|Location|Select the region where the cluster and necessary resources are to be deployed.|
 |Resource Prefix|Provide a prefix for creating necessary resources for cluster creation, resources are named as [prefix + predefined string].|
 |Cluster Name |Enter the name of the new cluster.|
 |HDInsight on AKS Version | Select the minor or patch version of the HDInsight on AKS of the new cluster. For more information, see [versioning](./versions.md).|
