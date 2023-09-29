@@ -5,8 +5,7 @@ description: Embedded Speech is designed for on-device scenarios where cloud con
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 10/31/2022

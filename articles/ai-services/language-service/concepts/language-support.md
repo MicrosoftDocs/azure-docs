@@ -5,8 +5,7 @@ description: This article explains which natural languages are supported by the 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 03/09/2023
 ms.author: aahi

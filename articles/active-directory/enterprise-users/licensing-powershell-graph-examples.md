@@ -18,7 +18,7 @@ ms.author: barclayn
 
 # Microsoft Graph PowerShell group-based licensing examples
 
-Group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra, is available through the [Azure portal](https://portal.azure.com). There are useful tasks that can be performed using [Microsoft Graph PowerShell Cmdlets](/powershell/microsoftgraph/get-started). In this article, we go over some examples using Microsoft Graph PowerShell.
+Group-based licensing in Microsoft Entra ID, part of Microsoft Entra, is available through the [Azure portal](https://portal.azure.com). There are useful tasks that can be performed using [Microsoft Graph PowerShell Cmdlets](/powershell/microsoftgraph/get-started). In this article, we go over some examples using Microsoft Graph PowerShell.
 
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your organization first, by running the `Connect-MgGraph` cmdlet.
@@ -359,6 +359,6 @@ else {
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
-* [Assigning licenses to a group in Azure Active Directory](./licensing-groups-assign.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+* [Assigning licenses to a group in Microsoft Entra ID](./licensing-groups-assign.md)
+* [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)

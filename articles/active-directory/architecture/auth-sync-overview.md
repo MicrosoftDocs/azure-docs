@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory authentication and synchronization protocol overview
-description: Architectural guidance on integrating Azure AD with legacy authentication protocols and sync patterns
+title: Microsoft Entra authentication and synchronization protocol overview
+description: Architectural guidance on integrating Microsoft Entra ID with legacy authentication protocols and sync patterns
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,13 +16,13 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory integrations with authentication protocols
+# Microsoft Entra integrations with authentication protocols
 
-Microsoft Azure Active Directory (Azure AD) enables integration with many authentication protocols. The authentication integrations enable you to use Azure AD and its security and management features with little or no changes to your applications that use legacy authentication methods.
+Microsoft Entra ID enables integration with many authentication protocols. The authentication integrations enable you to use Microsoft Entra ID and its security and management features with little or no changes to your applications that use legacy authentication methods.
 
 ## Legacy authentication protocols
 
-The following table presents authentication Azure AD integration with legacy authentication protocols and their capabilities. Select the name of an authentication protocol to see
+The following table presents authentication Microsoft Entra integration with legacy authentication protocols and their capabilities. Select the name of an authentication protocol to see
 
 * A detailed description
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Adobe Sign'
-description: Learn how to configure single sign-on between Azure Active Directory and Adobe Sign.
+title: 'Tutorial: Microsoft Entra SSO integration with Adobe Sign'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Adobe Sign.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,30 +12,30 @@ ms.topic: tutorial
 ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure AD SSO integration with Adobe Sign
+# Tutorial: Microsoft Entra SSO integration with Adobe Sign
 
-In this tutorial, you'll learn how to integrate Adobe Sign with Azure Active Directory (Azure AD). When you integrate Adobe Sign with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Adobe Sign with Microsoft Entra ID. When you integrate Adobe Sign with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to Adobe Sign.
-* Enable your users to be automatically signed-in to Adobe Sign with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to Adobe Sign.
+* Enable your users to be automatically signed-in to Adobe Sign with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
  
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Adobe Sign single sign-on (SSO)-enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Microsoft Entra single sign-on in a test environment.
 
 * Adobe Sign supports **SP** initiated SSO.
 
 ## Add Adobe Sign from the gallery
 
-To configure the integration of Adobe Sign into Azure AD, you need to add Adobe Sign from the gallery to your list of managed SaaS apps.
+To configure the integration of Adobe Sign into Microsoft Entra ID, you need to add Adobe Sign from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -44,25 +44,29 @@ To configure the integration of Adobe Sign into Azure AD, you need to add Adobe 
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Adobe Sign
+<a name='configure-and-test-azure-ad-sso-for-adobe-sign'></a>
 
-In this section, you configure and test Azure AD single sign-on with Adobe Sign based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Adobe Sign needs to be established.
+## Configure and test Microsoft Entra SSO for Adobe Sign
 
-To configure and test Azure AD single sign-on with Adobe Sign, you need to perform the following steps:
+In this section, you configure and test Microsoft Entra single sign-on with Adobe Sign based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between a Microsoft Entra user and the related user in Adobe Sign needs to be established.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra single sign-on with Adobe Sign, you need to perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 1. **[Configure Adobe Sign SSO](#configure-adobe-sign-sso)** - to configure the Single Sign-On settings on application side.
-    1. **[Create Adobe Sign test user](#create-adobe-sign-test-user)** - to have a counterpart of Britta Simon in Adobe Sign that is linked to the Azure AD representation of user.
+    1. **[Create Adobe Sign test user](#create-adobe-sign-test-user)** - to have a counterpart of Britta Simon in Adobe Sign that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-In this section, you enable Azure AD single sign-on.
+## Configure Microsoft Entra SSO
 
-To configure Azure AD single sign-on with Adobe Sign, perform the following steps:
+In this section, you enable Microsoft Entra single sign-on.
+
+To configure Microsoft Entra single sign-on with Adobe Sign, perform the following steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Adobe Sign** application integration page, select **Single sign-on**.
@@ -92,7 +96,9 @@ To configure Azure AD single sign-on with Adobe Sign, perform the following step
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user 
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user 
 
 In this section, you'll create a test user called B.Simon.
 
@@ -106,7 +112,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to Adobe Sign.
 
@@ -157,7 +165,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
    c. Under **User Creation**, select **Automatically add users authenticated through SAML**.
 
-   d. Paste **Azure Ad Identifier** into the **Idp Entity ID** text box.
+   d. Paste **Microsoft Entra Identifier** into the **Idp Entity ID** text box.
 
    e. Paste **Login URL** into the **Idp Login URL** text box.
 
@@ -169,10 +177,10 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ### Create Adobe Sign test user
 
-To enable Azure AD users to sign in to Adobe Sign, they must be provisioned into Adobe Sign. This is a manual task.
+To enable Microsoft Entra users to sign in to Adobe Sign, they must be provisioned into Adobe Sign. This is a manual task.
 
 >[!NOTE]
->You can use any other Adobe Sign user account creation tools or APIs provided by Adobe Sign to provision Azure AD user accounts. 
+>You can use any other Adobe Sign user account creation tools or APIs provided by Adobe Sign to provision Microsoft Entra user accounts. 
 
 1. Sign in to your **Adobe Sign** company site as an administrator.
 
@@ -184,16 +192,16 @@ To enable Azure AD users to sign in to Adobe Sign, they must be provisioned into
 
     ![Screenshot of Create New User section](./media/adobe-echosign-tutorial/user.png "Create User")
 
-    a. Type the **Email Address**, **First Name**, and **Last Name** of a valid Azure AD account you want to provision into the related text boxes.
+    a. Type the **Email Address**, **First Name**, and **Last Name** of a valid Microsoft Entra account you want to provision into the related text boxes.
 
     b. Select **Create User**.
 
 >[!NOTE]
->The Azure Active Directory account holder receives an email that includes a link to confirm the account, before it becomes active. 
+>The Microsoft Entra account holder receives an email that includes a link to confirm the account, before it becomes active. 
 
 ### Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to Adobe Sign Sign-on URL where you can initiate the login flow. 
 

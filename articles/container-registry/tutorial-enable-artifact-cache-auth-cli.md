@@ -11,23 +11,23 @@ ms.author: tejaswikolli
 
 This article is part five of a six-part tutorial series. [Part one](tutorial-artifact-cache.md) provides an overview of Artifact Cache, its features, benefits, and limitations. In [part two](tutorial-enable-artifact-cache.md), you learn how to enable Artifact Cache feature by using the Azure portal. In [part three](tutorial-enable-artifact-cache-cli.md), you learn how to enable Artifact Cache feature by using the Azure CLI. In [part four](tutorial-enable-artifact-cache-auth.md), you learn how to enable Artifact Cache feature with authentication by using Azure portal. 
 
-This article walks you through the steps of enabling Artifact Cache with authentication by using the Azure CLI. You have to use the Credential set to make an authenticated pull or to access a private repository.
+This article walks you through the steps of enabling Artifact Cache with authentication by using the Azure CLI. You have to use the Credentials to make an authenticated pull or to access a private repository.
 
 ## Prerequisites
 
 * You can use the [Azure Cloud Shell][Azure Cloud Shell] or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.46.0 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][Install Azure CLI].
-* You have an existing Key Vault to store credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
+* You have an existing Key Vault to store the credentials. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials]
 * You can set and retrieve secrets from your Key Vault. Learn more about [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret]
 
 ## Configure Artifact Cache with authentication - Azure CLI
 
-### Create a Credential Set - Azure CLI
+### Create Credentials - Azure CLI
 
-Before configuring a Credential Set, you have to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
+Before configuring the Credentials, you have to create and store secrets in the Azure KeyVault and retrieve the secrets from the Key Vault. Learn more about [creating and storing credentials in a Key Vault.][create-and-store-keyvault-credentials] and to [set and retrieve a secret from Key Vault.][set-and-retrieve-a-secret].
 
-1. Run [az acr credential set create][az-acr-credential-set-create] command to create a credential set. 
+1. Run [az acr credential set create][az-acr-credential-set-create] command to create the credentials. 
 
-    - For example, To create a credential set for a given `MyRegistry` Azure Container Registry.
+    - For example, To create the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr credential-set create 
@@ -40,39 +40,39 @@ Before configuring a Credential Set, you have to create and store secrets in the
 
 2. Run [az acr credential set update][az-acr-credential-set-update] to update the username or password KV secret ID on a credential set.
 
-    - For example, to update the username or password KV secret ID on a credential set a given `MyRegistry` Azure Container Registry.
+    - For example, to update the username or password KV secret ID on the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr credential-set update -r MyRegistry -n MyRule -p https://MyKeyvault.vault.azure.net/secrets/newsecretname
     ```
 
-3. Run [az-acr-credential-set-show][az-acr-credential-set-show] to show a credential set. 
+3. Run [az-acr-credential-set-show][az-acr-credential-set-show] to show the credentials. 
 
-    - For example, to show a credential set for a given `MyRegistry` Azure Container Registry.
+    - For example, to show the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr credential-set show -r MyRegistry -n MyCredSet
     ```
 
-### Create a cache rule with a Credential Set - Azure CLI
+### Create a cache rule with the Credentials - Azure CLI
 
 1. Run [az acr cache create][az-acr-cache-create] command to create a cache rule.
 
-    - For example, to create a cache rule with a credential set for a given `MyRegistry` Azure Container Registry.
+    - For example, to create a cache rule with the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr cache create -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu -c MyCredSet
     ```
 
-2. Run [az acr cache update][az-acr-cache-update] command to update the credential set on a cache rule.
+2. Run [az acr cache update][az-acr-cache-update] command to update the credentials on a cache rule.
 
-    - For example, to update the credential set on a cache rule for a given `MyRegistry` Azure Container Registry.
+    - For example, to update the credentials on a cache rule for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr cache update -r MyRegistry -n MyRule -c NewCredSet
     ```
 
-    - For example, to remove a credential set from an existing cache rule for a given `MyRegistry` Azure Container Registry.
+    - For example, to remove the credentials from an existing cache rule for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr cache update -r MyRegistry -n MyRule --remove-cred-set
@@ -100,7 +100,7 @@ Before configuring a Credential Set, you have to create and store secrets in the
 
 2. Run the [az keyvault set-policy][az-keyvault-set-policy] command to assign access to the Key Vault, before pulling the image.
 
-    - For example, to assign permissions for the credential set access the KeyVault secret
+    - For example, to assign permissions for the credentials access the KeyVault secret
 
     ```azurecli-interactive
     az keyvault set-policy --name MyKeyVault \
@@ -136,17 +136,17 @@ Before configuring a Credential Set, you have to create and store secrets in the
     az acr cache delete -r MyRegistry -n MyRule
     ```
 
-3. Run[az acr credential set list][az-acr-credential-set-list] to list the credential sets in an Azure Container Registry. 
+3. Run[az acr credential set list][az-acr-credential-set-list] to list the credential in an Azure Container Registry. 
 
-    - For example, to list the credential sets for a given `MyRegistry` Azure Container Registry.
+    - For example, to list the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr credential-set list -r MyRegistry
     ```
 
-4. Run [az-acr-credential-set-delete][az-acr-credential-set-delete] to delete a credential set. 
+4. Run [az-acr-credential-set-delete][az-acr-credential-set-delete] to delete the credentials. 
 
-    - For example, to delete a credential set for a given `MyRegistry` Azure Container Registry.
+    - For example, to delete the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
     az acr credential-set delete -r MyRegistry -n MyCredSet

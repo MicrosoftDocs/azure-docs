@@ -14,20 +14,20 @@ ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or IT admin, I want to set up the customer tenant free trial.
 ---
-# Quickstart: Get started with Azure AD for customers (preview)
+# Quickstart: Get started with Microsoft Entra ID for customers (preview)
 
-Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer configuration features, Azure AD for customers can serve as the identity provider and access management service for your customers. 
+Get started with Microsoft Entra ID for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer configuration features, Microsoft Entra ID for customers can serve as the identity provider and access management service for your customers. 
 
 In this quickstart, you'll learn how to set up a customer tenant free trial. If you already have an Azure subscription, you can create a tenant with customer configurations in the Microsoft Entra admin center. For more information about how to create a tenant see [Set up a tenant](quickstart-tenant-setup.md). 
 
-Your free trial of a tenant with customer configurations provides you with the opportunity to try new features and build applications and processes during the free trial period. Organization (tenant) admins can invite other users. Each user account can only have one active free trial tenant at a time. The free trial isn't designed for scale testing. Trial tenant will support up to 10K resources, learn more about Azure AD service limits [here](/azure/active-directory/enterprise-users/directory-service-limits-restrictions). During your free trial, you'll have the option to unlock the full set of features by upgrading to [Azure free account](https://azure.microsoft.com/free/).
+Your free trial of a tenant with customer configurations provides you with the opportunity to try new features and build applications and processes during the free trial period. Organization (tenant) admins can invite other users. Each user account can only have one active free trial tenant at a time. The free trial isn't designed for scale testing. Trial tenant will support up to 10K resources, learn more about Microsoft Entra service limits [here](/azure/active-directory/enterprise-users/directory-service-limits-restrictions). During your free trial, you'll have the option to unlock the full set of features by upgrading to [Azure free account](https://azure.microsoft.com/free/).
 
    > [!NOTE]
    > At the end of the free trial period, your free trial tenant will be disabled and deleted.
     
 During the free trial period, you'll have access to all product features with few exceptions. See the following table for comparison: 
 
-|  Features | Azure AD for customers Trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
+|  Features | Microsoft Entra ID for customers Trial (without credit card) | Microsoft Entra account includes Partners (needs credit card)  | 
 |----------|:-----------:|:------------:|
 | **Self-service account experiences** (Sign-up, sign-in, and password recovery.)   | :heavy_check_mark: |  :heavy_check_mark:  | 
 | **MFA** (With email OTP.)  | :heavy_check_mark: |  :heavy_check_mark:  |  
@@ -54,4 +54,3 @@ During the free trial period, you'll have access to all product features with fe
 ## Get started guide
 
 Once your customer tenant free trial is ready, the next step is to personalize your customer's sign-in and sign-up experience, set up a user in your tenant, and configure a sample app. The get started guide will walk you through all of these steps in just a few minutes. For more information about the next steps see the [get started guide](quickstart-get-started-guide.md) article. 
-

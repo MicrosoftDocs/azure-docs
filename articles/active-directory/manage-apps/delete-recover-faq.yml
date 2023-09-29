@@ -54,15 +54,9 @@ sections:
             >
             > To permanently delete a service principal, see [Permanently delete a service principal](restore-application.md#permanently-delete-an-enterprise-application). This method is also applicable for permanently deleting application registrations using PowerShell or Microsoft Graph API.
       - question: |
-          Can I configure the interval in which applications and service principals are permanently deleted by Azure AD?
+          Can I configure the interval in which applications and service principals are permanently deleted by Microsoft Entra ID?
         answer: |
             > No. You can't configure the periodicity of hard deletion.
-            >
-      - question: |
-          Why can't I recover managed identities?
-        answer: |
-            > [Managed identities](../managed-identities-azure-resources/overview.md) are a special type of service principals. Deleted managed identities can't be recovered currently.
-            >
             >
       - question: |
           I can't see the provisioning data from a recovered service principal. How can I recover it? 

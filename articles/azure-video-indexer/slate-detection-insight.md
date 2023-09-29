@@ -7,7 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# The slate detection insights (preview)
+# The slate detection insights
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 The following slate detection insights (listed below) are automatically identified when indexing a video using the advanced indexing option. These insights are most useful to customers involved in the movie post-production process.
 

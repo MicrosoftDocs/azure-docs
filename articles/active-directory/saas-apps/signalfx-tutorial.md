@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx'
-description: Learn how to configure single sign-on between Azure Active Directory and SignalFx.
+title: 'Tutorial: Microsoft Entra single sign-on (SSO) integration with SignalFx'
+description: Learn how to configure single sign-on between Microsoft Entra ID and SignalFx.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,24 +13,24 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx
+# Tutorial: Microsoft Entra single sign-on (SSO) integration with SignalFx
 
-In this tutorial, you will learn how to integrate SignalFx with Azure Active Directory (Azure AD). When you integrate SignalFx with Azure AD, you can:
+In this tutorial, you will learn how to integrate SignalFx with Microsoft Entra ID. When you integrate SignalFx with Microsoft Entra ID, you can:
 
-* Control from Azure AD who has access to SignalFx.
-* Enable your users to be automatically signed-in to SignalFx with their Azure AD accounts.
+* Control from Microsoft Entra ID who has access to SignalFx.
+* Enable your users to be automatically signed-in to SignalFx with their Microsoft Entra accounts.
 * Manage your accounts in one location (the Azure portal).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SignalFx single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you will configure and test Azure AD SSO in a test environment.
+In this tutorial, you will configure and test Microsoft Entra SSO in a test environment.
 
 * SignalFx supports **IDP** initiated SSO.
 * SignalFx supports **Just In Time** user provisioning.
@@ -40,7 +40,7 @@ In this tutorial, you will configure and test Azure AD SSO in a test environment
 Use these instructions to add the SignalFx application to your list of managed SaaS apps.
 
 1. Log into the Azure portal.
-1. On the left-side navigation window, select **Azure Active Directory**.
+1. On the left-side navigation window, select **Microsoft Entra ID**.
 1. Select **Enterprise applications**, and then select **All applications**.
 1. Select **New application**.
 1. In the **Add from the gallery** section, in the search box, enter and select **SignalFx**.
@@ -53,7 +53,7 @@ Use these instructions to begin the configuration process for the SignalFx SSO.
 
 1. In the newly opened tab, access and log into the SignalFx UI. 
 1. In the top menu, click **Integrations**. 
-1. In the search field, enter and select **Azure Active Directory**.
+1. In the search field, enter and select **Microsoft Entra ID**.
 1. Click **Create New Integration**.
 1. In **Name**, enter an easily recognizable name that your users will understand.
 1. Mark **Show on login page**.
@@ -63,9 +63,11 @@ Use these instructions to begin the configuration process for the SignalFx SSO.
 1. Copy the **Integration ID**. You will need this information in a later step. 
 1. Leave the SignalFx UI open. 
 
-## Step 3: Configure Azure AD SSO
+<a name='step-3-configure-azure-ad-sso'></a>
 
-Use these instructions to enable Azure AD SSO.
+## Step 3: Configure Microsoft Entra SSO
+
+Use these instructions to enable Microsoft Entra SSO.
 
 1. Return to the Azure portal, and on the **SignalFx** application integration page, locate the **Manage** section, and then select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
@@ -97,9 +99,11 @@ Use these instructions to enable Azure AD SSO.
 
     ![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up SignalFx** section, copy the **Azure AD Identifier** value. You will need this information in a later step in the SignalFx UI. 
+1. On the **Set up SignalFx** section, copy the **Microsoft Entra Identifier** value. You will need this information in a later step in the SignalFx UI. 
 
-## Step 4: Create an Azure AD test user
+<a name='step-4-create-an-azure-ad-test-user'></a>
+
+## Step 4: Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -113,7 +117,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-## Step 5: Assign the Azure AD test user
+<a name='step-5-assign-the-azure-ad-test-user'></a>
+
+## Step 5: Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to SignalFx.
 
@@ -127,9 +133,9 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
 ## Step 6: Complete the SignalFx SSO configuration 
 
-1. Open the previous tab, and return to the SignalFx UI to view the current Azure Active Directory integration page. 
+1. Open the previous tab, and return to the SignalFx UI to view the current Microsoft Entra integration page. 
 1. Next to **Certificate (Base64)**, click **Upload File**, and then locate the **Base64 encoded certificate** file that you previously downloaded previously.
-1. Next to **Azure AD Identifier**, paste the **Azure AD Identifier** value that you copied earlier. 
+1. Next to **Microsoft Entra Identifier**, paste the **Microsoft Entra Identifier** value that you copied earlier. 
 1. Next to **Federation Metadata URL**, paste the **App Federation Metadata Url** value that you copied earlier. 
 1. Click **Save**.
 
