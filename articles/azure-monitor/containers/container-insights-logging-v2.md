@@ -109,11 +109,11 @@ Below are two screenshots which demonstrate Multi-line logging at work for Go ex
 
 Multi-line logging disabled scenario:
 
-![Screenshot that shows Multiline logging disabledabled.](./media/container-insights-logging-v2/MultilinedisabledGo.png)
+![Screenshot that shows Multiline logging disabledabled.](./media/container-insights-logging-v2/multi-line-disabled-go.png)
 
 Multi-line logging enabled scenario:
 
-![Screenshot that shows ContainerLogV2 enabled.](./media/container-insights-logging-v2/MultilineenabledGo.png)
+![Screenshot that shows ContainerLogV2 enabled.](./media/container-insights-logging-v2/multi-line-enabled-go.png)
 
 ### Pre-requisites 
 
