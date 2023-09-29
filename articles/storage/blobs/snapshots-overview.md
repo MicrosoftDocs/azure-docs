@@ -37,7 +37,7 @@ When you create a snapshot of a blob, the blob's system properties are copied to
 
 Any leases associated with the base blob do not affect the snapshot. You cannot acquire a lease on a snapshot.
 
-You can create a snapshot of a blob in the Hot or Cool tier. Snapshots on blobs in the Archive tier are not supported.
+You can create a snapshot of a blob in the hot or cool tier. Snapshots on blobs in the archive tier are not supported.
 
 A VHD file is used to store the current information and status for a VM disk. You can detach a disk from within the VM or shut down the VM, and then take a snapshot of its VHD file. You can use that snapshot file later to retrieve the VHD file at that point in time and recreate the VM.
 
@@ -45,7 +45,7 @@ A VHD file is used to store the current information and status for a VM disk. Yo
 
 Creating a snapshot, which is a read-only copy of a blob, can result in additional data storage charges to your account. When designing your application, it is important to be aware of how these charges might accrue so that you can minimize costs.
 
-Blob snapshots, like blob versions, are billed at the same rate as active data. How snapshots are billed depends on whether you have explicitly set the tier for the base blob or for any of its snapshots (or versions). For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+Blob snapshots, like blob versions, are billed at the same rate as active data. How snapshots are billed depends on whether you have explicitly set the tier for the base blob or for any of its snapshots (or versions). For more information about blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
 If you have not changed a blob or snapshot's tier, then you are billed for unique blocks of data across that blob, its snapshots, and any versions it may have. For more information, see [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
