@@ -51,6 +51,14 @@ For normalized embedding spaces, `dotProduct` is equivalent to the `cosine` simi
 
 If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations to enforce scores that always decrease in value throughout the result set. This transformation ensures that search scores are usable for ranking purposes.
 
+There are some nuances with similarity scores. 
+
+Cosine similarity is defined as the cosine of the angle between two vectors.
+
+Cosine distance is defined as `1 - cosine_similarity`
+
+To create a monotonically decreasing function, the `@search.score` is defined as `1 / (1 + cosine_distance)`
+
 Developers who need a cosine value instead of the synthetic value can use a formula to convert the search score back to cosine distance:
 
 ```csharp
