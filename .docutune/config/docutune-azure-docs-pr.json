@@ -24,9 +24,7 @@
     "*changelog*",
     "*reference-breaking-changes*",
     "*version-history*",
-    "banner.md",
-
-//    "articles/azure/active-directory/fundamentals/new-name.md"
+    "banner.md"
   ],
   "PreloadTOCFiles": [
     "articles/cloud-services/toc.yml",
