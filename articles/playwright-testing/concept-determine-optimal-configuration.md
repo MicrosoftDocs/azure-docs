@@ -8,9 +8,9 @@ ms.custom: playwright-testing-preview
 
 # Determine the optimal test suite configuration
 
-Microsoft Playwright Testing Preview enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
+Microsoft Playwright Testing Preview enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion time is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
 
-In Playwright, you can run tests in parallel by using worker processes. By using Microsoft Playwright Testing, you can further increase parallelism by using cloud-hosted browsers. In general, adding more parallelism reduced the time to complete your test suite. However, adding more worker processes doesn't always result in shorter test suite completion times. For example, the client machine computing resources, network latency, or test complexity might also affect test duration.
+In Playwright, you can run tests in parallel by using worker processes. By using Microsoft Playwright Testing, you can further increase parallelism by using cloud-hosted browsers. In general, adding more parallelism reduces the time to complete your test suite. However, adding more worker processes doesn't always result in shorter test suite completion times. For example, the client machine computing resources, network latency, or test complexity might also affect test duration.
 
 The following chart gives an example of running a test suite. By running the test suite with Microsoft Playwright Testing instead of locally, you can significantly increase the parallelism and reduce the test completion time. Notice that, when running with the service, the completion time reaches a minimum limit, after which adding more workers only has a minimal effect. The chart also shows how using more computing resources on the client machine positively affects the test completion time for tests running with the service.
 
@@ -26,7 +26,7 @@ As previously shown in the chart, the test suite completion time doesn't continu
 
 ### Run tests locally
 
-By default, @playwright/test limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
+By default, `@playwright/test` limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
 
 When you run tests locally, the number of worker processes is limited to the number of CPU cores on your machine. Beyond a certain point, adding more workers leads to resource contention, which slows down each worker and introduces test flakiness.
 
@@ -41,7 +41,7 @@ To specify the number of workers in `playwright.config.ts` using the `workers` s
 ```typescript
 export default defineConfig({
   ...
-  workers: 10;
+  workers: 10,
   ...
 });
 ```
@@ -63,7 +63,7 @@ Alternately you can specify the number of workers in `playwright.service.config.
 ```typescript
 export default defineConfig({
   ...
-  workers: 30;
+  workers: 30,
   ...
 });
 ```
@@ -127,7 +127,7 @@ Rerun your tests and experiment with the number of parallel workers.
 
 ### 7. Update your Playwright test configuration settings
 
-Configure your Playwright test configuration settings, such as test [timeouts](https://playwright.dev/docs/test-timeouts), [trace](https://playwright.dev/docs/api/class-testoptions#test-options-trace) settings, or [reties](https://playwright.dev/docs/test-retries).
+Configure your Playwright test configuration settings, such as test [timeouts](https://playwright.dev/docs/test-timeouts), [trace](https://playwright.dev/docs/api/class-testoptions#test-options-trace) settings, or [retries](https://playwright.dev/docs/test-retries).
 
 ## Related content
 
