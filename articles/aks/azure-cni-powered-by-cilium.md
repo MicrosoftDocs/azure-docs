@@ -80,6 +80,9 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --network-dataplane cilium
 ```
 
+> [!NOTE]
+> The `--network-dataplane cilium` flag replaces the deprecated `--enable-ebpf-dataplane` flag used in earlier versions of the aks-preview CLI extension.
+
 ### Option 2: Assign IP addresses from a virtual network
 
 Run the following commands to create a resource group and virtual network with a subnet for nodes and a subnet for pods.
@@ -106,9 +109,6 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
   --network-dataplane cilium
 ```
-
-> [!NOTE]
-> The `--network-dataplane cilium` flag replaces the deprecated `--enable-ebpf-dataplane` flag used in earlier versions of the aks-preview CLI extension.
 
 ## Upgrade an existing cluster to Azure CNI Powered by Cilium
 
