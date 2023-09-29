@@ -19,7 +19,7 @@ Azure Blob Storage supports optional anonymous read access to containers and blo
 
 By default, anonymous access to your blob data is always prohibited. The default configuration for an Azure Resource Manager storage account prohibits users from configuring anonymous access to containers and blobs in a storage account. This default configuration disallows all anonymous access to an Azure Resource Manager storage account, regardless of the access setting for an individual container.
 
-When anonymous access for the storage account is disallowed, Azure Storage rejects all anonymous read requests against blob data. Users cannot subsequently configure anonymous access for containers in that account. Any containers that have already been configured for anonymous access will no longer accept anonymous requests.
+When anonymous access for the storage account is disallowed, Azure Storage rejects all anonymous read requests against blob data. Users can't later configure anonymous access for containers in that account. Any containers that have already been configured for anonymous access will no longer accept anonymous requests.
 
 > [!WARNING]
 > When a container is configured for anonymous access, any client can read data in that container. Anonymous access presents a potential security risk, so if your scenario does not require it, we recommend that you disallow it for the storage account.
@@ -38,7 +38,7 @@ Anonymous access to your data is always prohibited by default. There are two sep
 
 1. **Anonymous access setting for the storage account.** An Azure Resource Manager storage account offers a setting to allow or disallow anonymous access for the account. Microsoft recommends disallowing anonymous access for your storage accounts for optimal security.
 
-    When anonymous access is permitted at the account level, blob data is not available for anonymous read access unless the user takes the additional step to explicitly configure the container's anonymous access setting.
+    When anonymous access is permitted at the account level, blob data isn't available for anonymous read access unless the user takes the additional step to explicitly configure the container's anonymous access setting.
 
 1. **Configure the container's anonymous access setting.** By default, a container's anonymous access setting is disabled, meaning that authorization is required for every request to the container or its data. A user with the appropriate permissions can modify a container's anonymous access setting to enable anonymous access only if anonymous access is allowed for the storage account.
 
@@ -176,14 +176,6 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 ### Set the storage account's AllowBlobPublicAccess property to False
 
 To disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
-
-The value of the **AllowBlobPublicAccess** property for a storage account depends on when you created the account and whether you explicitly set the property at create time:
-
-- For all storage accounts created on or after August 1, 2023, anonymous access is disallowed on the account by default. The  **AllowBlobPublicAccess** property returns **false** by default for new accounts.
-
-- For storage accounts created prior to August 1, 2023, anonymous access is allowed on the account by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, either at create time or at some later date, the property returns **null**. In this scenario, the **null** return value is equivalent to **true** and indicates that anonymous access is allowed.
-
-To determine when your storage account was created, check the [CreationTime](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount.creationtime#microsoft-azure-commands-management-storage-models-psstorageaccount-creationtime) property of the storage account. You can check this property in the Azure portal, with PowerShell, or with Azure CLI.
 
 > [!IMPORTANT]
 > Disallowing anonymous access for a storage account overrides the access settings for all containers in that storage account. When anonymous access is disallowed for the storage account, any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously by following the steps outlined in [Detect anonymous requests from client applications](#detect-anonymous-requests-from-client-applications).
@@ -354,7 +346,7 @@ process {
     {
         if($account.AllowBlobPublicAccess -eq $null -or $account.AllowBlobPublicAccess -eq $true)
         {
-            Write-host "Account:" $account.StorageAccountName " is not disallowing public access."
+            Write-host "Account:" $account.StorageAccountName " isn't disallowing public access."
 
             if ( ! $ReadOnly.IsPresent ) {
                 if(!$BypassConfirmation)
@@ -424,7 +416,7 @@ $ctx = $storageAccount.Context
 Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Blob
 ```
 
-### Verify that a container cannot be created with anonymous access enabled
+### Verify that a container can't be created with anonymous access enabled
 
 If anonymous access is disallowed for the storage account, then you won't be able to create a new container with anonymous access enabled. To verify, you can attempt to create a container with anonymous access enabled.
 
@@ -444,12 +436,6 @@ New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ### Check the anonymous access setting for multiple accounts
 
 To check the anonymous access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
-
-The value of the **AllowBlobPublicAccess** property for a storage account depends on when you created the account and whether you explicitly set the property at create time:
-
-- For all storage accounts created on or after August 1, 2023, anonymous access is disallowed on the account by default. The  **AllowBlobPublicAccess** property returns **false** by default for new accounts.
-
-- For storage accounts created prior to August 1, 2023, anonymous access is allowed on the account by default. If you have not set the value of the **AllowBlobPublicAccess** property explicitly, either at create time or at some later date, the property returns **null**. In this scenario, the **null** return value is equivalent to **true** and indicates that anonymous access is allowed.
 
 Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays anonymous access setting for each account:
 
@@ -537,11 +523,11 @@ To view the compliance report in the Azure portal, follow these steps:
 
 ## Use Azure Policy to enforce authorized access
 
-Azure Policy supports cloud governance by ensuring that Azure resources adhere to requirements and standards. To ensure that storage accounts in your organization permit only authorized requests, you can create a policy that prevents the creation of a new storage account with a anonymous access setting that allows anonymous requests. This policy will also prevent all configuration changes to an existing account if the anonymous access setting for that account isn't compliant with the policy.
+Azure Policy supports cloud governance by ensuring that Azure resources adhere to requirements and standards. To ensure that storage accounts in your organization permit only authorized requests, you can create a policy that prevents the creation of a new storage account with an anonymous access setting that allows anonymous requests. This policy will also prevent all configuration changes to an existing account if the anonymous access setting for that account isn't compliant with the policy.
 
 The enforcement policy uses the Deny effect to prevent a request that would create or modify a storage account to allow anonymous access. For more information about effects, see [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
 
-To create a policy with a Deny effect for a anonymous access setting that allows anonymous requests, follow the same steps described in [Use Azure Policy to audit for compliance](#use-azure-policy-to-audit-for-compliance), but provide the following JSON in the **policyRule** section of the policy definition:
+To create a policy with a Deny effect for an anonymous access setting that allows anonymous requests, follow the same steps described in [Use Azure Policy to audit for compliance](#use-azure-policy-to-audit-for-compliance), but provide the following JSON in the **policyRule** section of the policy definition:
 
 ```json
 {
