@@ -6,17 +6,20 @@ ms.date: 09/26/2023
 ---
 
 # Azure Resource Notifications - Health Resources events in Azure Event Grid
-Mission critical customers need to access availability status information for standalone virtual machines (VMs) as well as for the VMs that are a part of Virtual Machine Scale Sets across all Azure subscriptions in near-real time. The Health Resources system topic addresses this need by providing accurate, reliable, and complete health information in a way that can be conveniently consumed. The system topic also supports an annotated event, which helps you with inferring the availability state of your resources. This information is crucial in understanding reasons and causes for changes in availability, and in taking quicker and more deterministic mitigation actions. 
+Health Resources system topic provides accurate, reliable, and complete health information for single instance virtual machines (VMs), virtual machine scale sets, and VMs in virtual machine scale sets. This information provides deeper insights into the various service problems that affect these Azure resources. Health Resources offers two event types for consumption:
 
-This article provides the schema and examples for events raised by Azure Resource Notifications - Health Resources, and links to an article that shows how to create a system topic and event subscriptions to the topic. 
+- The `AvailabilityStatusChanged` event type provides insight into all the times your single instance VMs, VMs in virtual machine scale sets, or virtual machine scale sets themselves have been unavailable because of Azure service issues. For more information on the various health statuses, see [Azure Resource Health overview - Azure Service Health](../service-health/resource-health-overview.md#health-status).
+- The `ResourceAnnotated`` event type helps you to infer the availability state of your resources by providing crucial information on the reasons and causes for changes in availability. Using this data, you can take faster and more targeted mitigation measures. For more information on the various annotations emitted, see [Resource Health virtual machine Health Annotations](../service-health/resource-health-vm-annotation.md).
+
+This article provides the properties and the schema for Azure Resource Notifications Health Resources events. For an introduction to event schemas in general, see [Azure Event Grid event schema](event-schema.md). In addition, you can find samples of generated events and a link to a related article on how to create system topic for this topic type. 
 
 ## Event types
 Azure Resource Notifications - Health Resources supports the following event types: 
 
 | Event type | Description |
 | ---------- | ----------- |
-| `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged` | Raised when the availability status of a virtual machine (VM) changes. |
-| `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated` | Raised when the health of a VM is impacted by availability impacting disruptions (see [Resource types and health checks](../service-health/resource-health-checks-resource-types.md)). The platform emits context as to why the disruption has occurred to assist you in responding appropriately.|
+| `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged` | Raised when the availability status of a single instance VM, a virtual machine scale set, or a VM in a virtual machine scale set changes. |
+| `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated` | Raised when the health of a VM, a virtual machine scale set, or a VM in a virtual machine scale set, is impacted by availability impacting disruptions (see [Resource types and health checks](../service-health/resource-health-checks-resource-types.md)). The platform emits context as to why the disruption has occurred to assist you in responding appropriately.|
 
 These events are emitted for standalone VMs and VMs that are a part of Virtual Machine Scale Sets in the Azure subscription in which the system topic is created. By default, the scope of these notifications is at Azure subscription level, which means that the user receives availability status notifications on all VMs (standalone or part of Virtual Machine Scale Sets) in the Azure subscription.
 
