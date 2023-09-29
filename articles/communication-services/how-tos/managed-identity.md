@@ -34,7 +34,7 @@ To use Managed Identity with ACS, follow these steps:
 
 ## Add a system-assigned identity
 
-### [Azure portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. In the left navigation of your app's page, scroll down to the **Settings** group.
 
@@ -44,7 +44,7 @@ To use Managed Identity with ACS, follow these steps:
 
     ![Screenshot that shows where to switch Status to On and then select Save.](/articles/communication-services/media/managed-identity/managed-identity-system-assigned.png)
 
-### [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
 Run the `az communication identity assign` command to assign a system-assigned identity:
 
@@ -57,7 +57,7 @@ az communication identity assign --system-assigned --name myApp --resource-group
 
 Assigning a user-assigned identity to your ACS resource requires that you first create the identity and then add its resource identifier to your Communication service resource.
 
-### [Azure portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 First, you'll need to create a user-assigned managed identity resource.
 
@@ -155,7 +155,7 @@ For Golang apps and functions, Code Samples on how to create or update your ACS 
 
 For more information on using the golang Management SDK, see [Azure Communication Management SDK for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/README.md)
 
-
+-----
 
 > [!NOTE]
 > A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
@@ -163,8 +163,8 @@ For more information on using the golang Management SDK, see [Azure Communicatio
 >Removing all managed identity assignments from a resource can also be acheived by specifying the `type` property as `None`.
 
 
-# Next Steps
+## Next Steps
 Now that you have learned how to use Managed Identity with Azure Communication Services, consider implementing this feature in your own applications to simplify your authentication process and improve security. 
 
-- [Managed Identities ](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
-- [Manage user-assigned managed identities](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+- [Managed Identities ](/articles/active-directory/managed-identities-azure-resources/overview)
+- [Manage user-assigned managed identities](/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
