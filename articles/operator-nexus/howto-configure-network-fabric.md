@@ -50,7 +50,7 @@ The following table specifies parameters used to create Network Fabric,
 | location | Operator-Nexus Azure region | "eastus" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
 |  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Four SKUs are supported (**M4-A400-A100-C16-aa**, **M8-A400-A100-C16-aa**, **M4-A400-A100-C16-ab** and **M8-A400-A100-C16-ab**). | M4-A400-A100-C16-ab |True | String|
-|nfc-id|Network Fabric Controller ARM resource id|**$prefix**/NFCName|True | |
+|nfc-id|Network Fabric Controller "ARM resource ID"|**$prefix**/NFCName|True | |
 |rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
 |serverCountPerRack|Number of compute servers per rack. Possible values are 4, 8, 12 or 16|16|True | 
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 isn't allowed, /18 and lower are allowed) | 10.246.0.0/19|True |
@@ -58,12 +58,12 @@ The following table specifies parameters used to create Network Fabric,
 |**management-network-config**| Details of management network ||True |
 |**infrastructureVpnConfiguration**| Details of management VPN connection between Network Fabric and infrastructure services in Network Fabric Controller||True
 |*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||True|
-|importRouteTargets|Route targerts are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B, |e.g.,  65048:10039|True(If OptionB enabled)|
-|exportRouteTargets|Route targerts are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g.,  65048:10039|True(If OptionB enabled)|
+|importRouteTargets|Route targets are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B, |e.g.,  65048:10039|True(If OptionB enabled)|
+|exportRouteTargets|Route targets are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g.,  65048:10039|True(If OptionB enabled)|
 |**workloadVpnConfiguration**| Details of workload VPN connection between Network Fabric and workload services in Network Fabric Controller||
 |*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||
-|importRouteTargets|Route targerts are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g., 65048:10050|True(If OptionB enabled)|
-|exportRouteTargets|Route targerts are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g., 65048:10050|True(If OptionB enabled)|
+|importRouteTargets|Route targets are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g., 65048:10050|True(If OptionB enabled)|
+|exportRouteTargets|Route targets are now defined for specific IP subnet class, such as IPv4 and IPv6. Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g., 65048:10050|True(If OptionB enabled)|
 |**ts-config**| Terminal Server Configuration Details||True
 |primaryIpv4Prefix| The terminal server Net1 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.10.0/30, TS Net1 interface should be assigned 20.0.10.1 and PE interface 20.0.10.2|True|
 |secondaryIpv4Prefix|IPv4 Prefix for connectivity between TS and PE2. The terminal server Net2 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.0.4/30, TS Net2 interface should be assigned 20.0.10.5 and PE interface 20.0.10.6|True|
