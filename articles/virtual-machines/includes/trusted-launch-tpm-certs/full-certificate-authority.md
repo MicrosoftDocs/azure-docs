@@ -13,10 +13,9 @@ ms.custom: include file
 <details>
 <summary>Select to view the .p7b content</summary>
 
-Full Certificate Authority for TPM cert:
+Global Virtual TPM CA - 01:
 
-```text
-"Global Virtual TPM CA - XX" (Full Certificate Authority) [.p7b]
+```
 -----BEGIN CERTIFICATE-----
 MIIRKQYJKoZIhvcNAQcCoIIRGjCCERYCAQExADCCBbMGCSqGSIb3DQEHAaCCBaQE
 ggWgMIIFnDCCA4SgAwIBAgITMwAAAALA0XtLj5ecNQAAAAAAAjANBgkqhkiG9w0B
