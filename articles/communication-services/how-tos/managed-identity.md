@@ -89,7 +89,7 @@ az communication identity assign --name myApp --resource-group myResourceGroup -
 
 -----
 
-## Managed Identity using Azure Communication Management SDKs
+## Managed Identity using ACS Management SDKs
 Managed Identity can also be assigned to your ACS resource using the Azure Communication Management SDKs. 
 This can be acheived by introducing the identity property in the resource definition either on creation or when updating the resource.
 
