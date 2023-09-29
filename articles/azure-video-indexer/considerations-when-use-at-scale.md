@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Things to consider when using Azure AI Video Indexer at scale
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 When using Azure AI Video Indexer to index videos and your archive of videos is growing, consider scaling.
 
 This article answers questions like:
