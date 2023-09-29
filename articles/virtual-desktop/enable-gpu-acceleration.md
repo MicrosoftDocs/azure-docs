@@ -25,11 +25,11 @@ Follow the instructions in this article to create a GPU-optimized Azure virtual 
 
 Select one of the Azure [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), [NVv4-series](../virtual-machines/nvv4-series.md), [NVadsA10 v5-series](../virtual-machines/nva10v5-series.md), or [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md) VM sizes to use as a session host. These sizes are tailored for app and desktop virtualization. They enable most apps and the Windows user interface to be GPU accelerated.
 
-The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
+The right choice for your host pool depends on many factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
 
 Note that NV-series VMs are planned to be retired. For more information, see [NV retirement](../virtual-machines/nv-series-retirement.md).
 
-Also, Azure NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They don't support GPU acceleration for most apps or the Windows user interface.
+Azure NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They don't support GPU acceleration for most apps or the Windows user interface.
 
 ## Install supported graphics drivers in your virtual machine
 
@@ -37,7 +37,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs in Azure Virtual
 
 Keep this size-specific information in mind:
 
-* For Azure NV-series, NVv3-series or NCasT4_v3-series VMs, only NVIDIA GRID drivers support GPU acceleration for most apps and the Windows user interface. NVIDIA CUDA drivers don't support GPU acceleration for these VM sizes.
+* For Azure NV-series, NVv3-series, or NCasT4_v3-series VMs, only NVIDIA GRID drivers support GPU acceleration for most apps and the Windows user interface. NVIDIA CUDA drivers don't support GPU acceleration for these VM sizes.
 
   If you choose to install drivers manually, be sure to install GRID drivers. If you choose to install drivers by using the Azure VM extension, GRID drivers will automatically be installed for these VM sizes.
 * For Azure NVv4-series VMs, install the AMD drivers that Azure provides. You can install them automatically by using the Azure VM extension, or you can install them manually.
@@ -79,11 +79,13 @@ Configure Group Policy for the session host to enable GPU-accelerated frame enco
 > [!NOTE]
 > You can enable full-screen video encoding even without a GPU present.
 
-If you often use applications that produce content of a high frame rate, such as 3D modeling, CAD/CAM, and video applications, you might choose to enable full-screen video encoding for a remote session. A full-screen video profile provides a higher frame rate and better user experience for such applications, at the expense of network bandwidth and both session host and client resources. We recommend that you use GPU-accelerated frame encoding for a full-screen video encoding.
+If you often use applications that produce high-frame-rate content, you might choose to enable full-screen video encoding for a remote session. Such applications might include 3D modeling, CAD/CAM, or video applications.
+
+A full-screen video profile provides a higher frame rate and better user experience for these applications, at the expense of network bandwidth and both session host and client resources. We recommend that you use GPU-accelerated frame encoding for a full-screen video encoding.
 
 Configure Group Policy for the session host to enable full-screen video encoding. Continuing the previous steps:
 
-1. Select policy the **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections**. Set this policy to **Enabled** to force the H.264/AVC 444 codec in the remote session.
+1. Select the policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections**. Set this policy to **Enabled** to force the H.264/AVC 444 codec in the remote session.
 2. Now that you've edited the policies, force a Group Policy update. Open the command prompt and enter:
 
     ```cmd
@@ -123,7 +125,7 @@ To verify that Remote Desktop is using full-screen video encoding:
 
 ## Next steps
 
-These instructions should have you operating with GPU acceleration on one session host (one VM). Here are some additional considerations for enabling GPU acceleration across a larger host pool:
+These instructions should have you operating with GPU acceleration on one session host (one VM). Here are additional considerations for enabling GPU acceleration across a larger host pool:
 
 * Consider using a [VM extension](../virtual-machines/extensions/overview.md) to simplify driver installation and updates across VMs. Use the [NVIDIA GPU Driver Extension](../virtual-machines/extensions/hpccompute-gpu-windows.md) for VMs with NVIDIA GPUs. Use the [AMD GPU Driver Extension](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md) for VMs with AMD GPUs.
 * Consider using Active Directory to simplify Group Policy configuration across VMs. For information about deploying Group Policy in the Active Directory domain, see [Working with Group Policy Objects](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).
