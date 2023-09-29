@@ -74,7 +74,7 @@ GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01
 | `https://management.chinacloudapi.cn` | Required for the agent to connect to Azure and register the cluster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.cn` | Data plane endpoint for the agent to push status and fetch configuration information. |
 | `https://login.chinacloudapi.cn`<br/>`https://<region>.login.chinacloudapi.cn`<br/>`login.partner.microsoftonline.cn`| Required to fetch and update Azure Resource Manager tokens. |
-| `https://mcr.microsoft.com`<br/>`https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.          |
+| `mcr.azk8s.cn` | Required to pull container images for Azure Arc agents.          |
 | `https://gbl.his.arc.azure.cn` |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://*.his.arc.azure.cn` |  Required to pull system-assigned Managed Identity certificates. |
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
@@ -84,4 +84,4 @@ GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01
 |`*.arc.azure.cn` | Required to manage connected clusters in Azure portal.|
 |`https://<region>.obo.arc.azure.cn:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
 |`dl.k8s.io`| Required when [automatic agent upgrade](../agent-upgrade.md#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) is enabled. |
-|`mcr.azk8s.cn`<br/>`quay.azk8s.cn`<br/>`registryk8s.azk8s.cn`<br/>`k8sgcr.azk8s.cn`<br/>`usgcr.azk8s.cn`<br/>`dockerhub.azk8s.cn/<repo-name>/<image-name>:<version>`|Container registry proxy servers for Azure China VMs.|
+|`quay.azk8s.cn`<br/>`registryk8s.azk8s.cn`<br/>`k8sgcr.azk8s.cn`<br/>`usgcr.azk8s.cn`<br/>`dockerhub.azk8s.cn/<repo-name>/<image-name>:<version>`|Container registry proxy servers for Azure China VMs.|
