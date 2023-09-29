@@ -20,7 +20,7 @@ CycleCloud supports two modes for credentials in an Azure subscription:
 This is specified on the credential set up when a subscription is added to CycleCloud, via the `Resource Group` setting. Set it to the shared resource group that all clusters should use, or set it to `<Create New Per Cluster>` to use a managed resource group. This setting affects all clusters created using that credential.
 
 > [!NOTE]
-This setting affects new clusters only. Once a cluster is started, it stores which resource group it is using and whether or not it is managed, so it is not affected by the setting on the credential. If it was created with a managed resource group, it knows it should delete the resource group as the last step of deleting the cluster.
+> This setting affects new clusters only. Once a cluster is started, it stores which resource group it is using and whether or not it is managed, so it is not affected by the setting on the credential. If it was created with a managed resource group, it knows it should delete the resource group as the last step of deleting the cluster.
 
 ## How to move resources
 
@@ -29,7 +29,7 @@ To move the resources, the cluster must first be terminated. While the cluster i
 Once the cluster is terminated, the resources can be moved. This can be done [in the Azure portal or via the CLI](https://aka.ms/MoveAzureResources). Moving the resources may take up to 4 hours in some cases. 
 
 > [!NOTE]
-You must move all the resources for a cluster. Since the cluster is terminated, this is probably just the persistent disk for the head node, if any. You can move resources for more than one cluster at the same time, as long as all the affected clusters are already terminated.
+> You must move all the resources for a cluster. Since the cluster is terminated, this is probably just the persistent disk for the head node, if any. You can move resources for more than one cluster at the same time, as long as all the affected clusters are already terminated.
 
 After the move-resources operation completes, run the following command for each cluster, supplying the correct cluster name, as well as the name of the resource group it was using and the name of the new resource group the resources were moved to:
 
@@ -38,7 +38,7 @@ After the move-resources operation completes, run the following command for each
 ```
 
 > [!WARNING]
-Do *not* specify a CycleCloud managed resource group as the destination resource group! CycleCloud will delete the resource group when the corresponding cluster is deleted. This will delete all resources in it, including the ones for other clusters you moved into it.
+> Do *not* specify a CycleCloud managed resource group as the destination resource group! CycleCloud will delete the resource group when the corresponding cluster is deleted. This will delete all resources in it, including the ones for other clusters you moved into it.
 
 Once this succeeds, the cluster may be restarted, and it will use the new resource group for all resources.
 
@@ -53,7 +53,7 @@ Yes. First, edit the subscription's credential to use only the resource group yo
 Yes, with one limitation. First, edit the subscription's credential to use a new resource group per cluster. This will ensure new clusters each get their own resource group. Then, terminate clusters and create a new resource group for each, and move them each to their own new group using the above process.  
 
 > [!NOTE]
-Each moved cluster will not own its resource group, and will not delete it when its is deleted (but all resources for that cluster will be deleted). The resource group itself must be manually cleaned up after the cluster is deleted.
+> Each moved cluster will not own its resource group, and will not delete it when its is deleted (but all resources for that cluster will be deleted). The resource group itself must be manually cleaned up after the cluster is deleted.
 
 ### Can I use this to move resources to another subscription or region?
 
