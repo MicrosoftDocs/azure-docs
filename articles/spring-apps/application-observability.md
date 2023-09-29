@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 10/02/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
@@ -36,13 +36,13 @@ This article uses the well-known [PetClinic](https://github.com/azure-samples/sp
 Log Analytics and Application Insights are deeply integrated with Azure Spring Apps. You can use Log Analytics to diagnose your application with various log queries and use Application Insights to investigate production issues. For more information, see the following articles:
 
 - [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md)
-- [Azure Monitor Insights overview](../azure-monitor/insights/insights-overview.md) 
+- [Azure Monitor Insights overview](../azure-monitor/insights/insights-overview.md)
 
 ## 1. Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [tutorial-applications-observability-with-basic-standard-plan](includes/tutorial-applications-observability/applications-observability-with-basic-standard-plan.md)]
+[!INCLUDE [application-observability-with-basic-standard-plan](includes/application-observability/application-observability-with-basic-standard-plan.md)]
 
 ## 4. Query logs to diagnose an application problem
 
@@ -55,13 +55,13 @@ This section explains how to use Log Analytics to query the application logs and
 
 ### 4.1. Log queries
 
-This section explains how to query application logs from the `AppPlatformLogsforSpring` table hosted by Azure Spring Apps. You can use the [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs. 
+This section explains how to query application logs from the `AppPlatformLogsforSpring` table hosted by Azure Spring Apps. You can use the [Kusto Query Language](/azure/data-explorer/kusto/query/) to customize your queries for application logs.
 
 To see the built-in example query statements or to write your own queries, open the Azure Spring Apps instance and go to the **Logs** menu.
 
 #### Show the application logs which contain the "error" or "exception" terms
 
-To see the application logs containing the terms "error" or "exception", select **Alerts** on the **Queries** page, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section. 
+To see the application logs containing the terms "error" or "exception", select **Alerts** on the **Queries** page, and then select **Run** in the **Show the application logs which contain the "error" or "exception" terms** section.
 
 The following query shows the application logs from the last hour that contains the terms "error" or "exception". You can customize the query with any keyword you want to search for.
 
@@ -69,7 +69,7 @@ The following query shows the application logs from the last hour that contains 
 AppPlatformLogsforSpring
 | where TimeGenerated > ago(1h)
 | where Log contains "error" or Log contains "exception"
-| project TimeGenerated , ServiceName , AppName , InstanceName , Log , _ResourceId 
+| project TimeGenerated , ServiceName , AppName , InstanceName , Log , _ResourceId
 ```
 
 :::image type="content" source="media/application-observability/show-application-logs-abnormal.png" alt-text="Screenshot of the Azure portal that shows the Logs page with the example query and query results." lightbox="media/application-observability/show-application-logs-abnormal.png":::
@@ -86,7 +86,7 @@ AppPlatformLogsforSpring
 | where Log contains "error" or Log contains "exception"
 | extend FullAppName = strcat(ServiceName, "/", AppName)
 | summarize count_per_app = count() by FullAppName, ServiceName, AppName, _ResourceId
-| sort by count_per_app desc 
+| sort by count_per_app desc
 | render piechart
 ```
 
@@ -139,11 +139,11 @@ To use Application Insights to investigate the performance issues, use the follo
 
    :::image type="content" source="media/application-observability/application-insights-performance-suggested-sample.png" alt-text="Screenshot of the Azure portal that shows the Select a sample operation pane with the suggested performance sample." lightbox="media/application-observability/application-insights-performance-suggested-sample.png":::
 
-1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel. 
+1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel.
 
    :::image type="content" source="media/application-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the performance issue." lightbox="media/application-observability/application-insights-e2e-performance.png":::
 
-[!INCLUDE [clean-up-resources-portal](includes/tutorial-applications-observability/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources-portal](includes/application-observability/clean-up-resources.md)]
 
 ## 7. Next steps
 

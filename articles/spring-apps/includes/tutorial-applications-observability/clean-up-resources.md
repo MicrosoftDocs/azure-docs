@@ -3,12 +3,12 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: spring-apps
 ms.topic: include
-ms.date: 09/15/2023
+ms.date: 10/02/2023
 ---
 
-<!-- 
+<!--
 For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal.
-[!INCLUDE [clean-up-resources-portal](includes/tutorial-applications-observability/clean-up-resources.md)]
+[!INCLUDE [clean-up-resources-portal](includes/application-observability/clean-up-resources.md)]
 -->
 
 ## 6. Clean up resources
