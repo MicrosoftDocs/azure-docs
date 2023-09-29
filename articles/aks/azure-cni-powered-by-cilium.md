@@ -29,9 +29,8 @@ By making use of eBPF programs loaded into the Linux kernel and a more efficient
 
 Azure CNI Powered by Cilium can be deployed using two different methods for assigning pod IPs: 
 
-- Assign IP addresses from a virtual network (similar to existing Azure CNI with Dynamic Pod IP Assignment)
-
 - Assign IP addresses from an overlay network (similar to Azure CNI Overlay mode)
+- Assign IP addresses from a virtual network (similar to existing Azure CNI with Dynamic Pod IP Assignment)
 
 If you aren't sure which option to select, read ["Choosing a network model to use"](./azure-cni-overlay.md#choosing-a-network-model-to-use).
 
@@ -68,7 +67,19 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 ## Create a new AKS Cluster with Azure CNI Powered by Cilium
 
-### Option 1: Assign IP addresses from a virtual network
+### Option 1: Assign IP addresses from an overlay network
+
+Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
+
+```azurecli-interactive
+az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
+  --network-plugin azure \
+  --network-plugin-mode overlay \
+  --pod-cidr 192.168.0.0/16 \
+  --network-dataplane cilium
+```
+
+### Option 2: Assign IP addresses from a virtual network
 
 Run the following commands to create a resource group and virtual network with a subnet for nodes and a subnet for pods.
 
@@ -97,18 +108,6 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 
 > [!NOTE]
 > The `--network-dataplane cilium` flag replaces the deprecated `--enable-ebpf-dataplane` flag used in earlier versions of the aks-preview CLI extension.
-
-### Option 2: Assign IP addresses from an overlay network
-
-Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
-
-```azurecli-interactive
-az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --pod-cidr 192.168.0.0/16 \
-  --network-dataplane cilium
-```
 
 ## Upgrade an existing cluster to Azure CNI Powered by Cilium
 
