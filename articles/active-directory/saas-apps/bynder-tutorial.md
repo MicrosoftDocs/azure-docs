@@ -54,7 +54,6 @@ Configure and test Microsoft Entra SSO with Bynder using a test user called **B.
 
 To configure and test Microsoft Entra SSO with Bynder, perform the following steps:
 
-1. **[Create New Bynder Configuration](#create-new-bynder-configuration)** - to get configuration identifier needed for Azure.
 1. **[Configure Microsoft Entra SSO](#configure-microsoft-entra-sso)** - to enable your users to use this feature.
    1. **[Create a Microsoft Entra test user](#create-a-microsoft-entra-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
    1. **[Assign the Microsoft Entra test user](#assign-the-microsoft-entra-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
@@ -78,7 +77,7 @@ Follow these steps to enable Microsoft Entra SSO.
    ![Screenshot shows to Edit Basic SAML Configuration.](common/edit-urls.png)
 
    > [!NOTE]
-	> For BYNDER_CONFIG_ID use an identifier you got **[at this step](#create-login-configuration)** 
+	> For BYNDER_CONFIG_ID use an identifier value you got from **Сreate New Bynder Configuration** section.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
