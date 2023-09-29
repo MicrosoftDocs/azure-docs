@@ -42,7 +42,7 @@ items:
     href: ./release-notes/hdinsight-aks-release-notes.md
   - name: Archived release notes
     href: ./release-notes/hdinsight-aks-release-notes-archive.md
-- name: Getting started
+- name: Get started
   items:
   - name: Create a cluster pool and cluster
     href: quickstart-create-cluster.md
@@ -151,8 +151,6 @@ items:
       href: ./trino/trino-create-delta-lake-tables-synapse.md
     - name: Use query scan statistics
       href: ./trino/trino-scan-stats.md
-    - name: Use Azure Data Factory (ADF) with Trino cluster
-      href: ./trino/trino-azure-data-factory.md
     - name: Use Apache Airflow with Trino cluster
       href: ./trino/trino-airflow.md
     - name: Use AWS S3 and Glue with Trino cluster
