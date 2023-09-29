@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 07/11/2023
 ms.author: billmath
 ms.reviewer: shaunliu
-ms.custom: pim 
+ms.custom: pim, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
 ---
 # PIM PowerShell for Azure Resources Migration Guidance

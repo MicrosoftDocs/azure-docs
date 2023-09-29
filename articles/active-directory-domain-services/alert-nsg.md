@@ -87,5 +87,5 @@ It takes a few moments for the security rule to be added and show in the list.
 If you still have issues, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
-[configure-ldaps]: tutorial-configure-ldaps.md
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
+[configure-ldaps]: ./tutorial-configure-ldaps.md
