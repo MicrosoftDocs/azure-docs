@@ -157,7 +157,7 @@
           },
           {
             "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-v3-form-recognizer-studio.md",
-            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-form-recognizer-studio",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-document-intelligence-studio",
             "redirect_document_id": false
           },
           {

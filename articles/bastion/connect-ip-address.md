@@ -5,7 +5,7 @@ description: Learn how to connect to your virtual machines using a specified pri
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 08/23/2023
+ms.date: 09/13/2023
 ms.author: cherylmc
 
 ---
@@ -24,9 +24,11 @@ IP-based connection lets you connect to your on-premises, non-Azure, and Azure v
 
 * IP-based connection won’t work with force tunneling over VPN, or when a default route is advertised over an ExpressRoute circuit. Azure Bastion requires access to the Internet and force tunneling, or the default route advertisement will result in traffic blackholing.
 
-* Azure Active Directory authentication and custom ports and protocols aren't currently supported when connecting to a VM via native client.
+* Azure Active Directory Authentication isn't supported for RDP connections. Azure Active Directory authentication is supported for SSH connections via native client.
 
-* UDR is not supported on Bastion subnet, including with IP-based connection. 
+* Custom ports and protocols aren't currently supported when connecting to a VM via native client.
+
+* UDR isn't supported on Bastion subnet, including with IP-based connection.
 
 ## Prerequisites
 

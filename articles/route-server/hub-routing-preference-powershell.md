@@ -12,7 +12,7 @@ ms.date: 07/31/2023
 
 # Configure routing preference to influence route selection using PowerShell
 
-Learn how to use [routing preference (preview)](routing-preference.md) setting in Azure Route Server to influence its route selection. 
+Learn how to use [routing preference (preview)](hub-routing-preference.md) setting in Azure Route Server to influence its route selection. 
 
 > [!IMPORTANT]
 > Routing preference is currently in PREVIEW.

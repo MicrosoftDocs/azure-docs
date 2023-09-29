@@ -89,14 +89,14 @@ For the example above, the output of your skill will be written to a new node in
 
 #### document/myKeyPhrases 
 ```json
-            [
-              "world’s glaciers", 
-              "huge rivers of ice", 
-              "Canadian Rockies", 
-              "iconic landscapes",
-              "Mount Everest region",
-              "Continued warming"
-            ]
+[
+  "world’s glaciers", 
+  "huge rivers of ice", 
+  "Canadian Rockies", 
+  "iconic landscapes",
+  "Mount Everest region",
+  "Continued warming"
+]
 ```
 
 You may use "document/myKeyPhrases" as input into other skills, or as a source of an [output field mapping](cognitive-search-output-field-mapping.md).

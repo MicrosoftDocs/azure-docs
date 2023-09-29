@@ -7,7 +7,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/06/2023
 ms.author: kendownie
-ms.custom: monitoring
+ms.custom: monitoring, devx-track-azurepowershell
 ---
 
 # Analyze Azure Files metrics using Azure Monitor
@@ -395,3 +395,4 @@ For more information on how to write queries, see [Log Analytics tutorial](../..
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
 - [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Understand Azure Files performance](understand-performance.md)
+- [Troubleshoot ClientOtherErrors](/troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json)

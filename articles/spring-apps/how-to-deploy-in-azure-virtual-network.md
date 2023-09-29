@@ -146,6 +146,8 @@ This section shows you to grant Azure Spring Apps the [Owner](../role-based-acce
 
 > [!NOTE]
 > The minimal required permissions are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor). You can grant role assignments to both of them if you can't grant `Owner` permission.
+>
+> If you're using your own route table or a user defined route feature, you also need to grant Azure Spring Apps the same role assignments to your route tables. For more information, see the [Bring your own route table](#bring-your-own-route-table) section and [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -273,6 +275,9 @@ For subnets, Azure reserves five IP addresses, and Azure Spring Apps requires at
 
 For a service runtime subnet, the minimum size is /28.
 
+> [!NOTE]
+> A small subnet range impacts the underlying resource you can use for system components like ingress controller. Azure Spring Apps uses an underlying ingress controller to handle application traffic management. The number of ingress controller instances automatically increases as application traffic increases. Reserve a larger virtual network subnet IP range if application traffic could increase in the future. You typically reserve one IP addresses for traffic of 10000 requests per second.
+
 ## Bring your own route table
 
 Azure Spring Apps supports using existing subnets and route tables.
@@ -291,6 +296,17 @@ The route tables to which your custom vnet is associated must meet the following
 * Permissions must be assigned before instance creation. Be sure to grant Azure Spring Apps Resource Provider the `Owner` permission (or `User Access Administrator` and `Network Contributor` permissions) on your route tables.
 * You can't update the associated route table resource after cluster creation. While you can't update the route table resource, you can modify custom rules on the route table.
 * You can't reuse a route table with multiple instances due to potential conflicting routing rules.
+
+## Using Custom DNS Servers
+
+Azure Spring Apps supports using custom DNS servers in your virtual network.
+
+If you don't specify custom DNS servers in your DNS Server Virtual Network setting, Azure Spring Apps will, by default, use the Azure DNS to resolve IP addresses. If your virtual network is configured with custom DNS settings, add Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server. Azure DNS can resolve IP addresses for all the public FQDNs mentioned in [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md). It can also resolve IP address for `*.svc.private.azuremicroservices.io` in your virtual network.
+
+If your custom DNS server can't add Azure DNS IP `168.63.129.16` as the upstream DNS server, use the following steps:
+
+* Ensure that your custom DNS server can resolve IP addresses for all the public FQDNs. For more information, see [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
+* Add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access an app in Azure Spring Apps in a virtual network](access-app-virtual-network.md).
 
 ## Next steps
 

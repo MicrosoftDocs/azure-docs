@@ -220,3 +220,14 @@ landingContent:
         links:
           - text: Azure CLI scripts for common tasks
             url: sample-scripts-azure-cli.md
+# Card 10
+  - title: Get training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure Database for PostgreSQL
+            url: /training/paths/introduction-to-azure-postgres/
+      - linkListType: learn
+        links:
+          - text: Azure Cosmos DB for PostgreSQL
+            url: /training/paths/azure-cosmos-db-for-postgresql/

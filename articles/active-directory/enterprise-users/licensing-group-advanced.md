@@ -1,6 +1,6 @@
 ---
 title: Group-based licensing additional scenarios
-description: More scenarios for Azure Active Directory group-based licensing
+description: More scenarios for Microsoft Entra group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.custom: it-pro, has-azure-ad-ps-ref
 ms.collection: M365-identity-device-management
 ---
 
-# Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory
+# Scenarios, limitations, and known issues using groups to manage licensing in Microsoft Entra ID
 
-Use the following information and examples to gain a more advanced understanding of group-based licensing in Azure Active Directory (Azure AD), part of Microsoft Entra.
+Use the following information and examples to gain a more advanced understanding of group-based licensing in Microsoft Entra ID, part of Microsoft Entra.
 
 ## Usage location
 
@@ -28,20 +28,20 @@ Use the following information and examples to gain a more advanced understanding
 Some Microsoft services aren't available in all locations. For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses. Before a license can be assigned to a user, the administrator should specify the **Usage location** property on the user.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Groups Administrator](../roles/permissions-reference.md#user-administrator).
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Go to **Users** > **All users** and select a user.
 1. Select **Edit properties**. 
 1. Select the **Settings** tab and enter a location for the user.
 1. Select the **Save** button.
 
 > [!NOTE]
-> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (for example, via [Azure AD Connect](../hybrid/connect/whatis-azure-ad-connect.md) configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
+> Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Microsoft Entra ID (for example, via [Microsoft Entra Connect](../hybrid/connect/whatis-azure-ad-connect.md) configuration). Following such a process ensures the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
 You can use group-based licensing with any security group, including dynamic groups. Dynamic groups run rules against user resource attributes to automatically add and remove members. Attributes can be department, job title, work location, or other custom attribute. Each group is assigned the licenses that you want members to receive. If an attribute changes, the member leaves the group, and the licenses are removed.
 
-You can assign the attribute on-premises and sync it with Azure AD, or you can manage the attribute directly in the cloud. 
+You can assign the attribute on-premises and sync it with Microsoft Entra ID, or you can manage the attribute directly in the cloud. 
 
 > [!WARNING]
 > Use caution when modifying an existing group’s membership rule. When a rule is changed, the membership of the group will be re-evaluated and users who no longer match the new rule will be removed (users who still match the new rule will not be affected during this process). Those users will have their licenses removed during the process which may result in loss of service, or in some cases, loss of data.
@@ -86,7 +86,7 @@ Here's an example of what this process may look like:
 1. You received a notification from Microsoft that the E5 product will be extended with a new service - *Microsoft Stream*. When the service becomes available in your organization, you can complete the following steps:
 
 1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) 
-1. Select Microsoft Entra ID (Azure AD).
+1. Select Microsoft Entra ID.
 1. Select **Billing** > **Licenses** > **All products** and select *Microsoft 365 Enterprise E5*, then select **Licensed Groups** to view a list of all groups with that product.
 
 1. Select the group you want to review (in this case, *Microsoft 365 E5 - Exchange only*). The **Licenses** tab opens. Select the E5 license to view all enabled services.
@@ -95,7 +95,7 @@ Here's an example of what this process may look like:
 
    ![Screenshot of new service added to a group license](./media/licensing-group-advanced/manage-new-services.png)
 
-1. If you want to disable the new service in this group, select the On/Off toggle next to the service, and select the **Save** button to confirm the change. Azure AD will now process all users in the group to apply the change; any new users added to the group won't have the *Microsoft Stream* service enabled.
+1. If you want to disable the new service in this group, select the On/Off toggle next to the service, and select the **Save** button to confirm the change. Microsoft Entra ID will now process all users in the group to apply the change; any new users added to the group won't have the *Microsoft Stream* service enabled.
 
    > [!NOTE]
    > Users may still have the service enabled through some other license assignment (another group they are members of or a direct license assignment).
@@ -107,7 +107,7 @@ You can use a PowerShell script to check if users have a license assigned direct
 
 1. Run the `Connect-MgGraph -Scopes "Organization.Read.All"` cmdlet to authenticate and connect to your organization using Microsoft Graph.
 
-2. `Get-MgSubscribedSku -All | Select-Object skuid -ExpandProperty serviceplans | select serviceplanid, serviceplanname` can be used to discover all provisioned product licenses in the Azure AD organization.
+2. `Get-MgSubscribedSku -All | Select-Object skuid -ExpandProperty serviceplans | select serviceplanid, serviceplanname` can be used to discover all provisioned product licenses in the Microsoft Entra organization.
 
    ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-mgsubscribedsku-cmdlet.png)
 
@@ -115,17 +115,17 @@ You can use a PowerShell script to check if users have a license assigned direct
 
 ## Use Audit logs to monitor group-based licensing activity
 
-You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md) to see all activity related to group-based licensing, including:
+You can use [Microsoft Entra audit logs](../reports-monitoring/concept-audit-logs.md) to see all activity related to group-based licensing, including:
 - who changed licenses on groups
 - when the system started processing a group license change, and when it finished
 - what license changes were made to a user as a result of a group license assignment.
 
-Audit logs related to group-based licensing can be accessed from the Audit logs in the Groups or Licensing areas of Azure AD or use the following filter combinations from the main Audit logs:
+Audit logs related to group-based licensing can be accessed from the Audit logs in the Groups or Licensing areas of Microsoft Entra ID or use the following filter combinations from the main Audit logs:
 
 - **Service**: Core Directory
 - **Category**: GroupManagement or UserManagement
 
-![Screenshot of the Azure AD audit logs with Core Directory and GroupManagement filter options highlighted.](media/licensing-group-advanced/audit-logs-group-licensing-filters.png)
+![Screenshot of the Microsoft Entra audit logs with Core Directory and GroupManagement filter options highlighted.](media/licensing-group-advanced/audit-logs-group-licensing-filters.png)
 
 ### Find out who modified a license
 
@@ -138,7 +138,7 @@ Audit logs related to group-based licensing can be accessed from the Audit logs 
 
 The following example shows the filter settings listed above, plus the *Target* filter set to all groups that start with "EMS." 
 
-![Screenshot of the Azure AD audit logs including a Target filter.](media/licensing-group-advanced/audit-log-group-licensing-target-filter.png)
+![Screenshot of the Microsoft Entra audit logs including a Target filter.](media/licensing-group-advanced/audit-log-group-licensing-target-filter.png)
 
 To see license changes for a specific user, use the following filters:
 - **Service**: Core Directory
@@ -147,7 +147,7 @@ To see license changes for a specific user, use the following filters:
 
 ### Find out when group changes started and finished processing
 
-When a license changes on a group, Azure AD will start applying the changes to all users, but the changes could take time to process.
+When a license changes on a group, Microsoft Entra ID will start applying the changes to all users, but the changes could take time to process.
 
 1. To see when groups started processing, use the following filters:
     - **Service**: Core Directory
@@ -156,7 +156,7 @@ When a license changes on a group, Azure AD will start applying the changes to a
 1. Select a row in the resulting table to view the details.
 1. Select the **Modified Properties** tab see the license changes that were picked up for processing.
     - Use these details if you're making multiple changes to a group and aren't sure which license processed.
-    - The actor for the operation is *Microsoft Azure AD Group-Based Licensing*, which is a system account that is used to execute all group license changes.
+    - The actor for the operation is *Microsoft Entra group-Based Licensing*, which is a system account that is used to execute all group license changes.
 
 To see when groups finished processing, change the **Activity** filter to *Finish applying group based license to users*. In this case, the **Modified Properties** field contains a summary of the results, which is useful to quickly check if processing resulted in any errors. Sample output:
 > ```
@@ -169,12 +169,12 @@ To see when groups finished processing, change the **Activity** filter to *Finis
 
 To see the complete log for how a group was processed, including all user changes, add the following filters:
 - **Target**: Group name
-- **Initiated By (Actor)**: Microsoft Azure AD Group-Based Licensing (case-sensitive)
+- **Initiated By (Actor)**: Microsoft Entra group-Based Licensing (case-sensitive)
 - **Date Range** (optional): Custom range for when you know a specific group started and finished processing
 
 This sample output shows the start and finish of processing the license change.
 
-![Screenshot of the Azure AD audit log filters and start and end times of license changes.](./media/licensing-group-advanced/audit-log-license-start-finish.png)
+![Screenshot of the Microsoft Entra audit log filters and start and end times of license changes.](./media/licensing-group-advanced/audit-log-license-start-finish.png)
 
 ## Deleting a group with an assigned license
 
@@ -185,7 +185,7 @@ When trying to delete a group in the Azure portal, you may see an error notifica
 
 Go to the **Licenses** tab on the group and see if there are any licenses assigned. If yes, remove those licenses and try to delete the group again.
 
-You may see similar errors when trying to delete the group through PowerShell or Graph API. If you're using a group synced from on-premises, Azure AD Connect may also report errors if it's failing to delete the group in Azure AD. In all such cases, make sure to check if there are any licenses assigned to the group, and remove them first.
+You may see similar errors when trying to delete the group through PowerShell or Graph API. If you're using a group synced from on-premises, Microsoft Entra Connect may also report errors if it's failing to delete the group in Microsoft Entra ID. In all such cases, make sure to check if there are any licenses assigned to the group, and remove them first.
 
 ## Limitations and known issues
 
@@ -197,7 +197,7 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 
 - The [Microsoft 365 admin center](https://admin.microsoft.com) doesn't currently support group-based licensing. If a user inherits a license from a group, this license appears in the Office admin portal as a regular user license. If you try to modify that license or try to remove the license, the portal returns an error message. Inherited group licenses can't be modified directly on a user.
 
-- When licenses are assigned or modified for a large group (for example, 100,000 users), it could affect performance. Specifically, the volume of changes generated by Azure AD automation might negatively affect the performance of your directory synchronization between Azure AD and on-premises systems.
+- When licenses are assigned or modified for a large group (for example, 100,000 users), it could affect performance. Specifically, the volume of changes generated by Microsoft Entra automation might negatively affect the performance of your directory synchronization between Microsoft Entra ID and on-premises systems.
 
 - If you're using dynamic groups to manage your user’s membership, verify that the user is part of the group, which is necessary for license assignment. If not, [check processing status for the membership rule](groups-create-rule.md) of the dynamic group.
 
@@ -205,14 +205,14 @@ If you use group-based licensing, it's a good idea to familiarize yourself with 
 
 - License management automation doesn't automatically react to all types of changes in the environment. For example, you might have run out of licenses, causing some users to be in an error state. To free up the available seat count, you can remove some directly assigned licenses from other users. However, the system doesn't automatically react to this change and fix users in that error state.
 
-  As a workaround to these types of limitations, you can go to **Azure AD** > **Groups** > select a group > select **Licenses** > select **Reprocess**. This command processes all users in that group and resolves the error states, if possible.
+  As a workaround to these types of limitations, you can go to **Microsoft Entra ID** > **Groups** > select a group > select **Licenses** > select **Reprocess**. This command processes all users in that group and resolves the error states, if possible.
 
 ## Next steps
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/licensing-whatis-azure-portal.md)
-* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
-* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
+* [What is group-based licensing in Microsoft Entra ID?](../fundamentals/licensing-whatis-azure-portal.md)
+* [Assigning licenses to a group in Microsoft Entra ID](licensing-groups-assign.md)
+* [Identifying and resolving license problems for a group in Microsoft Entra ID](licensing-groups-resolve-problems.md)
+* [How to migrate individual licensed users to group-based licensing in Microsoft Entra ID](licensing-groups-migrate-users.md)
+* [How to migrate users between product licenses using group-based licensing in Microsoft Entra ID](licensing-groups-change-licenses.md)

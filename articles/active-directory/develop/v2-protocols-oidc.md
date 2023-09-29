@@ -1,10 +1,10 @@
 ---
 title: OpenID Connect (OIDC) on the Microsoft identity platform
-description: Sign in Azure AD users by using the Microsoft identity platform's implementation of the OpenID Connect extension to OAuth 2.0.
+description: Sign in Microsoft Entra users by using the Microsoft identity platform's implementation of the OpenID Connect extension to OAuth 2.0.
 author: OwenRichards1
 manager: CelesteDG
 ms.custom: aaddev, identityplatformtop40
-ms.date: 05/30/2023
+ms.date: 09/13/2023
 ms.author: owenrichards
 ms.reviewer: ludwignick
 ms.service: active-directory
@@ -32,12 +32,16 @@ The *ID token* introduced by OpenID Connect is issued by the authorization serve
 
 ID tokens aren't issued by default for an application registered with the Microsoft identity platform. ID tokens for an application are enabled by using one of the following methods:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+1. Browse to **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Authentication**.
+1. Under **Platform configurations**, select **Add a platform**. 
+1. In the pane that opens, select the appropriate platform for your application. For example, select **Web** for a web application.
+1. Under Redirect URIs, add the redirect URI of your application. For example, `https://localhost:8080/`.
 1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 
 Or:
 
-1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Manifest**.
+1. Select **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Manifest**.
 1. Set `oauth2AllowIdTokenImplicitFlow` to `true` in the app registration's [application manifest](reference-app-manifest.md).
 
 If ID tokens are not enabled for your app and one is requested, the Microsoft identity platform returns an `unsupported_response` error similar to:
@@ -54,7 +58,7 @@ Authentication libraries are the most common consumers of the OpenID configurati
 
 ### Find your app's OpenID configuration document URI
 
-Every app registration in Azure AD is provided a publicly accessible endpoint that serves its OpenID configuration document. To determine the URI of the configuration document's endpoint for your app, append the *well-known OpenID configuration* path to your app registration's *authority URL*.
+Every app registration in Microsoft Entra ID is provided a publicly accessible endpoint that serves its OpenID configuration document. To determine the URI of the configuration document's endpoint for your app, append the *well-known OpenID configuration* path to your app registration's *authority URL*.
 
 * Well-known configuration document path: `/.well-known/openid-configuration`
 * Authority URL: `https://login.microsoftonline.com/{tenant}/v2.0`
@@ -63,17 +67,17 @@ The value of `{tenant}` varies based on the application's sign-in audience as sh
 
 | Value | Description |
 | --- | --- |
-| `common` |Users with both a personal Microsoft account and a work or school account from Azure AD can sign in to the application. |
-| `organizations` |Only users with work or school accounts from Azure AD can sign in to the application. |
+| `common` |Users with both a personal Microsoft account and a work or school account from Microsoft Entra ID can sign in to the application. |
+| `organizations` |Only users with work or school accounts from Microsoft Entra ID can sign in to the application. |
 | `consumers` |Only users with a personal Microsoft account can sign in to the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Azure AD tenant (directory members with a work or school account or directory guests with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Azure AD tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users from a specific Microsoft Entra tenant (directory members with a work or school account or directory guests with a personal Microsoft account) can sign in to the application. <br/><br/>The value can be the domain name of the Microsoft Entra tenant or the tenant ID in GUID format. You can also use the consumer tenant GUID, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of `consumers`.  |
 
 > [!TIP]
 > Note that when using the `common` or `consumers` authority for personal Microsoft accounts, the consuming resource application must be configured to support such type of accounts in accordance with [signInAudience](./supported-accounts-validation.md).
 
-To find the OIDC configuration document in the Azure portal, sign in to the [Azure portal](https://portal.azure.com) and then:
+To find the OIDC configuration document in the Microsoft Entra admin center, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and then:
 
-1. Select **Azure Active Directory** > **App registrations** > *\<your application\>* > **Endpoints**.
+1. Browse to **Identity** > **Applications** > **App registrations** > *\<your application\>* > **Endpoints**.
 1. Locate the URI under **OpenID Connect metadata document**.
 
 ### Sample request
@@ -132,7 +136,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](./v2-protocols.md#endpoints). Critically, for guest scenarios where you sign a user from one tenant into another tenant, you *must* provide the tenant identifier to correctly sign them into the resource tenant.|
-| `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
+| `client_id` | Required | The **Application (client) ID** that the [Microsoft Entra admin center – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `response_type` | Required | Must include `id_token` for OpenID Connect sign-in. |
 | `redirect_uri` | Recommended | The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL-encoded. If not present, the endpoint will pick one registered `redirect_uri` at random to send the user back to. |
 | `scope` | Required | A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the **Sign you in** permission in the consent UI. You might also include other scopes in this request for requesting consent. |
@@ -188,12 +192,12 @@ The following table describes error codes that can be returned in the `error` pa
 | Error code | Description | Client action |
 | --- | --- | --- |
 | `invalid_request` | Protocol error like a missing required parameter. |Fix and resubmit the request. This development error should be caught during application testing. |
-| `unauthorized_client` | The client application can't request an authorization code. |This error can occur when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instructions to install the application and add it to Azure AD. |
+| `unauthorized_client` | The client application can't request an authorization code. |This error can occur when the client application isn't registered in Microsoft Entra ID or isn't added to the user's Microsoft Entra tenant. The application can prompt the user with instructions to install the application and add it to Microsoft Entra ID. |
 | `access_denied` | The resource owner denied consent. |The client application can notify the user that it can't proceed unless the user consents. |
 | `unsupported_response_type` |The authorization server doesn't support the response type in the request. |Fix and resubmit the request. This development error should be caught during application testing. |
 | `server_error` | The server encountered an unexpected error. |Retry the request. These errors can result from temporary conditions. The client application might explain to the user that its response is delayed because of a temporary error. |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. |Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
-| `invalid_resource` | The target resource is invalid because it doesn't exist, Azure AD can't find it, or it's configured incorrectly. |This error indicates that the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instructions for installing the application and adding it to Azure AD. |
+| `invalid_resource` | The target resource is invalid because it doesn't exist, Microsoft Entra ID can't find it, or it's configured incorrectly. |This error indicates that the resource, if it exists, hasn't been configured in the tenant. The application can prompt the user with instructions for installing the application and adding it to Microsoft Entra ID. |
 
 ## Validate the ID token
 
@@ -317,7 +321,7 @@ To sign out a user, perform both of these operations:
 * Redirect the user's user-agent to the Microsoft identity platform's logout URI
 * Clear your app's cookies or otherwise end the user's session in your application.
 
-If you fail to perform either operation, the user may remain authenticated and not be prompted to sign-in the next time they user your app.
+If you fail to perform either operation, the user may remain authenticated and not be prompted to sign-in the next time they use your app.
 
 Redirect the user-agent to the `end_session_endpoint` as shown in the OpenID Connect configuration document. The `end_session_endpoint` supports both HTTP GET and POST requests.
 

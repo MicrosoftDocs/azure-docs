@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 09/07/2023
+ms.date: 09/27/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -23,6 +23,17 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### September 2023
+
+* General availability: [PostgreSQL 16](https://www.postgresql.org/docs/release/16.0/) support.
+	* See all supported PostgreSQL versions [here](./reference-versions.md#postgresql-versions).
+	* [Upgrade to PostgreSQL 16](./howto-upgrade.md)
+* General availability: [Citus 12.1 with new features and PostgreSQL 16 support](https://www.citusdata.com/updates/v12-1).
+* General availability: Data Encryption at rest using [Customer Managed Keys](./concepts-customer-managed-keys.md) is now supported for all available regions.
+   * See [this guide](./how-to-customer-managed-keys.md) for the steps to enable data encryption using customer managed keys. 
+* Preview: Geo-redundant backup and restore
+    * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md)
+* Preview: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) is now available in all supported regions.
+    * See [how to maximize IOPS on your cluster](./resources-compute.md#maximum-iops-for-your-compute--storage-configuration).
 * General availability: Azure Cosmos DB for PostgreSQL is now available in Australia Central, Canada East, and Qatar Central.
     * See [all supported regions](./resources-regions.md).
 
@@ -108,8 +119,6 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 	* See [all supported PostgreSQL versions](reference-versions.md).
 	* See [this guidance](howto-upgrade.md) for the steps to upgrade your Azure Cosmos DB for PostgreSQL cluster to PostgreSQL 15.
 
-
-
 ### November 2022
 
 * General availability: [Cross-region cluster read replicas](concepts-read-replicas.md) for improved read scalability and cross-region disaster recovery (DR).
@@ -136,10 +145,11 @@ might have constrained capabilities.  For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
+* [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
+* [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
 * [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 * [Azure CLI support for Azure Cosmos DB for PostgreSQL](/cli/azure/cosmosdb/postgres)
 * Azure SDKs: [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/1.0.0-beta.1), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql@v0.1.0), [Java](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/1.0.0-beta.1/overview), [JavaScript](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0-beta.1), and [Python](https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/1.0.0b1/)
-* [Data encryption at rest using customer managed keys](./concepts-customer-managed-keys.md)
 * [Database audit with pgAudit](./how-to-enable-audit.md)
 
 ## Contact us

@@ -1,6 +1,6 @@
 ---
 title: Set up a test environment for your app
-description: Learn how to set up an Azure Active Directory test environment so you can test your application integrated with Microsoft identity platform. Evaluate whether you need a separate tenant for testing or if you can use your production tenant.
+description: Learn how to set up a Microsoft Entra test environment so you can test your application integrated with Microsoft identity platform. Evaluate whether you need a separate tenant for testing or if you can use your production tenant.
 services: active-directory
 author: cilwerner
 manager: CelesteDG
@@ -14,17 +14,19 @@ ms.reviewer: ryanwi, arcrowe
 # Customer intent: As a developer, I want to set up a test environment so that I can test my app integrated with Microsoft identity platform.
 ---
 
-# Set up your application's Azure AD test environment
+# Set up your application's Microsoft Entra test environment
 
-To help move your app through the development, test, and production lifecycle, set up an Azure Active Directory (Azure AD) test environment. You can use your Azure AD test environment during the early stages of app development and long-term as a permanent test environment.
+To help move your app through the development, test, and production lifecycle, set up a Microsoft Entra test environment. You can use your Microsoft Entra test environment during the early stages of app development and long-term as a permanent test environment.
 
-## Dedicated test tenant or production Azure AD tenant?
+<a name='dedicated-test-tenant-or-production-azure-ad-tenant'></a>
 
-Your first task is to decide between using an Azure AD tenant dedicated to testing or your production tenant as your test environment.
+## Dedicated test tenant or production Microsoft Entra tenant?
+
+Your first task is to decide between using a Microsoft Entra tenant dedicated to testing or your production tenant as your test environment.
 
 Using a production tenant can make some aspects of application testing easier, but it requires the right level of isolation between test and production resources. Isolation is especially important for high-privilege scenarios.
 
-Don't use your production Azure AD tenant if:
+Don't use your production Microsoft Entra tenant if:
 
 - Your application uses settings that require tenant-wide uniqueness. For example, your app might need to access tenant resources as itself, not on behalf of a user, by using app-only permissions. App-only access requires admin consent which applies to the entire tenant. Such permissions are hard to scope down safely within a tenant boundary.
 - You have low tolerance of risk for potential unauthorized access of test resources by tenant members.
@@ -75,11 +77,13 @@ You can also create test users in your test tenant. If you used one of the Micro
 1. Browse to **Identity** > **Users** > **All users**.
 1. Select **New user** > **Create new user** and create some new test users in your directory.
 
-### Get an Azure AD subscription (optional)
+<a name='get-an-azure-ad-subscription-optional'></a>
 
-If you want to fully test Azure AD premium features on your application, you'll need to sign up your tenant for a [Premium P1 or Premium P2 license](https://azure.microsoft.com/pricing/details/active-directory/).
+### Get a Microsoft Entra subscription (optional)
 
-If you signed up using the Microsoft 365 Developer program, your test tenant will come with Azure AD P2 licenses. If not, you can still enable a one month [free trial of Azure AD premium](https://azure.microsoft.com/trial/get-started-active-directory/).
+If you want to fully test Microsoft Entra ID P1 or P2 features on your application, you'll need to sign up your tenant for a [Premium P1 or Premium P2 license](https://azure.microsoft.com/pricing/details/active-directory/).
+
+If you signed up using the Microsoft 365 Developer program, your test tenant will come with Microsoft Entra ID P2 licenses. If not, you can still enable a one month [free trial of Microsoft Entra ID P1 or P2](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 ### Create and configure an app registration
 
@@ -93,16 +97,16 @@ If your app will primarily be used by a single organization (commonly referred t
 
 Replicating Conditional Access policies ensures you don't encounter unexpected blocked access when moving to production and your application can appropriately handle the errors it's likely to receive.
 
-Viewing your production tenant Conditional Access policies may need to be performed by a company administrator.
+Viewing your production tenant Conditional Access policies may need to be performed by a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
 
-1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional Access**.
+1. Go to **Identity** > **Applications** > **Enterprise applications** > **Conditional Access**.
 1. View the list of policies in your tenant. Click the first one.
 1. Navigate to **Cloud apps or actions**.
 1. If the policy only applies to a select group of apps, then move on to the next policy. If not, then it will likely apply to your app as well when you move to production. You should copy the policy over to your test tenant.
 
-In a new tab or browser session, sign in to the [Azure portal](https://portal.azure.com) to access your test tenant.
+In a new tab or browser session, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) to access your test tenant.
 
-1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Conditional Access**.
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**
 1. Copy the settings from the production tenant policy, identified through the previous steps.
 
@@ -155,4 +159,4 @@ For detailed instructions on restricting an app to specific users in a tenant, g
 
 Learn about [throttling and service limits](test-throttle-service-limits.md) you might hit while setting up a test environment.
 
-For more detailed information about test environments, read [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/).
+For more detailed information about test environments, read [Securing Azure environments with Microsoft Entra ID](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/).

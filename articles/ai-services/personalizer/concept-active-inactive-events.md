@@ -4,8 +4,7 @@ description: This article discusses the use of active and inactive events within
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ---

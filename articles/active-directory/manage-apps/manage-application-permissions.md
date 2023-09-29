@@ -1,6 +1,6 @@
 ---
 title: Review permissions granted to applications
-description: Learn how to review and revoke permissions, and invalidate refresh tokens for an application in Azure Active Directory.
+description: Learn how to review and revoke permissions, and invalidate refresh tokens for an application in Microsoft Entra ID.
 services: active-directory
 author: Jackson-Woods
 manager: CelesteDG
@@ -19,9 +19,9 @@ ms.custom: enterprise-apps, has-azure-ad-ps-ref
 
 # Review permissions granted to enterprise applications
 
-In this article, you learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary. You learn how to revoke permissions granted to the application using Microsoft Graph API and existing versions of PowerShell.
+In this article, you learn how to review permissions granted to applications in your Microsoft Entra tenant. You may need to review permissions when you've detected a malicious application or the application has been granted more permissions than is necessary. You learn how to revoke permissions granted to the application using Microsoft Graph API and existing versions of PowerShell.
 
-The steps in this article apply to all applications that were added to your Azure AD tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
+The steps in this article apply to all applications that were added to your Microsoft Entra tenant via user or admin consent. For more information on consenting to applications, see [User and admin consent](user-admin-consent-overview.md).
 
 ## Prerequisites
 
@@ -50,8 +50,17 @@ To review an application's permissions that have been granted for the entire org
 1. Select the application that you want to restrict access to.
 1. Select **Permissions**. 
 1. To view permissions that apply to your entire organization, select the **Admin consent** tab. To view permissions granted to a specific user or group, select the **User consent** tab.
-1. To view the details of a given permission, select the permission from the list. The **Permission Details** pane opens. 
-1. To revoke a given permission, choose the permission you would like to revoke, select the **...** control for that permission, and then choose **Revoke permission**.
+1. To view the details of a given permission, select the permission from the list. The **Permission Details** pane opens.
+   After you've reviewed the permissions granted to an application, you can revoke permissions granted by admins for your entire organization. 
+   > [!NOTE]
+   > You can't revoke permissions in the **User consent** tab using the portal. You can revoke these permissions using Microsoft Graph API calls or PowerShell cmdlets. Go to the PowerShell and Microsoft Graph tabs of this article for more information.
+
+To revoke permissions in the **Admin consent** tab:
+
+1. View the list of permissions in the **Admin consent** tab.
+1. Choose the permission you would like to revoke, then select the **...** control for that permission.
+   :::image type="content" source="media/manage-application-permissions/revoke-permissions.png" alt-text="Screenshot shows how to revoke admin consent.":::
+1.  Select **Revoke permission**.
 
 :::zone-end
 
@@ -224,7 +233,7 @@ Run the following queries to remove appRoleAssignments of users or groups to the
     ```http
     GET https://graph.microsoft.com/v1.0/servicePrincipals/57443554-98f5-4435-9002-852986eea510
     ```
-1. Get Azure AD App role assignments using objectID of the Service Principal.
+1. Get Microsoft Entra App role assignments using objectID of the Service Principal.
 
     ```http
     GET https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo

@@ -1,6 +1,6 @@
 ---
-title: Sign-in logs in Azure Active Directory
-description: Learn about the four types of sign-in logs available in Azure Active Directory Monitoring and health.
+title: Sign-in logs in Microsoft Entra ID
+description: Learn about the four types of sign-in logs available in Microsoft Entra monitoring and health.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/31/2023
+ms.date: 09/26/2023
 ms.author: sarahlipsey
-ms.reviewer: besiler
+ms.reviewer: egreenberg14
 ---
-# What are Azure Active Directory sign-in logs?
+# What are Microsoft Entra sign-in logs?
 
-Azure Active Directory (Azure AD) logs all sign-ins into an Azure tenant, which includes your internal apps and resources. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
+Microsoft Entra ID logs all sign-ins into an Azure tenant, which includes your internal apps and resources. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
 
-Reviewing sign-in errors and patterns provides valuable insight into how your users access applications and services. The sign-in logs provided by Azure AD are a powerful type of [activity log](overview-reports.md) that you can analyze. This article explains how to access and utilize the sign-in logs.
+Reviewing sign-in errors and patterns provides valuable insight into how your users access applications and services. The sign-in logs provided by Microsoft Entra ID are a powerful type of [activity log](overview-reports.md) that you can analyze. This article explains how to access and utilize the sign-in logs.
 
 The preview view of the sign-in logs includes interactive and non-interactive user sign-ins as well as service principal and managed identity sign-ins. You can still view the classic sign-in logs, which only include interactive sign-ins. 
 
@@ -52,17 +52,17 @@ The classic sign-in logs only include interactive user sign-ins.
 
 ### Interactive user sign-ins
 
-Interactive sign-ins are performed *by* a user. They provide an authentication factor to Azure AD. That authentication factor could also interact with a helper app, such as the Microsoft Authenticator app. Users can provide passwords, responses to MFA challenges, biometric factors, or QR codes to Azure AD or to a helper app. This log also includes federated sign-ins from identity providers that are federated to Azure AD.  
+Interactive sign-ins are performed *by* a user. They provide an authentication factor to Microsoft Entra ID. That authentication factor could also interact with a helper app, such as the Microsoft Authenticator app. Users can provide passwords, responses to MFA challenges, biometric factors, or QR codes to Microsoft Entra ID or to a helper app. This log also includes federated sign-ins from identity providers that are federated to Microsoft Entra ID.  
 
 :::image type="content" source="media/concept-sign-ins/sign-in-logs-user-interactive.png" alt-text="Screenshot of the interactive user sign-ins log." lightbox="media/concept-sign-ins/sign-in-logs-user-interactive-expanded.png":::
 
 **Report size:** small </br>
 **Examples:**
 
-- A user provides username and password in the Azure AD sign-in screen.
+- A user provides username and password in the Microsoft Entra sign-in screen.
 - A user passes an SMS MFA challenge.
 - A user provides a biometric gesture to unlock their Windows PC with Windows Hello for Business.
-- A user is federated to Azure AD with an AD FS SAML assertion.
+- A user is federated to Microsoft Entra ID with an AD FS SAML assertion.
 
 In addition to the default fields, the interactive sign-in log also shows: 
 
@@ -73,17 +73,23 @@ In addition to the default fields, the interactive sign-in log also shows:
 
 **Non-interactive sign-ins on the interactive sign-in logs**
 
-Previously, some non-interactive sign-ins from Microsoft Exchange clients were included in the interactive user sign-in log for better visibility. This increased visibility was necessary before the non-interactive user sign-in logs were introduced in November 2020. However, it's important to note that some non-interactive sign-ins, such as those using FIDO2 keys, may still be marked as interactive due to the way the system was set up before the separate non-interactive logs were introduced. These sign-ins may display interactive details like client credential type and browser information, even though they are technically non-interactive sign-ins.
+Previously, some non-interactive sign-ins from Microsoft Exchange clients were included in the interactive user sign-in log for better visibility. This increased visibility was necessary before the non-interactive user sign-in logs were introduced in November 2020. However, it's important to note that some non-interactive sign-ins, such as those using FIDO2 keys, may still be marked as interactive due to the way the system was set up before the separate non-interactive logs were introduced. These sign-ins may display interactive details like client credential type and browser information, even though they're technically non-interactive sign-ins.
 
 **Passthrough sign-ins**
 
-Azure Active Directory issues tokens for authentication and authorization. In some situations, a user who is signed in to the Contoso tenant may try to access resources in the Fabrikam tenant, where they don't have access. A no-authorization token, called a passthrough token, is issued to the Fabrikam tenant. The passthrough token doesn't allow the user to access any resources.
+Microsoft Entra ID issues tokens for authentication and authorization. In some situations, a user who is signed in to the Contoso tenant may try to access resources in the Fabrikam tenant, where they don't have access. A no-authorization token called a passthrough token, is issued to the Fabrikam tenant. The passthrough token doesn't allow the user to access any resources.
 
 When reviewing the logs for this situation, the sign-in logs for the home tenant (in this scenario, Contoso) don't show a sign-in attempt because the token wasn't evaluated against the home tenant's policies. The sign-in token was only used to display the appropriate failure message. You won't see a sign-in attempt in the logs for the home tenant.
 
+**First-party, app-only service principal sign-ins**
+
+The service principal sign-in logs don't include first-party, app-only sign-in activity. This type of activity happens when first-party apps get tokens for an internal Microsoft job where there's no direction or context from a user. We exclude these logs so you're not paying for logs related to internal Microsoft tokens within your tenant. 
+
+You may identify Microsoft Graph events that don't correlate to a service principal sign-in if you're routing `MicrosoftGraphActivityLogs` with `SignInLogs` to the same Log Analytics workspace. This integration allows you to cross reference the token issued by the Microsoft Graph activity with the sign-in. The `UniqueTokenIdentifier` in the Microsoft Graph activity logs would be missing from the service principal sign-in logs.
+
 ### Non-interactive user sign-ins
 
-Non-interactive sign-ins are done *on behalf of a* user. These sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, Azure AD recognizes when the user's token needs to be refreshed and does so behind the scenes, without interrupting the user's session. In general, the user perceives these sign-ins as happening in the background.
+Non-interactive sign-ins are done *on behalf of a* user. These delegated sign-ins were performed by a client app or OS components on behalf of a user and don't require the user to provide an authentication factor. Instead, Microsoft Entra ID recognizes when the user's token needs to be refreshed and does so behind the scenes, without interrupting the user's session. In general, the user perceives these sign-ins as happening in the background.
 
 ![Screenshot of the non-interactive user sign-ins log.](media/concept-sign-ins/sign-in-logs-user-noninteractive.png)
 
@@ -92,7 +98,7 @@ Non-interactive sign-ins are done *on behalf of a* user. These sign-ins were per
 
 - A client app uses an OAuth 2.0 refresh token to get an access token.
 - A client uses an OAuth 2.0 authorization code to get an access token and refresh token. 
-- A user performs single sign-on (SSO) to a web or Windows app on an Azure AD joined PC (without providing an authentication factor or interacting with an Azure AD prompt).
+- A user performs single sign-on (SSO) to a web or Windows app on a Microsoft Entra joined PC (without providing an authentication factor or interacting with a Microsoft Entra prompt).
 - A user signs in to a second Microsoft Office app while they have a session on a mobile device using FOCI (Family of Client IDs).
 
 In addition to the default fields, the non-interactive sign-in log also shows: 
@@ -106,7 +112,7 @@ To make it easier to digest the data, non-interactive sign-in events are grouped
 
 :::image type="content" source="media/concept-sign-ins/aggregate-sign-in.png" alt-text="Screenshot of an aggregate sign-in expanded to show all rows." lightbox="media/concept-sign-ins/aggregate-sign-in-expanded.png":::
 
-When Azure AD logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) has a value greater than 1 in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
+When Microsoft Entra ID logs multiple sign-ins that are identical other than time and date, those sign-ins are from the same entity and are aggregated into a single row. A row with multiple identical sign-ins (except for date and time issued) has a value greater than one in the *# sign-ins* column. These aggregated sign-ins may also appear to have the same time stamps. The **Time aggregate** filter can set to 1 hour, 6 hours, or 24 hours. You can expand the row to see all the different sign-ins and their different time stamps. 
 
 Sign-ins are aggregated in the non-interactive users when the following data matches:
 
@@ -142,7 +148,7 @@ To make it easier to digest the data in the service principal sign-in logs, serv
 
 ### Managed identity sign-ins 
 
-Managed identities for Azure resources sign-ins are sign-ins that were performed by resources that have their secrets managed by Azure to simplify credential management. A VM with managed credentials uses Azure AD to get an Access Token.
+Managed identities for Azure resources sign-ins are sign-ins that were performed by resources that have their secrets managed by Azure to simplify credential management. A VM with managed credentials uses Microsoft Entra ID to get an Access Token.
 
 ![Screenshot of the managed identity sign-ins log.](media/concept-sign-ins/sign-in-logs-managed-identity.png)
 
@@ -163,25 +169,29 @@ Select an item in the list view to display all sign-ins that are grouped under a
 
 Sign-in data is used by several services in Azure to monitor risky sign-ins, provide insight into application usage, and more. 
 
-### Azure AD Identity Protection
+<a name='azure-ad-identity-protection'></a>
 
-Sign-in log data visualization that relates to risky sign-ins is available in the **Azure AD Identity Protection** overview, which uses the following data:
+### Microsoft Entra ID Protection
+
+Sign-in log data visualization that relates to risky sign-ins is available in the **Microsoft Entra ID Protection** overview, which uses the following data:
 
 - Risky users
 - Risky user sign-ins 
 - Risky workload identities
 
-For more information about the Azure AD Identity Protection tools, see the [Azure AD Identity Protection overview](../identity-protection/overview-identity-protection.md).
+For more information about the Microsoft Entra ID Protection tools, see the [Microsoft Entra ID Protection overview](../identity-protection/overview-identity-protection.md).
 
-### Azure AD Usage and insights
+<a name='azure-ad-usage-and-insights'></a>
 
-To view application-specific sign-in data, go to **Azure AD** and select **Usage & insights** from the Monitoring section. These reports provide a closer look at sign-ins for Azure AD application activity and AD FS application activity. For more information, see [Azure AD Usage & insights](concept-usage-insights-report.md).
+### Microsoft Entra Usage and insights
+
+To view application-specific sign-in data, browse to **Microsoft Entra ID** > **Monitoring & health** > **Usage & insights**. These reports provide a closer look at sign-ins for Microsoft Entra application activity and AD FS application activity. For more information, see [Microsoft Entra Usage & insights](concept-usage-insights-report.md).
 
 :::image type="content" source="media/concept-sign-ins/usage-insights.png" alt-text="Screenshot of the Usage & insights report." lightbox="media/concept-sign-ins/usage-insights-expanded.png":::
 
 There are several reports available in **Usage & insights**. Some of these reports are in preview.
 
-- Azure AD application activity (preview)
+- Microsoft Entra application activity (preview)
 - AD FS application activity
 - Authentication methods activity
 - Service principal sign-in activity (preview)
@@ -189,14 +199,14 @@ There are several reports available in **Usage & insights**. Some of these repor
 
 ### Microsoft 365 activity logs
 
-You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Microsoft 365 activity and Azure AD activity logs share a significant number of directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
+You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Microsoft 365 activity and Microsoft Entra activity logs share a significant number of directory resources. Only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
 You can access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 
-- [Basic info in the Azure AD sign-in logs](reference-basic-info-sign-in-logs.md)
+- [Basic info in the Microsoft Entra sign-in logs](reference-basic-info-sign-in-logs.md)
 
-- [How to download logs in Azure Active Directory](howto-download-logs.md)
+- [How to download logs in Microsoft Entra ID](howto-download-logs.md)
 
-- [How to access activity logs in Azure AD](howto-access-activity-logs.md)
+- [How to access activity logs in Microsoft Entra ID](howto-access-activity-logs.md)

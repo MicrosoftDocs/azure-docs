@@ -1,7 +1,7 @@
 ---
 description: Walkthrough of how Azure Cloud Shell persists files.
 ms.contributor: jahelmic
-ms.date: 04/25/2023
+ms.date: 09/29/2023
 ms.topic: article
 tags: azure-resource-manager
 ms.custom: devx-track-linux
@@ -38,13 +38,10 @@ This fileshare is used for both Bash and PowerShell.
 
 ## Use existing resources
 
-Using the advanced option, you can associate existing resources. When selecting a Cloud Shell region,
-you must select a backing storage account co-located in the same region. For example, if your
-assigned region is West US then you must associate a fileshare that resides within West US as well.
-
-When the storage setup prompt appears, select **Show advanced settings** to view more options. The
-populated storage options filter for locally redundant storage (LRS), geo-redundant storage (GRS),
-and zone-redundant storage (ZRS) accounts.
+Using the advanced option, you can associate existing resources. When the storage setup prompt
+appears, select **Show advanced settings** to view more options. The populated storage options
+filter for locally redundant storage (LRS), geo-redundant storage (GRS), and zone-redundant storage
+(ZRS) accounts.
 
 > [!NOTE]
 > Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file
@@ -82,9 +79,7 @@ Cloud Shell machines exist in the following regions:
 | Europe       | North Europe, West Europe          |
 | Asia Pacific | India Central, Southeast Asia      |
 
-Customers should choose a primary region, unless they have a requirement that their data at rest be
-stored in a particular region. If they have such a requirement, a secondary storage region should be
-used.
+You should choose a region that meets your requirements.
 
 ### Secondary storage regions
 
@@ -102,10 +97,9 @@ of their fileshare.
 
 ## Restrict resource creation with an Azure resource policy
 
-Storage accounts that you create in Cloud Shell are tagged with
-`ms-resource-usage:azure-cloud-shell`. If you want to disallow users from creating storage accounts
-in Cloud Shell, create an [Azure resource policy for tags][02] that is triggered by this specific
-tag.
+Storage accounts that created in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`.
+If you want to disallow users from creating storage accounts in Cloud Shell, create an
+[Azure resource policy for tags][02] that's triggered by this specific tag.
 
 ## How Cloud Shell storage works
 

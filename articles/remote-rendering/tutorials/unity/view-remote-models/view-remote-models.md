@@ -566,45 +566,45 @@ When entering the **NotAuthorized** state, **CheckAuthorization** is called, whi
 
 1. Replace the contents of **InitializeARR** and **InitializeSessionService** with the completed code below:
 
- ```cs
-/// <summary>
-/// Initializes ARR, associating the main camera
-/// Note: This must be called on the main Unity thread
-/// </summary>
-public void InitializeARR()
-{
-    RemoteManagerUnity.InitializeManager(new RemoteUnityClientInit(Camera.main));
-
-    CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
-}
-
-/// <summary>
-/// Create a new remote session manager
-/// If the ARRCredentialGetter is set, use it as it, otherwise use the development credentials 
-/// </summary>
-public async void InitializeSessionService()
-{
-    if (ARRCredentialGetter == null)
-        ARRCredentialGetter = GetDevelopmentCredentials;
-
-    var sessionConfiguration = await ARRCredentialGetter.Invoke();
-
-    ARRSessionService.OnSessionStatusChanged += OnRemoteSessionStatusChanged;
-
-    try
+    ```cs
+    /// <summary>
+    /// Initializes ARR, associating the main camera
+    /// Note: This must be called on the main Unity thread
+    /// </summary>
+    public void InitializeARR()
     {
-        ARRSessionService.Initialize(sessionConfiguration);
-    }
-    catch (ArgumentException argumentException)
-    {
-        Debug.LogError(argumentException.Message);
+        RemoteManagerUnity.InitializeManager(new RemoteUnityClientInit  (Camera.main));
+    
         CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
-        return;
     }
-
-    CurrentCoordinatorState = RemoteRenderingState.NoSession;
-}
-```
+    
+    /// <summary>
+    /// Create a new remote session manager
+    /// If the ARRCredentialGetter is set, use it as it, otherwise use  the development credentials 
+    /// </summary>
+    public async void InitializeSessionService()
+    {
+        if (ARRCredentialGetter == null)
+            ARRCredentialGetter = GetDevelopmentCredentials;
+    
+        var sessionConfiguration = await ARRCredentialGetter.Invoke();
+    
+        ARRSessionService.OnSessionStatusChanged +=     OnRemoteSessionStatusChanged;
+    
+        try
+        {
+            ARRSessionService.Initialize(sessionConfiguration);
+        }
+        catch (ArgumentException argumentException)
+        {
+            Debug.LogError(argumentException.Message);
+            CurrentCoordinatorState = RemoteRenderingState. NotAuthorized;
+            return;
+        }
+    
+        CurrentCoordinatorState = RemoteRenderingState.NoSession;
+    }
+    ```
 
 In order to progress from **NotAuthorized** to **NoSession**, we'd typically present a modal dialog to the user so they can choose (and we'll do just that in another chapter). For now, we'll automatically bypass the authorization check by calling **ByPassAuthentication** as soon as the **RequestingAuthorization** event is triggered.
 

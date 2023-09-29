@@ -17,7 +17,7 @@ zone_pivot_groups: identity-mi-methods
 
 # Manage user-assigned managed identities
 
-Managed identities for Azure resources eliminate the need to manage credentials in code. You can use them to get an Azure Active Directory (Azure AD) token for your applications. The applications can use the token when accessing resources that support Azure AD authentication. Azure manages the identity so you don't have to.
+Managed identities for Azure resources eliminate the need to manage credentials in code. You can use them to get a Microsoft Entra token for your applications. The applications can use the token when accessing resources that support Microsoft Entra authentication. Azure manages the identity so you don't have to.
 
 There are two types of managed identities: system-assigned and user-assigned. System-assigned managed identities have their lifecycle tied to the resource that created them. User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see [What are managed identities for Azure resources?](overview.md).
 
@@ -108,7 +108,7 @@ In this article, you learn how to create, list, delete, or assign a role to a us
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
-> To modify user permissions when you use an app service principal by using the CLI, you must provide the service principal more permissions in the Azure Active Directory Graph API because portions of the CLI perform GET requests against the Graph API. Otherwise, you might end up receiving an "Insufficient privileges to complete the operation" message. To do this step, go into the **App registration** in Azure AD, select your app, select **API permissions**, and scroll down and select **Azure Active Directory Graph**. From there, select **Application permissions**, and then add the appropriate permissions.
+> To modify user permissions when you use an app service principal by using the CLI, you must provide the service principal more permissions in the Azure Active Directory Graph API because portions of the CLI perform GET requests against the Graph API. Otherwise, you might end up receiving an "Insufficient privileges to complete the operation" message. To do this step, go into the **App registration** in Microsoft Entra ID, select your app, select **API permissions**, and scroll down and select **Azure Active Directory Graph**. From there, select **Application permissions**, and then add the appropriate permissions.
 
 ## Create a user-assigned managed identity
 
@@ -153,7 +153,7 @@ For a full list of Azure CLI identity commands, see [az identity](/cli/azure/ide
 
 For information on how to assign a user-assigned managed identity to an Azure VM, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
-Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra ID protected resources without managing secrets.
 
 ::: zone-end
 
@@ -240,7 +240,7 @@ Remove-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER AS
 
 For a full list and more details of the Azure PowerShell managed identities for Azure resources commands, see [Az.ManagedServiceIdentity](/powershell/module/az.managedserviceidentity#managed_service_identity).
 
-Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra ID protected resources without managing secrets.
 ::: zone-end
 
 
@@ -307,7 +307,7 @@ To create a user-assigned managed identity, use the following template. Replace 
 
 To assign a user-assigned managed identity to an Azure VM using a Resource Manager template, see [Configure managed identities for Azure resources on an Azure VM using a template](qs-configure-template-windows-vm.md).
 
-Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra ID protected resources without managing secrets.
 ::: zone-end
 
 
@@ -414,5 +414,5 @@ For information on how to assign a user-assigned managed identity to an Azure VM
 - [Configure managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity)
 - [Configure managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-managed-identity)
 
-Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets.
+Learn how to use [workload identity federation for managed identities](../workload-identities/workload-identity-federation.md) to access Microsoft Entra ID protected resources without managing secrets.
 ::: zone-end

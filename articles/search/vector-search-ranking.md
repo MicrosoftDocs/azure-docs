@@ -1,84 +1,125 @@
 ---
-title: Vector query execution and scoring
+title: Vector search scoring
 titleSuffix: Azure Cognitive Search
-description: Explains the concepts behind vector query execution, including how matches are found in vector space and ranked in search results.
+description: Explains the concepts behind vector relevance scoring, including how matches are found in vector space and ranked in search results.
 
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/31/2023
+ms.date: 09/27/2023
 ---
 
-# Vector query execution and scoring in Azure Cognitive Search
+# Relevance scoring in vector search
 
 > [!IMPORTANT]
 > Vector search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and [beta client libraries](https://github.com/Azure/cognitive-search-vector-pr#readme).
 
-This article is for developers who need a deeper understanding of vector query execution and ranking in Azure Cognitive Search.
+This article is for developers who need a deeper understanding of relevance scoring for vector queries in Azure Cognitive Search.
 
-## Vector similarity
+## Scoring algorithms used in vector search
 
-In a vector query, the search query is a vector, as opposed to a string in full-text queries. Documents that match the vector query are ranked using the vector similarity algorithm configured on the vector field defined in the index. A vector query specifies the `k` parameter, which determines how many nearest neighbors of the query vector should be returned in the results. 
+Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
 
-> [!NOTE]
-> Full-text search queries could return fewer than the requested number of results if there are insufficient matches, but vector search always return up to `k` matches as long as there are enough documents in the index. This is because with vector search, similarity is relative to the input query vector, not absolute. Less relevant results have a worse similarity score, but they are still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low.
+HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
 
-In a typical application, the input value within a query request would be fed into the same machine learning model that generated the embedding space for the vector index. This model would output a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the nearest vectors and returning the associated documents as the search result.
+Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` in a search index, and then specified on the field definition (also in the index):
 
-For example, if a query request is about dogs, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about dogs. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
+- [Create a vector index](vector-search-how-to-create-index.md)
 
-### Similarity metrics used to measure nearness
+Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. There's a subset of query-time parameters that may be modified.
 
-A similarity metric measures the distance between neighboring vectors. Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are summarized in the following table.
+## How HNSW ranking works
+
+Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request is fed into the same machine learning model that generated embeddings in the vector index. The output is a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the vectors that are closest to the query vector, and returning the associated documents as the search result.
+
+For example, if a query request is about hotels, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about hotels. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
+
+### Indexing vectors with the HNSW algorithm
+
+The goal of indexing a new vector into an HNSW graph is to add it to the graph structure in a manner that allows for efficient nearest neighbor search. The following steps summarize the process:
+
+1. Initialization: Start with an empty HNSW graph, or the existing HNSW graph if it's not a new index.
+
+1. Entry point: This is the top-level of the hierarchical graph and serves as the starting point for indexing.
+
+1. Adding to the graph: Different hierarchical levels represent different granularities of the graph, with higher levels being more global, and lower levels being more granular. Each node in the graph represents a vector point. 
+
+   - Each node is connected to up to `m` neighbors that are nearby. This is the `m` parameter.
+
+   - The number of data points that considered as candidate connections is governed by the `efConstruction` parameter. This dynamic list forms the set of closest points in the existing graph for the algorithm to consider. Higher `efConstruction` values result in more nodes being considered, which often leads to denser local neighborhoods for each vector.
+
+   - These connections use the configured similarity `metric` to determine distance. Some connections are "long-distance" connections that connect across different hierarchical levels, creating shortcuts in the graph that enhance search efficiency.
+
+1. Graph pruning and optimization: This may be performed after indexing all vectors to improve navigability and efficiency of the HNSW graph. 
+
+### Retrieving vectors with the HNSW algorithm
+
+In the HNSW algorithm, a vector query search operation is executed by navigating through this hierarchical graph structure. The following summarize the steps in the process:
+
+1. Initialization: The algorithm initiates the search at the top-level of the hierarchical graph. This entry point contains the set of vectors that serve as starting points for search.
+
+1. Traversal: Next, it traverses the graph level by level, navigating from the top-level to lower levels, selecting candidate nodes that are closer to the query vector based on the configured distance metric, such as cosine similarity.
+
+1. Pruning: To improve efficiency, the algorithm prunes the search space by only considering nodes that are likely to contain nearest neighbors. This is achieved by maintaining a priority queue of potential candidates and updating it as the search progresses. The length of this queue is configured by the parameter `efSearch`.
+
+1. Refinement: As the algorithm moves to lower, more granular levels, HNSW considers more neighbors near the query, which allows the candidate set of vectors to be refined, improving accuracy.
+
+1. Completion: The search completes when the desired number of nearest neighbors have been identified, or when other stopping criteria are met. This desired number of nearest neighbors is governed by the query-time parameter `k`.
+
+Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable`, or fields that are specified in `searchFields` in the query, are returned in search results, along with their search score.
+
+## Similarity metrics used to measure nearness
+
+A similarity metric measures the distance between neighboring vectors. Commonly used similarity metrics include `cosine`, `euclidean` (also known as `l2 norm`), and `dotProduct`, which are listed in the following table.
 
 | Metric | Description |
 |--------|-------------|
-| `cosine` | Calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity). |
+| `cosine` | Calculates the angle between two vectors. Cosine is the similarity metric used by [Azure OpenAI embedding models](/azure/ai-services/openai/concepts/understand-embeddings#cosine-similarity), so if you're using Azure OpenAI, specify `cosine` in the vector configuration.|
 | `euclidean` | Calculates the Euclidean distance between two vectors, which is the l2-norm of the difference of the two vectors. |
 | `dotProduct` | Calculates the products of vectors' magnitudes and the angle between them. |
 
 For normalized embedding spaces, `dotProduct` is equivalent to the `cosine` similarity, but is more efficient.
 
-## Hybrid search
+If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
 
-By performing similarity searches over vector representations of your data, you can find information that's similar to your search query, even if the search terms don't match up perfectly to the indexed content. In practice, we often need to expand lexical matches with semantic matches to guarantee good recall. The notion of composing term queries with vector queries is called *hybrid search*.
+There are some nuances with similarity scores: 
 
-In Azure Cognitive Search, embeddings are indexed alongside textual and numerical fields allowing you to issue hybrid term and vector queries and take advantage of existing functionalities like filtering, faceting, sorting, scoring profiles, and [semantic search](semantic-search-overview.md) in a single search request.
-Hybrid search combines results from both term and vector queries, which use different ranking functions such as BM25 and cosine similarity. To present these results in a single ranked list, a method of merging the ranked result lists is needed.
+- Cosine similarity is defined as the cosine of the angle between two vectors.
+- Cosine distance is defined as `1 - cosine_similarity`.
 
-## Reciprocal Rank Fusion (RRF) for hybrid queries
+To create a monotonically decreasing function, the `@search.score` is defined as `1 / (1 + cosine_distance)`.
 
-For hybrid search scoring, Cognitive Search uses Reciprocal Rank Fusion (RRF). In information retrieval, RRF combines the results of different search methods to produce a single, more accurate and relevant result. Here, a search method refers to methods such as vector search and full-text search. RRF is based on the concept of reciprocal rank, which is the inverse of the rank of the first relevant document in a list of search results. 
+Developers who need a cosine value instead of the synthetic value can use a formula to convert the search score back to cosine distance:
 
-At a basic level, RRF works by taking the search results from multiple methods, assigning a reciprocal rank score to each document in the results, and then combining these scores to create a new ranking. The main idea behind this method is that documents appearing in the top positions across multiple search methods are likely to be more relevant and should be ranked higher in the combined result.
+```csharp
+double ScoreToSimilarity(double score)
+{
+    double cosineDistance = (1 - score) / score;
+    return  -cosineDistance + 1;
+}
+```
 
-Here's a simple explanation of the RRF process:
+Having the original cosine value can be useful in custom solutions that set up thresholds to trim results of low quality results.
 
-1. Obtain search results from multiple methods. 
+## Scores in a vector search results
 
-   In the context of Azure Cognitive Search, this is vector search and full-text search, with or without semantic ranking. We search for a specific query using both methods and get parallel ranked lists of documents as results. Each method has a ranking methodology. With BM25 ranking on full-text search, rank is by **`@search.score`**. With semantic reranking over BM25 ranked results, rank is by **`@search.rerankerScore`**. With similarity search for vector queries, the similarity score is also articulated as **`@search.score`** within its result set.
+Whenever results are ranked, **`@search.score`** property contains the value used to order the results. 
 
-1. Assign reciprocal rank scores for result in each of the ranked lists. A new **`@search.score`** property is generated by the RFF algorithm for each match in each result set. For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as `1/(rank + k)`, where `rank` is the position of the document in the list, and `k` is a constant, which was experimentally observed to perform best if it's set to a small value like 60.
+The following table identifies the scoring property returned on each match, algorithm, and range. 
 
-1. Combine scores. For each document, we sum the reciprocal rank scores obtained from each search system. This gives us a combined score for each document. 
+| Search method | Parameter | Scoring algorithm | Range |
+|---------------|-----------|-------------------|-------|
+| vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine) | 
 
-1. Rank documents based on combined scores. Finally, we sort the documents based on their combined scores, and the resulting list is the fused ranking. A
+## Number of ranked results in a vector query response
 
-Whenever results are ranked, **`@search.score`** property contains the value used to order the results. Scores are generated by ranking algorithms that vary for each method and aren't comparable.
+A vector query specifies the `k` parameter, which determines how many nearest neighbors of the query vector should be found in vector space and returned in the results. If `k` is larger than the number of documents in the index, then the number of documents determines the upper limit of what can be returned.
 
-| Search method | @search.score algorithm |
-|---------------|-------------------------|
-| full-text search | **`@search.score`** is produced by the BM25 algorithm and its values are unbounded. |
-| vector similarity search | **`@search.score`** is produced by the HNSW algorithm, plus the similarity metric specified in the configuration. |
-| hybrid search | **`@search.score`** is produced by the RFF algorithm that merges results from parallel query execution, such as vector and full-text search. |
-| hybrid search with semantic reranking | **`@search.score`** is the RRF score from your initial retrieval, but you'll also see the **@search.rerankerScore** which is from the reranking model powered by Bing, which ranges from 0-4.
-
-By default, if you aren't using pagination, Cognitive Search returns the top 50 highest ranking matches for full text search, and it returns `k` matches for vector search. In a hybrid query, the top 50 highest ranked matches of the unified result set are returned. You can use `$top`, `$skip`, and `$next` for paginated results. For more information, see [How to work with search results](search-pagination-page-layout.md).
+The search engine always returns `k` number of matches, as long as there are enough documents in the index. If you're familiar with full text search, you know to expect zero results if the index doesn't contain a term or phrase. However, in vector search, similarity is relative to the input query vector, not absolute. It's possible to get positive results for a nonsensical or off-topic query. Less relevant results have a worse similarity score, but they're still the "nearest" vectors if there isn't anything closer. As such, a response with no meaningful results can still return `k` results, but each result's similarity score would be low. A [hybrid approach](hybrid-search-overview.md) that includes full text search can mitigate this problem.
 
 ## Next steps
 
 + [Try the quickstart](search-get-started-vector.md)
 + [Learn more about embeddings](vector-search-how-to-generate-embeddings.md)
 + [Learn more about data chunking](vector-search-how-to-chunk-documents.md)
-
