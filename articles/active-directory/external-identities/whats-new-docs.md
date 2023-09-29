@@ -54,7 +54,7 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 - [Cross-tenant access overview](cross-tenant-access-overview.md) - New storage model update
 - [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) - New storage model update
 - [Configure B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md) - New storage model update
-- 
+  
 ## July 2023
 
 ### New article
