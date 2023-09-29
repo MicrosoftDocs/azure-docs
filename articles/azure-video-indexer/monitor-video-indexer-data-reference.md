@@ -1,19 +1,17 @@
 ---
 title: Monitoring Azure AI Video Indexer data reference
 description: Important reference material needed when you monitor Azure AI Video Indexer 
-author: itnorman
 ms.topic: reference
-ms.author: itnorman
 ms.service: azure-video-indexer
 ms.custom: subject-monitoring
 ms.date: 04/17/2023
+ms.author: inhenkel
+author: itnorman
 ---
-<!-- VERSION 2.3
-Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
-
-<!-- IMPORTANT STEP 1.  Do a search and replace of Azure AI Video Indexer with the name of your service. That will make the template easier to read -->
 
 # Monitor Azure AI Video Indexer data reference
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 See [Monitoring Azure AI Video Indexer](monitor-video-indexer.md) for details on collecting and analyzing monitoring data for Azure AI Video Indexer.
 

@@ -343,22 +343,28 @@ AutoML NLP allows you to provide a list of models and combinations of hyperparam
 
 All the pre-trained text DNN models currently available in AutoML NLP for fine-tuning are listed below: 
 
-* bert_base_cased 
-* bert_large_uncased 
-* bert_base_multilingual_cased 
-* bert_base_german_cased 
-* bert_large_cased 
-* distilbert_base_cased 
-* distilbert_base_uncased 
-* roberta_base 
-* roberta_large 
-* distilroberta_base 
-* xlm_roberta_base 
-* xlm_roberta_large 
-* xlnet_base_cased 
-* xlnet_large_cased 
+* bert-base-cased 
+* bert-large-uncased 
+* bert-base-multilingual-cased 
+* bert-base-german-cased 
+* bert-large-cased 
+* distilbert-base-cased 
+* distilbert-base-uncased 
+* roberta-base 
+* roberta-large 
+* distilroberta-base 
+* xlm-roberta-base 
+* xlm-roberta-large 
+* xlnet-base-cased 
+* xlnet-large-cased 
 
 Note that the large models are larger than their base counterparts. They are typically more performant, but they take up more GPU memory and time for training. As such, their SKU requirements are more stringent: we recommend running on ND-series VMs for the best results. 
+
+## Supported model algorithms - HuggingFace (preview)
+
+With the new backend that runs on [Azure Machine Learning pipelines](concept-ml-pipelines.md), you can additionally use any text/token classification model from the HuggingFace Hub for [Text Classification](https://huggingface.co/models?pipeline_tag=text-classification&library=transformers), [Token Classification](https://huggingface.co/models?pipeline_tag=token-classification&sort=trending) which is part of the transformers library (such as microsoft/deberta-large-mnli). You may also find a curated list of models in [Azure Machine Learning model registry](concept-foundation-models.md?view=azureml-api-2&preserve-view=true) that have been validated with the pipeline components.
+
+Using any HuggingFace model will trigger runs using pipeline components. If both legacy and HuggingFace models are used, all runs/trials will be triggered using components.  
 
 ## Supported hyperparameters 
 

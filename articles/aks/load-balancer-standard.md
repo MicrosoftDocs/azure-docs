@@ -455,6 +455,8 @@ The following annotations are supported for Kubernetes services with type `LoadB
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by commas.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time in minutes for TCP connection idle timeouts to occur on the load balancer. The default and minimum value is 4. The maximum value is 30. The value must be an integer.
+| `service.beta.kubernetes.io/azure-load-balancer-ipv4`             | IPv4 address                          | Specify the IPv4 address to assign to the load balancer.
+| `service.beta.kubernetes.io/azure-load-balancer-ipv6`             | IPv6 address                          | Specify the IPv6 address to assign to the load balancer.
 
 > [!NOTE]
 > `service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` was deprecated in Kubernetes 1.18 and removed in 1.20.

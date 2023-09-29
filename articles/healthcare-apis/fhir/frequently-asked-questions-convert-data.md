@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: faq
-ms.date: 08/18/2023
+ms.date: 08/28/2023
 ms.author: jasteppe
 ---
 
@@ -53,8 +53,8 @@ The experience and core `$convert-data` operation functionality is similar for b
 
 ## The conversion succeeded, does this mean I have a valid FHIR bundle?
 
-The outcome of FHIR conversion is a FHIR Bundle as a batch. 
-* The FHIR Bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
+The outcome of FHIR conversion is a FHIR bundle as a batch. 
+* The FHIR bundle should align with the expectations of the FHIR R4 specification - [Bundle - FHIR v4.0.1](http://hl7.org/fhir/R4/Bundle.html).
 * If you're trying to validate against a specific profile, you need to do some post processing by utilizing the FHIR [`$validate`](validation-against-profiles.md) operation.
 
 ## Can I customize a default Liquid template? 

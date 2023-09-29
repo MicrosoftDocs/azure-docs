@@ -5,8 +5,7 @@ description: When you run a Feature Evaluation in your Personalizer resource fro
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 09/22/2022
 ---

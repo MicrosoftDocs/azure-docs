@@ -24,7 +24,7 @@
     href: quick-backup-vm-bicep-template.md
   - name: Back up Azure Database for PostgreSQL server - Azure portal
     href: quick-backup-postgresql-database-portal.md
-  - name: Enable Multi-user authorization on Recovery Services vault
+  - name: Enable Multi-user authorization (MUA)
     href: enable-multi-user-authorization-quickstart.md
   - name: Backup SAP HANA System Replication database
     items:
@@ -32,6 +32,8 @@
       href: quick-backup-hana-cli.md
     - name: Restore
       href: quick-restore-hana-cli.md
+  - name: Enable enhanced soft delete
+    href: quick-backup-azure-enable-enhanced-soft-delete.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -60,8 +62,10 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
-  - name: Configure Multi-user authorization (MUA) on Recovery Services vault
+  - name: Configure Multi-user authorization (MUA)
     href: multi-user-authorization-tutorial.md
+  - name: Recover soft deleted items with enhanced soft delete
+    href: backup-azure-enhanced-soft-delete-tutorial.md
 - name: Concepts
   items:
   - name: Resiliency
@@ -149,7 +153,13 @@
     - name: Prerequisites  
       href: azure-kubernetes-service-cluster-backup-concept.md      
   - name: Azure Blob backup
-    href: blob-backup-overview.md          
+    href: blob-backup-overview.md 
+  - name: Windows backup using MARS agent
+    items:
+    - name: Overview
+      href: backup-azure-about-mars.md
+    - name: Restore
+      href: about-restore-microsoft-azure-recovery-services.md        
   - name: Monitor and Alerts
     href: monitoring-and-alerts-overview.md
   - name: Security
@@ -179,7 +189,7 @@
     - name: Recovery Services vault
       items:
       - name: Create
-        href: backup-create-rs-vault.md
+        href: backup-create-recovery-services-vault.md
       - name: Delete
         href: backup-azure-delete-vault.md
       - name: Move
@@ -332,8 +342,6 @@
         href: azure-kubernetes-service-cluster-restore-using-cli.md      
   - name: Windows backup using MARS agent
     items:
-    - name: Overview
-      href: backup-azure-about-mars.md
     - name: Install or upgrade
       items:
       - name: Install MARS agent
@@ -348,8 +356,6 @@
         href: backup-azure-system-state.md
     - name: Restore
       items:
-      - name: Overview
-        href: about-restore-microsoft-azure-recovery-services.md
       - name: Recover files from Azure to Windows Server
         href: backup-azure-restore-windows-server.md
       - name: Restore all files in a volume
@@ -638,6 +644,8 @@
     items:
     - name: Overview
       href: security-overview.md
+    - name: Save and manage MARS agent passphrase in Azure Key Vault
+      href: save-backup-passphrase-securely-in-azure-key-vault.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
     - name: Configure Multi-user authorization using Resource Guard

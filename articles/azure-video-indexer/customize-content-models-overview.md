@@ -4,9 +4,12 @@ description: This article gives links to the conceptual articles that explain th
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customizing content models in Azure AI Video Indexer
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 

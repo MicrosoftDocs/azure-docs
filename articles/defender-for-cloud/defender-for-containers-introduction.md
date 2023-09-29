@@ -5,20 +5,22 @@ ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 07/25/2023
+ms.date: 09/06/2023
 ---
 
 # Overview of Microsoft Defender for Containers
 
 Microsoft Defender for Containers is the cloud-native solution to improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
-Defender for Containers assists you with the three core aspects of container security:
+Defender for Containers assists you with four core aspects of container security:
 
 - [**Environment hardening**](#hardening) - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-premises/IaaS, or Amazon EKS. Defender for Containers continuously assesses clusters to provide visibility into misconfigurations and guidelines to help mitigate identified threats.
 
 - [**Vulnerability assessment**](#vulnerability-assessment) - Vulnerability assessment and management tools for images stored in Azure Container Registry and Elastic Container Registry
 
 - [**Run-time threat protection for nodes and clusters**](#run-time-protection-for-kubernetes-nodes-and-clusters) - Threat protection for clusters and nodes generates security alerts for suspicious activities.
+
+- [**Agentless discovery for Kubernetes**](#agentless-discovery-for-kubernetes) - Provides tools that give you visibility into your data plane components, generating security insights based on your Kubernetes and environment configuration and lets you hunt for risks.
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series: [Microsoft Defender for Containers](episode-three.md).
 
@@ -92,7 +94,19 @@ Defender for Containers also includes host-level threat detection with over 60 K
 
 Defender for Cloud monitors the attack surface of multicloud Kubernetes deployments based on the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/cybersecurity/center-for-threat-informed-defense/) in close partnership with Microsoft.
 
-## Learn More
+## Agentless discovery for Kubernetes
+
+Defender for containers uses [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) to collect in an agentless manner information about your Kubernetes clusters. This data can be queried via [Cloud Security Explorer](concept-attack-path.md#what-is-cloud-security-explorer) and used for:
+
+1. Kubernetes inventory: gain visibility into your Kubernetes clusters data plane components such as nodes, pods, and cron jobs.
+
+1. Security insights: predefined security situations relevant to Kubernetes components, such as “exposed to the internet”. For more information, see [Security insights](attack-path-reference.md#insights).
+
+1. Risk hunting: querying various risk cases, correlating predefined or custom security scenarios across fine-grained Kubernetes properties as well as Defender For Containers security insights.
+
+:::image type="content" source="media/defender-for-containers/risk-hunting.png" alt-text="Screenshot of risk hunting query." lightbox="media/defender-for-containers/risk-hunting.png":::
+
+## Learn more
 
 Learn more about Defender for Containers in the following blogs:
 

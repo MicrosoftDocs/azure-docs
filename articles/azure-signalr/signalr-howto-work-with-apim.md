@@ -77,8 +77,8 @@ Now let's configure API Management from the portal.
 
 1. Go to **APIs** tab in the portal for API Management instance **_APIM1_**, select **Add API** and choose **HTTP**, **Create** with the following parameters:
    - Display name: `SignalR`
-   - Web service URL: `https://<your-signalr-service-url>/client`
-   - API URL suffix: `client`
+   - Web service URL: `https://<your-signalr-service-url>/client/`
+   - API URL suffix: `client/`
 1. Select the created `SignalR` API, **Save** with below settings:
    1. In **Design** tab
       1. Select **Add operation**, and **Save** with the following parameters:

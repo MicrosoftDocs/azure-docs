@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI Service
 description: Learn how to use function calling with the GPT-35-Turbo and GPT-4 models 
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
 ms.date: 07/20/2023
 manager: nitinme
@@ -64,8 +63,8 @@ functions= [
                     "description": "A comma separated list of features (i.e. beachfront, free wifi, etc.)"
                 }
             },
-            "required": ["location"],
-        },
+            "required": ["location"]
+        }
     }
 ]  
 
@@ -135,7 +134,7 @@ if response_message.get("function_call"):
         {
             "role": response_message["role"],
             "function_call": {
-                "name": response_message["function_call"]["name"],
+                "name": function_name,
                 "arguments": response_message["function_call"]["arguments"],
             },
             "content": None

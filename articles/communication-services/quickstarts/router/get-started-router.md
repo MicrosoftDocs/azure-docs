@@ -40,7 +40,7 @@ Get started with Azure Communication Services Job Router by setting up your clie
 ::: zone-end
 
 ## Next Steps
-Explore Job Router How-To's [tutorials](https://learn.microsoft.com/azure/communication-services/concepts/router/concepts#check-out-our-how-to-guides)
+Explore Job Router How-To's [tutorials](/azure/communication-services/concepts/router/concepts#check-out-our-how-to-guides)
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

@@ -39,7 +39,7 @@
     href: register-application.md
   - name: Verify write transaction receipts
     href: verify-write-transaction-receipts.md
-  - name: Verify the validity of an ACL node quote
+  - name: Establish trust on Azure confidential ledger
     href: verify-node-quotes.md
   - name: Manage Azure AD token-based users
     href: manage-azure-ad-token-based-users.md

@@ -3,10 +3,13 @@ title: Search for exact moments in videos with Azure AI Video Indexer
 description: Learn how to search for exact moments in videos using Azure AI Video Indexer.
 ms.topic: how-to
 ms.date: 11/23/2019
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Search for exact moments in videos with Azure AI Video Indexer
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This topic shows you how to use the Azure AI Video Indexer website to search for exact moments in videos.
 

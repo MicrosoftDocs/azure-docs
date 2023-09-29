@@ -2,14 +2,14 @@
 title: Grant access to inbound provisioning API
 description: Learn how to grant access to the inbound provisioning API.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/07/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -19,16 +19,16 @@ ms.reviewer: cmmdesai
 
 After you've configured [API-driven inbound provisioning app](inbound-provisioning-api-configure-app.md), you need to grant access permissions so that API clients can send requests to the provisioning [/bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API and query the [provisioning logs API](/graph/api/resources/provisioningobjectsummary). This tutorial walks you through the steps to configure these permissions. 
 
-Depending on how your API client authenticates with Azure AD, you can select between two configuration options: 
+Depending on how your API client authenticates with Microsoft Entra ID, you can select between two configuration options: 
 
-* [Configure a service principal](#configure-a-service-principal): Follow these instructions if your API client plans to use a service principal of an [Azure AD registered app](../develop/howto-create-service-principal-portal.md) and authenticate using OAuth client credentials grant flow. 
-* [Configure a managed identity](#configure-a-managed-identity): Follow these instructions if your API client plans to use an Azure AD [managed identity](../managed-identities-azure-resources/overview.md).
+* [Configure a service principal](#configure-a-service-principal): Follow these instructions if your API client plans to use a service principal of an [Microsoft Entra registered app](../develop/howto-create-service-principal-portal.md) and authenticate using OAuth client credentials grant flow. 
+* [Configure a managed identity](#configure-a-managed-identity): Follow these instructions if your API client plans to use a Microsoft Entra [managed identity](../managed-identities-azure-resources/overview.md).
 
 ## Configure a service principal 
-This configuration registers an app in Azure AD that represents the external API client and grants it permission to invoke the inbound provisioning API. The service principal client id and client secret can be used in the OAuth client credentials grant flow. 
+This configuration registers an app in Microsoft Entra ID that represents the external API client and grants it permission to invoke the inbound provisioning API. The service principal client id and client secret can be used in the OAuth client credentials grant flow. 
 
-1. Log in to Microsoft Entra admin center (https://entra.microsoft.com) with global administrator or application administrator login credentials. 
-1. Browse to **Azure Active Directory** -> **Applications** -> **App registrations**.
+1. Log in to Microsoft Entra admin center (https://entra.microsoft.com) with at least [Application Administrator](https://go.microsoft.com/fwlink/?linkid=2247823) login credentials. 
+1. Browse to **Microsoft Entra ID** -> **Applications** -> **App registrations**.
 1. Click on the option **New registration**.
 1. Provide an app name, select the default options, and click on **Register**.
       [![Screenshot of app registration.](media/inbound-provisioning-api-grant-access/register-app.png)](media/inbound-provisioning-api-grant-access/register-app.png#lightbox)
@@ -51,7 +51,7 @@ This configuration registers an app in Azure AD that represents the external API
 This section describes how you can assign the necessary permissions to a managed identity. 
 
 1. Configure a [managed identity](../managed-identities-azure-resources/overview.md) for use with your Azure resource. 
-1. Copy the name of your managed identity from the Azure portal. For example: The screenshot below shows the name of a system assigned managed identity associated with an Azure Logic Apps workflow called "CSV2SCIMBulkUpload". 
+1. Copy the name of your managed identity from the Microsoft Entra admin center. For example: The screenshot below shows the name of a system assigned managed identity associated with an Azure Logic Apps workflow called "CSV2SCIMBulkUpload". 
 
       [![Screenshot of managed identity name.](media/inbound-provisioning-api-grant-access/managed-identity-name.png)](media/inbound-provisioning-api-grant-access/managed-identity-name.png#lightbox) 
 
@@ -76,7 +76,7 @@ This section describes how you can assign the necessary permissions to a managed
       $managedID = Get-MgServicePrincipal -Filter "DisplayName eq 'CSV2SCIMBulkUpload'"
       New-MgServicePrincipalAppRoleAssignment -PrincipalId $managedID.Id -ServicePrincipalId $managedID.Id -ResourceId $graphApp.Id -AppRoleId $AppRole.Id
       ```
-1. To confirm that the permission was applied, find the managed identity service principal under **Enterprise Applications** in Azure AD. Remove the **Application type** filter to see all service principals.
+1. To confirm that the permission was applied, find the managed identity service principal under **Enterprise Applications** in Microsoft Entra ID. Remove the **Application type** filter to see all service principals.
       [![Screenshot of managed identity principal.](media/inbound-provisioning-api-grant-access/managed-identity-principal.png)](media/inbound-provisioning-api-grant-access/managed-identity-principal.png#lightbox) 
 1. Click on the **Permissions** blade under **Security**. Ensure the permission is set. 
       [![Screenshot of managed identity permissions.](media/inbound-provisioning-api-grant-access/managed-identity-permissions.png)](media/inbound-provisioning-api-grant-access/managed-identity-permissions.png#lightbox) 
@@ -86,6 +86,5 @@ This section describes how you can assign the necessary permissions to a managed
 ## Next steps
 - [Quick start using cURL](inbound-provisioning-api-curl-tutorial.md)
 - [Quick start using Postman](inbound-provisioning-api-postman.md)
-- [Quick start using Postman](inbound-provisioning-api-graph-explorer.md)
+- [Quick start using Graph Explorer](inbound-provisioning-api-graph-explorer.md)
 - [Frequently asked questions about API-driven inbound provisioning](inbound-provisioning-api-faqs.md)
-

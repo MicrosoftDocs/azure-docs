@@ -5,8 +5,7 @@ description: In this quickstart, you use the Speech SDK to create a custom voice
 services: cognitive-services
 author: trrwilson
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: travisw

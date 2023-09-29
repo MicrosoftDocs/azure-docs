@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory operations reference guide
+title: Microsoft Entra operations reference guide
 description: This operations reference guide describes the checks and actions you should take to secure and maintain identity and access management, authentication, governance, and operations
 services: active-directory
 author: martincoetzer
@@ -13,19 +13,19 @@ ms.date: 08/17/2022
 ms.author: martinco
 ---
 
-# Azure Active Directory operations reference guide
+# Microsoft Entra operations reference guide
 
 This operations reference guide describes the checks and actions you should take to secure and maintain the following areas:
 
 - **[Identity and access management](ops-guide-iam.md)** - ability to manage the lifecycle of identities and their entitlements.
 - **[Authentication management](ops-guide-auth.md)** - ability to manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
 - **[Governance](ops-guide-govern.md)** - ability to assess and attest the access granted nonprivileged and privileged identities, audit, and control changes to the environment.
-- **[Operations](ops-guide-ops.md)** - optimize the operations Azure Active Directory (Azure AD).
+- **[Operations](ops-guide-ops.md)** - optimize the operations Microsoft Entra ID.
 
 Some recommendations here might not be applicable to all customers' environment, for example, AD FS best practices might not apply if your organization uses password hash sync.
 
 > [!NOTE]
-> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time. Recommendations can change when organizations subscribe to a different Azure AD Premium license.
+> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time. Recommendations can change when organizations subscribe to a different Microsoft Entra ID P1 or P2 license.
 
 ## Stakeholders
 

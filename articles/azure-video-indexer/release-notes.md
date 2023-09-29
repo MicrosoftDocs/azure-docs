@@ -3,8 +3,9 @@ title: Azure AI Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure AI Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 07/03/2023
-ms.author: juliako
+ms.date: 09/27/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Azure AI Video Indexer release notes
@@ -17,6 +18,11 @@ To stay up-to-date with the most recent Azure AI Video Indexer developments, thi
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## September 2023
+
+### Changes related to AMS retirement
+As a result of the June 30th 2024 [retirement of Azure Media Services (AMS)](/azure/media-services/latest/azure-media-services-retirement), Video Indexer has announced a number of related retirements. They include the June 30th 2024 retirement of Video Indexer Classic accounts, API changes, and no longer supporting adaptive bitrate. For full details, see[Changes related to Azure Media Service (AMS) retirement](https://aka.ms/vi-ams-related-changes).
 
 ## July 2023
 

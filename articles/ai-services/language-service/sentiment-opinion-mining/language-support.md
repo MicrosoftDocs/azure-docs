@@ -5,17 +5,16 @@ description: This article explains which languages are supported by the Sentimen
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 09/18/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021, ignite-2022
 ---
 
 # Sentiment Analysis and Opinion Mining language support 
 
-Use this article to learn which languages are supported by Sentiment Analysis and Opinion Mining.
+Use this article to learn which languages are supported by Sentiment Analysis and Opinion Mining. Both the cloud-based API and [Docker containers](./how-to/use-containers.md) support the same languages.
 
 > [!NOTE]
 > Languages are added as new [model versions](../concepts/model-lifecycle.md) are released.
@@ -186,10 +185,10 @@ Total supported language codes: 94
 | Mongolian (new)	 | `mn` | 2022-11-01 | |
 | Nepali (new)	 | `ne` | 2022-11-01 | |
 | Norwegian	 | `no` | 2022-11-01 | |
-| Oriya	(new) | `or` | 2022-11-01 | |
+| Odia	(new) | `or` | 2022-11-01 | |
 | Oromo	(new) | `om` | 2022-11-01 | |
 | Pashto (new)	 | `ps` | 2022-11-01 | |
-| Persian (Farsi) (new) | `fa` | 2022-11-01 | |
+| Persian (new) | `fa` | 2022-11-01 | |
 | Polish	 | `pl` | 2022-11-01 | |
 | Portuguese (Portugal) | `pt-PT` | 2021-10-01 | `pt` also accepted |
 | Portuguese (Brazil) | `pt-BR` | 2021-10-01 | |

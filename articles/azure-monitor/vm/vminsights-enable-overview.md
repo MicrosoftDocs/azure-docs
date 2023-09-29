@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: xpathak
-ms.date: 06/24/2022
+ms.date: 09/28/2023
 ms.custom: references_regions
 
 ---
@@ -97,7 +97,7 @@ The DCR is defined by the options in the following table.
 
 | Option | Description |
 |:---|:---|
-| Guest performance | Specifies whether to collect [performance data](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-performance) from the guest operating system. This option is required for all machines. The collection interval for performance data is every 60 seconds.|
+| Guest performance | Specifies whether to collect [performance data](/azure/azure-monitor/vm/vminsights-performance) from the guest operating system. This option is required for all machines. The collection interval for performance data is every 60 seconds.|
 | Processes and dependencies | Collects information about processes running on the virtual machine and dependencies between machines. This information enables the [Map feature in VM insights](vminsights-maps.md). This is optional and enables the [VM insights Map feature](vminsights-maps.md) for the machine. |
 | Log Analytics workspace | Workspace to store the data. Only workspaces with VM insights are listed. |
 

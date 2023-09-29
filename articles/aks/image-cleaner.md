@@ -13,7 +13,7 @@ ms.date: 06/02/2023
 It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images may contain vulnerabilities, which may create security issues. To remove security risks in your clusters, you can clean these unreferenced images. Manually cleaning images can be time intensive. Image Cleaner performs automatic image identification and removal, which mitigates the risk of stale images and reduces the time required to clean them up.
 
 > [!NOTE]
-> Image Cleaner is a feature based on [Eraser](https://azure.github.io/eraser).
+> Image Cleaner is a feature based on [Eraser](https://eraser-dev.github.io/eraser).
 > On an AKS cluster, the feature name and property name is `Image Cleaner`, while the relevant Image Cleaner pods' names contain `Eraser`.
 
 ## Prerequisites
@@ -97,7 +97,8 @@ Image Cleaner generates an `ImageList` containing nonrunning and vulnerable imag
       name: imagelist
     spec:
       images:
-        - docker.io/library/alpine:3.7.3   # You can also use "*" to specify all non-running images
+        - docker.io/library/alpine:3.7.3
+    // You can also use "*" to specify all non-running images
     ```
 
 2. Apply the `ImageList` to your cluster using the `kubectl apply` command.

@@ -22,6 +22,11 @@ ms.custom: include file
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-2.png" alt-text="Screenshot of download agent." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-2.png":::
 
  6. Once the **Azure AD Connect Provisioning Agent Package** has completed downloading, run the *AADConnectProvisioningAgentSetup.exe* installation file from your downloads folder.
+   >[!NOTE]
+   >When installing for the US Government Cloud use:  
+   >*AADConnectProvisioningAgentSetup.exe ENVIRONMENTNAME=AzureUSGovernment*  
+   >See "[Install an agent in the US government cloud](../articles/active-directory/hybrid/cloud-sync/how-to-install.md#install-an-agent-in-the-us-government-cloud)" for more information.
+
  7. On the splash screen, select **I agree to the license and conditions**, and then select **Install**.
 
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/azure-ad-cloud-sync-splash-screen.png" alt-text="Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package splash screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-2.png":::
@@ -33,7 +38,7 @@ ms.custom: include file
  :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-5.png" alt-text="Screenshot of the select extensions screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-5.png":::
 
  >[!NOTE]
- >If you are installing the provisioning agent for use with (on-premsise app provisioning)(../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md) then select On-premises application provisioning (Azure AD to application).
+ >If you are installing the provisioning agent for use with [on-premsise app provisioning](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md) then select On-premises application provisioning (Azure AD to application).
 
  10. Sign in with your Azure AD global administrator or Hybrid Identity Administrator account.  If you have Internet Explorer enhanced security enabled, it will block the sign-in.  If so, close the installation, [disable Internet Explorer enhanced security](/troubleshoot/developer/browsers/security-privacy/enhanced-security-configuration-faq), and restart the **Azure AD Connect Provisioning Agent Package**  installation.
 
