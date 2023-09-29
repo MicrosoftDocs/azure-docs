@@ -136,16 +136,6 @@ For more information, see: [Microsoft Admin Portals (preview)](../conditional-ac
 
 ---
 
-### Public Preview - Microsoft Graph Activity Logs
-
-**Type:** New feature             
-**Service category:** Microsoft Graph                                  
-**Product capability:** Monitoring & Reporting                       
-
-The *MicrosoftGraphActivityLogs* provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity. For more information, see: [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview).
-
----
-
 ## August 2023
 
 ### General Availability - Tenant Restrictions V2
