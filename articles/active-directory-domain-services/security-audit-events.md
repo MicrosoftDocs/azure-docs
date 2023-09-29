@@ -17,35 +17,35 @@ ms.custom: devx-track-azurepowershell
 ---
 # Enable security and DNS audits for Microsoft Entra Domain Services
 
-Microsoft Entra Domain Services (Microsoft Entra DS) security and DNS audits let Azure stream events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Microsoft Entra DS sends all the audited events for the selected category to the targeted resource.
+Microsoft Entra Domain Services security and DNS audits let Azure stream events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Domain Services sends all the audited events for the selected category to the targeted resource.
 
 You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Microsoft Entra admin center.
 
 ## Security audit destinations
 
-You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Microsoft Entra DS security audits. These destinations can be combined. For example, you could use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short term.
+You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Domain Services security audits. These destinations can be combined. For example, you could use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short term.
 
 The following table outlines scenarios for each destination resource type.
 
 > [!IMPORTANT]
-> You need to create the target resource before you enable Microsoft Entra DS security audits. You can create these resources using the Microsoft Entra admin center, Azure PowerShell, or the Azure CLI.
+> You need to create the target resource before you enable Domain Services security audits. You can create these resources using the Microsoft Entra admin center, Azure PowerShell, or the Azure CLI.
 
 | Target Resource | Scenario |
 |:---|:---|
-|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Microsoft Entra DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Microsoft Entra DS security audit events, [Create an event hub using Microsoft Entra admin center](../event-hubs/event-hubs-create.md)|
-|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Microsoft Entra admin center directly.<br /><br />Before you enable Microsoft Entra DS security audit events, [Create a Log Analytics workspace in the Microsoft Entra admin center.](../azure-monitor/logs/quick-create-workspace.md)|
+|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Domain Services security audit events, first [Create an Azure Storage account](/azure/storage/common/storage-account-create).|
+|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Domain Services security audit events, [Create an event hub using Microsoft Entra admin center](/azure/event-hubs/event-hubs-create)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Microsoft Entra admin center directly.<br /><br />Before you enable Domain Services security audit events, [Create a Log Analytics workspace in the Microsoft Entra admin center.](/azure/azure-monitor/logs/quick-create-workspace)|
 
 ## Enable security audit events using the Microsoft Entra admin center
 
-To enable Microsoft Entra DS security audit events using the Microsoft Entra admin center, complete the following steps.
+To enable Domain Services security audit events using the Microsoft Entra admin center, complete the following steps.
 
 > [!IMPORTANT]
-> Microsoft Entra DS security audits aren't retroactive. You can't retrieve or replay events from the past. Microsoft Entra DS can only send events that occur after security audits are enabled.
+> Domain Services security audits aren't retroactive. You can't retrieve or replay events from the past. Domain Services can only send events that occur after security audits are enabled.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Global Administrator.
 1. Search for and select **Microsoft Entra Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
-1. In the Microsoft Entra DS window, select **Diagnostic settings** on the left-hand side.
+1. In the Domain Services window, select **Diagnostic settings** on the left-hand side.
 1. No diagnostics are configured by default. To get started, select **Add diagnostic setting**.
 
     ![Add a diagnostic setting for Microsoft Entra Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
@@ -71,14 +71,14 @@ To enable Microsoft Entra DS security audit events using the Microsoft Entra adm
 
     You can select different log categories for each targeted resource within a single configuration. This ability lets you choose which logs categories you want to keep for Log Analytics and which logs categories you want to archive, for example.
 
-1. When done, select **Save** to commit your changes. The target resources start to receive Microsoft Entra DS audit events soon after the configuration is saved.
+1. When done, select **Save** to commit your changes. The target resources start to receive Domain Services audit events soon after the configuration is saved.
 
 ## Enable security and DNS audit events using Azure PowerShell
 
-To enable Microsoft Entra DS security and DNS audit events using Azure PowerShell, complete the following steps. If needed, first [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-azure-powershell).
+To enable Domain Services security and DNS audit events using Azure PowerShell, complete the following steps. If needed, first [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
-> Microsoft Entra DS audits aren't retroactive. You can't retrieve or replay events from the past. Microsoft Entra DS can only send events that occur after audits are enabled.
+> Domain Services audits aren't retroactive. You can't retrieve or replay events from the past. Domain Services can only send events that occur after audits are enabled.
 
 1. Authenticate to your Azure subscription using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet. When prompted, enter your account credentials.
 
@@ -88,20 +88,20 @@ To enable Microsoft Entra DS security and DNS audit events using Azure PowerShel
 
 1. Create the target resource for the audit events.
 
-    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
-    * **Azure storage** - [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
-    * **Azure event hubs** - [Create an event hub using Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). You may also need to use the [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet to create an authorization rule that grants Microsoft Entra DS permissions to the event hub *namespace*. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
+    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration).
+    * **Azure storage** - [Create a storage account using Azure PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell)
+    * **Azure event hubs** - [Create an event hub using Azure PowerShell](/azure/event-hubs/event-hubs-quickstart-powershell). You may also need to use the [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet to create an authorization rule that grants Domain Services permissions to the event hub *namespace*. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
 
         > [!IMPORTANT]
         > Ensure you set the authorization rule on the event hub namespace and not the event hub itself.
 
-1. Get the resource ID for your Microsoft Entra DS managed domain using the [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
+1. Get the resource ID for your Domain Services managed domain using the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
 
     ```azurepowershell
     $aadds = Get-AzResource -name aaddsDomainName
     ```
 
-1. Configure the Azure Diagnostic settings using the [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) cmdlet to use the target resource for Microsoft Entra Domain Services audit events. In the following examples, the variable *$aadds.ResourceId* is used from the previous step.
+1. Configure the Azure Diagnostic settings using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to use the target resource for Microsoft Entra Domain Services audit events. In the following examples, the variable *$aadds.ResourceId* is used from the previous step.
 
     * **Azure storage** - Replace *storageAccountId* with your storage account name:
 
@@ -133,12 +133,12 @@ To enable Microsoft Entra DS security and DNS audit events using Azure PowerShel
 
 Log Analytic workspaces let you view and analyze the security and DNS audit events using Azure Monitor and the Kusto query language. This query language is designed for read-only use that boasts power analytic capabilities with an easy-to-read syntax. For more information to get started with Kusto query languages, see the following articles:
 
-* [Azure Monitor documentation](../azure-monitor/index.yml)
-* [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
-* [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
-* [Create and share dashboards of Log Analytics data](../azure-monitor/visualize/tutorial-logs-dashboards.md)
+* [Azure Monitor documentation](/azure/azure-monitor/)
+* [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial)
+* [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries)
+* [Create and share dashboards of Log Analytics data](/azure/azure-monitor/visualize/tutorial-logs-dashboards)
 
-The following sample queries can be used to start analyzing audit events from Microsoft Entra DS.
+The following sample queries can be used to start analyzing audit events from Domain Services.
 
 ### Sample query 1
 
@@ -206,7 +206,7 @@ AADDomainServicesAccountLogon
 
 ## Audit security and DNS event categories
 
-Microsoft Entra DS security and DNS audits align with traditional auditing for traditional AD DS domain controllers. In hybrid environments, you can reuse existing audit patterns so the same logic may be used when analyzing the events. Depending on the scenario you need to troubleshoot or analyze, the different audit event categories need to be targeted.
+Domain Services security and DNS audits align with traditional auditing for traditional AD DS domain controllers. In hybrid environments, you can reuse existing audit patterns so the same logic may be used when analyzing the events. Depending on the scenario you need to troubleshoot or analyze, the different audit event categories need to be targeted.
 
 The following audit event categories are available:
 
@@ -226,7 +226,7 @@ The following audit event categories are available:
 
 ## Event IDs per category
 
- Microsoft Entra DS security and DNS audits record the following event IDs when the specific action triggers an auditable event:
+ Domain Services security and DNS audits record the following event IDs when the specific action triggers an auditable event:
 
 | Event Category Name | Event IDs |
 |:---|:---|
@@ -245,7 +245,7 @@ The following audit event categories are available:
 
 For specific information on Kusto, see the following articles:
 
-* [Overview](/azure/kusto/query/) of the Kusto query language.
-* [Kusto tutorial](/azure/kusto/query/tutorial) to familiarize you with query basics.
-* [Sample queries](/azure/kusto/query/samples) that help you learn new ways to see your data.
-* Kusto [best practices](/azure/kusto/query/best-practices) to optimize your queries for success.
+* [Overview](/azure/data-explorer/kusto/query/) of the Kusto query language.
+* [Kusto tutorial](/azure/data-explorer/kusto/query/tutorials/learn-common-operators) to familiarize you with query basics.
+* [Sample queries](/azure/data-explorer/kusto/query/tutorials/learn-common-operators) that help you learn new ways to see your data.
+* Kusto [best practices](/azure/data-explorer/kusto/query/best-practices) to optimize your queries for success.

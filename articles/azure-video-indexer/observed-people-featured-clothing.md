@@ -7,7 +7,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Enable featured clothing of an observed person (preview)
+# Enable featured clothing of an observed person
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 When indexing a video using Azure AI Video Indexer advanced video settings, you can view the featured clothing of an observed person. The insight provides moments within the video where key people are prominently featured and clearly visible, including the coordinates of the people, timestamp, and the frame of the shot. This insight allows high-quality in-video contextual advertising, where relevant clothing ads are matched with the specific time within the video in which they're viewed.
 

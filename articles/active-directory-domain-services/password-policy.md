@@ -1,6 +1,6 @@
 ---
 title: Create and use password policies in Microsoft Entra Domain Services | Microsoft Docs
-description: Learn how and why to use fine-grained password policies to secure and control account passwords in a Microsoft Entra DS managed domain.
+description: Learn how and why to use fine-grained password policies to secure and control account passwords in a Domain Services managed domain.
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 09/21/2023
 ms.author: justinha
 
 ---
 # Password and account lockout policies on Microsoft Entra Domain Services managed domains
 
-To manage user security in Microsoft Entra Domain Services (Microsoft Entra DS), you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in a Microsoft Entra DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific users or groups.
+To manage user security in Microsoft Entra Domain Services, you can define fine-grained password policies that control account lockout settings or minimum password length and complexity. A default fine grained password policy is created and applied to all users in a Domain Services managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific users or groups.
 
-This article shows you how to create and configure a fine-grained password policy in Microsoft Entra DS using the Active Directory Administrative Center.
+This article shows you how to create and configure a fine-grained password policy in Domain Services using the Active Directory Administrative Center.
 
 > [!NOTE]
 > Password policies are only available for managed domains created using the Resource Manager deployment model. 
@@ -49,13 +49,13 @@ For more information about password policies and using the Active Directory Admi
 
 Policies are distributed through group association in a managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
-Password policies behave a little differently depending on how the user account they're applied to was created. There are two ways a user account can be created in Microsoft Entra DS:
+Password policies behave a little differently depending on how the user account they're applied to was created. There are two ways a user account can be created in Domain Services:
 
 * The user account can be synchronized in from Microsoft Entra ID. This includes cloud-only user accounts created directly in Azure, and hybrid user accounts synchronized from an on-premises AD DS environment using Microsoft Entra Connect.
-    * The majority of user accounts in Microsoft Entra DS are created through the synchronization process from Microsoft Entra ID.
+    * The majority of user accounts in Domain Services are created through the synchronization process from Microsoft Entra ID.
 * The user account can be manually created in a managed domain, and doesn't exist in Microsoft Entra ID.
 
-All users, regardless of how they're created, have the following account lockout policies applied by the default password policy in Microsoft Entra DS:
+All users, regardless of how they're created, have the following account lockout policies applied by the default password policy in Domain Services:
 
 * **Account lockout duration:** 30
 * **Number of failed logon attempts allowed:** 5
@@ -64,11 +64,11 @@ All users, regardless of how they're created, have the following account lockout
 
 With these default settings, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
 
-Account lockouts only occur within the managed domain. User accounts are only locked out in Microsoft Entra DS, and only due to failed sign-in attempts against the managed domain. User accounts that were synchronized in from Microsoft Entra ID or on-premises aren't locked out in their source directories, only in Microsoft Entra DS.
+Account lockouts only occur within the managed domain. User accounts are only locked out in Domain Services, and only due to failed sign-in attempts against the managed domain. User accounts that were synchronized in from Microsoft Entra ID or on-premises aren't locked out in their source directories, only in Domain Services.
 
-If you have a Microsoft Entra password policy that specifies a maximum password age greater than 90 days, that password age is applied to the default policy in Microsoft Entra DS. You can configure a custom password policy to define a different maximum password age in Microsoft Entra DS. Take care if you have a shorter maximum password age configured in a Microsoft Entra DS password policy than in Microsoft Entra ID or an on-premises AD DS environment. In that scenario, a user's password may expire in Microsoft Entra DS before they're prompted to change in Microsoft Entra ID or an on-premises AD DS environment.
+If you have a Microsoft Entra password policy that specifies a maximum password age greater than 90 days, that password age is applied to the default policy in Domain Services. You can configure a custom password policy to define a different maximum password age in Domain Services. Take care if you have a shorter maximum password age configured in a Domain Services password policy than in Microsoft Entra ID or an on-premises AD DS environment. In that scenario, a user's password may expire in Domain Services before they're prompted to change in Microsoft Entra ID or an on-premises AD DS environment.
 
-For user accounts created manually in a managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Microsoft Entra ID, as a user can't update their password directly in Microsoft Entra DS.
+For user accounts created manually in a managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Microsoft Entra ID, as a user can't update their password directly in Domain Services.
 
 * **Minimum password length (characters):** 7
 * **Passwords must meet complexity requirements**
@@ -128,7 +128,7 @@ For more information about password policies and using the Active Directory Admi
 * [Configure fine-grained password policies using AD Administration Center](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md

@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 09/21/2023
 ms.author: justinha 
 ---
 # Configure scoped synchronization from Microsoft Entra ID to Microsoft Entra Domain Services using the Microsoft Entra admin center
 
-To provide authentication services, Microsoft Entra Domain Services (Microsoft Entra DS) synchronizes users and groups from Microsoft Entra ID. In a hybrid environment, users and groups from an on-premises Active Directory Domain Services (AD DS) environment can be first synchronized to Microsoft Entra ID using Microsoft Entra Connect, and then synchronized to a Microsoft Entra DS managed domain.
+To provide authentication services, Microsoft Entra Domain Services synchronizes users and groups from Microsoft Entra ID. In a hybrid environment, users and groups from an on-premises Active Directory Domain Services (AD DS) environment can be first synchronized to Microsoft Entra ID using Microsoft Entra Connect, and then synchronized to a Domain Services managed domain.
 
-By default, all users and groups from a Microsoft Entra directory are synchronized to a managed domain. If only some users need to use Microsoft Entra DS, you can instead choose to synchronize only groups of users. You can filter synchronization for groups on-premises, cloud only, or both. 
+By default, all users and groups from a Microsoft Entra directory are synchronized to a managed domain. If only some users need to use Domain Services, you can instead choose to synchronize only groups of users. You can filter synchronization for groups on-premises, cloud only, or both. 
 
 This article shows you how to configure scoped synchronization and then change or disable the set of scoped users using the Microsoft Entra admin center. You can also [complete these steps using PowerShell][scoped-sync-powershell].
 
@@ -33,7 +33,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][tutorial-create-instance].
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to change the Microsoft Entra DS synchronization scope.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to change the Domain Services synchronization scope.
 
 ## Scoped synchronization overview
 
@@ -57,7 +57,7 @@ To enable scoped synchronization in the Microsoft Entra admin center, complete t
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com), search for and select **Microsoft Entra Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
 1. Select **Synchronization** from the menu on the left-hand side.
 1. For *Synchronization scope*, select **All** or **Cloud Only**.
-1. To filter synchronization for selected groups, click **Show selected groups**, choose whether to synchronize cloud-only groups, on-premises groups, or both. For example, the following screenshot shows how to synchronize only three groups that were created in Microsoft Entra ID. Only users who belong to those groups will have their accounts synchronized to Microsoft Entra DS.  
+1. To filter synchronization for selected groups, click **Show selected groups**, choose whether to synchronize cloud-only groups, on-premises groups, or both. For example, the following screenshot shows how to synchronize only three groups that were created in Microsoft Entra ID. Only users who belong to those groups will have their accounts synchronized to Domain Services.  
 
    :::image type="content"  source="media/scoped-synchronization/cloud-only-groups.png" alt-text="Screenshot that shows filter by cloud-only groups." :::
 
@@ -96,5 +96,5 @@ To learn more about the synchronization process, see [Understand synchronization
 [scoped-sync-powershell]: powershell-scoped-synchronization.md
 [concepts-sync]: synchronization.md
 [tutorial-create-instance]: tutorial-create-instance.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory

@@ -59,4 +59,4 @@ Create a replacement secure LDAP certificate by following the steps to [create a
 If you still have issues, [open an Azure support request][azure-support] for more troubleshooting help.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/how-to-get-support.md
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 09/22/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -29,13 +29,13 @@ If you instead want to use the Microsoft 365 admin center to configure a multi-t
 
 ![Icon for the owner tenant.](./media/common/icon-tenant-owner.png)<br/>**Owner tenant**
 
-- Microsoft Entra ID P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
+- For license information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and templates for the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
 ![Icon for the member tenant.](./media/common/icon-tenant-member.png)<br/>**Member tenant**
 
-- Microsoft Entra ID P1 or P2 license. For more information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
+- For license information, see [License requirements](./multi-tenant-organization-overview.md#license-requirements).
 - [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings and templates for the multi-tenant organization.
 - [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 

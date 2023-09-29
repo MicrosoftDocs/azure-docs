@@ -10,7 +10,7 @@ ms.date: 09/12/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.custom: it-pro, devx-track-dotnet
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 

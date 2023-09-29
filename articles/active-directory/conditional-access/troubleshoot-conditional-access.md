@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Troubleshooting sign-in problems with Conditional Access
 
-The information in this article can be used to troubleshoot unexpected sign-in outcomes related to Conditional Access using error messages and Microsoft Entra sign-ins log.
+The information in this article can be used to troubleshoot unexpected sign-in outcomes related to Conditional Access using error messages and Microsoft Entra sign-in logs.
 
 ## Select "all" consequences
 
@@ -65,7 +65,7 @@ To find out which Conditional Access policy or policies applied and why do the f
       1. **Username** to see information related to specific users.
       1. **Date** scoped to the time frame in question.
 
-   ![Screenshot showing selecting the Conditional Access filter in the sign-ins log.](./media/troubleshoot-conditional-access/image3.png)
+   ![Screenshot showing selecting the Conditional Access filter in the sign-in log.](./media/troubleshoot-conditional-access/image3.png)
 
 1. Once the sign-in event that corresponds to the user's sign-in failure has been found select the **Conditional Access** tab. The Conditional Access tab shows the specific policy or policies that resulted in the sign-in interruption.
    1. Information in the **Troubleshooting and support** tab may provide a clear reason as to why a sign-in failed such as a device that didn't meet compliance requirements.
@@ -100,7 +100,7 @@ More information about error codes can be found in the article [Microsoft Entra 
 
 In some specific scenarios, users are blocked because there are cloud apps with dependencies on resources blocked by Conditional Access policy.
 
-To determine the service dependency, check the sign-ins log for the application and resource called by the sign-in. In the following screenshot, the application called is **Azure Portal** but the resource called is **Windows Azure Service Management API**. To target this scenario appropriately all the applications and resources should be similarly combined in Conditional Access policy.
+To determine the service dependency, check the sign-in log for the application and resource called by the sign-in. In the following screenshot, the application called is **Azure Portal** but the resource called is **Windows Azure Service Management API**. To target this scenario appropriately all the applications and resources should be similarly combined in Conditional Access policy.
 
 :::image type="content" source="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png" alt-text="Screenshot that shows an example sign-in log showing an Application calling a Resource. This scenario is also known as a service dependency." lightbox="media/troubleshoot-conditional-access/service-dependency-example-sign-in.png":::
 

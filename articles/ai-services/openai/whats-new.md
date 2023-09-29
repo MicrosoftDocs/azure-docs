@@ -5,8 +5,7 @@ description: Learn about the latest news and features updates for Azure OpenAI
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: whats-new
 ms.date: 09/20/2023
 recommendations: false
@@ -16,6 +15,10 @@ keywords:
 # What's new in Azure OpenAI Service
 
 ## September 2023
+
+### GPT-3.5 Turbo Instruct
+
+Azure OpenAI Service now supports the GPT-3.5 Turbo Instruct model. This model has performance comparable to `text-davinci-003` and is available to use with the Completions API. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
 
 ### Whisper public preview
 

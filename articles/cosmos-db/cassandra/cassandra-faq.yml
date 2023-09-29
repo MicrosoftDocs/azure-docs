@@ -181,9 +181,11 @@ sections:
       - question: |
           Does the API for Cassandra provide full backups?
         answer: |
-          Azure Cosmos DB provides two free full backups taken at four-hour intervals across all APIs. So you don't need to set up a backup schedule. 
+          Azure Cosmos DB provides two free full backups taken at four-hour intervals across all APIs. So you don't need to set up a backup schedule.
+
+          You can manage the backup retention and frequency yourself.
           
-          If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../online-backup-and-restore.md) article.
+          If you want to restore from backup, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../online-backup-and-restore.md) article.
           
       - question: |
           How does the API for Cassandra account handle failover if a region goes down?

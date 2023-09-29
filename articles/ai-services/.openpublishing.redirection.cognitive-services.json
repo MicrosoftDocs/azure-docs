@@ -2137,7 +2137,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/form-recognizer/form-recognizer-container-howto.md",
-            "redirect_url": "/azure/ai-services/form-recognizer/containers/form-recognizer-container-install-run",
+            "redirect_url": "/azure/ai-services/document-intelligence/containers/install-run",
             "redirect_document_id": false
         },
         {
@@ -4347,37 +4347,37 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-cpp-linux.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-cpp-macos.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-cpp-windows.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-csharp-dotnet-windows.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-csharp-unity.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-csharp-uwp.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
@@ -4387,7 +4387,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-csharp-xamarin.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
@@ -4412,22 +4412,22 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-java-android.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-java-jre.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-js-browser.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-js-node.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
@@ -4442,12 +4442,12 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-objective-c-macos.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-objectivec-ios.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
@@ -4517,17 +4517,17 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-python.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-swift-ios.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/speech-service/quickstart-swift-macos.md",
-            "redirect_url": "/azure/ai-services/speech-service/quickstarts/speech-to-text-from-microphone",
+            "redirect_url": "/azure/ai-services/speech-service/get-started-speech-to-text",
             "redirect_document_id": false
         },
         {
@@ -5722,7 +5722,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/translator/translator-text-how-to-signup.md",
-            "redirect_url": "/azure/ai-services/translator/translator-how-to-signup",
+            "redirect_url": "/azure/ai-services/translator/create-translator-resource",
             "redirect_document_id": false
         },
         {
@@ -6062,7 +6062,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/get-started-with-document-translation.md",
-            "redirect_url": "/azure/ai-services/Translator/document-translation/quickstarts/get-started-with-rest-api",
+            "redirect_url": "/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api",
             "redirect_document_id": false
         },
         {
@@ -6118,6 +6118,11 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/quickstart-translator-sdk.md",
             "redirect_url": "/azure/ai-services/Translator/quickstart-text-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/label-tool.md",
+            "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/try-sample-label-tool",
             "redirect_document_id": false
         },
         {

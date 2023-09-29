@@ -16,7 +16,7 @@ ms.custom: engagement-fy23
 # Customer intent: As a tenant administrator, I want to add Microsoft Entra ID as an identity provider for external guest users.
 ---
 
-# Add Microsoft Entra ID as an identity provider for External Identities
+# Add Microsoft Entra ID as an identity provider for External ID
 
 Microsoft Entra ID is available as an identity provider option for B2B collaboration by default. If an external guest user has a Microsoft Entra account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Microsoft Entra account.
 
