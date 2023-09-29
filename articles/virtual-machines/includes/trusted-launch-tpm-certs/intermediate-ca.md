@@ -52,9 +52,9 @@ GClM7AcDQwWLxcopzskGQdHNM1zMsprRRwYaVpTJH67xeNda6+Y7IOPJYTvyoXHP
 
 Intermediate Certificate Authority
 
-Thumbprint = db1f3959dcce7091f87c43446be1f4ab2d3415b7
-Serial Number = 3300000002c0d17b4b8f979c35000000000002
-Valid Until = November 3rd, 2025
+Thumbprint # db1f3959dcce7091f87c43446be1f4ab2d3415b7
+Serial Number # 3300000002c0d17b4b8f979c35000000000002
+Valid Until # November 3rd, 2025
 ``````
 
 </details>

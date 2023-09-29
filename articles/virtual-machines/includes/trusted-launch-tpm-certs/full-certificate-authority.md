@@ -112,9 +112,11 @@ dmojU0k/9m3fjwOEQU6Bva15+rzZFFnWy4m1MQA=
 -----END CERTIFICATE-----
 
 Full Certificate Authority Details
-Valid # 01/Jun/2048
-Serial # 51f431da2c92088a4e29e0d929de4aa7
-Thumbnail# cdb9bc34197a5355f652f1583fbd4e9a1d4801f0 
+
+Thumbprint # cdb9bc34197a5355f652f1583fbd4e9a1d4801f0
+Serial Number # 51f431da2c92088a4e29e0d929de4aa7
+Valid Until # 01/Jun/2048
+
 ```
 
 </details>
