@@ -6,8 +6,8 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
-    - name: Compare container options in Azure
-      href: compare-options.md
+    - name: Overview
+      href: start.md
     - name: Quickstarts
       items: 
       - name: Deploy from an existing container image
@@ -32,8 +32,8 @@
           href: jobs-get-started-cli.md
 - name: Key concepts
   items:
-    - name: Overview
-      href: start.md
+    - name: Compare container options in Azure
+      href: compare-options.md
     - name: Plans
       href: plans.md
     - name: Environment
