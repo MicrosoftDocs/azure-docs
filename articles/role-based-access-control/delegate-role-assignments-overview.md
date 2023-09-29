@@ -60,6 +60,8 @@ Instead of assigning the Owner or User Access Administrator roles, a more secure
 
 Delegating role assignments with conditions is a way to restrict the role assignments a user can create. In the preceding example, Alice can allow Dara to create some role assignments on her behalf, but not all role assignments. For example, Alice can constrain the roles that Dara can assign and constrain the principals that Dara can assign roles to. This delegation with conditions is sometimes referred to as *constrained delegation* and is implemented with [Azure attribute-based access control (Azure ABAC) conditions](conditions-overview.md).
 
+To watch an overview video, see [Delegate Azure role assignments with conditions](https://youtu.be/3eDf2thqeO4?si=rBPW9BxRNtISkAGG).
+
 ## Why delegate role assignments with conditions?
 
 Here are some reasons why delegating the role assignment task to others with conditions is more secure:
@@ -136,12 +138,16 @@ To delegate role assignments with conditions, you assign roles as you currently 
     # [Template](#tab/template)
 
     Choose from a list of condition templates. Select **Configure** to specify the roles, principal types, or principals.
+
+    For more information, see [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md).
     
     :::image type="content" source="./media/shared/condition-templates.png" alt-text="Screenshot of Add role assignment condition with a list of condition templates." lightbox="./media/shared/condition-templates.png":::
 
     # [Condition editor](#tab/condition-editor)
 
-    If the condition templates don't work for your scenario or if you want more control, you can use the condition editor. For examples, see [Examples to delegate Azure role assignments with conditions (preview)](delegate-role-assignments-examples.md).
+    If the condition templates don't work for your scenario or if you want more control, you can use the condition editor.
+
+    For examples, see [Examples to delegate Azure role assignments with conditions (preview)](delegate-role-assignments-examples.md).
 
     :::image type="content" source="./media/shared/delegate-role-assignments-expression.png" alt-text="Screenshot of condition editor in Azure portal showing a role assignment condition to delegate role assignments with conditions." lightbox="./media/shared/delegate-role-assignments-expression.png":::
 

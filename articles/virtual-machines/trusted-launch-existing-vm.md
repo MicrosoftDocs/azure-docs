@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 08/13/2023
-ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Enable Trusted Launch on existing Azure VMs

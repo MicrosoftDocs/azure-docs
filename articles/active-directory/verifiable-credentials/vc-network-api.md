@@ -1,7 +1,7 @@
 ---
-title: Entra Verified ID Network API
+title: Microsoft Entra Verified ID Network API
 titleSuffix: Microsoft Entra Verified ID
-description: Learn how to use the Entra Verified ID Network API
+description: Learn how to use the Microsoft Entra Verified ID Network API
 documentationCenter: ''
 author: barclayn
 manager: amycolannino
@@ -14,26 +14,26 @@ ms.author: barclayn
 #Customer intent: As a verifiable credentials developer, I want to configure verifying credentials from another party 
 ---
 
-# Entra Verified ID network API
+# Microsoft Entra Verified ID network API
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-The Microsoft Entra Verified ID Network API enables you to search for published credentials in the [Entra Verified ID Network](how-use-vcnetwork.md). 
+The Microsoft Entra Verified ID Network API enables you to search for published credentials in the [Microsoft Entra Verified ID Network](how-use-vcnetwork.md). 
 
 >[!NOTE] 
 >The API is intended for developers comfortable with RESTful APIs.
 
 ## Base URL
 
-The Entra Verified Network API is served over HTTPS. All URLs referenced in the documentation have the following base: `https://verifiedid.did.msidentity.com`. 
+The Microsoft Entra ID Verified Network API is served over HTTPS. All URLs referenced in the documentation have the following base: `https://verifiedid.did.msidentity.com`. 
 
 ## Authentication
 
-The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. 
+The API is protected through Microsoft Entra ID and uses OAuth2 bearer tokens. The app registration needs to have the API Permission for `Verifiable Credentials Service Admin` and then when acquiring the access token the app should use scope `6a8b4b39-c021-437c-b060-5a14a3fd65f3/full_access`. 
 
 ## Searching for issuers
 
-This API is used to search for issuers available in the Entra Verified ID Network. You can search for issuers by their **linked domain** name. The value supplied for the `filter` parameter will be used to find issuers that have onboarded to Entra Verified ID and have a verified linked domain. Currently you can only filter by `linkeddomainurls` and with operator `like`. There will be a maximum of 15 issuers in the response.
+This API is used to search for issuers available in the Microsoft Entra Verified ID Network. You can search for issuers by their **linked domain** name. The value supplied for the `filter` parameter will be used to find issuers that have onboarded to Microsoft Entra Verified ID and have a verified linked domain. Currently you can only filter by `linkeddomainurls` and with operator `like`. There will be a maximum of 15 issuers in the response.
 
 #### HTTP request
 
@@ -132,4 +132,4 @@ Content-type: application/json
 
 ## Next steps
 
-Learn more about [Entra Verified ID Network](how-use-vcnetwork.md).
+Learn more about [Microsoft Entra Verified ID Network](how-use-vcnetwork.md).

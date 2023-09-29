@@ -1,6 +1,6 @@
 ---
-title: What is an Azure AD joined device?
-description: Azure AD joined devices can help you to manage devices accessing resources in your environment.
+title: What is a Microsoft Entra joined device?
+description: Microsoft Entra joined devices can help you to manage devices accessing resources in your environment.
 
 services: active-directory
 ms.service: active-directory
@@ -15,13 +15,13 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD joined devices
+# Microsoft Entra joined devices
 
-Any organization can deploy Azure AD joined devices no matter the size or industry. Azure AD join works even in hybrid environments, enabling access to both cloud and on-premises apps and resources.
+Any organization can deploy Microsoft Entra joined devices no matter the size or industry. Microsoft Entra join works even in hybrid environments, enabling access to both cloud and on-premises apps and resources.
 
-| Azure AD Join | Description |
+| Microsoft Entra join | Description |
 | --- | --- |
-| **Definition** | Joined only to Azure AD requiring organizational account to sign in to the device |
+| **Definition** | Joined only to Microsoft Entra ID requiring organizational account to sign in to the device |
 | **Primary audience** | Suitable for both cloud-only and hybrid organizations. |
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
@@ -39,43 +39,43 @@ Any organization can deploy Azure AD joined devices no matter the size or indust
 |   | Conditional Access through MDM enrollment and MDM compliance evaluation |
 |   | [Self-service Password Reset and Windows Hello PIN reset on lock screen](../authentication/howto-sspr-windows.md) |
 
-Azure AD joined devices are signed in to using an organizational Azure AD account. Access to resources can be controlled based on Azure AD account and [Conditional Access policies](../conditional-access/howto-conditional-access-policy-compliant-device.md) applied to the device.
+Microsoft Entra joined devices are signed in to using an organizational Microsoft Entra account. Access to resources can be controlled based on Microsoft Entra account and [Conditional Access policies](../conditional-access/howto-conditional-access-policy-compliant-device.md) applied to the device.
 
-Administrators can secure and further control Azure AD joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using Microsoft Configuration Manager. These tools provide a means to enforce organization-required configurations like: 
+Administrators can secure and further control Microsoft Entra joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using Microsoft Configuration Manager. These tools provide a means to enforce organization-required configurations like: 
 
 - Requiring storage to be encrypted
 - Password complexity
 - Software installation
 - Software updates
 
-Administrators can make organization applications available to Azure AD joined devices using Configuration Manager to [Manage apps from the Microsoft Store for Business and Education](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Administrators can make organization applications available to Microsoft Entra joined devices using Configuration Manager to [Manage apps from the Microsoft Store for Business and Education](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-Azure AD join can be accomplished using self-service options like the Out of Box Experience (OOBE), bulk enrollment, or [Windows Autopilot](/intune/enrollment-autopilot).
+Microsoft Entra join can be accomplished using self-service options like the Out of Box Experience (OOBE), bulk enrollment, or [Windows Autopilot](/intune/enrollment-autopilot).
 
-Azure AD joined devices can still maintain single sign-on access to on-premises resources when they are on the organization's network. Devices that are Azure AD joined can still authenticate to on-premises servers like file, print, and other applications.
+Microsoft Entra joined devices can still maintain single sign-on access to on-premises resources when they are on the organization's network. Devices that are Microsoft Entra joined can still authenticate to on-premises servers like file, print, and other applications.
 
 ## Scenarios
 
-Azure AD join can be used in various scenarios like:
+Microsoft Entra join can be used in various scenarios like:
 
-- You want to transition to cloud-based infrastructure using Azure AD and MDM like Intune.
+- You want to transition to cloud-based infrastructure using Microsoft Entra ID and MDM like Intune.
 - You can’t use an on-premises domain join, for example, if you need to get mobile devices such as tablets and phones under control.
-- Your users primarily need to access Microsoft 365 or other SaaS apps integrated with Azure AD.
-- You want to manage a group of users in Azure AD instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
+- Your users primarily need to access Microsoft 365 or other SaaS apps integrated with Microsoft Entra ID.
+- You want to manage a group of users in Microsoft Entra ID instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
 - You want to provide joining capabilities to workers who work from home or are in remote branch offices with limited on-premises infrastructure.
 
-You can configure Azure AD join for all Windows 11 and Windows 10 devices except for Home editions.
+You can configure Microsoft Entra join for all Windows 11 and Windows 10 devices except for Home editions.
 
-The goal of Azure AD joined devices is to simplify:
+The goal of Microsoft Entra joined devices is to simplify:
 
 - Windows deployments of work-owned devices
 - Access to organizational apps and resources from any Windows device
 - Cloud-based management of work-owned devices
-- Users to sign in to their devices with their Azure AD or synced Active Directory work or school accounts.
+- Users to sign in to their devices with their Microsoft Entra ID or synced Active Directory work or school accounts.
 
-![Azure AD joined devices](./media/concept-directory-join/azure-ad-joined-device.png)
+![Microsoft Entra joined devices](./media/concept-directory-join/azure-ad-joined-device.png)
 
-Azure AD Join can be deployed by using any of the following methods:
+Microsoft Entra join can be deployed by using any of the following methods:
 
 - [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
 - [Bulk deployment](/intune/windows-bulk-enroll)
@@ -83,8 +83,8 @@ Azure AD Join can be deployed by using any of the following methods:
 
 ## Next steps
 
-- [Plan your Azure AD join implementation](device-join-plan.md)
+- [Plan your Microsoft Entra join implementation](device-join-plan.md)
 - [Co-management using Configuration Manager and Microsoft Intune](/mem/configmgr/comanage/overview)
-- [How to manage the local administrators group on Azure AD joined devices](assign-local-admin.md)
-- [Manage device identities using the Azure portal](manage-device-identities.md)
-- [Manage stale devices in Azure AD](manage-stale-devices.md)
+- [How to manage the local administrators group on Microsoft Entra joined devices](assign-local-admin.md)
+- [Manage device identities](manage-device-identities.md)
+- [Manage stale devices in Microsoft Entra ID](manage-stale-devices.md)

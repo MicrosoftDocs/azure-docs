@@ -67,6 +67,7 @@ Follow the instructions to configure an existing ConfigMap or to use a new one.
 
 1. For configuring via CLI, use the corresponding [config file](./container-insights-cost-config.md#configuring-aks-data-collection-settings-using-azure-cli), update the `enableContainerLogV2` field in the config file to be true.
 
+
 ---
  
 ### Configure an existing ConfigMap
@@ -109,11 +110,16 @@ Additionally, the feature also adds support for .NET and Go stack traces, which 
 Customers must [enable ContainerLogV2](./container-insights-logging-v2.md#enable-the-containerlogv2-schema) for multi-line logging to work.
 
 ### How to enable 
-Multi-line logging can be enabled by setting *enable_multiline_logs* flag to “true” in [the config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml#L49) 
+Multi-line logging is a preview feature and can be enabled by setting **enabled** flag to "true" under the `[log_collection_settings.enable_multiline_logs]` section in the the [config map](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml)
 
-### Next steps for Multi-line logging
-* Read more about the [ContainerLogV2 schema](https://aka.ms/ContainerLogv2) 
+```yaml
+[log_collection_settings.enable_multiline_logs]
+# fluent-bit based multiline log collection for go (stacktrace), dotnet (stacktrace)
+# if enabled will also stitch together container logs split by docker/cri due to size limits(16KB per log line)
+enabled = "true"
+```
 
 ## Next steps
 * Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.
 * Learn how [query data](./container-insights-log-query.md#container-logs) from ContainerLogV2
+

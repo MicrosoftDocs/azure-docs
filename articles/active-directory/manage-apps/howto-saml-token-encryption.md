@@ -1,6 +1,6 @@
 ---
 title: SAML token encryption
-description: Learn how to configure Azure Active Directory SAML token encryption.
+description: Learn how to configure Microsoft Entra SAML token encryption.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -15,26 +15,26 @@ ms.collection: M365-identity-device-management
 ms.custom: enterprise-apps, has-azure-ad-ps-ref
 ---
 
-# Configure Azure Active Directory SAML token encryption
+# Configure Microsoft Entra SAML token encryption
 
 > [!NOTE]
-> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+> Token encryption is a Microsoft Entra ID P1 or P2 feature. To learn more about Microsoft Entra editions, features, and pricing, see [Microsoft Entra pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-SAML token encryption enables the use of encrypted SAML assertions with an application that supports it. When configured for an application, Azure AD will encrypt the SAML assertions it emits for that application using the public key obtained from a certificate stored in Azure AD. The application must use the matching private key to decrypt the token before it can be used as evidence of authentication for the signed in user.
+SAML token encryption enables the use of encrypted SAML assertions with an application that supports it. When configured for an application, Microsoft Entra ID will encrypt the SAML assertions it emits for that application using the public key obtained from a certificate stored in Microsoft Entra ID. The application must use the matching private key to decrypt the token before it can be used as evidence of authentication for the signed in user.
 
-Encrypting the SAML assertions between Azure AD and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
+Encrypting the SAML assertions between Microsoft Entra ID and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
 
-Even without token encryption, Azure AD SAML tokens are never passed on the network in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing more certificates.
+Even without token encryption, Microsoft Entra SAML tokens are never passed on the network in the clear. Microsoft Entra ID requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing more certificates.
 
-To configure token encryption, you need to upload an X.509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X.509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
+To configure token encryption, you need to upload an X.509 certificate file that contains the public key to the Microsoft Entra application object that represents the application. To obtain the X.509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Microsoft Entra ID.
 
-Azure AD uses AES-256 to encrypt the SAML assertion data.
+Microsoft Entra ID uses AES-256 to encrypt the SAML assertion data.
 
 ## Prerequisites
 
 To configure SAML token encryption, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 [!INCLUDE [portal updates](../includes/portal-update.md)]
@@ -51,9 +51,9 @@ To configure enterprise application's SAML token encryption, follow these steps:
 
     The public key should be stored in an X.509 certificate file in .cer format. You can copy the contents of the certificate file to a text editor and save it as a .cer file. The certificate file should contain only the public key and not the private key.
     
-    If the application uses a key that you create for your instance, follow the instructions provided by your application for installing the private key that the application will use to decrypt tokens from your Azure AD tenant.
+    If the application uses a key that you create for your instance, follow the instructions provided by your application for installing the private key that the application will use to decrypt tokens from your Microsoft Entra tenant.
 
-1. Add the certificate to the application configuration in Azure AD.
+1. Add the certificate to the application configuration in Microsoft Entra ID.
 
 ### Configure token encryption in the Microsoft Entra admin center
 
@@ -91,7 +91,7 @@ You can add the public cert to your application configuration within the Microso
 
 This section describes how to configure registered application's SAML token encryption. Applications that have been set up from the **App registrations** blade in the Microsoft Entra admin center. For enterprise application, follow the [Configure enterprise application SAML token encryption](#configure-enterprise-application-saml-token-encryption) guidance.
 
-Encryption certificates are stored on the application object in Azure AD with an `encrypt` usage tag. You can configure multiple encryption certificates and the one that's active for encrypting tokens is identified by the `tokenEncryptionKeyID` attribute.
+Encryption certificates are stored on the application object in Microsoft Entra ID with an `encrypt` usage tag. You can configure multiple encryption certificates and the one that's active for encrypting tokens is identified by the `tokenEncryptionKeyID` attribute.
 
 You'll need the application's object ID to configure token encryption using Microsoft Graph API or PowerShell. You can find this value programmatically, or by going to the application's **Properties** page in the Microsoft Entra admin center and noting the **Object ID** value.
 
@@ -248,5 +248,5 @@ To configure token encryption for an application registration, follow these step
 
 ## Next steps
 
-* Find out [How Azure AD uses the SAML protocol](../develop/saml-protocol-reference.md)
-* Learn the format, security characteristics, and contents of [SAML tokens in Azure AD](../develop/reference-saml-tokens.md)
+* Find out [How Microsoft Entra ID uses the SAML protocol](../develop/saml-protocol-reference.md)
+* Learn the format, security characteristics, and contents of [SAML tokens in Microsoft Entra ID](../develop/reference-saml-tokens.md)

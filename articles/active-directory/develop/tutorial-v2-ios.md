@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, has-adal-ref
 
 In this tutorial, you build an iOS or macOS app that integrates with the Microsoft identity platform to sign users and get an access token to call the Microsoft Graph API.
 
-When you've completed the tutorial, your application accepts sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory (Azure AD). This tutorial is applicable to both iOS and macOS apps. Some steps are different between the two platforms.
+When you've completed the tutorial, your application accepts sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Microsoft Entra ID. This tutorial is applicable to both iOS and macOS apps. Some steps are different between the two platforms.
 
 In this tutorial:
 
@@ -72,7 +72,7 @@ If you'd like to download a completed version of the app you build in this tutor
 1. Browse to **Identity** > **Applications** > **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
-1. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** under **Supported account types**.
+1. Select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)** under **Supported account types**.
 1. Select **Register**.
 1. Under **Manage**, select **Authentication** > **Add a platform** > **iOS/macOS**.
 1. Enter your project's Bundle ID. If downloaded the code sample, the Bundle ID is `com.microsoft.identitysample.MSALiOS`. If you're creating your own project, select your project in Xcode and open the **General** tab. The bundle identifier appears in the **Identity** section.
@@ -844,9 +844,9 @@ This app is built for a single account scenario. MSAL also supports multi-accoun
 
 ## Test your app
 
-Build and deploy the app to a test device or simulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
+Build and deploy the app to a test device or simulator. You should be able to sign in and get tokens for Microsoft Entra ID or personal Microsoft accounts.
 
-The first time a user signs into your app, they'll be prompted by Microsoft identity to consent to the permissions requested. While most users are capable of consenting, some Azure AD tenants have disabled user consent, which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes.
+The first time a user signs into your app, they'll be prompted by Microsoft identity to consent to the permissions requested. While most users are capable of consenting, some Microsoft Entra tenants have disabled user consent, which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
 

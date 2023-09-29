@@ -14,7 +14,7 @@ ms.reviewer: phsignor, yuhko, ergreenl
 ms.custom: contperf-fy21q2, enterprise-apps
 zone_pivot_groups: enterprise-apps-minus-former-powershell
 
-#customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Azure AD
+#customer intent: As an admin, I want to configure group owner consent to apps accessing group data using Microsoft Entra ID
 ---
 
 # Configure group and team owner consent to applications
@@ -492,4 +492,4 @@ PATCH https://graph.microsoft.com/v1.0/policies/authorizationPolicy
 
 To get help or find answers to your questions:
 
-- [Azure AD on Microsoft Q&A](/answers/topics/azure-active-directory.html)
+- [Microsoft Entra ID on Microsoft Q&A](/answers/topics/azure-active-directory.html)

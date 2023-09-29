@@ -6169,6 +6169,61 @@
       "source_path_from_root": "/articles/cosmos-db/mongodb/overview.md",
       "redirect_url": "/azure/cosmos-db/mongodb/introduction",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/local-emulator.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/docker-emulator-linux.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/docker-emulator-windows.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/docker-emulator-rest-api.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/local-emulator-export-ssl-certificates.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/local-emulator-release-notes.md",
+      "redirect_url": "/azure/cosmos-db/emulator-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/emulator-command-line-parameters.md",
+      "redirect_url": "/azure/cosmos-db/emulator-windows-arguments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/troubleshoot-local-emulator.md",
+      "redirect_url": "/azure/cosmos-db/emulator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/rag-data-openai.md",
+      "redirect_url": "/azure/cosmos-db/vector-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/quickstart-java.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/gremlin/quickstart-php.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console",
+      "redirect_document_id": false
     }
   ]
 }

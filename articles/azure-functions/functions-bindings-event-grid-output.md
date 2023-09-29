@@ -3,7 +3,7 @@ title: Azure Event Grid output binding for Azure Functions
 description: Learn to send an Event Grid event in Azure Functions.
 
 ms.topic: reference
-ms.date: 08/10/2023
+ms.date: 09/22/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
@@ -45,7 +45,13 @@ The type of the output parameter used with an Event Grid output binding depends 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
 * [Isolated worker process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process isolated from the runtime.
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
+
+# [In-process model](#tab/in-process)
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 
@@ -114,7 +120,7 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-It is also possible to use an `out` parameter to accomplish the same thing:
+It's also possible to use an `out` parameter to accomplish the same thing:
 ```csharp
 [FunctionName("EventGridOutput")]
 [return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
@@ -144,7 +150,7 @@ public static async Task Run(
 }
 ```
 
-Starting in version 3.3.0, it is possible to use Azure Active Directory when authenticating the output binding:
+Starting in version 3.3.0, it's possible to use Azure Active Directory when authenticating the output binding:
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -161,7 +167,8 @@ public static async Task Run(
 }
 ```
 
-When using the Connection property, the `topicEndpointUri` must be specified as a child of the connection setting, and the `TopicEndpointUri` and `TopicKeySetting` properties should not be used. For local development, use the local.settings.json file to store the connection information:
+When you use the `Connection` property, the `topicEndpointUri` must be specified as a child of the connection setting, and you shouldn't use the `TopicEndpointUri` and `TopicKeySetting` properties. For local development, use the local.settings.json file to store the connection information:
+
 ```json
 {
   "Values": {
@@ -169,17 +176,7 @@ When using the Connection property, the `topicEndpointUri` must be specified as 
   }
 }
 ```
-When deployed, use the application settings to store this information.
-
-## Authenticating the Event Grid output binding
-
-[!INCLUDE [functions-event-grid-connections](../../includes/functions-event-grid-connections.md)]
-
-# [Isolated process](#tab/isolated-process)
-
-The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
+When deployed, you must add this same information to application settings for the function app. For more information, see [Identity-based authentication](#identity-based-authentication).
 
 ---
 
@@ -296,7 +293,7 @@ To output multiple events, return an array instead of a single object. For examp
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -528,23 +525,25 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 The attribute's constructor takes the name of an application setting that contains the name of the custom topic, and the name of an application setting that contains the topic key. 
 
-# [In-process](#tab/in-process)
-
-The following table explains the parameters for the `EventGridAttribute`.
-
-|Parameter | Description|
-|---------|---------|----------------------|
-|**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
-|**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 The following table explains the parameters for the `EventGridOutputAttribute`.
 
 |Parameter | Description|
-|---------|---------|----------------------|
+|---------|---------|
 |**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
+
+# [In-process model](#tab/in-process)
+
+The following table explains the parameters for the `EventGridAttribute`.
+
+|Parameter | Description|
+|---------|---------|
+|**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
+|**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**Connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
 
 ---
 
@@ -589,6 +588,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | The variable name used in function code that represents the event. |
 |**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
 
 ---
 
@@ -605,13 +605,16 @@ The following table explains the binding configuration properties that you set i
 |**name** | The variable name used in function code that represents the event. |
 |**topicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
 |**topicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
+|**connection**<sup>*</sup> | The value of the common prefix for the setting that contains the topic endpoint URI. For more information about the naming format of this application setting, see [Identity-based authentication](#identity-based-authentication).  | 
 
 ::: zone-end
-
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+<sup>*</sup>Support for identity-based connections requires version 3.3.x or higher of the extension.
+::: zone-end
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Make sure that you set the value of the `TopicEndpointUri` configuration property to the name of an app setting that contains the URI of the custom topic. Don't specify the URI of the custom topic directly in this property.
+> Make sure that you set the value of `TopicEndpointUri` to the name of an app setting that contains the URI of the custom topic. Don't specify the URI of the custom topic directly in this property. The same applies when using `Connection`.
 
 See the [Example section](#example) for complete examples.
 
@@ -625,7 +628,7 @@ The parameter type supported by the Event Grid output binding depends on the Fun
 In-process C# class library functions supports the following types:
 
 + [Azure.Messaging.CloudEvent][CloudEvent]
-+ [Azure.Messaging.EventGrid][EventGridEvent2]
++ [Azure.Messaging.EventGrid.EventGridEvent][EventGridEvent2]
 + [Newtonsoft.Json.Linq.JObject][JObject]
 + [System.String][String]
 
@@ -696,9 +699,55 @@ There are two options for outputting an Event Grid message from a function:
 
 ::: zone-end
 
+## Connections
+
+There are two ways of authenticating to an Event Grid topic when using the Event Grid output binding:
+
+| Authentication method | Description |
+| ----- | ----- |
+| Using a topic key | Set the `TopicEndpointUri` and `TopicKeySetting` properties, as described in [Use a topic key](#use-a-topic-key). | 
+| Using an identity | Set the `Connection` property to the name of a shared prefix for multiple application settings, together defining [identity-based authentication](#identity-based-authentication). This method is supported when using version 3.3.x or higher of the extension. | 
+
+### Use a topic key
+
+Use the following steps to configure a topic key:
+
+1. Follow the steps in [Get access keys](../event-grid/get-access-keys.md) to obtain the topic key for your Event Grid topic.
+
+1. In your application settings, create a setting that defines the topic key value. Use the name of this setting for the `TopicKeySetting` property of the binding.
+ 
+1. In your application settings, create a setting that defines the topic endpoint. Use the name of this setting for the `TopicEndpointUri` property of the binding.
+
+### Identity-based authentication
+
+When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using an [Azure Active Directory identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
+
+To do this, create an application setting that returns the topic endpoint URI, where the name of the setting combines a unique _common prefix_, such as `myawesometopic`, with the value `__topicEndpointUri`. You then use the common prefix `myawesometopic` when you define the `Connection` property in the binding.
+
+In this mode, the extension requires the following properties:
+
+| Property           | Environment variable template                | Description         | Example value |
+|--------------------|----------------------------------------------|---------------------|---------------|
+| Topic Endpoint URI | `<CONNECTION_NAME_PREFIX>__topicEndpointUri` | The topic endpoint. | `https://<topic-name>.centralus-1.eventgrid.azure.net/api/events`  |
+
+More properties may be set to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
+
+> [!NOTE]
+> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> 
+> For example, `<CONNECTION_NAME_PREFIX>:topicEndpointUri`.
+
+[!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
+
+[!INCLUDE [functions-event-grid-permissions](../../includes/functions-event-grid-permissions.md)]
+
+
 ## Next steps
 
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)
 
-[EventGridEvent]: /dotnet/api/azure.messaging.eventgrid.eventgridevent
+[EventGridEvent2]: /dotnet/api/azure.messaging.eventgrid.eventgridevent
+[EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent
 [CloudEvent]: /dotnet/api/azure.messaging.cloudevent
+[String]: /dotnet/api/system.string
+[JObject]: https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm

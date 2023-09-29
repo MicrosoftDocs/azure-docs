@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication & national clouds
+title: Microsoft Entra authentication & national clouds
 description: Learn about app registration and authentication endpoints for national clouds.
 services: active-directory
 author: henrymbuguakiarie
@@ -19,7 +19,7 @@ ms.custom: aaddev,references_regions
 
 National clouds are physically isolated instances of Azure. These regions of Azure are designed to make sure that data residency, sovereignty, and compliance requirements are honored within geographical boundaries.
 
-Including the global Azure cloud, Azure Active Directory (Azure AD) is deployed in the following national clouds:
+Including the global Azure cloud, Microsoft Entra ID is deployed in the following national clouds:
 
 - Azure Government
 - Microsoft Azure operated by 21Vianet
@@ -33,7 +33,7 @@ As you develop your apps, use the endpoints for the cloud instance where you'll 
 
 There's a separate Azure portal for each one of the national clouds. To integrate applications with the Microsoft identity platform in a national cloud, you're required to register your application separately in each Azure portal that's specific to the environment.
 
-The following table lists the base URLs for the Azure AD endpoints used to register an application for each national cloud.
+The following table lists the base URLs for the Microsoft Entra endpoints used to register an application for each national cloud.
 
 | National cloud                          | Azure portal endpoint      |
 | --------------------------------------- | -------------------------- |
@@ -53,19 +53,21 @@ You can find the authentication endpoints for your application.
 
    Use the endpoint that matches the authentication protocol you're using in conjunction with the **Application (client) ID** to craft the authentication request specific to your application.
 
-## Azure AD authentication endpoints
+<a name='azure-ad-authentication-endpoints'></a>
+
+## Microsoft Entra authentication endpoints
 
 All the national clouds authenticate users separately in each environment and have separate authentication endpoints.
 
-The following table lists the base URLs for the Azure AD endpoints used to acquire tokens for each national cloud.
+The following table lists the base URLs for the Microsoft Entra endpoints used to acquire tokens for each national cloud.
 
-| National cloud                      | Azure AD authentication endpoint           |
+| National cloud                      | Microsoft Entra authentication endpoint           |
 | ----------------------------------- | ------------------------------------------ |
-| Azure AD for US Government          | `https://login.microsoftonline.us`         |
-| Azure AD China operated by 21Vianet | `https://login.partner.microsoftonline.cn` |
-| Azure AD (global service)           | `https://login.microsoftonline.com`        |
+| Microsoft Entra ID for US Government          | `https://login.microsoftonline.us`         |
+| Microsoft Entra China operated by 21Vianet | `https://login.partner.microsoftonline.cn` |
+| Microsoft Entra ID (global service)           | `https://login.microsoftonline.com`        |
 
-You can form requests to the Azure AD authorization or token endpoints by using the appropriate region-specific base URL. For example, for global Azure:
+You can form requests to the Microsoft Entra authorization or token endpoints by using the appropriate region-specific base URL. For example, for global Azure:
 
 - Authorization common endpoint is `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`.
 - Token common endpoint is `https://login.microsoftonline.com/common/oauth2/v2.0/token`.
@@ -74,7 +76,7 @@ For single-tenant applications, replace "common" in the previous URLs with your 
 
 ## Azure Germany (Microsoft Cloud Deutschland)
 
-If you haven't migrated your application from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
+If you haven't migrated your application from Azure Germany, follow [Microsoft Entra information for the migration from Azure Germany](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
 
 ## Microsoft Graph API
 

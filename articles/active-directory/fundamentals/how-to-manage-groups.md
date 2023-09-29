@@ -1,6 +1,6 @@
 ---
 title: How to manage groups
-description: Instructions about how to manage Azure AD groups and group membership.
+description: Instructions about how to create and update Microsoft Entra groups, such as membership and settings.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
@@ -12,12 +12,15 @@ ms.topic: how-to
 ms.date: 09/12/2023
 ms.author: sarahlipsey
 ms.reviewer: krbain
+
+# Customer Intent: As an IT admin, I want to learn how to create groups, add members, and adjust setting so that I can grant the right access to the right services for the right people.
+
 ---
-# Manage Azure Active Directory groups and group membership
+# Manage Microsoft Entra groups and group membership
 
-Azure Active Directory (Azure AD) groups are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group. 
+Microsoft Entra groups are used to manage users that all need the same access and permissions to resources, such as potentially restricted apps and services. Instead of adding special permissions to individual users, you create a group that applies the special permissions to every member of that group. 
 
-This article covers basic group scenarios where a single group is added to a single resource and users are added as members to that group. For more complex scenarios like dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../enterprise-users/index.yml).
+This article covers basic group scenarios where a single group is added to a single resource and users are added as members to that group. For more complex scenarios like dynamic memberships and rule creation, see the [Microsoft Entra user management documentation](../enterprise-users/index.yml).
 
 Before adding groups and members, [learn about groups and membership types](concept-learn-about-groups.md) to help you decide which options to use when you create a group.
 
@@ -25,7 +28,7 @@ Before adding groups and members, [learn about groups and membership types](conc
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-You can create a basic group and add your members at the same time using the Microsoft Entra admin center. Azure AD roles that can manage groups include **Groups Administrator**, **User Administrator**, **Privileged Role Administrator**, or **Global Administrator**. Review the [appropriate Azure AD roles for managing groups](../roles/delegate-by-task.md#groups)
+You can create a basic group and add your members at the same time using the Microsoft Entra admin center. Microsoft Entra roles that can manage groups include **Groups Administrator**, **User Administrator**, **Privileged Role Administrator**, or **Global Administrator**. Review the [appropriate Microsoft Entra roles for managing groups](../roles/delegate-by-task.md#groups)
 
 To create a basic group and add members:
 
@@ -35,7 +38,7 @@ To create a basic group and add members:
  
 1. Select **New group**.
 
-    ![Screenshot of the 'Azure AD Groups' page with 'New group' option highlighted.](media/how-to-manage-groups/new-group.png)
+    ![Screenshot of the 'Microsoft Entra groups' page with 'New group' option highlighted.](media/how-to-manage-groups/new-group.png)
 
 1. Select a **Group type**. For more information on group types, see the [learn about groups and membership types](concept-learn-about-groups.md) article.
 
@@ -43,11 +46,13 @@ To create a basic group and add members:
 
 1. Enter a **Group name.** Choose a name that you'll remember and that makes sense for the group. A check will be performed to determine if the name is already in use. If the name is already in use, you'll be asked to change the name of your group.
 
+    - The name of the group can't start with a space. Starting the name with a space prevents the group from appearing as an option for steps such as adding role assignments to group members.
+
 1. **Group email address**: Only available for Microsoft 365 group types. Enter an email address manually or use the email address built from the Group name you provided.
  
 1. **Group description.** Add an optional description to your group.
 
-1. Switch the **Azure AD roles can be assigned to the group** setting to yes to use this group to assign Azure AD roles to members.
+1. Switch the **Microsoft Entra roles can be assigned to the group** setting to yes to use this group to assign Microsoft Entra roles to members.
     - This option is only available with P1 or P2 licenses.
     - You must have the **Privileged Role Administrator** or **Global Administrator** role.
     - Enabling this option automatically selects **Assigned** as the Membership type.
@@ -130,9 +135,9 @@ To edit your group settings:
 
     - **Group type.** You can't change the type of group after it's been created. To change the **Group type**, you must delete the group and create a new one.
     
-    - **Membership type.** Change the membership type. If you enabled the **Azure AD roles can be assigned to the group** option, you can't change the membership type. For more info about the available membership types, see the [learn about groups and membership types](concept-learn-about-groups.md) article. 
+    - **Membership type.** Change the membership type. If you enabled the **Microsoft Entra roles can be assigned to the group** option, you can't change the membership type. For more info about the available membership types, see the [learn about groups and membership types](concept-learn-about-groups.md) article. 
     
-    - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
+    - **Object ID.** You can't change the Object ID, but you can copy it to use in your PowerShell commands for the group. For more info about using PowerShell cmdlets, see [Microsoft Entra cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md).
 
 ## Add or remove a group from another group
 
@@ -192,7 +197,7 @@ You can remove an existing Security group from another Security group; however, 
 
 You can delete a group for any number of reasons, but typically it will be because you:
 
-- Chose the incorrect **Group type** option.
+- Choose the incorrect **Group type** option.
 - Created a duplicate group by mistake. 
 - No longer need the group.
 
@@ -209,5 +214,5 @@ You can delete a group for any number of reasons, but typically it will be becau
 - [Learn about groups and assigning access rights to groups](concept-learn-about-groups.md)
 - [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)
 - [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)
-- [Associate or add an Azure subscription to Azure Active Directory](./how-subscriptions-associated-directory.md)
+- [Scenarios, limitations, and known issues using groups to manage licensing in Microsoft Entra ID](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)
+- [Associate or add an Azure subscription to Microsoft Entra ID](./how-subscriptions-associated-directory.md)

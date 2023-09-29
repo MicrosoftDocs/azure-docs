@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with NS1 SSO for Azure'
-description: Learn how to configure single sign-on between Azure Active Directory and NS1 SSO for Azure.
+title: 'Tutorial: Microsoft Entra SSO integration with NS1 SSO for Azure'
+description: Learn how to configure single sign-on between Microsoft Entra ID and NS1 SSO for Azure.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -13,26 +13,26 @@ ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure AD SSO integration with NS1 SSO for Azure
+# Tutorial: Microsoft Entra SSO integration with NS1 SSO for Azure
 
-In this tutorial, you'll learn how to integrate NS1 SSO for Azure with Azure Active Directory (Azure AD). When you integrate NS1 SSO for Azure with Azure AD, you can:
+In this tutorial, you'll learn how to integrate NS1 SSO for Azure with Microsoft Entra ID. When you integrate NS1 SSO for Azure with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to NS1 SSO for Azure.
-* Enable your users to be automatically signed in to NS1 SSO for Azure with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to NS1 SSO for Azure.
+* Enable your users to be automatically signed in to NS1 SSO for Azure with their Microsoft Entra accounts.
 * Manage your accounts in one central location, the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * NS1 SSO for Azure single sign-on (SSO) enabled subscription.
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * NS1 SSO for Azure supports SP and IDP initiated SSO.
 
@@ -41,7 +41,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Add NS1 SSO for Azure from the gallery
 
-To configure the integration of NS1 SSO for Azure into Azure AD, you need to add NS1 SSO for Azure from the gallery to your list of managed SaaS apps.
+To configure the integration of NS1 SSO for Azure into Microsoft Entra ID, you need to add NS1 SSO for Azure from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -50,25 +50,29 @@ To configure the integration of NS1 SSO for Azure into Azure AD, you need to add
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for NS1 SSO for Azure
+<a name='configure-and-test-azure-ad-sso-for-ns1-sso-for-azure'></a>
 
-Configure and test Azure AD SSO with NS1 SSO for Azure by using a test user called **B.Simon**. For SSO to work, establish a linked relationship between an Azure AD user and the related user in NS1 SSO for Azure.
+## Configure and test Microsoft Entra SSO for NS1 SSO for Azure
 
-Here are the general steps to configure and test Azure AD SSO with NS1 SSO for Azure:
+Configure and test Microsoft Entra SSO with NS1 SSO for Azure by using a test user called **B.Simon**. For SSO to work, establish a linked relationship between a Microsoft Entra user and the related user in NS1 SSO for Azure.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+Here are the general steps to configure and test Microsoft Entra SSO with NS1 SSO for Azure:
 
-    a. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 
-    b. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+    a. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** to test Microsoft Entra single sign-on with B.Simon.
+
+    b. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure NS1 SSO for Azure SSO](#configure-ns1-sso-for-azure-sso)** to configure the single sign-on settings on the application side.
 
-    a. **[Create an NS1 SSO for Azure test user](#create-an-ns1-sso-for-azure-test-user)** to have a counterpart of B.Simon in NS1 SSO for Azure. This counterpart is linked to the Azure AD representation of the user.
+    a. **[Create an NS1 SSO for Azure test user](#create-an-ns1-sso-for-azure-test-user)** to have a counterpart of B.Simon in NS1 SSO for Azure. This counterpart is linked to the Microsoft Entra representation of the user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **NS1 SSO for Azure** application integration page, find the **Manage** section. Select **single sign-on**.
@@ -121,7 +125,9 @@ Follow these steps to enable Azure AD SSO.
 
 	![Screenshot of the SAML Signing Certificate, with the copy button highlighted.](common/copy-metadataurl.png)
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you create a test user called B.Simon.
 
@@ -135,7 +141,9 @@ In this section, you create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you enable B.Simon to use Azure single sign-on by granting access to NS1 SSO for Azure.
 
@@ -157,7 +165,7 @@ In this section, you create a user called B.Simon in NS1 SSO for Azure. Work wit
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
@@ -169,7 +177,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application**, and you should be automatically signed in to the NS1 SSO for Azure for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the NS1 SSO for Azure tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the NS1 SSO for Azure for which you set up the SSO. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+You can also use Microsoft My Apps to test the application in any mode. When you click the NS1 SSO for Azure tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the NS1 SSO for Azure for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

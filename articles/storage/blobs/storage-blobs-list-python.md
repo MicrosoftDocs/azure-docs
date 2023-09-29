@@ -56,7 +56,7 @@ By default, a listing operation returns blobs in a flat listing. In a flat listi
 
 The following example lists the blobs in the specified container using a flat listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_list_blobs_flat":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py" id="Snippet_list_blobs_flat":::
 
 Sample output is similar to:
 
@@ -70,7 +70,7 @@ Name: folderA/folderB/file3.txt
 
 You can also specify options to filter list results or show additional information. The following example lists blobs and blob tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_list_blobs_flat_options":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py" id="Snippet_list_blobs_flat_options":::
 
 Sample output is similar to:
 
@@ -95,7 +95,7 @@ To list blobs hierarchically, use the following method:
 
 The following example lists the blobs in the specified container using a hierarchical listing:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_list_blobs_hierarchical":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py" id="Snippet_list_blobs_hierarchical":::
 
 Sample output is similar to:
 
@@ -123,7 +123,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-list-blobs.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

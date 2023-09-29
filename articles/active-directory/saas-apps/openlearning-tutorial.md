@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with OpenLearning'
-description: Learn how to configure single sign-on between Azure Active Directory and OpenLearning.
+title: 'Tutorial: Microsoft Entra SSO integration with OpenLearning'
+description: Learn how to configure single sign-on between Microsoft Entra ID and OpenLearning.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,33 +14,33 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure AD SSO integration with OpenLearning
+# Tutorial: Microsoft Entra SSO integration with OpenLearning
 
-In this tutorial, you'll learn how to integrate OpenLearning with Azure Active Directory (Azure AD). When you integrate OpenLearning with Azure AD, you can:
+In this tutorial, you'll learn how to integrate OpenLearning with Microsoft Entra ID. When you integrate OpenLearning with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to OpenLearning.
-* Enable your users to be automatically signed-in to OpenLearning with their Azure AD accounts.
+* Control in Microsoft Entra ID who has access to OpenLearning.
+* Enable your users to be automatically signed-in to OpenLearning with their Microsoft Entra accounts.
 * Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * OpenLearning single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * OpenLearning supports **SP** initiated SSO.
 
 ## Add OpenLearning from the gallery
 
-To configure the integration of OpenLearning into Azure AD, you need to add OpenLearning from the gallery to your list of managed SaaS apps.
+To configure the integration of OpenLearning into Microsoft Entra ID, you need to add OpenLearning from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
@@ -49,22 +49,26 @@ To configure the integration of OpenLearning into Azure AD, you need to add Open
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for OpenLearning
+<a name='configure-and-test-azure-ad-sso-for-openlearning'></a>
 
-Configure and test Azure AD SSO with OpenLearning using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in OpenLearning.
+## Configure and test Microsoft Entra SSO for OpenLearning
 
-To configure and test Azure AD SSO with OpenLearning, perform the following steps:
+Configure and test Microsoft Entra SSO with OpenLearning using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between a Microsoft Entra user and the related user in OpenLearning.
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+To configure and test Microsoft Entra SSO with OpenLearning, perform the following steps:
+
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 1. **[Configure OpenLearning SSO](#configure-openlearning-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create OpenLearning test user](#create-openlearning-test-user)** - to have a counterpart of B.Simon in OpenLearning that is linked to the Azure AD representation of user.
+    1. **[Create OpenLearning test user](#create-openlearning-test-user)** - to have a counterpart of B.Simon in OpenLearning that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO.
+## Configure Microsoft Entra SSO
+
+Follow these steps to enable Microsoft Entra SSO.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
 1. Browse to **Identity** > **Applications** > **Enterprise applications** > **OpenLearning** > **Single sign-on**.
@@ -113,11 +117,13 @@ Follow these steps to enable Azure AD SSO.
 
 	![Screenshot shows to copy Configuration appropriate U R L.](common/copy-configuration-urls.png "Configuration")
 	
-1. OpenLearning application expects to enable token encryption in order to make SSO work. To activate token encryption, Browse to **Identity** > **Applications** > **Enterprise applications** > select your application > **Token encryption**. For more information see the article [Configure Azure Active Directory SAML token encryption](../manage-apps/howto-saml-token-encryption.md).
+1. OpenLearning application expects to enable token encryption in order to make SSO work. To activate token encryption, Browse to **Identity** > **Applications** > **Enterprise applications** > select your application > **Token encryption**. For more information see the article [Configure Microsoft Entra SAML token encryption](../manage-apps/howto-saml-token-encryption.md).
 
     ![Screenshot shows the activation of Token Encryption.](./media/openlearning-tutorial/token.png "Token Encryption")
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
+
+### Create a Microsoft Entra test user
 
 In this section, you'll create a test user called B.Simon.
 
@@ -131,7 +137,9 @@ In this section, you'll create a test user called B.Simon.
    1. Select **Review + create**.
 1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
+
+### Assign the Microsoft Entra test user
 
 In this section, you'll enable B.Simon to use single sign-on by granting access to OpenLearning.
 
@@ -157,7 +165,7 @@ In this section, you'll enable B.Simon to use single sign-on by granting access 
 
     1. Copy **Reply(ACS) Url** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
-    1. In the **Entity ID/Issuer URL (required)** textbox, paste the **Azure AD Identifier** value which you copied previously.
+    1. In the **Entity ID/Issuer URL (required)** textbox, paste the **Microsoft Entra Identifier** value which you copied previously.
 
     1. In the **Sign-In URL (required)** textbox, paste the **Login URL** value which you copied previously.
 
@@ -173,13 +181,13 @@ In this section, a user called Britta Simon is created in OpenLearning. OpenLear
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 * Click on **Test this application**, this will redirect to OpenLearning Sign-on URL where you can initiate the login flow. 
 
 * Go to OpenLearning Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the OpenLearning tile in the My Apps, this will redirect to OpenLearning Sign-on URL. For more information, see [Azure AD My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
+* You can use Microsoft My Apps. When you click the OpenLearning tile in the My Apps, this will redirect to OpenLearning Sign-on URL. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 
