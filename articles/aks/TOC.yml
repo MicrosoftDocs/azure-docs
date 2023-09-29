@@ -597,6 +597,8 @@
           href: ../azure-monitor/containers/container-insights-onboard.md
         - name: Collect Prometheus metrics
           href: ../azure-monitor/containers/container-insights-prometheus.md
+        - name: Monitor Kubernetes object events
+          href: events.md
         - name: Monitor kube-audit events
           href: monitor-apiserver.md
         - name: Monitor reference
@@ -749,4 +751,8 @@
     - name: FAQ
       href: faq.md
 - name: Support and troubleshooting
-  href: aks-support-help.md
+  items:
+    - name: Support options for AKS
+      href: aks-support-help.md
+    - name: Troubleshooting documentation for AKS
+      href: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes

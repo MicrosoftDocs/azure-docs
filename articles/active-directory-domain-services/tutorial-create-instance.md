@@ -9,7 +9,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: tutorial
-ms.date: 09/15/2023
+ms.date: 09/28/2023
 ms.author: justinha
 #Customer intent: As an identity administrator, I want to create a Microsoft Entra Domain Services managed domain so that I can synchronize identity information with my Microsoft Entra tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
@@ -152,7 +152,7 @@ With Domain Services successfully deployed, now configure the virtual network to
 1. To update the DNS server settings for the virtual network, select the **Configure** button. The DNS settings are automatically configured for your virtual network.
 
 > [!TIP]
-> If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Microsoft Entra admin center, Azure PowerShell, or the Azure CLI.
+> If you selected an existing virtual network in the previous steps, any VMs connected to the network only get the new DNS settings after a restart. You can restart VMs using the Microsoft Entra admin center, Microsoft Graph PowerShell, or the Azure CLI.
 
 <a name='enable-user-accounts-for-azure-ad-ds'></a>
 
@@ -169,7 +169,7 @@ To authenticate users on the managed domain, Domain Services needs password hash
 
 The steps to generate and store these password hashes are different for cloud-only user accounts created in Microsoft Entra ID versus user accounts that are synchronized from your on-premises directory using Microsoft Entra Connect.
 
-A cloud-only user account is an account that was created in your Microsoft Entra directory using either the Microsoft Entra admin center or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory.
+A cloud-only user account is an account that was created in your Microsoft Entra directory by using either the Microsoft Entra admin center or PowerShell. These user accounts aren't synchronized from an on-premises directory.
 
 > In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Microsoft Entra Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
 

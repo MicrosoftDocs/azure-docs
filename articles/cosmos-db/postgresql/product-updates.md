@@ -23,6 +23,9 @@ Updates that don’t directly affect the internals of a cluster are rolled out g
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
 
 ### September 2023
+
+* General availability: Data Encryption at rest using [Customer Managed Keys](./concepts-customer-managed-keys.md) is now supported for all available regions.
+   * See [this guide](./how-to-customer-managed-keys.md) for the steps to enable data encryption using customer managed keys. 
 * Preview: Geo-redundant backup and restore
     * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md)
 * Preview: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) is now available in all supported regions.
