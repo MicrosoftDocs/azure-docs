@@ -178,15 +178,8 @@ items:
                 href: app/remove-application-insights.md
         - name: Node.js
           href: app/nodejs.md
-        - name: Python
-          items:
-          - name: Overview
-            displayName: python, Python, OpenCenus, OpenTelemetry, py
-            href: app/opencensus-python.md
-          - name: Dependencies
-            href: app/opencensus-python-dependency.md
-          - name: Requests
-            href: app/opencensus-python-request.md
+        - name: Python OpenCensus (deprecated)
+          href: /previous-versions/azure/azure-monitor/app/opencensus-python
         - name: Advanced SDK topics
           items:
           - name: Application Insights API summary
