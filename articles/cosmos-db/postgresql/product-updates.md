@@ -7,7 +7,7 @@ ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 09/27/2023
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -24,6 +24,10 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 
 ### September 2023
 
+* General availability: [PostgreSQL 16](https://www.postgresql.org/docs/release/16.0/) support.
+	* See all supported PostgreSQL versions [here](./reference-versions.md#postgresql-versions).
+	* [Upgrade to PostgreSQL 16](./howto-upgrade.md)
+* General availability: [Citus 12.1 with new features and PostgreSQL 16 support](https://www.citusdata.com/updates/v12-1).
 * General availability: Data Encryption at rest using [Customer Managed Keys](./concepts-customer-managed-keys.md) is now supported for all available regions.
    * See [this guide](./how-to-customer-managed-keys.md) for the steps to enable data encryption using customer managed keys. 
 * Preview: Geo-redundant backup and restore
@@ -146,7 +150,6 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 * [Azure Active Directory (Azure AD) authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
 * [Azure CLI support for Azure Cosmos DB for PostgreSQL](/cli/azure/cosmosdb/postgres)
 * Azure SDKs: [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDBForPostgreSql/1.0.0-beta.1), [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/cosmosforpostgresql/armcosmosforpostgresql@v0.1.0), [Java](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/1.0.0-beta.1/overview), [JavaScript](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0-beta.1), and [Python](https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/1.0.0b1/)
-* [Data encryption at rest using customer managed keys](./concepts-customer-managed-keys.md)
 * [Database audit with pgAudit](./how-to-enable-audit.md)
 
 ## Contact us
