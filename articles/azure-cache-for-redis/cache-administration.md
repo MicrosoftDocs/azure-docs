@@ -10,7 +10,7 @@ ms.author: franlanglois
 ---
 # How to administer Azure Cache for Redis
 
-This article describes how to do administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Cache for Redis instances.
+This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -78,19 +78,20 @@ No. Reboot isn't available for the Enterprise tier yet. Reboot is available for 
 
 ## Flush data (preview)
 
-On the left, **Flush** allows you to delete or flush all data in your cache and is supported by Basic, Standard and Premium tiers. This Flush capability can be used before scaling operations to potentially reduce the time required to complete scaling operation on your cache. You can also configure to run the Flush operation periodically on your dev/test caches to keep memory usage in check. 
+When using th Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Flush data** on the resource menu. The **Flush data** operation allows you to delete or _flush_ all data in your cache. This _flush_ operation can be used before scaling operations to potentially reduce the time required to complete the scaling operation on your cache. You can also configure to run the _flush_ operation periodically on your dev/test caches to keep memory usage in check.
+
 The _flush_ operation, when executed on a clustered cache, clears data from all shards at the same time.
 
 > [!IMPORTANT]
 > Previously, the _flush_ operation was only available for geo-replicated Enterprise tier caches. Now, it is available in Basic, Standard and Premium tiers.
 >
-<!--> Need screenshot here <-->
+:::image type="content" source="media/cache-administration/cache-flush.png" alt-text="Screenshot showing flush data selected in the resource menu of a cache instance. ":::
 
 ## Update channel and Schedule updates
 
-On the left, **Schedule updates** allows you to choose an update channel and a maintenance window for your cache instance. 
+On the left, **Schedule updates** allows you to choose an update channel and a maintenance window for your cache instance.
 
-Any cache instance using the **Stable** update channel receives updates a few weeks later than cache instances using **Preview** update channel. We recommend choosing the **Preview** update channel for your non-production and less critical workloads. Choose the **Stable** update channel for your most critical, production workloads. All caches default to the **Stable** update channel by default. 
+Any cache instance using the **Stable** update channel receives updates a few weeks later than cache instances using **Preview** update channel. We recommend choosing the **Preview** update channel for your non-production and less critical workloads. Choose the **Stable** update channel for your most critical, production workloads. All caches default to the **Stable** update channel by default.
 
 > [!IMPORTANT]
 > Changing the update channel on your cache instance results in your cache undergoing a patching event to apply the right updates. Consider changing the update channel during your maintenance window.
@@ -103,7 +104,6 @@ A maintenance window allows you to control the days and times of a week during w
 >
 Currently, no option is available to configure an update channel or scheduled updates for an Enterprise tier cache.
 
-<!-->Need to update this screenshot.<-->
 :::image type="content" source="media/cache-administration/redis-schedule-updates-2.png" alt-text="Screenshot showing schedule updates":::
 
 To specify a maintenance window, check the days you want and specify the maintenance window start hour for each day. Then, select **OK**. The maintenance window time is in UTC and can only be configured on an hourly basis.
