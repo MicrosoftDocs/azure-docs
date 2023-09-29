@@ -2,7 +2,7 @@
 title: Dead lettering for event subscriptions to namespace topics
 description: Describes the dead lettering feature for event subscriptions to namespace topics in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 09/29/2023
 ---
 
 # Dead lettering for event subscriptions to namespaces topics in Azure Event Grid
@@ -25,7 +25,7 @@ Here are a few use cases where you may want to use the dead-letter feature in yo
 
 ## Dead-letter format
 
-The format used when storing dead-letter events is the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). The dead lettering preserves the schema and format of the event. However, besides the original published event, additional metadata information is persisted with a dead-lettered event. 
+The format used when storing dead-letter events is the [CloudEvents JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). The dead lettering preserves the schema and format of the event. However, besides the original published event, extra metadata information is persisted with a dead-lettered event. 
 
 - `brokerProperties`: Metadata that describes the error condition that led the event to be dead-lettered. This information is always present. This metadata is described using an object whose key name is `brokerProperties`.
     - `deadletterreason` - The reason for which the event was dead-lettered.
@@ -200,12 +200,46 @@ The blob created in the Azure Blob Storage is in the following JSON format (same
 
 ## Blob name and folder location
 
-The blob is a JSON file whose filename is a globally unique identifier (GUID). For example, `480b2295-0c38-40d0-b25a-f34b30aac1a9.json`. One or more events can be contained in a single blob. The folder structure is as follows: `<container_name>/<namespace_name>/<topic_name>/<event_subscription_name>/<year>/<month>/<day>/<UTC_hour>`. For example: `/<mycontainer/mynamespace/mytopic/myeventsubscription/2023/9/23/2/480b2295-0c38-40d0-b25a-f34b30aac1a9.json`.
+The blob is a JSON file whose filename is a globally unique identifier (GUID). For example, `480b2295-0c38-40d0-b25a-f34b30aac1a9.json`. One or more events can be contained in a single blob. 
+
+The folder structure is as follows: `<container_name>/<namespace_name>/<topic_name>/<event_subscription_name>/<year>/<month>/<day>/<UTC_hour>`. For example: `/<mycontainer/mynamespace/mytopic/myeventsubscription/2023/9/23/2/480b2295-0c38-40d0-b25a-f34b30aac1a9.json`.
 
 
 ## Dead-letter retry logic
+You may want to have access to dead-letter events soon after an Azure Storage outage so that you can act on those dead-letters as soon as possible. The retry schedule follows a simple logic and it's not configurable by you. 
 
+- 10 seconds
+- 1 minute
+- 5 minutes
 
+After the first 5 minutes retry, the service keeps on retrying every 5 minutes up to the maximum retry period. The maximum retry period is 2 days and it's configurable in the event subscriptions property `deliveryRetryPeriodInDays` in event subscription, whichever is met first. If the event isn't successfully stored on the blob after the maximum retry period, the event is dropped and reported as failed dead letter event.
+
+In case the dead-letter retry logic starts before the configured time to live event retention in the event subscription and the remaining time to live is less than the retry period configured (say, there are just 4 hours remaining for the event and there are 2 days configured as `deliverRetryPeriod` for the dead-letter), the broker will keep the event to honor the retry logic up to the maximum configured dead-letter’s delivery retry period.
+
+## Configure dead-letter
+
+Here's an example **Resource manager template** JSON snippet. You can also use the system assigned managed identity (`SystemAssigned`).
+
+```json
+{
+    "deadLetterDestinationWithResourceIdentity": {
+    "deliveryRetryPeriodInDays": 2,
+    "endpointType": "StorageBlob",
+    "StorageBlob": {
+        "blobContainerName": "data",
+        "resourceId": "/subscriptions/0000000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+    },
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentity": "/subscriptions/0000000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myusermsi"
+		}
+	}
+}
+```
+
+In the Azure portal:
+
+:::image type="content" source=".\media\dead-letter-event-subscriptions-namespace-topics\configure-dead-letter.png" alt-text="Screenshot that shows an example deadletter configuration.":::
 
 ## Next steps
 
