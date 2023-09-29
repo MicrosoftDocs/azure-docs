@@ -154,11 +154,11 @@ For the `AvailabilityStatusChanged` event, the `properties` object has the follo
 
 | Property | Type | Description |
 | -------- | ---- | ----------- | 
-| `targetResourceId` | String | The base resource for which the availability information is being requested |
-| `targetResourceType` | String | The type of the base resource |
-| `occurredTime` | String | The time when this actual event was emitted.  |
-| `previousAvailabilityState` | String | Previous availability status |
-| `availabilityState` | String | Current availability status – refer to this link for the values [Availability Statuses - Get By Resource - REST API (Azure Resource Health)](/rest/api/resourcehealth/2022-10-01/availability-statuses/get-by-resource) |
+| `targetResourceId` | String | The base resource for which the availability information is being emitted. |
+| `targetResourceType` | String | The type of the base resource. |
+| `occurredTime` | String | The time when this actual event was emitted. |
+| `previousAvailabilityState` | String | Previous availability status. |
+| `availabilityState` | String | Current availability status. For the list of values, see [Availability Statuses - Get By Resource - REST API (Azure Resource Health)](/rest/api/resourcehealth/2022-10-01/availability-statuses/get-by-resource). |
 
 
 ### Properties for the ResourceAnnotated event
@@ -180,13 +180,13 @@ For the `ResourceAnnotated` event, the `properties` object has the following pro
 
 | Property | Type | Description |
 | -------- | ---- | ----------- | 
-| `targetResourceId` | String | The base resource for which the annotation information is being requested |
-| `targetResourceType` | String | The type of the base resource |
-| `occurredTime` | String | Timestamp when the annotation was emitted by the Azure platform in response to availability-influencing event |
-| `annotationName` | String | The name of the annotation. For the list of annotations and the corresponding descriptions, see [Resource Health virtual machine Health Annotations - Azure Service Health](../service-health/resource-health-vm-annotation.md) | 
-| `reason` | String | Brief statement on why resource availability has changed or was influenced |
-| `summary` | String | Detailed statement on the activity and cause for resource availability to change or be influenced |
-| `context` | String | Determines whether resource availability was influenced due to Azure or user caused activity |
+| `targetResourceId` | String | The base resource for which the annotation information is being emitted. |
+| `targetResourceType` | String | The type of the base resource. |
+| `occurredTime` | String | Timestamp when the annotation was emitted by the Azure platform in response to availability-influencing event. |
+| `annotationName` | String | The name of the annotation. For the list of annotations and the corresponding descriptions, see [Resource Health virtual machine Health Annotations - Azure Service Health](../service-health/resource-health-vm-annotation.md). | 
+| `reason` | String | Brief statement on why resource availability has changed or was influenced. |
+| `summary` | String | Detailed statement on the activity and cause for resource availability to change or be influenced. |
+| `context` | String | Determines whether resource availability was influenced due to Azure or user caused activity. |
 | `category` | String | Determines whether resource availability was influenced due to planned or unplanned activity. This property is only applicable to `Platform-Initiated` events. |
 
 
@@ -198,28 +198,31 @@ For the `ResourceAnnotated` event, the `properties` object has the following pro
 
 ```json
 {
-    "id": "1fb6fa94-d965-4306-abeq-4810f0774e97",
-    "topic": "/subscriptions/00000000-0000-0000-0000-00000000000000",
-    "subject": "/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/virtualMachineTestHealth/providers/Microsoft.ResourceHealth/availabilityStatuses/current",
-    "data": {
-        "resourceInfo": {
-            "id": "/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/virtualMachineTestHealth/providers/Microsoft.ResourceHealth/availabilityStatuses/current",
-            "name": "current",
-            "type": "Microsoft.ResourceHealth/availabilityStatuses",
-            "properties": {
-                "targetResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/virtualMachineTestHealth",
-                "targetResourceType": "Microsoft.Compute/virtualMachines",
-                "occurredTime": "2022-11-10T19:59:59.6470000Z",
-                "previousAvailabilityState": "Unavailable",
-                "availabilityState": "Available"
-            }
-        },
-        "apiVersion": "2020-09-01"
+  "id": "1fb6fa94-d965-4306-abeq-4810f0774e97",
+  "topic": "/subscriptions/{subscription-id}",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+  "data": {
+    "resourceInfo": {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/{event-id}",
+      "name": "{event-id}",
+      "type": "Microsoft.ResourceHealth/availabilityStatuses",
+      "properties": {
+        "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "occurredTime": "2023-07-24T19:20:37.9245071Z",
+        "previousAvailabilityState": "Unavailable",
+        "availabilityState": "Available"
+      }
     },
-    "eventType": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged",
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "eventTime": "2022-11-10T19:59:59.6470000Z"
+    "operationalInfo": {
+      "resourceEventTime": "2023-07-24T19:20:37.9245071Z"
+    },
+    "apiVersion": "2023-12-01"
+  },
+  "eventType": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2023-07-24T19:20:37.9245071Z"
 }
 ```
 
@@ -229,27 +232,30 @@ The following example shows the schema of a key-value modified event:
 
 ```json
 {
-    "id": "1fb6fa94-d965-4306-abeq-4810f0774e97",
-    "source": "/subscriptions/00000000-0000-0000-0000-00000000000000",
-    "subject": "/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/virtualMachineTestHealth/providers/Microsoft.ResourceHealth/availabilityStatuses/current",
-    "type": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged",
-    "time": "2022-11-10T19:59:59.6470000Z",
-    "data": {
-        "resourceInfo": {
-            "id": "/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/virtualMachineTestHealth/providers/Microsoft.ResourceHealth/availabilityStatuses/current",
-            "name": "current",
-            "type": "Microsoft.ResourceHealth/availabilityStatuses",
-            "properties": {
-                "targetResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/virtualMachineTestHealth",
-                "targetResourceType": "Microsoft.Compute/virtualMachines",
-                "occurredTime": "2022-11-10T19:59:59.6470000Z",
-                "previousAvailabilityState": "Unavailable",
-                "availabilityState": "Available"
-            }
-        },
-        "apiVersion": "2020-09-01"
+  "id": "1fb6fa94-d965-4306-abeq-4810f0774e97",
+  "source": "/subscriptions/{subscription-id}",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+  "data": {
+    "resourceInfo": {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/availabilityStatuses/{event-id}",
+      "name": "{event-id}",
+      "type": "Microsoft.ResourceHealth/availabilityStatuses",
+      "properties": {
+        "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "occurredTime": "2023-07-24T19:20:37.9245071Z",
+        "previousAvailabilityState": "Unavailable",
+        "availabilityState": "Available"
+      }
     },
-    "specversion": "1.0"
+    "operationalInfo": {
+      "resourceEventTime": "2023-07-24T19:20:37.9245071Z"
+    },
+    "apiVersion": "2023-12-01"
+  },
+  "type": "Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged",
+  "specversion": "1.0",
+  "time": "2023-07-24T19:20:37.9245071Z"
 }
 ```
 
@@ -261,31 +267,34 @@ The following example shows the schema of a key-value modified event:
 
 ```json
 {
-    "id": "8945cf9b-e220-496e-ab4f-f3a239318995",
-    "topic": "/subscriptions/0000000000-0000-0000-0000-0000000000000",
-    "subject": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/SampleTestRg/providers/Microsoft.Compute/virtualMachines/VirtualMachineTest8/providers/Microsoft.ResourceHealth/resourceAnnotations/current",
-    "data": {
-        "resourceInfo": {
-            "id": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/SampleTestRg/providers/Microsoft.Compute/virtualMachines/VirtualMachineTest8/providers/Microsoft.ResourceHealth/resourceAnnotations/current",
-            "name": "current",
-            "type": "Microsoft.ResourceHealth/resourceAnnotations",
-            "properties": {
-                "targetResourceId": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/SampleTestRg/providers/Microsoft.Compute/virtualMachines/VirtualMachineTest8",
-                "targetResourceType": "Microsoft.Compute/virtualMachines",
-                "occurredTime": "2023-07-24T19:20:37.9245071Z",
-                "annotationName": "VirtualMachineDeallocationInitiated",
-                "reason": "Stopping and deallocating",
-                "summary": "This virtual machine is stopped and deallocated as requested by an authorized user or process.",
-                "context": "Customer Initiated",
-                "category": "Not Applicable"
-            }
-        },
-        "apiVersion": "2022-08-01"
+  "id": "8945cf9b-e220-496e-ab4f-f3a239318995",
+  "topic": "/subscriptions/{subscription-id}",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+  "data": {
+    "resourceInfo": {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/resourceAnnotations/{event-id}",
+      "name": "{event-id}",
+      "type": "Microsoft.ResourceHealth/resourceAnnotations",
+      "properties": {
+        "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "occurredTime": "2023-07-24T19:20:37.9245071Z",
+        "annotationName": "VirtualMachineDeallocationInitiated",
+        "reason": "Stopping and deallocating",
+        "summary": "This virtual machine is stopped and deallocated as requested by an authorized user or process.",
+        "context": "Customer Initiated",
+        "category": "Not Applicable"
+      }
     },
-    "eventType": "Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "eventTime": "2023-07-24T19:20:37.9245071Z"
+    "operationalInfo": {
+      "resourceEventTime": "2023-07-24T19:20:37.9245071Z"
+    },
+    "apiVersion": "2022-08-01"
+  },
+  "eventType": "Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2023-07-24T19:20:37.9245071Z"
 }
 ```
 
@@ -295,30 +304,33 @@ The following example shows the schema of a key-value modified event:
 
 ```json
 {
-    "id": "8945cf9b-e220-496e-ab4f-f3a239318995",
-    "source": "/subscriptions/0000000000-0000-0000-0000-0000000000000",
-    "subject": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/SampleTestRg/providers/Microsoft.Compute/virtualMachines/VirtualMachineTest8/providers/Microsoft.ResourceHealth/resourceAnnotations/current",
-    "type": "Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
-    "time": "2023-07-24T19:20:37.9245071Z",
-    "data": {
-        "resourceInfo": {
-            "id": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/SampleTestRg/providers/Microsoft.Compute/virtualMachines/VirtualMachineTest8/providers/Microsoft.ResourceHealth/resourceAnnotations/current",
-            "name": "current",
-            "type": "Microsoft.ResourceHealth/resourceAnnotations",
-            "properties": {
-                "targetResourceId": "/subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/SampleTestRg/providers/Microsoft.Compute/virtualMachines/VirtualMachineTest8",
-                "targetResourceType": "Microsoft.Compute/virtualMachines",
-                "occurredTime": "2023-07-24T19:20:37.9245071Z",
-                "annotationName": "VirtualMachineDeallocationInitiated",
-                "reason": "Stopping and deallocating",
-                "summary": "This virtual machine is stopped and deallocated as requested by an authorized user or process.",
-                "context": "Customer Initiated",
-                "category": "Not Applicable"
-            }
-        },
-        "apiVersion": "2022-08-01"
+  "id": "8945cf9b-e220-496e-ab4f-f3a239318995",
+  "source": "/subscriptions/{subscription-id}",
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+  "data": {
+    "resourceInfo": {
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}/providers/Microsoft.ResourceHealth/resourceAnnotations/{event-id}",
+      "name": "{event-id}",
+      "type": "Microsoft.ResourceHealth/resourceAnnotations",
+      "properties": {
+        "targetResourceId": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "occurredTime": "2023-07-24T19:20:37.9245071Z",
+        "annotationName": "VirtualMachineDeallocationInitiated",
+        "reason": "Stopping and deallocating",
+        "summary": "This virtual machine is stopped and deallocated as requested by an authorized user or process.",
+        "context": "Customer Initiated",
+        "category": "Not Applicable"
+      }
     },
-    "specversion": "1"
+    "operationalInfo": {
+      "resourceEventTime": "2023-07-24T19:20:37.9245071Z"
+    },
+    "apiVersion": "2022-08-01"
+  },
+  "type": "Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated",
+  "specversion": "1.0",
+  "time": "2023-07-24T19:20:37.9245071Z"
 }
 ```
 
