@@ -70,12 +70,15 @@ The report is formatted as a CSV file. Each row of the report contains the detai
 
 | Name | Description |
 |--|--|
-| Blob path | The fully qualified name of the blob. |
-| Version ID / Snapshot | The ID of the version or snapshot of this task. This field is empty if the object is a base blob. |
-| Condition effect | This field contains a value of `true` if the application of the defined conditions on the object evaluates true; otherwise `false`. |
-| Operation status | This field contains a value of `Success` or `Failed`. This field is empty if the application of the defined conditions on the object evaluates to false. |
-| Status code | This field is empty if the application of the defined conditions on the object evaluates to false. |
-| Error message | This field is empty if the application of the defined conditions on the object evaluates to false. |
+| Container | Definition |
+| Blob | The fully qualified name of the blob. |
+| Snapshot | The ID of the snapshot for this task. This field is empty if the object is a base blob.  |
+| VersionId | The ID of the version of this task. This field is empty if the object is a base blob. |
+| Operation | The operation attempted. |
+| Result | This field contains a value of `Success` or `Failed`. This field is set to `N/A` if the application of the defined conditions on the object evaluates to false. |
+| Error description | This field is empty if the operation succeeds or the application of the defined conditions on the object evaluates to false. |
+| Error code | This field is empty if the operation succeeds or the application of the defined conditions on the object evaluates to false. |
+| Matched condition block | The condition block associated with the row. |
 
 The following example shows an execution report:
 

@@ -23,6 +23,9 @@ This article helps you create an assignment, and then enable that assignment to 
 
 Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
+> [!NOTE] 
+> During the public preview, you can target only storage accounts that are in the same region as the storage tasks.
+
 ### Create an assignment from the storage task menu
 
 You can create an assignment in the context of a storage task. This option can be convenient if you're the task author and you want to target multiple storage accounts. For each assignment you'll to identify the storage account that you want to target.
