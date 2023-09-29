@@ -20,9 +20,53 @@ distributed functionality to Azure Cosmos DB for PostgreSQL.
 > [!NOTE]
 >
 > clusters running older versions of the Citus Engine may not
-> offer all the functions listed below.
+> offer all the functions listed on this page.
 
 ## Table and Shard DDL
+
+### citus\_schema\_distribute
+
+Converts existing regular schemas into distributed schemas. Distributed schemas are autoassociated with individual colocation groups. Tables created in those schemas are converted to colocated distributed tables without a shard key. The process of distributing the schema automatically assigns and moves it to an existing node in the cluster.
+
+#### Arguments
+
+**schemaname:** Name of the schema, which needs to be distributed.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+SELECT citus_schema_distribute('tenant_a');
+SELECT citus_schema_distribute('tenant_b');
+SELECT citus_schema_distribute('tenant_c');
+```
+
+For more examples, see how-to [design for microservices](tutorial-design-database-microservices.md).
+
+### citus\_schema\_undistribute
+
+Converts an existing distributed schema back into a regular schema. The process results in the tables and data being moved from the current node back to the coordinator node in the cluster.
+
+#### Arguments
+
+**schemaname:** Name of the schema, which needs to be distributed.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+SELECT citus_schema_undistribute('tenant_a');
+SELECT citus_schema_undistribute('tenant_b');
+SELECT citus_schema_undistribute('tenant_c');
+```
+
+For more examples, see how-to [design for microservices](tutorial-design-database-microservices.md).
 
 ### create\_distributed\_table
 
@@ -165,6 +209,32 @@ defined as a reference table
 
 ```postgresql
 SELECT create_reference_table('nation');
+```
+
+### citus\_add\_local\_table\_to\_metadata
+
+Adds a local Postgres table into Citus metadata. A major use-case for this function is to make local tables on the coordinator accessible from any node in the cluster. The data associated with the local table stays on the coordinator – only its schema and metadata are sent to the workers.
+
+Adding local tables to the metadata comes at a slight cost. When you add the table, Citus must track it in the [partition table](reference-metadata.md#partition-table). Local tables that are added to metadata inherit the same limitations as reference tables.
+
+When you undistribute the table, Citus removes the resulting local tables from metadata, which eliminates such limitations on those tables.
+
+#### Arguments
+
+**table\_name:** Name of the table on the coordinator to be added to Citus metadata.
+
+**cascade\_via\_foreign\_keys**: (Optional) When this argument set to “true,” citus_add_local_table_to_metadata adds other tables that are in a foreign key relationship with given table into metadata automatically. Use caution with this parameter, because it can potentially affect many tables.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+This example informs the database that the nation table should be defined as a coordinator-local table, accessible from any node:
+
+```postgresql
+SELECT citus_add_local_table_to_metadata('nation');
 ```
 
 ### alter_distributed_table
