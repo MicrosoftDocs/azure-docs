@@ -80,7 +80,7 @@ Welcome to what's new in Azure Active Directory for customers documentation. Thi
 
 ### Updated articles
 
-- [What is Microsoft Entra External ID for customers?](overview-customers-ciam.md) - Added a section regarding Azure AD B2C to the overview and emphasized tenant creation when getting started
+- [What is Microsoft Entra ID for customers?](overview-customers-ciam.md) - Added a section regarding Azure AD B2C to the overview and emphasized tenant creation when getting started
 - [Add user attributes to token claims](how-to-add-attributes-to-token.md) - Added attributes to token claims: fixed steps for updating the app manifest
 - [Tutorial: Prepare a React single-page app (SPA) for authentication in a customer tenant](./tutorial-single-page-app-react-sign-in-prepare-app.md) - JavaScript tutorial edits, code sample updates and fixed SPA aligning content styling
 - [Tutorial: Add sign-in and sign-out to a React single-page app (SPA) for a customer tenant](./tutorial-single-page-app-react-sign-in-sign-out.md) - JavaScript tutorial edits and fixed SPA aligning content styling

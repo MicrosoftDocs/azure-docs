@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Prepare your customer tenant to sign in users in a Node.js CLI application"
-description: Learn how to register and configure a Node.js CLI application to signs in users in a Microsoft Entra External ID for customers tenant
+description: Learn how to register and configure a Node.js CLI application to signs in users in a Microsoft Entra ID for customers tenant
 services: active-directory
 author: Dickson-Mwendia
 manager: mwongerapk
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/04/2023
 ms.custom: developer, devx-track-js
 
-#Customer intent: As a dev, devops, I want to learn how to register and configure a Node.js CLI application to signs in users in a Microsoft Entra External ID for customers tenant
+#Customer intent: As a dev, devops, I want to learn how to register and configure a Node.js CLI application to signs in users in a Microsoft Entra ID for customers tenant
 ---
 
 # Prepare your customer tenant to sign in users in a Node.js CLI application
 
-In this tutorial series, you learn how to build a Node.js command line interface (CLI) application that authenticates users against Microsoft Entra External ID for customers. The Node CLI application you build uses the [Microsoft Authentication Library for Node](/javascript/api/%40azure/msal-node) (MSAL Node) to handle authentication.
+In this tutorial series, you learn how to build a Node.js command line interface (CLI) application that authenticates users against Microsoft Entra ID for customers. The Node CLI application you build uses the [Microsoft Authentication Library for Node](/javascript/api/%40azure/msal-node) (MSAL Node) to handle authentication.
 
 In this article, the first of a three-part tutorial series, you'll;
 
@@ -33,7 +33,7 @@ In this article, the first of a three-part tutorial series, you'll;
 ## Prerequisites
 
 
-- A Microsoft Entra External ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
+- A Microsoft Entra ID for customers tenant. If you don't already have one, <a href="https://aka.ms/ciam-free-trial?wt.mc_id=ciamcustomertenantfreetrial_linkclick_content_cnl" target="_blank">sign up for a free trial</a>.
 
 ## Register the Node.js CLI app
 
@@ -63,7 +63,7 @@ Since this app signs in users, add delegated permissions. These permissions allo
 
 ## Next steps
 
-Prepare your app to sign in users in a Microsoft Entra External ID for customers tenant:
+Prepare your app to sign in users in a Microsoft Entra ID for customers tenant:
 
 > [!div class="nextstepaction"]
 > [Prepare your app to sign in users >](tutorial-cli-app-node-sign-in-prepare-app.md)

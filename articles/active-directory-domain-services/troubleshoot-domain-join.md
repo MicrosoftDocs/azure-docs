@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/29/2023
+ms.date: 09/21/2023
 ms.author: justinha
 
 #Customer intent: As a directory administrator, I want to troubleshoot why VMs can't join a Microsoft Entra Domain Services managed domain.
@@ -17,9 +17,9 @@ ms.author: justinha
 
 # Troubleshoot domain-join problems with a Microsoft Entra Domain Services managed domain
 
-When you try to join a virtual machine (VM) or connect an application to a Microsoft Entra Domain Services (Microsoft Entra DS) managed domain, you may get an error that you're unable to do so. To troubleshoot domain-join problems, review at which of the following points you have an issue:
+When you try to join a virtual machine (VM) or connect an application to a Microsoft Entra Domain Services managed domain, you may get an error that you're unable to do so. To troubleshoot domain-join problems, review at which of the following points you have an issue:
 
-* If you don't receive an authentication prompt, the VM or application can't connect to the Microsoft Entra DS managed domain.
+* If you don't receive an authentication prompt, the VM or application can't connect to the Domain Services managed domain.
     * Start to troubleshoot [connectivity issues for domain-join](#connectivity-issues-for-domain-join).
 * If you receive an error during authentication, the connection to the managed domain is successful.
     * Start to troubleshoot [credentials-related issues during domain-join](#credentials-related-issues-during-domain-join).
@@ -37,7 +37,7 @@ If the VM can't find the managed domain, there's usually a network connection or
 
 ### Network Security Group (NSG) configuration
 
-When you create a managed domain, a network security group is also created with the appropriate rules for successful domain operation. If you edit or create additional network security group rules, you may unintentionally block ports required for Microsoft Entra DS to provide connection and authentication services. These network security group rules can cause issues such as password sync not completing, users not being able to sign in, or domain-join issues.
+When you create a managed domain, a network security group is also created with the appropriate rules for successful domain operation. If you edit or create additional network security group rules, you may unintentionally block ports required for Domain Services to provide connection and authentication services. These network security group rules can cause issues such as password sync not completing, users not being able to sign in, or domain-join issues.
 
 If you continue to have connection issues, review the following troubleshooting steps:
 
@@ -65,7 +65,7 @@ If you still have problems joining your VM to the managed domain, [find help and
 <!-- INTERNAL LINKS -->
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
-[azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-ad-support]: /azure/active-directory/fundamentals/how-to-get-support
 [configure-dns]: tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network
 
 <!-- EXTERNAL LINKS -->

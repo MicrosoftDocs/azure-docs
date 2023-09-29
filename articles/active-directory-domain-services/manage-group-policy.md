@@ -15,18 +15,18 @@ ms.author: justinha
 ---
 # Administer Group Policy in a Microsoft Entra Domain Services managed domain
 
-Settings for user and computer objects in Microsoft Entra Domain Services (Microsoft Entra DS) are often managed using Group Policy Objects (GPOs). Microsoft Entra DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Microsoft Entra DC administrators* group have Group Policy administration privileges in the Microsoft Entra DS domain, and can also create custom GPOs and organizational units (OUs). For more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
+Settings for user and computer objects in Microsoft Entra Domain Services are often managed using Group Policy Objects (GPOs). Domain Services includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Microsoft Entra DC administrators* group have Group Policy administration privileges in the Domain Services domain, and can also create custom GPOs and organizational units (OUs). For more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
 
-In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Microsoft Entra DS. To define configuration settings for users or computers in Microsoft Entra DS, edit one of the default GPOs or create a custom GPO.
+In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Domain Services. To define configuration settings for users or computers in Domain Services, edit one of the default GPOs or create a custom GPO.
 
 This article shows you how to install the Group Policy Management tools, then edit the built-in GPOs and create custom GPOs.
 
 If you are interested in server management strategy, including machines in Azure and
-[hybrid connected](../azure-arc/servers/overview.md),
+[hybrid connected](/azure/azure-arc/servers/overview),
 consider reading about the
-[guest configuration](../governance/machine-configuration/overview.md)
+[guest configuration](/azure/governance/machine-configuration/overview)
 feature of
-[Azure Policy](../governance/policy/overview.md).
+[Azure Policy](/azure/governance/policy/overview).
 
 ## Before you begin
 
@@ -38,7 +38,7 @@ To complete this article, you need the following resources and privileges:
     * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * A Microsoft Entra Domain Services managed domain enabled and configured in your Microsoft Entra tenant.
     * If needed, complete the tutorial to [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance].
-* A Windows Server management VM that is joined to the Microsoft Entra DS managed domain.
+* A Windows Server management VM that is joined to the Domain Services managed domain.
     * If needed, complete the tutorial to [create a Windows Server VM and join it to a managed domain][create-join-windows-vm].
 * A user account that's a member of the *Microsoft Entra DC administrators* group in your Microsoft Entra tenant.
 
@@ -97,7 +97,7 @@ There are two built-in Group Policy Objects (GPOs) in a managed domain - one for
 
 ## Create a custom Group Policy Object
 
-To group similar policy settings, you often create additional GPOs instead of applying all of the required settings in the single, default GPO. With Microsoft Entra DS, you can create or import your own custom group policy objects and link them to a custom OU. If you need to first create a custom OU, see [create a custom OU in a managed domain](create-ou.md).
+To group similar policy settings, you often create additional GPOs instead of applying all of the required settings in the single, default GPO. With Domain Services, you can create or import your own custom group policy objects and link them to a custom OU. If you need to first create a custom OU, see [create a custom OU in a managed domain](create-ou.md).
 
 1. In the **Group Policy Management** console, select your custom organizational unit (OU), such as *MyCustomOU*. Right-select the OU and choose **Create a GPO in this domain, and Link it here...**:
 
@@ -122,8 +122,8 @@ To group similar policy settings, you often create additional GPOs instead of ap
 For more information on the available Group Policy settings that you can configure using the Group Policy Management Console, see [Work with Group Policy preference items][group-policy-console].
 
 <!-- INTERNAL LINKS -->
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md

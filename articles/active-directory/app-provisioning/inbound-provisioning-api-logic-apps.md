@@ -2,14 +2,14 @@
 title: API-driven inbound provisioning with Azure Logic Apps (Public preview)
 description: Learn how to implement API-driven inbound provisioning with Azure Logic Apps.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/18/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: cmmdesai
 ---
 
@@ -73,7 +73,7 @@ The Logic Apps deployment template published in the [Microsoft Entra inbound pro
 ## Step 1: Create an Azure Storage account to host the CSV file
 The steps documented in this section are optional. If you already have an existing storage account or would like to read the CSV file from another source like SharePoint site or Blob storage, update the Logic App to use your connector of choice.
 
-1. Log in to your Azure portal as administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least a [Application Administrator](../roles/permissions-reference.md#application-administrator).
 1. Search for "Storage accounts" and create a new storage account. 
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/storage-accounts.png" alt-text="Screenshot of creating new storage account." lightbox="media/inbound-provisioning-api-logic-apps/storage-accounts.png"::: 
 1. Assign a resource group and give it a name. 
@@ -89,7 +89,7 @@ The steps documented in this section are optional. If you already have an existi
 
 ## Step 2: Configure Azure Function CSV2JSON converter
 
-1. In the browser associated with your Azure portal login, open the GitHub repository URL - https://github.com/joelbyford/CSVtoJSONcore.
+1. In the browser associated with your Azure portal, open the GitHub repository URL - https://github.com/joelbyford/CSVtoJSONcore.
 1. Click on the link "Deploy to Azure" to deploy this Azure Function to your Azure tenant.
      :::image type="content" source="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png" alt-text="Screenshot of deploying Azure Function." lightbox="media/inbound-provisioning-api-logic-apps/deploy-azure-function.png":::    
 1. Specify the resource group under which to deploy this Azure function. 

@@ -47,11 +47,19 @@ There are several ways that you can configure entitlement management for your or
 
 ## Govern access for users in your organization
 
-### Administrator: Assign employees access automatically (preview)
+### Administrator: Assign employees access automatically
 
 1. [Create a new access package](entitlement-management-access-package-create.md#start-the-creation-process)
 1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#select-resource-roles)
 1. [Add an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md)
+
+### Administrator: Assign employees access from lifecycle workflows
+
+1. [Create a new access package](entitlement-management-access-package-create.md#start-the-creation-process)
+1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#select-resource-roles)
+1. [Add a direct assignment policy](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only)
+1. Add a task to [Request user access package assignment](lifecycle-workflow-tasks.md#request-user-access-package-assignment) to a workflow when a user joins
+1. Add a task to [Remove access package assignment for user](lifecycle-workflow-tasks.md#remove-access-package-assignment-for-user) to a workflow when a user leaves
 
 ### Access package manager: Allow employees in your organization to request access to resources
 
@@ -111,7 +119,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Day-to-day management
 
-### Administrator: View the connected organziations that are proposed and configured
+### Administrator: View the connected organizations that are proposed and configured
 
 1. [View the list of connected organizations](entitlement-management-organization.md)
 

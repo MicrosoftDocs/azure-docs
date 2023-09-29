@@ -59,7 +59,7 @@ To verify whether a device is joined to your Microsoft Entra ID, review the **Ac
 
 ## Next steps
 
-- For more information about managing devices, see [managing devices using the Azure portal](manage-device-identities.md).
+- For more information about managing devices, see [managing device identities](manage-device-identities.md).
 - [What is Microsoft Intune?](/mem/intune/fundamentals/what-is-intune)
 - [Overview of Windows Autopilot](/mem/autopilot/windows-autopilot)
 - [Passwordless authentication options for Microsoft Entra ID](../authentication/concept-authentication-passwordless.md)

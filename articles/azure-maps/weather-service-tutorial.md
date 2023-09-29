@@ -203,9 +203,9 @@ To learn more about Azure Notebooks, see
 [Daily Forecast]: /rest/api/maps/weather/getdailyforecast
 [EV routing using Azure Notebooks]: tutorial-ev-routing.md
 [free account]: https://azure.microsoft.com/free/
-[Get Map Image service]: /rest/api/maps/render/getmapimage
+[Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Render - Get Map Image]: /rest/api/maps/render/getmapimage
+[Render - Get Map Image]: /rest/api/maps/render-v2/get-map-static-image
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data
 [weather_dataset_demo.csv]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data

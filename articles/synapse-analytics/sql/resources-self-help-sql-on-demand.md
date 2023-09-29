@@ -580,16 +580,11 @@ This error can occur when the authentication method is user identity, which is a
 
 The error message might also resemble: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
-- If an Azure AD user has a connection open for more than one hour during query execution, any query that relies on Azure AD fails. This scenario includes queries that access storage by using Azure AD pass-through authentication and statements that interact with Azure AD like CREATE EXTERNAL PROVIDER. This issue frequently affects tools that keep connections open, like in the query editor in SQL Server Management Studio and Azure Data Studio. Tools that open new connections to execute a query, like Synapse Studio, aren't affected.
 - The Azure AD authentication token might be cached by the client applications. For example, Power BI caches the Azure AD token and reuses the same token for one hour. The long-running queries might fail if the token expires during execution.
 
 Consider the following mitigations:
 
 - Restart the client application to obtain a new Azure AD token.
-- Consider switching to:
-  - [Service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
-  - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types)
-  - [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
 
 #### [0x80070008](#tab/x80070008)
 
@@ -648,16 +643,11 @@ This error can occur when the authentication method is user identity, which is a
 
 The error message might also resemble the following pattern: `File {path} cannot be opened because it does not exist or it is used by another process.`
 
-- If an Azure AD user has a connection open for more than one hour during query execution, any query that relies on Azure AD fails, including queries that access storage by using Azure AD pass-through authentication and statements that interact with Azure AD like CREATE EXTERNAL PROVIDER. This issue frequently affects tools that keep connections open, like the query editor in SQL Server Management Studio and Azure Data Studio. Client tools that open new connections to execute a query, like Synapse Studio, aren't affected.
 - The Azure AD authentication token might be cached by the client applications. For example, Power BI caches an Azure AD token and reuses it for one hour. The long-running queries might fail if the token expires in the middle of execution.
 
 Consider the following mitigations to resolve the issue:
 
 - Restart the client application to obtain a new Azure AD token.
-- Consider switching to:
-  - [Service principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types)
-  - [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types)
-  - [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)
 
 #### [0x80072EE7](#tab/x80072EE7)
 
