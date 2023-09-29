@@ -35,7 +35,9 @@ Learn more about how you can [optimize regional performance](./how-to-optimize-r
 
 Modern web apps need to work flawlessly across numerous browsers, operating systems, and devices.
 
-- Run tests simultaneously across all modern browsers on Windows, Linux, and mobile emulation of Google Chrome for Android and Mobile Safari. Microsoft Playwright Testing supports all [browsers supported by Playwright](https://playwright.dev/docs/release-notes).
+- Run tests simultaneously across all modern browsers on Windows, Linux, and mobile emulation of Google Chrome for Android and Mobile Safari.
+
+- Microsoft Playwright Testing supports all [browsers supported by Playwright](https://playwright.dev/docs/release-notes).
 
 ## Endpoint testing
 
@@ -43,7 +45,7 @@ Use cloud-hosted remote browsers to test web applications regardless of where th
 
 - Test publicly and privately hosted applications.
 
-- During the development phase, run tests against a localhost development server.
+- During the development phase, [run tests against a localhost development server](./how-to-test-local-applications.md).
 
 ## Playwright support
 
@@ -53,7 +55,7 @@ Microsoft Playwright Testing is built on top of the Playwright framework.
 
 - Integrate your existing Playwright test suite without changing your test code.
 
-- Continuous end-to-end testing by using the Playwright CLI to integrate with continuous integration (CI) tools.
+- Continuous end-to-end testing by using the Playwright CLI to [integrate with continuous integration (CI) tools](./quickstart-automate-end-to-end-testing.md).
 
 ## How it works
 
