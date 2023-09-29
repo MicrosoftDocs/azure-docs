@@ -17,7 +17,7 @@ ms.date: 09/27/2023
 
 This article is for developers who need a deeper understanding of relevance scoring for vector queries in Azure Cognitive Search.
 
-## Scoring algorithms used in vector search
+## Algorithms used in vector search
 
 Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
 
