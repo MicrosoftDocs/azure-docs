@@ -112,6 +112,10 @@ New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIP
 1. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
 
     :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/create-event-subscription-select-event.png" alt-text="Screenshot that shows the Create Event Subscription page." lightbox="./media/subscribe-to-resource-notifications-health-resources-events/create-event-subscription-select-event.png":::
+1. Select **endpoint type**. 
+1. Configure event handler based no the endpoint type you selected. In the following example, an Azure event hub is selected. 
+
+    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/select-endpoint.png" alt-text="Screenshot that shows the Create Event Subscription page." lightbox="./media/subscribe-to-resource-notifications-health-resources-events/select-endpoint.png":::
 1. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
     1. Select **Enable subject filtering**. 
     1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`.
