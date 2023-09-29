@@ -6,7 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 08/24/2023
+ms.date: 09/29/2023
+
 #CustomerIntent: As an Azure administrator, I want to monitor the communication between two virtual machines in Azure so I can be alerted if the communication fails to take actions. I alow want to know why the communication failed, so that I can resolve the problem. 
 ---
 
@@ -22,7 +23,7 @@ In this tutorial, you learn how to:
 > * Monitor communication between the two virtual machines
 > * Diagnose a communication problem between the two virtual machines
 
-:::image type="content" source="./media/monitor-vm-communication/vm-connection-monitor-architecture-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
+:::image type="content" source="./media/monitor-vm-communication/monitor-vm-connection-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
