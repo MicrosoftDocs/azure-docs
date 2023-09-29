@@ -248,7 +248,7 @@ The following parameters are available for configuring L3 isolation domains.
 |`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True|
 |`resource-name`	|Resource Name of the l3isolationDomain|example-l3domain|True|
 |`location`|AODS Azure Region used during NFC Creation|eastus|True|
-|`nf-Id`|azure subscriptionId used during NFC Creation|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"| True|
+|`nf-Id`|Azure subscriptionId used during NFC Creation|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"| True|
 
 The following parameters for isolation domains are optional.
 
