@@ -254,13 +254,19 @@ To use a Whisper model for batch transcription, you also need to set the `model`
 Whisper models via batch transcription are supported in the East US, Southeast Asia, and West Europe regions. 
 
 ::: zone pivot="rest-api"
-You can make a [Models_ListBaseModels](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/Speech/SpeechToText/preview/v3.2-preview.1) request to get available base models for all locales. 
+You can make a [Models_ListBaseModels](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-2-preview1/operations/Models_ListBaseModels) request to get available base models for all locales. 
 
 Make an HTTP GET request as shown in the following example for the `eastus` region. Replace `YourSubscriptionKey` with your Speech resource key. Replace `eastus` if you're using a different region.
 
 ```azurecli-interactive
 curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
+
+By default only the 100 oldest base models are returned, so you can use the `skip` and `top` query parameters to page through the results. For example, the following request returns the next 100 base models after the first 100.
+
+```azurecli-interactive
+curl -v -X GET "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2-preview.1/models/base?skip=100&top=100" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+``````
 
 ::: zone-end
 

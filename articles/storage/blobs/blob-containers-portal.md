@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 06/26/2023
 ms.author: shaas
 ---
 
@@ -36,7 +36,7 @@ To create a container in the [Azure portal](https://portal.azure.com), follow th
 1. In the navigation pane for the storage account, scroll to the **Data storage** section and select **Containers**.
 1. Within the **Containers** pane, select the **+ Container** button to open the **New container** pane.
 1. Within the **New Container** pane, provide a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. The name must also be between 3 and 63 characters long. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-1. Set the **Public access level** for the container. The recommended level is **Private (no anonymous access)**. For information about preventing anonymous public access to blob data, see [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md).
+1. Set the **Anonymous access level** for the container. The recommended level is **Private (no anonymous access)**. For information about preventing anonymous access to blob data, see [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md).
 1. Select **Create** to create the container.
 
     :::image type="content" source="media/blob-containers-portal/create-container-sml.png" alt-text="Screenshot showing how to create a container within the Azure portal." lightbox="media/blob-containers-portal/create-container-lrg.png":::

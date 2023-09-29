@@ -84,7 +84,7 @@ az vm create
 --name myVM 
 --location eastus 
 --size Standard_D2s_v3 
---image UbuntuLTS 
+--image Ubuntu2204 
 --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
 ```
 
