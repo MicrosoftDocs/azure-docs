@@ -44,24 +44,17 @@ This article supports both programming models.
 
 # [Isolated worker model](#tab/isolated-process)
 
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that receives a Service Bus queue message and logs a Service Bus queue message:
+This code defines and initializes the `ILogger`: 
 
-```cs
-        private readonly ILogger<ServiceBusQueueTriggerCSharp> _logger;
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger":::
 
-        public ServiceBusQueueTriggerCSharp(ILogger<ServiceBusQueueTriggerCSharp> logger)
-        {
-            _logger = logger;
-        }
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a single Service Bus queue message and writes it to the logs:
 
-        [Function(nameof(ServiceBusQueueTriggerCSharp))]
-        public void Run([ServiceBusTrigger("QueueNameValue", Connection = "ConnectionValue")] ServiceBusReceivedMessage message)
-        {
-            _logger.LogInformation("Message ID: {id}", message.MessageId);
-            _logger.LogInformation("Message Body: {body}", message.Body);
-            _logger.LogInformation("Message Content-Type: {contentType}", message.ContentType);
-        }
-```
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
+
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages in a single batch and writes each to the logs:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch":::
 
 # [In-process model](#tab/in-process)
 
