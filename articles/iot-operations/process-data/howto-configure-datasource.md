@@ -10,63 +10,9 @@ ms.date: 09/19/2023
 #CustomerIntent: As an operator, I want to configure an Azure IoT Data Processor pipeline data source stage so that I can read messages from Azure IoT Operations MQ for processing.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of a How-to article pattern. See the
-[instructions - How-to](../level4/article-how-to-guide.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
-How-to is a procedure-based article pattern that show the user how to complete a task in their own environment. A task is a work activity that has a definite beginning and ending, is observable, consist of two or more definite steps, and leads to a product, service, or decision.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Use a "<verb> * <noun>" format for your H1. Pick an H1 that clearly conveys the task the user will complete.
-
-For example: "Migrate data from regular tables to ledger tables" or "Create a new Azure SQL Database".
-
-* Include only a single H1 in the article.
-* Don't start with a gerund.
-* Don't include "Tutorial" in the H1.
-
--->
-
 # Configure a pipeline data source stage
 
-
-
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: Lead with a light intro that describes, in customer-friendly language, what the customer will do. Answer the fundamental “why would I want to do this?” question. Keep it short.
-
-Readers should have a clear idea of what they will do in this article after reading the introduction.
-
-* Introduction immediately follows the H1 text.
-* Introduction section should be between 1-3 paragraphs.
-* Don't use a bulleted list of article H2 sections.
-
-Example: In this article, you will migrate your user databases from IBM Db2 to SQL Server by using SQL Server Migration Assistant (SSMA) for Db2.
-
--->
-
 The source stage is the first and required stage in a data processor pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. In the source stage, you define connection details to the data source and establish a partitioning configuration based on your specific data processing requirements. This stage helps you get data into the pipeline and prepare it for further processing.
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.
-
--->
-
-<!-- 3. Prerequisites --------------------------------------------------------------------
-
-Required: Make Prerequisites the first H2 after the H1. 
-
-* Provide a bulleted list of items that the user needs.
-* Omit any preliminary text to the list.
-* If there aren't any prerequisites, list "None" in plain text, not as a bulleted item.
-
--->
 
 ## Prerequisites
 
@@ -74,31 +20,11 @@ Required: Make Prerequisites the first H2 after the H1.
 - An instance of the Operations MQ broker is operational with all necessary raw data available.
 - Basic knowledge of Operations MQ and the corresponding MQTT topic structure.
 
-<!-- 4. Task H2s ------------------------------------------------------------------------------
-
-Required: Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a task. Each section is represented as an H2 in the article.
-
-For portal-based procedures, minimize bullets and numbering.
-
-* Each H2 should be a major step in the task.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
-
--->
-
 ## Configure the data source
 
 To configure the data source:
 
 - Provide connection details to the data source. This configuration includes the type of the data source, the MQTT broker URL, the Quality of Service (QoS) level, the session type, and the topics to subscribe to.
-
 - Specify the authentication method. Currently limited to username/password-based authentication.
 
 The following table describes the data source configuration parameters:
@@ -122,18 +48,13 @@ The data processor doesn't reorder out-of-order data coming from the Operations 
 
 ## Select the data format
 
-In a Data Processor pipeline, the [format](concept-supported-formats.md) field in the source stage specifies how to deserialize the incoming data. By default, the data processor uses the `raw` format that means it doesn't convert the incoming data. You can choose to deserialize your incoming data from `JSON`, `jsonStream`, `MessagePack`, `CBOR`, `CSV`, or `Protobuf` formats into a Data Processor readable message in order to use the full data processor functionality.
+In a Data Processor pipeline, the [format](concept-supported-formats.md) field in the source stage specifies how to deserialize the incoming data. By default, the data processor uses the `raw` format that means it doesn't convert the incoming data. To use many Data Processor features such as `Filter` or `Enrich` stages in a pipeline, you must deserialize your data in the input stage. You can choose to deserialize your incoming data from `JSON`, `jsonStream`, `MessagePack`, `CBOR`, `CSV`, or `Protobuf` formats into a Data Processor readable message in order to use the full data processor functionality.
 
 The following tables describe the different deserialization configuration options:
-
-Pass through. Don't deserialize the incoming message:
 
 | Field | Description | Required | Default | Value |
 |---|---|---|---|---|
 | Data Format | The type of the data format. | Yes | `Raw` | `Raw` `JSON` `jsonStream` `MessagePack` `CBOR` `CSV` `Protobuf` |
-
-> [!IMPORTANT]
-> Data Processor features are severely constrained if you don't deserialize the data. For example, you can't use the `Filter` stage or the `Enrich` stage.
 
 The `Data Format` field is mandatory and its value determines the other required fields.
 
@@ -157,54 +78,18 @@ To deserialize Protobuf messages, you also need to specify the following fields:
 > [!NOTE]
 > Data Processor supports only one message type in each **.proto** file.
 
-> [!TIP]
-> The `Data Format` field is mandatory in each case and its value determines the other required fields.
-
 ## Configure partitioning
 
-To define your partitioning configuration, specify the number of partitions for parallelism and higher throughput and the partitioning strategy based on a unique partition key or partition ID:
+Partitioning in a pipeline divides the incoming data into separate partitions. Partitioning enables data parallelism in the pipeline, which can improve throughput and reduce latency. Partitioning strategies affect how the data is processed in the other stages of the pipeline. For example, the last known value stage and aggregate stage operate on each logical partition.
 
+To partition your data, specify a partitioning strategy and the number of partitions to use:
 
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-## "\<verb\> * \<noun\>"
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1
-1. Step 2
-1. Step 3
-
-<!-- 5. Next step/Related content------------------------------------------------------------------------
-
-Optional: You have two options for manually curated links in this pattern: Next step and Related content. You don't have to use either, but don't use both.
-  - For Next step, provide one link to the next step in a sequence. Use the blue box format
-  - For Related content provide 1-3 links. Include some context so the customer can determine why they would click the link. Add a context sentence for the following links.
-
--->
-
-## Next step
-
-TODO: Add your next step link(s)
-
-<!-- 
-> [!div class="nextstepaction"]
-> [Write concepts](article-concept.md)
-
-OR -->
+| Field | Description | Required | Default | Example |
+| ----- | ----------- | -------- | ------- | ------- |
+| Partition type | The type of partitioning to be used: Partition `id` or Partition `key` | Required | `key` | `key` |
+| Partition expression | The [jq expression](concept-jq-expression.md) to use on the incoming message to compute  the partition `id` or partition `key` | Required | N/A | `.topic` |
+| Number of partitions| The number of partitions in a data processor pipeline. | Required | N/A | `3` |
 
 ## Related content
 
-TODO: Add your next step link(s)
-
-<!--
-- [Write concepts](article-concept.md)
-
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
-
+- [Serialization and deserialization formats](concept-supported-formats.md)

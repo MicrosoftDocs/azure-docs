@@ -3,6 +3,7 @@ title: Process messages at the edge or in the cloud
 description: Use the Azure IoT Operations Data Processor to aggregate, enrich, normalize, and filter the data from your devices before it's sent for storage or analysis.
 author: dominicbetts
 ms.author: dobett
+# ms.subservice: data-processor
 ms.topic: conceptual #Required.
 ms.date: 09/08/2023
 ---

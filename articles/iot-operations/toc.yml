@@ -34,6 +34,26 @@ items:
       items:
       - name: Overview
         href: process-data/overview-data-processor.md
+      - name: Message structure
+        href: process-data/concept-message-structure.md
+      - name: Supported message formats
+        href: process-data/concept-supported-formats.md
+      - name: Pipeline contextualization
+        href: process-data/concept-contextualization.md
+      - name: Pipeline partitioning
+        href: process-data/concept-partitioning.md
+      - name: What is jq?
+        href: process-data/concept-jq.md
+      - name: jq paths
+        href: process-data/concept-jq-path.md
+      - name: jq expressions
+        href: process-data/concept-jq-expression.md
+      - name: Configuration patterns
+        href: process-data/concept-configuration-patterns.md
+      - name: Configure data source
+        href: process-data/howto-configure-datasource.md
+      - name: Configure reference data store
+        href: process-data/howto-configure-reference.md
     - name: Connect to the cloud
       items:
       - name: Overview
