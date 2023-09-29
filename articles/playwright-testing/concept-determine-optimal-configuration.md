@@ -26,7 +26,7 @@ As previously shown in the chart, the test suite completion time doesn't continu
 
 ### Run tests locally
 
-By default, Playwright limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
+By default, @playwright/test limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
 
 When you run tests locally, the number of worker processes is limited to the number of CPU cores on your machine. In addition, beyond a certain point, adding more workers leads to resource contention, which slows down each worker and introduces test flakiness.
 
