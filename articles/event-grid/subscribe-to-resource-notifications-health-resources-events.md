@@ -36,7 +36,6 @@ This article explains the steps needed to subscribe to events published by Azure
     ```
 
 # [Azure portal](#tab/azure-portal)
-Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
 
 ---
 
@@ -90,7 +89,6 @@ New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIP
 ```
 
 # [Azure portal](#tab/azure-portal)
-Currently, you can't create a system topic for the Azure Resource Notifications source in the Azure portal. However, you can view system topics that are created using the CLI or PowerShell, and then add subscriptions to topics in the Azure portal. 
 
 [!INCLUDE [system-topics](./includes/system-topics.md)] 
 5. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
