@@ -9,13 +9,10 @@ manager: femila
 ---
 # Tutorial: Create a tenant in Azure Virtual Desktop (classic)
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
-
->[!IMPORTANT]
->You can find more information about how to migrate from Azure Virtual Desktop (classic) to Azure Virtual Desktop at [Migrate automatically from Azure Virtual Desktop (classic)](../automatic-migration.md). 
+> [!IMPORTANT]
+> - This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 >
->Try Azure Virtual Desktop by following our [Tutorial: Create and connect to a Windows 11 desktop with Azure Virtual Desktop](../tutorial-create-connect-personal-desktop.md).
+> - Beginning **September 30 2023**, you will no longer be able to create new Azure Virtual Desktop (classic) tenants. Azure Virtual Desktop (classic) will retire on **September 30, 2026**. You should transition to [Azure Virtual Desktop](../index.yml) before that date. For more information, see [Azure Virtual Desktop (classic) retirement](classic-retirement.md).
 
 Creating a tenant in Azure Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Azure Virtual Desktop service. Each host pool also consists of one or more application groups that are used to publish desktop and application resources to users. With a tenant, you can build host pools, create application groups, assign users, and make connections through the service.
 

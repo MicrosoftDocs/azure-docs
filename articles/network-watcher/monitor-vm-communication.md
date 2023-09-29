@@ -30,15 +30,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
 ## Create a virtual network
 
 In this section, you create **myVNet** virtual network with two subnets and an Azure Bastion host. The first subnet is used for the virtual machine, and the second subnet is used for the Bastion host.
 
-1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** in the search results.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** from the search results.
 
     :::image type="content" source="./media/monitor-vm-communication/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -212,21 +210,19 @@ The connection monitor you created in the previous section monitors the connecti
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all of the resources it contains:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains:
 
-1. In the search box at the top of the portal, enter *myResourceGroup*. When you see **myResourceGroup** in the search results, select it.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
 1. Select **Delete resource group**.
 
-1. In **Delete a resource group**, enter *myResourceGroup*, and then select **Delete**.
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-## Next steps
+## Next step
 
-In this tutorial, you learned how to monitor a connection between two virtual machines. You learned that connection monitor detected the connection failure to port 22 on target virtual machine after you stopped it. To learn about all of the different metrics that connection monitor can return, see [Metrics in Azure Monitor](connection-monitor-overview.md#metrics-in-azure-monitor).
-
-To learn how to diagnose and troubleshoot problems with virtual network gateways, advance to the next tutorial.
+To learn how to monitor virtual machine scale set network communication, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
+> [Monitor network communication with a scale set](diagnose-communication-problem-between-networks.md)
