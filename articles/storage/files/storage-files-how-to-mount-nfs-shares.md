@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/28/2023
+ms.date: 09/29/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -55,7 +55,7 @@ We recommend using the following mount options when mounting NFS Azure file shar
 | `sec` | sys | Specifies the type of security to use when authenticating an NFS connection. Setting `sec=sys` uses the local UNIX UIDs and GIDs that use AUTH_SYS to authenticate NFS operations. |
 | `rsize` | 1048576 | Sets the maximum number of bytes to be transferred in a single NFS read operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
 | `wsize` | 1048576 | Sets the maximum number of bytes to be transferred in a single NFS write operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
-| `noresvport` | n/a | Tells the NFS client to use a non-privileged source port when communicating with an NFS server for the mount point. |
+| `noresvport` | n/a | Tells the NFS client to use a non-privileged source port when communicating with an NFS server for the mount point. Using the `noresvport` mount option helps ensure that your NFS share has uninterrupted availability after a reconnection. Using this option is strongly recommended for achieving high availability. |
 
 ## Mount an NFS share using the Azure portal
 
