@@ -10,7 +10,7 @@ ms.custom: playwright-testing-preview
 
 Microsoft Playwright Testing Preview is a fully managed service for end-to-end testing built on top of Playwright. With Playwright, you can automate end-to-end tests to ensure your web applications work the way you expect it to, across different web browsers and operating systems. The service abstracts the complexity and infrastructure for running Playwright tests with high parallelization.
 
-Run your Playwright test suite in the cloud, without changes to your test code or modifications to your tooling setup. Use the Playwright Test Visual Studio Code extension for a rich editor experience, or use the Playwright CLI to add automation within your continuous integration (CI) workflow.
+Run your Playwright test suite in the cloud, without changes to your test code or modifications to your tooling setup. Use the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) for a rich editor experience, or use the Playwright CLI to add automation within your continuous integration (CI) workflow.
 
 Get started with [Quickstart: run your Playwright tests at scale with Microsoft Playwright Testing](./quickstart-run-end-to-end-tests.md).
 
@@ -54,6 +54,8 @@ Microsoft Playwright Testing is built on top of the Playwright framework.
 - Support for multiple versions of Playwright with each new Playwright release.
 
 - Integrate your existing Playwright test suite without changing your test code.
+
+- Use the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) for a rich editor experience.
 
 - Continuous end-to-end testing by using the Playwright CLI to [integrate with continuous integration (CI) tools](./quickstart-automate-end-to-end-testing.md).
 
