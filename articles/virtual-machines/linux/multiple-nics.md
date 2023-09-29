@@ -84,7 +84,7 @@ Create a VM with [az vm create](/cli/azure/vm). The following example creates a 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --size Standard_DS3_v2 \
     --admin-username azureuser \
     --generate-ssh-keys \
