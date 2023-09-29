@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 09/25/2023
 ---
 
-# How to use Azure pipelines with HDInsight on AKS - Flink
+# How to use Azure Pipelines with HDInsight on AKS - Flink
 
 In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS to submit Flink jobs via the cluster's REST API. We guide you through the process using a sample YAML pipeline and a PowerShell script, both of which streamline the automation of the REST API interactions.
 
@@ -17,7 +17,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
 - A GitHub account where you can create a repository. [Create one for free](https://azure.microsoft.com/free).
 
-- Create .pipeline directory, copy [flink-azure-pipelines.yml](https://hdiconfigactions.blob.core.windows.net/hiloflinkblob/flink-azure-pipelines.yml) and [flink-job-azure-pipeline.ps1](https://hdiconfigactions.blob.core.windows.net/hiloflinkblob/flink-job-azure-pipeline.ps1)
+- Create `.pipeline` directory, copy [flink-azure-pipelines.yml](https://hdiconfigactions.blob.core.windows.net/hiloflinkblob/flink-azure-pipelines.yml) and [flink-job-azure-pipeline.ps1](https://hdiconfigactions.blob.core.windows.net/hiloflinkblob/flink-job-azure-pipeline.ps1)
 
 - Azure DevOps organization. Create one for free. If your team already has one, then make sure you are an administrator of the Azure DevOps project that you want to use.
 
@@ -27,9 +27,9 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
 - Create one directory in cluster storage account to copy job jar. This directory later you need to configure in pipeline YAML for job jar location (<JOB_JAR_STORAGE_PATH>).
 
-## Steps to setup pipeline
+## Steps to set up pipeline
 
-### Create a service principal for azure pipelines.
+### Create a service principal for Azure Pipelines.
 
   Create [Azure AD Service Principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight on AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response.
   ```
@@ -54,7 +54,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
       -   *service-principal-secret* for principal secret.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/create-key-vault.png" alt-text="Screenshot showing how to create kay vault." lightbox="./media/run-flink-jobs-using-azure-pipelines/create-key-vault.png":::
+      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/create-key-vault.png" alt-text="Screenshot showing how to create key vault." lightbox="./media/run-flink-jobs-using-azure-pipelines/create-key-vault.png":::
 
   1. Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role to service principal.
 
@@ -124,7 +124,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
       -   NEW: This value is default. It launches new job and if the job is already running then it updates the running job with latest jar.
 
-      -   SAVEPOINT: This value take the save point for running job.
+      -   SAVEPOINT: This value takes the save point for running job.
 
       -   DELETE: Cancel or delete the running job.
 
