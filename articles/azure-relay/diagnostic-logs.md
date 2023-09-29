@@ -110,6 +110,21 @@ AzureDiagnostics:
     "Category": "VNetAndIPFilteringLogs"
 }
 ```
+Resource specific table entry:
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "AddressIp": "1.2.3.4",
+    "Action": "Accept Connection",
+    "Message": "IP is accepted by IPAddress filter.",
+    "Count": 1,
+    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.RELAY/NAMESPACES/<RELAY NAMESPACE NAME>",
+    "Provider" : "RELAY",
+    "Type": "AZMSVNetConnectionEvents"
+}
+```
+
 
 ## Events and operations captured in diagnostic logs
 
