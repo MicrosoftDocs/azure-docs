@@ -28,63 +28,40 @@ Learn more about Azure FarmBeats [Democratizing agriculture intelligence: introd
 
 We have identified calls to an Azure Data Manager for Agriculture (ADMA) Java SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
-
-### Upgrade to the latest ADMA DotNet SDK version
-
-We have identified calls to a ADMA DotNet SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
-
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
-
-### Upgrade to the latest ADMA JavaScript SDK version
-
-We have identified calls to a ADMA JavaScript SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
-
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
-
-### Upgrade to the latest ADMA Python SDK version
-
-We have identified calls to a ADMA Python SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
-
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
-
-### Upgrade to the latest ADMA Java SDK version
-
-We have identified calls to an Azure Data Manager for Agriculture (ADMA) Java SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
-
 Learn more about [Azure FarmBeats - FarmBeatsJavaSdkVersion (Upgrade to the latest ADMA Java SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA DotNet SDK version
 
-We have identified calls to a ADMA DotNet SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+We have identified calls to an ADMA DotNet SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
 Learn more about [Azure FarmBeats - FarmBeatsDotNetSdkVersion (Upgrade to the latest ADMA DotNet SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA JavaScript SDK version
 
-We have identified calls to a ADMA JavaScript SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+We have identified calls to an ADMA JavaScript SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
 Learn more about [Azure FarmBeats - FarmBeatsJavaScriptSdkVersion (Upgrade to the latest ADMA JavaScript SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA Python SDK version
 
-We have identified calls to a ADMA Python SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+We have identified calls to an ADMA Python SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
 
 Learn more about [Azure FarmBeats - FarmBeatsPythonSdkVersion (Upgrade to the latest ADMA Python SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ## API Management
+
+
+### SSL/TLS renegotiation blocked
+
+SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certificate is requested over an already established connection. When it is blocked, reading 'context.Request.Certificate' in policy expressions returns 'null'. To support client certificate authentication scenarios, enable 'Negotiate client certificate' on listed hostnames. For browser-based clients, enabling this option might result in a certificate prompt being presented to the client.
+
+Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
 
 ### Hostname certificate rotation failed
 
 API Management service failed to refresh hostname certificate from Key Vault. Ensure that certificate exists in Key Vault and API Management service identity is granted secret read access. Otherwise, API Management service cannot retrieve certificate updates from Key Vault, which may lead to the service using stale certificate and runtime API traffic being blocked as a result.
 
 Learn more about [Api Management - HostnameCertRotationFail (Hostname certificate rotation failed)](https://aka.ms/apimdocs/customdomain).
-
-### SSL/TLS renegotiation blocked
-
-SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certificate is requested over an already established connection. When it is blocked, reading 'context.Request.Certificate' in policy expressions returns 'null'. To support client certificate authentication scenarios, enable 'Negotiate client certificate' on listed hostnames. For browser-based clients, enabling this option might result in a certificate prompt being presented to the client.
-
-Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](../api-management/api-management-howto-mutual-certificates-for-clients.md).
 
 ## App
 
@@ -281,19 +258,19 @@ Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure F
 
 ### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
 
-Starting July 1, 2020, customers can't create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+Starting July 1, 2020, you can't create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
 Learn more about [HDInsight cluster - KafkaVersionRetirement (Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster)](https://aka.ms/hdiretirekafka).
 
 ### Deprecation of Older Spark Versions in HDInsight Spark cluster
 
-Starting July 1, 2020, customers can't create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters run as is without support from Microsoft.
+Starting July 1, 2020, you can't create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters run as is without support from Microsoft.
 
 Learn more about [HDInsight cluster - SparkVersionRetirement (Deprecation of Older Spark Versions in HDInsight Spark cluster)](https://aka.ms/hdiretirespark).
 
 ### Enable critical updates to be applied to your HDInsight clusters
 
-HDInsight service is applying an important certificate related update to your cluster. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Take actions to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 13, 2021 05:00 PM UTC. The HDInsight team are performing updates between Jan 13, 2021 05:00 PM UTC and Jan 16, 2021 05:00 PM UTC. Failure to apply this update may result in your clusters becoming unhealthy and unusable.
+HDInsight service is applying an important certificate related update to your cluster. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Take actions to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 13, 2021 05:00 PM UTC. The HDInsight team is performing updates between Jan 13, 2021 05:00 PM UTC and Jan 16, 2021 05:00 PM UTC. Failure to apply this update may result in your clusters becoming unhealthy and unusable.
 
 Learn more about [HDInsight cluster - GCSCertRotation (Enable critical updates to be applied to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -311,7 +288,7 @@ Learn more about [HDInsight cluster - GCSCertRotationR3DropRecreate (Drop and re
 
 ### Apply critical updates to your HDInsight clusters
 
-The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 21, 2021 05:00 PM UTC. The HDInsight team are performing updates between Jan 21, 2021 05:00 PM UTC and Jan 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources (Load balancer, Network interface and Public IP address) in the same resource group and Subnet where your cluster is in. Failure to apply this update may result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before Jan 25th, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
+The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 21, 2021 05:00 PM UTC. The HDInsight team is performing updates between Jan 21, 2021 05:00 PM UTC and Jan 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources (Load balancer, Network interface and Public IP address) in the same resource group and Subnet where your cluster is in. Failure to apply this update may result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before Jan 25th, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
 
 Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical updates to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -397,7 +374,7 @@ Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Imple
 
 ### Avoid hostname override to ensure site integrity
 
-Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend.
+Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST APIs) in general are less sensitive to this.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend.
 
 Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](https://aka.ms/appgw-advisor-usecustomdomain).
 
@@ -407,17 +384,17 @@ You appear to have ExpressRoute circuits peered in at least two different locati
 
 Learn more about [ExpressRoute circuit - UseGlobalReachForDR (Use ExpressRoute Global Reach to improve your design for disaster recovery)](../expressroute/about-upgrade-circuit-bandwidth.md).
 
-### Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule
+### Azure WAF RuleSet CRS 3.1/3.2 has been updated with Log4j 2 vulnerability rule
 
-In response to log4j2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide additional protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable this.
+In response to Log4j 2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide additional protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable this.
 
 Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule)](https://aka.ms/log4jcve).
 
-### Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228)
+### Additional protection to mitigate Log4j 2 vulnerability (CVE-2021-44228)
 
-To mitigate the impact of Log4j2 vulnerability, we recommend these steps:
+To mitigate the impact of Log4j 2 vulnerability, we recommend these steps:
 
-1) Upgrade Log4j2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link below.
+1) Upgrade Log4j 2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link below.
 2) Take advantage of WAF Core rule sets (CRS) by upgrading to WAF SKU
 
 Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
