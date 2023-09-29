@@ -23,8 +23,7 @@ As part of this preview, the Azure Communication Services SDKs can be used to bu
 
 To enable calling and chat between your Communication Services users and Teams tenant, allow your tenant via the [form](https://forms.office.com/r/F3WLqPjw0D) and enable the connection between the tenant and Communication Services resource.
 
-[!INCLUDE [Enable interoperability in your Teams tenant](./includes/enable-interoperability-for-teams-tenant.md)]
-
+[!INCLUDE [Enable interoperability in your Teams tenant](./../includes/enable-interoperability-for-teams-tenant.md)]
 ## Get Teams user ID
 
 To start a call or chat with a Teams user or Teams Voice application, you need an identifier of the target. You have the following options to retrieve the ID:
