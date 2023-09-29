@@ -33,7 +33,7 @@ When you run tests locally, the number of worker processes is limited to the num
 To override the number of workers using the [`--workers` command line flag](https://playwright.dev/docs/test-cli#reference):
 
 ```bash
-npx playwright test --workers=30
+npx playwright test --workers=10
 ```
 
 To specify the number of workers in `playwright.config.ts` using the `workers` setting:
@@ -41,7 +41,7 @@ To specify the number of workers in `playwright.config.ts` using the `workers` s
 ```typescript
 export default defineConfig({
   ...
-  workers: 5;
+  workers: 10;
   ...
 });
 ```
@@ -55,7 +55,7 @@ Because the worker processes still run on the client machine (developer workstat
 You can specify the number of workers on the command line with the `--workers` flag:
 
 ```bash
-npx playwright test --config=playwright.service.config.ts --workers=20
+npx playwright test --config=playwright.service.config.ts --workers=30
 ```
 
 Alternately you can specify the number of workers in `playwright.service.config.ts` using the `workers` setting:
@@ -63,7 +63,7 @@ Alternately you can specify the number of workers in `playwright.service.config.
 ```typescript
 export default defineConfig({
   ...
-  workers: 5;
+  workers: 30;
   ...
 });
 ```
