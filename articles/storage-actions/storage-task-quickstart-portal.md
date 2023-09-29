@@ -24,7 +24,9 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 - An Azure storage account. See [create a storage account](../storage/common/storage-account-create.md).
 
-- A blob container that has a metadata key named `Classification` which is set to the string "Confidential".
+- A blob container that has a metadata key named `Classification` which is set to the string "Confidential". 
+
+  Make sure to enable version-level immutability support on that container. See [Enable version-level immutability support on a container](../storage/blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-container).
 
 - One or more Microsoft Word documents stored to the blob container.
 

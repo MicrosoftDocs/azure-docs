@@ -28,9 +28,9 @@ To give users or applications access to the storage task, choose an Azure Built-
 
 | Permission level | Azure built-in role | RBAC actions for custom roles |
 |--|--|--|
-| List and read storage tasks | `put role here` | `Microsoft.Storage/storageAccounts/storageTasks/read` |
-| Create and update storage tasks | `put role here` | `Microsoft.Storage/storageAccounts/storageTasks/write` |
-| Delete storage tasks | `put role here` | `Microsoft.Storage/storageAccounts/storageTasks/delete` |
+| List and read storage tasks | `Contributor` | `Microsoft.Storage/storageAccounts/storageTasks/read` |
+| Create and update storage tasks | `Contributor` | `Microsoft.Storage/storageAccounts/storageTasks/write` |
+| Delete storage tasks | `Contributor` | `Microsoft.Storage/storageAccounts/storageTasks/delete` |
 
 ## See also
 
