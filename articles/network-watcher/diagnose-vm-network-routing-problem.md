@@ -6,9 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.date: 09/28/2023
+ms.date: 09/29/2023
 
-# CustomerIntent: As an Azure administrator, I want to diagnose virtual machine (VM) network routing problem that prevents it from communicating with the internet.
+#CustomerIntent: As an Azure administrator, I want to diagnose virtual machine (VM) network routing problem that prevents it from communicating with the internet.
 ---
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
@@ -27,9 +27,11 @@ In this tutorial, you learn how to:
 
 If you prefer, you can diagnose a virtual machine network routing problem using the [Azure CLI](diagnose-vm-network-routing-problem-cli.md) or [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md) versions of the tutorial.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription.
 
 ## Create a virtual network
 
@@ -37,7 +39,7 @@ In this section, you create a virtual network.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
     :::image type="content" source="./media/diagnose-vm-network-routing-problem/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
 
@@ -277,4 +279,4 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 To learn how to monitor communication between two virtual machines, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Monitor a network connection](monitor-vm-communication.md)
+> [Monitor network communication between virtual machines](monitor-vm-communication.md)
