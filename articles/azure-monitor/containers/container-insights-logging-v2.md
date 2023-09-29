@@ -113,17 +113,17 @@ Multi-line logging disabled scenario:
 
 Multi-line logging enabled scenario:
 
-![Screenshot that shows Multi-line enabled.](./media/container-insights-logging-v2/multi-line-enabled-go.png)
+[ ![Screenshot that shows Multi-line enabled.](./media/container-insights-logging-v2/multi-line-enabled-go.png) ](./media/container-insights-logging-v2/multi-line-enabled-go.png#lightbox)
 
 Similarly, below screenshots depict Multi-line logging enabled scenarios for Java and Python stack traces:
 
 For Java:
 
-![Screenshot that shows Multi-line enabled for Java](./media/container-insights-logging-v2/multi-line-enabled-java.png)
+[ ![Screenshot that shows Multi-line enabled for Java](./media/container-insights-logging-v2/multi-line-enabled-java.png) ](./media/container-insights-logging-v2/multi-line-enabled-java.png#lightbox)
 
 For Python:
 
-![Screenshot that shows Multi-line enabled for Python](./media/container-insights-logging-v2/multi-line-enabled-python.png)
+[ ![Screenshot that shows Multi-line enabled for Python](./media/container-insights-logging-v2/multi-line-enabled-python.png) ](./media/container-insights-logging-v2/multi-line-enabled-python.png#lightbox)
 
 ### Pre-requisites 
 
