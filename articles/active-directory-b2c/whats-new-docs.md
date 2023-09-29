@@ -24,7 +24,7 @@ This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. 
 - [Supported Microsoft Entra features](supported-azure-ad-features.md) - Editorial updates
 - [Publish your Azure Active Directory B2C app to the Microsoft Entra app gallery](publish-app-to-azure-ad-app-gallery.md) - Editorial updates
 - [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md) - Editorial updates
-- ['Azure AD B2C: Frequently asked questions (FAQ)'](faq.yml) - Editorial updates
+- [Azure AD B2C: Frequently asked questions (FAQ)'](faq.yml) - Editorial updates
 - [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](id-token-hint.md) - Editorial updates
 - [Set up sign-in for multi-tenant Microsoft Entra ID using custom policies in Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md) - Editorial updates
 - [Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md) - Editorial updates
