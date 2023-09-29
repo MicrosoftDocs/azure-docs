@@ -10,7 +10,7 @@ ms.date: 09/29/2023
 
 # Azure Stack Edge virtual machine sizing
 
-The following tables list the hardware resources that Azure Private 5G Core (AP5GC) uses when running on supported Azure Stack Edge (ASE) devices. You can use this information to check how much space you'll have remaining on your ASE device after installing Azure Private 5G Core.
+The following table lists the hardware resources that Azure Private 5G Core (AP5GC) uses when running on supported Azure Stack Edge (ASE) devices.
 
 | VM detail | Flavor name | vCPUs | Memory (GiB) | Disk size (GB) | VM function |
 |---|---|---|---|---|---|
@@ -21,11 +21,11 @@ The following tables list the hardware resources that Azure Private 5G Core (AP5
 | **Total requirements** |                         | **24**       | **44** | **Ephemeral - 336** </br> **Persistent - 102** </br> **Total - 438** |  |
 
 > [!NOTE]
-> An extra four vCPUs are used during upgrade of ASE. We do not recommend reserving these four vCPUs because the ASE control plane software can contend with other workloads.
+> An additional four vCPUs are used during ASE upgrade. We do not recommend reserving these additional vCPUs because the ASE control plane software can contend with other workloads.
 
-## Remaining usable resource on Azure Stack Edge Pro
+## Remaining usable resources
 
-The following resources are available within ASE after deploying AP5GC. You can use these resources, for example, to deploy additional virtual machines or storage accounts.
+The following table lists the resources available on supported ASE devices after deploying AP5GC. You can use these resources to deploy additional virtual machines or storage accounts, for example.
 
 | Resource | Pro with GPU | Pro 2 - 64G2T | Pro 2 - 128G4T1GPU | Pro 2 - 256G6T2GPU |
 |----------|--------------|---------------|--------------------|--------------------|
