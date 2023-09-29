@@ -49,7 +49,7 @@ A similarity metric measures the distance between neighboring vectors. Commonly 
 
 For normalized embedding spaces, `dotProduct` is equivalent to the `cosine` similarity, but is more efficient.
 
-If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations to enforce scores that always decrease in value throughout the result set. This transformation ensures that search scores are usable for ranking purposes.
+If you're using the `cosine` metric, it's important to note that the calculated `@search.score` isn't the cosine value between the query vector and the document vectors. Instead, Cognitive Search applies transformations such that the score function is monotonically decreasing, meaning score values will always decrease in value as the similarity becomes worse. This transformation ensures that search scores are usable for ranking purposes.
 
 There are some nuances with similarity scores. 
 
