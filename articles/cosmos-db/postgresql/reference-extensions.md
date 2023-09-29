@@ -35,7 +35,7 @@ Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as 
 
 The following tables list the standard PostgreSQL extensions that are supported on Azure Cosmos DB for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
 
-The versions of each extension installed in a cluster sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
+The versions of each extension installed in a cluster sometimes differ based on the version of PostgreSQL (11, 12, 13, 14, 15, or 16). The tables list extension versions per database version.
 
 ### Citus extension
 
