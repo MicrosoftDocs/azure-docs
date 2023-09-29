@@ -102,6 +102,11 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
     forceUpdateTag: '1'
     containerSettings: {
       containerGroupName: 'mycustomaci'
+      subnetIds: [
+        {
+          id: '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
+        }
+      ]
     }
     storageAccountSettings: {
       storageAccountName: 'myStorageAccount'
@@ -136,11 +141,11 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 
 Property value details:
 
-- `identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script.  For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To login with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.
+- <a id='identity'></a>`identity`: For deployment script API version 2020-10-01 or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script or running deployment script in private network. For more information, see [Access private virtual network](#access-private-virtual-network). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To login with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) in the script.
 - `tags`: Deployment script tags. If the deployment script service generates a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these resources is through their suffixes, which contain "azscripts". For more information, see [Monitor and troubleshoot deployment scripts](#monitor-and-troubleshoot-deployment-scripts).
 - `kind`: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are supported. The values are **AzurePowerShell** and **AzureCLI**.
 - `forceUpdateTag`: Changing this value between Bicep file deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-- `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated.
+- `containerSettings`: Specify the settings to customize Azure Container Instance. Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](#access-private-virtual-network).
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
 - `azPowerShellVersion`/`azCliVersion`: Specify the module version to be used. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
 
@@ -641,7 +646,214 @@ The identity that your deployment script uses needs to be authorized to work wit
 
 ## Access private virtual network
 
-The supporting resources including the container instance can't be deployed to a private virtual network. To access a private virtual network from your deployment script, you can create another virtual network with a publicly accessible virtual machine or a container instance, and create a peering from this virtual network to the private virtual network.
+With Microsoft.Resources/deploymentScripts version 2022-09-01, you can run deployment scripts in private networks with some additional configurations.
+
+- Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](#identity).
+- Create a storage account in the private network, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.
+
+    1. Open the storage account in the [Azure portal](https://portal.azure.com).
+    1. From the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
+    1. Add the `Storage File Data Privileged Contributor` role to the user-assignment managed identity.
+    1. From the left menu, under **Security + networking**, select **Networking**, and then select **Firewalls and virtual networks**.
+    1. Select **Enabled from selected virtual networks and IP addresses**.
+    1. Under **Virtual networks**, add a subnet.
+    1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this storage account**.
+
+      :::image type="content" source="./media/deployment-script-bicep/resource-manager-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of configuring storage account for accessing private network.":::
+
+The following Bicep file shows how to configure the environment:
+
+```bicep
+param prefix string = 'dspvn'
+param location string = resourceGroup().location
+param userAssignedIdentityName string = '${prefix}Identity'
+param storageAccountName string = '${prefix}storage'
+param vnetName string = '${prefix}Vnet'
+param subnetName string = '${prefix}Subnet'
+
+var subnetId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, subnetName)
+@description('Create the Vnet')
+resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
+  name: vnetName
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    enableDdosProtection: false
+  }
+}
+
+@description('Create the subnet')
+resource subnet 'Microsoft.Network/virtualNetworks/subnets@2023-05-01' = {
+  parent: vnet
+  name: subnetName
+  properties: {
+    addressPrefix: '10.0.0.0/24'
+    serviceEndpoints: [
+      {
+        service: 'Microsoft.Storage'
+        locations: [
+          'westus'
+          'eastus2euap'
+          'centraluseuap'
+        ]
+      }
+    ]
+    delegations: [
+      {
+        name: 'Microsoft.ContainerInstance.containerGroups'
+        id: '${subnetId}/delegations/Microsoft.ContainerInstance.containerGroups'
+        properties: {
+          serviceName: 'Microsoft.ContainerInstance/containerGroups'
+        }
+        type: 'Microsoft.Network/virtualNetworks/subnets/delegations'
+      }
+    ]
+    privateEndpointNetworkPolicies: 'Disabled'
+    privateLinkServiceNetworkPolicies: 'Enabled'
+  }
+}
+
+@description('Create the storage with necessary settings')
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    dnsEndpointType: 'Standard'
+    defaultToOAuthAuthentication: false
+    publicNetworkAccess: 'Enabled'
+    allowCrossTenantReplication: true
+    minimumTlsVersion: 'TLS1_2'
+    allowBlobPublicAccess: true
+    allowSharedKeyAccess: true
+    networkAcls: {
+      bypass: 'AzureServices'
+      virtualNetworkRules: [
+        {
+          id: subnetId
+          action: 'Allow'
+          state: 'Succeeded'
+        }
+      ]
+      defaultAction: 'Deny'
+    }
+    supportsHttpsTrafficOnly: true
+    encryption: {
+      requireInfrastructureEncryption: false
+      services: {
+        file: {
+          keyType: 'Account'
+          enabled: true
+        }
+        blob: {
+          keyType: 'Account'
+          enabled: true
+        }
+      }
+      keySource: 'Microsoft.Storage'
+    }
+    accessTier: 'Hot'
+  }
+  dependsOn: [
+    subnet
+  ]
+}
+
+@description('Create the user managed identity')
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+  name: userAssignedIdentityName
+  location: location
+}
+
+@description('get the built-in role definition Storage File Data Priviledged Contributor')
+resource storageFileDataPrivilegedContributor 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
+  name: '69566ab7-960f-475b-8e7c-b3118f30c6bd'
+  scope: tenant()
+}
+
+@description('assign the built in role to the storage account')
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(storageFileDataPrivilegedContributor.id, userAssignedIdentity.id, storageAccount.id)
+  properties: {
+    principalId: userAssignedIdentity.properties.principalId
+    roleDefinitionId: storageFileDataPrivilegedContributor.id
+    principalType: 'ServicePrincipal'
+  }
+  scope: storageAccount
+}
+```
+
+You can use the following Bicep file to test the deployment:
+
+```bicep
+param prefix string
+
+param location string  = resourceGroup().location
+param utcValue string = utcNow()
+
+var storageAccountName = '${prefix}storage'
+param vnetName string = '${prefix}Vnet'
+var subnetName = '${prefix}Subnet'
+var userAssignedIdentityName = '${prefix}Identity'
+
+resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
+  name: vnetName
+}
+
+resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' existing = {
+  name: userAssignedIdentityName
+}
+
+resource dsTest 'Microsoft.Resources/deploymentScripts@2022-09-01' = {
+  name: 'ACI_test4'
+  location: location
+  identity: {
+    type: 'userAssigned'
+    userAssignedIdentities: {
+      '${userAssignedIdentity.id}': {}
+    }
+  }
+  kind: 'AzureCLI'
+  properties: {
+    forceUpdateTag: utcValue
+    azCliVersion: '2.47.0'
+    storageAccountSettings: {
+      storageAccountName: storageAccountName
+    }
+    containerSettings: {
+      containerGroupName: 'my-aci'
+      subnetIds: [
+        {
+          id: '${vnet.id}/subnets/${subnetName}'
+        }
+      ]
+    }
+    arguments: '\'foo\' \'bar\''
+    environmentVariables: [
+      {
+        name: 'UserName'
+        value: 'jdole'
+      }
+      {
+        name: 'Password'
+        secureValue: 'jDolePassword'
+      }
+    ]
+    scriptContent: 'result=$(az keyvault list); echo "arg1 is: $1"; echo "arg2 is: $2"; echo "Username is :$Username"; echo "Password is: $Password"; echo $result | jq -c \'{Result: map({id: .id})}\' > $AZ_SCRIPTS_OUTPUT_PATH'
+    retentionInterval: 'P1D'
+    cleanupPreference: 'OnExpiration'
+  }
+}
+
+output result object = dsTest.properties.outputs
+```
 
 ## Next steps
 
