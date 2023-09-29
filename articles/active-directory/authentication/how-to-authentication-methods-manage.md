@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/13/2023
+ms.date: 09/24/2023
 
 ms.author: justinha
 author: justinha
@@ -89,7 +89,7 @@ After you capture available authentication methods from the policies you're curr
 
 You'll want to set this option before you make any changes as it will apply your new policy to both sign-in and password reset scenarios.
 
-:::image type="content" border="true" source="./media/how-to-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
+:::image type="content" border="true" source="./media/Concept-authentication-methods-manage/manage-migration.png" alt-text="Screenshot of Migration in progress.":::
 
 The next step is to update the Authentication methods policy to match your audit. You'll want to review each method one-by-one. If your tenant is only using the legacy MFA policy, and isn't using SSPR, the update is straightforward - you can enable each method for all users and precisely match your existing policy. 
 
