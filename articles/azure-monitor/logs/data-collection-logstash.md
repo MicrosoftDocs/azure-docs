@@ -17,9 +17,6 @@ The Logstash plugin supports pipeline transformations and advanced configuration
 
 In this article, you learn how to set up the new Logstash plugin to stream the data into Log Analytics or Microsoft Sentinel using DCRs, with full control over the output schema. Learn how to **[deploy the plugin](#deploy-the-microsoft-sentinel-output-plugin-in-logstash)**.
 
-> [!NOTE]
-> A [previous version of the Logstash plugin](connect-logstash.md) allows you to connect data sources through Logstash via the Data Collection API. 
-
 With the new plugin, you can:
 - Control the configuration of the column names and types.
 - Perform ingestion-time transformations like filtering or enrichment. 
@@ -200,13 +197,10 @@ In this scenario, you configure the Logstash input plugin to send syslog events 
         
     You can remove these fields when you [create the DCR](#create-the-required-dcr-resources).
 
-### Create the required DCR resources
+## Configure Logs ingestion API
+The Logstash plugin sends data to the Logs Ingestion API.
 
 To configure the Microsoft Sentinel DCR-based Logstash plugin, you first need to create the DCR-related resources.
-
-In this section, you create resources to use for your DCR, in one of these scenarios:
-- [Create DCR resources for ingestion into a custom table](#create-dcr-resources-for-ingestion-into-a-custom-table)
-- [Create DCR resources for ingestion into a standard table](#create-dcr-resources-for-ingestion-into-a-standard-table) 
 
 #### Create DCR resources for ingestion into a custom table
 
