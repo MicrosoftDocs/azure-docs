@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/25/2023
+ms.date: 09/29/2023
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2309** release, which maps to software version **3.2.2380.1652**.
+This article applies to the **Azure Stack Edge 2309** release, which maps to software version **3.2.2380.1632**.
 
 > [!Warning] 
 > In this release, you must update the packet core version to AP5GC 2308 before you update to Azure Stack Edge 2309. For detailed steps, see [Azure Private 5G Core 2308 release notes](../private-5g-core/azure-private-5g-core-release-notes-2308.md).
@@ -49,9 +49,17 @@ You can update to the latest version using the following update paths:
 
 The 2309 release has the following new features and enhancements:
 
-- Beginning this release, you have the option of selecting Kubernetes profiles based on your workloads. You can also configure Maximum Transmission Unit (MTU) for the network interfaces on your device.
-- Starting March 2023, Azure Stack Edge devices are required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
+- Beginning this release, you have the option of selecting Kubernetes profiles based on your workloads. You can select the Kubernetes workload profiles via the [local UI](/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1) or via the [PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-workload-profiles) of your device.
+- In this release, you can configure Maximum Transmission Unit (MTU) for the network interfaces on your device. For more information, see [Configure MTU via the local UI](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
+- In this release, new VM sizes have been added. For more information, see the [Supported VM sizes for Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
+- Starting this release, you can created  a VM image with custom sizes and use that to create your VMs. For more information, see [Create a VM image with custom size](azure-stack-edge-create-vm-with-custom-size.md).
+- Beginning this release, you can create VM images starting from an image from Azure Marketplace or an image in your Storage account. For more information, see [Create a VM image from Azure Marketplace or Azure storage account](azure-stack-edge-create-a-vm-from-azure-marketplace.md).
+- Several security, supportability, diagnostics, resiliency, and performance improvements were made in this release.
 - You can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. For more information, see [Deploy AKS on Azure Stack Edge](azure-stack-edge-deploy-aks-on-azure-stack-edge.md).
+- In this release, a precheck that verifies if the Azure Resource Manager certificate has expired, was added to the Azure Kubernetes Service (AKS) update.
+- The `Set-HcsKubernetesAzureMonitorConfiguration` PowerShell cmdlet that enables the Azure Monitor is fixed in this release. Though the cmdlet is available to use, we recommend that you configure Azure Monitor for Azure Stack Edge via the Azure Arc portal. 
+- Starting March 2023, Azure Stack Edge devices are required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
+
 
 ## Issues fixed in this release
 
