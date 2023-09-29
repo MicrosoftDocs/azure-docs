@@ -23,7 +23,7 @@ VM_NAME=myDockerVM
 az vm create \
   --resource-group $RESOURCE_GROUP \
   --name $VM_NAME \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
