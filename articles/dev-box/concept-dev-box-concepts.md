@@ -15,7 +15,7 @@ ms.custom: template-concept
 
 This article describes the key concepts and components of Microsoft Dev Box.
 
-As you learn about Microsoft Dev Box, you'll also encounter features of [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md), a complementary service that shares certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. 
+As you learn about Microsoft Dev Box, you'll also encounter components of [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md), a complementary service that shares certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. 
 
 ## Dev center
 

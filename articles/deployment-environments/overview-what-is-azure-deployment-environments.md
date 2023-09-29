@@ -82,7 +82,9 @@ Use APIs to provision environments directly from your preferred CI tool, integra
 
 ## Components shared with Microsoft Dev Box
 
-[Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md) and Azure Deployment Environments are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
+[Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md) and Azure Deployment Environments are complementary services that share certain architectural components. Dev Box provides developers with a cloud-based development workstation, called a dev box, which is configured with the tools they need for their work. Dev centers and projects are common to both services, and they help organize resources in an enterprise.
+
+When configuring Deployment Environments, you may see Dev Box resources and components. You may even see informational messages regarding Dev Box features. If you're not configuring any Dev Box features, you can safely ignore these messages.
 
 ## Next steps
 Start using Azure Deployment Environments:

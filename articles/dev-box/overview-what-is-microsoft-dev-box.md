@@ -89,7 +89,13 @@ When the configuration of the service is complete, developers can create and man
 
 ## Components shared with Azure Deployment Environments
 
-Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md) are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
+Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md) are complementary services that share certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
+
+When configuring Dev Box, you may see Deployment Environments resources and components. You may even see informational messages regarding Deployment Environments features. If you're not configuring any Deployment Environments features, you can safely ignore these messages.
+
+For example, as you create a project, you might see this informational message about catalogs: 
+
+:::image type="content" source="media/overview-what-is-microsoft-dev-box/project-catalog-message.png" alt-text="Screenshot showing an informational message that reads The dev center that contains this project does not have a catalog assigned." lightbox="media/overview-what-is-microsoft-dev-box/project-catalog-message.png":::
 
 ## Next steps
 

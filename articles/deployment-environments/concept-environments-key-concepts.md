@@ -14,7 +14,7 @@ ms.date: 04/25/2023
 
 In this article, you'll learn about the key concepts and components of Azure Deployment Environments. This knowledge helps you more effectively deploy environments for your scenarios.
 
-As you learn about Deployment Environments, you'll also encounter features of [Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md), a complementary service that shares certain architectural components. Dev Box provides developers with a cloud-based development workstation, called a dev box, which is configured with the tools they need for their work.  
+As you learn about Deployment Environments, you'll also encounter components of [Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md), a complementary service that shares certain architectural components. Dev Box provides developers with a cloud-based development workstation, called a dev box, which is configured with the tools they need for their work.  
 
 This diagram shows the key components of Deployment Environments and how they relate to each other. You can learn more about each component in the following sections.
 
