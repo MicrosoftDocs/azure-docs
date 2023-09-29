@@ -356,7 +356,7 @@ items:
     - name: Use custom persistent storage with the Standard consumption and dedicated plan
       href: how-to-custom-persistent-storage-with-standard-consumption.md
     - name: Optimize application observability
-      href: tutorial-applications-observability.md
+      href: application-observability.md
     - name: Application Insights using Java In-Process Agent
       href: how-to-application-insights.md
     - name: Use Dynatrace Java OneAgent
