@@ -93,10 +93,10 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## Considerations when using default domain
-Configuring Application Gateway to override the host name and use the default domain of App Service (typically `azurewebsites.net`) is the easiest way to configure the integration and doesn't require configuring custom domain and certificate in App Service. [This article](https://learn.microsoft.com/azure/architecture/best-practices/host-name-preservation) discusses the general considerations when overriding the original host name. In App Service, there are two scenarios where you need to pay attention with this configuration.
+Configuring Application Gateway to override the host name and use the default domain of App Service (typically `azurewebsites.net`) is the easiest way to configure the integration and doesn't require configuring custom domain and certificate in App Service. [This article](/azure/architecture/best-practices/host-name-preservation) discusses the general considerations when overriding the original host name. In App Service, there are two scenarios where you need to pay attention with this configuration.
 
-### Authentication (Easy Auth)
-When you're using [the authentication feature](../overview-authentication-authorization.md) in App Service, your app will typically redirect to the sign-in page. Because App Service doesn't know the original host name of the request, the redirect would be done on the default domain name and usually result in an error. To work around default redirect, you can configure authentication to inspect a forwarded header and adapt the redirect domain to the original domain. Application Gateway uses a header called `X-Original-Host`.
+### Authentication
+When you're using [the authentication feature](../overview-authentication-authorization.md) in App Service (also known as Easy Auth), your app will typically redirect to the sign-in page. Because App Service doesn't know the original host name of the request, the redirect would be done on the default domain name and usually result in an error. To work around default redirect, you can configure authentication to inspect a forwarded header and adapt the redirect domain to the original domain. Application Gateway uses a header called `X-Original-Host`.
 Using file-based configuration to configure authentication, you can configure App Service to adapt to the original host name. Add this configuration to your configuration file:
 
 ```json
@@ -105,7 +105,7 @@ Using file-based configuration to configure authentication, you can configure Ap
     "httpSettings": {
         "forwardProxy": {
             "convention": "Custom",
-            "customHostHeaderName": "X-Forwarded-Host"
+            "customHostHeaderName": "X-Original-Host"
         }
     }
     ...
