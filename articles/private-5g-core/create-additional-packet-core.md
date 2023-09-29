@@ -42,7 +42,7 @@ In this step, you'll create an additional packet core instance for a site in you
 
     - Ensure **AKS-HCI** is selected in the **Platform** field.
 :::zone pivot="ase-pro-gpu"
-9. If you want to enable UE Metric monitoring, select **Enable** from the **UE Metric monitoring** dropdown. Use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+9. If you want to enable UE Metric monitoring, use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
 
 10. In the **Attached data networks** section, select **Attach data network**. Select the existing data network you used for the site then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
 
