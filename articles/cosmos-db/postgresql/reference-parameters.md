@@ -303,7 +303,7 @@ and is effective on the coordinator.
 > This GUC is applicable only when
 > [shard_replication_factor](reference-parameters.md#citusshard_replication_factor-integer)
 > is greater than one, or for queries against
-> [reference_tables](concepts-distributed-data.md#type-2-reference-tables).
+> [reference_tables](concepts-nodes.md#type-2-reference-tables).
 
 Sets the policy to use when assigning tasks to workers. The coordinator
 assigns tasks to workers based on shard locations. This configuration
