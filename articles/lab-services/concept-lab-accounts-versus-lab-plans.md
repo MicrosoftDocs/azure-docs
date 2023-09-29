@@ -28,7 +28,7 @@ By using lab plans, you can unlock several new capabilities:
 
 **[Per-customer assigned capacity](capacity-limits.md#per-customer-assigned-capacity)**. You don't have to share capacity with others anymore. If your organization has requested more quota, Azure Lab Services allocates it just for you.
 
-**[Advanced networking](how-to-connect-vnet-injection.md)**.  Virtual network peering replaces advanced networking. If you have a lab plan with advanced networking, Azure Lab Services creates lab virtual machines in your virtual network. In your Azure subscription, you can create a virtual network in the same region as the lab plan, and delegate a subnet to Azure Lab Services.
+**[Advanced networking](how-to-connect-vnet-injection.md)**.  Advanced networking with virtual network injection replaces virtual network peering. In your Azure subscription, you can create a virtual network in the same region as the lab plan, and delegate a subnet to Azure Lab Services.
 
 **[Improved auto-shutdown](how-to-configure-auto-shutdown-lab-plans.md)**. Auto-shutdown settings are now available for Windows and Linux operating systems. Learn more about the [supported Linux distributions](./how-to-enable-shutdown-disconnect.md#supported-linux-distributions-for-automatic-shutdown).
 
@@ -66,7 +66,7 @@ Lab accounts and labs have a parental relationship.  Moving to a sibling relatio
 
 ## Known issues
 
-- When using virtual network injection, use caution in making changes to the virtual network and subnet.  Changes may cause the lab VMs to stop working. For example, deleting your virtual network causes all the lab VMs to stop working. We plan to improve this experience in the future, but for now make sure to delete labs before deleting networks.
+- When using virtual network injection, use caution in making changes to the virtual network, subnet, and resources created by Lab Services attached to the subnet. Also, labs using advanced networking must be deleted before deleting the virtual network.
 
 - Moving lab plan and lab resources from one Azure region to another isn't supported.
 

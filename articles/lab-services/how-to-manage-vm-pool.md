@@ -69,7 +69,7 @@ To start individual lab VMs:
 1. Alternately, select multiple VMs using the checks to the left of the **Name** column, and then select the **Start** button at the top of the page.
 
 > [!NOTE]
-> When you start a lab VM, it doesn't affect the available [quota hours](./classroom-labs-concepts.md#quota) for the lab user. Make sure to stop all lab VMs manually or use a [schedule](how-to-create-schedules.md) to avoid unexpected costs.
+> When you start a lab VM *from the virtual machine pool page*, it doesn't affect the available [quota hours](./classroom-labs-concepts.md#quota) for the lab user. Make sure to stop all lab VMs manually or use a [schedule](how-to-create-schedules.md) to avoid unexpected costs.
 
 ## Manually stop lab VMs
 
