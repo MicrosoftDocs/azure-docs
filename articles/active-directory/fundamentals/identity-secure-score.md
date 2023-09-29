@@ -6,16 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/23/2023
+ms.date: 09/12/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
 ms.reviewer: guptashi
-
-#Customer intent: As an IT admin, I want understand the identity secure score, so that I can maximize the security posture of my tenant.
-
-ms.collection: M365-identity-device-management
 ---
 # What is identity secure score?
 
@@ -43,13 +39,16 @@ By following the improvement actions, you can:
 
 ## How do I get my secure score?
 
-Identity secure score is available to free and paid customers. Organizations can access their identity secure score in the [Microsoft Entra admin center](https://entra.microsoft.com/) under **Protection** > **Identity Secure Score**.
+Identity secure score is available to free and paid customers. 
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Global Reader](../roles/permissions-reference.md#global-reader).
+1. Browse to **Protection** > **Identity Secure Score**.
 
 ## How does it work?
 
-Every 48 hours, Azure looks at your security configuration and compares your settings with the recommended best practices. Based on the outcome of this evaluation, a new score is calculated for your directory. It’s possible that your security configuration isn’t fully aligned with the best practice guidance and the improvement actions are only partially met. In these scenarios, you're awarded a portion of the max score available for the control.
+Every 48 hours, we look at your security configuration and compare your settings with the recommended best practices. Based on the outcome of this evaluation, a new score is calculated for your directory. It’s possible that your security configuration isn’t fully aligned with the best practice guidance and the improvement actions are only partially met. In these scenarios, you're awarded a portion of the max score available for the control.
 
-Each recommendation is measured based on your Azure AD configuration. If you're using third-party products to enable a best practice recommendation, you can indicate this configuration in the settings of an improvement action. You may set recommendations to be ignored if they don't apply to your environment. An ignored recommendation doesn't contribute to the calculation of your score.
+Each recommendation is measured based on your configuration. If you're using third-party products to enable a best practice recommendation, you can indicate this configuration in the settings of an improvement action. You may set recommendations to be ignored if they don't apply to your environment. An ignored recommendation doesn't contribute to the calculation of your score.
 
 ![Ignore or mark action as covered by third party](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
 
@@ -70,7 +69,7 @@ The secure score helps you to:
 
 ### Who can use the identity secure score?
 
-To access identity secure score, you must be assigned one of the following roles in Azure Active Directory.
+To access identity secure score, you must be assigned one of the following roles in Microsoft Entra ID.
 
 #### Read and write roles
 
@@ -87,7 +86,7 @@ With read-only access, you aren't able to edit status for an improvement action.
 
 * Helpdesk Administrator
 * User Administrator
-* Service support Administrator
+* Service Support Administrator
 * Security Reader
 * Security Operator
 * Global Reader

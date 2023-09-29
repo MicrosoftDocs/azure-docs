@@ -7,10 +7,12 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ---
 
 # Testing the FHIR API on Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In the previous tutorial, you deployed the Azure API for FHIR and registered your client application. You're now ready to test your Azure API for FHIR.
 

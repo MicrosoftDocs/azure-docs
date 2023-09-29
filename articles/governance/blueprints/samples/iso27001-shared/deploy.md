@@ -6,6 +6,8 @@ ms.topic: sample
 ---
 # Deploy the ISO 27001 Shared Services blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 To deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample, the following steps must
 be taken:
 

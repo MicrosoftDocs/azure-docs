@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript feature extensions (Click A
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 09/12/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -88,7 +88,7 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 			};
 			// Application Insights JavaScript (Web) SDK Loader Script code
 			!function(v,y,T){<!-- Removed the JavaScript (Web) SDK Loader Script code for brevity -->}(window,document,{
-					src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+					src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
 					crossOrigin: "anonymous",
 					cfg: configObj // configObj is defined above.
 			});

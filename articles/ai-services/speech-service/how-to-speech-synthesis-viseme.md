@@ -5,8 +5,7 @@ description: Speech SDK supports viseme events during speech synthesis, which re
 services: cognitive-services
 author: yulin-li
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 10/23/2022
 ms.author: yulili

@@ -1,6 +1,6 @@
 ---
 title: List users, groups, or devices in an administrative unit
-description: List users, groups, or devices in an administrative unit in Azure Active Directory.
+description: List users, groups, or devices in an administrative unit in Microsoft Entra ID.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,34 +18,34 @@ ms.collection: M365-identity-device-management
 
 # List users, groups, or devices in an administrative unit
 
-In Azure Active Directory (Azure AD), you can list the users, groups, or devices in administrative units.
+In Microsoft Entra ID, you can list the users, groups, or devices in administrative units.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license for each administrative unit administrator
-- Azure AD Free licenses for administrative unit members
-- AzureAD module when using PowerShell
+- Microsoft Entra ID P1 or P2 license for each administrative unit administrator
+- Microsoft Entra ID Free licenses for administrative unit members
+- Azure AD PowerShell module when using PowerShell
 - AzureADPreview module when using PowerShell for devices
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
-## Azure portal
+## Microsoft Entra admin center
 
-You can list the users, groups, or devices in administrative units using the Azure portal.
+You can list the users, groups, or devices in administrative units using the Microsoft Entra admin center.
 
 ### List the administrative units for a single user, group, or device
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity**.
 
-1. Select one of the following:
+1. Browse to one of the following:
 
-    - **Users**
-    - **Groups**
+    - **Users** > **All users**
+    - **Groups** > **All groups**
     - **Devices** > **All devices**
 
 1. Select the user, group, or device you want to list their administrative units.
@@ -56,11 +56,11 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the users, groups, or devices for a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity** > **Roles & admins** > **Admin units**.
 
-1. Select **Administrative units** and then select the administrative unit that you want to list the users, groups, or devices for.
+1. Select the administrative unit that you want to list the users, groups, or devices for.
 
 1. Select one of the following:
 
@@ -72,11 +72,9 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the devices for an administrative unit by using the All devices page
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory**.
-
-1. Select **Devices** > **All devices**.
+1. Browse to **Identity** > **Devices** > **All devices**.
 
 1. Select the filter for administrative unit.
 
@@ -86,11 +84,16 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the restricted management administrative units for a single user or group
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory**.
+1. Browse to **Identity**.
 
-1. Select **Users** or **Groups** and then select the user or group you want to list their restricted management administrative units.
+1. Browse to one of the following:
+
+    - **Users** > **All users**
+    - **Groups** > **All groups**
+
+1. Select the user or group you want to list their restricted management administrative units.
 
 1. Select **Administrative units** to list all the administrative units where the user or group is a member.
 
@@ -215,4 +218,4 @@ Response
 ## Next steps
 
 - [Add users, groups, or devices to an administrative unit](admin-units-members-add.md)
-- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Assign Microsoft Entra roles with administrative unit scope](admin-units-assign-roles.md)

@@ -5,7 +5,7 @@ description: A checklist of proven practices for use with Blob storage in develo
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 06/01/2023
 ms.author: akashdubey

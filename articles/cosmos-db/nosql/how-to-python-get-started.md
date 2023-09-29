@@ -42,7 +42,7 @@ pip install azure-cosmos
 
 ##### [Dev container](#tab/env-container)
 
-A [dev container](https://containers.dev/) is a pre-configured environment that you can use to run Python code. For an example of a dev container definition you can use to run these samples, see [devcontainer.json](https://github.com/Azure-Samples/cosmos-db-nosql-python-samples/blob/main/.devcontainer/devcontainer.json).
+A [dev container](https://containers.dev/) is a pre-configured environment that you can use to run Python code.
 
 To run a dev container, you can use:
 

@@ -3,21 +3,21 @@ title: Audit activity history for group assignments in Privileged Identity Manag
 description: View activity and audit activity history for group assignments in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: pim
-ms.date: 6/7/2023
-ms.author: billmath
+ms.date: 09/12/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
 # Audit activity history for group assignments in Privileged Identity Management
 
-With Privileged Identity Management (PIM), you can view activity, activations, and audit history for group membership or ownership changes done through PIM for groups within your organization in Azure Active Directory (Azure AD), part of Microsoft Entra.
+When working with your organization's groups in Privileged Identity Management (PIM), you can view activity, activations, and audit history for Microsoft Entra group membership or ownership changes. 
 
 > [!NOTE]
 > If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
@@ -25,8 +25,6 @@ With Privileged Identity Management (PIM), you can view activity, activations, a
 Follow these steps to view the audit history for groups in Privileged Identity Management.
 
 ## View resource audit history
-
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 **Resource audit** gives you a view of all activity associated with groups in PIM.
 

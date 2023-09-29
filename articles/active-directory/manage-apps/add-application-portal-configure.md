@@ -1,6 +1,6 @@
 ---
 title: 'Configure enterprise application properties'
-description: Configure the properties of an enterprise application in Azure Active Directory.
+description: Configure the properties of an enterprise application in Microsoft Entra ID.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -14,18 +14,18 @@ ms.reviewer: ergreenl
 zone_pivot_groups: enterprise-apps-minus-former-powershell
 ms.custom: enterprise-apps
 
-#Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
+#Customer intent: As an administrator of a Microsoft Entra tenant, I want to configure the properties of an enterprise application.
 ---
 
 # Configure enterprise application properties
 
-This article shows you where you can configure the properties of an enterprise application in your Azure Active Directory (Azure AD) tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
+This article shows you where you can configure the properties of an enterprise application in your Microsoft Entra tenant. For more information about the properties that you can configure, see [Properties of an enterprise application](application-properties.md).
 
 ## Prerequisites
 
 To configure the properties of an enterprise application, you need:
 
-- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Entra user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 ## Configure application properties
@@ -127,10 +127,10 @@ Content-type: application/json
 
 ## Use Microsoft Graph to configure application properties
 
-You can also configure other advanced properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These include properties such as permissions, and role assignments. For more information, see [Create and manage an Azure AD application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
+You can also configure other advanced properties of both app registrations and enterprise applications (service principals) through Microsoft Graph. These include properties such as permissions, and role assignments. For more information, see [Create and manage a Microsoft Entra application using Microsoft Graph](/graph/tutorial-applications-basics#configure-other-basic-properties-for-your-app).
 
 ## Next steps
 
 Learn more about how to manage enterprise applications.
 > [!div class="nextstepaction"]
-> [What is application management in Azure Active Directory?](what-is-application-management.md)
+> [What is application management in Microsoft Entra ID?](what-is-application-management.md)

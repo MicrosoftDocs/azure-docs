@@ -5,8 +5,7 @@ description: Use this article to start building a Conversational Language Unders
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 05/13/2022
 ms.author: aahi
