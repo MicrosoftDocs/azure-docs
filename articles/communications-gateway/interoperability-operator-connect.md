@@ -102,7 +102,7 @@ For more information, see [Manage an enterprise with Azure Communications Gatewa
 > [!TIP]
 > The Number Management Portal does not allow your enterprise customers to manage Teams Calling. For example, it does not provide self-service portals.
 
-### Providing call duration data to Microsoft Teams
+## Providing call duration data to Microsoft Teams
 
 Azure Communications Gateway can use the Operator Connect APIs to upload information about the duration of individual calls (CallDuration information) into the Microsoft Teams environment. This information allows Microsoft Teams clients to display the call duration recorded by your network, instead of the call duration recorded by Microsoft Teams. Providing this information to Microsoft Teams is a requirement of the Operator Connect program that Azure Communications Gateway performs on your behalf.
 
