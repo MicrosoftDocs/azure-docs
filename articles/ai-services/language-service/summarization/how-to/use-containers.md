@@ -45,7 +45,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 The Summarization container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `summarization`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization`
 
-To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/language/tags).
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization).
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the Microsoft Container Registry.
 
