@@ -21,7 +21,7 @@ This article is for developers who need a deeper understanding of relevance scor
 
 Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
 
-HNSW has configuration parameters. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
+HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
 
 Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` in a search index, and then specified on the field definition (also in the index):
 
