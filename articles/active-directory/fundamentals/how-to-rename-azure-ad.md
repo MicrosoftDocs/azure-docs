@@ -131,7 +131,6 @@ $terminology = @(
     @{ Key = 'Azure AD seamless single sign-on'; Value = 'Microsoft Entra seamless single sign-on' },
     @{ Key = 'Azure AD self-service password reset'; Value = 'Microsoft Entra self-service password reset' },
     @{ Key = 'Azure AD SSPR'; Value = 'Microsoft Entra SSPR' },
-    @{ Key = 'Azure AD SSPR'; Value = 'Microsoft Entra SSPR' },
     @{ Key = 'Azure AD domain'; Value = 'Microsoft Entra domain' },
     @{ Key = 'Azure AD group'; Value = 'Microsoft Entra group' },
     @{ Key = 'Azure AD login'; Value = 'Microsoft Entra login' },
@@ -297,10 +296,10 @@ $postTransforms = @(
 $terminology = $terminology.GetEnumerator() | Sort-Object -Property { $_.Key.Length } -Descending
 $postTransforms = $postTransforms.GetEnumerator() | Sort-Object -Property { $_.Key.Length } -Descending
 
-# Get all resx and resjson files in the current directory and its subdirectories, ignoring .gitignored files.
-Write-Host "Getting all resx and resjson files in the current directory and its subdirectories, ignoring .gitignored files."
+# Get all resx files in the current directory and its subdirectories, ignoring .gitignored files.
+Write-Host "Getting all resx files in the current directory and its subdirectories, ignoring .gitignored files."
 $gitIgnoreFiles = Get-ChildItem -Path . -Filter .gitignore -Recurse
-$targetFiles = Get-ChildItem -Path . -Include *.resx, *.resjson -Recurse
+$targetFiles = Get-ChildItem -Path . -Include *.resx -Recurse
 
 $filteredFiles = @()
 foreach ($file in $targetFiles) {
@@ -319,7 +318,7 @@ foreach ($file in $targetFiles) {
 $scriptPath = $MyInvocation.MyCommand.Path
 $filteredFiles = $filteredFiles | Where-Object { $_.FullName -ne $scriptPath }
 
-# This command will get all the files with the extensions .resx and .resjson in the current directory and its subdirectories, and then filter out those that match the patterns in the .gitignore file. The Resolve-Path cmdlet will find the full path of the .gitignore file, and the Get-Content cmdlet will read its content as a single string. The -notmatch operator will compare the full name of each file with the .gitignore content using regular expressions, and return only those that do not match.
+# This command will get all the files with the extensions .resx in the current directory and its subdirectories, and then filter out those that match the patterns in the .gitignore file. The Resolve-Path cmdlet will find the full path of the .gitignore file, and the Get-Content cmdlet will read its content as a single string. The -notmatch operator will compare the full name of each file with the .gitignore content using regular expressions, and return only those that do not match.
 Write-Host "Found $($filteredFiles.Count) files."
 
 function Update-Terminology {
