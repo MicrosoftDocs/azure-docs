@@ -40,4 +40,4 @@ You can edit the workbook you see in any side-panel or detailed metric view by u
 ## Related content
 
 - To learn more about network insights, see [Azure Monitor network insights](network-insights-overview.md).
-- To learn more about Azure Network Watcher, see [What is Azure Network Watcher?](network-watcher-overview.md).
+- To learn more about Azure Network Watcher, see [What is Azure Network Watcher?](network-watcher-overview.md)
