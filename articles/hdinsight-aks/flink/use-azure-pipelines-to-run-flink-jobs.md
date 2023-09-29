@@ -54,7 +54,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
       -   *service-principal-secret* for principal secret.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/create-key-vault.png" alt-text="Screenshot showing how to create key vault." lightbox="./media/run-flink-jobs-using-azure-pipelines/create-key-vault.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/create-key-vault.png" alt-text="Screenshot showing how to create key vault." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/create-key-vault.png":::
 
   1. Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role to service principal.
 
@@ -67,19 +67,19 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
   1. Select Azure Resource Manager.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/select-new-service-connection.png" alt-text="Screenshot showing how to select a new service connection." lightbox="./media/run-flink-jobs-using-azure-pipelines/select-new-service-connection.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/select-new-service-connection.png" alt-text="Screenshot showing how to select a new service connection." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/select-new-service-connection.png":::
 
   1. In the authentication method, select Service Principal (manual).
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/new-service-connection.png" alt-text="Screenshot shows new service connection." lightbox="./media/run-flink-jobs-using-azure-pipelines/new-service-connection.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/new-service-connection.png" alt-text="Screenshot shows new service connection." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/new-service-connection.png":::
 
   1. Edit the service connection properties. Select the service principal you recently created.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/edit-service-connection.png" alt-text="Screenshot showing how to edit service connection." lightbox="./media/run-flink-jobs-using-azure-pipelines/edit-service-connection.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/edit-service-connection.png" alt-text="Screenshot showing how to edit service connection." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/edit-service-connection.png":::
 
   1. Click Verify to check whether the connection was set up correctly. If you encounter the following error:
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/service-connection-error-message.png" alt-text="Screenshot showing service connection error message." lightbox="./media/run-flink-jobs-using-azure-pipelines/service-connection-error-message.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/service-connection-error-message.png" alt-text="Screenshot showing service connection error message." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/service-connection-error-message.png":::
   
   1. Then you need to assign the Reader role to the subscription.
 
@@ -87,38 +87,38 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
   1. Save the service connection.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/tenant-id.png" alt-text="Screenshot showing how to view the Tenant-ID." lightbox="./media/run-flink-jobs-using-azure-pipelines/tenant-id.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/tenant-id.png" alt-text="Screenshot showing how to view the Tenant-ID." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/tenant-id.png":::
 
   1. Navigate to pipelines and click on New Pipeline.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/create-new-pipeline.png" alt-text="Screenshot showing how to create a new pipeline." lightbox="./media/run-flink-jobs-using-azure-pipelines/create-new-pipeline.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/create-new-pipeline.png" alt-text="Screenshot showing how to create a new pipeline." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/create-new-pipeline.png":::
 
   1. Select GitHub as the location of your code.
 
   1. Select the repository. See [how to create a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) in GitHub. select-github-repo image.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/search-your-code.png" alt-text="Screenshot showing how to search your code." lightbox="./media/run-flink-jobs-using-azure-pipelines/search-your-code.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/search-your-code.png" alt-text="Screenshot showing how to search your code." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/search-your-code.png":::
   
 
   1. Select the repository. For more information, [see How to create a repository in GitHub](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-new-repository).
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/select-github-repo.png" alt-text="Screenshot showing how to select a GitHub repository." lightbox="./media/run-flink-jobs-using-azure-pipelines/select-github-repo.png":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/select-github-repo.png" alt-text="Screenshot showing how to select a GitHub repository." lightbox="./media/use-azure-pipelines-to-run-flink-jobs/select-github-repo.png":::
    
   1. From configure your pipeline option, you can choose **Existing Azure Pipelines YAML file**. Select branch and pipeline script that you copied earlier. (.pipeline/flink-azure-pipelines.yml)
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/configure-pipeline.png" alt-text="Screenshot showing how to configure pipeline.":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/configure-pipeline.png" alt-text="Screenshot showing how to configure pipeline.":::
 
   1. Replace value in variable section.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/replace-value.png" alt-text="Screenshot showing how to replace value.":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/replace-value.png" alt-text="Screenshot showing how to replace value.":::
 
   1. Correct code build section based on your requirement and configure <JOB_JAR_LOCAL_PATH> in variable section for job jar local path.
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/code-build-section.png" alt-text="Screenshot shows code build section.":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/code-build-section.png" alt-text="Screenshot shows code build section.":::
 
   1. Add pipeline variable "action" and configure value "RUN."
 
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/pipeline-variable.png" alt-text="Screenshot shows how to add pipeline variable.":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/pipeline-variable.png" alt-text="Screenshot shows how to add pipeline variable.":::
 
       you can change the values of variable before running pipeline. 
 
@@ -130,7 +130,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
   1. Save and run the pipeline. You can see the running job on portal in Flink Job section.
   
-      :::image type="content" source="./media/run-flink-jobs-using-azure-pipelines/save-run-pipeline.png" alt-text="Screenshot shows how to save and run pipeline.":::
+      :::image type="content" source="./media/use-azure-pipelines-to-run-flink-jobs/save-run-pipeline.png" alt-text="Screenshot shows how to save and run pipeline.":::
 
 
 > [!NOTE]
