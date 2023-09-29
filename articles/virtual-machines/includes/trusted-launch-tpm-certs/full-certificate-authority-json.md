@@ -13,7 +13,7 @@ ms.custom: include file
 <details>
 <summary>Select to view the json content for the full certificate authority</summary>
 
-Full Certificate Authority json for TPM cert:
+Global Virtual TPM CA - 01 json cert:
 
 ```json
 -----BEGIN CERTIFICATE-----
