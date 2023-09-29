@@ -27,7 +27,7 @@ Vector search algorithms are specified in the json path `vectorSearch.algorithmC
 
 - [Create a vector index](vector-search-how-to-create-index.md)
 
-Because many algorithm configuration parameters are used to initialize the vector index during index creation, they are immutable parameters and cannot be changed once the index is built. There is a subset of query-time parameters that may be modified.
+Because many algorithm configuration parameters are used to initialize the vector index during index creation, they're immutable parameters and can't be changed once the index is built. There's a subset of query-time parameters that may be modified.
 
 ## How HNSW ranking works
 
@@ -37,7 +37,7 @@ For example, if a query request is about hotels, the model maps the query into a
 
 ### Indexing vectors with the HNSW algorithm
 
-The goal of indexing a new vector into a HNSW graph is to add it to the graph structure in a manner that allows for efficient nearest neighbor search. The following steps summarize the process:
+The goal of indexing a new vector into an HNSW graph is to add it to the graph structure in a manner that allows for efficient nearest neighbor search. The following steps summarize the process:
 
 1. Initialization: Start with an empty HNSW graph, or the existing HNSW graph if it's not a new index.
 
@@ -47,9 +47,9 @@ The goal of indexing a new vector into a HNSW graph is to add it to the graph st
 
    - Each node is connected to up to `m` neighbors that are nearby. This is the `m` parameter.
 
-   - The number of data points that will be considered as candidate connections is governed by the `efConstruction` parameter. This dynamic list will form the set of closest points in the existing graph for the algorithm to consider. Higher `efConstruction` values will result in more nodes being considered, which often leads to denser local neighborhoods for each vector.
+   - The number of data points that considered as candidate connections is governed by the `efConstruction` parameter. This dynamic list forms the set of closest points in the existing graph for the algorithm to consider. Higher `efConstruction` values result in more nodes being considered, which often leads to denser local neighborhoods for each vector.
 
-   - These connections use the configured similarity `metric` to determine distance. Some connections will be "long-distance" connections that connect across different hierarchical levels, creating shortcuts in the graph that enhance search efficiency.
+   - These connections use the configured similarity `metric` to determine distance. Some connections are "long-distance" connections that connect across different hierarchical levels, creating shortcuts in the graph that enhance search efficiency.
 
 1. Graph pruning and optimization: This may be performed after indexing all vectors to improve navigability and efficiency of the HNSW graph. 
 
@@ -63,7 +63,7 @@ In the HNSW algorithm, a vector query search operation is executed by navigating
 
 1. Pruning: To improve efficiency, the algorithm prunes the search space by only considering nodes that are likely to contain nearest neighbors. This is achieved by maintaining a priority queue of potential candidates and updating it as the search progresses. The length of this queue is configured by the parameter `efSearch`.
 
-1. Refinement: As the algorithm moves to lower, more granular levels, HNSW will consider more neighbors near the query, which allows the candidate set of vectors to be refined, improving accuracy.
+1. Refinement: As the algorithm moves to lower, more granular levels, HNSW considers more neighbors near the query, which allows the candidate set of vectors to be refined, improving accuracy.
 
 1. Completion: The search completes when the desired number of nearest neighbors have been identified, or when other stopping criteria are met. This desired number of nearest neighbors is governed by the query-time parameter `k`.
 
