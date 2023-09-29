@@ -167,7 +167,7 @@ To delete a Playwright workspace:
 
 ## Related content
 
-- [Optimize regional latency a workspace](./how-to-optimize-regional-latency.md)
+- [Optimize regional latency for a workspace](./how-to-optimize-regional-latency.md)
 
 - [Manage workspace access](./how-to-manage-workspace-access.md)
 
