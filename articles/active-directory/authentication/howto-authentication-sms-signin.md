@@ -67,7 +67,9 @@ First, let's enable SMS-based authentication for your Azure AD tenant.
     ![Screenshot that shows how to select the SMS authentication method.](./media/howto-authentication-sms-signin/authentication-methods-policy.png)
 
 
-1. Click **Enable** and select **Target users**. You can choose to enable SMS-based authentication for *All users* or *Select users* and groups. **Note** to configure SMS-based authentication for first-factor (i.e. allow users to sign-in with this method) check the "Use for sign-in" checkbox. Leaving this unchecked will make SMS-based authentication available for Multi-factor Authentication and Self-Service Password Reset only.
+1. Click **Enable** and select **Target users**. You can choose to enable SMS-based authentication for *All users* or *Select users* and groups. 
+   > [!NOTE]
+   > To configure SMS-based authentication for first-factor (that is, to allow users to sign in with this method), check the **Use for sign-in** checkbox. Leaving this unchecked makes SMS-based authentication available for multifactor authentication and Self-Service Password Reset only.
 
     ![Enable SMS authentication in the authentication method policy window](./media/howto-authentication-sms-signin/enable-sms-authentication-method.png)
 
