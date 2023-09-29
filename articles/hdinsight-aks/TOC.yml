@@ -42,7 +42,7 @@ items:
     href: ./release-notes/hdinsight-aks-release-notes.md
   - name: Archived release notes
     href: ./release-notes/hdinsight-aks-release-notes-archive.md
-- name: Getting started
+- name: Get started
   items:
   - name: Create a cluster pool and cluster
     href: quickstart-create-cluster.md
@@ -151,8 +151,6 @@ items:
       href: ./trino/trino-create-delta-lake-tables-synapse.md
     - name: Use query scan statistics
       href: ./trino/trino-scan-stats.md
-    - name: Use Azure Data Factory (ADF) with Trino cluster
-      href: ./trino/trino-azure-data-factory.md
     - name: Use Apache Airflow with Trino cluster
       href: ./trino/trino-airflow.md
     - name: Use AWS S3 and Glue with Trino cluster
@@ -185,6 +183,8 @@ items:
         href: ./flink/cosmos-db-for-apache-cassandra.md
       - name:  Azure Event Hubs
         href: ./flink/flink-how-to-setup-event-hub.md
+      - name: Using Azure Pipelines
+        href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
       - name:  Azure data factory managed airflow
         href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
@@ -228,7 +228,11 @@ items:
     - name: Use cases
       items:
       - name: Fraud detection with the Flink DataStream API
-        href: ./flink/fraud-detection-flink-datastream-api.md   
+        href: ./flink/fraud-detection-flink-datastream-api.md
+    - name: Troubleshoot
+      items:
+      - name: Flink cluster configuration
+        href: ./flink/flink-cluster-configuration.md   
 - name: Apache Spark
   items:
   - name: What is Apache Spark in HDInsight on AKS?
