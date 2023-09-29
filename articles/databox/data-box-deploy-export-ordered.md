@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 09/29/2023
 ms.author: shaas
 ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
