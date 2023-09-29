@@ -74,7 +74,7 @@ az vmss create -n myScaleSet \
 		--regular-priority-percentage 50 \
 		--orchestration-mode flexible \
 		--instance-count 4 \
-		--image Centos \
+		--image CentOS85Gen2 \
 		--priority Spot \
 		--eviction-policy Deallocate \
 		--single-placement-group False \

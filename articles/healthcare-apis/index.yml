@@ -29,7 +29,7 @@ highlightedContent:
           url: ./fhir/migration-strategies.md    
        -  title: Azure Health Data Services 
           itemType: training
-          url: https://learn.microsoft.com/training/browse/?term=iot&terms=health%20data%20services
+          url: /training/browse/?term=iot&terms=health%20data%20services
 
 conceptualContent:
   items: 

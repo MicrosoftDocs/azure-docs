@@ -126,6 +126,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
+    -AllowBlobPublicAccess $false `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
@@ -152,6 +153,7 @@ az storage account create \
     --resource-group <resource-group> \
     --kind StorageV2 \
     --location <location> \
+    --allow-blob-public-access false \
     --min-tls-version TLS1_1
 
 az storage account show \
