@@ -197,7 +197,7 @@ You can remove an existing Security group from another Security group; however, 
 
 You can delete a group for any number of reasons, but typically it will be because you:
 
-- Chose the incorrect **Group type** option.
+- Choose the incorrect **Group type** option.
 - Created a duplicate group by mistake. 
 - No longer need the group.
 
