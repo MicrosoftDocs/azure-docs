@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/09/2023
+ms.date: 09/28/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 
@@ -86,7 +86,9 @@ The `EnrichedOffice365AuditLogs` logs are associated with the enriched logs you 
 
 ### Microsoft Graph activity logs
 
-The `MicrosoftGraphActivityLogs` logs are associated with a feature that is still in private preview. The logs are visible in Microsoft Entra ID, but selecting these options won't add new logs to your workspace unless your organization was included in the private preview.
+The `MicrosoftGraphActivityLogs` provide administrators full visibility into all HTTP requests accessing your tenant's resources through the Microsoft Graph API. You can use these logs to identify activities that a compromised user account conducted in your tenant or to investigate problematic or unexpected behaviors for client applications, such as extreme call volumes. Route these logs to the same Log Analytics workspace with `SignInLogs` to cross-reference details of token requests for sign-in logs.
+
+The feature is currently in public preview. For more information, see [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview).
 
 ### Network access traffic logs
 
