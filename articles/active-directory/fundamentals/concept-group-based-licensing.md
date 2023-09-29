@@ -1,6 +1,6 @@
 ---
 title: What is group-based licensing
-description: Learn about Microsoft Entra group-based licensing, including how it works and best practices.
+description: Learn about Microsoft Entra group-based licensing, including how it works, key features, and best practices.
 services: active-directory
 keywords: Azure AD licensing
 author: barclayn
@@ -10,11 +10,11 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/11/2023
+ms.date: 09/28/2023
 ms.author: barclayn
 ms.reviewer: krbain
-ms.custom: "it-pro, seodec18"
-ms.collection: M365-identity-device-management
+
+# Customer intent: As an IT admin, I want to understand group-based licensing, so I can effectively assign licenses to users in my organization.
 ---
 
 # What is group-based licensing in Microsoft Entra ID?
