@@ -96,7 +96,7 @@ Depending on the scenario, your requirements for test completion might be differ
 
 ### 2. Verify that your tests run correctly on the client machine
 
-Before you run your Playwright test suite with Microsoft Playwright Testing, make sure that your tests run correctly on your client machine. If you run your tests as part of a CI workflow, validate that your tests run correctly on the CI agent machine.
+Before you run your Playwright test suite with Microsoft Playwright Testing, make sure that your tests run correctly on your client machine. If you run your tests as part of a CI workflow, validate that your tests run correctly on the CI agent machine. Ensure that you run your tests with a minimum of two parallel workers to verify that your tests are properly configured for parallel execution. Learn more about [parallelism in Playwright](https://playwright.dev/docs/test-parallel).
 
 ### 3. Run with cloud-hosted browsers on Microsoft Playwright Testing
 
