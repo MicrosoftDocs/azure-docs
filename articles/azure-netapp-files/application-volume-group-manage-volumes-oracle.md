@@ -41,9 +41,9 @@ You can manage a volume from its volume group. You can resize, delete, or change
         > Changing the protocol type involves reconfiguration at the Linux host. When using dNFS, it's not recommended to mix volumes using NFSv3 and NFSv4.1.  
 
         > [!NOTE] 
-        > Using Azure NetApp Files built-in automated snapshots doesn't create database consistent backups. Instead, use data protection software such as [AzAcSnap](azacsnap-introduction) that supports snapshot-based data protection for Oracle. 
+        > Using Azure NetApp Files built-in automated snapshots doesn't create database consistent backups. Instead, use data protection software such as [AzAcSnap](azacsnap-introduction.md) that supports snapshot-based data protection for Oracle. 
 
-    * **Change Throughput**
+    * **Change Throughput**   
         You can adapt the throughput of the volume.
 
     [![Screenshot that shows the Edit window for Oracle.](../media/azure-netapp-files/application-volume-edit-oracle.png)](../media/azure-netapp-files/application-volume-edit-oracle.png#lightbox)  
