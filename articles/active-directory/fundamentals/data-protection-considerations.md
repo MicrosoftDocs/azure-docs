@@ -88,6 +88,5 @@ For more information about Secret encryption at rest, see the following table.
 ## Next steps
 
 * [Microsoft Entra ID and data residency](data-residency.md) 
-
 * [Data operational considerations](data-operational-considerations.md)
 * [Data protection considerations](data-protection-considerations.md) (You're here)

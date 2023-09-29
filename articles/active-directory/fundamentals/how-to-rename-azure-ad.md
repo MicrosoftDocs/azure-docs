@@ -16,13 +16,13 @@ ms.reviewer: nicholepet
 ---
 # How to: Rename Azure AD
 
-Azure Active Directory (Azure AD) is being renamed to Microsoft Entra ID to better communicate the multicloud, multiplatform functionality of the product and unify the naming of the Microsoft Entra product family.
+Azure Active Directory (Azure AD) has been renamed to Microsoft Entra ID to better communicate the multicloud, multiplatform functionality of the product and unify the naming of the Microsoft Entra product family.
 
 This article provides best practices and support for customers and organizations who wish to update their documentation or content with the new product name and icon.
 
 ## Prerequisites
 
-Before changing instances of Azure AD in your documentation or content, familiarize yourself with the guidance in [New name for Azure AD](new-name.md) to:
+Before changing instances of Azure AD to Microsoft Entra ID in your documentation or content, familiarize yourself with the guidance in [New name for Azure AD](new-name.md) to:
 
 - Understand the product name and why we made the change
 - Download the new product icon
@@ -85,7 +85,7 @@ See the section [Glossary of updated terminology](new-name.md#glossary-of-update
 1. Replace the Azure AD icon with the Microsoft Entra ID icon.
 1. Replace titles or text containing "Azure Active Directory (Azure AD), Azure Active Directory, Azure AD, AAD" with 'Microsoft Entra ID.'
 
-## Communicate the change to your customers
+### Communicate the change to your customers
 
 To help your customers with the transition, it's helpful to add a note: "Azure Active Directory is now Microsoft Entra ID" or follow the new name with "formerly Azure Active Directory" for the first year.
 

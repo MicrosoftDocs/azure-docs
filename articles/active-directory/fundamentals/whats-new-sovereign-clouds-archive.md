@@ -48,7 +48,7 @@ Restore a recently deleted application, group, servicePrincipal, administrative 
 **Service category:** Authentications (Logins)     
 **Product capability:** Identity Security & Protection   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Microsoft Entra ID (AD) Connect synchronization wait times. For more information, see: [Migrate to cloud authentication using Staged Rollout](../hybrid/connect/how-to-connect-staged-rollout.md).
 
 ---
 
@@ -62,7 +62,7 @@ We're excited to announce the general availability of hybrid cloud Kerberos trus
 **Service category:** Authentications (Logins)     
 **Product capability:** User Authentication   
 
-We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Azure Active Directory (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
+We're excited to announce the general availability of hybrid cloud Kerberos trust, a new Windows Hello for Business deployment model to enable a password-less sign-in experience. With this new model, we’ve made Windows Hello for Business easier to deploy than the existing key trust and certificate trust deployment models by removing the need for maintaining complicated public key infrastructure (PKI), and Microsoft Entra ID (AD) Connect synchronization wait times. For more information, see: [Hybrid Cloud Kerberos Trust Deployment](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust).
 
 ---
 
@@ -78,15 +78,15 @@ Accidental deletion of users in your apps or in your on-premises directory could
 
 ---
 
-### General Availability - SSPR writeback is now available for disconnected forests using Azure AD Connect Cloud sync
+### General Availability - SSPR writeback is now available for disconnected forests using Microsoft Entra ID Connect Cloud sync
 
 
 
 **Type:** New feature  
-**Service category:** Azure AD Connect Cloud Sync   
+**Service category:** Microsoft Entra ID Connect Cloud Sync   
 **Product capability:** Identity Lifecycle Management 
 
-Azure AD Connect Cloud Sync Password writeback now provides customers the ability to synchronize Azure AD password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Azure AD cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
+Microsoft Entra ID Connect Cloud Sync Password writeback now provides customers the ability to synchronize Microsoft Entra ID password changes made in the cloud to an on-premises directory in real time. This can be accomplished using the lightweight Microsoft Entra ID cloud provisioning agent. For more information, see: [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment](../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
 ---
 
@@ -100,9 +100,9 @@ Azure AD Connect Cloud Sync Password writeback now provides customers the abilit
 
 
 
-Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Azure AD provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Azure AD provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Azure AD Connect, and Azure AD Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
+Accidental deletion of users in any system could be disastrous. We’re excited to announce the general availability of the accidental deletions prevention capability as part of the Microsoft Entra ID provisioning service. When the number of deletions to be processed in a single provisioning cycle spikes above a customer defined threshold, the Microsoft Entra ID provisioning service pauses, provide you with visibility into the potential deletions, and allow you to accept or reject the deletions. This functionality has historically been available for Microsoft Entra ID Connect, and Microsoft Entra ID Connect Cloud Sync. It's now available across the various provisioning flows, including both HR-driven provisioning and application provisioning.
 
-For more information, see: [Enable accidental deletions prevention in the Azure AD provisioning service](../app-provisioning/accidental-deletions.md)
+For more information, see: [Enable accidental deletions prevention in the Microsoft Entra ID provisioning service](../app-provisioning/accidental-deletions.md)
 
 ---
 
@@ -160,14 +160,14 @@ For more information, see: [How to use additional context in Microsoft Authentic
 
 ## October 2022
 
-### General Availability - Azure AD certificate-based authentication
+### General Availability - Microsoft Entra ID certificate-based authentication
 
 **Type:** New feature  
 **Service category:** Other   
 **Product capability:** User Authentication   
  
 
-Azure AD certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI). For more information, see: [Overview of Azure AD certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md).
+Microsoft Entra ID certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Microsoft Entra ID (Microsoft Entra ID) for applications and browser sign-in. This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI). For more information, see: [Overview of Microsoft Entra ID certificate-based authentication (Preview)](../authentication/concept-certificate-based-authentication.md).
  
 ---
 
@@ -210,7 +210,7 @@ For more information on how to use this feature, see: [Dynamic membership rule f
 **Product capability:** Identity Lifecycle Management  
  
 
-Pick a group of up to five members and provision them into your third-party applications in seconds. Get started testing, troubleshooting, and provisioning to non-Microsoft applications such as ServiceNow, ZScaler, and Adobe. For more information, see: [On-demand provisioning in Azure Active Directory](../app-provisioning/provision-on-demand.md).
+Pick a group of up to five members and provision them into your third-party applications in seconds. Get started testing, troubleshooting, and provisioning to non-Microsoft applications such as ServiceNow, ZScaler, and Adobe. For more information, see: [On-demand provisioning in Microsoft Entra ID](../app-provisioning/provision-on-demand.md).
  
 ---
 
@@ -228,7 +228,7 @@ In the devices overview, you can view the number of total devices, stale devices
  
 ---
 
-### General Availability - Support for Linux as Device Platform in Azure AD Conditional Access
+### General Availability - Support for Linux as Device Platform in Microsoft Entra ID Conditional Access
 
 **Type:** New feature  
 **Service category:** Conditional Access     
@@ -236,7 +236,7 @@ In the devices overview, you can view the number of total devices, stale devices
 
  
 
-Added support for “Linux” device platform in Azure AD Conditional Access.
+Added support for “Linux” device platform in Microsoft Entra ID Conditional Access.
 
 An admin can now require a user is on a compliant Linux device, managed by Intune, to sign-in to a selected service (for example ‘all cloud apps’ or ‘Office 365’). For more information, see: [Device platforms](../conditional-access/concept-conditional-access-conditions.md#device-platforms)
  
@@ -250,7 +250,7 @@ An admin can now require a user is on a compliant Linux device, managed by Intun
 
  
 
-Cross-tenant access settings enable you to control how users in your organization collaborate with members of external Azure AD organizations. Now you’ll have granular inbound and outbound access control settings that work on a per org, user, group, and application basis. These settings also make it possible for you to trust security claims from external Azure AD organizations like multi-factor authentication (MFA), device compliance, and hybrid Azure AD joined devices. For more information, see: [Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md).
+Cross-tenant access settings enable you to control how users in your organization collaborate with members of external Microsoft Entra ID organizations. Now you’ll have granular inbound and outbound access control settings that work on a per org, user, group, and application basis. These settings also make it possible for you to trust security claims from external Microsoft Entra ID organizations like multi-factor authentication (MFA), device compliance, and hybrid Microsoft Entra ID joined devices. For more information, see: [Cross-tenant access with Microsoft Entra ID External Identities](../external-identities/cross-tenant-access-overview.md).
  
 ---
 
@@ -274,7 +274,7 @@ Admins can now enforce Conditional Access policies based off of GPS location fro
 
  
 
-We've improved the My Sign-ins experience to now support organization switching. Now users who are guests in other tenants can easily switch and sign-in to manage their security info and view activity. More improvements were made to make it easier to switch from My Sign-ins directly to other end user portals such as My Account, My Apps, My Groups, and My Access. For more information, see: [Sign-in logs in Azure Active Directory - preview](../reports-monitoring/concept-all-sign-ins.md)
+We've improved the My Sign-ins experience to now support organization switching. Now users who are guests in other tenants can easily switch and sign-in to manage their security info and view activity. More improvements were made to make it easier to switch from My Sign-ins directly to other end user portals such as My Account, My Apps, My Groups, and My Access. For more information, see: [Sign-in logs in Microsoft Entra ID - preview](../reports-monitoring/concept-all-sign-ins.md)
  
 ---
 
@@ -286,7 +286,7 @@ We've improved the My Sign-ins experience to now support organization switching.
 
  
 
-Temporary Access Pass (TAP) is now generally available. TAP can be used to securely register password-less methods such as Phone Sign-in, phishing resistant methods such as FIDO2, and even help Windows onboarding (AADJ and WHFB). TAP also makes recovery easier when a user has lost or forgotten their strong authentication methods and needs to sign in to register new authentication methods. For more information, see: [Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods](../authentication/howto-authentication-temporary-access-pass.md).
+Temporary Access Pass (TAP) is now generally available. TAP can be used to securely register password-less methods such as Phone Sign-in, phishing resistant methods such as FIDO2, and even help Windows onboarding (AADJ and WHFB). TAP also makes recovery easier when a user has lost or forgotten their strong authentication methods and needs to sign in to register new authentication methods. For more information, see: [Configure Temporary Access Pass in Microsoft Entra ID to register Passwordless authentication methods](../authentication/howto-authentication-temporary-access-pass.md).
  
 ---
 
@@ -325,7 +325,7 @@ Identity Protection now emits risk (such as unfamiliar sign-in properties) on no
 
  
 
-Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Azure AD tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Azure AD protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Azure AD protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials.
+Entra Workload Identity Federation allows developers to exchange tokens issued by another identity provider with Microsoft Entra ID tokens, without needing secrets. It eliminates the need to store, and manage, credentials inside the code or secret stores to access Microsoft Entra ID protected resources such as Azure and Microsoft Graph. By removing the secrets required to access Microsoft Entra ID protected resources, workload identity federation can improve the security posture of your organization. This feature also reduces the burden of secret management and minimizes the risk of service downtime due to expired credentials.
 
 For more information on this capability and supported scenarios, see: [Workload identity federation](../workload-identities/workload-identity-federation.md).
  
@@ -345,15 +345,15 @@ With Continuous access evaluation (CAE), critical security events and policies a
 ---
 
 
-###  Public Preview – Protect against by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD
+###  Public Preview – Protect against by-passing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID
 
 **Type:** New feature  
 **Service category:** MS Graph  
 **Product capability:** Identity Security & Protection  
 
 
-We're delighted to announce a new security protection that prevents bypassing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD. When enabled for a federated domain in your Azure AD tenant, it ensures that a compromised federated account can't bypass Azure AD Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true). 
+We're delighted to announce a new security protection that prevents bypassing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID. When enabled for a federated domain in your Microsoft Entra ID tenant, it ensures that a compromised federated account can't bypass Microsoft Entra ID Multi-Factor Authentication by imitating that a multi factor authentication has already been performed by the identity provider. The protection can be enabled via new security setting, [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values&preserve-view=true). 
 
-We highly recommend enabling this new protection when using Azure AD Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Azure AD Multi-Factor Authentication when federated with Azure AD](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad).
+We highly recommend enabling this new protection when using Microsoft Entra ID Multi-Factor Authentication as your multi factor authentication for your federated users. To learn more about the protection and how to enable it, visit [Enable protection to prevent by-passing of cloud Microsoft Entra ID Multi-Factor Authentication when federated with Microsoft Entra ID](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#enable-protection-to-prevent-by-passing-of-cloud-azure-ad-multi-factor-authentication-when-federated-with-azure-ad).
  
 ---
