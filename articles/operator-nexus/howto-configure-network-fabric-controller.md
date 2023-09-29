@@ -15,7 +15,7 @@ This document also shows you how to check the status, or delete a Network Fabric
 
 ## Prerequisites
 
-You must implement all the prerequisites prior to creating a NFC.
+You must implement all the prerequisites prior to creating an NFC.
 
 Names, such as for resources, shouldn't contain the underscore (\_) character.
 
