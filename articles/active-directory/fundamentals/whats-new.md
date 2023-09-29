@@ -142,7 +142,7 @@ For more information, see: [Microsoft Admin Portals (preview)](../conditional-ac
 **Service category:** Microsoft Graph                                  
 **Product capability:** Monitoring & Reporting                       
 
-The *MicrosoftGraphActivityLogs* provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity. For more information, see: [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview)
+The *MicrosoftGraphActivityLogs* provide administrators full visibility into all HTTP requests accessing your tenant’s resources through the Microsoft Graph API. These logs can be used to find activity from compromised accounts, identify anomalous behavior, or investigate application activity. For more information, see: [Access Microsoft Graph activity logs (preview)](/graph/microsoft-graph-activity-logs-overview).
 
 ---
 
