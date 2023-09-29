@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-    - name: Playwright Testing
-      tocHref: /azure/playwright-testing/
-      topicHref: /azure/playwright-testing/
