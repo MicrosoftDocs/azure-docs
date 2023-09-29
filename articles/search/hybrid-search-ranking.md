@@ -17,6 +17,8 @@ ms.date: 09/27/2023
 
 For hybrid search scoring, Cognitive Search uses the Reciprocal Rank Fusion (RRF) algorithm. RRF combines the results of different search methods, such as vector search and full text search, to produce a single relevance score. RRF is based on the concept of *reciprocal rank*, which is the inverse of the rank of the first relevant document in a list of search results. 
 
+The goal of the technique is to take into account the position of the items in the original rankings, and give higher importance to items that are ranked higher in multiple lists. This can help improve the overall quality and reliability of the final ranking, making it more useful for the task of fusing multiple ordered search results.
+
 In Azure Cognitive Search, RRF is used whenever there are two or more queries that execute in parallel. Each query produces a ranked result set, and RRF is used to merge and homogenize the rankings into a single result set, returned in the query response.
 
 ## How RRF works
