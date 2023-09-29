@@ -269,6 +269,7 @@ az cosmosdb mongodb user definition delete --account-name <account-name> --resou
 - A user's password can only be set/reset by through the Azure CLI / Azure PowerShell.
 - Configuring Users and Roles is only supported through Azure CLI / PowerShell. 
 - Disabling primary/secondary key authentication is not supported. We recommend rotating your keys to prevent access when enabling RBAC.
+- RBAC policies for Cosmos DB for Mongo DB RU will not be automatically reinstated following a restore operation. You will be required to reconfigure these policies after the restoration process is complete.
 
 ## Frequently asked questions (FAQs)
 
