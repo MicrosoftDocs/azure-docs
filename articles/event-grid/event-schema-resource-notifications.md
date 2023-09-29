@@ -59,5 +59,6 @@ To enhance customer experience, a built-in role definition that encompasses all 
 }
 ```
 
+
 ## Next steps
 See [Azure Resource Notifications - Health Resources events in Azure Event Grid](event-schema-health-resources.md).
