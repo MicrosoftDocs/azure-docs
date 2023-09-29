@@ -2,7 +2,7 @@
 title: What is Microsoft Playwright Testing?
 description: 'Microsoft Playwright Testing is a fully managed service for end-to-end testing built on top of Playwright. Run Playwright tests with high parallelization across different operating system and browser combinations simultaneously.'
 ms.topic: overview
-ms.date: 09/27/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 

@@ -2,7 +2,7 @@
 title: Monitor Microsoft Playwright Testing data reference
 description: Important reference material needed when you monitor Microsoft Playwright Testing Preview.
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 # Monitor Microsoft Playwright Testing Preview data reference
