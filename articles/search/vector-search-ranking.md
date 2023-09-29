@@ -17,9 +17,23 @@ ms.date: 09/27/2023
 
 This article is for developers who need a deeper understanding of relevance scoring for vector queries in Azure Cognitive Search.
 
-## Algorithms used in vector search
+## Scoring algorithms used in vector search
 
 Hierarchical Navigable Small World (HNSW) is an algorithm used for efficient [approximate nearest neighbor (ANN)](vector-search-overview.md#approximate-nearest-neighbors) search in high-dimensional spaces. It organizes data points into a hierarchical graph structure that enables fast neighbor queries by navigating through the graph while maintaining a balance between search accuracy and computational efficiency.
+
+HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
+
+Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` in a search index, and then specified on the field definition (also in the index):
+
+- [Create a vector index](vector-search-how-to-create-index.md)
+
+Because many algorithm configuration parameters are used to initialize the vector index during index creation, they are immutable parameters and cannot be changed once the index is built. There is a subset of query-time parameters that may be modified.
+
+## How HNSW ranking works
+
+Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request is fed into the same machine learning model that generated embeddings in the vector index. The output is a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the vectors that are closest to the query vector, and returning the associated documents as the search result.
+
+For example, if a query request is about hotels, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about hotels. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
 
 ### Indexing vectors with the HNSW algorithm
 
@@ -39,7 +53,7 @@ The goal of indexing a new vector into a HNSW graph is to add it to the graph st
 
 1. Graph pruning and optimization: This may be performed after indexing all vectors to improve navigability and efficiency of the HNSW graph. 
 
-### Querying vectors with the HNSW algorithm
+### Retrieving vectors with the HNSW algorithm
 
 In the HNSW algorithm, a vector query search operation is executed by navigating through this hierarchical graph structure. The following summarize the steps in the process:
 
@@ -52,20 +66,6 @@ In the HNSW algorithm, a vector query search operation is executed by navigating
 1. Refinement: As the algorithm moves to lower, more granular levels, HNSW will consider more neighbors near the query, which allows the candidate set of vectors to be refined, improving accuracy.
 
 1. Completion: The search completes when the desired number of nearest neighbors have been identified, or when other stopping criteria are met. This desired number of nearest neighbors is governed by the query-time parameter `k`.
-
-HNSW has several configuration parameters that can be tuned to achieve the throughput, latency, and recall objectives for your search application. You can create multiple configurations if you need optimizations for specific scenarios, but only one configuration can be specified on each vector field.
-
-Vector search algorithms are specified in the json path `vectorSearch.algorithmConfigurations` in a search index, and then specified on the field definition (also in the index):
-
-- [Create a vector index](vector-search-how-to-create-index.md)
-
-Because many algorithm configuration parameters are used to initialize the vector index during index creation, they are immutable parameters and cannot be changed once the index is built. There is a subset of query-time parameters that may be modified.
-
-## How vector search works
-
-Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request is fed into the same machine learning model that generated embeddings in the vector index. The output is a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the vectors that are closest to the query vector, and returning the associated documents as the search result.
-
-For example, if a query request is about hotels, the model maps the query into a vector that exists somewhere in the cluster of vectors representing documents about hotels. Identifying which vectors are the most similar to the query, based on a similarity metric, determines which documents are the most relevant.
 
 Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable`, or fields that are specified in `searchFields` in the query, are returned in search results, along with their search score.
 

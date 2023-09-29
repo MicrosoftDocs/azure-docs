@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/27/2023
 ---
 
-# BM25 relevance scoring for full text search
+# Relevance scoring for full text search (BM25)
 
 This article explains the BM25 relevance scoring algorithm used to compute search scores for [full text search](search-lucene-query-architecture.md). BM25 relevance is exclusive to full text search. Filter queries, autocomplete and suggested queries, wildcard search or fuzzy search queries aren't scored or ranked for relevance.
 
@@ -34,7 +34,7 @@ The following video segment fast-forwards to an explanation of the generally ava
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
-## How BM25 scoring works
+## How BM25 ranking works
 
 Relevance scoring refers to the computation of a search score (**@search.score**) that serves as an indicator of an item's relevance in the context of the current query. The range is unbounded. However, the higher the score, the more relevant the item. 
 
@@ -51,7 +51,17 @@ Only fields marked as `searchable` in the index are used for scoring. Only field
 > [!NOTE]
 > A `@search.score = 1` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`, sometimes paired with filters, where the filter is the primary means for returning a match).
 
-## Score variation
+## Scores in a text results
+
+Whenever results are ranked, **`@search.score`** property contains the value used to order the results. 
+
+The following table identifies the scoring property returned on each match, algorithm, and range. 
+
+| Search method | Parameter | Scoring algorithm | Range |
+|---------------|-----------|-------------------|-------|
+| full text search | `@search.score` | BM25 algorithm, using the [parameters specified in the index](index-ranking-similarity.md#set-bm25-parameters). | Unbounded. |
+
+### Score variation
 
 Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores aren't always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
@@ -63,7 +73,7 @@ Search scores convey general sense of relevance, reflecting the strength of matc
 
 <a name="scoring-statistics"></a>
 
-## Scoring statistics and sticky sessions
+### Scoring statistics and sticky sessions
 
 For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that [portions of an index are physically separate](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 

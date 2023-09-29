@@ -21,7 +21,7 @@ The goal of the technique is to take into account the position of the items in t
 
 In Azure Cognitive Search, RRF is used whenever there are two or more queries that execute in parallel. Each query produces a ranked result set, and RRF is used to merge and homogenize the rankings into a single result set, returned in the query response.
 
-## How RRF works
+## How RRF ranking works
 
 RRF works by taking the search results from multiple methods, assigning a reciprocal rank score to each document in the results, and then combining the scores to create a new ranking. The concept is that documents appearing in the top positions across multiple search methods are likely to be more relevant and should be ranked higher in the combined result.
 
@@ -54,8 +54,8 @@ The following chart identifies the scoring property returned on each match, algo
 | Search method | Parameter | Scoring algorithm | Range |
 |---------------|-----------|-------------------|-------|
 | full-text search | `@search.score` | BM25 algorithm | No upper limit. |
-| vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine), 0 to 1 for Euclidean and DotProduct | 
-| hybrid search | `@search.score` | RRF algorithm | No upper limit, but the score gets bigger as more unique vectors or vector fields as more queries execute in parallel. |
+| vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine), 0 to 1 for Euclidean and DotProduct. | 
+| hybrid search | `@search.score` | RRF algorithm | Upper limit is only bounded by the number of queries being fused, with each query contributing a maximum of approximately 1 to the RRF score. |
 | semantic ranking | `@search.rerankerScore` | Semantic ranking | 1.00 - 4.00 |
 
 Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`) is always reported separately in the query response. Semantic ranking can rerank full text and hybrid search results, assuming those results include fields having semantically rich content.
