@@ -309,6 +309,10 @@
           href: application-volume-group-delete.md
         - name: Configure application volume groups using REST API
           href: configure-application-volume-group-sap-hana-api.md
+      - name: Manage application volume groups for Oracle
+        items: 
+        - name: Deploy application volume group for Oracle
+          href: application-volume-group-oracle-deploy-volumes.md
   - name: Manage data protection  
     items:
     - name: Manage volume snapshots
