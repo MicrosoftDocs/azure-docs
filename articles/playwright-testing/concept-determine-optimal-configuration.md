@@ -8,9 +8,9 @@ ms.custom: playwright-testing-preview
 
 # Determine the optimal test suite configuration
 
-Microsoft Playwright Testing Preview enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
+Microsoft Playwright Testing Preview enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion time is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
 
-In Playwright, you can run tests in parallel by using worker processes. By using Microsoft Playwright Testing, you can further increase parallelism by using cloud-hosted browsers. In general, adding more parallelism reduced the time to complete your test suite. However, adding more worker processes doesn't always result in shorter test suite completion times. For example, the client machine computing resources, network latency, or test complexity might also affect test duration.
+In Playwright, you can run tests in parallel by using worker processes. By using Microsoft Playwright Testing, you can further increase parallelism by using cloud-hosted browsers. In general, adding more parallelism reduces the time to complete your test suite. However, adding more worker processes doesn't always result in shorter test suite completion times. For example, the client machine computing resources, network latency, or test complexity might also affect test duration.
 
 The following chart gives an example of running a test suite. By running the test suite with Microsoft Playwright Testing instead of locally, you can significantly increase the parallelism and reduce the test completion time. Notice that, when running with the service, the completion time reaches a minimum limit, after which adding more workers only has a minimal effect. The chart also shows how using more computing resources on the client machine positively affects the test completion time for tests running with the service.
 
@@ -26,14 +26,14 @@ As previously shown in the chart, the test suite completion time doesn't continu
 
 ### Run tests locally
 
-By default, Playwright limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
+By default, `@playwright/test` limits the number of workers to 1/2 of the number of CPU cores on your machine. You can override the number of workers for running your test.
 
-When you run tests locally, the number of worker processes is limited to the number of CPU cores on your machine. In addition, beyond a certain point, adding more workers leads to resource contention, which slows down each worker and introduces test flakiness.
+When you run tests locally, the number of worker processes is limited to the number of CPU cores on your machine. Beyond a certain point, adding more workers leads to resource contention, which slows down each worker and introduces test flakiness.
 
 To override the number of workers using the [`--workers` command line flag](https://playwright.dev/docs/test-cli#reference):
 
 ```bash
-npx playwright test --workers=30
+npx playwright test --workers=10
 ```
 
 To specify the number of workers in `playwright.config.ts` using the `workers` setting:
@@ -41,7 +41,7 @@ To specify the number of workers in `playwright.config.ts` using the `workers` s
 ```typescript
 export default defineConfig({
   ...
-  workers: 5;
+  workers: 10,
   ...
 });
 ```
@@ -55,7 +55,7 @@ Because the worker processes still run on the client machine (developer workstat
 You can specify the number of workers on the command line with the `--workers` flag:
 
 ```bash
-npx playwright test --config=playwright.service.config.ts --workers=20
+npx playwright test --config=playwright.service.config.ts --workers=30
 ```
 
 Alternately you can specify the number of workers in `playwright.service.config.ts` using the `workers` setting:
@@ -63,7 +63,7 @@ Alternately you can specify the number of workers in `playwright.service.config.
 ```typescript
 export default defineConfig({
   ...
-  workers: 5;
+  workers: 30,
   ...
 });
 ```
@@ -96,7 +96,7 @@ Depending on the scenario, your requirements for test completion might be differ
 
 ### 2. Verify that your tests run correctly on the client machine
 
-Before you run your Playwright test suite with Microsoft Playwright Testing, make sure that your tests run correctly on your client machine. If you run your tests as part of a CI workflow, validate that your tests run correctly on the CI agent machine.
+Before you run your Playwright test suite with Microsoft Playwright Testing, make sure that your tests run correctly on your client machine. If you run your tests as part of a CI workflow, validate that your tests run correctly on the CI agent machine. Ensure that you run your tests with a minimum of two parallel workers to verify that your tests are properly configured for parallel execution. Learn more about [parallelism in Playwright](https://playwright.dev/docs/test-parallel).
 
 ### 3. Run with cloud-hosted browsers on Microsoft Playwright Testing
 
@@ -117,17 +117,19 @@ Experiment with the number of parallel workers to run your tests. Measure the te
 Notice at which point the test completion time no longer reduces as you add more workers. Move to the next step to further optimize your setup.
 
 > [!NOTE]
-> While the service is in preview, the number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 50. You can request an increase of this limit for your workspace.
+> While the service is in preview, the number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 50. You can [request an increase of this limit for your workspace](https://aka.ms/mpt/feedback).
 
-### 6. Increase computing resources on the client machine
+### 6. Scale the client
 
 As you increase parallelism, the client machine might experience compute resource contention. Increase the computing resources on the client machine, for example by selecting [larger GitHub-hosted runners](https://docs.github.com/actions/using-github-hosted-runners/about-larger-runners).
+
+Alternatively, if you have hardware limitations, you can [shard](https://playwright.dev/docs/test-sharding) your client tests.
 
 Rerun your tests and experiment with the number of parallel workers.
 
 ### 7. Update your Playwright test configuration settings
 
-Configure your Playwright test configuration settings, such as test [timeouts](https://playwright.dev/docs/test-timeouts), [trace](https://playwright.dev/docs/api/class-testoptions#test-options-trace) settings, or [reties](https://playwright.dev/docs/test-retries).
+Configure your Playwright test configuration settings, such as test [timeouts](https://playwright.dev/docs/test-timeouts), [trace](https://playwright.dev/docs/api/class-testoptions#test-options-trace) settings, or [retries](https://playwright.dev/docs/test-retries).
 
 ## Related content
 
