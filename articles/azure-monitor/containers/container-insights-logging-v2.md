@@ -101,9 +101,19 @@ This applies to the scenario where you have already enabled container insights f
 >* The configuration change can take a few minutes to complete before it takes effect. All ama-logs pods in the cluster will restart. 
 >* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
 
-## Multi-line logging in Container Insights (preview)
+## Multi-line logging in Container Insights
 Azure Monitor container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
-Additionally, the feature also adds support for .NET and Go stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
+Additionally, the feature also adds support for .NET, Go, Python and Java stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table.
+
+Below are two screenshots which demonstrate Multi-line logging at work for Go exception stack trace:
+
+Multi-line logging disabled scenario:
+
+![Screenshot that shows Multiline logging disabledabled.](./media/container-insights-logging-v2/MultilinedisabledGo.png)
+
+Multi-line logging enabled scenario:
+
+![Screenshot that shows ContainerLogV2 enabled.](./media/container-insights-logging-v2/MultilineenabledGo.png)
 
 ### Pre-requisites 
 
@@ -116,7 +126,7 @@ Multi-line logging is a preview feature and can be enabled by setting **enabled*
 [log_collection_settings.enable_multiline_logs]
 # fluent-bit based multiline log collection for go (stacktrace), dotnet (stacktrace)
 # if enabled will also stitch together container logs split by docker/cri due to size limits(16KB per log line)
-enabled = "true"
+  enabled = "true"
 ```
 
 ## Next steps
