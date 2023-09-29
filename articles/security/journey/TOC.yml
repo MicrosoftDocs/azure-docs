@@ -7,9 +7,9 @@
     href: ../fundamentals/overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Shared responsibility
     items:
-    - Shared responsibility in the cloud
+    - name: Shared responsibility in the cloud
       href: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - AI shared responsibility model
+    - name: AI shared responsibility model
       href: shared-responsibility-ai.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Identity as the security perimeter
     href: ../fundamentals/paas-deployments.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
