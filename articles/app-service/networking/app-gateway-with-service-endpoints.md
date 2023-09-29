@@ -11,7 +11,7 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/04/2021
+ms.date: 09/29/2023
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
