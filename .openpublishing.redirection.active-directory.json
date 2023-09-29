@@ -5466,6 +5466,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/licensing-whatis-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-group-based-licensing",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-filter-audit-log.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-customize-filter-logs",
       "redirect_document_id": true
