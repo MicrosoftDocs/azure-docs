@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 09/15/2023
 ms.author: jfields
 ---
 
@@ -29,8 +29,8 @@ The Permissions Management service is built on Azure, and given you're onboardin
 
 ## Prerequisites
 
-To add Permissions Management to your Entra ID tenant:
-- You must have an Entra ID user account and an Azure command-line interface (Azure CLI) on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
+To add Permissions Management to your Microsoft Entra tenant:
+- You must have a Microsoft Entra user account and an Azure command-line interface (Azure CLI) on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 - You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform these tasks. If you don't have this permission, you can ask someone who has this permission to perform these tasks for you.
 
 ## How to onboard an Azure subscription
@@ -58,7 +58,7 @@ This option lets subscriptions be automatically detected and monitored without f
 1. For onboarding mode, select **Automatically Manage.**
 
     > [!NOTE]
-    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. This is performed manually in the Entra console, or programmatically with PowerShell or the Azure CLI.
+    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. This is performed manually in the Microsoft Entra ID console, or programmatically with PowerShell or the Azure CLI.
 
 - Once complete, Click **Verify Now & Save.**
 
@@ -101,7 +101,7 @@ This option detects all subscriptions that are accessible by the Cloud Infrastru
 1. For onboarding mode, select **Automatically Manage.** 
 
     > [!NOTE]
-    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. You can do this manually in the Entra console, or programmatically with PowerShell or the Azure CLI.
+    > The steps listed on the screen outline how to create the role assignment for the Cloud Infrastructure Entitlements Management application. You can do this manually in the Microsoft Entra ID console, or programmatically with PowerShell or the Azure CLI.
 
 - Once complete, Click **Verify Now & Save.** 
 
@@ -137,9 +137,4 @@ To view status of onboarding after saving the configuration:
 
 ## Next steps
 
-- For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](onboard-aws.md).
-- For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](onboard-gcp.md).
-- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](onboard-enable-controller-after-onboarding.md).
-- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](onboard-add-account-after-onboarding.md).
-- For an overview on Permissions Management, see [What's Microsoft Entra Permissions Management?](overview.md).
 - For information on how to start viewing information about your authorization system in Permissions Management, see [View key statistics and data about your authorization system](ui-dashboard.md).

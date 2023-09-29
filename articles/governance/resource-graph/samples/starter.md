@@ -31,6 +31,9 @@ This article uses the following starter queries:
 - [List all storage accounts with specific tag value](#list-specific-tag)
 - [List all tags and their values](#list-all-tag-values)
 - [Show unassociated network security groups](#unassociated-nsgs)
+- [List alerts by severity](#list-azure-monitor-alerts-ordered-by-severity)
+- [List alerts by severity and resource type](#list-azure-monitor-alerts-ordered-by-severity-and-alert-state)
+- [List alerts by severity and resource type with a specific tag](#list-azure-monitor-alerts-ordered-by-severity-monitor-service-and-target-resource-type)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -653,6 +656,44 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 - Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%22microsoft.network%2Fnetworksecuritygroups%22%20and%20isnull%28properties.networkInterfaces%29%20and%20isnull%28properties.subnets%29%0D%0A%7C%20project%20name%2C%20resourceGroup%0D%0A%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.cn</a>
 
 ---
+
+## List Azure Monitor alerts ordered by severity
+
+```kusto
+alertsmanagementresources  
+| where type =~ 'microsoft.alertsmanagement/alerts'   
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+| project Severity = tostring(properties.essentials.severity) 
+| summarize AlertsCount = count() by Severity
+ 
+```
+## List Azure Monitor alerts ordered by severity and alert state
+
+```kusto
+alertsmanagementresources
+| where type =~ 'microsoft.alertsmanagement/alerts'   
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+| project Severity = tostring(properties.essentials.severity), 
+    AlertState= tostring(properties.essentials.alertState) 
+| summarize AlertsCount = count() by Severity, AlertState
+```
+
+## List Azure Monitor alerts ordered by severity, monitor service, and target resource type 
+
+```kusto
+alertsmanagementresources  
+| where type =~ 'microsoft.alertsmanagement/alerts'   
+| where todatetime(properties.essentials.startDateTime) >= ago(2h) and todatetime(properties.essentials.startDateTime) < now()  
+| project Severity = tostring(properties.essentials.severity),  
+MonitorCondition = tostring(properties.essentials.monitorCondition),  
+ObjectState = tostring(properties.essentials.alertState),  
+MonitorService = tostring(properties.essentials.monitorService),  
+AlertRuleId = tostring(properties.essentials.alertRule),  
+SignalType = tostring(properties.essentials.signalType),  
+TargetResource = tostring(properties.essentials.targetResourceName), 
+TargetResourceType = tostring(properties.essentials.targetResourceName), id 
+| summarize AlertsCount = count() by Severity, MonitorService , TargetResourceType
+```
 
 ## Next steps
 

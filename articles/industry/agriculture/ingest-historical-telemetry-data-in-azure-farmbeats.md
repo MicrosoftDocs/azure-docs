@@ -383,7 +383,7 @@ After you add the corresponding devices and sensors, obtain the device ID and th
 Here's an example of a telemetry message:
 
 
- ```json
+```json
 {
   "deviceid": "7f9b4b92-ba45-4a1d-a6ae-c6eda3a5bd12",
   "timestamp": "2019-06-22T06:55:02.7279559Z",

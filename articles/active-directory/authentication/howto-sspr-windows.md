@@ -1,12 +1,12 @@
 ---
 title: Self-service password reset for Windows devices
-description: Learn how to enable Azure Active Directory self-service password reset at the Windows sign-in screen.
+description: Learn how to enable Microsoft Entra self-service password reset at the Windows sign-in screen.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 09/14/2023
 
 ms.author: justinha
 author: justinha
@@ -15,9 +15,9 @@ ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
-# Enable Azure Active Directory self-service password reset at the Windows sign-in screen
+# Enable Microsoft Entra self-service password reset at the Windows sign-in screen
 
-Self-service password reset (SSPR) gives users in Azure Active Directory (Azure AD) the ability to change or reset their password, with no administrator or help desk involvement. Typically, users open a web browser on another device to access the [SSPR portal](https://aka.ms/sspr). To improve the experience on computers that run Windows 7, 8, 8.1, 10, and 11 you can enable users to reset their password at the Windows sign-in screen.
+Self-service password reset (SSPR) gives users in Microsoft Entra ID the ability to change or reset their password, with no administrator or help desk involvement. Typically, users open a web browser on another device to access the [SSPR portal](https://aka.ms/sspr). To improve the experience on computers that run Windows 7, 8, 8.1, 10, and 11 you can enable users to reset their password at the Windows sign-in screen.
 
 ![Example Windows login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
 
@@ -34,7 +34,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
 - Some third party credential providers are known to cause problems with this feature.
 - Disabling UAC via modification of [EnableLUA registry key](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) is known to cause issues.
 - This feature doesn't work for networks with 802.1x network authentication deployed and the option "Perform immediately before user logon". For networks with 802.1x network authentication deployed, it's recommended to use machine authentication to enable this feature.
-- Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials. This means that devices must either be on the organization's internal network or on a VPN with network access to an on-premises domain controller.
+- Microsoft Entra hybrid joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials. This means that devices must either be on the organization's internal network or on a VPN with network access to an on-premises domain controller.
 - If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices:
     - If lock screen notifications are turned off, **Reset password** won't work.
@@ -54,23 +54,23 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
 > These limitations also apply to Windows Hello for Business PIN reset from the device lock screen.
 >
 
-## Windows 11 and 10 password reset
+## Windows 11 and Windows 10 password reset
 
-To configure a Windows 11 or 10 device for SSPR at the sign-in screen, review the following prerequisites and configuration steps.
+To configure a Windows 11 or Windows 10 device for SSPR at the sign-in screen, review the following prerequisites and configuration steps.
 
-### Windows 11 and 10 prerequisites
+### Windows 11 and Windows 10 prerequisites
 
-- An administrator [must enable Azure AD self-service password reset from the Azure portal](tutorial-enable-sspr.md).
+- Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and [enable Microsoft Entra self-service password reset](tutorial-enable-sspr.md).
 - Users must register for SSPR before using this feature at [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Not unique to using SSPR from the Windows sign-in screen, all users must provide the authentication contact information before they can reset their password.
 - Network proxy requirements:
     - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
     - Windows 10 devices require a machine-level proxy configuration or scoped proxy configuration for the temporary defaultuser1 account used to perform SSPR (see [Troubleshooting](#proxy-configurations-for-windows-password-reset) section for more details).
 - Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
-    - Azure AD joined
-    - Hybrid Azure AD joined
+    - Microsoft Entra joined
+    - Microsoft Entra hybrid joined
 
-### Enable for Windows 11 and 10 using Microsoft Intune
+### Enable for Windows 11 and Windows 10 using Microsoft Intune
 
 Deploying the configuration change to enable SSPR from the login screen using Microsoft Intune is the most flexible method. Microsoft Intune allows you to deploy the configuration change to a specific group of machines you define. This method requires Microsoft Intune enrollment of the device.
 
@@ -98,7 +98,7 @@ Deploying the configuration change to enable SSPR from the login screen using Mi
 1. Configure applicability rules as desired for your environment, such as to *Assign profile if OS edition is Windows 10 Enterprise*, then select **Next**.
 1. Review your profile, then select **Create**.
 
-### Enable for Windows 11 and 10 using the Registry
+### Enable for Windows 11 and Windows 10 using the Registry
 
 To enable SSPR at the sign-in screen using a registry key, complete the following steps:
 
@@ -111,11 +111,11 @@ To enable SSPR at the sign-in screen using a registry key, complete the followin
        "AllowPasswordReset"=dword:00000001
     ```
 
-### Troubleshooting Windows 11 and 10 password reset
+### Troubleshooting Windows 11 and Windows 10 password reset
 
-If you have problems with using SSPR from the Windows sign-in screen, the Azure AD audit log includes information about the IP address and *ClientType* where the password reset occurred, as shown in the following example output:
+If you have problems with using SSPR from the Windows sign-in screen, the Microsoft Entra audit log includes information about the IP address and *ClientType* where the password reset occurred, as shown in the following example output:
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Example Windows 7 password reset in the Microsoft Entra audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
 When users reset their password from the sign-in screen of a Windows 11 or 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure.
 
@@ -146,7 +146,7 @@ To configure a Windows 7, 8, or 8.1 device for SSPR at the sign-in screen, revie
 
 ### Windows 7, 8, and 8.1 prerequisites
 
-- An administrator [must enable Azure AD self-service password reset from the Azure portal](tutorial-enable-sspr.md).
+- Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and [enable Microsoft Entra self-service password reset](tutorial-enable-sspr.md).
 - Users must register for SSPR before using this feature at [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Not unique to using SSPR from the Windows sign-in screen, all users must provide the authentication contact information before they can reset their password.
 - Network proxy requirements:
@@ -181,9 +181,9 @@ The SSPR component can be installed or uninstalled without prompts using the fol
 
 #### Troubleshooting Windows 7, 8, and 8.1 password reset
 
-If you have problems with using SSPR from the Windows sign-in screen, events are logged both on the machine and in Azure AD. Azure AD events include information about the IP address and ClientType where the password reset occurred, as shown in the following example output:
+If you have problems with using SSPR from the Windows sign-in screen, events are logged both on the machine and in Microsoft Entra ID. Microsoft Entra events include information about the IP address and ClientType where the password reset occurred, as shown in the following example output:
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Example Windows 7 password reset in the Microsoft Entra audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
 If additional logging is required, a registry key on the machine can be changed to enable verbose logging. Enable verbose logging for troubleshooting purposes only using the following registry key value:
 

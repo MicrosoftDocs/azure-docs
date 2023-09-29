@@ -69,16 +69,16 @@ Entitlement management introduces the concept of an *access package*. An access 
 
  Here are the types of resources you can manage user's access to, with entitlement management:
 
-- Membership of Azure AD security groups
+- Membership of Microsoft Entra security groups
 - Membership of Microsoft 365 Groups and Teams
-- Assignment to Azure AD enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign-on and/or provisioning
+- Assignment to Microsoft Entra enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign-on and/or provisioning
 - Membership of SharePoint Online sites
 
-You can also control access to other resources that rely upon Azure AD security groups or Microsoft 365 Groups.  For example:
+You can also control access to other resources that rely upon Microsoft Entra security groups or Microsoft 365 Groups.  For example:
 
-- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
-- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
-- You can give users access to manage Azure AD roles by using groups assignable to Azure AD roles in an access package and [assigning an Azure AD role to that group](../roles/groups-assign-role.md).
+- You can give users licenses for Microsoft 365 by using a Microsoft Entra security group in an access package and configuring [group-based licensing](../enterprise-users/licensing-groups-assign.md) for that group.
+- You can give users access to manage Azure resources by using a Microsoft Entra security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group.
+- You can give users access to manage Microsoft Entra roles by using groups assignable to Microsoft Entra roles in an access package and [assigning a Microsoft Entra role to that group](../roles/groups-assign-role.md).
 
 ## How do I control who gets access?
 
@@ -94,7 +94,7 @@ You can have policies for users to request access. In these kinds of policies, a
 - The approval process and the users that can approve or deny access
 - The duration of a user's access assignment, once approved, before the assignment expires
 
-You can also have policies for users to be assigned access, either by an administrator or [automatically](entitlement-management-access-package-auto-assignment-policy.md).
+You can also have policies for users to be assigned access, either [by an administrator](entitlement-management-access-package-assignments.md#directly-assign-a-user), [automatically based on rules](entitlement-management-access-package-auto-assignment-policy.md), or through lifecycle workflows.
 
 The following diagram shows an example of the different elements in entitlement management. It shows one catalog with two example access packages.
 
@@ -107,12 +107,12 @@ The following diagram shows an example of the different elements in entitlement 
 
 Access packages don't replace other mechanisms for access assignment.  They're most appropriate in situations such as:
 
-- Migrating access policy definitions from a third party [enterprise role management](identity-governance-organizational-roles.md) to Azure AD.
+- Migrating access policy definitions from a third party [enterprise role management](identity-governance-organizational-roles.md) to Microsoft Entra ID.
 - Employees need time-limited access for a particular task.  For example, you might use group-based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox, and then use access packages for situations in which employees need more access rights. For example, rights to read departmental resources from another department.
 - Access that requires the approval of an employee's manager or other designated individuals.
 - Access that should be assigned automatically to people in a particular part of an organization during their time in that job role, but also available for people elsewhere in the organization, or in a business partner organization, to request.
 - Departments wish to manage their own access policies for their resources without IT involvement.
-- Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Azure AD B2B to access another organization's resources.
+- Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Microsoft Entra B2B to access another organization's resources.
 
 ## How do I delegate access?
 
@@ -129,7 +129,7 @@ To better understand entitlement management and its documentation, you can refer
 | assignment | An assignment of an access package to a user ensures the user has all the resource roles of that access package. Access package assignments typically have a time limit before they expire. |
 | catalog | A container of related resources and access packages. Catalogs are used for delegation, so that non-administrators can create their own access packages. Catalog owners can add resources they own to a catalog. |
 | catalog creator | A collection of users who are authorized to create new catalogs. When a non-administrator user who is authorized to be a catalog creator creates a new catalog, they automatically become the owner of that catalog. |
-| connected organization | An external Azure AD directory or domain that you have a relationship with. The users from a connected organization can be specified in a policy as being allowed to request access. |
+| connected organization | An external Microsoft Entra directory or domain that you have a relationship with. The users from a connected organization can be specified in a policy as being allowed to request access. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access through an assignment. A policy is linked to an access package. For example, an access package could have two policies - one for employees to request access and a second for external users to request access. |
 | resource | An asset, such as an Office group, a security group, an application, or a SharePoint Online site, with a role that a user can be granted permissions to. |
 | resource directory | A directory that has one or more resources to share. |
@@ -143,6 +143,6 @@ To better understand entitlement management and its documentation, you can refer
 
 ## Next steps
 
-- If you're interested in using the Azure portal to manage access to resources, see [Tutorial: Manage access to resources - Azure portal](entitlement-management-access-package-first.md).
+- If you're interested in using the Microsoft Entra admin center to manage access to resources, see [Tutorial: Manage access to resources - Microsoft Entra](entitlement-management-access-package-first.md).
 - if you're interested in using Microsoft Graph to manage access to resources, see [Tutorial: manage access to resources - Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
 - [Common scenarios](entitlement-management-scenarios.md)

@@ -36,7 +36,7 @@ The following architecture diagram illustrates the implementation.
 
 To get started, you need:
 
-* An Azure AD subscription
+* A Microsoft Entra subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md) 
@@ -287,4 +287,4 @@ For additional information, review the following articles:
 
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
-- [TransmitSecurity/azure-ad-b2c-bindid-integration](https://github.com/TransmitSecurity/azure-ad-b2c-bindid-integration) See, Azure AD B2C Integration
+- [`TransmitSecurity/azure-ad-b2c-bindid-integration`](https://github.com/TransmitSecurity/azure-ad-b2c-bindid-integration) See, Azure AD B2C Integration

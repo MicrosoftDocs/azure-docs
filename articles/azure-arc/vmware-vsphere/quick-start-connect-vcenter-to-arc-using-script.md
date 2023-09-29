@@ -4,6 +4,8 @@ description: In this quickstart, you'll learn how to use the helper script to co
 ms.topic: quickstart 
 ms.custom: references_regions
 ms.date: 09/05/2022
+ms.service: azure-arc
+ms.subservice: azure-arc-vmware-vsphere
 
 # Customer intent: As a VI admin, I want to connect my vCenter Server instance to Azure to enable self-service through Azure Arc.
 ---

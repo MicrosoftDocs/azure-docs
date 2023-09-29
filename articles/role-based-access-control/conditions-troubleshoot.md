@@ -9,7 +9,7 @@ ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 01/07/2023
+ms.date: 09/20/2023
 ms.author: rolyon
 ---
 
@@ -228,6 +228,48 @@ There is an existing expression, but no actions have been selected as a target.
 **Solution**
 
 In the **Add action** section, add one or more actions that the expression should target.
+
+### Symptom - No options available error
+
+When you attempt to add an expression, you get the following message:
+
+`No options available`
+
+**Cause**
+
+You selected to target multiple actions and there aren't any attributes that apply to all of the currently selected actions.
+
+**Solution**
+
+In the **Add action** section, select fewer actions to target. To target the actions you removed, add multiple conditions.
+
+### Symptom - Role definition IDs not found
+
+When you attempt to add an expression, you get the following message:
+
+`Cannot find built-in or custom role definitions with IDs: <role IDs>. These IDs were removed. Check that the IDs are valid and try to add again. You can also refresh the page or sign out and sign in again.`
+
+**Cause**
+
+One or more role definition IDs that you attempted to add for the [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+
+**Solution**
+
+Use the condition editor to select the role. If you recently added the custom role, refresh the page or sign out and sign in again.
+
+### Symptom - Principal IDs not found
+
+When you attempt to add an expression, you get the following message:
+
+`Cannot find users, groups, or service principals in Azure Active Directory with principal IDs: <principal IDs>. These IDs were removed. Check that the IDs are valid and try to add again. You can also refresh the page or sign out and sign in again.`
+
+**Cause**
+
+One or more principal IDs that you attempted to add for the [Principal ID](conditions-authorization-actions-attributes.md#principal-id) attribute was not found or does not have the correct GUID format: `00000000-0000-0000-0000-000000000000`.
+
+**Solution**
+
+Use the condition editor to select the principal. If you recently added the principal, refresh the page or sign out and sign in again.
 
 ## Error messages in Azure PowerShell
 

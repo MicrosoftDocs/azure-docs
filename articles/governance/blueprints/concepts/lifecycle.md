@@ -7,6 +7,8 @@ ms.author: jgao
 ---
 # Understand the lifecycle of an Azure Blueprint
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 Like many resources within Azure, a blueprint in Azure Blueprints has a typical and natural
 lifecycle. They're created, deployed, and finally deleted when no longer needed or relevant. Azure
 Blueprints supports standard lifecycle operations. It then builds upon them to provide additional

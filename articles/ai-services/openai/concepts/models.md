@@ -2,10 +2,9 @@
 title: Azure OpenAI Service models
 titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 09/12/2023
+ms.date: 09/15/2023
 ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -24,6 +23,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 | [GPT-3.5](#gpt-35) | A set of models that improve on GPT-3 and can understand and generate natural language and code. |
 | [Embeddings](#embeddings-models) | A set of models that can convert text into numerical vector form to facilitate text similarity. |
 | [DALL-E](#dall-e-models-preview) (Preview) | A series of models in preview that can generate original images from natural language. |
+| [Whisper](#whisper-models-preview) (Preview) | A series of models in preview that can transcribe and translate speech to text. |
 
 ## GPT-4
 
@@ -38,14 +38,15 @@ The `gpt-4` model supports 8192 max input tokens and the `gpt-4-32k` model suppo
 
 ## GPT-3.5
 
-GPT-3.5 models can understand and generate natural language or code. The most capable and cost effective model in the GPT-3.5 family is GPT-3.5 Turbo, which has been optimized for chat and works well for traditional completions tasks as well.  We recommend using GPT-3.5 Turbo over [legacy GPT-3.5 and GPT-3 models](./legacy-models.md).
+GPT-3.5 models can understand and generate natural language or code. The most capable and cost effective model in the GPT-3.5 family is GPT-3.5 Turbo, which has been optimized for chat and works well for traditional completions tasks as well. GPT-3.5 Turbo is available for use with the Chat Completions API. GPT-3.5 Turbo Instruct has similar capabilities to `text-davinci-003` using the Completions API instead of the Chat Completions API.  We recommend using GPT-3.5 Turbo and GPT-3.5 Turbo Instruct over [legacy GPT-3.5 and GPT-3 models](./legacy-models.md).
 
 - `gpt-35-turbo`
 - `gpt-35-turbo-16k`
+- `gpt-35-turbo-instruct`
 
-The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.
+The `gpt-35-turbo` model supports 4096 max input tokens and the `gpt-35-turbo-16k` model supports up to 16,384 tokens.  `gpt-35-turbo-instruct` supports 4097 max input tokens.
 
-Like GPT-4, use the Chat Completions API to use GPT-3.5 Turbo. To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
+To learn more about how to interact with GPT-3.5 Turbo and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
 ## Embeddings models
 
@@ -59,6 +60,12 @@ The previous embeddings models have been consolidated into the following new rep
 ## DALL-E (Preview)
 
 The DALL-E models, currently in preview, generate images from text prompts that the user provides.
+
+## Whisper (Preview)
+
+The Whisper models, currently in preview, can be used for speech to text.
+
+You can also use the Whisper model via Azure AI Speech [batch transcription](../../speech-service/batch-transcription-create.md) API. Check out [What is the Whisper model?](../../speech-service/whisper-overview.md) to learn more about when to use Azure AI Speech vs. Azure OpenAI Service. 
 
 ## Model summary table and region availability
 
@@ -91,6 +98,7 @@ GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can als
 | `gpt-35-turbo`<sup>1</sup> (0301) | East US, France Central, South Central US, UK South, West Europe | N/A | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | N/A | 4,096 | Sep 2021 |
 | `gpt-35-turbo-16k` (0613) | Australia East, Canada East, East US, East US 2, France Central, Japan East, North Central US, Sweden Central, Switzerland North, UK South | N/A | 16,384 | Sep 2021 |
+| `gpt-35-turbo-instruct` (0914) | East US, Sweden Central | N/A | 4,097 | Sep 2021 |
 
 <sup>1</sup> Version `0301` of gpt-35-turbo will be retired no earlier than July 5, 2024.  See [model updates](#model-updates) for model upgrade behavior.
 
@@ -111,6 +119,12 @@ These models can only be used with Embedding API requests.
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (characters) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
 | dalle2 | East US | N/A | 1000 | N/A |
+
+### Whisper models (Preview)
+
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (audio file size) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
+| whisper | North Central US, West Europe | N/A | 25 MB | N/A |
 
 ## Working with models
 

@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Extract print and handwritten text from scanned and digital documents with Document Intelligence's Read OCR model.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

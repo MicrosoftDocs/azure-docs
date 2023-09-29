@@ -9,6 +9,8 @@ author: IngridAtMicrosoft
 
 # Customize a Person model with the Azure AI Video Indexer website
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 Azure AI Video Indexer supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure AI Video Indexer](customize-person-model-overview.md).

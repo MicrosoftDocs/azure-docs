@@ -5,8 +5,7 @@ description: Create an Anomaly Detector resource
 services: cognitive-services
 author: mrbullwinkle    
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: conceptual
 ms.date: 11/01/2022
 ms.author: mbullwin

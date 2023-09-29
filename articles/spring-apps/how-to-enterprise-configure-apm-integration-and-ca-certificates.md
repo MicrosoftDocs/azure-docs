@@ -28,7 +28,7 @@ You can enable or disable Tanzu Build Service on an Azure Springs Apps Enterpris
 
 ## Supported scenarios - APM and CA certificates integration
 
-Tanzu Build Service uses buildpack binding to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html) and other cloud native buildpacks such as the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack on GitHub.
+Tanzu Build Service uses buildpack binding to integrate with [Tanzu Partner Buildpacks](https://docs.vmware.com/en/VMware-Tanzu-Buildpacks/services/tanzu-buildpacks/GUID-partner-integrations-partner-integration-buildpacks.html) and other cloud native buildpacks such as the [ca-certificates](https://github.com/paketo-buildpacks/ca-certificates) buildpack on GitHub.
 
 Currently, Azure Spring Apps supports the following APM types:
 

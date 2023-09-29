@@ -6,6 +6,8 @@ ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 The creation of consistent environments at scale is only truly valuable if there's a mechanism to
 maintain that consistency. This article explains how resource locking works in Azure Blueprints. To
 see an example of resource locking and application of _deny assignments_, see the
