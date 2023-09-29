@@ -43,8 +43,18 @@ from azure.identity import DefaultAzureCredential
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 ```
 
+If you're using the `azure.storage.blob.aio` package, add the following `import` statements instead:
+
+```python
+import asyncio
+
+from azure.identity.aio import DefaultAzureCredential
+from azure.storage.blob.aio import BlobServiceClient, BlobClient, ContainerClient
+```
+
 Blob client library information:
 - [azure.storage.blob](/python/api/azure-storage-blob/azure.storage.blob): Contains the primary classes (_client objects_) that you can use to operate on the service, containers, and blobs.
+- [azure.storage.blob.aio](/python/api/azure-storage-blob/azure.storage.blob.aio): Contains the primary classes that you can use to operate on the service, containers, and blobs asynchronously.
 
 ## Authorize access and connect to Blob Storage
 
