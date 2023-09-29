@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: PowerShell supports signing in with Azure AD credentials to run commands on blob data in Azure Storage. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/12/2022
 ms.author: akashdubey

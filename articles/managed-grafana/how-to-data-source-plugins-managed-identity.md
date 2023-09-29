@@ -1,8 +1,8 @@
 ---
 title: How to configure data sources for Azure Managed Grafana
 description: In this how-to guide, discover how you can configure data sources for Azure Managed Grafana using Managed Identity.
-author: mcleanbyron 
-ms.author: mcleans 
+author: maud-lv 
+ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: how-to
 ms.date: 1/12/2023

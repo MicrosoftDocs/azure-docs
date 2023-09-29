@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 
 # Quickstart: Call an ASP.NET web API that is protected by the Microsoft identity platform
 
-The following quickstart uses, uses a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+The following quickstart uses, uses a code sample that demonstrates how to protect an ASP.NET web API by restricting access to its resources to authorized accounts only. The sample supports authorization of personal Microsoft accounts and accounts in any Microsoft Entra organization.
 
 The article also uses a Windows Presentation Foundation (WPF) app to demonstrate how to request an access token to access a web API.
 
@@ -46,10 +46,9 @@ The code sample can be obtained in two ways:
 
 Register your web API in **App registrations** in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
-1. Find and select **Azure Active Directory**.
-1. Under **Manage**, select **App registrations** > **New registration**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Enter a **Name** for your application, for example `AppModelv2-NativeClient-DotNet-TodoListService`. Users of your app might see this name, and you can change it later.
 1. For **Supported account types**, select **Accounts in any organizational directory**.
 1. Select **Register** to create the application.
@@ -92,7 +91,8 @@ Register your TodoListClient app in **App registrations** in the Azure portal, a
 
 To register the TodoListClient app, follow these steps:
 
-1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) portal.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). 
+1. Browse to **Identity** > **Applications** > **App registrations** and select **New registration**.
 1. Select **New registration**.
 1. When the **Register an application page** opens, enter your application's registration information:
 
@@ -169,7 +169,7 @@ You can allow users from other directories to access your web API by pre-authori
 
 ## Optional: Limit sign-in access to certain users
 
-By default, any personal accounts, such as *outlook.com* or *live.com* accounts, or work or school accounts from organizations that are integrated with Azure AD can request tokens and access your web API.
+By default, any personal accounts, such as *outlook.com* or *live.com* accounts, or work or school accounts from organizations that are integrated with Microsoft Entra ID can request tokens and access your web API.
 
 To specify who can sign in to your application, by changing the `TenantId` property in the *appsettings.json* file.
 

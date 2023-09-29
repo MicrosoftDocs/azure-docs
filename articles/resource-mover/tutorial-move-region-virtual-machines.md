@@ -100,7 +100,7 @@ To select the resources you want to move, follow these steps:
 
 To resolve dependencies before the move, follow these steps:
 
-1. Dependencies are automatically validated in the background when you add the resources. If  you still see the **Validate dependencies** option, select it to trigger the validation manually.
+1. Dependencies are automatically validated in the background when you add the resources. If you still see the **Validate dependencies** option, select it to trigger the validation manually.
 2. If dependencies are found, select **Add dependencies** to add them. 
 3. On **Add dependencies**, retain the default **Show all dependencies** option. 
 
@@ -111,7 +111,7 @@ To resolve dependencies before the move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-dependencies.png" alt-text="Screenshot displays add dependencies page." lightbox="./media/tutorial-move-region-virtual-machines/add-dependencies.png":::
 
-4. Dependencies are automatically validated in the background once you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation. 
+4. Dependencies are validated in the background after you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation.  
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png" alt-text="Screenshot displays page to add additional dependencies." lightbox="./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png":::
 
 

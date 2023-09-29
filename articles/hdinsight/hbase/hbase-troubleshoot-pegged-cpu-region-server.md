@@ -16,7 +16,7 @@ Apache HBase region server process starts occupying close to 200% CPU, causing a
 
 ## Cause
 
-If you are running HBase cluster v3.4, you might have been hit by a potential bug caused by upgrade of jdk to version 1.7.0_151. The symptom we see is region server process starts occupying close to 200% CPU (to verify this run the `top` command; if there is a process occupying close to 200% CPU get its pid and confirm it is region server process by running `ps -aux | grep` ).
+If you are running HBase cluster v3.4, you might have been hit by a potential bug caused by upgrade of jdk to version 1.7.0_151. The symptom we see is region server process starts occupying close to 200% CPU. To verify this, run the `top` command; if there is a process occupying close to 200% CPU get its pid and confirm it is region server process by running `ps -aux | grep`.
 
 ## Resolution
 

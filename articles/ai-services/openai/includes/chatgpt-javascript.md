@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first chat completions call with the JavaScript SDK. 
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
@@ -21,18 +20,26 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
-- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4`<sup>1</sup> models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
-
-<sup>1</sup> **GPT-4 models are currently only available by request.** Existing Azure OpenAI customers can [apply for access by filling out this form](https://aka.ms/oai/get-gpt4).
+- An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Prerequisites)
 
 ## Set up
 
-### Install the client library
+[!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
-Create a new directory and navigate into that directory.
+[!INCLUDE [environment-variables](environment-variables.md)]
+
+## Create a Node application
+
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. Then run the `npm init` command to create a node application with a _package.json_ file.
+
+```console
+npm init
+```
+
+## Install the client library
 
 Install the Azure OpenAI client library for JavaScript with npm:
 
@@ -40,10 +47,7 @@ Install the Azure OpenAI client library for JavaScript with npm:
 npm install @azure/openai
 ```
 
-[!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
-
-[!INCLUDE [environment-variables](environment-variables.md)]
-
+Your app's _package.json_ file will be updated with the dependencies.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=AOAI&Product=Chatgpt&Page=quickstart&Section=Set-up-the-environment)
@@ -86,6 +90,8 @@ module.exports = { main };
 > [!IMPORTANT]
 > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
+Run the script with the following command:
+
 ```cmd
 node.exe ChatCompletion.js
 ```
@@ -112,4 +118,5 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
+* [Azure OpenAI Overview](../overview.md)
 * For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

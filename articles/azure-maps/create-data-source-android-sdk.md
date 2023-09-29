@@ -773,7 +773,7 @@ Azure Maps adheres to the [Mapbox Vector Tile Specification], an open standard. 
 - [Road tiles]
 - [Traffic incidents]
 - [Traffic flow]
-- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render V2-Get Map Tile API]
+- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Render - Get Map Tile] API
 
 > [!TIP]
 > When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `azmapsdomain.invalid`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
@@ -1048,6 +1048,6 @@ See the following articles for more code samples to add to your maps:
 [Road tiles]: /rest/api/maps/render-v2/get-map-tile
 [Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
 [Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
-[Render V2-Get Map Tile API]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec

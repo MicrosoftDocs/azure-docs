@@ -9,8 +9,7 @@ metadata:
   description: 'Metrics Advisor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning.'
   author: mrbullwinkle
   manager: nitinme
-  ms.service: applied-ai-services
-  ms.subservice: metrics-advisor
+  ms.service: azure-ai-metrics-advisor
   ms.topic: landing-page
   ms.date: 08/13/2020
   ms.author: mbullwin

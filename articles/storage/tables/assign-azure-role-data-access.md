@@ -5,12 +5,11 @@ description: Learn how to assign permissions for table data to an Azure Active D
 services: storage
 author: akashdubey-ms
 
-ms.service: azure-storage
+ms.service: azure-table-storage
 ms.topic: how-to
 ms.date: 03/03/2022
 ms.author: akashdubey
 ms.reviewer: nachakra
-ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

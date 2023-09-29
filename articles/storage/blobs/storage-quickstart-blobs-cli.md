@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure CLI upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: stevenmatthew
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.date: 01/25/2023
 ms.author: shaas

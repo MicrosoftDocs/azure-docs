@@ -59,7 +59,7 @@ Forking the sample repository is critical to be able to deploy the static web ap
     Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
 
     ```bash
-    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-python-samples
+    git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-python-samples.git
     ```
 
 1. In Visual Studio Code, open your local folder of the cloned repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.

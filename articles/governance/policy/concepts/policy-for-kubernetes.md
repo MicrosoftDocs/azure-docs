@@ -85,6 +85,16 @@ The following are general recommendations for using the Azure Policy Add-on:
   - For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB
     of memory per component.
 
+-  Open ports for the Azure Policy Add-On. The Azure Policy Add-On uses these domains and ports to fetch policy
+   definitions and assignments and report compliance of the cluster back to Azure Policy.
+
+   |Domain |Port |
+   |---|---|
+   |`data.policy.core.windows.net` |`443` |
+   |`store.policy.core.windows.net` |`443` |
+   |`login.windows.net` |`443` |
+   |`dc.services.visualstudio.com` |`443` |
+   
 - Windows pods
   [don't support security contexts](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods).
   Thus, some of the Azure Policy definitions, such as disallowing root privileges, can't be

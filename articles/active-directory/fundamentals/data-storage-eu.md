@@ -1,6 +1,6 @@
 ---
-title: Customer data storage and processing for European customers in Azure Active Directory
-description: Learn about where Azure Active Directory stores identity-related data for its European customers.
+title: Customer data storage and processing for European customers in Microsoft Entra ID
+description: Learn about where Microsoft Entra ID stores identity-related data for its European customers.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -15,7 +15,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Customer data storage and processing for European customers in Azure Active Directory
+# Customer data storage and processing for European customers in Microsoft Entra ID
 
 Microsoft Entra stores customer data in a geographic location based on how a tenant was created and provisioned. The following list provides information about how the location is defined:
 
