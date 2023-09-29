@@ -507,6 +507,106 @@ The following example shows a change event record in JSON format that uses event
 }
 ```
 
+#### Schema version 6
+
+The following event types may be captured in the change feed records with schema version 6:
+
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
+- BlobTierChanged
+- BlobAsyncOperationInitiated
+
+Schema version 6 adds support for [cold tier](access-tiers-overview.md#cold-tier).
+
+The following example shows a change event record in JSON format that uses event schema version 6:
+
+```json
+{
+    "schemaVersion": 6,
+    "topic": "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "subject": "/blobServices/default/containers/<container>/blobs/<blob>",
+    "eventType": "BlobCreated",
+    "eventTime": "2023-10-11T13:12:11.5746587Z",
+    "id": "62616073-8020-0000-00ff-233467060cc0",
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "b3f9b39a-ae5a-45ac-afad-95ac9e9f2791",
+        "requestId": "62616073-8020-0000-00ff-233467000000",
+        "etag": "0x8D9F2171BE32588",
+        "contentType": "application/octet-stream",
+        "contentLength": 128,
+        "blobType": "BlockBlob",
+        "blobVersion": "2023-10-11T16:11:52.5901564Z",
+        "containerVersion": "0000000000000001",
+        "blobTier": "Archive",
+        "url": "https://www.myurl.com",
+        "sequencer": "00000000000000010000000000000002000000000000001d",
+        "previousInfo": {
+            "SoftDeleteSnapshot": "2023-10-11T13:12:11.5726507Z",
+            "WasBlobSoftDeleted": "true",
+            "BlobVersion": "2024-02-17T16:11:52.0781797Z",
+            "LastVersion" : "2023-10-11T16:11:52.0781797Z",
+            "PreviousTier": "Hot"
+        },
+        "snapshot" : "2023-10-11T16:09:16.7261278Z",
+        "blobPropertiesUpdated" : {
+            "ContentLanguage" : {
+                "current" : "pl-Pl",
+                "previous" : "nl-NL"
+            },
+            "CacheControl" : {
+                "current" : "max-age=100",
+                "previous" : "max-age=99"
+            },
+            "ContentEncoding" : {
+                "current" : "gzip, identity",
+                "previous" : "gzip"
+            },
+            "ContentMD5" : {
+                "current" : "Q2h1Y2sgSW51ZwDIAXR5IQ==",
+                "previous" : "Q2h1Y2sgSW="
+            },
+            "ContentDisposition" : {
+                "current" : "attachment",
+                "previous" : ""
+            },
+            "ContentType" : {
+                "current" : "application/json",
+                "previous" : "application/octet-stream"
+            }
+        },
+        "asyncOperationInfo": {
+            "DestinationTier": "Hot",
+            "WasAsyncOperation": "true",
+            "CopyId": "copyId"
+        },
+        "blobTagsUpdated": {
+            "previous": {
+                "Tag1": "Value1_3",
+                "Tag2": "Value2_3"
+            },
+            "current": {
+                "Tag1": "Value1_4",
+                "Tag2": "Value2_4"
+            }
+        },
+        "restorePointMarker": {
+            "rpi": "cbd73e3d-f650-4700-b90c-2f067bce639c",
+            "rpp": "cbd73e3d-f650-4700-b90c-2f067bce639c",
+            "rpl": "test-restore-label",
+            "rpt": "2023-10-11T13:56:09.3559772Z"
+        },
+        "storageDiagnostics": {
+            "bid": "9d726db1-8006-0000-00ff-233467000000",
+            "seq": "(2,18446744073709551615,29,29)",
+            "sid": "4cc94e71-f6be-75bf-e7b2-f9ac41458e5a"
+        }
+    }
+}
+```
+
 <a id="specifications"></a>
 
 ## Specifications
