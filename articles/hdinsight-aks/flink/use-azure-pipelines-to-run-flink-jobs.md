@@ -29,7 +29,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
 
 ## Steps to set up pipeline
 
-### Create a service principal for Azure Pipelines.
+### Create a service principal for Azure Pipelines
 
   Create [Azure AD Service Principal](/cli/azure/ad/sp/) to access Azure – Grant permission to access HDInsight on AKS Cluster with Contributor role, make a note of appId, password, and tenant from the response.
   ```
@@ -42,7 +42,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
   az ad sp create-for-rbac -n azure-flink-pipeline --role Contributor --scopes /subscriptions/abdc-1234-abcd-1234-abcd-1234/resourceGroups/myResourceGroupName/providers/Microsoft.HDInsight/clusterpools/hiloclusterpool/clusters/flinkcluster`
   ```
 
-### Create a key vault.
+### Create a key vault
 
   1.   Create Azure Key Vault, you can follow [this tutorial](/azure/key-vault/general/quick-create-portal) to create a new Azure Key Vault.
 
@@ -59,7 +59,7 @@ In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS t
   1. Grant permission to access Azure Key Vault with the “Key Vault Secrets Officer” role to service principal.
 
 
-### Setup pipeline.
+### Setup pipeline
 
   1. Navigate to your Project and click Project Settings.
 
