@@ -60,7 +60,7 @@ Each recommendation is measured based on your configuration. If you're using thi
 
 Identity secure score improvement actions also appear in Microsoft Entra recommendations. They both appear in the same list, but the secure score recommendations show the score.
 
-To address a secure score recommendation, select it from the list to view the details and action plan. If you take the appropriate action, the status changes automatically the next time the service runs. You can also mark the recommendation as *dismissed* or *postponed*. For more information on working with recommendations, see [How to use recommendations](how-to-use-recommendations.md).
+To address a secure score recommendation, select it from the list to view the details and action plan. If you take the appropriate action, the status changes automatically the next time the service runs. You can also mark the recommendation as *dismissed* or *postponed*. For more information on working with recommendations, see [How to use recommendations](./howto-use-recommendations.md).
 
 ## How does it help me?
 
@@ -141,5 +141,5 @@ The identity secure score represents the identity part of the Microsoft secure s
 ## Next steps
 
 - [Find out more about Microsoft secure score](/office365/securitycompliance/microsoft-secure-score)
-- [Learn about Microsoft Entra recommendations](recommendations-overview.png)
-- [Learn how to use recommendations](how-to-use-recommendations.md)
+- [Learn about Microsoft Entra recommendations](./recommendations-overview.png)
+- [Learn how to use recommendations](./how-to-use-recommendations.md)
