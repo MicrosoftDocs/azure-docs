@@ -74,7 +74,7 @@ additionalContent:
             - text: Design and implement network security
               url: /training/modules/design-implement-network-security-monitoring/
             - text: Design solutions for network security
-              url: /training/modules/design-solutions-for-network-security/
+              url: /training/modules/design-solutions-network-security/
             - text: Design and implement network monitoring
               url: /training/modules/design-implement-network-monitoring/
         - title: Architecture
@@ -92,7 +92,7 @@ additionalContent:
             - text: Implement a secure hybrid network
               url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
             - text: Mission-critical baseline architecture with network control
-              url: /architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture
+              url: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture
             - text: Build the first layer of defense with Azure Security services
               url: /azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense
             - text: Secure and govern workloads with network-level segmentation
@@ -197,7 +197,7 @@ additionalContent:
         - title: Training
           links:
             - text: Configure the network for your virtual machines
-              url: /training/configure-network-for-azure-virtual-machines/
+              url: /training/modules/configure-network-for-azure-virtual-machines/
             - text: Introduction to Azure Bastion
               url: /training/modules/intro-to-azure-bastion/
             - text: Connect to a VM using Azure Bastion
