@@ -1,5 +1,5 @@
 ---
-title: Get started with a Calling Widget using Azure Communication Services
+title: Get Started with Azure Communication Services calling to Teams Call Queue and Auto Attendant
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a Calling Widget widget experience with the Azure Communication Services CallComposite to facilitate click to call.
 author: dmceachern
@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Get started with a click to call experience using Azure Communication Services 
+# Get Started with Azure Communication Services calling to Teams Call Queue and Auto Attendant
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
 
-This project aims to guide developers on creating a seamless click to call experience using the Azure Communication UI Library.
+This project aims to guide developers to intiate a call from the ACS Calling Web SDK to Teams Call Queue and Auto Attendant using the Azure Communication UI Library.
 
 As per your requirements, you may need to offer your customers an easy way to reach out to you without any complex setup.
 
-Click to call is a simple yet effective concept that facilitates instant interaction with, customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in making interactions with your customers just a click away.
+Calling to Teams Call Queue and Auto Attendant is a simple yet effective concept that facilitates instant interaction with customer support, financial advisor, and other customer-facing teams. The goal of this tutorial is to assist you in initiating interactions with your customers when they click a button on the web.
 
 If you wish to try it out, you can download the code from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call).
 
@@ -55,10 +55,10 @@ creates an easy to run TypeScript application powered by React. This command wil
 
 ```bash
 # Create an Azure Communication Services App powered by React.
-npx create-react-app ui-library-click-to-call-app --template typescript
+npx create-react-app ui-library-calling-widget-app --template typescript
 
 # Change to the directory of the newly created App.
-cd ui-library-click-to-call-app
+cd ui-library-calling-widget-app
 ```
 
 ### Get your dependencies
