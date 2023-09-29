@@ -119,9 +119,11 @@ Notice at which point the test completion time no longer reduces as you add more
 > [!NOTE]
 > While the service is in preview, the number of [parallel workers per workspace is limited](./resource-limits-quotas-capacity.md) to 50. You can [request an increase of this limit for your workspace](https://aka.ms/mpt/feedback).
 
-### 6. Increase computing resources on the client machine
+### 6. Scale the client
 
 As you increase parallelism, the client machine might experience compute resource contention. Increase the computing resources on the client machine, for example by selecting [larger GitHub-hosted runners](https://docs.github.com/actions/using-github-hosted-runners/about-larger-runners).
+
+Alternatively, if you have hardware limitations, you can [shard](https://playwright.dev/docs/test-sharding) your client tests.
 
 Rerun your tests and experiment with the number of parallel workers.
 
