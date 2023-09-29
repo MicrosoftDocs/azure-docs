@@ -33,11 +33,11 @@ For some components of a service, work is in progress to be included in the EU D
 
 EU Data Residency: 
 
-* **Reason for customer data egress** - A small number of tenants are stored outside of the EU location due one of the following reasons: 
+* **Reason for customer data egress** - A few of the tenants are stored outside of the EU location due one of the following reasons: 
 
 - The tenants were initially created with a country code that is NOT in Europe and later the tenant country code was changed to the one in Europe. The Microsoft Entra directory data location is decided during the tenant creation time and not changed when the country code for the tenant is updated. Starting March 2019 Microsoft has blocked updating the country code on a tenant to avoid such confusion. 
 - There are 13 country codes (Countries include: Azerbaijan, Bahrain, Israel, Jordan, Kazakhstan, Kuwait, Lebanon, Oman, Pakistan, Qatar, Saudi Arabia, Turkey, UAE) that were mapped to Asia region until 2013 and later mapped to Europe. Tenants that were created before July 2013 from this country code are provisioned in Asia instead of Europe. 
-- There are 7 country codes (Countries include: Armenia, Georgia, Iraq, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan) that were mapped to Asia region until 2017 and later mapped to Europe. Tenants that were created before February 2017 from this country code are provisioned in Asia instead of Europe. 
+- There are seven country codes (Countries include: Armenia, Georgia, Iraq, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan) that were mapped to Asia region until 2017 and later mapped to Europe. Tenants that were created before February 2017 from this country code are provisioned in Asia instead of Europe. 
 * **Types of customer data being egressed** - User and device account data, and service configuration (application, policy, and group).  
 * **Customer data location at rest** - US and Asia/Pacific.
 * **Customer data processing** - The same as the location at rest.
@@ -55,7 +55,9 @@ EU Data Residency:
 
 - [Microsoft Entra ID](/azure/active-directory/fundamentals/whatis): When an IP Address or phone number is determined to be used in fraudulent activities, they are published globally to block access from any workloads using them. 
 
-EU Data Boundary: See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers.md#security-services).
+EU Data Boundary: 
+
+See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers.md#security-services).
 
 ## Other considerations
 
