@@ -184,6 +184,9 @@ There are two options for configuring directory and file-level permissions with 
 
 To configure directory and file-level permissions through Windows File Explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step is not required.
 
+> [!IMPORTANT]
+> You can set file/directory level ACLs for identities which are not synced to Azure AD. However, these ACLs will not be enforced because the Kerberos ticket used for authentication/authorization will not contain these not-synced identities. In order to enforce set ACLs, identities need to be synced to Azure AD.
+
 > [!TIP]
 > If Azure AD hybrid joined users from two different forests will be accessing the share, it's best to use icacls to configure directory and file-level permissions. This is because Windows File Explorer ACL configuration requires the client to be domain joined to the Active Directory domain that the storage account is joined to.
 

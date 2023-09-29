@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: site-recovery
-  ms.date: 05/27/2021
+  ms.date: 09/20/2023
 
 
 title: General questions about Azure Site Recovery
@@ -43,6 +43,12 @@ sections:
          Does Azure Site Recovery currently support Ephemeral Disks?
         answer: |
              No, Azure Site Recovery currently does not support Ephemeral Disks.
+
+      - question: |
+         What is the Microsoft Azure Recovery Services agent used for?
+        answer: |
+             Microsoft Azure Recovery Services agent is used for configuring/registering with Site Recovery services, and for monitoring the health of all the components. This component is one of the basic building blocks of the entire Azure Site Recovery on-premises infrastructure. It helps to replicate your workloads to another Azure region from an on-premises site, and fail over to Azure in case of a disaster.
+
 
   - name: Service providers
     questions:
@@ -110,7 +116,7 @@ sections:
       - question: |
          I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
         answer: |
-             Yes. Every protected instance incurs no Azure Site Recovery charges for the first 31 days. For example, if you have been protecting 10 instances for the last 6 months and you connect an 11th instance to Azure Site Recovery, there are no charges for the 11th instance for the first 31 days. The first 10 instances continue to incur Azure Site Recovery charges since they've been protected for more than 31 days.
+             Yes. Every protected instance incurs no Azure Site Recovery charges for the first 31 days. For example, if you have been protecting 10 instances for the last six months and you connect an 11th instance to Azure Site Recovery, there are no charges for the 11th instance for the first 31 days. The first 10 instances continue to incur Azure Site Recovery charges since they've been protected for more than 31 days.
 
       - question: |
          During the first 31 days, will I incur any other Azure charges?
@@ -235,7 +241,7 @@ sections:
       - question: |
          Can I replicate over a site-to-site VPN to Azure?
         answer: |
-             Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGaurd, Palo Alto NextGen Firewall.
+             Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or third party options such as Check Point CloudGaurd, Palo Alto NextGen Firewall.
                 
              - Private connectivity over the public Internet to Microsoft Edge
              - Recovery Service Vaults configured for security with Private Endpoints
@@ -384,22 +390,22 @@ sections:
         answer: |
               To understand how Site Recovery generates recovery points, let's see an example of a replication policy. This replication policy has a recovery point with a 1-day retention window and an app-consistent frequency snapshot of 1 hour.
 
-              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the most recent 2 hours, you can choose from 24 crash-consistent points and 2 app-consistent points. As time progresses, Site Recovery prunes all the recovery points beyond the last 2 hours and saves only 1 recovery point per hour for up to 24 hours of the day.
+              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the most recent 2 hours, you can choose from 24 crash-consistent points and 2 app-consistent points. As time progresses, Site Recovery prunes all the recovery points beyond the last 2 hours and saves only one recovery point per hour for up to 24 hours of the day.
 
               The following screenshot illustrates the example. In the screenshot:
 
               - Within the past 2 hours, there are recovery points with a frequency of 5 minutes.
-              - Beyond the past 2 hours, Site Recovery keeps only 1 recovery point per hour.
+              - Beyond the past 2 hours, Site Recovery keeps only one recovery point per hour.
 
                 ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
       - question: |
          How far back can I recover?
         answer: |
-             The oldest recovery point that you can use is 15 days with Managed disk and 3 days with Unmanaged disk.
+             The oldest recovery point that you can use is 15 days with Managed disk and three days with Unmanaged disk.
 
       - question: |
-         I have a replication policy of 1 day. What will happen if a problem prevents Site Recovery from generating recovery points for more than 1 day? Will my previous recovery points be lost?
+         I have a replication policy of one day. What will happen if a problem prevents Site Recovery from generating recovery points for more than one day? Will my previous recovery points be lost?
         answer: |
              No, Site Recovery will keep all your previous recovery points. Depending on the recovery points' retention window, Site Recovery replaces the oldest point only if it generates new points. Because of the problem, Site Recovery can't generate any new recovery points. Until there are new recovery points, all the old points will remain after you reach the window of retention.
 
@@ -416,7 +422,7 @@ sections:
       - question: |
          Does increasing the retention period of recovery points increase the storage cost?
         answer: |
-             Yes, if you increase the retention period from 1 day to 3 days, Site Recovery will save the recovery points for an additional 2 days. The added time will incur storage charges since there will be 12 additional recovery points that need to be saved with increase in retention period from 1 day to 3 days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
+             Yes, if you increase the retention period from one day to three days, Site Recovery will save the recovery points for an additional two days. The added time will incur storage charges since there will be 12 additional recovery points that need to be saved with increase in retention period from one day to three days. For example, a single recovery point might have delta changes of 10 GB with a per-GB cost of $0.16 per month. Additional charges would be $1.60 × 12 per month.
 
   - name: Failover
     questions:

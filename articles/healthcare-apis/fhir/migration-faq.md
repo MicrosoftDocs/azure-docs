@@ -51,11 +51,11 @@ After September 30, 2026 customers won't be able to:
 - Access customer support (phone, email, web)
 - Where can customers go to learn more about migrating to Azure Health Data Services FHIR service?
 
-Start with [migration strategies](migration-strategies.md) to learn more about Azure API for FHIR to Azure Health Data Services FHIR service migration. The migration from Azure API for FHIR to Azure Health Data Services FHIR service involves data migration and updating the applications to use Azure Health Data Services FHIR service. Find more documentation on the step-by-step approach to migrating your data and applications in the [migration tool](https://go.microsoft.com/fwlink/?linkid=2247964).
+Start with [migration strategies](migration-strategies.md) to learn more about Azure API for FHIR to Azure Health Data Services FHIR service migration. The migration from Azure API for FHIR to Azure Health Data Services FHIR service involves data migration and updating the applications to use Azure Health Data Services FHIR service. Find more documentation on the step-by-step approach to migrating your data and applications in the [migration tool](https://github.com/Azure/apiforfhir-migration-tool/blob/main/lift-and-shift-resources/Liftandshiftresources_README.md).
 
 ## Where can customers go to get answers to their questions?
 
 Check out these resources if you need further assistance:
 
-- Get answers from community experts in [Microsoft Q&A](https://go.microsoft.com/fwlink/?linkid=2248420).
+- Get answers from community experts in [Microsoft Q&A](/answers/questions/1377356/retirement-announcement-azure-api-for-fhir).
 - If you have a support plan and require technical support, [contact us](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
