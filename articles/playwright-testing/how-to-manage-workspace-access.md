@@ -2,7 +2,7 @@
 title: Manage workspace access
 description: Learn how to manage access to a Microsoft Playwright Testing workspace by using Azure role-based access control (Azure RBAC). Grant user permissions for a workspace by assigning roles.
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
@@ -39,11 +39,24 @@ Microsoft Playwright Testing workspaces uses three Azure built-in roles. To gran
 
 You can grant a user access to a Microsoft Playwright Testing workspace by using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and go to your Microsoft Playwright Testing workspace.
+1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
 
-1. On the left pane, select **Access Control (IAM)**, and then select **Add > Add role assignment**.
+1. Select the workspace settings icon, and then go to the **Users** page.
 
-    If you don't have permissions to assign roles, the Add role assignment option is disabled.
+    :::image type="content" source="media/how-to-manage-workspace-access/playwright-testing-user-settings.png" alt-text="Screenshot that shows the Users page in the workspace settings in the Playwright Testing portal.":::
+
+1. Select **Manage users for your workspace in the Azure portal** to go to your workspace in the Azure portal.
+
+    Alternately, you can go directly to the Azure portal and select your workspace:
+
+    1. Sign in to the [Azure portal](https://portal.azure.com/).
+    1. Enter **Playwright Testing** in the search box, and then select **Playwright Testing** in the **Services** category.
+    1. Select your Microsoft Playwright Testing workspace from the list.
+    1. On the left pane, select **Access Control (IAM)**.
+
+1. On the **Access Control (IAM)** page, select **Add > Add role assignment**.
+
+    If you don't have permissions to assign roles, the **Add role assignment** option is disabled.
 
     :::image type="content" source="media/how-to-manage-workspace-access/add-role-assignment.png" alt-text="Screenshot that shows how to add a role assignment to your workspace in the Azure portal.":::
 

@@ -2,7 +2,7 @@
 title: Manage workspaces
 description: Learn how to create and manage Microsoft Playwright Testing workspaces. Use the Playwright portal or Azure portal to manage workspaces.
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
@@ -34,7 +34,7 @@ To get started with running your Playwright tests on cloud browsers, you first c
 
 # [Playwright portal](#tab/playwright)
 
-When you create a workspace in the Playwright portal, a new resource group and a Microsoft Playwright Testing Azure resource are created in your Azure subscription.
+When you create a workspace in the Playwright portal, the service creates a new resource group and a Microsoft Playwright Testing Azure resource in your Azure subscription. The name of the new resource group is based on the workspace name.
 
 [!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
@@ -46,18 +46,17 @@ When you create a workspace in the Playwright portal, a new resource group and a
     :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png" alt-text="Screenshot that shows the Azure portal menu to create a new resource." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-create-resource.png":::
 
 1. Enter *Microsoft Playwright Testing* in the search box.
-1. Select **Microsoft Playwright Testing (Preview)**.
+1. Select the **Microsoft Playwright Testing (Preview)** card, and then select **Create**.
 
     :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png" alt-text="Screenshot that shows the Azure Marketplace search page with the Microsoft Playwright Testing search result." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-search-playwright-resource.png":::
 
-1. On the Microsoft Playwright Testing page, select **Create**.
 1. Provide the following information to configure a new Microsoft Playwright Testing workspace:
 
     |Field  |Description  |
     |---------|---------|
     |**Subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
     |**Resource group**     | Select an existing resource group. Or select **Create new**, and then enter a unique name for the new resource group.        |
-    |**Name**     | Enter a unique name to identify your workspace.<BR>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. |
+    |**Name**     | Enter a unique name to identify your workspace.<BR>The name can only consist of alphanumerical characters, and have a length between 3 and 64 characters. |
     |**Location**     | Select a geographic location to host your workspace. <BR>This location also determines where the test execution results and related artifacts are stored. |
 
     > [!NOTE]
@@ -155,7 +154,9 @@ To delete a Playwright workspace:
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
+
 1. Navigate to your Playwright workspace.
+
 1. Select **Delete** to delete the workspace.
 
     :::image type="content" source="./media/how-to-manage-playwright-workspace/azure-portal-delete-workspace.png" alt-text="Screenshot that shows the delete workspace functionality in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/azure-portal-delete-workspace.png":::

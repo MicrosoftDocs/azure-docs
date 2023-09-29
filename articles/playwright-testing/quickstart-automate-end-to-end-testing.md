@@ -2,7 +2,7 @@
 title: 'Quickstart: Continuous end-to-end testing'
 description: In this quickstart, you learn how to run your Playwright tests at scale in your CI pipeline with Microsoft Playwright Testing. Continuously validate that your web app runs correctly across browsers and operating systems.
 ms.topic: quickstart
-ms.date: 09/04/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
@@ -38,11 +38,13 @@ Microsoft Playwright Testing uses access tokens to authorize users to run Playwr
 
 To generate an access token and store it as a CI workflow secret, perform the following steps:
 
-1. Sign in to the [Microsoft Playwright Testing portal](https://aka.ms/mpt/portal) with your Azure account.
+1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
 
-1. Select the settings icon on the home page, and then select **Generate new token**.
+1. Select the workspace settings icon, and then go to the **Access tokens** page.
 
-    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal, highlighting the 'Generate new token' button.":::
+    :::image type="content" source="./media/quickstart-automate-end-to-end-testing/playwright-testing-generate-new-access-token.png" alt-text="Screenshot that shows the access tokens settings page in the Playwright Testing portal.":::
+
+1. Select **Generate new token** to create a new access token for your CI workflow.
 
 1. Enter the access token details, and then select **Generate token**.
 
@@ -89,7 +91,7 @@ In the service configuration, you have to provide the region-specific service en
 
 To get the service endpoint URL and store it as a CI workflow secret, perform the following steps:
 
-1. Sign in to the [Microsoft Playwright Testing portal](https://aka.ms/mpt/portal) with your Azure account.
+1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
 
 1. On the workspace home page, select **View setup guide**.
 

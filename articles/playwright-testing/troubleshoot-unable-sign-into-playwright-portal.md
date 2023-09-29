@@ -2,7 +2,7 @@
 title: '[Resolved] Trouble signing into Playwright portal'
 description: 'How to resolve the issue with signing into the Playwright portal, which results in error code AADSTS7000112.'
 ms.topic: troubleshooting-problem-resolution
-ms.date: 09/26/2023
+ms.date: 10/04/2023
 ---
 
 # [Resolved] AADSTS7000112: Application 'b1fd4ebf-2bed-4162-be84-97e0fe523f64'(PlaywrightServiceAADLogin) is disabled.

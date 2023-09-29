@@ -2,7 +2,7 @@
 title: Manage workspace access tokens
 description: Learn how to create & manage access tokens to authenticate requests to Microsoft Playwright Testing Preview. Access tokens provide secure access to run tests on the service, and to the Microsoft Playwright Testing API.
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
@@ -42,6 +42,8 @@ To view the list of workspace access tokens:
 1. Select your workspace.
 
 1. Select the settings icon on the home page to go to the workspace settings.
+
+1. Select the **Access tokens** page to view the list of access tokens.
 
     The **Access tokens** page displays the list of access tokens for the workspace.
 

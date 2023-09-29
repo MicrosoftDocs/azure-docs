@@ -2,7 +2,7 @@
 title: Configure visual comparisons
 description: Learn how to configure visual comparisons with Microsoft Playwright Testing.
 ms.topic: how-to
-ms.date: 09/13/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 

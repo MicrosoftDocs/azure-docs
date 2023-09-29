@@ -2,7 +2,7 @@
 title: Optimal test suite configuration
 description: Learn about the factors that affect test completion time in Microsoft Playwright Testing. Get practical steps to determine the optimal Playwright test project configuration.
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 

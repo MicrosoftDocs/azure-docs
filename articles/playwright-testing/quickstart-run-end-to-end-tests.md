@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Run Playwright tests at scale'
-description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing. Provision cloud-hosted browsers with support for multiple operating systems and all modern browsers.'
+description: 'This quickstart shows how to run your Playwright tests with highly parallel cloud browsers using Microsoft Playwright Testing Preview. The cloud-hosted browsers support multiple operating systems and all modern browsers.'
 ms.topic: quickstart
-ms.date: 08/16/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
@@ -26,17 +26,21 @@ To get started with running your Playwright tests at scale on cloud browsers, yo
 
 [!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
+When the workspace creation finishes, you're redirected to the setup guide.
+
 ## Create an access token for service authentication
 
 Microsoft Playwright Testing uses access token to authorize users to run Playwright tests with the service. You first generate a service access token in the Playwright portal, and then store the value in an environment variable.
 
 To generate the access token, perform the following steps:
 
-1. In the [Playwright portal](https://aka.ms/mpt/portal), select **Generate token**, and then copy the shell command for your environment.
+1. In the workspace setup guide, in **Create an access token**, select **Generate token**.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-generate-token.png" alt-text="Screenshot that shows setup guide in the Playwright Testing portal, highlighting the 'Generate token' button.":::
 
 1. Copy the access token for the workspace.
+
+    You need the access token value for configuring your environment in a later step.
 
     :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-copy-access-token.png" alt-text="Screenshot that shows how to copy the generated access token in the Playwright Testing portal.":::
 
@@ -46,10 +50,6 @@ In the service configuration, you have to provide the region-specific service en
 
 To get the service endpoint URL, perform the following steps:
 
-1. Sign in to the [Microsoft Playwright Testing portal](https://aka.ms/mpt/portal) with your Azure account.
-
-1. Select the workspace you created previously.
-
 1. In **Add region endpoint in your setup**, copy the region endpoint for your workspace.
 
     The endpoint URL matches the Azure region that you selected when creating the workspace.
@@ -58,7 +58,7 @@ To get the service endpoint URL, perform the following steps:
 
 ## Set up your environment
 
-Ensure that the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` and `PLAYWRIGHT_SERVICE_URL` environment variables that you obtained in the previous steps are available in your environment.
+To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` and `PLAYWRIGHT_SERVICE_URL` environment variables with the values you obtained in the previous steps.
 
 We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
 
@@ -75,11 +75,14 @@ We recommend that you use the `dotenv` module to manage your environment. With `
     PLAYWRIGHT_SERVICE_URL={MY-REGION-ENDPOINT}
     ```
 
+> [!CAUTION]
+> Make sure that you don't add the `.env` file to your source code repository to avoid leaking your access token value.
+
 ## Add Microsoft Playwright Testing configuration
 
-To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. The service configuration file references the environment variables that you specified previously. In a later step, you use this service configuration file with the Playwright CLI.
+To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to add a service configuration file alongside your Playwright configuration file. The service configuration file references the environment variables to get the workspace endpoint and your access token. In the next step, you pass this service configuration file to the Playwright CLI.
 
-Use playwright.service.config.ts as a starting point:
+To add the service configuration to your project:
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
@@ -130,11 +133,11 @@ Use playwright.service.config.ts as a starting point:
     });
     ```
 
-1. Save and commit the file to your source code repository.
+1. Save the file.
 
 ## Run your tests at scale with Microsoft Playwright Testing
 
-You've now configured your Playwright tests to run in the cloud with Microsoft Playwright Testing. To run your Playwright tests, you use the Playwright CLI and specify the service configuration file and number of workers on the command-line.
+You've now prepared the configuration for running your Playwright tests in the cloud with Microsoft Playwright Testing. To run your Playwright tests, you use the Playwright CLI and specify the service configuration file and number of workers on the command-line.
 
 Perform the following steps to run your Playwright tests:
 
@@ -157,7 +160,7 @@ Perform the following steps to run your Playwright tests:
       npx playwright show-report
     ```
 
-1. You can view the list of test runs in the Playwright portal.
+1. Go to the [Playwright portal](https://aka.ms/mpt/portal) to view your test run.
 
     The activity log lists for each test run the following details: the total test completion time, the number of parallel workers, and the number of test minutes.
 

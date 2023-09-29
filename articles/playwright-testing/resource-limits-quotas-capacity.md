@@ -2,7 +2,7 @@
 title: Service limits
 description: 'Service limitations and quotas for running Playwright testing with Microsoft Playwright Testing Preview.'
 ms.topic: reference
-ms.date: 09/14/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
