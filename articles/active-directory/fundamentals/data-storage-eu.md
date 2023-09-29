@@ -29,9 +29,9 @@ The following sections provide information about customer data that doesn't meet
 
 ## Services that will temporarily transfer a subset of customer data out of the EU Data Residency and EU Data Boundary 
 
-For some components of a service, work is in progress to be included in the EU Data Residency and EU Data Boundary, but completion of this work is delayed. The following sections in this article explain the customer data that these services currently transfer out of Europe as part of their service operations. 
+For some components of a service, work is in progress to be included in the EU Data Residency and EU Data Boundary, but completion of this work is delayed. The following sections in this article explain the customer data that these services currently transfer out of Europe as part of their service operations.
 
-EU Data Residency: 
+**EU Data Residency:**
 
 - **Reason for customer data egress** - A few of the tenants are stored outside of the EU location due one of the following reasons: 
 
@@ -43,26 +43,36 @@ EU Data Residency:
 * **Customer data processing** - The same as the location at rest.
 * **Services** - Directory Core Store
 
-EU Data Boundary: See more information on Microsoft Entra temporary partial customer data transfers from the EU Data Boundary [Services that temporarily transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-temporary-partial-transfers.md#security-services). 
+**EU Data Boundary:**
+
+See more information on Microsoft Entra temporary partial customer data transfers from the EU Data Boundary [Services that temporarily transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-temporary-partial-transfers.md#security-services). 
 
 ## Services that will permanently transfer a subset of customer data out of the EU Data Residency and EU Data Boundary 
 
 Some components of a service will continue to transfer a limited amount of customer data out of the EU Data Residency and EU Data Boundary because this transfer is by design to facilitate the function of the services.  
 
-EU Data Residency: [Microsoft Entra ID](/azure/active-directory/fundamentals/whatis): When an IP Address or phone number is determined to be used in fraudulent activities, they are published globally to block access from any workloads using them. 
+**EU Data Residency:** 
 
-EU Data Boundary: See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers.md#security-services).
+[Microsoft Entra ID](/azure/active-directory/fundamentals/whatis): When an IP Address or phone number is determined to be used in fraudulent activities, they are published globally to block access from any workloads using them. 
+
+**EU Data Boundary:**
+
+See more information on Microsoft Entra permanent partial customer data transfers from the EU Data Boundary [Services that will permanently transfer a subset of customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-permanent-partial-transfers.md#security-services).
 
 ## Other considerations
 
 ### Optional service capabilities that transfer data out of the EU Data Residency and EU Data Boundary
 
-EU Data Residency: Some services include capabilities that are optional (in some cases requiring a customer subscription), and where customer administrators can choose to enable or disable these capabilities for their service tenancies. If made available and used by a customer's users, these capabilities will result in data transfers out of Europe as described in the following sections in this article. 
+**EU Data Residency:**
+
+Some services include capabilities that are optional (in some cases requiring a customer subscription), and where customer administrators can choose to enable or disable these capabilities for their service tenancies. If made available and used by a customer's users, these capabilities will result in data transfers out of Europe as described in the following sections in this article. 
 
 - [Muli-tenant administration](/azure/active-directory/multi-tenant-organizations/overview): An organization may choose to create a multi-tenant organization within Microsoft Entra ID. For example, a customer can invite users to their tenant in a B2B context. A customer can create a multi-tenant SaaS application that allows other third-party tenants to provision the application in the third-party tenant. A customer can make two or more tenants affiliated with one another and act as a single tenant in certain scenarios, such as multi-tenant organization (MTO) formation, tenant to tenant sync, and shared e-mail domain sharing. Administrator configuration and use of multi-tenant collaboration may occur with tenants outside of the EU Data Residency and EU Data Boundary resulting in some customer data, such as user and device account data, usage data, and service configuration (application, policy, and group) being stored and processed in the location of the collaborating tenant. 
 - [Application Proxy](/azure/active-directory/app-proxy/application-proxy): Application proxy allows customers to access both cloud and on-premises applications through an external URL or an internal application portal. Customers may choose advanced routing configurations that would cause Customer Data to egress outside of the EU Data Residency and EU Data Boundary, including user account data, usage data, and application configuration data. 
 
-EU Data  Boundary: See more information on optional service capabilities that transfer customer data out of the EU Data Boundary [Optional service capabilities that transfer customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-transfers-for-optional-capabilities.md#microsoft-entra-id).
+**EU Data  Boundary:**
+
+See more information on optional service capabilities that transfer customer data out of the EU Data Boundary [Optional service capabilities that transfer customer data out of the EU Data Boundary](/privacy/eudb/eu-data-boundary-transfers-for-optional-capabilities.md#microsoft-entra-id).
 
 ### Other EU Data Boundary online services
 
