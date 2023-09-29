@@ -76,7 +76,7 @@ Click on the **Build log** tab within the details page to view the logs of an en
 
 For an overview of common build failures, see https://aka.ms/azureml/environment/troubleshooting-guide
 
-If you have feedback on the feature or the documentation, file it at https://aka.ms/azureml/environment/log-analysis-feedback
+If you have feedback on the evironment log analysis, file it at https://aka.ms/azureml/environment/log-analysis-feedback
 
 ## Rebuild an environment
 
