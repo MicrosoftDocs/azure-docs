@@ -398,6 +398,8 @@
       items:
       - name: Access control
         href: scenarios-rbac.md
+      - name: Create resource group
+        href: create-resource-group.md
       - name: Monitoring
         href: scenarios-monitoring.md
       - name: Secrets

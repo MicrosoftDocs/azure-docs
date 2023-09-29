@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022, build-2023, moe-wsvnet
+ms.custom: cliv2, event-tier1-build-2022, build-2023
 author: dem108
 ms.author: sehan
 ms.date: 01/24/2023
@@ -46,7 +46,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
 | `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
-| `egress_public_network_access` | string |**Note:** This key is applicable when you use the [legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) to secure outbound communication for a deployment. We strongly recommend that you secure outbound communication for deployments using [a workspace managed VNet](concept-secure-online-endpoint.md) (preview) instead. <br><br>This flag secures the deployment by restricting communication between the deployment and the Azure resources used by it. Set to `disabled` to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. This flag is applicable only for managed online endpoints. | `enabled`, `disabled` | `enabled` |
+| `egress_public_network_access` | string |**Note:** This key is applicable when you use the [legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method) to secure outbound communication for a deployment. We strongly recommend that you secure outbound communication for deployments using [a workspace managed VNet](concept-secure-online-endpoint.md) instead. <br><br>This flag secures the deployment by restricting communication between the deployment and the Azure resources used by it. Set to `disabled` to ensure that the download of the model, code, and images needed by your deployment are secured with a private endpoint. This flag is applicable only for managed online endpoints. | `enabled`, `disabled` | `enabled` |
 
 ### RequestSettings
 

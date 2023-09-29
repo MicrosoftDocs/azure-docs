@@ -105,7 +105,7 @@ To get started, [create a Domain Services managed domain][create-instance].
 [password-policy]: password-policy.md
 [hybrid-phs]: tutorial-configure-password-hash-sync.md#enable-synchronization-of-password-hashes
 [secure-domain]: secure-your-domain.md
-[azure-ad-password-sync]: ../active-directory/hybrid/connect/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[azure-ad-password-sync]: /azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization#password-hash-sync-process-for-azure-ad-domain-services
 [create-instance]: tutorial-create-instance.md
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [concepts-forest]: ./concepts-forest-trust.md

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.service: load-balancer
 ms.author: mbender
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/27/2023
 ms.custom: template-concept
 #customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
@@ -15,7 +15,7 @@ ms.custom: template-concept
 >[!Important]
 >On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
 
-In this article, we'll discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommended for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
+In this article, we discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommended for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
 
 ## Steps to complete the upgrade
 
@@ -47,7 +47,7 @@ This section lists out some key differences between these two Load Balancer SKUs
 | **[Multiple front ends](load-balancer-multivip-overview.md)** | Inbound and [outbound](load-balancer-outbound-connections.md) | Inbound only |
 | **Management Operations** | Most operations < 30 seconds | Most operations 60-90+ seconds |
 | **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Not available |
-| **Global VNet Peering Support** | Standard ILB is supported via Global VNet Peering | Not supported |
+| **Global Virtual Network Peering Support** | Standard ILB is supported via Global Virtual Network Peering | Not supported |
 | **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard ILB and Standard Public Load Balancer are supported via Nat Gateway | Not supported |
 | **[Private Link Support](../private-link/private-link-overview.md)** | Standard ILB is supported via Private Link | Not supported |
 | **[Global tier (Preview)](cross-region-overview.md)** | Standard Load Balancer supports the Global tier for Public LBs enabling cross-region load balancing | Not supported |

@@ -37,7 +37,7 @@ To complete this tutorial:
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
-* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.5095` or above.
+* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.5382` or above.
 ::: zone-end
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
@@ -79,7 +79,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
-    | Select a JavaScript programming model | Model V4 (Preview) | Choose the V4 programming model (in preview). |
+    | Select a JavaScript programming model | Model V4 | Choose the V4 programming model. |
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
@@ -193,17 +193,6 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 ## Test the function locally
 
-::: zone pivot="nodejs-model-v4"
-
-> [!NOTE]
-> To run the V4 programming model, your app needs to have the `EnableWorkerIndexing` feature flag set. When running locally, you need to set `AzureWebJobsFeaturesFlags` to value of `EnableWorkerIndexing` in your `local.settings.json` file. This should already be set when creating your project.  To verify, check the following line exists in your `local.settings.json` file, and add it if it doesn't.
->
-> ```json
-> "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
-> ```
-
-::: zone-end
-
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
 
 ::: zone pivot="nodejs-model-v3"
@@ -292,23 +281,11 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-::: zone pivot="nodejs-model-v4"
-
-## Update app settings
-
-To enable your V4 programming model app to run in Azure, you need to add the `EnableWorkerIndexing` flag under the `AzureWebJobsFeatureFlags` app setting.
-
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
-2. Choose your new function app, then type `AzureWebJobsFeatureFlags` for the new app setting name, and press <kbd>Enter</kbd>.
-3. For the value, type `EnableWorkerIndexing` and press <kbd>Enter</kbd>.
-
-::: zone-end
-
 ## Test your function in Azure
 
 ::: zone pivot="nodejs-model-v4"
 > [!NOTE]
-> To use the V4 node programming model, make sure your app is running on at least version 4.16.5 of the Azure Functions runtime.
+> To use the V4 node programming model, make sure your app is running on at least version 4.25 of the Azure Functions runtime.
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
