@@ -56,7 +56,7 @@ These examples build on each other in increasing complexity. GitHub and the Azur
 
 Communication Services Chat applications can be integrated with an Azure Bot Service. The Bot Service needs to be linked to a Communication Services resource using a channel in the Azure Portal. To learn more about this scenario, see [Add a bot to your chat app - An Azure Communication Services quickstart](/azure/communication-services/quickstarts/chat/quickstart-botframework-integration).
 
-![Data flow diagram for chat with a bot agent](media/contact-center/dfd-chat-bot.png)
+![Data flow diagram for chat with a bot agent](media/contact-center/data-flow-diagram-chat-bot.png)
 
 ### Dataflow
 
@@ -70,7 +70,7 @@ Communication Services Chat applications can be integrated with an Azure Bot Ser
 
 A conversation between a user and a bot can be handed off to an agent in Teams. Optionally, a Teams Voice App such as an Auto Attendant or Call Queue can control the transition. To learn more about bot handoff integration models, see [Transition conversations from bot to human - Bot Service](/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0). To learn more about Teams Auto Attendants and Call Queues, see [Plan for Teams Auto attendants and Call queues - Microsoft Teams](/microsoftteams/plan-auto-attendant-call-queue).
 
-![Data flow diagram for chat escalating to a call](media/contact-center/dfd-escalate-to-call.png)
+![Data flow diagram for chat escalating to a call](media/contact-center/data-flow-diagram-escalate-to-call.png)
 
 ### Dataflow
 
@@ -136,6 +136,6 @@ The following list presents the set of features that are currently available for
 Improve the efficiency of your contact center operations by inviting subject matter experts into your customer service workflows. With Azure Communication Services Call Automation API, developers can add subject matter experts, who use Microsoft Teams, to existing customer service calls to provide expert advice and help agents improve their first call resolution rate.  
 This interoperability is offered over VoIP and makes it easy for developers to implement per-region multi-tenant trunks that maximize value and reduce telephony infrastructure overhead.   
   
-![Data flow diagram for adding a Teams user to a call](media/contact-center/dfd-add-teams-user-to-call.png)  
+![Data flow diagram for adding a Teams user to a call](media/contact-center/data-flow-diagram-add-teams-user-to-call.png)  
 To learn more about Call Automation API and how a contact center can leverage this interoperability with Teams, see [Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows](/azure/communication-services/concepts/call-automation/call-automation-teams-interop).
 
