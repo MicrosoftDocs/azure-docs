@@ -54,21 +54,17 @@ Configure and test Microsoft Entra SSO with Bynder using a test user called **B.
 
 To configure and test Microsoft Entra SSO with Bynder, perform the following steps:
 
-1. **[Create new Bynder Configuration](#create-login-configuration)** - to get configuration identifier needed for Azure.
-1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-   1. **[Create a Microsoft Entra test user](#create-an-bynder-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
-   1. **[Assign the Microsoft Entra test user](#assign-the-azure-bynder-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
+1. **[Create New Bynder Configuration](#create-new-bynder-configuration)** - to get configuration identifier needed for Azure.
+1. **[Configure Microsoft Entra SSO](#configure-microsoft-entra-sso)** - to enable your users to use this feature.
+   1. **[Create a Microsoft Entra test user](#create-a-microsoft-entra-test-user)** - to test Microsoft Entra single sign-on with Britta Simon.
+   1. **[Assign the Microsoft Entra test user](#assign-the-microsoft-entra-test-user)** - to enable Britta Simon to use Microsoft Entra single sign-on.
 1. **[Configure Bynder SSO](#configure-bynder-sso)** - to configure the Single Sign-On settings on application side.
    1. **[Create Bynder test user](#create-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Microsoft Entra representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-<a name='create-login-configuration'></a>
-
-## Сreate a new login configuration in your portal
+## Сreate New Bynder Configuration
 
 First you need to log in to your Bynder account and follow [these](https://support.bynder.com/hc/articles/6614562131474#UUID-4f8db699-3079-496d-d29e-706b28e4631a_section-idm4615912229660833479548407237) steps to create a new login configuration in your portal. This way you will generate all identifiers necessary to set up your connection with Microsoft Entra. Save the new configuration's identifier, you will need it to set up Microsoft Entra SAML SSO.
-
-<a name='configure-azure-ad-sso'></a>
 
 ## Configure Microsoft Entra SSO
 
