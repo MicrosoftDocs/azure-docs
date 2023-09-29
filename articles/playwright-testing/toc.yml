@@ -48,6 +48,8 @@ items:
   items:
     - name: Trouble signing into Playwright portal
       href: troubleshoot-unable-sign-into-playwright-portal.md
+    - name: Troubleshoot test run failures
+      href: troubleshoot-test-run-failures.md
 - name: Resources
   items: 
     - name: Azure roadmap
