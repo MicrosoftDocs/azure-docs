@@ -17,14 +17,14 @@ The Azure Data Explorer (Kusto) connector for Apache Spark is designed to effici
 ## Authentication
 When using Azure Synapse Notebooks or Apache Spark job definitions, the authentication between systems is made seamless with the linked service. The Token Service connects with Azure Active Directory to obtain security tokens for use when accessing the Kusto cluster.
 
-For Azure Synapse Pipelines, the authentication will use the service principal name. Currently, managed identities are not supported with the Azure Data Explorer connector.
+For Azure Synapse Pipelines, the authentication uses the service principal name. Currently, managed identities aren't supported with the Azure Data Explorer connector.
 
 ## Prerequisites 
-  - [Connect to Azure Data Explorer](../../quickstart-connect-azure-data-explorer.md): You will need to set up a Linked Service to connect to an existing Kusto cluster.
+  - [Connect to Azure Data Explorer](../../quickstart-connect-azure-data-explorer.md): You need to set up a Linked Service to connect to an existing Kusto cluster.
 
 ## Limitations
   - The Azure Data Explorer linked service can only be configured with the Service Principal Name.
-  - Within Azure Synapse Notebooks or Apache Spark Job Definitions, the Azure Data Explorer connector will use Azure AD pass-through to connect to the Kusto Cluster.
+  - Within Azure Synapse Notebooks or Apache Spark Job Definitions, the Azure Data Explorer connector uses Azure AD pass-through to connect to the Kusto Cluster.
 
 
 ## Use the Azure Data Explorer (Kusto) connector
