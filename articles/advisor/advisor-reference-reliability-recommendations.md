@@ -22,7 +22,7 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 We have identified calls to a FarmBeats API version that is scheduled for deprecation. We recommend switching to the latest FarmBeats API version to ensure uninterrupted access to FarmBeats, latest features, and performance improvements.
 
-Learn more about Azure FarmBeats - [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+Learn more about Azure FarmBeats [Democratizing agriculture intelligence: introducing Azure FarmBeats](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
 ### Upgrade to the latest ADMA Java SDK version
 
