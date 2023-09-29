@@ -86,7 +86,7 @@ For more conceptual information, learn how replica sets work in Domain Services.
 <!-- INTERNAL LINKS -->
 [replica-sets]: concepts-replica-sets.md
 [tutorial-create-instance]: tutorial-create-instance-advanced.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [howto-change-sku]: change-sku.md
 [concepts-replica-sets]: concepts-replica-sets.md

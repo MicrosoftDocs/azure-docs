@@ -1,323 +1,162 @@
 ---
-title: 'Query with Azure Cosmos DB for Gremlin using TinkerPop Gremlin Console: Tutorial'
-description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB for Gremlin.
+title: 'Quickstart: Traverse vertices & edges with the console'
+titleSuffix: Azure Cosmos DB for Apache Gremlin
+description: In this quickstart, connect to an Azure Cosmos DB for Apache Gremlin account using the console. Then; create vertices, create edges, and traverse them.
+author: manishmsfte
+ms.author: mansha
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
 ms.topic: quickstart
-ms.date: 07/10/2020
-author: manishmsfte
-ms.author: mansha
-ms.custom: mode-api, ignite-2022
+ms.date: 09/27/2023
+# CustomerIntent: As a developer, I want to use the Gremlin console so that I can manually create and traverse vertices and edges.
 ---
-# Quickstart: Create, query, and traverse an Azure Cosmos DB graph database using the Gremlin console
+
+# Quickstart: Traverse vertices and edges with the Gremlin console and Azure Cosmos DB for Apache Gremlin
+
 [!INCLUDE[Gremlin](../includes/appliesto-gremlin.md)]
 
-> [!div class="op_single_selector"]
-> * [Gremlin console](quickstart-console.md)
-> * [.NET](quickstart-dotnet.md)
-> * [Java](quickstart-java.md)
-> * [Node.js](quickstart-nodejs.md)
-> * [Python](quickstart-python.md)
-> * [PHP](quickstart-php.md)
->  
+[!INCLUDE[Gremlin devlang](includes/quickstart-devlang.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB for Apache Gremlin is a fully managed graph database service implementing the popular [`Apache Tinkerpop`](https://tinkerpop.apache.org/), a graph computing framework using the Gremlin query language. The API for Gremlin gives you a low-friction way to get started using Gremlin with a service that can grow and scale out as much as you need with minimal management.
 
-This quickstart demonstrates how to create an Azure Cosmos DB [Gremlin API](introduction.md) account, database, and graph (container) using the Azure portal and then use the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) from  [Apache TinkerPop](https://tinkerpop.apache.org) to work with Gremlin API data. In this tutorial, you create and query vertices and edges, updating a vertex property, query vertices, traverse the graph, and drop a vertex.
-
-:::image type="content" source="./media/quickstart-console/gremlin-console.png" alt-text="Azure Cosmos DB from the Apache Gremlin console":::
-
-The Gremlin console is Groovy/Java based and runs on Linux, Mac, and Windows. You can download it from the [Apache TinkerPop site](https://tinkerpop.apache.org/download.html).
+In this quickstart, you use the Gremlin console to connect to a newly created Azure Cosmos DB for Gremlin account.
 
 ## Prerequisites
 
-You need to have an Azure subscription to create an Azure Cosmos DB account for this quickstart.
+- An Azure account with an active subscription.
+  - No Azure subscription? [Sign up for a free Azure account](https://azure.microsoft.com/free/).
+  - Don't want an Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no subscription required.
+- [Docker host](https://www.docker.com/)
+  - Don't have Docker installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).
+- [Azure Command-Line Interface (CLI)](/cli/azure/)
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
-You also need to install the [Gremlin Console](https://tinkerpop.apache.org/download.html). The **recommended version is v3.4.13**. (To use Gremlin Console on Windows, you need to install [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html), minimum requires Java 8 but it is preferable to use Java 11).
+## Create an API for Gremlin account and relevant resources
 
-## Create a database account
+The API for Gremlin account should be created prior to using the Gremlin console. Additionally, it helps to also have the database and graph in place.
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE[Create account, database, and graph](includes/create-account-database-graph-cli.md)]
 
-## Add a graph
+## Start and configure the Gremlin console using Docker
 
-[!INCLUDE [cosmos-db-create-graph](../includes/cosmos-db-create-graph.md)]
+For the gremlin console, this quickstart uses the `tinkerpop/gremlin-console` container image from Docker Hub. This image ensures that you're using the appropriate version of the console (`3.4`) for connection with the API for Gremlin. Once the console is running, connect from your local Docker host to the remote API for Gremlin account.
 
-## <a id="ConnectAppService"></a>Connect to your app service/Graph
+1. Pull the `3.4` version of the `tinkerpop/gremlin-console` container image.
 
-1. Before starting the Gremlin Console, create or modify the remote-secure.yaml configuration file in the `apache-tinkerpop-gremlin-console-3.2.5/conf` directory.
-2. Fill in your *host*, *port*, *username*, *password*, *connectionPool*, and *serializer* configurations as defined in the following table:
+    ```bash
+    docker pull tinkerpop/gremlin-console:3.4
+    ```
 
-    Setting|Suggested value|Description
-    ---|---|---
-    hosts|[*account-name*.**gremlin**.cosmos.azure.com]|See the following screenshot. This is the **Gremlin URI** value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed. Note: Be sure to use the Gremlin value, and **not** the URI that ends with [*account-name*.documents.azure.com] which would likely result in a "Host did not respond in a timely fashion" exception when attempting to execute Gremlin queries later. 
-    port|443|Set to 443.
-    username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
-    password|*Your primary key*| See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
-    connectionPool|{enableSsl: true}|Your connection pool setting for TLS.
-    serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
+1. Create an empty working folder. In the empty folder, create a **remote-secure.yaml** file. Add this YAML configuration to the file.
 
-   For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
+    ```yml
+    hosts: [<account-name>.gremlin.cosmos.azure.com]
+    port: 443
+    username: /dbs/cosmicworks/colls/products
+    password: <account-key>
+    connectionPool: {
+      enableSsl: true,
+      sslEnabledProtocols: [TLSv1.2]
+    }
+    serializer: {
+      className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0,
+      config: {
+        serializeResultToString: true
+      }
+    }
+    ```
 
-   :::image type="content" source="./media/quickstart-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
+    > [!NOTE]
+    > Replace the `<account-name>` and `<account-key>` placeholders with the *NAME* and *KEY* values obtained earlier in this quickstart.
 
-   For the password value, copy the **Primary key** from the **Keys** page:
+1. Open a new terminal in the context of your working folder that includes the **remote-secure.yaml** file.
 
-   :::image type="content" source="./media/quickstart-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
+1. Run the Docker container image in interactive (`--interactive --tty`) mode. Ensure that you mount the current working folder to the `/opt/gremlin-console/conf/` path within the container.
 
-   Your remote-secure.yaml file should look like this:
+    ```bash
+    docker run -it --mount type=bind,source=.,target=/opt/gremlin-console/conf/ tinkerpop/gremlin-console:3.4
+    ```
 
-   ```yaml
-   hosts: [your_database_server.gremlin.cosmos.azure.com] 
-   port: 443
-   username: /dbs/your_database/colls/your_collection
-   password: your_primary_key
-   connectionPool: {
-     enableSsl: true
-   }
-   serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
-   ```
+1. Within the Gremlin console container, connect to the remote (API for Gremlin) account using the **remote-secure.yaml** configuration file.
 
-   make sure to wrap the value of hosts parameter within brackets []. 
+    ```gremlin
+    :remote connect tinkerpop.server conf/remote-secure.yaml
+    ```
 
-1. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+## Create and traverse vertices and edges
 
-1. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
+Now that the console is connected to the account, use the standard Gremlin syntax to create and traverse both vertices and edges.
 
-    > [!TIP]
-    > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. If your configuration is correct, then this warning can be safely ignored as it should not impact the use of the console. 
+1. Add a vertex for a **product** with the following properties:
 
-1. Next run `:remote console` to redirect all console commands to the remote server.
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518371` |
+    | **`name`** | `Kiama classic surfboard` |
+    | **`price`** | `285.55` |
+    | **`category`** | `surfboards` |
 
-   > [!NOTE]
-   > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server, you should prefix the command with `:>`, for example you should run the command as `:> g.V().count()`. This prefix is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this prefix instructs the console to execute the command locally, often against an in-memory graph. Using this prefix `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).
+    ```gremlin
+    :> g.addV('product').property('id', '68719518371').property('name', 'Kiama classic surfboard').property('price', 285.55).property('category', 'surfboards')
+    ```
 
-Great! Now that we finished the setup, let's start running some console commands.
+    > [!IMPORTANT]
+    > Don't foget the `:>` prefix. THis prefix is required to run the command remotely.
 
-Let's try a simple count() command. Type the following into the console at the prompt:
+1. Add another **product** vertex with these properties:
 
-```console
-g.V().count()
-```
+    | | Value |
+    | --- | --- |
+    | **label** | `product` |
+    | **id** | `68719518403` |
+    | **`name`** | `Montau Turtle Surfboard` |
+    | **`price`** | `600` |
+    | **`category`** | `surfboards` |
 
-## Create vertices and edges
+    ```gremlin
+    :> g.addV('product').property('id', '68719518403').property('name', 'Montau Turtle Surfboard').property('price', 600).property('category', 'surfboards')
+    ```
 
-Let's begin by adding five person vertices for *Thomas*, *Mary Kay*, *Robin*, *Ben*, and *Jack*.
+1. Create an **edge** named `replaces` to define a relationship between the two products.
 
-Input (Thomas):
+    ```gremlin
+    :> g.V(['surfboards', '68719518403']).addE('replaces').to(g.V(['surfboards', '68719518371']))
+    ```
 
-```console
-g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1).property('pk', 'pk')
-```
+1. Count all vertices within the graph.
 
-Output:
+    ```gremlin
+    :> g.V().count()
+    ```
 
-```bash
-==>[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d,label:person,type:vertex,properties:[firstName:[[id:f02a749f-b67c-4016-850e-910242d68953,value:Thomas]],lastName:[[id:f5fa3126-8818-4fda-88b0-9bb55145ce5c,value:Andersen]],age:[[id:f6390f9c-e563-433e-acbf-25627628016e,value:44]],userid:[[id:796cdccc-2acd-4e58-a324-91d6f6f5ed6d|userid,value:1]]]]
-```
+1. Traverse the graph to find all vertices that replaces the `Kiama classic surfboard`.
 
-Input (Mary Kay):
+    ```gremlin
+    :> g.V().hasLabel('product').has('category', 'surfboards').has('name', 'Kiama classic surfboard').inE('replaces').outV()
+    ```
 
-```console 
-g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2).property('pk', 'pk')
+1. Traverse the graph to find all vertices that `Montau Turtle Surfboard` replaces.
 
-```
-
-Output:
-
-```bash
-==>[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e,label:person,type:vertex,properties:[firstName:[[id:ea0604f8-14ee-4513-a48a-1734a1f28dc0,value:Mary Kay]],lastName:[[id:86d3bba5-fd60-4856-9396-c195ef7d7f4b,value:Andersen]],age:[[id:bc81b78d-30c4-4e03-8f40-50f72eb5f6da,value:39]],userid:[[id:0ac9be25-a476-4a30-8da8-e79f0119ea5e|userid,value:2]]]]
-
-```
-
-Input (Robin):
-
-```console 
-g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3).property('pk', 'pk')
-```
-
-Output:
-
-```bash
-==>[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e,label:person,type:vertex,properties:[firstName:[[id:ec65f078-7a43-4cbe-bc06-e50f2640dc4e,value:Robin]],lastName:[[id:a3937d07-0e88-45d3-a442-26fcdfb042ce,value:Wakefield]],userid:[[id:8dc14d6a-8683-4a54-8d74-7eef1fb43a3e|userid,value:3]]]]
-```
-
-Input (Ben):
-
-```console 
-g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4).property('pk', 'pk')
-
-```
-
-Output:
-
-```bash
-==>[id:ee86b670-4d24-4966-9a39-30529284b66f,label:person,type:vertex,properties:[firstName:[[id:a632469b-30fc-4157-840c-b80260871e9a,value:Ben]],lastName:[[id:4a08d307-0719-47c6-84ae-1b0b06630928,value:Miller]],userid:[[id:ee86b670-4d24-4966-9a39-30529284b66f|userid,value:4]]]]
-```
-
-Input (Jack):
-
-```console
-g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5).property('pk', 'pk')
-```
-
-Output:
-
-```bash
-==>[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469,label:person,type:vertex,properties:[firstName:[[id:4250824e-4b72-417f-af98-8034aa15559f,value:Jack]],lastName:[[id:44c1d5e1-a831-480a-bf94-5167d133549e,value:Connor]],userid:[[id:4c835f2a-ea5b-43bb-9b6b-215488ad8469|userid,value:5]]]]
-```
-
-
-Next, let's add edges for relationships between our people.
-
-Input (Thomas -> Mary Kay):
-
-```console
-g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
-```
-
-Output:
-
-```bash
-==>[id:c12bf9fb-96a1-4cb7-a3f8-431e196e702f,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:0d1fa428-780c-49a5-bd3a-a68d96391d5c,outV:1ce821c6-aa3d-4170-a0b7-d14d2a4d18c3]
-```
-
-Input (Thomas -> Robin):
-
-```console
-g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
-```
-
-Output:
-
-```bash
-==>[id:58319bdd-1d3e-4f17-a106-0ddf18719d15,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:3e324073-ccfc-4ae1-8675-d450858ca116,outV:1ce821c6-aa3d-4170-a0b7-d14d2a4d18c3]
-```
-
-Input (Robin -> Ben):
-
-```console
-g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
-```
-
-Output:
-
-```bash
-==>[id:889c4d3c-549e-4d35-bc21-a3d1bfa11e00,label:knows,type:edge,inVLabel:person,outVLabel:person,inV:40fd641d-546e-412a-abcc-58fe53891aab,outV:3e324073-ccfc-4ae1-8675-d450858ca116]
-```
-
-## Update a vertex
-
-Let's update the *Thomas* vertex with a new age of *45*.
-
-Input:
-```console
-g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
-```
-Output:
-
-```bash
-==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
-```
-
-## Query your graph
-
-Now, let's run a variety of queries against your graph.
-
-First, let's try a query with a filter to return only people who are older than 40 years old.
-
-Input (filter query):
-
-```console
-g.V().hasLabel('person').has('age', gt(40))
-```
-
-Output:
-
-```bash
-==>[id:ae36f938-210e-445a-92df-519f2b64c8ec,label:person,type:vertex,properties:[firstName:[[id:872090b6-6a77-456a-9a55-a59141d4ebc2,value:Thomas]],lastName:[[id:7ee7a39a-a414-4127-89b4-870bc4ef99f3,value:Andersen]],age:[[id:a2a75d5a-ae70-4095-806d-a35abcbfe71d,value:45]]]]
-```
-
-Next, let's project the first name for the people who are older than 40 years old.
-
-Input (filter + projection query):
-
-```console 
-g.V().hasLabel('person').has('age', gt(40)).values('firstName')
-```
-
-Output:
-
-```bash
-==>Thomas
-```
-
-## Traverse your graph
-
-Let's traverse the graph to return all of Thomas's friends.
-
-Input (friends of Thomas):
-
-```console
-g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
-```
-
-Output: 
-
-```bash
-==>[id:f04bc00b-cb56-46c4-a3bb-a5870c42f7ff,label:person,type:vertex,properties:[firstName:[[id:14feedec-b070-444e-b544-62be15c7167c,value:Mary Kay]],lastName:[[id:107ab421-7208-45d4-b969-bbc54481992a,value:Andersen]],age:[[id:4b08d6e4-58f5-45df-8e69-6b790b692e0a,value:39]]]]
-==>[id:91605c63-4988-4b60-9a30-5144719ae326,label:person,type:vertex,properties:[firstName:[[id:f760e0e6-652a-481a-92b0-1767d9bf372e,value:Robin]],lastName:[[id:352a4caa-bad6-47e3-a7dc-90ff342cf870,value:Wakefield]]]]
-```
-
-Next, let's get the next layer of vertices. Traverse the graph to return all the friends of Thomas's friends.
-
-Input (friends of friends of Thomas):
-
-```console
-g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
-```
-Output:
-
-```bash
-==>[id:a801a0cb-ee85-44ee-a502-271685ef212e,label:person,type:vertex,properties:[firstName:[[id:b9489902-d29a-4673-8c09-c2b3fe7f8b94,value:Ben]],lastName:[[id:e084f933-9a4b-4dbc-8273-f0171265cf1d,value:Miller]]]]
-```
-
-## Drop a vertex
-
-Let's now delete a vertex from the graph database.
-
-Input (drop Jack vertex):
-
-```console 
-g.V().hasLabel('person').has('firstName', 'Jack').drop()
-```
-
-## Clear your graph
-
-Finally, let's clear the database of all vertices and edges.
-
-Input:
-
-```console
-g.E().drop()
-g.V().drop()
-```
-
-Congratulations! You've completed this Azure Cosmos DB: Gremlin API tutorial!
-
-## Review SLAs in the Azure portal
-
-[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
+    ```gremlin
+    :> g.V().hasLabel('product').has('category', 'surfboards').has('name', 'Montau Turtle Surfboard').outE('replaces').inV()
+    ```
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
+When you no longer need the API for Gremlin account, delete the corresponding resource group.
 
-## Next steps
+[!INCLUDE[Delete account](includes/delete-account-cli.md)]
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a graph using the Data Explorer, create vertices and edges, and traverse your graph using the Gremlin console. You can now build more complex queries and implement powerful graph traversal logic using Gremlin. 
+## How did we solve the problem?
+
+Azure Cosmos DB for Apache Gremlin solved our problem by offering Gremlin as a service. With this offering, you aren't required to stand up your own Gremlin server instances or manage your own infrastructure. Even more, you can scale your solution as your needs grow over time.
+
+To connect to the API for Gremlin account, you used the `tinkerpop/gremlin-console` container image to run the gremlin console in a manner that didn't require a local installation. Then, you used the configuration stored in the **remote-secure.yaml** file to connect from the running container the API for Gremlin account. From there, you ran multiple common Gremlin commands.
+
+## Next step
 
 > [!div class="nextstepaction"]
-> [Query using Gremlin](tutorial-query.md)
+> [Create and query data using Azure Cosmos DB for Apache Gremlin](tutorial-query.md)

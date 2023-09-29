@@ -106,18 +106,18 @@ For more information on improving resiliency of your deployment, see [Remote Des
 For more information about securing user sign-in, see [How it works: Microsoft Entra multifactor authentication][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
-[bastion-overview]: ../bastion/bastion-overview.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[bastion-overview]: /azure/bastion/bastion-overview
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [configure-azureadds-vnet]: tutorial-configure-networking.md
 [tutorial-create-join-vm]: join-windows-vm.md
-[user-mfa-registration]: ../active-directory/authentication/howto-mfa-nps-extension.md#register-users-for-mfa
-[nps-extension]: ../active-directory/authentication/howto-mfa-nps-extension.md
-[azure-mfa-nps-integration]: ../active-directory/authentication/howto-mfa-nps-extension-rdg.md
-[register-nps-ad]:../active-directory/authentication/howto-mfa-nps-extension-rdg.md#register-server-in-active-directory
-[create-nps-policy]: ../active-directory/authentication/howto-mfa-nps-extension-rdg.md#configure-network-policy
-[concepts-mfa]: ../active-directory/authentication/concept-mfa-howitworks.md
+[user-mfa-registration]: /azure/active-directory/authentication/howto-mfa-nps-extension#register-users-for-mfa
+[nps-extension]: /azure/active-directory/authentication/howto-mfa-nps-extension
+[azure-mfa-nps-integration]: /azure/active-directory/authentication/howto-mfa-nps-extension-rdg
+[register-nps-ad]:/azure/active-directory/authentication/howto-mfa-nps-extension-rdg#register-server-in-active-directory
+[create-nps-policy]: /azure/active-directory/authentication/howto-mfa-nps-extension-rdg#configure-network-policy
+[concepts-mfa]: /azure/active-directory/authentication/concept-mfa-howitworks
 
 <!-- EXTERNAL LINKS -->
 [deploy-remote-desktop]: /windows-server/remote/remote-desktop-services/rds-deploy-infrastructure
