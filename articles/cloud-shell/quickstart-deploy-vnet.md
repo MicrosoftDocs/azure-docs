@@ -1,7 +1,7 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 06/29/2023
+ms.date: 09/29/2023
 ms.topic: article
 ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a VNET with quickstart templates
@@ -125,7 +125,9 @@ the **Azure Cloud Shell - VNet storage** template.
 Use the [Azure Cloud Shell - VNet][08] template to create Cloud Shell resources in a virtual
 network. The template creates three subnets under the virtual network created earlier. You may
 choose to change the supplied names of the subnets or use the defaults. The virtual network, along
-with the subnets, require valid IP address assignments.
+with the subnets, require valid IP address assignments. You need at least one IP address for the
+Relay subnet and enough IP addresses in the container subnet to support the number of concurrent
+sessions you expect to use.
 
 The ARM template requires specific information about the resources you created earlier, along with
 naming information for new resources. This information is filled out along with the prefilled
