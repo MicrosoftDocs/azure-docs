@@ -49,7 +49,7 @@ Determine who is granted permissions to create groups: Administrators, employees
 * Internal and external users can join groups in your tenant
 * Users can create Microsoft 365 Groups
 * [Manage who can create Microsoft 365 Groups](/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide&preserve-view=true) 
-  * Use Windows PowerShell to configure this setting 
+  * Use PowerShell to configure this setting
 * [Restrict your Microsoft Entra app to a set of users in a Microsoft Entra tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md)
 * [Set up self-service group management in Microsoft Entra ID](../enterprise-users/groups-self-service-management.md) 
 * [Troubleshoot and resolve groups issues](../enterprise-users/groups-troubleshooting.md) 

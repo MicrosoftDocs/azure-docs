@@ -47,8 +47,8 @@ The EmployeeHireDate and EmployeeLeaveDateTime contain dates and times that must
 |SuccessFactors to Active Directory User Provisioning|FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyyMMddHHmmss.fZ")|On-premises AD string attribute|[Attribute mappings for SAP Success Factors](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)|
 |Custom import to Active Directory|Must be in the format "yyyyMMddHHmmss.fZ"|On-premises AD string attribute||
 |Microsoft Graph User API|Must be in the format "YYYY-MM-DDThh:mm:ssZ"|EmployeeHireDate and EmployeeLeaveDateTime||
-|Workday to Microsoft Entra User Provisioning|Can use a direct mapping.  No expression is needed but may be used to adjust the time portion of EmployeeHireDate and EmployeeLeaveDateTime|EmployeeHireDate and EmployeeLeaveDateTime||
-|SuccessFactors to Microsoft Entra User Provisioning|Can use a direct mapping.  No expression is needed but may be used to adjust the time portion of EmployeeHireDate and EmployeeLeaveDateTime|EmployeeHireDate and EmployeeLeaveDateTime||
+|Workday to Microsoft Entra user provisioning|Can use a direct mapping.  No expression is needed but may be used to adjust the time portion of EmployeeHireDate and EmployeeLeaveDateTime|EmployeeHireDate and EmployeeLeaveDateTime||
+|SuccessFactors to Microsoft Entra user provisioning|Can use a direct mapping.  No expression is needed but may be used to adjust the time portion of EmployeeHireDate and EmployeeLeaveDateTime|EmployeeHireDate and EmployeeLeaveDateTime||
 
 For more information on expressions, see [Reference for writing expressions for attribute mappings in Microsoft Entra ID](../app-provisioning/functions-for-customizing-application-data.md)
 
@@ -118,7 +118,7 @@ The following example walks you through setting up a custom synchronization rule
       - Connected System:  contoso.com
       - Connected System Object Type: user
       - Metaverse Object Type: person
-      - Precedence: 200
+      - Precedence: 20
      ![Screenshot of creating an inbound synchronization rule basics.](media/how-to-lifecycle-workflow-sync-attributes/create-inbound-rule.png)
    1. On the **Scoping filter** screen, select **Next.**
    1. On the **Join rules** screen, select **Next**.
@@ -135,7 +135,7 @@ The following example walks you through setting up a custom synchronization rule
        - Connected System:  &lt;your tenant&gt;
        - Connected System Object Type: user
        - Metaverse Object Type: person
-       - Precedence: 201
+       - Precedence: 21
    1. On the **Scoping filter** screen, select **Next.**
    1. On the **Join rules** screen, select **Next**.
    1. On the **Transformations** screen, Under **Add transformations,** enter the following information.
@@ -208,3 +208,4 @@ Get-MgUser -UserId "44198096-38ea-440d-9497-bb6b06bcaf9b" | Select-Object Displa
 - [Create a custom workflow using the Microsoft Entra admin center](tutorial-onboard-custom-workflow-portal.md)
 - [Configure API-driven inbound provisioning app (Public preview)](../app-provisioning/inbound-provisioning-api-configure-app.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
+

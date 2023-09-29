@@ -61,8 +61,8 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
 | --- | --- |--- | --- | --- |
-| Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-focal:22_04-lts:latest | OS and data disk |
-| Canonical | Ubuntu | 22.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:22_04-lts-gen2:latest | OS and data disk |
+| Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest | OS and data disk |
+| Canonical | Ubuntu | 22.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | OS and data disk |

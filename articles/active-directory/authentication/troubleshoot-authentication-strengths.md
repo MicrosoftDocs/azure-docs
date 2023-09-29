@@ -6,12 +6,12 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/02/2023
+ms.date: 09/27/2023
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: michmcla, inbarckms
+ms.reviewer: inbarckms
 
 ms.collection: M365-identity-device-management
 ---
@@ -38,7 +38,7 @@ To verify if a method can be used:
    1. As needed, check if the tenant is enabled for any method required for the authentication strength. Click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**. 
 1. Check which authentication methods are registered for the user in the Authentication methods policy. Click **Users and groups** > _username_ > **Authentication methods**. 
 
-If the user is registered for an enabled method that meets the authentication strength, they might need to use another method that isn't available after primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user needs to restart the session, choose **Sign-in options** , and select a method required by the authentication strength.
+If the user is registered for an enabled method that meets the authentication strength, they might need to use another method that isn't available after primary authentication, such as Windows Hello for Business. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user needs to restart the session, choose **Sign-in options** , and select a method required by the authentication strength.
 
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/choose-another-method.png" alt-text="Screenshot of how to choose another sign-in method.":::
 

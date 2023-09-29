@@ -147,4 +147,4 @@ Clear-ADSyncToolsDirSyncOverridesUser 'User1@Contoso.com' -MobilePhoneInAAD -Alt
 
 ## Next Steps
 
-Learn more about [Microsoft Entra Connect: ADSyncTools PowerShell Module](reference-connect-adsynctools.md)
+Learn more about [Microsoft Entra Connect: `ADSyncTools` PowerShell module](reference-connect-adsynctools.md)
