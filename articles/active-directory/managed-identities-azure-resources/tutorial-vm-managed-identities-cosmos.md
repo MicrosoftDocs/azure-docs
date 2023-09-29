@@ -152,7 +152,7 @@ Create a Linux virtual machine with a user assigned managed identity specified.
 ```powershell
 New-AzVm `
     -Name "<Linux VM name>" `
-    -image CentOS
+    -image CentOS85Gen2
     -ResourceGroupName "<Your resource group>" `
     -Location "East US" `
     -VirtualNetworkName "myVnet" `

@@ -6,7 +6,7 @@ author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.custom: has-azure-ad-ps-ref, docutune-disable
+ms.custom: has-azure-ad-ps-ref
 ms.topic: overview
 ms.date: 09/27/2023
 ms.author: celested
@@ -17,7 +17,7 @@ ms.reviewer: nicholepet
 
 # New name for Azure Active Directory
 
-To communicate the multicloud, multiplatform functionality of the products, alleviate confusion with Windows Server Active Directory, and unify the [Microsoft Entra](/entra) product family, the new name for Azure Active Directory (Azure AD) is Microsoft Entra ID.  
+To communicate the multicloud, multiplatform functionality of the products, alleviate confusion with Windows Server Active Directory, and unify the [Microsoft Entra](/entra) product family, the new name for Azure Active Directory (Azure AD) is Microsoft Entra ID.
 
 ## No interruptions to usage or service
 
@@ -95,7 +95,7 @@ The Microsoft Entra ID name more accurately represents the multicloud and multip
 
 ### What is Microsoft Entra?
 
-Microsoft Entra helps you protect all identities and secure network access everywhere. The expanded product family includes:
+The Microsoft Entra product family helps you protect all identities and secure network access everywhere. The expanded product family includes:
 
 | Identity and access management | New identity categories | Network access |
 |---------|---------|---------|
@@ -167,7 +167,7 @@ There are no changes to the identity features and functionality available in Mic
 
 ### What's changing for Microsoft 365 E5?
 
-In addition to the capabilities they already have, Microsoft 365 E5 customers also get access to new identity protection capabilities like token protection, Conditional Access based on GPS-based location and step-up authentication for the most sensitive actions. Microsoft 365 E5 includes Microsoft Entra P2, currently known as Azure AD Premium P2.
+In addition to the capabilities they already have, Microsoft 365 E5 customers also get access to new identity protection capabilities like token protection, Conditional Access based on GPS-based location and step-up authentication for the most sensitive actions. Microsoft 365 E5 includes Microsoft Entra ID P2, currently known as Azure AD Premium P2.
 
 ### What's changing for identity developer and devops experience?
 
@@ -299,6 +299,8 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 ## Next steps
 
 - [How to: Rename Azure AD](how-to-rename-azure-ad.md)
-- [Stay up-to-date with what's new in Azure AD/Microsoft Entra ID](whats-new.md)
+- [Stay up-to-date with what's new in Microsoft Entra ID (formerly Azure AD)](./whats-new.md)
 - [Get started using Microsoft Entra ID at the Microsoft Entra admin center](https://entra.microsoft.com/)
-- [Learn more about Microsoft Entra with content from Microsoft Learn](/entra)
+- [Learn more about the Microsoft Entra family with content from Microsoft Learn](/entra)
+
+<!-- docutune:ignore "Azure Active Directory" "Azure AD" "AAD" "Entra ID" "Cloud Knox" "Identity Governance" -->
