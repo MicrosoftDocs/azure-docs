@@ -49,6 +49,10 @@ This article explains the steps needed to subscribe to events published by Azure
 
     :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/create-topic-full.png" alt-text="Screenshot that shows the full Create topic page with details in the Azure portal.":::    
 1. On the **Review + create** page, select **Create**. 
+1. On the successful deployment page, select **Go to resource** to navigate to the page for your system topic. You see the details about your system topic on this page. 
+
+    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/system-topic-home-page.png" alt-text="Screenshot that shows the System topic page in the Azure portal.":::
+    
 ---
 
 ## Subscribe to events
@@ -102,18 +106,18 @@ New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIP
 
 # [Azure portal](#tab/azure-portal)
 
-[!INCLUDE [system-topics](./includes/system-topics.md)] 
-5. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
-6. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. 
-7. Enter a name for the event subscription. 
-8. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
+1. On the **Event Grid System Topic** page, select **+ Event Subscription**  on the toolbar. 
+1. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. 
+1. Enter a name for the event subscription. 
+1. For **Filter to event types**, select the event, for example, **Availability status changed** or **Resource annotated**. 
 
-    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/event-subscription.png" alt-text="Screenshot that shows the Create Event Subscription page." lightbox="./media/subscribe-to-resource-notifications-health-resources-events/event-subscription.png":::
-9. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
+    :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/create-event-subscription-select-event.png" alt-text="Screenshot that shows the Create Event Subscription page." lightbox="./media/subscribe-to-resource-notifications-health-resources-events/create-event-subscription-select-event.png":::
+1. Select the **Filters** tab to provide subject filtering and advanced filtering. For example, to filter for events from resources in a specific resource group, follow these steps:
     1. Select **Enable subject filtering**. 
-    1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`
+    1. In the **Subject Filters** section, for **Subject begins with**, provide the value of the resource group in this format: `/subscriptions/{subscription-id}/resourceGroups/{resourceGroup-id}`.
 
         :::image type="content" source="./media/subscribe-to-resource-notifications-health-resources-events/filter.png" alt-text="Screenshot that shows the Filters tab of the Create Event Subscription page." lightbox="./media/subscribe-to-resource-notifications-health-resources-events/filter.png":::
+1. Then, select **Create** to create the event subscription.
 
 ---
 
