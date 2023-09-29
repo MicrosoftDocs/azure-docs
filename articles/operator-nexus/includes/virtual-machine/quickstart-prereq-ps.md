@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell
 
 * Before proceeding with virtual machine creation, ensure that the container image to be used is created according to the [instructions](../../howto-virtual-machine-image.md).
 
-* Create a resource group using the the [New-AzResourceGroup][new-azresourcegroup] cmdlet. An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation. The following example creates a resource group named myResourceGroup in the eastus location.
+* Create a resource group using the [New-AzResourceGroup][new-azresourcegroup] cmdlet. An [Azure resource group][azure-resource-group] is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is the storage location of your resource group metadata and where your resources run in Azure if you don't specify another region during resource creation. The following example creates a resource group named myResourceGroup in the eastus location.
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name myResourceGroup -Location eastus
