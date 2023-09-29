@@ -30,6 +30,7 @@ By making use of eBPF programs loaded into the Linux kernel and a more efficient
 Azure CNI Powered by Cilium can be deployed using two different methods for assigning pod IPs: 
 
 - Assign IP addresses from an overlay network (similar to Azure CNI Overlay mode)
+
 - Assign IP addresses from a virtual network (similar to existing Azure CNI with Dynamic Pod IP Assignment)
 
 If you aren't sure which option to select, read ["Choosing a network model to use"](./azure-cni-overlay.md#choosing-a-network-model-to-use).
