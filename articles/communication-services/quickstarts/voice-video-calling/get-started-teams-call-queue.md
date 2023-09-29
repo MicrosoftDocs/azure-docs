@@ -50,7 +50,7 @@ In results we'll are able to find "ID" field
     "id": "31a011c2-2672-4dd0-b6f9-9334ef4999db"
 ```
 
-[!INCLUDE [Call to Teams Call Queue](../../concepts/includes/enable-interoperability-for-teams-tenant.md)]
+[!INCLUDE [Call Queue with JavaScript](./includes/teams-call-queue/teams-call-queue-javascript.md)]
 
 ## Clean up resources
 
