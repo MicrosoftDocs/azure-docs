@@ -255,7 +255,7 @@ for i in `seq 1 3`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username <azure-user> \
     --admin-password <password> \
     --instance-count 2 \
