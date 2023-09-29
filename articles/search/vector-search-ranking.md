@@ -29,7 +29,7 @@ Vector search algorithms are specified in the json path `vectorSearch.algorithmC
 
 Because many algorithm configuration parameters are used to initialize the vector index during index creation, they are immutable parameters and cannot be changed once the index is built. There is a subset of query-time parameters that may be modified.
 
-## How vector scoring works
+## How vector search works, intuitively explained
 
 Vector queries execute against an embedding space consisting of vectors generated from the same embedding model. In a typical application, the input value within a query request is fed into the same machine learning model that generated embeddings in the vector index. The output is a vector in the same embedding space. Since similar vectors are clustered close together, finding matches is equivalent to finding the vectors that are closest to the query vector, and returning the associated documents as the search result.
 
