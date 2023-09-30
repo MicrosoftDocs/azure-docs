@@ -144,7 +144,7 @@ dataDiskSku=Premium_ZRS
 az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
---image UbuntuLTS \
+--image Ubuntu2204 \
 --upgrade-policy automatic \
 --generate-ssh-keys \
 --data-disk-sizes-gb 128 \
