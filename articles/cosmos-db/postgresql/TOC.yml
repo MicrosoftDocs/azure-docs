@@ -56,6 +56,8 @@
       items:
         - name: Shard data on worker nodes
           href: tutorial-shard.md
+        - name: Design for microservices
+          href: tutorial-design-microservices.md
         - name: Design a multi-tenant database
           href: tutorial-design-database-multi-tenant.md
           displayName: tutorial, multi-tenant
