@@ -51,11 +51,11 @@ The following table describes the request body parameters and group level proper
 
 The following table describes the request body parameters and volume properties for creating a volume in an Oracle Application volume group.
 
-| Volume-level request parameter |Description |Restrictions for Oracle |
+| Volume-level request parameter | Description | Restrictions for Oracle |
 |---------|---------|---------|
 | `name` | Volume name, includes Oracle SID to identify database using the volumes in the group | None. <br><br> Examples or recommended volume names: <br><br> - `<sid>-ora-data1` (data) <br> - `<sid>-ora-data2` (data) <br> - `<sid>-ora-log` (log) <br> - `<sid>-ora-log-mirror` (mirlog) <br> - `<sid>-ora-binary` (binary) <br> - `<sid>-ora-bakup` (backup) <br> | 
 | `tags` | Volume tags | None |
-| `zones` | Availability Zones | None | For Oracle AVG: <br><br> - If the region has availability zones, then you must select zones. Ex: Zones (1, 2 or 3). <br><br> - In case a region has no available zones and the use of PPG is not enabled then customer can go for regional deployment (requires PPG activation). <br>
+| `zones` | Availability Zones | For Oracle AVG: <br><br> - If the region has availability zones, then you must select zones. Ex: Zones (1, 2 or 3). <br><br> - In case a region has no available zones and the use of PPG is not enabled then customer can go for regional deployment (requires PPG activation). <br><br>
 | **Volume properties** | **Description** | **Oracle value restrictions** |
 | `creationToken` | Export path name, typically same as the volume name. | `<sid>-ora-data1` |
 | `throughputMibps` | QoS throughput | You should set throughput based on volume type between 1 MiBps and 4500 MiBps. |
