@@ -36,7 +36,7 @@ This article describes errors or warnings you might experience when using applic
 | >>>>TBD<<<  |  >>>>TBD<<<  |
 |  >>>>TBD<<<   |   >>>>TBD<<<  |
 
-# Next steps  
+## Next steps  
 
 * Application volume group for SAP HANA:
     * [Understand Azure NetApp Files application volume group for SAP HANA](application-volume-group-introduction.md)

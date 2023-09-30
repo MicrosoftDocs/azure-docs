@@ -45,7 +45,7 @@ The following table describes the request body parameters and group level proper
 | **Group Properties** | | |
 | `groupDescription` | Description for the group | Free-form string | 
 | `applicationType` | Application type | Use **ORACLE** for AVG for Oracle deployments |
-| `applicationIdentifier` | Application specific identifier string | For Oracle, this is the unique system ID | 
+| `applicationIdentifier` | Application specific identifier string | For Oracle, this parameter is the unique system ID | 
 | `deploymentSpecId` | Deployment specification identifier defining the rules to deploy the specific application volume group type | Must be: `10542149-bfca-5618-1879-9863dc6767f1` | 
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | There can be 2-12 volumes as part of Oracle deployment: <br><br> - **Required**: 1 data and 1 log <br><br> - **Optional**: data 2-8, mir-log, backup, binary <br><br>  |
 
@@ -59,13 +59,13 @@ The following table describes the request body parameters and volume properties 
 | **Volume properties** | **Description** | **Oracle value restrictions** |
 | `creationToken` | Export path name, typically same as the volume name. | `<sid>-ora-data1` |
 | `throughputMibps` | QoS throughput | You should set throughput based on volume type between 1 MiBps and 4500 MiBps. |
-| `usageThreshhold` | Size of the volume in bytes. This must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | You should set volume size in bytes. | 
+| `usageThreshhold` | Size of the volume in bytes. This value must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | You should set volume size in bytes. | 
 | `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for Oracle. Only the following rules values can be modified for Oracle. The rest *must* have their default values: - `unixReadOnly`: should be false. <br><br> - `unixReadWrite`: should be true. <br><br> - `allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions. <br><br> - `hasRootAccess`: must be true to use root user for installation. <br><br> - `chownMode`: Specify `chown` mode. <br><br> - `Select nfsv41: or nfsv3:`: as true. It's recommended to use the same protocol version for all volumes. <br> <br> All other rule values _must_ be left defaulted. |
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | Oracle volumes must have a value that is one of the following: <br><br> - `ora-data1` <br> - `ora-data2` <br> - `ora-data3` <br> - `ora-data4` <br> - `ora-data5` <br> - `ora-data6` <br> - `ora-data7` <br> - `ora-data8` <br> - `ora-log` <br> - `ora-log-mirror` <br> - `ora-binary` <br> - `ora-backup` <br> | 
-| `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. This is an optional parameter. If the region has zones available, then use of zones is always priority. | The `data`, `log` and `mirror-log`, `ora-binary` and `backup` volumes must each have a PPG specified, preferably a common PPG. |
+| `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. This parameter is optional. If the region has zones available, then use of zones is always priority. | The `data`, `log` and `mirror-log`, `ora-binary` and `backup` volumes must each have a PPG specified, preferably a common PPG. |
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | The subnet ID must be the same for all volumes. |
-| `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool, however this is not a requirement. |
-| `protocolTypes` | Protocol to use | This should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
+| `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool. However, it is not a requirement. |
+| `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 
 ## Examples: application volume group for Oracle API request content
 
@@ -90,7 +90,7 @@ In the following examples, selected placeholders are specified. You should repla
 
 Oracle volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 
-1. Extract the subscription ID. This automates the extraction of the subscription ID and generate the authorization token:
+1. Extract the subscription ID. This step automates the extraction of the subscription ID and generate the authorization token:
     ```bash
     subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)echo "Subscription ID: $subId" 
     ```

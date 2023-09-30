@@ -27,11 +27,11 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
 * All object such as the NetApp account, capacity pools, vNet, and subnet need to be in the same resource group.
 
-* As the application volume group is designed for larger Oracle databases, the database size must be specified in TiB. When you request more than one data volume, the size will be distributed. The calculation is done in integer arithmetic and may lead to lower-than-expected sizes or even an errors as the resulting size of each data volume being 0. To prevent this situation, instead of using the automatic calculation, you can select size and throughput for each of the data volume by changing the fields **Data size** and **Data performance** to numerical values instead of **auto**. Doing so prevents the automatic calculation.
+* As the application volume group is designed for larger Oracle databases, the database size must be specified in TiB. When you request more than one data volume, the size is distributed. The calculation is done in integer arithmetic and may lead to lower-than-expected sizes or even errors as the resulting size of each data volume being 0. To prevent this situation, instead of using the automatic calculation, you can select size and throughput for each of the data volume by changing the fields **Data size** and **Data performance** to numerical values instead of **auto**. Doing so prevents the automatic calculation.
 
 ## Steps
 
-1.	Login to the [Azure portal](https://portal.azure.com/).
+1.	Log in to the [Azure portal](https://portal.azure.com/).
 
     [ ![Screenshot that shows the Resources list of Azure services.](../media/azure-netapp-files/oracle-resources.png) ](../media/azure-netapp-files/oracle-resources.png#lightbox) 
 
@@ -55,7 +55,7 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
     [ ![Screenshot that shows the basic tab of the custom deployment page.](../media/azure-netapp-files/custom-deploy-basic.png) ](../media/azure-netapp-files/custom-deploy-basic.png#lightbox)  
 
-7. Enter values for **Number Of Oracle Data Volumes**, **Oracle Throughput**, **Capacity Pool**, **Netapp Account** and **Virtual Network**.
+7. Enter values for **Number Of Oracle Data Volumes**, **Oracle Throughput**, **Capacity Pool**, **NetApp Account** and **Virtual Network**.
 
     > [!NOTE]
     > The specified throughput for the Oracle data volumes will be distributed evenly across all data volumes. For all other volumes, you can choose to overwrite the default values according to your sizing. 
@@ -69,7 +69,7 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
     [ ![Screenshot that shows the completed fields on the custom deployment page.](../media/azure-netapp-files/custom-deploy-oracle-completed.png) ](../media/azure-netapp-files/custom-deploy-oracle-completed.png#lightbox)    
 
-9.	The create button is enabled if there're no validation errors. Click **Create** to continue. 
+9.	The create button is enabled if there are no validation errors. Click **Create** to continue. 
 
     [ ![Screenshot that shows the Create button on the custom deployment page.](../media/azure-netapp-files/custom-deploy-oracle-create.png) ](../media/azure-netapp-files/custom-deploy-oracle-create.png#lightbox) 
 
