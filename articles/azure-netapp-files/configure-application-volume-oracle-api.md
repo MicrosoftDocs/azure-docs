@@ -49,14 +49,16 @@ The following table describes the request body parameters and group level proper
 | `deploymentSpecId` | Deployment specification identifier defining the rules to deploy the specific application volume group type | Must be: `10542149-bfca-5618-1879-9863dc6767f1` | 
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | There can be 2-12 volumes as part of Oracle deployment: <br><br> - **Required**: 1 data and 1 log <br><br> - **Optional**: data 2-8, mir-log, backup, binary <br><br>  |
 
-The following table describes the request body parameters and volume properties for creating a volume in an Oracle Application volume group.
+The following tables describe the request body parameters and volume properties for creating a volume in an Oracle application volume group.
 
 | Volume-level request parameter | Description | Restrictions for Oracle |
 |---------|---------|---------|
 | `name` | Volume name, includes Oracle SID to identify database using the volumes in the group | None. <br><br> Examples or recommended volume names: <br><br> - `<sid>-ora-data1` (data) <br> - `<sid>-ora-data2` (data) <br> - `<sid>-ora-log` (log) <br> - `<sid>-ora-log-mirror` (mirlog) <br> - `<sid>-ora-binary` (binary) <br> - `<sid>-ora-bakup` (backup) <br> | 
 | `tags` | Volume tags | None |
 | `zones` | Availability Zones | For Oracle AVG: <br><br> - If the region has availability zones, then you must select zones. Ex: Zones (1, 2 or 3). <br><br> - In case a region has no available zones and the use of PPG is not enabled then customer can go for regional deployment (requires PPG activation). <br><br> |
-| **Volume properties** | **Description** | **Oracle value restrictions** |
+
+| Volume properties | Description | Oracle value restrictions |
+|---------|---------|---------|
 | `creationToken` | Export path name, typically same as the volume name. | `<sid>-ora-data1` |
 | `throughputMibps` | QoS throughput | You should set throughput based on volume type between 1 MiBps and 4500 MiBps. |
 | `usageThreshhold` | Size of the volume in bytes. This value must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | You should set volume size in bytes. | 
