@@ -112,7 +112,7 @@ Azure Front Door cannot automatically renew the managed certificate because the 
 
 Learn more about [Front Door Profile - RevalidateDomainOwnership (Re-validate domain ownership for the Azure Front Door managed certificate renewal)](/azure/frontdoor/standard-premium/how-to-add-custom-domain#domain-validation-state).
 
-### Renew the expired Azure Front Door customer certificate to avoid service disruption.
+### Renew the expired Azure Front Door customer certificate to avoid service disruption
 
 Some of the customer certificates for Azure Front Door Standard and Premium profiles expired. Please renew the certificate in time to avoid service disruption.
 
