@@ -118,7 +118,7 @@ The following features are available when you use .NET for Apache Spark in the A
 
 ### `DotNetRunner: null` / `Futures timeout` in Synapse Spark Job Definition Run
 
-Synapse Spark Job Definitions on Spark Pools using Spark 2.4 require `Microsoft.Spark` 1.0.0. Clear your `bin` and `obj` directories, and publish the project using 1.0.0.
+Synapse Spark Job Definitions on Spark Pools using [Spark 2.4](./apache-spark-24-runtime.md) require `Microsoft.Spark` 1.0.0. Clear your `bin` and `obj` directories, and publish the project using 1.0.0.
 
 ### OutOfMemoryError: java heap space at org.apache.spark
 
