@@ -147,6 +147,7 @@ For more information about the bearer challenge, see [Bearer challenge](/rest/ap
 ## Remediate anonymous access for the storage account
 
 After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobPublicAccess** property to **False**.
+++ After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to remediate anonymous access for the whole account by setting the account's **AllowBlobanonymousaccess** property to **False**
 
 The anonymous access setting for a storage account overrides the individual settings for containers in that account. When you disallow anonymous access for a storage account, any containers that are configured to permit anonymous access are no longer accessible anonymously. If you've disallowed anonymous access for the account, you don't also need to disable anonymous access for individual containers.
 
@@ -208,7 +209,9 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -SkuName Standard_GRS `
     -AllowBlobPublicAccess $false
 
+
 # Read the AllowBlobPublicAccess property for the newly created storage account.
+
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
 ```
 
