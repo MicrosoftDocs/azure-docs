@@ -72,7 +72,7 @@ We detected the minimal replica count set for your container app may be lower th
 
 Learn more about [Microsoft App Container App - ContainerAppMinimalReplicaCountTooLow (Increase the minimal replica count for your container app)](https://aka.ms/containerappscalingrules).
 
-### Renew custom domain certificate--ADDED
+### Renew custom domain certificate
 
 We detected the custom domain certificate you uploaded is near expiration. Please renew your certificate and upload the new certificate for your container apps.
 
