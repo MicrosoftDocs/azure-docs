@@ -13,7 +13,7 @@
 1. Sign in to [Azure portal](https://portal.azure.com).
 2. In the search box at the top, type **Event Grid System Topics**, and then press **ENTER**. 
 
-    :::image type="content" source="./media/system-topics/search-system-topics.png" alt-text="Screenshot that shows the Azure portal with Event Grid System Topics in the search box.":::
+    :::image type="content" source="./media/system-topics/search-system-topics.png" alt-text="Screenshot that shows Event Grid System Topics in the search box in the Azure portal.":::
 3. On the **Event Grid System Topics** page, you see all the system topics. 
 
     :::image type="content" source="./media/system-topics/list-system-topics.png" alt-text="Screenshot that shows the list of system topics." lightbox="./media/system-topics/list-system-topics.png":::
