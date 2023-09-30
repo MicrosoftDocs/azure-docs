@@ -78,7 +78,7 @@ No. Reboot isn't available for the Enterprise tier yet. Reboot is available for 
 
 ## Flush data (preview)
 
-When using th Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Flush data** on the resource menu. The **Flush data** operation allows you to delete or _flush_ all data in your cache. This _flush_ operation can be used before scaling operations to potentially reduce the time required to complete the scaling operation on your cache. You can also configure to run the _flush_ operation periodically on your dev/test caches to keep memory usage in check.
+When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Flush data** on the resource menu. The **Flush data** operation allows you to delete or _flush_ all data in your cache. This _flush_ operation can be used before scaling operations to potentially reduce the time required to complete the scaling operation on your cache. You can also configure to run the _flush_ operation periodically on your dev/test caches to keep memory usage in check.
 
 The _flush_ operation, when executed on a clustered cache, clears data from all shards at the same time.
 

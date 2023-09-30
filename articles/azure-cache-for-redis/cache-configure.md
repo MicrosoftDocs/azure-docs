@@ -185,7 +185,7 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-- `volatile-lru`: The default eviction policy, removes the least recently used key out of all the keys with an expiration set.
+- `volatile-lru`: The default eviction policy. It removes the least recently used key out of all the keys with an expiration set.
 - `allkeys-lru`: Removes the least recently used key.
 - `volatile-random`: Removes a random key that has an expiration set.
 - `allkeys-random`: Removes a random key.
