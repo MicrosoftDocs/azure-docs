@@ -38,7 +38,7 @@ Complete the previous tutorials:
 
 Before you run a failover, check the VM properties to make sure that the VMs meet [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-follow these steps to verify VM properties:
+Follow these steps to verify VM properties:
 
 1. In **Protected Items**, select **Replicated Items**, and then select the VM you want to verify.
 
@@ -114,8 +114,7 @@ Ensure the following for the VM,  after it is failed over to Azure:
 
 ## Cancel planned failover
 
-If your on-premises environment is not ready or in case of any challenges, you can cancel the planned failover
-You can perform a planned failover any time later, once your on-premises conditions turn favorable.
+If your on-premises environment is not ready or in case of any challenges, you can cancel the planned failover. You can perform a planned failover any time later, once your on-premises conditions turn favorable.
 
 **To cancel a planned failover**:
 
