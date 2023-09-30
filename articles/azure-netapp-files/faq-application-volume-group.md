@@ -178,5 +178,7 @@ PPG imposes a lot of constraints on VM and volume placement. For Oracle, the pre
     * [Requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md)
     * [Deploy application volume group for Oracle](application-volume-group-oracle-deploy-volumes.md)
     * [Manage volumes in an application volume group for Oracle](application-volume-group-manage-volumes-oracle.md)
+    * [Configure application volume groups for Oracle using REST API](configure-application-volume-oracle-api.md) 
+    * [Deploy application volume groups for Oracle using Azure Resource Manager](configure-application-volume-oracle-azure-resource-manager.md) 
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)
