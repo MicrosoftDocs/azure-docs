@@ -1,5 +1,5 @@
 ---
-title: Configure Azure NetApp Files application volume groups for Oracle using REST API 
+title: Configure Azure NetApp Files application volume group for Oracle using REST API 
 description: Describes the Azure NetApp Files application volume group creation for Oracle by using the REST API, including examples.
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: anfdocs
 ---
-# Configure application volume groups for Oracle using REST API
+# Configure application volume group for Oracle using REST API
 
 This article describes the creation of application volume group (AVG) using the REST API. The details include selected parameters and properties required for deployment. The article also specifies constraints and typical values for AVG for Oracle creation where applicable.
 
@@ -1122,7 +1122,7 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
 * [Requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md)
 * [Deploy application volume group for Oracle](application-volume-group-oracle-deploy-volumes.md)
 * [Manage volumes in an application volume group for Oracle](application-volume-group-manage-volumes-oracle.md)
-* [Deploy application volume groups for Oracle using Azure Resource Manager](configure-application-volume-oracle-azure-resource-manager.md) 
+* [Deploy application volume group for Oracle using Azure Resource Manager](configure-application-volume-oracle-azure-resource-manager.md) 
 * [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Application volume group FAQs](faq-application-volume-group.md)

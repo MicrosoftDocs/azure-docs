@@ -95,7 +95,7 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 * [Requirements and considerations for application volume group for Oracle](application-volume-group-oracle-considerations.md)
 * [Deploy application volume group for Oracle](application-volume-group-oracle-deploy-volumes.md)
 * [Manage volumes in an application volume group for Oracle](application-volume-group-manage-volumes-oracle.md)
-* [Configure application volume groups for Oracle using REST API](configure-application-volume-oracle-api.md) 
+* [Configure application volume group for Oracle using REST API](configure-application-volume-oracle-api.md) 
 * [Troubleshoot application volume group errors](troubleshoot-application-volume-groups.md)
 * [Delete an application volume group](application-volume-group-delete.md)
 * [Application volume group FAQs](faq-application-volume-group.md)
