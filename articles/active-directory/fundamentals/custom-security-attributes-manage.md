@@ -60,12 +60,12 @@ The following table provides a high-level comparison of the custom security attr
 
 | Permission | Global Administrator | Attribute Definition Admin | Attribute Assignment Admin | Attribute Definition Reader | Attribute Assignment Reader |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Read attribute assignments for users and applications (service principals) |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
-| Add or edit attribute sets |  | :heavy_check_mark: |  |  |  |
-| Add, edit, or deactivate attribute definitions |  | :heavy_check_mark: |  |  |  |
-| Assign attributes to users and applications (service principals) |  |  | :heavy_check_mark: |  |  |
+| Read attribute sets |  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Read attribute definitions |  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| Read attribute assignments for users and applications (service principals) |  |  | :white_check_mark: |  | :white_check_mark: | 
+| Add or edit attribute sets |  | :white_check_mark: |  |  |  |
+| Add, edit, or deactivate attribute definitions |  | :white_check_mark: |  |  |  |
+| Assign attributes to users and applications (service principals) |  |  | :white_check_mark: |  |  |
 
 ## Step 4: Determine your delegation strategy
 
