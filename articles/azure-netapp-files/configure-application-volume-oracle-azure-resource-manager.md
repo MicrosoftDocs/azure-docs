@@ -69,7 +69,7 @@ For detailed documentation on how to use the ARM template, see [ORACLE Azure Net
 
     [ ![Screenshot that shows the completed fields on the custom deployment page.](../media/azure-netapp-files/custom-deploy-oracle-completed.png) ](../media/azure-netapp-files/custom-deploy-oracle-completed.png#lightbox)    
 
-9.	The create button is enabled if there are no validation errors. Click **Create** to continue. 
+9.	The **Create** button is enabled if there are no validation errors. Click **Create** to continue. 
 
     [ ![Screenshot that shows the Create button on the custom deployment page.](../media/azure-netapp-files/custom-deploy-oracle-create.png) ](../media/azure-netapp-files/custom-deploy-oracle-create.png#lightbox) 
 
