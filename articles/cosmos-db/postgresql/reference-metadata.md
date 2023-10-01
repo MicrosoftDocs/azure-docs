@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 02/18/2022
+ms.date: 10/01/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL system tables and views
@@ -268,6 +268,27 @@ distribution_argument_index |
 colocationid                |
 ```
 
+### Distributed schemas view
+
+Citus 12.0 intoduced the concept of [schema-based sharding](concepts-sharding-models.md#schema-based-sharding) and with it the `citus_schemas`` view, which shows which schemas have been distributed in the system. The view only lists distributed schemas, local schemas aren't displayed.
+
+| Name                        | Type         | Description                                                  |
+|-----------------------------|--------------|--------------------------------------------------------------|
+| schema_name                 | regnamespace | Name of the distributed schema                               |
+| colocation_id               | integer      | Colocation ID of the distributed schema                      |
+| schema_size                 | text         | Human readable size summary of all objects within the schema |
+| schema_owner                | name         | Role that owns the schema                                    |
+
+Here’s an example:
+
+```
+ schema_name | colocation_id | schema_size | schema_owner
+-------------+---------------+-------------+--------------
+ userservice |             1 | 0 bytes     | userservice
+ timeservice |             2 | 0 bytes     | timeservice
+ pingservice |             3 | 632 kB      | pingservice
+```
+
 ### Distributed tables view
 
 The `citus_tables` view shows a summary of all tables managed by Azure Cosmos
@@ -375,7 +396,7 @@ SELECT * FROM pg_dist_rebalance_strategy;
 ```
 -[ RECORD 1 ]-------------------+-----------------------------------
 Name                            | by_shard_count
-default_strategy                | true
+default_strategy                | false
 shard_cost_function             | citus_shard_cost_1
 node_capacity_function          | citus_node_capacity_1
 shard_allowed_on_node_function  | citus_shard_allowed_on_node_true
@@ -383,7 +404,7 @@ default_threshold               | 0
 minimum_threshold               | 0
 -[ RECORD 2 ]-------------------+-----------------------------------
 Name                            | by_disk_size
-default_strategy                | false
+default_strategy                | true
 shard_cost_function             | citus_shard_cost_by_disk_size
 node_capacity_function          | citus_node_capacity_1
 shard_allowed_on_node_function  | citus_shard_allowed_on_node_true
@@ -391,14 +412,7 @@ default_threshold               | 0.1
 minimum_threshold               | 0.01
 ```
 
-The default strategy, `by_shard_count`, assigns every shard the same
-cost. Its effect is to equalize the shard count across nodes. The other
-predefined strategy, `by_disk_size`, assigns a cost to each shard
-matching its disk size in bytes plus that of the shards that are
-colocated with it. The disk size is calculated using
-`pg_total_relation_size`, so it includes indices. This strategy attempts
-to achieve the same disk space on every node. Note the threshold of 0.1--it prevents unnecessary shard movement caused by insignificant
-differences in disk space.
+The strategy `by_disk_size` assigns every shard the same cost. Its effect is to equalize the shard count across nodes. The default strategy, `by_disk_size`, assigns a cost to each shard matching its disk size in bytes plus that of the shards that are colocated with it. The disk size is calculated using `pg_total_relation_size`, so it includes indices. This strategy attempts to achieve the same disk space on every node. Note the threshold of `0.1`, it prevents unnecessary shard movement caused by insignificant differences in disk space.
 
 #### Creating custom rebalancer strategies
 
