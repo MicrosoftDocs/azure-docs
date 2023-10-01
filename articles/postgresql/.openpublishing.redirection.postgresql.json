@@ -456,7 +456,7 @@
 		"redirect_document_id": false
 	},
 	{
-		"source_path_from_root": "/azure/cosmos-db/postgresql/concepts-distributed-data.md",
+        "source_path_from_root": "/articles/cosmos-db/postgresql/concepts-distributed-data.md",
 		"redirect_url": "/azure/cosmos-db/postgresql/concepts-nodes",
 		"redirect_document_id": true
 	},
