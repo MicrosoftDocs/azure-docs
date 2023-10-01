@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2023
+ms.date: 10/01/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -35,6 +35,11 @@ Custom security attributes in Microsoft Entra ID are business-specific attribute
 - Manage Microsoft Entra objects using custom security attributes with queries and filters.
 - Provide attribute governance so attributes determine who can get access.
 
+Custom security attributes **aren't** supported in the following scenarios:
+
+- [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md)
+- [SAML token claims](../develop/saml-claims-customization.md)
+
 ## Features of custom security attributes
 
 - Available tenant-wide​
@@ -47,11 +52,6 @@ Custom security attributes in Microsoft Entra ID are business-specific attribute
 The following example shows how you can specify custom security attribute values that are single, multiple, free-form, or predefined.
 
 ![Custom security attribute examples assigned to a user.](./media/custom-security-attributes-overview/attribute-values-examples.png)
-
-Custom security attributes **aren't** supported in the following scenarios:
-
-- [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md)
-- [SAML token claims](../develop/saml-claims-customization.md)
 
 ## Objects that support custom security attributes
 
