@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 09/30/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -47,6 +47,11 @@ Custom security attributes in Microsoft Entra ID are business-specific attribute
 The following example shows how you can specify custom security attribute values that are single, multiple, free-form, or predefined.
 
 ![Custom security attribute examples assigned to a user.](./media/custom-security-attributes-overview/attribute-values-examples.png)
+
+Custom security attributes **aren't** supported in the following scenarios:
+
+- [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md)
+- [SAML token claims](../develop/saml-claims-customization.md)
 
 ## Objects that support custom security attributes
 
@@ -126,18 +131,18 @@ The following table lists the properties you can specify for attribute sets and 
 
 | Property | Required | Can be changed later | Description |
 | --- | :---: | :---: | --- |
-| Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. Must be unique within a tenant. Cannot include spaces or special characters. |
-| Attribute set description |  | :heavy_check_mark: | Description of the attribute set. |
-| Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes that can be defined in an attribute set. Default value is `null`. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. |
-| Attribute set | :heavy_check_mark: |  | A collection of related custom security attributes. Every custom security attribute must be part of an attribute set. |
-| Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. Must be unique within an attribute set. Cannot include spaces or special characters. |
-| Attribute description |  | :heavy_check_mark: | Description of the custom security attribute. |
-| Data type | :heavy_check_mark: |  | Data type for the custom security attribute values. Supported types are `Boolean`, `Integer`, and `String`. |
-| Allow multiple values to be assigned | :heavy_check_mark: |  | Indicates whether multiple values can be assigned to the custom security attribute. If data type is set to `Boolean`, cannot be set to Yes. |
-| Only allow predefined values to be assigned | :heavy_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. If set to No, free-form values are allowed. Can later be changed from Yes to No, but cannot be changed from No to Yes. If data type is set to `Boolean`, cannot be set to Yes.|
+| Attribute set name  | :white_check_mark: |  | Name of the attribute set. Must be unique within a tenant. Cannot include spaces or special characters. |
+| Attribute set description |  | :white_check_mark: | Description of the attribute set. |
+| Maximum number of attributes |  | :white_check_mark: | Maximum number of custom security attributes that can be defined in an attribute set. Default value is `null`. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. |
+| Attribute set | :white_check_mark: |  | A collection of related custom security attributes. Every custom security attribute must be part of an attribute set. |
+| Attribute name  | :white_check_mark: |  | Name of the custom security attribute. Must be unique within an attribute set. Cannot include spaces or special characters. |
+| Attribute description |  | :white_check_mark: | Description of the custom security attribute. |
+| Data type | :white_check_mark: |  | Data type for the custom security attribute values. Supported types are `Boolean`, `Integer`, and `String`. |
+| Allow multiple values to be assigned | :white_check_mark: |  | Indicates whether multiple values can be assigned to the custom security attribute. If data type is set to `Boolean`, cannot be set to Yes. |
+| Only allow predefined values to be assigned | :white_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. If set to No, free-form values are allowed. Can later be changed from Yes to No, but cannot be changed from No to Yes. If data type is set to `Boolean`, cannot be set to Yes.|
 | Predefined values |  |  | Predefined values for the custom security attribute of the selected data type. More predefined values can be added later. Values can include spaces, but some special characters are not allowed. |
-| Predefined value is active |  | :heavy_check_mark: | Specifies whether the predefined value is active or deactivated. If set to false, the predefined value cannot be assigned to any additional supported directory objects. |
-| Attribute is active |  | :heavy_check_mark: | Specifies whether the custom security attribute is active or deactivated. |
+| Predefined value is active |  | :white_check_mark: | Specifies whether the predefined value is active or deactivated. If set to false, the predefined value cannot be assigned to any additional supported directory objects. |
+| Attribute is active |  | :white_check_mark: | Specifies whether the custom security attribute is active or deactivated. |
 
 ## Limits and constraints
 
@@ -195,11 +200,11 @@ Depending on whether you have a Microsoft Entra ID P1 or P2 license, here are th
 
 | Role assignment task | Premium P1 | Premium P2 |
 | --- | :---: | :---: |
-| Permanent role assignments | :heavy_check_mark: | :heavy_check_mark: |
-| Eligible role assignments | n/a | :heavy_check_mark: |
-| Permanent role assignments at attribute set scope | :heavy_check_mark: | :heavy_check_mark: |
+| Permanent role assignments | :white_check_mark: | :white_check_mark: |
+| Eligible role assignments | n/a | :white_check_mark: |
+| Permanent role assignments at attribute set scope | :white_check_mark: | :white_check_mark: |
 | Eligible role assignments at attribute set scope | n/a | :x: |
-| **Assigned roles** page lists permanent role assignments at attribute set scope | :heavy_check_mark: | :warning:<br/>Role assignments exist, but aren't listed  |
+| **Assigned roles** page lists permanent role assignments at attribute set scope | :white_check_mark: | :warning:<br/>Role assignments exist, but aren't listed  |
 
 ## License requirements
 
