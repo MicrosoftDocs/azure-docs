@@ -166,6 +166,28 @@ You can check the following items to troubleshoot the issue:
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
+### Identity error
+
+#### ERROR: RefreshExtensionIdentityNotSet
+
+This error occurs when the extension is installed but the extension identity is not correctly set by the installer. You can follow on of the two way to resolve it.
+
+##### Solution 1
+1. Check the error message and find the cluster node that have this issue. Remember the node pool name of that node, which can be aquired by `kubectl describe node <node name>`, the `agentpool` label.
+2. Open the resources group page for your AKS nodes in portal. The resources group is in the same subscription and the resource group name is `MC_<AKS resource group name>_<AKS name>-<location>`. You can search your AKS name to query it.
+3. Find a managed identity named `ext-<random numbers>-<AKS name>` and remember it.
+4. Open the "virtual machine scale set" page of the node pool in portal, go to the "identity" subpage and then select the "User Assigned" tab.
+5. Add the remembered managed identity and wait several minutes. Then you can create deployments in this cluster.
+
+##### Solution 2
+You can delete the extension and re-create it.
+
+If neither of the solutions not work, please contact Azure Arc team for support.
+
+
+
+
+
 ### How to check sslCertPemFile and sslKeyPemFile is correct?
 Use the commands below to run a baseline check for your cert and key. This is to allow for any known errors to be surfaced. Expect the second command to return "RSA key ok" without prompting you for password.
 
