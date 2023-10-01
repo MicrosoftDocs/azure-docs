@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL - Flexible Server provides users with the ability to configure audit logs. Audit logs can be used to track database-level activity including connection, admin, DDL, and DML events. These types of logs are commonly used for compliance purposes.
+Azure Database for MySQL - Flexible Server provides users with the ability to configure audit logs. Audit logs can be used to track database-level activity including connection, admin, DDL, and DML events. These types of logs are commonly used for compliance purposFes.
 
 ## Configure audit logging
 
@@ -66,7 +66,7 @@ The following sections describe the output of MySQL audit logs based on the even
 | `ResourceProvider` | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resource URI |
-| `Resource` | Name of the server |
+| `Resource` | Name of the server in upper case |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Name of the server |
@@ -97,7 +97,7 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 | `ResourceProvider` | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resource URI |
-| `Resource` | Name of the server |
+| `Resource` | Name of the server in upper case|
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Name of the server |
@@ -128,7 +128,7 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 | `ResourceProvider` | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resource URI |
-| `Resource` | Name of the server |
+| `Resource` | Name of the server in upper case|
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Name of the server |
@@ -148,7 +148,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where Resource  == '<your server name>'
+    | where Resource  == '<your server name>' //Server name must be in Upper case
     | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
     | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
@@ -158,7 +158,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where Resource  == '<your server name>'
+    | where Resource  == '<your server name>' //Server name must be in Upper case
     | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
     | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
@@ -168,7 +168,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where Resource  == '<your server name>'
+    | where Resource  == '<your server name>' //Server name must be in Upper case
     | where Category == 'MySqlAuditLogs'
     | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
@@ -178,7 +178,7 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
 
     ```kusto
     AzureDiagnostics
-    | where Resource  == '<your server name>'
+    | where Resource  == '<your server name>' //Server name must be in Upper case
     | where Category == 'MySqlAuditLogs'
     | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by Resource, bin(TimeGenerated, 5m)
