@@ -213,7 +213,7 @@ When you're prompted for authentication, use the same Global Administrator accou
 
 <a name='install-the-agent-for-azure-ad-ds'></a>
 
-## Install the agent for Microsoft Entra DS
+## Install the agent for Microsoft AD DS
 
 To start the agent installation, double-click the *.exe* file that you downloaded. In the first window, select **Install**.
 
