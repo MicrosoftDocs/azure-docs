@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 05/16/2023
+ms.date: 10/01/2023
 ---
 
 # Cluster upgrades in Azure Cosmos DB for PostgreSQL
@@ -29,6 +29,10 @@ the test.
 Also, upgrading a major version of Citus can introduce changes in behavior.
 It's best to familiarize yourself with new product features and changes to
 avoid surprises.
+
+Noteworthy Citus 12 changes:
+* The default rebalance strategy changed from `by_shard_count` to `by_disk_size`.
+* Support for PostgreSQL 13 has been dropped as of this version.
 
 Noteworthy Citus 11 changes:
 
