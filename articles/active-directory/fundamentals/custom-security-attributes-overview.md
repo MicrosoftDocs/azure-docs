@@ -23,7 +23,7 @@ Custom security attributes in Microsoft Entra ID are business-specific attribute
 
 ## Why use custom security attributes?
 
-Custom security attributes support the following scenarios:
+Here are some scenarios where you could use custom security attributes:
 
 - Extend user profiles, such as add Hourly Salary to all my employees.
 - Ensure only administrators can see the Hourly Salary attribute in my employees' profiles.
@@ -32,7 +32,7 @@ Custom security attributes support the following scenarios:
 
 ## What can I do with custom security attributes?
 
-Custom security attributes have the following capabilities:
+Custom security attributes include these capabilities:
 
 - Define business-specific information (attributes) for your tenant.
 - Add a set of custom security attributes on users and applications.
@@ -45,6 +45,8 @@ Custom security attributes **aren't** supported in the following areas:
 - [SAML token claims](../develop/saml-claims-customization.md)
 
 ## Features of custom security attributes
+
+Custom security attributes include these features:
 
 - Available tenant-wide​
 - Include a description
@@ -59,7 +61,7 @@ The following example shows how you can specify custom security attribute values
 
 ## Objects that support custom security attributes
 
-Currently, you can add custom security attributes for the following Microsoft Entra objects:
+You can add custom security attributes for the following Microsoft Entra objects:
 
 - Microsoft Entra users
 - Microsoft Entra enterprise applications (service principals)
