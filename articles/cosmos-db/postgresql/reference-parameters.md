@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
-ms.date: 06/06/2023
+ms.date: 10/01/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL server parameters
@@ -150,6 +150,12 @@ Allow new [local tables](concepts-nodes.md#type-3-local-tables) to be accessed
 by queries on worker nodes. Adds all newly created tables to Citus metadata
 when enabled. The default value is 'false'.
 
+#### citus.rebalancer\_by\_disk\_size\_base\_cost (integer)
+
+Using the by_disk_size rebalance strategy each shard group gets this cost in bytes added to its actual disk size. This value is used to avoid creating a bad balance when there’s little data in some of the shards. The assumption is that even empty shards have some cost, because of parallelism and because empty shard groups are likely to grow in the future.
+
+The default value is `100MB`.
+
 ### Query Statistics
 
 #### citus.stat\_statements\_purge\_interval (integer)
@@ -184,6 +190,10 @@ and off.
 
 * **all:** (default) Track all statements.
 * **none:** Disable tracking.
+
+#### citus.stat\_tenants\_untracked\_sample\_rate
+
+Sampling rate for new tenants in `citus_stat_tenants`. The rate can be of range between `0.0` and `1.0`. Default is `1.0` meaning 100% of untracked tenant queries are sampled. Setting it to a lower value means that already tracked tenants have 100% queries sampled, but tenants that are currently untracked are sampled only at the provided rate.
 
 ### Data Loading
 
@@ -326,6 +336,14 @@ be used.
 This parameter can be set at run-time and is effective on the
 coordinator.
 
+#### citus.enable\_non\_colocated\_router\_query\_pushdown (boolean)
+
+Enables router planner for the queries that reference non-colocated distributed tables.
+
+The router planner is only enabled for queries that reference colocated distributed tables because otherwise shards may not be on the same node. Enabling this flag allows optimization for queries that reference such tables, but the query may not work after rebalancing the shards or altering the shard count of those tables.
+
+The default is `off`.
+
 ### Intermediate Data Transfer
 
 #### citus.max\_intermediate\_result\_size (integer)
@@ -335,6 +353,14 @@ to be pushed down to worker nodes for execution, and for complex
 subqueries. The default is 1 GB, and a value of -1 means no limit.
 Queries exceeding the limit are canceled and produce an error
 message.
+
+### DDL
+
+#### citus.enable\_schema\_based\_sharding 
+
+With the parameter set to `ON`, all created schemas are distributed by default. Distributed schemas are automatically associated with individual colocation groups such that the tables created in those schemas are converted to colocated distributed tables without a shard key. This setting can be modified for individual sessions.
+
+For an example of using this GUC, see [how to design for microservice](tutorial-design-database-microservices.md).
 
 ### Executor Configuration
 
@@ -481,9 +507,7 @@ amounts of data. Examples are when many rows are requested, the rows have
 many columns, or they use wide types such as `hll` from the postgresql-hll
 extension.
 
-The default value is true for Postgres versions 14 and higher. For Postgres
-versions 13 and lower the default is false, which means all results are encoded
-and transferred in text format.
+The default value is `true`. When set to `false`, all results are encoded and transferred in text format.
 
 ##### citus.max_adaptive_executor_pool_size (integer)
 
