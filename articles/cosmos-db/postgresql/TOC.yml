@@ -56,14 +56,15 @@
       items:
         - name: Shard data on worker nodes
           href: tutorial-shard.md
-        - name: Design for microservices
-          href: tutorial-design-microservices.md
         - name: Design a multi-tenant database
           href: tutorial-design-database-multi-tenant.md
           displayName: tutorial, multi-tenant
         - name: Design a real-time dashboard
           href: tutorial-design-database-realtime.md
           displayName: tutorial, real-time
+        - name: Design for microservices
+          href: tutorial-design-microservices.md
+          displayName: tutorial, microservices
     - name: Administer
       items:
         - name: Set up private access
