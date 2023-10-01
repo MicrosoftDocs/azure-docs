@@ -23,6 +23,8 @@ Custom security attributes in Microsoft Entra ID are business-specific attribute
 
 ## Why use custom security attributes?
 
+Custom security attributes support the following scenarios:
+
 - Extend user profiles, such as add Hourly Salary to all my employees.
 - Ensure only administrators can see the Hourly Salary attribute in my employees' profiles.
 - Categorize hundreds or thousands of applications to easily create a filterable inventory for auditing.
@@ -30,12 +32,14 @@ Custom security attributes in Microsoft Entra ID are business-specific attribute
 
 ## What can I do with custom security attributes?
 
+Custom security attributes have the following capabilities:
+
 - Define business-specific information (attributes) for your tenant.
-- Add a set of custom security attributes on users, applications, Microsoft Entra resources, or Azure resources.
+- Add a set of custom security attributes on users and applications.
 - Manage Microsoft Entra objects using custom security attributes with queries and filters.
 - Provide attribute governance so attributes determine who can get access.
 
-Custom security attributes **aren't** supported in the following scenarios:
+Custom security attributes **aren't** supported in the following areas:
 
 - [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md)
 - [SAML token claims](../develop/saml-claims-customization.md)
@@ -59,7 +63,6 @@ Currently, you can add custom security attributes for the following Microsoft En
 
 - Microsoft Entra users
 - Microsoft Entra enterprise applications (service principals)
-- Managed identities for Azure resources
 
 ## How do custom security attributes compare with extensions?
 
@@ -122,7 +125,7 @@ To better understand custom security attributes, you can refer back to the follo
 | attribute definition | The schema of a custom security attribute or key-value pair. For example, the custom security attribute name, description, data type, and predefined values. |
 | attribute set | A collection of related custom security attributes. Attribute sets can be delegated to other users for defining and assigning custom security attributes. |
 | attribute name | A unique name of a custom security attribute within an attribute set. The combination of attribute set and attribute name forms a unique attribute for your tenant. |
-| attribute assignment | The assignment of a custom security attribute to a Microsoft Entra object, such as users, enterprise applications (service principals), and managed identities. |
+| attribute assignment | The assignment of a custom security attribute to a Microsoft Entra object, such as users and enterprise applications (service principals). |
 | predefined value | A value that is allowed for a custom security attribute. |
 
 ## Custom security attribute properties
