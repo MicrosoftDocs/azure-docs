@@ -31,7 +31,7 @@ Although you can call the Management REST API directly, it's easier to use the A
 
 + You should have a minimum of Contributor permissions on both Azure Cognitive Search and SQL Managed Instance.
 
-+ Azure SQL Managed Instance connection string. Managed identity is not currently supported with shared private link.
++ Azure SQL Managed Instance connection string. Managed identity is not currently supported with shared private link. Your connection string must include a user name and password.
 
 > [!NOTE]
 > Azure Private Link is used internally, at no charge, to set up the shared private link.
@@ -126,7 +126,7 @@ You could use the [**Import data**](search-get-started-portal.md) wizard for thi
 
 This article assumes Postman or equivalent tool, and uses the REST APIs to make it easier to see all of the properties. Recall that REST API calls for indexers and data sources use the [Search REST APIs](/rest/api/searchservice/), not the [Management REST APIs](/rest/api/searchmanagement/) used to create the shared private link. The syntax and API versions are different between the two REST APIs.
 
-1. [Create the data source definition](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) as you would normally for Azure SQL. Although the format of the connection string is different, the data source type and other properties are valid for SQL Managed Instance.
+1. [Create the data source definition](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) as you would normally for Azure SQL. The format of the connection string is slightly different for a managed instance, but other properties are the same as if you were configuring a data source connection to Azure SQL database.
 
     Provide the connection string that you copied earlier.
 
@@ -151,9 +151,6 @@ This article assumes Postman or equivalent tool, and uses the REST APIs to make 
          "identity": null
      }
     ```
-
-   > [!NOTE]
-   > If you're familiar with data source definitions in Cognitive Search, you'll notice that data source properties don't vary when using a shared private link. That's because Search will always use a shared private link on the connection if one exists.
 
 1. [Create the indexer definition](search-howto-create-indexers.md), setting the indexer execution environment to "private".
 

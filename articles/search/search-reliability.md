@@ -32,7 +32,7 @@ For each individual search service, Microsoft guarantees at least 99.9% availabi
 
 + Three or more replicas for high availability of read-write workloads (queries and indexing) 
 
-Internally, the system uses internal mechanisms to monitor replica health and partition integrity. If you provision a specific combination of replicas and partitions, the system ensures that level of capacity for your service.
+The system has internal mechanisms for monitoring replica health and partition integrity. If you provision a specific combination of replicas and partitions, the system ensures that level of capacity for your service.
 
 No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
