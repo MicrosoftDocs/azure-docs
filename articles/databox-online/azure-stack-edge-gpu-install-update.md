@@ -130,7 +130,7 @@ Depending on the software version that you are running, install process may diff
 
 [!INCLUDE [azure-stack-edge-install-2110-updates](../../includes/azure-stack-edge-install-2110-updates.md)]
 
-![Screenshot of updated software version in local UI.](media/azure-stack-edge-install-updates/portal-update-17.png)
+![Screenshot of updated software version in local UI.](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
 ### [version 2105 and earlier](#tab/version-2105-and-earlier)
 
