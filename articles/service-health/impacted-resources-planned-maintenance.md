@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 9/29/2023
 ---
 
-# Impacted Resources for Planned Maintenance events
+# Resource impact from Azure planned maintenance
 
 In support of the experience for viewing Impacted Resources, Service Health has enabled a new feature to:
 
