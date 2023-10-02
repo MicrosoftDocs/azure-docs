@@ -30,7 +30,7 @@ When the workspace creation finishes, you're redirected to the setup guide.
 
 ## Create an access token for service authentication
 
-Microsoft Playwright Testing uses access token to authorize users to run Playwright tests with the service. You first generate a service access token in the Playwright portal, and then store the value in an environment variable.
+Microsoft Playwright Testing uses access tokens to authorize users to run Playwright tests with the service. You first generate a service access token in the Playwright portal, and then store the value in an environment variable.
 
 To generate the access token, perform the following steps:
 
