@@ -24,7 +24,8 @@ Select one of the Azure [NV-series](../virtual-machines/nv-series.md), [NVv3-ser
 
 The right choice for your host pool depends on many factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
 
-Note that NV-series VMs are planned to be retired. For more information, see [NV retirement](../virtual-machines/nv-series-retirement.md).
+> [!NOTE]
+> NV-series VMs are planned to be retired. For more information, see [NV retirement](../virtual-machines/nv-series-retirement.md).
 
 Azure NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They don't support GPU acceleration for most apps or the Windows user interface.
 
