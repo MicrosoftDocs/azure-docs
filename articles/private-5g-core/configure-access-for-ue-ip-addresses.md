@@ -1,5 +1,5 @@
 ---
-title: Configuring Azure Private 5G Core Network for accessing UE IP addresses
+title: Configure Azure Private 5G Core network for accessing UE IP addresses
 titleSuffix: Azure Private 5G Core
 description: Learn how to configure your Azure Private 5G Core to access UE IP addresses.
 author: robswain
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/02/2023
 ---
 
-# Configuring Azure Private 5G Core network for accessing UE IP addresses
+# Configure Azure Private 5G Core network for accessing UE IP addresses
 
 Azure Private 5G Core (AP5GC) provides a secure and reliable network for your organization's communication needs. To access user equipment (UE) IP addresses from the data network (DN), you will need to configure appropriate firewall rules, routes, and other settings. This article will guide you through the steps and considerations required.
 
@@ -19,7 +19,7 @@ Before you begin, make sure you have the following:
 
 - Access to your Azure Private 5G Core via the Azure Portal.
 - Knowledge of your organization's network topology.
-- An AP5GC with network address port translation (NAPT) disabled (See Note 1 at the bottom).
+- An AP5GC with network address port translation (NAPT) disabled.
 - Access to any necessary network devices for configuration (e.g. routers, firewalls, switches, proxies).
 - Ability to capture packet traces at different points in your network.
 
@@ -66,7 +66,3 @@ You can see the IP addresses for devices by either
 ## Result
 
 Your Azure Private 5G Core network can access UE IP addresses from the Data network.
-
-## Next step
-
->
