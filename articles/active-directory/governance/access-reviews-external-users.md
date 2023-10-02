@@ -61,13 +61,13 @@ To create an Access Review for external identities, you'd follow these steps:
 
 1. Select **+ New access review**.
 
-1. Select **Teams + Groups** and then select **Select teams + groups** to set the **Review scope**. B2B direct connect users and teams aren't included in reviews of **All Microsoft 365 groups with guest users**.
- 
-1. Select a Team that has shared channels shared with 1 or more B2B direct connect users or Teams.  
+1. Select **Teams + Groups** and then select **Select teams + groups** to set the **Review scope**.
 
 1. Set the **Scope** as **Guest users only**. 
+    ![limiting the scope of the review to guest users only](media/access-reviews-external-users/guest-users-only.png)
+1. In the **When completed** section, you can select **Block users from signing-in for 30 days, then remove user from the tenant** under the **Action to apply on denied users** option. For more information, see: [Disable and delete external identities with Microsoft Entra access reviews](access-reviews-external-users.md#disable-and-delete-external-identities-with-microsoft-entra-access-reviews).
 
-![limiting the scope of the review to guest users only](media/access-reviews-external-users/guest-users-only.png)
+1. After the access review is created, the guest user must certify their access before the review finishes. This is done by the guest approving or not approving their access within the My Access portal. For a full step by step guide, see: [Review access to groups and applications in access reviews](perform-access-review.md).
 
 When the review finishes, the **Results** page shows an overview of the response given by every external identity. You can choose to apply results automatically and let Access Reviews disable and delete them. Alternatively, you can look through the responses given and decide whether you want to remove a user’s access or follow-up with them and get additional information before making a decision. If some users still have access to resources that you haven't reviewed yet, you can use the review as part of your discovery and enrich your next review and attestation cycle.
 
@@ -80,8 +80,6 @@ For a detailed step by step guide, see: [Create an access review of groups and a
 In addition to the option of removing unwanted external identities from resources such as groups or applications, Microsoft Entra access reviews can block external identities from signing-in to your tenant and delete the external identities from your tenant after 30 days. Once you select **Block user from signing-in for 30 days, then remove user from the tenant**, the review stays in the “applying” state for 30 days. During this period, settings, results, reviewers or Audit logs under the current review won't be viewable or configurable. 
 
 ![upon completion settings](media/access-reviews-external-users/upon-completion-settings.png)
-
-When creating a new Access Review, choose the **Select Teams + groups** option and limit the scope to **Guest users only**. In the “Upon completion settings” section, for **Action to apply on denied users** you can define **Block users from signing-in for 30 days, then remove user from the tenant**.
 
 This setting allows you to identify, block, and delete external identities from your Microsoft Entra tenant. External identities who are reviewed and denied continued access by the reviewer will be blocked and deleted, irrespective of the resource access or group membership they have. This setting is best used as a last step after you have validated that the external users in-review no longer carries resource access and can safely be removed from your tenant or if you want to make sure they're removed, irrespective of their standing access. The “Disable and delete” feature blocks the external user first, taking away their ability to signing into your tenant and accessing resources. Resource access isn't revoked in this stage, and in case you wanted to reinstantiate the external user, their ability to sign in can be reconfigured. Upon no further action, a blocked external identity will be deleted from the directory after 30 days, removing the account and their access.
 
