@@ -25,11 +25,14 @@ This article explains how the local administrators membership update works and h
 
 ## How it works
 
-When you connect a Windows device with Microsoft Entra ID using a Microsoft Entra join, Microsoft Entra ID adds the following security principals to the local administrators group on the device:
+At the time of Microsoft Entra join, we add the following security principals to the local administrators group on the device:
 
 - The Microsoft Entra Global Administrator role
 - The Azure AD Joined Device Local Administrator role 
 - The user performing the Microsoft Entra join   
+
+> [!NOTE]
+> This is done during the join operation only. If an administrator makes changes after this point they will need to update the group membership on the device.
 
 By adding Microsoft Entra roles to the local administrators group, you can update the users that can manage a device anytime in Microsoft Entra ID without modifying anything on the device. Microsoft Entra ID also adds the Azure AD Joined Device Local Administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to users with the Global Administrator role, you can also enable users that have been *only* assigned the Azure AD Joined Device Local Administrator role to manage a device. 
 
