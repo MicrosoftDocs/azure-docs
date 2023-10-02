@@ -10,7 +10,7 @@ ms.date: 09/14/2023
 ---
 # Create alerts to track performance of packet cores
 
-Alerts help track important events in your network by notifying you with an email containing diagnostic information when certain, user-defined conditions are met. Alerts can be customized to represent the severity of incidents on your network and can be viewed in the [Monitor service under Azure Services](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/overview). In this how-to guide, you will create a custom alert for a packet core control plane or data plane resource.
+Alerts help track important events in your network by sending a notification containing diagnostic information when certain, user-defined conditions are met. Alerts can be customized to represent the severity of incidents on your network and can be viewed in the [Monitor service under Azure Services](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/overview). In this how-to guide, you will create a custom alert for a packet core control plane or data plane resource.
 
 ## Prerequisites
 
