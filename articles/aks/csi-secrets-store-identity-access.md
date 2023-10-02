@@ -261,18 +261,60 @@ Before you begin, you must have the following prerequisites:
     kubectl apply -f pod.yaml
     ```
 
+## Validate the secrets
+
+After the pod starts, the mounted content at the volume path that you specified in your deployment YAML is available. Use the following commands to validate your secrets and print a test secret.
+
+1. Show secrets held in the secrets store using the following command.
+
+    ```bash
+    kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
+    ```
+
+2. Display a secret in the store using the following command. This example command shows the test secret `ExampleSecret`.
+
+    ```bash
+    kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
+    ```
+
+## Obtain certificates and keys
+
+The Azure Key Vault design makes sharp distinctions between keys, secrets, and certificates. The certificate features of the Key Vault service were designed to make use of key and secret capabilities. When you create a key vault certificate, it creates an addressable key and secret with the same name. The key allows key operations, and the secret allows the retrieval of the certificate value as a secret.
+
+A key vault certificate also contains public x509 certificate metadata. The key vault stores both the public and private components of your certificate in a secret. You can obtain each individual component by specifying the `objectType` in `SecretProviderClass`. The following table shows which objects map to the various resources associated with your certificate:
+
+| Object | Return value | Returns entire certificate chain |
+|---|---|---|
+|`key`|The public key, in Privacy Enhanced Mail (PEM) format.|N/A|
+|`cert`|The certificate, in PEM format.|No|
+|`secret`|The private key and certificate, in PEM format.|Yes|
+
+## Disable the Azure Key Vault Provider for Secrets Store CSI Driver on an existing AKS cluster
+
+> [!NOTE]
+> Before you disable the add-on, ensure that *no* `SecretProviderClass` is in use. Trying to disable the add-on while a `SecretProviderClass` exists results in an error.
+
+- Disable the Azure Key Vault Provider for Secrets Store CSI Driver capability in an existing cluster using the [`az aks disable-addons`][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` add-on.
+
+    ```azurecli-interactive
+    az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGroup -n myAKSCluster
+    ```
+
+> [!NOTE]
+> When you disable the add-on, existing workloads should have no issues or see any updates in the mounted secrets. If the pod restarts or a new pod is created as part of scale-up event, the pod fails to start because the driver is no longer running.
+
 ## Next steps
 
-To validate the secrets are mounted at the volume path specified in your pod's YAML, see [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][validate-secrets].
+> [!div class="nextstepaction"]
+> [Troubleshooting and configuration options for Azure Key Vault Provider with Secrets Store CSI Driver in AKS](./csi-secrets-store-configuration-options.md)
 
 <!-- LINKS INTERNAL -->
 
 [csi-secrets-store-driver]: ./csi-secrets-store-driver.md
-[use-managed-identity]: ./use-managed-identity.md
-[validate-secrets]: ./csi-secrets-store-driver.md#validate-the-secrets
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [workload-identity]: ./workload-identity-overview.md
 [az-account-set]: /cli/azure/account#az-account-set
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
