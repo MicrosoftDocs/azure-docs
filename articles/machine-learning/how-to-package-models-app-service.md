@@ -21,7 +21,7 @@ In this article you learn how package a model and deploy it to an Azure App Serv
 
 Follow these steps to prepare your environment:
 
-1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
+1. First, let's connect to Azure Machine Learning workspace where we're going to work on.
 
     # [Azure CLI](#tab/cli)
     
@@ -43,7 +43,7 @@ Follow these steps to prepare your environment:
         from azure.identity import DefaultAzureCredential
         ```
     
-    2. If you are running in a Compute Instance in Azure Machine Learning, create an `MLClient` as follows:
+    2. If you're running in a Compute Instance in Azure Machine Learning, create an `MLClient` as follows:
     
         ```python
         ml_client = MLClient.from_config(DefaultAzureCredential())
@@ -59,7 +59,7 @@ Follow these steps to prepare your environment:
         ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
         ```
     
-1. Packages require the model to be registered in either your workspace or in an Azure Machine Learning registry. In this example we have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
+1. Packages require the model to be registered in either your workspace or in an Azure Machine Learning registry. In this example we have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you're trying to deploy is already registered.
    
     # [Azure CLI](#tab/cli)
     
@@ -83,7 +83,7 @@ Follow these steps to prepare your environment:
 
 Let's see how to package the previously registered MLflow model to deploy it to Azure App Service.
 
-1. Deploying a model outside of Azure Machine Learning requires creating a package specification. To create a package completely disconected from Azure Machine Learning we indicate the package to **copy** the artifacts inside of the package as done in the next example:
+1. Deploying a model outside of Azure Machine Learning requires creating a package specification. To create a package completely disconnected from Azure Machine Learning we indicate the package to **copy** the artifacts inside of the package as done in the next example:
 
     # [Azure CLI](#tab/cli)
 
@@ -130,7 +130,7 @@ Let's see how to package the previously registered MLflow model to deploy it to 
     model_package = ml_client.models.begin_package(model_name, model.version, package_config)
     ```
 
-1. The result of the package operation is an environment in Azure Machine Learning. The advantage of them is that each environment has a corresponding docker image we can use in our external deployment. Images are hosted in Azure Container Registry. We will need the name of the generated image:
+1. The result of the package operation is an environment in Azure Machine Learning. The advantage of them is that each environment has a corresponding docker image we can use in our external deployment. Images are hosted in Azure Container Registry. We need the name of the generated image:
 
     1. Go to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -149,7 +149,7 @@ Let's see how to package the previously registered MLflow model to deploy it to 
 
     1. Go to [Azure portal](https://portal.azure.com) and create a new App Service resource.
 
-    1. In the creation wizard, select the subscription and resource group you are using.
+    1. In the creation wizard, select the subscription and resource group you're using.
 
     1. On __Instance details__, give the app a name.
     
@@ -179,7 +179,7 @@ Let's see how to package the previously registered MLflow model to deploy it to 
 
     1. Click on **Create**. The model is now deployed in the App Service just created.
 
-    1. Depending on the infererence server you used, the way you use to invoke and get predictions. In this example, we have used the Azure Machine Learning inferencing server, which creates predictios under the route `/score`. For more information about the input formats and features please see the details of the package [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/).
+    1. Depending on the inference server you used, the way you use to invoke and get predictions. In this example, we have used the Azure Machine Learning inferencing server, which creates predictions under the route `/score`. For more information about the input formats and features please see the details of the package [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/).
 
     1. Test the model deployment to see if it works. 
 
