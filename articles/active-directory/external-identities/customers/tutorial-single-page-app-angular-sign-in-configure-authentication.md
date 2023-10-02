@@ -300,4 +300,4 @@ In this tutorial;
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Prepare Angular SPA](./tutorial-single-page-app-angular-sign-in--sign-out.md)
+> [Prepare Angular SPA](./tutorial-single-page-app-angular-sign-in-sign-out.md)
