@@ -127,7 +127,7 @@ You can verify the version of the language using the command listed in the table
 - [Docker Desktop][15]
 - [Kubectl][20]
 - [Helm][19]
-- [DC/OS CLI][14]
+- [D2iQ Kubernetes Platform CLI][14]
 
 #### Databases
 
@@ -183,7 +183,7 @@ You can verify the version of the language using the command listed in the table
 [11]: https://developer.hashicorp.com/packer/docs
 [12]: https://docs.chef.io/
 [13]: https://docs.cloudfoundry.org/cf-cli/
-[14]: https://docs.d2iq.com/dkp/2.3/azure-quick-start
+[14]: https://docs.d2iq.com/dkp/2.6/azure-infrastructure
 [15]: https://docs.docker.com/desktop/
 [16]: https://dotnet.microsoft.com/download/dotnet/7.0
 [17]: https://github.com/Azure/CloudShell/issues
