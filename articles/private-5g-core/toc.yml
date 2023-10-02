@@ -82,8 +82,6 @@ items:
       href: complete-private-mobile-network-prerequisites.md
     - name: Commission the AKS cluster
       href: commission-cluster.md
-    - name: Create custom alerts
-      href: monitor-private-5g-core-alerts.md  
   - name: Request support
     items:
     - name: How to open a support request 
@@ -124,6 +122,8 @@ items:
       href: upgrade-packet-core-arm-template.md
     - name: Reinstall a packet core instance
       href: reinstall-packet-core.md
+    - name: Create custom alerts
+      href: monitor-private-5g-core-alerts.md  
   - name: Policy control
     items:
     - name: Collect the required information for a service
