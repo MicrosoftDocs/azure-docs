@@ -1019,7 +1019,7 @@
         "articles/industry/**/*.md": "azure-industry",
         "articles/jenkins/**/*.md": "jenkins",
         "articles/lab-services/**/*.md": "lab-services",
-        "articles/playwright-testing/**/*.md": "load-testing",
+        "articles/playwright-testing/**/*.md": "playwright-testing",
         "articles/lighthouse/**/*.md": "lighthouse",
         "articles/logic-apps/*.md": "logic-apps",
         "articles/marketplace/**/*.md": "marketplace",
