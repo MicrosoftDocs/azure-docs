@@ -1,22 +1,22 @@
 ---
-title: Troubleshoot and Repair Dev Box RDP Connectivity Issues #Required; "<verb> * <noun>"
-description: Having problems connecting to your dev box remotely? Learn how to troubleshoot and resolve connectivity issues to your dev box with developer portal tools. #Required; Keep the description within 100- and 165-characters including spaces.
-author: RoseHJM #Required; your GitHub user alias, with correct capitalization
-ms.author: rosemalcolm #Required; microsoft alias of author
-ms.service: dev-box #Required; use the name-string related to slug in ms.product/ms.service
-ms.topic: how-to #Required; leave this attribute/value as-is
-ms.date: 09/25/2023 #Required; mm/dd/yyyy format
+title: Troubleshoot and Repair Dev Box RDP Connectivity Issues 
+description: Having problems connecting to your dev box remotely? Learn how to troubleshoot and resolve connectivity issues to your dev box with developer portal tools. 
+author: RoseHJM 
+ms.author: rosemalcolm 
+ms.service: dev-box 
+ms.topic: troubleshooting 
+ms.date: 09/25/2023 
 
 #CustomerIntent: As a dev box user, I want to be able to troubleshoot and repair connectivity issues with my dev box so that I don't lose development time.
 ---
 
 # Troubleshoot and resolve dev box remote desktop connectivity issues 
 
-Issues with remote desktop connectivity to your dev box can be time consuming to resolve manually. Dev Box provides the *Troubleshoot & repair* tool to help you diagnose and repair some common dev box  connectivity issues.
+In this article, you learn how to troubleshoot and resolve remote desktop connectivity (RDC) issues with your dev box. Since RDC issues to your dev box can be time consuming to resolve manually, use the *Troubleshoot & repair* tool in the developer portal to diagnose and repair some common dev box connectivity issues.
 
-Troubleshoot & repair runs some specific checks on the dev box and in the Azure infrastructure to ensure that the backend services are healthy. If an issue is detected, Troubleshoot & repair fixes the issue so you can access your dev box. 
+:::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshooting-confirm.png" alt-text="Screenshot showing the Troubleshoot and repair connectivity confirmation message with Yes, I want to troubleshoot this dev box highlighted.":::
 
-In this article, you troubleshoot and resolve remote desktop connectivity issues with your dev box through the developer portal. 
+When you run the *Troubleshoot & repair* tool, your dev box and its backend services in the Azure infrastructure are scanned for issues. If an issue is detected, *Troubleshoot & repair* fixes the issue so you can connect to your dev box.
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ In this article, you troubleshoot and resolve remote desktop connectivity issues
 
 ## Run Troubleshoot and repair
 
-If you're unable to connect to your dev box using an RDP client, you can use the Troubleshoot & repair tool from the developer portal. This tool helps you to diagnose and resolve connectivity issues.
+If you're unable to connect to your dev box using an RDP client, you can use the *Troubleshoot & repair* tool from the developer portal. This tool helps you to diagnose and resolve connectivity issues.
 
-The Troubleshoot & repair process takes between 10 to 40 minutes to complete. During this time, you can't use your dev box. The tool scans a list of critical components that relate to RDP connectivity, including but not limited to:
+The *Troubleshoot & repair* process takes between 10 to 40 minutes to complete. During this time, you can't use your dev box. The tool scans a list of critical components that relate to RDP connectivity, including but not limited to:
 - Domain join check
 - SxS stack listener readiness
 - URL accessibility check
@@ -37,9 +37,9 @@ The Troubleshoot & repair process takes between 10 to 40 minutes to complete. Du
 - Windows Guest OS readiness
 
 > [!WARNING]
-> Running Troubleshoot & repair may effectively restart your Dev Box. Any unsaved data on your Dev Box will be lost. 
+> Running *Troubleshoot & repair* may effectively restart your Dev Box. Any unsaved data on your Dev Box will be lost. 
 
-To run Troubleshoot & repair on your dev box, follow these steps:
+To run *Troubleshoot & repair* on your dev box, follow these steps:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
@@ -47,7 +47,7 @@ To run Troubleshoot & repair on your dev box, follow these steps:
  
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-running-tile.png" alt-text="Screenshot showing the dev box tile with the status Running."::: 
 
-1. If the dev box is not running, start it, and check whether you can connect to it with RDP.
+1. If the dev box isn't running, start it, and check whether you can connect to it with RDP.
 
 1. If your dev box is running and you still can't connect to it with RDP, on the Actions menu, select **Troubleshoot & repair**.
 
@@ -63,7 +63,7 @@ To run Troubleshoot & repair on your dev box, follow these steps:
 
 ## Troubleshoot & repair results
 
-When the Troubleshoot & repair process finishes, it lists the results of the checks it ran:
+When the *Troubleshoot & repair* process finishes, it lists the results of the checks it ran:
 
 |Outcome  |Description  |
 |---------|---------|
