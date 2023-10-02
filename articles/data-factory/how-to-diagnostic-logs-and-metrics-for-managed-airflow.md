@@ -76,11 +76,11 @@ You can double click on the table name to add it to query window, or you can dir
 
 2. To narrow down your search results, such as filtering them based on a specific task ID, you can use the following query:
 
-   ```kusto
-   ADFAirflowTaskLogs
-   | where DagId == "<your_dag_id>"
-   and TaskId == "<your_task_id>"
-   ```
+```kusto
+ADFAirflowTaskLogs
+| where DagId == "<your_dag_id>"
+and TaskId == "<your_task_id>"
+```
 
 Similarly, you can create custom queries according to your needs using any tables available in LogManagement.
 
