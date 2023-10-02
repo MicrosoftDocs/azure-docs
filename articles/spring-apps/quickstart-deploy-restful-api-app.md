@@ -4,7 +4,7 @@ description: Learn how to deploy RESTful API application to Azure Spring Apps.
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 10/02/2023
 ms.author: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
@@ -136,8 +136,6 @@ Use the following steps to use [OAuth 2.0 authorization code flow](../active-dir
 1. In the **Available authorizations** window, enter the client ID of the `ToDoWeb` app in the **client_id** field, select all the scopes for **Scopes** field, ignore the **client_secret** field, and then select **Authorize** to redirect to the Microsoft Entra ID sign-in page.
 
 After completing the sign in with the previous user, you're returned to the **Available authorizations** window.
-
-:::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png" alt-text="Screenshot of the Available authorizations window for Swagger." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui-logged.png":::
 
 ### Access the RESTful APIs
 
