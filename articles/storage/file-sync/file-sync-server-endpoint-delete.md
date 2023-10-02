@@ -4,7 +4,7 @@ description: Guidance on how to deprovision your Azure File Sync server endpoint
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 6/01/2021
+ms.date: 10/02/2023
 ms.author: kendownie
 ---
 
