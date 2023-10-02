@@ -302,8 +302,9 @@ You can also enable public network access by using a YAML file. For more informa
 
 You can use IP network rules to allow access to your workspace and endpoint from specific public internet IP address ranges by creating IP network rules. Each Azure Machine learning workspace supports up to 200 rules. These rules grant access to specific internet-based services and on-premises networks and block general internet traffic.
 
-> [!Tip]
-> Enable your endpoint's [public network access flag](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) if you want to allow access to your endpoint from specific public internet IP address ranges.
+> [!WARNING]
+> * Enable your endpoint's [public network access flag](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) if you want to allow access to your endpoint from specific public internet IP address ranges.
+> * When you enable this feature, this has an impact to all existing public endpoints associated with this workspace. This may limit access to new or existing endpoints. If you are trying to access any endpoints from a non-allowed IP, you will get a 403 error.
 
 # [Portal](#tab/azure-portal)
 
@@ -323,9 +324,9 @@ The following restrictions apply to IP address ranges:
 
 - You must provide allowed internet address ranges by using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form 16.17.18.0/24 or as individual IP addresses like 16.17.18.19.
 
-- Small address ranges that use /31 or /32 prefix sizes are not supported. Configure these ranges by using individual IP address rules.
-
 - Only IPv4 addresses are supported for configuration of storage firewall rules.
+
+- When this feature is enabled, You can test public endpoints using any client tool such as Postman or others, but the Endpoint Test tool in the portal is not supported.
 
 ## Securely connect to your workspace
 
