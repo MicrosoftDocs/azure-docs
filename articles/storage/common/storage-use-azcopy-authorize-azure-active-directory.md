@@ -50,7 +50,7 @@ To learn more, see [Access control model in Azure Data Lake Storage Gen2](../blo
 
 <a id="authorize-without-a-secret-store"></a>
 
-### Authorize a user identity
+## Authorize a user identity
 
 After you've verified that your user identity has been given the necessary authorization level, type the following command, and then press the ENTER key.
 
@@ -121,7 +121,7 @@ After you set these variables, you can run any azcopy command (For example: `azc
 
 <a id="service-principal"></a>
 
-### Authorize a service principal
+## Authorize a service principal
 
 This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, particularly when running on-premises. If you plan to run AzCopy on VMs that run in Azure, a managed service identity is easier to administer. To learn more, see the [Authorize a managed identity](#authorize-a-managed-identity) section of this article.
 
@@ -238,7 +238,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
 
 
-## Authorize a service principal (azcopy login command)
+### Authorize a service principal (azcopy login command)
 
 Before you run a script, you have to sign in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
 

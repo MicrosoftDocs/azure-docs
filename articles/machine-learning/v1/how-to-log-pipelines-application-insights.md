@@ -28,7 +28,7 @@ Having your logs in once place will provide a history of exceptions and error me
   ```python
   pip install opencensus-ext-azure
   ```
-* Create an [Application Insights instance](../../azure-monitor/app/opencensus-python.md) (this doc also contains information on getting the connection string for the resource)
+* Create an [Application Insights instance](/previous-versions/azure/azure-monitor/app/opencensus-python) (this doc also contains information on getting the connection string for the resource)
 
 ## Getting Started
 
