@@ -1,5 +1,5 @@
 ---
-title: What is Trino?
+title: What is Trino? (Preview)
 description: An introduction to Trino.
 ms.service: hdinsight-aks
 ms.topic: overview

@@ -1,12 +1,12 @@
 ---
-title: What's new in HDInsight on AKS?
+title: What's new in HDInsight on AKS? (Preview)
 description: An introduction to new concepts in HDInsight on AKS that aren't in HDInsight.
 ms.service: hdinsight-aks
 ms.topic: conceptual
 ms.date: 08/31/2023
 ---
 
-# What's new in HDInsight on AKS?
+# What's new in HDInsight on AKS? (Preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 

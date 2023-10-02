@@ -1,5 +1,5 @@
 ---
-title: What is Apache Flink in Azure HDInsight on AKS?
+title: What is Apache Flink in Azure HDInsight on AKS? (Preview)
 description: An introduction to Apache Flink in Azure HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to

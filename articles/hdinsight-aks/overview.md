@@ -1,5 +1,5 @@
 ---
-title: What is Azure HDInsight on AKS?
+title: What is Azure HDInsight on AKS? (Preview)
 description: An introduction to Azure HDInsight on AKS.
 ms.custom: references_regions
 ms.service: hdinsight-aks
