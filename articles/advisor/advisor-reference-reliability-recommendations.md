@@ -118,19 +118,55 @@ Some of the customer certificates for Azure Front Door Standard and Premium prof
 
 Learn more about [Front Door Profile - RenewExpiredBYOC (Renew the expired Azure Front Door customer certificate to avoid service disruption.)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#use-your-own-certificate).
 
-## Compute
+## CertificateRegistration
 
-### Migrate Virtual Machines to Availability Zones
+### Domain verification required to renew your App Service Certificate
 
-By migrating virtual machines to Availability Zones, you can ensure the isolation of your VMs from potential failures in other zones, and you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions. 
+You have an App Service Certificate that's currently in a Pending Issuance status and requires domain verification. Failure to validate domain ownership results in an unsuccessful certificate issuance. Domain verification isn't automated for App Service Certificates and requires your action.
 
-Learn more about [Availability Zones](../reliability/availability-zones-overview.md).
+Learn more about [App Service Certificate - ASCDomainVerificationRequired (Domain verification required to renew your App Service Certificate)](https://aka.ms/ASCDomainVerificationRequired).
+
+## ClassicCompute
 
 ### Enable Backups on your Virtual Machines
 
 Enable backups for your virtual machines and secure your data
 
-Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your Virtual Machines)](../backup/backup-overview.md).
+Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your Virtual Machines)](/azure/backup/backup-overview).
+
+### Cloud Services (classic) is retiring. Migrate off before 31 Aug 2024
+
+Cloud Services (classic) is retiring. Migrate off before 31 Aug 2024 to avoid any loss of data or business continuity.
+
+Learn more about [Resource - Cloud_Services_Retirement (Cloud Services (classic) is retiring. Migrate off before 31 Aug 2024)](https://aka.ms/ExternalRetirementEmailMay2022).
+
+## CognitiveServices
+
+### Quota Exceeded for this resource
+
+We have detected that the quota for your resource has been exceeded.  You can wait for it to automatically get replenished soon, or to get unblocked and use the resource again now, you can upgrade it to a paid SKU.
+
+Learn more about [Cognitive Service - CognitiveServiceQuotaExceeded (Quota Exceeded for this resource)](/azure/cognitive-services/plan-manage-costs#pay-as-you-go).
+
+### Upgrade your application to use the latest API version from Azure OpenAI
+
+We have detected that you have an Azure OpenAI resource that is being used with an older API version. Please use the latest REST API version to take advantage of the latest features and functionality.
+
+Learn more about [Cognitive Service - CogSvcApiVersionOpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference).
+
+### Upgrade your application to use the latest API version from Azure OpenAI
+
+We have detected that you have an Azure OpenAI resource that is being used with an older API version. Please use the latest REST API version to take advantage of the latest features and functionality.
+
+Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/en-us/azure/cognitive-services/openai/reference).
+
+### Upgrade your application to use the latest API version from Azure OpenAI
+
+We have detected that you have an Azure OpenAI resource that is being used with an older API version. Please use the latest REST API version to take advantage of the latest features and functionality.
+
+Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/en-us/azure/cognitive-services/openai/reference).
+
+## Compute
 
 ### Upgrade the standard disks attached to your premium-capable VM to premium disks
 
@@ -155,17 +191,71 @@ Using IP Address based filtering has been identified as a vulnerable way to cont
 
 Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServiceTags (Update your outbound connectivity protocol to Service Tags for Azure Site Recovery)](https://aka.ms/azure-site-recovery-using-service-tags).
 
+### Update your firewall configurations to allow new RHUI 4 IPs
+
+Starting October 12, 2023, your VMSS will start receiving package content from RHUI4 servers. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, please allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
+
+Learn more about [Virtual machine scale set - Rhui3ToRhui4MigrationVMSS (Update your firewall configurations to allow new RHUI 4 IPs)](https://aka.ms/rhui-server-list).
+
+### Update your firewall configurations to allow new RHUI 4 IPs
+
+Starting October 12, 2023, your VM/VMSS will start receiving package content from RHUI4 servers. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, please allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
+
+Learn more about [Virtual machine - Rhui3ToRhui4MigrationV2 (Update your firewall configurations to allow new RHUI 4 IPs)](https://aka.ms/rhui-server-list).
+
+### Virtual Machines in your subscription are running on images that have been scheduled for deprecation
+
+Virtual Machines in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, new VMs cannot be created from the deprecated image. Upgrade to newer Offer of the image to prevent disruption to your workloads.
+
+Learn more about [Virtual machine - VMRunningDeprecatedOfferLevelImage (Virtual Machines in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
+
+### Virtual Machines in your subscription are running on images that have been scheduled for deprecation
+
+Virtual Machines in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, new VMs cannot be created from the deprecated image. Upgrade to newer SKU of the image to prevent disruption to your workloads.
+
+Learn more about [Virtual machine - VMRunningDeprecatedPlanLevelImage (Virtual Machines in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
+
+### Virtual Machines in your subscription are running on images that have been scheduled for deprecation
+
+Virtual Machines in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, new VMs cannot be created from the deprecated image. Upgrade to newer version of the image to prevent disruption to your workloads.
+
+Learn more about [Virtual machine - VMRunningDeprecatedImage (Virtual Machines in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
+
+### VMSS in your subscription are running on images that have been scheduled for deprecation
+
+VMSS in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, your VMSS workloads would no longer scale out. Upgrade to newer Offer of the image to prevent disruption to your workload.
+
+Learn more about [Virtual machine scale set - VMScaleSetRunningDeprecatedOfferImage (VMSS in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
+
+### VMSS in your subscription are running on images that have been scheduled for deprecation
+
+VMSS in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, your VMSS workloads would no longer scale out. Upgrade to newer version of the image to prevent disruption to your workload.
+
+Learn more about [Virtual machine scale set - VMScaleSetRunningDeprecatedImage (VMSS in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
+
+### VMSS in your subscription are running on images that have been scheduled for deprecation
+
+VMSS in your subscription are running on images that have been scheduled for deprecation. Once the image is deprecated, your VMSS workloads would no longer scale out. Upgrade to newer Plan of the image to prevent disruption to your workload.
+
+Learn more about [Virtual machine scale set - VMScaleSetRunningDeprecatedPlanImage (VMSS in your subscription are running on images that have been scheduled for deprecation)](https://aka.ms/DeprecatedImagesFAQ).
+
+### Use Availability zones for better resiliency and availability
+
+Availability Zones (AZ) in Azure help protect your applications and data from datacenter failures. Each AZ is made up of one or more datacenters equipped with independent power, cooling, and networking. By designing solutions to use zonal VMs, you can isolate your VMs from failure in any other zone.
+
+Learn more about [Virtual machine - AvailabilityZoneVM (Use Availability zones for better resiliency and availability)](https://learn.microsoft.com/azure/reliability/availability-zones-overview).
+
+### FE - ARG sample recommendations
+
+This is a sample ARG recommendation - FE.
+
+Learn more about [Virtual machine - FETestARGRecommendation (FE - ARG sample recommendations)]().
+
 ### Use Managed Disks to improve data reliability
 
 Virtual machines in an Availability Set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Migrate to Azure Managed Disks to ensure that the disks of different VMs in the Availability Set are sufficiently isolated to avoid a single point of failure.
 
 Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to improve data reliability)](https://aka.ms/aa_avset_manageddisk_learnmore).
-
-### Check Point Virtual Machine may lose Network Connectivity.
-
-We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. It is recommended that you upgrade to a newer version of the image. Contact Check Point for further instructions on how to upgrade your image.
-
-Learn more about [Virtual machine - CheckPointPlatformServicingKnownIssueA (Check Point Virtual Machine may lose Network Connectivity.)](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk151752&partition=Advanced&product=CloudGuard).
 
 ### Access to mandatory URLs missing for your Azure Virtual Desktop environment
 
