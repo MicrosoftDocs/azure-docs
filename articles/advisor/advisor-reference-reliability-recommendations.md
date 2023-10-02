@@ -285,15 +285,15 @@ Learn more about [Kubernetes service - ClustersUsingBSeriesVMs (Clusters having 
 
 As previously announced, Azure Data Lake Storage Gen1 will be retired on February 29, 2024. We highly recommend migrating your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics and is built on top of Azure Blob Storage.
 
-Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](azure/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
+Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](/azure/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
 ## MySQL
 
 ### Replication - Add a primary key to the table that currently does not have one
 
-Based on our internal monitoring, we have observed significant replication lag on your replica server. This lag is occurring because the replica server is replaying relay logs on a table that lacks a primary key. To ensure that the replica server can effectively synchronize with the master and keep up with changes, we highly recommend adding primary keys to the tables in the master server and subsequently recreating the replica server.
+Based on our internal monitoring, we have observed significant replication lag on your replica server. This lag is occurring because the replica server is replaying relay logs on a table that lacks a primary key. To ensure that the replica server can effectively synchronize with the primary and keep up with changes, we highly recommend adding primary keys to the tables in the primary server and subsequently recreating the replica server.
 
-Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerReplicaMissingPKfb41 (Replication - Add a primary key to the table that currently does not have one)](azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerReplicaMissingPKfb41 (Replication - Add a primary key to the table that currently does not have one)](/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
 
 ### High Availability - Add primary key to the table that currently does not have one.
 
