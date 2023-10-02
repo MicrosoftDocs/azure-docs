@@ -93,7 +93,7 @@ To run the *Summarization* container, execute the following `docker run` command
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/summarization/language \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
