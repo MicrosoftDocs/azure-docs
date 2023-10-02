@@ -81,13 +81,13 @@ You can import the ingress TLS certificate to the cluster using one of the follo
     spec:
       provider: azure
       secretObjects:                            # secretObjects defines the desired state of synced K8s secret objects
-     - secretName: ingress-tls-csi
-        type: kubernetes.io/tls
-        data: 
-        - objectName: $CERT_NAME
-          key: tls.key
-        - objectName: $CERT_NAME
-          key: tls.crt
+        - secretName: ingress-tls-csi
+          type: kubernetes.io/tls
+          data: 
+            - objectName: $CERT_NAME
+              key: tls.key
+            - objectName: $CERT_NAME
+              key: tls.crt
       parameters:
         usePodIdentity: "false"
         useVMManagedIdentity: "true"
