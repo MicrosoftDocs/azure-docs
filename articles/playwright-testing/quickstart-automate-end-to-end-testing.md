@@ -114,7 +114,7 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
 1. Create a new file `playwright.service.config.ts` alongside the `playwright.config.ts` file.
 
-1. Create a file `playwright.service.config.ts` and add the following content to it:
+1. Add the following content to it:
 
     ```typescript
     import { defineConfig } from '@playwright/test';
