@@ -15,9 +15,7 @@ ms.custom: template-tutorial, mode-ui, engagement-fy23
 
 # Quickstart: Create a Front Door for a highly available global web application
 
-Get started with Azure Front Door by using the Azure portal to set up high availability for a web application.
-
-In this quickstart, Azure Front Door pools two instances of a web application that run in different Azure regions. You create a Front Door configuration based on equal weighted and same priority backends. This configuration directs traffic to the nearest site that runs the application. Azure Front Door continuously monitors the web application. The service provides automatic failover to the next available site when the nearest site is unavailable.
+This quickstart shows you how to use the Azure portal to set up high availability for a web application with Azure Front Door. You create a Front Door configuration that distributes traffic across two instances of a web application running in different Azure regions. The configuration uses equal weighted and same priority backends, which means that Azure Front Door directs traffic to the closest available site that hosts the application. Azure Front Door also monitors the health of the web application and perform automatic failover to the next nearest site if the closest site is down.
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
 
@@ -27,68 +25,70 @@ In this quickstart, Azure Front Door pools two instances of a web application th
 
 ## Create two instances of a web app
 
-This quickstart requires two instances of a web application that run in different Azure regions. Both the web application instances run in *Active/Active* mode, so either one can take traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
+To complete this quickstart, you need two instances of a web application running in different Azure regions. The web application instances operate in *Active/Active* mode, which means that they can both handle traffic simultaneously. This setup is different from *Active/Stand-By* mode, where one instance serves as a backup for the other.
 
-If you don't already have a web app, use the following steps to set up example web apps.
+To follow this quickstart, you need two web apps that run in different Azure regions. If you don't have them already, you can use these steps to create example web apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the top left-hand side of the screen, select **Create a resource** >  **Web App**.
+1. On the top left corner of the screen, select **+ Create a resource** and then search for **Web App**.
 
     :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Create a web app in the Azure portal." lightbox="./media/quickstart-create-front-door/front-door-create-web-app.png":::
 
-1. In the **Basics** tab of **Create Web App** page, enter or select the following information.
+1. On the Basics tab of the Create Web App page, provide or select the following details.
 
-    | Setting                 | Value                                              |
-    | ---                     | ---                                                |
-    | **Subscription**               | Select your subscription. |    
-    | **Resource group**       | Select **Create new** and enter *FrontDoorQS_rg1* in the text box.|
-    | **Name**                   | Enter a unique **Name** for your web app. This example uses *WebAppContoso-1*. |
+    | Setting | Value |
+    |--|--|
+    | **Subscription** | Choose your subscription. |  |
+    | **Resource group** | Select **Create new** and type *FrontDoorQS_rg1* in the text box. |
+    | **Name** | 	Type a unique **Name** for your web app. For example, *WebAppContoso-1*. |
     | **Publish** | Select **Code**. |
-    | **Runtime stack**         | Select **.NET Core 3.1 (LTS)**. |
-    | **Operating System**          | Select **Windows**. |
-    | **Region**           | Select **Central US**. |
-    | **Windows Plan** | Select **Create new** and enter *myAppServicePlanCentralUS* in the text box. |
+    | **Runtime stack** | Select **.NET Core 3.1 (LTS)**. |
+    | **Operating System** | Select **Windows**. |
+    | **Region** | Select **Central US**. |
+    | **Windows Plan** | Select **Create new** and type *myAppServicePlanCentralUS* in the text box. |
     | **Sku and size** | Select **Standard S1 100 total ACU, 1.75 GB memory**. |
 
-1. Select **Review + create**, review the **Summary**, and then select **Create**. It might take several minutes for the deployment to complete.
+1. Select **Review + create** and verify the summary details. Then, select **Create** to initiate the deployment process. Note that the deployment may take several minutes to complete.
 
     :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Screenshot showing Create Web App page." lightbox="./media/quickstart-create-front-door/create-web-app.png":::
 
-After your deployment is complete, create a second web app. Use the same procedure with the same values, except for the following values:
+Once you have successfully deployed your first web app, proceed to create another one. Follow the same steps and enter the same values as before, except for the ones listed below:
 
-| Setting          | Value     |
-| ---              | ---  |
-| **Resource group**   | Select **Create new** and enter *FrontDoorQS_rg2* |
-| **Name**             | Enter a unique name for your Web App, in this example, *WebAppContoso-2*  |
-| **Region**           | A different region, in this example, *East US* |
-| **App Service plan** > **Windows Plan**         | Select **New** and enter *myAppServicePlanEastUS*, and then select **OK** |
+| Setting | Value |
+|--|--|
+| **Resource group** | Select **Create new** and type *FrontDoorQS_rg2* |
+| **Name** | Type a unique name for your Web App, for example, *WebAppContoso-2* |
+| **Region** | Select a different region than the first Web App, for example, *East US* |
+| **App Service plan** > **Windows Plan** | Select **New** and type *myAppServicePlanEastUS*, and then select **OK** |
 
 ## Create a Front Door for your application
 
-Configure Azure Front Door to direct user traffic based on lowest latency between the two web apps servers. To begin, add a frontend host for Azure Front Door.
+Set up Azure Front Door to route user traffic based on the lowest latency between the two web app servers. Start by adding a frontend host for Azure Front Door.
 
-1. From the home page or the Azure menu, select **Create a resource**. Select **Networking** > **See All** > **Front Door and CDN profiles**.
-1. On the Compare offerings page, select **Explore other offerings**. Then select **Azure Front Door (classic)**. Then select **Continue**.
-1. In the **Basics** tab of **Create a Front Door** page, enter or select the following information, and then select **Next: Configuration**.
+1. From the home page or the Azure menu, select **+ Create a resource**. Select **Networking** > **Front Door and CDN profiles**.
+
+1. On the *Compare offerings* page, select **Explore other offerings**. Then select **Azure Front Door (classic)**. Then select **Continue**.
+
+1. In the Basics tab of *Create a Front Door* page, provide or select the following information, and then select **Next: Configuration**.
 
     | Setting | Value |
     | --- | --- |
     | **Subscription** | Select your subscription. |    
-    | **Resource group** | Select **Create new** and enter *FrontDoorQS_rg0* in the text box.|
+    | **Resource group** | Select **Create new** and type *FrontDoorQS_rg0* in the text box.|
     | **Resource group location** | Select **Central US**. |
 
-1. In **Frontends/domains**, select **+** to open **Add a frontend host**.
+1. In **Frontends/domains**, select **+** to open **Add a frontend host** page.
 
-1. For **Host name**, enter a globally unique hostname. This example uses *contoso-frontend*. Select **Add**.
+1. For **Host name**, type a globally unique hostname. For example, *contoso-frontend*. Select **Add**.
 
     :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Add a frontend host for Azure Front Door." lightbox="./media/quickstart-create-front-door/add-frontend-host-azure-front-door.png":::
 
-Next, create a backend pool that contains your two web apps.
+Next, set up a backend pool that includes your two web apps.
 
-1. Still in **Create a Front Door**, in **Backend pools**, select **+** to open **Add a backend pool**.
+1. Still in **Create a Front Door**, in **Backend pools**, select **+** to open the **Add a backend pool** page.
 
-1. For **Name**, enter *myBackendPool*, then select **Add a backend**.
+1. For **Name**, type *myBackendPool*, then select **Add a backend**.
 
     :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Add a backend pool." lightbox="./media/quickstart-create-front-door/front-door-add-backend-pool.png":::
 
