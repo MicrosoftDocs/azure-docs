@@ -12,10 +12,7 @@ ms.author: femila
 > [!IMPORTANT]
 > This content applies to Azure Virtual Desktop with Azure Resource Manager objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
-Azure Virtual Desktop supports graphics processing unit (GPU) acceleration in rendering and encoding for improved app performance and scalability. GPU acceleration is crucial for graphics-intensive apps and is supported in the following operating systems:
-
-* Windows 10 version 1511 or newer
-* Windows Server 2016 or newer
+Azure Virtual Desktop supports graphics processing unit (GPU) acceleration in rendering and encoding for improved app performance and scalability. GPU acceleration is crucial for graphics-intensive apps and can be used with all [supported operating systems](prerequisites.md#operating-systems-and-licenses) for Azure Virtual Desktop.
 
 The list doesn't specifically include multi-session versions of Windows. However, each GPU in NV-series Azure virtual machines (VMs) comes with a GRID license that supports 25 concurrent users. For more information, see [NV-series](../virtual-machines/nv-series.md).
 
