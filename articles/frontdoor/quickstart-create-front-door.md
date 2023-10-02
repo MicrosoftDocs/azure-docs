@@ -39,7 +39,7 @@ To follow this quickstart, you need two web apps that run in different Azure reg
 
     | Setting | Value |
     |--|--|
-    | **Subscription** | Choose your subscription. |  |
+    | **Subscription** | Choose your subscription. |
     | **Resource group** | Select **Create new** and type *FrontDoorQS_rg1* in the text box. |
     | **Name** | 	Type a unique **Name** for your web app. For example, *WebAppContoso-1*. |
     | **Publish** | Select **Code**. |
