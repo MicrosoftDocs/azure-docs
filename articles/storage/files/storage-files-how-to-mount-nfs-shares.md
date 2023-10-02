@@ -66,7 +66,7 @@ The following mount options are recommended or required when mounting NFS Azure 
 
 1. Once the file share is created, select the share and select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script.
-1. Connect to your client and use the provided mounting script. Only the required mount options are provided in the script, but you can add others from [Recommended mount options](#recommended-mount-options).
+1. Connect to your client and use the provided mounting script. Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Screenshot of file share connect blade.":::
 
