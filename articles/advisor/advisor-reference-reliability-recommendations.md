@@ -74,7 +74,7 @@ Learn more about [Microsoft App Container App - ContainerAppMinimalReplicaCountT
 
 ### Renew custom domain certificate
 
-We detected the custom domain certificate you uploaded is near expiration. Please renew your certificate and upload the new certificate for your container apps.
+We detected the custom domain certificate you uploaded is near expiration. Renew your certificate and upload the new certificate for your container apps.
 
 Learn more about [Microsoft App Container App - ContainerAppCustomDomainCertificateNearExpiration (Renew custom domain certificate)](https://aka.ms/containerappcustomdomaincert).
 
@@ -83,6 +83,12 @@ Learn more about [Microsoft App Container App - ContainerAppCustomDomainCertific
 A potential networking issue has been identified for your Container Apps Environments. To prevent this potential networking issue from impacting your Container Apps Environment, create a new Container Apps Environment, re-create your Container Apps in the new environment, and delete the old Container Apps Environment
 
 Learn more about [Managed Environment - CreateNewContainerAppsEnvironment (A potential networking issue has been identified with your Container Apps Environment that requires it to be re-created to avoid DNS issues)](https://aka.ms/createcontainerapp).
+
+### Domain verification required to renew your App Service Certificate
+
+You have an App Service Certificate that's currently in a Pending Issuance status and requires domain verification. Failure to validate domain ownership results in an unsuccessful certificate issuance. Domain verification isn't automated for App Service Certificates and requires your action.
+
+Learn more about [App Service Certificate - ASCDomainVerificationRequired (Domain verification required to renew your App Service Certificate)](https://aka.ms/ASCDomainVerificationRequired).
 
 ## Cache
 
@@ -108,39 +114,23 @@ Learn more about [Front Door Profile - ValidateDomainOwnership (Validate domain 
 
 ### Re-validate domain ownership for the Azure Front Door managed certificate renewal
 
-Azure Front Door cannot automatically renew the managed certificate because the domain is not CNAME mapped to AFD endpoint. Please re-validate domain ownership for the managed certificate to be automatically renewed.
+Azure Front Door cannot automatically renew the managed certificate because the domain is not CNAME mapped to AFD endpoint. Re-validate domain ownership for the managed certificate to be automatically renewed.
 
 Learn more about [Front Door Profile - RevalidateDomainOwnership (Re-validate domain ownership for the Azure Front Door managed certificate renewal)](/azure/frontdoor/standard-premium/how-to-add-custom-domain#domain-validation-state).
 
 ### Renew the expired Azure Front Door customer certificate to avoid service disruption
 
-Some of the customer certificates for Azure Front Door Standard and Premium profiles expired. Please renew the certificate in time to avoid service disruption.
+Some of the customer certificates for Azure Front Door Standard and Premium profiles expired. Renew the certificate in time to avoid service disruption.
 
 Learn more about [Front Door Profile - RenewExpiredBYOC (Renew the expired Azure Front Door customer certificate to avoid service disruption.)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#use-your-own-certificate).
-
-## CertificateRegistration
-
-### Domain verification required to renew your App Service Certificate
-
-You have an App Service Certificate that's currently in a Pending Issuance status and requires domain verification. Failure to validate domain ownership results in an unsuccessful certificate issuance. Domain verification isn't automated for App Service Certificates and requires your action.
-
-Learn more about [App Service Certificate - ASCDomainVerificationRequired (Domain verification required to renew your App Service Certificate)](https://aka.ms/ASCDomainVerificationRequired).
-
-## ClassicCompute
-
-### Enable Backups on your Virtual Machines
-
-Enable backups for your virtual machines and secure your data
-
-Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your Virtual Machines)](/azure/backup/backup-overview).
 
 ### Cloud Services (classic) is retiring. Migrate off before 31 Aug 2024
 
 Cloud Services (classic) is retiring. Migrate off before 31 Aug 2024 to avoid any loss of data or business continuity.
 
-Learn more about [Resource - Cloud_Services_Retirement (Cloud Services (classic) is retiring. Migrate off before 31 Aug 2024)](https://aka.ms/ExternalRetirementEmailMay2022).
+Learn more about [Resource - Cloud Services Retirement (Cloud Services (classic) is retiring. Migrate off before 31 Aug 2024)](https://aka.ms/ExternalRetirementEmailMay2022).
 
-## CognitiveServices
+## Cognitive Services
 
 ### Quota Exceeded for this resource
 
@@ -150,23 +140,29 @@ Learn more about [Cognitive Service - CognitiveServiceQuotaExceeded (Quota Excee
 
 ### Upgrade your application to use the latest API version from Azure OpenAI
 
-We have detected that you have an Azure OpenAI resource that is being used with an older API version. Please use the latest REST API version to take advantage of the latest features and functionality.
+We have detected that you have an Azure OpenAI resource that is being used with an older API version. Use the latest REST API version to take advantage of the latest features and functionality.
 
-Learn more about [Cognitive Service - CogSvcApiVersionOpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference).
-
-### Upgrade your application to use the latest API version from Azure OpenAI
-
-We have detected that you have an Azure OpenAI resource that is being used with an older API version. Please use the latest REST API version to take advantage of the latest features and functionality.
-
-Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/en-us/azure/cognitive-services/openai/reference).
+Learn more about [Cognitive Service - CogSvcApiVersionOpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/azure/cognitive-services/openai/reference).
 
 ### Upgrade your application to use the latest API version from Azure OpenAI
 
-We have detected that you have an Azure OpenAI resource that is being used with an older API version. Please use the latest REST API version to take advantage of the latest features and functionality.
+We have detected that you have an Azure OpenAI resource that is being used with an older API version. Use the latest REST API version to take advantage of the latest features and functionality.
 
-Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/en-us/azure/cognitive-services/openai/reference).
+Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/azure/cognitive-services/openai/reference).
+
+### Upgrade your application to use the latest API version from Azure OpenAI
+
+We have detected that you have an Azure OpenAI resource that is being used with an older API version. Use the latest REST API version to take advantage of the latest features and functionality.
+
+Learn more about [Cognitive Service - API version: OpenAI (Upgrade your application to use the latest API version from Azure OpenAI)](/azure/cognitive-services/openai/reference).
 
 ## Compute
+
+### Enable Backups on your Virtual Machines
+
+Enable backups for your virtual machines and secure your data
+
+Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on your Virtual Machines)](../backup/backup-overview.md).
 
 ### Upgrade the standard disks attached to your premium-capable VM to premium disks
 
@@ -193,13 +189,13 @@ Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServi
 
 ### Update your firewall configurations to allow new RHUI 4 IPs
 
-Starting October 12, 2023, your VMSS will start receiving package content from RHUI4 servers. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, please allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
+Starting October 12, 2023, your VMSS will start receiving package content from RHUI4 servers. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
 
 Learn more about [Virtual machine scale set - Rhui3ToRhui4MigrationVMSS (Update your firewall configurations to allow new RHUI 4 IPs)](https://aka.ms/rhui-server-list).
 
 ### Update your firewall configurations to allow new RHUI 4 IPs
 
-Starting October 12, 2023, your VM/VMSS will start receiving package content from RHUI4 servers. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, please allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
+Starting October 12, 2023, your VM/VMSS will start receiving package content from RHUI4 servers. If you're allowing RHUI 3 IPs [https://aka.ms/rhui-server-list] via firewall and proxy, allow the new RHUI 4 IPs [https://aka.ms/rhui-server-list] to continue receiving RHEL package updates.
 
 Learn more about [Virtual machine - Rhui3ToRhui4MigrationV2 (Update your firewall configurations to allow new RHUI 4 IPs)](https://aka.ms/rhui-server-list).
 
@@ -243,13 +239,19 @@ Learn more about [Virtual machine scale set - VMScaleSetRunningDeprecatedPlanIma
 
 Availability Zones (AZ) in Azure help protect your applications and data from datacenter failures. Each AZ is made up of one or more datacenters equipped with independent power, cooling, and networking. By designing solutions to use zonal VMs, you can isolate your VMs from failure in any other zone.
 
-Learn more about [Virtual machine - AvailabilityZoneVM (Use Availability zones for better resiliency and availability)](https://learn.microsoft.com/azure/reliability/availability-zones-overview).
+Learn more about [Virtual machine - AvailabilityZoneVM (Use Availability zones for better resiliency and availability)](/azure/reliability/availability-zones-overview).
 
-### FE - ARG sample recommendations
+### Use Managed Disks to improve data reliability
 
-This is a sample ARG recommendation - FE.
+Virtual machines in an Availability Set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Migrate to Azure Managed Disks to ensure that the disks of different VMs in the Availability Set are sufficiently isolated to avoid a single point of failure.
 
-Learn more about [Virtual machine - FETestARGRecommendation (FE - ARG sample recommendations)]().
+Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to improve data reliability)](https://aka.ms/aa_avset_manageddisk_learnmore).
+
+### Check Point Virtual Machine may lose Network Connectivity.
+
+We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. It is recommended that you upgrade to a newer version of the image. Contact Check Point for further instructions on how to upgrade your image.
+
+Learn more about [Virtual machine - CheckPointPlatformServicingKnownIssueA (Check Point Virtual Machine may lose Network Connectivity.)](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk151752&partition=Advanced&product=CloudGuard).
 
 ### Use Managed Disks to improve data reliability
 
@@ -372,7 +374,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgra
 
 ### Upgrade your Azure Fluid Relay client library
 
-You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library should now be upgraded to the latest version to ensure your application remains operational. Upgrading provides the most up-to-date functionality, as well as enhancements in performance and stability. For more information on the latest version to use and how to upgrade, please refer to the article.
+You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library should now be upgraded to the latest version to ensure your application remains operational. Upgrading provides the most up-to-date functionality, as well as enhancements in performance and stability. For more information on the latest version to use and how to upgrade, see [Microsoft Azure Fluid Relay management client library for .NET](/azure/resourcemanager.fluidrelay-readme?view=azure-dotnet)
 
 Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure Fluid Relay client library)](https://github.com/microsoft/FluidFramework).
 
@@ -446,7 +448,7 @@ Learn more about [Kubernetes - Azure Arc - Arc-enabled K8s agent version upgrade
 
 ### Increase Media Services quotas or limits to ensure continuity of service.
 
-Please be advised that your media account is about to hit its quota limits. Review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Do not create additional Azure Media accounts in an attempt to obtain higher limits.
+Your media account is about to hit its quota limits. Review current usage of Assets, Content Key Policies and Stream Policies for the media account. To avoid any disruption of service, you should request quota limits to be increased for the entities that are closer to hitting quota limit. You can request quota limits to be increased by opening a ticket and adding relevant details to it. Do not create additional Azure Media accounts in an attempt to obtain higher limits.
 
 Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quotas or limits to ensure continuity of service.)](https://aka.ms/ams-quota-recommendation/).
 
