@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -38,28 +38,15 @@ Returns a numeric expression.
   
 The following example illustrates how to get the length of an array using the function.
 
-```sql
-SELECT VALUE {
-    length: ARRAY_LENGTH([70, 86, 92, 99, 85, 90, 82]),
-    emptyLength: ARRAY_LENGTH([]),
-    nullLength: ARRAY_LENGTH(null)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/array-length/query.sql" highlight="2-4":::  
 
-```json
-[
-  {
-    "length": 7,
-    "emptyLength": 0
-  }
-]
-```  
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/array-length/result.json":::
 
 ## Remarks
 
 - This system function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`ARRAY_SLICE`](array-slice.md)

@@ -1,5 +1,5 @@
 ---
-title: New AWS connector in Microsoft Defender for Cloud
+title: New AWS connector
 description: Learn all about the new AWS connector in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.date: 04/27/2023
@@ -9,9 +9,7 @@ ms.date: 04/27/2023
 
 **Episode description**: In this episode of Defender for Cloud in the field, Or Serok joins Yuri Diogenes to share the new AWS connector in Microsoft Defender for Cloud, which was released at Ignite 2021. Or explains the use case scenarios for the new connector and how the new connector work. She demonstrates the onboarding process to connect AWS with Microsoft Defender for Cloud and talks about the centralized management of all security recommendations.
 
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=26cbaec8-0f3f-4bb1-9918-1bf7d912db57" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=26cbaec8-0f3f-4bb1-9918-1bf7d912db57]
 
 - [00:00](/shows/mdc-in-the-field/aws-connector) - Introduction
 

@@ -1,6 +1,6 @@
 ---
 title: Search categories for the Bing Local Business Search API
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 description: Use this article to learn how to specify search categories for the Bing Local Business search API endpoint.
 services: cognitive-services
 author: aahill
@@ -14,7 +14,7 @@ ms.author: rosh
 
 # Search categories for the Bing Local Business Search API
 
-[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+[!INCLUDE [Bing move notice](../bing-web-search/includes/bing-move-notice.md)]
 
 The Bing Local Business Search API enables you to search for local business entities in a variety of categories, with priority given to results close a user's location. You can include these searches in searches along with the `localCircularView` and `localMapView` [parameters](specify-geographic-search.md).
 

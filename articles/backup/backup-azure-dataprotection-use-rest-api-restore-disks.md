@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 05/25/2023
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore Azure Disks using Azure Data Protection REST API

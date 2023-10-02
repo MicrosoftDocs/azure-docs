@@ -118,7 +118,8 @@ The allowed values for a user ID type are:
 | **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
-| **PUID** | A Microsoft 365 User ID. | `10032001582F435C` |
+| **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |
+| **SalesforceId** | A Salesforce user ID. | `00530000009M943` |
 
 #### The user name
 

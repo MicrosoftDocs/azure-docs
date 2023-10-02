@@ -1,8 +1,8 @@
 ---
-title: What's New in Azure Lab Services | Microsoft Docs
+title: What's New in Azure Lab Services
 description: Learn what's new in the Azure Lab Services August 2022 Updates. 
 ms.topic: overview
-ms.date: 07/04/2022
+ms.date: 08/28/2023
 ms.custom: devdivchpfy22
 ---
 

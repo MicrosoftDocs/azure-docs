@@ -3,7 +3,8 @@ title: Set up Private Link with Azure Virtual Desktop - Azure
 description: Learn how to set up Private Link with Azure Virtual Desktop to privately connect to your remote resources.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 07/13/2023
+ms.custom: devx-track-azurepowershell
+ms.date: 07/17/2023
 ms.author: daknappe
 ---
 
@@ -25,12 +26,28 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
+- Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
+
 ## Enable the feature
 
-To use of Private Link with Azure Virtual Desktop, first you need to re-register the *Microsoft.DesktopVirtualization* resource provider and register the *Azure Virtual Desktop Private Link* feature on your Azure subscription.
+To use Private Link with Azure Virtual Desktop, you need to re-register the *Microsoft.DesktopVirtualization* resource provider on each each subscription you want to use Private Link with Azure Virtual Desktop.
 
 > [!IMPORTANT]
-> You need to re-register the resource provider and register the feature for each subscription you want to use Private Link with Azure Virtual Desktop.
+> For Azure US Gov and Azure operated by 21Vianet, you also need to register the feature for each subscription.
+
+### Register the feature (Azure US Gov and Azure operated by 21Vianet only)
+
+To register the *Azure Virtual Desktop Private Link* feature:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter **Subscriptions** and select the matching service entry.
+
+1. Select the name of your subscription, then in the **Settings** section, select **Preview features**.
+
+1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
+
+1. Select **Azure Virtual Desktop Private Link**, then select **Register**.
 
 ### Re-register the resource provider
 
@@ -45,20 +62,6 @@ To re-register the *Microsoft.DesktopVirtualization* resource provider:
 1. Search for and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
 1. Verify that the status of *Microsoft.DesktopVirtualization* is **Registered**.
-
-### Register the feature
-
-To register the *Azure Virtual Desktop Private Link* feature:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search bar, enter **Subscriptions** and select the matching service entry.
-
-1. Select the name of your subscription, then in the **Settings** section, select **Preview features**.
-
-1. Select the drop-down list for the filter **Type** and set it to **Microsoft.DesktopVirtualization**.
-
-1. Select **Azure Virtual Desktop Private Link**, then select **Register**.
 
 ## Create private endpoints
 
@@ -122,85 +125,6 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
 1. Select **Create** to create the private endpoint for the connection sub-resource.
 
-# [Azure CLI](#tab/cli)
-
-Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [network](/cli/azure/network) and [desktopvirtualization](/cli/azure/desktopvirtualization) extensions for Azure CLI.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
-[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
-
-2. Create a Private Link service connection and the private endpoint for a host pool with the connection sub-resource by running the commands in one of the following examples.
-
-   1. To create a private endpoint with a dynamically allocated IP address:
-   
-      ```azurecli
-      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
-      location=<Location>
-      
-      # Get the resource ID of the host pool
-      hostPoolId=$(az desktopvirtualization hostpool show \
-          --name <HostPoolName> \
-          --resource-group <ResourceGroupName> \
-          --query [id] \
-          --output tsv)
-      
-      # Create a service connection and the private endpoint
-      az network private-endpoint create \
-          --name <PrivateEndpointName> \
-          --resource-group <ResourceGroupName> \
-          --location $location \
-          --vnet-name <VNetName> \
-          --subnet <SubnetName> \
-          --connection-name <ConnectionName> \
-          --private-connection-resource-id $hostPoolId \
-          --group-id connection \
-          --output table
-      ```
-
-   1. To create a private endpoint with statically allocated IP addresses:
-   
-      ```azurecli
-      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
-      location=<Location>
-      
-      # Get the resource ID of the host pool
-      hostPoolId=$(az desktopvirtualization hostpool show \
-          --name <HostPoolName> \
-          --resource-group <ResourceGroupName> \
-          --query [id] \
-          --output tsv)
-      
-      # Store each private endpoint IP configuration in a variable
-      ip1={name:ipconfig1,group-id:connection,member-name:broker,private-ip-address:<IPAddress>}
-      ip2={name:ipconfig2,group-id:connection,member-name:diagnostics,private-ip-address:<IPAddress>}
-      ip3={name:ipconfig3,group-id:connection,member-name:gateway-ring-map,private-ip-address:<IPAddress>}
-      ip4={name:ipconfig4,group-id:connection,member-name:web,private-ip-address:<IPAddress>}
-      
-      # Create a service connection and the private endpoint
-      az network private-endpoint create \
-          --name <PrivateEndpointName> \
-          --resource-group <ResourceGroupName> \
-          --location $location \
-          --vnet-name <VNetName> \
-          --subnet <SubnetName> \
-          --connection-name <ConnectionName> \
-          --private-connection-resource-id $hostPoolId \
-          --group-id connection \
-          --ip-configs [$ip1,$ip2,$ip3,$ip4] \
-          --output table
-      ```
-
-   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
-
-   ```output
-   CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
-   ----------------------------  ----------  --------------------  -------------------  ---------------
-                                 uksouth     endpoint-hp01         Succeeded            privatelink
-   ```
-
-3. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -318,6 +242,86 @@ Here's how to create a private endpoint for the *connection* sub-resource used f
 
 5. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
 
+# [Azure CLI](#tab/cli)
+
+Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [network](/cli/azure/network) and [desktopvirtualization](/cli/azure/desktopvirtualization) extensions for Azure CLI.
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Create a Private Link service connection and the private endpoint for a host pool with the connection sub-resource by running the commands in one of the following examples.
+
+   1. To create a private endpoint with a dynamically allocated IP address:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
+      location=<Location>
+      
+      # Get the resource ID of the host pool
+      hostPoolId=$(az desktopvirtualization hostpool show \
+          --name <HostPoolName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $hostPoolId \
+          --group-id connection \
+          --output table
+      ```
+
+   1. To create a private endpoint with statically allocated IP addresses:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network and session hosts.
+      location=<Location>
+      
+      # Get the resource ID of the host pool
+      hostPoolId=$(az desktopvirtualization hostpool show \
+          --name <HostPoolName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
+      
+      # Store each private endpoint IP configuration in a variable
+      ip1={name:ipconfig1,group-id:connection,member-name:broker,private-ip-address:<IPAddress>}
+      ip2={name:ipconfig2,group-id:connection,member-name:diagnostics,private-ip-address:<IPAddress>}
+      ip3={name:ipconfig3,group-id:connection,member-name:gateway-ring-map,private-ip-address:<IPAddress>}
+      ip4={name:ipconfig4,group-id:connection,member-name:web,private-ip-address:<IPAddress>}
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $hostPoolId \
+          --group-id connection \
+          --ip-configs [$ip1,$ip2,$ip3,$ip4] \
+          --output table
+      ```
+
+   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
+
+   ```output
+   CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
+   ----------------------------  ----------  --------------------  -------------------  ---------------
+                                 uksouth     endpoint-hp01         Succeeded            privatelink
+   ```
+
+3. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
+
 ---
 
 > [!IMPORTANT]
@@ -371,76 +375,6 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 1. Select **Create** to create the private endpoint for the feed sub-resource.
 
-# [Azure CLI](#tab/cli)
-
-1. In the same CLI session, create a Private Link service connection and the private endpoint for a workspace with the feed sub-resource by running the following commands.
-
-   1. To create a private endpoint with a dynamically allocated IP address:
-   
-      ```azurecli
-      # Specify the Azure region. This must be the same region as your virtual network.
-      location=<Location>
-      
-      # Get the resource ID of the workspace
-      workspaceId=$(az desktopvirtualization workspace show \
-          --name <WorkspaceName> \
-          --resource-group <ResourceGroupName> \
-          --query [id] \
-          --output tsv)
-      
-      # Create a service connection and the private endpoint
-      az network private-endpoint create \
-          --name <PrivateEndpointName> \
-          --resource-group <ResourceGroupName> \
-          --location $location \
-          --vnet-name <VNetName> \
-          --subnet <SubnetName> \
-          --connection-name <ConnectionName> \
-          --private-connection-resource-id $workspaceId \
-          --group-id feed \
-          --output table
-      ```
-
-   1. To create a private endpoint with statically allocated IP addresses:
-   
-      ```azurecli
-      # Specify the Azure region. This must be the same region as your virtual network.
-      location=<Location>
-      
-      # Get the resource ID of the workspace
-      workspaceId=$(az desktopvirtualization workspace show \
-          --name <WorkspaceName> \
-          --resource-group <ResourceGroupName> \
-          --query [id] \
-          --output tsv)
-      
-      # Store each private endpoint IP configuration in a variable
-      ip1={name:ipconfig1,group-id:feed,member-name:web-r1,private-ip-address:<IPAddress>}
-      ip2={name:ipconfig2,group-id:feed,member-name:web-r0,private-ip-address:<IPAddress>}
-      
-      # Create a service connection and the private endpoint
-      az network private-endpoint create \
-          --name <PrivateEndpointName> \
-          --resource-group <ResourceGroupName> \
-          --location $location \
-          --vnet-name <VNetName> \
-          --subnet <SubnetName> \
-          --connection-name <ConnectionName> \
-          --private-connection-resource-id $workspaceId \
-          --group-id feed \
-          --ip-configs [$ip1,$ip2] \
-          --output table
-      ```
-
-   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
-
-   ```output
-   CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
-   ----------------------------  ----------  --------------------  -------------------  ---------------
-                                 uksouth     endpoint-ws01         Succeeded            privatelink
-   ```
-
-1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -528,6 +462,77 @@ To create a private endpoint for the *feed* sub-resource for a workspace, select
 
 1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
 
+# [Azure CLI](#tab/cli)
+
+1. In the same CLI session, create a Private Link service connection and the private endpoint for a workspace with the feed sub-resource by running the following commands.
+
+   1. To create a private endpoint with a dynamically allocated IP address:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network.
+      location=<Location>
+      
+      # Get the resource ID of the workspace
+      workspaceId=$(az desktopvirtualization workspace show \
+          --name <WorkspaceName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $workspaceId \
+          --group-id feed \
+          --output table
+      ```
+
+   1. To create a private endpoint with statically allocated IP addresses:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network.
+      location=<Location>
+      
+      # Get the resource ID of the workspace
+      workspaceId=$(az desktopvirtualization workspace show \
+          --name <WorkspaceName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
+      
+      # Store each private endpoint IP configuration in a variable
+      ip1={name:ipconfig1,group-id:feed,member-name:web-r1,private-ip-address:<IPAddress>}
+      ip2={name:ipconfig2,group-id:feed,member-name:web-r0,private-ip-address:<IPAddress>}
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $workspaceId \
+          --group-id feed \
+          --ip-configs [$ip1,$ip2] \
+          --output table
+      ```
+
+   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
+
+   ```output
+   CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
+   ----------------------------  ----------  --------------------  -------------------  ---------------
+                                 uksouth     endpoint-ws01         Succeeded            privatelink
+   ```
+
+1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
+
 ---
 
 > [!IMPORTANT]
@@ -586,77 +591,6 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. Select **Create** to create the private endpoint for the global sub-resource.
 
-# [Azure CLI](#tab/cli)
-
-1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
-
-1. In the same CLI session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
-
-   1. To create a private endpoint with a dynamically allocated IP address:
-   
-      ```azurecli
-      # Specify the Azure region. This must be the same region as your virtual network.
-      location=<Location>
-      
-      # Get the resource ID of the workspace
-      workspaceId=$(az desktopvirtualization workspace show \
-          --name <WorkspaceName> \
-          --resource-group <ResourceGroupName> \
-          --query [id] \
-          --output tsv)
-      
-      # Create a service connection and the private endpoint
-      az network private-endpoint create \
-          --name <PrivateEndpointName> \
-          --resource-group <ResourceGroupName> \
-          --location $location \
-          --vnet-name <VNetName> \
-          --subnet <SubnetName> \
-          --connection-name <ConnectionName> \
-          --private-connection-resource-id $workspaceId \
-          --group-id global \
-          --output table
-      ```
-
-   1. To create a private endpoint with statically allocated IP addresses:
-   
-      ```azurecli
-      # Specify the Azure region. This must be the same region as your virtual network.
-      location=<Location>
-      
-      # Get the resource ID of the workspace
-      workspaceId=$(az desktopvirtualization workspace show \
-          --name <WorkspaceName> \
-          --resource-group <ResourceGroupName> \
-          --query [id] \
-          --output tsv)
-      
-      # Store each private endpoint IP configuration in a variable
-      ip={name:ipconfig,group-id:global,member-name:web,private-ip-address:<IPAddress>}
-      
-      # Create a service connection and the private endpoint
-      az network private-endpoint create \
-          --name <PrivateEndpointName> \
-          --resource-group <ResourceGroupName> \
-          --location $location \
-          --vnet-name <VNetName> \
-          --subnet <SubnetName> \
-          --connection-name <ConnectionName> \
-          --private-connection-resource-id $workspaceId \
-          --group-id global \
-          --ip-config $ip \
-          --output table
-      ```
-
-   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
-
-   ```output
-   CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
-   ----------------------------  ----------  --------------------  -------------------  ---------------
-                                 uksouth     endpoint-global       Succeeded            privatelink
-   ```
-
-1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink-global.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -736,6 +670,78 @@ To create a private endpoint for the *global* sub-resource used for the initial 
 
 1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink-global.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure PowerShell, see [Configure the private DNS zone](../private-link/create-private-endpoint-powershell.md#configure-the-private-dns-zone).
 
+# [Azure CLI](#tab/cli)
+
+1. *Optional*: Create a placeholder workspace to terminate the global endpoint by following the instructions to [Create a workspace](create-application-group-workspace.md?tabs=cli#create-a-workspace).
+
+1. In the same CLI session, create a Private Link service connection and the private endpoint for the workspace with the global sub-resource by running the following commands:
+
+   1. To create a private endpoint with a dynamically allocated IP address:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network.
+      location=<Location>
+      
+      # Get the resource ID of the workspace
+      workspaceId=$(az desktopvirtualization workspace show \
+          --name <WorkspaceName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $workspaceId \
+          --group-id global \
+          --output table
+      ```
+
+   1. To create a private endpoint with statically allocated IP addresses:
+   
+      ```azurecli
+      # Specify the Azure region. This must be the same region as your virtual network.
+      location=<Location>
+      
+      # Get the resource ID of the workspace
+      workspaceId=$(az desktopvirtualization workspace show \
+          --name <WorkspaceName> \
+          --resource-group <ResourceGroupName> \
+          --query [id] \
+          --output tsv)
+      
+      # Store each private endpoint IP configuration in a variable
+      ip={name:ipconfig,group-id:global,member-name:web,private-ip-address:<IPAddress>}
+      
+      # Create a service connection and the private endpoint
+      az network private-endpoint create \
+          --name <PrivateEndpointName> \
+          --resource-group <ResourceGroupName> \
+          --location $location \
+          --vnet-name <VNetName> \
+          --subnet <SubnetName> \
+          --connection-name <ConnectionName> \
+          --private-connection-resource-id $workspaceId \
+          --group-id global \
+          --ip-config $ip \
+          --output table
+      ```
+
+   Your output should be similar to the following. Check that the value for **ProvisioningState** is **Succeeded**.
+
+   ```output
+   CustomNetworkInterfaceName    Location    Name                  ProvisioningState    ResourceGroup
+   ----------------------------  ----------  --------------------  -------------------  ---------------
+                                 uksouth     endpoint-global       Succeeded            privatelink
+   ```
+
+1. You need to [configure DNS for your private endpoint](../private-link/private-endpoint-dns.md) to resolve the DNS name of the private endpoint in the virtual network. The private DNS zone name is `privatelink-global.wvd.microsoft.com`. For the steps to create and configure the private DNS zone with Azure CLI, see [Configure the private DNS zone](../private-link/create-private-endpoint-cli.md#configure-the-private-dns-zone).
+
 ---
 
 ## Closing public routes
@@ -744,7 +750,9 @@ Once you've created private endpoints, you can also control if traffic is allowe
 
 ### Control routes with Azure Virtual Desktop
 
-With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. You need to repeat these steps for each workspace and host pool you use with Private Link.
+With Azure Virtual Desktop, you can independently control public traffic for workspaces and host pools. Select the relevant tab for your scenario and follow the steps. You can't configure this in Azure CLI. You need to repeat these steps for each workspace and host pool you use with Private Link.
+
+# [Portal](#tab/portal-2)
 
 #### Workspaces
 
@@ -777,14 +785,95 @@ With Azure Virtual Desktop, you can independently control public traffic for wor
 
 1. Select **Save**.
 
+# [Azure PowerShell](#tab/powershell-2)
+
 > [!IMPORTANT]
-> Selecting **Enable public access for end users, use private access for session hosts** or **Disable public access and use private access** won't affect existing sessions. You must restart the session host virtual machines for the change to take effect.
+> Azure PowerShell cmdlets for Azure Virtual Desktop that support Private Link are in preview. You'll need to download and install the [preview version of the Az.DesktopVirtualization module](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview) to use these cmdlets, which have been added in version 5.0.0.
+
+#### Workspaces
+
+1. In the same PowerShell session, you can disable public access and use private access by running the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
+   ```
+
+1. To enable public access from all networks, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<WorkspaceName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdWorkspace @parameters
+   ```
+
+#### Host pools
+
+1. In the same PowerShell session, you can disable public access and use private access by running the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Disabled'
+   }
+
+   Update-AzWvdHostPool @parameters 
+   ```
+
+1. To enable public access from all networks, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'Enabled'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
+
+1. To use public access for end users, but use private access for session hosts, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForSessionHostsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
+
+1. To use private access for end users, but use public access for session hosts, run the following command:
+
+   ```azurepowershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       PublicNetworkAccess = 'EnabledForClientsOnly'
+   }
+   
+   Update-AzWvdHostPool @parameters
+   ```
 
 ---
 
+> [!IMPORTANT]
+> Changing access for session hosts won't affect existing sessions. After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
+
 ### Block public routes with network security groups or Azure Firewall
 
-If you're using network security groups or Azure Firewall to control connections from user client devices or your session hosts to the private endpoints, you can use the **WindowsVirtualDesktop** service tag to block traffic from the public internet. If you block public internet traffic using this service tag, all service traffic uses private routes only.
+If you're using [network security groups](../virtual-network/network-security-groups-overview.md) or [Azure Firewall](../firewall/overview.md) to control connections from user client devices or your session hosts to the private endpoints, you can use the **WindowsVirtualDesktop** service tag to block traffic from the public internet. If you block public internet traffic using this service tag, all service traffic uses private routes only.
 
 > [!CAUTION]
 > - Make sure you don't block traffic between your private endpoints and the addresses in the [required URL list](safe-url-list.md).
@@ -817,6 +906,45 @@ To check the connection state of each private endpoint, select the relevant tab 
 
 1. For the private endpoint listed, check the **Connection state** is **Approved**.
 
+
+# [Azure PowerShell](#tab/powershell)
+
+> [!IMPORTANT]
+> You need to use the preview version of the Az.DesktopVirtualization module to run the following commands. For more information and to download and install the preview module, see [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/5.0.0-preview).
+
+#### Workspaces
+
+1. In the same PowerShell session, run the following commands to check the connection state of a workspace:
+
+   ```azurepowershell
+   (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName).PrivateEndpointConnection | FL Name, PrivateLinkServiceConnectionStateStatus, PrivateLinkServiceConnectionStateDescription, PrivateLinkServiceConnectionStateActionsRequired
+   ```
+
+   Your output should be similar to the following. Check that the value for **PrivateLinkServiceConnectionStateStatus** is **Approved**.
+
+   ```output
+   Name                                             : endpoint-ws01
+   PrivateLinkServiceConnectionStateStatus          : Approved
+   PrivateLinkServiceConnectionStateDescription     : Auto-approved
+   PrivateLinkServiceConnectionStateActionsRequired : None
+   ```
+
+#### Host pools
+
+1. In the same PowerShell session, run the following commands to check the connection state of a host pool:
+
+   ```azurepowershell
+   (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName).PrivateEndpointConnection | FL Name, PrivateLinkServiceConnectionStateStatus, PrivateLinkServiceConnectionStateDescription, PrivateLinkServiceConnectionStateActionsRequired
+   ```
+
+   Your output should be similar to the following. Check that the value for **PrivateLinkServiceConnectionStateStatus** is **Approved**.
+
+   ```output
+   Name                                             : endpoint-hp01
+   PrivateLinkServiceConnectionStateStatus          : Approved
+   PrivateLinkServiceConnectionStateDescription     : Auto-approved
+   PrivateLinkServiceConnectionStateActionsRequired : None
+
 # [Azure CLI](#tab/cli)
 
 1. In the same CLI session, run the following commands to check the connection state of a workspace or a host pool:
@@ -841,48 +969,6 @@ To check the connection state of each private endpoint, select the relevant tab 
        }
      ]
    }
-   ```
-
-# [Azure PowerShell](#tab/powershell)
-
-1. In the same PowerShell session, run the following commands to check the connection state of a workspace:
-
-   ```azurepowershell
-   # Get the resource ID of the workspace
-   $workspaceId = (Get-AzWvdWorkspace -Name <WorkspaceName> -ResourceGroupName <ResourceGroupName>).Id
-   
-   Get-AzPrivateEndpointConnection -PrivateLinkResourceId $workspaceId  | FL Name, PrivateLinkServiceConnectionStateText
-   ```
-
-   Your output should be similar to the following. Check that the value for **Status** is **Approved**.
-
-   ```output
-   Name                                  : endpoint-ws01
-   PrivateLinkServiceConnectionStateText : {
-                                             "Status": "Approved",
-                                             "Description": "Auto-approved",
-                                             "ActionRequired": "None"
-                                           }
-   ```
-
-1. Run the following commands to check the connection state of a host pool:
-
-   ```azurepowershell
-   # Get the resource ID of the workspace
-   $hostPoolId = (Get-AzWvdHostPool -Name <HostPoolName> -ResourceGroupName <ResourceGroupName>).Id
-   
-   Get-AzPrivateEndpointConnection -PrivateLinkResourceId $hostPoolId | FL Name, PrivateLinkServiceConnectionStateText
-   ```
-
-   Your output should be similar to the following. Check that the value for **Status** is **Approved**.
-
-   ```output
-   Name                                  : endpoint-hp01
-   PrivateLinkServiceConnectionStateText : {
-                                             "Status": "Approved",
-                                             "Description": "Auto-approved",
-                                             "ActionRequired": "None"
-                                           }
    ```
 
 ---

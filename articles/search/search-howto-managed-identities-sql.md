@@ -2,7 +2,6 @@
 title: Connect to Azure SQL
 titleSuffix: Azure Cognitive Search
 description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity
-
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
@@ -53,7 +52,7 @@ Follow the below steps to assign the search service or user-assigned managed ide
 
 If you later change the search service identity or user-assigned identity after assigning permissions, you must remove the role membership and remove the user in the SQL database, then repeat the permission assignment. Removing the role membership and user can be accomplished by running the following commands:
 
- ```sql
+```sql
 sp_droprolemember 'db_datareader', [insert your search service name or user-assigned managed identity name];
 
 DROP USER IF EXISTS [insert your search service name or user-assigned managed identity name];

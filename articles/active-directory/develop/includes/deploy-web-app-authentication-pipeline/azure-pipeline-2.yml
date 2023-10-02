@@ -1,0 +1,14 @@
+variables: 
+- group: AzureResourcesVariableGroup
+   
+trigger:
+- main
+
+stages:
+- stage: Build
+  jobs: 
+  - job: Build
+
+    pool:
+      vmImage: 'windows-latest'
+  

@@ -1,6 +1,6 @@
 ---
-title: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
-description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
+title: Understand how Provisioning integrates with Azure Monitor logs in Microsoft Entra ID.
+description: Understand how Provisioning integrates with Azure Monitor logs in Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -91,7 +91,7 @@ AADProvisioningLogs
 
 Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
-To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/alerts/alerts-log.md).
+To learn more about alerts, see [Azure Monitor Log Alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
 Alert when there's a spike in failures. Replace the jobID with the jobID for your application.
 
@@ -115,5 +115,5 @@ We're taking an open source and community-based approach to application provisio
 - [Log analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
 - [Get started with queries in Azure Monitor logs](../../azure-monitor/logs/get-started-queries.md)
 - [Create and manage alert groups in the Azure portal](../../azure-monitor/alerts/action-groups.md)
-- [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
+- [Install and use the log analytics views for Microsoft Entra ID](../../azure-monitor/visualize/workbooks-view-designer-conversion-overview.md)
 - [Provisioning logs API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 # Allow access to Azure Service Bus namespaces via private endpoints
 Azure Private Link Service enables you to access Azure services (for example, Azure Service Bus, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
-A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
+A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
@@ -50,7 +50,7 @@ If you select the **Private access** option on the **Networking** page of the na
 
 If you already have an existing namespace, you can create a private endpoint by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type in **Service Bus**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 2. On the left menu, select **Networking** option under **Settings**.  
@@ -183,7 +183,7 @@ There are four provisioning states:
 1. In the search bar, type in **Service Bus**.
 1. Select the **namespace** that you want to manage.
 1. Select the **Networking** tab.
-5. Go to the appropriate section below based on the operation you want to: approve, reject, or remove. 
+5. See the appropriate following section based on the operation you want to: approve, reject, or remove. 
 
 ### Approve a private endpoint connection
 
@@ -252,11 +252,10 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 ## Limitations and Design Considerations
 
-**Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
-
-**Limitations**:  This feature is available in all Azure public regions.
-
-**Maximum number of private endpoints per Service Bus namespace**: 120.
+- For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
+- This feature is available in all Azure public regions.
+- Maximum number of private endpoints per Service Bus namespace: 120.
+- The traffic is blocked at the application layer, not at the TCP layer. Therefore, you see TCP connections or `nslookup` operations succeeding against the public endpoint even though the public access is disabled. 
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 

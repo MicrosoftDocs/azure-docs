@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory fundamentals documentation 
-summary: Learn basic Azure Active Directory (Azure AD) concepts and processes, including how to create a basic environment, basic users, and groups, to get started.
+title: Microsoft Entra ID fundamentals documentation 
+summary: Learn basic Microsoft Entra ID concepts and processes, including how to create a basic environment, basic users, and groups, to get started.
 
 metadata:
-  title: Azure Active Directory fundamentals documentation 
-  description: "Learn basic Azure Active Directory (Azure AD) concepts and processes, including how to create a basic environment, basic users, and groups, to get started."
+  title: Microsoft Entra ID fundamentals documentation 
+  description: "Learn basic Microsoft Entra ID concepts and processes, including how to create a basic environment, basic users, and groups, to get started."
   manager: amycolannino
   ms.author: barclayn
   ms.collection: na
@@ -19,18 +19,18 @@ metadata:
 
 landingContent:
   # Card 
-  - title: About Azure AD
+  - title: About Microsoft Entra ID
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Active Directory?
-            url: active-directory-whatis.md
-          - text: What's new in Azure Active Directory
+          - text: What is Microsoft Entra ID?
+            url: ./whatis.md
+          - text: What's new in Microsoft Entra ID
             url: whats-new.md
       - linkListType: concept
         links:
-          - text: Azure AD architecture
-            url: active-directory-architecture.md
+          - text: Microsoft Entra architecture
+            url: ../architecture/architecture.md
 
   # Card 
   - title: Get started
@@ -38,25 +38,25 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Access the portal and create a tenant
-            url: active-directory-access-create-new-tenant.md
+            url: ./create-new-tenant.md
           - text: Create a group and add members 
-            url: active-directory-groups-view-azure-portal.md
+            url: ./groups-view-azure-portal.md
           - text: Add company branding 
             url: how-to-customize-branding.md
   # Card
-  - title: Create an Azure AD account
+  - title: Create a Microsoft Entra account
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Sign up for Azure Active Directory Premium editions
-            url: active-directory-get-started-premium.md
-          - text: Sign up for Azure AD as an organization
+          - text: Sign up for Microsoft Entra ID P1 or P2 editions
+            url: ./get-started-premium.md
+          - text: Sign up for Microsoft Entra ID as an organization
             url: sign-up-organization.md
           - text: Add your custom domain name 
             url: add-custom-domain.md
 
   # Card
-  - title: Manage groups in Azure AD
+  - title: Manage groups in Microsoft Entra ID
     linkLists:
       - linkListType: concept
         links:
@@ -76,6 +76,6 @@ landingContent:
           - text: Create or delete users
             url: how-to-create-delete-users.md
           - text: Assign roles to users
-            url: active-directory-users-assign-role-azure-portal.md
+            url: ./how-subscriptions-associated-directory.md
           - text: Assign licenses to users
             url: license-users-groups.md

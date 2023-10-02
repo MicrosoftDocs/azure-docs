@@ -6,6 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: oracle
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta
@@ -24,8 +25,8 @@ This article assumes that you've already installed an Oracle Linux operating sys
 * Oracle's UEK2 isn't supported on Hyper-V and Azure as it doesn't include the required drivers.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * **Kernel support for mounting UDF file systems is required.** At first boot on Azure, the provisioning configuration is passed to the Linux VM via UDF-formatted media that is attached to the guest. The Azure Linux agent must be able to mount the UDF file system to read its configuration and provision the VM.
-* When installing the Linux system, it's recommended that you use standard partitions rather than LVM (often the default for many installations). These standard partitions avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
-* Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Oracle Linux 6.6 and later
+* When installing the Linux system, we recommend that you use standard partitions rather than LVM (often the default for many installations). These standard partitions avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks if preferred.
+* Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel and was fixed in Oracle Linux 6.6 and later.
 * Don't configure a swap partition on the OS disk.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 * Make sure that the `Addons` repository is enabled. Edit the file `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
@@ -94,13 +95,13 @@ You must complete specific configuration steps in the operating system for the v
 
    This setting ensures all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
    
-   In addition to the above, it's recommended to *remove* the following parameters:
+   In addition to the above, we recommend to *remove* the following parameters:
 
     ```config-grub
     rhgb quiet crashkernel=auto
     ```
 
-   Graphical and quiet boot is not useful in a cloud environment where we want all the logs to be sent to the serial port.
+   Graphical and quiet boot aren't useful in a cloud environment where we want all the logs to be sent to the serial port.
    
    The `crashkernel` option may be left configured if desired, but note that this parameter reduces the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
@@ -115,12 +116,12 @@ You must complete specific configuration steps in the operating system for the v
 
 12. Don't create swap space on the OS disk.
     
-    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+    The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a *temporary* disk and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
     ```config-conf
     ResourceDisk.Format=y
     ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.MountPoint=/mnt
     ResourceDisk.EnableSwap=y
     ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
     ```
@@ -139,10 +140,10 @@ You must complete specific configuration steps in the operating system for the v
 ## Oracle Linux 7.0 and later
 **Changes in Oracle Linux 7**
 
-Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux 6, however there are several important differences worth noting:
+Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux 6, however there are several significant  differences worth noting:
 
 * Azure supports Oracle Linux with either the Unbreakable Enterprise Kernel (UEK) or the Red Hat Compatible Kernel. Oracle Linux with UEK is recommended.
-* The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default and we recommend that it's not removed.
+* The NetworkManager package no longer conflicts with the Azure Linux agent. This package is installed by default, and we recommend that it's not removed.
 * GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed (see below).
 * XFS is now the default file system. The ext4 file system can still be used if desired.
 
@@ -206,7 +207,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
        rhgb quiet crashkernel=auto
     ```
  
-   Graphical and quiet boot is not useful in a cloud environment where we want all the logs to be sent to the serial port.
+   Graphical and quiet boot aren't useful in a cloud environment where we want all the logs to be sent to the serial port.
    
    The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128 MB or more, which may be problematic on the smaller VM sizes.
 
@@ -260,8 +261,8 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
 
     if [[ -f /mnt/resource/swapfile ]]; then
     echo Removing swapfile - Oracle Linux uses a swapfile by default
-    swapoff /mnt/resource/swapfile
-    rm /mnt/resource/swapfile -f
+    swapoff /mnt/swapfile
+    rm /mnt/swapfile -f
     fi
 
     echo "Add console log file"
@@ -276,14 +277,14 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
 
 15. Swap configuration. Don't create swap space on the operating system disk.
 
-     Previously, the Azure Linux Agent was used automatically to configure swap space by using the local resource disk that is attached to the virtual machine after the virtual   machine is provisioned on Azure. However this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the  following parameters in `/etc/waagent.conf` appropriately:
+     Previously, the Azure Linux Agent was used automatically to configure swap space by using the local resource disk that is attached to the virtual machine after the virtual   machine is provisioned on Azure. However, this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
 
     ```bash
     sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
 
-     If you want mount, format and create swap you can either:
+     If you want mount, format, and create swap you can either:
      * Pass this in as a cloud-init config every time you create a VM
      * Use a cloud-init directive baked into the image that will do this every time the VM is created:
 

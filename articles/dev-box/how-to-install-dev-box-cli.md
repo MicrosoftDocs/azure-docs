@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 04/25/2023
-Customer intent: As a dev infra admin, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.
+#Customer intent: As a platform engineer, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.
 ---
 
 # Configure Microsoft Dev Box from the command-line with the Azure CLI

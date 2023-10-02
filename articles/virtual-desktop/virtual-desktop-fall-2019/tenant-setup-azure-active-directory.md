@@ -9,17 +9,12 @@ manager: femila
 ---
 # Tutorial: Create a tenant in Azure Virtual Desktop (classic)
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
-
->[!IMPORTANT]
->Starting July 28, 2022, you'll no longer be able to create new tenants in Azure Virtual Desktop (classic). You can still manage your existing Azure Virtual Desktop (classic) environments including adding new session hosts, but all new environments must be done in Azure Virtual Desktop.
+> [!IMPORTANT]
+> - This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 >
->You can find more information about how to migrate from Azure Virtual Desktop (classic) to Azure Virtual Desktop at [Migrate automatically from Azure Virtual Desktop (classic)](../automatic-migration.md). 
->
->Learn about how to create a host pool in Azure Virtual Desktop at [Tutorial: Create a host pool](../create-host-pools-azure-marketplace.md).
+> - Beginning **September 30 2023**, you will no longer be able to create new Azure Virtual Desktop (classic) tenants. Azure Virtual Desktop (classic) will retire on **September 30, 2026**. You should transition to [Azure Virtual Desktop](../index.yml) before that date. For more information, see [Azure Virtual Desktop (classic) retirement](classic-retirement.md).
 
-Creating a tenant in Azure Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Azure Virtual Desktop service. Each host pool also consists of one or more application groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build host pools, create application groups, assign users, and make connections through the service.
+Creating a tenant in Azure Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Azure Virtual Desktop service. Each host pool also consists of one or more application groups that are used to publish desktop and application resources to users. With a tenant, you can build host pools, create application groups, assign users, and make connections through the service.
 
 In this tutorial, learn how to:
 

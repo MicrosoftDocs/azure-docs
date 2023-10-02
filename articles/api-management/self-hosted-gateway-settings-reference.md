@@ -33,6 +33,7 @@ Here is an overview of all configuration options:
 | config.service.auth.azureAd.clientSecret | Secret of the Azure AD app to authenticate with. | Yes, when using Azure AD authentication (unless certificate is specified) | N/A | v2.3+ |
 | config.service.auth.azureAd.certificatePath | Path to certificate to authenticate with for the Azure AD app. | Yes, when using Azure AD authentication (unless secret is specified) | N/A | v2.3+ |
 | config.service.auth.azureAd.authority | Authority URL of Azure AD. | No | `https://login.microsoftonline.com` | v2.3+ |
+| config.service.endpoint.disableCertificateValidation | Defines if the self-hosted gateway should validate the server-side certificate of the Configuration API. It is recommended to use certificate validation, only disable for testing purposes and with caution as it can introduce security risk. | No | `false` |  v2.0+ |
 
 The self-hosted gateway provides support for a few authentication options to integrate with the Configuration API which can be defined by using `config.service.auth`.
 

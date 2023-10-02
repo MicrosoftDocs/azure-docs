@@ -2,8 +2,8 @@
 title: Configure a service and SIM policy - ARM template
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to configure a service and SIM policy using an Azure Resource Manager (ARM) template. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 03/21/2022

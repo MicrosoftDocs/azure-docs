@@ -16,6 +16,9 @@ In this tutorial, learn how to configure NAT gateway and a public load balancer 
 
 NAT gateway supports the use of IPv4 public IP addresses for outbound connectivity whereas load balancer supports both IPv4 and IPv6 public IP addresses. When NAT gateway with an IPv4 public IP is present with a load balancer using an IPv4 public IP address, NAT gateway takes precedence over load balancer for providing outbound connectivity. When a NAT gateway is deployed in a dual-stack network with a IPv6 load balancer, IPv4 outbound traffic uses the NAT gateway, and IPv6 outbound traffic uses the load balancer.
 
+:::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/diagram-tutorial-resources.png" alt-text="Diagram of resources created during the tutorial.":::
+
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

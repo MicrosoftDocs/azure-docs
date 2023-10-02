@@ -3,6 +3,8 @@ title: Encrypt your application source at rest
 description: Learn how to encrypt your application data in Azure Storage and deploy it as a package file.
 ms.topic: article
 ms.date: 03/06/2020
+author: cephalin
+ms.author: cephalin
 ---
 
 # Encryption at rest using customer-managed keys

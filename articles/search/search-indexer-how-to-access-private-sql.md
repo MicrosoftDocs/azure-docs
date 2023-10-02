@@ -7,14 +7,14 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 09/29/2023
 ---
 
-# Create a shared private link for a SQL Managed Instance from Azure Cognitive Search
+# Create a shared private link for a SQL managed instance from Azure Cognitive Search
 
-This article explains how to configure an indexer in Azure Cognitive Search for a private connection to a SQL Managed Instance that runs within a virtual network.
+This article explains how to configure an indexer in Azure Cognitive Search for a private connection to a SQL managed instance that runs within a virtual network.
 
-On a private connection to a SQL Managed Instance, the fully qualified domain name (FQDN) of the instance must include the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture). Currently, only the Azure Cognitive Search Management REST API provides a `resourceRegion` parameter for accepting the DNS zone specification.
+On a private connection to a managed instance, the fully qualified domain name (FQDN) of the instance must include the [DNS Zone](/azure/azure-sql/managed-instance/connectivity-architecture-overview#virtual-cluster-connectivity-architecture). Currently, only the Azure Cognitive Search Management REST API provides a `resourceRegion` parameter for accepting the DNS zone specification.
 
 Although you can call the Management REST API directly, it's easier to use the Azure CLI `az rest` module to send Management REST API calls from a command line. This article uses the Azure CLI with REST to set up the private link.
 
@@ -30,6 +30,8 @@ Although you can call the Management REST API directly, it's easier to use the A
 + Azure SQL Managed Instance, configured to run in a virtual network.
 
 + You should have a minimum of Contributor permissions on both Azure Cognitive Search and SQL Managed Instance.
+
++ Azure SQL Managed Instance connection string. Managed identity is not currently supported with shared private link.
 
 > [!NOTE]
 > Azure Private Link is used internally, at no charge, to set up the shared private link.

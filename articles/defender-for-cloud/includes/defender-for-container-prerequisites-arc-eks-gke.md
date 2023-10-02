@@ -9,11 +9,11 @@ author: dcurwin
 
 ## Network requirements
 
-Validate the following endpoints are configured for outbound access so that the Defender extension can connect to Microsoft Defender for Cloud to send security data and events:
+Validate the following endpoints are configured for outbound access so that the Defender agent can connect to Microsoft Defender for Cloud to send security data and events:
 
 For public cloud deployments:
 
-| Azure Domain  | Azure Government Domain  | Azure China 21Vianet Domain | Port |
+| Azure Domain  | Azure Government Domain  | Microsoft Azure operated by 21Vianet Domain | Port |
 | -------------------------- | -------------------------- | -------------------------- |---- |
 | *.ods.opinsights.azure.com | *.ods.opinsights.azure.us | *.ods.opinsights.azure.cn  | 443  |
 | *.oms.opinsights.azure.com | *.oms.opinsights.azure.us | *.oms.opinsights.azure.cn | 443 |

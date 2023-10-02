@@ -20,7 +20,7 @@ ms.author: barclayn
 
 The Microsoft Entra Verified ID Admin API enables you to manage all aspects of the Verifiable Credential service. It offers a way to set up a brand new service, manage and create Verifiable Credential contracts, revoke Verifiable Credentials and completely opt out the service as well.
 
-> The API is intended for developers comfortable with RESTful APIs and enough permissions on the Azure Active Directory tenant to enable the service
+> The API is intended for developers comfortable with RESTful APIs and enough permissions on the Microsoft Entra tenant to enable the service
 
 ## Base URL
 
@@ -28,7 +28,7 @@ The Admin API is server over HTTPS. All URLs referenced in the documentation hav
 
 ## Authentication
 
-The API is protected through Azure Active Directory and uses OAuth2 bearer tokens. The access token can be for a user or for an application.
+The API is protected through Microsoft Entra ID and uses OAuth2 bearer tokens. The access token can be for a user or for an application.
 
 ### User bearer tokens
 
@@ -418,7 +418,7 @@ Content-type: application/json
 
 ### Remarks
 
->You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
+>You can create multiple authorities with their own DID and private keys, these will not be visible in the UI of the Azure portal. Currently we only support having 1 authority. We have not fully tested all scenarios with multiple created authorities. If you are trying this please let us know your experience.
 
 ### Update authority
 
@@ -924,6 +924,7 @@ If the property `customStatusEndpoint` property isn't specified, then the `anony
 | -------- | -------- | -------- |
 | `url` | string (url)| the url of the custom status endpoint |
 | `type` | string | the type of the endpoint |
+
 example:
 
 ```
@@ -1227,14 +1228,15 @@ You are able to [search](how-to-issuer-revoke.md) for verifiable credentials wit
 
 ```csharp
   string claimvalue = "Bowen";
-  string contractid = "ZjViZjJmYzYtNzEzNS00ZDk0LWE2ZmUtYzI2ZTQ1NDNiYzVhdGVzdDM";
+  string contractid = "<...your-contract-id-value...>";
   string output;
-		
+
   using (var sha256 = SHA256.Create())
   {
-	var input = contractid + claimvalue;
-	byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
-	hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
+    var input = contractid + claimvalue;
+    byte[] inputasbytes = Encoding.UTF8.GetBytes(input);
+    hashedsearchclaimvalue = Convert.ToBase64String(sha256.ComputeHash(inputasbytes));
+    output = System.Net.WebUtility.UrlEncode( hashedsearchclaimvalue );
   }
 ```
 
@@ -1357,4 +1359,4 @@ OK
 ## Next steps
 
 - [Specify the request service REST API issuance request](issuance-request-api.md)
-- [Entra Verified ID Network API](issuance-request-api.md)
+- [Microsoft Entra Verified ID Network API](issuance-request-api.md)

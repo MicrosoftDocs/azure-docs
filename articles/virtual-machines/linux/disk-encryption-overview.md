@@ -8,8 +8,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/14/2023
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-linux
 ---
 
 # Azure Disk Encryption for Linux VMs
@@ -62,8 +61,8 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
 | --- | --- |--- | --- | --- |
-| Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-focal:22_04-lts:latest | OS and data disk |
-| Canonical | Ubuntu | 22.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:22_04-lts-gen2:latest | OS and data disk |
+| Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest | OS and data disk |
+| Canonical | Ubuntu | 22.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | OS and data disk |
@@ -89,6 +88,16 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Oracle | Oracle Linux 8.6 Gen 2 | 8.6 | Oracle:Oracle-Linux:ol86-lvm-gen2:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.5 | 8.5 | Oracle:Oracle-Linux:ol85-lvm:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.5 Gen 2 | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9.2 | 9.2 | RedHat:RHEL:9_2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9.2 Gen 2 | 9.2 | RedHat:RHEL:92-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9.1 | 9.1 | RedHat:RHEL:9_1:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9.1 Gen 2 | 9.1 | RedHat:RHEL:91-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9.0 | 9.0 | RedHat:RHEL:9_0:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9.0 Gen 2 | 9.0 | RedHat:RHEL:90-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9-lvm | 9-lvm | RedHat:RHEL:9-lvm:latest | OS and data disk (see note below) |
+| RedHat | RHEL 9-lvm Gen 2 | 9-lvm-gen2 | RedHat:RHEL:9-lvm-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.8 | 8.8 | RedHat:RHEL:8_8:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.8 Gen 2 | 8.8 | RedHat:RHEL:88-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.7 | 8.7 | RedHat:RHEL:8_7:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.7 Gen 2 | 8.7 | RedHat:RHEL:87-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.6 | 8.6 | RedHat:RHEL:8_6:latest | OS and data disk (see note below) |
@@ -97,7 +106,8 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RedHat | RHEL 8.5 Gen 2 | 8.5 | RedHat:RHEL:85-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.4 | 8.4 | RedHat:RHEL:8.4:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.3 | 8.3 | RedHat:RHEL:8.3:latest | OS and data disk (see note below) |
-| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:8.2.20200905 | OS and data disk (see note below) |
+| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8-LVM Gen 2 | 8-lvm-gen2 | RedHat:RHEL:8-lvm-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.2 | 8.2 | RedHat:RHEL:8.2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM:7.9.2020111202 | OS and data disk (see note below) |

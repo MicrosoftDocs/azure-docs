@@ -5,7 +5,7 @@ description: Learn how to create a user delegation SAS for a blob with Azure Act
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/22/2023
 ms.author: pauljewell
@@ -15,6 +15,8 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # Create a user delegation SAS for a blob with .NET
+
+[!INCLUDE [storage-dev-guide-selector-user-delegation-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-user-delegation-sas.md)]
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 

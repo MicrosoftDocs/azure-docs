@@ -2,7 +2,6 @@
 title: Text normalization for filters, facets, sort
 titleSuffix: Azure Cognitive Search
 description: Specify normalizers to text fields in an index to customize the strict keyword matching behavior in filtering, faceting and sorting.
-
 author: HeidiSteen
 manager: jlembicz
 ms.author: heidist

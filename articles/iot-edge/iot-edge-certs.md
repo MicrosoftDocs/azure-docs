@@ -1,5 +1,6 @@
 ---
 title: Understand how IoT Edge uses certificates for security
+titleSuffix: Azure IoT Edge
 description: How Azure IoT Edge uses certificate to validate devices, modules, and downstream devices enabling secure connections between them. 
 author: jlian
 
@@ -122,8 +123,8 @@ sequenceDiagram
     
     EdgeGateway->>ContosoIotHub: Let's talk securely with TLS 🔒
     EdgeGateway->>ContosoIotHub: Here's my certificate 📜
-    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     note over EdgeGateway, ContosoIotHub: Cryptographic algorithms
+    ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     ContosoIotHub->>EdgeGateway: Great, let's connect
 -->
 

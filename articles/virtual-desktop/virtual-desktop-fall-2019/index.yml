@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Virtual Desktop (classic) documentation
-summary: Securely deliver virtual desktops and remote apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Azure Virtual Desktop (classic) has been superseded by Azure Virtual Desktop using Azure Resource Manager.
+summary: Securely deliver virtual desktops and apps with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform. Azure Virtual Desktop (classic) has been superseded by Azure Virtual Desktop using Azure Resource Manager.
 
 metadata:
   title: Azure Virtual Desktop (classic) documentation
-  description: Azure Virtual Desktop securely delivers virtual desktops and remote apps.
+  description: Azure Virtual Desktop securely delivers virtual desktops and apps.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page

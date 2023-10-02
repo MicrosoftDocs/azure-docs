@@ -16,6 +16,6 @@ The entries in the `deploymentconfig.json` document map to the parameters for [L
 This JSON is an example deployment configuration for use with the CLI:
 
 
-:::code language="json" source="~/azureml-examples-main/v1/python-sdk/tutorials/deploy-local/deploymentconfig.json":::
+:::code language="json" source="~/azureml-examples-archive/v1/python-sdk/tutorials/deploy-local/deploymentconfig.json":::
 
 Save this JSON as a file called `deploymentconfig.json`.

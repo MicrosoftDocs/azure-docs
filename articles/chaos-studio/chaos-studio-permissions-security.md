@@ -1,11 +1,11 @@
 ---
 title: Permissions and security for Azure Chaos Studio Preview
 description: Understand how permissions work in Azure Chaos Studio Preview and how you can secure resources from accidental fault injection.
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 06/30/2023
 ms.custom: template-concept, ignite-fall-2021, devx-track-arm-template
 ---
 
@@ -25,11 +25,20 @@ Chaos Studio has three levels of security to help you control how and when fault
 
    When you attempt to control the ability to inject faults against a resource, the most important operation to restrict is `Microsoft.Chaos/experiments/start/action`. This operation starts a chaos experiment that injects faults.
 
-* Second, a chaos experiment has a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that executes faults on a resource. When you create an experiment, the system-assigned managed identity is created in your Azure Active Directory tenant with no permissions.
+* Second, a chaos experiment has a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) or a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) that executes faults on a resource. If you choose to use a system-assigned managed identity for your experiment, the identity is created at experiment creation time in your Azure Active Directory tenant. User-assigned managed identites may be used across any number of experiments.
 
-   Before you run your chaos experiment, you must grant its identity [appropriate permissions](chaos-studio-fault-providers.md) to all target resources. If the experiment identity doesn't have appropriate permission to a resource, it can't execute a fault against that resource.
+   Within a chaos experiment, you can choose to enable custom role assignment on either your system-assigned or user-assigned managed identity selection. Enabling this functionality allows Chaos Studio to create and assign a custom role containing any necessary experiment action capabilities to your experiment's identity (that do not already exist in your identity selection). If a chaos experiment is using a user-assigned managed identity, any custom roles assigned to the experiment identity by Chaos Studio will persist after experiment deletion.
+  
+  If you choose to grant your experiment permissions manually, you must grant its identity [appropriate permissions](chaos-studio-fault-providers.md) to all target resources. If the experiment identity doesn't have appropriate permission to a resource, it can't execute a fault against that resource.
 
 * Third, each resource must be onboarded to Chaos Studio as [a target with corresponding capabilities enabled](chaos-studio-targets-capabilities.md). If a target or the capability for the fault being executed doesn't exist, the experiment fails without affecting the resource.
+
+## User-assigned Managed Identity
+
+A chaos experiment can utilize a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) to obtain sufficient permissions to inject faults on the experiment's target resources. Additionally, user-assigned managed identities may be used across any number of experiments in Chaos Studio. To utilize this functionality, you must:
+* First, create a user-assigned managed identity within the [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) service. You may assign your user-assigned managed identity required permissions to run your chaos experiment(s) at this point.
+* Second, when creating your chaos experiment, select a user-assigned managed identity from your Subscription. You can choose to enable custom role assignment at this step. Enabling this functionality would grant your identity selection any required permissions it may need based on the faults contained in your experiment.
+* Third, after you've added all of your faults to your chaos experiment, review if your identity configuration contains all the necessary actions for your chaos experiment to run successfully. If it does not, contact your system administrator for access or edit your experiment's fault selections.
 
 ## Agent authentication
 
@@ -65,7 +74,7 @@ All user interactions with Chaos Studio happen through Azure Resource Manager. I
     * Currently, Chaos Studio can't execute Chaos Mesh faults if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
 * **Agent-based faults**: To use agent-based faults, the agent needs access to the Chaos Studio agent service. A VM or virtual machine scale set must have outbound access to the agent service endpoint for the agent to connect successfully. The agent service endpoint is `https://acs-prod-<region>.chaosagent.trafficmanager.net`. You must replace the `<region>` placeholder with the region where your VM is deployed. An example is `https://acs-prod-eastus.chaosagent.trafficmanager.net` for a VM in East US.
 
-Chaos Studio doesn't support Azure Private Link for agent-based scenarios.
+Chaos Studio doesn't support Azure Private Link for agent-based scenarios. 
 
 ## Service tags
 A [service tag](../virtual-network/service-tags-overview.md) is a group of IP address prefixes that can be assigned to inbound and outbound rules for network security groups. It automatically handles updates to the group of IP address prefixes without any intervention.

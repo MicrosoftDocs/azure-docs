@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Validate GraphQL request
 
-The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
+The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths in a GraphQL API. An invalid query is a "request error". Authorization is only done for valid requests. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -68,24 +68,28 @@ Available actions are described in the following table.
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
   
-Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: 
+* Configure the policy for a [pass-through](graphql-api.md) or [synthetic](graphql-schema-resolve-api.md) GraphQL API that has been imported to API Management.
 
-* Mutation, query, or subscription
-* Individual field in a type declaration 
+* This policy can only be used once in a policy section.
 
-Permissions may not be applied to:
- 
-* Input types
-* Fragments
-* Unions
-* Interfaces
-* The schema element  
- 
+* Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: 
+
+    * Mutation, query, or subscription
+    * Individual field in a type declaration 
+    
+    Permissions may not be applied to:
+     
+    * Input types
+    * Fragments
+    * Unions
+    * Interfaces
+    * The schema element  
+     
 ## Error handling
 
 Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 

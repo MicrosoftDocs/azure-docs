@@ -2,14 +2,14 @@
 title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using Azure CLI and Azure attribute-based access control (Azure ABAC).
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli
-ms.date: 03/15/2023
+ms.date: 06/26/2023
 ---
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI
@@ -91,7 +91,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 1. Use [az storage account](/cli/azure/storage/account) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
-1. Use [az storage container](/cli/azure/storage/container) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
+1. Use [az storage container](/cli/azure/storage/container) to create a new blob container within the storage account and set the anonymous access level to **Private (no anonymous access)**.
 
 1. Use [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) to upload a text file to the container.
 

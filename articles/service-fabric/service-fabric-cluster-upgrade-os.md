@@ -14,6 +14,9 @@ ms.date: 07/14/2022
 
 This document describes how to migrate your Azure Service Fabric for Linux cluster from Ubuntu version 18.04 LTS to 20.04 LTS. Each operating system (OS) version requires a different Service Fabric runtime package. This article describes the steps required to facilitate a smooth migration to the newer version.
 
+> [!NOTE]
+> U18.04 reached end-of-life in June 2023. Starting with the 10.0CU1 release, Service Fabric runtime will discontinue support for U18.04. Service Fabric will no longer provide updates or patches at that time.
+
 ## Approach to migration
 
 The general approach to the migration follows these steps:

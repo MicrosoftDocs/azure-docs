@@ -112,7 +112,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-for-media-docs/faq.yml",
-            "redirect_url": "/azure/azure-video-indexer/faq.yml",
+            "redirect_url": "/azure/azure-video-indexer/faq",
             "redirect_document_id": false
         },
         {

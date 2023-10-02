@@ -10,7 +10,7 @@ ms.author: glenga
 |**type** | Must be set to `cosmosDBTrigger`. |
 |**direction** | Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
 |**name** | The variable name used in function code that represents the list of documents with changes. |
-|**connection** | The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account being monitored. For more information, see [Connections](#connections).|
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account being monitored. For more information, see [Connections](../articles/azure-functions/functions-bindings-cosmosdb-v2-trigger.md#connections).|
 |**databaseName**  | The name of the Azure Cosmos DB database with the container being monitored. |
 |**containerName** | The name of the container being monitored. |
 |**leaseConnection** | (Optional) The name of an app setting or setting container that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|

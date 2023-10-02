@@ -3,7 +3,6 @@ title: Best practices for serverless SQL pool
 description: Recommendations and best practices for working with serverless SQL pool.
 author: filippopovic
 ms.author: fipopovi
-manager: craigg
 ms.reviewer: sngun, wiassaf
 ms.date: 02/15/2023
 ms.service: synapse-analytics
@@ -79,7 +78,7 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ### Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns in Parquet files when needed, as well as CSV files when using OPENROWSET. At this moment, statistics aren't automatically created for columns in CSV files when using external tables. Create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics are not automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
 
 ## Data types
 

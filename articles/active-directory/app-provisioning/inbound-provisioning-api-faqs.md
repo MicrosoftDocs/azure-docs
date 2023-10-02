@@ -2,14 +2,14 @@
 title: Frequently asked questions (FAQs) about API-driven inbound provisioning
 description: Learn more about the capabilities and integration scenarios supported by API-driven inbound provisioning.
 services: active-directory
-author: jenniferf-skc
+author: kenwith
 manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/26/2023
-ms.author: jfields
+ms.date: 09/15/2023
+ms.author: kenwith
 ms.reviewer: chmutali
 ---
 
@@ -23,9 +23,9 @@ There are significant differences between the provisioning /bulkUpload API and t
 
 - **Payload format**: The MS Graph Users API endpoint expects data in OData format. The request payload format for the new inbound provisioning /bulkUpload API uses SCIM schema constructs. When invoking this API, set the 'Content-Type' header to `application/scim+json`.
 - **Operation end-result**:
-    - When identity data is sent to the MS Graph Users API endpoint, it's immediately processed, and a Create/Update/Delete operation takes place on the Azure AD user profile.
-    - Request data sent to the provisioning /bulkUpload API is processed *asynchronously* by the Azure AD provisioning service. The provisioning job applies scoping rules, attribute mapping and transformation configured by the IT admin. This initiates a ```Create/Update/Delete``` operation on the Azure AD user profile or the on-premises AD user profile.
-- **IT admin retains control**: With API-driven inbound provisioning, the IT admin has more control on how the incoming identity data is processed and mapped to Azure AD attributes. They can define scoping rules to exclude certain types of identity data (for example, contractor data) and use transformation functions to derive new values before setting the attribute values on the user profile.
+    - When identity data is sent to the MS Graph Users API endpoint, it's immediately processed, and a Create/Update/Delete operation takes place on the Microsoft Entra user profile.
+    - Request data sent to the provisioning /bulkUpload API is processed *asynchronously* by the Microsoft Entra provisioning service. The provisioning job applies scoping rules, attribute mapping and transformation configured by the IT admin. This initiates a ```Create/Update/Delete``` operation on the Microsoft Entra user profile or the on-premises AD user profile.
+- **IT admin retains control**: With API-driven inbound provisioning, the IT admin has more control on how the incoming identity data is processed and mapped to Microsoft Entra attributes. They can define scoping rules to exclude certain types of identity data (for example, contractor data) and use transformation functions to derive new values before setting the attribute values on the user profile.
 
 
 ## Is the inbound provisioning /bulkUpload API a standard SCIM endpoint?
@@ -40,7 +40,7 @@ The MS Graph inbound provisioning /bulkUpload is designed to handle a different 
 2. Ability to include any identity attribute in the payload (for example, costCenter, pay grade, badgeId)
 3. Support API clients unaware of operation semantics. These clients are non-SCIM API clients that only have access to raw *source data* (for example, records in CSV file, SQL table or HR records). These clients don't have the processing capability to read each record and determine the operation semantics of ```Create/Update/Delete``` on the identity store.
 
-The primary goal of MS Graph inbound provisioning /bulkUpload API is to enable customers to send *any* identity data (for example, costCenter, pay grade, badgeId) from *any* identity data source (for example, CSV/SQL/HR) for eventual processing by Azure AD provisioning service. The Azure AD provisioning service consumes the bulk payload data received at this endpoint, applies attribute mapping rules configured by the IT admin and determines whether the data payload leads to (Create, Update, Enable, Disable) operation in the target identity store (Azure AD / on-premises AD).
+The primary goal of MS Graph inbound provisioning /bulkUpload API is to enable customers to send *any* identity data (for example, costCenter, pay grade, badgeId) from *any* identity data source (for example, CSV/SQL/HR) for eventual processing by Microsoft Entra provisioning service. The Microsoft Entra provisioning service consumes the bulk payload data received at this endpoint, applies attribute mapping rules configured by the IT admin and determines whether the data payload leads to (Create, Update, Enable, Disable) operation in the target identity store (Microsoft Entra ID / on-premises AD).
 
 ## Does the provisioning /bulkUpload API support on-premises Active Directory domains as a target?
 
@@ -48,8 +48,11 @@ Yes, the provisioning API supports on-premises AD domains as a target.
 
 ## How do we get the /bulkUpload API endpoint for our provisioning app?
 
-The /bulkUpload API is available only for apps of the type: "API-driven inbound provisioning to Azure AD" and "API-driven inbound provisioning to on-premises Active Directory". You can retrieve the unique API endpoint for each provisioning app from the Provisioning blade home page.  In **Statistics to date** > **View technical information** and copy the **Provisioning API Endpoint** URL. It has the format:
+The /bulkUpload API is available only for apps of the type: "API-driven inbound provisioning to Microsoft Entra ID" and "API-driven inbound provisioning to on-premises Active Directory". You can retrieve the unique API endpoint for each provisioning app from the Provisioning blade home page.  In **Statistics to date** > **View technical information**,copy the **Provisioning API Endpoint** URL. 
 
+  :::image type="content" source="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png" alt-text="Screenshot of Provisioning API endpoint." lightbox="media/inbound-provisioning-api-configure-app/provisioning-api-endpoint.png":::
+
+It has the format:
 ```http
 https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/bulkUpload
 ```
@@ -74,13 +77,13 @@ Use the **Restart provisioning** option only if required. Here's how it works:
 
 Here's how the provisioning job associated with the /bulkUpload API endpoint processes incoming user payloads:
 
-1. The job retrieves the attribute mapping for the provisioning job and makes note of the matching attribute pair (by default ```externalId``` API attribute is used to match with ```employeeId``` in Azure AD).
+1. The job retrieves the attribute mapping for the provisioning job and makes note of the matching attribute pair (by default ```externalId``` API attribute is used to match with ```employeeId``` in Microsoft Entra ID).
 1. You can change this default attribute matching pair.
 1. The job extracts each operation present in the bulk request payload.
-1. The job checks the value matching identifier in the request (by default the attribute `externalId`) and uses it to check if there's a user in Azure AD with matching `employeeId` value.
+1. The job checks the value matching identifier in the request (by default the attribute `externalId`) and uses it to check if there's a user in Microsoft Entra ID with matching `employeeId` value.
 1. If the job doesn't find a matching user, then the job applies the sync rules and creates a new user in the target directory.
 
-To make sure that the right users get created in Azure AD, define the right matching attribute pair in your mapping which uniquely identifies users in your source and Azure AD.
+To make sure that the right users get created in Microsoft Entra ID, define the right matching attribute pair in your mapping which uniquely identifies users in your source and Microsoft Entra ID.
 
 ## How do we generate unique values for UPN?
 
@@ -97,7 +100,8 @@ Here are some options that you can consider for generating unique UPNs:
 
 ## How do we send more HR attributes to the provisioning /bulkUpload API endpoint?
 
-By default, the API endpoint supports processing any attribute that is part of the SCIM Core User and Enterprise User schema. If you'd like to send more attributes, you can extend the provisioning app schema, map the new attributes to Azure AD attributes and update the bulk request to send those attributes. 
+By default, the API endpoint supports processing any attribute that is part of the SCIM Core User and Enterprise User schema. If you'd like to send more attributes, you can extend the provisioning app schema, map the new attributes to Microsoft Entra attributes and update the bulk request to send those attributes. 
+Refer to the tutorial [Extend API-driven provisioning to sync custom attributes](inbound-provisioning-api-custom-attributes.md).
 
 ## How do we exclude certain users from the provisioning flow?
 
@@ -111,13 +115,13 @@ You can achieve this using the **Scoping filter**. In the provisioning app confi
 
 Here's how the provisioning job associated with the /bulkUpload API endpoint processes incoming user payloads:
 
-1. The provisioning job retrieves the attribute mapping for the provisioning job and makes note of the matching attribute pair (by default ```externalId``` API attribute is used to match with ```employeeId``` in Azure AD).  You can change this default attribute matching pair.
+1. The provisioning job retrieves the attribute mapping for the provisioning job and makes note of the matching attribute pair (by default ```externalId``` API attribute is used to match with ```employeeId``` in Microsoft Entra ID).  You can change this default attribute matching pair.
 1. The job extracts the operations from the bulk request payload.
-1. The job checks the value matching identifier in the SCIM request (by default: API attribute ```externalId```) and uses it to check if there's a user in Azure AD with matching ```employeeId``` value.
+1. The job checks the value matching identifier in the SCIM request (by default: API attribute ```externalId```) and uses it to check if there's a user in Microsoft Entra ID with matching ```employeeId``` value.
 1. If the job finds a matching user, then it applies the sync rules and compares the source and target profiles.
 1. If the job determines that some values have changed, then it updates the corresponding user record in the directory.
 
-To make sure that the right users get updated in Azure AD, make sure you define the right matching attribute pair in your mapping which uniquely identifies users in your source and Azure AD.
+To make sure that the right users get updated in Microsoft Entra ID, make sure you define the right matching attribute pair in your mapping which uniquely identifies users in your source and Microsoft Entra ID.
 
 ## Can we create more than one app that supports API-driven inbound provisioning?
 
@@ -137,19 +141,25 @@ You can retrieve the unique API endpoint for each job from the Provisioning blad
 
 ## How do we process terminations using the /bulkUpload API endpoint?
 
-To process terminations, identify an attribute in your source that will be used to set the ```accountEnabled``` flag in Azure AD. If you are provisioning to on-premises Active Directory, then map that source attribute to the `accountDisabled` attribute. 
+To process terminations, identify an attribute in your source that will be used to set the ```accountEnabled``` flag in Microsoft Entra ID. If you are provisioning to on-premises Active Directory, then map that source attribute to the `accountDisabled` attribute. 
 
-By default, the value associated with the SCIM User Core schema attribute ```active``` determines the status of the user's account in the target directory.
+By default, the value associated with the SCIM Core User schema attribute ```active``` determines the status of the user's account in the target directory.
 
 If the attribute is set to **true**, the default mapping rule enables the account. If the attribute is set to **false**, then the default mapping rule disables the account. 
 
-## Can we soft-delete a user in Azure AD using /bulkUpload provisioning API?
+<a name='can-we-soft-delete-a-user-in-azure-ad-using-bulkupload-provisioning-api'></a>
 
-No. Currently the provisioning service only supports enabling or disabling an account in Azure AD/on-premises AD.
+## Can we soft-delete a user in Microsoft Entra ID using /bulkUpload provisioning API?
+
+Yes, you can soft-delete a user by using the **DELETE** method in the bulk request operation. Refer to the [bulkUpload](/graph/api/synchronization-synchronizationjob-post-bulkupload) API spec doc for an example request. 
 
 ## How can we prevent accidental disabling/deletion of users?
 
-You can enable accidental deletion prevention. See [Enable accidental deletions prevention in the Azure AD provisioning service](accidental-deletions.md)
+To prevent and recover from accidental deletions, we recommend [configuring accidental deletion threshold](accidental-deletions.md) in the provisioning app and [enabling the on-premises Active Directory recycle bin](../hybrid/connect/how-to-connect-sync-recycle-bin.md). In your provisioning app's **Attribute Mapping** blade, under **Target object actions** disable the **Delete** operation.  
+
+**Recovering deleted accounts**
+* If the target directory for the operation is Microsoft Entra ID, then the matched user is soft-deleted. The user can be seen on the Microsoft Entra admin center **Deleted users** page for the next 30 days and can be restored during that time.
+* If the target directory for the operation is on-premises Active Directory, then the matched user is hard-deleted. If the **Active Directory Recycle Bin** is enabled, you can restore the deleted on-premises AD user object.
 
 ## Do we need to send all users from the HR system in every request?
 
@@ -167,14 +177,14 @@ The provisioning job that processes data received by the API endpoint automatica
 
 ## How is writeback supported?
 
-The current API only supports inbound data. Here are some options to consider for implementing writeback of attributes like email / username / phone generated by Azure AD, that you can flow back to the HR system:
+The current API only supports inbound data. Here are some options to consider for implementing writeback of attributes like email / username / phone generated by Microsoft Entra ID, that you can flow back to the HR system:
 
 - **Option 1 – SCIM connectivity to HR endpoint/proxy service that in turn updates the HR source**
 
   - If the system of record provides a SCIM endpoint for user updates (for example Oracle HCM provides an [API endpoint for SCIM updates](https://docs.oracle.com/en/cloud/saas/applications-common/23b/farca/op-hcmrestapi-scim-users-id-patch.html)), you can create a custom SCIM application in the enterprise app gallery and [configure provisioning as documented](use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service).
   - If the system of record doesn't provide a SCIM endpoint, explore the possibility of setting up a proxy SCIM service, which receives the update and propagate the change to the HR system.
 
-- **Option 2 – Use Azure AD ECMA connector for the writeback scenario**
+- **Option 2 – Use Microsoft Entra ECMA connector for the writeback scenario**
 
   - Depending on the customer requirement, explore if one of the ECMA connectors could be used (PowerShell / SQL / Web Services).
 

@@ -1,23 +1,20 @@
 ---
-title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure portal'
+title: 'Quickstart: Diagnose a VM traffic filter problem - Azure portal'
 titleSuffix: Azure Network Watcher
-description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify capability of Azure Network Watcher in the Azure portal.
+description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 07/12/2023
-ms.custom: template-quickstart, engagement-fy23
-#Customer intent: I need to diagnose and troubleshoot a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
+ms.date: 08/23/2023
+#Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure portal
 
-Azure allows and denies network traffic to and from a virtual machine based on its [effective security rules](network-watcher-security-group-view-overview.md). These security rules come from the network security groups applied to the virtual machine's network interface and subnet.
+In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
-In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the cause of a communication failure and learn how you can resolve it.
-
-:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/-ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -169,7 +166,9 @@ When no longer needed, delete the resource group and all of the resources it con
 
 1. Select **Delete resource group**.
 
-1. Enter ***myResourceGroup*** for **Enter resource group name to confirm deletion** and select **Delete**.
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
+
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
 ## Next steps
 

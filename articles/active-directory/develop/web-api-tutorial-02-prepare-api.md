@@ -1,13 +1,16 @@
 ---
 title: "Tutorial: Create and configure an ASP.NET Core project for authentication"
 description: "Create and configure the API in an IDE, add configuration for authentication and install required packages"
+services: active-directory
 author: cilwerner
+
+ms.service: active-directory
+ms.subservice: develop
 ms.author: cwerner
 manager: CelesteDG
-ms.service: active-directory
 ms.topic: tutorial
 ms.date: 11/1/2022
-#Customer intent: As an application developer, I want to create an ASP.NET Core project in an IDE, then configure it in such a way that I can add authentication with Azure AD.
+#Customer intent: As an application developer, I want to create an ASP.NET Core project in an IDE, then configure it in such a way that I can add authentication with Microsoft Entra ID.
 ---
 
 # Tutorial: Create and configure an ASP.NET Core project for authentication

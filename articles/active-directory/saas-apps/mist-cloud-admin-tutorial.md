@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure AD SSO integration with Mist Cloud Admin SSO'
-description: Learn how to configure single sign-on between Azure Active Directory and Mist Cloud Admin SSO.
+title: 'Tutorial: Microsoft Entra SSO integration with Mist Cloud Admin SSO'
+description: Learn how to configure single sign-on between Microsoft Entra ID and Mist Cloud Admin SSO.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -14,57 +14,57 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure AD SSO integration with Mist Cloud Admin SSO
+# Tutorial: Microsoft Entra SSO integration with Mist Cloud Admin SSO
 
-In this tutorial, you'll learn how to integrate Mist Cloud Admin SSO with Azure Active Directory (Azure AD). When you integrate Mist Cloud Admin SSO with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Mist Cloud Admin SSO with Microsoft Entra ID. When you integrate Mist Cloud Admin SSO with Microsoft Entra ID, you can:
 
-* Control in Azure AD who has access to the Mist dashboard.
-* Enable your users to be automatically signed-in to the Mist dashboard with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Microsoft Entra ID who has access to the Mist dashboard.
+* Enable your users to be automatically signed-in to the Mist dashboard with their Microsoft Entra accounts.
+* Manage your accounts in one central location.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Mist Cloud account, you can create an account [here](https://manage.mist.com/).
-* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
+* Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Microsoft Entra ID.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Microsoft Entra SSO in a test environment.
 
 * Mist Cloud Admin SSO supports **SP** and **IDP** initiated SSO.
 
 ## Add Mist Cloud Admin SSO from the gallery
 
-To configure the integration of Mist Cloud Admin SSO into Azure AD, you need to add Mist Cloud Admin SSO from the gallery to your list of managed SaaS apps.
+To configure the integration of Mist Cloud Admin SSO into Microsoft Entra ID, you need to add Mist Cloud Admin SSO from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 1. In the **Add from the gallery** section, type **Mist Cloud Admin SSO** in the search box.
 1. Select **Mist Cloud Admin SSO** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
  Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
-## Configure and test Azure AD SSO for Mist Cloud Admin SSO
+<a name='configure-and-test-azure-ad-sso-for-mist-cloud-admin-sso'></a>
 
-Configure and test Azure AD SSO with Mist Cloud Admin SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link between your Azure AD app and Mist organization SSO.
+## Configure and test Microsoft Entra SSO for Mist Cloud Admin SSO
 
-To configure and test Azure AD SSO with Mist Cloud Admin SSO, perform the following steps:
+Configure and test Microsoft Entra SSO with Mist Cloud Admin SSO using a test user called **B.Simon**. For SSO to work, you need to establish a link between your Microsoft Entra app and Mist organization SSO.
+
+To configure and test Microsoft Entra SSO with Mist Cloud Admin SSO, perform the following steps:
 
 1.	**[Perform initial configuration of the Mist Cloud SSO](#perform-initial-configuration-of-the-mist-cloud-sso)** - to generate ACS URL on the application side.
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+1. **[Configure Microsoft Entra SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1.	**[Create Role for the SSO Application](#create-role-for-the-sso-application)**
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create a Microsoft Entra test user](#create-an-azure-ad-test-user)** - to test Microsoft Entra single sign-on with B.Simon.
+    1. **[Assign the Microsoft Entra test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Microsoft Entra single sign-on.
 
 1.	**[Complete configuration of the Mist Cloud](#complete-configuration-of-the-mist-cloud)**
 
-1.	**[Create Roles to link roles sent by the Azure AD](#create-roles-to-link-roles-sent-by-the-azure-ad)**
+1.	**[Create Roles to link roles sent by the Microsoft Entra ID](#create-roles-to-link-roles-sent-by-the-azure-ad)**
 
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -77,16 +77,19 @@ To configure and test Azure AD SSO with Mist Cloud Admin SSO, perform the follow
 
     ![Screenshot shows to add identity provider.](./media/mist-cloud-admin-tutorial/identity-provider.png)
 
-1. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+1. Copy **Reply URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section.
 
     ![Screenshot shows to Reply URL value.](./media/mist-cloud-admin-tutorial/reply-url.png)
 
 
-## Configure Azure AD SSO
+<a name='configure-azure-ad-sso'></a>
 
-Follow these steps to enable Azure AD SSO in the Azure portal.
+## Configure Microsoft Entra SSO
 
-1. In the Azure portal, on the **Mist Cloud Admin SSO** application integration page, find the **Manage** section and select **single sign-on**.
+Follow these steps to enable Microsoft Entra SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mist Cloud Admin SSO** > **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -106,7 +109,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://manage.mist.com`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Mist Cloud Admin SSO support team](mailto:support@mist.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Mist Cloud Admin SSO support team](mailto:support@mist.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section.
 
 1. Mist Cloud Admin SSO application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -121,14 +124,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | Role | user.assignedroles |
 
    > [!NOTE]
-   > Please click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to know how to configure Role in Azure AD.
+   > Please click [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) to know how to configure Role in Microsoft Entra ID.
    > Mist Cloud requires Role attribute to assign correct admin privileges to the user.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/certificatebase64.png "Certificate")
 
-1. 8. On the **Set up Mist Cloud Admin SSO** section, copy the appropriate **Login URL** and **Azure AD Identifier**.
+1. 8. On the **Set up Mist Cloud Admin SSO** section, copy the appropriate **Login URL** and **Microsoft Entra Identifier**.
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
@@ -143,24 +146,30 @@ In this section, you'll create a Superuser Role to later assign it to test user 
 5.	Type **Superuser** in the **Value** field, then type **Mist Superuser Role** in the **Description** field, then select **Apply**.
 
 
-### Create an Azure AD test user
+<a name='create-an-azure-ad-test-user'></a>
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+### Create a Microsoft Entra test user
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+In this section, you'll create a test user called B.Simon.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [User Administrator](../roles/permissions-reference.md#user-administrator).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select **New user** > **Create new user**, at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. In the **Display name** field, enter `B.Simon`.  
+   1. In the **User principal name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select **Review + create**.
+1. Select **Create**.
 
-### Assign the Azure AD test user
+<a name='assign-the-azure-ad-test-user'></a>
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Mist Cloud Admin SSO.
+### Assign the Microsoft Entra test user
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Mist Cloud Admin SSO**.
+In this section, you'll enable B.Simon to use single sign-on by granting access to Mist Cloud Admin SSO.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Mist Cloud Admin SSO**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
@@ -173,31 +182,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot that shows the Organization Algorithm.](./media/mist-cloud-admin-tutorial/configure-mist.png "Organization")
 
-    1. In the **Issuer** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    1. In the **Issuer** textbox, paste the **Microsoft Entra Identifier** value which you copied previously.
 
-    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
+    1. Open the downloaded **Certificate (Base64)** into Notepad and paste the content into the **Certificate** textbox.
 
-    1. In the **SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **SSO URL** textbox, paste the **Login URL** value which you copied previously.
 
     1. Click **Save**.
 
-## Create Roles to link roles sent by the Azure AD
+<a name='create-roles-to-link-roles-sent-by-the-azure-ad'></a>
+
+## Create Roles to link roles sent by the Microsoft Entra ID
 
 1. In the Mist dashboard navigate to **Organization > Settings**. Under **Single Sign-On** section, select **Create Role**.
 
     ![Screenshot that shows the Create Role section.](./media/mist-cloud-admin-tutorial/create-role.png)
 
-1. Role name must match Role claim value sent by Azure AD, for example type `Superuser` in the **Name** field, specify desired admin privileges for the role and select **Create**.
+1. Role name must match Role claim value sent by Microsoft Entra ID, for example type `Superuser` in the **Name** field, specify desired admin privileges for the role and select **Create**.
 
     ![Screenshot that shows the Create Role button.](./media/mist-cloud-admin-tutorial/create-button.png)
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Microsoft Entra single sign-on configuration with following options. 
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Mist Cloud Admin SSO Sign-on URL where you can initiate the login flow.  
+* Click on **Test this application**, this will redirect to Mist Cloud Admin SSO Sign-on URL where you can initiate the login flow.  
 
 * Go to Mist Cloud Admin SSO Sign-on URL directly and initiate the login flow from there.
 
@@ -206,9 +217,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Mist Cloud Admin SSO for which you set up the SSO. 
+* Click on **Test this application**, and you should be automatically signed in to the Mist Cloud Admin SSO for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Mist Cloud Admin SSO tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Mist Cloud Admin SSO for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Mist Cloud Admin SSO tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Mist Cloud Admin SSO for which you set up the SSO. For more information, see [Microsoft Entra My Apps](/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps).
 
 ## Next steps
 

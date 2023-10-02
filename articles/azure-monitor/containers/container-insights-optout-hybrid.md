@@ -1,15 +1,14 @@
 ---
-title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
+title: Disable Container insights on your hybrid Kubernetes cluster
 description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 05/24/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 08/21/2023
 ms.reviewer: aul
 ---
 
-# How to stop monitoring your hybrid cluster
+# Disable Container insights on your hybrid Kubernetes cluster
 
-After you enable monitoring of your Kubernetes cluster, you can stop monitoring the cluster with Container insights if you decide you no longer want to monitor it. This article shows how to accomplish this for the following environments:
+This article shows how to disable Container insights for the following Kubernetes environments:
 
 - AKS Engine on Azure and Azure Stack
 - OpenShift version 4 and higher
@@ -28,7 +27,7 @@ The following steps apply to the following environments:
     helm list
     ```
 
-    The output will resemble the following:
+    The output resembles the following:
 
     ```
     NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
@@ -45,7 +44,7 @@ The following steps apply to the following environments:
 
     `helm delete azmon-containers-release-1`
 
-    This will remove the release from the cluster. You can verify by running the `helm list` command:
+    This removes the release from the cluster. You can verify by running the `helm list` command:
 
     ```
     NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
@@ -82,7 +81,7 @@ The configuration change can take a few minutes to complete. Because Helm tracks
     ```
 
 #### Using service principal
-The script *disable-monitoring.ps1* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you will have to pass $servicePrincipalClientId, $servicePrincipalClientSecret and $tenantId parameters with values of service principal you have intended to use to enable-monitoring.ps1 script.
+The script *disable-monitoring.ps1* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you have to pass $servicePrincipalClientId, $servicePrincipalClientSecret and $tenantId parameters with values of service principal you have intended to use to enable-monitoring.ps1 script.
 
 ```powershell
 $subscriptionId = "<subscription Id of the Azure Arc-connected cluster resource>"
@@ -135,7 +134,7 @@ For example:
     ```
 
 #### Using service principal
-The bash script *disable-monitoring.sh* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you will have to pass --client-id, --client-secret and  --tenant-id values of service principal you have intended to use to *enable-monitoring.sh* bash script.
+The bash script *disable-monitoring.sh* uses the interactive device login. If you prefer non-interactive login, you can use an existing service principal or create a new one that has the required permissions as described in [Prerequisites](container-insights-enable-arc-enabled-clusters.md#prerequisites). To use service principal, you have to pass --client-id, --client-secret and  --tenant-id values of service principal you have intended to use to *enable-monitoring.sh* bash script.
 
 ```bash
 SUBSCRIPTIONID="<subscription Id of the Azure Arc-connected cluster resource>"

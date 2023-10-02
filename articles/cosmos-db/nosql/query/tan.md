@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -22,7 +22,7 @@ Returns the trigonometric tangent of the specified angle in radians.
   
 ```sql
 TAN(<numeric_expr>)  
-```  
+```
   
 ## Arguments
 
@@ -38,27 +38,15 @@ Returns a numeric expression.
   
 The following example calculates the cotangent of the specified angle using the function.
   
-```sql
-SELECT VALUE {
-    tangentSquareRootPi: TAN(PI()/2),
-    tangentArbitraryNumber: TAN(124.1332)
-}
-``` 
-  
-```json
-[
-  {
-    "tangentSquareRootPi": 16331239353195370,
-    "tangentArbitraryNumber": -24.80651023035602
-  }
-]
-```  
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/tan/query.sql" highlight="2-3":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/tan/result.json":::
 
 ## Remarks
 
-- This system function doesn't use the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
+- [System functions](system-functions.yml)
 - [`COT`](cot.md)

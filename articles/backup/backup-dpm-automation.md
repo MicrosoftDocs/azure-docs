@@ -4,8 +4,8 @@ description: Learn how to deploy and manage Azure Backup for Data Protection Man
 ms.topic: conceptual
 ms.date: 01/23/2017 
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 

@@ -1,9 +1,8 @@
 ---
 title: "Quickstart: Scale compute for an Azure Synapse dedicated SQL pool (formerly SQL DW) with the Azure portal"
 description: You can scale compute for an Azure Synapse dedicated SQL pool (formerly SQL DW) with the Azure portal.
-author: kedodd
-ms.author: kedodd
-manager: craigg
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: sngun
 ms.date: 02/22/2023
 ms.service: synapse-analytics

@@ -35,10 +35,6 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
 
     ```java
     import com.azure.spring.cloud.config.AppConfigurationRefresh;
-
-    ...
-    
-    import com.azure.spring.cloud.config.AppConfigurationRefresh;
     
     @RestController
     public class HelloController {
@@ -127,7 +123,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>5.2.0</version>
+    <version>5.4.0</version>
 </dependency>
 ```
 
@@ -137,7 +133,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>4.8.0</version>
+    <version>4.10.0</version>
 </dependency>
 ```
 

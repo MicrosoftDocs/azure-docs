@@ -2,8 +2,8 @@
 title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 05/23/2023
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 07/31/2023
 ---
 
 # Migrate from pod managed-identity to workload identity
@@ -23,21 +23,21 @@ This section explains the migration options available depending on what version 
 For either scenario, you need to have the federated trust set up before you update your application to use the workload identity. The following are the minimum steps required:
 
 - [Create a managed identity](#create-a-managed-identity) credential.
-- Associate the managed identity with the kubernetes service account already used for the pod-manged identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
+- Associate the managed identity with the kubernetes service account already used for the pod-managed identity or [create a new Kubernetes service account](#create-kubernetes-service-account) and then associate it with the managed identity.
 - [Establish a federated trust relationship](#establish-federated-identity-credential-trust) between the managed identity and Azure AD.
 
 ### Migrate from latest version
 
-If your cluster is already using the latest version of the Azure Identity SDK, perform the following steps to complete the authentication configuration:
+If your application is already using the latest version of the Azure Identity SDK, perform the following steps to complete the authentication configuration:
 
 - Deploy workload identity in parallel with pod-managed identity. You can restart your application deployment to begin using the workload identity, where it injects the OIDC annotations into the application automatically.
 - After verifying the application is able to authenticate successfully, you can [remove the pod-managed identity](#remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
 ### Migrate from older version
 
-If your cluster isn't using the latest version of the Azure Identity SDK, you have two options:
+If your application isn't using the latest version of the Azure Identity SDK, you have two options:
 
-- You can use a migration sidecar that we provide within your applications, which proxies the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity.  Perform the following steps to:
+- You can use a migration sidecar that we provide within your Linux applications, which proxies the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Perform the following steps to:
 
     - [Deploy the workload with migration sidecar](#deploy-the-workload-with-migration-sidecar) to proxy the application IMDS transactions.
     - Verify the authentication transactions are completing successfully.
@@ -45,7 +45,8 @@ If your cluster isn't using the latest version of the Azure Identity SDK, you ha
     - Once the SDK's are updated to the supported version, you can remove the proxy sidecar and redeploy the application.
 
    > [!NOTE]
-   > The migration sidecar is **not supported for production use**.  This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
+   > The migration sidecar is **not supported for production use**. This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
+   > The migration sidecar is only available for Linux containers, due to only providing pod-managed identities with Linux node pools.
 
 - Rewrite your application to support the latest version of the [Azure Identity][azure-identity-supported-versions] client library. Afterwards, perform the following steps:
 
@@ -78,6 +79,14 @@ If you don't have a managed identity created and assigned to your pod, perform t
     export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
     ```
 
+    The variable should contain the Issuer URL similar to the following example:
+
+    ```output
+    https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+    ```
+
+    By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
+
 ## Create Kubernetes service account
 
 If you don't have a dedicated Kubernetes service account created for this application, perform the following steps to create and then annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
@@ -95,8 +104,6 @@ kind: ServiceAccount
 metadata:
   annotations:
     azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-  labels:
-    azure.workload.identity/use: "true"
   name: ${SERVICE_ACCOUNT_NAME}
   namespace: ${SERVICE_ACCOUNT_NAMESPACE}
 EOF
@@ -123,6 +130,7 @@ az identity federated-credential create --name federatedIdentityName --identity-
 
 > [!NOTE]
 > The migration sidecar is **not supported for production use**.  This feature is meant to give you time to migrate your application SDK's to a supported version, and not meant or intended to be a long-term solution.
+> The migration sidecar is only for Linux containers as pod-managed identities was available on Linux node pools only.
 
 If your application is using managed identity and still relies on IMDS to get an access token, you can use the workload identity migration sidecar to start migrating to workload identity. This sidecar is a migration solution and in the long-term applications, you should modify their code to use the latest Azure Identity SDKs that support client assertion.
 
@@ -142,11 +150,14 @@ metadata:
   name: httpbin-pod
   labels:
     app: httpbin
+    azure.workload.identity/use: "true"
+  annotations:
+    azure.workload.identity/inject-proxy-sidecar: "true"
 spec:
   serviceAccountName: workload-identity-sa
   initContainers:
   - name: init-networking
-    image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v0.13.0
+    image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v1.1.0
     securityContext:
       capabilities:
         add:
@@ -164,7 +175,7 @@ spec:
     ports:
     - containerPort: 80
   - name: proxy
-    image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
+    image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v1.1.0
     ports:
     - containerPort: 8000
 ```

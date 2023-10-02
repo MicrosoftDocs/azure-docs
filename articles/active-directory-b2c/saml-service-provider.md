@@ -437,7 +437,7 @@ The following SAML application scenarios are supported via your own metadata end
 
 - Get the SAML test web app from the [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
 - See the [options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md).
-- Learn how to build [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json).
+- Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

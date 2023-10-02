@@ -23,7 +23,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a publi
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create the virtual network
 
@@ -53,10 +53,7 @@ In this section, you'll create a virtual network, subnet, and Azure Bastion host
     | Azure Bastion name | Enter **myBastionHost** |
     
     > [!IMPORTANT]
-
     > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
-
-    >
 
 1. Select the **IP addresses** tab or select the **Next: IP addresses** button at the bottom of the page.
 

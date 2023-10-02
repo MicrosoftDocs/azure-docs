@@ -33,11 +33,11 @@ An ARM template can be deployed from the portal. If the template has syntax erro
 
 The following example attempts to deploy a storage account and a validation error occurs.
 
-:::image type="content" source="media/find-error-code/validation-error.png" alt-text="Screenshot of an Azure portal validation error.":::
+:::image type="content" source="media/find-error-code/validation-error.png" alt-text="Screenshot of a validation error in the Azure portal for a storage account deployment attempt.":::
 
 Select the message for more details. The template has a syntax error with error code `InvalidTemplate`. The **Summary** shows an expression is missing a closing parenthesis.
 
-:::image type="content" source="media/find-error-code/validation-details.png" alt-text="Screenshot of a validation error message that shows a syntax error.":::
+:::image type="content" source="media/find-error-code/validation-details.png" alt-text="Screenshot of a validation error message in the Azure portal, showing a syntax error with error code InvalidTemplate.":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -132,11 +132,11 @@ To see messages about a deployment's operations, use the resource group's **Acti
 1. Select **Activity log**.
 1. Use the filters to find an operation's error log.
 
-    :::image type="content" source="./media/find-error-code/activity-log.png" alt-text="Screenshot of the resource group's activity log that highlights a failed deployment.":::
+    :::image type="content" source="./media/find-error-code/activity-log.png" alt-text="Screenshot of the Azure portal's resource group activity log, emphasizing a failed deployment with an error log.":::
 
 1. Select the error log to see the operation's details.
 
-    :::image type="content" source="./media/find-error-code/activity-log-details.png" alt-text="Screenshot of the activity log details that shows a failed deployment's error message.":::
+    :::image type="content" source="./media/find-error-code/activity-log-details.png" alt-text="Screenshot of the activity log details in the Azure portal, showing a failed deployment's error message and operation details.":::
 
 To view a deployment's result:
 
@@ -144,11 +144,11 @@ To view a deployment's result:
 1. Select **Settings** > **Deployments**.
 1. Select **Error details** for the deployment.
 
-    :::image type="content" source="media/find-error-code/deployment-error-details.png" alt-text="Screenshot of a resource group's link to error details for a failed deployment.":::
+    :::image type="content" source="media/find-error-code/deployment-error-details.png" alt-text="Screenshot of a resource group's deployments section in the Azure portal, displaying a link to error details for a failed deployment.":::
 
 1. The error message and error code `NoRegisteredProviderFound` are shown.
 
-    :::image type="content" source="media/find-error-code/deployment-error-summary.png" alt-text="Screenshot of a message that shows deployment error details.":::
+    :::image type="content" source="media/find-error-code/deployment-error-summary.png" alt-text="Screenshot of a deployment error summary in the Azure portal, showing the error message and error code NoRegisteredProviderFound.":::
 
 # [PowerShell](#tab/azure-powershell)
 

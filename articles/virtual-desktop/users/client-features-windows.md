@@ -67,7 +67,7 @@ If you want to use different display settings to those specified by your admin, 
 
 1. Open the **Remote Desktop** application on your device.
 
-1. Right-click the name of a desktop or app, for example **SessionDesktop**, then select **Settings**.
+1. Right-click the name of a desktop connection, for example **SessionDesktop**, then select **Settings**.
 
 1. Toggle **Use default settings** to off.
 
@@ -172,6 +172,9 @@ You can also manually search for new updates for the client:
 
 1. If there's an update available, tap **Install update** to update the client. If the client is already up to date, you'll see a green check box, and the message **You're up to date**.
 
+> [!TIP]
+> Admins can control notifications about updates and when updates are installed. For more information, see [Update behavior](#update-behavior).
+
 ## App display modes
 
 You can configure the Remote Desktop client to be displayed in light or dark mode, or match the mode of your system:
@@ -192,9 +195,9 @@ You can view your remote desktops and apps as either a tile view (default) or li
 
 1. If you want to switch to Tile view, select **List**, then select **Tile view**.
 
-## Enable Windows Insider releases
+## Enable Insider releases
 
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
+If you want to help us test new builds of the Remote Desktop client for Windows before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available.
 
 > [!NOTE]
 > Insider releases shouldn't be used in production.
@@ -219,7 +222,7 @@ Insider releases are made available in the Remote Desktop client once you've con
 
 1. Open the Remote Desktop client. The title in the top left-hand corner should be **Remote Desktop (Insider)**:
 
-   :::image type="content" source="../media/remote-desktop-client-windows-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
+   :::image type="content" source="../media/remote-desktop-client-insider.png" alt-text="A screenshot of the Remote Desktop client with Insider features enabled. The title is highlighted in a red box.":::
 
 If you already have configured the Remote Desktop client to use Insider releases, you can check for updates to ensure you have the latest Insider release by checking for updates in the normal way. For more information, see [Update the client](#update-the-client).
 
@@ -258,7 +261,9 @@ You can control notifications about updates and when updates are installed. The 
 The Remote Desktop client offers three ways to update:
 
 - Notification-based updates, where the client shows the user a notification in the client UI or a pop-up message in the taskbar. The user can choose to update the client by selecting the notification.
+
 - Silent on-close updates, where the client automatically updates after the user has closed the Remote Desktop client.
+
 - Silent background updates, where a background process checks for updates a few times a day and will update the client if a new update is available.
 
 To avoid interrupting users, silent updates won't happen while users have the client open, have a remote connection active, or if you've disabled automatic updates. If the client is running while a silent background update occurs, the client will show a notification to let users know an update is available.
@@ -273,15 +278,9 @@ You can set the *AutomaticUpdates* registry key to one of the following values:
 
 ### URI to subscribe to a workspace
 
-The Remote Desktop client for Windows supports the *ms-rd* and *ms-avd* (preview) Uniform Resource Identifier (URI) schemes. This enables you to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or Remote App.
+The Remote Desktop client for Windows supports the *ms-rd* and *ms-avd* (preview) Uniform Resource Identifier (URI) schemes. This enables you to invoke the Remote Desktop client with specific commands, parameters, and values for use with Azure Virtual Desktop. For example, you can subscribe to a workspace or connect to a particular desktop or RemoteApp.
 
 For more information and the available commands, see [Uniform Resource Identifier schemes with the Remote Desktop client for Azure Virtual Desktop](../uri-scheme.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json)
-
-## Azure Virtual Desktop (HostApp)
-
-The Azure Virtual Desktop (HostApp) is a platform component containing a set of predefined user interfaces and APIs that Azure Virtual Desktop developers can use to deploy and manage Remote Desktop connections to their Azure Virtual Desktop resources. If this application is required on a device for another application to work correctly, it will automatically be downloaded by the other application. There should be no need for user interaction.
-
-The purpose of the Azure Virtual Desktop (HostApp) is to provide core functionality to other client apps in the Microsoft Store. This is known as the *Hosted App Model*. For more information, see [Hosted App Model](https://blogs.windows.com/windowsdeveloper/2020/03/19/hosted-app-model/).
 
 ## Provide feedback
 

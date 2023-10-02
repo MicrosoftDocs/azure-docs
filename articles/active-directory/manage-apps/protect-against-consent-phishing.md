@@ -1,6 +1,6 @@
 ---
 title: Protect against consent phishing
-description: Learn ways of mitigating against application-based consent phishing attacks using Azure Active Directory.
+description: Learn ways of mitigating against application-based consent phishing attacks using Microsoft Entra ID.
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -30,9 +30,9 @@ Consent phishing attacks trick users into granting permissions to malicious clou
 
 ## Mitigating consent phishing attacks
 
-Administrators, users, or Microsoft security researchers may flag OAuth applications that appear to behave suspiciously. A flagged application is reviewed by Microsoft to determine whether it violates the terms of service. If a violation is confirmed, Azure AD disables the application and prevents further use across all Microsoft services.
+Administrators, users, or Microsoft security researchers may flag OAuth applications that appear to behave suspiciously. A flagged application is reviewed by Microsoft to determine whether it violates the terms of service. If a violation is confirmed, Microsoft Entra ID disables the application and prevents further use across all Microsoft services.
 
-When Azure AD disables an OAuth application, the following actions occur:
+When Microsoft Entra ID disables an OAuth application, the following actions occur:
 
 - The malicious application and related service principals are placed into a fully disabled state. Any new token requests or requests for refresh tokens are denied, but existing access tokens are still valid until their expiration.
 - These applications will show `DisabledDueToViolationOfServicesAgreement` on the `disabledByMicrosoftStatus` property on the related [application](/graph/api/resources/application) and [service principal](/graph/api/resources/serviceprincipal) resource types in Microsoft Graph. To prevent them from being instantiated in your organization again in the future, you cannot delete these objects.
@@ -44,7 +44,7 @@ If the organization has been impacted by an application disabled by Microsoft, t
 
 1. Investigate the application activity for the disabled application, including:
     - The delegated permissions or application permissions requested by the application.
-    - The Azure AD audit logs for activity by the application and sign-in activity for users authorized to use the application.
+    - The Microsoft Entra audit logs for activity by the application and sign-in activity for users authorized to use the application.
 1. Review and use the [guidance for defending against illicit consent grants](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). The guidance includes auditing permissions and consent for disabled and suspicious applications found during review.
 1. Implement best practices for hardening against consent phishing, described below.
 
@@ -53,7 +53,7 @@ If the organization has been impacted by an application disabled by Microsoft, t
 Administrators should be in control of application use by providing the right insights and capabilities to control how applications are allowed and used within organizations. While attackers never rest, there are steps organizations can take to improve the security posture. Some best practices to follow include:
 
 - Educate your organization on how our permissions and consent framework works:
-  - Understand the data and the permissions an application is asking for and understand how [permissions and consent](../develop/v2-permissions-and-consent.md) works within the platform.
+  - Understand the data and the permissions an application is asking for and understand how [permissions and consent](../develop/permissions-consent-overview.md) works within the platform.
   - Make sure that administrators know how to [manage and evaluate consent requests](./manage-consent-requests.md).
   - Routinely [audit applications and consented permissions](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in the organization to make sure that applications are accessing only the data they need and are adhering to the principles of least privilege.
 - Know how to spot and block common consent phishing tactics:
@@ -71,6 +71,5 @@ Administrators should be in control of application use by providing the right in
 
 - [Application consent grant investigation](/security/compass/incident-response-playbook-app-consent)
 - [Managing access to applications](./what-is-access-management.md)
-- [Restrict user consent operations in Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)
+- [Restrict user consent operations in Microsoft Entra ID](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)
 - [Compromised and malicious applications investigation](/security/compass/incident-response-playbook-compromised-malicious-app)
-
