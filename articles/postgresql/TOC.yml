@@ -258,6 +258,10 @@
         items:
         - name: Restore a dropped server
           href: flexible-server/how-to-restore-dropped-server.md
+      - name: Restore a dropped server
+        items:
+        - name: Cross Subscription or Resource Group Restore
+          href: flexible-server/how-to-restore-to-different-subscription-or-Resourcegroup.md
       - name: Restart a server
         items:
         - name: Azure portal
