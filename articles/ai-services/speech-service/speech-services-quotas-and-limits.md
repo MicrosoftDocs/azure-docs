@@ -23,6 +23,9 @@ The following sections provide you with a quick guide to the quotas and limits t
 
 For information about adjustable quotas for Standard (S0) Speech resources, see [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). The quotas and limits for Free (F0) Speech resources aren't adjustable. 
 
+> [!IMPORTANT]
+> If you switch a Speech resource from Free (F0) to Standard (S0) pricing tier, the change of the corresponding quotas may take up to several hours.
+
 ### Speech to text quotas and limits per resource
 
 This section describes speech to text quotas and limits per Speech resource. Unless otherwise specified, the limits aren't adjustable.
