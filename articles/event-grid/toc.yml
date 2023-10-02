@@ -124,6 +124,8 @@ items:
         href: publisher-subscriber-operations.md
       - name: Dead lettering for event subscriptions to namespaces topics 
         href: dead-letter-event-subscriptions-namespace-topics.md
+      - name: Event retention
+        href: event-retention.md
     - name: Quickstarts
       items:
       - name: Publish and subscribe using namespace topics
