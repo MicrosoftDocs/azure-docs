@@ -1,7 +1,7 @@
 ---
 title: Programmatically deploy and manage Azure Arc Extended Security Updates licenses
 description: Learn how to programmatically deploy and manage Azure Arc Extended Security Updates licenses for Windows Server 2012.
-ms.date: 09/20/2023
+ms.date: 10/02/2023
 ms.topic: conceptual
 ---
 
@@ -9,9 +9,12 @@ ms.topic: conceptual
 
 This article provides instructions to programmatically provision and manage Windows Server 2012 and Windows Server 2012 R2 Extended Security Updates lifecycle operations through the Azure Arc WS2012 ESU ARM APIs.
 
+For each of the API commands explained in this article, be sure to enter accurate parameter information for location, state, edition, type, and processors depending on your particular scenario
+
 > [!NOTE]
-> For each of the API commands, be sure to enter accurate parameter information for location, state, edition, type, and processors depending on your particular scenario
+> You'll need to create a service principal to use the Azure API to manage ESUs. See [Connect hybrid machines to Azure at scale](onboard-service-principal.md) and [Azure REST API reference](/rest/api/azure/) for more information.
 > 
+
 ## Provision a license
 
 To provision a license, execute the following commands:
