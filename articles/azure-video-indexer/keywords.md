@@ -8,7 +8,9 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ---
 
-# Keywords extraction  
+# Keywords extraction
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Keywords extraction is an Azure AI Video Indexer AI feature that automatically detects insights on the different keywords discussed in media files. Keywords extraction can extract insights in both single language and multi-language media files. The total number of extracted keywords and their categories are listed in the Insights tab, where clicking a Keyword and then clicking Play Previous or Play Next jumps to the keyword in the media file.  
 
