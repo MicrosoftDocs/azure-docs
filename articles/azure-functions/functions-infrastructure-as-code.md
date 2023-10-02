@@ -32,8 +32,7 @@ An Azure Functions deployment typically consists of these resources:
 |------|-------|----|
 | A function app | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep)  |
 | A [storage account](../storage/index.yml) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) |
-| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)|
-:::zone pivot="premium,dedicated"  
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)|:::zone pivot="premium,dedicated"  
 | A [hosting plan](functions-scale.md)| Required<sup>2</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep) |
 :::zone-end
 
@@ -44,14 +43,13 @@ An Azure Functions deployment typically consists of these resources:
 |----|-------|----|
 | A function app | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template) |
 | A [storage account](../storage/index.yml)        | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-arm-template) |
-| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional<sup>1</sup>    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-arm-template) |
-:::zone pivot="premium,dedicated"  
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional<sup>1</sup>| [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-arm-template) |:::zone pivot="premium,dedicated" 
 | A [hosting plan](functions-scale.md)           | Required<sup>2</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template)   |
 :::zone-end
 
 ---
 
-<sup>1</sup>While not required, it is strongly recommended that you configure Application Insights for your app.
+<sup>1</sup>While not required, it is strongly recommended that you configure Application Insights for your app.   
 <sup>2</sup>An explicit hosting plan isn't required when you choose to host your function app in a [Consumption plan](./consumption-plan.md).
 
 <a name="storage"></a>
