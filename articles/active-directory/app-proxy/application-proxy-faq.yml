@@ -27,7 +27,7 @@ sections:
             -	Enable/Disable “Allow public clients flows”.
             -	CWAP_AuthSecret (Client secrets).
             -	API Permissions.
-            Modifying any of the above configuration items on the App registration page breaks pre-authentication for Azure AD Application Proxy. 
+            Modifying any of the above configuration items on the App registration page breaks preauthentication for Azure AD Application Proxy. 
 
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Microsoft Entra admin center? 
@@ -169,7 +169,7 @@ sections:
               The client secret is valid for one year. A new one-year client secret is automatically created before the current valid client secret expires. Three CWAP_AuthSecret client secrets are kept in the application object at all times. 
           
               > [!IMPORTANT]
-              > Deleting CWAP_AuthSecret breaks pre-authentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
+              > Deleting CWAP_AuthSecret breaks preauthentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
 
       - question: |
          I'm using or want to use Microsoft Entra application proxy. Can I replace the `onmicrosoft.com` fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](/microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)? 
@@ -185,19 +185,19 @@ sections:
       - question: |
          Why do I get redirected to a truncated URL when I try to access my published application whenever the  URL contains a "#"  (hashtag) character?
         answer: |
-              If Microsoft Entra pre-authentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Microsoft Entra ID (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is `https://www.contoso.com/#/home/index.html`, once the Microsoft Entra authentication is done the user is redirected to `https://www.contoso.com/`.
+              If Microsoft Entra preauthentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Microsoft Entra ID (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is `https://www.contoso.com/#/home/index.html`, once the Microsoft Entra authentication is done the user is redirected to `https://www.contoso.com/`.
               This behavior is by design due to how the “#” character is handled by the browser.
               
               Possible solutions/  alternatives:
 
               - Setup a redirection from `https://www.contoso.com` to `https://contoso.com/#/home/index.html`. The user must first access `https://www.contoso.com`.
               - The URL used for the first access attempt must include the “#” character in encoded form (%23). The published server might not accept this.
-              - Configure passthrough pre-authentication type (not recommended).
+              - Configure passthrough preauthentication type (not recommended).
               
       - question: |
          Can only IIS-based applications be published? What about web applications running on non-Windows web servers? Does the connector have to be installed on a server with IIS installed?
         answer: |
-              No, there's no IIS requirement for applications that are published. You can publish web applications running on servers other than Windows Server. However, you might not be able to use pre-authentication with a non-Windows Server, depending on if the web server supports Negotiate (Kerberos authentication). IIS isn't required on the server where the connector is installed.
+              No, there's no IIS requirement for applications that are published. You can publish web applications running on servers other than Windows Server. However, you might not be able to use preauthentication with a non-Windows Server, depending on if the web server supports Negotiate (Kerberos authentication). IIS isn't required on the server where the connector is installed.
 
       - question: |
          Can I configure Application Proxy to add the HSTS header?
@@ -259,13 +259,13 @@ sections:
               The PrincipalsAllowedToDelegateToAccount method is used when connector servers are in a different domain from the web application service account. It requires the use of Resource-based Constrained Delegation.
               If the connector servers and the web application service account are in the same domain, you can use Active Directory Users and Computers to configure the delegation settings on each of the connector machine accounts, allowing them to delegate to the target SPN.
           
-              If the connector servers and the web application service account are in different domains, Resource-based delegation is used. The delegation permissions are configured on the target web server and web application service account. This method of Constrained Delegation is relatively new. The method was introduced in Windows Server 2012, which supports cross-domain delegation by allowing the resource (web service) owner to control which machine and service accounts can delegate to it. There's no UI to assist with this configuration, so you'll need to use PowerShell.
+              If the connector servers and the web application service account are in different domains, Resource-based delegation is used. The delegation permissions are configured on the target web server and web application service account. This method of Constrained Delegation is relatively new. The method was introduced in Windows Server 2012, which supports cross-domain delegation by allowing the resource (web service) owner to control which machine and service accounts can delegate to it. There's no UI to assist with this configuration, so you need to use PowerShell.
               For more information, see the whitepaper [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper).
           
       - question: |
          Does NTLM authentication work with Microsoft Entra application proxy?
         answer: |
-              NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
+              NTLM authentication can’t be used as a preauthentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
 
       - question: |
          Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA single sign-on scenario?
@@ -279,7 +279,7 @@ sections:
       - question: |
          Can I use Conditional Access Policies for applications published with pass-through authentication?
         answer: |
-              Conditional Access Policies are only enforced for successfully pre-authenticated users in Microsoft Entra ID. Pass-through authentication doesn’t trigger Microsoft Entra authentication, so Conditional Access Policies can't be enforced. With pass-through authentication, MFA policies must be implemented on the on-premises server, if possible, or by enabling pre-authentication with Microsoft Entra application proxy.
+              Conditional Access Policies are only enforced for successfully pre-authenticated users in Microsoft Entra ID. Pass-through authentication doesn’t trigger Microsoft Entra authentication, so Conditional Access Policies can't be enforced. With pass-through authentication, MFA policies must be implemented on the on-premises server, if possible, or by enabling preauthentication with Microsoft Entra application proxy.
 
       - question: |
          Can I publish a web application with client certificate authentication requirement?
@@ -299,9 +299,9 @@ sections:
               No, this scenario isn't supported.  
 
       - question: |
-         My users don't use Internet Explorer 11 and the pre-authentication scenario doesn’t work for them. Is this expected?
+         My users don't use Internet Explorer 11 and the preauthentication scenario doesn’t work for them. Is this expected?
         answer: |
-              Yes, it’s expected. The pre-authentication scenario requires an ActiveX control, which isn't supported in third-party browsers.
+              Yes, it’s expected. The preauthentication scenario requires an ActiveX control, which isn't supported in third-party browsers.
 
       - question: |
          Is the Remote Desktop Web Client (HTML5) supported?
@@ -309,12 +309,12 @@ sections:
               Yes, this scenario is currently in public preview. Refer to [Publish Remote Desktop with Microsoft Entra application proxy](./application-proxy-integrate-with-remote-desktop-services.md).
           
       - question: |
-          After I configured the pre-authentication scenario, I realized that the user has to authenticate twice: first on the Microsoft Entra sign-in form, and then on the RDWeb sign-in form. Is this expected? How can I reduce this to one sign-in?
+          After I configured the preauthentication scenario, I realized that the user has to authenticate twice: first on the Microsoft Entra sign-in form, and then on the RDWeb sign-in form. Is this expected? How can I reduce this to one sign-in?
         answer:     Yes, it's expected. If the user’s computer is Microsoft Entra joined, the user signs in to Microsoft Entra ID automatically. The user needs to provide their credentials only on the RDWeb sign-in form.
 
       - question: |
-          Can I use the Resources Launch Method option "Download the rdp file" under Settings on the Remote Desktop Web Client Portal in Microsoft Entra pre-authentication scenario?
-        answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the pre-authentication natively. That's why the scenario doesn't work.
+          Can I use the Resources Launch Method option "Download the rdp file" under Settings on the Remote Desktop Web Client Portal in Microsoft Entra preauthentication scenario?
+        answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the preauthentication natively. That's why the scenario doesn't work.
 
   - name: SharePoint publishing
     questions:
@@ -326,7 +326,7 @@ sections:
       - question: |
          Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint Server?
         answer: |
-              The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Microsoft Entra pre-authentication currently.
+              The [SharePoint mobile app](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Microsoft Entra preauthentication currently.
           
   
   - name: Active Directory Federation Services (AD FS) publishing
