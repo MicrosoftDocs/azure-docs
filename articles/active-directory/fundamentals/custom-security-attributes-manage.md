@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 10/01/2023
 ms.collection: M365-identity-device-management
 ---
 
@@ -150,7 +150,7 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -RoleDefinitionId 
 [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments)
 
 ```http
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 Content-type: application/json
 
 {
@@ -204,7 +204,7 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -RoleDefinitionId 
 [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments)
 
 ```http
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 Content-type: application/json
 
 {
