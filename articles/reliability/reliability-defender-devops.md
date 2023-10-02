@@ -19,36 +19,51 @@ This article describes reliability support in [Defender for DevOps](../defender-
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Defender for DevOps supports single-region disaster recovery. As such, multi-region disaster recovery follows the same process. 
+Defender for DevOps supports single-region disaster recovery. As such, a multi-region disaster recovery process simply implements [that single-region disaster recovery process outlined in this document](#single-region-disaster-recovery-process). Defender for DevOps uses a [Shared Responsibility model](/azure/security/fundamentals/shared-responsibility) in its approach to disaster recovery. 
+
+
+### Supported regions
 
 Defender for DevOps is only supported in the following regions: 
 
 - List regions here
 
 
+### Single-region disaster recovery process
 
-### What to expect when a region fails
+The single region disaster recovery process for Defender for DevOps contains two re
 
 #### Customer responsibility
 
-When a region goes down, configuration for the connector of that region is lost. Lost configurations include, for example,customer tokens, auto discovery configurations, and ADO annotations configurations. 
+When a region goes down, your configurations for the connector of that region is lost. Lost configurations include customer tokens, auto discovery configurations, and ADO annotations configurations. To recover, you'll need to recreate a new connector in a new region.  
 
-1. Create configure a new connector in a new region.
-1. Create an ICM on the feature team to release the ownership of the SCM orgs from the old connector.
+>[!TIP]
+>You can use an existing connector in the new region, as long as it's authenticated to have access to the Source Code Management (SCM) orgs of the old connector.
 
+To create a new connector in a new region:
+
+1. Copy the Resource ID of the old connector of the region that has the outage.
+
+1. Open a ticket on Defender for DevOps to release ownership of the Source Code Management (SCM) orgs of the old connector. You can specify specific orgs or all orgs.
+
+1. Once the old SCM orgs have been released and new entities appear for the new connector, recreate the annotation configuration if needed.
+
+    >[!NOTE]
+    >The time it takes to recreate the annotation configuration is proportional for how long it takes for the new connector to discover all the SCM orgs.
+
+1. When the old region recovers from the outage, the new connector is made primary and you can safely delete the old connector.
 
 
 
 #### Microsoft responsibility
 
-When a region goes down and you have established the new connector, Microsoft recreates all alerts, recommendations, and SG entities from the old connector into the new connector.
+When a region goes down and you have established the new connector, Microsoft recreates all alerts, recommendations, and Security Graph (SG) entities from the old connector into the new connector.
 
 >[!IMPORTANT]
-> Microsoft does not recreate history for some functionalities, such as container mapping data from previous runs, alerts data more than one week old, and IaC mapping history data.
+> Microsoft doesn't recreate history for some functionalities, such as container mapping data from previous runs, alerts data more than one week old, and IaC mapping history data.
 
 
 
-### Disaster recovery in single-region geography
 
 
 ## Next steps
