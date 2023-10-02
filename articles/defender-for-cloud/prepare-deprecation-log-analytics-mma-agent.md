@@ -9,7 +9,7 @@ ms.date: 10/02/2023
 
 # Prepare for deprecation of the Log Analytics MMA agent
 
-The Azure Log Analytics Microsoft Monitor Agent (MMA) will be [deprecated in August 2024](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecationupcoming-changes.md#important-upcoming-changes-to-microsoft-defender-for-cloud). If you’ve deployed the Defender for Servers and Defender for SQL Server on Machines plans within Microsoft Defender for Cloud, here’s how you should prepare for this change.
+The Azure Log Analytics Microsoft Monitor Agent (MMA) will be [deprecated in August 2024](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). If you’ve deployed the Defender for Servers and Defender for SQL Server on Machines plans within Microsoft Defender for Cloud, here’s how you should prepare for this change.
 
 ## Prepare Defender for Servers
 
