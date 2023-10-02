@@ -129,7 +129,7 @@ This section outlines supported scenarios.
 * [ASP.NET](./asp-net.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
-* [Python](./opencensus-python.md)
+* [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 * [ASP.NET Core](./asp-net-core.md)
 
 #### Client-side JavaScript SDK

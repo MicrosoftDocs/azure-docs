@@ -39,6 +39,8 @@
       items:
         - name: Use the Azure CLI
           href: quickstarts-tenant-workload-deployment.md
+        - name: Use Azure PowerShell
+          href: quickstarts-tenant-workload-deployment-ps.md 
 - name: How-To Guides
   items:
     - name: Operator Nexus Instance Deployment and Upgrade
