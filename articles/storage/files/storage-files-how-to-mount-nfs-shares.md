@@ -57,7 +57,7 @@ The following mount options are recommended or required when mounting NFS Azure 
 | `wsize` | 1048576 | Recommended. Sets the maximum number of bytes to be transferred in a single NFS write operation. Specifying the maximum level of 1048576 bytes will usually result in the best performance. |
 | `noresvport` | n/a | Recommended. Tells the NFS client to use a non-privileged source port when communicating with an NFS server for the mount point. Using the `noresvport` mount option helps ensure that your NFS share has uninterrupted availability after a reconnection. Using this option is strongly recommended for achieving high availability. |
 | `actimeo` | 30-60 | Recommended. Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
-| `_netdev` | n/a | Recommended. Using this option specifies that mounting the share requires network access, and prevents the client from attempting to mount the share until the network has been enabled on the device. |
+| `_netdev` | n/a | Recommended. Using `_netdev` specifies that mounting the file share requires network access, and prevents the client from attempting to mount the share until the network has been enabled on the device. |
 
 ## Mount an NFS share using the Azure portal
 
