@@ -8,6 +8,8 @@ ms.date: 09/25/2023
 
 # How to use Azure Pipelines with HDInsight on AKS - Flink
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS to submit Flink jobs via the cluster's REST API. We guide you through the process using a sample YAML pipeline and a PowerShell script, both of which streamline the automation of the REST API interactions.
 
 

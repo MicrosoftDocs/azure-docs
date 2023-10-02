@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Overview of enterprise security in Azure HDInsight on AKS
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Azure HDInsight on AKS offers is secure by default, and there are several methods to address your enterprise security needs. Most of these solutions are activated by default. 
 
 This article covers overall security architecture, and security solutions by dividing them into four traditional security pillars: perimeter security, authentication, authorization, and encryption.

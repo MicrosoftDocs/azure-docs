@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Deploy Apache Superset
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Visualization is essential to effectively explore, present, and share data. [Apache Superset](https://superset.apache.org/) allows you to run queries, visualize, and build dashboards over your data in a flexible Web UI. 
 
 This article describes how to deploy an Apache Superset UI instance in Azure and connect it to HDInsight on AKS Trino cluster to query data and create dashboards.

@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Use Airflow with Trino cluster
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article demonstrates how to configure available open-source [Airflow Trino provider](https://airflow.apache.org/docs/apache-airflow-providers-trino/stable/index.html) to connect to HDInsight on AKS Trino cluster.
 The objective is to show how you can connect Airflow to HDInsight on AKS Trino considering main steps as obtaining access token and running query.
 

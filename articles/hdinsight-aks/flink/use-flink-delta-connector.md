@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # How to use Apache Flink-Delta connector
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 By using Apache Flink and Delta Lake together, you can create a reliable and scalable data lakehouse architecture. The Flink/Delta Connector allows you to write data to Delta tables with ACID transactions and exactly once processing. It means that your data streams are consistent and error-free, even if you restart your Flink pipeline from a checkpoint. The Flink/Delta Connector ensures that your data isn't lost or duplicated, and that it matches the Flink semantics.
 
 In this article, you learn how to use Flink-Delta connector

@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Create a Trino cluster in the Azure portal
+# Create a Trino cluster in the Azure portal (Preview)
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This article describes the steps to create an HDInsight on AKS Trino cluster by using the Azure portal. 
 

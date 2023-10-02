@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Trino configuration management
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 HDInsight on AKS Trino cluster comes with most of the default configurations of open-source Trino. This article describes how to update config files, and adds your own supplemental config files to the cluster.
 
 You can add/update the configurations in two ways:

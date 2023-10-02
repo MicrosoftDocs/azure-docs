@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Trino CLI
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 The Trino CLI provides a terminal-based, interactive shell for running queries.
 
 ## Install on Windows

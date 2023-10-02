@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Fraud detection with the Apache Flink DataStream API
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 In this article, learn how to run Fraud detection use case with the Apache Flink DataStream API.
 
 ## Prerequisites

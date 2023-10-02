@@ -6,7 +6,9 @@ ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Connect Trino to Azure Data Factory 
+# Connect Trino to Azure Data Factory
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Azure HDInsight on AKS Trino provides a mechanism to connect your Trino cluster with Azure Data Factory. This article outlines the different configurations required to connect to Azure Data Factory.
 

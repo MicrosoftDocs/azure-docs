@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Trino UI
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article covers the details around the Trino UI provided for monitoring the cluster nodes and the queries submitted.
 
 

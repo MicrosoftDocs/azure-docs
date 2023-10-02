@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Using miscellaneous files
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article provides details on how to specify and use miscellaneous files configuration.
 
 You can add the configurations for using miscellaneous files in your cluster using ARM template. For broader examples, refer to [Service configuration](./trino-service-configuration.md).

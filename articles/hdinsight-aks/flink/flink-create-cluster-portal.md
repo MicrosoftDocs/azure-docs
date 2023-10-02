@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Create an Apache Flink cluster in the Azure portal
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Complete the following steps to create an Apache Flink cluster by using the Azure portal.
 
 ## Prerequisites

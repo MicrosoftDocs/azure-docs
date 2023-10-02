@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Export cluster ARM template using script
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article describes how to generate an ARM template for your cluster automatically using a script. You can use the ARM template to modify, clone, or recreate a cluster starting from the existing cluster's configurations.
 
 ## Prerequisites

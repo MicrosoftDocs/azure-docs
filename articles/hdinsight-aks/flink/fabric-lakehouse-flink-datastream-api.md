@@ -7,6 +7,8 @@ ms.date: 08/29/2023
 ---
 # Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This example demonstrates on how to use HDInsight on AKS Apache Flink with [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
 
 [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview) is an all-in-one analytics solution for enterprises that covers everything from data movement to data science, Real-Time Analytics, and business intelligence. It offers a comprehensive suite of services, including data lake, data engineering, and data integration, all in one place. 

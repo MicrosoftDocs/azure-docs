@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Trino connectors
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Trino in HDInsight on AKS enables seamless integration with data sources. You can refer to the following documentation for open-source connectors.
 
 * [BigQuery](https://trino.io/docs/410/connector/bigquery.html)

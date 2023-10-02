@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Table API and SQL in HDInsight on AKS - Apache Flink
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Apache Flink features two relational APIs - the Table API and SQL - for unified stream and batch processing. The Table API is a language-integrated query API that allows the composition of queries from relational operators such as selection, filter, and join intuitively. Flink’s SQL support is based on Apache Calcite, which implements the SQL standard. 
 
 The Table API and SQL interfaces integrate seamlessly with each other and Flink’s DataStream API. You can easily switch between all APIs and libraries, which build upon them.

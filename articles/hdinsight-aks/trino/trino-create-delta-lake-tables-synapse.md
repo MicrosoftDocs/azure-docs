@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Read Delta Lake tables (Synapse or external location)
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article provides an overview of how to read a Delta Lake table without having any access to the metastore (Synapse or other metastores without public access).
 
 You can perform the following operations on the tables using HDInsight on AKS Trino.

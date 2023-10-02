@@ -8,6 +8,8 @@ ms.date: 08/29/2023
  
 # Using HDInsight Kafka with HDInsight on AKS - Apache Flink
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 A well known use case for Apache Flink is stream analytics. The popular choice by many users to use the data streams, which are ingested using Apache Kafka. Typical installations of Flink and Kafka start with event streams being pushed to Kafka, which can be consumed by Flink jobs.
 
 This example uses HDInsight on AKS Flink 1.16.0 to process streaming data consuming and producing Kafka topic. 

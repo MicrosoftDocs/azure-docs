@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # DataStream API for MongoDB as a source and sink on Apache Flink
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Apache Flink provides a MongoDB connector for reading and writing data from and to MongoDB collections with at-least-once guarantees.
 
 This example demonstrates on how to use HDInsight on AKS Apache Flink 1.16.0 along with your existing MongoDB as Sink and Source with Flink DataStream API MongoDB connector.

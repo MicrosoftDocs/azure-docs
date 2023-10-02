@@ -6,7 +6,10 @@ ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
-# Configure caching 
+# Configure caching
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Querying object storage using the Hive connector is a common use case for Trino. This process often involves sending large amounts of data. Objects are retrieved from HDFS or another supported object store by multiple workers and processed by those workers. Repeated queries with different parameters, or even different queries from different users, often access and transfer the same objects. 
 
 HDInsight on AKS Trino has added **final result caching** capability, which provides the following benefits:
