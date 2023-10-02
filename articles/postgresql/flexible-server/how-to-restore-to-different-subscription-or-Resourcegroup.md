@@ -62,7 +62,7 @@ If your source server is configured with geo-redundant backup, you can restore t
 
 6. Under **Server details**, for **Name**, provide a server name. For **Availability zone**, you can optionally choose an availability zone to restore to.
    
-   :::image type="content" source="./media/how-to-restore-server-portal/georestore=different-SuborRG.png" alt-text="Screenshot that shows selections for restoring to the latest restore point.":::
+   :::image type="content" source="./media/how-to-restore-server-portal/georestore-different-SuborRG.png" alt-text="Screenshot that shows selections for restoring to the latest point.":::
 
 6. Select **Review + create** and click **create**, a notification shows that the restore operation has started.
 
