@@ -27,7 +27,7 @@ This article explains the concepts, benefits, and limitations of hybrid search.
 
 In Azure Cognitive Search, vector indexes containing embeddings can live alongside textual and numerical fields allowing you to issue hybrid full text and vector queries. Hybrid queries can take advantage of existing functionality like filtering, faceting, sorting, scoring profiles, and [semantic ranking](semantic-search-overview.md) in a single search request.
 
-Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm is used to merge results. The query reponse provides just one result set, using RRF to determine which matches are included.
+Hybrid search combines results from both full text and vector queries, which use different ranking functions such as BM25 and HNSW. A [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) algorithm is used to merge results. The query response provides just one result set, using RRF to determine which matches are included.
 
 ## Structure of a hybrid query
 
