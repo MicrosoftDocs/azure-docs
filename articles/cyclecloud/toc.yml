@@ -72,6 +72,8 @@
       href: ./how-to/ssl-configuration.md
     - name: Run Multiple CycleCloud Installs
       href: ./how-to/multiple-installs.md
+    - name: Move a Cluster to Another Resource Group
+      href: ./how-to/move-resource-group.md
   - name: Cluster Operations
     items:
     - name: Create a Cluster
