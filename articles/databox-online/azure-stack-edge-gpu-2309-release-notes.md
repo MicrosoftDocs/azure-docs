@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2023
+ms.date: 10/01/2023
 ms.author: alkohli
 ---
 
@@ -66,6 +66,10 @@ The 2309 release has the following new features and enhancements:
 | No. | Feature | Issue |
 | --- | --- | --- |
 |**1.**|Core Azure Stack Edge platform and Azure Kubernetes Service (AKS) on Azure Stack Edge   |Critical bug fixes to improve workload availability during two-node Azure Stack Edge update of core Azure Stack Edge platform and AKS on Azure Stack Edge.   |
+|**2.**|Virtual machines and virtual network    |In previous releases, there were VM provisioning timeouts when virtual network was created on a port that supported accelerated networking and the primary network interface associated with the VM was also attached to the same virtual network. <br><br>A fix was incorporated in this release that always turned off accelerated networking on the primary network interface for the VM. |
+|**3.**|Virtual machines and virtual network    |In the earlier releases, the primary network interface on the VM was not validated to have a reachable gateway IP. <br><br>In this release, this issue is fixed. The validation of the gateway IP helps identify  any potential network configuration issues before the VM provision timeout occurs.  |
+|**4.**|Virtual machines and virtual network    |In the earlier releases, the MAC address allocation algorithm only considered the last two octets whereas the MAC address range actually spanned last three octets. This discrepancy led to allocation conflicts in certain corner cases, resulting in overlapping MAC addresses. <br><br>The MAC address allocation is revised in this release to fix the above issue.|
+|**5.**|Azure Kubernetes Service (AKS)    |In previous releases, if there was a host power failure, the pod with SRIOV capable CNIs also failed with the following error: <br><br>`Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "<GUID>": plugin type="multus" name="multus-cni-network" failed (add): [core/core-upf-pp-0:n3-dpdk]: error adding container to network "n3-dpdk": failed to rename netvsc link: failed to rename link "001dd81c9dd4_VF" to "001dd81c9dd4": file exists.`<br><br>This failure of pod with SRIOV capable CNIs is fixed in this release. For AKS SRIOV CNI plugin, the driver name returned from ethtool is used to determine device is VF or netvsc. |
 
 <!--## Known issues in this release
 
