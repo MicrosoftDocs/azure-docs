@@ -53,7 +53,7 @@ By default, apps and desktops running on Windows Server are rendered with the CP
 
 ## Configure GPU-accelerated frame encoding
 
-Remote Desktop encodes all graphics that apps and desktops render (by using either GPU or CPU) for transmission to Remote Desktop clients. When part of the screen is frequently updated, this part of the screen is encoded with a video codec (H.264/AVC). By default, Remote Desktop doesn't use available GPUs for this encoding.
+Remote Desktop encodes all graphics that apps and desktops render for transmission to Remote Desktop clients. When part of the screen is frequently updated, this part of the screen is encoded with a video codec (H.264/AVC). By default, Remote Desktop doesn't use available GPUs for this encoding.
 
 Configure Group Policy for the session host to enable GPU-accelerated frame encoding. The following procedure continues the previous steps.
 
