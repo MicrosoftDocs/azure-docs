@@ -34,7 +34,7 @@ Currently, the following are not supported:
 
 Follow these steps to migrate using scripts.
 
-1. Install the script to run to conduct migrations from <add link>.
+1. Install the script to run to conduct migrations.
 1. Ensure that the new workspace resource Id is different to the one with which it is associated to in the Change Tracking and Inventory using the LA version.
 1. Migrate settings for the following data types:
     - Windows Services
