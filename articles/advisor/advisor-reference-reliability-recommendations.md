@@ -259,11 +259,47 @@ Virtual machines in an Availability Set with disks that share either storage acc
 
 Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to improve data reliability)](https://aka.ms/aa_avset_manageddisk_learnmore).
 
-### Access to mandatory URLs missing for your Azure Virtual Desktop environment
+### Access to mandatory URLs missing for your Windows Virtual Desktop environment
 
-In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
+In order for a session host to deploy and register to Windows Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Azure Virtual Desktop environment)](../virtual-desktop/safe-url-list.md).
+
+## Container Service
+
+### Upgrade to Standard tier for mission-critical and production clusters
+
+This cluster has more than 10 nodes and has not enabled the Standard tier. The Kubernetes Control Plane on the Free tier comes with limited resources and is not intended for production use or any cluster with 10 or more nodes.
+
+Learn more about [Kubernetes service - UseStandardpricingtier (Upgrade to Standard tier for mission-critical and production clusters)](/azure/aks/uptime-sla).
+
+### Clusters having node pools using non-recommended B-Series
+
+Cluster has one or more node pools using a non-recommended burstable VM SKU. With burstable VMs, full vCPU capability 100% is unguaranteed. Please make sure B-series VM's are not used in Production environment.
+
+Learn more about [Kubernetes service - ClustersUsingBSeriesVMs (Clusters having node pools using non-recommended B-Series)](/azure/virtual-machines/sizes-b-series-burstable).
+
+## Data Lake Storage
+
+### You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2
+
+As previously announced, Azure Data Lake Storage Gen1 will be retired on 29 February 2024. We highly recommend migrating your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics and is built on top of Azure Blob Storage.
+
+Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](https://azure.microsoft.com/en-us/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
+
+## MySQL
+
+### Replication - Add a primary key to the table that currently does not have one
+
+Based on our internal monitoring, we have observed significant replication lag on your replica server. This lag is occurring because the replica server is replaying relay logs on a table that lacks a primary key. To ensure that the replica server can effectively synchronize with the master and keep up with changes, we highly recommend adding primary keys to the tables in the master server and subsequently recreating the replica server.
+
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerReplicaMissingPKfb41 (Replication - Add a primary key to the table that currently does not have one)](https://learn.microsoft.com/en-us/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
+
+### High Availability - Add primary key to the table that currently does not have one.
+
+Our internal monitoring system has identified significant replication lag on the High Availability standby server. This lag is primarily caused by the standby server replaying relay logs on a table that lacks a primary key. To address this issue and adhere to best practices, it is recommended to add primary keys to all tables. Once this is done, proceed to disable and then re-enable High Availability to mitigate the problem.
+
+Learn more about [Azure Database for MySQL flexible server - MySqlFlexibleServerHAMissingPKcf38 (High Availability - Add primary key to the table that currently does not have one.)](https://learn.microsoft.com/en-us/azure/mysql/how-to-troubleshoot-replication-latency#no-primary-key-or-unique-key-on-a-table).
 
 ## PostgreSQL
 
@@ -275,7 +311,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Im
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL flexible server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. This can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal telemetry indicates that your PostgreSQL flexible server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication slots can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlFlexibleServerLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_flexible_server_logical_decoding).
 
@@ -286,6 +322,36 @@ Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSq
 Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the recommendation.
 
 Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
+
+### IoT Hub Potential Device Storm Detected
+
+This is when two or more devices are trying to connect to the IoT Hub using the same device ID credentials. When the second device (B) connects, it causes the first one (A) to become disconnected. Then (A) attempts to reconnect again, which causes (B) to get disconnected.
+
+Learn more about [IoT hub - IoTHubDeviceStorm (IoT Hub Potential Device Storm Detected)](https://aka.ms/IotHubDeviceStorm).
+
+### Upgrade Device Update for IoT Hub SDK to a supported version
+
+Your Device Update for IoT Hub Instance is using an outdated version of the SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+
+Learn more about [IoT hub - DU_SDK_Advisor_Recommendation (Upgrade Device Update for IoT Hub SDK to a supported version)](https://learn.microsoft.com/en-us/azure/iot-hub-device-update/understand-device-update).
+
+### IoT Hub Quota Exceeded Detected
+
+We have detected that your IoT Hub has exceeded its daily message quota.  Consider adding units or increasing the SKU level to prevent this in the future.
+
+Learn more about [IoT hub - IoTHubQuotaExceededAdvisor (IoT Hub Quota Exceeded Detected)](/azure/iot-hub/troubleshoot-error-codes#403002-iothubquotaexceeded).
+
+### Upgrade device client SDK to a supported version for IotHub
+
+Some or all of your devices are using outdated SDK and we recommend you upgrade to a supported version of SDK. See the details in the recommendation.
+
+Learn more about [IoT hub - UpgradeDeviceClientSdk (Upgrade device client SDK to a supported version for IotHub)](https://aka.ms/iothubsdk).
+
+### Upgrade Edge Device Runtime to a supported version for Iot Hub
+
+Some or all of your Edge devices are using outdated versions and we recommend you upgrade to the latest supported version of the runtime. See the details in the recommendation.
+
+Learn more about [IoT hub - UpgradeEdgeSdk (Upgrade Edge Device Runtime to a supported version for Iot Hub)](https://aka.ms/IOTEdgeSDKCheck).
 
 ## Azure Cosmos DB
 
