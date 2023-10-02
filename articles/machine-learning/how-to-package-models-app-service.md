@@ -15,7 +15,7 @@ ms.topic: how-to
 
 Models can be deployed outside of Azure Machine Learning for online serving by creating [model packages](package-models.md), a capability in Azure Machine Learning that allows you to collect all the dependencies required to deploy a machine learning model to a serving platform. Packages can be moved across workspaces and even outside of Azure Machine Learning. To learn more about model packages in general, read [Model packages for deployment](package-models.md).
 
-In this article you learn how package a model and deploy it to an Azure App Service.
+In this article, you learn how package a model and deploy it to an Azure App Service.
 
 ## Prerequisites
 
