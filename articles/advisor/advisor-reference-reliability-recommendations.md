@@ -555,19 +555,19 @@ Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Rest
 
 You're close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations stop working when storage quota is exceeded.
 
-Learn more about [Service limits in Azure Cognitive Search](https://aka.ms/azure/search/search-limits-quotas-capacity).
+Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
 ### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.
 
 You're close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations stop working when storage quota is exceeded.
 
-Learn more about [Service limits in Azure Cognitive Search](https://aka.ms/azure/search/search-limits-quotas-capacity).
+Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
 ### You are close to exceeding your available storage quota. Add additional partitions if you need more storage.
 
 you're close to exceeding your available storage quota. Add additional partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
 
-Learn more about [Service limits in Azure Cognitive Search](https://aka.ms/azure/search/search-limits-quotas-capacity).
+Learn more about [Service limits in Azure Cognitive Search](/azure/search/search-limits-quotas-capacity).
 
 ## Storage
 
