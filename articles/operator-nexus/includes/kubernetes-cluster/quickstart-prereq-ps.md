@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecpowershell
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-* Use the Bash environment in [Azure Cloud Shell](../../../cloud-shell/overview.md). For more information, see [Quickstart for Bash in Azure Cloud Shell.](../../../cloud-shell/quickstart.md)
+* Use the Bash environment in [Azure PowerShell](../../../cloud-shell/overview.md). For more information, see [Quickstart for PowerShell in Azure Cloud Shell.](../../../cloud-shell/quickstart.md)
 
 [:::image type="icon" source="~/articles/reusable-content/azure-cli/media/hdi-launch-cloud-shell.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
 
