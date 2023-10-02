@@ -8,7 +8,7 @@
   items:
     - name: Create cluster
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: quickstart-create-portal.md
         - name: Bicep
           href: quickstart-create-bicep.md
