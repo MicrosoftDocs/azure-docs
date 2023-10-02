@@ -27,13 +27,13 @@ RRF works by taking the search results from multiple methods, assigning a recipr
 
 Here's a simple explanation of the RRF process:
 
-1. Obtain ranked search results from multiple queries executing in parallel for full text search and vector search.
+1. Obtain ranked search results from multiple queries executing in parallel.
 
-1. Assign reciprocal rank scores for result in each of the ranked lists. RRF generates a new **`@search.score`** for each match in each result set. For each document in the search results, we assign a reciprocal rank score based on its position in the list. The score is calculated as `1/(rank + k)`, where `rank` is the position of the document in the list, and `k` is a constant, which was experimentally observed to perform best if it's set to a small value like 60. **Note that this `k` value is a constant in the RRF algorithm and entirely separate from the `k` that controls the number of nearest neighbors.**
+1. Assign reciprocal rank scores for result in each of the ranked lists. RRF generates a new **`@search.score`** for each match in each result set. For each document in the search results, the engine assigns a reciprocal rank score based on its position in the list. The score is calculated as `1/(rank + k)`, where `rank` is the position of the document in the list, and `k` is a constant, which was experimentally observed to perform best if it's set to a small value like 60. **Note that this `k` value is a constant in the RRF algorithm and entirely separate from the `k` that controls the number of nearest neighbors.**
 
 1. Combine scores. For each document, the engine sums the reciprocal rank scores obtained from each search system, producing a combined score for each document. 
 
-1. Rank documents based on combined scores and sort them. The resulting list is the fused ranking. 
+1. The engine ranks documents based on combined scores and sorts them. The resulting list is the fused ranking. 
 
 Only fields marked as `searchable` in the index are used for scoring. Only fields marked as `retrievable`, or fields that are specified in `searchFields` in the query, are returned in search results, along with their search score.
 
@@ -55,7 +55,7 @@ The following chart identifies the scoring property returned on each match, algo
 |---------------|-----------|-------------------|-------|
 | full-text search | `@search.score` | BM25 algorithm | No upper limit. |
 | vector search | `@search.score` | HNSW algorithm, using the similarity metric specified in the HNSW configuration. | 0.333 - 1.00 (Cosine), 0 to 1 for Euclidean and DotProduct. | 
-| hybrid search | `@search.score` | RRF algorithm | Upper limit is only bounded by the number of queries being fused, with each query contributing a maximum of approximately 1 to the RRF score. |
+| hybrid search | `@search.score` | RRF algorithm | Upper limit is bounded by the number of queries being fused, with each query contributing a maximum of approximately 1 to the RRF score. For example, merging three queries would produce higher RRF scores than if only two search results are merged. |
 | semantic ranking | `@search.rerankerScore` | Semantic ranking | 1.00 - 4.00 |
 
 Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`) is always reported separately in the query response. Semantic ranking can rerank full text and hybrid search results, assuming those results include fields having semantically rich content.
