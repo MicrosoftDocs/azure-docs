@@ -291,9 +291,9 @@ If you don't have an instance of a DevOps organization onboarded more than once 
 
 Customers will have until September 30, 2023 to resolve this issue. After this date, only the most recent DevOps Connector created where an instance of the DevOps organization exists will remain onboarded to Defender for DevOps. For example, if Organization Contoso exists in both connectorA and connectorB, and connectorB was created after connectorA, then connectorA will be removed from Defender for DevOps.
 
-## Deprecating "Microsoft Defender for Storage plan should be enabled" recommendation
+## Deprecating two security incidents 
 
-**Estimated date for change: September 2023**
+**Estimated date for change: November 2023**
 
 Following quality improvement process, the following security incidents are set to be deprecated: 'Security incident detected suspicious virtual machines activity' and 'Security incident detected on multiple machines'.
 
