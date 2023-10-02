@@ -5,7 +5,7 @@ services: front-door
 author: duongau
 ms.author: duau
 manager: KumudD
-ms.date: 10/28/2022
+ms.date: 10/02/2023
 ms.topic: quickstart
 ms.service: frontdoor
 ms.workload: infrastructure-services
