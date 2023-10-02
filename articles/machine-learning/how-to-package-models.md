@@ -663,7 +663,7 @@ The following example creates a package of the `t5-base` model:
 1. The package is created in the target workspace and ready to be deployed.
 
 
-## Create packages to deploy outside of Azure Machine Learning
+## Package models to deploy outside of Azure Machine Learning
 
 Model packages can be deployed outside of Azure Machine Learning if needed.  To guarantee portability, you only need to ensure that the **model configuration** in your package has the mode set to **copy**. That means that the model itself is copied inside of the generated docker image instead of referenced from the model registry in Azure Machine Learning.
 
