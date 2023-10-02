@@ -27,12 +27,12 @@ sections:
             -	Enable/Disable “Allow public clients flows”.
             -	CWAP_AuthSecret (Client secrets).
             -	API Permissions.
-            Modifying any of the above configuration items on the App registration page will break pre-authentication for Azure AD Application Proxy. 
+            Modifying any of the above configuration items on the App registration page breaks pre-authentication for Azure AD Application Proxy. 
 
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Microsoft Entra admin center? 
         answer: |
-              No. You should delete an App Proxy app from the **Enterprise applications** area of the Microsoft Entra admin center. If you delete the App Proxy app from the **App registrations** area of the Microsoft Entra admin center then you could experience issues.
+              No. You should delete an App Proxy app from the **Enterprise applications** area of the Microsoft Entra admin center. If you delete the App Proxy app from the **App registrations** area of the Microsoft Entra admin center, then you could experience issues.
       - question: |
          What license is required to use Microsoft Entra application proxy?
         answer: |
@@ -41,12 +41,12 @@ sections:
       - question: |
          What happens to Microsoft Entra application proxy in my tenant, if my license expires?
         answer: |
-              If your license expires, Application Proxy will automatically be disabled. Your application information will be saved for up to one year.
+              If your license expires, Application Proxy is automatically disabled. Your application information is saved for up to one year.
 
       - question: |
          Why is the "Enable Application Proxy button grayed out?
         answer: |
-              Make sure you have at least a Microsoft Entra ID P1 or P2 license and a Microsoft Entra application proxy Connector installed. After you successfully install your first connector, the Microsoft Entra application proxy service will be enabled automatically.
+              Make sure you have at least a Microsoft Entra ID P1 or P2 license and a Microsoft Entra application proxy Connector installed. After you successfully install your first connector, the Microsoft Entra application proxy service is enabled automatically.
 
   - name: Connector configuration
     questions:
@@ -62,9 +62,9 @@ sections:
           
               To manually upgrade a connector:
           
-              - Download the latest version of the connector. (You will find it under Application Proxy on the Microsoft Entra admin center. You can also find the link at [Microsoft Entra application proxy: Version release history](./application-proxy-release-version-history.md).
+              - Download the latest version of the connector. (You can find it under Application Proxy on the Microsoft Entra admin center. You can also find the link at [Microsoft Entra application proxy: Version release history](./application-proxy-release-version-history.md).
               -	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
-              -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
+              -	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector is not re-registered.
           
       - question: |
          Can Application Proxy Connector services run in a different user context than the default?
@@ -102,7 +102,7 @@ sections:
       - question: |
          Should I create a dedicated account to register the connector with Microsoft Entra application proxy?
         answer: |
-              There's no reason to. Any Global Administrator or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
+              There's no reason to. Any Global Administrator or application administrator account works. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
 
       - question: |
          How can I monitor the performance of the Microsoft Entra application proxy connector?
@@ -121,7 +121,7 @@ sections:
       - question: |
          What versions of Windows Server can I install a connector on?
         answer: |
-          Application Proxy requires Windows Server 2012 R2 or later. There is currently a limitation on HTTP2 for Windows Server 2019. In order to successfully use the connector on Windows Server 2019, you will need to add the following registry key and restart the server:
+          Application Proxy requires Windows Server 2012 R2 or later. There is currently a limitation on HTTP2 for Windows Server 2019. In order to successfully use the connector on Windows Server 2019, you need to add the registry key and restart the server:
           
           ```
           HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
@@ -180,12 +180,12 @@ sections:
       - question: |
          How do I change the landing page my application loads?
         answer: |
-              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page will load when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Microsoft Entra application proxy](application-proxy-configure-custom-home-page.md)
+              From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. The specified page is loaded when the application is launched from My Apps or the Office 365 Portal. For configuration steps, see [Set a custom home page for published apps by using Microsoft Entra application proxy](application-proxy-configure-custom-home-page.md)
 
       - question: |
          Why do I get redirected to a truncated URL when I try to access my published application whenever the  URL contains a "#"  (hashtag) character?
         answer: |
-              If Microsoft Entra pre-authentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Microsoft Entra ID (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is `https://www.contoso.com/#/home/index.html`, once the Microsoft Entra authentication is done the user will be redirected to `https://www.contoso.com/`.
+              If Microsoft Entra pre-authentication is configured, and the application URL contains a “#” character when you try to access the application for the first time, you get redirected to Microsoft Entra ID (login.microsoftonline.com) for the authentication. Once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL is `https://www.contoso.com/#/home/index.html`, once the Microsoft Entra authentication is done the user is redirected to `https://www.contoso.com/`.
               This behavior is by design due to how the “#” character is handled by the browser.
               
               Possible solutions/  alternatives:
@@ -202,7 +202,7 @@ sections:
       - question: |
          Can I configure Application Proxy to add the HSTS header?
         answer: |
-              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
+              Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it maintains the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap.
 
       - question: |
          Can I use a custom port number in the external URL?
@@ -272,7 +272,7 @@ sections:
         answer: |
               No, this won’t work, because a guest user in Microsoft Entra ID doesn't have the attribute that is required by any of the logon identities mentioned above.
           
-              In this case there will be a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Microsoft Entra ID access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
+              In this case there is a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Microsoft Entra ID access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
           
   - name: Pass-through authentication
     questions:
@@ -284,7 +284,7 @@ sections:
       - question: |
          Can I publish a web application with client certificate authentication requirement?
         answer: |
-              No, this scenario isn't supported because Application Proxy will terminate TLS traffic.  
+              No, this scenario isn't supported because Application Proxy terminates TLS traffic.  
 
   - name: Remote Desktop Gateway publishing
     questions:
@@ -314,7 +314,7 @@ sections:
 
       - question: |
           Can I use the Resources Launch Method option "Download the rdp file" under Settings on the Remote Desktop Web Client Portal in Microsoft Entra pre-authentication scenario?
-        answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the pre-authentication natively. That's why this will not work.
+        answer:      This option enables the user to download the rdp file and use it by another RDP client (outside of the Remote Desktop Web Client). Typically, another RDP clients (like the Microsoft Remote Desktop Client) cannot handle the pre-authentication natively. That's why the scenario doesn't work.
 
   - name: SharePoint publishing
     questions:
@@ -369,7 +369,7 @@ sections:
         answer: |
           This scenario isn't supported directly. Your options for this scenario are:
           
-          1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
+          1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration works since they have different external URLS.
           
           2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
              - [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management&preserve-view=true)
