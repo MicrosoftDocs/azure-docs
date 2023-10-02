@@ -281,9 +281,9 @@ Learn more about [Kubernetes service - ClustersUsingBSeriesVMs (Clusters having 
 
 ## Data Lake Storage
 
-### You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2
+### You have ADLS Gen1 Accounts Which Need to be Migrated to ADLS Gen2
 
-As previously announced, Azure Data Lake Storage Gen1 will be retired on 29 February 2024. We highly recommend migrating your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics and is built on top of Azure Blob Storage.
+As previously announced, Azure Data Lake Storage Gen1 will be retired on February 29, 2024. We highly recommend migrating your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics and is built on top of Azure Blob Storage.
 
 Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](https://azure.microsoft.com/en-us/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
