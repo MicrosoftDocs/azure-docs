@@ -109,7 +109,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --terminate-notification-time 10

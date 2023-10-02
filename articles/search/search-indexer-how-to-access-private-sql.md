@@ -7,7 +7,7 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 09/29/2023
 ---
 
 # Create a shared private link for a SQL managed instance from Azure Cognitive Search
@@ -30,6 +30,8 @@ Although you can call the Management REST API directly, it's easier to use the A
 + Azure SQL Managed Instance, configured to run in a virtual network.
 
 + You should have a minimum of Contributor permissions on both Azure Cognitive Search and SQL Managed Instance.
+
++ Azure SQL Managed Instance connection string. Managed identity is not currently supported with shared private link.
 
 > [!NOTE]
 > Azure Private Link is used internally, at no charge, to set up the shared private link.

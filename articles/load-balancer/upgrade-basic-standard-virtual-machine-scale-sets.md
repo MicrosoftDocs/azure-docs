@@ -44,10 +44,7 @@ The PowerShell module performs the following functions:
 ### Unsupported Scenarios
 
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member that is also a member of a backend pool on a different load balancer
-- Basic Load Balancers with backend pool members that aren't a Virtual Machine Scale Set
-- Basic Load Balancers with only empty backend pools
 - Basic Load Balancers with IPV6 frontend IP configurations
-- Basic Load Balancers with a Virtual Machine Scale Set backend pool member configured with 'Flexible' orchestration mode
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
 

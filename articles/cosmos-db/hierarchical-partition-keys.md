@@ -133,10 +133,7 @@ Container container = await database.CreateContainerIfNotExistsAsync(containerPr
 ```
 
 #### [Java SDK v4](#tab/java-v4)
-
-#### [JavaScript SDK v4](#tab/javascript-v4)
-
-```javascript
+```java
 // List of partition keys, in hierarchical order. You can have up to three levels of keys.
 List<String> subpartitionKeyPaths = new ArrayList<String>();
 subpartitionKeyPaths.add("/TenantId");
@@ -157,6 +154,22 @@ ThroughputProperties throughputProperties = ThroughputProperties.createManualThr
 
 // Create a container that's subpartitioned by TenantId > UserId > SessionId
 Mono<CosmosContainerResponse> container = database.createContainerIfNotExists(containerProperties, throughputProperties);
+
+```
+#### [JavaScript SDK v4](#tab/javascript-v4)
+
+```javascript
+const containerDefinition = {
+  id: "Test Database",
+  partitionKey: {
+    paths: ["/name", "/address/zip"],
+    version: PartitionKeyDefinitionVersion.V2,
+    kind: PartitionKeyKind.MultiHash,
+  },
+}
+const { container } = await database.containers.createIfNotExists(containerDefinition);
+console.log(container.id);
+
 ```
 
 ---
