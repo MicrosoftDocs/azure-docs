@@ -17,7 +17,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 
 Every IoT Central REST API call requires an authorization header that IoT Central uses to determine the identity of the caller and the permissions that caller is granted within the application.
 
-This article describes the types of token you can use in the authorization header, and how to get them. Please note that service principals are the recommended method for access management for IoT Central REST APIs.
+This article describes the types of token you can use in the authorization header, and how to get them. Srvice principals are the recommended approach to access management for IoT Central REST APIs.
 
 ## Token types
 
