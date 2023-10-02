@@ -107,7 +107,7 @@ Portal --> HDInsight on AKS Cluster Pool --> Flink Cluster --> Settings --> Flin
 
    Once the job is started, the job status on the portal will be **RUNNING**.
 
-- **Update:** Update helps to restart jobs with updated job code. Users need to update the latest job jar in storage location and update the job from portal. This update stop the job with savepoint and start again with latest jar.
+- **Update:** Update helps to restart jobs with updated job code. Users need to update the latest job jar in storage location and update the job from portal. This update stops the job with savepoint and starts again with latest jar.
 
     :::image type="image" source="./media/flink-job-management/restart-job-with-updated-code.png" alt-text="Screenshot shows how restart jobs with updated job code." border="true" lightbox="./media/flink-job-management/restart-job-with-updated-code.png":::
 
