@@ -549,8 +549,6 @@ The following example creates a package of the `t5-base` model:
     
     Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
-    ---
-
 1. Get a reference to the model you want to package:
 
     # [Azure CLI](#tab/cli)
@@ -571,8 +569,6 @@ The following example creates a package of the `t5-base` model:
     
     Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
-    ---
-
 1. Create a reference to the workspace you want to target the package to. Package uses the model in the registry but produce an environment (the packaged model) in the target workspace:
 
     # [Azure CLI](#tab/cli)
@@ -586,7 +582,7 @@ The following example creates a package of the `t5-base` model:
     MODEL_PACKAGE_NAME="pkg-$MODEL_NAME-$MODEL_VERSION"
     MODEL_PACKAGE_VERSION=$(date +%s)
 
-    TARGET_ENVIRONMENT=""/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE_NAME/environments/$MODEL_PACKAGE_NAME/versions/$MODEL_PACKAGE_VERSION"
+    TARGET_ENVIRONMENT="/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE_NAME/environments/$MODEL_PACKAGE_NAME/versions/$MODEL_PACKAGE_VERSION"
     ```
 
     # [Python](#tab/sdk)
@@ -606,9 +602,6 @@ The following example creates a package of the `t5-base` model:
     
     Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
     
-    ---
-
-
 1. Create a package configuration:
 
     # [Azure CLI](#tab/cli)
@@ -666,8 +659,6 @@ The following example creates a package of the `t5-base` model:
     # [Studio](#tab/studio)
     
     Creating packages in studio isn't supported by the moment. Use the Azure CLI or Azure Machine Learning SDK for Python.
-    
-    ---
     
 1. The package is created in the target workspace and ready to be deployed.
 
