@@ -3,7 +3,7 @@ title: "Zero Networks Segment Audit (Function) (using Azure Functions) connector
 description: "Learn how to install the connector Zero Networks Segment Audit (Function) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

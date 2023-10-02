@@ -136,6 +136,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Update Manager
+    tocHref: /azure/update-center/
+    topicHref: /azure/update-center/
   - name: Internet Peering
     tocHref: /azure/internet-peering/
     topicHref: /azure/internet-peering/
@@ -481,7 +484,7 @@
   - name: Container Instances
     tocHref: /azure/container-instances/
     topicHref: /azure/container-instances/
-  - name: AKS
+  - name: Azure Kubernetes Service
     tocHref: /azure/aks/
     topicHref: /azure/aks/
   - name: Kubernetes Fleet Manager
@@ -662,9 +665,9 @@
     - name: Events
       tocHref: /azure/healthcare-apis/events/
       topicHref: /azure/healthcare-apis/events/index
-  - name: Azure API for FHIR
-    tocHref: /azure/healthcare-apis/azure-api-for-fhir/
-    topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
+    - name: Azure API for FHIR
+      tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+      topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry

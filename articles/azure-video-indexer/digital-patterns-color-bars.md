@@ -1,14 +1,15 @@
 ---
 title: Enable and view digital patterns with color bars
 description: Learn about how to enable and view digital patterns with color bars.
-author: Juliako
-manager: femila
 ms.topic: article
 ms.date: 09/20/2022
-ms.author: juliako
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Enable and view digital patterns with color bars (preview)
+# Enable and view digital patterns with color bars
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how to enable and view digital patterns with color bars (preview). 
 

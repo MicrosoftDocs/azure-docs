@@ -2,12 +2,12 @@
 title: Create an Azure virtual machine with a dual-stack network - Azure CLI
 titleSuffix: Azure Virtual Network
 description: In this article, learn how to use the Azure CLI to create a virtual machine with a dual-stack virtual network in Azure.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 08/24/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
 ms.devlang: azurecli
 ---
@@ -162,7 +162,7 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNIC1 \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --authentication-type ssh \
     --generate-ssh-keys

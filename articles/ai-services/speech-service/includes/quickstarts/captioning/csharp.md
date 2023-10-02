@@ -46,7 +46,7 @@ Follow these steps to build and run the captioning quickstart code example.
     > [!IMPORTANT]
     > Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
     > 
-    > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
+    > Make sure that you set the `SPEECH_KEY` and `SPEECH_REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
 
 ## Check results
 

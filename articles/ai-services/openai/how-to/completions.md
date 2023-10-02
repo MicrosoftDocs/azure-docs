@@ -1,13 +1,12 @@
 ---
 title: 'How to generate text with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
-description: Learn how to generate or manipulate text, including code with Azure OpenAI
+description: Learn how to generate or manipulate text, including code by using a completion endpoint in Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 06/24/2022
+ms.date: 08/15/2023
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
@@ -17,147 +16,147 @@ keywords:
 
 # Learn how to generate or manipulate text
 
-The completions endpoint can be used for a wide variety of tasks. It provides a simple but powerful text-in, text-out interface to any of our [models](../concepts/models.md). You input some text as a prompt, and the model will generate a text completion that attempts to match whatever context or pattern you gave it. For example, if you give the API the prompt, "As Descartes said, I think, therefore", it will return the completion " I am" with high probability.
+Azure OpenAI Service provides a **completion endpoint** that can be used for a wide variety of tasks. The endpoint supplies a simple yet powerful text-in, text-out interface to any [Azure OpenAI model](../concepts/models.md). To trigger the completion, you input some text as a prompt. The model generates the completion and attempts to match your context or pattern. Suppose you provide the prompt "As Descartes said, I think, therefore" to the API. For this prompt, Azure OpenAI returns the completion endpoint " I am" with high probability.
 
-The best way to start exploring completions is through our playground in [Azure OpenAI Studio](https://oai.azure.com). It's a simple text box where you can submit a prompt to generate a completion. You can start with a simple example like the following:
+The best way to start exploring completions is through the playground in [Azure OpenAI Studio](https://oai.azure.com). It's a simple text box where you enter a prompt to generate a completion. You can start with a simple prompt like this one:
 
-`write a tagline for an ice cream shop`
-
-once you submit, you'll see something like the following generated:
-
-``` console
+```console
 write a tagline for an ice cream shop
+```
+
+After you enter your prompt, Azure OpenAI displays the completion:
+
+```console
 we serve up smiles with every scoop!
 ```
 
-The actual completion results you see may differ because the API is stochastic by default. In other words, you might get a slightly different completion every time you call it, even if your prompt stays the same. You can control this behavior with the temperature setting.
+The completion results that you see can differ because the Azure OpenAI API produces fresh output for each interaction. You might get a slightly different completion each time you call the API, even if your prompt stays the same. You can control this behavior with the `Temperature` setting.
 
-This simple, "text in, text out" interface means you can "program" the model by providing instructions or just a few examples of what you'd like it to do. Its success generally depends on the complexity of the task and quality of your prompt. A general rule is to think about how you would write a word problem for a middle school student to solve. A well-written prompt provides enough information for the model to know what you want and how it should respond.
+The simple text-in, text-out interface means you can "program" the Azure OpenAI model by providing instructions or just a few examples of what you'd like it to do. The output success generally depends on the complexity of the task and quality of your prompt. A general rule is to think about how you would write a word problem for a pre-teenage student to solve. A well-written prompt provides enough information for the model to know what you want and how it should respond.
 
 > [!NOTE]
-> Keep in mind that the models' training data cuts off in October 2019, so they may not have knowledge of current events. We plan to add more continuous training in the future.
+> The model training data can be different for each model type. The [latest model's training data currently extends through September 2021 only](/azure/ai-services/openai/concepts/models). Depending on your prompt, the model might not have knowledge of related current events.
 
-## Prompt design
+## Design prompts
 
-### Basics
+Azure OpenAI Service models can do everything from generating original stories to performing complex text analysis. Because they can do so many things, you must be explicit in showing what you want. Showing, not just telling, is often the secret to a good prompt. 
 
-OpenAI's models can do everything from generating original stories to performing complex text analysis. Because they can do so many things, you have to be explicit in showing what you want. Showing, not just telling, is often the secret to a good prompt. 
+The models try to predict what you want from the prompt. If you enter the prompt "Give me a list of cat breeds," the model doesn't automatically assume you're asking for a list only. You might be starting a conversation where your first words are "Give me a list of cat breeds" followed by "and I'll tell you which ones I like." If the model only assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
 
-The models try to predict what you want from the prompt. If you send the words "Give me a list of cat breeds," the model wouldn't automatically assume that you're asking for a list of cat breeds. You could as easily be asking the model to continue a conversation where the first words are "Give me a list of cat breeds" and the next ones are "and I'll tell you which ones I like." If the model only assumed that you wanted a list of cats, it wouldn't be as good at content creation, classification, or other tasks.
+### Guidelines for creating robust prompts
 
-There are three basic guidelines to creating prompts:
+There are three basic guidelines for creating useful prompts:
 
-**Show and tell.** Make it clear what you want either through instructions, examples, or a combination of the two. If you want the model to rank a list of items in alphabetical order or to classify a paragraph by sentiment, show it that's what you want.
+- **Show and tell**. Make it clear what you want either through instructions, examples, or a combination of the two. If you want the model to rank a list of items in alphabetical order or to classify a paragraph by sentiment, include these details in your prompt to show the model.
 
-**Provide quality data.** If you're trying to build a classifier or get the model to follow a pattern, make sure that there are enough examples. Be sure to proofread your examples — the model is usually smart enough to see through basic spelling mistakes and give you a response, but it also might assume that the mistakes are intentional and it can affect the response.
+- **Provide quality data**. If you're trying to build a classifier or get the model to follow a pattern, make sure there are enough examples. Be sure to proofread your examples. The model is smart enough to resolve basic spelling mistakes and give you a meaningful response. Conversely, the model might assume the mistakes are intentional, which can affect the response.
 
-**Check your settings.** The temperature and top_p settings control how deterministic the model is in generating a response. If you're asking it for a response where there's only one right answer, then you'd want to set these settings to lower values. If you're looking for a response that's not obvious, then you might want to set them to higher values. The number one mistake people use with these settings is assuming that they're "cleverness" or "creativity" controls.
+- **Check your settings**. Probability settings, such as `Temperature` and `Top P`, control how deterministic the model is in generating a response. If you're asking for a response where there's only one right answer, you should specify lower values for these settings. If you're looking for a response that's not obvious, you might want to use higher values. The most common mistake users make with these settings is assuming they control "cleverness" or "creativity" in the model response.
 
-### Troubleshooting
+### Troubleshooting for prompt issues
 
-If you're having trouble getting the API to perform as expected, follow this checklist:
+If you're having trouble getting the API to perform as expected, review the following points for your implementation:
 
-1. Is it clear what the intended generation should be?
-2. Are there enough examples?
-3. Did you check your examples for mistakes? (The API won't tell you directly)
-4. Are you using temp and top_p correctly?
+- Is it clear what the intended generation should be?
+- Are there enough examples?
+- Did you check your examples for mistakes? (The API doesn't tell you directly.)
+- Are you using the `Temperature` and `Top P` probability settings correctly?
 
-## Classification
+## Classify text
 
-To create a text classifier with the API we provide a description of the task and provide a few examples. In this demonstration we show the API how to classify the sentiment of Tweets.
+To create a text classifier with the API, you provide a description of the task and provide a few examples. In this demonstration, you show the API how to classify the _sentiment_ of text messages. The sentiment expresses the overall feeling or expression in the text.
 
 ```console
-This is a tweet sentiment classifier
+This is a text message sentiment classifier
 
-Tweet: "I loved the new Batman movie!"
+Message: "I loved the new adventure movie!"
 Sentiment: Positive
 
-Tweet: "I hate it when my phone battery dies." 
+Message: "I hate it when my phone battery dies." 
 Sentiment: Negative
 
-Tweet: "My day has been 👍"
+Message: "My day has been 👍"
 Sentiment: Positive
 
-Tweet: "This is the link to the article"
+Message: "This is the link to the article"
 Sentiment: Neutral
 
-Tweet: "This new music video blew my mind"
+Message: "This new music video is unreal"
 Sentiment:
 ```
 
-It's worth paying attention to several features in this example:
+### Guidelines for designing text classifiers
 
-**1. Use plain language to describe your inputs and outputs**
-We use plain language for the input "Tweet" and the expected output "Sentiment." For best practices, start with plain language descriptions. While you can often use shorthand or keys to indicate the input and output, when building your prompt it's best to start by being as descriptive as possible and then working backwards removing extra words as long as the performance to the prompt is consistent.
+This demonstration reveals several guidelines for designing classifiers:
 
-**2. Show the API how to respond to any case**
-In this example we provide multiple outcomes "Positive", "Negative" and "Neutral." A neutral outcome is important because there will be many cases where even a human would have a hard time determining if something is positive or negative and situations where it's neither.
+- **Use plain language to describe your inputs and outputs**. Use plain language for the input "Message" and the expected value that expresses the "Sentiment." For best practices, start with plain language descriptions. You can often use shorthand or keys to indicate the input and output when building your prompt, but it's best to start by being as descriptive as possible. Then you can work backwards and remove extra words as long as the performance to the prompt is consistent.
 
-**3. You can use text and emoji**
-The classifier is a mix of text and emoji 👍. The API reads emoji and can even convert expressions to and from them.
+- **Show the API how to respond to any case**. The demonstration provides multiple outcomes: "Positive," "Negative," and "Neutral." Supporting a neutral outcome is important because there are many cases where even a human can have difficulty determining if something is positive or negative. 
 
-**4. You need fewer examples for familiar tasks**
-For this classifier we only provided a handful of examples. This is because the API already has an understanding of sentiment and the concept of a tweet. If you're building a classifier for something the API might not be familiar with, it might be necessary to provide more examples.
+- **Use emoji and text, per the common expression**. The demonstration shows that the classifier can be a mix of text and emoji 👍. The API reads emoji and can even convert expressions to and from them. For the best response, use common forms of expression for your examples.
 
-### Improving the classifier's efficiency
+- **Use fewer examples for familiar tasks**. This classifier provides only a handful of examples because the API already has an understanding of sentiment and the concept of a text message. If you're building a classifier for something the API might not be familiar with, it might be necessary to provide more examples.
 
-Now that we have a grasp of how to build a classifier, let's take that example and make it even more efficient so that we can use it to get multiple results back from one API call.
+### Multiple results from a single API call
 
-```
-This is a tweet sentiment classifier
+Now that you understand how to build a classifier, let's expand on the first demonstration to make it more efficient. You want to be able to use the classifier to get multiple results back from a single API call.
 
-Tweet: "I loved the new Batman movie!"
+```console
+This is a text message sentiment classifier
+
+Message: "I loved the new adventure movie!"
 Sentiment: Positive
 
-Tweet: "I hate it when my phone battery dies"
+Message: "I hate it when my phone battery dies"
 Sentiment: Negative
 
-Tweet: "My day has been 👍"
+Message: "My day has been 👍"
 Sentiment: Positive
 
-Tweet: "This is the link to the article"
+Message: "This is the link to the article"
 Sentiment: Neutral
 
-Tweet text
-1. "I loved the new Batman movie!"
+Message text
+1. "I loved the new adventure movie!"
 2. "I hate it when my phone battery dies"
 3. "My day has been 👍"
 4. "This is the link to the article"
-5. "This new music video blew my mind"
+5. "This new music video is unreal"
 
-Tweet sentiment ratings:
+Message sentiment ratings:
 1: Positive
 2: Negative
 3: Positive
 4: Neutral
 5: Positive
 
-Tweet text
-1. "I can't stand homework"
-2. "This sucks. I'm bored 😠"
-3. "I can't wait for Halloween!!!"
+Message text
+1. "He doesn't like homework"
+2. "The taxi is late. She's angry 😠"
+3. "I can't wait for the weekend!!!"
 4. "My cat is adorable ❤️❤️"
-5. "I hate chocolate"
+5. "Let's try chocolate bananas"
 
-Tweet sentiment ratings:
+Message sentiment ratings:
 1.
 ```
 
-After showing the API how tweets are classified by sentiment we then provide it a list of tweets and then a list of sentiment ratings with the same number index. The API is able to pick up from the first example how a tweet is supposed to be classified. In the second example it sees how to apply this to a list of tweets. This allows the API to rate five (and even more) tweets in just one API call.
+This demonstration shows the API how to classify text messages by sentiment. You provide a numbered list of messages and a list of sentiment ratings with the same number index. The API uses the information in the first demonstration to learn how to classify sentiment for a single text message. In the second demonstration, the model learns how to apply the sentiment classification to a list of text messages. This approach allows the API to rate five (and even more) text messages in a single API call.
 
-It's important to note that when you ask the API to create lists or evaluate text you need to pay extra attention to your probability settings (Top P or Temperature) to avoid drift.
+> [!IMPORTANT]
+> When you ask the API to create lists or evaluate text, it's important to help the API avoid drift. Here are some points to follow:
+>
+> - Pay careful attention to your values for the `Top P` or `Temperature` probability settings. 
+> - Run multiple tests to make sure your probability settings are calibrated correctly.
+> - Don't use long lists. Long lists can lead to drift.
 
-1. Make sure your probability setting is calibrated correctly by running multiple tests.
+## Trigger ideas
 
-2. Don't make your list too long or the API is likely to drift.
+One of the most powerful yet simplest tasks you can accomplish with the API is generating new ideas or versions of input. Suppose you're writing a mystery novel and you need some story ideas. You can give the API a list of a few ideas and it tries to add more ideas to your list. The API can create business plans, character descriptions, marketing slogans, and much more from just a small handful of examples.
 
----
+In the next demonstration, you use the API to create more examples for how to use virtual reality in the classroom:
 
-## Generation
-
-One of the most powerful yet simplest tasks you can accomplish with the API is generating new ideas or versions of input. You can give the API a list of a few story ideas and it will try to add to that list. We've seen it create business plans, character descriptions and marketing slogans just by providing it a handful of examples. In this demonstration we'll use the API to create more examples for how to use virtual reality in the classroom:
-
-```
+```console
 Ideas involving education and virtual reality
 
 1. Virtual Mars
@@ -166,31 +165,29 @@ Students get to explore Mars via virtual reality and go on missions to collect a
 2.
 ```
 
-All we had to do in this example is provide the API with just a description of what the list is about and one example. We then prompted the API with the number `2.` indicating that it's a continuation of the list.
+This demonstration provides the API with a basic description for your list along with one list item. Then you use an incomplete prompt of "2." to trigger a response from the API. The API interprets the incomplete entry as a request to generate similar items and add them to your list.
 
-Although this is a very simple prompt, there are several details worth noting:
+### Guidelines for triggering ideas
 
-**1. We explained the intent of the list**<br>
-Just like with the classifier, we tell the API up front what the list is about. This helps it focus on completing the list and not trying to guess what the pattern is behind it.
+Although this demonstration uses a simple prompt, it highlights several guidelines for triggering new ideas:
 
-**2. Our example sets the pattern for the rest of the list**<br>
-Because we provided a one-sentence description, the API is going to try to follow that pattern for the rest of the items it adds to the list. If we want a more verbose response, we need to set that up from the start.
+- **Explain the intent of the list**. Similar to the demonstration for the text classifier, you start by telling the API what the list is about. This approach helps the API to focus on completing the list rather than trying to determine patterns by analyzing the text.
 
-**3. We prompt the API by adding an incomplete entry**<br>
-When the API sees `2.` and the prompt abruptly ends, the first thing it tries to do is figure out what should come after it. Since we already had an example with number one and gave the list a title, the most obvious response is to continue adding items to the list.
+- **Set the pattern for the items in the list**. When you provide a one-sentence description, the API tries to follow that pattern when generating new items for the list. If you want a more verbose response, you need to establish that intent with more detailed text input to the API.
 
-**Advanced generation techniques**<br>
-You can improve the quality of the responses by making a longer more diverse list in your prompt. One way to do that is to start off with one example, let the API generate more and select the ones that you like best and add them to the list. A few more high-quality variations can dramatically improve the quality of the responses.
+- **Prompt the API with an incomplete entry to trigger new ideas**. When the API encounters text that seems incomplete, such as the prompt text "2.," it first tries to determine any text that might complete the entry. Because the demonstration had a list title and an example with the number "1." and accompanying text, the API interpreted the incomplete prompt text "2." as a request to continue adding items to the list.
 
----
+- **Explore advanced generation techniques**. You can improve the quality of the responses by making a longer more diverse list in your prompt. One approach is to start with one example, let the API generate more examples, and then select the examples you like best and add them to the list. A few more high-quality variations in your examples can dramatically improve the quality of the responses.
 
-## Conversation
+## Conduct conversations
 
-The API is extremely adept at carrying on conversations with humans and even with itself. With just a few lines of instruction, we've seen the API perform as a customer service chatbot that intelligently answers questions without ever getting flustered or a wise-cracking conversation partner that makes jokes and puns. The key is to tell the API how it should behave and then provide a few examples.
+Starting with the release of [GPT-35-Turbo and GPT-4](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions), we recommend that you create conversational generation and chatbots by using models that support the _chat completion endpoint_. The chat completion models and endpoint require a different input structure than the completion endpoint.
 
-Here's an example of the API playing the role of an AI answering questions:
+The API is adept at carrying on conversations with humans and even with itself. With just a few lines of instruction, the API can perform as a customer service chatbot that intelligently answers questions without getting flustered, or a wise-cracking conversation partner that makes jokes and puns. The key is to tell the API how it should behave and then provide a few examples.
 
-```
+In this demonstration, the API supplies the role of an AI answering questions:
+
+```console
 The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.
 
 Human: Hello, who are you?
@@ -198,48 +195,44 @@ AI: I am an AI created by OpenAI. How can I help you today?
 Human: 
 ```
 
-This is all it takes to create a chatbot capable of carrying on a conversation. But underneath its simplicity there are several things going on that are worth paying attention to:
+Let's look at a variation for a chatbot named "Cramer," an amusing and somewhat helpful virtual assistant. To help the API understand the character of the role, you provide a few examples of questions and answers. All it takes is just a few sarcastic responses and the API can pick up the pattern and provide an endless number of similar responses.
 
-**1. We tell the API the intent but we also tell it how to behave**
-Just like the other prompts, we cue the API into what the example represents, but we also add another key detail: we give it explicit instructions on how to interact with the phrase "The assistant is helpful, creative, clever, and very friendly."
-
-Without that instruction the API might stray and mimic the human it's interacting with and become sarcastic or some other behavior we want to avoid.
-
-**2. We give the API an identity**
-At the start we have the API respond as an AI that was created by OpenAI. While the API has no intrinsic identity, this helps it respond in a way that's as close to the truth as possible. You can use identity in other ways to create other kinds of chatbots. If you tell the API to respond as a woman who works as a research scientist in biology, you'll get intelligent and thoughtful comments from the API similar to what you'd expect from someone with that background.
-
-In this example we create a chatbot that is a bit sarcastic and reluctantly answers questions:
-
-```
-Marv is a chatbot that reluctantly answers questions.
+```console
+Cramer is a chatbot that reluctantly answers questions.
 
 ###
 User: How many pounds are in a kilogram?
-Marv: This again? There are 2.2 pounds in a kilogram. Please make a note of this.
+Cramer: This again? There are 2.2 pounds in a kilogram. Please make a note of this.
 ###
 User: What does HTML stand for?
-Marv: Was Google too busy? Hypertext Markup Language. The T is for try to ask better questions in the future.
+Cramer: Was Google too busy? Hypertext Markup Language. The T is for try to ask better questions in the future.
 ###
 User: When did the first airplane fly?
-Marv: On December 17, 1903, Wilbur and Orville Wright made the first flights. I wish they'd come and take me away.
+Cramer: On December 17, 1903, Wilbur and Orville Wright made the first flights. I wish they'd come and take me away.
 ###
 User: Who was the first man in space?
-Marv: 
+Cramer: 
 ```
 
-To create an amusing and somewhat helpful chatbot we provide a few examples of questions and answers showing the API how to reply. All it takes is just a few sarcastic responses and the API is able to pick up the pattern and provide an endless number of snarky responses.
+### Guidelines for designing conversations
 
----
+Our demonstrations show how easily you can create a chatbot that's capable of carrying on a conversation. Although it looks simple, this approach follows several important guidelines:
 
-## Transformation
+- **Define the intent of the conversation**. Just like the other prompts, you describe the intent of the interaction to the API. In this case, "a conversation." This input prepares the API to process subsequent input according to the initial intent.
 
-The API is a language model that is familiar with a variety of ways that words and characters can be used to express information. This ranges from natural language text to code and languages other than English. The API is also able to understand content on a level that allows it to summarize, convert and express it in different ways.
+- **Tell the API how to behave**. A key detail in this demonstration is the explicit instructions for how the API should interact: "The assistant is helpful, creative, clever, and very friendly." Without your explicit instructions, the API might stray and mimic the human it's interacting with. The API might become unfriendly or exhibit other undesirable behavior.
 
-### Translation
+- **Give the API an identity**. At the start, you have the API respond as an AI created by OpenAI. While the API has no intrinsic identity, the character description helps the API respond in a way that's as close to the truth as possible. You can use character identity descriptions in other ways to create different kinds of chatbots. If you tell the API to respond as a research scientist in biology, you receive intelligent and thoughtful comments from the API similar to what you'd expect from someone with that background.
 
-In this example we show the API how to convert from English to French:
+## Transform text
 
-```
+The API is a language model that's familiar with various ways that words and character identities can be used to express information. The knowledge data supports transforming text from natural language into code, and translating between other languages and English. The API is also able to understand content on a level that allows it to summarize, convert, and express it in different ways. Let's look at a few examples.
+
+### Translate from one language to another
+
+This demonstration instructs the API on how to convert English language phrases into French:
+
+```console
 English: I do not speak French.
 French: Je ne parle pas français.
 English: See you later!
@@ -251,31 +244,30 @@ French: Quelles chambres avez-vous de disponible?
 English:
 ```
 
-This example works because the API already has a grasp of French, so there's no need to try to teach it this language. Instead, we just need to provide enough examples that API understands that it's converting from one language to another.
+This example works because the API already has a grasp of the French language. You don't need to try to teach the language to the API. You just need to provide enough examples to help the API understand your request to convert from one language to another.
 
-If you want to translate from English to a language the API is unfamiliar with you'd need to provide it with more examples and a fine-tuned model to do it fluently.
+If you want to translate from English to a language the API doesn't recognize, you need to provide the API with more examples and a fine-tuned model that can produce fluent translations.
 
-### Conversion
+### Convert between text and emoji
 
-In this example we convert the name of a movie into emoji. This shows the adaptability of the API to picking up patterns and working with other characters.
+This demonstration converts the name of a movie from text into emoji characters. This example shows the adaptability of the API to pick up patterns and work with other characters.
 
+```console
+Carpool Time: 👨👴👩🚗🕒
+Robots in Cars: 🚗🤖
+Super Femme: 👸🏻👸🏼👸🏽👸🏾👸🏿
+Webs of the Spider: 🕸🕷🕸🕸🕷🕸
+The Three Bears: 🐻🐼🐻
+Mobster Family: 👨👩👧🕵🏻‍♂️👲💥
+Arrows and Swords: 🏹🗡🗡🏹
+Snowmobiles:
 ```
-Back to Future: 👨👴🚗🕒
-Batman: 🤵🦇
-Transformers: 🚗🤖
-Wonder Woman: 👸🏻👸🏼👸🏽👸🏾👸🏿
-Spider-Man: 🕸🕷🕸🕸🕷🕸
-Winnie the Pooh: 🐻🐼🐻
-The Godfather: 👨👩👧🕵🏻‍♂️👲💥
-Game of Thrones: 🏹🗡🗡🏹
-Spider-Man:
-```
 
-## Summarization
+### Summarize text
 
-The API is able to grasp the context of text and rephrase it in different ways. In this example, the API takes a block of text and creates an explanation a child would understand. This illustrates that the API has a deep grasp of language.
+The API can grasp the context of text and rephrase it in different ways. In this demonstration, the API takes a block of text and creates an explanation that's understandable by a primary-age child. This example illustrates that the API has a deep grasp of language.
 
-```
+```console
 My ten-year-old asked me what this passage means:
 """
 A neutron star is the collapsed core of a massive supergiant star, which had a total mass of between 10 and 25 solar masses, possibly more if the star was especially metal-rich.[1] Neutron stars are the smallest and densest stellar objects, excluding black holes and hypothetical white holes, quark stars, and strange stars.[2] Neutron stars have a radius on the order of 10 kilometres (6.2 mi) and a mass of about 1.4 solar masses.[3] They result from the supernova explosion of a massive star, combined with gravitational collapse, that compresses the core past white dwarf star density to that of atomic nuclei.
@@ -285,38 +277,52 @@ I rephrased it for him, in plain language a ten-year-old can understand:
 """
 ```
 
-In this example we place whatever we want summarized between the triple quotes. It's worth noting that we explain both before and after the text to be summarized what our intent is and who the target audience is for the summary. This is to keep the API from drifting after it processes a large block of text.
+### Guidelines for producing text summaries
 
-## Completion
+Text summarization often involves supplying large amounts of text to the API. To help prevent the API from drifting after it processes a large block of text, follow these guidelines:
 
-While all prompts result in completions, it can be helpful to think of text completion as its own task in instances where you want the API to pick up where you left off. For example, if given this prompt, the API will continue the train of thought about vertical farming. You can lower the temperature setting to keep the API more focused on the intent of the prompt or increase it to let it go off on a tangent.
+- **Enclose the text to summarize within triple double quotes**. In this example, you enter three double quotes (""") on a separate line before and after the block of text to summarize. This formatting style clearly defines the start and end of the large block of text to process.
 
-```
+- **Explain the summary intent and target audience before, and after summary**. Notice that this example differs from the others because you provide instructions to the API two times: before, and after the text to process. The redundant instructions help the API to focus on your intended task and avoid drift.
+
+## Complete partial text and code inputs
+
+While all prompts result in completions, it can be helpful to think of text completion as its own task in instances where you want the API to pick up where you left off.
+
+In this demonstration, you supply a text prompt to the API that appears to be incomplete. You stop the text entry on the word "and." The API interprets the incomplete text as a trigger to continue your train of thought.
+
+```console
 Vertical farming provides a novel solution for producing food locally, reducing transportation costs and
 ```
 
-This next prompt shows how you can use completion to help write React components. We send some code to the API, and it's able to continue the rest because it has an understanding of the React library. We recommend using models from our Codex series for tasks that involve understanding or generating code. Currently, we support two Codex models: `code-davinci-002` and `code-cushman-001`. For more information about Codex models, see the [Codex models](../concepts/legacy-models.md#codex-models) section in [Models](../concepts/models.md).
+This next demonstration shows how you can use the completion feature to help write `React` code components. You begin by sending some code to the API. You stop the code entry with an open parenthesis `(`. The API interprets the incomplete code as a trigger to complete the `HeaderComponent` constant definition. The API can complete this code definition because it has an understanding of the corresponding `React` library.
 
-```
+```python
 import React from 'react';
 const HeaderComponent = () => (
 ```
 
----
+### Guidelines for generating completions
 
-## Factual responses
+Here are some helpful guidelines for using the API to generate text and code completions:
 
-The API has a lot of knowledge that it's learned from the data it was trained on. It also has the ability to provide responses that sound very real but are in fact made up. There are two ways to limit the likelihood of the API making up an answer.
+- **Lower the Temperature to keep the API focused**. Set lower values for the `Temperature` setting to instruct the API to provide responses that are focused on the intent described in your prompt.
 
-**1. Provide a ground truth for the API**
-If you provide the API with a body of text to answer questions about (like a Wikipedia entry) it will be less likely to confabulate a response.
+- **Raise the Temperature to allow the API to tangent**. Set higher values for the `Temperature` setting to allow the API to respond in a manner that's tangential to the intent described in your prompt.
 
-**2. Use a low probability and show the API how to say "I don't know"**
-If the API understands that in cases where it's less certain about a response that saying "I don't know" or some variation is appropriate, it will be less inclined to make up answers.
+- **Use the GPT-35-Turbo and GPT-4 Azure OpenAI models**. For tasks that involve understanding or generating code, Microsoft recommends using the `GPT-35-Turbo` and `GPT-4` Azure OpenAI models. These models use the new [chat completions format](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).  
+ 
+## Generate factual responses
 
-In this example we give the API examples of questions and answers it knows and then examples of things it wouldn't know and provide question marks. We also set the probability to zero so the API is more likely to respond with a "?" if there's any doubt.
+The API has learned knowledge that's built on actual data reviewed during its training. It uses this learned data to form its responses. However, the API also has the ability to respond in a way that sounds true, but is in fact, fabricated.
 
-```
+There are a few ways you can limit the likelihood of the API making up an answer in response to your input. You can define the foundation for a true and factual response, so the API drafts its response from your data. You can also set a low `Temperature` probability value and show the API how to respond when the data isn't available for a factual answer.
+
+The following demonstration shows how to teach the API to reply in a more factual manner. You provide the API with examples of questions and answers it understands. You also supply examples of questions ("Q") it might not recognize and use a question mark for the answer ("A") output. This approach teaches the API how to respond to questions it can't answer factually. 
+
+As a safeguard, you set the `Temperature` probability to zero so the API is more likely to respond with a question mark (?) if there's any doubt about the true and factual response.
+
+```console
 Q: Who is Batman?
 A: Batman is a fictional comic book character.
 
@@ -327,7 +333,7 @@ Q: What is Devz9?
 A: ?
 
 Q: Who is George Lucas?
-A: George Lucas is American film director and producer famous for creating Star Wars.
+A: George Lucas is an American film director and producer famous for creating Star Wars.
 
 Q: What is the capital of California?
 A: Sacramento.
@@ -335,7 +341,7 @@ A: Sacramento.
 Q: What orbits the Earth?
 A: The Moon.
 
-Q: Who is Fred Rickerson?
+Q: Who is Egad Debunk?
 A: ?
 
 Q: What is an atom?
@@ -352,13 +358,24 @@ A: Two, Phobos and Deimos.
 
 Q:
 ```
-## Working with code
+
+### Guidelines for generating factual responses
+
+Let's review the guidelines to help limit the likelihood of the API making up an answer:
+
+- **Provide a ground truth for the API**. Instruct the API about what to use as the foundation for creating a true and factual response based on your intent. If you provide the API with a body of text to use to answer questions (like a Wikipedia entry), the API is less likely to fabricate a response.
+
+- **Use a low probability**. Set a low `Temperature` probability value so the API stays focused on your intent and doesn't drift into creating a fabricated or confabulated response. 
+
+- **Show the API how to respond with "I don't know"**. You can enter example questions and answers that teach the API to use a specific response for questions for which it can't find a factual answer. In the example, you teach the API to respond with a question mark (?) when it can't find the corresponding data. This approach also helps the API to learn when responding with "I don't know" is more "correct" than making up an answer.
+
+## Work with code
 
 The Codex model series is a descendant of OpenAI's base GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell. 
 
-Learn more about generating code completions, with the [working with code guide](./work-with-code.md)
+For more information about generating code completions, see [Codex models and Azure OpenAI Service](./work-with-code.md).
 
 ## Next steps
 
-Learn [how to work with code (Codex)](./work-with-code.md).
-Learn more about the [underlying models that power Azure OpenAI](../concepts/models.md).
+- Learn how to work with the [GPT-35-Turbo and GPT-4 models](/azure/ai-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions).
+- Learn more about the [Azure OpenAI Service models](../concepts/models.md).

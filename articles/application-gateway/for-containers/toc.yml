@@ -16,6 +16,8 @@
   items:
   - name: Application Gateway for Containers components
     href: application-gateway-for-containers-components.md
+  - name: Custom health probe
+    href: custom-health-probe.md
   - name: TLS policy
     href: tls-policy.md
   - name: Frequently Asked Questions (FAQ)
@@ -34,7 +36,7 @@
     items:
      - name: Backend MTLS
        href: how-to-backend-mtls-gateway-api.md
-     - name: Multiple site hosting
+     - name: Multi-site hosting
        href: how-to-multiple-site-hosting-gateway-api.md
      - name: Path, header, and query string based routing
        href: how-to-path-header-query-string-routing-gateway-api.md
@@ -42,8 +44,12 @@
        href: how-to-ssl-offloading-gateway-api.md
      - name: Traffic Splitting / Weighted Round Robin
        href: how-to-traffic-splitting-gateway-api.md
+     - name: URL Rewrite
+       href: how-to-url-rewrite-gateway-api.md
   - name: Ingress API
     items:
+    - name: Multi-site hosting
+      href: how-to-multiple-site-hosting-ingress-api.md
     - name: SSL Offloading
       href: how-to-ssl-offloading-ingress-api.md
   - name: Troubleshoot

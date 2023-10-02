@@ -73,10 +73,10 @@ items:
       href: ./hdinsight-capacity-planning.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
-    - name: Business continuity
+    - name: Reliability and Business continuity
       items:
-        - name: Business continuity overview
-          href: hdinsight-business-continuity.md
+        - name: Reliability in HDInsight
+          href: ../reliability/reliability-hdinsight.md?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
         - name: Business continuity architecture
           href: ./hdinsight-business-continuity-architecture.md
         - name: High availability case study

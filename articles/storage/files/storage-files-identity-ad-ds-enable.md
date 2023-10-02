@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/11/2023
+ms.date: 09/27/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -79,7 +79,8 @@ Connect-AzAccount
 # Define parameters
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
 # $SamAccountName is the name of the to-be-created AD object, which is used by AD as the logon name 
-# for the object. It must be 20 characters or less and has certain character restrictions. 
+# for the object. It must be 20 characters or less and has certain character restrictions.
+# Make sure that you provide the SamAccountName without the trailing '$' sign.
 # See https://learn.microsoft.com/windows/win32/adschema/a-samaccountname for more information.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
@@ -159,10 +160,10 @@ The cmdlets should return the key value. Once you have the kerb1 key, create eit
    Setspn -S cifs/your-storage-account-name-here.file.core.windows.net <ADAccountName>
    ```
 
-2. Modify the UPN to match the SPN for the AD object (you must have AD PowerShell cmdlets installed and execute the cmdlets in PowerShell 5.1 with elevated privileges).
+2. If you have a user account, modify the UPN to match the SPN for the AD object (you must have AD PowerShell cmdlets installed and execute the cmdlets in PowerShell 5.1 with elevated privileges).
 
    ```powershell
-   Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<UPN suffixes>
+   Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
    ```
 
 3. Set the AD account password to the value of the kerb1 key.

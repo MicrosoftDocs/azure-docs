@@ -1,6 +1,6 @@
 ---
-title: Risk policies - Azure Active Directory Identity Protection
-description: Enable and configure risk policies in Azure Active Directory Identity Protection
+title: Risk policies - Microsoft Entra ID Protection
+description: Enable and configure risk policies in Microsoft Entra ID Protection
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure and enable risk policies
 
-As we learned in the previous article, [Risk-based access policies](concept-identity-protection-policies.md), there are two types of risk policies in Azure Active Directory (Azure AD) Conditional Access you can set up to automate the response to risks and allow users to self-remediate when risk is detected:
+As we learned in the previous article, [Risk-based access policies](concept-identity-protection-policies.md), there are two types of risk policies in Microsoft Entra Conditional Access you can set up to automate the response to risks and allow users to self-remediate when risk is detected:
 
 - Sign-in risk policy
 - User risk policy
@@ -34,10 +34,10 @@ Configured trusted [network locations](../conditional-access/location-condition.
 
 ### Risk remediation
 
-Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to [allow self-remediation using Azure AD multifactor authentication (MFA) and secure password change](howto-identity-protection-remediate-unblock.md#self-remediation-with-risk-based-policy).
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to [allow self-remediation using Microsoft Entra multifactor authentication and secure password change](howto-identity-protection-remediate-unblock.md#self-remediation-with-risk-based-policy).
 
 > [!WARNING]
-> Users must register for Azure AD MFA before they face a situation requiring remediation. For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them. Users not registered are blocked and require administrator intervention.
+> Users must register for Microsoft Entra multifactor authentication before they face a situation requiring remediation. For hybrid users that are synced from on-premises to cloud, password writeback must have been enabled on them. Users not registered are blocked and require administrator intervention.
 > 
 > Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password change.
 
@@ -46,9 +46,9 @@ Organizations can choose to block access when risk is detected. Blocking sometim
 Microsoft recommends the below risk policy configurations to protect your organization:
 
 - User risk policy
-   - Require a secure password change when user risk level is **High**. Azure AD MFA is required before the user can create a new password with password writeback to remediate their risk. 
+   - Require a secure password change when user risk level is **High**. Microsoft Entra multifactor authentication is required before the user can create a new password with password writeback to remediate their risk. 
 - Sign-in risk policy
-   - Require Azure AD MFA when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
+   - Require Microsoft Entra multifactor authentication when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
 
 Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password change and multifactor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
 
@@ -64,8 +64,8 @@ Before organizations enable remediation policies, they may want to [investigate]
 
 ### User risk policy in Conditional Access
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -90,8 +90,8 @@ After confirming your settings using [report-only mode](../conditional-access/ho
 
 ### Sign-in risk policy in Conditional Access
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.
@@ -129,20 +129,20 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 
 ### Migrating to Conditional Access
 
-1. **Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based ](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can create a policy with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md) based on Microsoft's recommendations and your organizational requirements.
+1. **Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can create a policy with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md) based on Microsoft's recommendations and your organizational requirements.
     1. Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
 1. **Enable** the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
-    1. Browse back to **Azure Active Directory** > **Security** > **Conditional Access**. 
+    1. Browse back to **Protection** > **Conditional Access**. 
     1. Select this new policy to edit it.
     1. Set **Enable policy** to **On** to enable the policy
 1. **Disable** the old risk policies in Identity Protection.
-    1. Browse to **Azure Active Directory** > **Identity Protection** > Select the **User risk** or **Sign-in risk** policy.
+    1. Browse to **Protection** > **Identity Protection** > Select the **User risk** or **Sign-in risk** policy.
     1. Set **Enforce policy** to **Off**
 1. Create other risk policies if needed in [Conditional Access](../conditional-access/concept-conditional-access-policy-common.md).
 
 ## Next steps
 
-- [Enable Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
+- [Enable Microsoft Entra multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 - [What is risk](concept-identity-protection-risks.md)
 - [Investigate risk detections](howto-identity-protection-investigate-risk.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)

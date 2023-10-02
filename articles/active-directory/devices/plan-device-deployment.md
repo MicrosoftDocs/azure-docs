@@ -1,6 +1,6 @@
 ---
-title: Plan your Azure Active Directory device deployment
-description: Choose the Azure AD device integration strategies that meet your organizational needs.
+title: Plan your Microsoft Entra device deployment
+description: Choose the Microsoft Entra device integration strategies that meet your organizational needs.
 
 services: active-directory
 ms.service: active-directory
@@ -17,19 +17,19 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
-# Plan your Azure Active Directory device deployment
+# Plan your Microsoft Entra device deployment
 
-This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools.
+This article helps you evaluate the methods to integrate your device with Microsoft Entra ID, choose the implementation plan, and provides key links to supported device management tools.
 
 The landscape of your user's devices is constantly expanding. Organizations may provide desktops, laptops, phones, tablets, and other devices. Your users may bring their own array of devices, and access information from varied locations. In this environment, your job as an administrator is to keep your organizational resources secure across all devices.
 
-Azure Active Directory (Azure AD) enables your organization to meet these goals with device identity management. You can now get your devices in Azure AD and control them from a central location in the [Azure portal](https://portal.azure.com/). This process gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
+Microsoft Entra ID enables your organization to meet these goals with device identity management. You can now get your devices in Microsoft Entra ID and control them from a central location in the [Microsoft Entra admin center](https://entra.microsoft.com). This process gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
 
-There are multiple methods to integrate your devices into Azure AD, they can work separately or together based on the operating system and your requirements:
+There are multiple methods to integrate your devices into Microsoft Entra ID, they can work separately or together based on the operating system and your requirements:
 
-* You can [register devices](concept-device-registration.md) with Azure AD.
-* [Join devices](concept-directory-join.md) to Azure AD (cloud-only).
-* [Hybrid Azure AD join](concept-hybrid-join.md) devices to your on-premises Active Directory domain and Azure AD. 
+* You can [register devices](concept-device-registration.md) with Microsoft Entra ID.
+* [Join devices](concept-directory-join.md) to Microsoft Entra ID (cloud-only).
+* [Microsoft Entra hybrid join](concept-hybrid-join.md) devices to your on-premises Active Directory domain and Microsoft Entra ID. 
 
 ## Learn
 
@@ -37,17 +37,17 @@ Before you begin, make sure that you're familiar with the [device identity manag
 
 ### Benefits
 
-The key benefits of giving your devices an Azure AD identity:
+The key benefits of giving your devices a Microsoft Entra identity:
 
 * Increase productivity – Users can do [seamless sign-on (SSO)](./device-sso-to-on-premises-resources.md) to your on-premises and cloud resources, enabling productivity wherever they are.
 
-* Increase security – Apply [Conditional Access policies](../conditional-access/overview.md) to resources based on the identity of the device or user. Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless](../authentication/concept-authentication-passwordless.md) strategy.
+* Increase security – Apply [Conditional Access policies](../conditional-access/overview.md) to resources based on the identity of the device or user. Joining a device to Microsoft Entra ID is a prerequisite for increasing your security with a [Passwordless](../authentication/concept-authentication-passwordless.md) strategy.
 
    > [!VIDEO https://www.youtube-nocookie.com/embed/NcONUf-jeS4]
 
-* Improve user experience – Provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](enterprise-state-roaming-overview.md) for a unified experience across all Windows devices.
+* Improve user experience – Provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](./enterprise-state-roaming-enable.md) for a unified experience across all Windows devices.
 
-* Simplify deployment and management – Simplify the process of bringing devices to Azure AD with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), or [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Manage devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in the [Azure portal](https://portal.azure.com/).
+* Simplify deployment and management – Simplify the process of bringing devices to Microsoft Entra ID with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), or [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). Manage devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in the [Microsoft Entra admin center](https://entra.microsoft.com).
 
 ## Plan the deployment project
 
@@ -55,7 +55,7 @@ Consider your organizational needs while you determine the strategy for this dep
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders,](../fundamentals/deployment-plans.md) and that stakeholder roles in the project are well understood. 
+When technology projects fail, they typically do because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders,](../architecture/deployment-plans.md) and that stakeholder roles in the project are well understood. 
 
 For this plan, add the following stakeholders to your list:
 
@@ -72,16 +72,16 @@ Communication is critical to the success of any new service. Proactively communi
 
 ### Plan a pilot
 
-We recommend that the initial configuration of your integration method is in a test environment, or with a small group of test devices. See [Best practices for a pilot](../fundamentals/deployment-plans.md).
+We recommend that the initial configuration of your integration method is in a test environment, or with a small group of test devices. See [Best practices for a pilot](../architecture/deployment-plans.md).
 
-You may want to do a [targeted deployment of hybrid Azure AD join](hybrid-join-control.md) before enabling it across the entire organization.
+You may want to do a [targeted deployment of Microsoft Entra hybrid join](hybrid-join-control.md) before enabling it across the entire organization.
 
 > [!WARNING]
 > Organizations should include a sample of users from varying roles and profiles in their pilot group. A targeted rollout will help identify any issues your plan may not have addressed before you enable for the entire organization.
 
 ## Choose your integration methods
 
-Your organization can use multiple device integration methods in a single Azure AD tenant. The goal is to choose the method(s) suitable to get your devices securely managed in Azure AD. There are many parameters that drive this decision including ownership, device types, primary audience, and your organization’s infrastructure.
+Your organization can use multiple device integration methods in a single Microsoft Entra tenant. The goal is to choose the method(s) suitable to get your devices securely managed in Microsoft Entra ID. There are many parameters that drive this decision including ownership, device types, primary audience, and your organization’s infrastructure.
 
 The following information can help you decide which integration methods to use.
 
@@ -90,15 +90,15 @@ The following information can help you decide which integration methods to use.
 Use this tree to determine options for organization-owned devices. 
 
 > [!NOTE]
-> Personal or bring-your-own device (BYOD) scenarios are not pictured in this diagram. They always result in Azure AD registration.
+> Personal or bring-your-own device (BYOD) scenarios are not pictured in this diagram. They always result in Microsoft Entra registration.
 
  ![Decision tree](./media/plan-device-deployment/flowchart.png)
 
 ### Comparison matrix
 
-iOS and Android devices may only be Azure AD registered. The following table presents high-level considerations for Windows client devices. Use it as an overview, then explore the different integration methods in detail.
+iOS and Android devices may only be Microsoft Entra registered. The following table presents high-level considerations for Windows client devices. Use it as an overview, then explore the different integration methods in detail.
 
-| Consideration | Azure AD registered | Azure AD joined | Hybrid Azure AD joined |
+| Consideration | Microsoft Entra registered | Microsoft Entra joined | Microsoft Entra hybrid joined |
 | --- | :---: | :---: | :---: |
 | **Client operating systems** | | |  |
 | Windows 11 or Windows 10 devices | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
@@ -116,15 +116,17 @@ iOS and Android devices may only be Azure AD registered. The following table pre
 | SSO to cloud resources | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | SSO to on-premises resources | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Conditional Access <br> (Require devices be marked as compliant) <br> (Must be managed by MDM) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |![Checkmark for these values.](./media/plan-device-deployment/check.png) |
-Conditional Access <br>(Require hybrid Azure AD joined devices) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)
+Conditional Access <br>(Require Microsoft Entra hybrid joined devices) | | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)
 | Self-service password reset from the Windows login screen | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Windows Hello PIN reset | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 
-## Azure AD Registration 
+<a name='azure-ad-registration-'></a>
+
+## Microsoft Entra Registration 
 
 Registered devices are often managed with [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Devices are enrolled in Intune in several ways, depending on the operating system. 
 
-Azure AD registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Azure AD [Conditional Access policies](../conditional-access/require-managed-devices.md) applied to the device and the user.
+Microsoft Entra registered devices provide support for Bring Your Own Devices (BYOD) and corporate owned devices to SSO to cloud resources. Access to resources is based on the Microsoft Entra [Conditional Access policies](../conditional-access/concept-conditional-access-grant.md) applied to the device and the user.
 
 ### Registering devices
 
@@ -140,23 +142,27 @@ BYOD and corporate owned mobile device are registered by users installing the Co
 
 If registering your devices is the best option for your organization, see the following resources:
 
-* This overview of [Azure AD registered devices](concept-device-registration.md).
+* This overview of [Microsoft Entra registered devices](concept-device-registration.md).
 * This end-user documentation on [Register your personal device on your organization’s network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
-## Azure AD join
+<a name='azure-ad-join'></a>
 
-Azure AD join enables you to transition towards a cloud-first model with Windows. It provides a great foundation if you're planning to modernize your device management and reduce device-related IT costs. Azure AD join works with Windows 10 or newer devices only. Consider it as the first choice for new devices.
+## Microsoft Entra join
 
-[Azure AD joined devices can SSO to on-premises resources](device-sso-to-on-premises-resources.md) when they are on the organization's network, can authenticate to on-premises servers like file, print, and other applications.
+Microsoft Entra join enables you to transition towards a cloud-first model with Windows. It provides a great foundation if you're planning to modernize your device management and reduce device-related IT costs. Microsoft Entra join works with Windows 10 or newer devices only. Consider it as the first choice for new devices.
+
+[Microsoft Entra joined devices can SSO to on-premises resources](device-sso-to-on-premises-resources.md) when they are on the organization's network, can authenticate to on-premises servers like file, print, and other applications.
 
 If this option is best for your organization, see the following resources:
 
-* This overview of [Azure AD joined devices](concept-directory-join.md).
-* Familiarize yourself with the [Azure AD join implementation plan](device-join-plan.md).
+* This overview of [Microsoft Entra joined devices](concept-directory-join.md).
+* Familiarize yourself with the [Microsoft Entra join implementation plan](device-join-plan.md).
 
-### Provisioning Azure AD Joined devices
+<a name='provisioning-azure-ad-joined-devices'></a>
 
-To provision devices to Azure AD join, you have the following approaches:
+### Provisioning Microsoft Entra joined devices
+
+To provision devices to Microsoft Entra join, you have the following approaches:
 
 * Self-Service: [Windows 10 first-run experience](device-join-out-of-box.md)
 
@@ -168,52 +174,56 @@ If you have either Windows 10 Professional or Windows 10 Enterprise installed on
 
 Choose your deployment procedure after careful [comparison of these approaches](device-join-plan.md).
 
-You may determine that Azure AD join is the best solution for a device in a different state. The following table shows how to change the state of a device.
+You may determine that Microsoft Entra join is the best solution for a device in a different state. The following table shows how to change the state of a device.
 
 | Current device state | Desired device state | How-to |
 | --- | --- | --- |
-| On-premises domain joined | Azure AD joined | Unjoin the device from on-premises domain before joining to Azure AD. |
-| Hybrid Azure AD joined | Azure AD joined | Unjoin the device from on-premises domain and from Azure AD before joining to Azure AD. |
-| Azure AD registered | Azure AD joined | Unregister the device before joining to Azure AD. |
+| On-premises domain joined | Microsoft Entra joined | Unjoin the device from on-premises domain before joining to Microsoft Entra ID. |
+| Microsoft Entra hybrid joined | Microsoft Entra joined | Unjoin the device from on-premises domain and from Microsoft Entra ID before joining to Microsoft Entra ID. |
+| Microsoft Entra registered | Microsoft Entra joined | Unregister the device before joining to Microsoft Entra ID. |
 
-## Hybrid Azure AD join
+<a name='hybrid-azure-ad-join'></a>
 
-If you have an on-premises Active Directory environment and want to join your existing domain-joined computers to Azure AD, you can accomplish this task with hybrid Azure AD join. It supports a [broad range of Windows devices](hybrid-join-plan.md), including both Windows current and Windows down-level devices.
+## Microsoft Entra hybrid join
 
-Most organizations already have domain joined devices and manage them via Group Policy or System Center Configuration Manager (SCCM). In that case, we recommend configuring hybrid Azure AD join to start getting benefits while using existing investments.
+If you have an on-premises Active Directory environment and want to join your existing domain-joined computers to Microsoft Entra ID, you can accomplish this task with Microsoft Entra hybrid join. It supports a [broad range of Windows devices](hybrid-join-plan.md), including both Windows current and Windows down-level devices.
 
-If hybrid Azure AD join is the best option for your organization, see the following resources:
+Most organizations already have domain joined devices and manage them via Group Policy or System Center Configuration Manager (SCCM). In that case, we recommend configuring Microsoft Entra hybrid join to start getting benefits while using existing investments.
 
-* This overview of [hybrid Azure AD joined devices](concept-hybrid-join.md).
-* Familiarize yourself with the [hybrid Azure AD join implementation](hybrid-join-plan.md) plan.
+If Microsoft Entra hybrid join is the best option for your organization, see the following resources:
 
-### Provisioning hybrid Azure AD join to your devices
+* This overview of [Microsoft Entra hybrid joined devices](concept-hybrid-join.md).
+* Familiarize yourself with the [Microsoft Entra hybrid join implementation](hybrid-join-plan.md) plan.
 
-[Review your identity infrastructure](hybrid-join-plan.md). Azure AD Connect provides you with a wizard to configure hybrid Azure AD join for:
+<a name='provisioning-hybrid-azure-ad-join-to-your-devices'></a>
+
+### Provisioning Microsoft Entra hybrid join to your devices
+
+[Review your identity infrastructure](hybrid-join-plan.md). Microsoft Entra Connect provides you with a wizard to configure Microsoft Entra hybrid join for:
 
 * [Managed domains](how-to-hybrid-join.md#managed-domains)
 * [Federated domains](how-to-hybrid-join.md#federated-domains)
 
-If installing the required version of Azure AD Connect isn't an option for you, see [how to manually configure hybrid Azure AD join](hybrid-join-manual.md). 
+If installing the required version of Microsoft Entra Connect isn't an option for you, see [how to manually configure Microsoft Entra hybrid join](hybrid-join-manual.md). 
 
 > [!NOTE] 
-> The on-premises domain-joined Windows 10 or newer device attempts to auto-join to Azure AD to become hybrid Azure AD joined by default. This will only succeed if you have set up the right environment. 
+> The on-premises domain-joined Windows 10 or newer device attempts to auto-join to Microsoft Entra ID to become Microsoft Entra hybrid joined by default. This will only succeed if you have set up the right environment. 
 
-You may determine that hybrid Azure AD join is the best solution for a device in a different state. The following table shows how to change the state of a device.
+You may determine that Microsoft Entra hybrid join is the best solution for a device in a different state. The following table shows how to change the state of a device.
 
 | Current device state | Desired device state | How-to |
 | --- | --- | --- |
-| On-premises domain joined | Hybrid Azure AD joined | Use Azure AD connect or AD FS to join to Azure. |
-| On-premises workgroup joined or new | Hybrid Azure AD joined | Supported with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot). Otherwise device needs to be on-premises domain joined before hybrid Azure AD join. |
-| Azure AD joined | Hybrid Azure AD joined | Unjoin from Azure AD, which puts it in the on-premises workgroup or new state. |
-| Azure AD registered | Hybrid Azure AD joined | Depends on Windows version. [See these considerations](hybrid-join-plan.md). |
+| On-premises domain joined | Microsoft Entra hybrid joined | Use Microsoft Entra Connect or AD FS to join to Azure. |
+| On-premises workgroup joined or new | Microsoft Entra hybrid joined | Supported with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot). Otherwise device needs to be on-premises domain joined before Microsoft Entra hybrid join. |
+| Microsoft Entra joined | Microsoft Entra hybrid joined | Unjoin from Microsoft Entra ID, which puts it in the on-premises workgroup or new state. |
+| Microsoft Entra registered | Microsoft Entra hybrid joined | Depends on Windows version. [See these considerations](hybrid-join-plan.md). |
 
 ## Manage your devices
 
-Once you've registered or joined your devices to Azure AD, use the [Azure portal](https://portal.azure.com/) as a central place to manage your device identities. The Azure Active Directory devices page enables you to:
+Once you've registered or joined your devices to Microsoft Entra ID, use the [Microsoft Entra admin center](https://entra.microsoft.com) as a central place to manage your device identities. The Microsoft Entra devices page enables you to:
 
 * [Configure your device settings](manage-device-identities.md#configure-device-settings).
-* You need to be a local administrator to manage Windows devices. [Azure AD updates this membership for Azure AD joined devices](assign-local-admin.md), automatically adding users with the device manager role as administrators to all joined devices.
+* You need to be a local administrator to manage Windows devices. [Microsoft Entra ID updates this membership for Microsoft Entra joined devices](assign-local-admin.md), automatically adding users with the device manager role as administrators to all joined devices.
 
 Make sure that you keep the environment clean by [managing stale devices](manage-stale-devices.md), and focus your resources on managing current devices.
 
@@ -225,7 +235,7 @@ Administrators can secure and further control registered and joined devices usin
 
 Review supported and unsupported platforms for integrated devices:
 
-| Device management tools | Azure AD registered | Azure AD joined | Hybrid Azure AD joined |
+| Device management tools | Microsoft Entra registered | Microsoft Entra joined | Microsoft Entra hybrid joined |
 | --- | :---: | :---: | :---: |
 | [Mobile Device Management (MDM)](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
 | [Co-management with Microsoft Intune and Microsoft Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 or newer) | | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png) | 
@@ -237,6 +247,7 @@ Administrators can also [deploy virtual desktop infrastructure (VDI) platforms](
 
 ## Next steps
 
-* [Plan your Azure AD join implementation](device-join-plan.md)
-* [Plan your hybrid Azure AD join implementation](hybrid-join-plan.md)
+* [Analyze your on-premises GPOs using Group Policy analytics in Microsoft Intune](/mem/intune/configuration/group-policy-analytics)
+* [Plan your Microsoft Entra join implementation](device-join-plan.md)
+* [Plan your Microsoft Entra hybrid join implementation](hybrid-join-plan.md)
 * [Manage device identities](manage-device-identities.md)

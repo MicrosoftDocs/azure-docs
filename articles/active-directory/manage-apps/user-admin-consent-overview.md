@@ -1,6 +1,6 @@
 ---
 title: Overview of user and admin consent
-description: Learn about the fundamental concepts of user and admin consent in Azure AD
+description: Learn about the fundamental concepts of user and admin consent in Microsoft Entra ID
 services: active-directory
 author: omondiatieno
 manager: celesteDG
@@ -15,9 +15,9 @@ ms.collection: M365-identity-device-management
 ms.custom: enterprise-apps
 ---
 
-# User and admin consent in Azure Active Directory
+# User and admin consent in Microsoft Entra ID
 
-In this article, you’ll learn the foundational concepts and scenarios around user and admin consent in Azure Active Directory (Azure AD).
+In this article, you’ll learn the foundational concepts and scenarios around user and admin consent in Microsoft Entra ID.
 
 Consent is a process where users can grant permission for an application to access a protected resource. To indicate the level of access required, an application requests the API permissions it requires. For example, an application can request the permission to see a signed-in user's profile and read the contents of the user's mailbox.
 
@@ -37,7 +37,7 @@ Users are in control of their data. A Privileged Administrator can configure whe
 
 As an administrator, you can choose whether user consent is allowed. If you choose to allow user consent, you can also choose what conditions must be met before an application can be consented to by a user.
 
-By choosing which application consent policies apply for all users, you can set limits on when users are allowed to grant consent to applications and on when they’ll be required to request administrator review and approval. The Azure portal provides the following built-in options:
+By choosing which application consent policies apply for all users, you can set limits on when users are allowed to grant consent to applications and on when they’ll be required to request administrator review and approval. The Microsoft Entra admin center provides the following built-in options:
 
 - *You can disable user consent*. Users can't grant permissions to applications. Users continue to sign in to applications they've previously consented to or to applications that administrators have granted consent to on their behalf, but they won't be allowed to consent to new permissions to applications on their own. Only users who have been granted a directory role that includes the permission to grant consent can consent to new applications.
 
@@ -61,7 +61,7 @@ Before you grant tenant-wide admin consent, ensure that you trust the applicatio
 
 For step-by-step guidance on whether to grant an application admin consent, see [Evaluating a request for tenant-wide admin consent](manage-consent-requests.md#evaluate-a-request-for-tenant-wide-admin-consent).
 
-For step-by-step instructions for granting tenant-wide admin consent from the Azure portal, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
+For step-by-step instructions for granting tenant-wide admin consent from the Microsoft Entra admin center, see [Grant tenant-wide admin consent to an application](grant-admin-consent.md).
 
 ### Grant consent on behalf of a specific user
 
@@ -71,13 +71,13 @@ Instead of granting consent for an entire organization, an admin can also use th
 
 User access to applications can still be limited, even when tenant-wide admin consent has been granted. Configure the application’s properties to require user assignment to limit user access to the application. For more information, see [Methods for assigning users and groups](assign-user-or-group-access-portal.md).
 
-For a broader overview, including how to handle other complex scenarios, see [Use Azure AD for application access management](what-is-access-management.md).
+For a broader overview, including how to handle other complex scenarios, see [Use Microsoft Entra ID for application access management](what-is-access-management.md).
 
 ## Admin consent workflow
 
 The admin consent workflow gives users a way to request admin consent for applications when they aren't allowed to consent themselves. When the admin consent workflow is enabled, users are presented with an "Approval required" window for requesting admin approval for access to the application.
 
-After users submit the admin consent request, the admins who have been designated as reviewers receive a notification. The users are notified after a reviewer has acted on their request. For step-by-step instructions for configuring the admin consent workflow by using the Azure portal, see [configure the admin consent workflow](configure-admin-consent-workflow.md).
+After users submit the admin consent request, the admins who have been designated as reviewers receive a notification. The users are notified after a reviewer has acted on their request. For step-by-step instructions for configuring the admin consent workflow by using the Microsoft Entra admin center, see [configure the admin consent workflow](configure-admin-consent-workflow.md).
 
 ### How users request admin consent
 

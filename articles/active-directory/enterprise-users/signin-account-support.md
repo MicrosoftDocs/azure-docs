@@ -1,5 +1,5 @@
 ---
-title: Does my Azure AD sign-in page accept Microsoft accounts 
+title: Does my Microsoft Entra sign-in page accept Microsoft accounts 
 description: How on-screen messaging reflects username lookup during sign-in 
 services: active-directory
 author: barclayn
@@ -15,9 +15,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Sign-in options for Microsoft accounts in Azure Active Directory
+# Sign-in options for Microsoft accounts in Microsoft Entra ID
 
-The Microsoft 365 sign-in page for Azure Active Directory (Azure AD), part of Microsoft Entra, supports work or school accounts and Microsoft accounts, but depending on the user's situation, it could be one or the other or both. For example, the Azure AD sign-in page supports:
+The Microsoft 365 sign-in page for Microsoft Entra ID, part of Microsoft Entra, supports work or school accounts and Microsoft accounts, but depending on the user's situation, it could be one or the other or both. For example, the Microsoft Entra sign-in page supports:
 
 * Apps that accept sign-ins from both types of account
 * Organizations that accept guests
@@ -27,7 +27,7 @@ You can tell if the sign-in page your organization uses supports Microsoft accou
 
 ![Difference between account sign-in pages](./media/signin-account-support/ui-prompt.png)
 
-[Additional sign-in options work only for personal Microsoft accounts](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) but can't be used for signing in to work or school account resources.
+[Additional sign-in options work only for personal Microsoft accounts](https://azure.microsoft.com/updates/microsoft-account-signin-options/) but can't be used for signing in to work or school account resources.
 
 ## Next steps
 

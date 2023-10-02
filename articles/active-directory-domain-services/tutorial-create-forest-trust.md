@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft Docs
-description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
+title: Tutorial - Create a forest trust in Microsoft Entra Domain Services | Microsoft Docs
+description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Microsoft Entra admin center for Microsoft Entra Domain Services
 services: active-directory-ds
 author: justinha
 manager: amycolannino
@@ -9,29 +9,29 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/02/2023
+ms.date: 09/15/2023
 ms.author: justinha
 
-#Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
+#Customer intent: As an identity administrator, I want to create a one-way outbound forest from a Microsoft Entra Domain Services forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
 ---
 
-# Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services
+# Tutorial: Create an outbound forest trust to an on-premises domain in Microsoft Entra Domain Services
 
-You can create a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. A forest trust can help users access resources in scenarios such as:
+You can create a one-way outbound trust from Microsoft Entra Domain Services to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Domain Services managed domain. A forest trust can help users access resources in scenarios such as:
 
 - Environments where you can't synchronize password hashes, or where users exclusively sign in using smart cards and don't know their password.
 - Hybrid scenarios that still require access to on-premises domains.
 
-Trusts can be created in any domain. The domain will automatically block synchronization from an on-premises domain for any user accounts that were synchronized to Azure AD DS. This prevents UPN collisions when users authenticate. 
+Trusts can be created in any domain. The domain will automatically block synchronization from an on-premises domain for any user accounts that were synchronized to Domain Services. This prevents UPN collisions when users authenticate. 
 
-![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/tutorial-create-forest-trust/forest-trust-relationship.png)
+![Diagram of forest trust from Domain Services to on-premises AD DS](./media/tutorial-create-forest-trust/forest-trust-relationship.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
+> * Configure DNS in an on-premises AD DS environment to support Domain Services connectivity
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
-> * Create a one-way outbound forest trust in Azure AD DS
+> * Create a one-way outbound forest trust in Domain Services
 > * Test and validate the trust relationship for authentication and resource access
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -42,33 +42,33 @@ To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
-    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* An Azure Active Directory Domain Services managed domain.
-    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance-advanced].
+* A Microsoft Entra tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create a Microsoft Entra tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* A Microsoft Entra Domain Services managed domain.
+    * If needed, [create and configure a Microsoft Entra Domain Services managed domain][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
     > You need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
 
-## Sign in to the Azure portal
+## Sign in to the Microsoft Entra admin center
 
-In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com). You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Azure AD roles in your tenant to modify an Azure AD DS instance. 
+In this tutorial, you create and configure the outbound forest trust from Domain Services using the Microsoft Entra admin center. To get started, first sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to modify a Domain Services instance. 
 
 ## Networking considerations
 
-The virtual network that hosts the Azure AD DS forest needs network connectivity to your on-premises Active Directory. Applications and services also need network connectivity to the virtual network hosting the Azure AD DS forest. Network connectivity to the Azure AD DS forest must be always on and stable otherwise users may fail to authenticate or access resources.
+The virtual network that hosts the Domain Services forest needs network connectivity to your on-premises Active Directory. Applications and services also need network connectivity to the virtual network hosting the Domain Services forest. Network connectivity to the Domain Services forest must be always on and stable otherwise users may fail to authenticate or access resources.
 
-Before you configure a forest trust in Azure AD DS, make sure your networking between Azure and on-premises environment meets the following requirements:
+Before you configure a forest trust in Domain Services, make sure your networking between Azure and on-premises environment meets the following requirements:
 
 * Use private IP addresses. Don't rely on DHCP with dynamic IP address assignment.
 * Avoid overlapping IP address spaces to allow virtual network peering and routing to successfully communicate between Azure and on-premises.
 * An Azure virtual network needs a gateway subnet to configure an [Azure site-to-site (S2S) VPN][vpn-gateway] or [ExpressRoute][expressroute] connection.
 * Create subnets with enough IP addresses to support your scenario.
-* Make sure Azure AD DS has its own subnet, don't share this virtual network subnet with application VMs and services.
+* Make sure Domain Services has its own subnet, don't share this virtual network subnet with application VMs and services.
 * Peered virtual networks are NOT transitive.
-    * Azure virtual network peerings must be created between all virtual networks you want to use the Azure AD DS forest trust to the on-premises AD DS environment.
+    * Azure virtual network peerings must be created between all virtual networks you want to use the Domain Services forest trust to the on-premises AD DS environment.
 * Provide continuous network connectivity to your on-premises Active Directory forest. Don't use on-demand connections.
-* Make sure there's continuous name resolution (DNS) between your Azure AD DS forest name and your on-premises Active Directory forest name.
+* Make sure there's continuous name resolution (DNS) between your Domain Services forest name and your on-premises Active Directory forest name.
 
 ## Configure DNS in the on-premises domain
 
@@ -92,17 +92,17 @@ To correctly resolve the managed domain from the on-premises environment, you ma
 
 ## Create inbound forest trust in the on-premises domain
 
-The on-premises AD DS domain needs an incoming forest trust for the managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Azure portal.
+The on-premises AD DS domain needs an incoming forest trust for the managed domain. This trust must be manually created in the on-premises AD DS domain, it can't be created from the Microsoft Entra admin center.
 
 To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
 
 1. Select **Start** > **Administrative Tools** > **Active Directory Domains and Trusts**.
 1. Right-click the domain, such as *onprem.contoso.com*, then select **Properties**.
 1. Choose **Trusts** tab, then **New Trust**.
-1. Enter the name for Azure AD DS domain name, such as *aaddscontoso.com*, then select **Next**.
+1. Enter the name for Domain Services domain name, such as *aaddscontoso.com*, then select **Next**.
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
-1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the managed domain.
-1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
+1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Microsoft Entra admin center for the managed domain.
+1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Microsoft Entra admin center in the next section.
 1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**.
 1. Select **Finish**.
 
@@ -114,24 +114,26 @@ If the forest trust is no longer needed for an environment, complete the followi
 1. On the Trusts tab, under **Domains trusted by this domain (outgoing trusts)**, click the trust to be removed, and then click Remove.
 1. Click **No, remove the trust from the local domain only**.
 
-## Create outbound forest trust in Azure AD DS
+<a name='create-outbound-forest-trust-in-azure-ad-ds'></a>
+
+## Create outbound forest trust in Domain Services
 
 With the on-premises AD DS domain configured to resolve the managed domain and an inbound forest trust created, now create the outbound forest trust. This outbound forest trust completes the trust relationship between the on-premises AD DS domain and the managed domain.
 
-To create the outbound trust for the managed domain in the Azure portal, complete the following steps:
+To create the outbound trust for the managed domain in the Microsoft Entra admin center, complete the following steps:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
+1. In the Microsoft Entra admin center, search for and select **Microsoft Entra Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
 1. From the menu on the left-hand side of the managed domain, select **Trusts**, then choose to **+ Add** a trust.
 1. Enter a display name that identifies your trust, then the on-premises trusted forest DNS name, such as *onprem.contoso.com*.
 1. Provide the same trust password that was used to configure the inbound forest trust for the on-premises AD DS domain in the previous section.
 1. Provide at least two DNS servers for the on-premises AD DS domain, such as *10.1.1.4* and *10.1.1.5*.
 1. When ready, **Save** the outbound forest trust.
 
-    ![Create outbound forest trust in the Azure portal](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+    ![Create outbound forest trust in the Microsoft Entra admin center](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
-If the forest trust is no longer needed for an environment, complete the following steps to remove it from Azure AD DS:
+If the forest trust is no longer needed for an environment, complete the following steps to remove it from Domain Services:
 
-1. In the Azure portal, search for and select **Azure AD Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
+1. In the Microsoft Entra admin center, search for and select **Microsoft Entra Domain Services**, then select your managed domain, such as *aaddscontoso.com*.
 1. From the menu on the left-hand side of the managed domain, select **Trusts**, choose the trust, and click **Remove**.
 1. Provide the same trust password that was used to configure the forest trust and click **OK**.
 
@@ -139,18 +141,20 @@ If the forest trust is no longer needed for an environment, complete the followi
 
 The following common scenarios let you validate that forest trust correctly authenticates users and access to resources:
 
-* [On-premises user authentication from the Azure AD DS forest](#on-premises-user-authentication-from-the-azure-ad-ds-forest)
-* [Access resources in the Azure AD DS forest using on-premises user](#access-resources-in-the-azure-ad-ds-forest-using-on-premises-user)
+* [On-premises user authentication from the Domain Services forest](#on-premises-user-authentication-from-the-azure-ad-ds-forest)
+* [Access resources in the Domain Services forest using on-premises user](#access-resources-in-the-azure-ad-ds-forest-using-on-premises-user)
     * [Enable file and printer sharing](#enable-file-and-printer-sharing)
     * [Create a security group and add members](#create-a-security-group-and-add-members)
     * [Create a file share for cross-forest access](#create-a-file-share-for-cross-forest-access)
     * [Validate cross-forest authentication to a resource](#validate-cross-forest-authentication-to-a-resource)
 
-### On-premises user authentication from the Azure AD DS forest
+<a name='on-premises-user-authentication-from-the-azure-ad-ds-forest'></a>
+
+### On-premises user authentication from the Domain Services forest
 
 You should have Windows Server virtual machine joined to the managed domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine. If needed, [create a Windows VM and join it to the managed domain][join-windows-vm].
 
-1. Connect to the Windows Server VM joined to the Azure AD DS forest using [Azure Bastion](../bastion/bastion-overview.md) and your Azure AD DS administrator credentials.
+1. Connect to the Windows Server VM joined to the Domain Services forest using [Azure Bastion](/azure/bastion/bastion-overview) and your Domain Services administrator credentials.
 1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
 
     ```console
@@ -166,13 +170,15 @@ You should have Windows Server virtual machine joined to the managed domain. Use
 1. If the authentication is a successful, a new command prompt opens. The title of the new command prompt includes `running as userUpn@trusteddomain.com`.
 1. Use `whoami /fqdn` in the new command prompt to view the distinguished name of the authenticated user from the on-premises Active Directory.
 
-### Access resources in the Azure AD DS forest using on-premises user
+<a name='access-resources-in-the-azure-ad-ds-forest-using-on-premises-user'></a>
 
-Using the Windows Server VM joined to the Azure AD DS forest, you can test the scenario where users can access resources hosted in the forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
+### Access resources in the Domain Services forest using on-premises user
+
+Using the Windows Server VM joined to the Domain Services forest, you can test the scenario where users can access resources hosted in the forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
 
 #### Enable file and printer sharing
 
-1. Connect to the Windows Server VM joined to the Azure AD DS forest using [Azure Bastion](../bastion/bastion-overview.md) and your Azure AD DS administrator credentials.
+1. Connect to the Windows Server VM joined to the Domain Services forest using [Azure Bastion](/azure/bastion/bastion-overview) and your Domain Services administrator credentials.
 
 1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
 1. Choose the option for **Change advanced sharing** settings.
@@ -191,13 +197,13 @@ Using the Windows Server VM joined to the Azure AD DS forest, you can test the s
 1. Type *Domain Users* in the **Enter the object names to select** box. Select **Check Names**, provide credentials for the on-premises Active Directory, then select **OK**.
 
     > [!NOTE]
-    > You must provide credentials because the trust relationship is only one way. This means users from the Azure AD DS managed domain can't access resources or search for users or groups in the trusted (on-premises) domain.
+    > You must provide credentials because the trust relationship is only one way. This means users from the Domain Services managed domain can't access resources or search for users or groups in the trusted (on-premises) domain.
 
 1. The **Domain Users** group from your on-premises Active Directory should be a member of the **FileServerAccess** group. Select **OK** to save the group and close the window.
 
 #### Create a file share for cross-forest access
 
-1. On the Windows Server VM joined to the Azure AD DS forest, create a folder and provide name such as *CrossForestShare*.
+1. On the Windows Server VM joined to the Domain Services forest, create a folder and provide name such as *CrossForestShare*.
 1. Right-select the folder and choose **Properties**.
 1. Select the **Security** tab, then choose **Edit**.
 1. In the *Permissions for CrossForestShare* dialog box, select **Add**.
@@ -224,19 +230,19 @@ Using the Windows Server VM joined to the Azure AD DS forest, you can test the s
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
+> * Configure DNS in an on-premises AD DS environment to support Domain Services connectivity
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
-> * Create a one-way outbound forest trust in Azure AD DS
+> * Create a one-way outbound forest trust in Domain Services
 > * Test and validate the trust relationship for authentication and resource access
 
-For more conceptual information about forest in Azure AD DS, see [How do forest trusts work in Azure AD DS?][concepts-trust].
+For more conceptual information about forest in Domain Services, see [How do forest trusts work in Domain Services?][concepts-trust].
 
 <!-- INTERNAL LINKS -->
 [concepts-trust]: concepts-forest-trust.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [howto-change-sku]: change-sku.md
-[vpn-gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
-[expressroute]: ../expressroute/expressroute-introduction.md
+[vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[expressroute]: /azure/expressroute/expressroute-introduction
 [join-windows-vm]: join-windows-vm.md

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 
-title: Azure AI services containers
+title: Azure AI containers
 summary: Azure AI services offers several containers to use AI on premises. Containers give you the flexibility to bring Azure AI services closer to your data for compliance, security or other operational reasons.
 metadata:
-  title: Azure AI services containers
+  title: Azure AI containers
   titleSuffix: Azure AI services
   services: cognitive-services
   author: aahill
@@ -14,11 +14,11 @@ metadata:
   ms.author: aahi
 
 landingContent:
-- title: About Azure AI services containers
+- title: About Azure AI containers
   linkLists:
     - linkListType: concept
       links:
-        - text: What are Azure AI services containers?
+        - text: What are Azure AI containers?
           url: ../cognitive-services-container-support.md
         - text: Frequently Asked Questions
           url: container-faq.yml
@@ -60,6 +60,8 @@ landingContent:
           text: Custom Named Entity Recognition
         - url: ../Translator/containers/translator-how-to-install-container.md
           text: Translator container
+        - url: ../language-service/summarization/how-to/use-containers.md
+          text: Summarization
 - title: Speech containers
   linkLists:
       - linkListType: how-to-guide

@@ -23,10 +23,10 @@ This article highlights changes you need to make to migrate an app that uses the
 
 ## Difference highlights
 
-ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform--formerly known as the Azure Active Directory v2.0 endpoint. The Microsoft identity platform differs from Azure Active Directory v1.0 in that it:
+ADAL works with the Azure AD v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform, formerly known as the Azure AD v2.0 endpoint. The Microsoft identity platform differs from Azure AD v1.0 in that it:
 
 Supports:
-  - Organizational Identity (Azure Active Directory)
+  - Organizational Identity (Microsoft Entra ID)
   - Non-organizational identities such as Outlook.com, Xbox Live, and so on
   - (Azure AD B2C only) Federated login with Google, Facebook, Twitter, and Amazon
 
@@ -64,7 +64,7 @@ In your app registration in the portal, you will see an **API permissions** tab.
 
 ### User consent
 
-With ADAL and the Azure AD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
+With ADAL and the Azure AD v1.0 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
 > [!TIP]
 > Use incremental consent to provide additional context to your users about why your app needs a permission.
@@ -147,7 +147,7 @@ Where the Microsoft identity platform differs from a financial institution, in t
 
 Sam works for Contoso.com but manages Azure virtual machines that belong to Fabrikam.com. For Sam to manage Fabrikam's virtual machines, he needs to be authorized to access them. This access can be granted by adding Sam's account to Fabrikam.com, and granting his account a role that allows him to work with the virtual machines. This would be done with the Azure portal.
 
-Adding Sam's Contoso.com account as a member of Fabrikam.com would result in the creation of a new record in Fabrikam.com's Azure Active Directory for Sam. Sam's record in Azure Active Directory is known as a user object. In this case, that user object would point back to Sam's user object in Contoso.com. Sam's Fabrikam user object is the local representation of Sam, and would be used to store information about the account associated with Sam in the context of Fabrikam.com. In Contoso.com, Sam's title is Senior DevOps Consultant. In Fabrikam, Sam's title is Contractor-Virtual Machines. In Contoso.com, Sam is not responsible, nor authorized, to manage virtual machines. In Fabrikam.com, that's his only job function. Yet Sam still only has one set of credentials to keep track of, which are the credentials issued by Contoso.com.
+Adding Sam's Contoso.com account as a member of Fabrikam.com would result in the creation of a new record in Fabrikam.com's Microsoft Entra ID for Sam. Sam's record in Microsoft Entra ID is known as a user object. In this case, that user object would point back to Sam's user object in Contoso.com. Sam's Fabrikam user object is the local representation of Sam, and would be used to store information about the account associated with Sam in the context of Fabrikam.com. In Contoso.com, Sam's title is Senior DevOps Consultant. In Fabrikam, Sam's title is Contractor-Virtual Machines. In Contoso.com, Sam is not responsible, nor authorized, to manage virtual machines. In Fabrikam.com, that's his only job function. Yet Sam still only has one set of credentials to keep track of, which are the credentials issued by Contoso.com.
 
 Once a successful `acquireToken` call is made, you will see a reference to an `IAccount` object that can be used in later `acquireTokenSilent` requests.
 

@@ -46,253 +46,408 @@
         href: migrate-storage.md
       - name: Azure SQL managed instance
         href: migrate-sql-managed-instance.md
-      - name: Azure Virtual Machines and virtual machine scale sets
+      - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
         href: migrate-workload-aks-mysql.md
-  - name: Availability zone quickstarts by service
+  - name: Availability zone guidance by service
     items:
-    - name: Virtual machines
-      items:
-      - name: Create a Linux VM in an Availability Zone with CLI
-        href: ../virtual-machines/linux/create-cli-availability-zone.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Create a Windows VM in an Availability Zone with PowerShell
-        href: ../virtual-machines/windows/create-powershell-availability-zone.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Create a Windows VM in an Availability Zone with Azure portal
-        href: ../virtual-machines/windows/create-portal-availability-zone.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Managed disks
-      items:
-      - name: Add a managed disk in Availability Zones with CLI
-        href: ../virtual-machines/linux/add-disk.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#attach-a-new-disk-to-a-vm
-      - name: Add a managed disk in Availability Zones with PowerShell
-        href: ../virtual-machines/windows/attach-disk-ps.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#add-an-empty-data-disk-to-a-virtual-machine
-    - name: Virtual machine scale sets
-      items:
-      - name: Create a scale set in an Availability Zone
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Load Balancer
-      items:
-      - name: What is Load Balancer?
-        href: ../load-balancer/load-balancer-overview.md
-      - name: Load Balancer Standard and Availability Zones
-        href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Create a zone redundant public Standard Load Balancer
-        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        items:
-        - name: Create a zone redundant public Standard Load Balancer (PowerShell)
-          href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Create a zone redundant public Standard Load Balancer (CLI)
-          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Create a zonal public Standard Load Balancer
-        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        items:
-        - name: Create a zonal public Standard Load Balancer (PowerShell)
-          href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Create a zonal redundant public Standard Load Balancer (CLI)
-          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Load balance VMs across availability zones
-        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        items:
-        - name: Load balance VMs across availability zones with Azure (CLI)
-          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Public IP address
-      href: ../virtual-network/ip-services/virtual-network-public-ip-address.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#create-a-public-ip-address
-    - name: SQL Database
-      items:
-      - name: Availability zones with SQL Database general purpose tier
-        href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#general-purpose-service-tier-zone-redundant-availability
-      - name: Availability zones with SQL Database premium & business critical tiers
-        href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#premium-and-business-critical-service-tier-zone-redundant-availability
-    - name: Storage
-      items:
-      - name: Zone-redundant storage
-        href: ../storage/common/storage-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Event Hubs
-      items:
-      - name: Event Hubs geo-disaster recovery
-        href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
-    - name: Service Bus
-      items:
-      - name: Service Bus geo-disaster recovery
-        href: ../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
-    - name: VPN Gateway
-      items:
-      - name: Create a zone-redundant virtual network gateway
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: ExpressRoute
-      items:
-      - name: Create a zone-redundant virtual network gateway
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Application Gateway v2
-      items:
-      - name: Autoscaling and Zone-redundant Application Gateway v2
-        href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Identity
-      items:
-      - name: Create an Azure Active Directory Domain Services instance
-        href: ../active-directory-domain-services/tutorial-create-instance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure API Management
+      href: ../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure App Configuration
+      href: ../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
+    - name: Azure App Service
+      href: reliability-app-service.md
+    - name: Azure Application Gateway (V2)
+      href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Batch
+      href: reliability-batch.md
+    - name: Azure Cache for Redis
+      href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Cognitive Search
+      href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Communications Gateway
+      href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Container Apps
+      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Container Instances
+      href: reliability-containers.md
+    - name: Azure Container Registry
+      href: ../container-registry/zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Cosmos DB
+      href: ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Data Explorer
+      href: /azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Data Factory
+      href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
+    - name: Azure Database for MySQL - Flexible Server
+      href: /azure/mysql/flexible-server/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Database for PostgreSQL - Flexible Server
+      href: reliability-postgre-flexible.md
+    - name: Azure Data Manager for Energy
+      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure DDoS Protection
+      href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#is-the-service-zone-resilient-
+    - name: Azure Disk Encryption 
+      href: ../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure DNS - Azure DNS Private Zones
+      href: ../dns/private-dns-getstarted-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure DNS - Azure DNS Private Resolver
+      href: ../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Event Grid
+      href: ../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Event Hubs
+      href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+    - name: Azure ExpressRoute
+      href: ../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Firewall
+      href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Firewall Manager
+      href: ../firewall-manager/quick-firewall-policy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Functions 
+      href: reliability-functions.md
+    - name: Azure HDInsight
+      href: reliability-hdinsight.md
+    - name: Azure IoT Hub
+      href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+    - name: Azure Image Builder
+      href: ../virtual-machines/image-builder-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Key Vault
+      href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Kubernetes Service (AKS)
+      href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Load Balancer
+      href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Logic Apps
+      href: ../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Monitor
+      href: ../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Network Watcher
+      href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
+    - name: Azure Notification Hubs
+      href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Operator Nexus
+      href: reliability-operator-nexus.md
+    - name: Azure Private Link
+      href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Public IP
+      href: ../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone
+    - name: Azure Service Bus
+      href: ../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+    - name: Azure Service Fabric
+      href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Site Recovery
+      href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Blob Storage
+      href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Storage Mover
+      href: reliability-azure-storage-mover.md
+    - name: Azure SQL
+      href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Virtual WAN
+      href: ../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan
+    - name: Azure Web Application Firewall
+      href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Virtual Machine Scale Sets
+      href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Virtual Machines
+      href: reliability-virtual-machines.md
+    - name: Azure Virtual Network
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure VPN Gateway
+      href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Disaster recovery
   items:
+  - name: What is disaster recovery?
+    href: disaster-recovery-overview.md
   - name: Business continuity management program
     href: business-continuity-management-program.md
   - name: Cross-region replication
     href: cross-region-replication-azure.md
-  - name: Use Azure Site Recovery
-    href: ../site-recovery/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-  - name: Use Azure Backup
-    href: ../backup/index.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+  - name: Disaster recovery guidance by service
+    items: 
+      - name: Overview
+        href: disaster-recovery-guidance-overview.md
+      - name: Foundational services
+        items:
+        - name: Azure Application Gateway (V2)
+          href: ../networking/disaster-recovery-dns-traffic-manager.md
+        - name: Azure Cosmos DB
+          href: ../cosmos-db/how-to-multi-master.md
+        - name: Azure DNS - Azure DNS Private Resolver
+          href: ../dns/dns-faq-private.yml#will-azure-private-dns-zones-work-across-azure-regions- 
+        - name: Azure Event Hubs
+          href: ../event-hubs/event-hubs-geo-dr.md
+        - name: Azure ExpressRoute
+          href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md
+        - name: Azure Key Vault
+          href: ../key-vault/general/disaster-recovery-guidance.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/operator-best-practices-multi-region.md
+        - name: Azure Load Balancer
+          href: ../load-balancer/tutorial-cross-region-portal.md
+        - name: Azure Public IP
+          href: ../load-balancer/cross-region-overview.md
+        - name: Azure Service Bus
+          href: ../service-bus-messaging/service-bus-geo-dr.md
+        - name: Azure Service Fabric
+          href: ../service-fabric/service-fabric-disaster-recovery.md#availability-of-the-service-fabric-cluster
+        - name: Azure Site Recovery
+          href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
+        - name: Azure SQL
+          href: /azure/azure-sql/database/recovery-using-backups#geo-restore
+        - name: Azure SQL-Managed Instance
+          href: /azure/azure-sql/database/auto-failover-group-sql-db?tabs=azure-powershell
+        - name: Azure Storage-Disk Storage
+          href: ../virtual-machines/disks-incremental-snapshots.md?tabs=azure-resource-manage.md
+        - name: Azure Virtual Machines
+          href: reliability-virtual-machines.md#cross-region-disaster-recovery-and-business-continuity
+        - name: Azure Virtual Network
+          href: ../virtual-network/virtual-network-disaster-recovery-guidance.md#business-continuity
+        - name: Azure VPN Gateway
+          href: ../vpn-gateway/vpn-gateway-highlyavailable.md
+      - name: Mainstream services
+        items:
+        - name: Azure API Management
+          href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md
+        - name: Azure Active Directory Domain Services
+          href: ../active-directory-domain-services/tutorial-create-replica-set.md
+        - name: Azure App Configuration
+          href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x
+        - name: Azure App Service
+          href: reliability-app-service.md#cross-region-disaster-recovery-and-business-continuity
+        - name: Azure Backup
+          href: ../backup/backup-overview.md
+        - name: Azure Batch
+          href: reliability-batch.md#cross-region-disaster-recovery-and-business-continuity
+        - name: Azure Bastion
+          href: ../bastion/bastion-faq.md#dr
+        - name: Azure Cache for Redis
+          href: ../azure-cache-for-redis/cache-how-to-geo-replication.md
+        - name: Azure Cognitive Search
+          href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        - name: Azure Container Instances
+          href: reliability-containers.md#disaster-recovery
+        - name: Azure Database for MySQL
+          href: /azure/mysql/single-server/concepts-business-continuity#recover-from-an-azure-regional-data-center-outage
+        - name: Azure Database for MySQL - Flexible Server
+          href: /azure/mysql/flexible-server/how-to-restore-server-portal#geo-restore-to-latest-restore-point
+        - name: Azure Database for PostgreSQL - Flexible Server
+          href: reliability-postgresql-flexible-server.md#cross-region-disaster-recovery-and-business-continuity
+        - name: Azure Data Explorer
+          href: /azure/data-explorer/business-continuity-overview
+        - name: Azure DDoS Protection
+          href: ../ddos-protection/ddos-disaster-recovery-guidance.md#business-continuity
+        - name: Azure Event Grid
+          href: ../event-grid/custom-disaster-recovery-client-side.md
+        - name: Azure Functions 
+          href: reliability-functions.md#cross-region-disaster-recovery-and-business-continuity
+        - name: Azure Guest Configuration
+          href: ../governance/policy/concepts/guest-configuration.md#availability
+        - name: Azure HDInsight
+          href: reliability-hdinsight.md#cross-region-disaster-recovery-and-business-continuity
+        - name: Azure Logic Apps
+          href: ../logic-apps/business-continuity-disaster-recovery-guidance.md
+        - name: Azure Media Services
+          href: /azure/media-services/latest/architecture-high-availability-encoding-concept
+        - name: Azure Migrate
+          href: ../migrate/resources-faq.md#does-azure-migrate-offer-backup-and-disaster-recovery
+        - name: Azure Monitor - Log Analytics
+          href: ../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export
+        - name: Azure Monitor - Application Insights
+          href: ../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration
+        - name: Azure SQL Server Registry
+          href: /sql/sql-server/end-of-support/sql-server-extended-security-updates?preserve-view=true&view=sql-server-ver15#configure-regional-redundancy
+        - name: Azure Stream Analytics
+          href: ../stream-analytics/geo-redundancy.md
+        - name: Azure Virtual WAN
+          href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md
+        - name: Azure Web Application Firewall
+          href: ../application-gateway/application-gateway-faq.yml#how-do-i-achieve-a-dr-scenario-across-datacenters-by-using-application-gateway
+      - name: Strategic services
+        items:
+        - name: Azure Databox
+          href: ../databox/data-box-disk-faq.yml#how-can-i-recover-my-data-if-an-entire-region-fails-
+        - name: Azure Data Share
+          href: ../data-share/disaster-recovery.md
+        - name: Azure DevOps
+          href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability
+        - name: Azure Health Data Services - Azure API for FHIR
+          href: ../healthcare-apis/azure-api-for-fhir/disaster-recovery.md
+        - name: Azure IoT Hub
+          href: ../iot-hub/iot-hub-ha-dr.md#disable-disaster-recovery
+        - name: Azure Machine Learning Service
+          href: ../machine-learning/v1/how-to-high-availability-machine-learning.md
+        - name: Azure NetApp Files
+          href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md
+        - name: Azure SignalR Service
+          href: ../azure-signalr/signalr-concept-disaster-recovery.md
+        - name: Azure VMware Solution
+          href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md
 - name: Reliability Guidance
   items:
+  - name: Reliability by service
+    items:
     - name: Overview
       href: reliability-guidance-overview.md
-    - name: Reliability in Microsoft Azure Well-Architected Framework
-      href: /azure/architecture/framework/resiliency?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Reliability by service
+    - name: Azure API Management
+      href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure App Configuration
+      href: ../azure-app-configuration/concept-disaster-recovery.md?tabs=core2x?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure App Service
+      href: reliability-app-service.md
+    - name: Azure Application Gateway (V2)
+      href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Batch
+      href: reliability-batch.md
+    - name: Azure Cognitive Search
+      href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Communications Gateway
+      href: ../communications-gateway/reliability-communications-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Container Apps
+      href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Container Instances
+      href: reliability-containers.md
+    - name: Azure Container Registry
+      href: ../container-registry/container-registry-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Cosmos DB
+      href: ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Data Explorer
+      href: /azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Data Factory
+      href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
+    - name: Azure Database for MySQL - Flexible Server
+      href: /azure/mysql/flexible-server/concepts-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Database for PostgreSQL - Flexible Server
+      href: reliability-postgresql-flexible-server.md
+    - name: Azure Data Manager for Energy
+      href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure DDoS Protection
+      href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Disk Encryption 
+      href: ../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure DNS - Azure DNS Private Zones
+      href: ../dns/private-dns-getstarted-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure DNS - Azure DNS Private Resolver
+      href: ../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Event Grid
+      href: ../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Event Hubs
+      href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure ExpressRoute
+      href: ../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Firewall
+      href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Firewall Manager
+      href: ../firewall-manager/quick-firewall-policy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Functions 
+      href: reliability-functions.md
+    - name: Azure HDInsight
+      href: reliability-hdinsight.md
+    - name: Azure IoT Hub
+      href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Image Builder
+      href: reliability-image-builder.md
+    - name: Azure Key Vault
+      href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Kubernetes Service (AKS)
+      href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Load Balancer
+      href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Logic Apps
+      href: ../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Monitor
+      href: ../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Network Watcher
+      href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
+    - name: Azure Notification Hubs
+      href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Operator Nexus
+      href: reliability-operator-nexus.md
+    - name: Azure Private Link
+      href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Public IP
+      href: ../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone
+    - name: Azure Route Server
+      href: ../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Service Bus
+      href: ../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
+    - name: Azure Service Fabric
+      href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Site Recovery
+      href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Blob Storage
+      href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Storage Mover
+      href: reliability-azure-storage-mover.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
+    - name: Azure SQL
+      href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Virtual WAN
+      href: ../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan
+    - name: Azure Web Application Firewall
+      href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Virtual Machines
+      href: reliability-virtual-machines.md
+    - name: Azure Virtual Machines Image Builder
+      href: reliability-image-builder.md
+    - name: Azure Virtual Machine Scale Sets
+      href: reliability-virtual-machine-scale-sets.md
+    - name: Azure Virtual Network
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure VPN Gateway
+      href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+  - name: Test reliability
+    items: 
+    - name: Chaos engineering
+      href: /azure/well-architected/resiliency/chaos-engineering?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Chaos Studio overview
+      href: ../chaos-studio/chaos-studio-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Create and run a chaos experiment
+      href: ../chaos-studio/chaos-studio-quickstart-azure-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Resource types
+      href: ../chaos-studio/chaos-studio-fault-providers.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Fault library
+      href: ../chaos-studio/chaos-studio-fault-library.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+  - name:  Azure Service Manager retirement
+    items:
+    - name: Overview
+      href: asm-retirement.md 
+    - name: Migration guides by service
       items:
-      - name: Azure API Management
-        href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure App Configuration
-        href: ../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
-      - name: Azure App Service
-        href: reliability-app-service.md
-      - name: Azure Application Gateway (V2)
-        href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Batch
-        href: reliability-batch.md
-      - name: Azure Cache for Redis
-        href: ../azure-cache-for-redis/cache-how-to-zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Cognitive Search
-        href: ../search/search-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Container Apps
-        href: ../container-apps/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Container Instances
-        href: reliability-containers.md
-      - name: Azure Container Registry
-        href: ../container-registry/zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Cosmos DB
-        href: ../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Data Explorer
-        href: /azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Data Factory
-        href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
-      - name: Azure Database for MySQL - Flexible Server
-        href: ../mysql/flexible-server/concepts-high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Database for PostgreSQL - Flexible Server
-        href: reliability-postgre-flexible.md
-      - name: Azure Data Manager for Energy
-        href: ../energy-data-services/reliability-energy-data-services.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure DDoS Protection
-        href: ../ddos-protection/ddos-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Disk Encryption 
-        href: ../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure DNS - Azure DNS Private Zones
-        href: ../dns/private-dns-getstarted-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure DNS - Azure DNS Private Resolver
-        href: ../dns/dns-private-resolver-get-started-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Event Grid
-        href: ../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Event Hubs
-        href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
-      - name: Azure ExpressRoute
-        href: ../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Firewall
-        href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Firewall Manager
-        href: ../firewall-manager/quick-firewall-policy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Functions 
-        href: reliability-functions.md
-      - name: Azure HDInsight
-        href: reliability-hdinsight.md
-      - name: Azure IoT Hub
-        href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Image Builder
-        href: ../virtual-machines/image-builder-reliability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Key Vault
-        href: ../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Kubernetes Service (AKS)
-        href: ../aks/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Load Balancer
-        href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Logic Apps
-        href: ../logic-apps/set-up-zone-redundancy-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Monitor
-        href: ../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Network Watcher
-        href: ../network-watcher/frequently-asked-questions.yml?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json#service-availability-and-redundancy
-      - name: Azure Notification Hubs
-        href: ../notification-hubs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Operator Nexus
-        href: reliability-operator-nexus.md
-      - name: Azure Private Link
-        href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Public IP
-        href: ../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone
-      - name: Azure Route Server
-        href: ../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Service Bus
-        href: ../service-bus-messaging/service-bus-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
-      - name: Azure Service Fabric
-        href: ../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Site Recovery
-        href: ../site-recovery/site-recovery-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Blob Storage
-        href: ../storage/common/storage-disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Storage Mover
-        href: reliability-azure-storage-mover.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
-      - name: Azure SQL
-        href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Virtual WAN
-        href: ../virtual-wan/virtual-wan-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-are-availability-zones-and-resiliency-handled-in-virtual-wan
-      - name: Azure Web Application Firewall
-        href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Virtual Machine Scale Sets
-        href: ../virtual-machines/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Virtual Machines
-        href: reliability-virtual-machines.md
-      - name: Azure Virtual Network
-        href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure VPN Gateway
-        href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name:  Azure Service Manager retirement
-      items:
-      - name: Overview
-        href: asm-retirement.md 
-      - name: Migration guides by service
-        items:
-        - name: VM (classic)
-          href: /azure/virtual-machines/classic-vm-deprecation?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Azure Active Directory Domain Services 
-          href: /azure/active-directory-domain-services/migrate-from-classic-vnet?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Azure Batch Cloud Service Pools  
-          href: /azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Cloud Services (classic)
-          href: /azure/cloud-services-extended-support/in-place-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: App Service Environment v1/v2
-          href: /azure/app-service/environment/migrate?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: API Management
-          href: /azure/api-management/compute-infrastructure?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-migrate-to-the-stv2-platform
-        - name: Azure Redis Cache  
-          href: /azure/azure-cache-for-redis/cache-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#caches-with-a-dependency-on-cloud-services--classic
-        - name: Classic Resource Providers
-          href: /azure/azure-resource-manager/management/deployment-models?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Integration Services Environment 
-          href: /azure/logic-apps/export-from-ise-to-standard-logic-app?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Microsoft HPC Pack  
-          href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Virtual WAN  
-          href: /azure/virtual-wan/virtual-wan-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#update-router
-        - name: Classic Storage  
-          href: /azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Classic Virtual Network  
-          href: /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Classic Application Gateway  
-          href: /azure/application-gateway/classic-to-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Classic Reserved IP addresses  
-          href: /azure/virtual-network/ip-services/public-ip-upgrade-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Classic ExpressRoute Gateway  
-          href: /azure/expressroute/expressroute-migration-classic-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Classic VPN gateway 
-          href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: VM (classic)
+        href: /azure/virtual-machines/classic-vm-deprecation?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Active Directory Domain Services 
+        href: /azure/active-directory-domain-services/migrate-from-classic-vnet?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Azure Batch Cloud Service Pools  
+        href: /azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Cloud Services (classic)
+        href: /azure/cloud-services-extended-support/in-place-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: App Service Environment v1/v2
+        href: /azure/app-service/environment/migrate?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: API Management
+        href: /azure/api-management/compute-infrastructure?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-migrate-to-the-stv2-platform
+      - name: Azure Redis Cache  
+        href: /azure/azure-cache-for-redis/cache-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#caches-with-a-dependency-on-cloud-services--classic
+      - name: Classic Resource Providers
+        href: /azure/azure-resource-manager/management/deployment-models?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Integration Services Environment 
+        href: /azure/logic-apps/export-from-ise-to-standard-logic-app?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Microsoft HPC Pack  
+        href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Virtual WAN  
+        href: /azure/virtual-wan/virtual-wan-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#update-router
+      - name: Classic Storage  
+        href: /azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Classic Virtual Network  
+        href: /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Classic Application Gateway  
+        href: /azure/application-gateway/classic-to-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Classic Reserved IP addresses  
+        href: /azure/virtual-network/ip-services/public-ip-upgrade-classic?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Classic ExpressRoute Gateway  
+        href: /azure/expressroute/expressroute-migration-classic-resource-manager?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      - name: Classic VPN gateway 
+        href: /azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Service availability
   items:
   - name: Service availability by category
@@ -310,6 +465,6 @@
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Reliability in Microsoft Azure Well-Architected Framework
-    href: /azure/architecture/framework/resiliency/
+    href: /azure/well-architected/
   - name: Reliability terminology
     href: glossary.md

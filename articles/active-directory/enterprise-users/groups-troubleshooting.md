@@ -1,6 +1,6 @@
 ---
 title: Fix problems with dynamic group memberships
-description: Troubleshooting tips for dynamic group membership in Azure Active Directory
+description: Troubleshooting tips for dynamic group membership in Microsoft Entra ID
 services: active-directory
 author: barclayn
 manager: amycolannino
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot and resolve groups issues
-This article contains troubleshooting information for groups in Azure Active Directory (Azure AD), part of Microsoft Entra.
+This article contains troubleshooting information for groups in Microsoft Entra ID, part of Microsoft Entra.
 
 ## Troubleshooting group creation issues
 
@@ -61,7 +61,7 @@ To create any new Dynamic groups, you'll first need to delete some existing Dyna
 For devices, check the device properties to ensure any synced attributes contain the expected values.  
 2. Check the membership processing status to confirm if it's complete. You can check the [membership processing status](groups-create-rule.md#check-processing-status-for-a-rule) and the last updated date on the **Overview** page for the group.
 
-If everything looks good, please allow some time for the group to populate. Depending on the size of your Azure AD organization, the group may take up to 24 hours for populating for the first time or after a rule change.
+If everything looks good, please allow some time for the group to populate. Depending on the size of your Microsoft Entra organization, the group may take up to 24 hours for populating for the first time or after a rule change.
 
 **I configured a rule, but now the existing members of the rule are removed**  
 This is expected behavior. Existing members of the group are removed when a rule is enabled or changed. The users returned from evaluation of the rule are added as members to the group.
@@ -83,9 +83,9 @@ The following table lists common dynamic membership rule errors and how to corre
 
 ## Next steps
 
-These articles provide additional information on Azure Active Directory.
+These articles provide additional information on Microsoft Entra ID.
 
-* [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
-* [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
+* [Managing access to resources with Microsoft Entra groups](../fundamentals/concept-learn-about-groups.md)
+* [Application Management in Microsoft Entra ID](../manage-apps/what-is-application-management.md)
+* [What is Microsoft Entra ID?](../fundamentals/whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md)

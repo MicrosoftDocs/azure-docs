@@ -6,8 +6,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 07/25/2023
-ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.date: 08/15/2023
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Diagnose network security rules
@@ -817,11 +817,11 @@ Use [az group delete](/cli/azure/group#az-group-delete) to remove the resource g
 
 ```azurecli-interactive
 # Delete the resource group and all the resources it contains. 
-az group delete --name myResourceGroup --yes --no-wait
+az group delete --name 'myResourceGroup' --yes --no-wait
 ```
 
 ---
 
 ## Next steps
-- To learn about other Network Watcher tools, see [Azure Network Watcher overview](network-watcher-monitoring-overview.md).
+- To learn about other Network Watcher tools, see [What is Azure Network Watcher?](network-watcher-overview.md)
 - To learn how to troubleshoot virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md).

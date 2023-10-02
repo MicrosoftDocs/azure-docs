@@ -129,8 +129,8 @@ The service principal for a Run As account doesn't have permissions to read Azur
 
 This section defines permissions for both regular Run As accounts and Classic Run As accounts.
 
-* To create or update a Run As account, an Application administrator in Azure Active Directory and an Owner in the subscription can complete all the tasks.
-* To configure or renew Classic Run As accounts, you must have the Co-administrator role at the subscription level. To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+* To create or update or delete a Run As account, an Application administrator in Azure Active Directory and an Owner in the subscription can complete all the tasks.
+* To configure or renew or delete a  Classic Run As accounts, you must have the Co-administrator role at the subscription level. To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet, and permissions needed:
 

@@ -3,7 +3,8 @@ author: mcleanbyron
 ms.service: service-connector
 ms.topic: include
 ms.date: 01/12/2021
-ms.author: mcleans
+ms.author: malev
+author: maud-lv
 ---
 
 Microsoft.ServiceLinker is the name of Service Connector's resource provider.

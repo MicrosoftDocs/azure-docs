@@ -36,7 +36,7 @@ The following sections provide the procedure for creating a custom field.  At th
 > The custom field is populated as records matching the specified criteria are added to the Log Analytics workspace, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
 > 
 
-### Step 1 – Identify records that will have the custom field
+### Step 1: Identify records that will have the custom field
 The first step is to identify the records that will get the custom field.  You start with a [standard log query](./log-query-overview.md) and then select a record to act as the model that Azure Monitor will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
 
 1. Go to **Logs** and use a [query to retrieve the records](./log-query-overview.md) that will have the custom field.
@@ -45,14 +45,14 @@ The first step is to identify the records that will get the custom field.  You s
 4. The **Field Extraction Wizard** is opened, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
 5. If the selection is not exactly what you want, select additional fields to narrow the criteria.  In order to change the field values for the criteria, you must cancel and select a different record matching the criteria you want.
 
-### Step 2 - Perform initial extract.
+### Step 2: Perform initial extract.
 Once you’ve identified the records that will have the custom field, you identify the data that you want to extract.  Log Analytics will use this information to identify similar patterns in similar records.  In the step after this you will be able to validate the results and provide further details for Log Analytics to use in its analysis.
 
 1. Highlight the text in the sample record that you want to populate the custom field.  You will then be presented with a dialog box to provide a name and data type for the field and to perform the initial extract.  The characters **\_CF** will automatically be appended.
 2. Click **Extract** to perform an analysis of collected records.  
 3. The **Summary** and **Search Results** sections display the results of the extract so you can inspect its accuracy.  **Summary** displays the criteria used to identify records and a count for each of the data values identified.  **Search Results** provides a detailed list of records matching the criteria.
 
-### Step 3 – Verify accuracy of the extract and create custom field
+### Step 3: Verify accuracy of the extract and create custom field
 Once you have performed the initial extract, Log Analytics will display its results based on data that has already been collected.  If the results look accurate then you can create the custom field with no further work.  If not, then you can refine the results so that Log Analytics can improve its logic.
 
 1. If any values in the initial extract aren’t correct, then click the **Edit** icon next to an inaccurate record and select **Modify this highlight** in order to modify the selection.

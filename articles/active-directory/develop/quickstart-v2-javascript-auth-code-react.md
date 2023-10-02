@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/12/2021
+ms.date: 09/25/2023
 ROBOTS: NOINDEX
 ms.author: henrymbugua
 ms.reviewer: jamesmantu
@@ -96,4 +96,4 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-tra
 > Next, try a step-by-step tutorial to learn how to build a React SPA from scratch that signs in users and calls the > Microsoft Graph API to get user profile data:
 > 
 > > [!div class="nextstepaction"]
-> > [Tutorial: Sign in users and call Microsoft Graph](tutorial-v2-react.md)
+> > [Tutorial: Sign in users and call Microsoft Graph](./tutorial-single-page-app-react-register-app.md)

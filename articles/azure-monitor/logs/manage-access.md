@@ -195,8 +195,6 @@ The Log Analytics Reader role includes the following Azure actions:
 | Action | `*/read`   | Ability to view all Azure resources and resource configuration.<br>Includes viewing:<br>- Virtual machine extension status.<br>- Configuration of Azure diagnostics on resources.<br>- All properties and settings of all resources.<br><br>For workspaces, allows full unrestricted permissions to read the workspace settings and query data. See more granular options in the preceding list. |
 | Action | `Microsoft.Support/*` | Ability to open support cases. |
 |Not Action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Prevents reading of workspace key required to use the data collection API and to install agents. This prevents the user from adding new resources to the workspace. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecated. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecated. |
 
 #### Log Analytics Contributor
 
@@ -332,9 +330,7 @@ Granting table-level read access involves assigning a user two roles:
 
             ```json
             "Microsoft.OperationalInsights/workspaces/read",
-            "Microsoft.OperationalInsights/workspaces/query/read",
-            "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-            "Microsoft.OperationalInsights/workspaces/search/action"    
+            "Microsoft.OperationalInsights/workspaces/query/read" 
             ```
 
         1. In the `"not actions"` section, add: 

@@ -3,9 +3,13 @@ title: Diagnose Video Indexer resource issues with Azure Resource Health
 description: Learn how to diagnose Video Indexer resource issues with Azure Resource Health.
 ms.topic: how-to
 ms.date: 05/12/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Diagnose Video Indexer resource issues with Azure Resource Health 
+# Diagnose Video Indexer resource issues with Azure Resource Health
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 [Azure Resource Health](../service-health/resource-health-overview.md) can help you diagnose and get support for service problems that affect your Azure AI Video Indexer resources. Resource health is updated every 1-2 minutes and reports the current and past health of your resources. For additional details on how health is assessed, review the [full list of resource types and health checks](../service-health/resource-health-checks-resource-types.md#microsoftnetworkapplicationgateways) in Azure Resource Health. 
 

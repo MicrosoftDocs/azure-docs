@@ -5,8 +5,7 @@ description: This document helps users migrate from custom voice to custom neura
 services: cognitive-services
 author: sally-baolian
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/12/2021
 ms.author: v-baolianzou
