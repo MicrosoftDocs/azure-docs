@@ -29,8 +29,6 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
  GPT-4 can solve difficult problems with greater accuracy than any of OpenAI's previous models. Like GPT-3.5 Turbo, GPT-4 is optimized for chat and works well for traditional completions tasks. Use the Chat Completions API to use GPT-4. To learn more about how to interact with GPT-4 and the Chat Completions API check out our [in-depth how-to](../how-to/chatgpt.md).
 
-To request access to GPT-4, Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4)
-
 - `gpt-4`
 - `gpt-4-32k`
 
@@ -76,18 +74,19 @@ You can also use the Whisper model via Azure AI Speech [batch transcription](../
 
 ### GPT-4 models
 
+GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
+
 These models can only be used with the Chat Completion API.
 
 |  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- |  --- | --- | --- | --- |
-| `gpt-4` <sup>1,</sup><sup>2</sup> (0314)     |   |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1,</sup><sup>2</sup> (0314)  |   |  N/A                | 32,768               | September 2021         |
-| `gpt-4` <sup>1</sup><sup>3</sup> (0613)     |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 8,192                | September 2021         |
-| `gpt-4-32k` <sup>1</sup><sup>3</sup> (0613)  |  Australia East, Canada East, East US, East US 2, France Central, Japan East, Sweden Central, Switzerland North, UK South |  N/A                | 32,768               | September 2021         |
+| `gpt-4` <sup>2</sup> (0314)     | East US<sup>1</sup>, France Central<sup>1</sup>  |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` <sup>2</sup> (0314)  |  East US<sup>1</sup>, France Central<sup>1</sup> |  N/A                | 32,768               | September 2021         |
+| `gpt-4` (0613)     |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A                | 8,192                | September 2021         |
+| `gpt-4-32k` (0613)  |  Australia East<sup>1</sup>, Canada East, East US<sup>1</sup>, East US 2<sup>1</sup>, France Central<sup>1</sup>, Japan East<sup>1</sup>, Sweden Central, Switzerland North, UK South<sup>1</sup> |  N/A                | 32,768               | September 2021         |
 
-<sup>1</sup> The model is [only available by request](https://aka.ms/oai/get-gpt4).<br>
+<sup>1</sup> Due to high demand, availability is limited in the region<br>
 <sup>2</sup> Version `0314` of gpt-4 and gpt-4-32k will be retired no earlier than July 5, 2024. See [model updates](#model-updates) for model upgrade behavior.<br>
-<sup>3</sup> We are rolling out availability of new regions to customers gradually to ensure a smooth experience. In East US and France Central, customers with existing deployments of GPT-4 can create additional deployments of GPT-4 version 0613. For customers new to GPT-4 on Azure OpenAI, please use one of the other available regions.
 
 ### GPT-3.5 models
 

@@ -3,7 +3,7 @@ title: "Include file"
 description: "Include file"
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 09/01/2023
+ms.date: 10/04/2023
 ---
 
 1. Sign in to the [Playwright portal](https://aka.ms/mpt/portal) with your Azure account.
@@ -17,7 +17,7 @@ ms.date: 09/01/2023
 
     |Field  |Description  |
     |---------|---------|
-    |**Workspace name**     | Enter a unique name to identify your workspace.<BR>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. |
+    |**Workspace name**     | Enter a unique name to identify your workspace.<BR>The name can only consist of alphanumerical characters, and have a length between 3 and 64 characters. |
     |**Azure subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
     |**Region**     | Select a geographic location to host your workspace. <BR>This is the location where the test run data is stored for the workspace. |
 

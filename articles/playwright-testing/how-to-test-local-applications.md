@@ -2,7 +2,7 @@
 title: Use remote browsers for local applications
 description: Learn how to run end-to-end for locally deployed applications with Microsoft Playwright Testing Preview. Use cloud-hosted browsers to test apps on localhost or private networks.
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
