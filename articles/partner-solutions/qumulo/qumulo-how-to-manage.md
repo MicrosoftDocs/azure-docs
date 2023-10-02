@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Native Qumulo Scalable File Service Preview
+title: Manage Azure Native Qumulo Scalable File Service
 description: This article describes how to manage Azure Native Qumulo Scalable File Service in the Azure portal. 
 
 ms.topic: how-to 
@@ -8,9 +8,9 @@ ms.date: 01/18/2023
 ---
 
 
-# Manage Azure Native Qumulo Scalable File Service Preview
+# Manage Azure Native Qumulo Scalable File Service
 
-This article describes how to manage your instance of Azure Native Qumulo Scalable File Service Preview.
+This article describes how to manage your instance of Azure Native Qumulo Scalable File Service.
 
 ## Manage the Qumulo resource 
 
@@ -43,3 +43,10 @@ To delete your Qumulo file system, you delete your deployment of Azure Native Qu
 ## Next steps
 - [Quickstart: Get started with Azure Native Qumulo Scalable File Service](qumulo-create.md)
 - [Troubleshoot Azure Native Qumulo Scalable File Service](qumulo-troubleshoot.md)
+- Get started with Azure Native Qumulo Scalable File Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview)

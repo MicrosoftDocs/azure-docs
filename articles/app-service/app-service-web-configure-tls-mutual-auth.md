@@ -2,12 +2,13 @@
 title: Configure TLS mutual authentication
 description: Learn how to authenticated client certificates on TLS. Azure App Service can make the client certificate available to the app code for verification.
 
+author: msangapu-msft
+ms.author: msangapu
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
 ms.devlang: csharp
-ms.custom: "devx-track-csharp, seodec18"
-
+ms.custom: devx-track-csharp, seodec18, devx-track-extended-java, devx-track-js
 ---
 # Configure TLS mutual authentication for Azure App Service
 

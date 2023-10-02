@@ -203,7 +203,7 @@ The **maxfragmentationmemory-reserved** setting configures the amount of memory 
 When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
 > [!IMPORTANT]
-> The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available only for Standard and Premium caches.
+> The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available for Basic,Standard and Premium caches.
 >
 
 #### Keyspace notifications (advanced settings)
@@ -390,6 +390,7 @@ By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-mon
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 >
+
 ### Advisor recommendations
 
 The **Advisor recommendations** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
@@ -406,8 +407,6 @@ Further information can be found on the **Recommendations** in the working pane 
 <!-- How do we trigger an event that causes a good recommendation for the image? -->
 
 You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
-
-Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
 
 | Azure Cache for Redis metric | More information |
 | --- | --- |
@@ -477,7 +476,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 | `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
 | `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
 | `lua-event-limit` |500 |Max size of script event queue. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 mb 60 |The client output buffer limits can be used to force disconnection of clients that aren't reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit normal` / `client-output-buffer-limit pubsub` |`0 0 0` / `32mb 8mb 60` |The client output buffer limits can be used to force disconnection of clients that aren't reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 
@@ -535,12 +534,13 @@ Configuration and management of Azure Cache for Redis instances is managed by Mi
 - ACL
 - BGREWRITEAOF
 - BGSAVE
-- CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
+- CLUSTER - Cluster write commands are disabled, but read-only cluster commands are permitted.
 - CONFIG
 - DEBUG
 - MIGRATE
 - PSYNC
 - REPLICAOF
+- REPLCONF - Azure cache for Redis instances don't allow customers to add external replicas. This [command](https://redis.io/commands/replconf/) is normally only sent by servers.
 - SAVE
 - SHUTDOWN
 - SLAVEOF
@@ -560,3 +560,4 @@ For more information about Redis commands, see [https://redis.io/commands](https
 
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
 - [Monitor Azure Cache for Redis](cache-how-to-monitor.md)
+

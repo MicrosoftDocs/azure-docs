@@ -19,10 +19,10 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | ------ | ------- | ------ |
 | [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
 | [Authentication Event](normalization-schema-authentication.md) | 0.1.3 | Preview |
-| [DNS Activity](normalization-schema-dns.md) | 0.1.6 | Preview |
+| [DNS Activity](normalization-schema-dns.md) | 0.1.7 | Preview |
 | [DHCP Activity](normalization-schema-dhcp.md) | 0.1 | Preview |
-| [File Activity](normalization-schema-file-event.md) | 0.2 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.5 | Preview |
+| [File Activity](normalization-schema-file-event.md) | 0.2.1 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.6 | Preview |
 | [Process Event](normalization-schema-process-event.md) | 0.1.4 | Preview |
 | [Registry Event](normalization-schema-registry-event.md) | 0.1.2 | Preview |
 | [User Management](normalization-schema-user-management.md) | 0.1 | Preview |
@@ -118,7 +118,8 @@ The allowed values for a user ID type are:
 | **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
-| **PUID** | A Microsoft 365 User ID. | `10032001582F435C` |
+| **PUID** | A Microsoft 365 user ID. | `10032001582F435C` |
+| **SalesforceId** | A Salesforce user ID. | `00530000009M943` |
 
 #### The user name
 
@@ -143,7 +144,7 @@ The allowed values for a username type are:
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include: `Regular`, `Machine`, `Admin`, `System`, `Application`, `Service Principal`, and `Other`. The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
+| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include:<br> - `Regular`<br> - `Machine`<br> - `Admin`<br> - `System`<br> - `Application`<br> - `Service Principal`<br> - `Service`<br> - `Anonymous`<br> - `Other`.<br><br> The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
 | <a name="originalusertype"></a>**OriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that can be adopted for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 03/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Adopting a DTDL industry ontology
 
-Microsoft has partnered with domain experts to create DTDL model sets based on industry standards, to help minimize reinvention and simplify solutions. This article presents the industry ontologies that are currently available. 
+Microsoft has partnered with domain experts to create DTDL model sets based on industry standards, to help minimize reinvention and simplify solutions. This article presents the DTDL industry ontologies that are currently available. 
 
 ## List of ontologies
 
@@ -32,6 +32,6 @@ Each ontology is focused on an initial set of models. You can contribute to the 
 
 ## Next steps
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
+Learn about extending existing industry-standard ontologies for your specific solution: [Extending industry ontologies](concepts-ontologies-extend.md).
 
-* Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+Or, continue on the path for developing models based on ontologies: [Full model development path](concepts-ontologies.md#full-model-development-path).

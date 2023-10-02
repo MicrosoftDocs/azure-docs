@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Tutorial: Build your first pipeline to transform data using Hadoop cluster
@@ -72,9 +72,9 @@ From the sample lines shown above, the first one (with 2016-01-01) is written to
 Before you begin this tutorial, you must have the following prerequisites:
 
 1. **Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
-2. **Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article. After you have created the storage account, note down the **account name** and **access key**. For information about how to retrieve the storage account access keys, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
-3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This query transforms input data to produce output data.
-4. Download and review the sample input file (**input.log**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
+2. **Azure Storage** - You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article. After you have created the storage account, note down the **account name** and **access key**. For information about how to retrieve the storage account access keys, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
+3. Download and review the Hive query file (**HQL**) located at: ```https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql```. This query transforms input data to produce output data.
+4. Download and review the sample input file (**input.log**) located at: ```https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log```
 5. Create a blob container named **adfgetstarted** in your Azure Blob Storage.
 6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 7. Upload **input.log** file to the **inputdata** folder in the **adfgetstarted** container.

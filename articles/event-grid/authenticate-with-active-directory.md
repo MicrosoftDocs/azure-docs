@@ -2,11 +2,15 @@
 title: Authenticate Event Grid publishing clients using Azure Active Directory
 description: This article describes how to authenticate Azure Event Grid publishing client using Azure Active Directory.  
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.custom: build-2023
+ms.date: 08/17/2023
 ---
 
 # Authentication and authorization with Azure Active Directory
 This article describes how to authenticate Azure Event Grid publishing clients using Azure Active Directory (Azure AD).
+
+> [!IMPORTANT]
+> Azure AD authentication isn't supported for namespace topics. 
 
 ## Overview
 The [Microsoft Identity](../active-directory/develop/v2-overview.md) platform provides an integrated authentication and access control management for resources and applications that use Azure Active Directory (Azure AD) as their identity provider. Use the Microsoft Identity platform to provide authentication and authorization support in your applications. It's based on open standards such as OAuth 2.0 and OpenID Connect and offers tools and open-source libraries that support many authentication scenarios. It provides advanced features such as [Conditional Access](../active-directory/conditional-access/overview.md) that allows you to set policies that require multifactor authentication or allow access from specific locations, for example.
@@ -53,7 +57,7 @@ Once you have an application security principal and followed above steps, [assig
 
 ## Assign permission to a security principal to publish events
 
-The identity used to publish events to Event Grid must have the permission ``Microsoft.EventGrid/events/send/action`` that allows it to send events to Event Grid. That permission is included in the built-in RBAC role [EventGrid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender). This role can be assigned to a [security principal](../role-based-access-control/overview.md#security-principal), for a given [scope](../role-based-access-control/overview.md#scope), which can be a management group, an Azure subscription, a resource group, or a specific event grid topic, domain, or partner namespace. Follow the steps in [Assign Azure roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to assign a security principal the **EventGrid Data Sender** role and in that way grant an application using that security principal access to send events. Alternatively, you can define a [custom role](../role-based-access-control/custom-roles.md) that includes the ``Microsoft.EventGrid/events/send/action`` permission and assign that custom role to your security principal.
+The identity used to publish events to Event Grid must have the permission ``Microsoft.EventGrid/events/send/action`` that allows it to send events to Event Grid. That permission is included in the built-in RBAC role [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender). This role can be assigned to a [security principal](../role-based-access-control/overview.md#security-principal), for a given [scope](../role-based-access-control/overview.md#scope), which can be a management group, an Azure subscription, a resource group, or a specific Event Grid topic, domain, or partner namespace. Follow the steps in [Assign Azure roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to assign a security principal the **EventGrid Data Sender** role and in that way grant an application using that security principal access to send events. Alternatively, you can define a [custom role](../role-based-access-control/custom-roles.md) that includes the ``Microsoft.EventGrid/events/send/action`` permission and assign that custom role to your security principal.
 
 With RBAC privileges taken care of, you can now [build your client application to send events](#publish-events-using-event-grids-client-sdks) to Event Grid.
 
@@ -64,6 +68,23 @@ With RBAC privileges taken care of, you can now [build your client application t
 ## Publish events using Event Grid's client SDKs
 
 Use [Event Grid's data plane SDK](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) to publish events to Event Grid. Event Grid's SDK support all authentication methods, including Azure AD authentication. 
+
+Here's the sample code that publishes events to Event Grid using the .NET SDK. You can get the topic endpoint on the **Overview** page for your Event Grid topic in the Azure portal. It's in the format: `https://<TOPIC-NAME>.<REGION>-1.eventgrid.azure.net/api/events`.
+
+```csharp
+ManagedIdentityCredential managedIdentityCredential = new ManagedIdentityCredential();
+EventGridPublisherClient client = new EventGridPublisherClient( new Uri("<TOPIC ENDPOINT>"), managedIdentityCredential);
+
+
+EventGridEvent egEvent = new EventGridEvent(
+        "ExampleEventSubject",
+        "Example.EventType",
+        "1.0",
+        "This is the event data");
+
+// Send the event
+await client.SendEventAsync(egEvent);
+```
 
 ### Prerequisites
 
@@ -79,7 +100,7 @@ Following are the prerequisites to authenticate to Event Grid.
    - [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme)
    - [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme)
    - [Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
-- A topic, domain, or partner namespace created to which your application will send events.
+- A topic, domain, or partner namespace created to which your application sends events.
 
 ### Publish events using Azure AD Authentication
 
@@ -87,7 +108,7 @@ To send events to a topic, domain, or partner namespace, you can build the clien
 
 Sample:
 
-This C# snippet creates an Event Grid publisher client using an Application (Service Principal) with a client secret, to enable the DefaultAzureCredential method you will need to add the [Azure.Identity library](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md). If you are using the official SDK it will handle the version for you.
+This C# snippet creates an Event Grid publisher client using an Application (Service Principal) with a client secret, to enable the DefaultAzureCredential method you need to add the [Azure.Identity library](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md). If you're using the official SDK, the SDK handles the version for you.
 
 ```csharp
 Environment.SetEnvironmentVariable("AZURE_CLIENT_ID", "");
@@ -106,7 +127,7 @@ For more information, see the following articles:
 
 ## Disable key and shared access signature authentication
 
-Azure AD authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. You'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](../active-directory/conditional-access/overview.md), that can help you improve your application's security stance. 
+Azure AD authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Azure AD authentication, the identity is validated against Azure AD identity provider. As a developer, you won't have to handle keys in your code if you use Azure AD authentication. You'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](../active-directory/conditional-access/overview.md) that can help you improve your application's security stance. 
 
 Once you decide to use Azure AD authentication, you can disable authentication based on access keys or SAS tokens. 
 
@@ -161,10 +182,10 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
 
 ## Resources
 - Data plane SDKs
-    - Java SDK: [github](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid) | [samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java/com/azure/messaging/eventgrid) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/migration-guide.md)
-    - .NET SDK: [github](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid) | [samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/MigrationGuide.md)
-    - Python SDK: [github](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid) | [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
-    - JavaScript SDK: [github](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [samples](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventgrid/eventgrid/MIGRATION.md)
+    - Java SDK: [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid) | [samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java/com/azure/messaging/eventgrid) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/migration-guide.md)
+    - .NET SDK: [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid) | [samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/MigrationGuide.md)
+    - Python SDK: [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid) | [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
+    - JavaScript SDK: [GitHub](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [samples](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventgrid/eventgrid/MIGRATION.md)
 - [Event Grid SDK blog](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/)
 - Azure Identity client library
    - [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md)
@@ -176,7 +197,7 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
 - Learn about [applications and service principals](../active-directory/develop/app-objects-and-service-principals.md)
 - Learn about [registering an application with the Microsoft Identity platform](../active-directory/develop/quickstart-register-app.md).
 - Learn about how [authorization](../role-based-access-control/overview.md) (RBAC access control) works.
-- Learn about Event Grid built-in RBAC roles including its [EventGrid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) role. [Event Grid's roles list](security-authorization.md#built-in-roles).
+- Learn about Event Grid built-in RBAC roles including its [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) role. [Event Grid's roles list](security-authorization.md#built-in-roles).
 - Learn about [assigning RBAC roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to identities.
 - Learn about how to define [custom RBAC roles](../role-based-access-control/custom-roles.md).
 - Learn about [application and service principal objects in Azure AD](../active-directory/develop/app-objects-and-service-principals.md).

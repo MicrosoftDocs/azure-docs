@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 tags: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
 ms.date: 10/09/2020
 ---

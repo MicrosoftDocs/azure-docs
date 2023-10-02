@@ -15,20 +15,18 @@
   - name: Configure a Route Server - ARM template
     href: quickstart-configure-template.md
   expanded: true
-- name: Samples
-  items:
-  - name: Resource Manager templates
-    href: resource-manager-template-samples.md
 - name: Tutorials
   items:
   - name: Peer Route Server with NVA
     href: tutorial-configure-route-server-with-quagga.md
   - name: Deploy Route Server with DDoS protection
-    href: tutorial-protect-route-server.md
+    href: tutorial-protect-route-server-ddos.md
 - name: Concepts
   items:
   - name: Route Server FAQ
     href: route-server-faq.md
+  - name: Routing preference
+    href: hub-routing-preference.md
   - name: Next Hop IP support
     href: next-hop-ip.md
   - name: ExpressRoute and Azure VPN support
@@ -39,8 +37,6 @@
     href: path-selection.md
   - name: Multi-region design
     href: multiregion.md
-  - name: Injecting routes to AVS
-    href: vmware-solution-default-route.md
   - name: Default route injection in spoke VNets
     href: route-injection-in-spokes.md
   - name: IP anycast
@@ -51,6 +47,8 @@
     href: troubleshoot-route-server.md
   - name: Monitor Route Server
     href: monitor-route-server.md
+  - name: Configure routing preference - PowerShell
+    href: hub-routing-preference-powershell.md
 - name: Reference
   items:
   - name: Azure PowerShell

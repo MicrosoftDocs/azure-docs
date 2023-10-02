@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 12/08/2022
+ms.topic: article
+ms.date: 08/02/2023
 ms.author: danlep
 ---
 
@@ -33,25 +33,26 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 
 | Attribute     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Required | Default  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode | Determines whether this is a `new` request or a `copy` of the current request. In outbound mode, `mode=copy` does not initialize the request body.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | `new`      |
-| timeout| The timeout interval in seconds before the call to the URL fails.	 | No | 60 |
+| mode | Determines whether this is a `new` request or a `copy` of the headers and body in the current request. In the outbound policy section, `mode=copy` does not initialize the request body. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                               | No       | `new`      |
+| timeout| The timeout interval in seconds before the call to the URL fails. Policy expressions are allowed.	 | No | 60 |
 
 
 ## Elements
 
 | Element                    | Description                                                                                                 | Required                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| set-url                        | The URL of the request.                                                                                     | No if `mode=copy`; otherwise yes. |
-| set-method                     | A [set-method](set-method-policy.md) policy statement.                                                                              | No if `mode=copy`; otherwise yes. |
-| set-header                     | A [set-header](set-header-policy.md) policy statement. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
-| set-body                       |                    A [set-body](set-body-policy.md) policy statement.                                                                   | No                              |
+| set-url                        | The URL of the request. Policy expressions are allowed.                                                                                    | No if `mode=copy`; otherwise yes. |
+| [set-method](set-method-policy.md)                     | Sets the method of the request. Policy expressions aren't allowed.                                                      | No if `mode=copy`; otherwise yes. |
+| [set-header](set-header-policy.md)                     | Sets a header in the request. Use multiple `set-header` elements for multiple request headers.                                  | No                              |
+| [set-body](set-body-policy.md)                       | Sets the body of the request.                   | No                              |
 | authentication-certificate | [Certificate to use for client authentication](authentication-certificate-policy.md), specified in a `thumbprint` attribute. | No                              |
+| [proxy](proxy-policy.md) | Routes request via HTTP proxy. | No |
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

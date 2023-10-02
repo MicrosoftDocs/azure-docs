@@ -3,7 +3,8 @@ title: Context switching in Azure Automation
 description: This article explains context switching and how to avoid runbook issues.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/27/2021
+ms.custom: devx-track-azurepowershell
+ms.date: 08/18/2023
 ms.topic: conceptual 
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
 ---
@@ -55,7 +56,7 @@ While you may not come across an issue if you don't follow these recommendations
 `The subscription named <subscription name> cannot be found.`
 
 ```error
-Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+Get-AzVM : The client '<clientid>' with object id '<objectid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
    ErrorCode: AuthorizationFailed
    StatusCode: 403
    ReasonPhrase: Forbidden Operation
@@ -75,4 +76,3 @@ Get-AzureRmResource : Resource group "SomeResourceGroupName" could not be found.
 - [Azure Automation account authentication overview](automation-security-overview.md)
 - [Runbook execution in Azure Automation](automation-runbook-execution.md)
 - [Manage modules in Azure Automation](./shared-resources/modules.md)
-

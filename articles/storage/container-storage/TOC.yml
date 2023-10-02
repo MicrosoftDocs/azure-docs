@@ -1,0 +1,67 @@
+- name: Azure Container Storage documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Container Storage?
+    href: container-storage-introduction.md
+- name: Quickstarts
+  items:
+  - name: Use Azure Container Storage with AKS
+    href: container-storage-aks-quickstart.md
+- name: How-to guides
+  items:
+  - name: Install Azure Container Storage
+    href: install-container-storage-aks.md
+  - name: Use with Azure Disks
+    href: use-container-storage-with-managed-disks.md
+  - name: Use with Ephemeral Disk
+    href: use-container-storage-with-local-disk.md
+  - name: Use with Azure Elastic SAN
+    href: use-container-storage-with-elastic-san.md
+  - name: Use volume snapshot and restore
+    href: volume-snapshot-restore.md
+  - name: Expand a persistent volume
+    href: resize-volume.md
+  - name: Clone a persistent volume
+    href: clone-volume.md       
+  - name: Remove Azure Container Storage
+    href: remove-container-storage.md
+- name: Concepts
+  items:
+  - name: FAQ
+    href: container-storage-faq.md
+- name: Reference
+  items:
+  - name: APIs for data access
+    items:
+    - name: REST API
+      href: /rest/api/storageservices/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage
+    - name: Java SDK
+      href: /java/api/overview/azure/storage
+    - name: Python SDK
+      href: /python/api/overview/azure/storage
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage
+  - name: APIs for resource management
+    items:
+    - name: REST API
+      href: /rest/api/storagerp/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/resourcemanager.storage-readme
+    - name: Java SDK
+      href: /java/api/overview/azure/storage/management
+    - name: Python SDK
+      href: /python/api/overview/azure/storage#management
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage#management
+  - name: Resource Manager template
+    displayName: arm
+    href: /azure/templates/microsoft.storage/allversions
+- name: Resources
+  items:
+  - name: Pricing for Azure Container Storage
+    href: https://azure.microsoft.com/pricing/details/storage/container-storage
+  

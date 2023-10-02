@@ -83,7 +83,7 @@ The following filtering parameters are available:
 | **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 
-Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals). For example: `dynamic(['192.168.','10.'])`
 
 For example, to filter only Web sessions for a specified list of domain names, use:
 
@@ -157,7 +157,7 @@ The following are additional fields that are specific to web sessions:
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL should include the schema and server parts. For `WebServerSession` and for `ApiRequest` the URL would typically not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
+| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL may include the schema and should include the server name. For `WebServerSession` and for `ApiRequest` the URL would typically not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
 | **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to.<br><br>Example: search engines, adult, news, advertising, and parked domains. |
 | **UrlOriginal** | Optional | String | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
 | **HttpVersion** | Optional | String | The HTTP Request Version.<br><br>Example: `2.0` |
@@ -206,4 +206,3 @@ For more information, see:
 - [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
 - [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
 - [Advanced Security Information Model (ASIM) content](normalization-content.md)
-

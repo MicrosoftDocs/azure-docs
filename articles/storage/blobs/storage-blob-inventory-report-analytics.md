@@ -2,11 +2,10 @@
 title: 'Tutorial: Analyze blob inventory reports - Azure Storage'
 description: Learn how to analyze and visualize blob inventory reports by using Azure Synapse and Power BI.  
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 12/01/2022
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Tutorial: Analyze blob inventory reports
@@ -182,7 +181,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
   [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
   
-  [How to calculate Container Level Statistics in Azure Blob Storage with Azure Databricks](https://techcommunity.microsoft.com/t5/azure-paas-blog/how-to-calculate-container-level-statistics-in-azure-blob/ba-p/3614650)
+  [Tutorial: Calculate container statistics by using Databricks](storage-blob-calculate-container-statistics-databricks.md)
 
 - Learn about ways to optimize your costs based on the analysis of your blobs and containers. See these articles:
 

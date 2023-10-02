@@ -1,5 +1,5 @@
 ---
-title: ".NET tutorial: Search integration overview"
+title: "Add search to web sites (.NET tutorial)"
 titleSuffix: Azure Cognitive Search
 description: Technical overview and setup for adding search to a website and deploying to Azure Static Web App with .NET. 
 manager: nitinme
@@ -7,8 +7,8 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/01/2022
-ms.custom: devx-track-csharp
+ms.date: 07/18/2023
+ms.custom: devx-track-csharp, devx-track-dotnet
 ms.devlang: csharp
 ---
 
@@ -16,7 +16,8 @@ ms.devlang: csharp
 
 This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
 
-The application is available: 
+The application is available:
+
 * [Sample](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website-functions-v4)
 * [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
@@ -41,6 +42,7 @@ Install the following for your local development environment.
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
+    - Use the integrated terminal for command line operations.
 - Optional:
     - This tutorial doesn't run the Azure Function API locally but if you intend to run it locally, you need to install [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash#install-the-azure-functions-core-tools).
 

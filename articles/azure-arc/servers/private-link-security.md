@@ -2,7 +2,8 @@
 title: Use Azure Private Link to securely connect servers to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.custom: devx-track-linux
+ms.date: 06/20/2023
 ---
 
 # Use Azure Private Link to securely connect servers to Azure Arc
@@ -59,7 +60,7 @@ The Azure Arc-enabled servers Private Link Scope object has a number of limits y
 - The Azure Arc-enabled server and Azure Arc Private Link Scope must be in the same Azure region. The Private Endpoint and the virtual network must also be in the same Azure region, but this region can be different from that of your Azure Arc Private Link Scope and Arc-enabled server.
 - Network traffic to Azure Active Directory and Azure Resource Manager does not traverse the Azure Arc Private Link Scope and will continue to use your default network route to the internet. You can optionally [configure a resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) to send Azure Resource Manager traffic to a private endpoint.
 - Other Azure services that you will use, for example Azure Monitor, requires their own private endpoints in your virtual network.
-- Private link for Azure Arc-enabled servers is not currently available in Azure China
+- Remote access to the server using Windows Admin Center or SSH is not supported over private link at this time.
 
 ## Planning your Private Link setup
 
@@ -167,7 +168,7 @@ Once your Azure Arc Private Link Scope is created, you need to connect it with o
 
 1. On the **Configuration** page,
 
-   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure-Arc enabled server. 
+   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure Arc-enabled server. 
 
    b. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below.
 
@@ -218,7 +219,7 @@ If you're only planning to use Private Links to support a few machines or server
 
 #### Linux
 
-1. Using an account with the **sudoers** privilege, run `sudo nano /etc/hosts` to open the hosts file.
+1. Open the `/etc/hosts` hosts file in a text editor.
 
 1. Add the private endpoint IPs and hostnames as shown in the table from step 3 under [Manual DNS server configuration](#manual-dns-server-configuration). The hosts file asks for the IP address first followed by a space and then the hostname.
 

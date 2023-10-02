@@ -4,9 +4,8 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 09/13/2023
 ---
-
 
 # Azure HDInsight release notes
 
@@ -15,89 +14,57 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
+Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
 
-## Release date: December 12, 2022
+To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
-This release applies to HDInsight 4.0. and 5.0 HDInsight release is made available to all regions over several days.
+## Release date:  September 7th, 2023
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
+This release applies to HDInsight 4.x and 5.x HDInsight release will be available to all regions over several days. This release is applicable for image number **2308221128**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
 * HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
-For workload specific versions, see [here.](./hdinsight-40-component-versioning.md) 
+For workload specific versions, see 
 
-![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
 
-* **Log Analytics** - Customers can enable classic monitoring to get the latest OMS version 14.19. To remove old versions, disable and enable classic monitoring.
-* **Ambari** user auto UI logout due to inactivity. For more information, see [here](./ambari-web-ui-auto-logout.md)
-* **Spark** - A new and optimized version of Spark 3.1.3 is included in this release. We tested Apache Spark 3.1.2(previous version) and Apache Spark 3.1.3(current version) using the TPC-DS benchmark. The test was carried out using E8 V3  SKU, for Apache Spark on 1-TB workload. Apache Spark 3.1.3 (current version) outperformed Apache Spark 3.1.2 (previous version) by over 40% in total query runtime for TPC-DS queries using the same hardware specs. The Microsoft Spark team added optimizations available in Azure Synapse with Azure HDInsight. For more information, please refer to [ Speed up your data workloads with performance updates to Apache Spark 3.1.2 in Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/speed-up-your-data-workloads-with-performance-updates-to-apache/ba-p/2769467)
+> [!IMPORTANT]
+> This release addresses the following CVEs released by [MSRC](https://msrc.microsoft.com/update-guide/vulnerability) on September 12, 2023. The action is to update to the latest image **2308221128**. Customers are advised to plan accordingly. 
 
-![Icon showing new regions added with text.](media/hdinsight-release-notes/new-icon-for-new-regions-added.png) 
+|CVE | Severity| CVE Title|
+|-|-|-|
+|[CVE-2023-38156](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-38156)|	Important | Azure HDInsight Apache Ambari Elevation of Privilege Vulnerability |
 
-* Qatar Central
-* Germany North
+## ![Icon showing coming soon.](./media/hdinsight-release-notes/clock.svg) Coming soon
 
-![Icon showing what's changed with text.](media/hdinsight-release-notes/new-icon-for-changed.png)
+* The max length of cluster name will be changed to 45 from 59 characters, to improve the security posture of clusters. This change will be implemented by September 30th, 2023.
+* Cluster permissions for secure storage  
+  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
+* In-line quota update.
+   * Request quotas increase directly from the My Quota page, which will be a direct API call, which is faster. If the API call fails, then customers need to create a new support request for quota increase.
+* HDInsight Cluster Creation with Custom VNets.
+  * To improve the overall security posture of the HDInsight clusters, HDInsight clusters using custom VNETs need to ensure that the user needs to have permission for `Microsoft Network/virtualNetworks/subnets/join/action` to perform create operations. Customers would need to plan accordingly as this change would be a mandatory check to avoid cluster creation failures before September 30, 2023. 
+* Basic and Standard A-series VMs Retirement.
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs). To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+* Non-ESP ABFS clusters [Cluster Permissions for Word Readable] 
+  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates before 30 September, 2023. 
 
-* HDInsight has moved away from Azul Zulu Java JDK  8 to Adoptium Temurin JDK 8, which supports high-quality TCK certified runtimes, and associated technology for use across the Java ecosystem.
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 
-* HDInsight has migrated to reload4j. The log4j changes are applicable to
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight)
 
-  * Apache Hadoop
-  * Apache Zookeeper
-  * Apache Oozie
-  * Apache Ranger
-  * Apache Sqoop
-  * Apache Pig
-  * Apache Ambari 
-  * Apache Kafka
-  * Apache Spark
-  * Apache Zeppelin
-  * Apache Livy
-  * Apache Rubix
-  * Apache Hive
-  * Apache Tez
-  * Apache HBase
-  * OMI
-  * Apache Pheonix
+You’re welcome to add more proposals and ideas and other topics here and vote for them - [HDInsight Community (azure.com)](https://feedback.azure.com/d365community/search/?q=HDInsight).
 
-![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
+ > [!NOTE]
+ > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
 
-HDInsight will implement TLS1.2 going forward, and earlier versions will be updated on the platform. If you're running any applications on top of HDInsight and they use TLS 1.0 and 1.1, upgrade to TLS 1.2 to avoid any disruption in services. 
-
-For more information, see [How to enable Transport Layer Security (TLS)](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
-
-
-![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
-
-End of support for Azure HDInsight clusters on Ubuntu 16.04 LTS from 30 November 2022. HDInsight had begun release of cluster images using Ubuntu 18.04 from June 27,  2021. We recommend our customers who are running clusters using Ubuntu 16.04 is to rebuild their clusters with the latest HDInsight images by 30 November 2022.
-
-For more information on how to check Ubuntu version of cluster, see [here](https://learnubuntu.com/check-ubuntu-version)
-
-1. Execute the command “lsb_release -a” in the terminal.  
-
-1. If the value for “Description” property in output is “Ubuntu 16.04 LTS”, then this update is applicable to the cluster.  
-
-![Icon showing bug fixes with text.](media/hdinsight-release-notes/new-icon-for-bugfix.png) 
-
-* Support for Availability Zones selection for Kafka and HBase (write access) clusters.
-
-## Open source bug fixes
-
-**Hive bug fixes**
-
-|Bug Fixes|Apache JIRA|
-|---|---|
-|[HIVE-26127](https://issues.apache.org/jira/browse/HIVE-26127)| INSERT OVERWRITE error - File Not Found|
-|[HIVE-24957](https://issues.apache.org/jira/browse/HIVE-24957)| Wrong results when subquery has COALESCE in correlation predicate|
-|[HIVE-24999](https://issues.apache.org/jira/browse/HIVE-24999)| HiveSubQueryRemoveRule generates invalid plan for IN subquery with multiple correlations| 
-|[HIVE-24322](https://issues.apache.org/jira/browse/HIVE-24322)| If there's direct insert, the attempt ID has to be checked when reading the manifest fails|
-|[HIVE-23363](https://issues.apache.org/jira/browse/HIVE-23363)| Upgrade DataNucleus dependency to 5.2 |
-|[HIVE-26412](https://issues.apache.org/jira/browse/HIVE-26412)| Create interface to fetch available slots and add the default|
-|[HIVE-26173](https://issues.apache.org/jira/browse/HIVE-26173)| Upgrade derby to 10.14.2.0|
-|[HIVE-25920](https://issues.apache.org/jira/browse/HIVE-25920)| Bump Xerce2 to 2.12.2.|
-|[HIVE-26300](https://issues.apache.org/jira/browse/HIVE-26300)| Upgrade Jackson data bind version to 2.12.6.1+ to avoid CVE-2020-36518|
+### Next steps
+* [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
+* [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)

@@ -52,7 +52,7 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks);
 ```
 
-It's important to note that all asynchronous programming models use some form of memory-based, hidden work queue that holds pending operations. When the send API returns, the send task is queued up in that work queue but the protocol gesture only commences once it's the task's turn to run. For code that tends to push bursts of messages and where reliability is a concern, care should be taken that not too many messages are put "in flight" at once, because all sent messages take up memory until they have factually been put onto the wire.
+It's important to note that all asynchronous programming models use some form of memory-based, hidden work queue that holds pending operations. When the send API returns, the send task is queued up in that work queue, but the protocol gesture only commences once it's the task's turn to run. For code that tends to push bursts of messages and where reliability is a concern, care should be taken that not too many messages are put "in flight" at once, because all sent messages take up memory until they have factually been put onto the wire.
 
 Semaphores, as shown in the following code snippet in C#, are synchronization objects that enable such application-level throttling when needed. This use of a semaphore allows for at most 10 messages to be in flight at once. One of the 10 available semaphore locks is taken before the send and it's released as the send completes. The 11th pass through the loop waits until at least one of the prior sends has completed, and then makes its lock available:
 
@@ -107,22 +107,24 @@ If a receiving client fails to process a message and knows that redelivering the
 
 A special case of settlement is deferral, which is discussed in a [separate article](message-deferral.md).
 
-The `Complete`, `Deadletter`, or `RenewLock` operations may fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.
+The `Complete`, `DeadLetter`, or `RenewLock` operations may fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.
 
 If `Complete` fails, which occurs typically at the very end of message handling and in some cases after minutes of processing work, the receiving application can decide whether it preserves the state of the work and ignores the same message when it's delivered a second time, or whether it tosses out the work result and retries as the message is redelivered.
 
 The typical mechanism for identifying duplicate message deliveries is by checking the message-id, which can and should be set by the sender to a unique value, possibly aligned with an identifier from the originating process. A job scheduler would likely set the message-id to the identifier of the job it's trying to assign to a worker with the given worker, and the worker would ignore the second occurrence of the job assignment if that job is already done.
 
 > [!IMPORTANT]
-> It is important to note that the lock that PeekLock acquires on the message is volatile and may be lost in the following conditions
+> It is important to note that the lock that PeekLock or SessionLock acquires on the message is volatile and may be lost in the following conditions
 >   * Service Update
 >   * OS update
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
 >
-> When the lock is lost, Azure Service Bus will generate a MessageLockLostException which will be surfaced on the client application code. In this case, the client's default retry logic should automatically kick in and retry the operation.
+> When the lock is lost, Azure Service Bus will generate a MessageLockLostException or SessionLockLostException, which will surface in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation.
 
 ## Renew locks
-The default value for the lock duration is **30 seconds**. You can specify a different value for the lock duration at the queue or subscription level. The client owning the lock can renew the message lock by using methods on the receiver object. Instead, you can use the automatic lock-renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. 
+The default value for the lock duration is **1 minute**. You can specify a different value for the lock duration at the queue or subscription level. The client owning the lock can renew the message lock by using methods on the receiver object. Instead, you can use the automatic lock-renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. 
+
+It's best to set the lock duration to something higher than your normal processing time, so you don't have to renew the lock. The maximum value is 5 minutes, so you need to renew the lock if you want to have this longer. Having a longer lock duration than needed has some implications as well. For example, when your client stops working, the message will only become available again after the lock duration has passed.
 
 ## Next steps
 - A special case of settlement is deferral. See the [Message deferral](message-deferral.md) for details. 

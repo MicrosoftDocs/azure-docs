@@ -5,7 +5,7 @@ description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 06/30/2023
 ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
@@ -33,6 +33,8 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 
 ## Partners
 
+The following tables describes the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVA's deployed in the Virtual Hub.
+ 
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
 
 ## Basic use cases
@@ -47,7 +49,7 @@ Branch sites can then access workloads in Azure deployed in virtual networks in 
 
 ### Security provided by Azure Firewall along with connectivity NVA
 
-Customers can deploy an Azure Firewall along side their connectivity-based NVAs. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You may also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection.
+Customers can deploy an Azure Firewall along side their connectivity-based NVAs. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You can also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection.
 
 :::image type="content" source="./media/about-nva-hub/global-transit-firewall.png" alt-text="Global transit architecture with Azure Firewall." lightbox="./media/about-nva-hub/global-transit-firewall.png":::
 
@@ -130,8 +132,8 @@ NVA in the virtual hub is available in the following regions:
 |---|---|
 | North America| Canada Central, Canada East, Central US, East US, East US 2, South Central US, North Central US, West Central US, West US, West US 2 |
 | South America | Brazil South, Brazil Southeast |
-| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe|
-| Middle East | UAE North |
+| Europe | France Central, France South, Germany North, Germany West Central, North Europe, Norway East, Norway West, Switzerland North, Switzerland West, UK South, UK West, West Europe, Sweden Central|
+| Middle East | UAE North, Qatar Central |
 | Asia | East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia | 
 | Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
 | Africa | South Africa North |

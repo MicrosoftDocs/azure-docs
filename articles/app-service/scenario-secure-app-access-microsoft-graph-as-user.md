@@ -8,13 +8,13 @@ manager: CelesteDG
 ms.service: app-service
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/08/2022
+ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp
-ms.custom: azureday1
-#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
+ms.custom: azureday1, devx-track-dotnet, AppServiceIdentity
 ms.subservice: web-apps
+#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 
 # Tutorial: Access Microsoft Graph from a secured .NET app as the user
@@ -57,14 +57,14 @@ Open the project/solution in Visual Studio, and open the console by using the **
 
 Run the install commands.
 ```powershell
-Install-Package Microsoft.Identity.Web.MicrosoftGraph
+Install-Package Microsoft.Identity.Web.GraphServiceClient
 
 Install-Package Microsoft.Identity.Web
 ```
 
 ### Startup.cs
 
-In the *Startup.cs* file, the ```AddMicrosoftIdentityWebApp``` method adds Microsoft.Identity.Web to your web app. The ```AddMicrosoftGraph``` method adds Microsoft Graph support.
+In the *Startup.cs* file, the ```AddMicrosoftIdentityWebApp``` method adds Microsoft.Identity.Web to your web app. The ```AddMicrosoftGraph``` method adds Microsoft Graph support.  For info on managing incremental consent and conditional access, [read this](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access).
 
 ```csharp
 using Microsoft.AspNetCore.Builder;
@@ -81,13 +81,26 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
-                    .EnableTokenAcquisitionToCallDownstreamApi()
-                        .AddMicrosoftGraph(Configuration.GetSection("Graph"))
-                        .AddInMemoryTokenCaches();
+      services.AddOptions();
+      string[] initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
 
-        services.AddRazorPages();
+      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+              .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
+              .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+                      .AddMicrosoftGraph(Configuration.GetSection("DownstreamApi"))
+                      .AddInMemoryTokenCaches(); 
+
+      services.AddAuthorization(options =>
+      {
+          // By default, all incoming requests will be authorized according to the default policy
+          options.FallbackPolicy = options.DefaultPolicy;
+      });
+      services.AddRazorPages()
+          .AddMvcOptions(options => {})                
+          .AddMicrosoftIdentityUI();
+
+      services.AddControllersWithViews()
+              .AddMicrosoftIdentityUI();
     }
 }
 
@@ -95,7 +108,7 @@ public class Startup
 
 ### appsettings.json
 
-*AzureAd* specifies the configuration for the Microsoft.Identity.Web library. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Azure AD overview page for your tenant.
+*AzureAd* specifies the configuration for the Microsoft.Identity.Web library. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Azure AD overview page for your tenant.
 
 *Graph* specifies the Microsoft Graph endpoint and the initial scopes needed by the app.
 
@@ -103,17 +116,32 @@ public class Startup
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "Domain": "fourthcoffeetest.onmicrosoft.com",
-    "TenantId": "[tenant-id]",
-    "ClientId": "[client-id]",
-    // To call an API
-    "ClientSecret": "[secret-from-portal]", // Not required by this scenario
+    "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
+    "TenantId": "[Enter 'common', or 'organizations' or the Tenant Id (Obtained from the Microsoft Entra admin center. Select 'Endpoints' from the 'App registrations' blade and use the GUID in any of the URLs), e.g. da41245a5-11b3-996c-00a8-4d99re19f292]",
+    "ClientId": "[Enter the Client Id (Application ID obtained from the Microsoft Entra admin center), e.g. ba74781c2-53c2-442a-97c2-3d60re42f403]",
+    "ClientSecret": "[Copy the client secret added to the app from the Microsoft Entra admin center]",
+    "ClientCertificates": [
+    ],
+    // the following is required to handle Continuous Access Evaluation challenges
+    "ClientCapabilities": [ "cp1" ],
     "CallbackPath": "/signin-oidc"
   },
+  "DownstreamApis": {
+    "MicrosoftGraph": {
+      // Specify BaseUrl if you want to use Microsoft graph in a national cloud.
+      // See https://learn.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints
+      // "BaseUrl": "https://graph.microsoft.com/v1.0",
 
-  "Graph": {
-    "BaseUrl": "https://graph.microsoft.com/v1.0",
-    "Scopes": "user.read"
+      // Set RequestAppToken this to "true" if you want to request an application token (to call graph on 
+      // behalf of the application). The scopes will then automatically
+      // be ['https://graph.microsoft.com/.default'].
+      // "RequestAppToken": false
+
+      // Set Scopes to request (unless you request an app token).
+      "Scopes": [ "User.Read" ]
+
+      // See https://aka.ms/ms-id-web/downstreamApiOptions for all the properties you can set.
+    }
   },
   "Logging": {
     "LogLevel": {
@@ -141,7 +169,7 @@ using Microsoft.Extensions.Logging;
 
 // Some code omitted for brevity.
 
-[AuthorizeForScopes(Scopes = new[] { "user.read" })]
+[AuthorizeForScopes(Scopes = new[] { "User.Read" })]
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
@@ -157,11 +185,11 @@ public class IndexModel : PageModel
     {
         try
         {
-            var user = await _graphServiceClient.Me.Request().GetAsync();
+            var user = await _graphServiceClient.Me.GetAsync();
             ViewData["Me"] = user;
             ViewData["name"] = user.DisplayName;
 
-            using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+            using (var photoStream = await _graphServiceClient.Me.Photo.Content.GetAsync())
             {
                 byte[] photoByte = ((MemoryStream)photoStream).ToArray();
                 ViewData["photo"] = Convert.ToBase64String(photoByte);

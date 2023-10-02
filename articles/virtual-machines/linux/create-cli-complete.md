@@ -3,11 +3,12 @@ title: Create a Linux environment with the Azure CLI
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.collection: linux
 ms.topic: how-to
-ms.date: 12/14/2017
+ms.date: 3/29/2023
 ms.author: cynthn
-
+ms.reviewer: mattmcinnes
 ---
 # Create a complete Linux virtual machine with the Azure CLI
 
@@ -132,7 +133,7 @@ Output:
 
 
 ## Create a network security group
-To control the flow of traffic in and out of your VMs, you apply a network security group to a virtual NIC or subnet. The following example uses [az network nsg create](/cli/azure/network/nsg) to create a network security group named *myNetworkSecurityGroup*:
+To control the flow of traffic in and out of your VMs, apply a network security group to a virtual NIC or subnet. The following example uses [az network nsg create](/cli/azure/network/nsg) to create a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -140,7 +141,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-You define rules that allow or deny specific traffic. To allow inbound connections on port 22 (to enable SSH access), create an inbound rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
+You define rules that allow or deny specific traffic. To allow inbound connections on port 22 (to enable [SSH access](/azure/virtual-machines/linux-vm-connect), create an inbound rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule named *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -468,7 +469,7 @@ The output notes fault domains and update domains:
 
 
 ## Create a VM
-You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an SSH key. In this example, let's create an Ubuntu VM based on the most recent LTS. You can find additional images with [az vm image list](/cli/azure/vm/image), as described in [finding Azure VM images](cli-ps-findimage.md).
+You've created the network resources to support Internet-accessible VMs. Now create a VM and secure it with an [SSH key](/azure/virtual-machines/linux/create-ssh-keys-detailed). In this example, let's create an Ubuntu VM based on the most recent LTS. You can find additional images with [az vm image list](/cli/azure/vm/image), as described in [finding Azure VM images](cli-ps-findimage.md).
 
 Specify an SSH key to use for authentication. If you do not have an SSH public key pair, you can [create them](mac-create-ssh-keys.md) or use the `--generate-ssh-keys` parameter to create them for you. If you already have a key pair, this parameter uses existing keys in `~/.ssh`.
 
@@ -481,7 +482,7 @@ az vm create \
     --location eastus \
     --availability-set myAvailabilitySet \
     --nics myNic \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
@@ -538,7 +539,7 @@ See "man sudo_root" for details.
 azureuser@myVM:~$
 ```
 
-You can install NGINX and see the traffic flow to the VM. Install NGINX as follows:
+You can install [NGINX](https://nginx.org/en/) and see the traffic flow to the VM. Install NGINX as follows:
 
 ```bash
 sudo apt-get install -y nginx

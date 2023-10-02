@@ -1,22 +1,21 @@
 ---
 title: Weather services concepts in Microsoft Azure Maps
 description: Learn about the concepts that apply to Microsoft Azure Maps Weather services.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-
 ---
 
 # Weather services in Azure Maps
 
-This article introduces concepts that apply to Azure Maps [Weather services](/rest/api/maps/weather). We recommend going through this article before starting out with the weather APIs.
+This article introduces concepts that apply to Azure Maps [Weather services]. We recommend going through this article before starting out with the weather APIs.
 
 ## Unit types
 
-Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See table below to interpret these values.
+Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned responses for these APIs include unitType and a numeric value that can be used for unit translations. See the following table to interpret these values.
 
 |unitType|Description                 |
 |--------|----------------------------|
@@ -47,7 +46,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 ## Weather icons
 
-Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service APIs return the `iconCode` in the response. The `iconCode` is a numeric value used to define the icon. Don't link directly to these images from your applications, the URLs can change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
@@ -94,11 +93,11 @@ Some of the Weather service APIs return the `iconCode` in the response. The `ico
 
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile v2 API](/rest/api/maps/render-v2/get-map-tile) users can request latest radar and infrared satellite images. See below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API] users can request latest radar and infrared satellite images. See the following guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
-The table below provides guidance to interpret the radar images and create a map legend for Radar tile data.
+The following table provides guidance to interpret the radar images and create a map legend for Radar tile data.
 
 | Hex color code | Color sample | Weather condition |
 |----------------|--------------|-------------------|
@@ -119,7 +118,7 @@ The table below provides guidance to interpret the radar images and create a map
 | #8a32d7        | ![Color for mix-heavy.](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
 | #6500ba        | ![Color for mix-severe.](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
-Detailed color palette for radar tiles with Hex color codes and dBZ values is shown below. dBZ represents precipitation intensity in weather radar.
+Detailed color palette for radar tiles with Hex color codes and dBZ values is shown in the following table. dBZ represents precipitation intensity in weather radar.
 
 | **RAIN**             | **ICE**              | **SNOW**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|
@@ -185,11 +184,9 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 | 73.75      (#bf9bc4) | 73.75      (#7C1571) | 73.75      (#020298)  | 73.75       (#6500B9) |
 | 75         (#c9b5c2) | 75         (#7A1570) | 75         (#020096)  | 75          (#6500BA) |
 
-
-
 ### Satellite Images
 
-The table below provides guidance to interpret the infrared satellite images showing clouds by their temperature and how to create a map legend for these tiles. 
+The following table  provides guidance to interpret the infrared satellite images showing clouds by their temperature and how to create a map legend for these tiles.
 
 | Hex color code | Color sample | Cloud Temperature |
 |----------------|--------------|-------------------|
@@ -206,7 +203,7 @@ The table below provides guidance to interpret the infrared satellite images sho
 | #ba0808        | ![Color tile for #ba0808.](./media/weather-services-concepts/color-ba0808.png) |  |
 | #1f1f1f        | ![Color tile for #1f1f1f.](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
-Detailed color palette for infrared satellite tiles is shown below.
+Detailed color palette for infrared satellite tiles is shown in the following table.
 
 |**Temp (K)**|**Hex color code**|
 |--------|--------------|
@@ -468,11 +465,9 @@ Detailed color palette for infrared satellite tiles is shown below.
 
 ## Index IDs and Index Groups IDs
 
-[Get Daily Indices API](/rest/api/maps/weather) allows users to
-restrict returned results to specific index types or index
-groups.
+[Get Daily Indices API] allows users to restrict returned results to specific index types or index groups.
 
-Below is a table of available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
+The following table lists the available index IDs, their names, and a link to their range sets. Below this table is a table listing the various index groups.
 
   Index Name |  ID  | Value Range
   -------------------------- |---|-----
@@ -522,7 +517,7 @@ Below is a table of available index IDs, their names, and a link to their range 
   Soil Moisture              | 34| [Poor-Excellent 1](#poor-excellent-1)
   Stargazing                 | 12| [Poor-Excellent 1](#poor-excellent-1)
 
-Below is the list of available Index groups (indexGroupId):
+The following table lists the available Index groups (indexGroupId):
 
   ID   | Group Name | Indices in this group |
   -------- | ------------------|------
@@ -542,7 +537,7 @@ Below is the list of available Index groups (indexGroupId):
 
 ## Daily index range sets
 
-[Get Daily Indices API](/rest/api/maps/weather) returns the ranged value and its associated category name for each index ID. Range sets aren't the same for all indices. The tables below show the various range sets used by the supported indices listed in [Index IDs and index groups IDs](#index-ids-and-index-groups-ids). To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs](#index-ids-and-index-groups-ids) section of this document.
+[Get Daily Indices API] returns the ranged value and its associated category name for each index ID. Range sets aren't the same for all indices. The following tables show the various range sets used by the supported indices listed in [Index IDs and index groups IDs]. To find out which indices use which range sets, go to the [Index IDs and Index Groups IDs] section of this document.
 
 ### Poor-Excellent 1
 
@@ -637,10 +632,18 @@ Below is the list of available Index groups (indexGroupId):
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services frequently asked questions (FAQ)](weather-services-faq.yml)
+> [Azure Maps Weather services frequently asked questions (FAQ)]
 
 > [!div class="nextstepaction"]
-> [Azure Maps Weather services coverage](weather-coverage.md)
+> [Azure Maps Weather services coverage]
 
 > [!div class="nextstepaction"]
-> [Weather services API](/rest/api/maps/weather)
+> [Weather services API]
+
+[Azure Maps Weather services coverage]: weather-coverage.md
+[Azure Maps Weather services frequently asked questions (FAQ)]: weather-services-faq.yml
+[Get Daily Indices API]: /rest/api/maps/weather
+[Get Map Tile v2 API]: /rest/api/maps/render-v2/get-map-tile
+[Index IDs and index groups IDs]: #index-ids-and-index-groups-ids
+[Weather services API]: /rest/api/maps/weather
+[Weather services]: /rest/api/maps/weather

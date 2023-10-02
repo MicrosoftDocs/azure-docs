@@ -249,7 +249,7 @@ After you finish running the application, shut down the notebook to release the 
 
 ## Next steps
 
-- [.NET for Apache Spark documentation](/dotnet/spark)
+- [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 - [Azure Synapse Analytics](../index.yml)
 - [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 

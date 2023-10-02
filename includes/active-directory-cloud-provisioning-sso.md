@@ -2,6 +2,7 @@
 author: billmath
 ms.service: active-directory
 ms.subservice: cloud-provisioning
+ms.custom: has-azure-ad-ps-ref
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
@@ -20,7 +21,7 @@ Cloud provisioning works with Single Sign-on.  Currently there is not an option 
 ### Step 2: Import the Seamless SSO PowerShell module
 
 1. Download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-2. Browse to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+2. Browse to the `Microsoft Azure Active Directory Connect` folder which should be in the extraction folder from Step 1.
 3. Import the Seamless SSO PowerShell module by using this command: `Import-Module .\AzureADSSO.psd1`.
 
 ### Step 3: Get the list of Active Directory forests on which Seamless SSO has been enabled
@@ -33,13 +34,13 @@ Cloud provisioning works with Single Sign-on.  Currently there is not an option 
 1. Call `Enable-AzureADSSOForest`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.
 
    > [!NOTE]
-   >The domain administrator credentials username must be entered in the SAM account name format  (contoso\johndoe or contoso.com\johndoe). We use the domain portion of the username to locate the Domain Controller of the Domain Administrator using DNS.
+   >The domain administrator credentials username must be entered in the SAM account name format (`contoso\johndoe` or `contoso.com\johndoe`). We use the domain portion of the username to locate the Domain Controller of the Domain Administrator using DNS.
 
    >[!NOTE]
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
 2. Repeat the preceding step for each Active Directory forest where you want to set up the feature.
 
-### Step 5. Enable the feature on your tenant
+### Step 5: Enable the feature on your tenant
 
 To turn on the feature on your tenant, call `Enable-AzureADSSO -Enable $true`.

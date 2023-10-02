@@ -5,11 +5,12 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 12/12/2022
+ms.service: azure-migrate
+ms.date: 07/26/2023
 ms.custom: MVC, engagement-fy23
 ---
 
-# Migrate machines as physical servers to Azure
+# Migrate machines as physical servers to Azure 
 
 This article shows you how to migrate machines as physical servers to Azure, using the Migration and modernization tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
 
@@ -43,6 +44,9 @@ Before you begin this tutorial, you should:
 
 - [Review](./agent-based-migration-architecture.md) the migration architecture.
 - [Review](../site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
+
+> [!NOTE]
+> If you're planning to upgrade your Windows operating system, Azure Migrate may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there is no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ## Prepare Azure
 
@@ -146,9 +150,12 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-It may take some time after finalizing registration until discovered machines appear in the Migration and modernization tool. As VMs are discovered, the **Discovered servers** count rises.
+Mobility service agent needs to be installed on the servers to get them discovered using replication appliance. Discovered machines appear in Azure Migrate: Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
 ![Discovered servers](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
+
+> [!NOTE]
+> It is recommended to perform discovery and asessment prior to the migration using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
 
 
 ## Install the Mobility service
@@ -178,7 +185,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the Mobility Service Installer:
     ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent /CSType CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
@@ -196,11 +203,11 @@ On machines you want to migrate, you need to install the Mobility service agent.
     ```
 2. Run the installer script:
     ```
-    sudo ./install -r MS -v VmWare -q
+    sudo ./install -r MS -v VmWare -q -c CSLegacy
     ```
 3. Register the agent with the replication appliance:
     ```
-    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
+    /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path> -c CSLegacy
     ```
 
 ## Replicate machines
@@ -310,6 +317,7 @@ Do a test migration as follows:
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrate-inline.png" alt-text="Screenshot showing the result after clicking test migration." lightbox="./media/tutorial-migrate-physical-virtual-machines/test-migrate-expanded.png":::
  
 3. In **Test Migration**, select the Azure VNet in which the Azure VM will be located after the migration. We recommend you use a non-production VNet.
+1. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
 4. The **Test migration** job starts. Monitor the job in the portal notifications.
 5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
 6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
@@ -335,6 +343,7 @@ After you've verified that the test migration works as expected, you can migrate
     > [!NOTE]
     > For minimal data loss, the recommendation is to bring the application down manually as part of the migration window (don't let the applications accept any connections) and then initiate the migration. The server needs to be kept running, so remaining changes can be synchronized before the migration is completed.
 
+1. You have an option to upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 

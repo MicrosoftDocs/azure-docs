@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/07/2022
 ms.author: dmwendia
-ms.custom: aaddev, devx-track-python
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -21,7 +21,7 @@ If you're writing a command-line tool that doesn't have web controls, and you ca
 
 ## Device code flow
 
-Interactive authentication with Azure AD requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or operating systems. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
+Interactive authentication with Microsoft Entra ID requires a web browser. For more information, see [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser). To authenticate users on devices or operating systems that don't provide a web browser, device code flow lets the user use another device such as a computer or a mobile phone to sign in interactively. By using the device code flow, the application obtains tokens through a two-step process that's designed for these devices or operating systems. Examples of such applications are applications that run on iOT or command-line tools (CLI). The idea is that:
 
 1. Whenever user authentication is required, the app provides a code for the user. The user is asked to use another device, such as an internet-connected smartphone, to go to a URL, for instance, `https://microsoft.com/devicelogin`. Then the user is prompted to enter the code. That done, the web page leads the user through a normal authentication experience, which includes consent prompts and multi-factor authentication, if necessary.
 
@@ -68,7 +68,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     }
     catch (MsalUiRequiredException ex)
     {
-        // No token found in the cache or AAD insists that a form interactive auth is required (e.g. the tenant admin turned on MFA)
+        // No token found in the cache or Azure AD insists that a form interactive auth is required (e.g. the tenant admin turned on MFA)
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
@@ -253,7 +253,7 @@ if accounts:
     result = app.acquire_token_silent(config["scope"], account=chosen)
 
 if not result:
-    logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
+    logging.info("No suitable token exists in cache. Let's get a new one from Azure AD.")
 
     flow = app.initiate_device_flow(scopes=config["scope"])
     if "user_code" not in flow:

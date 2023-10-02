@@ -4,7 +4,7 @@ description: Learn the various methods to ensure enterprise security in Azure HD
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020, ignite-2022
-ms.date: 04/14/2022
+ms.date: 05/24/2023
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
@@ -56,7 +56,7 @@ HDInsight supports data encryption at rest with both platform managed and [custo
 
 ### Compliance
 
-Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms. Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+Azure compliance offerings are based on various types of assurances, including formal certifications. Also, attestations, validations, and authorizations. Assessments produced by independent third-party auditing firms. Contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
 ## Shared responsibility model
 

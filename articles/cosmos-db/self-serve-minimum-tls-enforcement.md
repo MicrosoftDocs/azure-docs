@@ -19,7 +19,7 @@ This article discusses how to enforce a minimum version of the TLS protocol for 
 
 Because of the multi-tenant nature of Cosmos DB, the service is required to meet the access and security needs of every user. To achieve this, **Cosmos DB enforces minimum TLS protocols at the application layer**, and not lower layers in the network stack where TLS operates. This enforcement occurs on any authenticated request to a specific database account, according to the settings set on that account by the customer.
 
-The **minimum service-wide accepted version is TLS 1.0**. This can be changed on a per account basis, as discussed in the following section. 
+The **minimum service-wide accepted version is TLS 1.0**. This selection can be changed on a per account basis, as discussed in the following section. 
 
 ## How to set the minimum TLS version for my Cosmos DB database account
 
@@ -33,9 +33,62 @@ The **default value for new and existing accounts is `Tls`**.
 > [!IMPORTANT]
 > Staring on April 1st, 2023, the **default value for new accounts will be switched to `Tls12`**.
 
+### Set Minimal TLS Protocol in Azure Cosmos DB using the Portal 
+
+This self-serve feature is available in the Portal while creating and editing an account. Azure Cosmos DB Accounts enforce the TLS 1.2 protocol. However, Azure Cosmos DB also supports the following TLS protocols depending on the API kind selected.
+
+- **MongoDB:** TLS 1.2
+
+- **Cassandra:** TLS 1.2
+
+- **Table, SQL and Graph:** TLS 1.0, TLS 1.1 and TLS 1.2
+
+  
+
+### Steps to set Minimal TLS Protocol while creating an account
+
+If you're using an API Kind that only supports TLS 1.2, you'll notice in the Networking tab at the bottom the TLS protocol disabled.
+
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-create-account.png" alt-text="Screenshot of API Kind that only supports TLS 1.2.":::
+
+
+
+If you're using an API Kind that accepts multiple TLS protocols, then you can navigate to the Networking tab and the Minimum Transport Layer Security Protocol option is available. You can change the selected protocol by just clicking on the dropdown and selecting the desired protocol.
+
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/tls-select-account.png" alt-text="Screenshot of API Kind that accepts multiple TLS protocols.":::
+
+
+After setting up your account, you can review in the Review + create tab, at the bottom inside the Networking section, that the selected TLS Protocol is set as you specified.
+
+:::image type="content" source="media/self-serve-minimum-tls-enforcement/summary.png" alt-text="Screenshot of selected TLS Protocol is set as you specified.":::
+
+
+### Steps to set the Minimal TLS Protocol while editing an account
+
+1. Navigate to your Azure Cosmos DB account on the Azure portal.
+
+2. Select Networking from the left menu, then select the Connectivity tab.
+
+3. You'll find the Minimum Transport Layer Security Protocol option. If you're using an API Kind that only supports TLS 1.2, you'll notice this option disabled. Otherwise, you'll be able to select the desired TLS Protocol by just clicking on it.
+
+
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/edit.png" alt-text="Screenshot of minimum transport layer security protocol option.":::
+
+ 
+4. Click Save once you changed the TLS protocol.
+
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/save.png" alt-text="Screenshot of save after change.":::
+
+ 
+5. Once it is saved, you'll receive a success notification. Still, this change can take up to 15 minutes to take effect after the configuration update is completed.
+
+  :::image type="content" source="media/self-serve-minimum-tls-enforcement/notification-success.png" alt-text="Screenshot of success notification.":::
+
+ 
+
 ### Set via Azure CLI
 
-To set using Azure CLI, use the command below:
+To set using Azure CLI, use the command:
 
 ```azurecli-interactive
 subId=$(az account show --query id -o tsv)
@@ -47,7 +100,7 @@ az rest --uri "/subscriptions/$subId/resourceGroups/$rg/providers/Microsoft.Docu
 
 ### Set via Azure PowerShell
 
-To set using Azure PowerShell, use the command below:
+To set using Azure PowerShell, use the command:
 
 ```azurepowershell-interactive
 $minimalTlsVersion = 'Tls12'
@@ -67,7 +120,7 @@ Invoke-AzRestMethod @patchParameters
 
 ### Set via ARM template
 
-To set this property using an ARM template, update your existing template or export a new template for your current deployment, then add `"minimalTlsVersion"` to the properties for the `databaseAccounts` resources, with the desired minimum TLS version value. Below is a basic example of an Azure Resource Manager template with this property setting, using a parameter.
+To set this property using an ARM template, update your existing template or export a new template for your current deployment, then add `"minimalTlsVersion"` to the properties for the `databaseAccounts` resources, with the desired minimum TLS version value. Provided here is a basic example of an Azure Resource Manager template with this property setting, using a parameter.
 
 ```json
 {
@@ -115,7 +168,7 @@ You can also get the current value of the `minimalTlsVersion` property by using 
 
 ### Get current value via Azure CLI
 
-To get the current value of the property using Azure CLI, run the command below:
+To get the current value of the property using Azure CLI, run the command:
 
 ```azurecli-interactive
 subId=$(az account show --query id -o tsv)
@@ -126,7 +179,7 @@ az rest --uri "/subscriptions/$subId/resourceGroups/$rg/providers/Microsoft.Docu
 
 ### Get current value via Azure PowerShell
 
-To get the current value of the property using Azure PowerShell, run the command below:
+To get the current value of the property using Azure PowerShell, run the command:
 
 ```azurepowershell-interactive
 $getParameters = @{

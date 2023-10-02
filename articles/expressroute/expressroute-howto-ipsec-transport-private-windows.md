@@ -3,28 +3,26 @@ title: 'Azure ExpressRoute private peering: Configure IPsec transport mode - Win
 description: How to enable IPsec transport mode between Azure Windows VMs and on-premises Windows hosts through ExpressRoute private peering using GPOs and OUs.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 06/30/2023
 ms.author: duau
-ms.custom: seodec18
-
 ---
+
 # Configure IPsec transport mode for ExpressRoute private peering
 
-This article helps you create IPsec tunnels in transport mode over ExpressRoute private peering. The tunnel is created between Azure VMs running Windows and on-premises Windows hosts. The steps in this article for this configuration use group policy objects. While it's possible to create this configuration without using organizational units (OUs) and group policy objects (GPOs). The combination of OUs and GPOs will help simplify the control of your security policies and allows you to quickly scale up. The steps in this article assume you already have an Active Directory configuration and you're familiar with using OUs and GPOs.
+This article helps you create IPsec tunnels in transport mode over ExpressRoute private peering. The tunnel is created between Azure VMs running Windows and on-premises Windows hosts. The steps in this article for this configuration use group policy objects. While it's possible to create this configuration without using organizational units (OUs) and group policy objects (GPOs). The combination of OUs and GPOs help simplify the control of your security policies and allows you to quickly scale up. The steps in this article assume you already have an Active Directory configuration and you're familiar with using OUs and GPOs.
 
 ## About this configuration
 
-The configuration in the following steps uses a single Azure virtual network (VNet) with ExpressRoute private peering. However, this configuration can span over other Azure VNets and on-premises networks. This article will help you define an IPsec encryption policy that you can apply to a group of Azure VMs or on-premises hosts. These Azure VMs or on-premises hosts are part of the same OU. You configure encryption between the Azure VMs (vm1 and vm2), and the on-premises host1 only for HTTP traffic with destination port 8080. Different types of IPsec policy can be created based on your requirements.
+The configuration in the following steps uses a single Azure virtual network (VNet) with ExpressRoute private peering. However, this configuration can span over other Azure VNets and on-premises networks. This article helps you define an IPsec encryption policy that you can apply to a group of Azure VMs or on-premises hosts. These Azure VMs or on-premises hosts are part of the same OU. You configure encryption between the Azure VMs (vm1 and vm2), and the on-premises host1 only for HTTP traffic with destination port 8080. Different types of IPsec policy can be created based on your requirements.
 
 ### Working with OUs 
 
 The security policy associated with an OU is pushed to the computers via GPO. A few advantages to using OUs, rather than applying policies to a single host, are:
 
 * Associating a policy with an OU guarantees that computers that belong to the same OU get the same policies.
-* Changing the security policy associated with OU will apply the changes to all hosts in the OU.
+* Changing the security policy associated with OU applies the changes to all hosts in the OU.
 
 ### Diagrams
 
@@ -65,9 +63,9 @@ Ensure that you meet the following prerequisites:
 
 * You must have an active ExpressRoute circuit.
   * For information about creating an ExpressRoute circuit, see [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md). 
-  * Verify that the circuit is enabled by your connectivity provider. 
+  * Verify that the circuit get enabled by your connectivity provider. 
   * Verify that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
-  * Verify that you have a VNet and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
+  * Verify that you have a VNet and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType *ExpressRoute*, not VPN.
 
 * The ExpressRoute virtual network gateway must be connected to the ExpressRoute circuit. For more information, see [Connect a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
 
@@ -97,7 +95,7 @@ Ensure that you meet the following prerequisites:
 
 ## <a name="creategpo"></a>1. Create a GPO
 
-1. Create a new GPO linked to an OU by opening the Group Policy Management snap-in. Then locate the OU to which the GPO will be linked. In the example, the OU is named **IPSecOU**. 
+1. Create a new GPO linked to an OU by opening the Group Policy Management snap-in. Then locate the OU to which the GPO gets linked. In the example, the OU is named **IPSecOU**. 
 
    [![9]][9]
 2. In the Group Policy Management snap-in, select the OU, and right-click. In the dropdown, select "**Create a GPO in this domain, and Link it here…**".
@@ -172,7 +170,7 @@ Create a filter list that specifies encrypted HTTP traffic with destination port
 7. On the **IP Protocol Type** page, select **TCP**. Then, select **Next**.
 
    [![30]][30]
-8. On the **IP Protocol Port** page, select **From any port** and **To this port:**. Type **8080** in the text box. These settings specify only the HTTP traffic on destination port 8080 will be encrypted. Then, select **Next**.
+8. On the **IP Protocol Port** page, select **From any port** and **To this port:**. Type **8080** in the text box. These settings specify only the HTTP traffic on destination port 8080 gets encrypted. Then, select **Next**.
 
    [![31]][31]
 9. View the IP filter list.  The configuration of the IP Filter List **azure-onpremises-HTTP8080** triggers encryption for all traffic that matches the following criteria:
@@ -201,7 +199,7 @@ To encrypt the same type of traffic from the on-premises host to the Azure VM, y
 
    [![36]][36]
 
-If encryption is required between an on-premises location and an Azure subnet to protect an application. Instead of modifying the existing IP filter list, you can add a new IP filter list. Associating two or more IP filters lists to the same IPsec policy will provide you with more flexibility. You can modify or remove an IP filter list without affecting the other IP filter lists.
+If encryption is required between an on-premises location and an Azure subnet to protect an application. Instead of modifying the existing IP filter list, you can add a new IP filter list. Associating two or more IP filters lists to the same IPsec policy can provide you with more flexibility. You can modify or remove an IP filter list without affecting the other IP filter lists.
 
 ## <a name="ipsecpolicy"></a>6. Create an IPsec security policy 
 
@@ -232,7 +230,7 @@ Add to the IPsec policy the **IP Filter List** and **Filter Action** that you pr
    [![42]][42]
 3. A rule provides the option to define the IPsec mode: tunnel mode or transport mode.
 
-   * In tunnel mode, the original packet is encapsulated by a set of IP headers. Tunnel mode protects the internal routing information by encrypting the IP header of the original packet. Tunnel mode is widely implemented between gateways in site-to-site VPN scenarios. Tunnel mode is in most of cases used for end-to-end encryption between hosts.
+   * In tunnel mode, the original packet gets encapsulated with a set of IP headers. Tunnel mode protects the internal routing information by encrypting the IP header of the original packet. Tunnel mode is widely implemented between gateways in site-to-site VPN scenarios. Tunnel mode is in most of cases used for end-to-end encryption between hosts.
 
    * Transport mode encrypts only the payload and ESP trailer; the IP header of the original packet isn't encrypted. In transport mode, the IP source and IP destination of the packets are unchanged.
 
@@ -248,7 +246,7 @@ Add to the IPsec policy the **IP Filter List** and **Filter Action** that you pr
 6. Select the existing Filter Action **myEncryption** that you created previously.
 
    [![46]][46]
-7. Windows supports four distinct types of authentications: Kerberos, certificates, NTLMv2, and pre-shared key. Since we're working with domain-joined hosts, select **Active Directory default (Kerberos V5 protocol)**, and then select **Next**.
+7. Windows supports four distinct types of authentications: Kerberos, certificates, NTLMv2, and preshared key. Since we're working with domain-joined hosts, select **Active Directory default (Kerberos V5 protocol)**, and then select **Next**.
 
    [![47]][47]
 8. The new policy creates the security rule: **azure-onpremises-HTTP8080**. Select **OK**.
@@ -263,7 +261,7 @@ The IPsec policy requires all HTTP connections on the destination port 8080 to u
 
    [![49]][49]
 2. To assign the security group policy to the OU **IPSecOU**, right-click the security policy and chose **Assign**.
-   Every computer tht belongs to the OU will have the security group policy assigned.
+   Every computer that belongs to the OU has the security group policy assigned.
 
    [![50]][50]
 

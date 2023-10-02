@@ -7,7 +7,7 @@ ms.date: 10/21/2021
 ms.author: alkohli
 ---
 
-Take the following steps if returning the device in Hong Kong.
+Take the following steps if returning the device in Hong Kong Special Administrative Region.
 
 1. Pack the device for return shipment in the original box.
 2. Spool and securely place the power cord that was provided with the device in the back of the device.

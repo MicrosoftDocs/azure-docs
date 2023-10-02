@@ -2,12 +2,11 @@
 title: Monitor and troubleshoot device connectivity to Azure IoT Hub
 description: Learn to monitor and troubleshoot common errors with device connectivity for Azure IoT Hub 
 author: kgremban
-manager: briz
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 11/06/2020
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: troubleshooting
+ms.date: 11/06/2020
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
 
 #Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
@@ -31,7 +30,7 @@ Connectivity issues for IoT devices can be difficult to troubleshoot because the
 
 ## Event Grid vs. Azure Monitor
 
-Event Grid provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure. Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alert when that number drops below a static threshold.
+Event Grid provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure. Azure Monitor provides a metric called *Connected devices* that you can use to monitor the number of devices connected to your IoT Hub and trigger an alert when that number drops below a static threshold.
 
 Consider the following when deciding whether to use Event Grid or Azure Monitor for a particular scenario:
 
@@ -43,13 +42,13 @@ Consider the following when deciding whether to use Event Grid or Azure Monitor 
 
 ## Event Grid: Monitor connect and disconnect events
 
-To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state. Event Grid provides lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
 
 When you use Event Grid to monitor or trigger alerts on device disconnects, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal on devices that use the Azure IoT SDKs. To learn more, see [MQTT device disconnect behavior with Azure IoT SDKs](#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
 
-Explore the following topics to learn more about monitoring device connection events with Event Grid:
+Explore the following articles to learn more about monitoring device connection events with Event Grid:
 
-* For an overview of using Event Grid with IoT Hub, see [React to IoT Hub events with Event Grid](iot-hub-event-grid.md). Pay particular attention to the [Limitations for device connected and device disconnected events](iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events) section.
+* For an overview of using Event Grid with IoT Hub, see [React to IoT Hub events with Event Grid](iot-hub-event-grid.md). Pay particular attention to the [Limitations for device connection state events](iot-hub-event-grid.md#limitations-for-device-connection-state-events) section.
 
 * For a tutorial about ordering device connection events, see [Order device connection events from Azure IoT Hub using Azure Cosmos DB](iot-hub-how-to-order-connection-state-events.md).
 
@@ -102,7 +101,7 @@ After you've created a diagnostic setting to route IoT Hub resource logs to Azur
 
 Use the following problem resolution guides for help with the most common errors:
 
-* [400027 ConnectionForcefullyClosedOnNewConnection](troubleshoot-error-codes.md#400027-connectionforcefullyclosedonnewconnection)
+* [400027 ConnectionForcefullyClosedOnNewConnection](troubleshoot-error-codes.md#400027-connection-forcefully-closed-on-new-connection)
 
 * [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)
 
@@ -171,7 +170,7 @@ AzureDiagnostics
 
 As an IoT solutions developer or operator, you need to be aware of this behavior in order to interpret connect/disconnect events and related errors in logs. If you want to change the token lifespan or renewal behavior for devices, check to see whether the device implements a device twin setting or a device method that makes this possible.
 
-If you're monitoring device connections with Event Hubs, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal. For example, do not trigger actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
+If you're monitoring device connections with Event Hubs, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal. For example, don't trigger actions based on disconnects as long as the disconnect event is followed by a connect event within a certain time span.
 
 > [!NOTE]
 > IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
@@ -186,14 +185,12 @@ If the previous steps didn't help, try:
 
 * Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 
-* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Get help from [Microsoft Q&A question page for Azure IoT Hub](/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
-
-To help improve the documentation for everyone, leave a comment in the feedback section below if this guide didn't help you.
 
 ## Next steps
 
 * To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-* To learn more about Azure IoT SDK and managing retries, see [How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
+* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns).

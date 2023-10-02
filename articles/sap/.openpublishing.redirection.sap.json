@@ -1,0 +1,1265 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-alerts-portal.md",
+      "redirect_url": "/azure/sap/monitor/get-alerts-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-faq.yml",
+      "redirect_url": "/azure/sap/monitor/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-providers.md",
+      "redirect_url": "/azure/sap/monitor/providers",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-sap-quickstart-powershell.md",
+      "redirect_url": "/azure/sap/monitor/quickstart-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/azure-monitor-sap-quickstart.md",
+      "redirect_url": "/azure/sap/monitor/quickstart-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-db-2-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/provider-ibm-db2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-ha-cluster-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/provider-ha-pacemaker-cluster",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-hana-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/provider-hana",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-linux-os-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/provider-linux",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-netweaver-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/provider-netweaver",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/configure-sql-server-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/provider-sql-server",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/create-network-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/set-up-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/monitor-sap-on-azure-reference.md",
+      "redirect_url": "/azure/sap/monitor/data-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/monitor-sap-on-azure.md",
+      "redirect_url": "/azure/sap/monitor/about-azure-monitor-sap-solutions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-get-files.md",
+      "redirect_url": "/azure/sap/automation/bom-get-files",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-templates-db.md",
+      "redirect_url": "/azure/sap/automation/bom-templates-db",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-prepare.md",
+      "redirect_url": "/azure/sap/automation/bom-prepare",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-control-plane.md",
+      "redirect_url": "/azure/sap/automation/configure-control-plane",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-devops.md",
+      "redirect_url": "/azure/sap/automation/configure-devops",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-extra-disks.md",
+      "redirect_url": "/azure/sap/automation/configure-extra-disks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-sap-parameters.md",
+      "redirect_url": "/azure/sap/automation/configure-sap-parameters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-system.md",
+      "redirect_url": "/azure/sap/automation/configure-system",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-webapp.md",
+      "redirect_url": "/azure/sap/automation/configure-webapp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-configure-workload-zone.md",
+      "redirect_url": "/azure/sap/automation/configure-workload-zone",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deploy-control-plane.md",
+      "redirect_url": "/azure/sap/automation/deploy-control-plane",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deploy-system.md",
+      "redirect_url": "/azure/sap/automation/deploy-system",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deploy-workload-zone.md",
+      "redirect_url": "/azure/sap/automation/deploy-workload-zone",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-deployment-framework.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-devops-tutorial.md",
+      "redirect_url": "/azure/sap/automation/devops-tutorial",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-faq.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-get-started.md",
+      "redirect_url": "/azure/sap/automation/get-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-manual-deployment.md",
+      "redirect_url": "/azure/sap/automation/manual-deployment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-naming-module.md",
+      "redirect_url": "/azure/sap/automation/naming-module",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-naming.md",
+      "redirect_url": "/azure/sap/automation/naming",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-new-vs-existing.md",
+      "redirect_url": "/azure/sap/automation/new-vs-existing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-plan-deployment.md",
+      "redirect_url": "/azure/sap/automation/plan-deployment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-reference-bash.md",
+      "redirect_url": "/azure/sap/automation/reference-bash",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-reference-powershell.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-run-ansible.md",
+      "redirect_url": "/azure/sap/automation/run-ansible",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-software.md",
+      "redirect_url": "/azure/sap/automation/software",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-supportability.md",
+      "redirect_url": "/azure/sap/automation/supportability",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-tools-configuration.md",
+      "redirect_url": "/azure/sap/automation/tools-configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-tutorial.md",
+      "redirect_url": "/azure/sap/automation/tutorial",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-advanced_state_management.md",
+      "redirect_url": "/azure/sap/automation/bash/advanced-state-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_deployer.md",
+      "redirect_url": "/azure/sap/automation/bash/install-deployer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_library.md",
+      "redirect_url": "/azure/sap/automation/bash/install-library",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-install_workloadzone.md",
+      "redirect_url": "/azure/sap/automation/bash/install-workloadzone",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-installer.md",
+      "redirect_url": "/azure/sap/automation/bash/installer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-prepare-region.md",
+      "redirect_url": "/azure/sap/automation/bash/prepare-region",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/sap/automation/bash/prepare-region.md",
+      "redirect_url": "/azure/sap/automation/bash/deploy-controlplane",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-remove-region.md",
+      "redirect_url": "/azure/sap/automation/bash/remove-region",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/sap/automation/bash/remove-region.md",
+      "redirect_url": "/azure/sap/automation/bash/remove-controlplane",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-remover.md",
+      "redirect_url": "/azure/sap/automation/bash/remover",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-set-secrets.md",
+      "redirect_url": "/azure/sap/automation/bash/set-secrets",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/bash/automation-update_sas_token.md",
+      "redirect_url": "/azure/sap/automation/bash/update-sas-token",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapautomationregion.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapdeployer.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-saplibrary.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapsystem.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-new-sapworkloadzone.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-remove-sapautomationregion.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-remove-sapsystem.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-set-sapsecrets.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-update-tfstate.md",
+      "redirect_url": "/azure/sap/automation/deployment-framework",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-overview-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/hana-overview-architecture",
+      "redirect_document_id": true
+    },
+
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-know-terms.md",
+      "redirect_url": "/azure/sap/large-instances/hana-know-terms",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-certification.md",
+      "redirect_url": "/azure/sap/large-instances/hana-certification",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-available-skus.md",
+      "redirect_url": "/azure/sap/large-instances/hana-available-skus",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-sizing.md",
+      "redirect_url": "/azure/sap/large-instances/hana-sizing",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-onboarding-requirements.md",
+      "redirect_url": "/azure/sap/large-instances/hana-onboarding-requirements",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-data-tiering-extension-nodes.md",
+      "redirect_url": "/azure/sap/large-instances/hana-data-tiering-extension-nodes",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-operations-model.md",
+      "redirect_url": "/azure/sap/large-instances/hana-operations-model",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance.md",
+      "redirect_url": "/azure/sap/large-instances/os-compatibility-matrix-hana-large-instance",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/hana-architecture",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-network-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/hana-network-architecture",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-storage-architecture.md",
+      "redirect_url": "/azure/sap/large-instances/hana-storage-architecture",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-supported-scenario.md",
+      "redirect_url": "/azure/sap/large-instances/hana-supported-scenario",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity.md",
+      "redirect_url": "/azure/sap/large-instances/hana-overview-infrastructure-connectivity",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances.md",
+      "redirect_url": "/azure/sap/large-instances/hana-connect-azure-vm-large-instances",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-connect-vnet-express-route.md",
+      "redirect_url": "/azure/sap/large-instances/hana-connect-vnet-express-route",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-additional-network-requirements.md",
+      "redirect_url": "/azure/sap/large-instances/hana-additional-network-requirements",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md",
+      "redirect_url": "/azure/sap/large-instances/hana-overview-high-availability-disaster-recovery",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-backup-restore.md",
+      "redirect_url": "/azure/sap/large-instances/hana-backup-restore",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-concept-preparation.md",
+      "redirect_url": "/azure/sap/large-instances/hana-concept-preparation",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-failover-procedure.md",
+      "redirect_url": "/azure/sap/large-instances/hana-failover-procedure",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/troubleshooting-monitoring.md",
+      "redirect_url": "/azure/sap/large-instances/troubleshooting-monitoring",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-monitor-troubleshoot.md",
+      "redirect_url": "/azure/sap/large-instances/hana-monitor-troubleshoot",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-installation.md",
+      "redirect_url": "/azure/sap/large-instances/hana-installation",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-example-installation.md",
+      "redirect_url": "/azure/sap/large-instances/hana-example-installation",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-li-portal.md",
+      "redirect_url": "/azure/sap/large-instances/hana-li-portal",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/ha-setup-with-fencing-device.md",
+      "redirect_url": "/azure/sap/large-instances/ha-setup-with-fencing-device",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/large-instance-os-backup.md",
+      "redirect_url": "/azure/sap/large-instances/large-instance-os-backup",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-backup-hli-type-ii-skus.md",
+      "redirect_url": "/azure/sap/large-instances/os-backup-hli-type-ii-skus",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/large-instance-high-availability-rhel.md",
+      "redirect_url": "/azure/sap/large-instances/large-instance-high-availability-rhel",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md",
+      "redirect_url": "/azure/sap/large-instances/hana-large-instance-enable-kdump",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-upgrade-hana-large-instance.md",
+      "redirect_url": "/azure/sap/large-instances/os-upgrade-hana-large-instance",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-setup-smt.md",
+      "redirect_url": "/azure/sap/large-instances/hana-setup-smt",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration.md",
+      "redirect_url": "/azure/sap/large-instances/hana-large-instance-virtual-machine-migration",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/business-one-azure.md",
+      "redirect_url": "/azure/sap/workloads/business-one-azure",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/businessobjects-deployment-guide-linux.md",
+      "redirect_url": "/azure/sap/workloads/businessobjects-deployment-guide-linux",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/businessobjects-deployment-guide-windows.md",
+      "redirect_url": "/azure/sap/workloads/businessobjects-deployment-guide-windows",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/businessobjects-deployment-guide.md",
+      "redirect_url": "/azure/sap/workloads/businessobjects-deployment-guide",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql.md",
+      "redirect_url": "/azure/sap/workloads/cal-ides-erp6-erp7-sp3-sql",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/cal-s4h.md",
+      "redirect_url": "/azure/sap/workloads/cal-s4h",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-ha-ibm",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_general.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-general",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_ibm.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-ibm",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_maxdb.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-maxdb",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_oracle.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-oracle",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sapase.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-sapase",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms_guide_sqlserver.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-sqlserver",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/deployment-guide.md",
+      "redirect_url": "/azure/sap/workloads/deployment-guide",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/disaster-recovery-overview-guide.md",
+      "redirect_url": "/azure/sap/workloads/disaster-recovery-overview-guide",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/disaster-recovery-sap-guide.md",
+      "redirect_url": "/azure/sap/workloads/disaster-recovery-sap-guide",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/exchange-online-integration-sap-email-outbound.md",
+      "redirect_url": "/azure/sap/workloads/exchange-online-integration-sap-email-outbound",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/expose-sap-odata-to-power-query.md",
+      "redirect_url": "/azure/sap/workloads/expose-sap-odata-to-power-query",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/expose-sap-process-orchestration-on-azure.md",
+      "redirect_url": "/azure/sap/workloads/expose-sap-process-orchestration-on-azure",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/get-started.md",
+      "redirect_url": "/azure/sap/workloads/get-started",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-get-started.md",
+      "redirect_url": "/azure/sap/workloads/hana-get-started",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-operations-netapp.md",
+      "redirect_url": "/azure/sap/workloads/hana-vm-operations-netapp",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md",
+      "redirect_url": "/azure/sap/workloads/hana-vm-operations-storage",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-operations.md",
+      "redirect_url": "/azure/sap/workloads/hana-vm-operations",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-premium-ssd-v1.md",
+      "redirect_url": "/azure/sap/workloads/hana-vm-premium-ssd-v1",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-premium-ssd-v2.md",
+      "redirect_url": "/azure/sap/workloads/hana-vm-premium-ssd-v2",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+      "redirect_url": "/azure/sap/workloads/hana-vm-troubleshoot-scale-out-ha-on-sles",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-vm-ultra-disk.md",
+      "redirect_url": "/azure/sap/workloads/hana-vm-ultra-disk",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-glusterfs",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-ibm-db2-luw",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-multi-sid",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-netapp-files",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-nfs-azure-files.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-nfs-azure-files",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-pacemaker",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-with-dialog-instance.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-with-dialog-instance",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-standard-load-balancer-outbound-connections",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-suse-multi-sid",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-suse-netapp-files",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-suse-nfs-azure-files",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-simple-mount.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-suse-nfs-simple-mount",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-suse-nfs",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-suse-pacemaker",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-suse.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-suse",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-windows-azure-files-smb.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-windows-azure-files-smb",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-windows-dfs.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-windows-dfs",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-windows-netapp-files-smb",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-guide-wsfc-shared-disk",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-multi-sid.md",
+      "redirect_url": "/azure/sap/workloads/sap-ascs-ha-multi-sid-wsfc-shared-disk",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/integration-get-started.md",
+      "redirect_url": "/azure/sap/workloads/integration-get-started",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/lama-installation.md",
+      "redirect_url": "/azure/sap/workloads/lama-installation",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/planning-guide-storage.md",
+      "redirect_url": "/azure/sap/workloads/planning-guide-storage",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/planning-guide.md",
+      "redirect_url": "/azure/sap/workloads/planning-guide",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md",
+      "redirect_url": "/azure/sap/workloads/sap-ascs-ha-multi-sid-wsfc-azure-shared-disk",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share.md",
+      "redirect_url": "/azure/sap/workloads/sap-ascs-ha-multi-sid-wsfc-file-share",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk.md",
+      "redirect_url": "/azure/sap/workloads/sap-ascs-ha-multi-sid-wsfc-shared-disk",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-certifications.md",
+      "redirect_url": "/azure/sap/workloads/certifications",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
+      "redirect_url": "/azure/sap/workloads/deployment-checklist",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-get-started-classic.md",
+      "redirect_url": "/azure/sap/workloads/get-started",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-zones",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-availability-across-regions.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-availability-across-regions",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-availability-one-region.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-availability-one-region",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-availability-overview.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-availability-overview",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability-netapp-files-red-hat",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability-netapp-files-suse",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability-rhel",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability-scale-out-hsr-rhel",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability-scale-out-hsr-suse",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-scale-out-standby-netapp-files-rhel",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-scale-out-standby-netapp-files-suse",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-architecture-scenarios",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide-start.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-guide-start",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-guide-wsfc-file-share",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-guide-wsfc-shared-disk",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-guide-wsfc-shared-disk",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-file-share",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-infrastructure-wsfc-shared-disk",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-installation-wsfc-file-share",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk.md",
+      "redirect_url": "/azure/sap/workloads/sap-high-availability-installation-wsfc-shared-disk",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-multi-sid.md",
+      "redirect_url": "/azure/sap/workloads/sap-ascs-ha-multi-sid-wsfc-shared-disk",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-higher-availability-architecture-scenarios.md",
+      "redirect_url": "/azure/sap/workloads/sap-higher-availability-architecture-scenarios",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-information-lifecycle-management.md",
+      "redirect_url": "/azure/sap/workloads/sap-information-lifecycle-management",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-iq-deployment-guide.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-sapiq",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-planning-supported-configurations.md",
+      "redirect_url": "/azure/sap/workloads/planning-supported-configurations",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md",
+      "redirect_url": "/azure/sap/workloads/proximity-placement-scenarios",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-rise-integration.md",
+      "redirect_url": "/azure/sap/workloads/rise-integration",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-supported-product-on-azure.md",
+      "redirect_url": "/azure/sap/workloads/supported-product-on-azure",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/vm-extension-for-sap-new.md",
+      "redirect_url": "/azure/sap/workloads/vm-extension-for-sap-new",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/vm-extension-for-sap-standard.md",
+      "redirect_url": "/azure/sap/workloads/vm-extension-for-sap-standard",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/vm-extension-for-sap.md",
+      "redirect_url": "/azure/sap/workloads/vm-extension-for-sap",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/enable-tls-azure-monitor-sap-solutions.md",
+      "redirect_url": "/azure/sap/monitor/enable-tls-azure-monitor-sap-solutions",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/certifications.md",
+      "redirect_url": "/azure/sap/workloads/certifications",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-general.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-general",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-ibm.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-ibm",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-maxdb.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-maxdb",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-oracle.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-oracle",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sapase.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-sapase",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sapiq.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-sapiq",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/dbms-guide-sqlserver.md",
+      "redirect_url": "/azure/sap/workloads/dbms-guide-sqlserver",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/deployment-checklist.md",
+      "redirect_url": "/azure/sap/workloads/deployment-checklist",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-zones.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-zones",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/planning-supported-configurations.md",
+      "redirect_url": "/azure/sap/workloads/planning-supported-configurations",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/proximity-placement-scenarios.md",
+      "redirect_url": "/azure/sap/workloads/proximity-placement-scenarios",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/rise-integration.md",
+      "redirect_url": "/azure/sap/workloads/rise-integration",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/supported-product-on-azure.md",
+      "redirect_url": "/azure/sap/workloads/supported-product-on-azure",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md",
+      "redirect_url": "/azure/sap/workloads/high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/sap/workloads/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+      "redirect_url": "/azure/sap/workloads/sap-hana-high-availability-scale-out-hsr-suse",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/deploy-s4hana.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/deploy-s4hana",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/faq.yml",
+      "redirect_url": "/azure/sap/center-sap-solutions/faq",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/get-quality-checks-insights.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/get-quality-checks-insights",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/index.yml",
+      "redirect_url": "/azure/sap/index",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/install-software.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/install-software",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/manage-virtual-instance.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/manage-virtual-instance",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/monitor-portal.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/monitor-portal",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/overview.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/overview",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/prepare-network.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/prepare-network",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/register-existing-system.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/register-existing-system",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/start-stop-sap-systems.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/start-stop-sap-systems",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/view-cost-analysis.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/view-cost-analysis",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/manage-with-azure-rbac.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/manage-with-azure-rbac",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/center-sap-solutions/get-sap-installation-media.md",
+      "redirect_url": "/azure/sap/center-sap-solutions/get-sap-installation-media",
+      "redirect_document_id": true
+    },
+
+  ]
+}

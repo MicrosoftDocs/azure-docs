@@ -8,10 +8,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/21/2022
+ms.date: 03/27/2023
 ms.author: owenrichards
-ms.custom: aaddev, devx-track-python, has-adal-ref, engagement-fy23
-
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
@@ -215,6 +214,10 @@ There are various ways you can acquire tokens in a desktop application.
 - [Device code flow](scenario-desktop-acquire-token-device-code-flow.md)
 
 ---
+
+> [!IMPORTANT]
+If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
+
 ## Next steps
 
 Move on to the next article in this scenario,

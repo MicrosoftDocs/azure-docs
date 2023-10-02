@@ -2,17 +2,15 @@
 title: azcopy
 description: This article provides reference information for the azcopy command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
 ms.date: 07/21/2022
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
 # azcopy
-
-Current version: 10.15.0
 
 AzCopy is a command-line tool that moves data into and out of Azure Storage. See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
@@ -60,3 +58,4 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 - [azcopy remove](storage-ref-azcopy-remove.md)
 - [azcopy sync](storage-ref-azcopy-sync.md)
 - [azcopy set-properties](storage-ref-azcopy-set-properties.md)
+

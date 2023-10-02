@@ -1,39 +1,41 @@
 ---
-title: Azure Chaos Studio service limits
-description: Understand the throttling and usage limits for Azure Chaos Studio
+title: Azure Chaos Studio Preview service limits
+description: Understand the throttling and usage limits for Azure Chaos Studio.
 author: prasha-microsoft 
 ms.author: prashabora
 ms.service: chaos-studio
 ms.date: 11/01/2021
 ms.topic: reference
-ms.custom: ignite-fall-2021
+ms.custom: 
 ---
 
-# Azure Chaos Studio service limits
-This article provides service limits for Azure Chaos Studio. 
+# Azure Chaos Studio Preview service limits
+This article provides service limits for Azure Chaos Studio Preview. For more information about Azure-wide service limits and quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+
 ## Experiment and target limits
 
-Chaos Studio applies limits to the number of objects, duration of activities, and retention of data.
+Chaos Studio applies limits to the number of resources, duration of activities, and retention of data.
 
-| Limit | Value |
-| -- | -- |
-| Actions per experiment | 9 |
-| Branches per experiment | 9 |
-| Steps per experiment | 4 |
-| Action duration (hours) | 12 |
-| Concurrent experiments executing per region and subscription | 5 |
-| Total experiment duration (hours) | 12 |
-| Number of experiments per region and subscription | 500 |
-| Number of targets per action | 50 |
-| Number of active agents per target | 1,000 |
-| Number of targets per region and subscription | 10,000 |
+| Limit | Value | Description |
+|--|--|--|
+| Actions per experiment | 9 | The maximum number of actions (such as faults or time delays) in an experiment. |
+| Branches per experiment | 9 | The maximum number of parallel tracks that can execute within an experiment. |
+| Steps per experiment | 4 | The maximum number of steps that execute in series within an experiment. |
+| Action duration (hours) | 12 | The maximum time duration of an individual action. |
+| Total experiment duration (hours) | 12 | The maximum duration of an individual experiment, including all actions. |
+| Concurrent experiments executing per region and subscription | 5 | The number of experiments that can run at the same time within a region and subscription. |
+| Experiment history retention time (days) | 120 | The time period after which individual results of experiment executions are automatically removed. |
+| Number of experiment resources per region and subscription | 500 | The maximum number of experiment resources a subscription can store in a given region. |
+| Number of targets per action | 50 | The maximum number of resources an individual action can target for execution. For example, the maximum Virtual Machines that can be shut down by a single Virtual Machine Shutdown fault. |
+| Number of agents per target | 1,000 | The maximum number of running that can be associated with a single target. For example, the agents running on all instances within a single Virtual Machine Scale Set. |
+| Number of targets per region and subscription | 10,000 | The maximum number of target resources within a single subscription and region. |
 
 ## API throttling limits
 
-Chaos Studio applies limits to all ARM operations. Requests made over the limit are throttled. All request limits are applied for a five-minute interval unless otherwise specified.
+Chaos Studio applies limits to all Azure Resource Manager operations. Requests made over the limit are throttled. All request limits are applied for a **five-minute interval** unless otherwise specified. For more information about Azure Resource Manager requests, see [Throttling Resource Manager requests](../azure-resource-manager/management/request-limits-and-throttling.md).
 
 | Operation | Requests |
-| -- | -- |
+|--|--|
 | Microsoft.Chaos/experiments/write | 100 |
 | Microsoft.Chaos/experiments/read | 300 |
 | Microsoft.Chaos/experiments/delete | 100 |
@@ -45,7 +47,8 @@ Chaos Studio applies limits to all ARM operations. Requests made over the limit 
 | Microsoft.Chaos/targets/read | 600 |
 | Microsoft.Chaos/targets/delete | 200 |
 | Microsoft.Chaos/targets/capabilities/write | 600 |
-| Microsoft.Chaos/targets/capabilities/read | 1800 |
+| Microsoft.Chaos/targets/capabilities/read | 1,800 |
 | Microsoft.Chaos/targets/capabilities/delete | 600 |
 | Microsoft.Chaos/locations/targetTypes/read | 50 |
 | Microsoft.Chaos/locations/targetTypes/capabilityTypes/read | 50 |
+

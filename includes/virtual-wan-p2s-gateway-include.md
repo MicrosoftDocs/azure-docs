@@ -23,11 +23,13 @@ ms.topic: include
 
       You must turn on "Use Remote/On-premises RADIUS server" if users will connect to the global VPN profile instead of the hub-based profile. For more information, see [global and hub-level profiles](../articles/virtual-wan/global-hub-profile.md).
 
-      After you create the User VPN gateway, go to gateway and note the RADIUS proxy IPs field. The RADIUS proxy IPs are the source IPs of the RADIUS packets the User VPN gateway sends to your RADIUS server. Therefore, your RADIUS server needs to be configured to accept authentication requests from the RADIUS proxy IPs. If the RADIUS proxy IPs field is blank or none, configure the RADIUS server to accept authentication requests from the hub's address space.  
+      After you create the User VPN gateway, go to gateway and note the RADIUS proxy IPs field. The RADIUS proxy IPs are the source IPs of the RADIUS packets the User VPN gateway sends to your RADIUS server. Therefore, your RADIUS server needs to be configured to accept authentication requests from the RADIUS proxy IPs. If the RADIUS proxy IPs field is blank or none, configure the RADIUS server to accept authentication requests from the hub's address space.
+      
+      Additionally, make sure to set the associations and propagations of the connection (VNet or on-premises) hosting the RADIUS server propagates to the defaultRouteTable of the hub deployed with the Point-to-site VPN gateway, and that the Point-to-site VPN configuration propagates to the route table of the connection hosting the RADIUS server. This is mandatory to make sure the gateway can talk to the RADIUS server and vice versa.
 
       :::image type="content" source="media/virtual-wan-p2s-hub/radius-proxy-ips.png" alt-text="Screenshot of User V P N Config with RADIUS Proxy I Ps." lightbox="media/virtual-wan-p2s-hub/radius-proxy-ips.png":::
 
-   * **Client address pool** -  The address pool from which IP addresses will be automatically assigned to VPN clients. For more information, see [About client address pools](../articles/virtual-wan/about-client-address-pools.md).
+   * **Client address pool** -  The address pool from which IP addresses will be automatically assigned to VPN clients. Address pools must be distinct. There can be no overlap between address pools. For more information, see [About client address pools](../articles/virtual-wan/about-client-address-pools.md).
    * **Custom DNS Servers** - The IP address of the DNS server(s) the clients will use. You can specify up to 5.
 
 1. Select **Review + create** to validate your settings.

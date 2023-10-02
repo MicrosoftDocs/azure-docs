@@ -11,11 +11,14 @@ ms.custom: ignite-fall-2021
 
 # Required outbound network rules
 
-The Azure Managed Instance for Apache Casandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
+The Azure SQL Managed Instance for Apache Casandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
+
+> [!WARNING]
+> We recommend exercising caution when applying changes to firewall rules for an existing cluster. For example, if rules are not applied correctly, they might not be applied to existing connections, so it may appear that firewall changes have not caused any problems. However, automatic updates of the Cassandra Managed Instance nodes may subsequently fail. We recommend monitoring connectivity after any major firewall updates for some time to ensure there are no issues.
 
 ## Virtual network service tags
 
-If you are using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). Below are the tags required to make Azure Managed Instance for Apache Cassandra function properly.
+If you're using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). Below are the tags required to make Azure SQL Managed Instance for Apache Cassandra function properly.
 
 | Destination Service Tag                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
@@ -37,7 +40,7 @@ If you are using Azure Firewall to restrict outbound access, we highly recommend
 
 ## User-defined routes
 
-If you are using a 3rd party Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See sample [bash script](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) to add the required address prefixes in user-defined routes.
+If you're using a third-party Firewall to restrict outbound access, we highly recommend configuring [user-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) for Microsoft address prefixes, rather than attempting to allow connectivity through your own Firewall. See sample [bash script](https://github.com/Azure-Samples/cassandra-managed-instance-tools/blob/main/configureUDR.sh) to add the required address prefixes in user-defined routes.
 
 ## Azure Global required network rules
 
@@ -68,7 +71,7 @@ The system uses DNS names to reach the Azure services described in this article 
 
 ## Internal port usage
 
-The following ports are only accessible within the VNET (or peered vnets./express routes). Managed Instance for Apache Cassandra instances do not have a public IP and should not be made accessible on the Internet.
+The following ports are only accessible within the VNET (or peered vnets./express routes). SQL Managed Instance for Apache Cassandra instances do not have a public IP and should not be made accessible on the Internet.
 
 | Port | Use |
 | ---- | --- |
@@ -80,7 +83,7 @@ The following ports are only accessible within the VNET (or peered vnets./expres
 
 ## Next steps
 
-In this article, you learned about network rules to properly manage the service. Learn more about Azure Managed Instance for Apache Cassandra with the following articles:
+In this article, you learned about network rules to properly manage the service. Learn more about Azure SQL Managed Instance for Apache Cassandra with the following articles:
 
-* [Overview of Azure Managed Instance for Apache Cassandra](introduction.md)
-* [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
+* [Overview of Azure SQL Managed Instance for Apache Cassandra](introduction.md)
+* [Manage Azure SQL Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)

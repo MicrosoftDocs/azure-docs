@@ -34,7 +34,7 @@ The EFLOW virtual machine is made up of two main partitions *rootfs*, and *data*
 
 Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory `/var/.eflow/overlays`. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, see [*overlayfs*](https://docs.kernel.org/filesystems/overlayfs.html).
 
-![EFLOW CR partition layout](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png)
+[ ![EFLOW CR partition layout](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png) ](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png#lightbox)
 
 | Partition | Size | Description | 
 | --------- |---------- |------------ |
@@ -44,7 +44,6 @@ Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specif
 | BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
 | BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS B | 4 GB | One of two active/passive partitions holding the root file system |
-| Unused | 4 GB | This partition is reserved for future use |
 | Log | 1 GB or 6 GB | Logs specific partition mounted under /logs |
 | Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 

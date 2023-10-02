@@ -2,7 +2,7 @@
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
 ms.topic: how-to
-ms.date: 04/16/2021
+ms.date: 06/29/2023
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
 ---
@@ -74,7 +74,7 @@ Request body:
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "18.04-LTS"
+            "sku": "22.04-LTS"
         },
         "diskEncryptionConfiguration": {
             "targets": [
@@ -82,7 +82,7 @@ Request body:
                 "TemporaryDisk"
             ]
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 22.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
@@ -100,8 +100,8 @@ az batch pool create \
     --id diskencryptionPool \
     --vm-size Standard_DS1_V2 \
     --target-dedicated-nodes 2 \
-    --image canonical:ubuntuserver:18.04-LTS \
-    --node-agent-sku-id "batch.node.ubuntu 18.04" \
+    --image canonical:ubuntuserver:22.04-LTS \
+    --node-agent-sku-id "batch.node.ubuntu 22.04" \
     --disk-encryption-targets OsDisk TemporaryDisk
 ```
 

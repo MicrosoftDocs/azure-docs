@@ -4,7 +4,8 @@ description: Learn how to use Application Insights to capture locally pre-aggreg
 ms.topic: conceptual
 ms.date: 08/22/2022
 ms.devlang: csharp
-ms.reviewer: casocha
+ms.custom: devx-track-dotnet
+ms.reviewer: mmcc
 ---
 
 # Capture Application Insights custom metrics with .NET and .NET Core

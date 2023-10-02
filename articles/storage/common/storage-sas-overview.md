@@ -3,14 +3,14 @@ title: Grant limited access to data with shared access signatures (SAS)
 titleSuffix: Azure Storage
 description: Learn about using shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 01/25/2023
-ms.author: jammart
+ms.date: 06/07/2023
+ms.author: akashdubey
 ms.reviewer: dineshm
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ---
 
 # Grant limited access to Azure Storage resources using shared access signatures (SAS)
@@ -71,7 +71,7 @@ A shared access signature can take one of the following two forms:
 
 ## How a shared access signature works
 
-A shared access signature is a signed URI that points to one or more storage resources. The URI includes a token that contains a special set of query parameters. The token indicates how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the key that was used to create the SAS. This signature is used by Azure Storage to authorize access to the storage resource.
+A shared access signature is a token that is appended to the URI for an Azure Storage resource. The token that contains a special set of query parameters that indicate how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the key that was used to create the SAS. This signature is used by Azure Storage to authorize access to the storage resource.
 
 > [!NOTE]
 > It's not possible to audit the generation of SAS tokens. Any user that has privileges to generate a SAS token, either by using the account key, or via an Azure role assignment, can do so without the knowledge of the owner of the storage account. Be careful to restrict permissions that allow users to generate SAS tokens. To prevent users from generating a SAS that is signed with the account key for blob and queue workloads, you can disallow Shared Key access to the storage account. For more information, see [Prevent authorization with Shared Key](shared-key-authorization-prevent.md).
@@ -108,9 +108,12 @@ The SAS token is a string that you generate on the client side, for example by u
 
 Client applications provide the SAS URI to Azure Storage as part of a request. Then, the service checks the SAS parameters and the signature to verify that it is valid. If the service verifies that the signature is valid, then the request is authorized. Otherwise, the request is declined with error code 403 (Forbidden).
 
-Here's an example of a service SAS URI, showing the resource URI and the SAS token. Because the SAS token comprises the URI query string, the resource URI must be followed first by a question mark, and then by the SAS token:
+Here's an example of a service SAS URI, showing the resource URI, the delimiter character ('?'), and the SAS token.
 
-![Components of a service SAS URI](./media/storage-sas-overview/sas-storage-uri.png)
+:::image type="content" source="media/storage-sas-overview/sas-storage-uri.svg" alt-text="Diagram showing the components of a resource URI with SAS token.":::
+
+> [!NOTE]
+> The delimiter character ('?') for the query string is not part of the SAS token. If you generate a SAS token from the portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs, you may need to append the delimiter character to the resource URL.
 
 ## When to use a shared access signature
 
@@ -170,7 +173,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 - **Be careful with SAS datetime format.** For some utilities (such as AzCopy), date/time values must be formatted as '+%Y-%m-%dT%H:%M:%SZ'. This format specifically includes the seconds.
 
-- **Be specific with the resource to be accessed.** A security best practice is to provide a user with the minimum required privileges. If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities. This also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
+- **Grant the least possible privileges with the SAS.** A security best practice is to provide a user with the minimum required privileges to the fewest possible resources. Use a read-only SAS when possible. If a user needs only read access to a single object, then grant them read access to that single object, and not read/write/delete access to all objects. This also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
 
    There is no direct way to identify which clients have accessed a resource. However, you can use the unique fields in the SAS, the signed IP (`sip`), signed start (`st`), and signed expiry (`se`) fields, to track access. For example, you can generate a SAS token with a unique expiry time that you can then correlate with the client to whom it was issued.
 
@@ -182,7 +185,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 - **Use Azure Monitor and Azure Storage logs to monitor your application.** Authorization failures can occur because of an outage in your SAS provider service. They can also occur from an inadvertent removal of a stored access policy. You can use Azure Monitor and storage analytics logging to observe any spike in these types of authorization failures. For more information, see [Azure Storage metrics in Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) and [Azure Storage Analytics logging](storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json).
 
-- **Configure a SAS expiration policy for the storage account.** Best practices recommend that you limit the interval for a SAS in case it is compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a service SAS or an account SAS. For more information, see [Create an expiration policy for shared access signatures](sas-expiration-policy.md). 
+- **Configure a SAS expiration policy for the storage account.** Best practices recommend that you limit the interval for a SAS in case it is compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a service SAS or an account SAS. For more information, see [Create an expiration policy for shared access signatures](sas-expiration-policy.md).
 
 > [!NOTE]
 > Storage doesn't track the number of shared access signatures that have been generated for a storage account, and no API can provide this detail. If you need to know the number of shared access signatures that have been generated for a storage account, you must track the number manually.

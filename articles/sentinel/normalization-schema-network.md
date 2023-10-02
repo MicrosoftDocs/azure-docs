@@ -51,7 +51,7 @@ Refer to the article [Managing ASIM parsers](normalization-manage-parsers.md) to
 
 ### Filtering parser parameters
 
-The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
+The Network Session parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
 
 The following filtering parameters are available:
 
@@ -62,7 +62,7 @@ The following filtering parameters are available:
 | **srcipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
 | **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.|
 | **ipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) or [source IP address field](#srcipaddr) prefix is in one of the listed values. Prefixes should end with a `.`, for example: `10.0.`. The length of the list is limited to 10,000 items.<br><br>The field [ASimMatchingIpAddr](normalization-common-fields.md#asimmatchingipaddr) is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. |
-| **dstportnum** | Int | Filter only network sessions with the specified destination port number. |
+| **dstportnumber** | Int | Filter only network sessions with the specified destination port number. |
 | **hostname_has_any** | dynamic/string | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. The length of the list is limited to 10,000 items.<br><br> The field [ASimMatchingHostname](normalization-common-fields.md#asimmatchinghostname) is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. |
 | **dvcaction** | dynamic/string | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
 | **eventresult** | String | Filter only network sessions with a specific **EventResult** value. |
@@ -88,6 +88,16 @@ For a full list of analytics rules that use normalized DNS events, see [Network 
 
 The Network Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
+The Network Session schema serves several types of similar but distinct scenarios, which share the same fields. Those scenarios are identified by the EventType field:
+
+- `NetworkSession` - a network session reported by an intermediate device monitoring the network, such as a Firewall, a router, or a network tap.
+- `L2NetworkSession` - a network sessions for which only layer 2 information is available. Such events will include MAC addresses but not IP addresses. 
+- `Flow` - an aggregated event that reports multiple similar network sessions, typically over a predefined time period, such as **Netflow** events.  
+- `EndpointNetworkSession` - a network session reported by one of the end points of the session, including clients and servers. For such events, the schema supports the `remote` and `local` alias fields.
+- `IDS` - a network session reported as suspicious. Such an event will have some of the inspection fields populated, and may have just one IP address field populated, either the source or the destination.
+
+Typically, a query should either select just a subset of those event types, and may need to address separately unique aspects of the use cases. For example, IDS events do not reflect the entire network volume and should not be taken into account in column based analytics. 
+
 Network session events use the descriptors `Src` and `Dst` to denote the roles of the devices and related users and applications involved in the session. So, for example, the source device hostname and IP address are named `SrcHostname` and `SrcIpAddr`. Other ASIM schemas typically use `Target` instead of `Dst`.
 
 For events reported by an endpoint and for which the event type is `EndpointNetworkSession`, the descriptors `Local` and `Remote` denote the endpoint itself and the device at the other end of the network session respectively.
@@ -109,12 +119,12 @@ The following list mentions fields that have specific guidelines for Network Ses
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventCount** | Mandatory | Integer | Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
-| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Session records, the allowed values are:<br> - `EndpointNetworkSession`: for sessions reported by endpoint systems, including clients and servers. For such systems, the schema supports the `remote` and `local` alias fields. <br> - `NetworkSession`: for sessions reported by intermediary systems and network taps. <br> - `L2NetworkSession`: for sessions reported by intermediary systems and network taps, but which for which only layer 2 information is available. Such events will include MAC addresses but not IP addresses.  <br> - `Flow`: for `NetFlow` type aggregated flows, which group multiple similar sessions together. For such records, [EventSubType](#eventsubtype) should be left empty. |
-| <a name="eventsubtype"></a>**EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End` |
+| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the scenario reported by the record.<br><br> For Network Session records, the allowed values are:<br> - `EndpointNetworkSession`<br> - `NetworkSession` <br> - `L2NetworkSession`<br>- `IDS` <br> - `Flow`<br><br>For more information on event types, refer to the [schema overview](#schema-overview) |
+| <a name="eventsubtype"></a>**EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Session records, supported values include:<br>- `Start`<br>- `End`<br><br>This is field is not relevant for `Flow` events. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | If the source device does not provide an event result, **EventResult** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventResult** should be `Failure`. Otherwise, **EventResult** should be `Success`. |
-| **EventResultDetails** | Recommended | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Supported values are:<br> - Failover <br> - Invalid TCP <br> - Invalid Tunnel <br> - Maximum Retry <br> - Reset <br> - Routing issue <br> - Simulation <br> - Terminated <br> - Timeout <br> - Unknown <br> - NA.<br><br>The original, source specific, value is stored in the [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) field. |
+| **EventResultDetails** | Recommended | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Supported values are:<br> - Failover <br> - Invalid TCP <br> - Invalid Tunnel<br> - Maximum Retry<br> - Reset<br> - Routing issue<br> - Simulation<br> - Terminated<br> - Timeout<br> - Transient error<br> - Unknown<br> - NA.<br><br>The original, source specific, value is stored in the [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails) field. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.5`.        |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.6`.        |
 | <a name="dvcaction"></a>**DvcAction** | Recommended | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value might be provided in the source record by using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction) field.<br><br>Example: `drop` |
 | **EventSeverity** | Optional | Enumerated | If the source device does not provide an event severity, **EventSeverity** should be based on the value of [DvcAction](#dvcaction).  If [DvcAction](#dvcaction) is `Deny`, `Drop`, `Drop ICMP`, `Reset`, `Reset Source`, or `Reset Destination`<br>, **EventSeverity** should be `Low`. Otherwise, **EventSeverity** should be `Informational`. |
 | **DvcInterface** | | | The DvcInterface field should alias either the [DvcInboundInterface](#dvcinboundinterface) or the [DvcOutboundInterface](#dvcoutboundinterface) fields. |
@@ -188,7 +198,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **OuterVlanId** | Optional | Alias | Alias to [DstVlanId](#dstvlanid). <br><br>In many cases, the VLAN can't be determined as a source or a destination but is characterized as inner or outer. This alias to signifies that [DstVlanId](#dstvlanid) should be used when the VLAN is characterized as outer. |
 | <a name="dstsubscription"></a>**DstSubscriptionId** | Optional | String | The cloud platform subscription ID the destination device belongs to. **DstSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **DstGeoCountry** | Optional | Country | The country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
-| **DstGeoRegion** | Optional | Region | The region, or state, within a country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
+| **DstGeoRegion** | Optional | Region | The region, or state, associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DstGeoCity** | Optional | City | The city associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
 | **DstGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DstGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
@@ -246,7 +256,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **InnerVlanId** | Optional | Alias | Alias to [SrcVlanId](#srcvlanid). <br><br>In many cases, the VLAN can't be determined as a source or a destination but is characterized as inner or outer. This alias to signifies that [SrcVlanId](#srcvlanid) should be used when the VLAN is characterized as inner.    |
 | <a name="srcsubscription"></a>**SrcSubscriptionId** | Optional | String | The cloud platform subscription ID the source device belongs to. **SrcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
-| **SrcGeoRegion** | Optional | Region | The region within a country associated with the source IP address.<br><br>Example: `Vermont` |
+| **SrcGeoRegion** | Optional | Region | The region associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
 | **SrcGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the source IP address.<br><br>Example: `73.211944` |
@@ -368,6 +378,9 @@ The following are the changes in version 0.2.4 of the schema:
  
 The following are the changes in version 0.2.5 of the schema: 
 - Added the fields `DstUserScope`, `SrcUserScope`, `SrcDvcScopeId`, `SrcDvcScope`, `DstDvcScopeId`, `DstDvcScope`, `DvcScopeId`, and `DvcScope`.
+
+The following are the changes in version 0.2.6 of the schema: 
+- Added IDS as an event type
 
 
 ## Next steps

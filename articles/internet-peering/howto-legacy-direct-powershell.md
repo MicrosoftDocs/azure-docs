@@ -1,6 +1,6 @@
 ---
 title: Convert a legacy Direct peering to an Azure resource - PowerShell
-description: Convert a legacy Direct peering to an Azure resource using PowerShell
+description: Convert a legacy Direct peering to an Azure resource using PowerShell.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
@@ -118,8 +118,7 @@ You can get detailed descriptions of all the parameters by running this command:
 Get-Help Get-AzPeering -detailed
 ```
 
-For more information, see [Internet peering FAQs](faqs.md).
-
 ## Next steps
 
-* [Create or modify a Direct peering by using PowerShell](howto-direct-powershell.md)
+- [Create or modify a Direct peering by using PowerShell](howto-direct-powershell.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

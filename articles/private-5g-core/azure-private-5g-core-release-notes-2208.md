@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2208 release notes 
 description: Discover what's new in the Azure Private 5G Core 2208 release
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: release-notes
 ms.date: 09/23/2022
@@ -50,6 +50,7 @@ The following table provides a summary of known issues in this release.
   | 10 | 4G/5G signaling  | In rare scenarios, Azure Private 5G Core may corrupt the internal state of a packet data session, resulting in subsequent changes to that packet data session failing.  | Reinstall the Packet Core.  |
   | 11 | 4G/5G signaling  | In scenarios when the establishment of a PDU session has failed, Azure Private 5G Core may not automatically release the session, and the UE may need to re-register.  | The UE should re-register.  |
   | 12 | 4G/5G signaling  | 4G UEs that require both circuit switched (CS) and packet switched (PS) network availability to successfully attach to Azure Private 5G Core may disconnect after a successful attach.  | Update/enhance the UEs to support PS only networks if possible, as CS isn't supported by Azure Private 5G Core. If it isn't possible to reconfigure the UEs, customer support can apply a low-level configuration tweak to Azure Private 5G Core to let these UEs believe there's a CS network available.  |
+  | 13 | Packet forwarding  | When Azure Private 5G Core has NAT enabled on a data network, approximately one in every 65,536 downlink packets sent to a UE will be emitted with an incorrect IP checksum, which will likely cause it to be dropped.  | 
 
 ## Next steps
 

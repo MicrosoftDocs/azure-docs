@@ -7,9 +7,7 @@ ms.subservice: disks
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 01/04/2023
-
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)
 
@@ -84,7 +82,7 @@ You can manage your key vault with Azure CLI using the [az keyvault](/cli/azure/
 
 You can create a key vault by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
-1. On the Azure quickstart template, select **Deploy to Azure**.
+1. On the Azure Quickstart Template, select **Deploy to Azure**.
 2. Select the subscription, resource group, resource group location, Key Vault name, Object ID,  legal terms, and agreement, and then select **Purchase**.
 
 
@@ -124,7 +122,7 @@ Use the steps from the [Use portal to create an Azure Active Directory applicati
 1. [Verify required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 2. [Create an Azure Active Directory application](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
      - You can use any name and sign-on URL you would like when creating the application.
-3. [Get the application ID and the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+3. [Get the application ID and the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
      - The authentication key is the client secret and is used as the AadClientSecret for Set-AzVMDiskEncryptionExtension.
         - The authentication key is used by the application as a credential to sign in to Azure AD. In the Azure portal, this secret is called keys, but has no relation to key vaults. Secure this secret appropriately.
      - The application ID will be used later as the AadClientId for Set-AzVMDiskEncryptionExtension and as the ServicePrincipalName for Set-AzKeyVaultAccessPolicy.
@@ -181,7 +179,7 @@ The Azure platform needs access to the encryption keys or secrets in your key va
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
-  - **Enable Key Vault for deployment, if needed:** Enables the Microsoft.Compute resource provider to retrieve secrets from this key vault when this key vault is referenced in resource creation, for example when creating a virtual machine.
+  - **Enable Key Vault for deployment, if needed:** Enables the Microsoft. Compute resource provider to retrieve secrets from this key vault when this key vault is referenced in resource creation, for example when creating a virtual machine.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
@@ -374,7 +372,7 @@ If you would like to use certificate authentication, you can upload one to your 
 If you would like to use certificate authentication and wrap the encryption key with a KEK, you can use the below script as an example. Before using the PowerShell script, you should be familiar with  all of the previous Azure Disk Encryption prerequisites to understand the steps in the script. The sample script might need changes for your environment.
 
 
- ```powershell
+```powershell
 # Fill in 'MyKeyVaultResourceGroup', 'MySecureVault', and 'MyLocation' (if needed)
 
    $KVRGname = 'MyKeyVaultResourceGroup'

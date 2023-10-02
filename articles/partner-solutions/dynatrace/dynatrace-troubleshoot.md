@@ -1,12 +1,9 @@
 ---
 title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
-author: flang-msft
 
-ms.author: franlanglois
 ms.topic: conceptual
-ms.collection: na
-ms.date: 01/06/2023
+ms.date: 02/02/2023
 
 ---
 
@@ -39,11 +36,11 @@ This document contains information about troubleshooting your solutions that use
 
 - Create fails because Last Name is empty. The issue happens when the user info in Azure AD is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify the issue and try again.
 
-### Logs not being emitted
+### Logs not being emitted or Limit reached issue
 
 - Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
 
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal)
+- Limit of five diagnostic settings reached. This will display the message of Limit reached against the resource. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal) You can go-ahead and remove the other destinations to make sure each resource is sending data to at max five destinations.
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
@@ -58,6 +55,17 @@ This document contains information about troubleshooting your solutions that use
 
 - **App not showing in Single sign-on settings page** - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
 
+### Metrics checkbox disabled
+
+- To collect metrics you must have owner permission on the subscription. If you are a contributor, refer to the contributor guide mentioned in [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
+
 ## Next steps
 
 - Learn about [managing your instance](dynatrace-how-to-manage.md) of Dynatrace.
+- Get started with Azure Native Dynatrace Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

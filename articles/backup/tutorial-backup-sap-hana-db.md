@@ -3,9 +3,9 @@ title: Tutorial - Back up SAP HANA databases in Azure VMs
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
 ms.date: 05/16/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
@@ -141,7 +141,7 @@ The Recovery Services vault is now created.
 
 ## Enable Cross Region Restore
 
-At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
+At the Recovery Services vault, you can enable Cross Region Restore. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
 
 [Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
 

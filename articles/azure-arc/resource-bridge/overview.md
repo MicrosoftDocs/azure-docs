@@ -1,9 +1,9 @@
 ---
 title: Azure Arc resource bridge (preview) overview
 description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 01/06/2023
+ms.date: 02/15/2023
 ms.topic: overview
-ms.custom: references_regions 
+ms.custom: references_regions
 ---
 
 # What is Azure Arc resource bridge (preview)?
@@ -18,7 +18,6 @@ Arc resource bridge delivers the following benefits:
 * Fully supported by Microsoft, including updates to core components.
 * Designed to recover from software failures.
 * Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure Command-Line Interface (CLI).
-
 
 ## Overview
 
@@ -74,21 +73,24 @@ You can connect an SCVMM management server to Azure by deploying Azure Arc resou
 * Add, remove, and update network interfaces
 * Add, remove, and update disks and update VM size (CPU cores and memory)
 
-## Prerequisites
-
-[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments.
-
-If you are deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
-
-If you are deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
-
 ### Supported regions
 
-Arc resource bridge currently supports the following Azure regions:
+In order to use Arc resource bridge in a region, Arc resource bridge and the arc-enabled feature for a private cloud must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and the Arc VM management feature for Azure Stack HCI must be supported in East US. Please check with the private cloud product for their feature region availability - it is typically in their [deployment guide](deploy-cli.md#az-arcappliance-createconfig) for Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where the private cloud feature is not yet available. 
+
+Arc resource bridge supports the following Azure regions:
 
 * East US
+* East US 2
+* West US 2
+* West US 3
+* Central US
+
+* South Central US
 * West Europe
+* North Europe
 * UK South
+* Sweden Central
+
 * Canada Central
 * Australia East
 * Southeast Asia
@@ -101,7 +103,7 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 The following private cloud environments and their versions are officially supported for Arc resource bridge:
 
-* VMware vSphere version 6.7, 7.0
+* VMware vSphere version 6.7, 7.0, 8.0
 * Azure Stack HCI
 * SCVMM
 
@@ -112,11 +114,12 @@ The following private cloud environments and their versions are officially suppo
 
 ### Networking
 
-Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
-
-You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server.
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#not-able-to-connect-to-url) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
 ## Next steps
 
 * Learn more about [how Azure Arc-enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure](../vmware-vsphere/overview.md).
 * Learn more about [provisioning and managing on-premises Windows and Linux VMs running on Azure Stack HCI clusters](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
+* Review the [system requirements](system-requirements.md) for deploying and managing Arc resource bridge.
+
+

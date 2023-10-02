@@ -1,0 +1,91 @@
+items:
+  - name: Overview
+    href: deployment-framework.md
+  - name: Concepts
+    items:
+    - name: Supported platforms and features
+      href: supportability.md
+    - name: Naming conventions
+      href: naming.md
+    - name: Plan your automated deployment
+      href: plan-deployment.md
+    - name: Using a custom naming convention
+      href: naming-module.md
+    - name: Configuration
+      items:
+      - name: Configure Azure DevOps
+        href: configure-devops.md
+      - name: Configure the control plane
+        href: configure-control-plane.md
+      - name: Configure Configuration Web App
+        href: configure-webapp.md
+      - name: Configure the workload zone
+        href: configure-workload-zone.md
+      - name: Configure the SAP system
+        href: configure-system.md
+      - name: Configure SAP parameters
+        href: configure-sap-parameters.md
+      - name: Configure custom disk sizing
+        href: configure-extra-disks.md
+      - name: Configure external tools
+        href: tools-configuration.md
+  - name: How-to guides
+    items:
+    - name: Get started with automation framework
+      href: get-started.md
+    - name: Upgrading the automation framework
+      href: upgrading.md
+    - name: Deployment
+      items:
+      - name: Deploy the control plane
+        href: deploy-control-plane.md
+      - name: Deploy the workload zone
+        href: deploy-workload-zone.md
+      - name: Deploy the SAP system
+        href: deploy-system.md
+      - name: Use Ansible for system configuration
+        href: run-ansible.md
+      - name: Deployment hands-on lab
+        href: tutorial.md
+      - name: Deployment DevOps hands-on lab
+        href: devops-tutorial.md
+      - name: Manual infrastructure deployment
+        href: manual-deployment.md
+      - name: Sample deployment configurations
+        href: new-vs-existing.md
+    - name: SAP Bill of Materials
+      items:
+      - name: Download and prepare software media
+        href: software.md
+      - name: Get SAP media for BOM
+        href: bom-get-files.md
+      - name: Prepare BOM
+        href: bom-prepare.md
+      - name: Create automation template files
+        href: bom-templates-db.md
+  - name: Reference
+    items:
+    - name: Bash
+      items:
+        - name: Bash scripts for automation framework
+          href: reference-bash.md
+        - name: Deploying the control plane using shell scripts
+          href: bash/deploy-controlplane.md
+        - name: Deploying the workload zone using shell scripts
+          href: bash/install-workloadzone.md
+        - name: Deploying the SAP system using shell scripts
+          href: bash/installer.md
+        - name: Bootstrapping the Deployer using shell scripts
+          href: bash/install-deployer.md
+        - name: Bootstrapping the Library using shell scripts
+          href: bash/install-library.md
+        - name: Removing the control plane using shell scripts
+          href: bash/remove-controlplane.md
+        - name: Removing the SAP system using shell scripts
+          href: bash/remover.md
+        - name: Set the Keyvault secrets using shell scripts
+          href: bash/set-secrets.md
+        - name: Update the Terraform state file using shell scripts
+          href: bash/advanced-state-management.md
+        - name: Update the SAP Library SAS token
+          href: bash/update-sas-token.md

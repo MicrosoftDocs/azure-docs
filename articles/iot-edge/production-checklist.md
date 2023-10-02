@@ -49,7 +49,7 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge
 * CA certificates
 
-[Device Update for IoT Hub](../iot-hub-device-update/index.yml) (Preview) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
+[Device Update for IoT Hub](../iot-hub-device-update/index.yml) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
 
 Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
@@ -318,7 +318,9 @@ If your networking setup requires that you explicitly permit connections made fr
 
 In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
-Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
+#### Container registries
+
+The **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
 This checklist is a starting point for firewall rules:
 
@@ -343,9 +345,18 @@ You can enable dedicated data endpoints in your Azure Container registry to avoi
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
-> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
+> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/main/docs/client-firewall-rules.md)
 
 If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
+
+#### Azure IoT Identity Service
+
+The [IoT Identity Service](https://azure.github.io/iot-identity-service/) provides provisioning and cryptographic services for Azure IoT devices. The identity service checks if the installed version is the latest version. The check uses the following FQDNs to verify the version.
+
+| FQDN | Outbound TCP Ports | Usage |
+| ---- | ------------------ | ----- |
+| `aka.ms` | 443 | Vanity URL that provides redirection to the version file |
+| `raw.githubusercontent.com` | 443 | The identity service version file hosted in GitHub |
 
 ### Configure communication through a proxy
 

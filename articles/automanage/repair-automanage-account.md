@@ -5,7 +5,7 @@ ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, subject-rbac-steps
+ms.custom: devx-track-azurecli, subject-rbac-steps
 ---
 
 # Repair an Automanage Account

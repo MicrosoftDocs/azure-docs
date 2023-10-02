@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 12/12/2022
 ms.reviewer: azfuncdf
 ms.devlang: java
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-extended-java
 zone_pivot_groups: create-java-durable-options
 ---
 

@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot the mongodb connector
+title: Troubleshoot the MongoDB connector
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to troubleshoot issues with the mongodb connector in Azure Data Factory and Azure Synapse Analytics. 
+description: Learn how to troubleshoot issues with the MongoDB connector in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 12/02/2022
+ms.date: 07/24/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -28,12 +28,24 @@ This article provides suggestions to troubleshoot common problems with the Mongo
 
 - **Resolution**: In the MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
+## Migrate to the new version of MongoDB connector
+
+- **Symptoms**: You meet the following error code and error message:
+    - **Error code**: `DeprecatedMongoDbOdbcConnector`
+    - **Error message**: `The legacy MongoDB connector has been deprecated. To ensure your pipeline works, please create a new MongoDB linked service. Detailed instructions can be found in this documentation: https://learn.microsoft.com/azure/data-factory/connector-mongodb#upgrade-the-mongodb-linked-service`
+
+- **Cause**: 
+    Your pipeline is still running on a legacy MongoDB connector that causes the error. 
+
+- **Resolution**: 
+    Upgrade your MongoDB linked service to the latest version. Refer to this [article](connector-mongodb.md#upgrade-the-mongodb-linked-service).
+
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)

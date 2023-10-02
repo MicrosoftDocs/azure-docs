@@ -5,10 +5,10 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/17/2021
 ms.reviewer: Daya-Patil
-ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, mode-arm
-author: v-amallick
+ms.custom: mvc, subject-bicepqs, mode-arm, devx-track-bicep
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 #  Back up a virtual machine in Azure with a Bicep template

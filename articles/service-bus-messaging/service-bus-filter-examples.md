@@ -2,8 +2,9 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 03/25/2022
+ms.date: 02/28/2023
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Set subscription filters (Azure Service Bus)
@@ -357,6 +358,16 @@ namespace SendAndReceiveMessages
 ## Next steps
 See the following samples: 
 
-- [.NET - Basic send and receive tutorial with filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
-- [.NET - Topic filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [Managing rules](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample12_ManagingRules.md).  
+- [.NET - Basic send and receive tutorial with filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters). This sample uses the old `Microsoft.Azure.ServiceBus` package. See the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) to learn how to migrate from using the old SDK to new SDK (`Azure.Messaging.ServiceBus`).
+- [.NET - Topic filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters). This sample uses the old `Microsoft.Azure.ServiceBus` package.
 - [Azure Resource Manager template](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
+
+
+Try the samples in the language of your choice to explore Azure Service Bus features. 
+
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)

@@ -1,13 +1,15 @@
 ---
 title: Create a Linux VM in Azure with multiple NICs 
 description: Learn how to create a Linux VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates.
-author: cynthn
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/07/2018
-ms.author: cynthn
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 04/06/2023
+ms.author: mattmcinnes
+ms.reviewer: cynthn
 ---
 # How to create a Linux virtual machine in Azure with multiple network interface cards
 
@@ -82,7 +84,7 @@ Create a VM with [az vm create](/cli/azure/vm). The following example creates a 
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --size Standard_DS3_v2 \
     --admin-username azureuser \
     --generate-ssh-keys \

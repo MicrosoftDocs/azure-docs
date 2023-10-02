@@ -33,7 +33,7 @@ Navigate to the **Cost Analysis** page for your subscription:
 
     [![Managed online endpoint cost analysis: screenshot of a subscription in the Azure portal showing red box around "Cost Analysis" button on the left hand side.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis.png#lightbox)
 
-Create a filter to scope data to your Azure Machine learning workspace resource:
+Create a filter to scope data to your Azure Machine Learning workspace resource:
 
 1. At the top navigation bar, select **Add filter**.
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: danlep
-ms.custom: devx-track-python
+ms.custom:
 ---
 
 # API templates in Azure API Management

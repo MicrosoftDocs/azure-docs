@@ -5,14 +5,14 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/02/2022
 ms.author: danlep
 ---
 
 # Validate GraphQL request
 
-The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths. An invalid query is a "request error". Authorization is only done for valid requests. 
+The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths in a GraphQL API. An invalid query is a "request error". Authorization is only done for valid requests. 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -30,9 +30,9 @@ The `validate-graphql-request` policy validates the GraphQL request and authoriz
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| error-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| max-size | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
-| max-depth | An integer. Maximum query depth. | No | 6 |
+| error-variable-name | Name of the variable in `context.Variables` to log validation errors to. Policy expressions are allowed. |   No    | N/A   |
+| max-size | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) Policy expressions are allowed. | Yes       | N/A   |
+| max-depth | An integer. Maximum query depth. Policy expressions are allowed. | No | 6 |
 
 
 ## Elements
@@ -68,24 +68,28 @@ Available actions are described in the following table.
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ### Usage notes
   
-Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: 
+* Configure the policy for a [pass-through](graphql-api.md) or [synthetic](graphql-schema-resolve-api.md) GraphQL API that has been imported to API Management.
 
-* Mutation, query, or subscription
-* Individual field in a type declaration 
+* This policy can only be used once in a policy section.
 
-Permissions may not be applied to:
- 
-* Input types
-* Fragments
-* Unions
-* Interfaces
-* The schema element  
- 
+* Because GraphQL queries use a flattened schema, permissions may be applied at any leaf node of an output type: 
+
+    * Mutation, query, or subscription
+    * Individual field in a type declaration 
+    
+    Permissions may not be applied to:
+     
+    * Input types
+    * Fragments
+    * Unions
+    * Interfaces
+    * The schema element  
+     
 ## Error handling
 
 Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 
@@ -126,6 +130,6 @@ This example applies the following validation and authorization rules to a Graph
 
 ## Related policies
 
-* [API Management policies for GraphQL APIs](graphql-policies.md)
+* [Validation policies](api-management-policies.md#validation-policies)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

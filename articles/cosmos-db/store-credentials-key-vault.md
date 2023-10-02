@@ -26,7 +26,7 @@ It's not a good practice to store the endpoint URI and sensitive read-write keys
 
 Azure Key Vault iterates on this best practice further by allowing you to store these credentials securely while giving services like Azure App Service managed access to the credentials. Azure App Service will securely read your credentials from Azure Key Vault and inject those credentials into your running application.
 
-With this best practice, developers can store the credentials for tools like the [Azure Cosmos DB emulator](local-emulator.md) or [Try Azure Cosmos DB free](try-free.md) during development. Then, the operations team can ensure that the correct production settings are injected at runtime.
+With this best practice, developers can store the credentials for tools like the [Azure Cosmos DB emulator](emulator.md) or [Try Azure Cosmos DB free](try-free.md) during development. Then, the operations team can ensure that the correct production settings are injected at runtime.
 
 In this tutorial, you learn how to:
 
@@ -139,7 +139,7 @@ Now, store your Azure Cosmos DB credentials as secrets in the key vault.
 
 In this section, create a new Azure Web App, deploy a sample application, and then register the Web App's managed identity with Azure Key Vault.
 
-1. Create a new GitHub repository using the [cosmos-db-nosql-dotnet-sample-web-environment-variables template](https://github.com/azure-samples/cosmos-db-nosql-dotnet-sample-web-environment-variables/generate).
+1. Create a new GitHub repository using the [cosmos-db-nosql-dotnet-sample-web-environment-variables template](https://github.com/azure-samples/cosmos-db-nosql-dotnet-sample-web-environment-variables).
 
 1. In the Azure portal, select **Create a resource > Web > Web App**.
 

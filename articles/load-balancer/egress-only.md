@@ -1,13 +1,13 @@
 ---
 title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
-description: In this article, learn about how to create an internal load balancer with outbound NAT
+description: In this article, learn about how to create an internal load balancer with outbound NAT.
 author: mbender-ms
-ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 12/27/2022
 ms.author: mbender
+ms.custom: template-how-to, seodec18
 ---
 
 # Outbound-only load balancer configuration
@@ -38,6 +38,12 @@ In this section, you'll create a virtual network and subnet for the load balance
 ### Create the virtual network
 
 In this section, you'll create the virtual network and subnets for the virtual machine, load balancer, and bastion host.
+
+ > [!IMPORTANT]
+
+ > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+ >
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
 

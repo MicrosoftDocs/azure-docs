@@ -1,14 +1,17 @@
 ---
 title: Enable audio effects detection  
-description: Audio Effects Detection is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
+description: Audio Effects Detection is one of Azure AI Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (for example, gunshot, screaming, crowd reaction and more).
 ms.topic: how-to
-ms.date: 01/04/2022
-ms.author: juliako
+ms.date: 05/24/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Enable audio effects detection (preview)
 
-**Audio effects detection** is one of Azure Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
+**Audio effects detection** is one of Azure AI Video Indexer AI capabilities that detects various acoustics events and classifies them into different acoustic categories (such as dog barking, crowd reactions, laugher and more).
 
 Some scenarios where this feature is useful:
 
@@ -18,31 +21,36 @@ Some scenarios where this feature is useful:
 
 ## Supported audio categories  
 
-**Audio effect detection** can detect and classify 7 different categories. In the next table, you can find the different categories split in to the different presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+**Audio effect detection** can detect and classify different categories. In the following table, you can find the different categories split in to the different presets, divided to **Standard** and **Advanced**. For more information, see [pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
+
+The following table shows which categories are supported depending on **Preset Name** (**Audio Only** / **Video + Audio** vs. **Advance Audio** / **Advance Video + Audio**). When you are using the **Advanced** indexing, categories appear in the **Insights** pane of the website.
 
 |Indexing type |Standard indexing| Advanced indexing|
 |---|---|---|
-|**Preset Name** |**"Audio Only"** <br/>**"Video + Audio"** |**"Advance Audio"**<br/> **"Advance Video + Audio"**|
-|**Appear in insights pane**|| V|
 | Crowd Reactions || V|
 | Silence| V| V|
 | Gunshot or explosion ||V |
 | Breaking glass ||V|
 | Alarm or siren|| V |
 | Laughter|| V |
-| Dog barking|| V|
+| Dog || V|
+| Bell ringing|| V|
+| Bird|| V|
+| Car|| V|
+| Engine|| V|
+| Crying|| V|
+| Music playing|| V|
+| Screaming|| V|
+| Thunderstorm || V|
 
 ## Result formats
 
-The audio effects are retrieved in the insights JSON that includes the category ID, type, name, and set of instances per category along with their specific timeframe and confidence score.
-
-The `name` parameter will be presented in the language in which the JSON was indexed, while the type will always remain the same.
+The audio effects are retrieved in the insights JSON that includes the category ID, type, and set of instances per category along with their specific timeframe and confidence score.
 
 ```json
 audioEffects: [{
         id: 0,
         type: "Gunshot or explosion",
-        name: "Gunshot",
         instances: [{
                 confidence: 0.649,
                 adjustedStart: "0:00:13.9",
@@ -60,7 +68,6 @@ audioEffects: [{
     }, {
         id: 1,
         type: "CrowdReactions",
-        name: "Crowd Reactions",
         instances: [{
                 confidence: 0.6816,
                 adjustedStart: "0:00:47.9",
@@ -89,7 +96,7 @@ In order to set the index process to include the detection of audio effects, sel
 
 ## Closed Caption
 
-When audio effects are retrieved in the closed caption files, they will be retrieved in square brackets the following structure:
+When audio effects are retrieved in the closed caption files, they are retrieved in square brackets the following structure:
 
 |Type| Example|
 |---|---|
@@ -99,21 +106,20 @@ When audio effects are retrieved in the closed caption files, they will be retri
 |TXT |[Gunshot or explosion]|
 |CSV |0.9047,00:00:00.000,00:00:03.671, [Gunshot or explosion]|
 
-Audio Effects in closed captions file will be retrieved with the following logic employed:
+Audio Effects in closed captions file is retrieved with the following logic employed:
 
-* `Silence` event type will not be added to the closed captions
-* Maximum duration to show an event I 5 seconds
-* Minimum timer duration to show an event is 700 milliseconds
+* `Silence` event type will not be added to the closed captions.
+* Minimum timer duration to show an event is 700 milliseconds.
 
 ## Adding audio effects in closed caption files
 
-Audio effects can be added to the closed captions files supported by Azure Video Indexer via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai website experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
+Audio effects can be added to the closed captions files supported by Azure AI Video Indexer via the [Get video captions API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Captions) by choosing true in the `includeAudioEffects` parameter or via the video.ai website experience by selecting **Download** -> **Closed Captions** -> **Include Audio Effects**.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/close-caption.jpg" alt-text="Audio Effects in CC":::
 
 > [!NOTE]
-> When using [update transcript](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Transcript) from closed caption files or [update custom language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) from closed caption files, audio effects included in those files will be ignored.
+> When using [update transcript](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Transcript) from closed caption files or [update custom language model](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Language-Model) from closed caption files, audio effects included in those files are ignored.
 
 ## Limitations and assumptions
 

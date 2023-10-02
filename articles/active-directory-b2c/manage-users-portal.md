@@ -2,15 +2,16 @@
 title: Create & delete Azure AD B2C consumer user accounts in the Azure portal
 description: Learn how to use the Azure portal to create and delete consumer users in your Azure AD B2C directory.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
-ms.author: kengaderdus
+ms.date: 05/26/2023
+ms.author: godonnell
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Use the Azure portal to create and delete consumer users in Azure AD B2C
@@ -27,14 +28,14 @@ As described in [Overview of user accounts in Azure AD B2C](user-overview.md), t
 * Guest
 * Consumer
 
-This article focuses on working with **consumer accounts** in the Azure portal. For information about creating and deleting Work and Guest accounts, see [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
+This article focuses on working with **consumer accounts** in the Azure portal. For information about creating and deleting Work and Guest accounts, see [Add or delete users using Microsoft Entra ID](../active-directory/fundamentals/add-users.md).
 
 ## Create a consumer user
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. In the left menu, select **Microsoft Entra ID**. Or, select **All services** and search for and select **Microsoft Entra ID**.
 1. Under **Manage**, select **Users**.
 1. Select **New user**.
 1. Select **Create Azure AD B2C user**.
@@ -59,9 +60,7 @@ To reset a user's password:
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to reset the password.
 1. Search for and select the user that needs the reset, and then select **Reset Password**.
 
-    The **Alain Charon - Profile** page appears with the **Reset password** option.
-
-    ![User's profile page, with Reset password option highlighted](media/manage-users-portal/user-profile-reset-password-link.png)
+:::image type="content" source="media/manage-users-portal/user-profile-reset-password-link.png" alt-text="Screenshot User's profile page with Reset Password option highlighted." lightbox="media/manage-users-portal/user-profile-reset-password-link.png":::
 
 1. In the **Reset password** page, select **Reset password**.
 1. Copy the password and give it to the user. The user will be required to change the password during the next sign-in process.
@@ -72,7 +71,30 @@ To reset a user's password:
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
+For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Microsoft Entra ID](../active-directory/fundamentals/users-restore.md).
+
+
+## Export consumer users
+
+1. In your Azure AD B2C directory, search for **Microsoft Entra ID**. 
+1. Select **Users**, and then select **Bulk Operations** and **Download Users**.
+1. Select **Start**, and then select **File is ready! Click here to download**.
+ 
+When downloading users via Bulk Operations option, the CSV file will bring users with their UPN attribute with the format *objectID@B2CDomain*. This is by design since that's the way the UPN information is stored in the B2C tenant.
+
+## Revoke a consumer user's session
+
+Currently, Azure AD B2C doesn't support user session revocation from the Azure portal. However, you can achieve this task by using Microsoft Graph PowerShell or [Microsoft Graph API](/graph/api/user-revokesigninsessions). If you choose to use Microsoft Graph PowerShell, use the following steps: 
+
+1. If you haven't done so, install [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation#installation) module.
+1. In your Windows PowerShell, run the following command, then respond to the prompts. This command allows you to sign in with the required scopes. You need to sign in with your Azure AD B2C admin account to consent to the required scopes:
+    ```powershell
+    Connect-MgGraph  -Scopes "User.ReadWrite.All"
+    ```
+1. After you successfully sign in, run the following command in your Windows PowerShell. Replace `$userId` with the consumer user's *objectId* or *UPN*. 
+    ```powershell
+    Revoke-MgUserSign -UserId $userId
+    ```
 
 ## Next steps
 

@@ -1,15 +1,18 @@
 ---
 title: Understand scope in Azure Policy
 description: Describes the concept of scope in Azure Resource Manager and how it applies to Azure Policy to control which resources Azure Policy evaluates.
-ms.date: 08/17/2021
+ms.date: 06/15/2023
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ---
+
 # Understand scope in Azure Policy
 
 There are many settings that determine which resources are capable of being evaluated and which
 resources are evaluated by Azure Policy. The primary concept for these controls is _scope_. Scope in
 Azure Policy is based on how scope works in Azure Resource Manager. For a high-level overview, see
 [Scope in Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
+
 This article explains the importance of _scope_ in Azure Policy and it's related objects and
 properties.
 
@@ -18,7 +21,7 @@ properties.
 The first instance scope used by Azure Policy is when a policy definition is created. The definition
 may be saved in either a management group or a subscription. The location determines the scope to
 which the initiative or policy can be assigned. Resources must be within the resource hierarchy of
-the definition location to target for assignment.
+the definition location to target for assignment. The [resources covered by Azure Policy](../overview.md#resources-covered-by-azure-policy) describes how policies are evaluated.
 
 If the definition location is a:
 
@@ -77,6 +80,8 @@ The following table is a comparison of the scope options:
 |**Resources are evaluated** | &#10004; | - | - |
 |**Resource Manager object** | - | - | &#10004; |
 |**Requires modifying policy assignment object** | &#10004; | &#10004; | - |
+
+So how do you choose whether to use an exclusion or exemption? Typically exclusions are recommended to permanently bypass evaluation for a broad scope like a test environment that doesn't require the same level of governance. Exemptions are recommended for time-bound or more specific scenarios where a resource or resource hierarchy should still be tracked and would otherwise be evaluated, but there's a specific reason it shouldn't be assessed for compliance.
 
 ## Next steps
 

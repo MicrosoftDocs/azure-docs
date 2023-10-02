@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.date: 11/09/2022
 ms.author: cwerner
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-js
 ---
 
 # Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app
@@ -103,9 +103,9 @@ The web app sample in this tutorial uses the [express-session](https://www.npmjs
 
 ## Add app registration details
 
-1. Create an *.env* file in the root of your project folder. Then add the following code:
+1. Create an *.env.dev* file in the root of your project folder. Then add the following code:
 
-:::code language="text" source="~/ms-identity-node/App/.env":::
+:::code language="text" source="~/ms-identity-node/App/.env.dev":::
 
 Fill in these details with the values you obtain from Azure app registration portal:
 
@@ -121,7 +121,7 @@ Fill in these details with the values you obtain from Azure app registration por
 - `Enter_the_Client_secret`: Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
 
 > [!WARNING]
-> Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
+> Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](./certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
 - `Enter_the_Graph_Endpoint_Here`: The Microsoft Graph API cloud instance that your app will call. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash).
 - `Enter_the_Express_Session_Secret_Here` the secret used to sign the Express session cookie. Choose a random string of characters to replace this string with, such as your client secret.
@@ -133,11 +133,15 @@ Fill in these details with the values you obtain from Azure app registration por
 
 ## Add code for user sign-in and token acquisition
 
-1. Create a new file named *auth.js* under the *routes* folder and add the following code there:
+1. Create a new folder named *auth*, and add a new file named *AuthProvider.js* under it. This will contain the **AuthProvider** class, which encapsulates the necessary authentication logic using MSAL Node. Add the following code there:
+
+:::code language="js" source="~/ms-identity-node/App/auth/AuthProvider.js":::
+
+1. Next, create a new file named *auth.js* under the *routes* folder and add the following code there:
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js":::
 
-2. Next, update the *index.js* route by replacing the existing code with the following code snippet:
+2. Update the *index.js* route by replacing the existing code with the following code snippet:
 
 :::code language="js" source="~/ms-identity-node/App/routes/index.js":::
 
@@ -185,13 +189,13 @@ You've completed creation of the application and are now ready to test the app's
 
 :::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/welcome-screen.png" alt-text="Web app welcome page displaying":::
 
-3. Select **Sign in** link. You should see the Azure AD sign-in screen:
+3. Select **Sign in** link. You should see the Microsoft Entra sign-in screen:
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-in-screen.png" alt-text="Azure AD sign-in screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-in-screen.png" alt-text="Microsoft Entra sign-in screen displaying":::
 
 4. Once you enter your credentials, you should see a consent screen asking you to approve the permissions for the app.
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent-screen.png" alt-text="Azure AD consent screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/consent-screen.png" alt-text="Microsoft Entra consent screen displaying":::
 
 5. Once you consent, you should be redirected back to application home page. 
 
@@ -205,13 +209,13 @@ You've completed creation of the application and are now ready to test the app's
 
 :::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/graph-call-screen.png" alt-text="Graph call screen displaying":::
 
-8. Go back to the home page, and select the **Sign out** link. You should see the Azure AD sign-out screen.
+8. Go back to the home page, and select the **Sign out** link. You should see the Microsoft Entra sign-out screen.
 
-:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-out-screen.png" alt-text="Azure AD sign-out screen displaying":::
+:::image type="content" source="media/tutorial-v2-nodejs-webapp-msal/sign-out-screen.png" alt-text="Microsoft Entra sign-out screen displaying":::
 
 ## How the application works
 
-In this tutorial, you instantiated an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD app registration on Azure portal. The web app you created uses the [OpenID Connect protocol](./v2-protocols-oidc.md) to sign-in users and the [OAuth 2.0 authorization code flow](./v2-oauth2-auth-code-flow.md) to obtain access tokens.
+In this tutorial, you instantiated an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Microsoft Entra app registration on Azure portal. The web app you created uses the [OpenID Connect protocol](./v2-protocols-oidc.md) to sign-in users and the [OAuth 2.0 authorization code flow](./v2-oauth2-auth-code-flow.md) to obtain access tokens.
 
 ## Next steps
 

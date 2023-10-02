@@ -3,13 +3,12 @@ title: Introduction to Blob (object) Storage
 titleSuffix: Azure Storage
 description: Use Azure Blob Storage to store massive amounts of unstructured object data, such as text or binary data. Azure Blob Storage is highly scalable and available.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: overview
-ms.date: 11/07/2022
-ms.author: tamram
-ms.subservice: blobs
+ms.date: 03/28/2023
+ms.author: akashdubey
 ms.custom: engagement-fy23
 ---
 
@@ -55,7 +54,7 @@ To learn how to create a storage account, see [Create a storage account](../comm
 
 A container organizes a set of blobs, similar to a directory in a file system. A storage account can include an unlimited number of containers, and a container can store an unlimited number of blobs.
 
-A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:
+A container name must be a valid DNS name, as it forms part of the unique URI (Uniform resource identifier) used to address the container or its blobs. Follow these rules when naming a container:
 
 - Container names can be between 3 and 63 characters long.
 - Container names must start with a letter or number, and can contain only lowercase letters, numbers, and the dash (-) character.

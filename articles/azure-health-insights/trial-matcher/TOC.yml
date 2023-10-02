@@ -1,0 +1,57 @@
+items: 
+- name: Trial Matcher
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+    - name: About Trial Matcher
+      href: overview.md
+    - name: Trial Matcher modes
+      href: trial-matcher-modes.md
+    - name: FAQ
+      href: faq.md
+- name: Quickstarts
+  expanded: true
+  items:
+     - name: Use the Trial Matcher
+       href: get-started.md
+- name: Responsible use of AI
+  expanded: true
+  items:
+    - name: Transparency note
+      href: transparency-note.md
+    - name: Integration and responsible use
+      href: integration-and-responsible-use.md
+    - name: Data, privacy, and security
+      href: ../responsible-ai/data-privacy-security.md
+- name: Concepts
+  expanded: true
+  items:
+     - name: Model configuration
+       href: model-configuration.md
+     - name: Patient information
+       href: patient-info.md
+     - name: Inference information
+       href: inferences.md
+- name: Reference
+  items:
+     - name: REST API
+       href: /rest/api/cognitiveservices/healthinsights/trial-matcher
+     - name: SDKs
+       items:
+         - name: .NET
+           href: /dotnet/api/overview/azure/health.insights.clinicalmatching-readme
+         - name: Java
+           href: /java/api/overview/azure/health-insights-clinicalmatching-readme
+         - name: Python
+           href: /python/api/overview/azure/healthinsights-clinicalmatching-readme
+- name: Resources
+  items:
+     - name: Enterprise readiness
+       items:
+        - name: Region Support
+          href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services
+        - name: Compliance and certification
+          href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+     - name: Support and help options
+       href: support-and-help.md

@@ -5,7 +5,8 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.service: azure-migrate
+ms.date: 05/22/2023
 ms.custom: MVC, engagement-fy23
 ---
 
@@ -266,7 +267,7 @@ Select VMs for migration.
 12. In  **Cache storage account**, keep the default option to use the cache storage account that is automatically created for the project. Use the dropdown if you'd like to specify a different storage account to use as the cache storage account for replication. <br/>
     > [!NOTE]
     >
-    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault )
+    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
     > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
 13. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
@@ -395,8 +396,8 @@ After you've verified that the test migration works as expected, you can migrate
     - Remove the on-premises VMs from local backups.
     - Update any internal documentation to show the new location and IP address of the Azure VMs.
 - Tweak Azure VM settings after migration:
-    - The [Azure VM agent](../virtual-machines/extensions/agent-windows.md) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMare VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.
-    - Manually uninstall the Mobility service from the Azure VM after migration.
+    - The [Azure VM agent](../virtual-machines/extensions/agent-windows.md) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMware VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.
+    - Manually uninstall the Mobility service from the Azure VM after migration. We recommend that you reboot the server when prompted.
     - Manually uninstall VMware tools after migration.
 - In Azure:
     - Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.

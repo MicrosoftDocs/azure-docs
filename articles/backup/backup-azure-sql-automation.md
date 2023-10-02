@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 07/15/2022
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell
@@ -43,7 +43,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 Set up PowerShell as follows:
 
-1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.5.0.
+1. [Download the latest version of Az PowerShell](/powershell/azure/install-azure-powershell). The minimum version required is 1.5.0.
 
 2. Find the Azure Backup PowerShell cmdlets with this command:
 

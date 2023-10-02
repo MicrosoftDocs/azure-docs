@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform delegated access scenario
-description: Learn about delegated access in the Microsoft identity platform endpoint.
+description: Learn about when and how to use delegated access in the Microsoft identity platform endpoint.
 services: active-directory
 author: omondiatieno
 manager: celesteDG
@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 03/15/2023
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
+
 ---
 # Understanding delegated access
 
@@ -25,13 +25,15 @@ People frequently use different applications to access their data from cloud ser
 
 Use delegated access whenever you want to let a signed-in user work with their own resources or resources they can access. Whether it’s an admin setting up policies for their entire organization or a user deleting an email in their inbox, all scenarios involving user actions should use delegated access.
 
+![Diagram shows illustration of delegated access scenario.](./media/delegated-access-primer/delegated-access.png)
+
 In contrast, delegated access is usually a poor choice for scenarios that must run without a signed-in user, like automation. It may also be a poor choice for scenarios that involve accessing many users’ resources, like data loss prevention or backups. Consider using [application-only access](permissions-consent-overview.md) for these types of operations.
 
 ## Requesting scopes as a client app
 
 Your app will need to ask the user to grant a specific scope, or set of scopes, for the resource app  you want to access. Scopes may also be referred to as delegated permissions. These scopes describe which resources and operations your app wants  to perform on the user’s behalf. For example, if you want your app to show the user a list of recently received mail messages and chat messages, you might ask the user to consent to the Microsoft Graph `Mail.Read` and `Chat.Read` scopes.
 
-Once your app has requested a scope, a user or admin will need to grant the requested access. Consumer users with Microsoft Accounts, like Outlook.com or Xbox Live accounts, can always grant scopes for themselves. Organizational users with Azure AD accounts may or may not be able to grant scopes, depending on their organization’s settings. If an organizational user can't consent to scopes directly, they'll need to ask their organization’s administrator to consent for them.
+Once your app has requested a scope, a user or admin will need to grant the requested access. Consumer users with Microsoft Accounts, like Outlook.com or Xbox Live accounts, can always grant scopes for themselves. Organizational users with Microsoft Entra accounts may or may not be able to grant scopes, depending on their organization’s settings. If an organizational user can't consent to scopes directly, they'll need to ask their organization’s administrator to consent for them.
 
 Always follow the principle of least privilege: you should never request scopes that your app doesn’t need. This principle helps limit the security risk if your app is compromised and makes it easier for administrators to grant your app access. For example, if your app only needs to list the chats a user belongs to but doesn’t need to show the chat messages themselves, you should request the more limited Microsoft Graph `Chat.ReadBasic` scope instead of `Chat.Read`. For more information about openID scopes, see [OpenID scopes](scopes-oidc.md).
 
@@ -44,8 +46,8 @@ If you’re building an API and want to allow delegated access on behalf of user
 
 The most important thing to remember about delegated access is that both your client app and the signed-in user need to be properly authorized. Granting a scope isn't enough. If either the client app doesn’t have the right scope, or the user doesn’t have sufficient rights to read or modify the resource, then the call will fail.
 
-- **Client app authorization** - Client apps are authorized by granting scopes. When a client app is granted a scope by a user or admin to access some resource, that grant will be recorded in Azure AD. All delegated access tokens that are requested by the client to access the resource on behalf of the relevant user will then contain those scopes’ claim values in the `scp` claim. The resource app checks this claim to determine whether the client app has been granted the correct scope for the call.
-- **User authorization** - Users are authorized by the resource you’re calling. Resource apps may use one or more systems for user authorization, such as [role-based access control](custom-rbac-for-developers.md), ownership/membership relationships, access control lists, or other checks. For example, Azure AD checks that a user has been assigned to an app management or general admin role before allowing them to delete an organization’s applications, but also allows all users to delete applications that they own. Similarly, SharePoint Online service checks that a user has appropriate owner or reader rights over a file before allowing that user to open it.
+- **Client app authorization** - Client apps are authorized by granting scopes. When a client app is granted a scope by a user or admin to access some resource, that grant will be recorded in Microsoft Entra ID. All delegated access tokens that are requested by the client to access the resource on behalf of the relevant user will then contain those scopes’ claim values in the `scp` claim. The resource app checks this claim to determine whether the client app has been granted the correct scope for the call.
+- **User authorization** - Users are authorized by the resource you’re calling. Resource apps may use one or more systems for user authorization, such as [role-based access control](custom-rbac-for-developers.md), ownership/membership relationships, access control lists, or other checks. For example, Microsoft Entra ID checks that a user has been assigned to an app management or general admin role before allowing them to delete an organization’s applications, but also allows all users to delete applications that they own. Similarly, SharePoint Online service checks that a user has appropriate owner or reader rights over a file before allowing that user to open it.
 
 ## Delegated access example – OneDrive via Microsoft Graph
 

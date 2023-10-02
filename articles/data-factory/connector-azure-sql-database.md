@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/15/2022
+ms.date: 04/06/2023
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -763,6 +763,8 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     }
     ```
 
+When writing data to into Azure SQL Database using stored procedure, the sink splits the source data into mini batches then do the insert, so the extra query in stored procedure can be executed multiple times. If you have the query for the copy activity to run before writing data into Azure SQL Database, it's not recommended to add it to the stored procedure, add it in the **Pre-copy script** box.
+
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to tables from Azure SQL Database. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
@@ -806,7 +808,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 :::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
-**Enable incremental extract**: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
+**Enable incremental extract**: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.To enable incremental extract with schema drift, choose tables based on Incremental / Watermark columns rather than tables that are enabled for Native Change Data Capture.
 
 **Incremental column**: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
 

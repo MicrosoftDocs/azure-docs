@@ -14,7 +14,7 @@
 The following limits apply only for networking resources managed through **Azure Resource Manager** per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/templates/error-resource-quota.md)
+> We have increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits manually increased by support in the past and are currently seeing limits lower than what is listed in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
 | Resource | Limit | 
 | --- | --- |
@@ -36,7 +36,8 @@ The following limits apply only for networking resources managed through **Azure
 | NSG rules per NSG |1,000 |
 | IP addresses and ranges specified for source or destination in a security group |4,000 |
 | Application security groups |3,000 |
-| Application security groups per IP configuration, per NIC |20 |
+| Application security groups per IP configuration, per NIC | 20 |
+| Application security groups referenced as source/destination per NSG rule | 10 |
 | IP configurations per application security group |4,000 |
 | Application security groups that can be specified within all security rules of a network security group |100 |
 | User-defined route tables |200 |
@@ -52,8 +53,9 @@ The following limits apply only for networking resources managed through **Azure
 | Public IP addresses<sup>1,2</sup> | 10 for Basic. | Contact support. |
 | Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
 | Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
-| Public IP Prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
+| Public IP prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
 | Public IP prefix length | /28 | Contact support. |
+| Custom IP prefixes | 5 | Contact support. |
 
 <sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
 
@@ -73,13 +75,10 @@ The following limits apply only for networking resources managed through Azure R
 | High-availability ports rule            | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
 | Backend pool size                       | 5,000                         |
-| Load Balancers per VM <sup>1<sup>       | 2 (1 Public and 1 internal)   |
-| Backend IP configurations per frontend <sup>2<sup> | 10,000                        |
+| Backend IP configurations per frontend <sup>1<sup> | 10,000                        |
 | Backend IP configurations across all frontends | 500,000 |
 
-<sup>1</sup> An exception to this limit is that 2 public load balancers can be in front of a VM if an IPv4 address config is used for one load balancer and IPv6 address config is used for the second. Note that this limit does not apply to IP-based load balancers. For more information on IP-based backend pools, refer to our documentation on [IP-based load balancers](../articles/load-balancer/backend-pool-management.md).
-
-<sup>2</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
+<sup>1</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
 
 Load Balancer doesn't apply any throughput limits. However, throughput limits for virtual machines and virtual networks still apply. For more information, see [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).
 

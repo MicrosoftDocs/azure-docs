@@ -3,8 +3,8 @@ title: Profile Azure Functions app with Application Insights Profiler
 description: Enable Application Insights Profiler for Azure Functions app.
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 07/15/2022
-ms.reviewer: jogrima
+ms.date: 09/22/2023
+ms.reviewer: ryankahng
 ---
 
 # Profile live Azure Functions app with Application Insights
@@ -23,7 +23,7 @@ In this article, you'll use the Azure portal to:
      
   :::image type="content" source="./media/profiler-azure-functions/choose-plan.png" alt-text="Screenshot of where to select App Service plan from drop-down in Functions app creation.":::
 
-- Linked to [an Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
+- Linked to [an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Make note of the instrumentation key.
 
 ## App settings for enabling Profiler
 
@@ -31,6 +31,7 @@ In this article, you'll use the Azure portal to:
 |---------------|----------|
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
+|APPINSIGHTS_INSTRUMENTATIONKEY | Unique value from your App Insights resource. |
 
 ## Add app settings to your Azure Functions app
 

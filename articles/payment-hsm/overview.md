@@ -19,6 +19,10 @@ Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K
 
 Payment HSMs are provisioned and connected directly to users' virtual network, and HSMs are under users' sole administration control. HSMs can be easily provisioned as a pair of devices and configured for high availability. Users of the service utilize [Thales payShield Manager](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager) for secure remote access to the HSMs as part of their Azure-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end-user business growth. Azure payment HSM service offers highest performance level 2500 CPS.
 
+Payment HSM devices are a variation of [Dedicated HSM](../dedicated-hsm/index.yml) devices, with more advanced cryptographic modules and features; for example, a payment HSM never decrypts the PIN value in transit.
+
+The Azure Payment HSM solution uses hardware from [Thales](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) as a vendor. Customers have [full control and exclusive access](overview.md#customer-managed-hsm-in-azure) to the Payment HSM.
+
 > [!IMPORTANT]
 > Azure Payment HSM a highly specialized service. We highly recommend that you review the [Azure Payment HSM pricing page](https://azure.microsoft.com/services/payment-hsm/) and [Getting started with Azure Payment HSM](getting-started.md#support).
 
@@ -114,7 +118,7 @@ Azure Payment HSM supports the following SKUs:
 |---|---|
 | 3DS | 3D Secure |
 | ATM | Automated Teller Machine |
-| EMV | Europay Mastercard Visa |
+| EMV | Euro Mastercard Visa |
 | FIPS | Federal Information Processing Standards |
 | HCE | Host Card Emulation |
 | HSM | Hardware Security Module |

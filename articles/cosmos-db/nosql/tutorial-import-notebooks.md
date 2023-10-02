@@ -29,7 +29,7 @@ This tutorial walks through how to import Jupyter notebooks from a GitHub reposi
 
 ## Create a copy of a GitHub repository
 
-1. Navigate to the [azure-samples/cosmos-db-nosql-notebooks](https://github.com/azure-samples/cosmos-db-nosql-notebooks/generate) template repository.
+1. Navigate to the [azure-samples/cosmos-db-nosql-notebooks](https://github.com/azure-samples/cosmos-db-nosql-notebooks) template repository.
 
 1. Create a new copy of the template repository in your own GitHub account or organization.
 

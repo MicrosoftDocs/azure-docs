@@ -1,5 +1,5 @@
 ---
-title: Understanding the OAuth2 implicit grant flow in Azure AD | Microsoft Docs
+title: Understanding the OAuth2 implicit grant flow in Azure AD
 description: Learn more about Azure Active Directory's implementation of the OAuth2 implicit grant flow, and whether it's right for your application.
 services: active-directory
 documentationcenter: dev-center-name
@@ -68,6 +68,6 @@ If you are developing a Web application that includes a backend, and consuming a
 
 <!--Reference style links in use-->
 [ACOM-How-And-Why-Apps-Added-To-AAD]: active-directory-how-applications-are-added.md
-[ACOM-How-To-Integrate]: ../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+[ACOM-How-To-Integrate]: ../develop/how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

@@ -3,14 +3,14 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/30/2022
-ms.author: jammart
+ms.author: akashdubey
 ms.reviewer: fryu
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
@@ -126,6 +126,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
+    -AllowBlobPublicAccess $false `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
@@ -152,6 +153,7 @@ az storage account create \
     --resource-group <resource-group> \
     --kind StorageV2 \
     --location <location> \
+    --allow-blob-public-access false \
     --min-tls-version TLS1_1
 
 az storage account show \
@@ -379,7 +381,7 @@ Role assignments must be scoped to the level of the storage account or higher to
 Be careful to restrict assignment of these roles only to those who require the ability to create a storage account or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, so a user with one of these administrative roles can also create and manage storage accounts. For more information, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Network considerations
 

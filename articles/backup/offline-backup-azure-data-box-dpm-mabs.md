@@ -3,9 +3,9 @@ title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
 ms.date: 08/04/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Offline seeding using Azure Data Box for DPM and MABS
 

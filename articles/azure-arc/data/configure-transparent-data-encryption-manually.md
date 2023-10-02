@@ -1,5 +1,5 @@
 ---
-title: Turn on transparent data encryption manually in Azure Arc-enabled SQL Managed Instance
+title: Encrypt a database with transparent data encryption manually in Azure Arc-enabled SQL Managed Instance
 description: How-to guide to turn on transparent data encryption in an Azure Arc-enabled SQL Managed Instance
 author: patelr3
 ms.author: ravpate
@@ -12,7 +12,7 @@ ms.date: 05/22/2022
 ms.custom: template-how-to, event-tier1-build-2022
 ---
 
-# Enable transparent data encryption on Azure Arc-enabled SQL Managed Instance
+# Encrypt a database with transparent data encryption on Azure Arc-enabled SQL Managed Instance
 
 This article describes how to enable transparent data encryption on a database created in an Azure Arc-enabled SQL Managed Instance. In this article, the term *managed instance* refers to a deployment of Azure Arc-enabled SQL Managed Instance.
 
@@ -20,7 +20,7 @@ This article describes how to enable transparent data encryption on a database c
 
 Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created and connect to it.
 
-- [An Azure Arc-enabled SQL Managed Instance created](./create-sql-managed-instance.md)
+- [Create an Azure Arc-enabled SQL Managed Instance](./create-sql-managed-instance.md)
 - [Connect to Azure Arc-enabled SQL Managed Instance](./connect-managed-instance.md)
 
 ## Turn on transparent data encryption on a database in the managed instance

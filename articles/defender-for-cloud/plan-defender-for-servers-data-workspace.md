@@ -2,9 +2,9 @@
 title: Plan Defender for Servers data residency and workspaces 
 description: Review data residency and workspace design for Microsoft Defender for Servers.
 ms.topic: conceptual
-ms.author: benmansheim
-author: bmansheim
-ms.date: 11/06/2022
+ms.author: dacurwin
+author: dcurwin
+ms.date: 06/15/2023
 ms.custom: references_regions
 ---
 # Plan data residency and workspaces for Defender for Servers
@@ -66,8 +66,7 @@ You can store your server information in the default workspace or you can use a 
 - You must have at least read permissions for the workspace.
 - If the *Security & Audit* solution is installed in a workspace, Defender for Cloud uses the existing solution.
 
-Learn more about [Log Analytics workspace design strategy and criteria](../azure-monitor/logs/workspace-design.md).
-
 ## Next steps
 
-After you work through these planning steps, review [Defender for Server access roles](plan-defender-for-servers-roles.md).
+- After you work through these planning steps, review [Defender for Server access roles](plan-defender-for-servers-roles.md).
+- Check out the [common questions](faq-defender-for-servers.yml) about workspaces in Defender for Servers.

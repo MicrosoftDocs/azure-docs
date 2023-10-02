@@ -5,14 +5,14 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 author: chugugrace
 ms.author: chugu
 ---
 
 # Provision the Azure-SSIS integration runtime in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This tutorial provides steps for using the Azure portal to provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF). An Azure-SSIS IR supports:
 

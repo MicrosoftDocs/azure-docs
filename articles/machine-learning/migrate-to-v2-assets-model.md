@@ -11,6 +11,7 @@ ms.author: osomorog
 ms.date: 12/01/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade model management to SDK v2
@@ -69,6 +70,8 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     
     ml_client.models.create_or_update(run_model)
     ```
+
+For more information about models, see [Work with models in Azure Machine Learning](how-to-manage-models.md).
 
 ## Mapping of key functionality in SDK v1 and SDK v2
 

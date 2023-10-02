@@ -3,8 +3,8 @@ title: Create an Azure Virtual Desktop image by using Azure VM Image Builder
 description: Create an Azure VM image of Azure Virtual Desktop by using VM Image Builder and PowerShell.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 05/12/2021
+ms.reviewer: erd
+ms.date: 06/20/2023
 ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
@@ -190,7 +190,7 @@ Multi-session images are intended for pooled usage. Here's an example of the ima
 ```json
 "publisher": "MicrosoftWindowsDesktop",
 "offer": "Windows-10",
-"sku": "20h2-evd",
+"sku": "20h2-avd",
 "version": "latest"
 ```
 
@@ -239,7 +239,7 @@ Feel free to view the [template](https://raw.githubusercontent.com/azure/azvmima
 Your template must be submitted to the service. Doing so downloads any dependent artifacts, such as scripts, and validates, checks permissions, and stores them in the staging resource group, which is prefixed with *IT_*.
 
 ```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -TemplateParameterObject @{"api-Version" = "2020-02-14"} -imageTemplateName $imageTemplateName -svclocation $location
+New-AzResourceGroupDeployment -ResourceGroupName $imageResourceGroup -TemplateFile $templateFilePath -TemplateParameterObject @{"api-Version" = "2020-02-14"; "imageTemplateName" = $imageTemplateName; "svclocation" = $location}
 
 # Optional - if you have any errors running the preceding command, run:
 $getStatus=$(Get-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $imageTemplateName)

@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 08/11/2022
+ ms.date: 04/28/2023
  ms.author: cherylmc
 ---
 After you generate and download the VPN client configuration package, unzip it to view the folders. When you configure macOS native clients, you use the files in the **Generic** folder. The Generic folder is present if IKEv2 was configured on the gateway. You can find all of the information that you need to configure the native VPN client in the **Generic** folder. If you don't see the Generic folder, make sure IKEv2 is one of the tunnel types, then download the configuration package again.

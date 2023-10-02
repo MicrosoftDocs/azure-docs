@@ -3,7 +3,7 @@ title: Configure GPU monitoring with Container insights
 description: This article describes how you can configure monitoring Kubernetes clusters with NVIDIA and AMD GPU enabled nodes with Container insights.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 05/24/2022
+ms.date: 08/09/2023
 ms.reviewer: aul
 ---
 

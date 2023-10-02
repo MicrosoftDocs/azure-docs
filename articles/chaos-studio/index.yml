@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Chaos Studio documentation
-summary: Azure Chaos Studio is an Azure service that helps you measure, understand, and build application and service resilience to real world incidents, such as a region going down or an application failure causing 100% CPU usage on a VM. With Chaos Studio, you can run Chaos Engineering experiments that inject faults against your service then monitor how the service responds to disruptions. Chaos experiments help you to validate architectural choices and improve service reliability. Chaos experiments can be run ad-hoc for running manual BCDR drills and Game Days, or as part of your CI/CD pipeline to programmatically gate code flow. # < 160 chars
+summary: Azure Chaos Studio is an Azure service that helps you measure, understand, and build application and service resilience to real-world incidents, such as a region going down or an application failure causing 100% CPU usage on a VM. With Chaos Studio, you can run chaos engineering experiments that inject faults against your service and then monitor how the service responds to disruptions. Chaos experiments help you to validate architectural choices and improve service reliability. Chaos experiments can be run ad-hoc for running manual BCDR drills and Game Days, or as part of your CI/CD pipeline to programmatically gate code flow. # < 160 chars
 
 metadata:
   title: Azure Chaos Studio documentation - tutorials, API reference
-  description: Learn about Azure Chaos Studio, a solution for building resilience of your services using chaos engineering and fault injection on Azure.
+  description: Learn about Azure Chaos Studio, a solution for building resilience of your services by using chaos engineering and fault injection on Azure.
   ms.service: chaos-studio
-  ms.topic: landing-page # Required
-  author: johnkemnetz #Required; your GitHub user alias, with correct capitalization.
-  ms.author: johnkem #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/24/2021 #Required; mm/dd/yyyy format.
+  ms.topic: landing-page
+  author: johnkemnetz
+  ms.author: johnkem
+  ms.date: 08/24/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 

@@ -1,9 +1,9 @@
 ---
 title: Use the REST API to manage jobs in Azure IoT Central
-description: How to use the IoT Central REST API to create and manage jobs in an application
+description: How to use the IoT Central REST API to create and manage jobs in an application to bulk manage your devices
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/20/2022
+ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -19,7 +19,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 - Stop, resume, and rerun jobs in your application.
 - Schedule jobs and view scheduled job details in your application.
 
-Scheduled jobs are created to run at a future time. You can set a start date and time for a scheduled job to run one-time, daily, or weekly. Non-scheduled jobs run only one-time.
+Scheduled jobs are created to run at a future time. You can set a start date and time for a scheduled job to run one-time, daily, or weekly. Nonscheduled jobs run only one-time.
 
 This article describes how to use the `/jobs/{job_id}` API to control devices in bulk. You can also control devices individually.
 
@@ -30,8 +30,6 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
-To learn how to manage jobs by using the IoT Central UI, see  [Manage devices in bulk in your Azure IoT Central application.](../core/howto-manage-devices-in-bulk.md)
 
 ## Job payloads
 
@@ -342,13 +340,13 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/reru
 
 ## Create a scheduled job
 
-The payload for a scheduled job is similar to a standard job but includes the following additional fields:
+The payload for a scheduled job is similar to a standard job but includes the following extra fields:
 
-| Field | Description |
-| ----- | ----------- |
-schedule/start |The start date and time for the job in ISO 8601 format
-schedule/recurrence| One of `daily`, `monthly`, `yearly`
-schedule/end| An optional field that either specifies the number of occurrences for the job or an end date in ISO 8601 format
+| Field               | Description |
+| ------------------- | ----------- |
+| schedule/start      |The start date and time for the job in ISO 8601 format |
+| schedule/recurrence | One of `daily`, `monthly`, `yearly |`
+| schedule/end        | An optional field that either specifies the number of occurrences for the job or an end date in ISO 8601 format |
 
 ```http
 PUT https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled-Job-001?api-version=2022-07-31

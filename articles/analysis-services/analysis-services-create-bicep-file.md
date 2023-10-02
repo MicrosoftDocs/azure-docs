@@ -3,11 +3,11 @@ title: Quickstart - Create an Azure Analysis Services server resource by using B
 description: Quickstart showing how to an Azure Analysis Services server resource by using a Bicep file.
 ms.date: 03/08/2022
 ms.topic: quickstart
-ms.service: azure-analysis-services
+ms.service: analysis-services
 ms.author: jgao
 author: mumian
 tags: azure-resource-manager, bicep
-
+ms.custom: devx-track-bicep
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
 ---
 

@@ -6,11 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: johnwu0604
-ms.author: johwu
+ms.author: balapv
+author: balapv
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade local runs to SDK v2

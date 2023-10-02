@@ -1,6 +1,6 @@
 ---
 title: Bing Entity Search C# client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure AI services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -74,4 +74,4 @@ To add the Bing Entity Search client library to your Visual Studio project, use 
 > [!div class="nextstepaction"]
 > [Create a single-page web app](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../../overview.md )
+* [What is the Bing Entity Search API?](../../overview.md)

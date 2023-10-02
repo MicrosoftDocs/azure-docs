@@ -6,13 +6,13 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 07/20/2023
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
 ---
 # Run an SSIS package with the Stored Procedure activity
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run an SSIS package in an Azure Data Factory pipeline pr Synapse Pipelines by using a Stored Procedure activity. 
 
@@ -118,7 +118,7 @@ In this section, you trigger a pipeline run and then monitor it.
 
 In this section, you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package. 
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps). 
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). 
 
 ### Create a data factory
 You can either use the same data factory that has the Azure-SSIS IR or create a separate data factory. The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package. 

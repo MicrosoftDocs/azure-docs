@@ -44,7 +44,6 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Visual Studio** | Visual Studio Professional³         | MSDN_2014-09-01 | MS-AZR-0059P | October 2, 2018 |
 | **Visual Studio** | Visual Studio Test Professional³    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | October 2, 2018 |
 | **Visual Studio** | Visual Studio Enterprise³           | MSDN_2014-09-01 | MS-AZR-0063P | October 2, 2018 |
-| **Visual Studio** | Visual Studio Enterprise: BizSpark³ | MSDN_2014-09-01 | MS-AZR-0064P | October 2, 2018 |
 
 _¹ For data before May 2014, visit the [Azure Enterprise portal](https://ea.azure.com)._
 
@@ -89,10 +88,10 @@ The following tables show data that's included or isn't in Cost Management. All 
 
 | **Included** | **Not included** |
 | --- | --- |
-| Azure service usage⁵        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace offering usage⁶ | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Reservation purchases⁷      |  |
+| Azure service usage (including deleted resources)⁵ | Unbilled services (e.g., free tier resources) |
+| Marketplace offering usage⁶ | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Marketplace purchases⁶      | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Reservation purchases⁷      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
 | Amortization of reservation purchases⁷      |  |
 | New Commerce non-Azure products (Microsoft 365 and Dynamics 365) ⁸ | |
 
@@ -104,6 +103,8 @@ _⁷ Reservation purchases are only available for Enterprise Agreement (EA) and 
 
 _⁸ Only available for specific offers._
 
+Please note Cost Management data only includes the usage and purchases from services and resources that are actively running. Cost data is historical and will include resources, resource groups, and subscriptions that have been stopped, deleted, or cancelled and may not reflect the same resources, resource groups, and subscriptions you see in other tools, like Azure Resource Manager or Azure Resource Graph, which only show the current resources that are deployed in your subscriptions. Not all resources emit usage and therefore may not be represented in the cost data. Similarly, some resources are not tracked by Azure Resource Manager and may not be represented in subscription resources. 
+
 ## How tags are used in cost and usage data
 
 Cost Management receives tags as part of each usage record submitted by the individual services. The following constraints apply to these tags:
@@ -114,26 +115,14 @@ Cost Management receives tags as part of each usage record submitted by the indi
 - Resource tags are only included in usage data while the tag is applied – tags aren't applied to historical data.
 - Resource tags are only available in Cost Management after the data is refreshed.
 - Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a VM is deallocated.
-- Managing tags requires contributor access to each resource.
+- Managing tags requires contributor access to each resource or the [tag contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) RBAC role.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
     
 If you don't see a specific tag in Cost Management, consider the following questions:
 
 - Was the tag applied directly to the resource?
 - Was the tag applied more than 24 hours ago?
-- Does the resource type support tags? The following resource types don't support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
-    - Azure Active Directory B2C Directories
-    - Azure Bastion
-    - Azure Firewalls
-    - Azure NetApp Files
-    - Data Factory
-    - Databricks
-    - Load balancers
-    - Machine Learning workspace Compute instances
-    - Network Watcher
-    - Notification Hubs
-    - Service Bus
-    - Time Series Insights
+- Does the resource type support tags? Some resource types don't support tags in usage data. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
     
 Here are a few tips for working with tags:
 
@@ -184,7 +173,7 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 - Azure Pass (MS-AZR-0120P, MS-AZR-0123P, MS-AZR-0125P, MS-AZR-0128P, MS-AZR-0129P)
 - Free Trial (MS-AZR-0044P)
 - MSDN (MS-AZR-0062P)
-- Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
+- Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P)
 
 ## Next steps
 

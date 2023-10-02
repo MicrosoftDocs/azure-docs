@@ -8,9 +8,10 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/08/2021
+ms.date: 12/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: b2c-docs-improvements
 zone_pivot_groups: b2c-policy-type
 ---
 
@@ -28,12 +29,12 @@ This error occurs when the [self-service password reset experience](add-password
 
 There are 2 solutions to this problem:  
   - Respond back with a new authentication request using Azure AD B2C password reset user flow.
-  - Use recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended).  
+  - Use recommended [self service password reset (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended).  
 
 
 ## User canceled the operation
 Azure AD B2C service can also return an error to your application when a user cancels an operation. The following are examples of scenarios where a user performs a cancel operation: 
--  A user policy uses the recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link , and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
+-  A user policy uses the recommended [self service password reset (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link , and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
 - A user chooses to authenticate with an external identity provider such as [LinkedIn](identity-provider-linkedin.md). The user select **Cancel** button before authenticating to the identity provider itself. In this case, Azure AD B2C service returns error code `AADB2C90273` to your application. Learn more about [error codes Azure Active Directory B2C service return](error-codes.md).
 
 To handle this error, fetch the **error description** for the user and respond back with a new authentication request using the same user flow. 
@@ -48,13 +49,17 @@ This article focuses on troubleshooting your Azure AD B2C custom policy configur
 
 ## Azure AD B2C correlation ID overview
 
-Azure AD B2C correlation ID is a unique identifier value that is attached to authorization requests. It passes through all the orchestration steps a user is taken through. With the correlation ID, you can:
+Azure AD B2C correlation ID is a unique identifier value that is attached to authorization requests. It passes through all the orchestration steps that a user goes through. With the correlation ID, you can:
 
 - Identify sign-in activity in your application and track the performance of your policy.
 - Find the sign-in request's Azure Application Insights logs.
 - Pass the correlation ID to your REST API and use it to identify the sign-in flow. 
 
 The correlation ID is changed every time a new session is established. When you debug your policies, make sure that you close existing browser tabs or open a new in-private mode browser.
+
+## Prerequisites
+
+- Complete the steps in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ### Get the Azure AD B2C correlation ID
 
@@ -122,7 +127,7 @@ The following screenshot shows the Azure AD B2C extension for VS Code with Azure
 
 ### Filter the trace log
 
-With the focus on the Azure AD B2C trace explorer, start to type the first digit of the correlation ID, or a time you want to find. You will see a filter box in the top-right of the Azure AD B2C trace explorer showing what you have typed so far, and matching trace logs will be highlighted.  
+With the focus on the Azure AD B2C trace explorer, start to type the first digit of the correlation ID, or a time you want to find. You'll see a filter box in the top-right of the Azure AD B2C trace explorer showing what you have typed so far, and matching trace logs will be highlighted.  
 
 ![Screenshot of Azure AD B2C extension Azure AD B2C trace explorer filter highlighting.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-highlight.png)
 
@@ -173,7 +178,7 @@ You can also trace the exchange of messages between your client browser and Azur
 
 ## Troubleshoot policy validity
 
-After you finish developing your policy, you upload the policy to Azure AD B2C. there might be some issues with your policy. Use the following methods to ensure your policy integrity/validity.
+After you finish developing your policy, you upload the policy to Azure AD B2C. There might be some issues with your policy, but you can validity your policy before you upload it.
 
 The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. It displays XML natively, color-codes content, pre-fills common terms, keeps XML elements indexed, and can validate against an XML schema.
 
@@ -181,7 +186,7 @@ We recommend using [Visual Studio Code](https://code.visualstudio.com/). Then in
 
 You can use the XML file association strategy to bind the XML file the XSD by adding the following settings into your VS Code `settings.json` file. To do so:
 
-1. From VS Code, click on the **Settings**. For more information, see [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings).
+1. From VS Code, select **File>Preferences>Settings**. For more information, see [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings).
 1. Search for **fileAssociations**, then under the **Extension**, select the **XML**.
 1. Select **Edit in settings.json**.
 
@@ -196,6 +201,7 @@ You can use the XML file association strategy to bind the XML file the XSD by ad
       }
     ]
     ```
+1. Save the changes. 
 
 The following example shows an XML validation error. When you move your mouse over the element name, the extension list the expected elements.
 

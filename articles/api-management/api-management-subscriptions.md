@@ -7,13 +7,16 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 08/02/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 # Subscriptions in Azure API Management
 
 In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
+
+> [!NOTE]
+> An API Management subscription is used specifically to call APIs through API Management using a subscription key. It's not the same as an Azure subscription.
 
 ## What are subscriptions?
 
@@ -37,6 +40,9 @@ In addition,
 ## Manage subscription keys
 
 Regularly regenerating keys is a common security precaution. Like most Azure services requiring a subscription key, API Management generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa.
+
+Setting specific keys instead of regenerating ones can be performed by invoking the [Azure API Management Subscription - Create Or Update Azure REST API](/rest/api/apimanagement/current-ga/subscription/create-or-update). Specifically, the `properties.primaryKey` and/or `properties.secondaryKey` need to be set in the HTTP request body.
+
 > [!NOTE]
 > * API Management doesn't provide built-in features to manage the lifecycle of subscription keys, such as setting expiration dates or automatically rotating keys. You can develop workflows to automate these processes using tools such as Azure PowerShell or the Azure SDKs. 
 > * To enforce time-limited access to APIs, API publishers may be able to use policies with subscription keys, or use a mechanism that provides built-in expiration such as token-based authentication.
@@ -66,7 +72,7 @@ In these cases, you don't need to create a product and add APIs to it first.
 
 ### All-access subscription
 
-Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
+Each API Management instance comes with a built in all-access subscription that grants access to all APIs. This service-scoped subscription makes it straightforward for service owners to test and debug APIs within the test console.
 
 > [!WARNING]
 > The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
@@ -76,7 +82,7 @@ Each API Management instance comes with an immutable, all-APIs subscription (als
 
 ### Standalone subscriptions
 
-API Management also allows *standalone* subscriptions, which are not associated with a developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
+API Management also allows *standalone* subscriptions, which aren't associated with a developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
 
 Creating a subscription without assigning an owner makes it a standalone subscription. To grant developers and the rest of your team access to the standalone subscription key, either:
 * Manually share the subscription key.
@@ -86,7 +92,18 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 
 API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal. 
 
-When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed - for example, you can suspend, cancel, or delete the subscription to prevent API access.
+When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed. For example, you can suspend, cancel, or delete any subscription (including the built-in all-access subscription) to prevent API access.
+
+## Use a subscription key
+
+A subscriber can use an API Management subscription key in one of two ways:
+
+* Add the **Ocp-Apim-Subscription-Key** HTTP header to the request, passing the value of a valid subscription key.
+
+* Include the **subscription-key** query parameter and a valid value in the URL. The query parameter is checked only if the header isn't present.
+
+> [!TIP]
+> **Ocp-Apim-Subscription-Key** is the default name of the subscription key header, and **subscription-key** is the default name of the query parameter. If desired, you may modify these names in the settings for each API. For example, in the portal, update these names on the **Settings** tab of an API.
 
 ## Enable or disable subscription requirement for API or product access
 
@@ -125,7 +142,7 @@ When API Management receives an API request from a client with a subscription ke
 
 When API Management receives an API request from a client without a subscription key, it handles the request according to these rules: 
 
-1. Check first for the existence of a product that includes the API but doesn't require a subscription (an *open* product). If the open product exists, handle the request in the context of the APIs, policies, and access rules configured for the product. 
+1. Check first for the existence of a product that includes the API but doesn't require a subscription (an *open* product). If the open product exists, handle the request in the context of the APIs, policies, and access rules configured for the product. An API can be associated with at most one open product.
 1. If an open product including the API isn't found, check whether the API requires a subscription. If a subscription isn't required, handle the request in the context of that API and operation.
 1. If no configured product or API is found, then access is denied (401 Access denied error).
 
@@ -141,7 +158,7 @@ The following table summarizes how the gateway handles API requests with or with
 |❌<sup>1</sup>     | ✔️    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        |    Access allowed (open product context)     | •	Protected API access with API-scoped subscription<br/><br/>•	Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
 |❌<sup>1</sup>     |  ❌      | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        | Access allowed (open product context)        | Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
 
-<sup>1</sup> An open product exists.
+<sup>1</sup> An open product exists that's associated with the API. 
 
 ### Considerations
 

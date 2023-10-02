@@ -26,31 +26,31 @@ Learn all you need to build a web app that uses the Microsoft identity platform 
 
 If you want to create your first portable (ASP.NET Core) web app that signs in users, follow this quickstart:
 
-[Quickstart: Use ASP.NET Core to add sign-in with Microsoft to a web app](web-app-quickstart.md?pivots=devlang-aspnet-core)
+[Quickstart: Use ASP.NET Core to add sign-in with Microsoft to a web app](quickstart-web-app-aspnet-core-sign-in.md)
 
 # [ASP.NET](#tab/aspnet)
 
 If you want to understand how to add sign-in to an existing ASP.NET web application, try the following quickstart:
 
-[Quickstart: Use ASP.NET to add sign-in with Microsoft to a web app](web-app-quickstart.md?pivots=devlang-aspnet)
+[Quickstart: Use ASP.NET to add sign-in with Microsoft to a web app](quickstart-web-app-aspnet-sign-in.md)
 
 # [Java](#tab/java)
 
 If you're a Java developer, try the following quickstart:
 
-[Quickstart: Use Java to add sign-in with Microsoft to a web app](web-app-quickstart.md?pivots=devlang-java)
+[Quickstart: Use Java to add sign-in with Microsoft to a web app](quickstart-web-app-java-sign-in.md)
 
 # [Node.js](#tab/nodejs)
 
 If you're a Node.js developer, try the following quickstart:
 
-[Quickstart: Use Node.js to add sign-in with Microsoft to a web app](web-app-quickstart.md?pivots=devlang-nodejs-msal)
+[Quickstart: Use Node.js to add sign-in with Microsoft to a web app](quickstart-web-app-nodejs-msal-sign-in.md)
 
 # [Python](#tab/python)
 
 If you develop with Python, try the following quickstart:
 
-[Quickstart: Use Python to add sign-in with Microsoft to a web app](web-app-quickstart.md?pivots=devlang-python)
+[Quickstart: Use Python to add sign-in with Microsoft to a web app](quickstart-web-app-python-sign-in.md)
 
 ---
 
@@ -58,7 +58,7 @@ If you develop with Python, try the following quickstart:
 
 You add authentication to your web app so that it can sign in users. Adding authentication enables your web app to access limited profile information in order to customize the experience for users.
 
-Web apps authenticate a user in a web browser. In this scenario, the web app directs the user's browser to sign them in to Azure Active Directory (Azure AD). Azure AD returns a sign-in response through the user's browser, which contains claims about the user in a security token. Signing in users takes advantage of the [Open ID Connect](./v2-protocols-oidc.md) standard protocol, simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps).
+Web apps authenticate a user in a web browser. In this scenario, the web app directs the user's browser to sign them in to Microsoft Entra ID. Microsoft Entra ID returns a sign-in response through the user's browser, which contains claims about the user in a security token. Signing in users takes advantage of the [OpenID Connect](./v2-protocols-oidc.md) standard protocol, simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration.md#microsoft-libraries-supporting-web-apps).
 
 ![Web app signs in users](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 
@@ -72,7 +72,7 @@ As a second phase, you can enable your application to call web APIs on behalf of
 
 ## Recommended reading
 
-[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [recommended-topics](./includes/scenarios/scenarios-prerequisites.md)]
 
 ## Next steps
 

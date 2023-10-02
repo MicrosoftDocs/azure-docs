@@ -7,10 +7,11 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 06/30/2021
+ms.date: 09/12/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
+ms.custom: devx-track-js
 ---
 
 # Network recommendations
@@ -54,12 +55,12 @@ The following bandwidth requirements are for the native Windows, Android, and iO
 
 ## Firewall configuration
 
-Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services can still work. The optimal experience is provided when the recommended ports and IP ranges are open.
+Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services will not work properly. The list of IP ranges and allow listed domains that need to be enabled are:
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
 | Media traffic | Range of Azure public cloud IP addresses 20.202.0.0/16 The range provided above is the range of IP addresses on either Media processor or ACS TURN service. | UDP 3478 through 3481, TCP ports 443 |
-| Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.azureedge.net, *.office.com, *.trouter.io | TCP 443, 80 |
+| Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.office.com| TCP 443, 80 |
 
 
 The endpoints below should be reachable for U.S. Government GCC High customers only

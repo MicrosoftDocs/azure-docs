@@ -4,13 +4,13 @@ description: Application Insights SDK tutorial to monitor ASP.NET Core web appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 11/15/2022
-ms.reviewer: casocha
+ms.date: 04/24/2023
+ms.reviewer: mmcc
 ---
 
 # Enable Application Insights for ASP.NET Core applications
 
-This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation uses an SDK-based approach. An [auto-instrumentation approach](./codeless-overview.md) is also available.
+This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application deployed as an Azure Web App. This implementation uses an SDK-based approach. An [autoinstrumentation approach](./codeless-overview.md) is also available.
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -25,7 +25,7 @@ Application Insights can collect the following telemetry from your ASP.NET Core 
 For a sample application, we'll use an [ASP.NET Core MVC application](https://github.com/AaronMaxwell/AzureCafe) that targets `net6.0`. However, you can apply these instructions to all ASP.NET Core applications. If you're using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
 
 > [!NOTE]
-> A preview [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
+> An [OpenTelemetry-based .NET offering](./opentelemetry-enable.md?tabs=net) is available. [Learn more](./opentelemetry-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -267,7 +267,7 @@ The sample application makes calls to multiple Azure resources, including Azure 
 
 Application Insights introspects the incoming telemetry data and is able to generate a visual map of the system integrations it detects.
 
-1. Access and log into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Open the resource group for the sample application, which is `application-insights-azure-cafe`.
 
@@ -349,7 +349,7 @@ public class ValuesController : ControllerBase
     public ActionResult<IEnumerable<string>> Get()
     {
         //Info level traces are not captured by default
-        _logger.LogInfo("An example of an Info trace..")
+        _logger.LogInformation("An example of an Info trace..");
         _logger.LogWarning("An example of a Warning trace..");
         _logger.LogError("An example of an Error level message");
 
@@ -459,9 +459,8 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Explore user flows](./usage-flows.md) to understand how users navigate through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
+* [Availability overview](availability-overview.md)
 * [Dependency Injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
 * [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
-* [Auto-instrumentation for Application Insights](./codeless-overview.md)
-
+* [Autoinstrumentation for Application Insights](./codeless-overview.md)

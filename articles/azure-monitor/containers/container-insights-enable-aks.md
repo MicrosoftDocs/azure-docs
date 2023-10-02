@@ -1,9 +1,9 @@
 ---
-title: Monitor an Azure Kubernetes Service (AKS) cluster deployed
-description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
+title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
+description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.reviewer: aul
 ---
 
@@ -30,7 +30,7 @@ Use any of the following methods to enable monitoring for an existing AKS cluste
 ## [CLI](#tab/azure-cli)
 
 > [!NOTE]
-> Azure CLI version 2.39.0 or higher is required for managed identity authentication.
+> Managed identity authentication will be default in CLI version 2.49.0 or higher. If you need to use legacy/non-managed identity authentication, use CLI version < 2.49.0.
 
 ### Use a default Log Analytics workspace
 
@@ -124,7 +124,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 You'll either download template and parameter files or create your own depending on the authentication mode you're using.
 
-To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication):
+To enable [managed identity authentication](container-insights-onboard.md#authentication):
 
 1. Download the template in the [GitHub content file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
 
@@ -137,7 +137,7 @@ To enable [managed identity authentication (preview)](container-insights-onboard
    - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
    - `resourceTagValues`: Match the existing tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be *MSCI-\<clusterName\>-\<clusterRegion\>* and this resource created in an AKS clusters resource group. If this is the first time onboarding, you can set the arbitrary tag values.
 
-To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication):
+To enable [managed identity authentication](container-insights-onboard.md#authentication):
 
 1. Save the following JSON as **existingClusterOnboarding.json**.
 
@@ -336,7 +336,10 @@ This section explains two methods for migrating to managed identity authenticati
 
 ### Existing clusters with a service principal
 
-AKS clusters with a service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for this migration.
+AKS clusters with a service principal must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Microsoft Azure operated by 21Vianet cloud, and Azure Government cloud are currently supported for this migration.
+
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
 
 1. Get the configured Log Analytics workspace resource ID:
 
@@ -359,12 +362,15 @@ AKS clusters with a service principal must first disable monitoring and then upg
 1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
 
       ```cli
-      az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      az aks enable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
       ```
 
 ### Existing clusters with system or user-assigned identity
 
-AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure China cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure public cloud is supported.
+AKS clusters with system-assigned identity must first disable monitoring and then upgrade to managed identity. Only Azure public cloud, Azure operated by 21Vianet cloud, and Azure Government cloud are currently supported for clusters with system identity. For clusters with user-assigned identity, only Azure public cloud is supported.
+
+> [!NOTE]
+> Minimum Azure CLI version 2.49.0 or higher.
 
 1. Get the configured Log Analytics workspace resource ID:
 
@@ -381,12 +387,14 @@ AKS clusters with system-assigned identity must first disable monitoring and the
 1. Enable the monitoring add-on with the managed identity authentication option by using the Log Analytics workspace resource ID obtained in step 1:
 
       ```cli
-      az aks enable-addons -a monitoring --enable-msi-auth-for-monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
+      az aks enable-addons -a monitoring -g <resource-group-name> -n <cluster-name> --workspace-resource-id <workspace-resource-id>
       ```
 
 ## Private link
+Use one of the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md).
 
-To enable network isolation by connecting your cluster to the Log Analytics workspace by using [Azure Private Link](../logs/private-link-security.md), your cluster must be using managed identity authentication with Azure Monitor Agent.
+### Managed identity authentication
+Use the following procedure if your cluster is using managed identity authentication with Azure Monitor Agent.
 
 1. Follow the steps in [Enable network isolation for the Azure Monitor agent](../agents/azure-monitor-agent-data-collection-endpoint.md) to create a data collection endpoint and add it to your Azure Monitor private link service.
 
@@ -415,12 +423,43 @@ To enable network isolation by connecting your cluster to the Log Analytics work
 
 1. Enable monitoring with the managed identity authentication option by using the steps in [Migrate to managed identity authentication](#migrate-to-managed-identity-authentication).
 
+### Without managed identity authentication
+Use the following procedure if you're not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
+
+1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
+
+2. Disable public Ingestion on your Log Analytics workspace. 
+
+    Use the following command to disable public ingestion on an existing workspace.
+
+    ```cli
+    az monitor log-analytics workspace update --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+    Use the following command to create a new workspace with public ingestion disabled.
+
+    ```cli
+    az monitor log-analytics workspace create --resource-group <azureLogAnalyticsWorkspaceResourceGroup> --workspace-name <azureLogAnalyticsWorkspaceName>  --ingestion-access Disabled
+    ```
+
+3. Configure private link by following the instructions at [Configure your private link](../logs/private-link-configure.md). Set ingestion access to public and then set to private after the private endpoint is created but before monitoring is enabled. The private link resource region must be same as AKS cluster region. 
+
+4. Enable monitoring for the AKS cluster.
+
+    ```cli
+    az aks enable-addons -a monitoring --resource-group <AKSClusterResourceGorup> --name <AKSClusterName> --workspace-resource-id <workspace-resource-id>
+    ```
+
+
 ## Limitations
 
-- Enabling managed identity authentication (preview) isn't currently supported by using Terraform or Azure Policy.
-- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-name\>-\<cluster-region\>*. Currently, this name can't be modified.
+- When you enable managed identity authentication, a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
+
+- You must be on a machine on the same private network to access live logs from a private cluster.
 
 ## Next steps
 
 * If you experience issues while you attempt to onboard the solution, review the [Troubleshooting guide](container-insights-troubleshoot.md).
 * With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
+
+

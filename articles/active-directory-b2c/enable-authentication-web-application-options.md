@@ -28,7 +28,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 In the *appsettings.json* file, do the following:
 
 - Update the `Instance` entry with your custom domain.
-- Update the `Domain` entry with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
+- Update the `Domain` entry with your [tenant ID]( tenant-management-read-tenant-name.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following JSON shows the app settings before the change: 
 
@@ -303,7 +303,7 @@ To support a secured logout redirect in your application, first follow the steps
 1. In the **Startup.cs** class, parse the `id_token_hint` value and append the value to the authentication request. The following code snippet demonstrates how to pass the `id_token_hint` value to the authentication request:
 
     ```csharp
-    private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
+    private async Task OnRedirectToIdentityProviderForSignOutFunc(RedirectContext context)
     {
         var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
         if (id_token_hint != null)
@@ -324,7 +324,7 @@ To support a secured logout redirect in your application, first follow the steps
         {
             Configuration.Bind("AzureAdB2C", options);
             options.Events ??= new OpenIdConnectEvents();        
-            options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
+            options.Events.OnRedirectToIdentityProviderForSignOut += OnRedirectToIdentityProviderForSignOutFunc;
             options.SaveTokens = true;
         });
     ```

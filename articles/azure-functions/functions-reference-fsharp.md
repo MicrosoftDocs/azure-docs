@@ -18,14 +18,14 @@ F# for Azure Functions is a solution for easily running small pieces of code, or
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).
 
-## How .fsx works
+## How an F# script works
 An `.fsx` file is an F# script. It can be thought of as an F# project that's contained in a single file. The file contains both the code for your program (in this case, your Azure Function) and directives for managing dependencies.
 
 When you use an `.fsx` for an Azure Function, commonly required assemblies are automatically included for you, allowing you to focus on the function rather than "boilerplate" code.
 
 ## Folder structure
 
-The folder structure for an F# script project looks like the following:
+The folder structure for an F# script project adheres to the following pattern:
 
 ```
 FunctionsProject
@@ -44,7 +44,7 @@ FunctionsProject
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.fsx) and binding configuration file (function.json).
 
-The binding extensions required in [version 2.x and later versions](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x and later versions](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When you're developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When you're developing functions in the Azure portal, this registration is done for you.
 
 ## Binding to arguments
 Each binding supports some set of arguments, as detailed in the [Azure Functions triggers and bindings developer reference](functions-triggers-bindings.md). For example, one of the argument bindings a blob trigger supports is a POCO, which can be expressed using an F# record. For example:
@@ -85,8 +85,28 @@ let Run(input: string, item: byref<Item>) =
     item <- result
 ```
 
+You can use a method return value for an output binding, by using the name `$return` in *function.json*:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Here's the F# code that uses the return value:
+
+```fsharp
+let Run(input: WorkItem, log: ILogger) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
 ## Logging
-To log output to your [streaming logs](../app-service/troubleshoot-diagnostic-logs.md) in F#, your function should take an argument of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). For consistency, we recommend this argument is named `log`. For example:
+To log output to your [streaming logs](../app-service/troubleshoot-diagnostic-logs.md) in F#, your function should take an argument of type [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger). For consistency, we recommend this argument is named `log`. For example:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -167,7 +187,7 @@ The following assemblies are automatically added by the Azure Functions hosting 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-In addition, the following assemblies are special cased and may be referenced by simplename (e.g. `#r "AssemblyName"`):
+In addition, the following assemblies are special cased and may be referenced by simple name (e.g. `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -178,7 +198,7 @@ In addition, the following assemblies are special cased and may be referenced by
 If you need to reference a private assembly, you can upload the assembly file into a `bin` folder relative to your function and reference it by using the file name (e.g.  `#r "MyAssembly.dll"`). For information on how to upload files to your function folder, see the following section on package management.
 
 ## Editor Prelude
-An editor that supports F# Compiler Services will not be aware of the namespaces and assemblies that Azure Functions automatically includes. As such, it can be useful to include a prelude that helps the editor find the assemblies you are using, and to explicitly open namespaces. For example:
+An editor that supports F# Compiler Services won't be aware of the namespaces and assemblies that Azure Functions automatically includes. As such, it can be useful to include a prelude that helps the editor find the assemblies you're using, and to explicitly open namespaces. For example:
 
 ```fsharp
 #if !COMPILED
@@ -199,7 +219,7 @@ When Azure Functions executes your code, it processes the source with `COMPILED`
 <a name="package"></a>
 
 ## Package management
-To use NuGet packages in an F# function, add a `project.json` file to the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
+To use NuGet packages in an F# function, add a `project.json` file to the function's folder in the function app's file system. Here's an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
 
 ```json
 {
@@ -221,8 +241,8 @@ You may wish to put automatically references assemblies in your editor prelude, 
 
 ### How to add a `project.json` file to your Azure Function
 1. Begin by making sure your function app is running, which you can do by opening your function in the Azure portal. This also gives access to the streaming logs where package installation output will be displayed.
-2. To upload a `project.json` file, use one of the methods described in [how to update function app files](functions-reference.md#fileupdate). If you are using [Continuous Deployment for Azure Functions](functions-continuous-deployment.md), you can add a `project.json` file to your staging branch in order to experiment with it before adding it to your deployment branch.
-3. After the `project.json` file is added, you will see output similar to the following example in your function's streaming log:
+2. To upload a `project.json` file, use one of the methods described in [how to update function app files](functions-reference.md#fileupdate). If you're using [Continuous Deployment for Azure Functions](functions-continuous-deployment.md), you can add a `project.json` file to your staging branch in order to experiment with it before adding it to your deployment branch.
+3. After the `project.json` file is added, you'll see output similar to the following example in your function's streaming log:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -253,7 +273,7 @@ let Run(timer: TimerInfo, log: ILogger) =
     log.LogInformation("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
 ```
 
-## Reusing .fsx code
+## Reusing F# script code
 You can use code from other `.fsx` files by using a `#load` directive. For example:
 
 `run.fsx`
@@ -272,7 +292,7 @@ let mylog(log: ILogger, text: string) =
     log.LogInformation(text);
 ```
 
-Paths provides to the `#load` directive are relative to the location of your `.fsx` file.
+Paths provided to the `#load` directive are relative to the location of your `.fsx` file.
 
 * `#load "logger.fsx"` loads a file located in the function folder.
 * `#load "package\logger.fsx"` loads a file located in the `package` folder in the function folder.

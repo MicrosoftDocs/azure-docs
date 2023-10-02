@@ -4,7 +4,7 @@ description: Learn how to build a Bicep file or an Azure Resource Manager templa
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 10/02/2023
-ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -56,15 +56,47 @@ An Azure Functions deployment typically consists of these resources:
 
 A storage account is required for a function app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](storage-considerations.md#storage-account-requirements).
 
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
 # [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-app-arm-templates/function-app-linux-consumption/main.bicep" range="37-44":::
+```bicep
+resource storageAccountName 'Microsoft.Storage/storageAccounts@2022-05-01' = {
+  name: storageAccountName
+  location: location
+  kind: 'StorageV2'
+  sku: {
+    name: storageAccountType
+  }
+  properties: {
+    supportsHttpsTrafficOnly: true
+    defaultToOAuthAuthentication: true
+  }
+}
+```
 
 For a complete example, see [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) in the templates repository.
 
 # [JSON](#tab/json)
 
-:::code language="json" source="~/function-app-arm-templates/function-app-linux-consumption/azuredeploy.json" range="77-86":::
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2022-05-01",
+    "name": "[parameters('storageAccountName')]",
+    "location": "[parameters('location')]",
+    "kind": "StorageV2",
+    "sku": {
+      "name": "[parameters('storageAccountType')]"
+    },
+    "properties": {
+      "supportsHttpsTrafficOnly": true,
+      "defaultToOAuthAuthentication": true
+    }
+  }
+]
+```
 
 For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L77) in the templates repository.
 
@@ -84,10 +116,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
     siteConfig: {
       ...
       appSettings: [
-        {
-          name: 'AzureWebJobsDashboard'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
         {
           name: 'AzureWebJobsStorage'
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
@@ -112,10 +140,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         ...
         "appSettings": [
           {
-            "name": "AzureWebJobsDashboard",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
             "name": "AzureWebJobsStorage",
             "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
           },
@@ -128,6 +152,73 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ```
 
 ---
+
+In some hosting plan options, function apps should also have an Azure Files content share, and they will need additional app settings referencing this storage account. These are covered later in this article as a part of the hosting plan options to which this applies.
+
+#### Storage logs
+
+Because the storage account is used for important function app data, you may want to monitor for modification of that content. To do this, you need to configure Azure Monitor resource logs for Azure Storage. In the following example, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. This same workspace can be used for the Application Insights resource defined later.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2021-09-01' existing = {
+  name:'default'
+  parent:storageAccountName
+}
+
+resource storageDataPlaneLogs 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: '${storageAccountName}-logs'
+  scope: blobService
+  properties: {
+    workspaceId: myLogAnalytics.id
+    logs: [
+      {
+        category: 'StorageWrite'
+        enabled: true
+      }
+    ]
+    metrics: [
+      {
+        category: 'Transaction'
+        enabled: true
+      }
+    ]
+  }
+}
+```
+
+# [JSON](#tab/json)
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Insights/diagnosticSettings",
+    "apiVersion": "2021-05-01-preview",
+    "scope": "[format('Microsoft.Storage/storageAccounts/{0}/blobServices/default', parameters('storageAccountName'))]",
+    "name": "[parameters('storageDataPlaneLogsName')]",
+    "properties": {
+        "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('myLogAnalytics'))]",
+        "logs": [
+          {
+            "category": "StorageWrite",
+            "enabled": true
+          }
+        ],
+        "metrics": [
+          {
+            "category": "Transaction",
+            "enabled": true
+          }
+        ]
+    }
+  }
+]
+```
+
+---
+
+See [Monitoring Azure Storage](../storage/blobs/monitor-blob-storage.md) for instructions on how to work with these logs.
 
 ### Application Insights
 
@@ -576,7 +667,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 :::zone pivot="platform-linux"  
 The function app must have set `"kind": "functionapp,linux"`, and it must have set property `"reserved": true`. Linux apps should also include a `linuxFxVersion` property under siteConfig. If you're just deploying code, the value for this property is determined by your desired runtime stack in the format of runtime|runtimeVersion. For example: `python|3.7`, `node|14` and `dotnet|3.1`.
 
-The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux Consumption plan.
+For Linux Consumption plan it is also required to add the two other settings in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare).
 
 For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Linux Consumption Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-linux-consumption).
 
@@ -1275,7 +1366,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ### Custom Container Image
 
-If you're [deploying a custom container image](functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+If you're [deploying a custom container image](./functions-how-to-custom-container.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
 
 # [Bicep](#tab/bicep)
 
@@ -1302,7 +1393,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~3'
+          value: '~4'
         }
         {
           name: 'DOCKER_REGISTRY_SERVER_URL'
@@ -1362,7 +1453,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
           },
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~3"
+            "value": "~4"
           },
           {
             "name": "DOCKER_REGISTRY_SERVER_URL",
@@ -1522,7 +1613,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
       appSettings: [
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~3'
+          value: '~4'
         }
         {
           name: 'AzureWebJobsStorage'
@@ -1568,7 +1659,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
         "appSettings": [
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~3"
+            "value": "~4"
           },
           {
             "name": "AzureWebJobsStorage",
@@ -1629,7 +1720,7 @@ Considerations for custom deployments:
           appSettings: [
             {
               name: 'FUNCTIONS_EXTENSION_VERSION'
-              value: '~3'
+              value: '~4'
             }
             {
               name: 'Project'
@@ -1649,7 +1740,7 @@ Considerations for custom deployments:
       properties: {
         AzureWebJobsStorage: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
         AzureWebJobsDashboard: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        FUNCTIONS_EXTENSION_VERSION: '~3'
+        FUNCTIONS_EXTENSION_VERSION: '~4'
         FUNCTIONS_WORKER_RUNTIME: 'dotnet'
         Project: 'src'
       }
@@ -1687,7 +1778,7 @@ Considerations for custom deployments:
             "appSettings": [
               {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
-                "value": "~3"
+                "value": "~4"
               },
               {
                 "name": "Project",
@@ -1708,7 +1799,7 @@ Considerations for custom deployments:
         "properties": {
           "AzureWebJobsStorage": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
           "AzureWebJobsDashboard": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', variables('storageAccountName'), listKeys(variables('storageAccountName'), '2021-09-01').keys[0].value)]",
-          "FUNCTIONS_EXTENSION_VERSION": "~3",
+          "FUNCTIONS_EXTENSION_VERSION": "~4",
           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
           "Project": "src"
         },
@@ -1832,7 +1923,7 @@ Here's an example that uses HTML:
 
 ### Deploy using PowerShell
 
-The following PowerShell commands create a resource group and deploy a Bicep file/ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-az-ps) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
+The following PowerShell commands create a resource group and deploy a Bicep file/ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-azure-powershell) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
 
 # [Bicep](#tab/bicep)
 

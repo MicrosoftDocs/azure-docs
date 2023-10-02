@@ -1,16 +1,17 @@
 ---
 title: Upgrade AutoML to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate AutoML from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade AutoML from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: shouryah
-ms.author: shoja
+ms.author: rasavage
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade AutoML to SDK v2
@@ -23,7 +24,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
 ## Submit AutoML run
 
-* SDK v1: Below is a sample AutoML classification task. For the entire code, check out our [examples repo](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
+* SDK v1: Below is a sample AutoML classification task. For the entire code, check out our [examples repo](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
     ```python
     # Imports
@@ -67,7 +68,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     print(azureml_url)
     ```
 
-* SDK v2: Below is a sample AutoML classification task. For the entire code, check out our [examples repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-mlflow.ipynb).
+* SDK v2: Below is a sample AutoML classification task. For the entire code, check out our [examples repo](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing.ipynb).
 
     ```python
     # Imports

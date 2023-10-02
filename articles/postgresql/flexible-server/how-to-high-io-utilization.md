@@ -6,7 +6,7 @@ ms.author: sbalijepalli
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/16/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Troubleshoot high IOPS utilization for Azure Database for PostgreSQL - Flexible Server

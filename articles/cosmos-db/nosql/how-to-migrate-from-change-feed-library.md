@@ -24,7 +24,7 @@ The .NET V3 SDK has several breaking changes, the following are the key steps to
 1. Customizations that use `WithProcessorOptions` should be updated to use `WithLeaseConfiguration` and `WithPollInterval` for intervals, `WithStartTime` [for start time](./change-feed-processor.md#starting-time), and `WithMaxItems` to define the maximum item count.
 1. Set the `processorName` on `GetChangeFeedProcessorBuilder` to match the value configured on `ChangeFeedProcessorOptions.LeasePrefix`, or use `string.Empty` otherwise.
 1. The changes are no longer delivered as a `IReadOnlyList<Document>`, instead, it's a `IReadOnlyCollection<T>` where `T` is a type you need to define, there is no base item class anymore.
-1. To handle the changes, you no longer need an implementation of `IChangeFeedObserver`, instead you need to [define a delegate](change-feed-processor.md#implementing-the-change-feed-processor). The delegate can be a static Function or, if you need to maintain state across executions, you can create your own class and pass an instance method as delegate.
+1. To handle the changes, you no longer need an implementation of `IChangeFeedObserver`, instead you need to [define a delegate](change-feed-processor.md#implement-the-change-feed-processor). The delegate can be a static Function or, if you need to maintain state across executions, you can create your own class and pass an instance method as delegate.
 
 For example, if the original code to build the change feed processor looks as follows:
 

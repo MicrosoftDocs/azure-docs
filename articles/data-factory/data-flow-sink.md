@@ -45,7 +45,7 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
-Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a source transformation.
+Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a sink transformation.
 
 | Connector | Format | Dataset/inline |
 | --------- | ------ | -------------- |

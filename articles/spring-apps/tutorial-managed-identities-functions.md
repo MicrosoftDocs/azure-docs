@@ -1,12 +1,12 @@
 ---
 title:  "Tutorial: Managed identity to invoke Azure Functions"
-description: Use managed identity to invoke Azure Functions from an Azure Spring Apps app
-author: karlerickson
+description: Learn how to use a managed identity to invoke Azure Functions from an Azure Spring Apps app.
+author: KarlErickson
 ms.author: margard
 ms.service: spring-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 05/07/2023
 ---
 
 # Tutorial: Use a managed identity to invoke Azure Functions from an Azure Spring Apps app
@@ -14,68 +14,102 @@ ms.date: 07/10/2020
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article shows you how to create a managed identity for an Azure Spring Apps app and use it to invoke Http triggered Functions.
+This article shows you how to create a managed identity for an app hosted in Azure Spring Apps and use it to invoke HTTP triggered Functions.
 
-Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By leveraging this built-in authentication capability along with Managed Identities for Azure Spring Apps, we can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
+Both Azure Functions and App Services have built in support for Azure Active Directory (Azure AD) authentication. By using this built-in authentication capability along with Managed Identities for Azure Spring Apps, you can invoke RESTful services using modern OAuth semantics. This method doesn't require storing secrets in code and provides more granular controls for controlling access to external resources.
 
 ## Prerequisites
 
-* [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli)
-* [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-* [Install the Azure Functions Core Tools version 3.0.2009 or higher](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
+- [Git](https://git-scm.com/downloads).
+- [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or higher.
+- [Install the Azure Functions Core Tools](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group to contain both the Function app and Spring Cloud using the command [az group create](/cli/azure/group#az-group-create):
+A resource group is a logical container into which Azure resources are deployed and managed. Use the following command to create a resource group to contain a Function app:
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
+az group create --name <resource-group-name> --location <location>
 ```
 
-## Create a Function App
+For more information, see the [az group create](/cli/azure/group#az-group-create) command.
 
-To create a Function app you must first create a backing storage account, use the command [az storage account create](/cli/azure/storage/account#az-storage-account-create):
+## Create a Function app
 
-> [!Important]
-> Each Function app and Storage Account must have a unique name. Replace *\<your-functionapp-name>* with the name of your Function app and *\<your-storageaccount-name>* with the name of your Storage Account in the following examples.
+To create a Function app, you must first create a backing storage account. You can use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
+
+> [!IMPORTANT]
+> Each Function app and storage account must have a unique name.
+
+Use the following command to create the storage account. Replace *\<function-app-name>* with the name of your Function app and *\<storage-account-name>* with the name of your storage account.
 
 ```azurecli
-az storage account create --name <your-storageaccount-name> --resource-group myResourceGroup --location eastus --sku Standard_LRS
+az storage account create \
+    --resource-group <resource-group-name> \
+    --name <storage-account-name> \
+    --location <location> \
+    --sku Standard_LRS
 ```
 
-Once the Storage Account has been created, you can create the Function app.
+After the storage account is created, use the following command to create the Function app:
 
 ```azurecli
-az functionapp create --name <your-functionapp-name> --resource-group myResourceGroup --consumption-plan-location eastus --os-type windows --runtime node --storage-account <your-storageaccount-name> --functions-version 3
+az functionapp create \
+    --resource-group <resource-group-name> \
+    --name <function-app-name> \
+    --consumption-plan-location <location> \
+    --os-type windows \
+    --runtime node \
+    --storage-account <storage-account-name> \
+    --functions-version 4
 ```
 
-Make a note of the returned **hostNames**, which will be in the format *https://\<your-functionapp-name>.azurewebsites.net*. It will be used in a following step.
+Make a note of the returned `hostNames` value, which is in the format `https://<your-functionapp-name>.azurewebsites.net`. Use this value in the Function app's root URL for testing the Function app.
 
-## Enable Azure Active Directory Authentication
+## Enable Azure Active Directory authentication
 
-Access the newly created Function app from the [Azure portal](https://portal.azure.com) and select "Authentication / Authorization" from the settings menu. Enable App Service Authentication and set the "Action to take when request is not authenticated" to "Log in with Azure Active Directory". This setting will ensure that all unauthenticated requests are denied (401 response).
+Use the following steps to enable Azure Active Directory authentication to access your Function app.
 
-![Authentication settings showing Azure Active Directory as the default provider](media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-1.jpg)
+1. In the Azure portal, navigate to your resource group and then open the Function app you created.
+1. In the navigation pane, select **Authentication** and then select **Add identity provider** on the main pane.
+1. On the **Add an identity provider** page, select **Microsoft** from the **Identity provider** dropdown menu.
 
-Under Authentication Providers, select Azure Active Directory to configure the application registration. Selecting Express Management Mode will automatically create an application registration in your Azure AD tenant with the correct configuration.
+   :::image type="content" source="media/tutorial-managed-identities-functions/add-identity-provider.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Microsoft highlighted in the identity provider dropdown menu." lightbox="media/tutorial-managed-identities-functions/add-identity-provider.png":::
 
-![Azure Active Directory provider set to Express Management Mode](media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-2.jpg)
+1. Select **Add**.
+1. For the **Basics** settings on the **Add an identity provider** page, set **Supported account types** to **Any Azure AD directory - Multi-tenant**.
+1. Set **Unauthenticated requests** to **HTTP 401 Unauthorized: recommended for APIs**. This setting ensures that all unauthenticated requests are denied (401 response).
 
-Once you save the settings, the function app will restart and all subsequent requests will be prompted to log in via Azure AD. You can test that unauthenticated requests are now being rejected by navigating to the function apps root URL (returned in the **hostNames** output in the step above). You should be redirected to your organizations Azure AD login screen.
+   :::image type="content" source="media/tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Support account types and Unauthenticated requests highlighted." lightbox="media/tutorial-managed-identities-functions/identity-provider-settings.png":::
 
-## Create an Http Triggered Function
+1. Select **Add**.
 
-In an empty local directory, create a new function app and add an Http triggered function.
+After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Azure AD. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Azure Active Directory sign-in screen.
+
+You need the Application ID and the Application ID URI for later use. In the Azure portal, navigate to the Function app you created.
+
+To get the Application ID, select **Authentication** in the navigation pane, and then copy the **App (client) ID** value for the identity provider that includes the name of the Function app.
+
+:::image type="content" source="media/tutorial-managed-identities-functions/function-authentication.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app, with the Function app name highlighted in the Identity provider." lightbox="media/tutorial-managed-identities-functions/function-authentication.png":::
+
+To get the Application ID URI, select **Expose an API** in the navigation pane, and then copy the **Application ID URI** value.
+
+:::image type="content" source="media/tutorial-managed-identities-functions/function-expose-api.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app with the Application ID URI highlighted." lightbox="media/tutorial-managed-identities-functions/function-expose-api.png":::
+
+## Create an HTTP triggered function
+
+In an empty local directory, use the following commands to create a new function app and add an HTTP triggered function:
 
 ```console
 func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-By default Functions use key-based authentication to secure Http endpoints. Since we'll be enabling Azure AD authentication to secure access to the Functions, we want to [set the function auth level to anonymous](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) in the *function.json* file.
+By default, functions use key-based authentication to secure HTTP endpoints. To enable Azure AD authentication to secure access to the functions, set the `authLevel` key to `anonymous` in the *function.json* file, as shown in the following example:
 
 ```json
 {
@@ -89,89 +123,102 @@ By default Functions use key-based authentication to secure Http endpoints. Sinc
 }
 ```
 
-The app can now be published to the [Function app](#create-a-function-app) instance created in the previous step.
+For more information, see the [Secure an HTTP endpoint in production](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production) section of [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
+
+Use the following command to publish the app to the instance created in the previous step:
 
 ```console
-func azure functionapp publish <your-functionapp-name>
+func azure functionapp publish <function-app-name>
 ```
 
-The output from the publish command should list the URL to your newly created function.
+The output from the publish command should list the URL to your newly created function, as shown in the following output:
 
 ```output
 Deployment completed successfully.
 Syncing triggers...
 Functions in <your-functionapp-name>:
     HttpTrigger - [httpTrigger]
-        Invoke url: https://<your-functionapp-name>.azurewebsites.net/api/httptrigger
+        Invoke url: https://<function-app-name>.azurewebsites.net/api/httptrigger
 ```
 
-## Create Azure Spring Apps service and app
+## Create an Azure Spring Apps service instance and application
 
-After installing the spring extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
+Use the following commands to add the spring extension and to create a new instance of Azure Spring Apps:
 
 ```azurecli
-az extension add --name spring
-az spring create --name mymsispringcloud --resource-group myResourceGroup --location eastus
+az extension add --upgrade --name spring
+az spring create \
+    --resource-group <resource-group-name> \
+    --name <Azure-Spring-Apps-instance-name> \
+    --location <location>
 ```
 
-The following example creates an app named `msiapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
+Use the following command to create an application named `msiapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter:
 
 ```azurecli
-az spring app create --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --assign-endpoint true --assign-identity
+az spring app create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name "msiapp" \
+    --assign-endpoint true \
+    --assign-identity
 ```
 
-## Build sample Spring Boot app to invoke the Function
+## Build a sample Spring Boot app to invoke the Function
 
-This sample will invoke the Http triggered function by first requesting an access token from the [MSI endpoint](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) and using that token to authenticate the Function http request.
+This sample invokes the HTTP triggered function by first requesting an access token from the MSI endpoint and using that token to authenticate the function HTTP request. For more information, see the [Get a token using HTTP](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) section of [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-1. Clone the sample project.
+1. Use the following command clone the sample project:
 
-    ```bash
-    git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
-    ```
+   ```bash
+   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
+   ```
 
-2. Specify your function URI and the trigger name in your app properties.
+1. Use the following command to specify your function URI and the trigger name in your app properties:
 
-    ```bash
-    cd Azure-Spring-Cloud-Samples/managed-identity-function
-    vim src/main/resources/application.properties
-    ```
+   ```bash
+   cd Azure-Spring-Cloud-Samples/managed-identity-function
+   vim src/main/resources/application.properties
+   ```
 
-    To use managed identity for Azure Spring Apps apps, add properties with the following content to *src/main/resources/application.properties*.
+1. To use managed identity for Azure Spring Apps apps, add the following properties with these values to *src/main/resources/application.properties*.
 
-    ```properties
-    azure.function.uri=https://<your-functionapp-name>.azurewebsites.net
-    azure.function.triggerPath=httptrigger
-    ```
+   ```text
+   azure.function.uri=https://<function-app-name>.azurewebsites.net
+   azure.function.triggerPath=httptrigger
+   azure.function.application-id.uri=<function-app-application-ID-uri>
+   ```
 
-3. Package your sample app.
+1. Use the following command to package your sample app:
 
-    ```bash
-    mvn clean package
-    ```
+   ```bash
+   mvn clean package
+   ```
 
-4. Now deploy the app to Azure with the Azure CLI command  `az spring app deploy`.
+1. Use the following command to deploy the app to Azure Spring Apps:
 
-    ```azurecli
-    az spring app deploy  --name "msiapp" --service "mymsispringcloud" --resource-group "myResourceGroup" --jar-path target/sc-managed-identity-function-sample-0.1.0.jar
-    ```
+   ```azurecli
+   az spring app deploy \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --name "msiapp" \
+       --jar-path target/asc-managed-identity-function-sample-0.1.0.jar
+   ```
 
-5. Access the public endpoint or test endpoint to test your app.
+1. Use the following command to access the public endpoint or test endpoint to test your app:
 
-    ```bash
-    curl https://mymsispringcloud-msiapp.azuremicroservices.io/func/springcloud
-    ```
+   ```bash
+   curl https://<Azure-Spring-Apps-instance-name>-msiapp.azuremicroservices.io/func/springcloud
+   ```
 
-    You'll see the following message returned in the response body.
+   The following message is returned in the response body.
 
-    ```output
-    Function Response: Hello, springcloud. This HTTP triggered function executed successfully.
-    ```
-
-    You can try passing different values to the function by changing the path parameter.
+   ```output
+   Function Response: Hello, springcloud. This HTTP triggered function executed successfully.
+   ```
 
 ## Next steps
 
-* [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
-* [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
-* [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)
+- [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
+- [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+- [Configure client apps to access your App Service](../app-service/configure-authentication-provider-aad.md#configure-client-apps-to-access-your-app-service)

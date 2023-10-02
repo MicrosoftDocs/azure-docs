@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 10/04/2022
+ms.date: 09/29/2023
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -15,43 +15,62 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
-## December 2022
+## September 2023
+
+This month, we renamed Azure Active Directory (Azure AD) to Microsoft Entra ID. For more information about the rebranding, see the [New name for Azure Active Directory](/azure/active-directory/fundamentals/new-name) article.
 
 ### Updated articles
 
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
-- [Azure Active Directory B2B collaboration API and customization](customize-invitation-api.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Auditing and reporting a B2B collaboration user](auditing-and-reporting.md)
+- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md) - Editorial updates
+- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md) - Editorial updates
+- [Overview of Microsoft Entra External ID](external-identities-overview.md) - Editorial updates
+- [Billing model for Microsoft Entra External ID](external-identities-pricing.md) - Editorial updates
+- [Microsoft Entra B2B collaboration FAQs](faq.yml) - Editorial updates
+- [Grant Microsoft Entra B2B users access to your on-premises applications](hybrid-cloud-to-on-premises.md) - Editorial updates
+- [Grant locally managed partner accounts access to cloud resources using Microsoft Entra B2B collaboration](hybrid-on-premises-to-cloud.md) - Editorial updates
+- [Microsoft Entra B2B collaboration for hybrid organizations](hybrid-organizations.md) - Editorial updates
+- [Microsoft Entra B2B collaboration invitation redemption](redemption-experience.md) - Editorial updates
+- [Self-service for Microsoft Entra B2B collaboration sign-up](self-service-portal.md) - Editorial updates
+- [Add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md) - Editorial updates
+- [Set up tenant restrictions v2](tenant-restrictions-v2.md) - Feature availability updates
+- [Troubleshooting Microsoft Entra B2B collaboration](troubleshoot.md) - Editorial updates
+- [Properties of a Microsoft Entra B2B collaboration user](user-properties.md) - Editorial updates
+- [B2B collaboration overview](what-is-b2b.md) - Editorial updates
+- [Add Microsoft Entra ID as an identity provider for External ID](default-account.md) - Editorial updates
+- [Add a self-service sign-up user flow to an app](self-service-sign-up-user-flow.md) - Editorial updates
+- [Add Microsoft Entra B2B collaboration users in the Microsoft Entra admin center](add-users-administrator.md) - Editorial updates
+- [Tutorial: Enforce multifactor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Editorial updates
+- [Configure cross-tenant access settings for B2B collaboration](cross-tenant-access-settings-b2b-collaboration.md) - Editorial updates
+- [Configure cross-tenant access settings for B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md) - Editorial updates
+- [Add Facebook as an identity provider for External Identities](facebook-federation.md) - Editorial updates
+- [Add Google as an identity provider for B2B guest users](google-federation.md) - Editorial updates
 
-## November 2022
+## August 2023
 
 ### Updated articles
 
-- [Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users](bulk-invite-powershell.md)
-- [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
-- [Reset redemption status for a guest user](reset-redemption-status.md)
-- [Language customization in Azure Active Directory](user-flow-customize-language.md)
-- [B2B collaboration overview](what-is-b2b.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
+- [B2B collaboration user claims mapping in Azure Active Directory](claims-mapping.md) - UPN claims behavior update
+- [Self-service sign-up](self-service-sign-up-overview.md) - Customer content reference update 
+- [Cross-tenant access overview](cross-tenant-access-overview.md) - New storage model update
+- [Cross-tenant access settings](cross-tenant-access-settings-b2b-collaboration.md) - New storage model update
+- [Configure B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md) - New storage model update
+  
+## July 2023
 
-## October 2022
+### New article
+
+- [Sponsors field for B2B users (preview)](b2b-sponsors.md)
 
 ### Updated articles
 
-- [Tutorial: Bulk invite Azure AD B2B collaboration users](tutorial-bulk-invite.md)
-- [Quickstart: Add a guest user and send an invitation](b2b-quickstart-add-guest-users-portal.md)
-- [Define custom attributes for user flows](user-flow-add-custom-attributes.md)
-- [Create dynamic groups in Azure Active Directory B2B collaboration](use-dynamic-groups.md)
-- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
-- [Authentication and Conditional Access for External Identities](authentication-conditional-access.md)
-- [Leave an organization as an external user](leave-the-organization.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
-- [Example: Configure SAML/WS-Fed based identity provider federation with AD FS](direct-federation-adfs.md)
-- [The elements of the B2B collaboration invitation email - Azure Active Directory](invitation-email-elements.md)
-- [Configure Microsoft cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md)
-- [Add Microsoft account (MSA) as an identity provider for External Identities](microsoft-account.md)
-- [How users in your organization can invite guest users to an app](add-users-information-worker.md)
+- [Bulk invite users via PowerShell](bulk-invite-powershell.md) - Editorial and link updates
+- [Enforce multifactor authentication for B2B guest users](b2b-tutorial-require-mfa.md) - Text corrections and screenshot updates
+- [Invite internal users to B2B](invite-internal-users.md) - Text corrections and screenshot updates
+- [Grant B2B users access to local apps](hybrid-cloud-to-on-premises.md) - Text corrections
+- [Tenant restrictions V2](tenant-restrictions-v2.md) - Note update
+- [Leave an organization](leave-the-organization.md) - Screenshot update
+- [Use audit logs and access reviews](auditing-and-reporting.md) - B2B sponsors feature update
+
+
+
 

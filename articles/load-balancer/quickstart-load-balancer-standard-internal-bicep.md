@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Create an internal Azure load balancer using Bicep'
+title: 'Quickstart: Create an internal Azure load balancer - Bicep'
 description: This quickstart shows how to create an internal Azure load balancer using Bicep.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
 ms.author: mbender
-ms.date: 04/29/2022
+ms.date: 05/01/2023
+ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engagement-fy23
 ---
 
-# Quickstart: Create an internal load balancer to load balance VMs by using Bicep
+# Quickstart: Create an internal load balancer to load balance VMs using Bicep
 
 This quickstart describes how to use Bicep to create an internal Azure load balancer.
 
@@ -43,15 +43,15 @@ Multiple Azure resources have been defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=<admin-user>
+    az group create --name CreateIntLBQS-rg --location eastus
+    az deployment group create --resource-group CreateIntLBQS-rg --template-file main.bicep --parameters adminUsername=AzureAdmin
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminUsername "<admin-user>"
+    New-AzResourceGroup -Name CreateIntLBQS-rg -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName CreateIntLBQS-rg -TemplateFile ./main.bicep -adminUsername "<admin-user>"
     ```
 
     ---
@@ -68,13 +68,13 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az resource list --resource-group CreateIntLBQS-rg
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+Get-AzResource -ResourceGroupName CreateIntLBQS-rg
 ```
 
 ---
@@ -86,13 +86,13 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az group delete --name CreateIntLBQS-rg
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name CreateIntLBQS-rg
 ```
 
 ---

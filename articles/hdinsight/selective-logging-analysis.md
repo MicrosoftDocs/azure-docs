@@ -3,8 +3,8 @@ title: Use selective logging with a script action in Azure HDInsight clusters
 description: Learn how to use the selective logging feature with a script action to monitor logs.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references-regions, devx-track-azurecli
-ms.date: 07/31/2022
+ms.custom: seoapr2020, references-regions
+ms.date: 09/13/2023
 ---
 
 # Use selective logging with a script action in Azure HDInsight

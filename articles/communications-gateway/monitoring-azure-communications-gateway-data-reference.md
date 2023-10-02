@@ -32,7 +32,6 @@ This section lists all the automatically collected metrics collected for Azure C
 | Active Calls | Count | Count of the total number of active calls. |
 | Active Emergency Calls | Count | Count of the total number of active emergency calls.|
 
-For more information, see a list of [all metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric Dimensions
 
@@ -45,6 +44,7 @@ Azure Communications Gateway has the following dimensions associated with its me
 | **Region** | The Service Locations defined in your Azure Communications Gateway resource. |
 
 
-## See Also
+## Next steps
+
 - See [Monitoring Azure Communications Gateway](monitor-azure-communications-gateway.md) for a description of monitoring Azure Communications Gateway.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

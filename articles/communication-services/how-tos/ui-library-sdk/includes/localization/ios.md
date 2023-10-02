@@ -8,7 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling)
 
 ### Language Detection
 
@@ -47,7 +47,7 @@ The following table of `locale` with out of the box translations. If you want to
 | Spanish | es | es |
 | Spanish (Spain) | esES | es-ES |
 | Turkish | tr | tr |
-| Turkish (Turkey) | trTR | tr-TR |
+| Turkish (Türkiye) | trTR | tr-TR |
 
 You can also obtain list of `locale` by the static function `SupportedLocale.values` will return list of Locale structs.
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 01/31/2023
 ---
 
 # Detailed example of shapes and projections in a knowledge store
@@ -19,13 +19,13 @@ If your application requirements call for multiple skills and projections, this 
 
 ## Download sample definitions
 
-This example uses [Postman Desktop application](https://www.postman.com/downloads/) and the [Search REST APIs](/rest/api/searchservice/).
+This example uses [Postman app](https://www.postman.com/downloads/) and the [Search REST APIs](/rest/api/searchservice/).
 
 Clone or download [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub and import the [**Projections collection**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) to step through this example yourself.
 
 ## Set up sample data
 
-Sample documents aren't specifically included with the Projections collection, but the [AI enrichment demo data files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from the [azure-search-sample-data repo](https://github.com/Azure-Samples/azure-search-sample-data) contain text and images, and will work with the projections described in this example.
+Sample documents aren't included with the Projections collection, but the [AI enrichment demo data files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from the [azure-search-sample-data repo](https://github.com/Azure-Samples/azure-search-sample-data) contain text and images, and will work with the projections described in this example.
 
 Create a blob container in Azure Storage and upload all 14 items.
 
@@ -182,8 +182,8 @@ Pay close attention to skill outputs (targetNames). Outputs written to the enric
     ],
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "A Cognitive Services resource in the same region as Search.",
-        "key": "<COGNITIVE SERVICES All-in-ONE KEY>"
+        "description": "An Azure AI services resource in the same region as Search.",
+        "key": "<Azure AI services All-in-ONE KEY>"
     },
     "knowledgeStore": null
 }
@@ -195,7 +195,7 @@ A [Shaper skill](cognitive-search-skill-shaper.md) is a utility for working with
 
 In this example, the custom shape combines blob metadata and identified entities and key phrases. The custom shape is called `projectionShape` and is parented under `/document`. 
 
-One purpose of shaping is to ensure that all enrichment nodes are expressed in well-formed JSON, which is required for projecting into knowledge store. This is especially true when an enrichment tree contains nodes that are not well-formed JSON (for example, when an enrichment is parented to a primitive like a string).
+One purpose of shaping is to ensure that all enrichment nodes are expressed in well-formed JSON, which is required for projecting into knowledge store. This is especially true when an enrichment tree contains nodes that aren't well-formed JSON (for example, when an enrichment is parented to a primitive like a string).
 
 Notice the last two nodes, `KeyPhrases` and `Entities`. These are wrapped into a valid JSON object with the `sourceContext`. This is required as `keyphrases` and `entities` are enrichments on primitives and need to be converted to valid JSON before they can be projected.
 
@@ -266,7 +266,7 @@ Notice the last two nodes, `KeyPhrases` and `Entities`. These are wrapped into a
 
 ### Add Shapers to a skillset
 
-The example skillset introduced at the start of this article did not include the Shaper skill, but Shaper skills belong in a skillset and are often placed towards the end.
+The example skillset introduced at the start of this article didn't include the Shaper skill, but Shaper skills belong in a skillset and are often placed towards the end.
 
 Within a skillset, a Shaper skill might look like this:
 
@@ -284,7 +284,7 @@ Within a skillset, a Shaper skill might look like this:
 
 ## Projecting to tables
 
-Drawing on the examples above, there is a known quantity of enrichments and data shapes that can be referenced in table projections. In the tables projection below, three tables are defined by setting the `tableName`, `source` and `generatedKeyName` properties.
+Drawing on the examples above, there's a known quantity of enrichments and data shapes that can be referenced in table projections. In the tables projection below, three tables are defined by setting the `tableName`, `source` and `generatedKeyName` properties.
 
 All three of these tables will be related through generated keys and by the shared parent `/document/projectionShape`.
 
@@ -327,7 +327,7 @@ You can check projection definitions by following these steps:
 
 1. After updating the skillset, run the indexer. 
 
-You now have a working projection with three tables. [Importing these tables into Power BI](knowledge-store-connect-power-bi.md) should result in Power BI auto-discovering the relationships.
+You now have a working projection with three tables. [Importing these tables into Power BI](knowledge-store-connect-power-bi.md) should result in Power BI discovering the relationships.
 
 Before moving on to the next example, let's revisit aspects of the table projection to understand the mechanics of slicing and relating data.
 
@@ -335,23 +335,23 @@ Before moving on to the next example, let's revisit aspects of the table project
 
 Slicing is a technique that subdivides a whole consolidated shape into constituent parts. The outcome consists of separate but related tables that you can work with individually.
 
-In the example, `projectionShape` is the consolidated shape (or enrichment node). In the projection definition, `projectionShape` is sliced into additional tables, which enables you to pull out parts of the shape, `keyPhrases` and `Entities`. In Power BI, this is useful as multiple entities and keyPhrases are associated with each document, and you will get more insights if you can see entities and keyPhrases as categorized data.
+In the example, `projectionShape` is the consolidated shape (or enrichment node). In the projection definition, `projectionShape` is sliced into additional tables, which enables you to pull out parts of the shape, `keyPhrases` and `Entities`. In Power BI, this is useful as multiple entities and keyPhrases are associated with each document, and you'll get more insights if you can see entities and keyPhrases as categorized data.
 
 Slicing implicitly generates a relationship between the parent and child tables, using the `generatedKeyName` in the parent table to create a column with the same name in the child table. 
 
 ### Naming relationships
 
-The `generatedKeyName` and `referenceKeyName` properties are used to relate data across tables or even across projection types. Each row in the child table has a property pointing back to the parent. The name of the column or property in the child is the `referenceKeyName` from the parent. When the `referenceKeyName` is not provided, the service defaults it to the `generatedKeyName` from the parent. 
+The `generatedKeyName` and `referenceKeyName` properties are used to relate data across tables or even across projection types. Each row in the child table has a property pointing back to the parent. The name of the column or property in the child is the `referenceKeyName` from the parent. When the `referenceKeyName` isn't provided, the service defaults it to the `generatedKeyName` from the parent. 
 
 Power BI relies on these generated keys to discover relationships within the tables. If you need the column in the child table named differently, set the `referenceKeyName` property on the parent table. One example would be to set the `generatedKeyName` as ID on the tblDocument table and the `referenceKeyName` as DocumentID. This would result in the column in the tblEntities and tblKeyPhrases tables containing the document ID being named DocumentID.
 
 ## Projecting blob documents
 
-Object projections are JSON representations of the enrichment tree that can be sourced from any node. In comparison with table projections, object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and cannot be sliced.
+Object projections are JSON representations of the enrichment tree that can be sourced from any node. In comparison with table projections, object projections are simpler to define and are used when projecting whole documents. Object projections are limited to a single projection in a container and can't be sliced.
 
 To define an object projection, use the `objects` array in the projections property.
 
-The source is the path to a node of the enrichment tree that is the root of the projection. Although it is not required, the node path is usually the output of a Shaper skill. This is because most skills do not output valid JSON objects on their own, which means that some form of shaping is necessary. In many cases, the same Shaper skill that creates a table projection can be used to generate an object projection. Alternatively, the source can also be set to a node with [an inline shaping](knowledge-store-projection-shape.md#inline-shape) to provide the structure.
+The source is the path to a node of the enrichment tree that is the root of the projection. Although it isn't required, the node path is usually the output of a Shaper skill. This is because most skills don't output valid JSON objects on their own, which means that some form of shaping is necessary. In many cases, the same Shaper skill that creates a table projection can be used to generate an object projection. Alternatively, the source can also be set to a node with [an inline shaping](knowledge-store-projection-shape.md#inline-shape) to provide the structure.
 
 The destination is always a blob container.
 
@@ -422,7 +422,7 @@ To define a file projection, use the `files` array in the projections property.
 
 The source is always `/document/normalized_images/*`. File projections only act on the `normalized_images` collection. Neither indexers nor a skillset will pass through the original non-normalized image.
 
-The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container. 
+The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. File projections can't share the same container as object projections and need to be projected into a different container. 
 
 The following example projects all normalized images extracted from the document node of an enriched document, into a container called `myImages`.
 
@@ -586,13 +586,13 @@ From the consolidated crossProjection object, slice the object into multiple tab
 }
 ```
 
-Object projections require a container name for each projection. Object projections and file projections cannot share a container. 
+Object projections require a container name for each projection. Object projections and file projections can't share a container. 
 
 ### Relationships among table, object, and file projections
 
-This example also highlights another feature of projections. By defining multiple types of projections within the same projection object, there is a relationship expressed within and across the different types (tables, objects, files). This allows you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. 
+This example also highlights another feature of projections. By defining multiple types of projections within the same projection object, there's a relationship expressed within and across the different types (tables, objects, files). This allows you to start with a table row for a document and find all the OCR text for the images within that document in the object projection. 
 
-If you do not want the data related, define the projections in different projection groups. For example, the following snippet will result in the tables being related, but without relationships between the tables and the object (OCR text) projections. 
+If you don't want the data related, define the projections in different projection groups. For example, the following snippet will result in the tables being related, but without relationships between the tables and the object (OCR text) projections. 
 
 Projection groups are useful when you want to project the same data in different shapes for different needs. For example, a projection group for the Power BI dashboard, and another projection group for capturing data used to train a machine learning model wrapped in a custom skill.
 
@@ -654,7 +654,7 @@ When building projections of different types, file and object projections are ge
 
 ## Next steps
 
-The example in this article demonstrates common patterns on how to create projections. Now that you have a good understanding of the concepts, you are better equipped to build projections for your specific scenario.
+The example in this article demonstrates common patterns on how to create projections. Now that you have a good understanding of the concepts, you're better equipped to build projections for your specific scenario.
 
 > [!div class="nextstepaction"]
 > [Configure caching for incremental enrichment](search-howto-incremental-index.md)

@@ -4,6 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 09/28/2022
 ---
 
@@ -122,6 +123,8 @@ You can define allowed values for a parameter. You provide the allowed values in
 ])
 param demoEnum string
 ```
+
+If you define allowed values for an array parameter, the actual value can be any subset of the allowed values.
 
 ### Length constraints
 

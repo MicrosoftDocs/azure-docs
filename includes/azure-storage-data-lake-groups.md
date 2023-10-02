@@ -23,3 +23,6 @@ To enable these activities, you could create a `LogsWriter` group and a `LogsRea
 If a user in the service engineering team leaves the company, you could just remove them from the `LogsWriter` group. If you did not add that user to a group, but instead, you added a dedicated ACL entry for that user, you would have to remove that ACL entry from the **/LogData** directory. You would also have to remove the entry from all subdirectories and files in the entire directory hierarchy of the **/LogData** directory. 
 
 To create a group and add members, see [Create a basic group and add members using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2 depends on Azure Active Directory (Azure AD) to manage security groups. Azure AD recommends that you limit group membership for a given security principal to less than 200. This recommendation is due to a limitation of JSON Web Tokens (JWT) that provide a security principal's group membership information within Azure AD applications. Exceeding this limit might lead to unexpected performance issues with Data Lake Storage Gen2. To learn more, see [Configure group claims for applications by using Azure Active Directory](../articles//active-directory/hybrid/connect/how-to-connect-fed-group-claims.md).

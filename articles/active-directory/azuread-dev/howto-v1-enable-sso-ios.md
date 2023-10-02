@@ -1,5 +1,5 @@
 ---
-title: How to enable cross-app SSO on iOS using ADAL | Microsoft Docs
+title: How to enable cross-app SSO on iOS using ADAL
 description: How to use the features of the ADAL SDK to enable Single Sign On across your applications.
 services: active-directory
 author: rwike77 
@@ -293,7 +293,7 @@ Your redirect URI must be in the proper form of:
 
 ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-This redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](../develop/active-directory-how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+This redirect URI needs to be specified in your app registration using the [Azure portal](https://portal.azure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](../develop/how-to-integrate.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
 ##### Step 3a: Add a redirect URI in your app and dev portal to support certificate-based authentication
 

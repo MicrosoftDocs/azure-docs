@@ -3,9 +3,13 @@ title: Overview - Microsoft Defender for IoT for organizations
 description: Learn about Microsoft Defender for IoT's features for end-user organizations and comprehensive IoT security for OT and Enterprise IoT networks.
 ms.topic: overview
 ms.date: 12/25/2022
+ms.custom: enterprise-iot
 ---
 
 # Welcome to Microsoft Defender for IoT for organizations
+
+> [!NOTE]
+> OT monitoring with Microsoft Defender for IoT is now available for purchase with site-based licenses, purchased on the Microsoft 365 admin center.
 
 The Internet of Things (IoT) supports billions of connected devices that use both operational technology (OT) and IoT networks. IoT/OT devices and networks are often built using specialized protocols, and may prioritize operational challenges over security.
 
@@ -74,16 +78,11 @@ For more information, see [Manage proprietary protocols with Horizon plugins](re
 
 ## Protect enterprise IoT networks
 
-Use one or both of the following methods to extend Defender for IoT's agentless security features beyond OT environments to enterprise IoT devices.
-
-- Add an Enterprise IoT plan in Microsoft Defender for Endpoint for added alerts, vulnerabilities, and recommendations for IoT devices in Defender for Endpoint. An Enterprise IoT plan also provides a shared device inventory across the Azure portal and Microsoft 365 Defender.
-
-- Onboard an Enterprise IoT network sensor in Defender for IoT (Public Preview) to extend Defender for IoT device visibility to devices that aren't covered by Defender for Endpoint.
+Extend Defender for IoT's agentless security features beyond OT environments to enterprise IoT devices. Add an Enterprise IoT plan in Microsoft Defender for Endpoint for added alerts, vulnerabilities, and recommendations for IoT devices in Defender for Endpoint. An Enterprise IoT plan also provides a shared device inventory across the Azure portal and Microsoft 365 Defender.
 
 Enterprise IoT devices can include devices such as printers, smart TVs, and conferencing systems and purpose-built, proprietary devices.
 
 For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md).
-
 
 ## Defender for IoT for device builders
 

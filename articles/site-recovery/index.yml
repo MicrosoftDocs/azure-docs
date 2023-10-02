@@ -31,6 +31,11 @@ landingContent:
           - text: Try out disaster recovery for an Azure VM
             url: ./azure-to-azure-quickstart.md
 
+      - linkListType: concept
+        links:
+          - text: Azure VM Disaster Recovery - High Churn support 
+            url: concepts-azure-to-azure-high-churn-support.md
+
       - linkListType: tutorial
         links:
           - text: Disaster recovery for Azure VMs

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell, ignite-2022
+ms.custom: references_regions, synapse-cosmos-db, ignite-2022
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB
@@ -35,9 +35,12 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 > [!NOTE]
 > If you want to use Full Fidelity Schema for API for NoSQL accounts, you can't use the Azure portal to enable Synapse Link. This option can't be changed after Synapse Link is enabled in your account and to set it you must use Azure CLI or PowerShell. For more information, check [analytical store schema representation documentation](analytical-store-introduction.md#schema-representation). 
 
+> [!NOTE]
+> You need [Contributor role](role-based-access-control.md) to enable Synapse Link at account level. And you need at least [Operator role](role-based-access-control.md) to enable Synapse Link in your containers or collections.
+
 ### Azure portal
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
@@ -104,7 +107,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 ### Azure portal
 
 #### New container 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com).
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
@@ -120,7 +123,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 
 #### Existing container
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com).
 
 1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** tab.
 
@@ -220,16 +223,15 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-## Optional - Disable analytical store in a SQL API container
+## Optional - Disable analytical store
 
-Analytical store can be disabled in SQL API containers using Azure CLI or PowerShell, by setting `analytical TTL` to `0`.
+Analytical store can be disabled in SQL API containers or in MongoDB API collections, using Azure CLI or PowerShell. It is done by setting `analytical TTL` to `0`.
 
 > [!NOTE]
 > Please note that currently this action can't be undone. If analytical store is disabled in a container, it can never be re-enabled.
 
 > [!NOTE]
-> Please note that disabling analytical store is not available for MongoDB API collections.
-
+> Please note that currently it is not possible to disable Synapse Link from a database account.
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 

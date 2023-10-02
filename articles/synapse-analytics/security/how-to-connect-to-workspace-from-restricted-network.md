@@ -6,8 +6,8 @@ ms.author: danzhang
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
-ms.date: 02/15/2022
-ms.reviewer: sngun
+ms.date: 06/05/2023
+ms.reviewer: sngun, wiassaf
 ---
 
 # Connect to workspace resources from a restricted network
@@ -110,6 +110,29 @@ If you want your notebook to access the linked storage resources under a certain
 After you create this endpoint, the approval state shows a status of **Pending**. Request approval from the owner of this storage account, in the **Private endpoint connections** tab of this storage account in the Azure portal. After it's approved, your notebook can access the linked storage resources under this storage account.
 
 Now, all set. You can access your Azure Synapse Analytics Studio workspace resource.
+
+## Step 6: Allow URL through firewall
+
+Following URLs must be accessible from client browser after enabling Azure Synapse private link hub. 
+
+Required for auth: 
+ - `login.microsoftonline.com`
+ - `aadcdn.msauth.net`
+ - `msauth.net`
+ - `msftauth.net`
+ - `graph.microsoft.com`
+ - `login.live.com`, though this may be different based on account type.
+ 
+Required for workspace/pool management: 
+ - `management.azure.com`
+ - `{workspaceName}.[dev|sql].azuresynapse.net`
+ - `{workspaceName}-ondemand.sql.azuresynapse.net`
+
+Required for Synapse notebook authoring:
+- `aznb.azuresandbox.ms`
+ 
+Required for access control and identity searching:
+- `graph.windows.net`
 
 ## Appendix: DNS registration for private endpoint
 

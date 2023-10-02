@@ -86,9 +86,9 @@ Now you'll configure Application Gateway with Azure VMware Solution VMs as backe
 This procedure shows you how to define backend address pools using VMs running on an Azure VMware Solution private cloud on an existing application gateway.
 
 >[!NOTE]
->This procedure assumes you have multiple domains, so we'll use examples of www.contoso.com and www.fabrikam.com.
+>This procedure assumes you have multiple domains, so we'll use examples of www.contoso.com and www.contoso2.com.
 
-1. In your private cloud, create two different pools of VMs. One represents Contoso and the second Fabrikam.
+1. In your private cloud, create two different pools of VMs. One represents Contoso and the second contoso2.
 
     :::image type="content" source="media/application-gateway/app-gateway-multi-backend-pool.png" alt-text="Screenshot showing summary of a web server's details in VMware vSphere Client."lightbox="media/application-gateway/app-gateway-multi-backend-pool.png":::
 

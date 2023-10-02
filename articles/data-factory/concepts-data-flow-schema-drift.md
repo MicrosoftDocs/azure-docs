@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/19/2022
+ms.date: 08/10/2023
 ---
 
 # Schema drift in mapping data flow

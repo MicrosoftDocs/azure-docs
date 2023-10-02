@@ -5,20 +5,25 @@ description: Learn how to list blob containers in your Azure Storage account usi
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 08/02/2023
 ms.author: pauljewell
-ms.subservice: blobs
 ms.devlang: java
-ms.custom: devx-track-java, devguide-java
+ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
-# List blob containers using the Java client library
+# List blob containers with Java
 
 When you list the containers in an Azure Storage account from your code, you can specify several options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
-## Understand container listing options
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
+    - [List Containers](/rest/api/storageservices/list-containers2#authorization)
+
+## About container listing options
 
 To list containers in your storage account, call the following method:
 
@@ -44,9 +49,22 @@ You can also return a smaller set of results, by specifying the size of the page
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerList.java" id="Snippet_ListContainersWithPaging":::
 
+## Resources
+
+To learn more about listing containers using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for listing containers use the following REST API operation:
+
+- [List Containers](/rest/api/storageservices/list-containers2) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerList.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
 ## See also
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerList.java)
-- [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md)
-- [List Containers](/rest/api/storageservices/list-containers2) (REST API)
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)

@@ -3,10 +3,10 @@ title: Upgrade the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to upgrade the Microsoft Azure Recovery Services (MARS) agent.
 ms.topic: how-to
 ms.date: 12/28/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
 ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Upgrade the Microsoft Azure Recovery Services (MARS) agent
@@ -57,7 +57,7 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
     Azure Cloud | URL
     --- | ---
     Azure Cloud (Public) |   `https://login.windows.net`
-    Azure China 21Vianet Cloud   | `https://login.chinacloudapi.cn`
+    Microsoft Azure operated by 21Vianet Cloud   | `https://login.chinacloudapi.cn`
     Azure US Government Cloud |   `https://login.microsoftonline.us`
     Azure German Cloud  |  `https://login.microsoftonline.de`
 
