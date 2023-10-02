@@ -49,7 +49,7 @@ You can update to the latest version using the following update paths:
 
 The 2309 release has the following new features and enhancements:
 
-- Beginning this release, you have the option of selecting Kubernetes profiles based on your workloads. You can select the Kubernetes workload profiles via the [local UI](/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1) or via the [PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-workload-profiles) of your device.
+- Beginning this release, you have the option of selecting Kubernetes profiles based on your workloads. You can select the Kubernetes workload profiles via the [local UI](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1) or via the [PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-workload-profiles) of your device.
 - In this release, you can configure Maximum Transmission Unit (MTU) for the network interfaces on your device. For more information, see [Configure MTU via the local UI](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
 - In this release, new VM sizes have been added. For more information, see the [Supported VM sizes for Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 - Starting this release, you can created  a VM image with custom sizes and use that to create your VMs. For more information, see [Create a VM image with custom size](azure-stack-edge-create-vm-with-custom-size.md).
