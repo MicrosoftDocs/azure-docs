@@ -18,6 +18,10 @@ The list doesn't specifically include multi-session versions of Windows. However
 
 This article shows you how to create a GPU-optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding.
 
+## Prerequisites
+
+This article assumes that you already created a host pool and an application group.
+
 ## Select an appropriate GPU-optimized Azure VM size
 
 Select one of the Azure [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), [NVv4-series](../virtual-machines/nvv4-series.md), [NVadsA10 v5-series](../virtual-machines/nva10v5-series.md), or [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md) VM sizes to use as a session host. These sizes are tailored for app and desktop virtualization. They enable most apps and the Windows user interface to be GPU accelerated.
@@ -84,7 +88,7 @@ A full-screen video profile provides a higher frame rate and better user experie
 Configure Group Policy for the session host to enable full-screen video encoding. Continuing the previous steps:
 
 1. Select the policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections**. Set this policy to **Enabled** to force the H.264/AVC 444 codec in the remote session.
-2. Now that you've edited the policies, force a Group Policy update. Open the command prompt and enter:
+2. Now that you've edited the policies, force a Group Policy update. Open the command prompt as an administrator and run the following command:
 
     ```cmd
     gpupdate.exe /force
