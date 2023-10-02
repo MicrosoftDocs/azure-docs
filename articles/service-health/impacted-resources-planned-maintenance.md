@@ -33,7 +33,7 @@ Service Health provides the information below   on resources impacted by a plann
 |**Region**|Region which contains the impacted resource|
 |**Subscription ID**|Unique ID for the subscription that contains the impacted resource|
 |**Action(*)**|Link to the apply update page during Self-Service window (only for rebootful updates on compute resources)|
-|**Self-serve Maintenance Due Date(*)**|Unique ID for the subscription that contains the impacted resource.|
+|**Self-serve Maintenance Due Date(*)**|Due date for Self-Service window during which the update can be applied by the user (only for rebootful updates on compute resources)|
 
 >[!Note]
 >Fields with an asterisk * are optional fields that are available depending on the resource type.
