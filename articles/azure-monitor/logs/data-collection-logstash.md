@@ -8,27 +8,18 @@ ms.author: bwren
 ---
 
 # Use Logstash to send data to Log Analytics workspace
-The Logstash plugin supports pipeline transformations and advanced configuration via Data Collection Rules (DCRs). The plugin forwards any type of logs from external data sources into custom or standard tables in Log Analytics or Microsoft Sentinel. 
-
+[Logstash](https://www.elastic.co/logstash/) is a server-side data processing pipeline that ingests data from a multitude of sources, transforms it, and then sends it to a variety of  destinations. The [Logstash plugin]() supports plugin forwards output from Logstash to custom or standard tables in a Log Analytics workspace allowing you to use this data with Azure Monitor or Microsodft Sentintel. 
 
 > [!IMPORTANT]
 > Data ingestion using the Logstash output plugin with Data Collection Rules (DCRs) is currently in public preview. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+The Logstash plugin allows you to perform the following functions:
 
-In this article, you learn how to set up the new Logstash plugin to stream the data into Log Analytics or Microsoft Sentinel using DCRs, with full control over the output schema. Learn how to **[deploy the plugin](#deploy-the-microsoft-sentinel-output-plugin-in-logstash)**.
+- Control the configuration of the column names and types of the tables in the Log Analytics workspace.
+- Perform ingestion-time transformations like filtering or enrichment before the data is stored in the workspace. 
+- Send data to a custom table or any table that currently supports [ingestion-time transformations](./data-collection-transformations.md#supported-tables).
 
-With the new plugin, you can:
-- Control the configuration of the column names and types.
-- Perform ingestion-time transformations like filtering or enrichment. 
-- Ingest custom logs into a custom table, or ingest a Syslog input stream into the Log Analytics Syslog table.
-
-Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](data-transformation.md#data-transformation-support-for-custom-data-connectors).
-
-To learn more about working with the Logstash data collection engine, see [Getting started with Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
-
-## Overview
-
-### Architecture and background
+## Architecture and background
 
 :::image type="content" source="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png" alt-text="Diagram of the Logstash architecture." border="false" lightbox="./media/connect-logstash-data-collection-rules/logstash-data-collection-rule-architecture.png":::
 
@@ -39,11 +30,8 @@ The Logstash engine is comprised of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
->
-> - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
->
-> - See the [prerequisites](#prerequisites) for the plugin’s Logstash version support.
+> - Microsoft supports Logstash output plugin  named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft does not support third-party Logstash output plugins.
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics Log Ingestion API. The data is ingested into custom logs or standard table.
 
@@ -53,7 +41,6 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 
 **To set up the plugin, follow these steps**:
 
-1. Review the [prerequisites](#prerequisites)
 1. [Install the plugin](#install-the-plugin)
 1. [Create a sample file](#create-a-sample-file) 
 1. [Create the required DCR-related resources](#create-the-required-dcr-resources)
@@ -69,7 +56,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
     - Logstash version 8.0 to 8.8.1. 
     
     > [!NOTE]
-    > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
+    > If you use Logstash 8, you should [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
 
 - Verify that you have a Log Analytics workspace with at least contributor rights.
 - Verify that you have permissions to create DCR objects in the workspace.
