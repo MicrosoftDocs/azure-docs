@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 06/14/2023
+ms.date: 10/02/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -91,6 +91,17 @@ The following premium detections are visible only to Microsoft Entra ID P2 custo
 
 The algorithm ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The system has an initial learning period of the earliest of 14 days or 10 logins, during which it learns a new user's sign-in behavior.
 
+##### Investigating atypical travel detections
+
+1. If you're able to confirm the activity wasn't performed by a legitimate user:
+   1. **Recommended action**: Mark the sign-in as compromised, and invoke a password reset if not already performed by self-remediation. Block user if attacker has access to reset password or perform MFA and reset password. 
+1. If a user is known to use the IP address in the scope of their duties:
+   1. **Recommended action**: Dismiss the alert
+1. If you're able to confirm that the user recently travelled to the destination mentioned detailed in the alert:
+   1. **Recommended action**: Dismiss the alert.
+1. If you're able to confirm that the IP address range is from a sanctioned VPN.
+   1. **Recommended action**: Mark sign-in as safe and add the VPN IP address range to named locations in Azure AD and Microsoft Defender for Cloud Apps.
+
 #### Anomalous token 
 
 **Calculated offline**. This detection indicates that there are abnormal characteristics in the token such as an unusual token lifetime or a token that is played from an unfamiliar location. This detection covers Session Tokens and Refresh Tokens. 
@@ -98,9 +109,27 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 > [!NOTE] 
 > Anomalous token is tuned to incur more noise than other detections at the same risk level. This tradeoff is chosen to increase the likelihood of detecting replayed tokens that may otherwise go unnoticed. Because this is a high noise detection, there's a higher than normal chance that some of the sessions flagged by this detection are false positives. We recommend investigating the sessions flagged by this detection in the context of other sign-ins from the user. If the location, application, IP address, User Agent, or other characteristics are unexpected for the user, the tenant admin should consider this risk as an indicator of potential token replay.
 
+##### Investigating anomalous token detections
+
+1. If you're able to confirm that the activity wasn't performed by a legitimate user using a combination of risk alert, location, application, IP address, User Agent, or other characteristics that are unexpected for the user:
+   1. **Recommended action**: Mark the sign-in as compromised, and invoke a password reset if not already performed by self-remediation. Block the user if an attacker has access to reset password or perform MFA and reset password and revoke all tokens. 
+1. If you're able to confirm location, application, IP address, User Agent, or other characteristics are expected for the user and there aren't other indications of compromise:
+   1. **Recommended action**: Allow the user to self-remediate with a Conditional Access risk policy or have an admin confirm sign-in as safe.
+
+For further investigation of token based detections, see the article [Token tactics: How to prevent, detect, and respond to cloud token theft](https://www.microsoft.com/security/blog/2022/11/16/token-tactics-how-to-prevent-detect-and-respond-to-cloud-token-theft/).
+
 #### Token issuer anomaly 
 
 **Calculated offline**. This risk detection indicates the SAML token issuer for the associated SAML token is potentially compromised. The claims included in the token are unusual or match known attacker patterns. 
+
+##### Investigating token issuer anomaly detections
+
+1. If you're able to confirm that the activity wasn't performed by a legitimate user: 
+   1. **Recommended action**: Mark the sign-in as compromised, and invoke a password reset if not already performed by self-remediation. Block the user if an attacker has access to reset password or perform MFA and reset password and revoke all tokens.
+1. If the user confirmed this action was performed by them and there are no other indicators of compromise:
+   1. **Recommended action**: Allow the user to self-remediate with a Conditional Access risk policy or have an admin confirm sign-in as safe.
+
+For further investigation of token based detections, see the article [Token tactics: How to prevent, detect, and respond to cloud token theft](https://www.microsoft.com/security/blog/2022/11/16/token-tactics-how-to-prevent-detect-and-respond-to-cloud-token-theft/).
 
 #### Malware linked IP address (deprecated)
 
@@ -109,6 +138,12 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 #### Suspicious browser
 
 **Calculated offline**. Suspicious browser detection indicates anomalous behavior based on suspicious sign-in activity across multiple tenants from different countries in the same browser. 
+
+##### Investigating suspicious browser detections
+
+1. Browser is not commonly used by the user or activity within the browser does not match the users normally behavior.
+   1. **Recommended action**: Mark the sign-in as compromised, and invoke a password reset if not already performed by self-remediation. Block the user if an attacker has access to reset password or perform MFA and reset password and revoke all tokens.
+
 
 #### Unfamiliar sign-in properties
 
@@ -126,6 +161,13 @@ Selecting an unfamiliar sign-in properties risk allows you to see **Additional I
 
 **Calculated offline**. This detection indicates sign-in from a malicious IP address. An IP address is considered malicious based on high failure rates because of invalid credentials received from the IP address or other IP reputation sources. 
 
+##### Investigating malicious IP address detections
+
+1. If you're able to confirm that the activity wasn't performed by a legitimate user: 
+   1. **Recommended action**: Mark the sign-in as compromised, and invoke a password reset if not already performed by self-remediation. Block the user if an attacker has access to reset password or perform MFA and reset password and revoke all tokens.
+1. If a user is known to use the IP address in the scope of their duties:
+   1. **Recommended action**: Dismiss the alert
+
 #### Suspicious inbox manipulation rules
 
 **Calculated offline**. This detection is discovered using information provided by [Microsoft Defender for Cloud Apps](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). This detection looks at your environment and triggers alerts when suspicious rules that delete or move messages or folders are set on a user's inbox. This detection may indicate: a user's account is compromised, messages are being intentionally hidden, and the mailbox is being used to distribute spam or malware in your organization. 
@@ -133,6 +175,17 @@ Selecting an unfamiliar sign-in properties risk allows you to see **Additional I
 #### Password spray
 
 **Calculated offline**. A password spray attack is where multiple usernames are attacked using common passwords in a unified brute force manner to gain unauthorized access. This risk detection is triggered when a password spray attack has been successfully performed. For example, the attacker is successfully authenticated, in the detected instance. 
+
+##### Investigating password spray detections
+
+1. If you're able to confirm that the activity wasn't performed by a legitimate user: 
+   1. **Recommended action**: Mark the sign-in as compromised, and invoke a password reset if not already performed by self-remediation. Block the user if an attacker has access to reset password or perform MFA and reset password and revoke all tokens.
+1. If a user is known to use the IP address in the scope of their duties:
+   1. **Recommended action**: Dismiss the alert
+1. If you're able to confirm that the account has not been compromised and can see no brute force or password spray indicators against the account.
+   1. **Recommended action**: Allow the user to self-remediate with a Conditional Access risk policy or have an admin confirm sign-in as safe.
+
+For further investigation of password spray risk detections, see the article [Guidance for identifying and investigating password spray attacks](/security/operations/incident-response-playbook-password-spray).
 
 #### Impossible travel
 
@@ -205,6 +258,11 @@ Customers without Microsoft Entra ID P2 licenses receive detections titled "addi
 #### Leaked credentials
 
 **Calculated offline**. This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share these gathered credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they're checked against Microsoft Entra users' current valid credentials to find valid matches. For more information about leaked credentials, see [Common questions](#common-questions).
+
+##### Investigating leaked credentials detections
+
+1.	If this detection signal has alerted for a leaked credential for a user:
+   1. **Recommended action**: Mark the sign-in as compromised, and invoke a password reset if not already performed by self-remediation. Block the user if an attacker has access to reset password or perform MFA and reset password and revoke all tokens.
 
 <a name='azure-ad-threat-intelligence-user'></a>
 
