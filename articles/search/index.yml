@@ -1,4 +1,4 @@
-﻿### YamlMime:Landing
+### YamlMime:Landing
 
 title: Azure Cognitive Search documentation # < 60 chars
 summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
@@ -25,6 +25,10 @@ landingContent:
         links:
           - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
+          - text: What is vector search?
+            url: vector-search-overview.md
+          - text: Retrieval Augmented Generation (RAG)
+            url: retrieval-augmented-generation-overview.md
           - text: What is semantic search?
             url: semantic-search-overview.md
       - linkListType: learn

@@ -4,6 +4,7 @@ description: This article provides examples for defining filters and actions on 
 ms.topic: how-to
 ms.date: 02/28/2023
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Set subscription filters (Azure Service Bus)

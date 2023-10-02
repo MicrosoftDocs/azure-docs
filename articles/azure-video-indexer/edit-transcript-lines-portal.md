@@ -1,18 +1,21 @@
 ---
-title: View and update transcriptions in Azure Video Indexer website 
-description: This article explains how to insert or remove a transcript line in the Azure Video Indexer website. It also shows how to view word-level information.
-ms.author: itnorman
+title: View and update transcriptions in Azure AI Video Indexer website 
+description: This article explains how to insert or remove a transcript line in the Azure AI Video Indexer website. It also shows how to view word-level information.
 ms.topic: how-to
 ms.date: 05/03/2022
+ms.author: itnorman
+author: IngridAtMicrosoft
 ---
 
 # View and update transcriptions
 
-This article explains how to insert or remove a transcript line in the Azure Video Indexer website. It also shows how to view word-level information.
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
-## Insert or remove transcript lines in the Azure Video Indexer website 
+This article explains how to insert or remove a transcript line in the Azure AI Video Indexer website. It also shows how to view word-level information.
 
-This section explains how to insert or remove a transcript line in the [Azure Video Indexer website](https://www.videoindexer.ai/).
+## Insert or remove transcript lines in the Azure AI Video Indexer website 
+
+This section explains how to insert or remove a transcript line in the [Azure AI Video Indexer website](https://www.videoindexer.ai/).
 
 ### Add new line to the transcript timeline 
 
@@ -52,18 +55,18 @@ To consolidate two lines, which you believe should appear as one.
 
 ## Examine word-level transcription information
 
-This section shows how to examine word-level transcription information based on sentences and phrases that Azure Video Indexer identified. Each phrase is broken into words and each word has the following information associated with it  
+This section shows how to examine word-level transcription information based on sentences and phrases that Azure AI Video Indexer identified. Each phrase is broken into words and each word has the following information associated with it  
 
 |Name|Description|Example|
 |---|---|---|
 |Word|A word from a phrase.|"thanks"|
-|Confidence|How confident the Azure Video Indexer that the word is correct.|0.80127704|
+|Confidence|How confident the Azure AI Video Indexer that the word is correct.|0.80127704|
 |Offset|The time offset from the beginning of the video to where the word starts.|PT0.86S|
 |Duration|The duration of the word.|PT0.28S|
 
 ### Get and view the transcript
 
-1. Sign in on the [Azure Video Indexer website](https://www.videoindexer.ai).
+1. Sign in on the [Azure AI Video Indexer website](https://www.videoindexer.ai).
 1. Select a video.
 1. In the top-right corner, press arrow down and select **Artifacts (ZIP)**. 
 1. Download the artifacts.
@@ -119,4 +122,4 @@ This section shows how to examine word-level transcription information based on 
 
 ## Next steps
 
-For updating transcript lines and text using API visit the [Azure Video Indexer API developer portal](https://aka.ms/avam-dev-portal)
+For updating transcript lines and text using API visit the [Azure AI Video Indexer API developer portal](https://aka.ms/avam-dev-portal)

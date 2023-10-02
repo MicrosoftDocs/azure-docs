@@ -13,9 +13,7 @@ adobe-target: true
 
 # Load test a website by using an existing JMeter script in Azure Load Testing
 
-Learn how to use an Apache JMeter script to load test a web application with Azure Load Testing from the Azure portal.
-
-Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale. Alternatively, you can also [create a URL-based load test in the Azure portal](./quickstart-create-and-run-load-test.md).
+Learn how to use an Apache JMeter script to load test a web application with Azure Load Testing from the Azure portal. Azure Load Testing enables you to take an existing Apache JMeter script, and use it to run a load test at cloud scale. Learn more about which [JMeter functionality that Azure Load Testing supports](./resource-jmeter-support.md).
 
 Use cases for creating a load test with an existing JMeter script include:
 
@@ -23,6 +21,8 @@ Use cases for creating a load test with an existing JMeter script include:
 - You want to test multiple endpoints in a single load test.
 - You have a data-driven load test. For example, you want to [read CSV data in a load test](./how-to-read-csv-data.md).
 - You want to test endpoints that are not HTTP-based, such as databases or message queues. Azure Load Testing supports all communication protocols that JMeter supports.
+
+If you want to create a load test without a JMeter script, learn how you can [create a URL-based load test in the Azure portal](./quickstart-create-and-run-load-test.md).
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ To create a load test using an existing JMeter script in the Azure portal:
     :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab." :::
     
     > [!NOTE]
-    > You can upload additional JMeter configuration files or other files that you reference in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s). See also how to [read data from a CSV file](./how-to-read-csv-data.md).
+    > You can upload additional JMeter configuration files or other files that you reference in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s). See also how to [read data from a CSV file](./how-to-read-csv-data.md). For files other than JMeter scripts and user properties, if the size of the file is greater than 50 MB, zip the file. The size of the zip file should be below 50 MB. Azure Load Testing automatically unzips the file during the test run. Only five zip artifacts are allowed with a maximum of 1000 files in each zip and an uncompressed total size of 1 GB.
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 

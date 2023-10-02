@@ -2,8 +2,7 @@
 title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live (TTL) of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: conceptual
-ms.date: 02/18/2022
-ms.custom: contperf-fy22q2
+ms.date: 06/08/2023
 ---
 
 # Azure Service Bus - Message expiration (Time to Live)
@@ -20,6 +19,11 @@ Past the **expires-at-utc** instant, messages become ineligible for retrieval. T
 
 Extremely low TTL in the order of milliseconds or seconds may cause messages to expire before receiver applications receive it. Consider the highest TTL that works for your application.
 
+> [!NOTE]
+> For [scheduled messages](message-sequencing.md#scheduled-messages), you specify the enqueue time at which you want the message to materialize in the queue for retrieval. The time at which the message is sent to Service Bus is different from the time at which the message is enqueued. The message expiration time depends on the enqueued time, not on the time at which the message is sent to Service Bus. Therefore, the **expires-at-utc** is still **enqueued time + time-to-live**. 
+>
+> For example, if you set the `ScheduledEnqueueTimeUtc` to 5 minutes from `UtcNow`, and `TimeToLive` to 10 minutes, the message will expire after 5 + 10 = 15 minutes from now. The message materializes in the queue after 5 minutes and the 10 minute counter starts from then.
+
 ## Entity-level expiration
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level. It can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where time-to-live isn't explicitly set. The default expiration also functions as a ceiling for the time-to-live value. Messages that have a longer time-to-live expiration than the default value are silently adjusted to the default message time-to-live value before being enqueued.
 
@@ -34,7 +38,7 @@ If the message is protected from expiration while under lock and if the flag is 
 
 The combination of time-to-live and automatic (and transactional) dead-lettering on expiry are a valuable tool for establishing confidence in whether a job given to a handler or a group of handlers under a deadline is retrieved for processing as the deadline is reached.
 
-For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there is a traffic spike and the backend handler can't process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation will take a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result is sent to the user by email. 
+For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there's a traffic spike and the backend handler can't process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation takes a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result is sent to the user by email. 
 
 
 ## Temporary entities
@@ -84,7 +88,7 @@ To learn more about Service Bus messaging, see the following articles:
 - [Message transfers, locks, and settlement](message-transfers-locks-settlement.md)
 - [Dead-letter queues](service-bus-dead-letter-queues.md)
 - [Message deferral](message-deferral.md)
-- [Pre-fetch messages](service-bus-prefetch.md)
+- [Prefetch messages](service-bus-prefetch.md)
 - [Autoforward messages](service-bus-auto-forwarding.md)
 - [Transaction support](service-bus-transactions.md)
 - [Geo-disaster recovery](service-bus-geo-dr.md)

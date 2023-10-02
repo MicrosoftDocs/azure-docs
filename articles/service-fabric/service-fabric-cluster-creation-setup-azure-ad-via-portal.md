@@ -142,6 +142,12 @@ Select **Properties**, and then select **No** for **Assignment required?**.
 
 ![Screenshot of properties for client app registration in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-app-registration-client-properties.png)
 
+For the cluster app registration only, go to the [Enterprise Applications](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId~/null) pane. 
+
+Select **Properties**, and then select **Yes** for **Assignment required?**.
+
+![Screenshot of properties for cluster app registration in the portal.](media/service-fabric-cluster-creation-setup-azure-ad-via-portal/portal-app-registration-cluster-properties.png)
+
 ## Assign application roles to users
 
 After you create Azure AD app registrations for Service Fabric, you can modify Azure AD users to use app registrations to connect to a cluster by using Azure AD. 
@@ -318,7 +324,6 @@ After you set up Azure Active Directory applications and set roles for users, [c
 <!-- Links -->
 
 [azure-cli]: /cli/azure/get-started-with-azure-cli
-[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Permissions Management
-summary: Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities (users and workloads),  actions, and resources across cloud infrastructures. It detects, right-sizes, and monitors unused and excessive permissions and enables Zero Trust security through least privilege access in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+title: Microsoft Entra Permissions Management
+summary: Microsoft Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities (users and workloads),  actions, and resources across cloud infrastructures. It detects, right-sizes, and monitors unused and excessive permissions and enables Zero Trust security through least privilege access in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
 metadata:
-  title: Permissions Management
+  title: Microsoft Entra Permissions Management
   description: Learn how to use Permissions Management and Cloud Infrastructure Entitlement Management (CIEM)
   services: active-directory
   author: jenniferf-skc
@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 03/09/2022
+  ms.date: 06/16/2023
   ms.author: jfields
 
 
@@ -24,7 +24,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: What's Permissions Management?
+  - title: What's Microsoft Entra Permissions Management?
     linkLists:
       - linkListType: overview
         links:

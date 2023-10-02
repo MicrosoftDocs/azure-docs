@@ -2,7 +2,7 @@
 title: Azure Service Bus - message deferral
 description: This article explains how to defer delivery of Azure Service Bus messages. The message remains in the queue or subscription, but it's set aside.
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 06/08/2023
 ---
 
 # Message deferral
@@ -34,6 +34,10 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/) - see the **advanced/deferral.js** sample. 
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/) - see the **advanced/deferral.ts** sample. 
 
-Find samples for the older .NET and Java client libraries below:
+See samples for the older .NET and Java client libraries here:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/) - See the **Deferral** sample. 
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+
+## Related resources
+
+- [Tutorial showing the use of message deferral as a part of a workflow, using NServiceBus](https://docs.particular.net/tutorials/nservicebus-sagas/2-timeouts/)

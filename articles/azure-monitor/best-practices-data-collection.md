@@ -81,7 +81,7 @@ Virtual machines generate similar data as other Azure resources, but they requir
 
 ## Monitor containers
 
-Virtual machines generate similar data as other Azure resources, but they require a containerized version of the Log Analytics agent to collect required data. Container insights help you prepare your containerized environment for monitoring. It works in conjunction with third-party tools to provide comprehensive monitoring of Azure Kubernetes Service (AKS) and the workflows it supports. See [Monitoring Azure Kubernetes Service with Azure Monitor](../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json) for a dedicated scenario on monitoring AKS with Azure Monitor.
+Containers generate similar data as other Azure resources, but they require a containerized version of the Log Analytics agent to collect required data. Container insights help you prepare your containerized environment for monitoring. It works in conjunction with third-party tools to provide comprehensive monitoring of Azure Kubernetes Service (AKS) and the workflows it supports. See [Monitoring Azure Kubernetes Service with Azure Monitor](../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json) for a dedicated scenario on monitoring AKS with Azure Monitor.
 
 ## Monitor applications
 
@@ -91,12 +91,10 @@ Azure Monitor monitors your custom applications by using [Application Insights](
 
 Application Insights is the feature of Azure Monitor for monitoring your cloud native and hybrid applications.
 
-You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separately from your Log Analytics workspace as described in [Data structure](logs/log-analytics-workspace-overview.md#data-structure).
+You may create a resource in Application Insights for each application that you're going to monitor or a single application resource for multiple applications. Whether to use separate or a single application resource for multiple applications is a fundamental decision of your monitoring strategy. Separate resources can save costs and prevent mixing data from different applications, but a single resource can simplify your monitoring by keeping all relevant telemetry together. See [How many Application Insights resources should I deploy](app/separate-resources.md) for criteria to help you make this design decision. 
 
- When you create the application, you must select whether to use classic or workspace based. See [Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) to create a classic application.
-See [Workspace-based Application Insights resources (preview)](app/create-workspace-resource.md) to create a workspace-based application.
-
- A fundamental design decision is whether to use separate or a single application resource for multiple applications. Separate resources can save costs and prevent mixing data from different applications, but a single resource can simplify your monitoring by keeping all relevant telemetry together. See [How many Application Insights resources should I deploy](app/separate-resources.md) for criteria to help you make this design decision.
+When you create the application resource, you must select whether to use classic or workspace based. See [Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) to create a classic application.
+See [Workspace-based Application Insights resources](app/create-workspace-resource.md) to create a workspace-based application. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separately from your Log Analytics workspace as described in [Data structure](logs/log-analytics-workspace-overview.md#data-structure).
 
 ### Configure codeless or code-based monitoring
 
@@ -116,7 +114,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 - [.NET console applications](app/console.md)
 - [Java](app/opentelemetry-enable.md?tabs=java)
 - [Node.js](app/nodejs.md)
-- [Python](app/opencensus-python.md)
+- [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 - [Other platforms](app/app-insights-overview.md#supported-languages)
 
 ### Configure availability testing

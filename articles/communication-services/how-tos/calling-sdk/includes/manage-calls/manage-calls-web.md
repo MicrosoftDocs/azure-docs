@@ -79,7 +79,7 @@ The `callAgent` instance emits an `incomingCall` event when the logged-in identi
 
 ```js
 const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
-    const incomingCall = args.incomingCall;	
+    const incomingCall = args.incomingCall;
 
     // Get incoming call ID
     var incomingCallId = incomingCall.id
@@ -116,7 +116,7 @@ When starting/joining/accepting a call with video on, if the specified video cam
 ## Hold and resume call
 
 > [!NOTE]
-> At any given moment of time, there should be only 1 active call ( in `Connected` state, with active media ). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
+> At any given moment of time, there should be only 1 active call (in `Connected` state, with active media). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
 
 To hold or resume the call, you can use the `hold` and `resume` asynchronous APIs:
 
@@ -159,6 +159,20 @@ await call.unmuteIncomingAudio();
 ```
 
 When incoming audio is muted, the participant will still receive the call audio (remote participant's audio). The call audio will not play in the speaker and the participant will not be able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio.
+
+## Mute other participants
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK version 1.18.1 or higher
+
+To mute all other participants or mute a specific participant, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant:
+
+```js
+//mute all participants except yourself
+await call.muteAllRemoteParticipants();
+
+//mute a specific participant
+await call.remoteParticipants[0].mute();
+```
 
 ## Manage remote participants
 
@@ -234,9 +248,9 @@ The state can be:
     const callEndReasonCode = callEndReason.code // (number) code associated with the reason
     const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
     ```
-    Note: 
+    Note:
     - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
-    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.  
+    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 
@@ -255,7 +269,7 @@ The state can be:
     ```js
     const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
     ```
-- `displayName`: To get display name for this remote participant, inspect `displayName` property it return string. 
+- `displayName`: To get display name for this remote participant, inspect `displayName` property it return string.
 
     ```js
     const displayName = remoteParticipant.displayName;
@@ -270,7 +284,7 @@ const callId: string = call.id;
 ```
 Get information about the call:
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
+> This API is provided as a preview for developers and may change based on feedback that we receive. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const callInfo = call.info;
 ```
@@ -322,6 +336,12 @@ const isIncoming = call.direction == 'Incoming';
 const isOutgoing = call.direction == 'Outgoing';
 ```
 
+Inspect active video streams and active screen sharing streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects or type `Video`, `ScreenSharing` or `RawMedia`.
+
+```js
+const localVideoStreams = call.localVideoStreams;
+```
+
 Check if the current microphone is muted. It returns `Boolean`.
 
 ```js
@@ -334,14 +354,14 @@ Check if the current incoming audio (speaker) is muted. It returns `Boolean`.
 const incomingAudioMuted = call._isIncomingAudioMuted;
 ```
 
-Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.
+Check if video is on. It returns `Boolean`.
+
+```js
+const isLocalVideoStarted = call.isLocalVideoStarted;
+```
+
+Check is screen sharing is on. It returns `Boolean`.
 
 ```js
 const isScreenSharingOn = call.isScreenSharingOn;
-```
-
-Inspect active video streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects.
-
-```js
-const localVideoStreams = call.localVideoStreams;
 ```

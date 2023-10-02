@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 04/10/2023
 ms.author: mbender
-ms.custom: devx-track-js, devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 # Quickstart: Create an internal basic load balancer to load balance VMs by using the Azure CLI
@@ -55,6 +55,11 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 
 In this example, you'll create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 ### Create a bastion public IP address
 

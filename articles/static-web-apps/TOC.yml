@@ -130,14 +130,21 @@
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
       href: front-end-frameworks.md
+    - name: Split traffic
+      href: traffic-splitting.md
     - name: Enable monitoring
       href: monitor.md
       displayName: Application Insights
+    - name: Inject custom code at runtime
+      href: snippets.md  
     - name: Reset deployment tokens
       href: deployment-token-management.md
     - name: Troubleshoot errors
       href: troubleshooting.md
       displayName: deployment, runtime, errors
+    - name: Deploy with external source control providers
+      href: external-providers.md
+      displayName: Jenkins, Jekyll
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -152,8 +159,12 @@
           href: publish-jekyll.md
     - name: Deploy from a framework
       items:
+        - name: Angular
+          href: deploy-angular.md
         - name: Blazor
           href: deploy-blazor.md
+        - name: React
+          href: deploy-react.md
         - name: Next.js
           href: nextjs.md
           items:
@@ -163,6 +174,8 @@
             href: deploy-nextjs-hybrid.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
+        - name: Vue
+          href: deploy-vue.md
     - name: Add a database connection
       items:
       - name: Azure Cosmos DB 
@@ -183,6 +196,8 @@
       href: assign-roles-microsoft-graph.md
     - name: Use an external code host
       items:
+        - name: Overview
+          href: external-providers.md
         - name: Bitbucket
           href: bitbucket.md
         - name: GitLab

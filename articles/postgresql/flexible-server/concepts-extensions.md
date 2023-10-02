@@ -563,7 +563,9 @@ This is part of contrib and it is very easy to install this extension.
 CREATE EXTENSION pg_buffercache;
 ```
 
+## Extensions and Major Version Upgrade
 
+Azure Database for PostgreSQL Flexible Server Postgres has  introduced [in-place major version upgrade](./concepts-major-version-upgrade.md#overview) feature that performs an in-place upgrade of the Postgres server with just a click. In-place major version upgrade simplifies Postgres upgrade process minimizing the disruption to users and applications accessing the server. In-place major version upgrade doesn't support certain extensions and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce** and **postgres_fdw** are unsupported for all PostgreSQL versions when using [in-place majpr version update feature](./concepts-major-version-upgrade.md#overview).
 
 
 ## Next steps

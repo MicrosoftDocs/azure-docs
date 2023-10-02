@@ -3,7 +3,7 @@ title: Customize Azure HDInsight cluster configurations using bootstrap
 description: Learn how to customize HDInsight cluster configuration programmatically using .NET, PowerShell, and Resource Manager templates.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurepowershell
+ms.custom: hdinsightactive, devx-track-azurepowershell, devx-track-dotnet
 ms.date: 11/17/2022
 ---
 

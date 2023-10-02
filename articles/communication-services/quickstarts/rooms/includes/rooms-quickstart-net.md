@@ -47,7 +47,7 @@ Install the Azure Communication Rooms client library for .NET with [NuGet][https
 ```console
 dotnet add package Azure.Communication.Rooms
 ```
-You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0-beta.2](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0-beta.2) or above.
+You'll need to use the Azure Communication Rooms client library for .NET [version 1.0.0](https://www.nuget.org/packages/Azure.Communication.Rooms/1.0.0) or above.
 
 ### Set up the app framework
 
@@ -110,8 +110,8 @@ Now, the `CommunicationIdentityClient` can be initialized and used to create use
 ```csharp
 // Create identities for users who will join the room
 CommunicationIdentityClient identityClient = new CommunicationIdentityClient(connectionString);
-CommunicationUserIdentifier user1 = await identityClient.CreateUser();
-CommunicationUserIdentifier user2 = await identityClient.CreateUser();
+CommunicationUserIdentifier user1 = identityClient.CreateUser();
+CommunicationUserIdentifier user2 = identityClient.CreateUser();
 ```
 
 Then, create the list of room participants by referencing those users:
@@ -121,7 +121,7 @@ List<RoomParticipant> participants = new List<RoomParticipant>()
 {
     new RoomParticipant(user1) { Role = ParticipantRole.Presenter },
     new RoomParticipant(user2) // The default participant role is ParticipantRole.Attendee
-}
+};
 ```
 
 ### Initialize the room
@@ -149,7 +149,7 @@ Retrieve the details of an existing `room` by referencing the `roomId`:
 
 // Retrieve the room with corresponding ID
 CommunicationRoom room = await roomsClient.GetRoomAsync(roomId);
-Console.WriteLine("\Retrieved room with id: " + room.Id);
+Console.WriteLine("\nRetrieved room with id: " + room.Id);
 
 ```
 
@@ -160,9 +160,9 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 ```csharp
 
 // Update room lifetime
-DateTimeOffset validFrom = DateTimeOffset.UtcNow;
-DateTimeOffset validUntil = DateTimeOffset.UtcNow.AddDays(10);
-CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, validFrom, validUntil, cancellationToken);
+DateTimeOffset updatedValidFrom = DateTimeOffset.UtcNow;
+DateTimeOffset updatedValidUntil = DateTimeOffset.UtcNow.AddDays(10);
+CommunicationRoom updatedRoom = await roomsClient.UpdateRoomAsync(roomId, updatedValidFrom, updatedValidUntil, cancellationToken);
 Console.WriteLine("\nUpdated room with validFrom: " + updatedRoom.ValidFrom + " and validUntil: " + updatedRoom.ValidUntil);
 ```
 
@@ -174,9 +174,9 @@ To retrieve all active rooms, use the `GetRoomsAsync` method exposed on the clie
 
 // List all active rooms
 AsyncPageable<CommunicationRoom> allRooms = roomsClient.GetRoomsAsync();
-await foreach (CommunicationRoom room in allRooms)
+await foreach (CommunicationRoom currentRoom in allRooms)
 {
-    Console.WriteLine("\nFirst room id in all active rooms: " + room.Id);
+    Console.WriteLine("\nFirst room id in all active rooms: " + currentRoom.Id);
     break;
 }
 
@@ -188,16 +188,16 @@ To add new participants to a `room`, use the `AddParticipantsAsync` method expos
 
 ```csharp
 
-List<RoomParticipant> participants = new List<RoomParticipant>();
+List<RoomParticipant> addOrUpdateParticipants = new List<RoomParticipant>();
 // Update participant2 from Attendee to Consumer
 RoomParticipant participant2 = new RoomParticipant(user2) { Role = ParticipantRole.Consumer };
 // Add participant3
-CommunicationUserIdentifier user3 = await identityClient.CreateUser();
+CommunicationUserIdentifier user3 = identityClient.CreateUser();
 RoomParticipant participant3 = new RoomParticipant(user3) { Role = ParticipantRole.Attendee };
-participants.Add(participant2);
-participants.Add(participant3);
+addOrUpdateParticipants.Add(participant2);
+addOrUpdateParticipants.Add(participant3);
 
-Response addOrUpdateParticipantsResponse = await roomsClient.AddOrUpdateParticipantsAsync(roomId, participants);
+Response addOrUpdateParticipantsResponse = await roomsClient.AddOrUpdateParticipantsAsync(roomId, addOrUpdateParticipants);
 Console.WriteLine("\nAdded or updated participants to room");
 
 ```
@@ -211,7 +211,7 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 ```csharp
 
 // Get list of participants in room
-AsyncPageable<RoomParticipant> existingParticipants = await roomsClient.GetParticipantsAsync(roomId);
+AsyncPageable<RoomParticipant> existingParticipants = roomsClient.GetParticipantsAsync(roomId);
 Console.WriteLine("\nRetrieved participants from room: ");
 await foreach (RoomParticipant participant in existingParticipants)
 {
@@ -227,10 +227,10 @@ To remove a participant from a `room` and revoke their access, use the `RemovePa
 ```csharp
 
 // Remove user from room
-List<CommunicationIdentifier> participants = new List<CommunicationIdentifier>();
-participants.Add(user2);
+List<CommunicationIdentifier> removeParticipants = new List<CommunicationIdentifier>();
+removeParticipants.Add(user2);
 
-Response removeParticipantsResponse = await roomsClient.RemoveParticipantsAsync(roomId, participants);
+Response removeParticipantsResponse = await roomsClient.RemoveParticipantsAsync(roomId, removeParticipants);
 Console.WriteLine("\nRemoved participants from room");
 
 ```
@@ -241,8 +241,8 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```csharp
 
 // Deletes the specified room
-Response deleteRoomResponse = await RoomCollection.DeleteRoomAsync(roomId);
-Console.WriteLine("\nDeleted room with id:" + roomId);
+Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(roomId);
+Console.WriteLine("\nDeleted room with id: " + roomId);
 ```
 
 ## Run the code
@@ -284,4 +284,4 @@ Deleted room with id: 99445276259151407
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/azure.communication.rooms) or [REST API reference](/rest/api/communication/rooms).
+Read about the full set of capabilities of Azure Communication Services rooms from the [.NET SDK reference](/dotnet/api/overview/azure/communication.rooms-readme) or [REST API reference](/rest/api/communication/rooms/rooms).

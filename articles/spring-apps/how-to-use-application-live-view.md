@@ -6,7 +6,7 @@ ms.author: yuwzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 12/01/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Use Application Live View with the Azure Spring Apps Enterprise plan
@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use Application Live View for VMware Tanzu® with the Azure Spring Apps Enterprise plan.
+This article shows you how to use Application Live View for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
 [Application Live View for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/app-live-view-about-app-live-view.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
@@ -116,9 +116,9 @@ You can monitor Application Live View using the Azure portal or Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
-You can view the state of Application Live View in the Azure portal on the **Overview** tab of the **Developer Tools (Preview)** page.
+You can view the state of Application Live View in the Azure portal on the **Overview** tab of the **Developer Tools** page.
 
-:::image type="content" source="media/how-to-use-application-live-view/application-live-view-enabled.png" alt-text="Screenshot of the Developer Tools (Preview) page showing the Overview tab." lightbox="media/how-to-use-application-live-view/application-live-view-enabled.png":::
+:::image type="content" source="media/how-to-use-application-live-view/application-live-view-enabled.png" alt-text="Screenshot of the Developer Tools page showing the Overview tab." lightbox="media/how-to-use-application-live-view/application-live-view-enabled.png":::
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -209,6 +209,8 @@ Use the following steps to deploy an app and monitor it in Application Live View
        --output tsv
    ```
 
+   You can also access the Application Live View using Visual Studio Code (VS Code). For more information, see the [Use Application Live View in VS Code](#use-application-live-view-in-vs-code) section.
+
 ## Manage Application Live View in existing Enterprise plan instances
 
 You can enable Application Live View in an existing Azure Spring Apps Enterprise plan instance using the Azure portal or Azure CLI.
@@ -219,16 +221,16 @@ If you have already enabled Dev Tools Portal and exposed a public endpoint, use 
 
 Use the following steps to manage Application Live View using the Azure portal:
 
-1. Navigate to your service resource, and then select **Developer Tools (Preview)**.
+1. Navigate to your service resource, and then select **Developer Tools**.
 1. Select **Manage tools**.
 
-   :::image type="content" source="media/how-to-use-application-live-view/manage.png" alt-text="Screenshot of the Developer Tools (Preview) page." lightbox="media/how-to-use-application-live-view/manage.png":::
+   :::image type="content" source="media/how-to-use-application-live-view/manage.png" alt-text="Screenshot of the Developer Tools page." lightbox="media/how-to-use-application-live-view/manage.png":::
 
 1. Select the **Enable App Live View** checkbox, and then select **Save**.
 
    :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Developer Tools section showing the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
 
-1. You can then view the state of Application Live View on the **Developer Tools (Preview)**.
+1. You can then view the state of Application Live View on the **Developer Tools**.
 
    :::image type="content" source="media/how-to-use-application-live-view/check-enable.png" alt-text="Screenshot of the Developer Tools section showing the Enable App Live View checkbox." lightbox="media/how-to-use-application-live-view/check-enable.png":::
 
@@ -252,6 +254,43 @@ az spring dev-tool create \
 ```
 
 ---
+
+## Use Application Live View in VS Code
+
+You can access Application Live View directly in VS Code to monitor your apps in the Azure Spring Apps Enterprise plan.
+
+### Prerequisites
+
+- [Visual Studio Code](https://code.visualstudio.com/Download)
+- [Azure Spring Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-cloud)
+
+### View Application Live View dashboard
+
+Use the following steps to view the Application Live View dashboard for a service instance:
+
+1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
+1. Expand the service instance that you want to monitor and right-click to select the service instance.
+1. Select **Open Application Live View** from the menu to open the Application Live View dashboard in your default browser.
+
+   :::image type="content" source="media/how-to-use-application-live-view/visual-studio-code-open-service.png" alt-text="Screenshot of the VS Code extension showing the Open Application Live View option for a service instance." lightbox="media/how-to-use-application-live-view/visual-studio-code-open-service.png":::
+
+### View Application Live View page for an app
+
+Use the following steps to view the Application Live View page for an app:
+
+1. In Visual Studio Code, open the Azure Spring Apps extension, and then sign in to your Azure account.
+1. Expand the service instance and the app that you want to monitor. Right-click the app.
+1. Select **Open Application Live View** from the menu to open the Application Live View page for the app in your default browser.
+
+   :::image type="content" source="media/how-to-use-application-live-view/visual-studio-code-open-app.png" alt-text="Screenshot of the VS Code extension showing the Open Application Live View option for an app." lightbox="media/how-to-use-application-live-view/visual-studio-code-open-app.png":::
+
+### Troubleshoot Application Live View issues
+
+If you try to open Application Live View for a service instance or an app that hasn't enabled Application Live View or exposed a public endpoint, you see an error message.
+
+  :::image type="content" source="media/how-to-use-application-live-view/visual-studio-code-not-enabled.png" alt-text="Screenshot of the error message showing Application Live View not enabled and public endpoint not accessible." lightbox="media/how-to-use-application-live-view/visual-studio-code-not-enabled.png":::
+
+To enable Application Live View and expose public endpoint, use either the Azure portal or the Azure CLI. For more information, see the [Manage Application Live View in existing Enterprise plan instances](#manage-application-live-view-in-existing-enterprise-plan-instances) section.
 
 ## Next steps
 

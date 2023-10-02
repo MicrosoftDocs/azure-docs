@@ -16,7 +16,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 # Quickstart: Send an SMS message
 
 > [!IMPORTANT]
-> SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
+> SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
 
 <br/>
 

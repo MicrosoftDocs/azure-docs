@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 06/27/2023
 ms.author: ryanwi
 ms.custom: identityplatformtop40, contperf-fy21q2, engagement-fy23
-ms.reviewer: ludwignick
+ms.reviewer: joroja
 ---
 # Configure token lifetime policies (preview)
 
-In the following steps, you'll implement a common policy scenario that imposes new rules for token lifetime. It's possible to specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. This can be set for all apps in your organization or for a specific service principal. They can also be set for multi-organizations (multi-tenant application). 
+In the following steps, you'll implement a common policy scenario that imposes new rules for token lifetime. It's possible to specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. This can be set for all apps in your organization or for a specific app. They can also be set for multi-organizations (multi-tenant application).
 
 For more information, see [configurable token lifetimes](configurable-token-lifetimes.md).
 
@@ -24,9 +24,9 @@ For more information, see [configurable token lifetimes](configurable-token-life
 
 To get started, download the latest [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation).
 
-## Create a policy for web sign-in
+## Create a policy and assign it to an app
 
-In the following steps, you'll create a policy that requires users to authenticate less frequently in your web app. This policy sets the lifetime of the access/ID tokens for your web app.
+In the following steps, you'll create a policy that requires users to authenticate less frequently in your web app. Assign the policy to an app, which sets the lifetime of the access/ID tokens for your web app.
 
 ```powershell
 Install-Module Microsoft.Graph
@@ -78,4 +78,4 @@ GET https://graph.microsoft.com/v1.0/policies/tokenLifetimePolicies/4d2f137b-e8a
 ```
 
 ## Next steps
-Learn about [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access.
+Learn about [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Microsoft Entra Conditional Access.

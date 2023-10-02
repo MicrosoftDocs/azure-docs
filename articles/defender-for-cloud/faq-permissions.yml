@@ -1,14 +1,14 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Microsoft Defender for Cloud FAQ - Questions about permissions'
+  title: Common questions - permissions
   description: This FAQ answers questions about permissions in Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats.
   services: defender-for-cloud
   author: elkrieger
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
-  ms.date: 01/24/2023
-title: Permissions
+  ms.date: 06/20/2023
+title: Common questions about permissions in Defender for Cloud
 summary: |
 
 sections:
@@ -18,7 +18,7 @@ sections:
         answer: |
           Microsoft Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
           
-          Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
+          Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you only see information related to a resource when you're assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
           
           See [Permissions in Microsoft Defender for Cloud](permissions.md) to learn more about roles and allowed actions in Defender for Cloud.
           
@@ -29,3 +29,79 @@ sections:
           To modify a security policy, you must be a Security Admin or an Owner or Contributor of that subscription.
           
           To learn how to configure a security policy, see [Setting security policies in Microsoft Defender for Cloud](tutorial-security-policy.md).
+
+
+      - question: |
+          Which permissions are used by agentless scanning?
+        answer: |
+          The roles and permissions used by Defender for Cloud to perform agentless scanning on your Azure, AWS, and GCP environments are listed here. In Azure, these permissions are automatically added to your subscriptions when you enable agentless scanning. In AWS, these permissions are [added to the CloudFormation stack in your AWS connector](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws) and in GCP permissions are added to the onboarding script in your GCP connector.
+
+          - Azure permissions - The built-in role “VM scanner operator” has read-only permissions for VM disks that are required for the snapshot process. The detailed list of permissions is:
+
+            - `Microsoft.Compute/disks/read`
+            - `Microsoft.Compute/disks/beginGetAccess/action`
+            - `Microsoft.Compute/virtualMachines/instanceView/read`
+            - `Microsoft.Compute/virtualMachines/read`
+            - `Microsoft.Compute/virtualMachineScaleSets/instanceView/read`
+            - `Microsoft.Compute/virtualMachineScaleSets/read`
+            - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
+            - `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read`
+
+          - AWS permissions - The role “VmScanner” is assigned to the scanner when you enable agentless scanning. This role has the minimal permission set to create and clean up snapshots (scoped by tag) and to verify the current state of the VM. The detailed permissions are:
+
+            | Attribute | Value |
+            | ---------|---------|
+            | SID | **VmScannerDeleteSnapshotAccess** |
+            | Actions | ec2:DeleteSnapshot |
+            | Conditions | "StringEquals":{"ec2:ResourceTag/CreatedBy”:<br>"Microsoft Defender for Cloud"} |
+            | Resources | arn:aws:ec2:::snapshot/ |
+            | Effect | Allow |
+
+            | Attribute | Value |
+            |---------|---------|
+            | SID | **VmScannerAccess** |
+            | Actions | ec2:ModifySnapshotAttribute <br> ec2:DeleteTags <br> ec2:CreateTags <br> ec2:CreateSnapshots <br> ec2:CopySnapshots <br> ec2:CreateSnapshot |
+            | Conditions | None |
+            | Resources | arn:aws:ec2:::instance/ <br> arn:aws:ec2:::snapshot/ <br> arn:aws:ec2:::volume/ |
+            | Effect | Allow |
+
+            | Attribute | Value |
+            |---------|---------|
+            | SID | **VmScannerVerificationAccess** |
+            | Actions | ec2:DescribeSnapshots <br> ec2:DescribeInstanceStatus |
+            | Conditions | None |
+            | Resources | * |
+            | Effect | Allow |
+
+            | Attribute | Value |
+            |---------|---------|
+            | SID | **VmScannerEncryptionKeyCreation** |
+            | Actions | kms:CreateKey |
+            | Conditions | None |
+            | Resources | * |
+            | Effect | Allow |
+
+            | Attribute | Value |
+            |---------|---------|
+            | SID | **VmScannerEncryptionKeyManagement** |
+            | Actions | kms:TagResource <br> kms:GetKeyRotationStatus <br> kms:PutKeyPolicy <br> kms:GetKeyPolicy <br> kms:CreateAlias <br> kms:ListResourceTags |
+            | Conditions | None |
+            | Resources | arn:aws:kms::${AWS::AccountId}:key/ <br> arn:aws:kms:*:${AWS::AccountId}:alias/DefenderForCloudKey |
+            | Effect | Allow |
+
+            | Attribute | Value |
+            |---------|---------|
+            | SID | **VmScannerEncryptionKeyUsage** |
+            | Actions | kms:GenerateDataKeyWithoutPlaintext <br> kms:DescribeKey <br> kms:RetireGrant <br> kms:CreateGrant <br> kms:ReEncryptFrom |
+            | Conditions | None |
+            | Resources | arn:aws:kms::${AWS::AccountId}:key/ |
+            | Effect | Allow |
+            
+          - GCP permissions: during onboarding - a new custom role is created with minimal permissions required to get instances status and create snapshots. on top of that permissions to an existing GCP KMS role are granted to support scanning disks that are encrypted with CMEK. The roles are:
+            - roles/MDCAgentlessScanningRole granted to Defender for Cloud’s service account with permissions: compute.disks.createSnapshot, compute.instances.get
+            - roles/cloudkms.cryptoKeyEncrypterDecrypter granted to Defender for Cloud’s compute engine service agent
+
+      - question: |
+          What is the minimum SAS policy permissions required when exporting data to Azure Event Hubs?
+        answer: |
+          **Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1: Create an Event Hubs namespace and event hub with send permissions** in [this article](./export-to-splunk-or-qradar.md#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).

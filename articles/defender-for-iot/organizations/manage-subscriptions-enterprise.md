@@ -1,7 +1,7 @@
 ---
 title: Manage Enterprise IoT plans on Azure subscriptions
 description: Manage Defender for IoT plans for Enterprise IoT monitoring on your Azure subscriptions.
-ms.date: 07/06/2022
+ms.date: 05/17/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
@@ -10,9 +10,9 @@ ms.custom: enterprise-iot
 
 Enterprise IoT security monitoring with Defender for IoT is managed by an Enterprise IoT plan on your Azure subscription. While you can view your plan in Microsoft Defender for IoT, onboarding and canceling a plan is done with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) in Microsoft 365 Defender.
 
-For each monthly price plan, you'll be asked to define the number of [committed devices](billing.md#defender-for-iot-committed-devices). Committed devices are the approximate number of devices that will be monitored in your enterprise.
+For each monthly price plan, you'll be asked to define an approximate number of [devices](billing.md#defender-for-iot-devices) that you want to monitor and cover by your plan.
 
-For information about OT networks, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
+If you're looking to manage OT plans, see [Manage Defender for IoT plans for OT security monitoring](how-to-manage-subscriptions.md).
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ Before performing the procedures in this article, make sure that you have:
 
     - **In Azure RBAC**:  [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) for the Azure subscription that you'll be using for the integration
 
-### Calculate committed devices for Enterprise IoT monitoring
+### Calculate monitored devices for Enterprise IoT monitoring
 
-If you're working with a monthly commitment, you'll need to periodically update the number of *committed devices* in your plan as your network grows.
+If you're working with a monthly commitment, you'll need to periodically update the number of devices covered by your plan as your network grows.
 
-**To calculate committed devices:**:
+**To calculate the number of devices you're monitoring:**:
 
 1. In the navigation pane of the [https://security.microsoft.com](https://security.microsoft.com/) portal, select **Assets** \> **Devices** to open the **Device inventory** page.
 
@@ -50,12 +50,12 @@ For example:
 - Added together, the total is *1679* devices.
 - Rounded up to a multiple of 100 is **1700**.
 
-Use **1700** as the estimated number of committed devices.
+Use **1700** as the estimated number of devices in your plan
 
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 
 > [!NOTE]
-> Devices listed on the **Computers & Mobile** tab, including those managed by Defender for Endpoint or otherwise, are not included in the number of [committed devices](billing.md#defender-for-iot-committed-devices) for Defender for IoT.
+> Devices listed on the **Computers & Mobile** tab, including those managed by Defender for Endpoint or otherwise, are not included in the number of [devices](billing.md#defender-for-iot-devices) monitored by Defender for IoT.
 
 ## Onboard an Enterprise IoT plan
 
@@ -74,9 +74,9 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
     - **Price plan**: Select a trial or monthly commitment.
 
-        Microsoft Defender for IoT provides a 30-day free trial for evaluation purposes, with an unlimited number of devices. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
+        Microsoft Defender for IoT provides a [30-day free trial](billing.md#free-trial) for evaluation purposes, with an unlimited number of devices.
 
-        Monthly commitments require that you enter the number of [committed devices](#calculate-committed-devices-for-enterprise-iot-monitoring) that you'd calculated earlier.
+        Monthly commitments require that you enter the number of [devices](#calculate-monitored-devices-for-enterprise-iot-monitoring) that you'd calculated earlier.
 
 1. Select the **I accept the terms and conditions** option and then select **Save**.
 
@@ -84,17 +84,17 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
     :::image type="content" source="media/enterprise-iot/defender-for-endpoint-onboard.png" alt-text="Screenshot of the Enterprise IoT tab in Defender for Endpoint." lightbox="media/enterprise-iot/defender-for-endpoint-onboard.png":::
 
-After you've onboarded your plan, you'll see it listed in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. Go to the Defender for IoT **Plans and pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
+After you've onboarded your plan, you'll see it listed in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal. Go to the Defender for IoT **Plans and pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
 
 :::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Plans and pricing page.":::
 
 ## Edit your Enterprise IoT plan
 
-To edit your plan, such as to edit your commitment level or the number of committed devices, first [cancel the plan](#cancel-your-enterprise-iot-plan) and then [onboard a new plan](#onboard-an-enterprise-iot-plan).
+To edit your plan, such as to edit your commitment level or the number of devices covered by your plan, first [cancel the plan](#cancel-your-enterprise-iot-plan) and then [onboard a new plan](#onboard-an-enterprise-iot-plan).
 
 ## Cancel your Enterprise IoT plan
 
-You'll need to cancel your plan if you want to edit the details of your plan, such as the price plan or the number of committed devices, or if you no longer need the service.
+You'll need to cancel your plan if you want to edit the details of your plan, such as the price plan or the number of devices covered by your plan, or if you no longer need the service.
 
 You'd also need to cancel your plan and onboard again if you need to work with a new payment entity or Azure subscription.
 
@@ -127,3 +127,4 @@ For more information, see:
 - [Create an additional Azure subscription](../../cost-management-billing/manage/create-subscription.md)
 
 - [Upgrade your Azure subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md)
+- 

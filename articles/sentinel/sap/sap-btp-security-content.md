@@ -40,11 +40,11 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
-| **BTP - Failed access attempts across multiple BAS subaccounts** |Identifies failed Business Application Studio (BAS) access attempts over a predefined number of subaccounts.<br>Default threshold: 3 | | |
-| **BTP - Malware detected in BAS dev space** |Identifies instances of malware detected by the SAP internal malware agent within BAS developer spaces. | | |
-| **BTP - User added to sensitive privileged role collection** |Identifies identity management actions where a user is added to a set of monitored privileged role collections. | | |
-| **BTP - Trust and authorization Identity Provider monitor** |Identifies create, read, update, and delete (CRUD) operations on Identity Provider settings within a subaccount. |
-| **BTP - Mass user deletion in a sub account** |Identifies user account deletion activity where the number of deleted users exceeds a predefined threshold.<br>Default threshold: 10 | | |
+| **BTP - Failed access attempts across multiple BAS subaccounts** |Identifies failed Business Application Studio (BAS) access attempts over a predefined number of subaccounts.<br>Default threshold: 3 | Run failed login attempts to BAS over the defined threshold number of subaccounts. <br><br>**Data sources**: SAPBTPAuditLog_CL | Discovery, Reconnaissance |
+| **BTP - Malware detected in BAS dev space** |Identifies instances of malware detected by the SAP internal malware agent within BAS developer spaces. | Copy or create a malware file in a BAS developer space. <br><br>**Data sources**: SAPBTPAuditLog_CL| Execution, Persistence, Resource Development |
+| **BTP - User added to sensitive privileged role collection** |Identifies identity management actions where a user is added to a set of monitored privileged role collections. | Assign one of the following role collections to a user: "Subaccount Service Administrator", "Subaccount Administrator", "Connectivity and Destination Administrator", "Destination Administrator", "Cloud Connector Administrator”. <br><br>**Data sources**: SAPBTPAuditLog_CL | Lateral Movement, Privilege Escalation |
+| **BTP - Trust and authorization Identity Provider monitor** |Identifies create, read, update, and delete (CRUD) operations on Identity Provider settings within a subaccount. | Change, read, update, or delete any of the identity provider settings within a subaccount. <br><br>**Data sources**: SAPBTPAuditLog_CL | Credential Access, Privilege Escalation |
+| **BTP - Mass user deletion in a subaccount** |Identifies user account deletion activity where the number of deleted users exceeds a predefined threshold.<br>Default threshold: 10 | Delete count of user accounts over the defined threshold. <br><br>**Data sources**: SAPBTPAuditLog_CL | Impact |
 
 ## Next steps
 

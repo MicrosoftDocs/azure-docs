@@ -10,7 +10,7 @@ ms.date: 02/27/2023
 ms.author: duau
 
 ---
-# Azure CDN from Verizon Premium rules engine reference
+# Azure CDN from Edgio Premium rules engine reference
 
 This article lists detailed descriptions of the available match conditions and features for the Azure Content Delivery Network (CDN) [rules engine](cdn-verizon-premium-rules-engine.md).
 

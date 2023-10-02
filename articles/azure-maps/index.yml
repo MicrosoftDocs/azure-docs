@@ -65,8 +65,12 @@ landingContent:
             url: how-to-view-api-usage.md
 
   # Card
-  - title: Developing with Creator
+  - title: Indoor maps using Azure Maps Creator
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Maps Creator?
+            url: about-creator.md
       - linkListType: concept
         links:
           - text: Indoor map concepts
@@ -81,22 +85,28 @@ landingContent:
             url: how-to-manage-creator.md
           - text: Implement Dynamic styling for indoor maps
             url: indoor-map-dynamic-styling.md
-          - text: Use Azure Maps drawing error visualizer
-            url: drawing-error-visualizer.md
-          - text: Use the indoor map module
-            url: how-to-use-indoor-module.md
-          - text: Use Azure Digital Twins to update indoor map
-            url: ../digital-twins/how-to-integrate-maps.md
+          - text: Query datasets with WFS API
+            url: how-to-creator-wfs.md
+          - text: Custom styling for indoor maps
+            url: how-to-create-custom-styles.md
+          - text: Indoor maps wayfinding service
+            url: how-to-creator-wayfinding.md
+          - text: Edit indoor maps using the QGIS plugin
+            url: creator-qgis-plugin.md
+          - text: Create dataset using GeoJson package
+            url: how-to-dataset-geojson.md
+          - text: Create a feature stateset
+            url: how-to-creator-feature-stateset.md
       - linkListType: reference
         links:
-          - text: Conversion service
-            url: /rest/api/maps/v2/conversion
-          - text: Dataset service
-            url: /rest/api/maps/v2/dataset
-          - text: Tileset service
-            url: /rest/api/maps/v2/tileset
-          - text: Feature stateset service
-            url: /rest/api/maps/v2/feature-state
+            - text: Drawing package requirements
+              url: drawing-requirements.md
+            - text: Facility Ontology
+              url: creator-facility-ontology.md
+            - text: Dynamic maps StylesObject
+              url: schema-stateset-stylesobject.md
+            - text: Drawing error visualizer
+              url: drawing-error-visualizer.md
                     
   # Card
   - title: Developing with Web SDK
@@ -106,7 +116,7 @@ landingContent:
           - text: Getting started with web map control
             url: how-to-use-map-control.md
           - text: Azure Maps web SDK code samples
-            url: https://azuremapscodesamples.azurewebsites.net/
+            url: https://samples.azuremaps.com/
           - text: Web SDK supported browsers
             url: supported-browsers.md
       - linkListType: tutorial

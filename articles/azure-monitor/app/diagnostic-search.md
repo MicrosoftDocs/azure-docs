@@ -2,7 +2,7 @@
 title: Use Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 09/12/2023
 ms.reviewer: saars
 
 ---
@@ -125,7 +125,7 @@ The first time you do this step, you're asked to configure a link to your Azure 
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-enable.md?tabs=java#logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-add-modify.md?tabs=java#logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
 
 * [Write code](./api-custom-events-metrics.md) to send custom events, page views, and exceptions.
 
@@ -143,9 +143,12 @@ See the [Limits summary](../service-limits.md#application-insights).
 
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](./asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
 
+### Why does my Azure Function search return no results?
+
+The URL query strings are not logged by Azure Functions.
+
 ## <a name="add"></a>Next steps
 
 * [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)
 * [Send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md)
 * [Availability overview](availability-overview.md)
-* [Troubleshooting](../faq.yml)

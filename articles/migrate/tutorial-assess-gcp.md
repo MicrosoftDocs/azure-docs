@@ -5,8 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 05/2/2022
-ms.custom: MVC
+ms.date: 06/29/2023
+ms.service: azure-migrate
+ms.custom: MVC, engagement-fy23
 #Customer intent: As a server admin, I want to assess my GCP instances in preparation for migration to Azure.
 ---
 
@@ -45,11 +46,11 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. Go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**.
+1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Discovery and assessment**, click **Assess**.
+2. In **Azure Migrate: Discovery and assessment**, select **Assess**.
 
     ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
@@ -59,22 +60,22 @@ Run an assessment as follows:
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
     - If you discovered servers using an imported CSV file, select **Imported servers**. 
     
-1. Click **Edit** to review the assessment properties.
+1. Select **Edit** to review the assessment properties.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Location of the edit button to review assessment properties":::
 
 1. In **Assessment properties** > **Target Properties**, do the following:
     - In **Target location**, specify the Azure region to which you want to migrate.
-        - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
+        - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you'll be prompted to specify **Reserved Instances** and **VM series**.
         - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government).
     - In **Storage type**,
         - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on the disk IOPS and throughput.
         - Alternatively, select the storage type you want to use for VM when you migrate it.
-    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. 
+    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
         - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
-        - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
+        - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties aren't applicable.
  1. In **VM Size**:
      - In **Sizing criteria**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment.
@@ -100,23 +101,23 @@ Run an assessment as follows:
     - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
     - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 
-1. Click **Save** if you make changes.
+1. Select **Save** if you make changes.
 
-1. In **Assess Servers**, click **Next**.
+1. In **Assess Servers**, select **Next**.
 
 1. In **Select servers to assess** > **Assessment name**, specify a name for the assessment. 
 
 1. In **Select or create a group** > **Create New** and specify a group name. 
     
 
-1. Select the appliance, and select the VMs you want to add to the group. Click **Next**.
+1. Select the appliance, and select the VMs you want to add to the group. Select **Next**.
 
 
-1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
+1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
 1. After the assessment is created, view it in **Servers** > **Azure Migrate: Discovery and assessment** > **Assessments**.
 
-1. Click **Export assessment** to download it as an Excel file.
+1. Select **Export assessment** to download it as an Excel file.
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 
@@ -130,8 +131,8 @@ An assessment describes:
 
 To view an assessment:
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click the number next to **Assessments**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Assessments**.
+2. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
     ![Assessment summary](./media/tutorial-assess-gcp/assessment-summary.png)
 
@@ -140,7 +141,7 @@ To view an assessment:
  
 ### Review readiness
 
-1. Click **Azure readiness**.
+1. Select **Azure readiness**.
 2. In **Azure readiness**, review the VM status:
     - **Ready for Azure**: Used when Azure Migrate recommends a VM size and cost estimates, for VMs in the assessment.
     - **Ready with conditions**: Shows issues and suggested remediation.

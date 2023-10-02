@@ -14,6 +14,16 @@ A daily cap on a Log Analytics workspace allows you to avoid unexpected increase
 > 
 > For strategies to reduce your Azure Monitor costs, see [Cost optimization and Azure Monitor](../best-practices-cost.md).
 
+## Permissions required
+
+| Action | Permissions or role needed |
+|------|------------------------------|
+| Set the daily cap on a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/write` permissions to the Log Analytics workspaces you set the daily cap on, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Set the daily cap on a classic Application Insights resource | `microsoft.insights/components/CurrentBillingFeatures/write` permissions to the classic Application Insights resources you set the daily cap on, as provided by the [Application Insights Component Contributor built-in role](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor), for example. |
+| Create an alert when the daily cap for a Log Analytics workspace is reached | `microsoft.insights/scheduledqueryrules/write` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example |
+| Create an alert when the daily cap for a classic Application Insights resource is reached | `microsoft.insights/activitylogalerts/write` permissions, as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example |
+| View the effect of the daily cap | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
+
 ## How the daily cap works
 Each workspace has a daily cap that defines its own data volume limit.  When the daily cap is reached, a warning banner appears across the top of the page for the selected Log Analytics workspace in the Azure portal, and an operation event is sent to the *Operation* table under the **LogManagement** category. You can optionally create an alert rule to send an alert when this event is created.
 
@@ -48,12 +58,12 @@ To help you determine an appropriate  daily cap for your workspace, see [Azure M
 ## Workspaces with Microsoft Defender for Cloud
 
 > [!IMPORTANT]
-> Starting September 18, 2023, the Log Analytics Daily Cap will no longer exclude the below set of data types from the daily cap, and all billable data types will 
+> Starting September 18, 2023, the Log Analytics Daily Cap will no longer exclude the below set of data types, and all billable data types will 
 > be capped if the daily cap is met. This change improves your ability to fully contain costs from higher-than-expected data ingestion. 
 > If you have a Daily Cap set on your workspace which has [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md), 
 > be sure that the cap is high enough to accomodate this change. Also, be sure to set an alert (see below) so that you are notified as soon as your Daily Cap is met. 
  
-Until September 18, 2023, some data security-related data types collected [Microsoft Defender for Cloud](../../security-center/index.yml) or Microsoft Sentinel are collected despite any daily cap, when the [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) solution was enabled on a workspace after June 19, 2017. The following data types will be subject to this special exception from the daily cap:
+Until September 18, 2023, the following is true. If a workspace enabled the [Microsoft Defenders for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) solution after June 19, 2017, some security related data types are collected for Microsoft Defender for Cloud or Microsoft Sentinel despite any daily cap configured. The following data types will be subject to this special exception from the daily cap:
 
 - WindowsEvent
 - SecurityAlert
@@ -76,7 +86,7 @@ Until September 18, 2023, some data security-related data types collected [Micro
 To set or change the daily cap for a Log Analytics workspace in the Azure portal:  
 
 1. From the **Log Analytics workspaces** menu, select your workspace, and then **Usage and estimated costs**.
-2. Select **Data Cap** at the top of the page. 
+2. Select **Daily Cap** at the top of the page. 
 3. Select **ON** and then set the data volume limit in GB/day.
 
 :::image type="content" source="media/manage-cost-storage/set-daily-volume-cap-01.png" lightbox="media/manage-cost-storage/set-daily-volume-cap-01.png" alt-text="Log Analytics configure data limit":::

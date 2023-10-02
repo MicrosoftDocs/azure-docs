@@ -72,7 +72,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 2 - Set up database connectivity
 
-The creation wizard generated a connection string to the database for you, but not in a format that's useable for your code yet. In this step, you create [app settings](../../app-service/configure-common.md#configure-app-settings) with the format that your app needs.
+The creation wizard generated [app settings](../../app-service/configure-common.md#configure-app-settings) for you to use to connect to the database, but not in a format that's useable for your code yet. In this step, you edit and update app settings to the format that your app needs.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|

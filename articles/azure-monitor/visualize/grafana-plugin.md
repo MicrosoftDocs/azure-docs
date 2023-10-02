@@ -2,16 +2,18 @@
 title: Monitor Azure services and applications by using Grafana
 description: Route Azure Monitor and Application Insights data so that you can view it in Grafana.
 ms.topic: conceptual
-ms.date: 04/22/2022
+ms.date: 06/21/2023
 
 ---
 
 # Monitor your Azure services in Grafana
-You can monitor Azure services and applications by using [Grafana](https://grafana.com/) and the included [Azure Monitor data source plug-in](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/). The plug-in retrieves data from three Azure services:
+You can monitor Azure services and applications by using [Grafana](https://grafana.com/) and the included [Azure Monitor data source plug-in](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/). The plug-in retrieves data from these Azure services:
 
-- Azure Monitor Metrics for numeric time series data from Azure resources.
-- Azure Monitor Logs for log and performance data from Azure resources that enables you to query by using the powerful Kusto Query Language (KQL).
-- Azure Resource Graph to quickly query and identify Azure resources across subscriptions.
+- [Azure Monitor Metrics](../essentials/data-platform-metrics.md) for numeric time series data from Azure resources.
+- [Azure Monitor Logs](../logs/data-platform-logs.md) for log and performance data from Azure resources that enables you to query by using the powerful Kusto Query Language (KQL). You can use Application Insights log queries to retrieve Application Insights log based metrics
+    - [Application Insights log based metrics](../essentials/app-insights-metrics.md) to let you analyze the health of your monitored apps. You can use Application Insights log queries in Grafana to use the Application Insights log metrics data.
+- [Azure Resource Graph](../../governance/resource-graph/overview.md) to quickly query and identify Azure resources across subscriptions.
+
 
 You can then display this performance and availability data on your Grafana dashboard.
 
@@ -35,7 +37,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 ## Sign in to Grafana
 
 > [!IMPORTANT]
-> The Internet Explorer browser and older Microsoft Edge browsers aren't compatible with Grafana. You must use a chromium-based browser including Microsoft Edge. For more information, see [Supported web browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
+> Internet Explorer and the older Microsoft Edge browsers aren't compatible with Grafana. You must use a chromium-based browser including Microsoft Edge. For more information, see [Supported web browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
 Sign in to Grafana by using the endpoint URL of your Azure Managed Grafana workspace or your server's IP address.
 
@@ -74,7 +76,7 @@ If you're hosting Grafana on your own Azure Virtual Machines or Azure App Servic
     * View [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the [Monitoring Reader role](../roles-permissions-security.md) to the Azure Active Directory application on the subscription, resource group, or resource you want to monitor.
   
 1. Provide the connection details you want to use:
-    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Azure China.
+    * When you configure the plug-in, you can indicate which Azure Cloud you want the plug-in to monitor: Public, Azure US Government, Azure Germany, or Microsoft Azure operated by 21Vianet.
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
         > * Tenant ID is the Azure Directory ID.
@@ -85,6 +87,15 @@ If you're hosting Grafana on your own Azure Virtual Machines or Azure App Servic
     
    ![Screenshot that shows Azure Monitor data source configuration with the approved app registration.](./media/grafana-plugin/app-registration.png)
 
+## Use out-of-the-box dashboards
+
+Azure Monitor contains out-of-the-box dashboards to use with Azure Managed Grafana and the Azure Monitor plugin.
+
+:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards.":::
+ 
+Azure Monitor also supports out-of-the-box dashboards for seamless integration with Azure Monitor managed service for Prometheus. These dashboards are automatically deployed to Azure Managed Grafana when linked to Azure Monitor managed service for Prometheus.
+
+:::image type="content" source="media/grafana-plugin/grafana-out-of-the-box-dashboards-prometheus.png" alt-text="Screenshot that shows out of the box Azure Monitor grafana dashboards for Azure Monitor managed service for Prometheus.":::
 ## Build a Grafana dashboard
 
 1. Go to the Grafana home page and select **New Dashboard**.
@@ -117,20 +128,6 @@ If you're hosting Grafana on your own Azure Virtual Machines or Azure App Servic
 In addition to building your panels in Grafana, you can also quickly pin Azure Monitor visualizations from the Azure portal to new or existing Grafana dashboards by adding panels to your Grafana dashboard directly from Azure Monitor. Go to **Metrics** for your resource. Create a chart and select **Save to dashboard**, followed by **Pin to Grafana**. Choose the workspace and dashboard and select **Pin** to complete the operation.
 
 [![Screenshot that shows the Pin to Grafana option in the Azure Monitor metrics explorer.](media/grafana-plugin/grafana-pin-to.png)](media/grafana-plugin/grafana-pin-to-expanded.png#lightbox)
-
-## Optional: Monitor your custom metrics in the same Grafana server
-
-You can also install Telegraf and InfluxDB to collect and plot both custom and agent-based metrics for the same Grafana instance. There are many data source plug-ins that you can use to bring these metrics together in a dashboard.
-
-You can also reuse this setup to include metrics from your Prometheus server. Use the Prometheus data source plug-in in Grafana's plug-in gallery.
-
-Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, and Docker:
- - [How to monitor system Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
- - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
-
-Here's an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
-
-![Screenshot that shows a Grafana dashboard with multiple panels.](media/grafana-plugin/grafana8.png)
 
 ## Advanced Grafana features
 
@@ -166,7 +163,19 @@ Usage
 One of the many useful features of Grafana is the dashboard playlist. You can create multiple dashboards and add them to a playlist configuring an interval for each dashboard to show. Select **Play** to see the dashboards cycle through. You might want to display them on a large wall monitor to provide a status board for your group.
 
 ![Screenshot that shows a Grafana playlist example.](./media/grafana-plugin/grafana7.png)
+## Optional: Monitor other datasources in the same Grafana dashboards
 
+There are many data source plug-ins that you can use to bring these metrics together in a dashboard.
+
+Here are good reference articles on how to use Telegraf, InfluxDB, Azure Monitor managed service for Prometheus, and Docker:
+ - [How to configure data sources for Azure Managed Grafana](../../managed-grafana/how-to-data-source-plugins-managed-identity.md)
+ - [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](../essentials/prometheus-grafana.md)
+ - [How to monitor system Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
+ - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
+
+Here's an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
+
+![Screenshot that shows a Grafana dashboard with multiple panels.](media/grafana-plugin/grafana8.png)
 ## Clean up resources
 
 If you've set up a Grafana environment on Azure, you're charged when resources are running whether you're using them or not. To avoid incurring additional charges, clean up the resource group created in this article.

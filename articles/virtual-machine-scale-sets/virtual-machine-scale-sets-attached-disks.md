@@ -83,6 +83,6 @@ Data disks specified in the scale set model are always empty. However, you may a
 
 
 ## Additional notes
-Support for Azure Managed disks and scale set attached data disks is available in API version [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) or later of the Microsoft.Compute API.
+Support for Azure Managed disks and scale set attached data disks is available in API version [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/2021-11-01/compute.json) or later of the Microsoft.Compute API.
 
 Azure portal support for attached data disks in scale sets is limited. Depending on your requirements you can use Azure templates, CLI, PowerShell, SDKs, and REST API to manage attached disks.

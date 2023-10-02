@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, cliv2, devplatv2, event-tier1-build-2022
+ms.custom: mlflow, cliv2, devplatv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -28,14 +28,14 @@ However, if you are working outside of Azure Machine Learning (like your local m
 
 You need the following prerequisites to follow this tutorial:
 
-[!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
+[!INCLUDE [mlflow-prereqs](includes/machine-learning-mlflow-prereqs.md)]
 
 
 ## Configure MLflow tracking URI
 
 To connect MLflow to an Azure Machine Learning workspace, you need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
 
-[!INCLUDE [mlflow-configure-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
+[!INCLUDE [mlflow-configure-tracking](includes/machine-learning-mlflow-configure-tracking.md)]
 
 ## Configure authentication
 
@@ -49,7 +49,7 @@ The Azure Machine Learning plugin for MLflow supports several authentication mec
 1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it authenticates as that user.
 1. __Interactive browser__: it interactively authenticates a user via the default browser.
 
-[!INCLUDE [mlflow-configure-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [mlflow-configure-auth](includes/machine-learning-mlflow-configure-auth.md)]
 
 If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
 `AZURE_CLIENT_CERTIFICATE_PASSWORD` with the password of the certificate file, if any.

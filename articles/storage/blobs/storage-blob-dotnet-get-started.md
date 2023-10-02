@@ -6,15 +6,16 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/20/2023
-ms.subservice: blobs
+ms.date: 07/12/2023
 ms.devlang: csharp
-ms.custom: template-how-to, devguide-csharp
+ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
 
 # Get started with Azure Blob Storage and .NET
+
+[!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
 This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
@@ -116,8 +117,10 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 - [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
-- [Create a service SAS for a container or blob](sas-service-create.md)
-- [Create a user delegation SAS for a container, directory, or blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
+- [Create a service SAS for a container with .NET](sas-service-create-dotnet-container.md)
+- [Create a service SAS for a blob with .NET](sas-service-create-dotnet.md)
+- [Create a user delegation SAS for a container with .NET](storage-blob-container-user-delegation-sas-create-dotnet.md)
+- [Create a user delegation SAS for a blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
 
 ## [Account key](#tab/account-key)
 
@@ -154,29 +157,9 @@ To learn more about each of these authorization mechanisms, see [Authorize acces
 
 ## Build your application
 
-As you build your application, your code will primarily interact with three types of resources:
+As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-- The storage account, which is the unique top-level namespace for your Azure Storage data.
-
-- Containers, which organize the blob data in your storage account.
-
-- Blobs, which store unstructured data like text and binary data.
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
-Each type of resource is represented by one or more associated .NET classes. This table lists the basic classes with a brief description:
-
-| Class | Description |
-|---|---|
-| [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) | Represents the Blob Storage endpoint for your storage account. |
-| [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | Allows you to manipulate Azure Storage containers and their blobs. |
-| [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | Allows you to manipulate Azure Storage blobs.|
-| [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
-| [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
-
-The following guides show you how to use each of these classes to build your application.
+The following guides show you how to work with data resources and perform specific actions using the Azure Storage client library for .NET:
 
 | Guide | Description |
 |--|---|
@@ -184,15 +167,17 @@ The following guides show you how to use each of these classes to build your app
 | [Delete and restore containers](storage-blob-container-delete.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
 | [List containers](storage-blob-containers-list.md) | List containers in an account and the various options available to customize a listing. |
 | [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Get and set properties and metadata for containers. |
-| [Create and manage leases](storage-blob-container-lease.md) | Establish and manage a lock on a container or the blobs in a container. |
+| [Create and manage container leases](storage-blob-container-lease.md) | Establish and manage a lock on a container. |
+| [Create and manage blob leases](storage-blob-lease.md) | Establish and manage a lock on a blob. |
 | [Append data to blobs](storage-blob-append.md) | Learn how to create an append blob and then append data to that blob. |
 | [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
 | [Download blobs](storage-blob-download.md) | Download blobs by using strings, streams, and file paths. |
-| [Copy blobs](storage-blob-copy.md) | Copy a blob from one account to another account. |
+| [Copy blobs](storage-blob-copy.md) | Copy a blob from one location to another. |
 | [List blobs](storage-blobs-list.md) | List blobs in different ways. |
 | [Delete and restore](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
 | [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags, and use tags to find blobs. |
 | [Manage properties and metadata](storage-blob-properties-metadata.md) | Get and set properties and metadata for blobs. |
+| [Set or change a blob's access tier](storage-blob-use-access-tier-dotnet.md) | Set or change the access tier for a block blob. |
 
 ## See also
 

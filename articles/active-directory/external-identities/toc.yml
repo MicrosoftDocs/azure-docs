@@ -1,4 +1,4 @@
-- name: Azure Active Directory External Identities documentation
+- name: Microsoft Entra External ID documentation
   href: index.yml
 - name: External Identities documentation
   href: index-b2b.yml
@@ -64,7 +64,7 @@
       href: self-service-sign-up-overview.md
     - name: Self-service sign-up API connectors
       href: api-connectors-overview.md
-    - name: Azure AD entitlement management
+    - name: Microsoft Entra entitlement management
       href: self-service-portal.md
   - name: Identity providers for External Identities
     href: identity-providers.md
@@ -97,8 +97,8 @@
     href: cross-tenant-access-settings-b2b-direct-connect.md
   - name: Select identity providers
     items:
-    - name: Azure Active Directory
-      href: azure-ad-account.md
+    - name: Microsoft Entra ID
+      href: default-account.md
     - name: Microsoft account
       href: microsoft-account.md
     - name: Google federation
@@ -141,6 +141,8 @@
       href: use-dynamic-groups.md
     - name: Understand the B2B user
       href: user-properties.md
+    - name: Assign sponsors to guest users
+      href: b2b-sponsors.md
     - name: Reset redemption status
       href: reset-redemption-status.md
   - name: Manage guest access in a hybrid organization
@@ -166,7 +168,7 @@
   - name: FAQ
     href: ./faq.yml
   - name: Getting support
-    href: ../fundamentals/active-directory-troubleshooting-support-howto.md
+    href: ../fundamentals/how-to-get-support.md
   - name: Azure feedback forum
     href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
   - name: Azure Roadmap

@@ -113,7 +113,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 
 ## Automate alerts and actions with budgets
 
-There are two critical components to maximizing the value of your investment in the cloud. One is automatic budget creation. The other is configuring cost-based orchestration in response to budget alerts. There are different ways to automate Azure budget creation. Various alert responses happen when your configured alert thresholds are exceeded.
+There are two critical components to maximizing the value of your investment in the cloud. One is automatic budget creation. The other is configuring cost-based orchestration in response to budget alerts. There are different ways to automate budget creation. Various alert responses happen when your configured alert thresholds are exceeded.
 
 The following sections cover available options and provide sample API requests to get you started with budget automation.
 
@@ -284,7 +284,7 @@ Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /p
 
 ### Configure cost-based orchestration for budget alerts
 
-You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](../manage/cost-management-budget-scenario.md).
+You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with budgets](../manage/cost-management-budget-scenario.md).
 
 ## Data latency and rate limits
 

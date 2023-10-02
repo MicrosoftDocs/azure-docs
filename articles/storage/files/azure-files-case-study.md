@@ -2,16 +2,19 @@
 title: Azure Files customer case studies
 description: Case studies describing how Microsoft customers use Azure Files and Azure File Sync in different industries.
 author: nataraj
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/10/2023
+ms.date: 07/24/2023
 ms.author: nasindam
-ms.subservice: files
 ---
 
 # Azure Files and Azure File Sync customer case studies
 
 Customers in diverse industries use Azure Files and Azure File Sync to host their file shares and sync on-premises file servers to cloud. Learn directly from the customer use cases listed here.
+
+## Azure Files AI model training use case
+
+To interpret and contextualize seafloor health, a team of marine environmental scientists and analysts stored an extensive collection of images in Azure Files to use for building and training a crucial AI model. Now, the team seamlessly updates seafloor data and makes it accessible to clients in near real-time. [Check out the full story here](https://customers.microsoft.com/story/1653678788412771617-inspireenvironmental-sustainability-azure-en-us).
 
 ## Azure Files NFS for SAP use case
 
@@ -31,4 +34,4 @@ A sportswear brand was looking for ways to elevate the speed and ease of collabo
 
 ## Azure Files large files use case
 
- Game studios deal with large files on a daily basis to store their valuable digital assets, sharing builds and reviewing crash dumps. When the COVID-19 pandemic prompted game developers to transition from an in-office workforce to a globally distributed remote team, working with large files didn’t scale well. The increased demand for remote access resulted in high latency when working with large files, as well as an increase in internet egress costs. Azure Files offered a scalable solution for the team to easily work with large files. [Check out the full case study here](https://developer.microsoft.com/games/blog/how-to-transfer-large-files-in-a-distributed-environment/?OCID=AID3029701&).
+ Game studios deal with large files on a daily basis to store their valuable digital assets, sharing builds and reviewing crash dumps. When the COVID-19 pandemic prompted game developers to transition from an in-office workforce to a globally distributed remote team, working with large files didn’t scale well. The increased demand for remote access resulted in high latency when working with large files, as well as an increase in internet egress costs. Azure Files offered a scalable solution for the team to easily work with large files.

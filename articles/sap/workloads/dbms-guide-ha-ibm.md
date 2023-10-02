@@ -15,7 +15,7 @@ ms.reviewer: cynthn
 IBM Db2 for Linux, UNIX, and Windows (LUW) in [high availability and disaster recovery (HADR) configuration](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consists of one node that runs a primary database instance and at least one node that runs a secondary database instance. Changes to the primary database instance are replicated to a secondary database instance synchronously or asynchronously, depending on your configuration. 
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
+> This article contains references to terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
    
 This article describes how to deploy and configure the Azure virtual machines (VMs), install the cluster framework, and install the IBM Db2 LUW with HADR configuration. 
 
@@ -52,7 +52,7 @@ Before you begin an installation, see the following SAP notes and documentation:
 | [IBM Db2 HADR R 10.5][db2-hadr-10.5] |
 
 ## Overview
-To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [Azure availability set](../../virtual-machines/windows/tutorial-availability-sets.md) or across [Azure Availability Zones](./high-availability-zones.md). 
+To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [virtual machine scale set](./virtual-machine-scale-set-sap-deployment-guide.md) with flexible orchestration across [availability zones](./high-availability-zones.md) or in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). 
 
 The following graphics display a setup of two database server Azure VMs. Both database server Azure VMs have their own storage attached and are up and running. In HADR, one database instance in one of the Azure VMs has the role of the primary instance. All clients are connected to this primary instance. All changes in database transactions are persisted locally in the Db2 transaction log. As the transaction log records are persisted locally, the records are transferred via TCP/IP to the database instance on the second database server, the standby server, or standby instance. The standby instance updates the local database by rolling forward the transferred transaction log records. In this way, the standby server is kept in sync with the primary server.
 
@@ -123,14 +123,13 @@ Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list
 
 1. Create or select a resource group.
 1. Create or select a virtual network and subnet.
-1. Create an Azure availability set or deploy an availability zone.
-    + For the availability set, set the maximum update domains to 2.
+1. Choose a [suitable deployment type](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for SAP virtual machines. Typically a virtual machine scale set with flexible orchestration.
 1. Create Virtual Machine 1.
     + Use SLES for SAP image in the Azure Marketplace.
-    + Select the Azure availability set you created in step 3, or select Availability Zone.
+    + Select the scale set, availability zone or availability set created in step 3.
 1.  Create Virtual Machine 2.
     + Use SLES for SAP image in the Azure Marketplace.
-    + Select the Azure availability set you in created in step 3, or select Availability Zone (not the same zone as in step 3).
+    + Select the scale set, availability zone or availability set created in step 3 (not the same zone as in step 4).
 1. Add data disks to the VMs, and then check the recommendation of a file system setup in the article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload][dbms-db2].
 
 ## Create the Pacemaker cluster
@@ -602,7 +601,7 @@ Cluster node *azibmdb01* should be rebooted. The IBM Db2 primary HADR role is go
 
 If the Pacemaker service doesn't start automatically on the rebooted former primary, be sure to start it manually with:
 
-<code><pre>sudo service pacemaker start</code></pre>
+<pre><code>sudo service pacemaker start</code></pre>
 
 ### Test a manual takeover
 

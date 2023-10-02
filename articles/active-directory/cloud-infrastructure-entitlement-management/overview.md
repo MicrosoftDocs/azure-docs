@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/20/2022
+ms.date: 09/15/2023
 ms.author: jfields
 ---
 
-# What's Permissions Management?
+# What's Microsoft Entra Permissions Management?
 
 ## Overview
 
-Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+Microsoft Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
 Permissions Management  detects, automatically right-sizes, and continuously monitors unused and excessive permissions.
 
@@ -70,5 +70,6 @@ Once your organization has explored and implemented the discover, remediation an
 
 ## Next steps
 
-- For information on how to onboard Permissions Management for your organization, see [Enable Permissions Management in your organization](onboard-enable-tenant.md).
+- Deepen your learning with [Introduction to Microsoft Entra Permissions Management](https://go.microsoft.com/fwlink/?linkid=2240016) learn module. 
+- Sign up for a [45-day free trial](https://aka.ms/TryPermissionsManagement) of Permissions Management.
 - For a list of frequently asked questions (FAQs) about Permissions Management, see [FAQs](faqs.md).

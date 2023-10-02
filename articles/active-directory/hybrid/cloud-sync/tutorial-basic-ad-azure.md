@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Basic Active Directory on-premises and Azure AD environment.
+title: Tutorial - Basic Active Directory on-premises and Microsoft Entra environment.
 services: active-directory
-description: Learn how to create a basic AD and Azure AD environment.
+description: Learn how to create a basic AD and Microsoft Entra environment.
 author: billmath
 manager: amycolannino
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 This tutorial walks you through creating a basic Active Directory environment. 
 
-![Diagram that shows a basic Azure A D environment.](media/tutorial-single-forest/diagram-2.png)
+![Diagram that shows a basic Microsoft Entra environment.](media/tutorial-single-forest/diagram-2.png)
 
 You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who may be starting from nothing.
 
@@ -33,7 +33,7 @@ The following are prerequisites required for completing this tutorial
 > [!NOTE]
 > This tutorial uses PowerShell scripts so that you can create the tutorial environment in the quickest amount of time.  Each of the scripts uses variables that are declared at the beginning of the scripts.  You can and should change the variables to reflect your environment.
 >
->The scripts used create a general Active Directory environment prior to installing the Azure AD Connect cloud provisioning agent.  They are relevant for all of the tutorials.
+>The scripts used create a general Active Directory environment prior to installing the Microsoft Entra Connect cloud provisioning agent.  They are relevant for all of the tutorials.
 >
 > Copies of the PowerShell scripts that are used in this tutorial are available on GitHub [here](https://github.com/billmath/tutorial-phs).
 
@@ -124,7 +124,7 @@ Now that you have the VM created and it has been renamed and has a static IP add
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-    ```powershell 
+    ```powershell
     #Declare variables
     $DatabasePath = "c:\windows\NTDS"
     $DomainMode = "WinThreshold"
@@ -150,12 +150,12 @@ Now that you have the VM created and it has been renamed and has a static IP add
     ```
 
 ## Create a Windows Server AD user
-Now that you have our Active Directory environment, you need to a test account.  This account will be created in our on-premises AD environment and then synchronized to Azure AD.  Do the following:
+Now that you have our Active Directory environment, you need to a test account.  This account will be created in our on-premises AD environment and then synchronized to Microsoft Entra ID.  Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-    ```powershell 
+    ```powershell
     # Filename:    4_CreateUser.ps1
     # Description: Creates a user in Active Directory.  This is part of
     #              the Azure AD Connect password hash sync tutorial.
@@ -189,19 +189,25 @@ Now that you have our Active Directory environment, you need to a test account. 
     ```
 
 
-## Create an Azure AD tenant
-Now you need to create an Azure AD tenant so that you can synchronize our users to the cloud.  To create a new Azure AD tenant, do the following.
+<a name='create-an-azure-ad-tenant'></a>
 
-1. Browse to the [Azure portal](https://portal.azure.com) and sign in with an account that has an Azure subscription.
-2. Select the **plus icon (+)** and search for **Azure Active Directory**.
-3. Select **Azure Active Directory** in the search results.
+## Create a Microsoft Entra tenant
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
+Now you need to create a Microsoft Entra tenant so that you can synchronize our users to the cloud.  To create a new Microsoft Entra tenant, do the following.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) and sign in with an account that has your Microsoft Entra subscription.
+2. Click **Overview**.
+3. Click **Manage tenants**.
 4. Select **Create**.</br>
-![Screenshot that shows the Azure Active Directory page in the Azure portal.](media/tutorial-single-forest/create-1.png)</br>
 5. Provide a **name for the organization** along with the **initial domain name**. Then select **Create**. This will create your directory.
 6. Once this has completed, click the **here** link, to manage the directory.
 
-## Create a global administrator in Azure AD
-Now that you have an Azure AD tenant, you'll create a global administrator account.  To create the global administrator account do the following.
+<a name='create-a-global-administrator-in-azure-ad'></a>
+
+## Create a global administrator in Microsoft Entra ID
+Now that you have a Microsoft Entra tenant, you'll create a global administrator account.  To create the global administrator account do the following.
 
 1.  Under **Manage**, select **Users**.</br>
 ![Screenshot that shows the "Overview" menu with "Users" selected.](media/tutorial-single-forest/administrator-1.png)</br>
@@ -212,7 +218,7 @@ Now that you have an Azure AD tenant, you'll create a global administrator accou
 5. Change the password for the global administrator to something that you'll remember.
 
 ## Optional:  Additional server and forest
-The following is an optional section that provides steps to creating an additional server and or forest.  This can be used in some of the more advanced tutorials such as [Pilot for Azure AD Connect to cloud sync](tutorial-pilot-aadc-aadccp.md).
+The following is an optional section that provides steps to creating an additional server and or forest.  This can be used in some of the more advanced tutorials such as [Pilot for Microsoft Entra Connect to cloud sync](tutorial-pilot-aadc-aadccp.md).
 
 If you only need an additional server, you can stop after the - **Create the virtual machine** step and join the server to the existing domain that was created above.  
 
@@ -366,7 +372,7 @@ Now that you have the VM created and it has been renamed and has a static IP add
     ```
 
 ### Create a Windows Server AD user
-Now that you have our Active Directory environment, you need to a test account.  This account will be created in our on-premises AD environment and then synchronized to Azure AD.  Do the following:
+Now that you have our Active Directory environment, you need to a test account.  This account will be created in our on-premises AD environment and then synchronized to Microsoft Entra ID.  Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
@@ -410,4 +416,4 @@ Now you have an environment that can be used for existing tutorials and to test 
 ## Next steps 
 
 - [What is provisioning?](../what-is-provisioning.md)
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)

@@ -135,7 +135,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 | Unapproved | The device isn't approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Device status values](howto-manage-devices-individually.md#device-status-values) |
 | Unassigned | The device isn't assigned to a device template. | Assign the device to a device template so that IoT Central knows how to parse the data. |
 
-Learn more about [Device status values](howto-manage-devices-individually.md#device-status-values).
+Learn more about [Device status values in the UI](howto-manage-devices-individually.md#device-status-values) and [Device status values in the REST API](howto-manage-devices-with-rest-api.md#get-a-device).
 
 ### Error codes
 
@@ -240,7 +240,7 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ### Invalid JSON
 
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](../../iot-develop/concepts-message-payloads.md).
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 

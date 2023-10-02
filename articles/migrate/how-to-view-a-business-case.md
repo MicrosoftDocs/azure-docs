@@ -5,8 +5,9 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: ronai
 ms.topic: how-to
-ms.date: 01/17/2023
-ms.custom: engagement-fy23
+ms.service: azure-migrate
+ms.date: 08/24/2023
+ms.custom: engagement-fy24
 
 ---
 
@@ -28,6 +29,7 @@ There are four major reports that you need to review:
     - Estimated year on year cashflow savings based on the estimated migration completed that year.
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
     - Discovery insights covering the scope of the business case.
+    - Support status of the operating system and database licenses.
 - **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
 - **Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
@@ -56,12 +58,16 @@ As you plan to migrate to Azure in phases, this line chart shows your cashflow p
 - The future state cost shows how your net cashflow will be as you migrate some percentage to Azure per year as in the 'Azure cost' assumptions, while your infrastructure is growing 5% per year.
 
 ### Savings with Azure Hybrid Benefits
-Currently, this card shows a static percentage of max savings you could get with Azure hybrid Benefits. 
+This card shows a static percentage of maximum savings you could get with Azure hybrid Benefits. 
+
+### Savings with Extended security updates
+It shows the potential savings with respect to extended security update license. It is the cost of extended security update license required to run Windows Server and SQL Server securely after the end of support of its licenses on-premises. Extended security updates are offered at no additional cost on Azure.
+
 
 ### Discovery insights
-It covers the total severs scoped in the business case computation, virtualization distribution, utilization insights and distribution of servers based on workloads running on them.
+It covers the total servers scoped in the business case computation, virtualization distribution, utilization insights, support status of the licenses, and distribution of servers based on workloads running on them.
 
-### Utilization insights
+#### Utilization insights
 It covers which servers are ideal for cloud, servers that can be decommissioned on-premises, and servers that can't be classified based on resource utilization/performance data:
 - Ideal for cloud: These servers are best fit for migrating to Azure and comprises of active and idle servers:
     - Active servers: These servers delivered business value by being on and had their CPU and memory utilization above 5% and network utilization above 2%.
@@ -70,8 +76,9 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
     - Zombie: The CPU, memory and network utilization were 0% with no performance data collection issues.
 - These servers were on but don't have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
+
     
-## On-premises vs Azure report
+## On-premises vs Azure report 
 It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
 
 :::image type="content" source="./media/how-to-view-a-business-case/comparison-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-expanded.png":::
@@ -81,6 +88,10 @@ It covers cost components for on-premises and Azure, savings, and insights to un
 **Azure tab**
 
 This section contains the cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
+- IaaS cost estimate:
+    - **Estimated cost by target**: This card includes the cost based on the target.
+    - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit.
+    - **Savings** - This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
 - Azure VM:
     - **Estimated cost by savings options**: This card includes compute cost for Azure VMs. It is recommended that all idle servers are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance or 3 year Azure Savings Plan to maximize savings.
     - **Recommended VM family**: This card covers the VM sizes recommended. The ones marked Unknown are the VMs that have some readiness issues and no SKUs could be found for them.
@@ -96,12 +107,17 @@ This section assumes instance to SQL Server on Azure VM migration recommendation
 - On-premises footprint of the servers recommended to be migrated to Azure IaaS.
 - Contribution of Zombie servers in the on-premises cost.
 - Distribution of servers by OS, virtualization, and activity state.
+- Distribution by support status of OS licenses and OS versions. 
 
 ## Azure PaaS report
 
 **Azure tab**
 
 This section contains the cost estimate by recommended target (Annual cost and also includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
+- PaaS cost estimate:
+    - **Estimated cost by target**: This card includes the cost based on the target.
+    - **Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit.
+    - **Savings** - This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
 - Azure SQL:
     - **Estimated cost by savings options**: This card includes compute cost for Azure SQL MI. It is recommended that all idle SQL instances are migrated via Pay as you go Dev/Test and others (Active and unknown) are migrated using 3 year Reserved Instance to maximize savings.
     - **Distribution by recommended service tier** : This card covers the recommended service tier.
@@ -113,7 +129,9 @@ This section contains the cost estimate by recommended target (Annual cost and a
 
 - On-premises footprint of the servers recommended to be migrated to Azure PaaS.
 - Contribution of Zombie SQL instances in the on-premises cost.
+- Distribution by support status of OS licenses and OS versions.
 - Distribution of SQL instances by SQL version and activity state.
+
 
 ## Next steps
 - [Learn more](concepts-business-case-calculation.md) about how business cases are calculated.

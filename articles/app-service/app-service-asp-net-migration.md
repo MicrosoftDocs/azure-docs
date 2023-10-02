@@ -4,7 +4,7 @@ description: A collection of .NET migration resources available to Azure App Ser
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 06/28/2022
+ms.date: 06/29/2023
 ms.author: msangapu
 ms.devlang: csharp
 ms.custom: seodec18, devx-track-dotnet

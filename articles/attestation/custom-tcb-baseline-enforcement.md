@@ -11,7 +11,7 @@ ms.author: mbaldwin
 
 ---
 
-# Custom TCB baseline enforcement for SGX attestation
+# Custom TCB baseline enforcement for SGX attestation (preview)
 
 Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID). The default TCB baseline from THIM might lag the latest baseline offered by Intel. This is to prevent any attestation failure scenarios for ACC customers who require more time for patching platform software (PSW) updates.
 
@@ -28,7 +28,7 @@ We recommend Azure Attestation users to use the custom TCB baseline enforcement 
 ## Default TCB baseline currently referred by Azure Attestation when no custom TCB baseline is configured by users
 
 ```
-TCB identifier: “azuredefault”
+TCB identifier: “10”
 TCB evaluation data number": "10"    
 Tcb release date: "2020-11-11T00:00:00"  
 Minimum PSW Linux version: "2.9"
@@ -37,6 +37,18 @@ Minimum PSW Windows version: "2.7.101.2"
 
 ## TCB baselines available in Azure which can be configured as custom TCB baseline
 ```
+ 15 (TCB release date: 2/14/2023)
+ TCB identifier : 15
+ TCB evaluation data number : 15
+ Minimum PSW Linux version : 2.17
+ Minimum PSW Windows version : 2.16
+
+ 14 (TCB release date: 11/8/2022)
+ TCB identifier : 14
+ TCB evaluation data number : 14
+ Minimum PSW Linux version : 2.17
+ Minimum PSW Windows version : 2.16
+
  TCB identifier : 13
  TCB release date: 8/9/2022
  TCB evaluation data number : 13

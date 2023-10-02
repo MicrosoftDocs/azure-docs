@@ -6,6 +6,7 @@ author: billmath
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
 ms.date: 01/11/2023
 ms.subservice: hybrid
@@ -25,6 +26,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Create sync job](#create-sync-job)
   - [Update targeted domain](#update-targeted-domain)
   - [Enable Sync password hashes on configuration blade](#enable-sync-password-hashes-on-configuration-blade)
+  - [Exchange hybrid writeback](#exchange-hybrid-writeback-public-preview)
   - [Accidental deletes](#accidental-deletes)
     - [Enabling and setting the threshold](#enabling-and-setting-the-threshold)
     - [Allowing deletes](#allowing-deletes)
@@ -32,7 +34,7 @@ The structure of how to do this consists of the following steps.  They are:
   - [Review status](#review-status)
   - [Next steps](#next-steps)
 
-Use these [Microsoft Azure Active Directory Module for Windows PowerShell](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
+Use these [Azure AD PowerShell module](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a prerequisite for being able to call the Administration Web Service for that tenant.
 
 ## Basic setup
 
@@ -43,7 +45,7 @@ Connect-MsolService ('-AzureEnvironment <AzureEnvironmnet>')
  Set-MsolDirSyncEnabled -EnableDirSync $true
 ```
 
-The first of those two commands, require Azure Active Directory credentials. These cmdlets implicitly identify the tenant and enable it for synchronization.
+The first of those two commands, require Microsoft Entra credentials. These cmdlets implicitly identify the tenant and enable it for synchronization.
 
 ## Create service principals
 
@@ -65,7 +67,7 @@ The output of the above command returns the objectId of the service principal th
 
 Documentation for creating a sync job can be found [here](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true).
 
-If you did not record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
+If you didn't record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
 
 `GET https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -144,7 +146,7 @@ Add the following key/value pair in the below value array based on what you're t
 - Enable both PHS and sync tenant flags
   { key: "AppKey", value: "{"appKeyScenario":"AD2AADPasswordHash"}" }
 
-- Enable only sync tenant flag (do not turn on PHS)
+- Enable only sync tenant flag (don't turn on PHS)
   { key: "AppKey", value: "{"appKeyScenario":"AD2AADProvisioning"}" }
 
 ```
@@ -162,7 +164,7 @@ Request body –
 The expected response is … 
 HTTP 204/No content
 
-Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Azure Active Directory.
+Here, the highlighted "Domain" value is the name of the on-premises Active Directory domain from which entries are to be provisioned to Microsoft Entra ID.
 
 ## Enable Sync password hashes on configuration blade
 
@@ -216,7 +218,7 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
 
    Copy/paste the mapping from the **Create AD2AADProvisioning and AD2AADPasswordHash jobs** step above into the attributeMappings array.
 
-   Order of elements in this array doesn't matter (the backend sorts for you). Be careful about adding this attribute mapping if the name exists already in the array (e.g. if there's already an item in attributeMappings that has the targetAttributeName CredentialData) - you may get conflict errors, or the pre-existing and new mappings may be combined together (usually not desired outcome). Backend does not dedupe for you.
+   Order of elements in this array doesn't matter (the backend sorts for you). Be careful about adding this attribute mapping if the name exists already in the array (e.g. if there's already an item in attributeMappings that has the targetAttributeName CredentialData) - you may get conflict errors, or the pre-existing and new mappings may be combined together (usually not desired outcome). Backend doesn't dedupe for you.
 
    Remember to do this for both Users and inetOrgpersons.
 
@@ -228,6 +230,65 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
    ```
 
 Add the Schema in the request body.
+
+## Exchange hybrid writeback (Public Preview)
+
+This section covers how to enable/disable and use [Exchange hybrid writeback](exchange-hybrid.md) programmatically.
+
+Enabling Exchange hybrid writeback programmatically requires two steps.
+	
+  1.  Schema verification
+	2.  Create the Exchange hybrid writeback job
+
+### Schema verification
+Prior to enabling and using Exchange hybrid writeback, cloud sync needs to determine whether or not the on-premises Active Directory has been extended to include the Exchange schema.  
+
+You can use the [directoryDefinition:discover](/graph/api/directorydefinition-discover?view=graph-rest-beta&tabs=http&preserve-view=true) to initiate schema discovery. 
+
+```
+POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/[AD2AADProvisioningJobId]/schema/directories/[ADDirectoryID]/discover
+```
+The expected response is … 
+HTTP 200/OK
+
+The response should look similar to the following:
+
+```
+HTTP/1.1 200 OK
+Content-type: application/json
+{
+  "objects": [
+    {
+      "name": "user",
+      "attributes": [
+        {
+          "name": "mailNickName",
+          "type": "String"
+        },
+        ...
+      ]
+    },
+    ...
+  ]
+}
+```
+
+Now check to see if the **mailNickName** attribute is present.  If it is, then your schema is verified and contains the Exchange attributes. If not, review the [prerequisites](exchange-hybrid.md#prerequisites) for Exchange hybrid writeback.
+
+
+
+### Create the Exchange hybrid writeback job
+Once you have verified the schema you can create the job.
+
+```
+POST https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs
+Content-type: application/json
+{
+"templateId":"AAD2ADExchangeHybridWriteback"
+}
+```
+
+
 
 ## Accidental deletes
 
@@ -264,7 +325,7 @@ Request body -
 
 The "Enabled" setting in the example is for enabling/disabling notification emails when the job is quarantined.
 
-Currently, we do not support PATCH requests for secrets, so you need to add all the values in the body of the PUT request(like in the example) in order to preserve the other values.
+Currently, we don't support PATCH requests for secrets, so you need to add all the values in the body of the PUT request(like in the example) in order to preserve the other values.
 
 The existing values for all the secrets can be retrieved by using:
 
@@ -290,13 +351,13 @@ Request Body:
 
 ## Start sync job
 
-The job can be retrieved again via the following command:
+The jobs can be retrieved again via the following command:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/`
 
 Documentation for retrieving jobs can be found [here](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta&preserve-view=true).
 
-To start the job, issue this request, using the objectId of the service principal created in the first step, and the job identifier returned from the request that created the job.
+To start the jobs, issue this request, using the objectId of the service principal created in the first step, and the job identifiers returned from the request that created the job.
 
 Documentation for how to start a job can be found [here](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true).
 
@@ -332,6 +393,6 @@ Look under the 'status' section of the return object for relevant details
 
 ## Next steps
 
-- [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
+- [What is Microsoft Entra Connect cloud sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
 - [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)

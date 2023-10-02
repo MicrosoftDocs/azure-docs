@@ -20,6 +20,9 @@ highlightedContent:
     - title: Azure network security overview 
       itemType: overview # controls the icon image and super-title text 
       url: ../../security/fundamentals/network-overview.md
+    - title: Configure network security
+      itemType: learn
+      url: /training/modules/network-security/
     - title: What's new in Azure Networking and Security? 
       itemType: whats-new 
       url: https://azure.microsoft.com/en-us/updates/?category=networking&query=security
@@ -32,6 +35,12 @@ highlightedContent:
     - title: How to use Azure Bastion to connect securely to your Azure VMs
       itemType: video
       url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
+    - title: What is Azure Web Application Firewall?
+      itemType: video
+      url: https://www.microsoft.com/en-us/videoplayer/embed/RWCwkM
+    - title: Azure network security webinars
+      itemType: video
+      url: https://techcommunity.microsoft.com/t5/security-compliance-and-identity/recordings-security-community-webinars/ba-p/2865990
 
 
 # additionalContent section (optional)
@@ -42,25 +51,19 @@ additionalContent:
     - title: Secure your perimeter  # < 60 chars (optional)
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: What is Azure Firewall?
+            - text: Protect my network from DDos attacks
+              url: ../../ddos-protection/ddos-protection-overview.md
+            - text: Protect my outbound network connections
               url: ../../firewall/overview.md
-            - text: What is Azure Firewall Manager?
-              url: ../../firewall-manager/overview.md
-            - text: What is Web Application Firewall?
+            - text: Protect my inbound web application connections
               url: ../../web-application-firewall/overview.md
-            - text: See more
+            - text: Manage my network firewall
+              url: ../../firewall-manager/overview.md
+            - text: Learn more about Azure Firewall
               url: ../../firewall/index.yml
-        - title: Concepts
-          links:
-            - text: Azure Firewall Standard features
-              url: ../../firewall/features.md
-            - text: Azure Firewall Premium features
-              url: ../../firewall/premium-features.md
-            - text: What is a secured virtual hub?
-              url: ../../firewall-manager/secured-virtual-hub.md
-        - title: Learn
+        - title: Training
           links:
             - text: Introduction to Azure Firewall
               url: /training/modules/introduction-azure-firewall/
@@ -68,73 +71,139 @@ additionalContent:
               url: /training/modules/intro-to-azure-firewall-manager/
             - text: Introduction to Azure Web Application Firewall
               url: /training/modules/introduction-azure-web-application-firewall/
-
-    - title: Secure your virtual networks  # < 60 chars (optional)
+            - text: Design and implement network security
+              url: /training/modules/design-implement-network-security-monitoring/
+            - text: Design solutions for network security
+              url: /training/modules/design-solutions-network-security/
+            - text: Design and implement network monitoring
+              url: /training/modules/design-implement-network-monitoring/
+        - title: Architecture
+          links:
+            - text: Implement the Zero Trust model
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/zero-trust-with-azure-network-security/ba-p/3668280
+            - text: Apply Zero Trust principles to an Azure Virtual WAN deployment
+              url: /security/zero-trust/azure-virtual-wan
+            - text: Securely managed web applications
+              url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
+            - text: Firewall and Application Gateway for virtual networks
+              url: /azure/architecture/example-scenario/gateway/firewall-application-gateway
+            - text: Improved-security access to multitenant web apps from an on-premises network
+              url: /azure/architecture/web-apps/guides/networking/access-multitenant-web-app-from-on-premises
+            - text: Implement a secure hybrid network
+              url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
+            - text: Mission-critical baseline architecture with network control
+              url: /azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-network-architecture
+            - text: Build the first layer of defense with Azure Security services
+              url: /azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense
+            - text: Secure and govern workloads with network-level segmentation
+              url: /azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation
+    - title: Secure your virtual networks
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: Network security groups 
+            - text: Secure networks with Zero Trust
+              url: /security/zero-trust/deploy/networks
+            - text: Filter network traffic between Azure resources
               url: ../../virtual-network/network-security-groups-overview.md
-            - text: Virtual Network service endpoints
+            - text: Secure access to Azure services
               url: ../../virtual-network/virtual-network-service-endpoints-overview.md
-            - text: See more
+            - text: Inspect traffic to a private endpoint
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/deploy-azure-firewall-to-inspect-traffic-to-a-private-endpoint/ba-p/3714575
+            - text: Learn more about Azure Virtual Network
               url: ../../virtual-network/index.yml
-        - title: Concepts
-          links:
-            - text: How network security groups filter network traffic
-              url: ../../virtual-network/network-security-group-how-it-works.md
-            - text: Virtual Network service endpoints
-              url: ../../virtual-network/virtual-network-service-endpoints-overview.md
-        - title: Learn
+            - text: Create a site-to-site VPN connection
+              url: ../../vpn-gateway/tutorial-site-to-site-portal.md
+            - text: Deploy security admin rules with Virtual Network manager
+              url: ../../virtual-network-manager/how-to-block-network-traffic-portal.md
+        - title: Training
           links:
             - text: Configure network security groups
               url: /training/modules/configure-network-security-groups/
             - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
               url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
-    - title: Protect your apps
+            - text: Troubleshoot platform-as-a-service issues in Microsoft Azure
+              url:  /training/modules/troubleshoot-platform-service-issues/
+            - text: Connect my on-premises network to Azure with VPN gateways
+              url: /training/modules/connect-on-premises-network-with-vpn-gateway/
+            - text: Monitor and troubleshoot your end-to-end Azure network infrastructure
+              url: /training/modules/troubleshoot-azure-network-infrastructure/
+        - title: Architecture
+          links:
+            - text: Apply Zero Trust principles to a spoke virtual network in Azure
+              url: /security/zero-trust/azure-infrastructure-iaas
+            - text: Apply Zero Trust principles to a hub virtual network in Azure
+              url: /security/zero-trust/azure-infrastructure-networking
+            - text: Hub-spoke network topology in Azure
+              url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+            - text: Choose between virtual network peering and VPN gateways
+              url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering
+            - text: Extend an on-premises network using ExpressRoute
+              url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
+            - text: Azure Network Virtual Application Firewall architecture
+              url: /azure/architecture/example-scenario/firewalls/
+    - title: Protect your apps and services
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: What is Azure DDoS Protection?
+            - text: Protect my service from DDoS attacks
               url: ../../ddos-protection/ddos-protection-overview.md
-            - text: What is Azure Private Link?
+            - text: Protect against PaperCut vulnerability
+              url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/protect-against-papercut-vulnerability-with-azure-firewall/ba-p/3859945
+            - text: Securely access my PaaS Services in Azure
               url: ../../private-link/private-link-overview.md
-            - text: What is a Private Endpoint?
+            - text: Create a private interface to connect to a service
               url: ../../private-link/private-endpoint-overview.md
-            - text: What is Private Link service?
+            - text: Connect a service using a private link 
               url: ../../private-link/private-link-service-overview.md
-            - text: See more
-              url: ../..//ddos-protection/index.yml
-        - title: Concepts
-          links:
-            - text: Types of DDoS attacks
-              url: ../../ddos-protection/types-of-attacks.md
-            - text: Azure Private Link availability
-              url: ../../private-link/availability.md
-        - title: Learn
+            - text: Learn more about Azure DDoS Protection
+              url: ../../ddos-protection/index.yml
+        - title: Training
           links:
             - text: Introduction to Azure DDoS Protection
               url: /training/modules/introduction-azure-ddos-protection/
             - text: Introduction to Azure Private Link
               url: /training/modules/introduction-azure-private-link/
-    - title: Secure your virtual machines # < 60 chars (optional)
+            - text: Design and implement private access to Azure Services
+              url: /training/modules/design-implement-private-access-to-azure-services/
+            - text: Encrypt network traffic end to end with Application gateways
+              url: /training/modules/end-to-end-encryption-with-app-gateway/
+        - title: Architecture
+          links:
+            - text: Apply Zero Trust principles to a spoke virtual network with Azure PaaS Services
+              url: /security/zero-trust/azure-infrastructure-paas
+            - text: Zero-trust network for web applications with Azure Firewall and Application Gateway
+              url: /azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall
+            - text: Azure Private Link in a hub-and-spoke network
+              url: /azure/architecture/guide/networking/private-link-hub-spoke-network
+            - text: Guide to Private Link and DNS in Azure Virtual WAN
+              url: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide
+            - text: Secure network access to Kubernetes
+              url: /azure/architecture/aws-professional/eks-to-aks/private-clusters
+            - text: Use Azure Firewall to help protect an Azure Kubernetes Service (AKS) cluster
+              url: /azure/architecture/guide/aks/aks-firewall
+    - title: Secure your virtual machines
       items:
         # Card
-        - title: Overview
+        - title: I want to...
           links:
-            - text: What is Azure Bastion?
+            - text: Connect to my VMs without a public IP address exposure
               url: ../../bastion/bastion-overview.md
-            - text: See more
+            - text: Learn more about Azure Bastion
               url: ../../bastion/index.yml
-        - title: Concepts
+            - text: Enable just-in-time access on VMs
+              url: ../../defender-for-cloud/just-in-time-access-usage.md
+        - title: Training
           links:
-            - text: VNet peering and Azure Bastion
-              url: ../../bastion/vnet-peering.md
-        - title: Learn
-          links:
+            - text: Configure the network for your virtual machines
+              url: /training/modules/configure-network-for-azure-virtual-machines/
             - text: Introduction to Azure Bastion
               url: /training/modules/intro-to-azure-bastion/
             - text: Connect to a VM using Azure Bastion
               url: /training/modules/connect-vm-with-azure-bastion/
+        - title: Architecture
+          links:
+            - text: Multilayered protection for Azure virtual machine access
+              url: /azure/architecture/solution-ideas/articles/multilayered-protection-azure-vm
+

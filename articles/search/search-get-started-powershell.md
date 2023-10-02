@@ -11,16 +11,9 @@ ms.devlang: rest-api
 ms.date: 01/27/2023
 ms.custom: mode-api
 ---
-# Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
-> [!div class="op_single_selector"]
-> * [PowerShell (REST)](search-get-started-powershell.md)
-> * [C#](./search-get-started-dotnet.md)
-> * [REST](search-get-started-rest.md)
-> * [Python](search-get-started-python.md)
-> * [Portal](search-get-started-portal.md)
-> 
+# Quickstart: Create a search index in PowerShell using REST APIs
 
-This article walks you through the process of creating, loading, and querying an Azure Cognitive Search index using PowerShell and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a PowerShell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
+In this Azure Cognitive Search quickstart, learn how to create, load, and query a search index using PowerShell and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a PowerShell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,7 +29,7 @@ The following services and tools are required for this quickstart.
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -84,7 +77,7 @@ Unless you are using the portal, an index must exist on the service before you c
 
 Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walk through articles. The field definitions have been trimmed in this quickstart for brevity.
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walk-through articles. The field definitions have been trimmed in this quickstart for brevity.
 
 1. Paste this example into PowerShell to create a **$body** object containing the index schema.
 
@@ -174,7 +167,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 
 ## 2 - Load documents
 
-To push documents, use a HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
+To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Paste this example into PowerShell to create a **$body** object containing the documents you want to upload. 
 

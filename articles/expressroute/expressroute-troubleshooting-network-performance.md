@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 12/22/2022
+ms.date: 08/25/2022
 ms.author: duau
 ms.custom: seodec18
 ---
@@ -71,30 +71,30 @@ There are three basic steps to use this toolkit for Performance testing.
 
 1. Installing the PowerShell Module.
 
-	```powershell
-	(new-object Net.WebClient).DownloadString("https://aka.ms/AzureCT") | Invoke-Expression
-	
-	```
+    ```powershell
+    (new-object Net.WebClient).DownloadString("https://aka.ms/AzureCT") | Invoke-Expression
+    
+    ```
 
-	This command downloads the PowerShell module and installs it locally.
+    This command downloads the PowerShell module and installs it locally.
 
 2. Install the supporting applications.
 
-	```powershell
-	Install-LinkPerformance
-	```
-	This AzureCT command installs iPerf and PSPing in a new directory "C:\ACTTools", it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
+    ```powershell
+    Install-LinkPerformance
+    ```
+    This AzureCT command installs iPerf and PSPing in a new directory "C:\ACTTools", it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
 
 3. Run the performance test.
 
-	First, on the remote host you must install and run iPerf in server mode. Also ensure the remote host is listening on either 3389 (RDP for Windows) or 22 (SSH for Linux) and allowing traffic on port 5201 for iPerf. If the remote host is Windows, install the AzureCT and run the Install-LinkPerformance command. The command will set up iPerf and the firewall rules needed to start iPerf in server mode successfully. 
-	
-	Once the remote machine is ready, open PowerShell on the local machine and start the test:
-	```powershell
-	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
-	```
+    First, on the remote host you must install and run iPerf in server mode. Also ensure the remote host is listening on either 3389 (RDP for Windows) or 22 (SSH for Linux) and allowing traffic on port 5201 for iPerf. If the remote host is Windows, install the AzureCT and run the Install-LinkPerformance command. The command will set up iPerf and the firewall rules needed to start iPerf in server mode successfully. 
+    
+    Once the remote machine is ready, open PowerShell on the local machine and start the test:
+    ```powershell
+    Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
+    ```
 
-	This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
+    This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
 
 4. Review the output of the tests.
 
@@ -102,14 +102,14 @@ There are three basic steps to use this toolkit for Performance testing.
 
     :::image type="content" source="./media/expressroute-troubleshooting-network-performance/powershell-output.png" alt-text="Screenshot of PowerShell output of the Link Performance test.":::
 
-	The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
+    The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
 
 ## Troubleshooting
 
 If the performance test isn't giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach will provide a faster path to resolution than jumping around. By troubleshooting systematically, you can prevent doing unnecessary testing multiple times.
 
 >[!NOTE]
->The scenario here is a performance issue, not a connectivity issue. The steps would be different if traffic wasn't passing at all.
+>The scenario here is a performance issue, not a connectivity issue. To isolate the connectivity problem to Azure network, follow [Verifying ExpressRotue connectivity](expressroute-troubleshooting-expressroute-overview.md) article.
 >
 
 First, challenge your assumptions. Is your expectation reasonable? For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency. It's not reasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
@@ -173,9 +173,9 @@ Test setup:
  - A DS5v2 VM running Windows Server 2016 on the VNet. The VM was non-domain joined, built from the default Azure image (no optimization or customization) with AzureCT installed.
  - All tests use the AzureCT Get-LinkPerformance command with a 5-minute load test for each of the six test runs. For example:
 
-	```powershell
-	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
-	```
+    ```powershell
+    Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
+    ```
  - The data flow for each test had the load flowing from the on-premises physical server (iPerf client in Seattle) up to the Azure VM (iPerf server in the listed Azure region).
  - The "Latency" column data is from the No Load test (a TCP latency test without iPerf running).
  - The "Max Bandwidth" column data is from the 16 TCP flow load test with a 1-Mb window size.
@@ -206,6 +206,9 @@ Test setup:
 | Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec |
 
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. The expected latency would be in the neighborhood of 160 ms, but is actually 189 ms. The difference in latency would seem to indicate a network issue somewhere. But the reality is the fiber line doesn't go to Brazil in a straight line. So you should expect an extra 1,000 km or so of travel to get to Brazil from Seattle.
+
+>[!NOTE]
+>While these numbers should be taken into consideration, they were tested using AzureCT which is based in IPERF in Windows via PowerShell. In this scenario, IPERF does not honor default Windows TCP options for Scaling Factor and uses a much lower Shift Count for the TCP Window size. The numbers represented here were performed using default IPERF values and are for general reference only. By tuning IPERF commands with `-w` switch and a big TCP Window size, better throughput can be obtained over long distances, showing significantly better throughput figures. Also, to ensure an ExpressRoute is using the full bandwidth, it's ideal to run the IPERF in multi-threaded option from multiple machines simultaneously to ensure computing capacity is able to reach maximum link performance and is not limited by processing capacity of a single VM. To get the best Iperf results on Windows, use "Set-NetTCPSetting -AutoTuningLevelLocal Experimental". Please check your organizational policies before making any changes. 
 
 ## Next steps
 

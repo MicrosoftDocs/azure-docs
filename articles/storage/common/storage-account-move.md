@@ -2,12 +2,12 @@
 title: Move an Azure Storage account to another region
 description: Shows you how to move an Azure Storage account to another region.
 services: storage
-author: tamram
-ms.service: storage
-ms.subservice: common
+author: akashdubey-ms
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 06/15/2022
-ms.author: tamram
+ms.author: akashdubey
 ms.reviewer: dineshm 
 ms.custom: devx-track-azurepowershell
 ---

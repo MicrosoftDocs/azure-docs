@@ -2,8 +2,8 @@
 title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workload identity
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity.
 ms.topic: article
-ms.custom: devx-track-azurecli
-ms.date: 05/24/2023
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 09/27/2023
 ---
 
 # Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster
@@ -53,11 +53,29 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 > [!NOTE]
 > When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
 
+## Update an existing AKS cluster
+
+You can update an AKS cluster using the [az aks update][az aks update] command with the `--enable-oidc-issuer` and the `--enable-workload-identity` parameter to use the OIDC Issuer and enable workload identity. The following example updates a cluster named *myAKSCluster*:
+
+```azurecli-interactive
+az aks update -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
+```
+
+## Retrieve the OIDC Issuer URL
+
 To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster:
 
 ```bash
 export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g "${RESOURCE_GROUP}" --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
+
+The variable should contain the Issuer URL similar to the following example:
+
+```output
+https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+```
+
+By default, the Issuer is set to use the base URL `https://{region}.oic.prod-aks.azure.com/{uuid}`, where the value for `{region}` matches the location the AKS cluster is deployed in. The value `{uuid}` represents the OIDC key.
 
 ## Create a managed identity
 
@@ -122,16 +140,16 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: quick-start
-  namespace: SERVICE_ACCOUNT_NAMESPACE
+  namespace: "${SERVICE_ACCOUNT_NAMESPACE}"
   labels:
     azure.workload.identity/use: "true"
 spec:
-  serviceAccountName: workload-identity-sa
+  serviceAccountName: "${SERVICE_ACCOUNT_NAME}"
 EOF
 ```
 
 > [!IMPORTANT]
-> Ensure your application pods using workload identity have added the following label [azure.workload.identity/use: "true"] to your running pods/deployments, otherwise the pods will fail once restarted.
+> Ensure your application pods using workload identity have added the following label `azure.workload.identity/use: "true"` to your pod spec, otherwise the pods fail after their restarted.
 
 ```bash
 kubectl apply -f <your application>
@@ -197,6 +215,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az aks update]: /cli/azure/aks#az-aks-update
 [aks-two-resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-account-set]: /cli/azure/account#az-account-set
 [az-identity-create]: /cli/azure/identity#az-identity-create

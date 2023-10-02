@@ -46,10 +46,10 @@ You can create a new key vault with the [Azure portal](../general/quick-create-p
 
 After configuring the key vault basics, select the Networking tab and follow these steps:
 
-1. Select the Private Endpoint radio button in the Networking tab.
-1. Select the "+ Add" Button to add a private endpoint.
+1. Disable public access by toggling off the radio button.
+1. Select the "+ Create a private endpoint" Button to add a private endpoint.
 
-    ![Screenshot that shows the 'Networking' tab on the 'Create key vault' page.](../media/private-link-service-1.png)
+    ![Screenshot that shows the 'Networking' tab on the 'Create key vault' page.](../media/private-link-service-10.png)
 
 1. In the "Location" field of the Create Private Endpoint Blade, select the region in which your virtual network is located. 
 1. In the "Name" field, create a descriptive name that will allow you to identify this private endpoint. 
@@ -102,7 +102,7 @@ There are four provisioning states:
 1. In the search bar, type in "key vaults"
 1. Select the key vault that you want to manage.
 1. Select the "Networking" tab.
-1. If there are any connections that are pending, you will see a connection listed with "Pending" in the provisioning state. 
+1. If there are any connections that are pending, you'll see a connection listed with "Pending" in the provisioning state. 
 1. Select the private endpoint you wish to approve
 1. Select the approve button.
 1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection, select the connection and select the "Reject" button.
@@ -199,7 +199,7 @@ Open the command line and run the following command:
 nslookup <your-key-vault-name>.vault.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a key vault over a public endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a key vault over a public endpoint, you'll see a result that looks like this:
 
 ```console
 c:\ >nslookup <your-key-vault-name>.vault.azure.net
@@ -210,7 +210,7 @@ Address:  (public IP address)
 Aliases:  <your-key-vault-name>.vault.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a key vault over a private endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a key vault over a private endpoint, you'll see a result that looks like this:
 
 ```console
 c:\ >nslookup your_vault_name.vault.azure.net
@@ -228,22 +228,22 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     1. You can check and fix this in Azure portal. Open the Key Vault resource, and select the Networking option. 
     2. Then select the Private endpoint connections tab. 
     3. Make sure connection state is Approved and provisioning state is Succeeded. 
-    4. You may also navigate to the private endpoint resource and review same properties there, and double-check that the virtual network matches the one you are using.
+    4. You may also navigate to the private endpoint resource and review same properties there, and double-check that the virtual network matches the one you're using.
 
 * Check to make sure you have a Private DNS Zone resource. 
     1. You must have a Private DNS Zone resource with the exact name: privatelink.vaultcore.azure.net. 
     2. To learn how to set this up please see the following link. [Private DNS Zones](../../dns/private-dns-privatednszone.md)
     
-* Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
-    1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the key vault. 
+* Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you're still getting the public IP address returned. 
+    1. If the Private Zone DNS isn't linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the key vault. 
     2. Navigate to the Private DNS Zone resource in the Azure portal and select the virtual network links option. 
     4. The virtual network that will perform calls to the key vault must be listed. 
     5. If it's not there, add it. 
     6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
-* Check to make sure the Private DNS Zone is not missing an A record for the key vault. 
+* Check to make sure the Private DNS Zone isn't missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 
-    2. Select Overview and check if there is an A record with the simple name of your key vault (i.e. fabrikam). Do not specify any suffix.
+    2. Select Overview and check if there's an A record with the simple name of your key vault (i.e. fabrikam). Don't specify any suffix.
     3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 600 (10 mins).
     4. Make sure you specify the correct private IP address. 
 
@@ -254,8 +254,8 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     4. The link will show the Overview of the NIC resource, which contains the property Private IP address. 
     5. Verify that this is the correct IP address that is specified in the A record.
 
-* If you are connecting from an on-prem resource to a Key Vault, ensure you have all required conditional forwarders in the on-prem environment enabled.
-    1. Review [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the zones needed, and make sure you have conditional forwarders for both `vault.azure.net` and `vaultcore.azure.net` on your on-prem DNS.
+* If you're connecting from an on-premises resource to a Key Vault, ensure you have all required conditional forwarders in the on-premises environment enabled.
+    1. Review [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the zones needed, and make sure you have conditional forwarders for both `vault.azure.net` and `vaultcore.azure.net` on your on-premises DNS.
     2. Ensure that you have conditional forwarders for those zones that route to an [Azure Private DNS Resolver](../../dns/dns-private-resolver-overview.md) or some other DNS platform with access to Azure resolution.
 
 ## Limitations and Design Considerations

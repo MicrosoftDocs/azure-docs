@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/17/2023
+ms.date: 08/17/2023
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, ludwignick
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -22,7 +22,7 @@ Applications can sign in users themselves or delegate sign-in to an identity pro
 
 ## Register an application
 
-For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Azure Active Directory (Azure AD), you're providing an identity configuration for your application that allows it to integrate with the Microsoft identity platform. Registering the app also allows you to:
+For an identity provider to know that a user has access to a particular app, both the user and the application must be registered with the identity provider. When you register your application with Microsoft Entra ID, you're providing an identity configuration for your application that allows it to integrate with the Microsoft identity platform. Registering the app also allows you to:
 
 * Customize the branding of your application in the sign-in dialog box. This branding is important because signing in is the first experience a user will have with your app.
 * Decide if you want to allow users to sign in only if they belong to your organization. This architecture is known as a single-tenant application. Or, you can allow users to sign in by using any work or school account, which is known as a multi-tenant application. You can also allow personal Microsoft accounts or a social account from LinkedIn, Google, and so on.
@@ -41,7 +41,7 @@ The Microsoft identity platform:
 
 * Holds all the data required to support authentication at runtime.
 * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
-* Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
+* Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Microsoft Entra tenant.
 * Handles user consent during token request time and facilitates the dynamic provisioning of apps across tenants.
 
 [*Consent*](developer-glossary.md#consent) is the process of a resource owner granting authorization for a client application to access protected resources, under specific permissions, on behalf of the resource owner. The Microsoft identity platform enables:
@@ -77,9 +77,10 @@ For more information about authentication and authorization in the Microsoft ide
 * To learn about the basic concepts of authentication and authorization, see [Authentication vs. authorization](authentication-vs-authorization.md).
 * To learn how access tokens, refresh tokens, and ID tokens are used in authentication and authorization, see [Security tokens](security-tokens.md).
 * To learn about the sign-in flow of web, desktop, and mobile apps, see [App sign-in flow](app-sign-in-flow.md).
+* To learn about proper authorization using token claims, see [Secure applications and APIs by validating claims](./claims-validation.md)
 
 For more information about the application model, see the following articles:
 
-* For more information on application objects and service principals in the Microsoft identity platform, see [How and why applications are added to Azure AD](active-directory-how-applications-are-added.md).
-* For more information on single-tenant apps and multi-tenant apps, see [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md).
-* For more information on how Azure AD also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, by using social identities like a Google account, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).
+* For more information on application objects and service principals in the Microsoft identity platform, see [How and why applications are added to Microsoft Entra ID](how-applications-are-added.md).
+* For more information on single-tenant apps and multi-tenant apps, see [Tenancy in Microsoft Entra ID](single-and-multi-tenant-apps.md).
+* For more information on how Microsoft Entra ID also provides Azure Active Directory B2C so that organizations can sign in users, typically customers, by using social identities like a Google account, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).

@@ -5,12 +5,15 @@ services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 9/27/2023
 ms.author: kesheth
 ---
 
 # Find identity object IDs for authentication configuration for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 In this article, you'll learn how to find identity object IDs needed when configuring the Azure API for FHIR to [use an external or secondary Active Directory tenant](configure-local-rbac.md) for data plane.
 

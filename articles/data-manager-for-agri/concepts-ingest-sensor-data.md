@@ -5,7 +5,7 @@ author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 06/19/2023
 ms.custom: template-concept
 ---
 
@@ -38,12 +38,14 @@ In addition to the above approach, IOT devices (sensors/nodes/gateway) can direc
 
 ## Sensor topology
 
-The following diagram depicts the topology of a sensor in Azure Data Manager for Agriculture. Each boundary under a party has a set of devices placed within it. A device can be either be a node or a gateway and each device has a set of sensors associated with it. Sensors send the recordings via gateway to the cloud. Sensors are tagged with GPS coordinates helping in creating a geospatial time series for all measured data.
+The following diagram depicts the topology of a sensor in Azure Data Manager for Agriculture. Each geometry under a party has a set of devices placed within it. A device can be either be a node or a gateway and each device has a set of sensors associated with it. Sensors send the recordings via gateway to the cloud. Sensors are tagged with GPS coordinates helping in creating a geospatial time series for all measured data.
 
 :::image type="content" source="./media/sensor-topology-new.png" alt-text="Screenshot showing sensor topology.":::
 
 ## Next steps
 
-How to [get started as a customer](./how-to-set-up-sensors-customer.md) to consume sensor data from the supported sensor partners.
+How to [get started when you push and consume sensor data](./how-to-set-up-sensor-as-customer-and-partner.md).
+
+How to [get started as a customer](./how-to-set-up-sensors-customer.md) to consume sensor data from a supported sensor partner like Davis Instruments.
 
 How to [get started as a sensor partner](./how-to-set-up-sensors-partner.md) to push sensor data into Data Manager for Agriculture Service.

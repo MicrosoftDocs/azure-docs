@@ -150,10 +150,60 @@
       "redirect_url": "/azure/lab-services/lab-services-overview",
       "redirect_document_id": false
     },
-	{
-		"source_path": "articles/lab-services/how-to-enable-nested-virtualization-template-vm-ui.md",
-		"redirect_url": "/azure/lab-services/how-to-enable-nested-virtualization-template-vm-using-script",
-		"redirect_document_id": false
-	}
+    {
+      "source_path": "articles/lab-services/how-to-enable-nested-virtualization-template-vm-ui.md",
+      "redirect_url": "/azure/lab-services/how-to-enable-nested-virtualization-template-vm-using-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-use-lab.md",
+      "redirect_url": "/azure/lab-services/how-to-access-lab-virtual-machine",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-configure-student-usage.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-lab-users",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-labs-within-canvas.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-manage-labs-within-teams.md",
+      "redirect_url": "/azure/lab-services/tutorial-setup-lab-teams-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-access-vm-for-students-within-canvas.md",
+      "redirect_url": "/azure/lab-services/tutorial-access-lab-virtual-machine-teams-canvas",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/lab-services/how-to-access-vm-for-students-within-teams.md",
+      "redirect_url": "/azure/lab-services/tutorial-access-lab-virtual-machine-teams-canvas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/lab-creator-support-information.md",
+      "redirect_url": "/azure/lab-services/how-to-manage-labs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/lab-user-support-information.md",
+      "redirect_url": "/azure/lab-services/how-to-access-lab-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-create-lab-plan-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-plan-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/how-to-create-lab-template.md",
+      "redirect_url": "/azure/lab-services/how-to-create-lab-bicep",
+      "redirect_document_id": false
+    }
   ]
 }

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.reviewer: casocha
+ms.reviewer: mmcc
 ---
 
 # Telemetry channels in Application Insights

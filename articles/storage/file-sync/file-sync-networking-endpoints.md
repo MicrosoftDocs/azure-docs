@@ -2,12 +2,11 @@
 title: Configuring Azure File Sync network endpoints
 description: Learn how to configure Azure File Sync network endpoints.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.author: kendownie
-ms.subservice: files 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ---
 
 # Configuring Azure File Sync network endpoints

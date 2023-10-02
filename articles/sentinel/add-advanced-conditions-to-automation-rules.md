@@ -2,9 +2,9 @@
 title: Add advanced conditions to Microsoft Sentinel automation rules
 description: This article explains how to add complex, advanced "Or" conditions to automation rules in Microsoft Sentinel, for more effective triage of incidents.
 author: yelevin
-ms.topic: how-to
-ms.date: 09/13/2022
 ms.author: yelevin
+ms.topic: how-to
+ms.date: 05/09/2023
 ---
 
 # Add advanced conditions to Microsoft Sentinel automation rules
@@ -45,7 +45,7 @@ Let's create a rule that will change the severity of an incoming incident from w
 
 1. Select the trigger **When incident is created**.
 
-1. Under **Conditions**, leave the **Analytics rule name** condition as is. We'll add more conditions below.
+1. Under **Conditions**, leave the **Incident provider** and **Analytics rule name** conditions as they are. We'll add more conditions below.
 
 1. Under **Actions**, select **Change severity** from the drop-down list.
 

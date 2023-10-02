@@ -71,10 +71,10 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
      kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
      ```
 
-4. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] command and the `kube-dns` label. This command deletes the `kube-dns` pods, and then the Kubernetes Scheduler recreates them. The new pods contain the change in TTL value.
+4. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
 
      ```console
-     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     kubectl -n kube-system rollout restart deployment coredns
      ```
 
 ## Custom forward server
@@ -102,10 +102,10 @@ If you need to specify a forward server for your network traffic, you can create
      kubectl apply -f corednsms.yaml
      ```
 
-3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
+3. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
 
      ```console
-     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     kubectl -n kube-system rollout restart deployment coredns
      ```
 
 ## Use custom domains
@@ -135,10 +135,10 @@ You may want to configure custom domains that can only be resolved internally. F
      kubectl apply -f corednsms.yaml
      ```
 
-3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
+3. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
 
      ```console
-     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     kubectl -n kube-system rollout restart deployment coredns 
      ```
 
 ## Stub domains
@@ -174,10 +174,10 @@ CoreDNS can also be used to configure stub domains.
      kubectl apply -f corednsms.yaml
      ```
 
-3. Force CoreDNS to reload the ConfigMap using the [`kubectl delete pod`][kubectl delete] so the Kubernetes Scheduler can recreate them.
+3. To reload the ConfigMap and enable Kubernetes Scheduler to restart CoreDNS without downtime, perform a rolling restart using [`kubectl rollout restart`][kubectl-rollout].
 
      ```console
-     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     kubectl -n kube-system rollout restart deployment coredns
      ```
 
 ## Hosts plugin
@@ -246,7 +246,7 @@ metadata:
      kubectl apply -f corednsms.yaml
 
      # Force CoreDNS to reload the ConfigMap
-     kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
+     kubectl -n kube-system rollout restart deployment coredns
      ```
 
 3. View the CoreDNS debug logging using the `kubectl logs` command.
@@ -267,7 +267,7 @@ To learn more about core network concepts, see [Network concepts for application
 [corednsk8s]: https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[kubectl-rollout]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#rollout
 [coredns hosts]: https://coredns.io/plugins/hosts/
 [coredns-troubleshooting]: https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
 [cluster-proportional-autoscaler]: https://github.com/kubernetes-sigs/cluster-proportional-autoscaler

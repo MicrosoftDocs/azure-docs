@@ -1,12 +1,12 @@
 ---
 title: Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network
 description: Learn about the customer responsibilities for running an Azure Spring Apps Standard consumption and dedicated plan service instance in a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 03/21/2023
-ms.custom: devx-trax-java
+ms.custom: devx-track-java
 ---
 
 # Customer responsibilities for Azure Spring Apps Standard consumption and dedicated plan in a virtual network
@@ -31,22 +31,25 @@ The following tables describe how to configure a collection of NSG allow rules.
 
 ### Outbound with ServiceTags
 
-| Protocol | Port         | ServiceTag                 | Description                                                                                                                                                                                     |
-|----------|--------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| UDP      | `1194`       | `AzureCloud.<region>`      | Required for internal Azure Kubernetes Service (AKS) secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed. |
-| TCP      | `9000`       | `AzureCloud.<region>`      | Required for internal AKS secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed.                            |
-| TCP      | `443`        | `AzureMonitor`             | Allows outbound calls to Azure Monitor.                                                                                                                                                         |
-| TCP      | `443`        | `Azure Container Registry` | Enables the Azure Container Registry as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                     |
-| TCP      | `443`, `445` | `Azure Files`              | Enables Azure Storage as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                                    |
+| Protocol | Port         | ServiceTag                  | Description                                                                                                                                                                                     |
+|----------|--------------|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| UDP      | `1194`       | `AzureCloud.<region>`       | Required for internal Azure Kubernetes Service (AKS) secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed. |
+| TCP      | `9000`       | `AzureCloud.<region>`       | Required for internal AKS secure connection between underlying nodes and the control plane. Replace `<region>` with the region where your container app is deployed.                            |
+| TCP      | `443`        | `AzureMonitor`              | Allows outbound calls to Azure Monitor.                                                                                                                                                         |
+| TCP      | `443`        | `Azure Container Registry`  | Enables the Azure Container Registry as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                     |
+| TCP      | `443`        | `MicrosoftContainerRegistry`| The service tag for container registry for Microsoft containers.                                                                                                                                |
+| TCP      | `443`        | `AzureFrontDoor.FirstParty` | A dependency of the `MicrosoftContainerRegistry` service tag.                                                                                                                                   |
+| TCP      | `443`, `445` | `Azure Files`               | Enables Azure Storage as described in [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).                                                    |
 
 ### Outbound with wild card IP rules
 
-| Protocol | Port   | IP | Description                                                                                                                                     |
-|----------|--------|----|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| TCP      | `443`  | \* | Set all outbound traffic on port `443` to allow all fully qualified domain name (FQDN) based outbound dependencies that don't have a static IP. |
-| UDP      | `123`  | \* | NTP server.                                                                                                                                     |
-| TCP      | `5671` | \* | Container Apps control plane.                                                                                                                   |
-| TCP      | `5672` | \* | Container Apps control plane.                                                                                                                   |
+| Protocol | Port   | IP                                  | Description                                                                                                                                                      |
+|----------|--------|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| TCP      | `443`  | \*                                  | Set all outbound traffic on port `443` to allow all fully qualified domain name (FQDN) based outbound dependencies that don't have a static IP.                  |
+| UDP      | `123`  | \*                                  | NTP server.                                                                                                                                                      |
+| TCP      | `5671` | \*                                  | Container Apps control plane.                                                                                                                                    |
+| TCP      | `5672` | \*                                  | Container Apps control plane.                                                                                                                                    |
+| Any      | \*     | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment - for example, `10.0.0.0/21`. |
 
 ### Outbound with FQDN requirements/application rules
 

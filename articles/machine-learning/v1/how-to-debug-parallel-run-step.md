@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, troubleshooting, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, troubleshooting, sdkv1, event-tier1-build-2022, devx-track-python
 ms.reviewer: lagayhar
 ms.author: scottpolly
 author: scottpolly
@@ -17,7 +17,7 @@ ms.date: 11/16/2022
 
 # Troubleshooting the ParallelRunStep
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to troubleshoot when you get errors using the [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep) class from the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
@@ -25,7 +25,7 @@ For general tips on troubleshooting a pipeline, see [Troubleshooting machine lea
 
 ## Testing scripts locally
 
- Your ParallelRunStep runs as a step in ML pipelines. You may want to [test your scripts locally](../how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) as a first step.
+ Your ParallelRunStep runs as a step in ML pipelines. You may want to [test your scripts locally](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) as a first step.
 
 ## Entry script requirements
 
@@ -254,7 +254,7 @@ def init():
 ```
 
 ## How to handle log in new processes?
-You can spawn new processes in you entry script with [`subprocess`](https://docs.python.org/3/library/subprocess.html) module, connect to their input/output/error pipes and obtain their return codes.
+You can spawn new processes in your entry script with [`subprocess`](https://docs.python.org/3/library/subprocess.html) module, connect to their input/output/error pipes and obtain their return codes.
 
 The recommended approach is to use the [`run()`](https://docs.python.org/3/library/subprocess.html#subprocess.run) function with `capture_output=True`. Errors will show up in `logs/user/error/<node_id>/<process_name>.txt`.
 
@@ -381,7 +381,7 @@ You can follow the lead in `~logs/job_result.txt` to find the cause and detailed
 Not if there are other available nodes in the designated compute cluster. The orchestrator will start a new node as replacement, and ParallelRunStep is resilient to such operation.
 
 ### What happens if `init` function in entry script fails?
-ParallelRunStep has mechanism to retry for a certain times to give chance for recovery from transient issues without delaying the job failure for too long, the mechanism is as follows:
+ParallelRunStep has mechanism to retry for a certain time to give chance for recovery from transient issues without delaying the job failure for too long, the mechanism is as follows:
 1. If after a node starts, `init` on all agents keeps failing, we will stop trying after `3 * process_count_per_node` failures.
 2. If after job starts, `init` on all agents of all nodes keeps failing, we will stop trying if job runs more than 2 minutes and there're `2 * node_count * process_count_per_node` failures.
 3. If all agents are stuck on `init` for more than `3 * run_invocation_timeout + 30` seconds, the job would fail because of no progress for too long.

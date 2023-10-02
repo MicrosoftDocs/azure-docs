@@ -1,27 +1,33 @@
 ---
-title: Create a query
+title: Full-text query how-to
 titleSuffix: Azure Cognitive Search
-description: Learn how to construct a query request in Cognitive Search, which tools and APIs to use for testing and code, and how query decisions start with index design.
+description: Learn how to construct a query request for full text search in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 03/22/2023
+ms.topic: how-to
+ms.date: 09/25/2023
 ---
 
-# Creating queries in Azure Cognitive Search
+# How to create a full-text query in Azure Cognitive Search
 
-If you're building a query for the first time, this article describes approaches and methods for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
+If you're building a query for [full text search](search-lucene-query-architecture.md), this article provides steps for setting up the request. It also introduces a query structure, and explains how field attributes and linguistic analyzers can impact query outcomes.
 
-## What's a query request?
+## Prerequisites
 
-A query is a read-only request against the docs collection of a single search index. It specifies a 'search' parameter, which contains the query expression consisting of terms, quote-enclosed phrases, and operators.
++ A [search index](search-how-to-create-search-index.md) with string fields attributed as `searchable`.
 
-Other parameters on the request provide more definition to the query and response. For example, 'searchFields' scopes query execution to specific fields, 'select' specifies which fields are returned in results, and 'count' returns the number of matches found in the index.
++ Read permissions on the search index. For read access, include a [query API key](search-security-api-keys.md) on the request, or give the caller [Search Index Data Reader](search-security-rbac.md) permissions.
 
-The following example gives you a general idea of a query request by showing some of the available parameters. For more information about query composition, see [Query types and compositions](search-query-overview.md) and [Search Documents (REST)](/rest/api/searchservice/search-documents).
+## Example of a full text query request
+
+In Azure Cognitive Search, a query is a read-only request against the docs collection of a single search index. 
+
+A full text query is specified in a `search` parameter and consists of terms, quote-enclosed phrases, and operators. Other parameters add more definition to the request. For example, `searchFields` scopes query execution to specific fields, `select` specifies which fields are returned in results, and `count` returns the number of matches found in the index.
+
+The following [Search Documents REST API](/rest/api/searchservice/search-documents) call illustrates a query request using the aforementioned parameters.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -37,40 +43,62 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Choose a client
 
-For early development and proof-of-concept testing, we recommend starting with an interactive tool like Azure portal, or the Postman app for making REST API calls. With these approaches, you can test a query request in isolation and assess the effects of different properties without having to write any code.
+For early development and proof-of-concept testing, start with Azure portal or the Postman app for making REST API calls. These approaches are interactive, useful for targeted testing, and help you assess the effects of different properties without having to write any code.
 
-To call search from within an app, we recommend the Azure.Document.Search client libraries in the Azure SDKs for .NET, Java, JavaScript, and Python.
+To call search from within an app, use the **Azure.Document.Search** client libraries in the Azure SDKs for .NET, Java, JavaScript, and Python.
 
-### Permissions
+### [**Azure portal**](#tab/portal-text-query)
 
-A query request requires read permissions, granted via an API key passed in the header. Any operation, including query requests, will work under an [admin API key](search-security-api-keys.md), but query requests can optionally use a [query API key](search-security-api-keys.md#create-query-keys). Query API keys are strongly recommended. You can create up to 50 per service and assign different keys to different applications.
+In the portal, when you open an index, you can work with Search Explorer alongside the index JSON definition in side-by-side tabs for easy access to field attributes. Check the **Fields** table to see which ones are searchable, sortable, filterable, and facetable while testing queries.
 
-In Azure portal, access to the built-in tools, wizards, and objects require membership in the Contributor role or higher on the search service. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
-### Use Azure portal to query an index
+1. Open **Indexes** and select an index.
 
-[Search explorer (portal)](search-explorer.md) is a query interface in the Azure portal that runs queries against indexes on the underlying search service. Internally, the portal makes [Search Documents](/rest/api/searchservice/search-documents) requests, but can't invoke Autocomplete, Suggestions, or Document Lookup. 
+1. An index opens to the [**Search explorer**](search-explorer.md) tab so that you can query right away. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). 
 
-You can select any index and REST API version, including preview. A query string can use simple or full syntax, with support for all query parameters (filter, select, searchFields, and so on). In the portal, when you open an index, you can work with Search Explorer alongside the index JSON definition in side-by-side tabs for easy access to field attributes. Check what fields are searchable, sortable, filterable, and facetable while testing queries.
+   Here's a full text search query expression that works for the Hotels sample index:
 
-### Use a REST client
+   `search=pool spa +airport&$searchFields=Description,Tags&$select=HotelName,Description,Category&$count=true`
 
-The [Postman app](https://www.postman.com/downloads/) can function as a query client. Using the app, you can connect to your search service and send [Search Documents (REST)](/rest/api/searchservice/search-documents) requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
+   The following screenshot illustrates the query and response:
 
-Start with [Create a search index using REST and Postman](search-get-started-rest.md) for step-by-step instructions for setting up requests.
+   :::image type="content" source="media/search-explorer/search-explorer-full-text-query-hotels.png" alt-text="Screenshot of Search Explorer with a full text query.":::
 
-Each request is standalone, so you must provide the endpoint, index name, and API version on every request. Other properties, Content-Type and API key, are passed on the request header. For more information, see [Search Documents (REST)](/rest/api/searchservice/search-documents) for help with formulating query requests.
+Notice that you can change the REST API version if you require search behaviors from a specific version, or switch to **JSON view** if you want to paste in the JSON definition of a query. For more information about what a JSON definition looks like, see [Search Documents (REST)](/rest/api/searchservice/search-documents).
 
-### Use an Azure SDK
+### [**REST API**](#tab/rest-text-query)
 
-For Cognitive Search, the Azure SDKs implement generally available features. As such, you can use any of the SDKs to query an index. All of them provide a **SearchClient** that has methods to interacting with an index, from loading an index with search documents, to formulating query requests.
+[Postman app](https://www.postman.com/downloads/) is useful for working with the REST APIs, such as [Search Documents (REST)](/rest/api/searchservice/search-documents). 
+
+[Quickstart: Create a search index using REST and Postman](search-get-started-rest.md) has step-by-step instructions for setting up requests.
+
+The following example calls the REST API for full text search:
+
+```http
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "NY +view",
+    "queryType": "simple",
+    "searchMode": "all",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "count": "true"
+}
+```
+
+### [**Azure SDKs**](#tab/sdk-text-query)
+
+The following Azure SDKs provide a **SearchClient** that has methods for formulating query requests.
 
 | Azure SDK | Client | Examples |
 |-----------|--------|----------|
 | .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) |
 | Java | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample.java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |
-| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | Pending. |
+| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [SDK examples](/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest#examples&preserve-view=true) |
 | Python | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query.py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
+
+---
 
 ## Choose a query type: simple | full
 
@@ -96,9 +124,9 @@ Search is fundamentally a user-driven exercise, where terms or phrases are colle
 
 ## Effect of field attributes on queries
 
-If you're familiar with [query types and composition](search-query-overview.md), you might remember that the parameters on a query request depend on field attributes in an index. For example, only fields marked as *searchable* and *retrievable* can be used in queries and search results. When setting the `search`, `filter`, and `orderby` parameters in your request, you should check attributes to avoid unexpected results.
+If you're familiar with [query types and composition](search-query-overview.md), you might remember that the parameters on a query request depend on field attributes in an index. For example, only fields marked as `searchable` and `retrievable` can be used in queries and search results. When setting the `search`, `filter`, and `orderby` parameters in your request, you should check attributes to avoid unexpected results.
 
-In the portal screenshot below of the [hotels sample index](search-get-started-portal.md), only the last two fields "LastRenovationDate" and "Rating" can be used in an `"$orderby"` only clause.
+In the portal screenshot below of the [hotels sample index](search-get-started-portal.md), only the last two fields "LastRenovationDate" and "Rating" are `sortable`, a requirement for use in an `"$orderby"` only clause.
 
 ![Index definition for the hotel sample](./media/search-query-overview/hotel-sample-index-definition.png "Index definition for the hotel sample")
 
@@ -115,7 +143,4 @@ The point to take away here's that what you think your index contains, and what'
 Now that you have a better understanding of how query requests work, try the following quickstarts for hands-on experience.
 
 + [Search explorer](search-explorer.md)
-+ [How to query in REST](search-get-started-rest.md)
-+ [How to query in .NET](search-get-started-dotnet.md)
-+ [How to query in Python](search-get-started-python.md)
-+ [How to query in JavaScript](search-get-started-javascript.md)
++ [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md)

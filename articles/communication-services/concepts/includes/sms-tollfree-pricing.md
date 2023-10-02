@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: prakulka
 ---
 >[!Important] 
->In most cases, customers with Azure subscriptions locations that match the country of the Number offer will be able to buy the Number. However, US and Canada numbers may be purchased by customers with Azure subscription locations in other countries. Please see [here](../numbers/sub-eligibility-number-capability.md) for details on in-country and cross-country purchases.
+>In most cases, customers with Azure subscriptions locations that match the country/region of the Number offer will be able to buy the Number. However, US and Canada numbers may be purchased by customers with Azure subscription locations in other countries/regions. Please see [here](../numbers/sub-eligibility-number-capability.md) for details on in-country and cross-country purchases.
 
 The Toll-free SMS service requires provisioning a toll-free number through the Azure portal. Once a toll-free number is provisioned, pay-as-you-go pricing applies to the leasing fee, and the usage fee. The leasing fee, and the usage fee is determined by the short code type, location of the short code, and the destination.
 
@@ -22,7 +22,7 @@ The Toll-free SMS service requires provisioning a toll-free number through the A
 ### Leasing Fee
 Fees for toll-free leasing are charged after provisioning and then recur on a month-to-month basis:
 
-|Country |Number type |Monthly fee|
+|Country/Region |Number type |Monthly fee|
 |--------|-----------|------------|
 |United States|Toll-free  |$2/mo|
 |Canada| Toll-free |$2/mo|
@@ -33,7 +33,7 @@ SMS offers pay-as-you-go pricing. The price is a per-message segment* charge bas
 
 The following prices are exclusive of the required communications taxes and fees:
 
-|Country| Send Message | Receive Message|
+|Country/Region| Send Message | Receive Message|
 |-----------|---------|--------------|
 |United States| $0.0075 | $0.0075|
 |Canada | $0.0075 | $0.0075|

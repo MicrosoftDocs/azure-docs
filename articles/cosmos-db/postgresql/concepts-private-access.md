@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 06/05/2023
 ---
 
 # Private access in Azure Cosmos DB for PostgreSQL
@@ -82,7 +82,7 @@ Cosmos DB for PostgreSQL. For more information, see the [private DNS zones
 overview](../../dns/private-dns-overview.md).
 
 The Azure Cosmos DB for PostgreSQL service creates DNS records such as
-`c.privatelink.mygroup01.postgres.database.azure.com`  in the selected private
+`c-mygroup01.12345678901234.privatelink.postgres.cosmos.azure.com`  in the selected private
 DNS zone for each node with a private endpoint. When you connect to a
 node from an Azure VM via private endpoint, Azure DNS
 resolves the node’s FQDN into a private IP address.
@@ -97,7 +97,7 @@ network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 > [!NOTE]
 >
 > The service also always creates public CNAME records such as
-> `c.mygroup01.postgres.database.azure.com` for every node. However, selected
+> `c-mygroup01.12345678901234.postgres.cosmos.azure.com` for every node. However, selected
 > computers on the public internet can connect to the public hostname only if
 > the database administrator enables [public
 > access](concepts-firewall-rules.md) to the cluster.

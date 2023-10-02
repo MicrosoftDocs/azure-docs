@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 03/28/2023
+ms.date: 06/01/2023
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -674,6 +674,79 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: The User/password is missed.
 - **Recommendation**: Make sure that you have right credential settings in the related PostgreSQL linked service.
 
+### Error code: DF-SAPODATA-InvalidRunMode
+
+- **Message**: Failed to execute dataflow with invalid run mode.
+- **Cause**: Possible causes are:
+    1. Only the read mode `fullLoad` can be specified when `enableCdc` is false.
+    1. Only the run mode `incrementalLoad` or `fullAndIncrementalLoad` can be specified when `enableCdc` is true.
+    1. Only `fullLoad`, `incrementalLoad` or `fullAndIncrementalLoad` can be specified.
+- **Recommendation**: Reconfigure the activity and run again. If the issue persists, contact Microsoft support for further assistance.
+
+### Error code: DF-SAPODATA-StageLinkedServiceMissed
+
+- **Message**: Failed to execute dataflow when Staging Linked Service is not existed in DSL. Please reconfigure the activity and run again. If issue persists, please contact Microsoft support for further assistance.
+- **Cause**: The staging linked service doesn't exist in DSL.
+- **Recommendation**: Reconfigure the activity and run again. If the issue persists, contact Microsoft support for further assistance.
+
+### Error code: DF-SAPOODATA-StageContainerMissed
+
+- **Message**: Container or file system is required for staging storage.
+- **Cause**: No container or file system is specified for the staging storage.
+- **Recommendation**: Specify the container and file system for your staging storage.
+
+### Error code: DF-SAPODATA-StageFolderPathMissed
+
+- **Message**: Folder path is required for staging storage.
+- **Cause**: No folder path is specified for the staging storage.
+- **Recommendation**: Specify the folder path for the staging storage.
+
+### Error code: DF-SAPODATA-ODataServiceOrEntityMissed
+
+- **Message**: Both SAP servicePath and entityName are required in import-schema, preview-data and read data operation.
+- **Cause**: **Service path** and **Entity name** can't be null when importing schema, previewing data or reading data.
+- **Recommendation**: Specify the **Service path** and **Entity name** when importing schema, previewing data or reading data.
+
+### Error code: DF-SAPODATA-TimeoutInvalid
+
+- **Message**: Timeout is invalid, it should be no more than 7 days.
+- **Cause**: The timeout can't exceed 7 days.
+- **Recommendation**: Specify the valid timeout.
+
+### Error code: DF-SAPODATA-ODataServiceMissed
+
+- **Message**: SAP servicePath is required when browsing entity name.
+- **Cause**: The **Service path** can't be null when browsing the entity name.
+- **Recommendation**: Specify the **Service path**.
+
+### Error code: DF-SAPODATA-SystemError
+
+- **Message**: System Error: Failed to get deltaToken from SAP. Please contact Microsoft support for further assistance.
+- **Cause**: Failed to get the delta token from SAP.
+- **Recommendation**: Contact Microsoft support for further assistance.
+
+### Error code: DF-SAPODATA-StageAuthInvalid
+
+- **Message**: Invalid client secret provided
+- **Cause**: The service principal credential of the staging storage is incorrect.
+- **Recommendation**: Test connection in your staging storage linked service, and confirm that the authentication settings in your staging storage are correct.
+
+### Error code: DF-SAPODATA-NotReached
+
+- **Causes and recommendations**: Failed to create OData connection to the request URL. Different causes may lead to this issue. Check the list below for possible causes and related recommendations.
+
+  | Cause analysis | Recommendation |
+  | :--- | :--- |
+  | Your SAP server is shut down. | Check if your SAP server is started. |
+  | Self-hosted integration runtime proxy issue. | Check your self-hosted integration runtime proxy. |
+  | Incorrect parameters input (for example, wrong SAP server name or password) |  Check your input parameters: SAP server name, password.|
+
+### Error code: DF-SAPODATA-NoneODPService
+
+- **Message**: Current odata service doesn't support extracting ODP data, please enable ODP for the service
+- **Cause**: The current OData service doesn't support extracting ODP data.
+- **Recommendation**: Enable ODP for the service.
+
 ### Error code: DF-SAPODP-AuthInvalid
 
 - **Message**: SapOdp Name or Password incorrect
@@ -833,13 +906,13 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Message**: Source .* does not support deltas
 - **Cause**: The ODP context/ODP name you specified does not support delta.
-- **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2752413).
+- **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/2752413).
 
 ### Error code: DF-SAPODP-SAPI-LIMITATION
 
 - **Message**: Error Number 518, Source .* not found, not released or not authorized
 - **cause**: Check if your context is SAPI. If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
-- **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2646092).
+- **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/2646092).
 
 ### Error code: DF-SAPODP-KeyColumnsNotSpecified
 

@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 05/05/2023
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -145,7 +144,7 @@ dataDiskSku=Premium_ZRS
 az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
---image UbuntuLTS \
+--image Ubuntu2204 \
 --upgrade-policy automatic \
 --generate-ssh-keys \
 --data-disk-sizes-gb 128 \

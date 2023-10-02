@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/28/2023
+ms.date: 09/01/2023
 ms.author: jasteppe
 ---
 
@@ -15,9 +15,9 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article provides an introductory overview of the MedTech service. The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service enables you to ingest device data, transform it into a unified FHIR format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
+The MedTech service is a Platform as a Service (PaaS) within the Azure Health Data Services. The MedTech service enables you to ingest device data, transform it into a unified FHIR format, and store it in an enterprise-scale, secure, and compliant cloud environment. 
 
-The MedTech service was built to help customers that were dealing with the challenge of gaining relevant insights from device data coming in from multiple and diverse sources. No matter the device or structure, the MedTech service normalizes that device data into a common format, allowing the end user to then easily capture trends, run analytics, and build Artificial Intelligence (AI) models. In the enterprise healthcare setting, the MedTech service is used in the context of remote patient monitoring, virtual health, and clinical trials.
+The MedTech service is built to help customers that are dealing with the challenge of gaining relevant insights from device data coming in from multiple and diverse sources. No matter the device or structure, the MedTech service normalizes that device data into a common format, allowing the end user to then easily capture trends, run analytics, and build Artificial Intelligence (AI) models. In the enterprise healthcare setting, the MedTech service is used in the context of remote patient monitoring, virtual health, and clinical trials.
 
 The following video presents an overview of the MedTech service:
 >
@@ -61,7 +61,7 @@ Useful options could include:
 
 * Choose data terms that work best for your organization and provide consistency in device data ingestion.
 
-* Customize, edit, test, and troubleshoot MedTech service device and FHIR destination mappings with the [Mapping debugger](how-to-use-mapping-debugger.md) tool.
+* Customize, edit, test, and troubleshoot MedTech service device and FHIR destination mappings with the [Mapping debugger](how-to-use-mapping-debugger.md).
 
 ### Scalable
 

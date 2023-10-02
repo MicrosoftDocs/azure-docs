@@ -63,9 +63,7 @@ In certain circumstances, splitting an Azure Monitor workspace into multiple wor
 
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
-- Azure Monitor Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
-- Azure Monitor workspaces are currently only supported in public clouds.
-- Azure Monitor workspaces don't currently support being moved into a different subscription or resource group once created.
+
 
 ## Data considerations
 Data stored in the Azure Monitor Workspace is handled in accordance with all standards described in the [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1). Several considerations exist specific to data stored in the Azure Monitor Workspace:

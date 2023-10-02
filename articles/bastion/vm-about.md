@@ -5,7 +5,7 @@ description: Learn about VM connections and features when connecting using Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 06/08/2023
 ms.author: cherylmc
 
 ---

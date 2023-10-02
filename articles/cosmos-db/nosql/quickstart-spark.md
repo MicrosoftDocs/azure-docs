@@ -313,6 +313,178 @@ df.show()
 
 For more information related to schema inference, see the full [schema inference configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3_2-12/docs/configuration-reference.md#schema-inference-config) documentation.
 
+## Raw JSON support for Spark Connector
+ When working with Cosmos DB, you may come across documents that contain an array of entries with potentially different structures. These documents typically have an array called "tags" that contains items with varying structures, along with a "tag_id" field that serves as an entity type identifier. To handle patching operations efficiently in Spark, you can use a custom function that handles the patching of such documents.
+
+**Sample document that can be used**
+
+
+```
+{
+    "id": "Test01",
+    "document_type": "tag",
+    "tags": [
+        {
+            "tag_id": "key_val",
+            "params": "param1=val1;param2=val2"
+        },
+        {
+            "tag_id": "arrays",
+            "tags": "tag1,tag2,tag3"
+        }
+    ]
+}
+```
+
+#### [Python](#tab/python)
+
+```python
+
+def init_sequences_db_config():
+    #Configure Config for Cosmos DB Patch and Query
+    global cfgSequencePatch
+    cfgSequencePatch = {"spark.cosmos.accountEndpoint": cosmosEndpoint,
+          "spark.cosmos.accountKey": cosmosMasterKey,
+          "spark.cosmos.database": cosmosDatabaseName,
+          "spark.cosmos.container": cosmosContainerNameTarget,
+          "spark.cosmos.write.strategy": "ItemPatch", # Partial update all documents based on the patch config
+          "spark.cosmos.write.bulk.enabled": "true",
+          "spark.cosmos.write.patch.defaultOperationType": "Replace",
+          "spark.cosmos.read.inferSchema.enabled": "false"
+          }
+    
+def adjust_tag_array(rawBody):
+    print("test adjust_tag_array")
+    array_items = json.loads(rawBody)["tags"]
+    print(json.dumps(array_items))
+    
+    output_json = [{}]
+
+    for item in array_items:
+        output_json_item = {}
+        # Handle different tag types
+        if item["tag_id"] == "key_val":
+            output_json_item.update({"tag_id" : item["tag_id"]})
+            params = item["params"].split(";")
+            for p in params:
+                key_val = p.split("=")
+                element = {key_val[0]: key_val[1]}
+                output_json_item.update(element)
+
+        if item["tag_id"] == "arrays":
+            tags_array = item["tags"].split(",")
+            output_json_item.update({"tags": tags_array})
+                        
+        output_json.append(output_json_item)
+
+    # convert to raw json
+    return json.dumps(output_json)
+
+
+init_sequences_db_config()
+
+native_query = "SELECT c.id, c.tags, c._ts from c where EXISTS(SELECT VALUE t FROM t IN c.tags WHERE IS_DEFINED(t.tag_id))".format()
+
+# the custom query will be processed against the Cosmos endpoint
+cfgSequencePatch["spark.cosmos.read.customQuery"] = native_query
+# Cosmos DB patch column configs
+cfgSequencePatch["spark.cosmos.write.patch.columnConfigs"] = "[col(tags_new).path(/tags).op(set).rawJson]"
+
+# load df
+df_relevant_sequences = spark.read.format("cosmos.oltp").options(**cfgSequencePatch).load()
+print(df_relevant_sequences)
+df_relevant_sequences.show(20, False)
+if not df_relevant_sequences.isEmpty():
+    print("Found sequences to patch")
+    
+    # prepare udf function
+    tags_udf= udf(lambda a: adjust_tag_array(a), StringType())
+
+    df_relevant_sequences.show(20, False)
+
+    # apply udf function for patching raw json
+    df_relevant_sequences_adjusted = df_relevant_sequences.withColumn("tags_new", tags_udf("_rawBody"))
+    df_relevant_sequences_adjusted.show(20, False)
+
+    # write df
+    output_df = df_relevant_sequences_adjusted.select("id","tags_new")
+    output_df.write.format("cosmos.oltp").mode("Append").options(**cfgSequencePatch).save()
+
+```
+#### [Scala](#tab/scala)
+```scala
+var cfgSequencePatch = Map("spark.cosmos.accountEndpoint" -> cosmosEndpoint,
+  "spark.cosmos.accountKey" -> cosmosMasterKey,
+  "spark.cosmos.database" -> cosmosDatabaseName,
+  "spark.cosmos.container" -> cosmosContainerName,
+  "spark.cosmos.write.strategy" -> "ItemPatch", // Partial update all documents based on the patch config
+  "spark.cosmos.write.bulk.enabled" -> "false",
+  "spark.cosmos.write.patch.defaultOperationType" -> "Replace",
+  "spark.cosmos.read.inferSchema.enabled" -> "false"
+)
+
+def patchTags(rawJson: String): String = {
+  implicit val formats = DefaultFormats
+  val json = JsonMethods.parse(rawJson)
+  val tagsArray = (json \ "tags").asInstanceOf[JArray]
+  var outList = new ListBuffer[Map[String, Any]]
+
+  tagsArray.arr.foreach { tag =>
+    val tagId = (tag \ "tag_id").extract[String]
+    var outMap = Map.empty[String, Any]
+
+    // Handle different tag types
+    tagId match {
+      case "key_val" =>
+        val params = (tag \ "params").extract[String].split(";")
+        for (p <- params) {
+          val paramVal = p.split("=")
+          outMap += paramVal(0) -> paramVal(1)
+        }
+      case "arrays" =>
+        val tags = (tag \ "tags").extract[String]
+        val tagList = tags.split(",")
+        outMap += "arrays" -> tagList
+      case _ => {}
+    }
+    outList += outMap
+  }
+  // convert to raw json
+  write(outList)
+}
+
+val nativeQuery = "SELECT c.id, c.tags, c._ts from c where EXISTS(SELECT VALUE t FROM t IN c.tags WHERE IS_DEFINED(t.tag_id))"
+
+// the custom query will be processed against the Cosmos endpoint
+cfgSequencePatch += "spark.cosmos.read.customQuery" -> nativeQuery
+
+//Cosmos DB patch column configs
+cfgSequencePatch += "spark.cosmos.write.patch.columnConfigs" -> "[col(tags_new).path(/tags).op(set).rawJson]"
+
+// load df
+val dfRelevantSequences = spark.read.format("cosmos.oltp").options(cfgSequencePatch).load()
+dfRelevantSequences.show(20, false)
+
+if(!dfRelevantSequences.isEmpty){
+  println("Found sequences to patch")
+
+  // prepare udf function
+  val patchTagsUDF = udf(patchTags _)
+
+  // apply udf function for patching raw json
+  val dfRelevantSequencesAdjusted = dfRelevantSequences.withColumn("tags_new", patchTagsUDF(dfRelevantSequences("_rawBody")))
+  
+  dfRelevantSequencesAdjusted.show(20, false)
+  
+  var outputDf = dfRelevantSequencesAdjusted.select("id","tags_new")
+
+  // write df
+  outputDf.write.format("cosmos.oltp").mode("Append").options(cfgSequencePatch).save()
+}
+
+```
+
+---
 ## Configuration reference
 
 The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides more advanced settings for writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details, see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
@@ -503,7 +675,7 @@ The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete conf
     az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
     ```
 
-1. Now that you have created an Azure Active Directory application and service principle, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
+1. Now that you have created an Azure Active Directory application and service principal, created a custom role, and assigned that role permissions to your Cosmos DB account, you should be able to run your notebook. 
 
 ## Migrate to Spark 3 Connector
 

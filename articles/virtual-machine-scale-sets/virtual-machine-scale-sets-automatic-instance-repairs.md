@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: instance-protection
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 ---
 # Automatic instance repairs for Azure Virtual Machine Scale Sets
 
@@ -139,7 +138,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
-  --image RHEL \
+  --image RHELRaw8LVMGen2 \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \

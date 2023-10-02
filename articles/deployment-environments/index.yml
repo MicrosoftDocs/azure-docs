@@ -48,8 +48,8 @@ landingContent:
         links:
           - text: Configure a catalog
             url: how-to-configure-catalog.md
-          - text: Configure a catalog item
-            url: configure-catalog-item.md
+          - text: Configure an environment definition
+            url: configure-environment-definition.md
           - text: Configure a managed identity
             url: how-to-configure-managed-identity.md
 

@@ -65,27 +65,27 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az devcenter dev environment-type list --dev-center <name> --project-name <name> -o table
    ```
 
-1. List the [catalog items](concept-environments-key-concepts.md#catalog-items) that are available to a specific project:
+1. List the [environment definitions](concept-environments-key-concepts.md#environment-definitions) that are available to a specific project:
 
    ```azurecli
-   az devcenter dev catalog-item list --dev-center <name> --project-name <name> -o table
+   az devcenter dev environment-definition list --dev-center <name> --project-name <name> -o table
    ```
 
-1. Create an environment by using a *catalog-item* (an infrastructure as code template defined in the [manifest.yaml](configure-catalog-item.md#add-a-new-catalog-item) file) from the list of available catalog items:
+1. Create an environment by using an *environment-definition* (an infrastructure as code template defined in the [manifest.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenter-name>
        --project-name <project-name> --environment-name <name> --environment-type <environment-type-name>
-       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name>
+       --environment-definition-name <environment-definition-name> --catalog-name <catalog-name>
    ```
 
-    If the specific *catalog-item* requires any parameters, use `--parameters` and provide the parameters as a JSON string or a JSON file. For example:
+    If the specific *environment-definition* requires any parameters, use `--parameters` and provide the parameters as a JSON string or a JSON file. For example:
 
    ```json
    $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
    az devcenter dev environment create --dev-center-name <devcenter-name>
        --project-name <project-name> --environment-name <name> --environment-type <environment-type-name>
-       --catalog-item-name <catalog-item-name> --catalog-name <catalog-name>
+       --environment-definition-name <environment-definition-name> --catalog-name <catalog-name>
        --parameters $params
    ```
 
@@ -104,7 +104,7 @@ Code: EnvironmentNotFound
 Message: The environment resource was not found.
 ```
 
-To resolve the issue, assign the correct permissions: [Give project access to the development team](quickstart-create-and-configure-projects.md#give-project-access-to-the-development-team).
+To resolve the issue, assign the correct permissions: [Give access to the development team](quickstart-create-and-configure-projects.md#give-access-to-the-development-team).
 
 ## Access an environment
 
@@ -122,4 +122,4 @@ To access an environment:
 ## Next steps
 
 - Learn how to [add and configure a catalog](how-to-configure-catalog.md).
-- Learn how to [add and configure a catalog item](configure-catalog-item.md).
+- Learn how to [add and configure an environment definition](configure-environment-definition.md).

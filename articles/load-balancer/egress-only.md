@@ -39,6 +39,12 @@ In this section, you'll create a virtual network and subnet for the load balance
 
 In this section, you'll create the virtual network and subnets for the virtual machine, load balancer, and bastion host.
 
+ > [!IMPORTANT]
+
+ > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+
+ >
+
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual Networks** in the search results.
 
 1. In **Virtual networks**, select **+ Create**.

@@ -8,7 +8,7 @@
 - name: Concepts
   items:
   - name: VM instance size flexibility
-    href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+    href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md
   - name: Reservation recommendations
     href: reserved-instance-purchase-recommendations.md
   - name: How discount is applied
@@ -18,19 +18,19 @@
     - name: App Service
       href: reservation-discount-app-service.md
     - name: Azure Backup
-      href: ../../backup/backup-azure-reserved-pricing-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../backup/backup-azure-reserved-pricing-overview.md
     - name: Azure Cache for Redis
       href: understand-azure-cache-for-redis-reservation-charges.md
     - name: Azure Data Factory
-      href: ../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../data-factory/data-flow-understand-reservation-charges.md
     - name: Azure VMware Solution
-      href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../azure-vmware/reserved-instance.md
     - name: Azure Cosmos DB
       href: understand-cosmosdb-reservation-charges.md
     - name: Azure Cosmos DB for PostgreSQL
-      href: ../../cosmos-db/postgresql/resources-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../cosmos-db/postgresql/resources-pricing.md
     - name: Azure Database for PostgreSQL
-      href: ../../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../postgresql/single-server/concept-reserved-pricing.md
     - name: Azure SQL Edge
       href: discount-sql-edge.md
     - name: Database for MariaDB
@@ -56,7 +56,7 @@
     - name: Synapse Analytics - Data warehouse
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines
-      href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../manage/understand-vm-reservation-charges.md
     - name: Virtual machine software
       href: understand-vm-software-reservation-discount.md
   - name: Windows and SQL costs not included
@@ -72,6 +72,14 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Limited-time offers
+    items:
+    - name: US West Dv3 VMs
+      href: limited-time-us-west.md
+    - name: Sweden Central select Linux VMs
+      href: limited-time-central-sweden.md
+    - name: Poland Central VMs
+      href: limited-time-central-poland.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation
@@ -81,47 +89,47 @@
     - name: App Service - JBoss EAP Integrated Support
       href: prepay-jboss-eap-integrated-support-app-service.md
     - name: Azure Backup
-      href: ../../backup/backup-azure-reserved-pricing-optimize-cost.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../backup/backup-azure-reserved-pricing-optimize-cost.md
     - name: Azure Cache for Redis reservation
-      href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../azure-cache-for-redis/cache-reserved-pricing.md
     - name: Azure Data Factory
-      href: ../../data-factory/data-flow-reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../data-factory/data-flow-reserved-capacity-overview.md
     - name: Azure Database for MariaDB
-      href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../mariadb/concept-reserved-pricing.md
     - name: Azure Database for MySQL
-      href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../mysql/concept-reserved-pricing.md
     - name: Azure Database for PostgreSQL
-      href: ../../postgresql/single-server/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../postgresql/single-server/concept-reserved-pricing.md
     - name: Azure Blob storage
-      href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../storage/blobs/storage-blob-reserved-capacity.md
     - name: Azure Files
-      href: ../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../storage/files/files-reserve-capacity.md
     - name: Azure VMware Solution
-      href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../azure-vmware/reserved-instance.md
     - name: Azure Cosmos DB
-      href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../cosmos-db/cosmos-db-reserved-capacity.md
     - name: Azure SQL Edge
       href: prepay-sql-edge.md
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer
-      href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+      href: /azure/data-explorer/pricing-reserved-capacity
     - name: Dedicated Host
-      href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
     - name: Disk Storage
-      href: ../../virtual-machines/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../virtual-machines/disks-reserved-capacity.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans
-      href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../virtual-machines/linux/prepay-suse-software-charges.md
     - name: SQL Database
-      href: /azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json
+      href: /azure/azure-sql/database/reserved-capacity-overview
     - name: Synapse Analytics - data warehouse
       href: prepay-sql-data-warehouse-charges.md
     - name: Synapse Analytics - Pre-Purchase
       href: synapse-analytics-pre-purchase-plan.md
     - name: Virtual machines
-      href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../virtual-machines/prepay-reserved-vm-instances.md
     - name: Virtual machine software
       href: buy-vm-software-reservation.md
   - name: Permissions, View and Manage
@@ -140,8 +148,8 @@
       href: reservation-utilization.md
     - name: View reservation transactions
       href: view-purchase-refunds.md
-    - name: View amortized reservation costs
-      href: reservation-amortization.md
+    - name: View amortized costs
+      href: view-amortized-costs.md
     - name: Charge back reservation costs
       href: charge-back-usage.md
     - name: Calculate EA cost savings

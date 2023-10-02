@@ -50,6 +50,7 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet and can commu
 
 * An additional hop is required in the design of kubenet, which adds minor latency to pod communication.
 * Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
+  * For more information, see [Customize cluster egress with a user-defined routing table in AKS](./egress-udr.md) and [Customize cluster egress with outbound types in AKS](./egress-outboundtype.md).
 * Direct pod addressing isn't supported for kubenet due to kubenet design.
 * Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
 * AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups][aks-network-nsg].
@@ -86,7 +87,7 @@ The following considerations help outline when each network model may be the mos
 * Most of the pod communication is within the cluster.
 * You don't need advanced AKS features, such as virtual nodes or Azure Network Policy.
 
-***Use *Azure CNI* when**:
+**Use *Azure CNI* when**:
 
 * You have available IP address space.
 * Most of the pod communication is to resources outside of the cluster.
@@ -125,7 +126,7 @@ For more information to help you decide which network model to use, see [Compare
 ### Create an AKS cluster with system-assigned managed identities
 
 > [!NOTE]
-> When using system-assigned identity, azure-cli grants the Network Contributor role to the system-assigned identity after the cluster is created. If you're using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities] instead.
+> When using system-assigned identity, the Azure CLI grants the Network Contributor role to the system-assigned identity after the cluster is created. If you're using an ARM template or other clients, you need to use the [user-assigned managed identity][Create an AKS cluster with user-assigned managed identity] instead.
 
 * Create an AKS cluster with system-assigned managed identities using the [`az aks create`][az-aks-create] command.
 
@@ -137,7 +138,6 @@ For more information to help you decide which network model to use, see [Compare
         --service-cidr 10.0.0.0/16 \
         --dns-service-ip 10.0.0.10 \
         --pod-cidr 10.244.0.0/16 \
-        --docker-bridge-address 172.17.0.1/16 \
         --vnet-subnet-id $SUBNET_ID    
     ```
 
@@ -149,7 +149,6 @@ For more information to help you decide which network model to use, see [Compare
     * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
     * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *10.244.0.0/16* assigns the first node *10.244.0.0/24*, the second node *10.244.1.0/24*, and the third node *10.244.2.0/24*.
     * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
-  * *--docker-bridge-address* is optional. The address lets the AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster and shouldn't overlap with other address ranges in use on your network. The default value is 172.17.0.1/16.
 
 > [!NOTE]
 > If you want to enable an AKS cluster to include a [Calico network policy][calico-network-policies], you can use the following command:
@@ -159,11 +158,12 @@ For more information to help you decide which network model to use, see [Compare
 >     --resource-group myResourceGroup \
 >     --name myAKSCluster \
 >     --node-count 3 \
->     --network-plugin kubenet --network-policy calico \
+>     --network-plugin kubenet \
+>     --network-policy calico \
 >     --vnet-subnet-id $SUBNET_ID 
 > ```
 
-### Create an AKS cluster with user-assigned managed identities
+### Create an AKS cluster with user-assigned managed identity
 
 #### Create a managed identity
 
@@ -214,7 +214,7 @@ If you're using the Azure CLI, the role is automatically added and you can skip 
 
 #### Create an AKS cluster
 
-* Create an AKS cluster using the [`az aks create`][az-aks-create] command and provide the control plane identity resource ID via `assign-identity` to assign the user-assigned managed identity.
+* Create an AKS cluster using the [`az aks create`][az-aks-create] command and provide the control plane's managed identity resource ID for the `assign-identity` argument to assign the user-assigned managed identity.
 
     ```azurecli-interactive
     az aks create \
@@ -242,13 +242,13 @@ kubenet networking requires organized route table rules to successfully route re
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource can't be updated after cluster creation. However, custom rules can be modified on the route table.
 * Each AKS cluster must use a single, unique route table for all subnets associated with the cluster. You can't reuse a route table with multiple clusters due to the potential for overlapping pod CIDRs and conflicting routing rules.
-* For system-assigned managed identity, it's only supported to provide your own subnet and route table via Azure CLI because Azure CLI automatically adds the role assignment. If you're using an ARM template or other clients, you must use a [user-assigned managed identity][Create an AKS cluster with user-assigned managed identities], assign permissions before cluster creation, and ensure the user-assigned identity has write permissions to your custom subnet and custom route table.
+* For system-assigned managed identity, it's only supported to provide your own subnet and route table via Azure CLI because Azure CLI automatically adds the role assignment. If you're using an ARM template or other clients, you must use a [user-assigned managed identity][Create an AKS cluster with user-assigned managed identity], assign permissions before cluster creation, and ensure the user-assigned identity has write permissions to your custom subnet and custom route table.
 * Using the same route table with multiple AKS clusters isn't supported.
 
 > [!NOTE]
 > When you create and use your own VNet and route table with the kubenet network plugin, you need to use a [user-assigned control plane identity][bring-your-own-control-plane-managed-identity]. For a system-assigned control plane identity, you can't retrieve the identity ID before creating a cluster, which causes a delay during role assignment.
 >
-> Both system-assigned and user-assigned managed identities are supported when you create and use your own VNet and route table with the azure network plugin. We highly recommend using a user-assigned managed identity for BYO scenarios.
+> Both system-assigned and user-assigned managed identities are supported when you create and use your own VNet and route table with the Azure network plugin. We highly recommend using a user-assigned managed identity for BYO scenarios.
 
 ### Add a route table with a user-assigned managed identity to your AKS cluster
 
@@ -296,5 +296,5 @@ This article showed you how to deploy your AKS cluster into your existing virtua
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
 [custom-route-table]: ../virtual-network/manage-route-table.md
-[Create an AKS cluster with user-assigned managed identities]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identities
-[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-control-plane-managed-identity
+[Create an AKS cluster with user-assigned managed identity]: configure-kubenet.md#create-an-aks-cluster-with-user-assigned-managed-identity
+[bring-your-own-control-plane-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity

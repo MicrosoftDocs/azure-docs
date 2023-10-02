@@ -1,9 +1,9 @@
 ---
-author: roygara
-ms.service: storage
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: include
 ms.date: 5/13/2022
-ms.author: rogarana
+ms.author: kendownie
 ---
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend updating the Azure File Sync agent as new versions are available.
 

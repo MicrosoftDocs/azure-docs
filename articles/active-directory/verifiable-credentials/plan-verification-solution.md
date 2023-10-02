@@ -17,7 +17,7 @@ ms.custom: references_regions
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 
-Microsoft’s Microsoft Entra Verified ID (Azure AD VC) service enables you to trust proofs of user identity without expanding your trust boundary. With Azure AD VC, you create accounts or federate with another identity provider. When a solution implements a verification exchange using verifiable credentials, it enables applications to request credentials that aren't bound to a specific domain. This approach makes it easier to request and verify credentials at scale.
+Microsoft’s Microsoft Entra Verified ID (Microsoft Entra VC) service enables you to trust proofs of user identity without expanding your trust boundary. With Microsoft Entra VC, you create accounts or federate with another identity provider. When a solution implements a verification exchange using verifiable credentials, it enables applications to request credentials that aren't bound to a specific domain. This approach makes it easier to request and verify credentials at scale.
 
 If you haven’t already, we suggest you review the [Microsoft Entra Verified ID architecture overview](introduction-to-verifiable-credentials-architecture.md). You may also want to review [Plan your Microsoft Entra Verified ID issuance solution](plan-issuance-solution.md).
 
@@ -40,9 +40,11 @@ As part of your plan for a verification solution, you must enable the interactio
 
 In the context of a verifier solution, the Microsoft Entra Verified ID service is the interface between the Microsoft components of the solution and the trust system. The service provisions the key set to Key Vault, provisions the decentralized identifier (DID). In the case of ION, the service writes the DID document to the distributed ledger, where it can be used by subjects and issuers. 
 
-### Azure Active Directory tenant 
+<a name='azure-active-directory-tenant-'></a>
 
-The service requires an Azure AD tenant that provides an Identity and Access Management (IAM) control plane for the Azure resources that are part of the solution. Each Azure AD tenant uses the multi-tenant Microsoft Entra Verified ID service, and it issues a single DID document representing the verifier. If you have multiple relying parties using your verification service, they all use the same verifier DID. The verifier DID provides pointers to the public key that allows subjects and issuers to validate messages that come from the relying party.
+### Microsoft Entra tenant 
+
+The service requires a Microsoft Entra tenant that provides an Identity and Access Management (IAM) control plane for the Azure resources that are part of the solution. Each Microsoft Entra tenant uses the multi-tenant Microsoft Entra Verified ID service, and it issues a single DID document representing the verifier. If you have multiple relying parties using your verification service, they all use the same verifier DID. The verifier DID provides pointers to the public key that allows subjects and issuers to validate messages that come from the relying party.
 
 
 ### Azure Key Vault
@@ -99,7 +101,7 @@ Verifiable credentials can be used to enable faster onboarding by replacing some
 
 **Target identity systems**: Organization-specific identity repositories that the onboarding portal needs to interact with while onboarding subjects. The systems to integrate are determined based on the kinds of identities you want to onboard with VC validation. Common scenarios of identity verification for onboarding include:
 
-* External Identities such as vendors, partners, suppliers, and customers, which in centralized identity systems onboard to Azure AD using APIs to issue business-to-business (B2B) invitations, or entitlement management assignment to packages. 
+* External Identities such as vendors, partners, suppliers, and customers, which in centralized identity systems onboard to Microsoft Entra ID using APIs to issue business-to-business (B2B) invitations, or entitlement management assignment to packages. 
 
 * Employee identities, which in centralized identity systems are already onboarded through human resources (HR) systems. In this case, the identity verification might be integrated as part of existing stages of HR workflows. 
 
@@ -119,9 +121,9 @@ Verifiable credentials can be used to enable faster onboarding by replacing some
 
 * **Interaction with target identity systems**: The service-to-service communication between the web front end and your target identity systems needs to be secured as a highly privileged system, because it can create accounts. Grant the web front end the least privileged roles possible. Some examples include:
 
-   * To create a new user in Azure AD, the RP website can use a service principal that is granted the MS Graph scope of `User.ReadWrite.All` to create users, and the scope `UserAuthenticationMethod.ReadWrite.All` to reset their authentication method.
+   * To create a new user in Microsoft Entra ID, the RP website can use a service principal that is granted the MS Graph scope of `User.ReadWrite.All` to create users, and the scope `UserAuthenticationMethod.ReadWrite.All` to reset their authentication method.
 
-   * To invite users to Azure AD using B2B collaboration, the RP website can use a service principal that is granted the MS Graph scope of `User.Invite.All` to create invitations.
+   * To invite users to Microsoft Entra ID using B2B collaboration, the RP website can use a service principal that is granted the MS Graph scope of `User.Invite.All` to create invitations.
 
    * If your RP is running in Azure, use Managed Identities to call Microsoft Graph. Using managed identities removes the risks of managing service principal credentials in code or configuration files. To learn more about Managed identities, go to [Managed identities for Azure resources.](../managed-identities-azure-resources/overview.md)
 
@@ -177,7 +179,7 @@ The decentralized nature of verifiable credentials enables this scenario without
 
    * **Authentication**: In this scenario, a user must have possession of VC to prove employment or relationship to a particular organization(s). In this case, the RP should be configured to accept VCs issued by the target organizations. 
 
-   * **Authorization**: Based on the application requirements, the applications might consume the VC attributes for fine-grained authorization decisions and auditing. For example, if an e-commerce website offers discounts to employees of the organizations in a particular location, they can validate this based on the country claim in the VC (if present).
+   * **Authorization**: Based on the application requirements, the applications might consume the VC attributes for fine-grained authorization decisions and auditing. For example, if an e-commerce website offers discounts to employees of the organizations in a particular location, they can validate this based on the country/region claim in the VC (if present).
 
 * **Check Revocation**: When using VCs to access sensitive resources, it is common to check the status of the VC with the original issuer and deny access for revoked VCs. When working with the issuers, ensure that revocation is explicitly discussed as part of the design of your scenario. 
 
@@ -186,33 +188,33 @@ The decentralized nature of verifiable credentials enables this scenario without
 
 ### Account recovery
 
-Verifiable credentials can be used as an approach to account recovery. For example, when a user needs to recover their account, they might access a website that requires them to present a VC and initiate an Azure AD credential reset by calling MS Graph APIs as shown in the following diagram.
+Verifiable credentials can be used as an approach to account recovery. For example, when a user needs to recover their account, they might access a website that requires them to present a VC and initiate a Microsoft Entra credential reset by calling MS Graph APIs as shown in the following diagram.
 
-Note: While the scenario we describe in this section is specific to recover Azure AD accounts, this approach can also be used to recover accounts in other systems.
+Note: While the scenario we describe in this section is specific to recover Microsoft Entra accounts, this approach can also be used to recover accounts in other systems.
 
 ![Diagram of the components of a verification solution showing the account recovery scenario.](media/plan-verification-solution/plan-verification-solution-account-recovery.png)
 
 #### Other Elements
 
-**Account portal**: This is a web front end that orchestrates the API calls for VC presentation and validation. This orchestration can include Microsoft Graph calls to recover accounts in Azure AD.
+**Account portal**: This is a web front end that orchestrates the API calls for VC presentation and validation. This orchestration can include Microsoft Graph calls to recover accounts in Microsoft Entra ID.
 
 **Custom logic or workflows**: Logic with organization-specific steps before and after updating the user account. This might include approval workflows, other validations, logging, notifications, etc.
 
-**Microsoft Graph**: Exposes representational state transfer (REST) APIs and client libraries to access Azure AD data that is used to perform account recovery. 
+**Microsoft Graph**: Exposes representational state transfer (REST) APIs and client libraries to access Microsoft Entra data that is used to perform account recovery. 
 
-**Azure AD enterprise directory**: This is the Azure AD tenant that contains the accounts that are being created or updated through the account portal.
+**Microsoft Entra enterprise directory**: This is the Microsoft Entra tenant that contains the accounts that are being created or updated through the account portal.
 
 #### Design considerations
 
-**VC Attribute correlation with Azure AD**: When defining the attributes of the VC in collaboration with the issuer, establish a mechanism to correlate information with internal systems based on the claims in the VC and user input. For example, if you have an identity verification provider (IDV) verify identity prior to onboarding employees, ensure that the issued VC includes claims that would also be present in an internal system such as a human resources system for correlation. This might be a phone number, address, or date of birth. In addition to claims in the VC, the RP can ask for some information such as the last four digits of their social security number (SSN) as part of this process.
+**VC Attribute correlation with Microsoft Entra ID**: When defining the attributes of the VC in collaboration with the issuer, establish a mechanism to correlate information with internal systems based on the claims in the VC and user input. For example, if you have an identity verification provider (IDV) verify identity prior to onboarding employees, ensure that the issued VC includes claims that would also be present in an internal system such as a human resources system for correlation. This might be a phone number, address, or date of birth. In addition to claims in the VC, the RP can ask for some information such as the last four digits of their social security number (SSN) as part of this process.
 
-**Role of VCs with Existing Azure AD Credential Reset Capabilities**: Azure AD has a built-in self-service password reset (SSPR) capability. Verifiable Credentials can be used to provide another way to recover, particularly in cases where users do not have access to or lost control of the SSPR method, for example they’ve lost both computer and mobile device. In this scenario, the user can reobtain a VC from an identity proof issuer and present it to recover their account. 
+**Role of VCs with Existing Microsoft Entra Credential Reset Capabilities**: Microsoft Entra ID has a built-in self-service password reset (SSPR) capability. Verifiable Credentials can be used to provide another way to recover, particularly in cases where users do not have access to or lost control of the SSPR method, for example they’ve lost both computer and mobile device. In this scenario, the user can reobtain a VC from an identity proof issuer and present it to recover their account. 
 
 Similarly, you can use a VC to generate a temporary access pass that will allow users to reset their MFA authentication methods without a password. 
 
 **Authorization**: Create an authorization mechanism such as a security group that the RP checks before proceeding with the credential recovery. For example, only users in specific groups might be eligible to recover an account with a VC.
 
-**Interaction with Azure AD**: The service-to-service communication between the web front end and Azure AD must be secured as a highly privileged system because it can reset employees’ credentials. Grant the web front end the least privileged roles possible. Some examples include:
+**Interaction with Microsoft Entra ID**: The service-to-service communication between the web front end and Microsoft Entra ID must be secured as a highly privileged system because it can reset employees’ credentials. Grant the web front end the least privileged roles possible. Some examples include:
 
 * Grant the RP website the ability to use a service principal granted the MS Graph scope `UserAuthenticationMethod.ReadWrite.All` to reset authentication methods. Don’t grant `User.ReadWrite.All`, which enables the ability to create and delete users.
 
@@ -272,8 +274,6 @@ The following provides areas to consider when planning for performance:
 
    * Each verification of a VC requires one Key Vault signature operation.
 
-   * Maximum signing performance of a Key Vault is 2000 signings/~10 seconds. This means your solution can support up to 12,000 VC validation requests per minute.
-
    * You can't control throttling; however, we recommend you read [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md) so that you understand how throttling might impact performance. 
 
 ## Plan for reliability
@@ -296,7 +296,7 @@ As you are designing for security, consider the following:
 
 * Don't assign any human identity administrative permissions to the Key Vault. For more information on Key Vault best practices, see [Azure Security Baseline for Key Vault](../../key-vault/general/security-baseline.md).
 
-* Review [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/) for best practices for managing the supporting services for your solution. 
+* Review [Securing Azure environments with Microsoft Entra ID](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/) for best practices for managing the supporting services for your solution. 
 
 * Mitigate spoofing risks by:
 
@@ -344,6 +344,6 @@ Implement Verifiable Credentials
 
    * [Introduction to Microsoft Entra Verified ID](decentralized-identifier-overview.md) 
 
-   * [Get started with Verifiable Credentials](get-started-verifiable-credentials.md)
+   * [Get started with Verifiable Credentials](./verifiable-credentials-configure-tenant.md)
 
 [FAQs](verifiable-credentials-faq.md)

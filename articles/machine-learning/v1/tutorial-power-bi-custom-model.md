@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to build and deploy a machine learning model by using code in a Jupyter Notebook. Also create a scoring script that defines input and output for easy integration into Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: tutorial
 ms.author: samkemp
 author: samuel100
@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 
 # Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you use the model to predict outcomes in Microsoft Power BI.
 

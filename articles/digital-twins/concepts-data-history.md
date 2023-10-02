@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the data history feature for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/08/2023
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -23,7 +23,7 @@ Once graph updates are historized to Azure Data Explorer, you can run joint quer
 
 For more of an introduction to data history, including a quick demo, watch the following IoT show video:
 
-<iframe src="https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15" width="1080" height="530"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15]
 
 ## Resources and data flow
 
@@ -76,6 +76,8 @@ In order to set up a data history connection, your Azure Digital Twins instance 
 Later, your Azure Digital Twins instance must have the following permission on the Event Hubs resource while data history is being used: **Azure Event Hubs Data Sender** (you can also opt instead to keep **Azure Event Hubs Data Owner** from data history setup).
 
 These permissions can be assigned using the Azure CLI or Azure portal.
+
+If you'd like to restrict network access to the resources involved in data history (your Azure Digital Twins instance, event hub, or Azure Data Explorer cluster), you should set those restrictions *after* setting up the data history connection. For more information about this process, see [Restrict network access to data history resources](how-to-create-data-history-connection.md#restrict-network-access-to-data-history-resources).
 
 ## Data types and schemas
 

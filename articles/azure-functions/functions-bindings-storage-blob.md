@@ -5,7 +5,7 @@ description: Learn to use the Azure Blob storage trigger and bindings in Azure F
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 11/11/2022
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Blob storage bindings for Azure Functions overview
@@ -24,23 +24,23 @@ Azure Functions integrates with [Azure Storage](../storage/index.yml) via [trigg
 
 The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+In a variation of this model, Functions can be run using [C# scripting], which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
 
 ---
 
 The functionality of the extension varies depending on the extension version:
 
 # [Extension 5.x and higher](#tab/extensionv5/in-process)
+
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 4.x._
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
 
@@ -58,9 +58,13 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Blobs --version 5.
 
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
+_This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x._
+
 Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [Microsoft.Azure.WebJobs.Extensions.Storage NuGet package, version 4.x]. The package is used for .NET class libraries while the extension bundle is used for all other application types.
 
 # [Functions 1.x](#tab/functionsv1/in-process)
+
+[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
 
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
@@ -90,29 +94,11 @@ Add the extension to your project by installing the [Microsoft.Azure.Functions.W
 
 Functions version 1.x doesn't support isolated worker process.
 
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
-
-This extension version is available from the extension bundle v3 by adding the following lines in your `host.json` file:
-
-[!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
-
-To learn more, see [Update your extensions].
-
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
-
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
-
 ---
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
@@ -141,22 +127,19 @@ Functions 1.x apps automatically have a reference to the extension.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
+
 ## Binding types
 
 The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
    
-# [In-process class library](#tab/in-process)
-
-An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
- 
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
    
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-C# script is used primarily when creating C# functions in the Azure portal.
-
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
 ---
 
 Choose a version to see binding type details for the mode and version. 
@@ -165,17 +148,17 @@ Choose a version to see binding type details for the mode and version.
 
 The Azure Blobs extension supports parameter types according to the table below.
 
-| Binding | Parameter types |
+| Binding scenario | Parameter types |
 |-|-|-| 
-| Blob trigger | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[BlobClient]<sup>1</sup><br/>[BlockBlobClient]<sup>1</sup><br/>[PageBlobClient]<sup>1</sup><br/>[AppendBlobClient]<sup>1</sup><br/>[BlobBaseClient]<sup>1</sup>|
-| Blob input | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[BlobClient]<sup>1</sup><br/>[BlockBlobClient]<sup>1</sup><br/>[PageBlobClient]<sup>1</sup><br/>[AppendBlobClient]<sup>1</sup><br/>[BlobBaseClient]<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup>|
-| Blob output |[Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
+| Blob trigger | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[BinaryData]<br/>[BlobClient]<sup>1</sup><br/>[BlockBlobClient]<sup>1</sup><br/>[PageBlobClient]<sup>1</sup><br/>[AppendBlobClient]<sup>1</sup><br/>[BlobBaseClient]<sup>1</sup>|
+| Blob input (single blob)| [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[BinaryData]<br/>[BlobClient]<sup>1</sup><br/>[BlockBlobClient]<sup>1</sup><br/>[PageBlobClient]<sup>1</sup><br/>[AppendBlobClient]<sup>1</sup><br/>[BlobBaseClient]<sup>1</sup>|
+| Blob input (multiple blobs from a container)| `IEnumerable<T>` where `T` is one of the single blob input binding types |
+| Blob output (single blob) | [Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
+| Blob output (multiple blobs) | `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the single blob output binding types |
 
 <sup>1</sup> The client types require the `Access` property of the attribute to be set to `FileAccess.ReadWrite`.
 
-<sup>2</sup> `IEnumerable<T>` provides an enumeration of blobs in the container. Here, `T` can be any of the other supported types.
-
-For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples). Learn more about types from the Azure SDK, how they are different from earlier versions, and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
@@ -187,7 +170,7 @@ This version of the Azure Blobs extension supports parameter types according to 
 |-|-|-| 
 | Blob trigger | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
 | Blob input | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
-| Blob output |[Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
+| Blob output | [Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
 
 <sup>1</sup> These types require the `Access` property of the attribute to be set to `FileAccess.ReadWrite`.
 
@@ -195,41 +178,23 @@ This version of the Azure Blobs extension supports parameter types according to 
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
-Functions 1.x exposed types from the now deprecated [Microsoft.Azure.Storage.Blob] namespace. Newer types from [Azure.Storage.Blobs] are exclusive to later host versions with **extension 5.x and higher**.
-
-Functions 1.x supports parameter types according to the table below.
-
-| Binding | Parameter types |
-|-|-|-| 
-| Blob trigger | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
-| Blob input | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
-| Blob output |[Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
-
-<sup>1</sup> These types require the `Access` property of the attribute to be set to `FileAccess.ReadWrite`.
-
-<sup>2</sup> `IEnumerable<T>` provides an enumeration of blobs in the container. Here, `T` can be any of the other supported types.
+Functions 1.x exposed types from the deprecated [Microsoft.WindowsAzure.Storage] namespace. Newer types from [Azure.Storage.Blobs] are exclusive to **Extension 5.x and higher**. To use these, you will need to [upgrade your application to Functions 4.x].
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-The isolated worker process supports parameter types according to the table below. Binding to string parameters is currently the only option that is generally available. Support for binding to `Byte[]`, to `Stream`, and to types from [Azure.Storage.Blobs] is in preview.
+The isolated worker process supports parameter types according to the tables below.
 
-| Binding | Parameter types | Preview parameter types<sup>1</sup> |
-|-|-|-| 
-| Blob trigger | `string` | `Byte[]`<br/>[Stream]<br/>[BlobClient]<br/>[BlockBlobClient]<br/>[PageBlobClient]<br/>[AppendBlobClient]<br/>[BlobBaseClient]<br/>[BlobContainerClient]<br/>JSON serializable types<sup>2</sup>|
-| Blob input | `string` | `Byte[]`<br/>[Stream]<br/>[BlobClient]<br/>[BlockBlobClient]<br/>[PageBlobClient]<br/>[AppendBlobClient]<br/>[BlobBaseClient]<br/>[BlobContainerClient]<sup>3</sup><br/>JSON serializable types<sup>2</sup>|
-| Blob output | `string` | No preview types<sup>4</sup> |
+**Blob trigger**
 
-<sup>1</sup> Preview types require use of [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs 5.1.0-preview1 or later][sdk-types-extension-version], [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version], and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. When developing on your local machine, you will need [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). Collections of preview types, such as arrays and `IEnumerable<T>`, are not supported. When using a preview type, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data are not supported.
+[!INCLUDE [functions-bindings-storage-blob-trigger-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-trigger-dotnet-isolated-types.md)]
 
-[sdk-types-extension-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs/5.1.0-preview1
-[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
-[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
+**Blob input binding**
 
-<sup>2</sup> Blobs containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+[!INCLUDE [functions-bindings-storage-blob-input-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-input-dotnet-isolated-types.md)]
 
-<sup>3</sup> The `BlobPath` configuration for an input binding to [BlobContainerClient] currently requires the presence of a blob name. It is not sufficient to provide just the container name. A placeholder value may be used and will not change the behavior. For example, setting `[BlobInput("samples-workitems/placeholder.txt")] BlobContainerClient containerClient` does not consider whether any `placeholder.txt` exists or not, and the client will work with the overall "samples-workitems" container.
+**Blob output binding**
 
-<sup>4</sup> Support for SDK type bindings does not presently extend to output bindings.
+[!INCLUDE [functions-bindings-storage-blob-output-dotnet-isolated-types](../../includes/functions-bindings-storage-blob-output-dotnet-isolated-types.md)]
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
@@ -237,57 +202,12 @@ Earlier versions of extensions in the isolated worker process only support bindi
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
-Functions version 1.x doesn't support isolated worker process.
-
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
-
-The Azure Blobs extension supports parameter types according to the table below.
-
-| Binding | Parameter types |
-|-|-|-| 
-| Blob trigger | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[BlobClient]<sup>1</sup><br/>[BlockBlobClient]<sup>1</sup><br/>[PageBlobClient]<sup>1</sup><br/>[AppendBlobClient]<sup>1</sup><br/>[BlobBaseClient]<sup>1</sup>|
-| Blob input | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[BlobClient]<sup>1</sup><br/>[BlockBlobClient]<sup>1</sup><br/>[PageBlobClient]<sup>1</sup><br/>[AppendBlobClient]<sup>1</sup><br/>[BlobBaseClient]<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup>|
-| Blob output |[Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
-
-<sup>1</sup> The client types require the `Access` property of the attribute to be set to `FileAccess.ReadWrite`.
-
-<sup>2</sup> `IEnumerable<T>` provides an enumeration of blobs in the container. Here, `T` can be any of the other supported types.
-
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
-
-Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Storage.Blob] namespace. Newer types from [Azure.Storage.Blobs] are exclusive to **extension 5.x and higher**.
-
-This version of the Azure Blobs extension supports parameter types according to the table below.
-
-| Binding | Parameter types |
-|-|-|-| 
-| Blob trigger | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
-| Blob input | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
-| Blob output |[Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
-
-<sup>1</sup> These types require the `Access` property of the attribute to be set to `FileAccess.ReadWrite`.
-
-<sup>2</sup> `IEnumerable<T>` provides an enumeration of blobs in the container. Here, `T` can be any of the other supported types.
-
-# [Functions 1.x](#tab/functionsv1/csharp-script)
-
-Functions 1.x exposed types from the now deprecated [Microsoft.Azure.Storage.Blob] namespace. Newer types from [Azure.Storage.Blobs] are exclusive to later host versions with **extension 5.x and higher**.
-
-Functions 1.x supports parameter types according to the table below.
-
-| Binding | Parameter types |
-|-|-|-| 
-| Blob trigger | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
-| Blob input | [Stream]<br/>`TextReader`<br/>`string`<br/>`byte[]`<br/>[ICloudBlob]<sup>1</sup><br/>[CloudBlockBlob]<sup>1</sup><br/>[CloudPageBlob]<sup>1</sup><br/>[CloudAppendBlob]<sup>1</sup>|
-| Blob output |[Stream]<br/>`TextWriter`<br/>`string`<br/>`byte[]` |
-
-<sup>1</sup> These types require the `Access` property of the attribute to be set to `FileAccess.ReadWrite`.
-
-<sup>2</sup> `IEnumerable<T>` provides an enumeration of blobs in the container. Here, `T` can be any of the other supported types.
+Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 
 [Stream]: /dotnet/api/system.io.stream
+[BinaryData]: /dotnet/api/system.binarydata
 
 [Azure.Storage.Blobs]: /dotnet/api/azure.storage.blobs
 [BlobClient]: /dotnet/api/azure.storage.blobs.blobclient
@@ -303,6 +223,8 @@ Functions 1.x supports parameter types according to the table below.
 [CloudPageBlob]: /dotnet/api/microsoft.azure.storage.blob.cloudpageblob
 [CloudAppendBlob]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob
 
+[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
+
 :::zone-end
 
 ## host.json settings
@@ -317,7 +239,8 @@ This section describes the function app configuration settings available for fun
     "version": "2.0",
     "extensions": {
         "blobs": {
-            "maxDegreeOfParallelism": 4
+            "maxDegreeOfParallelism": 4,
+            "poisonBlobThreshold": 1
         }
     }
 }
@@ -325,7 +248,8 @@ This section describes the function app configuration settings available for fun
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for each blob-triggered function. The minimum allowed value is 1.|
+|maxDegreeOfParallelism|8 * (the number of available cores)|The integer number of concurrent invocations allowed for all blob-triggered functions in a given function app. The minimum allowed value is 1.|
+|poisonBlobThreshold|5|The integer number of times to try processing a message before moving it to the poison queue. The minimum allowed value is 1.|
 
 ## Next steps
 
@@ -341,3 +265,7 @@ This section describes the function app configuration settings available for fun
 [Microsoft.Azure.Functions.Worker.Extensions.Storage NuGet package, version 4.x]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/4.0.4
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+
+[Microsoft.WindowsAzure.Storage]: /dotnet/api/microsoft.windowsazure.storage
+
+[C# scripting]: ./functions-reference-csharp.md

@@ -1,9 +1,9 @@
 ---
 title: Overview
 description: This article describes the REST API that makes the data collected by Azure Log Analytics easily available.
-author: AbbyMSFT
-ms.author: abbyweisberg
 ms.date: 02/28/2023
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Azure Monitor Log Analytics API overview

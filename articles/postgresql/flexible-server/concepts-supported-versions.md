@@ -15,27 +15,27 @@ ms.date: 08/25/2022
 
 Azure Database for PostgreSQL - Flexible Server currently supports the following major versions:
 
-## PostgreSQL version 15 (Preview)
+## PostgreSQL version 15
 
-PostgreSQL version 15 is now available in public preview in limited regions (West Europe, East US, West US2, South East Asia, UK SOuth, North Europe, Japan east). Refer to the [PostgreSQL documentation](https://www.postgresql.org/about/news/postgresql-15-released-2526/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
+PostgreSQL version 15 is now generally available in all Azure regions. The current minor release is **15.3**.Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.3/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
 
 
 ## PostgreSQL version 14
 
-The current minor release is **14.7**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.7/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
+The current minor release is **14.8**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.8/) to learn more about improvements and fixes in this release. New servers will be created with this minor version.
 
 
 ## PostgreSQL version 13
 
-The current minor release is **13.9**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.9/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
+The current minor release is **13.11**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.11/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. 
 
 ## PostgreSQL version 12
 
-The current minor release is **12.13**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.13/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
+The current minor release is **12.15**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.15/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
 
 ## PostgreSQL version 11
 
-The current minor release is **11.18**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/11.18/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
+The current minor release is **11.20**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/11.20/) to learn more about improvements and fixes in this release. New servers will be created with this minor version. Your existing servers will be automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
 
 ## PostgreSQL version 10 and older
 
@@ -56,7 +56,7 @@ Azure Database for PostgreSQL - Flexible Server is a fully managed open-source d
 
 Microsoft has a team of committers and contributors who work full time on the open source Postgres project and are long term members of the community. Our contributions include but aren't  limited to features, performance enhancements, bug fixes, security patches among other things. Our open source team also incorporates feedback from our Azure fleet (and customers) when prioritizing work, however please keep in mind that Postgres project has its own independent contribution guidelines, review process and release schedule.
 
-When an defect with PostgreSQL engine is identified, Microsoft will take immediate action to mitigate the issue. If it requires code change, Microsoft will fix the defect to address the production issue, if possible, and work with the community to incorporate the fix as quickly as possible.
+When a defect with PostgreSQL engine is identified, Microsoft will take immediate action to mitigate the issue. If it requires code change, Microsoft will fix the defect to address the production issue, if possible, and work with the community to incorporate the fix as quickly as possible.
 
 
 <!--

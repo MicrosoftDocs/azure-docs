@@ -3,11 +3,10 @@ title: Azure Files zone-redundant storage (ZRS) support for premium file shares
 description: ZRS is supported for premium Azure file shares through the FileStorage storage account kind. Use this reference to determine the Azure regions in which ZRS is supported.
 author: khdownie
 services: storage
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: reference
-ms.date: 03/29/2023
+ms.date: 09/26/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: references_regions
 ---
 
@@ -29,4 +28,4 @@ ZRS is supported for premium Azure file shares through the `FileStorage` storage
 
 ## See also
 
-- [Azure Storage redundancy](../common/storage-redundancy.md)
+- [Azure Files redundancy](files-redundancy.md)

@@ -2,13 +2,12 @@
 title: Security recommendations for Blob storage
 titleSuffix: Azure Storage
 description: Learn about security recommendations for Blob storage. Implementing this guidance will help you fulfill your security obligations as described in our shared responsibility model.
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/06/2023
-ms.author: tamram
+ms.date: 09/12/2023
+ms.author: akashdubey
 ms.custom: security-recommendations
 ---
 
@@ -47,7 +46,7 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 | Keep in mind the principle of least privilege when assigning permissions to a SAS | When creating a SAS, specify only those permissions that are required by the client to perform its function. Limiting access to resources helps prevent both unintentional and malicious misuse of your data. | - |
 | Have a revocation plan in place for any SAS that you issue to clients | If a SAS is compromised, you will want to revoke that SAS as soon as possible. To revoke a user delegation SAS, revoke the user delegation key to quickly invalidate all signatures associated with that key. To revoke a service SAS that is associated with a stored access policy, you can delete the stored access policy, rename the policy, or change its expiry time to a time that is in the past. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).  | - |
 | If a service SAS is not associated with a stored access policy, then set the expiry time to one hour or less | A service SAS that is not associated with a stored access policy cannot be revoked. For this reason, limiting the expiry time so that the SAS is valid for one hour or less is recommended. | - |
-| Disable anonymous public read access to containers and blobs | Anonymous public read access to a container and its blobs grants read-only access to those resources to any client. Avoid enabling public read access unless your scenario requires it. To learn how to disable anonymous public access for a storage account, see [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md).  | - |
+| Disable anonymous read access to containers and blobs | anonymous read access to a container and its blobs grants read-only access to those resources to any client. Avoid enabling anonymous read access unless your scenario requires it. To learn how to disable anonymous access for a storage account, see [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md).  | - |
 
 ## Networking
 

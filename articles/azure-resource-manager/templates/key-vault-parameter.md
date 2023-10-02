@@ -2,7 +2,7 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 06/22/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -160,7 +160,7 @@ When using a key vault with the template for a [Managed Application](../managed-
 
 With this approach, you reference the key vault in the parameter file, not the template. The following image shows how the parameter file references the secret and passes that value to the template.
 
-![Resource Manager key vault integration Static ID diagram](./media/key-vault-parameter/statickeyvault.png)
+:::image type="content" source="./media/key-vault-parameter/statickeyvault.png" alt-text="Diagram showing Resource Manager key vault integration with Static ID.":::
 
 [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md) uses this method.
 
@@ -185,8 +185,8 @@ The following template deploys a SQL server that includes an administrator passw
       "type": "securestring"
     }
   },
-  "resources": {
-    "sqlServer": {
+  "resources": [
+    {
       "type": "Microsoft.Sql/servers",
       "apiVersion": "2021-11-01",
       "name": "[parameters('sqlServerName')]",
@@ -197,7 +197,7 @@ The following template deploys a SQL server that includes an administrator passw
         "version": "12.0"
       }
     }
-  }
+  ]
 }
 ```
 
@@ -267,7 +267,7 @@ You can't dynamically generate the resource ID in the parameters file because te
 
 In your parent template, you add the nested template and pass in a parameter that contains the dynamically generated resource ID. The following image shows how a parameter in the linked template references the secret.
 
-![Dynamic ID](./media/key-vault-parameter/dynamickeyvault.png)
+:::image type="content" source="./media/key-vault-parameter/dynamickeyvault.png" alt-text="Diagram illustrating dynamic ID generation for key vault secret.":::
 
 The following template dynamically creates the key vault ID and passes it as a parameter.
 

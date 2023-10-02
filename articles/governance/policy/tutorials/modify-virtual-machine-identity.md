@@ -3,6 +3,7 @@ title: "Tutorial: Add user assign identities to virtual machines"
 description: Learn how to update virtual machines' and virtual machine scale sets' identities to be user assigned as a prerequisite to install the Azure Monitoring Agent
 ms.date: 04/02/2023
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 author: kenieva
 ms.author: kenieva
 ---
@@ -230,4 +231,3 @@ To remediate the existing resources, follow these steps:
 - Learn how to [remediate noncompliant resources](../how-to/remediate-resources.md).
 - Learn more on [enforcement mode](../concepts/assignment-structure.md#enforcement-mode)
 - Learn more on [installing Azure Monitor Agent using Azure Policy](../../../azure-monitor/agents/azure-monitor-agent-manage.md)
-

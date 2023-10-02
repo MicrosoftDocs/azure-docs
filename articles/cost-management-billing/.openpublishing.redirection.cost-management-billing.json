@@ -801,11 +801,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cost-management-billing/costs/index.yml",
-            "redirect_url": "/azure/cost-management-billing",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/cost-management-billing/costs/overview-cost-mgt.md",
             "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
             "redirect_document_id": false
@@ -823,11 +818,6 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/getting-started.md",
             "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cost-management-billing/manage/index.yml",
-            "redirect_url": "/azure/cost-management-billing",
             "redirect_document_id": false
         },
         {
@@ -1103,6 +1093,11 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/create-multiple-subscriptions-error.md",
             "redirect_url": "/azure/cost-management-billing/manage/create-subscriptions-deploy-resources",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/reservation-amortization.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/view-amortized-costs",
             "redirect_document_id": true
         },
         {

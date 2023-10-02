@@ -5,16 +5,13 @@ author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
-ms.date: 06/01/2023
+ms.date: 06/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
 
 # Azure direct routing infrastructure requirements 
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 
@@ -87,8 +84,8 @@ These three FQDNs in order are required to:
 
 The FQDNs — sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.pstnhub.microsoft.com — resolve to one of the following IP addresses:
 
-- `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
-- `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
+- `52.112.0.0/14 (IP addresses from 52.112.0.0 to 52.115.255.255)`
+- `52.120.0.0/14 (IP addresses from 52.120.0.0 to 52.123.255.255)`
 
 Open firewall ports for all these IP address ranges to allow incoming and outgoing traffic to and from the addresses for signaling.
 
@@ -109,8 +106,8 @@ The SBC makes a DNS query to resolve sip.pstnhub.microsoft.com. Based on the SBC
 
 The media traffic flows to and from a separate service called Media Processor. The IP address ranges for media traffic are the same as for signaling:
 
-- `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
-- `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
+- `52.112.0.0/14 (IP addresses from 52.112.0.0 to 52.115.255.255)`
+- `52.120.0.0/14 (IP addresses from 52.120.0.0 to 52.123.255.255)`
 
 ### Port ranges
 The port ranges of the Media Processors are shown in the following table: 

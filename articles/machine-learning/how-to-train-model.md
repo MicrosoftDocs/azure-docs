@@ -8,14 +8,14 @@ ms.author: balapv
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: training
-ms.date: 08/25/2022
+ms.date: 09/10/2023
 ms.topic: how-to
 ms.custom: sdkv2, ignite-2022, build-2023
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Azure Machine Learning provides multiple ways to submit ML training jobs. In this article, you'll learn how to submit jobs using the following methods:
 
@@ -180,7 +180,7 @@ curl -X PUT \
 
 # [Python SDK](#tab/python)
 
-To run this script, you'll use a `command` that executes main.py Python script located under ./sdk/python/jobs/single-step/lightgbm/iris/src/. The command will be run by submitting it as a `job` to Azure ML. 
+To run this script, you'll use a `command` that executes main.py Python script located under ./sdk/python/jobs/single-step/lightgbm/iris/src/. The command will be run by submitting it as a `job` to Azure Machine Learning. 
 
 > [!NOTE]
 > To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
@@ -193,7 +193,7 @@ In the above examples, you configured:
 - `code` - path where the code to run the command is located
 - `command` -  command that needs to be run
 - `environment` - the environment needed to run the training script. In this example, we use a curated or ready-made environment provided by Azure Machine Learning called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`. We use the latest version of this environment by using the `@latest` directive. You can also use custom environments by specifying a base docker image and specifying a conda yaml on top of it.
-- `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. To use files or folders as inputs, you can use the `Input` class.
+- `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. To use files or folders as inputs, you can use the `Input` class. For more information, see [SDK and CLI v2 expressions](concept-expressions.md).
 
 For more information, see the [reference documentation](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command).
 
@@ -212,7 +212,7 @@ The `az ml job create` command used in this example requires a YAML job definiti
 In the above, you configured:
 - `code` - path where the code to run the command is located
 - `command` - command that needs to be run
-- `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. 
+- `inputs` - dictionary of inputs using name value pairs to the command. The key is a name for the input within the context of the job and the value is the input value. Inputs are referenced in the `command` using the `${{inputs.<input_name>}}` expression. For more information, see [SDK and CLI v2 expressions](concept-expressions.md).
 - `environment` - the environment needed to run the training script. In this example, we use a curated or ready-made environment provided by Azure Machine Learning called `AzureML-sklearn-0.24-ubuntu18.04-py37-cpu`. We use the latest version of this environment by using the `@latest` directive. You can also use custom environments by specifying a base docker image and specifying a conda yaml on top of it.
 To submit the job, use the following command. The run ID (name) of the training job is stored in the `$run_id` variable:
 

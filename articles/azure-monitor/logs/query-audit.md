@@ -2,8 +2,8 @@
 title: Audit queries in Azure Monitor log queries
 description: Details of log query audit logs which provide telemetry about log queries run in Azure Monitor.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 10/20/2021
 
 ---
@@ -68,7 +68,7 @@ An audit record is created each time a query is run. If you send the data to a L
 |AzureAutomation|[Azure Automation.](../../automation/overview.md)|
 |AzureMonitorLogsConnector|[Azure Monitor Logs Connector](../../connectors/connectors-azure-monitor-logs.md).|
 |csharpsdk|[Log Analytics Query API.](../logs/api/overview.md)|
-|Draft-Monitor|[Log alert creation in the Azure portal.](../alerts/alerts-create-new-alert-rule.md?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
+|Draft-Monitor|[Log alert creation in the Azure portal.](../alerts/alerts-create-new-alert-rule.md?tabs=log)|
 |Grafana|[Grafana connector.](../visualize/grafana-plugin.md)|
 |IbizaExtension|Experiences of Log Analytics in the Azure portal.|
 |infraInsights/container|[Container insights.](../containers/container-insights-overview.md)|

@@ -12,13 +12,13 @@ ms.date: 11/24/2022
 ms.author: jomondi
 ms.reviewer: saibandaru
 ms.custom: contperf-fy23q1, enterprise-apps
-#Customer intent: As an Azure AD administrator, I want to make applications available to users in the My Apps portal.
+#Customer intent: As a Microsoft Entra administrator, I want to make applications available to users in the My Apps portal.
 
 ---
 
 # My Apps portal overview
 
-My Apps is a web-based portal that is used for managing and launching applications in Azure Active Directory (Azure AD). To work with applications in My Apps, use an organizational account in Azure AD and obtain access granted by the Azure AD administrator. My Apps is separate from the Azure portal and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
+My Apps is a web-based portal that is used for managing and launching applications in Microsoft Entra ID. To work with applications in My Apps, use an organizational account in Microsoft Entra ID and obtain access granted by the Microsoft Entra administrator. My Apps is separate from the Microsoft Entra admin center and doesn't require users to have an Azure subscription or Microsoft 365 subscription.
 
 Users access the My Apps portal to:
 
@@ -27,13 +27,13 @@ Users access the My Apps portal to:
 - Create personal collections of applications
 - Manage access to applications
 
-The following conditions determine whether an application in the enterprise applications list in the Azure portal appears to a user or group in the My Apps portal:
+The following conditions determine whether an application in the enterprise applications list in the Microsoft Entra admin center appears to a user or group in the My Apps portal:
 
 - The application is set to be visible in its properties
 - The application is assigned to the user or group
 
 > [!NOTE]
-> The **Users can only see Office 365 apps in the Office 365 portal** property in the Azure portal can affect whether users can only see Office 365 applications in the Office 365 portal. If this setting is set to **No**, then users will be able to see Office 365 applications in both the My Apps portal and the Office 365 portal. This setting can be found under **Manage** in **Enterprise applications > User settings**.
+> The **Users can only see Office 365 apps in the Office 365 portal** property in the Microsoft Entra admin center can affect whether users can only see Office 365 applications in the Office 365 portal. If this setting is set to **No**, then users will be able to see Office 365 applications in both the My Apps portal and the Office 365 portal. This setting can be found under **Manage** in **Enterprise applications > User settings**.
 
 Administrators can configure:
 
@@ -56,24 +56,24 @@ For more information, see [Properties of an enterprise application](application-
 
 ### Discover applications
 
-When signed in to the [My Apps](https://myapps.microsoft.com) portal, the applications that have been made visible are shown. For an application to be visible in the My Apps portal, set the appropriate properties in the [Azure portal](https://portal.azure.com). Also in the Azure portal, assign a user or group with the appropriate members.
+When signed in to the [My Apps](https://myapps.microsoft.com) portal, the applications that have been made visible are shown. For an application to be visible in the My Apps portal, set the appropriate properties in the [Microsoft Entra admin center](https://entra.microsoft.com). Also in the Microsoft Entra admin center, assign a user or group with the appropriate members.
 
 In the My Apps portal, to search for an application, enter an application name in the search box at the top of the page to find an application. The applications that are listed can be formatted in **List view** or a **Grid view**.
 
 :::image type="content" source="./media/myapps-overview/myapp-app-list.png" alt-text="Screenshot that shows the search box for the My Apps portal.":::
 
 > [!IMPORTANT]
-> It can take several minutes for an application to appear in the My Apps portal after it has been added to the tenant in the Azure portal. There may also be a delay in how soon users can access the application after it has been added.
+> It can take several minutes for an application to appear in the My Apps portal after it has been added to the tenant in the Microsoft Entra admin center. There may also be a delay in how soon users can access the application after it has been added.
 
 Applications can be hidden. For more information, see [Hide an Enterprise application](hide-application-from-user-portal.md).
 
 ## Assign company branding
 
-In the Azure portal, define the logo and name for the application to represent company branding in the My Apps portal. The banner logo appears at the top of the page, such as the Contoso demo logo shown below.
+In the Microsoft Entra admin center, define the logo and name for the application to represent company branding in the My Apps portal. The banner logo appears at the top of the page, such as the Contoso demo logo shown below.
 
 :::image type="content" source="./media/myapps-overview/banner-logo.png" alt-text="Screenshot that shows the banner logo in the My Apps portal.":::
 
-For more information, see [Add branding to your organization's sign-in page](../fundamentals/customize-branding.md).
+For more information, see [Add branding to your organization's sign-in page](../fundamentals/how-to-customize-branding.md).
 
 ## Manage access to applications
 
@@ -81,14 +81,14 @@ Multiple factors affect how and whether an application can be accessed by users.
 
 ### My Apps Secure Sign-in Extension
 
-Install the My Apps secure sign-in extension to sign in to some applications. The extension is required for sign-in to password-based SSO applications, or to applications that are accessed by Azure AD Application Proxy. Users are prompted to install the extension when they first launch the password-based single sign-on or an Application Proxy application.
+Install the My Apps secure sign-in extension to sign in to some applications. The extension is required for sign-in to password-based SSO applications, or to applications that are accessed by Microsoft Entra application proxy. Users are prompted to install the extension when they first launch the password-based single sign-on or an Application Proxy application.
 
 To integrate these applications, define a mechanism to deploy the extension at scale with supported browsers. Options include:
 
 - User-driven download and configuration for Chrome, Microsoft Edge, or IE
 - Configuration Manager for Internet Explorer
 
-The extension allows users to launch any application from its search bar, finding access to recently used applications, and having a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Azure AD Application Proxy, use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in the mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Azure AD Password SSO**.
+The extension allows users to launch any application from its search bar, finding access to recently used applications, and having a link to the My Apps portal. For applications that use password-based SSO or accessed by using Microsoft Entra application proxy, use Microsoft Edge mobile. For other applications, any mobile browser can be used. Be sure to enable password-based SSO in the mobile settings, which can be off by default. For example, **Settings -> Privacy and Security -> Microsoft Entra Password SSO**.
 
 To download and install the extension:
 
@@ -102,23 +102,19 @@ An icon is added to the right of the address bar, which enables sign in and cust
 
 ### Permissions
 
-Permissions that have been granted to an application can be reviewed by looking at the permissions tab for it. To access the permissions tab, select the upper right corner of the tile that represents the application and then select **Manage your application**.
+Permissions that have been granted to an application can be reviewed by selecting the upper right corner of the tile that represents the application and then selecting **Manage your application**.
 
 The permissions that are shown have been consented to by an administrator or have been consented to by the user. Permissions consented to by the user can be revoked by the user.
 
-The following image shows the `email` permission for Microsoft Graph consented to the application by the administrator of the tenant.
-
-:::image type="content" source="./media/myapps-overview/permission-consent.png" alt-text="Screenshot that shows permissions granted for an application in the My Apps portal.":::
-
 ### Self-service access
 
-Access can be granted on a tenant level, assigned to specific users, or from self-service access. Before users can self-discover applications from the My Apps portal, enable self-service application access in the Azure portal. This feature is available for applications when added using these methods:
+Access can be granted on a tenant level, assigned to specific users, or from self-service access. Before users can self-discover applications from the My Apps portal, enable self-service application access in the Microsoft Entra admin center. This feature is available for applications when added using these methods:
 
-- The Azure AD application gallery
-- Azure AD Application Proxy
+- The Microsoft Entra application gallery
+- Microsoft Entra application proxy
 - Using user or admin consent
 
-Enable users to discover and request access to applications by using the My Apps portal. To do so, complete the following tasks in the Azure portal:
+Enable users to discover and request access to applications by using the My Apps portal. To do so, complete the following tasks in the Microsoft Entra admin center:
 
 - Enable self-service group management
 - Enable the application for single sign-on
@@ -130,9 +126,9 @@ For more information, see [Enable self-service application assignment](manage-se
 
 ### Single sign-on
 
-Enable single sign-on (SSO) in the Azure portal for all applications that are made available in the My Apps portal whenever possible. If SSO is set up, users have a seamless experience without the need to enter their credentials. To learn more, see [Single sign-on options in Azure AD](what-is-single-sign-on.md#single-sign-on-options).
+Enable single sign-on (SSO) in the Microsoft Entra admin center for all applications that are made available in the My Apps portal whenever possible. If SSO is set up, users have a seamless experience without the need to enter their credentials. To learn more, see [Single sign-on options in Microsoft Entra ID](what-is-single-sign-on.md#single-sign-on-options).
 
-Applications can be added by using the Linked SSO option. Configure an application tile that links to the URL of the existing web application. Linked SSO allows the direction of users to the My Apps portal without migrating all the applications to Azure AD SSO. Gradually move to Azure AD SSO-configured applications to prevent disrupting the users’ experience.
+Applications can be added by using the Linked SSO option. Configure an application tile that links to the URL of the existing web application. Linked SSO allows the direction of users to the My Apps portal without migrating all the applications to Microsoft Entra SSO. Gradually move to Microsoft Entra SSO-configured applications to prevent disrupting the users’ experience.
 
 For more information, see [Add linked single sign-on to an application](configure-linked-sign-on.md).
 

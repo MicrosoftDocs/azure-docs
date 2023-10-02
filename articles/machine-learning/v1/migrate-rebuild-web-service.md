@@ -4,7 +4,7 @@ description: Rebuild Studio (classic) web services as pipeline endpoints in Azur
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
-ms.custom: event-tier1-build-2022
+ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: how-to
 ms.reviewer: larryfr
 author: xiaoharper

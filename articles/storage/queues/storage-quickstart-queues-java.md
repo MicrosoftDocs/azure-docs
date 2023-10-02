@@ -3,10 +3,9 @@ title: 'Quickstart: Azure Queue Storage client library for Java'
 description: Learn how to use the Azure Queue Storage client library for Java to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You also learn how to delete a queue.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 05/12/2023
+ms.date: 06/29/2023
 ms.topic: quickstart
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ms.devlang: java
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
 ---
@@ -23,7 +22,9 @@ Use the Azure Queue Storage client library for Java to:
 - Add messages to a queue
 - Peek at messages in a queue
 - Update a message in a queue
-- Receive and delete messages from a queue
+- Get the queue length
+- Receive messages from a queue
+- Delete messages from a queue
 - Delete a queue
 
 ## Prerequisites
@@ -199,9 +200,9 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue Storage offers three types of resources:
 
-- The storage account
-- A queue in the storage account
-- Messages within the queue
+- **Storage account**: All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md)
+- **Queue**: A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+- **Message**: A message, in any format, of up to 64 KB. A message can remain in the queue for a maximum of 7 days. For version 2017-07-29 or later, the maximum time-to-live can be any positive number, or -1 indicating that the message doesn't expire. If this parameter is omitted, the default time-to-live is seven days.
 
 The following diagram shows the relationship between these resources.
 
@@ -306,6 +307,9 @@ QueueClient queueClient = new QueueClientBuilder()
 ```
 
 ---
+
+> [!NOTE]
+> Messages sent using the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class must be in a format that can be included in an XML request with UTF-8 encoding. You can optionally set the [QueueMessageEncoding](/java/api/com.azure.storage.queue.queuemessageencoding) option to `BASE64` to handle non-compliant messages.
 
 ### Create a queue
 

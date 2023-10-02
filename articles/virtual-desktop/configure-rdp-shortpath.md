@@ -150,7 +150,7 @@ To configure managed Windows clients using Intune:
 
 1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, using Administrative templates.
 
-1. Browse to **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
+1. Browse to **Computer Configuration** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
 
 1. Select the setting **Turn Off UDP On Client** and set it to **Disabled**.
 

@@ -95,11 +95,9 @@ Deleting a PeerAsn isn't currently supported. If you need to delete PeerAsn, con
 
 ## Next steps
 
-* [Create or modify a Direct peering using the portal](howto-direct-portal.md)
-* [Convert a legacy Direct peering to Azure resource using the portal](howto-legacy-direct-portal.md)
-* [Create or modify Exchange peering using the portal](howto-exchange-portal.md)
-* [Convert a legacy Exchange peering to Azure resource using the portal](howto-legacy-exchange-portal.md)
+- [Create or modify a Direct peering using the Azure portal](howto-direct-portal.md).
+- [Convert a legacy Direct peering to Azure resource using the Azure portal](howto-legacy-direct-portal.md).
+- [Create or modify Exchange peering using the Azure portal](howto-exchange-portal.md).
+- [Convert a legacy Exchange peering to Azure resource using the Azure portal](howto-legacy-exchange-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).
 
-## Additional resources
-
-For more information, visit [Internet peering FAQs](faqs.md)

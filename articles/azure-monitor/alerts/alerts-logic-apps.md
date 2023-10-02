@@ -116,7 +116,7 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
 
     1. Select **+** > **Add an action** to insert a new step.
     1. In the **Search** field, search for and select **Initialize variable**.
-    1. In the **Name** field, enter the name of the variable, such as **AffectedResources**.
+    1. In the **Name** field, enter the name of the variable, such as **AffectedResource**.
     1. In the **Type** field, select **Array**.
     1. In the **Value** field, select **Add dynamic Content**. Select the **Expression** tab and enter the string `split(triggerBody()?['data']?['essentials']?['alertTargetIDs'][0], '/')`.
 
@@ -124,7 +124,7 @@ This example creates a logic app that uses the [common alerts schema](./alerts-c
 
     1. Select **+** > **Add an action** to insert another step.
     1. In the **Search** field, search for and select **Azure Resource Manager** > **Read a resource**.
-    1. Populate the fields of the **Read a resource** action with the array values from the `AffectedResources` variable. In each of the fields, select the field and scroll down to **Enter a custom value**. Select **Add dynamic content**, and then select the **Expression** tab. Enter the strings from this table:
+    1. Populate the fields of the **Read a resource** action with the array values from the `AffectedResource` variable. In each of the fields, select the field and scroll down to **Enter a custom value**. Select **Add dynamic content**, and then select the **Expression** tab. Enter the strings from this table:
 
         |Field|String value|
         |---------|---------|

@@ -1,8 +1,6 @@
 ---
-author: hickeys
 description: Learn how to delete individual containers using az-cli
 title: Delete Fluid containers
-ms.author: hickeys
 ms.date: 09/28/2021
 ms.service: azure-fluid
 ms.topic: reference

@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network
 description: Learn how to create an Azure Spring Apps instance in an Azure Container Apps environment with a virtual network.
-author: karlerickson
+author: KarlErickson
 ms.author: xuycao
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 03/21/2023
-ms.custom: devx-track-java
+ms.date: 06/21/2023
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network
@@ -126,10 +126,10 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 1. Use the following commands to create variables to store various values. If you're using an existing virtual network, specify the name of that network and its resource group. Otherwise, specify the name of a new virtual network and resource group to create.
 
    ```bash
-   RESOURCE_GROUP="<resource-group-name>"
-   LOCATION="eastus"
-   AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
-   VNET_NAME="<virtual-network-name>"
+   export RESOURCE_GROUP="<resource-group-name>"
+   export LOCATION="eastus"
+   export AZURE_CONTAINER_APPS_ENVIRONMENT="<Azure-Container-Apps-environment-name>"
+   export VNET_NAME="<virtual-network-name>"
    ```
 
 1. If you aren't using an existing virtual network, use the following commands to create an Azure virtual network and subnet to associate with the Azure Container Apps environment. The virtual network must have a subnet available for the environment deployment.
@@ -151,7 +151,7 @@ Use the following steps to create an Azure Spring Apps instance in an Azure Cont
 1. Use the following command to get the ID for the infrastructure subnet and store it in a variable:
 
    ```azurecli
-   INFRASTRUCTURE_SUBNET=$(az network vnet subnet show \
+   export INFRASTRUCTURE_SUBNET=$(az network vnet subnet show \
        --resource-group $RESOURCE_GROUP \
        --vnet-name $VNET_NAME \
        --name infrastructure-subnet \

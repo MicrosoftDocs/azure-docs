@@ -53,7 +53,7 @@ Microsoft’s verifiable credential solution uses decentralized credentials (DID
 
 ## What are Verifiable Credentials?
 
-We use IDs in our daily lives. We have drivers licenses that we use as evidence of our ability to operate a car. Universities issue diplomas that prove we attained a level of education. We use passports to prove who we are to authorities as we arrive to other countries. The data model describes how we could handle these types of scenarios when working over the internet but in a secure manner that respects users' privacy. You can get additional information in The [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).
+We use IDs in our daily lives. We have drivers licenses that we use as evidence of our ability to operate a car. Universities issue diplomas that prove we attained a level of education. We use passports to prove who we are to authorities as we arrive to other countries/regions. The data model describes how we could handle these types of scenarios when working over the internet but in a secure manner that respects users' privacy. You can get additional information in The [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).
 
 In short, verifiable credentials are data objects consisting of claims made by the issuer attesting information about a subject. These claims are identified by schema and include the DID issuer and subject. The issuer's DID creates a digital signature as proof that they attest to this information.
 
@@ -70,11 +70,11 @@ To deliver on these promises, we need a technical foundation made up of seven ke
 IDs users create, own, and control independently of any organization or government. DIDs are globally unique identifiers linked to Decentralized Public Key Infrastructure (DPKI) metadata composed of JSON documents that contain public key material, authentication descriptors, and service endpoints.
 
 **2. Trust System**.
-In order to be able to resolve DID documents, DIDs are typically recorded on an underlying network of some kind that represents a trust system. Microsoft currently supports two trust systems, which are: 
+In order to be able to resolve DID documents, DIDs are typically recorded on an underlying network of some kind that represents a trust system. Microsoft currently supports two trust systems, which are:
 
-- ION (Identity Overlay Network) ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. We have open sourced an [npm package](https://www.npmjs.com/package/@decentralized-identity/ion-tools) to make working with the ION network easy to integrate into your apps and services. Libraries include creating a new DID, generating keys and anchoring your DID on the Bitcoin blockchain.
+- DID:Web is a permission based model that allows trust using a web domain’s existing reputation. DID:Web is in support status General Available.
 
-- DID:Web is a permission based model that allows trust using a web domain’s existing reputation.
+- ION (Identity Overlay Network) ION is a Layer 2 open, permissionless network based on the purely deterministic Sidetree protocol, which requires no special tokens, trusted validators, or other consensus mechanisms; the linear progression of Bitcoin's time chain is all that's required for its operation. DID:ION is in preview.
 
 **3. DID User Agent/Wallet: Microsoft Authenticator App**.
 Enables real people to use decentralized identities and Verifiable Credentials. Authenticator creates DIDs, facilitates issuance and presentation requests for verifiable credentials and manages the backup of your DID's seed through an encrypted wallet file.
@@ -82,7 +82,7 @@ Enables real people to use decentralized identities and Verifiable Credentials. 
 **4. Microsoft Resolver**.
 An API that looks up and resolves DIDs using the ```did:web``` or the ```did:ion``` methods and returns the DID Document Object (DDO). The DDO includes DPKI metadata associated with the DID such as public keys and service endpoints. 
 
-**5. Entra Verified ID Service**.
+**5. Microsoft Entra Verified ID Service**.
 An issuance and verification service in Azure and a REST API for [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/) that are signed with the ```did:web``` or the ```did:ion``` method. They enable identity owners to generate, present, and verify claims. This forms the basis of trust between users of the systems.
 
 ## A sample scenario
@@ -126,7 +126,7 @@ The user is the person or entity that is requesting a VC. For example, Alice is 
 The verifier is a company or entity who needs to verify claims from one or more issuers they trust. For example, Proseware trusts Woodgrove, Inc. does an adequate job of verifying their employees’ identity and issuing authentic and valid VCs. When Alice tries to order the equipment she needs for her job, Proseware will use open standards such as SIOP and Presentation Exchange to request credentials from the User proving they are an employee of Woodgrove, Inc. For example, Proseware might provide Alice a link to a website with a QR code she scans with her phone camera. This initiates the request for a specific VC, which Authenticator will analyze and give Alice the ability to approve the request to prove her employment to Proseware. Proseware can use the verifiable credentials service API or SDK, to verify the authenticity of the verifiable presentation. Based on the information provided by Alice they give Alice the discount. If other companies and organizations know that Woodgrove, Inc. issues VCs to their employees, they can also create a verifier solution and use the Woodgrove, Inc. verifiable credential to provide special offers reserved for Woodgrove, Inc. employees.
 
 > [!NOTE]
-> The verifier can use open standards to perform the presentation and verification, or simply [configure their own Azure AD tenant](verifiable-credentials-configure-tenant.md) to let the Azure AD Verifiable Credentials service perform most of the work.
+> The verifier can use open standards to perform the presentation and verification, or simply [configure their own Microsoft Entra tenant](verifiable-credentials-configure-tenant.md) to let the Microsoft Entra Verified ID service perform most of the work.
 
 ## Next steps
 

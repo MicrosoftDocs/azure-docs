@@ -1,0 +1,77 @@
+items:
+- name: Content Safety Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Content Safety overview
+    href: overview.md
+  - name: Language support
+    href: language-support.md
+  - name: Pricing
+    href: https://aka.ms/content-safety-pricing
+    expanded: true
+  - name: What's new
+    href: whats-new.md
+  - name: AI Content Safety FAQ
+    href: faq.yml
+- name: Quickstarts
+  items:
+  - name: Content Safety Studio
+    href: studio-quickstart.md
+  - name: Text moderation
+    href: quickstart-text.md
+  - name: Image moderation
+    href: quickstart-image.md
+- name: Samples 
+  items: 
+  - name: Content Safety Python samples
+    href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety/samples
+  - name: Content Safety C# samples
+    href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety/Azure.AI.ContentSafety/samples
+- name: Responsible use of AI
+  items:
+  - name: Transparency note
+    href: /legal/cognitive-services/content-safety/transparency-note?context=/azure/ai-services/content-safety/context/context
+  - name: Data, privacy, and security
+    href: /legal/cognitive-services/content-safety/data-privacy?context=/azure/ai-services/content-safety/context/context
+- name: How-to guides
+  items:
+  - name: Use a blocklist
+    href: how-to/use-blocklist.md
+  - name: Encryption of data at rest
+    href: how-to/encrypt-data-at-rest.md
+  - name: Enterprise readiness
+    items:
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/ai-services/content-safety/context/context
+- name: Concepts
+  items:
+  - name: Harm categories
+    href: concepts/harm-categories.md
+- name: Reference
+  items:
+  - name: Content Safety REST API
+    href: https://aka.ms/content-safety-api
+  - name: Content Safety Python SDK
+    href: https://aka.ms/content-safety-python-sdk
+  - name: Content Safety C# SDK
+    href: https://aka.ms/content-safety-csharp-sdk
+  - name: Response codes
+    href: concepts/response-codes.md
+- name: Resources
+  items:
+  - name: Enterprise readiness
+    items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
+    href: ../cognitive-services-support-options.md?context=/azure/ai-services/content-safety/context/context
+  - name: Azure Government and global Azure
+    href: ../../azure-government/compare-azure-government-global-azure.md
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

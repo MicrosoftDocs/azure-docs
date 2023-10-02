@@ -3,12 +3,12 @@ title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 01/10/2023
+ms.date: 07/07/2023
 ---
 
 # Data types in Bicep
 
-This article describes the data types supported in [Bicep](./overview.md). [User-defined data types](./user-defined-data-types.md) are currently in preview. 
+This article describes the data types supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
 
 ## Supported types
 
@@ -231,7 +231,9 @@ In Bicep, multi-line strings are defined between three single quote characters (
 
 > [!NOTE]
 > Because the Bicep parser reads all characters as is, depending on the line endings of your Bicep file, newlines can be interpreted as either `\r\n` or `\n`.
-> Interpolation is not currently supported in multi-line strings.
+>
+> Interpolation is not currently supported in multi-line strings. Due to this limitation, you may need to use the [`concat`](./bicep-functions-string.md#concat) function instead of use [interpolation](#strings).
+>
 > Multi-line strings containing `'''` are not supported.
 
 ```bicep
@@ -262,7 +264,7 @@ comments // are included
 
 // evaluates to "interpolation\nis ${blocked}"
 // note ${blocked} is part of the string, and is not evaluated as an expression
-myVar6 = '''interpolation
+var myVar6 = '''interpolation
 is ${blocked}'''
 ```
 

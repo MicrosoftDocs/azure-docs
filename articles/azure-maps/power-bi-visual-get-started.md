@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article discusses how to use Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/29/2021
+ms.date: 09/29/2023
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -64,24 +64,19 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields are provided." lightbox="media/power-bi-visual/bubble-layer.png":::
 
-2. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **AdminDistrict** column (also known as state or province).  
+1. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **City** column.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored bubbles on the map after legend field is provided." lightbox="media/power-bi-visual/bubble-layer-with-legend-color.png":::
 
-<!---------------------------------------------------------------
-    > [!NOTE]
-    > The built-in legend control for Power BI does not currently appear in this preview.
---------------------------------------------------------------->
-
-3. To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Sales** column.  
+1. To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Avg Weekly Sales** column.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored and scaled bubbles on the map that demonstrate the size field." lightbox="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png":::
 
-4. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as shown previously, but with the bubble layers fill transparency option set to 50% and the high-contrast outline option enabled.  
+1. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as shown previously, but with the bubble layers fill transparency option set to 25%, smaller radius, and the black border.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map with a custom style." lightbox="media/power-bi-visual/bubble-layer-styled.png":::
 
-5. You can also show or hide labels in the **Format** pane. The following two images show maps with the **Show labels** setting turned on and off:  
+1. You can also show or hide labels in the **Format** pane. The following two images show maps with the **Show labels** setting turned on and off:  
 
     :::image type="content" source="media/power-bi-visual/show-labels-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the show labels setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/show-labels-on.png":::
 
@@ -93,7 +88,7 @@ The following data buckets are available in the **Fields** pane of the Azure Map
 
 | Field     | Description  |
 |-----------|--------------|
-| Location  | Used to enter easily understandable geographical data such as country, state, and city.  |
+| Location  | Used to enter easily understandable geographical data such as country/region, state, and city.  |
 | Latitude  | The field used to specify the latitude value of the data points. Latitude values should be between -90 and 90 in decimal degrees format.  |
 | Longitude | The field used to specify the longitude value of the data points. Longitude values should be between -180 and 180 in decimal degrees format.  |
 | Legend    | The field used to categorize the data and assign a unique color for data points in each category. When this bucket is filled, a **Data colors** section appears in the **Format** pane that allows adjustments to the colors. |
@@ -210,7 +205,6 @@ Customize the visual:
 [road shaded relief]: supported-map-styles.md#road_shaded_relief
 [satellite]: supported-map-styles.md#satellite
 [satellite road labels]: supported-map-styles.md#satellite_road_labels
-
 
 [Manage the Azure Maps Power BI visual within your organization]: power-bi-visual-manage-access.md
 [Microsoft Azure Legal Information]: https://azure.microsoft.com/support/legal/

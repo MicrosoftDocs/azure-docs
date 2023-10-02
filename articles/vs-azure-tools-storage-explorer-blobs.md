@@ -5,7 +5,7 @@ services: storage
 author: cawaMS
 manager: paulyuk
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
-ms.service: storage
+ms.service: azure-storage
 ms.topic: article
 ms.workload: na
 ms.date: 05/21/2019
@@ -221,6 +221,15 @@ The following steps illustrate how to manage the blobs (and virtual directories)
      1. Select the blob you wish to delete.
      2. On the main pane's toolbar, select **Delete**.
      3. Select **Yes** to the confirmation dialog.
+   
+   * **Delete a blob along with snapshots**
+   
+     1. Select the blob you wish to delete.
+     2. On the main pane's toolbar, select **Delete**.
+     3. Select **Yes** to the confirmation dialog.
+     4. Under Activities the deletion of the blob will be skipped now click on retry.
+     5. Retry Azcopy window will open and from Snapshot select Delete blobs with snapshots option from dropdown then 
+        select Retry selected.
 
 ## Next steps
 

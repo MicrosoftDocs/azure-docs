@@ -1,6 +1,6 @@
 ---
-title: Azure CDN from Verizon Premium rules engine match conditions
-description: Reference documentation for Azure Content Delivery Network from Verizon Premium rules engine match conditions.
+title: Azure CDN from Edgio Premium rules engine match conditions
+description: Reference documentation for Azure Content Delivery Network from Edgio Premium rules engine match conditions.
 services: cdn
 author: duongau
 manager: kumudd
@@ -11,9 +11,9 @@ ms.author: duau
 
 ---
 
-# Azure CDN from Verizon Premium rules engine match conditions
+# Azure CDN from Edgio Premium rules engine match conditions
 
-This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Verizon Premium [rules engine](cdn-verizon-premium-rules-engine.md).
+This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Edgio Premium [rules engine](cdn-verizon-premium-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features is performed.
 
@@ -79,7 +79,7 @@ These match conditions are designed to identify requests based on the requester'
 | [AS Number](https://docs.vdms.com/cdn/Content/HRE/M/AS-Number.htm) | Identifies requests that originate from a particular network. |
 | City Name | Identifies requests by whether they originate from a city whose name matches a: <br> **-** Specific value ([City Name Literal](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Literal.htm)) <br> **-** Regular expression ([City Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Regex.htm)) |
 | [Continent](https://docs.vdms.com/cdn/Content/HRE/M/Continent.htm) | Identifies requests that originate from the specified continents. |
-| [Country](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifies requests that originate from the specified countries. |
+| [Country](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifies requests that originate from the specified countries/regions. |
 | [DMA Code](https://docs.vdms.com/cdn/Content/HRE/M/DMA-Code.htm) | Identifies requests that originate from the specified metros (Designated Market Areas). |
 | [Latitude](https://docs.vdms.com/cdn/Content/HRE/M/Latitude.htm) | Identifies requests that originate from the specified latitudes. |
 | [Longitude](https://docs.vdms.com/cdn/Content/HRE/M/Longitude.htm) | Identifies requests that originate from the specified longitudes. |
@@ -133,7 +133,7 @@ These match conditions are designed to identify requests based on their properti
 
 **[Back to Top](#top)**
 
-For the most recent match conditions, see the [Verizon Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Conditio).
+For the most recent match conditions, see the [Edgio Rules Engine documentation](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Conditio).
 
 ## Next steps
 

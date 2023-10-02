@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Deploy an application to Azure Spring Apps and connect it to Azure Database for MySQL Flexible Server using Service Connector'
 description: Create a Spring Boot application connected to Azure Database for MySQL Flexible Server with Service Connector.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 11/02/2022
-ms.custom: devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
 ms.devlang: azurecli
 ---
 

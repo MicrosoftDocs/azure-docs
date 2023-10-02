@@ -141,7 +141,7 @@ items:
         - name: Azure Active Directory
           href: ./sql/active-directory-authentication.md
           displayName: authentication
-        - name: Multi-factor authentication
+        - name: Multifactor authentication
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
@@ -646,7 +646,7 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
       - name: Streaming ingestion
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
-      - name: Event Hub
+      - name: Event Hubs
         items:
           - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
@@ -734,11 +734,11 @@ items:
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.3 runtime (GA)
           href: ./spark/apache-spark-33-runtime.md
-        - name: Azure Synapse Apache Spark 3.2 runtime (GA)
+        - name: Azure Synapse Apache Spark 3.2 runtime (EOLA)
           href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime (EOLA)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (EOLA)
+        - name: Azure Synapse Apache Spark 2.4 runtime (unsupported)
           href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
@@ -1494,7 +1494,7 @@ items:
       - name: Azure Machine Learning
         displayName: linked service
         href: machine-learning/quickstart-integrate-azure-machine-learning.md
-      - name: Cognitive Services
+      - name: Azure AI services
         displayName: linked service, configure
         href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
   - name: Concepts
@@ -1541,31 +1541,34 @@ items:
       - name: PREDICT score in Synapse spark using model registered in AML or ADLS
         displayName: predict score, Synapse spark, model registered in AML or ADLS
         href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
-      - name: With Cognitive Services
+      - name: With Azure AI services
         items:
         - name: Overview
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: machine-learning/overview-cognitive-services.md
+        - name: Setup environment
+          displayName: cognitive services, ai services, score model
+          href: ./machine-learning/setup-environment-cognitive-services.md
         - name: Sentiment analysis wizard
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Anomaly detection wizard
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Text Analytics with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
         - name: Computer Vision with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md        
-        - name: Form Recognizer with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+        - name: Document Intelligence with Apache Spark (SynapseML)
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
         - name: Translator with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-translator-use-mmlspark.md
         - name: With Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
 - name: Data Catalog and Governance
   items:

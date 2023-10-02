@@ -74,7 +74,7 @@ To allow other people to manage reservations, you have two options:
 
 If you're a billing administrator, use following steps to view and manage all reservations and reservation transactions.
 
-1. Sign into the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 2. In the left menu, select **Products + services** > **Reservations**.
@@ -84,6 +84,10 @@ If you're a billing administrator, use following steps to view and manage all re
 ## Change Billing Subscription for an Azure Reservation
 
 We don’t allow changing Billing subscription after a reservation is purchased. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+
+## Change billing frequency for an Azure Reservation
+
+We don’t allow changing billing frequency after a reservation is purchased. If you want to change the billing frequency, use the exchange process to set the right billing frequency for the reservation or select a different billing frequency when setting up a renewal for an already purchased reservation.
 
 ## Split a single reservation into two reservations
 
@@ -148,7 +152,7 @@ Azure reservation savings only result from sustained resource use. When you make
 
 One way of viewing reservation usage is in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select  **All services** > [**Reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and note the **Utilization (%)** for a reservation.  
   ![Image showing the list of reservations](./media/manage-reserved-vm-instance/reservation-list.png)
 3. Select a reservation.

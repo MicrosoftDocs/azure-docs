@@ -59,10 +59,7 @@ As an Internet Exchange Provider, you can create an exchange peering request by 
 ### <a name=get></a>Verify Exchange peering
 [!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
 
-## Additional resources
-
-For more information, see [Internet peering FAQs](faqs.md).
-
 ## Next steps
 
-* [Create or modify an Exchange peering by using the portal](howto-exchange-portal.md)
+- [Create or modify an Exchange peering by using the portal](howto-exchange-portal.md).
+- [Internet peering frequently asked questions (FAQ)](faqs.md).

@@ -59,7 +59,7 @@ It should now appear like this:
 
 ### Monitor and validate
 
-1. Log in to https://portal.azure.com and go to your subscription.
+1. Log in to the [Azure portal](https://portal.azure.com) and go to your subscription.
 1. Select the Public IP address you tested the attack on.
 1. Under **Monitoring**, select **Metrics**.
 1. For **Metric**, select _Under DDoS attack or not_.

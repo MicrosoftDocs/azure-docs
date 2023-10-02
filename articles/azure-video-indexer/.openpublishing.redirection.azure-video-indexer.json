@@ -1,6 +1,6 @@
 {
     "redirections": [
-                {
+        {
             "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-for-media-docs/add-contributor-role-on-the-media-service.md",
             "redirect_url": "/azure/azure-video-indexer/add-contributor-role-on-the-media-service",
             "redirect_document_id": false
@@ -112,7 +112,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-for-media-docs/faq.yml",
-            "redirect_url": "/azure/azure-video-indexer/faq.yml",
+            "redirect_url": "/azure/azure-video-indexer/faq",
             "redirect_document_id": false
         },
         {
@@ -269,6 +269,11 @@
             "source_path_from_root": "/articles/azure-video-indexer/animated-characters-recognition.md",
             "redirect_url": "/azure/azure-video-indexer/customize-content-models-overview",
             "redirect_document_id": false
-        }        
+        },
+        {
+            "source_path_from_root": "/articles/azure-video-indexer/compare-video-indexer-with-media-services-presets.md",
+            "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
+            "redirect_document_id": false
+        }
     ]
 }

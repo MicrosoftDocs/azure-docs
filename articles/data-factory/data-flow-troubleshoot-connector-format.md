@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: ignite-2022
 ms.topic: troubleshooting 
-ms.date: 08/04/2022
+ms.date: 07/17/2023
 ---
 
 
@@ -651,25 +651,11 @@ If you still want to transfer files such as CSV and Excel files with different s
     - **Option-1**: You need to manually merge the schema of different files to get the full schema. For example, file_1 has columns `c_1`, `c_2`, `c_3` while file_2 has columns `c_3`, `c_4`, ... `c_10`, so the merged and full schema is `c_1`, `c_2`, ... `c_10`. Then make other files also have the same schema even though it does not have data, for example, file_x with sheet "SHEET_1" only has columns `c_1`, `c_2`, `c_3`, `c_4`, please add columns `c_5`, `c_6`, ... `c_10` in the sheet too, and then it can work.
     - **Option-2**: Use **range (for example, A1:G100) + firstRowAsHeader=false**, and then it can load data from all Excel files even though the column name and count is different.
 
-## Delta format
 
-### The sink does not support the schema drift with upsert or update
 
-#### Symptoms
-You may face the issue that the delta sink in mapping data flows does not support schema drift with upsert/update. The problem is that the schema drift does not work when the delta is the target in a mapping data flow and user configure an update/upsert. 
 
-If a column is added to the source after an "initial" load to the delta, the subsequent jobs just fail with an error that it cannot find the new column, and this happens when you upsert/update with the alter row. It seems to work for inserts only.
 
-#### Error message
-`DF-SYS-01 at Sink 'SnkDeltaLake': org.apache.spark.sql.AnalysisException: cannot resolve target.BICC_RV in UPDATE clause given columns target. `
 
-#### Cause
-This is an issue for delta format because of the limitation of io delta library used in the data flow runtime. This issue is still in fixing.
-
-#### Recommendation
-To solve this problem, you need to update the schema firstly and then write the data. You can follow the steps below: <br/>
-1. Create one data flow that includes an insert-only delta sink with the merge schema option to update the schema. 
-1. After Step 1, use delete/upsert/update to modify the target sink without changing the schema. <br/>
 
 
 

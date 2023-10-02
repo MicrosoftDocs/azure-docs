@@ -2,11 +2,10 @@
 title: Connect an Azure Elastic SAN Preview volume to an AKS cluster.
 description: Learn how to connect to an Azure Elastic SAN Preview volume an Azure Kubernetes Service cluster.
 author: roygara
-ms.service: storage
+ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 04/28/2023
+ms.date: 07/11/2023
 ms.author: rogarana
-ms.subservice: elastic-san
 ---
 
 # Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster
@@ -29,9 +28,11 @@ The iSCSI CSI driver for Kubernetes is [licensed under the Apache 2.0 license](h
 
 ## Prerequisites
 
-- Have an [Azure Elastic SAN](elastic-san-create.md) with volumes
 - Use either the [latest Azure CLI](/cli/azure/install-azure-cli) or install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell)
 - Meet the [compatibility requirements](https://github.com/kubernetes-csi/csi-driver-iscsi/blob/master/README.md#container-images--kubernetes-compatibility) for the iSCSI CSI driver
+- [Deploy an Elastic SAN Preview](elastic-san-create.md)
+- [Configure a virtual network endpoint](elastic-san-networking.md#configure-a-virtual-network-endpoint)
+- [Configure virtual network rules](elastic-san-networking.md#configure-virtual-network-rules)
 
 ## Limitations
 
@@ -51,9 +52,6 @@ After deployment, check the pods status to verify that the driver installed.
 ```bash
 kubectl -n kube-system get pod -o wide -l app=csi-iscsi-node
 ```
-### Configure Elastic SAN Volume Group
-
-To connect an Elastic SAN volume to an AKS cluster, you need to configure Elastic SAN Volume Group to allow access from AKS node pool subnets, follow [Configure Elastic SAN networking Preview](elastic-san-networking.md)
 
 ### Get volume information
 

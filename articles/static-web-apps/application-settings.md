@@ -2,12 +2,12 @@
 title: Configure application settings for Azure Static Web Apps
 description: Learn how to configure application settings for Azure Static Web Apps.
 services: static-web-apps
-author: burkeholland
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 01/10/2023
-ms.author: buhollan
-ms.custom: devx-track-js, engagement-fy23
+ms.author: cshoe
+ms.custom: engagement-fy23
 ---
 
 # Configure application settings for Azure Static Web Apps
@@ -115,7 +115,7 @@ In a terminal or command line, execute the following command to delete a setting
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Define configuration for Azure Static Web Apps in the _staticwebapp.config.json_ file](configuration.md)
+> [Define configuration for Azure Static Web Apps in the  _staticwebapp.config.json_  file](configuration.md)
 
 ## Related articles
 

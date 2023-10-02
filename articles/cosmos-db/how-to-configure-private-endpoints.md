@@ -275,9 +275,46 @@ You can set up Private Link by creating a private endpoint in a virtual network 
 
 Use the following code to create a Resource Manager template named *PrivateEndpoint_template.json*. This template creates a private endpoint for an existing Azure Cosmos DB vAPI for NoSQL account in an existing virtual network.
 
+### [Bicep](#tab/arm-bicep)
+
+```bicep
+@description('Location for all resources.')
+param location string = resourceGroup().location
+param privateEndpointName string
+param resourceId string
+param groupId string
+param subnetId string
+
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2019-04-01' = {
+  name: privateEndpointName
+  location: location
+  properties: {
+    subnet: {
+      id: subnetId
+    }
+    privateLinkServiceConnections: [
+      {
+        name: 'MyConnection'
+        properties: {
+          privateLinkServiceId: resourceId
+          groupIds: [
+            groupId
+          ]
+          requestMessage: ''
+        }
+      }
+    ]
+  }
+}
+
+output privateEndpointNetworkInterface string = privateEndpoint.properties.networkInterfaces[0].id
+```
+
+### [JSON](#tab/arm-json)
+
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -332,13 +369,17 @@ Use the following code to create a Resource Manager template named *PrivateEndpo
 }
 ```
 
+---
+
 **Define the parameters file for the template**
 
 Create a parameters file for the template, and name it *PrivateEndpoint_parameters.json*. Add the following code to the parameters file:
 
+### [Bicep / JSON](#tab/arm-bicep+arm-json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "privateEndpointName": {
@@ -356,6 +397,8 @@ Create a parameters file for the template, and name it *PrivateEndpoint_paramete
     }
 }
 ```
+
+---
 
 **Deploy the template by using a PowerShell script**
 
@@ -664,6 +707,9 @@ By default, adding a private endpoint to an existing account results in a short 
 1. Wait for 10 minutes to ensure that the configuration update is applied.
 1. Configure your new private endpoint.
 1. Remove the firewall rules set in step 1.
+
+> [!NOTE]
+> If you have running applications using the Azure Cosmos DB SDKs, there might be transient timeouts during the configuration update. Make sure your application is designed to be [resilient to transient connectivity failures](./nosql/conceptual-resilient-sdk-applications.md) and have retry logic in place in case it's needed.
 
 ## Port range when using direct mode
 

@@ -2,13 +2,12 @@
 title: Use GitHub Actions to deploy a static site to Azure Storage
 description: Azure Storage static website hosting with GitHub Actions
 author: juliakm
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
 ms.date: 01/24/2022
-ms.subservice: blobs
-ms.custom: devx-track-javascript, github-actions-azure
+ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 ---
 
 # Use GitHub Actions workflow to deploy your static website in Azure Storage

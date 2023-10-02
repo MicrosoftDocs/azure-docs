@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: "Administrative units troubleshooting and FAQ"
-  description: Investigate administrative units to grant permissions with restricted scope in Azure Active Directory.
+  description: Investigate administrative units to grant permissions with restricted scope in Microsoft Entra ID.
   services: active-directory
   documentationcenter: ''
   author: rolyon
@@ -10,14 +10,14 @@ metadata:
   ms.topic: faq
   ms.subservice: roles
   ms.workload: identity
-  ms.date: 06/30/2022
+  ms.date: 06/09/2023
   ms.author: rolyon
   ms.reviewer: anandy
   ms.custom: oldportal;it-pro;
   ms.collection: M365-identity-device-management
-title: "Azure AD administrative units: Troubleshooting and FAQ"
+title: "Microsoft Entra administrative units: Troubleshooting and FAQ"
 summary: |
-  For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
+  For more granular administrative control in Microsoft Entra ID, you can assign users to a Microsoft Entra role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
   
 sections:
   - name: General
@@ -25,7 +25,7 @@ sections:
       - question: |
           Why am I unable to create an administrative unit?
         answer: |
-          Only a *Global Administrator* or *Privileged Role Administrator* can create an administrative unit in Azure AD. Check to ensure that the user who's trying to create the administrative unit is assigned either the *Global Administrator* or *Privileged Role Administrator* role.
+          Only a *Global Administrator* or *Privileged Role Administrator* can create an administrative unit in Microsoft Entra ID. Check to ensure that the user who's trying to create the administrative unit is assigned either the *Global Administrator* or *Privileged Role Administrator* role.
 
       - question: |
           I added a group to an administrative unit. Why are the group members still not showing up there?
@@ -47,14 +47,14 @@ sections:
       - question: |
           Why are administrative units necessary? Couldn't we have used security groups as the way to define a scope?
         answer: |
-          Security groups have an existing purpose and authorization model. A *User Administrator*, for example, can manage membership of all security groups in the Azure AD organization. The role might use groups to manage access to applications such as Salesforce. A *User Administrator* should not be able to manage the delegation model itself, which would be the result if security groups were extended to support "resource grouping" scenarios. 
+          Security groups have an existing purpose and authorization model. A *User Administrator*, for example, can manage membership of all security groups in the Microsoft Entra organization. The role might use groups to manage access to applications such as Salesforce. A *User Administrator* should not be able to manage the delegation model itself, which would be the result if security groups were extended to support "resource grouping" scenarios. 
           
           Administrative units, such as organizational units in Windows Server Active Directory, are intended to provide a way to scope administration of a wide range of directory objects. Security groups themselves can be members of resource scopes. Using security groups to define the set of security groups that an administrator can manage could become confusing.
           
       - question: |
           What does it mean to add a group to an administrative unit?
         answer: |
-          Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. For more information, see [Administrative units in Azure Active Directory](administrative-units.md#groups).
+          Adding a group to an administrative unit brings the group itself into the management scope of the administrative unit, but **not** the members of the group. For more information, see [Administrative units in Microsoft Entra ID](administrative-units.md#groups).
 
       - question: |
           Can a resource (user, group, or device) be a member of more than one administrative unit?
@@ -83,10 +83,10 @@ sections:
       - question: |
           I just saved a dynamic membership rule for an administrative unit, but I don't see any users populated yet.
         answer: |
-          The initial update of an administrative unit can take a few minutes depending on your tenant size and the current Azure AD load.
+          The initial update of an administrative unit can take a few minutes depending on your tenant size and the current Microsoft Entra ID load.
 
       - question: |
-          After creating a dynamic membership rule in the Azure portal using the rule builder and attempting to save, I get the error "Failed to update administrative unit properties".
+          After creating a dynamic membership rule in the Microsoft Entra admin center using the rule builder and attempting to save, I get the error "Failed to update administrative unit properties".
         answer: |
           This usually means there is a problem with the supplied property values. Confirm that the property values you have supplied have a proper value type (Boolean, string, or string collection). For more information, see the allowed values for each operator for [users](../enterprise-users/groups-dynamic-membership.md#supported-properties) or [devices](../enterprise-users/groups-dynamic-membership.md#rules-for-devices).
           
@@ -116,6 +116,21 @@ sections:
           Can I create administrative units with dynamic membership rules in the Microsoft 365 admin center?
         answer: |
           No.
+
+  - name: Restricted management administrative units (Preview)
+    questions:
+      - question: |
+          I am the owner of a group that is a member of a restricted management administrative unit. How are my permissions affected?
+        answer: |
+          As an owner of a protected group, you won't be able to manage it just based on ownership. Managing protected resources currently require a role to be assigned at the restricted management administrative unit scope of the protected resource.
+      - question: |
+          How are my Microsoft 365 resources affected by using restricted management administrative units?
+        answer: |
+          Currently, securing Microsoft Entra resources in restricted management administrative units is supported. Resources managed outside of Microsoft Entra ID aren't supported.
+      - question: |
+          I'm unable to modify a member of a restricted management administrative unit.
+        answer: |
+          The user, group, or device is a member of restricted management administrative unit. Management rights are limited to administrators scoped to that administrative unit.
 
 additionalContent: |
 

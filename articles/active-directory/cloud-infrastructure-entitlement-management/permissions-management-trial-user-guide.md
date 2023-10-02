@@ -1,6 +1,6 @@
 ---
-title: Trial User Guide - Microsoft Entra Permissions Management
-description: How to get started with your Entra Permissions free trial
+title: Trial User Guide - Microsoft Entra Permissions Management - OBSOLETE
+description: How to get started with your Microsoft Entra Permissions Management free trial
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/01/2022
+ms.date: 06/16/2023
 ms.author: jfields
 ---
 
@@ -35,19 +35,19 @@ Permissions Management helps your organization tackle cloud permissions by enabl
 ## Step 1: Set-up Permissions Management
 
 Before you enable Permissions Management in your organization:
--  You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
+-  You must have a Microsoft Entra tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
 -  You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
 
 If the above points are met, continue with the following steps:
 
-1.  [Enabling Permissions Management on your Azure AD tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
+1.  [Enabling Permissions Management on your Microsoft Entra tenant](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#how-to-enable-permissions-management-on-your-azure-ad-tenant)
 2.  Use the **Data Collectors** dashboard in Permissions Management to configure data collection settings for your authorization system. [Configure data collection settings](../cloud-infrastructure-entitlement-management/onboard-enable-tenant.md#configure-data-collection-settings).
 
     Note that for each cloud platform, you will have 3 options for onboarding:
 
     **Option 1 (Recommended): Automatically manage** – this option allows subscriptions to be automatically detected and monitored without additional configuration.
 
-    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 10 per collector).
+    **Option 2**: **Enter authorization systems** - you have the ability to specify only certain subscriptions to manage and monitor with MEPM (up to 100 per collector).
 
     **Option 3**: **Select authorization systems** - this option detects all subscriptions that are accessible by the Cloud Infrastructure Entitlement Management application.
 
@@ -195,7 +195,7 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
     ![Diagram, Alert for monitoring any action on Azure resources.](media/permissions-management-trial-user-guide/custom-alerts-3.png)
 
--   Use of break glass accounts like root in AWS, Global Administrator in Azure AD accessing subscriptions, etc.
+-   Use of break glass accounts like root in AWS, Global Administrator in Microsoft Entra ID accessing subscriptions, etc.
 
     Example: BreakGlass users should be used for emergency access only.
 

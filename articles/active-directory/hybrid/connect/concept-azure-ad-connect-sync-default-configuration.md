@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Understanding the default configuration'
-description: This article describes the default configuration in Azure AD Connect sync.
+title: 'Microsoft Entra Connect Sync: Understanding the default configuration'
+description: This article describes the default configuration in Microsoft Entra Connect Sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,12 +18,14 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure AD Connect sync: Understanding the default configuration
-This article explains the out-of-box configuration rules. It documents the rules and how these rules impact the configuration. It also walks you through the default configuration of Azure AD Connect sync. The goal is that the reader understands how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Azure AD Connect sync using the installation wizard.
+# Microsoft Entra Connect Sync: Understanding the default configuration
+This article explains the out-of-box configuration rules. It documents the rules and how these rules impact the configuration. It also walks you through the default configuration of Microsoft Entra Connect Sync. The goal is that the reader understands how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Microsoft Entra Connect sync using the installation wizard.
 
 To understand the details of the configuration model, read [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
-## Out-of-box rules from on-premises to Azure AD
+<a name='out-of-box-rules-from-on-premises-to-azure-ad'></a>
+
+## Out-of-box rules from on-premises to Microsoft Entra ID
 The following expressions can be found in the out-of-box configuration.
 
 ### User out-of-box rules
@@ -32,14 +34,14 @@ These rules also apply to the iNetOrgPerson object type.
 A user object must satisfy the following to be synchronized:
 
 * Must have a sourceAnchor.
-* After the object has been created in Azure AD, then sourceAnchor cannot change. If the value is changed on-premises, the object stops synchronizing until the sourceAnchor is changed back to its previous value.
+* After the object has been created in Microsoft Entra ID, then sourceAnchor cannot change. If the value is changed on-premises, the object stops synchronizing until the sourceAnchor is changed back to its previous value.
 * Must have the accountEnabled (userAccountControl) attribute populated. With an on-premises Active Directory, this attribute is always present and populated.
 
-The following user objects are **not** synchronized to Azure AD:
+The following user objects are **not** synchronized to Microsoft Entra ID:
 
 * `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrator account, are not synchronized.
 * `IsPresent([sAMAccountName]) = False`. Ensure user objects with no sAMAccountName attribute are not synchronized. This case would only practically happen in a domain upgraded from NT4.
-* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Do not synchronize the service account used by Azure AD Connect sync and its earlier versions.
+* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Do not synchronize the service account used by Microsoft Entra Connect Sync and its earlier versions.
 * Do not synchronize Exchange accounts that would not work in Exchange Online.
   * `[sAMAccountName] = "SUPPORT_388945a0"`
   * `Left([mailNickname], 14) = "SystemMailbox{"`
@@ -78,7 +80,7 @@ A contact object must satisfy the following to be synchronized:
     * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is there an entry with "SMTP:" and if there is, can an \@ be found in the string?
     * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is the mail attribute populated and if it is, can an \@ be found in the string?
 
-The following contact objects are **not** synchronized to Azure AD:
+The following contact objects are **not** synchronized to Microsoft Entra ID:
 
 * `IsPresent([isCriticalSystemObject])`. Ensure no contact objects marked as critical are synchronized. Shouldn't be any with a default configuration.
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
@@ -88,13 +90,13 @@ The following contact objects are **not** synchronized to Azure AD:
 ### Group out-of-box rules
 A group object must satisfy the following to be synchronized:
 
-* Must have less than 50,000 members. This count is the number of members in the on-premises group.
+* Must have less than 250,000 members. This count is the number of members in the on-premises group.
   * If it has more members before synchronization starts the first time, the group is not synchronized.
-  * If the number of members grow from when it was initially created, then when it reaches 50,000 members it stops synchronizing until the membership count is lower than 50,000 again.
-  * Note: The 50,000 membership count is also enforced by Azure AD. You are not able to synchronize groups with more members even if you modify or remove this rule.
+  * If the number of members grow from when it was initially created, then when it reaches 250,000 members it stops synchronizing until the membership count is lower than 250,000 again.
+  * Note: The 250,000 membership count is also enforced by Microsoft Entra ID. You are not able to synchronize groups with more members even if you modify or remove this rule.
 * If the group is a **Distribution Group**, then it must also be mail enabled. See [Contact out-of-box rules](#contact-out-of-box-rules) for this rule is enforced.
 
-The following group objects are **not** synchronized to Azure AD:
+The following group objects are **not** synchronized to Microsoft Entra ID:
 
 * `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrators group, are not synchronized.
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Legacy group used by DirSync.
@@ -102,7 +104,7 @@ The following group objects are **not** synchronized to Azure AD:
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
 
 ### ForeignSecurityPrincipal out-of-box rules
-FSPs are joined to "any" (\*) object in the metaverse. In reality, this join only happens for users and security groups. This configuration ensures that cross-forest memberships are resolved and represented correctly in Azure AD.
+FSPs are joined to "any" (\*) object in the metaverse. In reality, this join only happens for users and security groups. This configuration ensures that cross-forest memberships are resolved and represented correctly in Microsoft Entra ID.
 
 ### Computer out-of-box rules
 A computer object must satisfy the following to be synchronized:
@@ -110,7 +112,7 @@ A computer object must satisfy the following to be synchronized:
 * `userCertificate ISNOTNULL`. Only Windows 10 computers populate this attribute. All computer objects with a value in this attribute are synchronized.
 
 ## Understanding the out-of-box rules scenario
-In this example, we are using a deployment with one account forest (A), one resource forest (R), and one Azure AD directory.
+In this example, we are using a deployment with one account forest (A), one resource forest (R), and one Microsoft Entra directory.
 
 ![Picture with scenario description](./media/concept-azure-ad-connect-sync-default-configuration/scenario.png)
 
@@ -120,14 +122,14 @@ Our goal with the default configuration is:
 
 * Attributes related to sign-in are synchronized from the forest with the enabled account.
 * Attributes that can be found in the GAL (Global Address List) are synchronized from the forest with the mailbox. If no mailbox can be found, any other forest is used.
-* If a linked mailbox is found, the linked enabled account must be found for the object to be exported to Azure AD.
+* If a linked mailbox is found, the linked enabled account must be found for the object to be exported to Microsoft Entra ID.
 
 ### Synchronization Rule Editor
 The configuration can be viewed and changed with the tool Synchronization Rules Editor (SRE) and a shortcut to it can be found in the start menu.
 
 ![Synchronization Rules Editor icon](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
 
-The SRE is a resource kit tool and it is installed with Azure AD Connect sync. To be able to start it, you must be a member of the ADSyncAdmins group. When it starts, you see something like this:
+The SRE is a resource kit tool and it is installed with Microsoft Entra Connect Sync. To be able to start it, you must be a member of the ADSyncAdmins group. When it starts, you see something like this:
 
 ![Synchronization Rules Inbound](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
@@ -158,11 +160,11 @@ The Scoping Filter section is used to configure when a Synchronization Rule shou
 
 ![Screenshot that shows the "Scoping filter" section of the "Edit inbound synchronization rule" window.](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
-The scoping filter has Groups and Clauses that can be nested. All clauses inside a group must be satisfied for a Synchronization Rule to apply. When multiple groups are defined, then at least one group must be satisfied for the rule to apply. That is, a logical OR is evaluated between groups and a logical AND is evaluated inside a group. An example of this configuration can be found in the outbound Synchronization Rule **Out to AAD – Group Join**. There are several synchronization filter groups, for example one for security groups (`securityEnabled EQUAL True`) and one for distribution groups (`securityEnabled EQUAL False`).
+The scoping filter has Groups and Clauses that can be nested. All clauses inside a group must be satisfied for a Synchronization Rule to apply. When multiple groups are defined, then at least one group must be satisfied for the rule to apply. That is, a logical OR is evaluated between groups and a logical AND is evaluated inside a group. An example of this configuration can be found in the outbound Synchronization Rule **Out to Microsoft Entra ID – Group Join**. There are several synchronization filter groups, for example one for security groups (`securityEnabled EQUAL True`) and one for distribution groups (`securityEnabled EQUAL False`).
 
 ![Scoping tab in Sync rule editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
-This rule is used to define which Groups should be provisioned to Azure AD. Distribution Groups must be mail enabled to be synchronized with Azure AD, but for security groups an email is not required.
+This rule is used to define which Groups should be provisioned to Microsoft Entra ID. Distribution Groups must be mail enabled to be synchronized with Microsoft Entra ID, but for security groups an email is not required.
 
 #### Join rules
 The third section is used to configure how objects in the connector space relate to objects in the metaverse. The rule you have looked at earlier does not have any configuration for Join Rules, so instead you are going to look at **In from AD – User Join**.
@@ -173,7 +175,7 @@ The content of the join rule depends on the matching option selected in the inst
 
 The join rules are only evaluated once. When a connector space object and a metaverse object are joined, they remain joined as long as the scope of the Synchronization Rule is still satisfied.
 
-When evaluating Synchronization Rules, only one Synchronization Rule with join rules defined must be in scope. If multiple Synchronization Rules with join rules are found for one object, an error is thrown. For this reason, the best practice is to have only one Synchronization Rule with join defined when multiple Synchronization Rules are in scope for an object. In the out-of-box configuration for Azure AD Connect sync, these rules can be found by looking at the name and find those with the word **Join** at the end of the name. A Synchronization Rule without any join rules defined applies the attribute flows when another Synchronization Rule joined the objects together or provisioned a new object in the target.
+When evaluating Synchronization Rules, only one Synchronization Rule with join rules defined must be in scope. If multiple Synchronization Rules with join rules are found for one object, an error is thrown. For this reason, the best practice is to have only one Synchronization Rule with join defined when multiple Synchronization Rules are in scope for an object. In the out-of-box configuration for Microsoft Entra Connect Sync, these rules can be found by looking at the name and find those with the word **Join** at the end of the name. A Synchronization Rule without any join rules defined applies the attribute flows when another Synchronization Rule joined the objects together or provisioned a new object in the target.
 
 If you look at the picture above, you can see that the rule is trying to join **objectSID** with **msExchMasterAccountSid** (Exchange) and **msRTCSIP-OriginatorSid** (Lync), which is what we expect in an account-resource forest topology. You find the same rule on all forests. The assumption is that every forest could be either an account or resource forest. This configuration also works if you have accounts that live in a single forest and do not have to be joined.
 
@@ -207,7 +209,7 @@ NULL
 See [Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) for more information on the expression language for attribute flows.
 
 ### Precedence
-You have now looked at some individual Synchronization Rules, but the rules work together in the configuration. In some cases, an attribute value is contributed from multiple synchronization rules to the same target attribute. In this case, attribute precedence is used to determine which attribute wins. As an example, look at the attribute sourceAnchor. This attribute is an important attribute to be able to sign in to Azure AD. You can find an attribute flow for this attribute in two different Synchronization Rules, **In from AD – User AccountEnabled** and **In from AD – User Common**. Due to Synchronization Rule precedence, the sourceAnchor attribute is contributed from the forest with an enabled account first when there are several objects joined to the metaverse object. If there are no enabled accounts, then the sync engine uses the catch-all Synchronization Rule **In from AD – User Common**. This configuration ensures that even for accounts that are disabled, there is still a sourceAnchor.
+You have now looked at some individual Synchronization Rules, but the rules work together in the configuration. In some cases, an attribute value is contributed from multiple synchronization rules to the same target attribute. In this case, attribute precedence is used to determine which attribute wins. As an example, look at the attribute sourceAnchor. This attribute is an important attribute to be able to sign in to Microsoft Entra ID. You can find an attribute flow for this attribute in two different Synchronization Rules, **In from AD – User AccountEnabled** and **In from AD – User Common**. Due to Synchronization Rule precedence, the sourceAnchor attribute is contributed from the forest with an enabled account first when there are several objects joined to the metaverse object. If there are no enabled accounts, then the sync engine uses the catch-all Synchronization Rule **In from AD – User Common**. This configuration ensures that even for accounts that are disabled, there is still a sourceAnchor.
 
 ![Synchronization Rules Inbound](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
@@ -219,7 +221,7 @@ We now know enough about Synchronization Rules to be able to understand how the 
 | Name | Comment |
 |:--- |:--- |
 | In from AD – User Join |Rule for joining connector space objects with metaverse. |
-| In from AD – UserAccount Enabled |Attributes required for sign-in to Azure AD and Microsoft 365. We want these attributes from the enabled account. |
+| In from AD – UserAccount Enabled |Attributes required for sign-in to Microsoft Entra ID and Microsoft 365. We want these attributes from the enabled account. |
 | In from AD – User Common from Exchange |Attributes found in the Global Address List. We assume the data quality is best in the forest where we have found the user’s mailbox. |
 | In from AD – User Common |Attributes found in the Global Address List. In case we didn’t find a mailbox, any other joined object can contribute the attribute value. |
 | In from AD – User Exchange |Only exists if Exchange has been detected. It flows all infrastructure Exchange attributes. |
@@ -233,6 +235,5 @@ We now know enough about Synchronization Rules to be able to understand how the 
 
 **Overview topics**
 
-* [Azure AD Connect sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
-
+* [Microsoft Entra Connect Sync: Understand and customize synchronization](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

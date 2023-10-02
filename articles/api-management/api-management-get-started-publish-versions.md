@@ -4,7 +4,7 @@ description: Follow the steps of this tutorial to learn how to publish multiple 
 author: dlepow
 
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: danlep

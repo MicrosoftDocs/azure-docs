@@ -1,18 +1,18 @@
 ---
-title: Azure Video Indexer topics inference overview 
-titleSuffix: Azure Video Indexer 
-description: An introduction to Azure Video Indexer topics inference component responsibly.
-author: Juliako
-ms.author: juliako
-manager: femila
+title: Azure AI Video Indexer topics inference overview  
+description: An introduction to Azure AI Video Indexer topics inference component responsibly.
 ms.service: azure-video-indexer
 ms.date: 06/15/2022
 ms.topic: article
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
-# Topics inference  
+# Topics inference
 
-Topics inference is an Azure Video Indexer AI feature that automatically creates inferred insights derived from the transcribed audio, OCR content in visual text, and celebrities recognized in the video using the Video Indexer facial recognition model. The extracted Topics and categories (when available) are listed in the Insights tab. To jump to the topic in the media file, click a Topic -> Play Previous or Play Next. 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
+Topics inference is an Azure AI Video Indexer AI feature that automatically creates inferred insights derived from the transcribed audio, OCR content in visual text, and celebrities recognized in the video using the Video Indexer facial recognition model. The extracted Topics and categories (when available) are listed in the Insights tab. To jump to the topic in the media file, click a Topic -> Play Previous or Play Next. 
 
 The resulting insights are also generated in a categorized list in a JSON file which includes the topic name, timeframe and confidence score.  
 
@@ -78,7 +78,7 @@ To display the instances in a JSON file, do the following:
       },
     ```
     
-To download the JSON file via the API, use the [Azure Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
+To download the JSON file via the API, use the [Azure AI Video Indexer developer portal](https://api-portal.videoindexer.ai/). 
 
 For more information, see [about topics](https://azure.microsoft.com/blog/multi-modal-topic-inferencing-from-videos/).
 
@@ -108,7 +108,7 @@ Below are some considerations to keep in mind when using topics:
 - When uploading a file always use high quality audio and video content. At least 1 minute of spontaneous conversational speech is required to perform analysis. Audio effects are detected in non-speech segments only. The minimal duration of a non-speech section is 2 seconds. Voice commands and singing aren't supported. 
 - Typically, small people or objects under 200 pixels and people who are seated may not be detected. People wearing similar clothes or uniforms might be detected as being the same person and will be given the same ID number. People or objects that are obstructed may not be detected. Tracks of people with front and back poses may be split into different instances. 
 
-When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:  
+When used responsibly and carefully, Azure AI Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:  
 
 - Always respect an individual’s right to privacy, and only ingest videos for lawful and justifiable purposes.  
 - Don't purposely disclose inappropriate media showing young children or family members of celebrities or other content that may be detrimental or pose a threat to an individual’s personal freedom.  
@@ -134,7 +134,7 @@ When used responsibly and carefully, Azure Video Indexer is a valuable tool for 
 
 `visupport@microsoft.com`  
 
-## Azure Video Indexer insights
+## Azure AI Video Indexer insights
 
 - [Audio effects detection](audio-effects-detection.md)
 - [Face detection](face-detection.md)

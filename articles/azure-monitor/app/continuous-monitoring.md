@@ -3,7 +3,7 @@ title: Continuous monitoring of your Azure DevOps release pipeline | Microsoft D
 description: This article provides instructions to quickly set up continuous monitoring with Azure Pipelines and Application Insights.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.reviewer: vitalyg
+ms.reviewer: abinetabate
 ---
 
 # Add continuous monitoring to your release pipeline

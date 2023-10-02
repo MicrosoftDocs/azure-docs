@@ -5,15 +5,11 @@ services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,az
 documentationcenter: saponazure
 author: dennispadia
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/08/2021
+ms.date: 06/16/2023
 ms.author: depadia
 ---
 
@@ -52,9 +48,7 @@ In this section, we'll create two VMs with a Windows operating system (OS) image
    - In Azure, Application Gateway must be on a separate subnet. For more information, see [Application Gateway configuration overview](../../application-gateway/configuration-overview.md).
    - If you're using Azure NetApp Files for a file store instead of Azure Files, create a separate subnet for Azure NetApp Files. For more information, see [Guidelines for Azure NetApp Files network planning](../../azure-netapp-files/azure-netapp-files-network-topologies.md).
 
-1. Create an availability set:
-
-   - To achieve redundancy for each tier in a multi-instance deployment, place VMs for each tier in an availability set. Make sure you separate the availability sets for each tier based on your architecture.
+1. Select the suitable [availability options](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) depending on your preferred system configuration within an Azure region, whether it involves spanning across zones, residing within a single zone, or operating in a zone-less region.
 
 1. Create virtual machine 1 (azuswinboap1):
 
@@ -96,7 +90,7 @@ If you need to access the storage account from a different virtual network, you 
 
    1. For **Replication** label, choose a redundancy level. Select **Locally redundant storage (LRS)**.
 
-      For Premium FileStorage, LRS and ZRS are the only options available. Based on your deployment strategy (availability set or availability zone), choose the appropriate redundancy level. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).
+      For Premium FileStorage, ZRS and LRS are the only options available. Based on your VM deployment strategy (flexible scale set, availability zone or availability set), choose the appropriate redundancy level. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).
 
    1. Select **Next**.
 
@@ -224,13 +218,13 @@ Similarly, you can create the audit database. For example, enter **boaudit**.
 
 ### Download and install an ODBC driver
 
-SAP BOBI application servers require database client/drivers to access the CMS or audit database. A Microsoft ODBC driver is used to access CMS and audit databases running on SQL Database. This section provides instructions on how to download and set up an ODBC driver on Windows. 
+SAP BOBI application servers require database client/drivers to access the CMS or audit database. A Microsoft ODBC driver is used to access CMS and audit databases running on SQL Database. This section provides instructions on how to download and set up an ODBC driver on Windows.
 
 1. See the **CMS + Audit repository support by OS** section in the [Product Availability Matrix (PAM) for SAP BusinessObjects BI platform](https://support.sap.com/pam) to find out the database connectors that are compatible with SQL Database.
 1. Download the ODBC driver version from the [link](/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?preserve-view=true&view=sql-server-ver15). In this example, we're downloading ODBC driver [13.1](/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?preserve-view=true&view=sql-server-ver15#131).
 1. Install the ODBC driver on all BI servers (azuswinboap1 and azuswinboap2).
 1. After you install the driver in **azuswinboap1**, go to **Start** > **Windows Administrative Tools** > **ODBC Data Sources (64-bit)**.
-1. Go to the **System DSN** tab. 
+1. Go to the **System DSN** tab.
 1. Select **Add** to create a connection to the CMS database.
 1. Select **ODBC Driver 13 for SQL Server**, and select **Finish**.
 1. Enter the information of your CMS database like the following, and select **Next**:
@@ -245,7 +239,7 @@ SAP BOBI application servers require database client/drivers to access the CMS o
 >[!Note]
 >SQL Database communicates over port 1433. Outbound traffic over port 1433 should be allowed from your SAP BOBI application servers.
 
-Repeat the preceding steps to create a connection for the audit database on the server azuswinboap1. Similarly, install and configure both ODBC data sources (bocms and boaudit) on all BI application servers (azuswinboap2). 
+Repeat the preceding steps to create a connection for the audit database on the server azuswinboap1. Similarly, install and configure both ODBC data sources (bocms and boaudit) on all BI application servers (azuswinboap2).
 
 ## Server preparation
 
@@ -259,7 +253,7 @@ Go to the media of the SAP BusinsessObjects BI platform, and run `setup.exe`.
 
 Follow the instructions in the [SAP Business Intelligence Platform Installation Guide for Windows](https://help.sap.com/viewer/df8899896b364f6c880112f52e4d06c8/4.3.1/en-US/46ae62456e041014910aba7db0e91070.html) that are specific to your version. Here are a few points to note while you install the SAP BOBI platform on Windows:
 
-- On the **Configure Destination Folder** screen, provide the destination folder where you want to install the BI platform. For example, enter **F:\SAP BusinessObjects\***. 
+- On the **Configure Destination Folder** screen, provide the destination folder where you want to install the BI platform. For example, enter **F:\SAP BusinessObjects\***.
 - On the **Configure Product Registration** screen, you can either use a temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121) or generate a license key in SAP Service Marketplace.
 - On the **Select Install Type** screen, select **Full** installation on the first server (azuswinboap1). For the other server (azuswinboap2), select **Custom / Expand**, which expands the existing SAP BOBI setup.
 - On the **Select Default or Existing Database** screen, select **configure an existing database**, which prompts you to select the CMS and the audit database. Select **Microsoft SQL Server using ODBC** for the **CMS Database** type and the **Audit Database** type.
@@ -313,9 +307,9 @@ After a multi-instance installation of the SAP BOBI platform, more post-configur
 
 ### Configure a cluster name
 
-In a multi-instance deployment of the SAP BOBI platform, you want to run several CMS servers together in a cluster. A cluster consists of two or more CMS servers working together against a common CMS system database. If a node that's running on CMS fails, a node with another CMS will continue to service BI platform requests. By default in an SAP BOBI platform, a cluster name reflects the hostname of the first CMS that you install. 
+In a multi-instance deployment of the SAP BOBI platform, you want to run several CMS servers together in a cluster. A cluster consists of two or more CMS servers working together against a common CMS system database. If a node that's running on CMS fails, a node with another CMS will continue to service BI platform requests. By default in an SAP BOBI platform, a cluster name reflects the hostname of the first CMS that you install.
 
-To configure the cluster name on Windows, follow the instructions in the [SAP Business Intelligence Platform Administrator Guide](https://help.sap.com/viewer/2e167338c1b24da9b2a94e68efd79c42/4.3.1/en-US). After you configure the cluster name, follow SAP Note [1660440](https://launchpad.support.sap.com/#/notes/1660440) to set the default system entry on the CMC or BI Launchpad sign-in page. 
+To configure the cluster name on Windows, follow the instructions in the [SAP Business Intelligence Platform Administrator Guide](https://help.sap.com/viewer/2e167338c1b24da9b2a94e68efd79c42/4.3.1/en-US). After you configure the cluster name, follow SAP Note [1660440](https://launchpad.support.sap.com/#/notes/1660440) to set the default system entry on the CMC or BI Launchpad sign-in page.
 
 ### Configure the input and output filestore location to Azure Premium Files
 
@@ -324,7 +318,7 @@ Filestore refers to the disk directories where the actual SAP BusinessObjects BI
 1. If not created, follow the instructions provided in the preceding section, "Provision Azure Premium Files," to create and mount Azure Premium Files.
 
    > [!Tip]
-   > Choose the storage redundancy for Azure Premium Files (LRS or ZRS) based on your VM's deployment (availability set or availability zone).
+   > Based on whether the virtual machine is deployed in a zonal or regional manner, the selection of storage redundancy for Azure Premium Files (ZRS or LRS) should be determined.
 
 1. Follow SAP Note [2512660](https://launchpad.support.sap.com/#/notes/0002512660) to change the path of the file repository (Input and Output).
 
@@ -338,7 +332,7 @@ In SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640), steps 
 
 In an SAP BOBI multi-instance deployment, Java web application servers (web tier) are running on two or more hosts. To distribute the user load evenly across web servers, you can use a load balancer between end users and web servers. You can use Azure Load Balancer or Application Gateway to manage traffic to your web application servers. The offerings are explained in the following sections:
 
-* [Load Balancer](../../load-balancer/load-balancer-overview.md) is a high-performance, low-latency, layer 4 (TCP, UDP) load balancer that distributes traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to operational VMs. You can choose either a public load balancer or an internal load balancer depending on whether you want the SAP BI platform accessible from the internet or not. It's zone redundant, which ensures high availability across availability zones.
+- [Load Balancer](../../load-balancer/load-balancer-overview.md) is a high-performance, low-latency, layer 4 (TCP, UDP) load balancer that distributes traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to operational VMs. You can choose either a public load balancer or an internal load balancer depending on whether you want the SAP BI platform accessible from the internet or not. It's zone redundant, which ensures high availability across availability zones.
 
    In the following figure, see the "Internal Load Balancer" section where the web application server runs on port 8080 (default Tomcat HTTP port), which will be monitored by a health probe. Any incoming request that comes from users will get redirected to the web application servers (azuswinboap1 or azuswinboap2) in the back-end pool. Load Balancer doesn't support TLS/SSL termination, which is also known as TLS/SSL offloading. If you're using Load Balancer to distribute traffic across web servers, we recommend using Standard Load Balancer.
 
@@ -347,7 +341,7 @@ In an SAP BOBI multi-instance deployment, Java web application servers (web tier
 
    ![Screenshot that shows Load Balancer used to balance traffic across web servers.](media/businessobjects-deployment-guide/businessobjects-deployment-windows-load-balancer.png)
 
-* [Application Gateway](../../application-gateway/overview.md) provides an application delivery controller as a service, which is used to help applications direct user traffic to one or more web application servers. It offers various layer 7 load-balancing capabilities like TLS/SSL offloading, Web Application Firewall, and cookie-based session affinity for your applications.
+- [Application Gateway](../../application-gateway/overview.md) provides an application delivery controller as a service, which is used to help applications direct user traffic to one or more web application servers. It offers various layer 7 load-balancing capabilities like TLS/SSL offloading, Web Application Firewall, and cookie-based session affinity for your applications.
 
    In an SAP BI platform, Application Gateway directs application web traffic to the specified resources in a back-end pool. In this case, it's either azuswinboap1 or azuswinboap2. You assign a listener to the port, create rules, and add resources to a back-end pool. In the following figure, Application Gateway with a private front-end IP address (10.31.3.25) acts as an entry point for users, handles incoming TLS/SSL (HTTPS - TCP/443) connections, decrypts the TLS/SSL, and passes the request (HTTP - TCP/8080) to the servers in the back-end pool. With the built-in TLS/SSL termination feature, you need to maintain only one TLS/SSL certificate on the application gateway, which simplifies operations.
 
@@ -392,8 +386,8 @@ As part of the backup process, a snapshot is taken. The data is transferred to t
 
 Based on your deployment, filestore of an SAP BOBI platform can be on Azure NetApp Files or Azure Files. Choose from the following options for backup and restore based on the storage you use for filestore:
 
-* **Azure NetApp Files**: For Azure NetApp Files, you can create on-demand snapshots and schedule an automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your Azure NetApp Files volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
-* **Azure Files**: Azure Files backup is integrated with a native instance of [Backup](../../backup/backup-overview.md), which centralizes the backup and restore function along with VM backup and simplifies operation work. For more information, see [Azure file share backup](../../backup/azure-file-share-backup-overview.md) and [FAQs: Back up Azure Files](../../backup/backup-azure-files-faq.yml).
+- **Azure NetApp Files**: For Azure NetApp Files, you can create on-demand snapshots and schedule an automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your Azure NetApp Files volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+- **Azure Files**: Azure Files backup is integrated with a native instance of [Backup](../../backup/backup-overview.md), which centralizes the backup and restore function along with VM backup and simplifies operation work. For more information, see [Azure file share backup](../../backup/azure-file-share-backup-overview.md) and [FAQs: Back up Azure Files](../../backup/backup-azure-files-faq.yml).
 
 If you've created a separate NFS server, make sure you implement the backup and restore strategy for the same.
 
@@ -401,13 +395,13 @@ If you've created a separate NFS server, make sure you implement the backup and 
 
 For an SAP BOBI platform running on Windows VMs, the CMS and audit database can run on any of the supported databases as described in the [support matrix](businessobjects-deployment-guide.md#support-matrix) of the SAP BOBI platform planning and implementation guide on Azure. So it's important that you adopt the backup and restore strategy based on the database you used for CMS and audit data storage.
 
-* **SQL Database** uses SQL Server technology to create [full backups](/sql/relational-databases/backup-restore/full-database-backups-sql-server?preserve-view=true&view=sql-server-ver15) every week, [differential backups](/sql/relational-databases/backup-restore/differential-backups-sql-server?preserve-view=true&view=sql-server-ver15) every 12 to 24 hours, and [transaction log](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server?preserve-view=true&view=sql-server-ver15) backups every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity.
- 
+- **SQL Database** uses SQL Server technology to create [full backups](/sql/relational-databases/backup-restore/full-database-backups-sql-server?preserve-view=true&view=sql-server-ver15) every week, [differential backups](/sql/relational-databases/backup-restore/differential-backups-sql-server?preserve-view=true&view=sql-server-ver15) every 12 to 24 hours, and [transaction log](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server?preserve-view=true&view=sql-server-ver15) backups every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity.
+
    Users can choose an option to configure backup storage redundancy between LRS, ZRS, or GRS blobs. Storage redundancy mechanisms store multiple copies of your data to protect it from planned and unplanned events, which includes transient hardware failure, network or power outages, or massive natural disasters. By default, SQL Database stores backup in [GRS blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). It can be changed based on the business requirement to either LRS or ZRS blobs. For more up-to-date information on SQL Database backup scheduling, retention, and storage consumption, see [Automated backups: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/automated-backups-overview).
 
-* **Azure Database for MySQL** automatically creates server backups and stores in user-configured LRS or GRS. Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4-TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server at any point in time within your configured backup retention period. The default backup retention period is 7 days, which you can [optionally configure](../../mysql/howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted by using AES 256-bit encryption. These backup files aren't user exposed and can't be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](../../mysql/concepts-migrate-dump-restore.md) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](../../mysql/concepts-backup.md).
+- **Azure Database for MySQL** automatically creates server backups and stores in user-configured LRS or GRS. Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4-TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server at any point in time within your configured backup retention period. The default backup retention period is 7 days, which you can [optionally configure](../../mysql/howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted by using AES 256-bit encryption. These backup files aren't user exposed and can't be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](../../mysql/concepts-migrate-dump-restore.md) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](../../mysql/concepts-backup.md).
 
-* **For a database installed on an Azure VM**, you can use standard backup tools or [Backup](../../backup/sap-hana-db-about.md) for supported databases. Also, if the Azure services and tools don't meet your requirements, you can use supported third-party backup tools that provide an agent for backup and recovery of all SAP BOBI platform components.
+- **For a database installed on an Azure VM**, you can use standard backup tools or [Backup](../../backup/sap-hana-db-about.md) for supported databases. Also, if the Azure services and tools don't meet your requirements, you can use supported third-party backup tools that provide an agent for backup and recovery of all SAP BOBI platform components.
 
 ## High availability
 
@@ -422,16 +416,18 @@ The following section describes how to achieve high availability on each compone
 
 ### High availability for application servers
 
-BI and web application servers don't need a specific high-availability solution, no matter whether they're installed separately or together. You can achieve high availability by redundancy, that is, by configuring multiple instances of BI and web servers in various Azure VMs. You can deploy the VMs in either [availability sets](sap-high-availability-architecture-scenarios.md#multiple-instances-of-virtual-machines-in-the-same-availability-set) or [availability zones](sap-high-availability-architecture-scenarios.md#azure-availability-zones) based on business-required RTO. For deployment across availability zones, make sure all other components in the SAP BOBI platform are designed to be zone redundant too.
+BI and web application servers don't need a specific high-availability solution, no matter whether they're installed separately or together. You can achieve high availability by redundancy, that is, by configuring multiple instances of BI and web servers in various Azure VMs. You can deploy the VMs in either [flexible scale set](./sap-high-availability-architecture-scenarios.md#virtual-machine-scale-set-with-flexible-orchestration), [availability sets](sap-high-availability-architecture-scenarios.md#multiple-instances-of-virtual-machines-in-the-same-availability-set) or [availability zones](sap-high-availability-architecture-scenarios.md#azure-availability-zones) based on business-required RTO. For deployment across availability zones, make sure all other components in the SAP BOBI platform are designed to be zone redundant too.
 
 Currently, not all Azure regions offer availability zones, so you need to adopt the deployment strategy based on your region. The Azure regions that offer zones are listed in [Azure availability zones](../../availability-zones/az-overview.md).
 
-> [!Important]
-> The concepts of Azure availability zones and Azure availability sets are mutually exclusive. That means you can either deploy a pair or multiple VMs into a specific availability zone or an Azure availability set, but not both.
+> [!IMPORTANT]
+>
+> - The concepts of Azure availability zones and Azure availability sets are mutually exclusive. You can deploy a pair or multiple VMs into either a specific availability zone or an availability set, but you can't do both.
+> - If you planning to deploy across availability zones, it is advised to use [flexible scale set with FD=1](./virtual-machine-scale-set-sap-deployment-guide.md) over standard availability zone deployment.
 
 ### High availability for the CMS database
 
-If you're using an Azure database as a solution for your CMS and audit database, a locally redundant high-availability framework is provided by default. Select the region and service inherent high-availability, redundancy, and resiliency capabilities without requiring you to configure any more components. If the deployment strategy for an SAP BOBI platform is across an availability zone, make sure you achieve zone redundancy for your CMS and audit database. For more information on high availability for supported database offerings in Azure, see [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla) and [High availability in Azure Database for MySQL](../../mysql/concepts-high-availability.md). 
+If you're using an Azure database as a solution for your CMS and audit database, a locally redundant high-availability framework is provided by default. Select the region and service inherent high-availability, redundancy, and resiliency capabilities without requiring you to configure any more components. If the deployment strategy for an SAP BOBI platform is across an availability zone, make sure you achieve zone redundancy for your CMS and audit database. For more information on high availability for supported database offerings in Azure, see [High availability for Azure SQL Database](/azure/azure-sql/database/high-availability-sla) and [High availability in Azure Database for MySQL](../../mysql/concepts-high-availability.md).
 
 For other database management system (DBMS) deployment for a CMS database, see [DBMS deployment guides for SAP workload](dbms-guide-general.md) for insight on a different DBMS deployment and its approach to achieving high availability.
 
@@ -447,10 +443,10 @@ Because the file share service isn't available in all regions, make sure you see
 
 To distribute traffic across a web server, you can use Load Balancer or Application Gateway. The redundancy for either of the load balancers can be achieved based on the SKU you choose for deployment:
 
-* **Load Balancer**: Redundancy can be achieved by configuring the Standard Load Balancer front end as zone redundant. For more information, see [Standard Load Balancer and availability zones](../../load-balancer/load-balancer-standard-availability-zones.md).
-* **Application Gateway**: High availability can be achieved based on the type of tier selected during deployment:
-   * The v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. With this SKU, redundancy can be achieved within the zone.
-   * The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency. For more information, see [Autoscaling and zone-redundant Application Gateway v2](../../application-gateway/application-gateway-autoscaling-zone-redundant.md).
+- **Load Balancer**: Redundancy can be achieved by configuring the Standard Load Balancer front end as zone redundant. For more information, see [Standard Load Balancer and availability zones](../../load-balancer/load-balancer-standard-availability-zones.md).
+- **Application Gateway**: High availability can be achieved based on the type of tier selected during deployment:
+  - The v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. With this SKU, redundancy can be achieved within the zone.
+  - The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency. For more information, see [Autoscaling and zone-redundant Application Gateway v2](../../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
 ### Reference high-availability architecture for the SAP BusinessObjects BI platform
 
@@ -468,13 +464,15 @@ If availability zones aren't available in your selected region, you can deploy A
 
 This section explains the strategy to provide DR protection for an SAP BOBI platform. It complements the [Disaster recovery for SAP](../../site-recovery/site-recovery-sap.md) document, which represents the primary resources for an overall SAP DR approach. For the SAP BOBI platform, see SAP Note [2056228](https://launchpad.support.sap.com/#/notes/2056228), which describes the following methods to implement a DR environment safely:
 
- * Fully or selectively use Lifecycle Management or federation to promote or distribute the content from the primary system.
- * Periodically copy over the CMS and FRS contents.
+- Fully or selectively use Lifecycle Management or federation to promote or distribute the content from the primary system.
+- Periodically copy over the CMS and FRS contents.
 
 In this guide, we'll talk about the second option to implement a DR environment. We won't cover an exhaustive list of all possible configuration options for DR. We'll cover a solution that features native Azure services in combination with SAP BOBI platform configuration.
 
->[!Important]
->Availability of each component in the SAP BOBI platform should be factored in to the secondary region. The entire DR strategy must be thoroughly tested.
+> [!IMPORTANT]
+>
+> - Availability of each component in the SAP BOBI platform should be factored in to the secondary region. The entire DR strategy must be thoroughly tested.
+> - In case where your SAP BI platform is configured with [flexible scale set](./virtual-machine-scale-set-sap-deployment-guide.md) with FD=1, then you need to use [PowerShell](../../site-recovery/azure-to-azure-powershell.md) to set up Azure Site Recovery for disaster recovery. Currently, it's the only method available to configure disaster recovery for VMs deployed in scale set.
 
 ### Reference DR architecture for an SAP BusinessObjects BI platform
 
@@ -511,30 +509,30 @@ Option 1: [Geo-redundant database backup restore](/azure/azure-sql/database/reco
 
    By default, SQL Database stores data in [GRS blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). For a SQL database, the backup storage redundancy can be configured at the time of CMS and audit database creation, or it can be updated for an existing database. The changes made to an existing database apply to future backups only. You can restore a database on any SQL database in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. There's a delay between when a backup is taken and when it's geo-replicated to an Azure blob in a different region. As a result, the restored database can be up to one hour behind the original database.
 
-   >[!Important]
-   >Geo-restore is available for SQL databases configured with geo-redundant [backup storage](/azure/azure-sql/database/automated-backups-overview#backup-storage-redundancy).
+   > [!IMPORTANT]
+   > Geo-restore is available for SQL databases configured with geo-redundant [backup storage](/azure/azure-sql/database/automated-backups-overview#backup-storage-redundancy).
 
-Option 2: [Geo-replication](/azure/azure-sql/database/active-geo-replication-overview) or an [autofailover group](/azure/azure-sql/database/auto-failover-group-overview)
+Option 2: [Geo-replication](/azure/azure-sql/database/active-geo-replication-overview) or an [auto-failover group](/azure/azure-sql/database/auto-failover-group-overview)
 
-   Geo-replication is a SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different region. If geo-replication is enabled for the CMS and audit database, the application can initiate failover to a secondary database in a different Azure region. Geo-replication is enabled for individual databases, but to enable transparent and coordinated failover of multiple databases (CMS and audit) for an SAP BOBI application, it's advisable to use an autofailover group. It provides the group semantics on top of active geo-replication, which means the entire SQL server (all databases) is replicated to another region instead of individual databases. Check the capabilities table that [compares geo-replication with failover groups](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#compare-geo-replication-with-failover-groups).
+   Geo-replication is a SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different region. If geo-replication is enabled for the CMS and audit database, the application can initiate failover to a secondary database in a different Azure region. Geo-replication is enabled for individual databases, but to enable transparent and coordinated failover of multiple databases (CMS and audit) for an SAP BOBI application, it's advisable to use an auto-failover group. It provides the group semantics on top of active geo-replication, which means the entire SQL server (all databases) is replicated to another region instead of individual databases. Check the capabilities table that [compares geo-replication with failover groups](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview#compare-geo-replication-with-failover-groups).
 
-   Autofailover groups provide read/write and read-only listener endpoints that remain unchanged during failover. The read/write endpoint can be maintained as a listener in the ODBC connection entry for the CMS and audit database. So whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. The application is automatically connected to the CMS database as the read/write endpoint is maintained as a listener in the ODBC connection.
+   Auto-failover groups provide read/write and read-only listener endpoints that remain unchanged during failover. The read/write endpoint can be maintained as a listener in the ODBC connection entry for the CMS and audit database. So whether you use manual or automatic failover activation, failover switches all secondary databases in the group to primary. After the database failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region. The application is automatically connected to the CMS database as the read/write endpoint is maintained as a listener in the ODBC connection.
 
-   In the following image, an autofailover group for the SQL server (azussqlbodb) running on the East US 2 region is replicated to the East US secondary region (DR site). The read/write listener endpoint is maintained as a listener in an ODBC connection for the BI application server running on Windows. After failover, the endpoint will remain the same. No manual intervention is required to connect the BI application to the SQL database on the secondary region.
+   In the following image, an auto-failover group for the SQL server (azussqlbodb) running on the East US 2 region is replicated to the East US secondary region (DR site). The read/write listener endpoint is maintained as a listener in an ODBC connection for the BI application server running on Windows. After failover, the endpoint will remain the same. No manual intervention is required to connect the BI application to the SQL database on the secondary region.
 
-   ![Screenshot that shows SQL Database autofailover groups.](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failover-group.png)
+   ![Screenshot that shows SQL Database auto-failover groups.](media\businessobjects-deployment-guide\businessobjects-deployment-windows-sql-failover-group.png)
 
-   This option provides a lower RTO and RPO than option 1. For more information about this option, see [Use autofailover groups to enable transparent and coordinated failover of multiple databases](/azure/azure-sql/database/auto-failover-group-overview).
+   This option provides a lower RTO and RPO than option 1. For more information about this option, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](/azure/azure-sql/database/auto-failover-group-overview).
 
 #### Azure Database for MySQL
 
 Azure Database for MySQL provides options to recover a database if there's a disaster. Choose the appropriate option that works for your business:
 
-* Enable cross-region read replicas to enhance your business continuity and DR planning. You can replicate from a source server up to five replicas. Read replicas are updated asynchronously by using the Azure Database for MySQL binary log replication technology. Replicas are new servers that you manage similar to regular Azure Database for MySQL servers. To learn more about read replicas, available regions, restrictions, and how to fail over, see [Read replicas in Azure Database for MySQL](../../mysql/concepts-read-replicas.md).
+- Enable cross-region read replicas to enhance your business continuity and DR planning. You can replicate from a source server up to five replicas. Read replicas are updated asynchronously by using the Azure Database for MySQL binary log replication technology. Replicas are new servers that you manage similar to regular Azure Database for MySQL servers. To learn more about read replicas, available regions, restrictions, and how to fail over, see [Read replicas in Azure Database for MySQL](../../mysql/concepts-read-replicas.md).
 
-* Use the Azure Database for MySQL geo-restore feature that restores the server by using geo-redundant backups. These backups are accessible even when the region on which your server is hosted is offline. You can restore from these backups to any other region and bring your server back online.
+- Use the Azure Database for MySQL geo-restore feature that restores the server by using geo-redundant backups. These backups are accessible even when the region on which your server is hosted is offline. You can restore from these backups to any other region and bring your server back online.
 
-  > [!Important]
+  > [!IMPORTANT]
   > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. Changing the backup redundancy options after server creation isn't supported. For more information, see [Backup redundancy](../../mysql/concepts-backup.md#backup-redundancy-options).
 
 The following table lists the recommendations for DR for each tier used in this example.
@@ -546,7 +544,7 @@ The following table lists the recommendations for DR for each tier used in this 
 | BI application servers                           | Replicate by using Site Recovery                             |
 | Azure Premium Files                              | AzCopy *or* Azure PowerShell                               |
 | Azure NetApp Files                               | File-based copy tool to replicate data to a secondary region *or* Azure NetApp Files Cross-Region Replication Preview |
-| Azure SQL Database                               | Geo-replication/autofailover groups *or* geo-restore     |
+| Azure SQL Database                               | Geo-replication/auto-failover groups *or* geo-restore     |
 | Azure Database for MySQL                         | Cross-region read replicas *or* restore backup from geo-redundant backups |
 
 ## Next steps

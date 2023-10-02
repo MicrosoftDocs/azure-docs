@@ -3,45 +3,52 @@ title: Tutorial - Azure IoT connected waste management
 description: This tutorial shows you how to deploy and use the connected waste management application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/16/2022
+ms.date: 06/13/2023
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ---
+
 # Tutorial: Deploy and walk through the connected waste management application template
 
-The _connected waste management_ application template helps you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection.
+The _connected waste management_ application template helps you kickstart your IoT solution development to remotely monitor to maximize efficient waste collection as part of a smart city.
 
 :::image type="content" source="media/tutorial-connected-waste-management/concepts-connected-waste-management-architecture-1.png" alt-text="Diagram showing the architecture of the connected waste management application." border="false":::
 
 ### Devices and connectivity (1,2)
 
-Devices such as waste bins that are used in open environments may connect through low-power wide area networks (LPWAN) or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT Central application. You can also use an IP capable device gateway that connects directly to your IoT Central application.
+Devices such as waste bins that are used in open environments may connect through low-power wide area networks or through a third-party network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT Central application. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
 Azure IoT Central is an IoT App platform that helps you quickly build and deploy an IoT solution. You can brand, customize, and integrate your solution with third-party services.
 
-When you connect your smart waste devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
+When you connect your smart waste devices to IoT Central, the application provides:
+
+- Device command and control.
+- Monitoring and alerting.
+- A user interface with built-in role-based access controls.
+- Configurable dashboards.
+- Extensibility options.
 
 ### Extensibility and integrations (3)
 
 You can extend your IoT application in IoT Central and optionally:
 
-* Transform and integrate your IoT data for advanced analytics, for example training machine learning models, through continuous data export from IoT Central application.
-* Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
-* Programatically access your IoT application in IoT Central through IoT Central APIs.
+- Transform and integrate your IoT data for advanced analytics through data export from your IoT Central application.
+- Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
+- Programmatically access your IoT Central application by using the IoT Central REST APIs.
 
 ### Business applications (4)
 
-You can use IoT data to power various business applications within a waste utility. For example, in a connected waste management solution you can optimize the dispatch of trash collections trucks. The optimization can be done based on IoT sensors data from connected waste bins. In your [IoT Central connected waste management application](./tutorial-connected-waste-management.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
+You can use IoT data to power various business applications within a waste utility. For example, in a connected waste management solution you can optimize the dispatch of trash collections trucks. The optimization can be done based on IoT sensors data from connected waste bins. In your IoT Central connected waste management application, you can configure rules and actions and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
 You can easily configure the following integration processes with IoT Central and Connected Field Service:
 
-* Azure IoT Central can send information about device anomalies to Connected Field Service for diagnosis.
-* Connected Field Service can create cases or work orders triggered from device anomalies.
-* Connected Field Service can schedule technicians for inspection to prevent the downtime incidents.
-* Azure IoT Central device dashboard can be updated with relevant service and scheduling information.
+- Azure IoT Central can send information about device anomalies to Connected Field Service for diagnosis.
+- Connected Field Service can create cases or work orders triggered from device anomalies.
+- Connected Field Service can schedule technicians for inspection to prevent the downtime incidents.
+- Azure IoT Central device dashboard can be updated with relevant service and scheduling information.
 
 In this tutorial, you learn how to:
 
@@ -60,13 +67,25 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 ## Create connected waste management application
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Government** tab:
+To create your IoT Central application:
 
-    :::image type="content" source="media/tutorial-connected-waste-management/iot-central-government-tab-overview.png" alt-text="Screenshot showing the Azure IoT Central build site with the government app templates.":::
+1. Navigate to the [Create IoT Central Application](https://portal.azure.com/#create/Microsoft.IoTCentral) page in the Azure portal. If prompted, sign in with your Azure account.
 
-1. Select **Create app** under **Connected waste management**.
+1. Enter the following information:
 
-To learn more, see [Create an IoT Central application](../core/howto-create-iot-central-application.md).
+    | Field | Description |
+    | ----- | ----------- |
+    | Subscription | The Azure subscription you want to use. |
+    | Resource group | The resource group you want to use.  You can create a new resource group or use an existing one. |
+    | Resource name | A valid Azure resource name. |
+    | Application URL | The URL subdomain for your application. The URL for an IoT Central application looks like `https://yoursubdomain.azureiotcentral.com`. |
+    | Template | **Connected Waste Management** |
+    | Region | The Azure region you want to use. |
+    | Pricing plan | The pricing plan you want to use. |
+
+1. Select **Review + create**. Then select **Create**.
+
+[!INCLUDE [iot-central-navigate-from-portal](../../../includes/iot-central-navigate-from-portal.md)]
 
 ## Walk through the application
 
@@ -78,26 +97,26 @@ After you deploy the application template, your default dashboard is **Wide Worl
 
 :::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-dashboard.png" alt-text="Screenshot of the connected waste management application dashboard." lightbox="media/tutorial-connected-waste-management/connected-waste-management-dashboard.png":::
 
-As a builder, you can create and customize views on the dashboard for operators. First, let's explore the dashboard.
+As a builder, you can create and customize views on the dashboard for operators.
 
 >[!NOTE]
->All data shown in the dashboard is based on simulated device data, which you'll see  more of in the next section.
+>All data shown in the dashboard is based on simulated device data, which you see more of in the next section.
 
 The dashboard consists of different tiles:
 
-* **Wide World Waste utility image tile**: The first tile in the dashboard is an image tile of a fictitious waste utility, "Wide World Waste." You can customize the tile and put in your own image, or you can remove it.
+- **Wide World Waste utility image tile**: The first tile in the dashboard is an image tile of a fictitious waste utility, "Wide World Waste." You can customize the tile and put in your own image, or you can remove it.
 
-* **Waste bin image tile**: You can use image and content tiles to create a visual representation of the device that's being monitored, along with a description.
+- **Waste bin image tile**: You can use image and content tiles to create a visual representation of the device that's being monitored, along with a description.
 
-* **Fill level KPI tile**: This tile displays a value reported by a *fill level* sensor in a waste bin. Fill level and other sensors, like *odor meter* or *weight* in a waste bin, can be remotely monitored. An operator can take action, like dispatching a trash collection truck.
+- **Fill level KPI tile**: This tile displays a value reported by a *fill level* sensor in a waste bin. Fill level and other sensors, like *odor meter* or *weight* in a waste bin, can be remotely monitored. An operator can take an action such as dispatching a trash collection truck.
 
-* **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device [location](../core/howto-use-location-data.md). Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
+- **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device location. Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
 
-* **Fill, odor, weight level bar chart**: You can visualize one or multiple kinds of device telemetry data in a bar chart. You can also expand the bar chart.  
+- **Fill, odor, weight level bar chart**: You can visualize one or multiple kinds of device telemetry data in a bar chart. You can also expand the bar chart.  
 
     :::image type="content" source="media/tutorial-connected-waste-management/connected-waste-management-dashboard-bar-chart.png" alt-text="Screenshot of the expanded bar chart on the connected waste management application dashboard." lightbox="media/tutorial-connected-waste-management/connected-waste-management-dashboard-bar-chart.png":::
 
-* **Field Services**: The dashboard includes a link to how to integrate with Dynamics 365 Field Services from your Azure IoT Central application. For example, you can use Field Services to create tickets for dispatching trash collection services.
+- **Field Services**: The dashboard includes a link to "How to integrate with Dynamics 365 Field Services from your Azure IoT Central application." For example, you can use Field Services to create tickets for dispatching trash collection services.
 
 ### Customize the dashboard
 
@@ -135,11 +154,10 @@ Try to customize the following features:
 
 ### Add a cloud property
 
-Here's how:
+To add a cloud property:
 
 1. Navigate to the **Connected Waste Bin** device template, and select **+ Add capability**.
-1. Add a new cloud property by selecting **Cloud Property** as **Capability type**.
-    In Azure IoT Central, you can add a property that is relevant to the device but isn't expected to be sent by a device. For example, a cloud property might be an alerting threshold specific to installation area, asset information, or maintenance information.
+1. Add a new cloud property by selecting **Cloud Property** as **Capability type**. In Azure IoT Central, you can add a property that is relevant to a device but that doesn't come from the device.  For example, a cloud property might be an alerting threshold specific to installation area, asset information, or maintenance information.
 1. Select **Save**.
 
 ### Views

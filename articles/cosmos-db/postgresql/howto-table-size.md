@@ -44,23 +44,23 @@ provides helper functions to query this information.
 <td>citus_table_size(relation_name)</td>
 <td><ul>
 <li><p>citus_relation_size plus:</p>
-<blockquote>
+
 <ul>
 <li>size of <a href="https://www.postgresql.org/docs/current/static/storage-fsm.html">free space map</a></li>
 <li>size of <a href="https://www.postgresql.org/docs/current/static/storage-vm.html">visibility map</a></li>
 </ul>
-</blockquote></li>
+</li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>citus_total_relation_size(relation_name)</td>
 <td><ul>
 <li><p>citus_table_size plus:</p>
-<blockquote>
+
 <ul>
 <li>size of indices</li>
 </ul>
-</blockquote></li>
+</li>
 </ul></td>
 </tr>
 </tbody>

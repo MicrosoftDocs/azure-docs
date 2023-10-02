@@ -2,7 +2,6 @@
 title: Telemetry for search traffic analytics
 titleSuffix: Azure Cognitive Search
 description: Enable search traffic analytics for Azure Cognitive Search, collect telemetry and user-initiated events using Application Insights, and then analyze findings in a Power BI report.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -10,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/29/2021
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Collect telemetry data for search traffic analytics
@@ -82,7 +81,7 @@ public HomeController(TelemetryClient telemetry)
 
 **Use JavaScript**
 
-To create an object that sends events to Application Insights by using the SDK Loader Script, see [Microsoft Azure Monitor Application Insights JavaScript SDK](../azure-monitor/app/javascript-sdk.md?tabs=sdkloaderscript#enable-application-insights).
+To create an object that sends events to Application Insights by using the JavaScript (Web) SDK Loader Script, see [Microsoft Azure Monitor Application Insights JavaScript SDK](../azure-monitor/app/javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started).
 
 
 ### Step 2: Request a Search ID for correlation

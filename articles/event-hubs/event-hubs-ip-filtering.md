@@ -160,7 +160,7 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Use Azure CLI
-Use [`az eventhubs namespace network-rule`](/cli/azure/eventhubs/namespace/network-rule) add, list, update, and remove commands to manage IP firewall rules for an Event Hubs namespace.
+Use [`az eventhubs namespace network-rule-set`](/cli/azure/eventhubs/namespace/network-rule-set) add, list, update, and remove commands to manage IP firewall rules for an Event Hubs namespace.
 
 ## Use Azure PowerShell
 Use the following Azure PowerShell commands to add, list, remove, update, and delete IP firewall rules. 
@@ -168,7 +168,6 @@ Use the following Azure PowerShell commands to add, list, remove, update, and de
 - [`Add-AzEventHubIPRule`](/powershell/module/az.eventhub/add-azeventhubiprule) to add an IP firewall rule.
 - [`New-AzEventHubIPRuleConfig`](/powershell/module/az.eventhub/new-azeventhubipruleconfig) and [`Set-AzEventHubNetworkRuleSet`](/powershell/module/az.eventhub/set-azeventhubnetworkruleset) together to add an IP firewall rule
 - [`Remove-AzEventHubIPRule`](/powershell/module/az.eventhub/remove-azeventhubiprule) to remove an IP firewall rule.
-
 
 ## Default action and public network access 
 
@@ -180,7 +179,7 @@ From API version **2021-06-01-preview onwards**, the default value of the `defau
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/preview/private-endpoint-connections/create-or-update).
+For more information about these properties, see [Create or Update Network Rule Set](/rest/api/eventhub/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/eventhub/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
 > None of the above settings bypass validation of claims via SAS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.
@@ -193,6 +192,8 @@ Azure portal always uses the latest API version to get and set properties.  If y
 
 
 
+
+
 ## Next steps
 
 For constraining access to Event Hubs to Azure virtual networks, see the following link:
@@ -202,5 +203,9 @@ For constraining access to Event Hubs to Azure virtual networks, see the followi
 <!-- Links -->
 
 [express-route]:  ../expressroute/expressroute-faqs.md#supported-services
+
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
+
 [lnk-vnet]: event-hubs-service-endpoints.md
+
+

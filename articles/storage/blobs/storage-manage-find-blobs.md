@@ -5,8 +5,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 11/01/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -340,19 +339,9 @@ This section describes known issues and conditions.
 
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.
 
-## FAQ
+## Frequently asked questions (FAQ)
 
-**Can blob index help me filter and query content inside my blobs?**
-
-No, if you need to search within your blob data, use query acceleration or Azure search.
-
-**Are there any requirements on index tag values?**
-
-Blob index tags only support string data types and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store as an ISO 8601 compliant format.
-
-**Are blob index tags and Azure Resource Manager tags related?**
-
-No, Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
+See [Blob index tags FAQ](storage-blob-faq.yml#blob-index-tags).
 
 ## Next steps
 

@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot a custom claims provider
 titleSuffix: Microsoft identity platform
-description: Troubleshoot and monitor your custom claims provider API.  Learn how to use logging and Azure AD sign-in logs to find errors and issues in your custom claims provider API.
+description: Troubleshoot and monitor your custom claims provider API.  Learn how to use logging and Microsoft Entra sign-in logs to find errors and issues in your custom claims provider API.
 services: active-directory
-author: yoelhor
+author: davidmu1
 manager: CelesteDG
 
 ms.service: active-directory
@@ -19,14 +19,14 @@ ms.reviewer: JasSuri
 
 # Troubleshoot your custom claims provider API (preview)
 
-Authentication events and [custom claims providers](custom-claims-provider-overview.md) allow you to customize the Azure Active Directory (Azure AD) authentication experience by integrating with external systems.  For example, you can create a custom claims provider API and configure an [OpenID Connect app](./custom-extension-get-started.md) or [SAML app](custom-extension-configure-saml-app.md) to receive tokens with claims from an external store.
+Authentication events and [custom claims providers](custom-claims-provider-overview.md) allow you to customize the Microsoft Entra authentication experience by integrating with external systems.  For example, you can create a custom claims provider API and configure an [OpenID Connect app](./custom-extension-get-started.md) or [SAML app](custom-extension-configure-saml-app.md) to receive tokens with claims from an external store.
 
 ## Error behavior
 
 When an API call fails, the error behavior is as follows:
 
-- For OpenId Connect apps - Azure AD redirects the user back to the client application with an error. A token isn't minted.
-- For SAML apps -  Azure AD shows the user an error screen in the authentication experience. The user isn't redirected back to the client application.
+- For OpenId Connect apps - Microsoft Entra ID redirects the user back to the client application with an error. A token isn't minted.
+- For SAML apps -  Microsoft Entra ID shows the user an error screen in the authentication experience. The user isn't redirected back to the client application.
 
 The error code sent back to the application or the user is generic. To troubleshoot, check the [sign-in logs](#azure-ad-sign-in-logs) for the [error codes](#error-codes-reference).
 
@@ -34,18 +34,22 @@ The error code sent back to the application or the user is generic. To troublesh
 
 In order to troubleshoot issues with your custom claims provider REST API endpoint, the REST API must handle logging. Azure Functions and other API-development platforms provide in-depth logging solutions. Use those solutions to get detailed information on your APIs behavior and troubleshoot your API logic.
 
-## Azure AD sign-in logs
+<a name='azure-ad-sign-in-logs'></a>
 
-You can also use [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md) in addition to your REST API logs, and hosting environment diagnostics solutions. Using Azure AD sign-in logs, you can find errors, which may affect the users' sign-ins. The Azure AD sign-in logs provide  information about the HTTP status, error code, execution duration, and number of retries that occurred the API was called by Azure AD.
+## Microsoft Entra sign-in logs
 
-Azure AD sign-in logs also integrate with [Azure Monitor](../../azure-monitor/index.yml). You can set up alerts and monitoring, visualize the data, and integrate with security information and event management (SIEM)  tools. For example, you can set up notifications if the number of errors exceed a certain threshold that you choose.
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-To access the Azure AD sign-in logs:
+You can also use [Microsoft Entra sign-in logs](../reports-monitoring/concept-sign-ins.md) in addition to your REST API logs, and hosting environment diagnostics solutions. Using Microsoft Entra sign-in logs, you can find errors, which may affect the users' sign-ins. The Microsoft Entra sign-in logs provide  information about the HTTP status, error code, execution duration, and number of retries that occurred the API was called by Microsoft Entra ID.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Enterprise apps** experience for your given application, select on the **Sign-in** logs tab.
-1. Select the latest sign-in log.
-1. For more details, select the **Authentication Events** tab. Information related to the custom extension REST API call is displayed, including any [error codes](#error-codes-reference).
+Microsoft Entra sign-in logs also integrate with [Azure Monitor](../../azure-monitor/index.yml). You can set up alerts and monitoring, visualize the data, and integrate with security information and event management (SIEM)  tools. For example, you can set up notifications if the number of errors exceed a certain threshold that you choose.
+
+To access the Microsoft Entra sign-in logs:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**.
+1. Select **Sign-in logs**, and then select the latest sign-in log.
+1. For more details, select the **Authentication Events** tab. Information related to the custom authentication extension REST API call is displayed, including any [error codes](#error-codes-reference).
 
     :::image type="content" source="media/custom-extension-troubleshoot/authentication-events.png" alt-text="Screenshot that shows the authentication events information." :::
 
@@ -85,11 +89,11 @@ Use the following table to diagnose an error code.
 
 ## Call your REST API directly
 
-Your REST API is protected by Azure AD access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
+Your REST API is protected by a Microsoft Entra access token. You can test your API by obtaining an access token with the [application registration](custom-extension-get-started.md#22-grant-admin-consent) associated with the custom authentiction extensions. After you acquire an access token, pass it the HTTP `Authorization` header. To obtain an access token, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure administrator account.
-1. Select **Azure Active Directory** > **App registrations**.
-1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-extension). 
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Application registrations**.
+1. Select the *Azure Functions authentication events API* app registration [you created previously](custom-extension-get-started.md#step-2-register-a-custom-authentication-extension). 
 1. Copy the [application ID](custom-extension-get-started.md#22-grant-admin-consent).
 1. If you haven't created an app secret, follow these steps:
     1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
@@ -125,7 +129,7 @@ To test your API directly from the Postman, follow these steps:
 1. In Postman, create new HTTP request
 1. Set the **HTTP method** to `POST`
 1. In the **Body**, select **Raw** and then select **JSON**.
-1. Pase the following JSON that imitates the request Azure AD sends to your REST API.
+1. Pase the following JSON that imitates the request Microsoft Entra ID sends to your REST API.
 
     ```json
     {
@@ -135,7 +139,7 @@ To test your API directly from the Postman, follow these steps:
             "@odata.type": "microsoft.graph.onTokenIssuanceStartCalloutData",
             "tenantId": "<Your tenant GUID>",
             "authenticationEventListenerId": "<GUID>",
-            "customAuthenticationExtensionId": "<Your custom extension ID>",
+            "customAuthenticationExtensionId": "<Your custom authentication extension ID>",
             "authenticationContext": {
                 "correlationId": "fcef74ef-29ea-42ca-b150-8f45c8f31ee6",
                 "client": {
@@ -173,7 +177,7 @@ To test your API directly from the Postman, follow these steps:
     ```
 
 1. Select **Authorization** and then select **Bearer token**.
-1. Paste the access token you received from Azure AD, and run the query.
+1. Paste the access token you received from Microsoft Entra ID, and run the query.
 
 
 ## Common performance improvements
@@ -187,6 +191,6 @@ One of the most common issues is that your custom claims provider API doesn't re
 
 ## Next steps
 
-- Learn how to [create and register a custom claims provider](custom-extension-get-started.md) with a sample Open ID Connect application.
+- Learn how to [create and register a custom claims provider](custom-extension-get-started.md) with a sample OpenID Connect application.
 - If you already have a custom claims provider registered, you can configure a [SAML application](custom-extension-configure-saml-app.md) to receive tokens with claims sourced from an external store.
 - Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.

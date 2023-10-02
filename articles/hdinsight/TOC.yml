@@ -73,10 +73,10 @@ items:
       href: ./hdinsight-capacity-planning.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
-    - name: Business continuity
+    - name: Reliability and Business continuity
       items:
-        - name: Business continuity overview
-          href: hdinsight-business-continuity.md
+        - name: Reliability in HDInsight
+          href: ../reliability/reliability-hdinsight.md?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
         - name: Business continuity architecture
           href: ./hdinsight-business-continuity-architecture.md
         - name: High availability case study
@@ -714,7 +714,9 @@ items:
       - name: SSL Encryption and Authentication for ESP Kafka cluster
         href: ./kafka/apache-esp-kafka-ssl-encryption-authentication.md  
       - name: Kafka MirrorMaker 2.0 guide
-        href: ./kafka/kafka-mirrormaker-2-0-guide.md  
+        href: ./kafka/kafka-mirrormaker-2-0-guide.md
+      - name: Connect HDInsight Kafka cluster with client VM in different VNet
+        href: ./kafka/connect-kafka-with-vnet.md 
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains

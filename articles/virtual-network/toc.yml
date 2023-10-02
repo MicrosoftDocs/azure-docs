@@ -39,18 +39,10 @@
       href: virtual-networks-udr-overview.md
     - name: Backend Connectivity Interoperability
       items:
-      - name: Preface and Test Setup
-        href: ../networking/connectivty-interoperability-preface.md?toc=/azure/virtual-network/toc.json
-      - name: Test Setup Configuration
-        href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/virtual-network/toc.json
       - name: Control Plane Analysis
-        href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
-      - name: Data Plane Analysis
-        href: ../networking/connectivty-interoperability-data-plane.md?toc=/azure/virtual-network/toc.json
+        href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
     - name: Container networking
       href: container-networking-overview.md
-    - name: Cross-network connectivity
-      href: ../expressroute/cross-network-connectivity.md?toc=/azure/virtual-network/toc.json
     - name: Peering
       href: virtual-network-peering-overview.md
   - name: Integrate Azure services
@@ -73,6 +65,12 @@
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
     - name: Network isolation of Azure services
       href: vnet-integration-for-azure-services.md
+    - name: Virtual network encryption
+      items:
+      - name: Overview
+        href: virtual-network-encryption-overview.md
+      - name: FAQ
+        href: virtual-network-encryption-faq.yml
     - name: Network security groups
       items:
       - name: Overview
@@ -184,6 +182,14 @@
       href: deploy-container-networking.md
   - name: Security
     items:
+    - name: Create virtual network with encryption
+      items:
+      - name: Azure portal
+        href: how-to-create-encryption-portal.md
+      - name: Azure PowerShell
+        href: how-to-create-encryption-powershell.md
+      - name: Azure CLI
+        href: how-to-create-encryption-cli.md
     - name: Filter network traffic
       items:
       - name: Azure portal
@@ -220,7 +226,7 @@
           href: virtual-network-service-endpoint-policies-cli.md
     - name: Manage DDoS protection
       href: ../ddos-protection/manage-ddos-protection.md
-    - name: Onboard partners to DDoS Protection Standard
+    - name: Onboard partners to DDoS Protection
       href: ../ddos-protection/ddos-protection-partner-onboarding.md
     - name: Manage network security groups
       href: manage-network-security-group.md    
@@ -255,6 +261,14 @@
           href: accelerated-networking-how-it-works.md
         - name: Setup DPDK
           href: setup-dpdk.md
+      - name: Microsoft Azure Network Adapter (MANA)
+        items:
+        - name: Microsoft Azure Network Adapter (MANA) overview
+          href: accelerated-networking-mana-overview.md
+        - name: Linux VMs with MANA
+          href: accelerated-networking-mana-linux.md
+        - name: Windows VMs with MANA
+          href: accelerated-networking-mana-windows.md
     - name: TCP/IP Performance Tuning for Azure VMs
       href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput

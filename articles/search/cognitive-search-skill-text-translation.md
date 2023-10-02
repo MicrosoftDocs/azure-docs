@@ -13,14 +13,14 @@ ms.date: 09/19/2022
 
 #	Text Translation cognitive skill
 
-The **Text Translation** skill evaluates text and, for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](../cognitive-services/translator/reference/v3-0-translate.md) available in Cognitive Services.
+The **Text Translation** skill evaluates text and, for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](../ai-services/translator/reference/v3-0-translate.md) available in Azure AI services.
 
 This capability is useful if you expect that your documents may not all be in one language, in which case you can normalize the text to a single language before indexing for search by translating it.  It's also useful for localization use cases, where you may want to have copies of the same text available in multiple languages.
 
-The [Translator Text API v3.0](../cognitive-services/translator/reference/v3-0-reference.md) is a non-regional Cognitive Service, meaning that your data isn't guaranteed to stay in the same region as your Azure Cognitive Search or attached Cognitive Services resource.
+The [Translator Text API v3.0](../ai-services/translator/reference/v3-0-reference.md) is a non-regional Cognitive Service, meaning that your data isn't guaranteed to stay in the same region as your Azure Cognitive Search or attached Azure AI services resource.
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to Azure AI services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Azure AI services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 > When using this skill, all documents in the source are processed and billed for translation, even if the source and target languages are the same. This behavior is useful for multi-language support within the same document, but it can result in unnecessary processing. To avoid unexpected billing charges from documents that don't need processing, move them out of the data source container prior to running the skill.
 >
@@ -39,17 +39,17 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the "to" language explicitly. <br/> See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
-| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the "from" language explicitly.  If the defaultFromLanguageCode isn't specified, the automatic language detection provided by the Translator Text API will be used to determine the "from" language. <br/> See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
-| suggestedFrom | (Optional) The language code to translate documents from if `fromLanguageCode` or `defaultFromLanguageCode` are unspecified, and the automatic language detection is unsuccessful. If the suggestedFrom language isn't specified,  English (en) will be used as the suggestedFrom language. <br/> See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
+| defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the "to" language explicitly. <br/> See the [full list of supported languages](../ai-services/translator/language-support.md). |
+| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the "from" language explicitly.  If the defaultFromLanguageCode isn't specified, the automatic language detection provided by the Translator Text API will be used to determine the "from" language. <br/> See the [full list of supported languages](../ai-services/translator/language-support.md). |
+| suggestedFrom | (Optional) The language code to translate documents from if `fromLanguageCode` or `defaultFromLanguageCode` are unspecified, and the automatic language detection is unsuccessful. If the suggestedFrom language isn't specified,  English (en) will be used as the suggestedFrom language. <br/> See the [full list of supported languages](../ai-services/translator/language-support.md). |
 
 ## Skill inputs
 
 | Input name	 | Description |
 |--------------------|-------------|
 | text | The text to be translated.|
-| toLanguageCode	| A string indicating the language the text should be translated to. If this input isn't specified, the defaultToLanguageCode will be used to translate the text. <br/>See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
-| fromLanguageCode	| A string indicating the current language of the text. If this parameter isn't specified, the defaultFromLanguageCode (or automatic language detection if the defaultFromLanguageCode isn't provided) will be used to translate the text. <br/>See the [full list of supported languages](../cognitive-services/translator/language-support.md). |
+| toLanguageCode	| A string indicating the language the text should be translated to. If this input isn't specified, the defaultToLanguageCode will be used to translate the text. <br/>See the [full list of supported languages](../ai-services/translator/language-support.md). |
+| fromLanguageCode	| A string indicating the current language of the text. If this parameter isn't specified, the defaultFromLanguageCode (or automatic language detection if the defaultFromLanguageCode isn't provided) will be used to translate the text. <br/>See the [full list of supported languages](../ai-services/translator/language-support.md). |
 
 ## Skill outputs
 

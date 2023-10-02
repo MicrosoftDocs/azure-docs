@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 06/23/2023
 ms.author: helohr
 ---
 
@@ -15,25 +15,14 @@ ms.author: helohr
 
 This article will walk you through the process of deploying and accessing Azure Active Directory joined virtual machines in Azure Virtual Desktop. Azure AD-joined VMs remove the need to have line-of-sight from the VM to an on-premises or virtualized Active Directory Domain Controller (DC) or to deploy Azure AD Domain services (Azure AD DS). In some cases, it can remove the need for a DC entirely, simplifying the deployment and management of the environment. These VMs can also be automatically enrolled in Intune for ease of management.
 
-## Supported configurations
-
-The following configurations are currently supported with Azure AD-joined VMs:
-
-- Personal desktops with local user profiles.
-- Pooled desktops used as a jump box. In this configuration, users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users shouldn't save data on the VM.
-- Pooled desktops or apps where users don't need to save data on the VM. For example, for applications that save data online or connect to a remote database.
-- Personal or pooled desktops with FSLogix user profiles.
-
-User accounts can be cloud-only or synced users from the same Azure AD tenant.
-
 ## Known limitations
 
-The following known limitations may affect access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication.
+The following known limitations may affect access to your on-premises or Active Directory domain-joined resources and you should consider them when deciding whether Azure AD-joined VMs are right for your environment.
 
 - Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs.
 - Azure AD-joined VMs don't currently support external identities, such as Azure AD Business-to-Business (B2B) and Azure AD Business-to-Consumer (B2C).
-- Azure AD-joined VMs can only access Azure Files file shares for synced users using Azure AD Kerberos.
-- The Windows Store client doesn't currently support Azure AD-joined VMs.
+- Azure AD-joined VMs can only access [Azure Files shares](create-profile-container-azure-ad.md) or [Azure NetApp Files shares](create-fslogix-profile-container.md) for hybrid users using Azure AD Kerberos for FSLogix user profiles.
+- The [Remote Desktop app for Windows](users/connect-microsoft-store.md) doesn't support Azure AD-joined VMs.
 
 ## Deploy Azure AD-joined VMs
 
@@ -84,7 +73,7 @@ You can enable a single sign-on experience using Azure AD authentication when ac
 
 ## User profiles
 
-You can use FSLogix profile containers with Azure AD-joined VMs when you store them on Azure Files while using synced user accounts. For more information, see [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md).
+You can use FSLogix profile containers with Azure AD-joined VMs when you store them on Azure Files or Azure NetApp Files while using hybrid user accounts. For more information, see [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md).
 
 ## Accessing on-premises resources
 
@@ -99,3 +88,4 @@ Now that you've deployed some Azure AD joined VMs, we recommend enabling single 
 - [Connect with the Windows Desktop client](users/connect-windows.md)
 - [Connect with the web client](users/connect-web.md)
 - [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md)
+- [Create a profile container with Azure NetApp Files](create-fslogix-profile-container.md)

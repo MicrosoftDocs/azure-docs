@@ -31,7 +31,7 @@ At the end of this article, you have two C apps:
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
 * The latest [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 

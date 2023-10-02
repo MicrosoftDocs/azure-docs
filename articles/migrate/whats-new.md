@@ -5,23 +5,38 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 05/15/2023
-ms.custom: mvc, engagement-fy23
+ms.service: azure-migrate
+ms.date: 08/24/2023
+ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (August 2023)
+- Azure Migrate now helps you gain deeper insights into the support posture of your IT estate by providing insights into Windows server and SQL Server license support information. You can stay ahead of license support deadlines with *Support ends in* information that helps to understand the time left until the end of support for respective servers and databases.
+- Azure Migrate also provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+- Envision Extended Security Update (ESU) savings for out of support Windows Server and SQL Server licenses using Azure Migrate Business case. 
+
+## Update (July 2023)
+- Discover Azure Migrate from Operations Manager console: Operations Manager 2019 UR3 and later allows you to discover Azure Migrate from console. You can now generate a complete inventory of your on-premises environment without appliance. This can be used in Azure Migrate to assess machines at scale. [Learn more](https://support.microsoft.com/topic/discover-azure-migrate-for-operations-manager-04b33766-f824-4e99-9065-3109411ede63).
+- Public Preview: Upgrade your Windows OS during Migration using the Migration and modernization tool in your VMware environment. [Learn more](how-to-upgrade-windows.md).
+
+## Update (June 2023)
+- Envision security cost savings with [Microsoft Defender for Cloud (MDC)](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud) using Azure Migrate business case. 
+- Resolve issues impacting the performance data collection and accuracy of Azure VM and Azure VMware Solution assessment recommendation and improve the confidence ratings of assessments. [Learn more](common-questions-discovery-assessment.md).
+
+
 ## Update (May 2023)
 - SQL Server discovery and assessment in Azure Migrate is now Generally Available (GA). [Learn more](concepts-azure-sql-assessment-calculation.md).
 
 ## Update (April 2023)
-- Build a quick business case for servers imported via a .csv file. [Learn more](tutorial-discover-import.md)
+- Build a quick business case for servers imported via a .csv file. [Learn more](tutorial-discover-import.md).
 - Build business case using Azure Migrate for:
     - Servers and workloads running in your Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
     - SQL Server Always On Failover Cluster Instances and Always On Availability Groups. [Learn more](how-to-discover-applications.md).
-
+- Envision savings with Azure Hybrid Benefits by bringing your existing Windows Server licenses to Azure using Azure VM assessments. 
 ## Update (March 2023)
 - Support for discovery and assessment of web apps for Azure app service for Hyper-V and Physical servers. [Learn more](how-to-create-azure-app-service-assessment.md).
 
@@ -58,8 +73,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (October 2022)
 
-- Support for export of errors and notifications from the portal for software inventory and agentless dependency.
-- Private preview: Plan replication. This is a new feature added to the Migration and Modernization tool of Azure Migrate. It helps to estimate the time and resources required for replication and migration of the discovered servers. This feature will help in planning the replication and migration schedule. Currently, the feature is available for VMware agentless migrations.  To enroll for private preview, please fill this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2QMeqnlmM1An_w4S8FpvJ5UNEQ1VEgzNUpEUE0xODBHVUdVVUxGMUdVNS4u).
+- Support for export of errors and notifications from the portal for software inventory and agentless dependency. [Learn more](troubleshoot-dependencies.md)
 
 ## Update (September 2022)
 
@@ -90,7 +104,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 ## Update (February 2022)
 - General Availability: Migrate Windows and Linux Hyper-V virtual machines with large data disks (up to 32 TB in size).
-- Azure Migrate is now supported in Azure China. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
+- Azure Migrate is now supported in Microsoft Azure operated by 21Vianet. [Learn more](/azure/china/overview-operations#azure-operations-in-china).
 - Public preview of at-scale, software inventory, and agentless dependency analysis for Hyper-V virtual machines and bare metal servers or servers running on other clouds like AWS, GCP etc.
 
 

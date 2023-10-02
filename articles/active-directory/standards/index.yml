@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
-title: Implement identity standards with Azure Active Directory
-summary: Azure and Azure Active Directory offer compliance certifications. Learn to configure your environment to meet governmental and industry standards.
+title: Implement identity standards with Microsoft Entra ID
+summary: Azure and Microsoft Entra ID offer compliance certifications. Learn to configure your environment to meet governmental and industry standards.
 
 metadata:
-  title: Implement identity standards with Azure Active Directory
-  description: "Azure and Azure Active Directory offer compliance certifications. Learn to configure your environment to meet governmental and industry standards."
+  title: Implement identity standards with Microsoft Entra ID
+  description: "Azure and Microsoft Entra ID offer compliance certifications. Learn to configure your environment to meet governmental and industry standards."
   manager: martinco
   ms.author: jricketts
   ms.collection: na
-  ms.date: 04/29/2022
+  ms.date: 06/28/2023
   ms.service: active-directory
   ms.subservice: standards
   ms.topic: landing-page
@@ -27,15 +27,15 @@ landingContent:
           - text: NIST AAL overview
             url: nist-overview.md
           - text: FedRAMP High impact overview
-            url: configure-azure-active-directory-for-fedramp-high-impact.md
-          - text: Configure Azure Active Directory for Memorandum 22-09 requirements
+            url: configure-for-fedramp-high-impact.md
+          - text: Configure Microsoft Entra ID for Memorandum 22-09 requirements
             url: memo-22-09-meet-identity-requirements.md
-          - text: Configure Azure Active Directory for CMMC compliance
-            url: configure-azure-active-directory-for-cmmc-compliance.md
-          - text: Configure Azure Active Directory for HIPAA compliance
-            url: hipaa-configure-azure-active-directory-for-compliance.md
-          - text: Configure Azure Active Directory for PCI-DSS compliance
-            url: azure-ad-pci-dss-guidance.md
+          - text: Configure Microsoft Entra ID for CMMC compliance
+            url: configure-for-cmmc-compliance.md
+          - text: Configure Microsoft Entra ID for HIPAA compliance
+            url: hipaa-configure-for-compliance.md
+          - text: Configure Microsoft Entra ID for PCI-DSS compliance
+            url: pci-dss-guidance.md
 
   # Card 
   - title: Understand NIST AALs
@@ -92,15 +92,15 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure Azure Active Directory for CMMC compliance
-            url: configure-azure-active-directory-for-cmmc-compliance.md
+          - text: Configure Microsoft Entra ID for CMMC compliance
+            url: configure-for-cmmc-compliance.md
           - text: Configure CMMC Level 1 controls
             url: configure-cmmc-level-1-controls.md
           - text: Configure CMMC Level 2 Access Control controls
             url: configure-cmmc-level-2-access-control.md
           - text: Configure CMMC Level 2 Identification and Authentication controls
             url: configure-cmmc-level-2-identification-and-authentication.md
-          - text: Configure Azure Active Directory to meet CMMC Level 2
+          - text: Configure Microsoft Entra ID to meet CMMC Level 2
             url: configure-cmmc-level-2-additional-controls.md
             
   # Card
@@ -136,5 +136,5 @@ landingContent:
             url: pci-requirement-10.md
           - text: Meet PCI-DSS Requirement 11
             url: pci-requirement-11.md
-          - text: Meet Azure Active Directory PCI-DSS MFA supplemental requirements
-            url: azure-ad-pci-dss-mfa.md
+          - text: Meet Microsoft Entra PCI-DSS MFA supplemental requirements
+            url: pci-dss-mfa.md

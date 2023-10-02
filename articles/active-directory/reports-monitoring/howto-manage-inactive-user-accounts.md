@@ -1,24 +1,26 @@
 ---
 title: How to manage inactive user accounts
-description: Learn how to detect and resolve user accounts that have become obsolete
+description: Learn how to detect and resolve Microsoft Entra user accounts that have become inactive or obsolete.
 services: active-directory
 author: shlipsey3
 manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
+ms.custom: has-azure-ad-ps-ref
 ms.subservice: report-monitor
-ms.date: 05/02/2023
+ms.date: 09/28/2023
 ms.author: sarahlipsey
-ms.reviewer: besiler
-
-ms.collection: M365-identity-device-management
+ms.reviewer: egreenberg
 ---
 # How To: Manage inactive user accounts
 
 In large environments, user accounts aren't always deleted when employees leave an organization. As an IT administrator, you want to detect and resolve these obsolete user accounts because they represent a security risk.
 
-This article explains a method to handle obsolete user accounts in Azure Active Directory (Azure AD). 
+This article explains a method to handle obsolete user accounts in Microsoft Entra ID. 
+
+>[!NOTE]
+>This article applies only to finding inactive user accounts in Microsoft Entra ID. It does not apply to finding inactive accounts in [Azure AD B2C](/azure/active-directory-b2c/overview).
 
 ## What are inactive user accounts?
 
@@ -31,7 +33,7 @@ The last sign-in provides potential insights into a user's continued need for ac
 ## Detect inactive user accounts with Microsoft Graph
 <a name="how-to-detect-inactive-user-accounts"></a>
 
-You can detect inactive accounts by evaluating the `lastSignInDateTime` property exposed by the `signInActivity` resource type of the **Microsoft Graph API**. The `lastSignInDateTime` property shows the last time a user attempted to make an interactive sign-in attempt in Azure AD. Using this property, you can implement a solution for the following scenarios:
+You can detect inactive accounts by evaluating the `lastSignInDateTime` property exposed by the `signInActivity` resource type of the **Microsoft Graph API**. The `lastSignInDateTime` property shows the last time a user attempted to make an interactive sign-in attempt in Microsoft Entra ID. Using this property, you can implement a solution for the following scenarios:
 
 - **Last sign-in date and time for all users**: In this scenario, you need to generate a report of the last sign-in date of all users. You request a list of all users, and the last `lastSignInDateTime` for each respective user:
     - `https://graph.microsoft.com/v1.0/users?$select=displayName,signInActivity` 
@@ -53,7 +55,7 @@ The following details relate to the `lastSignInDateTime` property.
 
 - The property is *not* available through the Get-AzureAdUser cmdlet.
 
-- To access the property, you need an Azure Active Directory Premium edition license.
+- To access the property, you need a Microsoft Entra ID P1 or P2 edition license.
 
 - To read the property, you need to grant the app the following Microsoft Graph permissions: 
     - AuditLog.Read.All
@@ -61,27 +63,29 @@ The following details relate to the `lastSignInDateTime` property.
 
 - Each interactive sign-in attempt results in an update of the underlying data store. Typically, sign-ins show up in the related sign-in report within 6 hours. 
  
-- To generate a `lastSignInDateTime` timestamp, you must attempt a sign-in. Either a failed or successful sign-in attempt, as long as it's recorded in the [Azure AD sign-in logs](concept-all-sign-ins.md), generates a `lastSignInDateTime` timestamp. The value of the `lastSignInDateTime` property may be blank if:
+- To generate a `lastSignInDateTime` timestamp, you must attempt a sign-in. Either a failed or successful sign-in attempt, as long as it's recorded in the [Microsoft Entra sign-in logs](concept-all-sign-ins.md), generates a `lastSignInDateTime` timestamp. The value of the `lastSignInDateTime` property may be blank if:
     - The last attempted sign-in of a user took place before April 2020.
     - The affected user account was never used for a sign-in attempt.
 
-- The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
+- The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. It may take up to 24 hours to update.
 
 ## How to investigate a single user
 
-If you need to view the latest sign-in activity for a user, you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph **users by name** scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-1. Go to **Azure AD** > **Users** > select a user from the list.
+If you need to view the latest sign-in activity for a user, you can view the user's sign-in details in Microsoft Entra ID. You can also use the Microsoft Graph **users by name** scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Reports Reader](../roles/permissions-reference.md#reports-reader).
+1. Browse to **Identity** > **Users** > **All users**.
+1. Select a user from the list.
 1. In the **My Feed** area of the user's Overview, locate the **Sign-ins** tile. 
 
     ![Screenshot of the user overview page with the sign-in activity tile highlighted.](media/howto-manage-inactive-user-accounts/last-sign-activity-tile.png)
 
-The last sign-in date and time shown on this tile may take up to 6 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
+The last sign-in date and time shown on this tile may take up to 24 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
 
 ## Next steps
 
-* [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
+* [Get data using the Microsoft Entra reporting API with certificates](./howto-configure-prerequisites-for-reporting-api.md)
 * [Audit API reference](/graph/api/resources/directoryaudit) 
 * [Sign-in activity report API reference](/graph/api/resources/signin)
-

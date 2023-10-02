@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: arm-portal
 ---
 
-# Session Affinity in Azure Container Apps (preview)
+# Session Affinity in Azure Container Apps
 
 Session affinity, also known as sticky sessions, is a feature that allows you to route all requests from a client to the same replica. This feature is useful for stateful applications that require a consistent connection to the same replica.
 
@@ -21,7 +21,6 @@ If your app doesn't require session affinity, we recommend that you don't enable
 > [!NOTE]
 > Session affinity is only supported when your app is in [single revision mode](revisions.md#single-revision-mode) and the ingress type is HTTP.
 > 
-> This feature is in public preview.
 
 ## Configure session affinity
 

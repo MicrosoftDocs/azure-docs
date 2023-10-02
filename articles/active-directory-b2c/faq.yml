@@ -8,10 +8,10 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
-  ms.date: 05/23/2023
+  ms.date: 07/13/2023
   ms.author: godonnell
   ms.subservice: B2C
-  ms.custom: "b2c-support"
+  ms.custom: b2c-support, has-azure-ad-ps-ref
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
 summary: This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
 
@@ -36,22 +36,22 @@ sections:
       - question: |
           Why can't I access the Azure AD B2C extension in the Azure portal?
         answer: |
-          There are two common reasons for why the Azure AD extension isn't working for you. Azure AD B2C requires your user role in the directory to be global administrator. Contact your administrator if you think you should have access. If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure Active Directory directory. You can see instructions for [creating an Azure AD B2C tenant](tutorial-create-tenant.md).
+          There are two common reasons for why the Microsoft Entra extension isn't working for you. Azure AD B2C requires your user role in the directory to be global administrator. Contact your administrator if you think you should have access. If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not a Microsoft Entra directory. You can see instructions for [creating an Azure AD B2C tenant](tutorial-create-tenant.md).
           
       - question: |
-          Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
+          Can I use Azure AD B2C features in my existing, employee-based Microsoft Entra tenant?
         answer: |
-          Azure AD and Azure AD B2C are separate product offerings. To use Azure AD B2C features, create a separate Azure AD B2C tenant from your existing employee-based Azure AD tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
+          Microsoft Entra ID and Azure AD B2C are separate product offerings. To use Azure AD B2C features, create a separate Azure AD B2C tenant from your existing employee-based Microsoft Entra tenant. A Microsoft Entra tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Microsoft Entra ID allowing authentication of employees in an organization.
 
       - question: |
           Can I use Azure AD B2C to provide social sign in (Facebook and Google+) into Microsoft 365?
         answer: |
-          Azure AD B2C can't be used to authenticate users for Microsoft 365. Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access. Azure AD B2C provides an identity and access management platform for building web and mobile applications. When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
+          Azure AD B2C can't be used to authenticate users for Microsoft 365. Microsoft Entra ID is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access. Azure AD B2C provides an identity and access management platform for building web and mobile applications. When Azure AD B2C is configured to federate to a Microsoft Entra tenant, the Microsoft Entra tenant manages employee access to applications that rely on Azure AD B2C.
 
       - question: |
-          What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
+          What are local accounts in Azure AD B2C? How are they different from work or school accounts in Microsoft Entra ID?
         answer: |
-          In an Azure AD tenant, users that belong to the tenant sign in with an email address of the form `<xyz>@<tenant domain>`. The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
+          In a Microsoft Entra tenant, users that belong to the tenant sign in with an email address of the form `<xyz>@<tenant domain>`. The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
           
           In an Azure AD B2C tenant, most apps want the user to sign in with any arbitrary email address (for example, joe@comcast.net, bob@gmail.com, sarah@contoso.com, or jim@live.com). This type of account is a local account. We also support arbitrary user names as local accounts (for example, joe, bob, sarah, or jim). You can choose one of these two local account types when configuring identity providers for Azure AD B2C in the Azure portal. In your Azure AD B2C tenant, select **Identity providers**, select **Local account**, and then select **Username**.
           
@@ -59,7 +59,7 @@ sections:
       - question: |
           How many users can an Azure AD B2C tenant accommodate?
         answer: |
-          - By default, each tenant can accommodate a total of **1.25 million** objects (user accounts and applications), but you can increase this limit to **5.25 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
+          - By default, each tenant can accommodate a total of **1 million** objects (user accounts and applications), but you can increase this limit to **5 million** objects when you [add and verify a custom domain](custom-domain.md). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md). However, if you created your tenant before **September 2022**, this limit doesn't affect you, and your tenant will retain the size allocated to it at creation, that's, **50 million** objects. 
       - question: |
           Which social identity providers do you support now? Which ones do you plan to support in the future?
         answer: |
@@ -101,7 +101,7 @@ sections:
       - question: |
           How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
         answer: |
-          You can use the [company branding feature](../active-directory/fundamentals/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
+          You can use the [company branding feature](../active-directory/fundamentals/how-to-customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
           
           * **Banner logo**: Shown at the bottom-right.
           * **Background color**: Shown at the top.
@@ -111,7 +111,7 @@ sections:
           The email signature contains the Azure AD B2C tenant's name that you provided when you first created the Azure AD B2C tenant. You can change the name using these instructions:
           
           1. Sign in to the [Azure portal](https://portal.azure.com/) as the Global Administrator.
-          1. Open the **Azure Active Directory** blade.
+          1. Open the **Microsoft Entra ID** blade.
           1. Select the **Properties** tab.
           1. Change the **Name** field.
           1. Select **Save** at the top of the page.
@@ -119,7 +119,7 @@ sections:
           Currently you can’t change the "From:" field on the email.
           
           > [!TIP]
-          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com).
+          > With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true).
           
       - question: |
           How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
@@ -129,14 +129,14 @@ sections:
       - question: |
           What password user flow is used for local accounts in Azure AD B2C?
         answer: |
-          The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign in and password reset user flows use the "strong" password strength and don't expire any passwords. For more information, see [Password policies and restrictions in Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
+          The Azure AD B2C password user flow for local accounts is based on the policy for Microsoft Entra ID. Azure AD B2C's sign-up, sign-up or sign in and password reset user flows use the "strong" password strength and don't expire any passwords. For more information, see [Password policies and restrictions in Microsoft Entra ID](../active-directory/authentication/concept-sspr-policy.md).
           
           For information about account lockouts and passwords, see [Mitigate credential attacks in Azure AD B2C](threat-management.md).
           
       - question: |
-          Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
+          Can I use Microsoft Entra Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
         answer: |
-          No, Azure AD Connect isn't designed to work with Azure AD B2C. Consider using the [Microsoft Graph API](microsoft-graph-operations.md) for user migration. See the [User migration guide](user-migration.md) for details.
+          No, Microsoft Entra Connect isn't designed to work with Azure AD B2C. Consider using the [Microsoft Graph API](microsoft-graph-operations.md) for user migration. See the [User migration guide](user-migration.md) for details.
           
       - question: |
           Can my app open up Azure AD B2C pages within an iFrame?
@@ -146,12 +146,12 @@ sections:
       - question: |
           Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
         answer: |
-          Integration with Microsoft Dynamics 365 Portal is available. See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](/dynamics365/customer-engagement/portals/azure-ad-b2c).
+          Integration with Microsoft Dynamics 365 Portal is available. See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](/power-apps/maker/portals/configure/azure-ad-b2c).
           
       - question: |
           Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
         answer: |
-          Azure AD B2C isn't meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) instead.
+          Azure AD B2C isn't meant for the SharePoint external partner-sharing scenario; see [Microsoft Entra B2B](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/learn-all-about-the-azure-ad-b2b-collaboration-preview/ba-p/244082) instead.
           
       - question: |
           Should I use Azure AD B2C or B2B to manage external identities?
@@ -159,9 +159,9 @@ sections:
           Read [Compare solutions for External Identities](../active-directory/external-identities/external-identities-overview.md) to learn more about applying the appropriate features to your external identity scenarios.
           
       - question: |
-          What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
+          What reporting and auditing features does Azure AD B2C provide? Are they the same as in Microsoft Entra ID P1 or P2?
         answer: |
-          No, Azure AD B2C doesn't support the same set of reports as Azure AD Premium. However there are many commonalities:
+          No, Azure AD B2C doesn't support the same set of reports as Microsoft Entra ID P1 or P2. However there are many commonalities:
           
           * **Sign-in reports** provide a record of each sign in with reduced details.
           * **Audit reports** include both admin activity and application activity.
@@ -180,18 +180,17 @@ sections:
       - question: |
           How do I know that the Go-Local add-on is available in my country/region? 
         answer: |
-          While [creating your Azure AD B2C tenant](tutorial-create-tenant.md), if the Go-Local add-on is available in your country, you're asked to enable it if you need it. 
+          While [creating your Azure AD B2C tenant](tutorial-create-tenant.md), if the Go-Local add-on is available in your country/region, you're asked to enable it if you need it. 
       
       - question: |
-          Do I still get 50,000 free [MAUs](billing.md#mau-overview) per month when I enable Go-Local add-on?
+          Do I still get 50,000 free MAUs per month on the Go-Local add-on when I enable it?
         answer: |
           No. 50,000 free [MAUs](billing.md#mau-overview) per month doesn't apply when you enable Go-Local add-on. 
-          You'll incur a charge on the Go-Local add-on from the first MAU. 
-          However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
-      - question: |
-          When does billing for using Go-Local add-on ad-on start?
+          You'll incur a charge on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).  
+      - question: | 
+          I've an existing Azure AD B2C tenant in Japan or Australia that doesn't have Go-Local add-on enabled. How do I activate this add-on? 
         answer: |
-          For all customers, billing for using Go-Local add-on starts when the feature goes to general availability (GA).
+          Follow the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on) to activate Azure AD B2C Go-Local add-on.
       - question: |
           Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
         answer: |
@@ -222,11 +221,11 @@ sections:
           1. Delete the **b2c-extensions-app**.
           1. Under **Manage**, select **Users**.
           1. Select each user in turn (exclude the *Subscription Administrator* user you're currently signed in as). Select **Delete** at the bottom of the page and select **Yes** when prompted.
-          1. Select **Azure Active Directory** on the left-hand menu.
+          1. Select **Microsoft Entra ID** on the left-hand menu.
           1. Under **Manage**, select **Properties**
           1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
           1. Sign out of the Azure portal and then sign back in to refresh your access.
-          1. Select **Azure Active Directory** on the left-hand menu.
+          1. Select **Microsoft Entra ID** on the left-hand menu.
           1. On the **Overview** page, select **Delete tenant**. Follow the on-screen instructions to complete the process.
           
           #### [Applications (Legacy)](#tab/applications-legacy/)
@@ -237,7 +236,7 @@ sections:
           1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
           1. Delete all the **User flows (policies)** in your Azure AD B2C tenant.
           1. Delete all the **Applications (Legacy)** you registered in your Azure AD B2C tenant.
-          1. Select **Azure Active Directory** on the left-hand menu.
+          1. Select **Microsoft Entra ID** on the left-hand menu.
           1. Under **Manage**, select **Users**.
           1. Select each user in turn (exclude the *Subscription Administrator* user you're currently signed in as). Select **Delete** at the bottom of the page and select **YES** when prompted.
           1. Under **Manage**, select **App registrations**.
@@ -248,7 +247,7 @@ sections:
           1. Under **Manage**, select **Properties**
           1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
           1. Sign out of the Azure portal and then sign back in to refresh your access.
-          1. Select **Azure Active Directory** on the left-hand menu.
+          1. Select **Microsoft Entra ID** on the left-hand menu.
           1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
           
           * * *          
@@ -259,14 +258,14 @@ sections:
           No, Azure AD B2C is a pay-as-you-go Azure service and isn't part of Enterprise Mobility Suite.
           
       - question: |
-          Can I purchase Azure AD Premium P1 and Azure AD Premium P2 licensing for my Azure AD B2C tenant?
+          Can I purchase Microsoft Entra ID P1 and Microsoft Entra ID P2 licensing for my Azure AD B2C tenant?
         answer: |
-          No, Azure AD B2C tenants don't use Azure AD Premium P1 or Azure AD Premium P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Azure AD Premium P1 or P2 licenses for a Standard Azure AD tenant. Azure AD B2C tenants natively support some features that are similar to Azure AD Premium features, as explained in [Supported Azure AD features](supported-azure-ad-features.md).
+          No, Azure AD B2C tenants don't use Microsoft Entra ID P1 or Microsoft Entra ID P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Microsoft Entra ID P1 or P2 licenses for a Standard Microsoft Entra tenant. Azure AD B2C tenants natively support some features that are similar to Microsoft Entra ID P1 or P2 features, as explained in [Supported Microsoft Entra features](supported-azure-ad-features.md).
          
       - question: |
-          Can I use group-based assignment for Azure AD Enterprise Applications in my Azure AD B2C tenant?
+          Can I use group-based assignment for Microsoft Entra Enterprise Applications in my Azure AD B2C tenant?
         answer: |
-          No, Azure AD B2C tenants don't support [group-based assignment to Azure AD Enterprise Applications](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+          No, Azure AD B2C tenants don't support [group-based assignment to Microsoft Entra Enterprise Applications](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
           
       - question: |
           What Azure AD B2C features are unavailable in Microsoft Azure Government?
@@ -294,6 +293,11 @@ sections:
           Currently, Azure AD B2C doesn't support single sign out for this specific scenario. It's caused by cookie contention as all the applications operates on the same cookie simultaneously.
           
       - question: |
-          How do I report issues with Azure AD B2C?
+          How do I report a problem with Azure AD B2C?
         answer: |
           See [File support requests for Azure Active Directory B2C](find-help-open-support-ticket.md).
+
+      - question: |
+          In Azure AD B2C, I revoke all sessions of a user by using the Azure portals Revoke sessions button, but it doesn't work?
+        answer: |
+          Currently, Azure AD B2C doesn't support user session revocation from the Azure portal. However, you can achieve this task by using [Microsoft Graph PowerShell](manage-users-portal.md#revoke-a-consumer-users-session) or [Microsoft Graph API](/graph/api/user-revokesigninsessions).

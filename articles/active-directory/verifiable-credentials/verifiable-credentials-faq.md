@@ -36,7 +36,7 @@ Individuals owning and controlling their identities are able to exchange verifia
 
 ### What is a Verifiable Credential? 
 
-Credentials are a part of our daily lives; driver's licenses are used to assert that we're capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. Verifiable Credentials provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable. [The W3C Verifiable Credentials spec](https://www.w3.org/TR/vc-data-model/) explains verifiable credentials in further detail.
+Credentials are a part of our daily lives; driver's licenses are used to assert that we're capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries/regions. Verifiable Credentials provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable. [The W3C Verifiable Credentials spec](https://www.w3.org/TR/vc-data-model/) explains verifiable credentials in further detail.
 
 
 ## Conceptual questions
@@ -47,9 +47,11 @@ There are multiple ways of offering a recovery mechanism to users, each with the
 
 ### How can a user trust a request from an issuer or verifier? How do they know a DID is the real DID for an organization?
 
-We implement [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Entra Verified ID has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
+We implement [the Decentralized Identity Foundation's Well Known DID Configuration spec](https://identity.foundation/.well-known/resources/did-configuration/) in order to connect a DID to a highly known existing system, domain names. Each DID created using the  Microsoft Entra Verified ID has the option of including a root domain name that will be encoded in the DID Document. Follow the article titled [Link your Domain to your Distributed Identifier](how-to-dnsbind.md) to learn more.  
 
-### Why does the Entra Verified ID support ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
+<a name='why-does-the-entra-verified-id-support-ion-as-its-did-method-and-therefore-bitcoin-to-provide-decentralized-public-key-infrastructure'></a>
+
+### Why does the Microsoft Entra Verified ID support ION as its DID method, and therefore Bitcoin to provide decentralized public key infrastructure?
 
 Microsoft now offers two different trust systems, Web and ION. You may choose to use either one of them during tenant onboarding. ION is a decentralized, permissionless, scalable decentralized identifier Layer 2 network that runs atop Bitcoin. It achieves scalability without including a special crypto asset token, trusted validators, or centralized consensus mechanisms. We use Bitcoin for the base Layer 1 substrate because of the strength of the decentralized network to provide a high degree of immutability for a chronological event record system.
 
@@ -70,20 +72,24 @@ There are no special licensing requirements to issue Verifiable credentials. All
 
 
 
-### How do I reset the Entra Verified ID service?
+<a name='how-do-i-reset-the-entra-verified-id-service'></a>
 
-Resetting requires that you opt out and opt back into the Entra Verified ID service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID to use during issuance and presentation.
+### How do I reset the Microsoft Entra Verified ID service?
+
+Resetting requires that you opt out and opt back into the Microsoft Entra Verified ID service, your existing verifiable credentials configurations will reset and your tenant will obtain a new DID to use during issuance and presentation.
 
 1. Follow the [opt-out](how-to-opt-out.md) instructions.
-1. Go over the Entra Verified ID [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
+1. Go over the Microsoft Entra Verified ID [deployment steps](verifiable-credentials-configure-tenant.md) to reconfigure the service.
     1. If you are in the European region, it's recommended that your Azure Key Vault, and container are in the same European region otherwise you may experience some performance and latency issues. Create new instances of these services in the same EU region as needed.
 1. Finish [setting up](verifiable-credentials-configure-tenant.md#set-up-verified-id) your verifiable credentials service. You need to recreate your credentials.
     1. If your tenant needs to be configured as an issuer, it's recommended that your storage account is in the European region as your Verifiable Credentials service.
     2. You also need to issue new credentials because your tenant now holds a new DID.
 
-### How can I check my Azure AD Tenant's region?
+<a name='how-can-i-check-my-azure-ad-tenants-region'></a>
 
-1. In the [Azure portal](https://portal.azure.com), go to Azure Active Directory for the subscription you use for your Entra Verified ID deployment.
+### How can I check my Microsoft Entra tenant's region?
+
+1. In the [Azure portal](https://portal.azure.com), go to Microsoft Entra ID for the subscription you use for your Microsoft Entra Verified ID deployment.
 1. Under Manage, select Properties
     :::image type="content" source="media/verifiable-credentials-faq/region.png" alt-text="settings delete and opt out":::
 1. See the value for Country or Region. If the value is a country or a region in Europe, your Microsoft Entra Verified ID service will be set up in Europe.
@@ -120,7 +126,9 @@ Resetting requires that you opt out and opt back into the Entra Verified ID serv
     ],
 ```
 
-### If I reconfigure the Entra Verified ID service, do I need to relink my DID to my domain?
+<a name='if-i-reconfigure-the-entra-verified-id-service-do-i-need-to-relink-my-did-to-my-domain'></a>
+
+### If I reconfigure the Microsoft Entra Verified ID service, do I need to relink my DID to my domain?
 
 Yes, after reconfiguring your service, your tenant has a new DID use to issue and verify verifiable credentials. You need to [associate your new DID](how-to-dnsbind.md) with your domain.
 

@@ -7,12 +7,14 @@ ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 08/14/2023
 ---
 
 # Reservation recommendations
 
 Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the reservation purchase experience in the Azure portal.
+
+The savings that are presented as part of reservation recommendations are the savings that are calculated in addition to your negotiated, or discounted (if applicable) prices.
 
 The following steps define how recommendations are calculated:
 
@@ -40,7 +42,7 @@ More information about the recommendation appears when you select **See details*
 
 The chart and estimated values change when you increase the recommended quantity. When you increase the reservation quantity, your savings are reduced because you end up with reduced reservation use. In other words, you pay for reservations that aren't fully used.
 
-If you lower the reservation quantity, your savings are also reduced. Although utilization is increased, there might be periods when your reservations don't fully cover your use. Usage beyond your reservation quantity is used by more expensive pay-as-you-go resources. The following example image illustrates the point. We've manually reduced the reservation quantity to 4. The reservation utilization is increased, but the overall savings are reduced because pay-as-you go costs are present.
+If you lower the reservation quantity, your savings are also reduced. Although utilization is increased, there might be periods when your reservations don't fully cover your use. Usage beyond your reservation quantity is used by more expensive pay-as-you-go resources. The following example image illustrates the point. We've manually reduced the reservation quantity to 4. The reservation utilization is increased, but the overall savings are reduced because pay-as-you-go costs are present.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Example showing changed reservation purchase recommendation details" :::
 
@@ -52,7 +54,6 @@ Reservation purchase recommendations are available in Azure Advisor. Keep in min
 
 - Advisor has only single-subscription scope recommendations. If you want to see recommendations for the entire billing scope (Billing account or billing profile), then:
   -  In the Azure portal, navigate to **Reservations** > **Add** and then select the type that you want to see the recommendations for.
-- Recommendations available in Advisor consider your past 30-day usage trend.
 - The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
 - The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
 - If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to five days to disappear.

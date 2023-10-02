@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Create a customized compute instance, using a startup script. Use the compute instance as your development environment, or as compute target for dev/test purposes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: compute
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.author: jcioffi
@@ -71,7 +71,7 @@ Once you store the script, specify it during creation of your compute instance:
 1. Sign into [studio](https://ml.azure.com/) and select your workspace.
 1. On the left, select **Compute**.
 1. Select **+New** to create a new compute instance.
-1. [Fill out the form](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
+1. [Fill out the form](how-to-create-compute-instance.md?tabs=azure-studio#create).
 1. On the second page of the form, open **Show advanced settings**.
 1. Turn on **Provision with setup script**.
 1. Select either **Creation script** or **Startup script** tab.

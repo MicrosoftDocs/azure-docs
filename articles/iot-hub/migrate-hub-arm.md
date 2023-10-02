@@ -6,6 +6,7 @@ author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 04/14/2023
 ---
@@ -107,17 +108,17 @@ This section provides specific instructions for migrating the hub.
 
 ### Export the original hub to a resource template
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to the IoT hub that you want to move.
 
 1. Select **Export template** from the list of properties and settings for the hub.
 
-   :::image type="content" source="./media/migrate-hub-arm/iot-hub-export-template.png" alt-text="Screenshot showing the command for exporting the template for the IoT Hub." border="true":::
+   :::image type="content" source="./media/migrate-hub-arm/iot-hub-export-template.png" alt-text="Screenshot showing the command for exporting the template for the IoT hub." border="true":::
 
 1. Select **Download** to download the template. Save the file somewhere you can find it again.
 
-   :::image type="content" source="./media/migrate-hub-arm/iot-hub-download-template.png" alt-text="Screenshot showing the command for downloading the template for the IoT Hub." border="true":::
+   :::image type="content" source="./media/migrate-hub-arm/iot-hub-download-template.png" alt-text="Screenshot showing the command for downloading the template for the IoT hub." border="true":::
 
 ### View the template
 
@@ -288,7 +289,7 @@ If you moved the routing resources as well, update the name, ID, and resource gr
 
 Create the new hub using the edited template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you aren't moving the routing resources, they should be in the template with the updated keys.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource**.
 
@@ -532,4 +533,4 @@ Don't clean up until you're certain the new hub is up and running and the device
 
 ## Next steps
 
-You have migrated an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT Hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).
+You have migrated an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).

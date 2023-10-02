@@ -2,12 +2,11 @@
 title: SMB file shares in Azure Files
 description: Learn about file shares hosted in Azure Files using the Server Message Block (SMB) protocol.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/31/2023
+ms.date: 09/29/2023
 ms.author: kendownie
-ms.subservice: files
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # SMB file shares in Azure Files
@@ -159,7 +158,7 @@ Azure Files exposes the following settings:
 - **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are AES-256 (recommended) and RC4-HMAC.
 - **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM.
 
-The SMB security settings can be viewed and changed using the Azure portal, PowerShell, or CLI. Please select the desired tab to see the steps on how to get and set the SMB security settings.
+You can view and change the SMB security settings using the Azure portal, PowerShell, or CLI. Select the desired tab to see the steps on how to get and set the SMB security settings.
 
 # [Portal](#tab/azure-portal)
 To view or change the SMB security settings using the Azure portal, follow these steps:
@@ -179,7 +178,7 @@ To view or change the SMB security settings using the Azure portal, follow these
 After you've entered the desired security settings, select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
-To get the SMB protocol settings, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
+To get the SMB protocol settings, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment. If you've deliberately set any of your SMB security settings to null, for example by disabling SMB channel encryption, see the instructions in the script about commenting out certain lines.
 
 ```PowerShell
 $resourceGroupName = "<resource-group>"
@@ -193,7 +192,10 @@ $storageAccount = Get-AzStorageAccount `
 # If you've never changed any SMB security settings, the values for the SMB security 
 # settings returned by Azure Files will be null. Null returned values should be interpreted 
 # as "default settings are in effect". To make this more user-friendly, the following 
-# PowerShell commands replace null values with the human-readable default values. 
+# PowerShell commands replace null values with the human-readable default values.
+# If you've deliberately set any of your SMB security settings to null, for example by
+# disabling SMB channel encryption, comment out the following four lines to avoid
+# changing the security settings back to defaults.
 $smbProtocolVersions = "SMB2.1", "SMB3.0", "SMB3.1.1"
 $smbAuthenticationMethods = "NTLMv2", "Kerberos"
 $smbKerberosTicketEncryption = "RC4-HMAC", "AES-256"
@@ -262,7 +264,7 @@ Update-AzStorageFileServiceProperty `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-To get the status of the SMB security settings, use the `az storage account file-service-properties show` command. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these Bash commands.
+To get the status of the SMB security settings, use the `az storage account file-service-properties show` command. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these Bash commands. If you've deliberately set any of your SMB security settings to null, for example by disabling SMB channel encryption, see the instructions in the script about commenting out certain lines.
 
 ```bash
 RESOURCE_GROUP_NAME="<resource-group>"
@@ -270,8 +272,11 @@ STORAGE_ACCOUNT_NAME="<storage-account>"
 
 # If you've never changed any SMB security settings, the values for the SMB security 
 # settings returned by Azure Files will be null. Null returned values should be interpreted 
-# as "default settings are in effect". To make this more user-friendly, the following 
-# PowerShell commands replace null values with the human-readable default values.
+# as "default settings are in effect". To make this more user-friendly, the commands in the 
+# following two sections replace null values with the human-readable default values.
+# If you've deliberately set any of your SMB security settings to null, for example by
+# disabling SMB channel encryption, comment out the following two sections before 
+# running the script to avoid changing the security settings back to defaults.
 
 # Values to be replaced
 REPLACESMBPROTOCOLVERSION="\"smbProtocolVersions\": null"
@@ -311,10 +316,10 @@ PROTOCOLSETTINGS="${protocolSettings/$REPLACESMBKERBEROSTICKETENCRYPTION/$DEFAUL
 echo $PROTOCOLSETTINGS
 ```
 
-Depending on your organizations security, performance, and compatibility requirements, you may wish to modify the SMB protocol settings. The following Azure CLI command restricts your SMB file shares to only the most secure options.
+Depending on your organization's security, performance, and compatibility requirements, you might wish to modify the SMB protocol settings. The following Azure CLI command restricts your SMB file shares to only the most secure options.
 
 > [!Important]  
-> Restricting SMB Azure file shares to only the most secure options may result in some clients not being able to connect if they do not meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows Server 2022 and Windows 11. This means that older clients that do not support AES-256-GCM will not be able to connect.
+> Restricting SMB Azure file shares to only the most secure options might result in some clients not being able to connect if they don't meet the requirements. For example, AES-256-GCM was introduced as an option for SMB channel encryption starting in Windows Server 2022 and Windows 11. This means that older clients that don't support AES-256-GCM won't be able to connect.
 
 ```azurecli
 az storage account file-service-properties update \
@@ -328,7 +333,7 @@ az storage account file-service-properties update \
 ---
 
 ## Limitations
-SMB file shares in Azure Files support a subset of features supported by SMB protocol and the NTFS file system. Although most use cases and applications do not require these features, some applications may not work properly with Azure Files if they rely on unsupported features. The following features are not supported:
+SMB file shares in Azure Files support a subset of features supported by SMB protocol and the NTFS file system. Although most use cases and applications do not require these features, some applications might not work properly with Azure Files if they rely on unsupported features. The following features aren't supported:
 
 - [SMB Direct](/windows-server/storage/file-server/smb-direct)  
 - SMB directory leasing

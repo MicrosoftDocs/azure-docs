@@ -4,12 +4,11 @@ titleSuffix: Azure Storage
 description: Learn how to convert an append blob or a page blob into a block blob in Azure Blob Storage.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: blobs
 ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell
 ---
@@ -96,7 +95,7 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
    containerName = '<source container name>'
    srcblobName = '<source append or page blob name>'
    destcontainerName = '<destination container name>'
-   destblobName = '<destination block blob name>'
+   destBlobName = '<destination block blob name>'
    destTier = '<destination block blob tier>'
 
    az storage blob copy start --account-name $accountName --destination-blob $destBlobName --destination-container $destcontainerName --destination-blob-type BlockBlob --source-blob $srcblobName --source-container $containerName --tier $destTier

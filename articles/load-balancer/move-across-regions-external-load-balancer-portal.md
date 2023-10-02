@@ -4,9 +4,9 @@ description: Use an Azure Resource Manager template to move an external load bal
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 09/17/2019
+ms.date: 06/27/2023
 ms.author: mbender
-ms.custom: template-how-to, devx-track-arm-template
+ms.custom: template-how-to, devx-track-arm-template, engagement-fy23
 ---
 
 # Move an external load balancer to another region using the Azure portal
@@ -20,9 +20,9 @@ In a literal sense, you can't move an Azure external load balancer from one regi
 
 - Make sure the Azure external load balancer is in the Azure region from which you want to move.
 
-- Azure external load balancers can't be moved between regions. You'll have to associate the new load balancer to resources in the target region.
+- Azure external load balancers can't be moved between regions. You have to associate the new load balancer to resources in the target region.
 
-- To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you'll need to be assigned the Network Contributor role or higher.
+- To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you need to be assigned the Network Contributor role or higher.
 
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups,  public IPs, and virtual networks.
 
@@ -105,7 +105,7 @@ The following procedures show how to prepare the external load balancer for the 
                 "tier": "Regional"
             },
         ```
-     * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP will be created as no-zone. You can specify a single zone to create a zonal public IP or all 3 zones for a zone-redundant public IP.
+     * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as no-zone. You can specify a single zone to create a zonal public IP or all three zones for a zone-redundant public IP.
 
          ```json
           "resources": [
@@ -196,12 +196,12 @@ The following procedures show how to prepare the external load balancer for the 
 
     ```
 
-6.  To edit value of the target public IP that you moved in the preceding steps, you must first obtain the resource ID and then paste it into the parameters.json file. To obtain the ID:
+6.  To edit value of the target public IP that you moved in the preceding steps, you must first obtain the resource ID, and then paste it into the parameters.json file. To obtain the ID:
 
     1. In another browser tab or window, sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
     2. Locate the target resource group that contains the public IP that you moved in the preceding steps. Select it.
     3. Select **Settings** > **Properties**.
-    4. In the blade to the right, highlight the **Resource ID** and copy it to the clipboard. Alternatively, you can select **copy to clipboard** to the right of the **Resource ID** path.
+    4. On the right-side, highlight the **Resource ID** and copy it to the clipboard. Alternatively, you can select **copy to clipboard** to the right of the **Resource ID** path.
     5. Paste the resource ID into the **value** property in the **Edit Parameters** editor that's open in the other browser window or tab:
 
         ```json
@@ -220,7 +220,7 @@ The following procedures show how to prepare the external load balancer for the 
     6. Select **Save** in the online editor.
 
 
-7.  If you've configured outbound NAT and outbound rules for the load balancer, you'll see a third entry in this file for the external ID of the outbound public IP. Repeat the preceding steps in the **target region** to obtain the ID for the outbound public IP. Paste that ID into the parameters.json file:
+7.  If you've configured outbound NAT and outbound rules for the load balancer, you see a third entry in this file for the external ID of the outbound public IP. Repeat the preceding steps in the **target region** to obtain the ID for the outbound public IP. Paste that ID into the parameters.json file:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

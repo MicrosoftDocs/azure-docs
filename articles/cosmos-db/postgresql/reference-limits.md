@@ -1,12 +1,12 @@
 ---
 title: Limits and limitations – Azure Cosmos DB for PostgreSQL
 description: Current limits for clusters
-ms.author: jonels
-author: jonels-msft
+ms.author: nlarin
+author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 08/07/2023
 ---
 
 # Azure Cosmos DB for PostgreSQL limits and limitations
@@ -16,9 +16,9 @@ ms.date: 01/25/2023
 The following section describes capacity and functional limits in the
 Azure Cosmos DB for PostgreSQL service.
 
-### Naming
+## Naming
 
-#### Cluster name
+### Cluster name
 
 A cluster must have a name that is 40 characters or
 shorter.
@@ -44,7 +44,7 @@ The connection limits above are for *user* connections (`max_connections` minus
 administration and recovery.
 
 The limits apply to both worker nodes and the coordinator node. Attempts to
-connect beyond these limits will fail with an error.
+connect beyond these limits fails with an error.
 
 #### Connection pooling
 
@@ -62,19 +62,16 @@ be scaled down (decreased).
 
 ### Storage size
 
-Up to 16 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
+Up to 32 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
 for various node and cluster sizes.
 
 ## Compute
 
 ### Subscription vCore limits
 
-Azure enforces a vCore quota per subscription per region. There are two
-independently adjustable quotas: vCores for coordinator nodes, and vCores for
-worker nodes. The default quota should be more than enough to experiment with
-Azure Cosmos DB for PostgreSQL. If you do need more vCores for a region in your
-subscription, see how to [adjust compute
-quotas](howto-compute-quota.md).
+Azure enforces a vCore quota per subscription per region. There are three
+independently adjustable quotas: vCores for coordinator nodes, vCores for
+worker nodes, and vCores for burstable compute. The default quota should be more than enough to experiment with Azure Cosmos DB for PostgreSQL and run small to medium size production. If you do need more vCores for a region in your subscription, see how to [adjust compute quotas](./howto-compute-quota.md).
 
 ### Burstable compute
 
@@ -88,16 +85,36 @@ currently **not supported**:
 * PostgreSQL 11 support
 * Read replicas
 * High availability
+* Geo-redundant backup
 * The [azure_storage](howto-ingest-azure-blob-storage.md) extension
 
-## PostgreSQL
+## Authentication
+
+### Azure Active Directory authentication
+If [Azure Active Directory (Azure AD)](./concepts-authentication.md#azure-active-directory-authentication-preview) is enabled on an Azure Cosmos DB for PostgreSQL cluster, the following is currently **not supported**:
+
+* PostgreSQL 11, 12, and 13
+* PgBouncer
+* Azure AD groups
 
 ### Database creation
 
 The Azure portal provides credentials to connect to exactly one database per
-cluster, the `citus` database. Creating another
-database is currently not allowed, and the CREATE DATABASE command will fail
+cluster. Creating another database is currently not allowed, and the CREATE DATABASE command fails
 with an error.
+
+By default this database is called `citus`. Azure Cosmos DB for PostgreSQL supports custom database names at cluster provisioning time only.  
+
+## Backup and restore
+
+### Geo-redundant backup and restore (preview)
+* Geo-redundant backup can be enabled only during cluster creation.
+    * You can enable geo-redundant backup when you perform a cluster restore.
+    * You can enable geo-redundant backup when you [promote a cluster read-replica to an independent cluster](./howto-read-replicas-portal.md#promote-a-read-replica).
+* Geo-redundant backup can't be enabled on single node clusters with [burstable compute](./concepts-burstable-compute.md).
+* Geo-redundant backup can't be disabled once cluster is created.
+* [Customer managed key (CMK)](./concepts-customer-managed-keys.md) isn't supported for clusters with geo-redundant backup enabled.
+* Azure Cosmos DB for PostgreSQL cluster with geo-redundant backup enabled can't have a [cluster read replica](./concepts-read-replicas.md) in the region where geo-redundant backup is stored.
 
 ## Next steps
 

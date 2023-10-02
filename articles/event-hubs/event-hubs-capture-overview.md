@@ -17,7 +17,7 @@ Event Hubs Capture enables you to process real-time and batch-based pipelines on
 
 > [!IMPORTANT]
 > - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
-> - Event Hubs doesn't support capturing events in a **premium** storage account. 
+> - Event Hubs capture supports any Storage account with support for block blobs.
 
 ## How Event Hubs Capture works
 
@@ -79,7 +79,7 @@ To enable capture on an event hub with Azure Storage as the capture destination,
 
 ```
 Microsoft.Storage/storageAccounts/blobServices/containers/write
-Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write permission(s) on above resource for the user or the application and retry.  
+Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write
 ```
  
 

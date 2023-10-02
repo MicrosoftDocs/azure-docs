@@ -2,9 +2,9 @@
 title: 'Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework, the app is hosted on Azure App Service on Linux, and the App Service and Database is connected with Service Connector.
 ms.devlang: python
-ms.custom: event-tier1-build-2022, devx-track-azurecli
-author: mcleanbyron
-ms.author: mcleans
+ms.custom: event-tier1-build-2022, devx-track-azurecli, devx-track-python
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 05/03/2022

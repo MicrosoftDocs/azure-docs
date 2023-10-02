@@ -265,7 +265,7 @@ The `apis` folder contains a folder for each API in the service instance, which 
 * `apis\<api name>\operations\` - Folder containing `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](/rest/api/apimanagement/current-ga/operation) in the REST API.
 
 ### apiVersionSets folder
-The `apiVerionSets` folder contains a folder for each API version set created for an API, and contains the following items.
+The `apiVersionSets` folder contains a folder for each API version set created for an API, and contains the following items.
 
 * `apiVersionSets\<api version set Id>\configuration.json` - Configuration for the version set. This is the same information that would be returned if you were to call the [Get a specific version set](/rest/api/apimanagement/current-ga/api-version-set/get) operation.
 

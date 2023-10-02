@@ -1,32 +1,35 @@
 ---
 title: Logic Apps connector with ARM-based AVI accounts
-description: This article shows how to unlock new experiences and monetization opportunities Azure Video Indexer connectors with Logic App and Power Automate with AVI ARM accounts.
-ms.author: Itnorman
+description: This article shows how to unlock new experiences and monetization opportunities Azure AI Video Indexer connectors with Logic App and Power Automate with AVI ARM accounts.
 ms.topic: how-to
 ms.date: 11/16/2022
+ms.author: Itnorman
+author: IngridAtMicrosoft
 ---
 
 # Logic Apps connector with ARM-based AVI accounts
 
-Azure Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic.
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
+Azure AI Video Indexer (AVI) [REST API](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) supports both server-to-server and client-to-server communication. The API enables you to integrate video and audio insights into your application logic.
 
 > [!TIP]
 > For the latest `api-version`, chose the latest stable version in [our REST documentation](/rest/api/videoindexer/stable/generate).
 
-To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://make.powerautomate.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure Video Indexer API. 
+To make the integration easier, we support [Logic Apps](https://azure.microsoft.com/services/logic-apps/) and [Power Automate](https://make.powerautomate.com/connectors/shared_videoindexer-v2/video-indexer-v2/) connectors that are compatible with the Azure AI Video Indexer API. 
 
 You can use the connectors to set up custom workflows to effectively index and extract insights from a large amount of video and audio files, without writing a single line of code. Furthermore, using the connectors for the integration gives you better visibility on the health of your workflow and an easy way to debug it.
 
 > [!TIP]
 > If you are using a classic AVI account, see [Logic Apps connector with classic-based AVI accounts](logic-apps-connector-tutorial.md).
 
-## Get started with the Azure Video Indexer connectors
+## Get started with the Azure AI Video Indexer connectors
 
-To help you get started quickly with the Azure Video Indexer connectors, the example in this article creates Logic App flows. The Logic App and Power Automate capabilities and their editors are almost identical, thus the diagrams and explanations are applicable to both. The example in this article is based on the ARM AVI account. If you're working with a classic account, see [Logic App connectors with classic-based AVI accounts](logic-apps-connector-tutorial.md).
+To help you get started quickly with the Azure AI Video Indexer connectors, the example in this article creates Logic App flows. The Logic App and Power Automate capabilities and their editors are almost identical, thus the diagrams and explanations are applicable to both. The example in this article is based on the ARM AVI account. If you're working with a classic account, see [Logic App connectors with classic-based AVI accounts](logic-apps-connector-tutorial.md).
 
 The "upload and index your video automatically" scenario covered in this article is composed of two different flows that work together. The "two flow" approach is used to support async upload and indexing of larger files effectively. 
 
-* The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure Video Indexer with a callback URL to send a notification once the indexing operation completes.
+* The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure AI Video Indexer with a callback URL to send a notification once the indexing operation completes.
 * The second flow is triggered based on the callback URL and saves the extracted insights back to a JSON file in Azure Storage. 
 
 The logic apps that you create in this article, contain one flow per app. The second section (**Create a new logic app of type consumption**) explains how to connect the two. The second flow stands alone and is triggered by the first one (the section with the callback URL). 
@@ -34,14 +37,14 @@ The logic apps that you create in this article, contain one flow per app. The se
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Create an ARM-based [Azure Video Indexer account](create-account-portal.md).
+- Create an ARM-based [Azure AI Video Indexer account](create-account-portal.md).
 - Create an Azure Storage account. Keep note of the access key for your Storage account.
 
-    Create two containers: one to store the media files, second to store the insights generated by Azure Video Indexer. In this article, the containers are `videos` and `insights`.
+    Create two containers: one to store the media files, second to store the insights generated by Azure AI Video Indexer. In this article, the containers are `videos` and `insights`.
 
 ## Set up the file upload flow (the first flow)
 
-This section describes how to set up the first ("file upload") flow. The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure Video Indexer with a callback URL to send a notification once the indexing operation completes. 
+This section describes how to set up the first ("file upload") flow. The first flow is triggered when a blob is added or modified in an Azure Storage account. It uploads the new file to Azure AI Video Indexer with a callback URL to send a notification once the indexing operation completes. 
 
 The following image shows the first flow:
 
@@ -107,7 +110,7 @@ The following image shows the first flow:
 1. <a name="access_token"></a>Generate an access token.
     
     > [!NOTE]
-    > For details about the ARM API and the request/response examples, see [Generate an Azure Video Indexer access token](/rest/api/videoindexer/preview/generate/access-token).
+    > For details about the ARM API and the request/response examples, see [Generate an Azure AI Video Indexer access token](/rest/api/videoindexer/preview/generate/access-token).
     >
     > Press **Try it** to get the correct values for your account.
 
@@ -133,15 +136,15 @@ The following image shows the first flow:
     Select **Save**.
     
     > [!TIP]
-    > Before moving to the next step, set up the right permission between the Logic app and the Azure Video Indexer account.
+    > Before moving to the next step, set up the right permission between the Logic app and the Azure AI Video Indexer account.
     >
     > Make sure you have followed the steps to enable the system -assigned managed identity of your Logic Apps.
     
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/logic-apps-connector-arm-accounts/enable-system.png" alt-text="Screenshot of the how to enable the system assigned managed identity." lightbox="./media/logic-apps-connector-arm-accounts/enable-system.png":::    
-    1. Set up system assigned managed identity for permission on Azure Video Indexer resource.
+    1. Set up system assigned managed identity for permission on Azure AI Video Indexer resource.
 
-        In the Azure portal, go to your Azure Video Indexer resource/account.
+        In the Azure portal, go to your Azure AI Video Indexer resource/account.
 
         1. On the left side blade, and select **Access control**.
         1. Select **Add** -> **Add role assignment** -> **Contributor** -> **Next** -> **User, group, or service principal** -> **+Select members**.
@@ -168,8 +171,8 @@ The following image shows the first flow:
         
         |Key| Value|
         |----|----|
-        |Location| Location of the associated the Azure Video Indexer account.|	
-        | Account ID| Account ID of the associated Azure Video Indexer account. You can find the **Account ID** in the **Overview** page of your account, in the Azure portal. Or, the **Account settings** tab, left of the [Azure Video Indexer website](https://www.videoindexer.ai/).|
+        |Location| Location of the associated the Azure AI Video Indexer account.|	
+        | Account ID| Account ID of the associated Azure AI Video Indexer account. You can find the **Account ID** in the **Overview** page of your account, in the Azure portal. Or, the **Account settings** tab, left of the [Azure AI Video Indexer website](https://www.videoindexer.ai/).|
         |Access Token| Use the `body('HTTP')['accessToken']` expression to extract the access token in the right format from the previous HTTP call.|
         | Video Name| Select **List of Files Name** from the dynamic content of **When a blob is added or modified** action. |
         |Video URL|Select **Web Url** from the dynamic content of **Create SAS URI by path** action.|
@@ -180,7 +183,7 @@ The following image shows the first flow:
 
         Select **Save**.
 
-The completion of the uploading and indexing from the first flow will send an HTTP request with the correct callback URL to trigger the second flow. Then, it will retrieve the insights generated by Azure Video Indexer. In this example, it will store the output of your indexing job in your Azure Storage. However, it's up to you what you do with the output.
+The completion of the uploading and indexing from the first flow will send an HTTP request with the correct callback URL to trigger the second flow. Then, it will retrieve the insights generated by Azure AI Video Indexer. In this example, it will store the output of your indexing job in your Azure Storage. However, it's up to you what you do with the output.
 
 ## Create a new logic app of type consumption (the second flow)
 
@@ -220,7 +223,7 @@ Create the second flow, Logic Apps of type consumption. The second flow is t
 
         |Key| Value|
         |----|----|
-        |Location|  The Location of the Azure Video Indexer account.|
+        |Location|  The Location of the Azure AI Video Indexer account.|
         | Account ID| The Video Indexer account ID can be copied from the resource/account **Overview** page in the Azure portal.|
         | Video ID\*| For Video ID, add dynamic content of type **Expression** and put in the following expression: **triggerOutputs()['queries']['id']**. |
         | Access Token| From the dynamic content, under the **Parse JSON** section select the **accessToken** that is the output of the parse JSON action. |

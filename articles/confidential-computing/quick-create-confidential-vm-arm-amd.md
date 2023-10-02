@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/12/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, devx-track-linux, has-azure-ad-ps-ref
 ms.devlang: azurecli
 ---
 
@@ -184,7 +184,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         az group create --name $resourceGroup --location $region
         ```
 
-    1. Create a key vault instance with a premium SKU in your preferred region.
+    1. Create a key vault instance with a premium SKU and select your preferred region. The standard SKU is not supported.
 
         ```azurecli-interactive
         $KeyVault = <name of key vault>
@@ -358,4 +358,3 @@ This is an example parameter file for a Windows Server 2022 Gen 2 confidential V
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-confidential-vm-portal-amd.md)
-

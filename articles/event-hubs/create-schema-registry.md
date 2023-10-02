@@ -16,6 +16,7 @@ This article shows you how to create a schema group with schemas in a schema reg
 > - The feature isn't available in the **basic** tier.
 > - Make sure that you are a member of one of these roles: **Owner**, **Contributor**, or **Schema Registry Contributor**. For details about role-based access control, see [Schema Registry overview](schema-registry-concepts.md#azure-role-based-access-control).
 > - If the event hub is in a **virtual network**, you won't be able to create schemas in the Azure portal unless you access the portal from a VM in the same virtual network. 
+> - The Schema Registry functionality isn't supported for namespaces with **private endpoint** enabled. 
 
 
 ## Prerequisites
@@ -28,10 +29,7 @@ This article shows you how to create a schema group with schemas in a schema reg
     :::image type="content" source="./media/create-schema-registry/namespace-page.png" alt-text="Image showing the Schema Registry page in the Azure portal":::
 1. On the **Create Schema Group** page, do these steps:
     1. Enter a **name** for the schema group.
-    1. For **Serialization type**, pick **Avro** serialization format that applies to all schemas in the schema group. 
-    
-        > [!NOTE]
-        > Currently, Schema Registry doesn't support **JSON** serialization. 
+    1. For **Serialization type**, select **Avro** serialization format that applies to all schemas in the schema group. **JSON** serialization format is also supported (preview). 
     3. Select a **compatibility mode** for all schemas in the group. For **Avro**, forward and backward compatibility modes are supported. 
     4. Then, select **Create** to create the schema group. 
     
@@ -49,7 +47,7 @@ In this section, you add a schema to the schema group using the Azure portal.
 
 1. On the **Schema Group** page, select **+ Schema** on the toolbar. 
 1. On the **Create Schema** page, do these steps:
-    1. For **Name**, enter **orderschema**.
+    1. For **Name**, enter `orderschema`.
     1. Enter the following **schema** into the text box. You can also select file with the schema.
     
         ```json

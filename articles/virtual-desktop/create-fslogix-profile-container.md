@@ -7,7 +7,7 @@ ms.date: 07/01/2020
 ms.author: helohr
 manager: femila
 ---
-# Create a profile container with Azure NetApp Files and AD DS
+# Create a profile container with Azure NetApp Files
 
 We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
 
@@ -22,6 +22,10 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 
 >[!NOTE]
 >If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
+
+## Considerations 
+
+FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Azure AD users to access profile containers without requiring line-of-sight to domain controllers from hybrid Azure AD-joined and Azure AD-joined virtual machines (VMs). For more information, see [Access SMB volumes from Azure AD joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
 
 ## Prerequisites
 
@@ -89,7 +93,7 @@ Next, create a new capacity pool:
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
        >[!NOTE]
        >The Premium setting provides the minimum throughput available for a Premium Service level, which is 256 MBps. You may need to adjust this throughput for a production environment. Final throughput is based on the relationship described in [Throughput limits](../azure-netapp-files/azure-netapp-files-service-levels.md).
-    - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
+    - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 2 TiB.
 
 5. When you're finished, select **OK**.
 

@@ -53,7 +53,7 @@ To continue with the tutorial and build the application yourself, move on to the
 
 ## Create your project
 
-Once you have [Node.js](https://nodejs.org/en/download/) installed, create a folder to host your application, for example *msal-spa-tutorial*.
+Once you have [Node.js](https://nodejs.org/en/download/) installed, create a folder to host your application, such as `msal-spa-tutorial`.
 
 Next, implement a small [Express](https://expressjs.com/) web server to serve your *index.html* file.
 
@@ -202,13 +202,13 @@ After you sign in, select **See Profile** to view the user profile information r
 
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's email.
+The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Microsoft Entra admin center. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's email.
 
 As you add scopes, your users might be prompted to provide additional consent for the added scopes.
 
 If a back-end API doesn't require a scope, which isn't recommended, you can use `clientId` as the scope in the calls to acquire tokens.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./includes/error-handling-and-tips/help-support-include.md)]
 
 ## Next steps
 

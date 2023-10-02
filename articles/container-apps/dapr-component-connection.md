@@ -6,27 +6,19 @@ ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 05/24/2023
-ms.custom: template-tutorial, service-connector, build-2023
+ms.date: 07/06/2023
+ms.custom: template-tutorial, service-connector, build-2023, engagement
 ---
 
 # Connect to Azure services via Dapr components in the Azure portal
 
-Using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/), you can author Dapr components via an improved component creation feature in the Azure Container Apps portal. 
+You can easily connect Dapr APIs to backing Azure services using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/). This feature creates Dapr components on your behalf with valid metadata and authenticated identity to access the Azure service.  
 
-With this new component creation feature, you no longer need to know or remember the Dapr open source metadata concepts. Instead, entering the component information in the easy component creation pane automatically maps your entries to the required component metadata. 
-
-By managing component creation for you, this feature:
-- Simplifies the process for developers 
-- Reduces the likelihood for misconfiguration
-
-This experience makes authentication easier. When using Managed Identity, Azure Container Apps, Dapr, and Service Connector ensure the selected identification is assigned to all containers apps in scope and target services. 
-
-This guide demonstrates creating a Dapr component by:
-- Selecting pub/sub as component type 
-- Specifying Azure Service Bus as the component
-- Providing required metadata to help the tool map to the right Azure Service Bus
-- Providing optional metadata to customize the component
+In this guide, you'll connect Dapr Pub/Sub API to an Azure Service Bus by:
+> [!div class="checklist"]
+> - Select pub/sub as the API 
+> - Specify Azure Service Bus as the service and required properties like namespace, queue name, and identity
+> - Use your Azure Service Bus pub/sub component!
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create a free Azure account](https://azure.microsoft.com/free).
@@ -38,7 +30,7 @@ Start by navigating to the Dapr component creation feature.
 
 1. In the Azure portal, navigate to your Container Apps environment.
 1. In the left-side menu, under **Settings**, select **Dapr components**. 
-1. From the top menu, select **Add** > **Azure component (preview)** to open the **Add Dapr Component** configuration pane.
+1. From the top menu, select **Add** > **Azure component** to open the **Add Dapr Component** configuration pane.
 
    :::image type="content" source="media/dapr-component-connection/select-azure-component.png" alt-text="Screenshot of selecting Azure Component from the drop down menu.":::
 
@@ -97,12 +89,17 @@ Once the component has been added to the Container Apps environment, the portal 
 
 You can then check the YAML/Bicep artifact into a repo and recreate it outside of the portal experience.
 
+> [!NOTE]
+> When using Managed Identity, the selected identification is assigned to all containers apps in scope and target services.
+
 ## Manage Dapr components
 
 1. In your Container Apps environment, go to **Settings** > **Dapr components**.
 1. The Dapr components that are tied to your Container Apps environment are listed on this page. Review the list and select the **Delete** icon to delete a component, or select a component's name to review or edit its details.
 
    :::image type="content" source="media/dapr-component-connection/manage-dapr-component.png" alt-text="Screenshot of the Azure platform showing existing Dapr Components.":::
+
+
 
 ## Next steps
 

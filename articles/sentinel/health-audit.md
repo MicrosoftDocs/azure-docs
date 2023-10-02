@@ -71,6 +71,8 @@ To start collecting health and audit data, you need to [enable health and audit 
     - [Automation rules and playbooks](monitor-automation-health.md#use-the-health-monitoring-workbook)
     - [Analytics rules](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook)
 
+- Use Microsoft Sentinel's execution management tools to [monitor and optimize scheduled analytics rules' execution](monitor-optimize-analytics-rule-execution.md).
+
 - Export the data into various destinations, like your Log Analytics workspace, archiving to a storage account, and more. Learn about the [supported destinations](../azure-monitor/essentials/diagnostic-settings.md) for your logs.
 
 ## Next steps

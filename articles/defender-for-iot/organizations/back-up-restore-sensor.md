@@ -1,7 +1,7 @@
 ---
 title: Back up and restore OT network sensors from the sensor console - Microsoft Defender for IoT
 description: Learn how to back up and restore Microsoft Defender for IoT OT network sensors from the sensor console.
-ms.date: 03/09/2023
+ms.date: 07/20/2023
 ms.topic: how-to
 ---
 
@@ -29,11 +29,15 @@ For more information, see [On-premises backup file capacity](references-data-ret
 
 If your OT sensor is configured *not* to run automatic backups, you can turn this back on manually in the `/var/cyberx/properties/backup.properties` file on the OT sensor machine.
 
-## Create a manual backup from the GUI
+## Create a manual backup file
 
-You may want to create a manual backup file, such as just after updating your OT sensor software.
+You may want to create a manual backup file, such as just after updating your OT sensor software, or when troubleshooting with customer support.
 
-**To create a manual backup file from the GUI**:
+To create a backup file that you can use to restore your sensor, use the CLI and run the `cyberx-xsense-system-backup` CLI command. For more information, see the [OT sensor CLI reference](cli-ot-sensor.md#start-an-immediate-unscheduled-backup).
+
+To create a protected backup file to send to the support team, use the sensor GUI. Backup files created from the sensor GUI can be opened only together with assistance from Microsoft support.
+
+**To create a manual backup file from the sensor GUI**:
 
 1. Sign into the OT sensor GUI and select **System settings** > **Sensor management** > **Health and troubleshooting** > **Backup & restore**.
 
@@ -43,18 +47,7 @@ You may want to create a manual backup file, such as just after updating your OT
     - Select the content you want to back up.
     - Select **Export**.
 
-Your new backup file is listed in the **Archived files** area of the backup pane.
-
-> [!NOTE]
-> Backup files can be used to restore data, but can't be opened without the one-time password (OTP) provided and assistance from Microsoft support. Open a support ticket if you need to open a backup file.
-
-## Start an immediate, unscheduled backup via CLI
-
-You may want to create a manual backup file, such as just after updating your OT sensor software.
-
-To run a manual backup from the CLI, use the `cyberx-xsense-system-backup` CLI command.
-
-For more information, see the [OT sensor CLI reference](cli-ot-sensor.md#start-an-immediate-unscheduled-backup).
+Your new, protected backup file is listed in the **Archived files** area of the backup pane.
 
 ## Save your backup to an external server (SMB)
 
@@ -105,26 +98,32 @@ We recommend saving your OT sensor backup files on your internal network. To do 
 
     Set the `backup_directory_path` to the folder on your OT sensor where you want to save your backup files.
 
-## Restore an OT sensor from the GUI
+## Restore an OT sensor
 
-1. Sign into the OT sensor via SFTP and download the backup file you want to use to a location accessible from the OT sensor GUI.
+The following procedures describe how to restore your sensor using a backup file created via automatically or via CLI. Restoring your sensor using backup files created via the sensor GUI is supported only together with customer support.
+
+### Restore an OT sensor from the sensor GUI
+
+1. Sign into the OT sensor via SFTP and download the backup file you want to use to a location accessible from the OT sensor GUI. 
 
     Backup files are saved on your OT sensor machine, at `/var/cyberx/backups`, and are named using the following syntax: `<sensor name>-backup-version-<version>-<date>.tar`.
 
     For example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`
 
     > [!IMPORTANT]
-    > Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
+    > - Make sure that the backup file you select uses the same OT sensor software version that's currently installed on your OT sensor.
+    >
+    > - Your backup file must be one that had been generated automatically or manually via the CLI. If you're using a backup file generated manually by the GUI, you'll need to contact support to use it to restore your sensor.
  
-1. Sign into the OT sensor GUI and select **System settings** > **Sensor management** > **Health and troubleshooting** > **Backup & restore** > **Restore**. 
+1. Sign into the OT sensor GUI and select **System settings** > **Sensor management** > **Health and troubleshooting** > **Backup & restore** > **Restore**.
 
 1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
 
 1. When the restore process is complete, select **Close**.
 
-## Restore an OT sensor from the latest backup via CLI
+### Restore an OT sensor from the latest backup via CLI
 
-To restore your OT sensor from the latest backup file via CLI:
+To restore your OT sensor from the latest, automatically generated backup file via CLI:
 
 1. Make sure that your backup file has the same OT sensor software version as the current software version on the OT sensor.
 
@@ -134,6 +133,5 @@ For more information, see the [OT sensor CLI reference](cli-ot-sensor.md#start-a
 
 ## Next steps
 
-[Maintain OT network sensors from the GUI](how-to-manage-individual-sensors.md)
-
-[Backup OT network sensors from the on-premises management console](back-up-sensors-from-management.md)
+- [Maintain OT network sensors from the GUI](how-to-manage-individual-sensors.md)
+- [Backup OT network sensors from the on-premises management console](back-up-sensors-from-management.md)

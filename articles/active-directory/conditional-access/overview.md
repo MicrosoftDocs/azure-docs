@@ -1,32 +1,32 @@
 ---
-title: What is Conditional Access in Azure Active Directory?
-description: Learn how Conditional Access is at the heart of the new identity-driven control plane.
+title: What is Conditional Access in Microsoft Entra ID?
+description: Conditional Access is the Zero Trust policy engine at the heart of the new identity-driven control plane.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 02/13/2023
+ms.date: 08/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb
+ms.reviewer: kvenkit
 
 ms.collection: M365-identity-device-management
 ms.custom: zt-include
 ---
 # What is Conditional Access?
 
-The modern security perimeter now extends beyond an organization's network to include user and device identity. Organizations can use identity-driven signals as part of their access control decisions. 
+The modern security perimeter extends beyond an organization's network perimeter to include user and device identity. Organizations now use identity-driven signals as part of their access control decisions.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MwZs]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4MwZs]
 
-Conditional Access brings signals together, to make decisions, and enforce organizational policies. Azure AD Conditional Access is at the heart of the new identity-driven control plane.
+Microsoft Entra Conditional Access brings signals together, to make decisions, and enforce organizational policies. Conditional Access is Microsoft's [Zero Trust policy engine](/security/zero-trust/deploy/identity) taking signals from various sources into account when enforcing policy decisions.
 
-![Conceptual Conditional signal plus decision to get enforcement](./media/overview/conditional-access-signal-decision-enforcement.png)
+:::image type="content" source="media/overview/conditional-access-signal-decision-enforcement.png" alt-text="Diagram showing concept of Conditional Access signals plus decision to enforce organizational policy.":::
 
-Conditional Access policies at their simplest are if-then statements, if a user wants to access a resource, then they must complete an action. Example: A payroll manager wants to access the payroll application and is required to do multifactor authentication to access it.
+Conditional Access policies at their simplest are if-then statements; **if** a user wants to access a resource, **then** they must complete an action. For example: If a user wants to access an application or service like Microsoft 365, then they must perform multifactor authentication to gain access.
 
 Administrators are faced with two primary goals:
 
@@ -35,14 +35,16 @@ Administrators are faced with two primary goals:
 
 Use Conditional Access policies to apply the right access controls when needed to keep your organization secure.
 
-![Conceptual Conditional Access process flow](./media/overview/conditional-access-overview-how-it-works.png)
-
 > [!IMPORTANT]
 > Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
 
 ## Common signals
 
-Common signals that Conditional Access can take in to account when making a policy decision include the following signals:
+Conditional Access takes signals from various sources into account when making access decisions. 
+
+:::image type="content" source="media/overview/conditional-access-central-policy-engine-zero-trust.png" alt-text="Diagram showing Conditional Access as the Zero Trust policy engine aggregating signals from various sources.":::
+
+These signals include:
 
 - User or group membership
    - Policies can be targeted to specific users and groups giving administrators fine-grained control over access.
@@ -53,23 +55,26 @@ Common signals that Conditional Access can take in to account when making a poli
    - Users with devices of specific platforms or marked with a specific state can be used when enforcing Conditional Access policies.
    - Use filters for devices to target policies to specific devices like privileged access workstations.
 - Application
-   - Users attempting to access specific applications can trigger different Conditional Access policies. 
+   - Users attempting to access specific applications can trigger different Conditional Access policies.
 - Real-time and calculated risk detection
-   - Signals integration with [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) allows Conditional Access policies to identify risky sign-in behavior. Policies can then force users to change their password, do multifactor authentication to reduce their risk level, or block access until an administrator takes manual action.
+   - Signals integration with [Microsoft Entra ID Protection](../identity-protection/overview-identity-protection.md) allows Conditional Access policies to identify and remediate risky users and sign-in behavior.
 - [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps)
-   - Enables user application access and sessions to be monitored and controlled in real time, increasing visibility and control over access to and activities done within your cloud environment.
+   - Enables user application access and sessions to be monitored and controlled in real time. This integration increases visibility and control over access to and activities done within your cloud environment.
 
 ## Common decisions
 
 - Block access
    - Most restrictive decision
 - Grant access
-   - Least restrictive decision, can still require one or more of the following options:
+   - Less restrictive decision, can require one or more of the following options:
       - Require multifactor authentication
+      - Require authentication strength
       - Require device to be marked as compliant
-      - Require Hybrid Azure AD joined device
+      - Require Microsoft Entra hybrid joined device
       - Require approved client app
-      - Require app protection policy (preview)
+      - Require app protection policy
+      - Require password change
+      - Require terms of use
 
 ## Commonly applied policies
 
@@ -78,10 +83,24 @@ Many organizations have [common access concerns that Conditional Access policies
 - Requiring multifactor authentication for users with administrative roles
 - Requiring multifactor authentication for Azure management tasks
 - Blocking sign-ins for users attempting to use legacy authentication protocols
-- Requiring trusted locations for Azure AD Multifactor Authentication registration
+- Requiring trusted locations for security information registration
 - Blocking or granting access from specific locations
 - Blocking risky sign-in behaviors
 - Requiring organization-managed devices for specific applications
+
+Administrators can create policies from scratch or start from a template policy in the portal or using the Microsoft Graph API.
+
+## Administrator experience
+
+Administrators with the [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) role can manage policies. 
+
+Conditional Access is found in the [Microsoft Entra admin center](https://entra.microsoft.com) under **Protection** > **Conditional Access**.
+
+:::image type="content" source="media/overview/conditional-access-overview.png" alt-text="Screenshot of the Conditional Access overview page." lightbox="media/overview/conditional-access-overview.png":::
+
+- The **Overview** page provides a summary of policy state, users, devices, and applications as well as general and security alerts with suggestions. 
+- The **Coverage** page provides a synopsis of applications with and without Conditional Access policy coverage over the last seven days. 
+- The **Monitoring** page allows administrators to see a graph of sign-ins that can be filtered to see potential gaps in policy coverage.
 
 ## License requirements
 
@@ -89,13 +108,13 @@ Many organizations have [common access concerns that Conditional Access policies
 
 Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features. 
 
-Risk-based policies require access to [Identity Protection](../identity-protection/overview-identity-protection.md), which is an Azure AD P2 feature.
+Risk-based policies require access to [Identity Protection](../identity-protection/overview-identity-protection.md), which requires P2 licenses.
 
 Other products and features that may interact with Conditional Access policies require appropriate licensing for those products and features.
 
-When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted so customers can migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
+When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted. This grants customers the ability to migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
 
-[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
+[Security defaults](../fundamentals/security-defaults.md) help protect against identity-related attacks and are available for all customers.  
 
 [!INCLUDE [active-directory-zero-trust](../../../includes/active-directory-zero-trust.md)]
 
@@ -103,6 +122,3 @@ When licenses required for Conditional Access expire, policies aren't automatica
 
 - [Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
 - [Plan your Conditional Access deployment](plan-conditional-access.md)
-- [Learn about Identity Protection](../identity-protection/overview-identity-protection.md)
-- [Learn about Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)
-- [Learn about Microsoft Intune](/intune/index)

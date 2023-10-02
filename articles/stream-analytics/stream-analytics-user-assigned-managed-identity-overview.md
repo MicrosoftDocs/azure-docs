@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 08/15/2023
 ---
 
 # User-assigned managed identities for Azure Stream Analytics
@@ -73,6 +73,7 @@ With support for both system-assigned identity and user-assigned identity, here 
 2. You can switch from an existing user-assigned identity to a newly created user-assigned identity. The previous identity is not removed from storage access control list.
 3. You cannot add multiple identities to your stream analytics job.
 4. Currently we do not support deleting an identity from a stream analytics job. You can replace it with another user-assigned or system-assigned identity.
+5. You cannot use user-assigned identity to authenticate via allow-trusted services.
 
 ## Next steps
 

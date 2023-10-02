@@ -25,7 +25,7 @@ In this article, you learn how  to write an Azure Active Directory B2C (Azure AD
 
 ## Overview
 
-Azure AD B2C uses OpenID Connect authentication protocol to verify user credentials. In Azure AD B2C, you send the user credentials alongside other information to a secure endpoint, which then determines if the credentials are valid or not. In a nutshell, when you use Azure AD B2C's implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). 
+Azure AD B2C uses OpenID Connect authentication protocol to verify user credentials. In Azure AD B2C, you send the user credentials alongside other information to a secure endpoint, which then determines if the credentials are valid or not. In a nutshell, when you use Azure AD B2C's implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Microsoft Entra ID. 
 
 Azure AD B2C custom policy provides a OpenID Connect technical profile, which you use to make a call to a secure Microsoft endpoint. Learn more about [OpenID Connect technical profile](openid-connect-technical-profile.md).
 
@@ -303,7 +303,7 @@ When the custom policy runs:
 - **Orchestration Step 4** - This step runs if the user signs up (objectId doesn't exist), so we display the sign-up form by invoking the
 *UserInformationCollector* self-asserted technical profile. This step runs whether a user signs up or signs in. 
 
-- **Orchestration Step 5** - This step reads account information from Azure AD (we invoke *AAD-UserRead* Azure AD technical profile), so it runs whether a user signs up or signs in.   
+- **Orchestration Step 5** - This step reads account information from Microsoft Entra ID (we invoke `AAD-UserRead` Microsoft Entra technical profile), so it runs whether a user signs up or signs in.
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 

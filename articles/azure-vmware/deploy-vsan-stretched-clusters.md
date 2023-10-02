@@ -1,15 +1,15 @@
 ---
-title: Deploy vSAN stretched clusters (Preview)
+title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 09/02/2022
+ms.date: 08/16/2023
 ms.custom: references_regions
 ---
 
-# Deploy vSAN stretched clusters (Preview)
+# Deploy vSAN stretched clusters
 
-In this article, you'll learn how to implement a vSAN stretched cluster for an Azure VMware Solution private cloud.
+In this article, learn how to implement a vSAN stretched cluster for an Azure VMware Solution private cloud.
 
 ## Background
 
@@ -29,7 +29,7 @@ To protect against split-brain scenarios and help measure site health, a managed
 
 The following diagram depicts a vSAN cluster stretched across two AZs. 
 
-:::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN stretched cluster created in a third Availability Zone with the data being copied to all three of them.":::
+:::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN stretched cluster created in a third Availability Zone with the data being copied to all three of them." border="false" lightbox="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png":::
 
 In summary, stretched clusters simplify protection needs by providing the same trusted controls and capabilities in addition to the scale and flexibility of the Azure infrastructure.
 
@@ -40,31 +40,41 @@ It's important to understand that stretched cluster private clouds only offer an
     
         The following diagram shows the secondary site partitioning scenario.
     
-        :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site.":::
+        :::image type="content" source="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png" alt-text="Diagram shows vSphere high availability powering off the workload virtual machines on the secondary site." border="false" lightbox="media/stretch-clusters/diagram-2-secondary-site-power-off-workload.png":::
 
     - If the secondary site partitioning progressed into the failure of the primary site instead, or resulted in a complete partitioning, vSphere HA would attempt to restart the workload VMs on the secondary site. If vSphere HA attempted to restart the workload VMs on the secondary site, it would put the workload VMs in an unsteady state. 
     
 
-        The following diagram shows the preferred site failure or complete partitioning scenario.
+        The following diagrams show the preferred site failure and complete network partitioning scenarios.
 
-        :::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure or complete partitioning occurs.":::
+        :::image type="content" source="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when preferred site failure occurs." border="false" lightbox="media/stretch-clusters/diagram-3-restart-workload-secondary-site.png":::
+
+        :::image type="content" source="media/stretch-clusters/diagram-4-restart-workload-secondary-site.png" alt-text="Diagram shows vSphere high availability trying to restart the workload virtual machines on the secondary site when complete network isolation occurs." border="false" lightbox="media/stretch-clusters/diagram-4-restart-workload-secondary-site.png":::
 
 It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of those types of rare failures, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. It's important you understand that a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX-T Manager cluster, one NSX-T Data Center Edge VM pair.
 
-## Deploy a stretched cluster private cloud
+## Stretched clusters region availability
 
-Currently, Azure VMware Solution stretched clusters is in the (preview) phase. While in the (preview) phase, you must contact Microsoft to request and qualify for support.
+Azure VMware Solution stretched clusters are available in the following regions: 
+
+- UK South (on AV36) 
+- West Europe (on AV36, and AV36P) 
+- Germany West Central (on AV36) 
+- Australia East (on AV36P) 
 
 ## Prerequisites
 
-To request support, send an email request to **avsStretchedCluster@microsoft.com** with the following details:
+Follow the [Request Host Quota](/azure/azure-vmware/request-host-quota-azure-vmware-solution) process to get the quota reserved for the required number of nodes. Provide the following details to facilitate the process:
 
 - Company name
-- Point of contact (email)
-- Subscription (a new, separate subscription is required)
-- Region requested (West Europe, UK South, Germany West Central)
-- Number of nodes in first stretched cluster (minimum 6, maximum 16 - in multiples of two)
-- Estimated provisioning date (used for billing purposes)
+- Point of contact: email
+- Subscription ID: a new, separate subscription is required
+- Type of private cloud: "Stretched Cluster"
+- Region requested: UK South, West Europe, Germany West Central, or Australia East
+- Number of nodes in first stretched cluster: minimum 6, maximum 16 - in multiples of two
+- Estimated expansion plan
+
+## Deploy a stretched cluster private cloud
 
 When the request support details are received, quota will be reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email will be sent to the designated point of contact within two business days upon which you should be able to [self-deploy a stretched cluster private cloud via the Azure portal](./tutorial-create-private-cloud.md?tabs=azure-portal#create-a-private-cloud). Be sure to select **Hosts in two availability zones** to ensure that a stretched cluster gets deployed in the region of your choice.
 
@@ -78,54 +88,28 @@ Next, repeat the process to [peer ExpressRoute Global Reach](./tutorial-expressr
 
 :::image type="content" source="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png" alt-text="Screenshot shows page to peer both availability zones to on-premises Express Route Global Reach."lightbox="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png":::
 
-## Supported scenarios
+## Storage policies supported
 
-The following scenarios are supported:
+The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" and SFTT of "RAID 1 (Mirroring)" enabled as the default policies for the cluster:
 
-- Workload connectivity to internet from both AZs via Customer vWAN or On-premises data center
-- Private DNS resolution
-- Placement policies (except for VM-AZ affinity)
-- Cluster scale out and scale in
-- The following SPBM policies are supported, with a PFTT of “Dual Site Mirroring” and SFTT of “RAID 1 (Mirroring)” enabled as the default policies for the cluster:
-    - Site disaster tolerance settings (PFTT):
-        - Dual site mirroring
-        - None - keep data on preferred
-        - None - keep data on non-preferred
-    - Local failures to tolerate (SFTT):
-        - 1 failure – RAID 1 (Mirroring)
-        - 1 failure – RAID 5 (Erasure coding), requires a minimum of 4 hosts in each AZ
-        - 2 failures – RAID 1 (Mirroring)
-        - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
-        - 3 failures – RAID 1 (Mirroring)
-
-In this phase, while the creation of the private cloud and the first stretched cluster is enabled via the Azure portal, open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for other supported scenarios and configurations listed below. While doing so, make sure you select **Stretched Clusters** as a Problem Type.  
-
-Once stretched clusters are made generally available, it's expected that all the following supported scenarios will be enabled in an automated self-service fashion.
-
-- HCX installation, deployment, removal, and support for migration
-- Connect a private cloud in another region to a stretched cluster private cloud
-- Connect two stretched cluster private clouds in a single region
-- Configure Active Directory as an identity source for vCenter Server
-- A PFTT of “Keep data on preferred” or “Keep data on non-preferred” requires keeping VMs on either one of the availability zones. For such VMs, open a support ticket to ensure that those VMs are pinned to an availability zone.
-- Cluster addition
-- Cluster deletion
-- Private cloud deletion
-
-## Supported regions
-
-Azure VMware Solution stretched clusters are available in the following regions:
-
-- UK South
-- West Europe
-- Germany West Central
+- Site disaster tolerance settings (PFTT):
+    - Dual site mirroring
+    - None - keep data on preferred
+    - None - keep data on non-preferred
+- Local failures to tolerate (SFTT):
+    - 1 failure – RAID 1 (Mirroring)
+    - 1 failure – RAID 5 (Erasure coding), requires a minimum of 4 hosts in each AZ
+    - 2 failures – RAID 1 (Mirroring)
+    - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
+    - 3 failures – RAID 1 (Mirroring)
 
 ## FAQ
 
 ### Are any other regions planned?
 
-As of now, the only 3 regions listed above are planned for support of stretched clusters.
+Currently, there are [four regions supported](#stretched-clusters-region-availability) for stretched clusters.
 
-### What kind of SLA does Azure VMware Solution provide with the stretched clusters (preview) release?
+### What kind of SLA does Azure VMware Solution provide with the stretched clusters?
 
 A private cloud created with a vSAN stretched cluster is designed to offer a 99.99% infrastructure availability commitment when the following conditions exist:
 - A minimum of 6 nodes are deployed in the cluster (3 in each availability zone)
@@ -139,11 +123,15 @@ No. A stretched cluster is created between two availability zones, while the thi
 ### What are the limitations I should be aware of?
 
 - Once a private cloud has been created with a stretched cluster, it can't be changed to a standard cluster private cloud. Similarly, a standard cluster private cloud can't be changed to a stretched cluster private cloud after creation.
-- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment.
+- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment. For more details, refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
-- Preview and recent GA features for standard private cloud environments aren't supported in a stretched cluster environment.
-- Disaster recovery addons like, VMware SRM, Zerto, and JetStream are currently not supported in a stretched cluster environment.
+- Currently not supported in a stretched cluster environment:
+    - Recently released features like Public IP down to NSX Edge and external storage, like ANF datastores.
+    - Disaster recovery addons like VMware SRM, Zerto, and JetStream.
+- Open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for the following scenarios (be sure to select **Stretched Clusters** as a **Problem Type**):
+    - Connect a private cloud to a stretched cluster private cloud.
+    - Connect two stretched cluster private clouds in a single region.
 
 ### What kind of latencies should I expect between the availability zones (AZs)?
 
@@ -159,8 +147,4 @@ Customers will be charged based on the number of nodes deployed within the priva
 
 ### Will I be charged for the witness node and for inter-AZ traffic?
 
-No. While in (preview), customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.
-
-### Which SKUs are available?
-
-Stretched clusters will solely be supported on the AV36 SKU.
+No. Customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.

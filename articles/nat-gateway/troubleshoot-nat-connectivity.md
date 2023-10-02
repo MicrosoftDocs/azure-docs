@@ -3,7 +3,7 @@ title: Troubleshoot Azure NAT Gateway connectivity
 description: Troubleshoot connectivity issues with a NAT gateway.
 author: asudbring
 ms.service: nat-gateway
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-linux
 ms.topic: troubleshooting
 ms.date: 04/24/2023
 ms.author: allensu
@@ -49,7 +49,7 @@ The following table describes a scenario where a long TCP idle timeout timer is 
 
 ### TCP idle timeout 
 
-As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) in the previous section, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [Timer considerations](./nat-gateway-resource.md#timer-considerations). 
+As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) in the previous section, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [TCP idle timeout](./nat-gateway-resource.md#tcp-idle-timeout). 
 
 >[!Note] 
 >Increasing the TCP idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low-rate failures when timeout expires and introduce delay and unnecessary failures. 
@@ -140,17 +140,30 @@ What else to check for:
 
 * If changing rate impacts the rate of failures, check if API rate limits, or other constraints on the destination side might have been reached. 
 
-### Other transient outbound connectivity issues
+### Active FTP and NAT gateway 
 
-Outbound Passive FTP may not work for NAT gateway with multiple public IP addresses, depending on your FTP server configuration.
+FTP uses two separate channels between a client and server, the command and data channels. Each channel communicates on separate TCP connections, one for sending the commands and the other for transferring data.  
 
-Passive FTP establishes different connections for control and data channels. When a NAT gateway with multiple public IP addresses sends traffic outbound, it randomly selects one of its public IP addresses for the source IP address. FTP may fail when data and control channels use different source IP addresses, depending on your FTP server configuration.
+In active FTP mode, the client establishes the command channel and the server establishes the data channel.  
+
+NAT gateway doesn't work with active FTP mode when connecting to an FTP server over the internet. Active FTP uses a PORT command from the FTP client that tells the FTP server what IP address and port for the server to use on the data channel to connect back to the client. The PORT command uses the private address of the client, which can't be changed. Client side traffic is SNATed by NAT gateway for internet-based communication so the PORT command is seen as invalid by the FTP server.  
+
+An alternative solution to active FTP mode when using NAT gateway to connect to an FTP server is to use passive FTP mode instead. However, in order to use NAT gateway in passive FTP mode, [some considerations](#passive-ftp-and-nat-gateway) must be made. 
+
+### Passive FTP and NAT gateway
+
+In passive FTP mode, the client establishes connections on both the command and data channels. The client requests that the server start listening on a port rather than try to establish a connection back to the client.  
+
+Outbound Passive FTP may not work for NAT gateway with multiple public IP addresses, depending on your FTP server configuration. When a NAT gateway with multiple public IP addresses sends traffic outbound, it randomly selects one of its public IP addresses for the source IP address. FTP may fail when data and control channels use different source IP addresses, depending on your FTP server configuration.
 
 To prevent possible passive FTP connection failures, do the following steps:
 
 1. Check that your NAT gateway is attached to a single public IP address rather than multiple IP addresses or a prefix. 
 
 2. Make sure that the passive port range from your NAT gateway is allowed to pass any firewalls that may be at the destination endpoint.
+
+>[!NOTE]
+>Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.  
 
 ### Extra network captures 
 
