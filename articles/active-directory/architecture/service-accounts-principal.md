@@ -42,6 +42,7 @@ To learn more, see [Application and service principal relationship in Microsoft 
 
 You can create an application and its service principal object (ObjectID) in a tenant using:
 
+* Azure PowerShell
 * Microsoft Graph PowerShell
 * Azure command-line interface (Azure CLI)
 * Microsoft Graph API
@@ -134,4 +135,5 @@ Conditional Access:
 Use Conditional Access to block service principals from untrusted locations. 
 
 See, [Create a location-based Conditional Access policy](../conditional-access/workload-identity.md#create-a-location-based-conditional-access-policy)
+
 
