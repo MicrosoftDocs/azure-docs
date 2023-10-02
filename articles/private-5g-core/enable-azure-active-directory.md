@@ -73,11 +73,13 @@ If your deployment contains multiple sites, you can use the same two redirect UR
 
 ## Modify local access
 
-Navigate to your PCCP blade's **Modify local access** tab. If the **Authentication type** is set to **Microsoft Entra ID**, continue to [Create Kubernetes Secret Objects](#create-kubernetes-secret-objects). Otherwise:
+Go to the Azure portal and navigate to your site's **Packet Core Control Plane** resource. Select the blade's **Modify local access** tab.
 
-1. Select **Microsoft Entra ID** from the **Authentication type** dropdown.
-1. Sect **Review**.
-1. Select **Submit**.
+1. If the **Authentication type** is set to **Microsoft Entra ID**, continue to [Create Kubernetes Secret Objects](#create-kubernetes-secret-objects). 
+1. Otherwise:
+    1. Select **Microsoft Entra ID** from the **Authentication type** dropdown.
+    1. Sect **Review**.
+    1. Select **Submit**.
 
 ## Create Kubernetes Secret Objects
 
