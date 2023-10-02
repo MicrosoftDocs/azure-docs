@@ -22,7 +22,7 @@ Here are more details on important attributes we recently added,  to help you un
 The below table summarizes all the annotations that the platform emits today:
 
 
-| <div style="width:290px">Annotation</div> | <div style="width:290px">Description</div> | <div style="width:290px">Attributes</div> |
+| Annotation | Description | Attributes |
 |------------|-------------|-------------|
 | VirtualMachineRestarted	| The Virtual Machine is undergoing a reboot as requested by a restart action triggered by an authorized user or process from within the Virtual Machine. No other action is required at this time. For more information, see [understanding Virtual Machine reboots in Azure](/troubleshoot/azure/virtual-machines/understand-vm-reboot). | <ul><li>**Context**: Customer Initiated<li>**Category**: Not Applicable<li>**ImpactType**: Informational |
 | VirtualMachineCrashed | The Virtual Machine is undergoing a reboot due to a guest OS crash. The local data remains unaffected during this process. No other action is required at this time. For more information, see [understanding Virtual Machine crashes in Azure](/troubleshoot/azure/virtual-machines/understand-vm-reboot#vm-crashes). | <ul><li>**Context**: VM Initiated<li>**Category**: Not Applicable<li>**ImpactType**: Downtime Reboot |
