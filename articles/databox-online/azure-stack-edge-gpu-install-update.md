@@ -281,7 +281,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 7. You will now update the Kubernetes software version. Select the remaining two Kubernetes files together (file with the *Kubernetes_Package.0.exe* and *Kubernetes_Package.1.exe* suffix) and repeat the above steps to apply update.   
 
-   ![Screenshot of files selected for the Kubernetes update.](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)
+   <!--![Screenshot of files selected for the Kubernetes update.](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)-->
 
 8. Select **Apply Update**.
 
