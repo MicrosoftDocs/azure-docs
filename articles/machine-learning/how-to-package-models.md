@@ -246,11 +246,11 @@ To create a model package, we need to create a package specification. The packag
 |---------------------------------------|-----------------------|-------------|----------|
 | `target_environment_name`             | `str`                 | The name of the package to create. Packages are materialized as environments is Azure Machine Learning | Yes |
 | `base_environment_source`             | `BaseEnvironment`     | The base image to use to create the package where dependencies for the model are indicated. | Yes, unless model type is MLflow. |
-| `base_environment_source.type`        | `BaseEnvironmentType` | The type of the base image. Only using another environment as the base image is supported (`BaseEnvironmentType.EnvironmentAsset`).  |  |
+| `base_environment_source.type`        | `BaseEnvironmentType` | The type of the base image. Only using another environment (`EnvironmentAsset`) as the base image is supported.  |  |
 | `base_environment_source.resource_id` | `str`                 | The resource ID of the base environment to use. Use format `azureml:<name>:<version>` or a long-format resource id. |  |
 | `inferencing_server`                  | `AzureMLOnlineInferencingServer` <br /> `CustomOnlineInferenceServer` | The inferencing server to use. Use `AzureMLOnlineInferencingServer` to Azure Machine Learning inferenginc server, or `CustomOnlineInferenceServer` for a custom online server like TensorFlow serving, Torch Serve, etc. <br /><br />When using `AzureMLInferencingServer` and the model type is not Mlflow, a code configuration section should be indicated containing at least one Python file with methods `init` and `run`. <br /><br />When using `CustomOnlineInferenceServer`, an online server configuration section should be indicated.  | Yes |
 | `model_configuration`                 | `ModelConfiguration`  | The model configuration. Use this attribute to control how the model is packaged in the resulting image. | No |
-| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` and `ModelInputMode.COPY`. Defaults to `ModelInputMode.DOWNLOAD`. | No |
+| `model_configuration.mode`            | `ModelInputMode`      | Indicate how the model would be placed in the package. Possible values are `ModelInputMode.DOWNLOAD` (default) and `ModelInputMode.COPY`. Downloading the model helps to make packages more lighweighted, specially for big models. However, it requires packages to be deployed to Azure Machine Learning. Copying, on the other hand, generated bigger packages as all the artifacts are copied on it, but they can be deployed anywhere. | No |
 
 
 ```python
