@@ -2,10 +2,12 @@
 title: 'Tutorial: Authenticate users E2E to Azure' 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps end-to-end to a downstream Azure service.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
+author: cephalin
+ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 3/13/2023
-ms.custom: devx-track-js, seodec18, engagement-fy23
+ms.custom: devx-track-js, seodec18, engagement-fy23, AppServiceConnectivity
 zone_pivot_groups: app-service-platform-windows-linux
 # Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure AAD apps
 ---

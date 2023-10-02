@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure SuccessFactors inbound provisioning in Azure Active Directory'
-description: Learn how to configure inbound provisioning from SuccessFactors to Azure AD
+title: 'Tutorial: Configure SuccessFactors inbound provisioning in Microsoft Entra ID'
+description: Learn how to configure inbound provisioning from SuccessFactors to Microsoft Entra ID
 services: active-directory
 author: cmmdesai
 manager: CelesteDG
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.date: 11/21/2022
 ms.author: chmutali
 ---
-# Tutorial: Configure SAP SuccessFactors to Azure AD user provisioning
-The objective of this tutorial is to show the steps you need to perform to provision worker data from SuccessFactors Employee Central into Azure Active Directory, with optional write-back of email address to SuccessFactors. 
+# Tutorial: Configure SAP SuccessFactors to Microsoft Entra user provisioning
+The objective of this tutorial is to show the steps you need to perform to provision worker data from SuccessFactors Employee Central into Microsoft Entra ID, with optional write-back of email address to SuccessFactors. 
 
 >[!NOTE]
->Use this tutorial if the users you want to provision from SuccessFactors are cloud-only users who don't need an on-premises AD account. If the users require only on-premises AD account or both AD and Azure AD account, then please refer to the tutorial on [configure SAP SuccessFactors to Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) user provisioning. 
+>Use this tutorial if the users you want to provision from SuccessFactors are cloud-only users who don't need an on-premises AD account. If the users require only on-premises AD account or both AD and Microsoft Entra account, then please refer to the tutorial on [configure SAP SuccessFactors to Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) user provisioning. 
 
 The following video provides a quick overview of the steps involved when planning your provisioning integration with SAP SuccessFactors. 
 
@@ -23,25 +23,25 @@ The following video provides a quick overview of the steps involved when plannin
 
 ## Overview
 
-The [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) in order to manage the identity life cycle of users. 
+The [Microsoft Entra user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) in order to manage the identity life cycle of users. 
 
-The SuccessFactors user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
+The SuccessFactors user provisioning workflows supported by the Microsoft Entra user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to SuccessFactors, a user account is automatically created in Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of the email address to SuccessFactors.
+* **Hiring new employees** - When a new employee is added to SuccessFactors, a user account is automatically created in Microsoft Entra ID and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md), with write-back of the email address to SuccessFactors.
 
-* **Employee attribute and profile updates** - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee attribute and profile updates** - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated Microsoft Entra ID and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
-* **Employee terminations** - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee terminations** - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Microsoft Entra ID and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
-* **Employee rehires** - When an employee is rehired in SuccessFactors, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee rehires** - When an employee is rehired in SuccessFactors, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Microsoft Entra ID and optionally Microsoft 365 and [other SaaS applications supported by Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 ### Who is this user provisioning solution best suited for?
 
-This SuccessFactors to Azure Active Directory user provisioning solution is ideally suited for:
+This SuccessFactors to Microsoft Entra user provisioning solution is ideally suited for:
 
 * Organizations that desire a pre-built, cloud-based solution for SuccessFactors user provisioning
 
-* Organizations that require direct user provisioning from SuccessFactors to Azure Active Directory
+* Organizations that require direct user provisioning from SuccessFactors to Microsoft Entra ID
 
 * Organizations that require users to be provisioned using data obtained from the [SuccessFactors Employee Central (EC)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
 
@@ -51,22 +51,22 @@ This SuccessFactors to Azure Active Directory user provisioning solution is idea
 
 This section describes the end-to-end user provisioning solution architecture for cloud-only users. There are two related flows:
 
-* **Authoritative HR Data Flow – from SuccessFactors to Azure Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud SuccessFactors Employee Central and then the event data flows into Azure Active Directory. Depending on the event, it may lead to create/update/enable/disable operations in Azure AD.
-* **Email Writeback Flow – from on-premises Active Directory to SuccessFactors:** Once the account creation is complete in Azure Active Directory, the email attribute value or UPN generated in Azure AD can be written back to SuccessFactors.
+* **Authoritative HR Data Flow – from SuccessFactors to Microsoft Entra ID:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud SuccessFactors Employee Central and then the event data flows into Microsoft Entra ID. Depending on the event, it may lead to create/update/enable/disable operations in Microsoft Entra ID.
+* **Email Writeback Flow – from on-premises Active Directory to SuccessFactors:** Once the account creation is complete in Microsoft Entra ID, the email attribute value or UPN generated in Microsoft Entra ID can be written back to SuccessFactors.
 
   ![Overview](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
 
 ### End-to-end user data flow
 
 1. The HR team performs worker transactions (Joiners/Movers/Leavers or New Hires/Transfers/Terminations) in SuccessFactors Employee Central
-2. The Azure AD Provisioning Service runs scheduled synchronizations of identities from SuccessFactors EC and identifies changes that need to be processed for sync with on-premises Active Directory.
-3. The Azure AD Provisioning Service determines the change and invokes create/update/enable/disable operation for the user in Azure AD.
-4. If the [SuccessFactors Writeback app](sap-successfactors-writeback-tutorial.md) is configured, then the user's email address is retrieved from Azure AD. 
-5. Azure AD provisioning service writes back email attribute to SuccessFactors, based on the matching attribute used.
+2. The Microsoft Entra provisioning service runs scheduled synchronizations of identities from SuccessFactors EC and identifies changes that need to be processed for sync with on-premises Active Directory.
+3. The Microsoft Entra provisioning service determines the change and invokes create/update/enable/disable operation for the user in Microsoft Entra ID.
+4. If the [SuccessFactors Writeback app](sap-successfactors-writeback-tutorial.md) is configured, then the user's email address is retrieved from Microsoft Entra ID. 
+5. Microsoft Entra provisioning service writes back email attribute to SuccessFactors, based on the matching attribute used.
 
 ## Planning your deployment
 
-Configuring Cloud HR driven user provisioning from SuccessFactors to Azure AD requires considerable planning covering different aspects such as:
+Configuring Cloud HR driven user provisioning from SuccessFactors to Microsoft Entra ID requires considerable planning covering different aspects such as:
 
 * Determining the Matching ID 
 * Attribute mapping
@@ -86,7 +86,7 @@ A common requirement of all the SuccessFactors provisioning connectors is that t
 * [Grant Permission Role to the Permission Group](#grant-permission-role-to-the-permission-group)
 
 ### Create/identify API user account in SuccessFactors
-Work with your SuccessFactors admin team or implementation partner to create or identify a user account in SuccessFactors that will be used to invoke the OData APIs. The username and password credentials of this account will be required when configuring the provisioning apps in Azure AD. 
+Work with your SuccessFactors admin team or implementation partner to create or identify a user account in SuccessFactors that will be used to invoke the OData APIs. The username and password credentials of this account will be required when configuring the provisioning apps in Microsoft Entra ID. 
 
 ### Create an API permissions role
 
@@ -146,9 +146,11 @@ Work with your SuccessFactors admin team or implementation partner to create or 
     > ![Permission Role and Group detail](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 1. Click **Save Changes**.
 
-## Configuring user provisioning from SuccessFactors to Azure AD
+<a name='configuring-user-provisioning-from-successfactors-to-azure-ad'></a>
 
-This section provides steps for user account provisioning from SuccessFactors to Azure AD.
+## Configuring user provisioning from SuccessFactors to Microsoft Entra ID
+
+This section provides steps for user account provisioning from SuccessFactors to Microsoft Entra ID.
 
 * [Add the provisioning connector app and configure connectivity to SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors)
 * [Configure attribute mappings](#part-2-configure-attribute-mappings)
@@ -156,17 +158,12 @@ This section provides steps for user account provisioning from SuccessFactors to
 
 ### Part 1: Add the provisioning connector app and configure connectivity to SuccessFactors
 
-**To configure SuccessFactors to Azure AD provisioning:**
+**To configure SuccessFactors to Microsoft Entra provisioning:**
 
-1. Go to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
 
-2. In the left navigation bar, select **Azure Active Directory**
-
-3. Select **Enterprise Applications**, then **All Applications**.
-
-4. Select **Add an application**, and select the **All** category.
-
-5. Search for **SuccessFactors to Azure Active Directory User Provisioning**, and add that app from the gallery.
+5. Search for **SuccessFactors to Microsoft Entra user Provisioning**, and add that app from the gallery.
 
 6. After the app is added and the app details screen is shown, select **Provisioning**
 
@@ -182,21 +179,21 @@ This section provides steps for user account provisioning from SuccessFactors to
 
    * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
     > [!NOTE]
-    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
+    > The Microsoft Entra provisioning service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and URL are valid.
     >[!div class="mx-imgBorder"]
     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2aad-provisioning-creds.png)
 
-   * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize SuccessFactors Users to Azure Active Directory**
+   * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize SuccessFactors Users to Microsoft Entra ID**
 
 ### Part 2: Configure attribute mappings
 
 In this section, you will configure how user data flows from SuccessFactors to Active Directory.
 
-1. On the Provisioning tab under **Mappings**, click **Synchronize SuccessFactors Users to Azure Active Directory**.
+1. On the Provisioning tab under **Mappings**, click **Synchronize SuccessFactors Users to Microsoft Entra ID**.
 
-1. In the **Source Object Scope** field, you can select which sets of  users in SuccessFactors should be in scope for provisioning to Azure AD, by defining a set of attribute-based filters. The default scope is "all users in SuccessFactors". Example filters:
+1. In the **Source Object Scope** field, you can select which sets of  users in SuccessFactors should be in scope for provisioning to Microsoft Entra ID, by defining a set of attribute-based filters. The default scope is "all users in SuccessFactors". Example filters:
 
    * Example: Scope to users with personIdExternal between 1000000 and
         2000000 (excluding 2000000)
@@ -217,7 +214,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
    > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from SuccessFactors. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
    > [!CAUTION] 
-   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your SuccessFactors to Azure AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md)
+   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your SuccessFactors to Microsoft Entra integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
@@ -226,8 +223,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
      >[!NOTE]
      >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
-        mappings. An individual attribute mapping supports these properties:
+1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new mappings. An individual attribute mapping supports these properties:
 
       * **Mapping Type**
 
@@ -244,11 +240,9 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
       * **Target attribute** – The user attribute in Active  Directory.
 
-      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between
-            SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
+      * **Match objects using this attribute** – Whether or not this mapping should be used to uniquely identify users between SuccessFactors and Active Directory. This value is typically set on the  Worker ID field for SuccessFactors, which is typically mapped to one of the Employee ID attributes in Active Directory.
 
-      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the
-            order defined by this field. As soon as a match is found, no  further matching attributes are evaluated.
+      * **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they are evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated.
 
       * **Apply this mapping**
 
@@ -262,7 +256,7 @@ Once your attribute mapping configuration is complete, you can now [enable and l
 
 ## Enable and launch user provisioning
 
-Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
+Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service.
 
 > [!TIP]
 > By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
@@ -285,6 +279,6 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 * [Learn more about supported SuccessFactors Attributes for inbound provisioning](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Learn how to configure email writeback to SuccessFactors](sap-successfactors-writeback-tutorial.md)
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
-* [Learn how to configure single sign-on between SuccessFactors and Azure Active Directory](successfactors-tutorial.md)
-* [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
+* [Learn how to configure single sign-on between SuccessFactors and Microsoft Entra ID](successfactors-tutorial.md)
+* [Learn how to integrate other SaaS applications with Microsoft Entra ID](tutorial-list.md)
 * [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)

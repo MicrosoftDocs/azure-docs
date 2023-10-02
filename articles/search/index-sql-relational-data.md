@@ -2,7 +2,6 @@
 title: Model SQL relational data for import and indexing
 titleSuffix: Azure Cognitive Search
 description: Learn how to model relational data, de-normalized into a flat result set, for indexing and full text search in Azure Cognitive Search.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist

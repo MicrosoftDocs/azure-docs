@@ -1,15 +1,19 @@
 ---
-title: Switch between tenants on the Azure Video Indexer website
-description: This article shows how to switch between tenants in the Azure Video Indexer website. 
+title: Switch between tenants on the Azure AI Video Indexer website
+description: This article shows how to switch between tenants in the Azure AI Video Indexer website. 
 ms.topic: how-to
 ms.date: 01/24/2023
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Switch between multiple tenants
 
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
+
 When working with multiple tenants/directories in the Azure environment user might need to switch between the different directories. 
 
-When logging in the Azure Video Indexer website, a default directory will load and the relevant accounts and list them in the **Account list**.
+When logging in the Azure AI Video Indexer website, a default directory will load and the relevant accounts and list them in the **Account list**.
 
 > [!Note]
 > Trial accounts and Classic accounts are global and not tenant-specific. Hence, the tenant switching described in this article only applies to your ARM accounts.
@@ -18,12 +22,12 @@ When logging in the Azure Video Indexer website, a default directory will load a
 
 This article shows two options to solve the same problem - how to switch tenants:
 
-- When starting [from within the Azure Video Indexer website](#switch-tenants-from-within-the-azure-video-indexer-website).
-- When starting [from outside of the Azure Video Indexer website](#switch-tenants-from-outside-the-azure-video-indexer-website).
+- When starting [from within the Azure AI Video Indexer website](#switch-tenants-from-within-the-azure-ai-video-indexer-website).
+- When starting [from outside of the Azure AI Video Indexer website](#switch-tenants-from-outside-the-azure-ai-video-indexer-website).
 
-## Switch tenants from within the Azure Video Indexer website
+## Switch tenants from within the Azure AI Video Indexer website
 
-1. To switch between directories in the [Azure Video Indexer](https://www.videoindexer.ai/), open the **User menu** > select **Switch directory**.
+1. To switch between directories in the [Azure AI Video Indexer](https://www.videoindexer.ai/), open the **User menu** > select **Switch directory**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of a user name.](./media/switch-directory/avi-user-switch.png)
@@ -33,15 +37,15 @@ This article shows two options to solve the same problem - how to switch tenants
     > [!div class="mx-imgBorder"]
     > ![Screenshot of a tenant list.](./media/switch-directory/tenants.png)
 
-    Once clicked, the logged-in credentials will be used to relog-in to the Azure Video Indexer website with the new directory. 
+    Once clicked, the authenticated credentials will be used to sign in again to the Azure AI Video Indexer website with the new directory.
 
-## Switch tenants from outside the Azure Video Indexer website
+## Switch tenants from outside the Azure AI Video Indexer website
 
-This section shows how to get the domain name from the Azure portal. You can then sign in with it into th the [Azure Video Indexer](https://www.videoindexer.ai/) website.
+This section shows how to get the domain name from the Azure portal. You can then sign in with it into th the [Azure AI Video Indexer](https://www.videoindexer.ai/) website.
 
 ### Get the domain name
 
-1. In the [Azure portal](https://portal.azure.com/), sign in with the same subscription tenant in which your Azure Video Indexer Azure Resource Manager (ARM) account was created. 
+1. Sign in to the [Azure portal](https://portal.azure.com) using the same subscription tenant in which your Azure AI Video Indexer Azure Resource Manager (ARM) account was created. 
 1. Hover over your account name (in the right-top corner). 
 
     > [!div class="mx-imgBorder"]
@@ -52,7 +56,7 @@ If you want to see domains for all of your directories and switch between them, 
 
 ### Sign in with the correct domain name on the AVI website
 
-1. Go to the [Azure Video Indexer](https://www.videoindexer.ai/) website.
+1. Go to the [Azure AI Video Indexer](https://www.videoindexer.ai/) website.
 1. Press **Sign out** after pressing the button in the top-right corner.
 1. On the AVI website, press **Sign in** and choose the Azure AD account.
 

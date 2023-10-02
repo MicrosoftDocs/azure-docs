@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.date: 4/6/2023
 ms.author: mattmcinnes
 ---
@@ -78,7 +78,7 @@ Create a VM within the proximity placement group using [new az vm](/cli/azure/vm
 az vm create \
    -n myVM \
    -g myPPGGroup \
-   --image UbuntuLTS \
+   --image Ubuntu2204 \
    --ppg myPPG  \
    --generate-ssh-keys \
    --size Standard_E64s_v4 \

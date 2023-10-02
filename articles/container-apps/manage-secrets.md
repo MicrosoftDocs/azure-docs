@@ -5,9 +5,9 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 05/10/2023
+ms.date: 03/23/2023
 ms.author: cshoe
-ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell, build-2023
+ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell, build-2023, devx-track-linux
 ---
 
 # Manage secrets in Azure Container Apps
@@ -115,7 +115,7 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ---
 
-### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault (preview)
+### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault
 
 When you define a secret, you create a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available as a secret in your container app.
 
@@ -162,14 +162,14 @@ Secrets are defined at the application level in the `resources.properties.config
             {
                 "name": "queue-connection-string",
                 "keyVaultUrl": "<KEY-VAULT-SECRET-URI>",
-                "identity": "System"
+                "identity": "system"
             }],
         }
     }
 }
 ```
 
-Here, a connection string to a queue storage account is declared in the `secrets` array. Its value is automatically retrieved from Key Vault using the specified identity. To use a user managed identity, replace `System` with the identity's resource ID.
+Here, a connection string to a queue storage account is declared in the `secrets` array. Its value is automatically retrieved from Key Vault using the specified identity. To use a user managed identity, replace `system` with the identity's resource ID.
 
 Replace `<KEY-VAULT-SECRET-URI>` with the URI of your secret in Key Vault.
 
@@ -191,7 +191,7 @@ az containerapp create \
   --secrets "queue-connection-string=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<USER_ASSIGNED_IDENTITY_ID>"
 ```
 
-Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<USER_ASSIGNED_IDENTITY_ID>` with the resource ID of the user assigned identity. For system assigned identity, use `System` instead of the resource ID.
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<USER_ASSIGNED_IDENTITY_ID>` with the resource ID of the user assigned identity. For system assigned identity, use `system` instead of the resource ID.
 
 > [!NOTE]
 > The user assigned identity must have access to read the secret in Key Vault. System assigned identity can't be used with the create command because it's not available until after the container app is created.
@@ -203,7 +203,7 @@ Secrets Key Vault references aren't supported in PowerShell.
 ---
 
 > [!NOTE]
-> If you're using [UDR With Azure Firewall](./networking.md#user-defined-routes-udr---preview), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview) to decide which additional service tags you need.
+> If you're using [UDR With Azure Firewall](networking.md#user-defined-routes-udr), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](networking.md#configuring-udr-with-azure-firewall) to decide which additional service tags you need.
 
 #### Key Vault secret URI and secret rotation
 

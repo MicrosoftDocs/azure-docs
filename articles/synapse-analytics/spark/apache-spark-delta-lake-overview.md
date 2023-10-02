@@ -990,5 +990,5 @@ For more information, see [Delta Lake Project](https://github.com/delta-io/delta
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](/dotnet/spark)
+* [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 * [Azure Synapse Analytics](../index.yml)

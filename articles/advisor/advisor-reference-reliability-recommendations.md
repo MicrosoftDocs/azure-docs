@@ -1,9 +1,11 @@
 ---
 title: Reliability recommendations
 description: Full list of available reliability recommendations in Advisor.
+author: mabrahms
+ms.author: v-mabrahms
+ms.service: azure
 ms.topic: article
-ms.custom: ignite-2022
-ms.date: 02/04/2022
+ms.date: 09/27/2023
 ---
 
 # Reliability recommendations
@@ -16,7 +18,7 @@ Azure Advisor helps you ensure and improve the continuity of your business-criti
 
 1. On the **Advisor** dashboard, select the **Reliability** tab.
 
-## FarmBeats
+## FarmBeats / Azure Data Manager for Agriculture (ADMA)
 
 ### Upgrade to the latest FarmBeats API version
 
@@ -24,19 +26,43 @@ We have identified calls to a FarmBeats API version that is scheduled for deprec
 
 Learn more about [Azure FarmBeats - FarmBeatsApiVersion (Upgrade to the latest FarmBeats API version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
 
+### Upgrade to the latest ADMA Java SDK version
+
+We have identified calls to an Azure Data Manager for Agriculture (ADMA) Java SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsJavaSdkVersion (Upgrade to the latest ADMA Java SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
+### Upgrade to the latest ADMA DotNet SDK version
+
+We have identified calls to an ADMA DotNet SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsDotNetSdkVersion (Upgrade to the latest ADMA DotNet SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
+### Upgrade to the latest ADMA JavaScript SDK version
+
+We have identified calls to an ADMA JavaScript SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsJavaScriptSdkVersion (Upgrade to the latest ADMA JavaScript SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
+### Upgrade to the latest ADMA Python SDK version
+
+We have identified calls to an ADMA Python SDK version that is scheduled for deprecation. We recommend switching to the latest SDK version to ensure uninterrupted access to ADMA, latest features, and performance improvements.
+
+Learn more about [Azure FarmBeats - FarmBeatsPythonSdkVersion (Upgrade to the latest ADMA Python SDK version)](https://aka.ms/FarmBeatsPaaSAzureAdvisorFAQ).
+
 ## API Management
-
-### Hostname certificate rotation failed
-
-API Management service failed to refresh hostname certificate from Key Vault. Ensure that certificate exists in Key Vault and API Management service identity is granted secret read access. Otherwise, API Management service will not be able to retrieve certificate updates from Key Vault, which may lead to the service using stale certificate and runtime API traffic being blocked as a result.
-
-Learn more about [Api Management - HostnameCertRotationFail (Hostname certificate rotation failed)](https://aka.ms/apimdocs/customdomain).
 
 ### SSL/TLS renegotiation blocked
 
-SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certificate is requested over an already established connection. When it is blocked, reading 'context.Request.Certificate' in policy expressions will return 'null'. To support client certificate authentication scenarios, enable 'Negotiate client certificate' on listed hostnames. For browser-based clients, enabling this option might result in a certificate prompt being presented to the client.
+SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certificate is requested over an already established connection. When it is blocked, reading 'context.Request.Certificate' in policy expressions returns 'null'. To support client certificate authentication scenarios, enable 'Negotiate client certificate' on listed hostnames. For browser-based clients, enabling this option might result in a certificate prompt being presented to the client.
 
-Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](../api-management/api-management-howto-mutual-certificates-for-clients.md).
+Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
+
+### Hostname certificate rotation failed
+
+API Management service failed to refresh hostname certificate from Key Vault. Ensure that certificate exists in Key Vault and API Management service identity is granted secret read access. Otherwise, API Management service cannot retrieve certificate updates from Key Vault, which may lead to the service using stale certificate and runtime API traffic being blocked as a result.
+
+Learn more about [Api Management - HostnameCertRotationFail (Hostname certificate rotation failed)](https://aka.ms/apimdocs/customdomain).
 
 ## App
 
@@ -44,7 +70,19 @@ Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiatio
 
 We detected the minimal replica count set for your container app may be lower than optimal. Consider increasing the minimal replica count for better availability.
 
-Learn more about [Resource - ContainerAppMinimalReplicaCountTooLow (Increase the minimal replica count for your container app)](https://aka.ms/containerappscalingrules).
+Learn more about [Microsoft App Container App - ContainerAppMinimalReplicaCountTooLow (Increase the minimal replica count for your container app)](https://aka.ms/containerappscalingrules).
+
+### Renew custom domain certificate
+
+We detected the custom domain certificate you uploaded is near expiration. Please renew your certificate and upload the new certificate for your container apps.
+
+Learn more about [Microsoft App Container App - ContainerAppCustomDomainCertificateNearExpiration (Renew custom domain certificate)](https://aka.ms/containerappcustomdomaincert).
+
+### A potential networking issue has been identified with your Container Apps Environment that requires it to be re-created to avoid DNS issues
+
+A potential networking issue has been identified for your Container Apps Environments. To prevent this potential networking issue from impacting your Container Apps Environment, create a new Container Apps Environment, re-create your Container Apps in the new environment, and delete the old Container Apps Environment
+
+Learn more about [Managed Environment - CreateNewContainerAppsEnvironment (A potential networking issue has been identified with your Container Apps Environment that requires it to be re-created to avoid DNS issues)](https://aka.ms/createcontainerapp).
 
 ## Cache for Redis
 
@@ -63,6 +101,12 @@ We recommend configuring the Azure Front Door customer certificate secret to ‘
 Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version to ‘Latest’ for the Azure Front Door customer certificate)](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain#certificate-renewal-and-changing-certificate-types).
 ## Compute
 
+### Migrate Virtual Machines to Availability Zones
+
+By migrating virtual machines to Availability Zones, you can ensure the isolation of your VMs from potential failures in other zones, and you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions. 
+
+Learn more about [Availability Zones](../reliability/availability-zones-overview.md).
+
 ### Enable Backups on your Virtual Machines
 
 Enable backups for your virtual machines and secure your data
@@ -71,13 +115,13 @@ Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on yo
 
 ### Upgrade the standard disks attached to your premium-capable VM to premium disks
 
-We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
+We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
 Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](https://aka.ms/aa_storagestandardtopremium_learnmore).
 
 ### Enable virtual machine replication to protect your applications from regional outage
 
-Virtual machines which do not have replication enabled to another region are not resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the below list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
+Virtual machines that do not have replication enabled to another region, are not resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the below list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
 Learn more about [Virtual machine - ASRUnprotectedVMs (Enable virtual machine replication to protect your applications from regional outage)](https://aka.ms/azure-site-recovery-dr-azure-vms).
 
 ### Upgrade VM from Premium Unmanaged Disks to Managed Disks at no extra cost
@@ -100,13 +144,13 @@ Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to imp
 
 ### Check Point Virtual Machine may lose Network Connectivity.
 
-We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. It is recommended that you upgrade to a newer version of the image that addresses this issue. Contact Check Point for further instructions on how to upgrade your image.
+We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. It is recommended that you upgrade to a newer version of the image. Contact Check Point for further instructions on how to upgrade your image.
 
 Learn more about [Virtual machine - CheckPointPlatformServicingKnownIssueA (Check Point Virtual Machine may lose Network Connectivity.)](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk151752&partition=Advanced&product=CloudGuard).
 
 ### Access to mandatory URLs missing for your Azure Virtual Desktop environment
 
-In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to allowed list in case your virtual machine runs in restricted environment. After visiting the "Learn More" link, you will be able to see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
+In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Azure Virtual Desktop environment)](../virtual-desktop/safe-url-list.md).
 
@@ -114,7 +158,7 @@ Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Acces
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. This can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal telemetry indicates that your PostgreSQL server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_logical_decoding).
 
@@ -169,7 +213,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgra
 Based on their names and configuration, we have detected the Azure Cosmos DB accounts below as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions.
 
 > [!NOTE]
-> Additional regions will incur extra costs.
+> Additional regions incur extra costs.
 
 Learn more about [Azure Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](../cosmos-db/high-availability.md).
 
@@ -219,7 +263,7 @@ Learn more about [Azure Cosmos DB account - CosmosDBMaxGlobalLSNReachedV4 (Upgra
 
 ### Upgrade your Azure Fluid Relay client library
 
-You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library should now be upgraded to the latest version to ensure your application remains operational. Upgrading will provide the most up-to-date functionality, as well as enhancements in performance and stability. For more information on the latest version to use and how to upgrade, please refer to the article.
+You have recently invoked the Azure Fluid Relay service with an old client library. Your Azure Fluid Relay client library should now be upgraded to the latest version to ensure your application remains operational. Upgrading provides the most up-to-date functionality, as well as enhancements in performance and stability. For more information on the latest version to use and how to upgrade, please refer to the article.
 
 Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure Fluid Relay client library)](https://github.com/microsoft/FluidFramework).
 
@@ -227,19 +271,19 @@ Learn more about [FluidRelay Server - UpgradeClientLibrary (Upgrade your Azure F
 
 ### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
 
-Starting July 1, 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+Starting July 1, 2020, you can't create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
 Learn more about [HDInsight cluster - KafkaVersionRetirement (Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster)](https://aka.ms/hdiretirekafka).
 
 ### Deprecation of Older Spark Versions in HDInsight Spark cluster
 
-Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft.
+Starting July 1, 2020, you can't create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters run as is without support from Microsoft.
 
 Learn more about [HDInsight cluster - SparkVersionRetirement (Deprecation of Older Spark Versions in HDInsight Spark cluster)](https://aka.ms/hdiretirespark).
 
 ### Enable critical updates to be applied to your HDInsight clusters
 
-HDInsight service is applying an important certificate related update to your cluster. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Take actions to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 13, 2021 05:00 PM UTC. The HDInsight team will be performing updates between Jan 13, 2021 05:00 PM UTC and Jan 16, 2021 05:00 PM UTC. Failure to apply this update may result in your clusters becoming unhealthy and unusable.
+HDInsight service is applying an important certificate related update to your cluster. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Take actions to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 13, 2021 05:00 PM UTC. The HDInsight team is performing updates between Jan 13, 2021 05:00 PM UTC and Jan 16, 2021 05:00 PM UTC. Failure to apply this update may result in your clusters becoming unhealthy and unusable.
 
 Learn more about [HDInsight cluster - GCSCertRotation (Enable critical updates to be applied to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -257,13 +301,13 @@ Learn more about [HDInsight cluster - GCSCertRotationR3DropRecreate (Drop and re
 
 ### Apply critical updates to your HDInsight clusters
 
-The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 21, 2021 05:00 PM UTC. The HDInsight team will be performing updates between Jan 21, 2021 05:00 PM UTC and Jan 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources (Load balancer, Network interface and Public IP address) in the same resource group and Subnet where your cluster is in. Failure to apply this update may result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before Jan 25th, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service will send another notification if we failed to apply the update to your clusters.
+The HDInsight service has attempted to apply a critical certificate update on all your running clusters. However, one or more policies in your subscription are preventing HDInsight service from creating or modifying network resources (Load balancer, Network Interface and Public IP address) associated with your clusters and applying this update. Remove or update your policy assignment to allow HDInsight service to create or modify network resources (Load balancer, Network interface and Public IP address) associated with your clusters before Jan 21, 2021 05:00 PM UTC. The HDInsight team is performing updates between Jan 21, 2021 05:00 PM UTC and Jan 23, 2021 05:00 PM UTC. To verify the policy update, you can try to create network resources (Load balancer, Network interface and Public IP address) in the same resource group and Subnet where your cluster is in. Failure to apply this update may result in your clusters becoming unhealthy and unusable. You can also drop and recreate your cluster before Jan 25th, 2021 to prevent the cluster from becoming unhealthy and unusable. The HDInsight service sends another notification if we failed to apply the update to your clusters.
 
 Learn more about [HDInsight cluster - GCSCertRotationR3PlanPatch (Apply critical updates to your HDInsight clusters)](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
 ### Action required: Migrate your A8–A11 HDInsight cluster before 1 March 2021
 
-You're receiving this notice because you have one or more active A8, A9, A10 or A11 HDInsight cluster. The A8-A11 virtual machines (VMs) will be retired in all regions on 1 March 2021. After that date, all clusters using A8-A11 will be deallocated. Migrate your affected clusters to another HDInsight supported VM (https://azure.microsoft.com/pricing/details/hdinsight/) before that date. For more details, see 'Learn More' link or contact us at askhdinsight@microsoft.com
+You're receiving this notice because you have one or more active A8, A9, A10 or A11 HDInsight cluster. The A8-A11 virtual machines (VMs) are retired in all regions on 1 March 2021. After that date, all clusters using A8-A11 are deallocated. Migrate your affected clusters to another HDInsight supported VM (https://azure.microsoft.com/pricing/details/hdinsight/) before that date. For more details, see 'Learn More' link or contact us at askhdinsight@microsoft.com
 
 Learn more about [HDInsight cluster - VM Deprecation (Action required: Migrate your A8–A11 HDInsight cluster before 1 March 2021)](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/).
 
@@ -301,7 +345,7 @@ Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quo
 
 ### Upgrade your SKU or add more instances to ensure fault tolerance
 
-Deploying two or more medium or large sized instances will ensure business continuity during outages caused by planned or unplanned maintenance.
+Deploying two or more medium or large sized instances ensures business continuity during outages caused by planned or unplanned maintenance.
 
 Learn more about [Application gateway - AppGateway (Upgrade your SKU or add more instances to ensure fault tolerance)](https://aka.ms/aa_gatewayrec_learnmore).
 
@@ -319,13 +363,13 @@ Learn more about [Traffic Manager profile - GeneralProfile (Add at least one mor
 
 ### Add an endpoint configured to "All (World)"
 
-For geographic routing, traffic is routed to endpoints based on defined regions. When a region fails, there is no pre-defined failover. Having an endpoint where the Regional Grouping is configured to "All (World)" for geographic profiles will avoid traffic black holing and guarantee service remains available.
+For geographic routing, traffic is routed to endpoints based on defined regions. When a region fails, there is no pre-defined failover. Having an endpoint where the Regional Grouping is configured to "All (World)" for geographic profiles avoids traffic black holing and guarantee service remains available.
 
 Learn more about [Traffic Manager profile - GeographicProfile (Add an endpoint configured to \""All (World)\"")](https://aka.ms/Rf7vc5).
 
 ### Add or move one endpoint to another Azure region
 
-All endpoints associated to this proximity profile are in the same region. Users from other regions may experience long latency when attempting to connect. Adding or moving an endpoint to another region will improve overall performance for proximity routing and provide better availability in case all endpoints in one region fail.
+All endpoints associated to this proximity profile are in the same region. Users from other regions may experience long latency when attempting to connect. Adding or moving an endpoint to another region improves overall performance for proximity routing and provide better availability in case all endpoints in one region fail.
 
 Learn more about [Traffic Manager profile - ProximityProfile (Add or move one endpoint to another Azure region)](https://aka.ms/Ldkkdb).
 
@@ -343,7 +387,7 @@ Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Imple
 
 ### Avoid hostname override to ensure site integrity
 
-Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend.
+Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST APIs) in general are less sensitive to this.  Make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend.
 
 Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](https://aka.ms/appgw-advisor-usecustomdomain).
 
@@ -353,17 +397,17 @@ You appear to have ExpressRoute circuits peered in at least two different locati
 
 Learn more about [ExpressRoute circuit - UseGlobalReachForDR (Use ExpressRoute Global Reach to improve your design for disaster recovery)](../expressroute/about-upgrade-circuit-bandwidth.md).
 
-### Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule
+### Azure WAF RuleSet CRS 3.1/3.2 has been updated with Log4j 2 vulnerability rule
 
-In response to log4j2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide additional protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable this.
+In response to Log4j 2 vulnerability (CVE-2021-44228), Azure Web Application Firewall (WAF) RuleSet CRS 3.1/3.2 has been updated on your Application Gateway to help provide additional protection from this vulnerability. The rules are available under Rule 944240 and no action is needed to enable this.
 
 Learn more about [Application gateway - AppGwLog4JCVEPatchNotification (Azure WAF RuleSet CRS 3.1/3.2 has been updated with log4j2 vulnerability rule)](https://aka.ms/log4jcve).
 
-### Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228)
+### Additional protection to mitigate Log4j 2 vulnerability (CVE-2021-44228)
 
-To mitigate the impact of Log4j2 vulnerability, we recommend these steps:
+To mitigate the impact of Log4j 2 vulnerability, we recommend these steps:
 
-1) Upgrade Log4j2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link below.
+1) Upgrade Log4j 2 to version 2.15.0 on your backend servers. If upgrade isn't possible, follow the system property guidance link below.
 2) Take advantage of WAF Core rule sets (CRS) by upgrading to WAF SKU
 
 Learn more about [Application gateway - AppGwLog4JCVEGenericNotification (Additional protection to mitigate Log4j2 vulnerability (CVE-2021-44228))](https://aka.ms/log4jcve).
@@ -376,7 +420,7 @@ Learn more about [Virtual network - natGateway (Use NAT gateway for outbound con
 
 ### Enable Active-Active gateways for redundancy
 
-In active-active configuration, both instances of the VPN gateway will establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically.
+In active-active configuration, both instances of the VPN gateway establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance or unplanned event happens to one gateway instance, traffic is switched over to the other active IPsec tunnel automatically.
 
 Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Active-Active gateways for redundancy)](https://aka.ms/aa_vpnha_learnmore).
 
@@ -398,19 +442,19 @@ Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Rest
 
 ### You are close to exceeding storage quota of 2GB. Create a Standard search service.
 
-You are close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations will stop working when storage quota is exceeded.
+You are close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Search service - BasicServiceStorageQuota90percent (You are close to exceeding storage quota of 2GB. Create a Standard search service.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
 ### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.
 
-You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations will stop working when storage quota is exceeded.
+You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations stop working when storage quota is exceeded.
 
 Learn more about [Search service - FreeServiceStorageQuota90percent (You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
 ### You are close to exceeding your available storage quota. Add additional partitions if you need more storage.
 
-You are close to exceeding your available storage quota. Add additional partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations will no longer work.
+You are close to exceeding your available storage quota. Add additional partitions if you need more storage. After exceeding storage quota, you can still query, but indexing operations no longer work.
 
 Learn more about [Search service - StandardServiceStorageQuota90percent (You are close to exceeding your available storage quota. Add additional partitions if you need more storage.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
@@ -489,6 +533,13 @@ Learn more about [Static Web App - StaticWebAppsUpgradeToStandardSKU (Consider u
 We identified the below thread resulted in an unhandled exception for your App and application code should be fixed to prevent impact to application availability. A crash happens when an exception in your code goes un-handled and terminates the process.
 
 Learn more about [App service - AppServiceProactiveCrashMonitoring (Application code should be fixed as worker process crashed due to Unhandled Exception)](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html).
+
+### Consider changing your App Service configuration to 64-bit
+
+We identified your application is running in 32-bit and the memory is reaching the 2GB limit. 
+Consider switching to 64-bit processes so you can take advantage of the additional memory available in your Web Worker role. This action triggers a web app restart, so schedule accordingly.
+
+Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-service/web-apps-performance-faqs#i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue).
 
 ## Next steps
 

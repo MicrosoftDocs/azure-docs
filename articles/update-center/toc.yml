@@ -1,19 +1,27 @@
-- name: Update management center documentation
+- name: Azure Update Manager documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Update management center
+  - name: About Azure Update Manager
     href: overview.md
+  - name: Support matrix
+    href: support-matrix.md
   - name: What's New 
     href: whats-new.md
   - name: What's upcoming
     href: whats-upcoming.md
-  - name: Support matrix
-    href: support-matrix.md
+  - name: FAQ
+    href: update-manager-faq.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
     href: quickstart-on-demand.md
+- name: Tutorials
+  items:
+  - name: Schedule updates dynamically and at scale using dynamic scope
+    href: tutorial-dynamic-grouping-for-scheduled-patching.md
+  - name: Schedule updates and enable periodic assessment at scale using policy
+    href: tutorial-assessment-deployment-using-policy.md
 - name: Concepts
   items:
   - name: Update and maintenance options
@@ -22,6 +30,8 @@
     href: prerequsite-for-schedule-patching.md
   - name: Assessment options
     href: assessment-options.md
+  - name: Dynamic scope
+    href: dynamic-scope-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
@@ -40,12 +50,20 @@
       href: configure-wu-agent.md
   - name: Manage
     items:
+    - name: SQL Server Patching
+      items:
+      - name: Overview
+        href: guidance-patching-sql-server-azure-vm.md
+      - name: Guidance on patching for SQL Server on Azure VMs
+        href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-center/toc.json
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results
       href: deploy-updates.md
     - name: Schedule updates
       href: scheduled-patching.md
+    - name: Manage dynamic scope
+      href: manage-dynamic-scoping.md
     - name: Manage update settings
       href: manage-update-settings.md
     - name: Manage updates for Azure VMs using REST API
@@ -62,3 +80,11 @@
     items:
     - name: Troubleshoot issues
       href: troubleshoot.md
+- name: Guidance
+  items:
+  - name: Move virtual machines from Automation Update Management to Azure Update Manager
+    href: guidance-migration-automation-update-management-azure-update-manager.md
+  - name: Migration of Azure VMs from Microsoft Configuration Manager to Azure Update Manager
+    href: guidance-migration-azure.md
+  - name: Security awareness and Ubuntu Pro support
+    href: security-awareness-ubuntu-support.md

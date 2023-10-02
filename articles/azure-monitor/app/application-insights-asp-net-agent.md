@@ -2,7 +2,7 @@
 title: Deploy Application Insights Agent
 description: Learn how to use Application Insights Agent to monitor website performance. It works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 09/12/2023
 ms.reviewer: abinetabate
 ---
 
@@ -112,9 +112,9 @@ This tab describes how to onboard to the PowerShell Gallery and download the App
 Included are the most common parameters that you'll need to get started.
 We've also provided manual download instructions in case you don't have internet access.
 
-### Get an instrumentation key
+### Get a connection string
 
-To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
+To get started, you need an connection string. For more information, see [Connection strings](sdk-connection-string.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -310,7 +310,7 @@ When you monitor a computer on your private intranet, you'll need to route HTTP 
 The PowerShell commands to download and install Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
 Review the preceding instructions when you write your installation scripts.
 
-The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](../faq.yml).
+The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [How do I achieve proxy passthrough?](#how-do-i-achieve-proxy-passthrough).
 
 
 ### Enable monitoring
@@ -333,7 +333,7 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
 > [!NOTE]
-> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
+> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-workspace-resource.md).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
@@ -359,7 +359,7 @@ Enable the instrumentation engine if:
 #### Examples
 
 ```powershell
-PS C:\> Enable-InstrumentationEngine
+Enable-InstrumentationEngine
 ```
 
 #### Parameters
@@ -397,7 +397,7 @@ After you enable monitoring, we recommend that you use [Live Metrics](live-strea
 In this example, all apps on the current computer are assigned a single instrumentation key.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ##### Example with an instrumentation key map
@@ -410,12 +410,11 @@ In this example:
 - Spaces are added for readability.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
-    @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
-
+Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
+    ` @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
+      ` @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      ` @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      ` @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
 > [!NOTE]
@@ -510,7 +509,7 @@ Restart IIS for the changes to take effect.
 #### Examples
 
 ```powershell
-PS C:\> Disable-InstrumentationEngine
+Disable-InstrumentationEngine
 ```
 
 #### Parameters
@@ -539,7 +538,7 @@ This cmdlet will remove edits to the IIS applicationHost.config and remove regis
 #### Examples
 
 ```powershell
-PS C:\> Disable-ApplicationInsightsMonitoring
+Disable-ApplicationInsightsMonitoring
 ```
 
 #### Parameters
@@ -581,7 +580,7 @@ Gets the config file and prints the values to the console.
 #### Examples
 
 ```powershell
-PS C:\> Get-ApplicationInsightsMonitoringConfig
+Get-ApplicationInsightsMonitoringConfig
 ```
 
 #### Parameters
@@ -614,8 +613,7 @@ This cmdlet will report version information and information about key files requ
 Run the command `Get-ApplicationInsightsMonitoringStatus` to display the monitoring status of web sites.
 
 ```powershell
-
-PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
+Get-ApplicationInsightsMonitoringStatus
 
 IIS Websites:
 
@@ -659,8 +657,7 @@ In this example;
 Run the command `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` to display information about the current module:
 
 ```powershell
-
-PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
+Get-ApplicationInsightsMonitoringStatus -PowerShellModule
 
 PowerShell Module version:
 0.4.0-alpha
@@ -717,7 +714,7 @@ Run the command `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
-PS C:\> Get-ApplicationInsightsMonitoringStatus -InspectProcess
+Get-ApplicationInsightsMonitoringStatus -InspectProcess
 
 iisreset.exe /status
 Status for IIS Admin Service ( IISADMIN ) : Running
@@ -792,7 +789,7 @@ Restart IIS for your changes to take effect.
 In this example, all apps on the current computer will be assigned a single instrumentation key.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ##### Example with an instrumentation key map
@@ -806,10 +803,10 @@ In this example:
 
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
-       @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-          @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
-          @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
-          @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
+    ` @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
+      ` @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      ` @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      ` @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
 #### Parameters
@@ -931,7 +928,7 @@ The full path will be displayed during script execution.
 
 ##### Example of application startup logs
 ```powershell
-PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
+Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
 Starting...
 Log File: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\logs\20190627_144217_ApplicationInsights_ETW_Trace.etl
 Tracing enabled, waiting for events.
@@ -1007,6 +1004,21 @@ Each of these options is described in the [detailed instructions](?tabs=detailed
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
+
+### How do I achieve proxy passthrough?
+
+To achieve proxy passthrough, configure a machine-level proxy or an application-level proxy.
+See [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+
+Example Web.config:
+
+```xml
+<system.net>
+    <defaultProxy>
+    <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
 
 ## Troubleshooting
 

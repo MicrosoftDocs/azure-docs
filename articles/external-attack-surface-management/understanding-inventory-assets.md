@@ -27,7 +27,8 @@ Defender EASM includes the discovery of the following kinds of assets:
 
 These asset types comprise your attack surface inventory in Defender EASM. This solution discovers externally facing assets that are exposed to the open internet outside of traditional firewall protection; they need to be monitored and maintained to minimize risk and improve an organization’s security posture. Microsoft Defender External Attack Surface Management (Defender EASM) actively discovers and monitors these assets, then surfacing key insights that help customers efficiently address any vulnerabilities to their organization.
 
-![Screenshot of Inventory screen](media/Inventory-1.png)
+![Screenshot of Inventory screen.](media/Overview-4.png)
+
 
 ## Asset states
 
@@ -45,8 +46,19 @@ All assets are labeled as one of the following states:
 
 These asset states are uniquely processed and monitored to ensure that customers have clear visibility into the most critical assets by default. For instance, “Approved Inventory” assets are always represented in dashboard charts and are scanned daily to ensure data recency. All other kinds of assets are not included in dashboard charts by default; however, users can adjust their inventory filters to view assets in different states as needed. Similarly, "Candidate” assets are only scanned during the discovery process; it’s important to review these assets and change their state to “Approved Inventory” if they are owned by your organization.
 
+
+## Tracking inventory changes 
+
+Your attack surface is constantly changing, which is why Defender EASM continuously analyzes and updates your inventory to ensure accuracy.  Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends.  The inventory changes dashboard provides an overview of these changes, displaying the "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 or 30 days. For a more granular view of these inventory changes, refer to the "Changes by date" section. 
+
+
+[ ![Screenshot of Inventory Changes screen.](media/inventory-changes-1.png)](media/inventory-changes-1.png#lightbox)
+
+
+
+
 ## Next steps
 
-- [Deploying the EASM Azure resource](deploying-the-defender-easm-azure-resource.md)
+- [Modifying inventory  assets](labeling-inventory-assets.md)
 - [Understanding asset details](understanding-asset-details.md)
 - [Using and managing discovery](using-and-managing-discovery.md)

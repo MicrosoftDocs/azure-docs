@@ -253,7 +253,7 @@ az network private-endpoint dns-zone-group create \
 
 In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) 
+1. Sign in to the [Azure portal](https://portal.azure.com).
  
 2. Select **Resource groups** in the left-hand navigation pane.
 

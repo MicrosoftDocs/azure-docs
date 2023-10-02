@@ -1,59 +1,52 @@
 ---
-title: RADIANS in Azure Cosmos DB query language
-description: Learn about SQL system function RADIANS in Azure Cosmos DB.
-author: ginamr
+title: RADIANS
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a radian value for an angle in degrees.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# RADIANS (Azure Cosmos DB)
+
+# RADIANS (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns radians when a numeric expression, in degrees, is entered.  
-  
+Returns the corresponding angle in radians for an angle specified in degrees.
+
 ## Syntax
-  
+
 ```sql
-RADIANS (<numeric_expr>)  
+RADIANS(<numeric_expr>)  
 ```  
-  
+
 ## Arguments
-  
-*numeric_expr*  
-   Is a numeric expression.  
-  
+
+| | Description |
+| --- | --- |
+| **`numeric_expr`** | A numeric expression. |
+
 ## Return types
-  
-  Returns a numeric expression.  
-  
+
+Returns a numeric expression.  
+
 ## Examples
-  
-  The following example takes a few angles as input and returns their corresponding radian values.  
-  
-```sql
-SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
-```  
-  
-  Here is the result set.  
-  
-```json
-[{  
-       "r1": -0.7855726963226477,  
-       "r2": -3.1592204790349356,  
-       "r3": 0,  
-       "r4": 0.0025704127119236249,  
-       "r5": 3.4402174274458375  
-   }]  
-```  
+
+The following example returns the radians for various degree values.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/radians/query.sql" highlight="2-5":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/radians/result.json":::
 
 ## Remarks
 
-This system function will not utilize the index.
+- This function doesn't use the index.
 
-## Next steps
+## Related content
 
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`DEGREES`](degrees.md)

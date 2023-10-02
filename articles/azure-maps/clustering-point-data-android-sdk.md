@@ -21,7 +21,7 @@ When visualizing many data points on the map, data points may overlap over each 
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Enabling clustering on a data source
 
@@ -1109,7 +1109,7 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
 ::: zone-end
 
-The popup follows the steps outlined in the [display a popup](display-feature-information-android.md?#display-a-popup) document.
+The popup follows the steps outlined in the [display a popup] document.
 
 The following image shows the above code displays a popup with aggregated counts of each entity value type for all points in the clicked clustered point.
 
@@ -1120,10 +1120,16 @@ The following image shows the above code displays a popup with aggregated counts
 To add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[display a popup]: display-feature-information-android.md?#display-a-popup
+[Quickstart: Create an Android app]: quick-android-map.md

@@ -1,5 +1,5 @@
 ---
-title: What is hybrid identity with Azure Active Directory?
+title: What is hybrid identity with Microsoft Entra ID?
 description: Hybrid identity is having a common user identity for authentication and authorization both on-premises and in the cloud. 
 keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory
 services: active-directory
@@ -14,7 +14,7 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# What is hybrid identity with Azure Active Directory?
+# What is hybrid identity with Microsoft Entra ID?
 
 Today, businesses, and corporations are becoming more and more a mixture of on-premises and cloud applications.  Users require access to those applications both on-premises and in the cloud. Managing users both on-premises and in the cloud poses challenging scenarios. 
 
@@ -27,13 +27,15 @@ Hybrid identity is accomplished through provisioning and synchronization.  Provi
 For more information see [What is provisioning?](what-is-provisioning.md) and [What is inter-directory provisioning?](what-is-inter-directory-provisioning.md).
 
 
-## License requirements for using Azure AD Connect
+<a name='license-requirements-for-using-azure-ad-connect'></a>
+
+## License requirements for using Microsoft Entra Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## Next Steps 
 
-- [What is Azure AD Connect and Connect Health?](connect/whatis-azure-ad-connect.md) 
+- [What is Microsoft Entra Connect and Connect Health?](connect/whatis-azure-ad-connect.md) 
 - [What is password hash synchronization (PHS)?](connect/whatis-phs.md) 
 - [What is pass-through authentication (PTA)?](connect/how-to-connect-pta.md) 
 - [What is federation?](connect/whatis-fed.md) 

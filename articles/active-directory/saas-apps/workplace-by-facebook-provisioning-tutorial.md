@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory'
-description: Learn the steps you need to do in both Workplace by Facebook and Azure Active Directory (Azure AD) to configure automatic user provisioning.
+title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Microsoft Entra ID'
+description: Learn the steps you need to do in both Workplace by Facebook and Microsoft Entra ID to configure automatic user provisioning.
 services: active-directory
 author: twimmers
 manager: CelesteDG
@@ -14,13 +14,13 @@ ms.author: thwimmer
 
 # Tutorial: Configure Workplace by Facebook for automatic user provisioning
 
-This tutorial describes the steps you need to do in both Workplace by Facebook and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Workplace by Facebook](https://work.workplace.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps you need to do in both Workplace by Facebook and Microsoft Entra ID to configure automatic user provisioning. When configured, Microsoft Entra ID automatically provisions and de-provisions users to [Workplace by Facebook](https://work.workplace.com/) using the Microsoft Entra provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Workplace by Facebook
 > * Remove users in Workplace by Facebook when they do not require access anymore
-> * Keep user attributes synchronized between Azure AD and Workplace by Facebook
+> * Keep user attributes synchronized between Microsoft Entra ID and Workplace by Facebook
 > * [Single sign-on](./workplacebyfacebook-tutorial.md) to Workplace by Facebook (recommended)
 
 >[!VIDEO https://www.youtube.com/embed/oF7I0jjCfrY]
@@ -29,82 +29,87 @@ This tutorial describes the steps you need to do in both Workplace by Facebook a
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator)
+* [A Microsoft Entra tenant](../develop/quickstart-create-new-tenant.md) 
+* A user account in Microsoft Entra ID with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator)
 * A Workplace by Facebook single-sign on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Don't use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have a Microsoft Entra trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## Step 1. Plan your provisioning deployment
+## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Workplace by Facebook](../app-provisioning/customize-application-attributes.md).
+3. Determine what data to [map between Microsoft Entra ID and Workplace by Facebook](../app-provisioning/customize-application-attributes.md).
 
-## Step 2. Configure Workplace by Facebook to support provisioning with Azure AD
+<a name='step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad'></a>
 
-Before configuring and enabling the provisioning service, you need to decide what users in Azure AD represent the users who need access to your Workplace by Facebook app. Once decided, you can assign these users to your Workplace by Facebook app by following the instructions here:
+## Step 2: Configure Workplace by Facebook to support provisioning with Microsoft Entra ID
 
-*   It's recommended that a single Azure AD user is assigned to Workplace by Facebook to test the provisioning configuration. More users may be assigned later.
+Before configuring and enabling the provisioning service, you need to decide what users in Microsoft Entra ID represent the users who need access to your Workplace by Facebook app. Once decided, you can assign these users to your Workplace by Facebook app by following the instructions here:
+
+*   It's recommended that a single Microsoft Entra user is assigned to Workplace by Facebook to test the provisioning configuration. More users may be assigned later.
 
 *   When assigning a user to Workplace by Facebook, you must select a valid user role. The "Default Access" role doesn't work for provisioning.
 
-## Step 3. Add Workplace by Facebook from the Azure AD application gallery
+<a name='step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery'></a>
 
-Add Workplace by Facebook from the Azure AD application gallery to start managing provisioning to Workplace by Facebook. If you have previously setup Workplace by Facebook for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+## Step 3: Add Workplace by Facebook from the Microsoft Entra application gallery
 
-## Step 4. Define who will be in scope for provisioning 
+Add Workplace by Facebook from the Microsoft Entra application gallery to start managing provisioning to Workplace by Facebook. If you have previously setup Workplace by Facebook for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
-The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+## Step 4: Define who will be in scope for provisioning 
+
+The Microsoft Entra provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 * If you need additional roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
-## Step 5. Configure automatic user provisioning to Workplace by Facebook
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Workplace by Facebook App based on user assignments in Azure AD.
+## Step 5: Configure automatic user provisioning to Workplace by Facebook
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users in Workplace by Facebook App based on user assignments in Microsoft Entra ID.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications**
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Workplace by Facebook**.
+1. In the applications list, select **Workplace by Facebook**.
 
 	![The Workplace by Facebook link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Ensure the "Tenant URL" section is populated with the correct endpoint: https://scim.workplace.com/ .Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
+1. Ensure the "Tenant URL" section is populated with the correct endpoint: https://scim.workplace.com/ .Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Microsoft Entra ID can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
 
  	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
 
- 	![authorize](./media/workplace-by-facebook-provisioning-tutorial/workplace-login.png)
+ 	![Authorize](./media/workplace-by-facebook-provisioning-tutorial/workplace-login.png)
 
-> [!NOTE]
-> Failure to change the URL to https://scim.workplace.com/ will result in a failure when trying to save the configuration 
+   > [!NOTE]
+   > Failure to change the URL to https://scim.workplace.com/ will result in a failure when trying to save the configuration 
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Select **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Workplace by Facebook**.
+1. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Workplace by Facebook**.
 
-9. Review the user attributes that are synchronized from Azure AD to Workplace by Facebook in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Workplace by Facebook for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Workplace by Facebook API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Microsoft Entra ID to Workplace by Facebook in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Workplace by Facebook for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the Workplace by Facebook API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -139,23 +144,23 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Integer|
 
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for Workplace by Facebook, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Microsoft Entra provisioning service for Workplace by Facebook, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users that you would like to provision to Workplace by Facebook by choosing the appropriate values in **Scope** in the **Settings** section.
+1. Define the users that you would like to provision to Workplace by Facebook by choosing the appropriate values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you're ready to provision, click **Save**.
+1. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. 
 
-## Step 6. Monitor your deployment
+## Step 6: Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
@@ -177,48 +182,52 @@ In December 2021, Facebook released a SCIM 2.0 connector. Completing the steps b
 > [!NOTE]
 > Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
 
-1. Sign into the Azure portal at https://portal.azure.com 
-2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications
-3. In the Properties section of your new custom app, copy the Object ID.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Workplace by Facebook**.
+1. In the Properties section of your new custom app, copy the Object ID.
 
 	![Screenshot of Workplace by Facebook app in the Azure portal](./media/workplace-by-facebook-provisioning-tutorial/app-properties.png)
 
-4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
+1. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Microsoft Entra tenant where your app is added. 
 
 	![Screenshot of Microsoft Graph explorer sign in page](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
 
-5. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
+1. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
 
 	![Screenshot of Microsoft Graph settings option](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
 
 	![Screenshot of Microsoft Graph permissions](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
 
-6. Using the ObjectID selected from the app previously, run the following command:
+1. Using the ObjectID selected from the app previously, run the following command:
 
-```
-GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/
-```
+   ```
+   GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/
+   ```
 
-7. Taking the "id" value from the response body of the GET request from above, run the command below, replacing "[job-id]" with the id value from the GET request. The value should have the format of "FacebookAtWorkOutDelta.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx":
-```
-DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
-```
-8. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
-```
-POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "FacebookWorkplace" }
-```
+1. Taking the "id" value from the response body of the GET request from above, run the command below, replacing "[job-id]" with the id value from the GET request. The value should have the format of "FacebookAtWorkOutDelta.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx":
 
-![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
+   ```
+   DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
+   ```
 
-9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
+1. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
 
-10. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
-![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
+   ```
+   POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "FacebookWorkplace" }
+   ```
 
-11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
+   ![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
 
-> [!NOTE] 
-> Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
+1. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
+
+1. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
+
+   ![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
+
+1. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
+
+   > [!NOTE] 
+   > Failure to restore the previous settings may results in attributes (name.formatted for example) updating in Workplace unexpectedly. Be sure to check the configuration before enabling  provisioning 
 
 ## Change log
 
@@ -228,7 +237,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 ## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

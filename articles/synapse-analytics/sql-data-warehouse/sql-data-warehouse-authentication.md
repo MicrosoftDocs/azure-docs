@@ -2,13 +2,11 @@
 title: Authentication for dedicated SQL pool (formerly SQL DW)
 description: Learn how to authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics by using Azure Active Directory (Azure AD) or SQL Server authentication.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 04/02/2019
 ms.author: wiassaf
-ms.reviewer: wiassaf
+ms.date: 04/02/2019
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: seo-lt-2019
 tag: azure-synapse
 ---

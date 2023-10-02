@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/01/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -33,32 +33,18 @@ IntSub(<int_expr_1>, <int_expr_2>)
 
 ## Return types
 
-Returns a 64-bit integer. For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
+Returns a 64-bit integer.
+
+> [!NOTE]
+> For more information, see [__int64](/cpp/cpp/int8-int16-int32-int64).
 
 ## Examples
 
 This example tests the function with various static values.
 
-```sql
-SELECT VALUE {
-    negativeResult: IntSub(25, 50),
-    positiveResult: IntSub(25, 15),
-    subtractSameNumber: IntSub(25, 25),
-    subtractZero: IntSub(25, 0),
-    subtractDecimal: IntSub(25, 2.5)
-}
-```
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intsub/query.sql" highlight="2-6":::
 
-```json
-[
-  {
-    "negativeResult": -25,
-    "positiveResult": 10,
-    "subtractSameNumber": 0,
-    "subtractZero": 25
-  }
-]
-```
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intsub/result.json":::
 
 ## Remarks
 

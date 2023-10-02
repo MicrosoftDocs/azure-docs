@@ -1,16 +1,16 @@
 ---
 title: Assign, update, list, or remove custom security attributes for a user (Preview)
-description: Assign, update, list, or remove custom security attributes for a user in Azure Active Directory. 
+description: Assign, update, list, or remove custom security attributes for a user in Microsoft Entra ID. 
 services: active-directory 
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 06/29/2023
+ms.date: 10/01/2023
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
-ms.custom: it-pro
+ms.custom: it-pro, has-azure-ad-ps-ref
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 ---
@@ -19,15 +19,15 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
-[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD), part of Microsoft Entra, are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your employees or to help determine who gets access to resources. This article describes how to assign, update, list, or remove custom security attributes for Azure AD.
+[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Microsoft Entra ID, part of Microsoft Entra, are business-specific attributes (key-value pairs) that you can define and assign to Microsoft Entra objects. For example, you can assign custom security attribute to filter your employees or to help determine who gets access to resources. This article describes how to assign, update, list, or remove custom security attributes for Microsoft Entra ID.
 
 ## Prerequisites
 
-To assign or remove custom security attributes for a user in your Azure AD tenant, you need:
+To assign or remove custom security attributes for a user in your Microsoft Entra tenant, you need:
 
-- Azure AD Premium P1 or P2 license
+- Microsoft Entra ID P1 or P2 license
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation)
 - [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using Azure AD PowerShell
@@ -37,15 +37,17 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
     
 ## Assign custom security attributes to a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attribute definitions in Microsoft Entra ID](../fundamentals/custom-security-attributes-add.md).
+
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Find and select the user you want to assign custom security attributes to.
 
-1. In the Manage section, select **Custom security attributes (preview)**.
+1. In the Manage section, select **Custom security attributes**.
 
 1. Select **Add assignment**.
 
@@ -65,13 +67,13 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 ## Update custom security attribute assignment values for a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Find and select the user that has a custom security attribute assignment value you want to update.
 
-1. In the Manage section, select **Custom security attributes (preview)**.
+1. In the Manage section, select **Custom security attributes**.
   
 1. Find the custom security attribute assignment value you want to update.
 
@@ -85,9 +87,9 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 You can filter the list of custom security attributes assigned to users on the All users page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Select **Add filter** to open the Add filter pane.
 
@@ -105,13 +107,13 @@ You can filter the list of custom security attributes assigned to users on the A
 
 ## Remove custom security attribute assignments from a user
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as an [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator).
 
-1. Select **Azure Active Directory** > **Users**.
+1. Browse to **Identity**  > **Users** > **All users**.
 
 1. Find and select the user that has the custom security attribute assignments you want to remove.
 
-1. In the Manage section, select **Custom security attributes (preview)**.
+1. In the Manage section, select **Custom security attributes**.
 
 1. Add check marks next to all the custom security attribute assignments you want to remove.
 
@@ -119,7 +121,7 @@ You can filter the list of custom security attributes assigned to users on the A
 
 ## PowerShell or Microsoft Graph API
 
-To manage custom security attribute assignments for users in your Azure AD organization, you can use PowerShell or Microsoft Graph API. The following examples can be used to manage assignments.
+To manage custom security attribute assignments for users in your Microsoft Entra organization, you can use PowerShell or Microsoft Graph API. The following examples can be used to manage assignments.
 
 #### Assign a custom security attribute with a string value to a user
 
@@ -132,10 +134,9 @@ The following example assigns a custom security attribute with a string value to
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -147,10 +148,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -180,10 +181,9 @@ The following example assigns a custom security attribute with a multi-string va
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -196,10 +196,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -241,10 +241,9 @@ The following example assigns a custom security attribute with an integer value 
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -257,10 +256,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -291,10 +290,9 @@ The following example assigns a custom security attribute with a multi-integer v
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -307,10 +305,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -341,10 +339,9 @@ The following example assigns a custom security attribute with a Boolean value t
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -356,10 +353,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -389,10 +386,9 @@ The following example updates a custom security attribute assignment with an int
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -405,10 +401,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -439,10 +435,9 @@ The following example updates a custom security attribute assignment with a Bool
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -454,10 +449,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -487,10 +482,9 @@ The following example updates a custom security attribute assignment with a mult
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -503,10 +497,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -543,10 +537,9 @@ The following example gets the custom security attribute assignments for a user.
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -UserId $userId -Property "customSecurityAttributes"
 $userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
 $userAttributes.CustomSecurityAttributes.AdditionalProperties.Engineering
@@ -585,15 +578,15 @@ If there are no custom security attributes assigned to the user or if the callin
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Get user](/graph/api/user-get?view=graph-rest-beta&preserve-view=true)
+[Get user](/graph/api/user-get)
 
 ```http
-GET https://graph.microsoft.com/beta/users/{id}?$select=customSecurityAttributes
+GET https://graph.microsoft.com/v1.0/users/{id}?$select=customSecurityAttributes
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(customSecurityAttributes)/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(customSecurityAttributes)/$entity",
     "customSecurityAttributes": {
         "Engineering": {
             "@odata.type": "#microsoft.graph.customSecurityAttributeValue",
@@ -648,10 +641,9 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "customSecurityAttributes/Marketing/AppCountry eq 'Canada'" -ConsistencyLevel eventual
 $userAttributes | select Id,DisplayName,CustomSecurityAttributes
 $userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
@@ -677,16 +669,16 @@ Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [AppCount
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
+[List users](/graph/api/user-list)
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry eq 'Canada'
+GET https://graph.microsoft.com/v1.0/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry eq 'Canada'
 ConsistencyLevel: eventual
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 2,
     "value": [
         {
@@ -746,10 +738,9 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')" -ConsistencyLevel eventual
 $userAttributes | select Id,DisplayName,CustomSecurityAttributes
 $userAttributes.CustomSecurityAttributes.AdditionalProperties | Format-List
@@ -779,16 +770,16 @@ Value : {[@odata.type, #microsoft.graph.customSecurityAttributeValue], [Employee
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
+[List users](/graph/api/user-list)
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
+GET https://graph.microsoft.com/v1.0/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'GS')
 ConsistencyLevel: eventual
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 3,
     "value": [
         {
@@ -862,10 +853,9 @@ The following example lists all users with a custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta&preserve-view=true)
+[Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $userAttributes = Get-MgUser -CountVariable CountVar -Property "id,displayName,customSecurityAttributes" -Filter "customSecurityAttributes/Marketing/AppCountry ne 'Canada'" -ConsistencyLevel eventual
 $userAttributes | select Id,DisplayName,CustomSecurityAttributes
 ```
@@ -882,16 +872,16 @@ d5a1c025-2d79-4ad3-9217-91ac3a4ed8b8 Joe                      Microsoft.Graph.Po
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[List users](/graph/api/user-list?view=graph-rest-beta&preserve-view=true)
+[List users](/graph/api/user-list)
 
 ```http
-GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
+GET https://graph.microsoft.com/v1.0/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry ne 'Canada'
 ConsistencyLevel: eventual
 ```
 
 ```http
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#users(id,displayName,customSecurityAttributes)",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(id,displayName,customSecurityAttributes)",
     "@odata.count": 47,
     "value": [
         {
@@ -993,15 +983,15 @@ $params = @{
         }
     }
 }
-Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/beta/users/$userId" -Body $params
+Invoke-MgGraphRequest -Method PATCH -Uri "https://graph.microsoft.com/v1.0/users/$userId" -Body $params
 ```
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -1030,10 +1020,9 @@ The following example removes a multi-valued custom security attribute assignmen
 
 # [PowerShell](#tab/ms-powershell)
 
-[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser?view=graph-powershell-beta&preserve-view=true)
+[Update-MgUser](/powershell/module/microsoft.graph.users/update-mguser)
 
 ```powershell
-Select-MgProfile -Name "beta"
 $customSecurityAttributes = @{
     "Engineering" = @{
         "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
@@ -1045,10 +1034,10 @@ Update-MgUser -UserId $userId -CustomSecurityAttributes $customSecurityAttribute
 
 # [Microsoft Graph](#tab/ms-graph)
 
-[Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true)
+[Update user](/graph/api/user-update)
 
 ```http
-PATCH https://graph.microsoft.com/beta/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 {
     "customSecurityAttributes":
     {
@@ -1071,7 +1060,7 @@ None
 
 **Where are custom security attribute assignments for users supported?**
 
-Custom security attribute assignments for users are supported in Azure portal, PowerShell, and Microsoft Graph APIs. Custom security attribute assignments are not supported in My Apps or Microsoft 365 admin center.
+Custom security attribute assignments for users are supported in Microsoft Entra admin center, PowerShell, and Microsoft Graph APIs. Custom security attribute assignments are not supported in My Apps or Microsoft 365 admin center.
 
 **Who can view the custom security attributes assigned to a user?**
 
@@ -1103,7 +1092,7 @@ No, custom security attributes are not supported in B2C tenants and are not rela
 
 ## Next steps
 
-- [Add or deactivate custom security attribute definitions in Azure AD](../fundamentals/custom-security-attributes-add.md)
+- [Add or deactivate custom security attribute definitions in Microsoft Entra ID](../fundamentals/custom-security-attributes-add.md)
 - [Assign, update, list, or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md)
 - [Examples: Assign, update, list, or remove custom security attribute assignments using the Microsoft Graph API](/graph/custom-security-attributes-examples)
-- [Troubleshoot custom security attributes in Azure AD](../fundamentals/custom-security-attributes-troubleshoot.md)
+- [Troubleshoot custom security attributes in Microsoft Entra ID](../fundamentals/custom-security-attributes-troubleshoot.md)

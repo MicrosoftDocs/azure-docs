@@ -35,9 +35,9 @@ You can publish an event via AMQP 1.0, the Kafka protocol, or HTTPS. The Event H
 
 The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS. AMQP has higher network costs when initializing the session, however HTTPS requires extra TLS overhead for every request. AMQP has higher performance for frequent publishers and can achieve much lower latencies when used with asynchronous publishing code.
 
-You can publish events individually or batched. A single publication has a limit of 1 MB, regardless of whether it's a single event or a batch. Publishing events larger than this threshold will be rejected. 
+You can publish events individually or batched. A single publication has a limit of 1 MB, regardless of whether it's a single event or a batch. Publishing events larger than this threshold is rejected. 
 
-Event Hubs throughput is scaled by using partitions and throughput-unit allocations (see below). It's a best practice for publishers to remain unaware of the specific partitioning model chosen for an event hub and to only specify a *partition key* that is used to consistently assign related events to the same partition.
+Event Hubs throughput is scaled by using partitions and throughput-unit allocations. It's a best practice for publishers to remain unaware of the specific partitioning model chosen for an event hub and to only specify a *partition key* that is used to consistently assign related events to the same partition.
 
 ![Partition keys](./media/event-hubs-features/partition_keys.png)
 
@@ -123,13 +123,13 @@ Any entity that reads event data from an event hub is an *event consumer*. All E
 
 ### Consumer groups
 
-The publish/subscribe mechanism of Event Hubs is enabled through *consumer groups*. A consumer group is a view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
+The publish/subscribe mechanism of Event Hubs is enabled through **consumer groups**. A consumer group is a logical grouping of consumers that read data from an event hub or Kafka topic. It enables multiple consuming applications to read the same streaming data in an event hub independently at their own pace with their offsets. It allows you to parallelize the consumption of messages and distribute the workload among multiple consumers while maintaining the order of messages within each partition. 
+
+We recommend that there's **only one active receiver on a partition** within a consumer group. However, in certain scenarios, you may use up to five consumers or receivers per partition where all receivers get all the events of the partition. If you have multiple readers on the same partition, then you process duplicate events. You need to handle it in your code, which may not be trivial. However, it's a valid approach in some scenarios.
 
 In a stream processing architecture, each downstream application equates to a consumer group. If you want to write event data to long-term storage, then that storage writer application is a consumer group. Complex event processing can then be performed by another, separate consumer group. You can only access partitions through a consumer group. There's always a default consumer group in an event hub, and you can create up to the [maximum number of consumer groups](event-hubs-quotas.md) for the corresponding pricing tier. 
 
-There can be at most 5 concurrent readers on a partition per consumer group; however **it's recommended that there's only one active receiver on a partition per consumer group**. Within a single partition, each reader receives all events. If you have multiple readers on the same partition, then you process duplicate events. You need to handle this in your code, which may not be trivial. However, it's a valid approach in some scenarios.
-
-Some clients offered by the Azure SDKs are intelligent consumer agents that automatically manage the details of ensuring that each partition has a single reader and that all partitions for an event hub are being read from. This allows your code to focus on processing the events being read from the event hub so it can ignore many of the details of the partitions. For more information, see [Connect to a partition](#connect-to-a-partition).
+Some clients offered by the Azure SDKs are intelligent consumer agents that automatically manage the details of ensuring that each partition has a single reader and that all partitions for an event hub are being read from. It allows your code to focus on processing the events being read from the event hub so it can ignore many of the details of the partitions. For more information, see [Connect to a partition](#connect-to-a-partition).
 
 The following examples show the consumer group URI convention:
 
@@ -173,7 +173,7 @@ All Event Hubs consumers connect via an AMQP 1.0 session, a state-aware bidirect
 
 #### Connect to a partition
 
-When connecting to partitions, it's common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it's possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the clients within the Event Hubs SDKs, which act as intelligent consumer agents. These are:
+When connecting to partitions, it's common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it's possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the clients within the Event Hubs SDKs, which act as intelligent consumer agents. They are:
 
 - The [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) for .NET
 - The [EventProcessorClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/main/java/com/azure/messaging/eventhubs/EventProcessorClient.java) for Java

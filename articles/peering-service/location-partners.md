@@ -1,14 +1,12 @@
 ---
 title: Azure Peering Service locations and partners
 description: Learn about the available locations and partners globally for the Azure Peering Service.
-services: peering-service
 author: halkazwini
-ms.service: peering-service
-ms.topic: conceptual
-ms.workload: Infrastructure-services
-ms.date: 06/15/2023
 ms.author: halkazwini
-ms.custom: template-concept, references_regions, engagement-fy23
+ms.service: peering-service
+ms.topic: concept-article
+ms.date: 07/23/2023
+ms.custom: references_regions
 ---
 
 # Peering Service partners
@@ -28,7 +26,6 @@ The following table provides information on the Peering Service connectivity par
 | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) | Europe |
 | [Atman](https://www.atman.pl/en/atman-internet-maps/) | Europe |
 | [BBIX](https://www.bbix.net/en/service/) | Japan |
-| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) | Europe |
 | [CCL](https://concepts.co.nz/news/general-news/) | Oceania |
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) | Africa |
 | [Colt](https://www.colt.net/product/cloud-prioritisation/)| Asia, Europe |
@@ -46,6 +43,7 @@ The following table provides information on the Peering Service connectivity par
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) | Asia |
+| [PIT Chile](https://www.pitchile.cl/wp/maps/) |LATAM|
 | [Sejong Telecom](https://www.sejongtelecom.net/) | Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) | Asia |
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) | Europe |
@@ -119,18 +117,18 @@ The following table provides information on the Peering Service connectivity par
 | Mumbai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | New York | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | San Jose | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Santiago | [PIT Chile](https://www.pitchile.cl/wp/maps/) |
 | Seattle | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Singapore | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 
 ---
 
 > [!NOTE]
->For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
+> For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
 
 ## Next steps
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
-- To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
 

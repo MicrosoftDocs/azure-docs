@@ -21,7 +21,7 @@ ms.custom: mode-ui
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, without having credentials in your code. 
 
 In this article, using the Azure portal, you learn how to perform the following managed identities for Azure resources operations on a virtual machine scale set:
 
@@ -30,7 +30,7 @@ In this article, using the Azure portal, you learn how to perform the following 
 - To perform the management operations in this article, your account needs the following Azure role assignments:
 
     > [!NOTE]
-    > No additional Azure AD directory role assignments required.
+    > No additional Microsoft Entra directory role assignments required.
 
     - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to enable and remove system-assigned managed identity from a virtual machine scale set.
 
@@ -45,6 +45,8 @@ Currently, the Azure portal does not support enabling system-assigned managed id
 - [Create a Virtual Machine Scale Set in the Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 ### Enable system-assigned managed identity on an existing virtual machine scale set
+
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
 To enable the system-assigned managed identity on a virtual machine scale set that was originally provisioned without it:
 

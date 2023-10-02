@@ -8,8 +8,9 @@ manager: mwongerapk
 ms.author: shermanouko
 ms.service: active-directory
 ms.subservice: ciam
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
-ms.date: 07/13/2023
+ms.date: 07/27/2023
 ---
 
 # Tutorial: Call a protected web API from your .NET daemon application
@@ -34,11 +35,11 @@ Before continuing with this tutorial, ensure you have all of the following items
     - The secret value for the daemon app you created.
     - The Application (client) ID of the web API app you registered.
 
-- A protected *ToDoList* web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](how-to-protect-web-api-dotnet-core-overview.md). Ensure this web API is using the app registration details you created in the [prepare app tutorial](tutorial-daemon-dotnet-call-api-prepare-tenant.md).
+- A protected *ToDoList* web API that is running and ready to accept requests. If you haven't created one, see the [create a protected web API tutorial](./tutorial-protect-web-api-dotnet-core-build-app.md). Ensure this web API is using the app registration details you created in the [prepare tenant tutorial](tutorial-daemon-dotnet-call-api-prepare-tenant.md).
 - The base url and port on which the web API is running. For example, 44351. Ensure the API exposes the following endpoints via https:
-
     - `GET /api/todolist` to get all todos.
     - `POST /api/todolist` to add a todo.
+
 - [.NET 7.0](https://dotnet.microsoft.com/download/dotnet/7.0) or later. 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 

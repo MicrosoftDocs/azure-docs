@@ -1,12 +1,12 @@
 ---
-title: Azure Front Door (classic)
-description: This article provides an overview of Azure Front Door (classic).
+title: Azure Front Door (classic) overview
+description: This article provides an overview of the Azure Front Door (classic) service.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 06/15/2022
+ms.date: 08/09/2023
 ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---
@@ -17,7 +17,7 @@ Azure Front Door (classic) is a global, scalable entry-point that uses the Micro
 
 :::image type="content" source="./media/front-door-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door (classic) routing user traffic to endpoints.":::
 
-Front Door (classic) works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can ensure that Front Door (classic) will route your client requests to the fastest and most available application backend. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door (classic) provides a range of [traffic-routing methods](front-door-routing-methods.md) and [backend health monitoring options](front-door-health-probes.md) to suit different application needs and automatic failover scenarios. Similar to [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door (classic) is resilient to failures, including failures to an entire Azure region.
+Front Door (classic) works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your routing method you can, ensure that Front Door (classic) routes your client requests to the fastest and most available application backend. An application backend is any Internet-facing service hosted inside or outside of Azure. Front Door (classic) provides a range of [traffic-routing methods](front-door-routing-methods.md) and [backend health monitoring options](front-door-health-probes.md) to suit different application needs and automatic failover scenarios. Similar to [Traffic Manager](../traffic-manager/traffic-manager-overview.md), Front Door (classic) is resilient to failures, including failures to an entire Azure region.
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
@@ -64,5 +64,6 @@ For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pr
 Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) page.
 
 ## Next steps
+
 - Learn how to [create a Front Door (classic)](quickstart-create-front-door.md).
-- Learn [how Front Door (classic) works](front-door-routing-architecture.md?pivots=front-door-classic).
+- Learn about [how Front Door (classic) works](front-door-routing-architecture.md?pivots=front-door-classic).

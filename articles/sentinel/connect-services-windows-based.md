@@ -3,7 +3,7 @@ title: Connect Microsoft Sentinel to other Microsoft services with a Windows age
 description: Learn how to connect Microsoft Sentinel to Microsoft services with Windows agent-based connections.
 author: yelevin
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 07/18/2023
 ms.author: yelevin
 ---
 
@@ -15,13 +15,11 @@ This article presents information that is common to the group of Windows agent-b
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-The [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md) also uses the Azure Monitor Agent. This connector streams and filter events from Windows Domain Name System (DNS) server logs.
-
 ## Azure Monitor Agent
 
 Some connectors based on the Azure Monitor Agent (AMA) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Monitor Agent is currently supported only for Windows Security Events and Windows Forwarded Events.
+The Azure Monitor Agent is currently supported only for Windows Security Events, Windows Forwarded Events, and Windows DNS Events. 
 
 The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
 

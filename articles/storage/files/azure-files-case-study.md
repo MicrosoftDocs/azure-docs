@@ -4,13 +4,17 @@ description: Case studies describing how Microsoft customers use Azure Files and
 author: nataraj
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/10/2023
+ms.date: 07/24/2023
 ms.author: nasindam
 ---
 
 # Azure Files and Azure File Sync customer case studies
 
 Customers in diverse industries use Azure Files and Azure File Sync to host their file shares and sync on-premises file servers to cloud. Learn directly from the customer use cases listed here.
+
+## Azure Files AI model training use case
+
+To interpret and contextualize seafloor health, a team of marine environmental scientists and analysts stored an extensive collection of images in Azure Files to use for building and training a crucial AI model. Now, the team seamlessly updates seafloor data and makes it accessible to clients in near real-time. [Check out the full story here](https://customers.microsoft.com/story/1653678788412771617-inspireenvironmental-sustainability-azure-en-us).
 
 ## Azure Files NFS for SAP use case
 

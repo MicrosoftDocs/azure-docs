@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 03/31/2023
+ms.date: 08/25/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.tgt_pltfrm: linux
@@ -14,7 +14,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region, using the Azure PowerShell module. The process of uploading a managed disk, also known as direct upload, enables you to upload a VHD up to 32 TiB in size directly into a managed disk. Currently, direct upload is supported for standard HDD, standard SSD, and premium SSDs. It isn't supported for ultra disks, yet.
+This article explains how to either upload a VHD from your local machine to an Azure managed disk or copy a managed disk to another region, using the Azure PowerShell module. The process of uploading a managed disk, also known as direct upload, enables you to upload a VHD up to 32 TiB in size directly into a managed disk. Currently, direct upload is supported for Ultra Disks, Premium SSD v2, Premium SSD, Standard SSD, and Standard HDD.
 
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
@@ -43,7 +43,7 @@ For detailed steps on assigning a role, see [Assign Azure roles using Azure Powe
 
 There are two ways you can upload a VHD with the Azure PowerShell module: You can either use the [Add-AzVHD](/powershell/module/az.compute/add-azvhd) command, which will automate most of the process for you, or you can perform the upload manually with AzCopy.
 
-Generally, you should use [Add-AzVHD](#use-add-azvhd). However, if you need to upload a VHD that is larger than 50 GiB, consider [uploading the VHD manually with AzCopy](#manual-upload). VHDs 50 GiB and larger upload faster using AzCopy.
+For Premium SSDs, Standard SSDs, and Standard HDDs, you should generally use [Add-AzVHD](#use-add-azvhd). However, if you're uploading to an Ultra Disk, or a Premium SSD v2, or if you need to upload a VHD that is larger than 50 GiB, you must [upload the VHD or VHDX manually with AzCopy](#manual-upload). VHDs 50 GiB and larger upload faster using AzCopy and Add-AzVhd doesn't currently support uploading to an Ultra Disk or a Premium SSD v2.
 
 For guidance on how to copy a managed disk from one region to another, see [Copy a managed disk](#copy-a-managed-disk).
 
@@ -119,20 +119,25 @@ Now, on your local shell, create an empty standard HDD for uploading by specifyi
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run the following commands:
 
-> [!TIP]
+> [!IMPORTANT]
 > If you're creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
 > 
 > If you're using Azure AD to secure your uploads, add `-dataAccessAuthMode 'AzureActiveDirectory'` to `New-AzDiskConfig`.  
+> When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
+>
+> VHDX files with logical sector size of 512k aren't supported.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
+
+## For Ultra Disks or Premium SSD v2, add -LogicalSectorSize and specify either 4096 or 512, depending on if you're using a VHDX or a VHD
 
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
 New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
-If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra disks aren't currently supported.
+If you would like to upload a different disk type, replace **Standard_LRS** with **Premium_LRS**, **Premium_ZRS**, **StandardSSD_ZRS**, **StandardSSD_LRS**, or **UltraSSD_LRS**.
 
 ### Generate writeable SAS
 
@@ -146,11 +151,11 @@ $diskSas = Grant-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -Disk
 $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>'
 ```
 
-### Upload a VHD
+### Upload a VHD or VHDX
 
 Now that you have a SAS for your empty managed disk, you can use it to set your managed disk as the destination for your upload command.
 
-Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
+Use AzCopy v10 to upload your local VHD or VHDX file to a managed disk by specifying the SAS URI you generated.
 
 This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdds). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 

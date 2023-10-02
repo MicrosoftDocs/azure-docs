@@ -12,6 +12,8 @@ ms.author: veyaddan
 
 This guide provides you with information on what you can do to troubleshoot things before you submit a support ticket. 
 
+[!INCLUDE [mqtt-preview-note](./includes/mqtt-preview-note.md)]
+
 ## Unable to connect an MQTT client to your Event Grid namespace
 
 If your client doesn't connect to your Event Grid namespace, a few things to verify:

@@ -29,7 +29,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 # [Portal](#tab/azure-portal)
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your storage account and select **File shares** under **Data storage**.
 1. Select **Enabled** next to **Soft delete**.
 1. Select **Enabled** for **Soft delete for all file shares**.

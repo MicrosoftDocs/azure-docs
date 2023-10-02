@@ -35,7 +35,6 @@ Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pric
 
 For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Azure Monitor data ingestion: Analytics logs and basic logs
 - Microsoft Sentinel: Analytics logs and basic logs
 - Azure Monitor: Retention
 - Azure Monitor: Data Restore
@@ -191,7 +190,7 @@ Any other services you use could have associated costs.
 After you enable Microsoft Sentinel on a Log Analytics workspace consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
-- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#set-retention-and-archive-policy-by-table). 
+- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). 
 - Enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. Learn how to [configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md). Archived logs are in public preview.
 
 The 90 day retention doesn't apply to basic logs. If you want to extend data retention for basic logs beyond eight days, store that data in archived logs for up to seven years.
@@ -241,8 +240,7 @@ For data connectors that include both free and paid data types, select which dat
 
 Learn more about how to [connect data sources](connect-data-sources.md), including free and paid data sources.
 
-
-## Next steps
+## Learn more
 
 - [Monitor costs for Microsoft Sentinel](billing-monitor-costs.md)
 - [Reduce costs for Microsoft Sentinel](billing-reduce-costs.md)
@@ -251,3 +249,10 @@ Learn more about how to [connect data sources](connect-data-sources.md), includi
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
+
+## Next steps
+
+In this article, you learned how to plan costs and understand the billing for Microsoft Sentinel.
+
+> [!div class="nextstepaction"]
+> >[Deploy Microsoft Sentinel](deploy-overview.md)

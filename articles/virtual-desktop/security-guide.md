@@ -81,9 +81,9 @@ Enabling audit log collection lets you view user and admin activity related to A
 -   [Session hosts](../azure-monitor/agents/agent-windows.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
-### Use RemoteApps
+### Use RemoteApp
 
-When choosing a deployment model, you can either provide remote users access to entire virtual desktops or only select applications. Remote applications, or RemoteApps, provide a seamless experience as the user works with apps on their virtual desktop. RemoteApps reduce risk by only letting the user work with a subset of the remote machine exposed by the application.
+When choosing a deployment model, you can either provide remote users access to entire desktops, or only select applications when published as a RemoteApp. RemoteApp provides a seamless experience as the user works with apps from their virtual desktop. RemoteApp reduces risk by only letting the user work with a subset of the remote machine exposed by the application.
 
 ### Monitor usage with Azure Monitor
 
@@ -250,4 +250,5 @@ Software updates for the Remote Desktop clients you can use to access Azure Virt
 
 ## Next steps
 
-To learn how to enable multi-factor authentication, see [Set up multi-factor authentication](set-up-mfa.md).
+- Learn how to [Set up multi-factor authentication](set-up-mfa.md).
+- [Apply Zero Trust principles for an Azure Virtual Desktop deployment](/security/zero-trust/azure-infrastructure-avd).

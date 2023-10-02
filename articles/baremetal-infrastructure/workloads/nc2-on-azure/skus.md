@@ -1,5 +1,7 @@
 ---
 title: SKUs
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn about SKU options for NC2 on Azure, including core, RAM, storage, and network.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix

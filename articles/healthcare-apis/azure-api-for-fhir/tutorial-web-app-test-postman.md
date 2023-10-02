@@ -7,16 +7,18 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ---
 
 # Testing the FHIR API on Azure API for FHIR
 
-In the previous tutorial, you deployed the Azure API for FHIR and registered your client application. You're now ready to test your Azure API for FHIR. 
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+In the previous tutorial, you deployed the Azure API for FHIR and registered your client application. You're now ready to test your Azure API for FHIR.
 
 ## Retrieve capability statement
 
-First we'll get the capability statement for your Azure API for FHIR. 
+First we'll get the capability statement for your Azure API for FHIR.
 1. Open Postman.
 1. Retrieve the capability statement by doing `GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata`. In the image below the FHIR server name is **fhirserver**.
 
@@ -57,26 +59,26 @@ Now you have access, you can create a new patient. Here's a sample of a simple p
 
 ``` json
     {
-	    "resourceType": "Patient",
-	    "active": true,
-    	"name": [
-    		{
-    			"use": "official",
-    			"family": "Kirk",
-    			"given": [
-    				"James",
-    				"Tiberious"
-    			]
-    		},
-    		{
-    			"use": "usual",
-    			"given": [
-    				"Jim"
-    			]
-    		}
-    	],
-	    "gender": "male",
-	    "birthDate": "1960-12-25"
+        "resourceType": "Patient",
+        "active": true,
+        "name": [
+            {
+                "use": "official",
+                "family": "Kirk",
+                "given": [
+                    "James",
+                    "Tiberious"
+                ]
+            },
+            {
+                "use": "usual",
+                "given": [
+                    "Jim"
+                ]
+            }
+        ],
+        "gender": "male",
+        "birthDate": "1960-12-25"
     }
 ```
 This POST will create a new patient in your FHIR server with the name James Tiberious Kirk.
@@ -89,7 +91,7 @@ If you do the GET command to retrieve a patient again, you'll see James Tiberiou
 
 ## Troubleshooting access issues
 
-If you ran into issues during any of these steps, review the documents we have put together on Azure Active Directory and the Azure API for FHIR. 
+If you ran into issues during any of these steps, review the documents we have put together on Azure Active Directory and the Azure API for FHIR.
 
 * [Azure AD and Azure API for FHIR](azure-active-directory-identity-configuration.md) - This document outlines some of the basic principles of Azure Active Directory and how it interacts with the Azure API for FHIR.
 * [Access token validation](azure-api-fhir-access-token-validation.md) - This how-to guide gives more specific details on access token validation and steps to take to resolve access issues.

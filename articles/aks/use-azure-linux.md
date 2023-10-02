@@ -4,7 +4,7 @@ title: Use the Azure Linux container host on Azure Kubernetes Service (AKS)
 description: Learn how to use the Azure Linux container host on Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: ignite-2022, build-2023
-ms.date: 04/19/2023
+ms.date: 09/18/2023
 ---
 
 # Use the Azure Linux container host for Azure Kubernetes Service (AKS)
@@ -22,6 +22,7 @@ To get started using the Azure Linux container host for AKS, see:
 * [Creating a cluster with Azure Linux][azurelinux-cluster-config]
 * [Add an Azure Linux node pool to your existing cluster][azurelinux-node-pool]
 * [Ubuntu to Azure Linux migration][ubuntu-to-azurelinux]
+* [Azure Linux supported GPU SKUs](../azure-linux/intro-azure-linux.md#azure-linux-container-host-supported-gpu-skus)
 
 ## How to upgrade Azure Linux nodes
 
@@ -44,22 +45,16 @@ az aks nodepool upgrade \
 
 The Azure Linux container host is available for use in the same regions as AKS.
 
-## Limitations
+## Next steps
 
-The Azure Linux container host has the following limitations:
-
-* Image SKUs for SGX and FIPS aren't available.
-* It doesn't meet the [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final) compliance requirements and [Center for Internet Security (CIS)](https://www.cisecurity.org/) certification.
-* Azure Linux can't yet be deployed through the Azure portal.
-* Qualys, Trivy, and Microsoft Defender for Containers are the only vulnerability scanning tools that support Azure Linux today.
-* Azure Linux doesn't support AppArmor. Support for SELinux can be manually configured.
-* Some addons, extensions, and open-source integrations may not be supported yet on Azure Linux. Azure Monitor, Grafana, Helm, Key Vault, and Container Insights are supported.
+To learn more about Azure Linux, see the [Azure Linux documentation][azurelinuxdocumentation].
 
 <!-- LINKS - Internal -->
 [azurelinux-doc]: https://microsoft.github.io/CBL-Mariner/docs/#cbl-mariner-linux
-[azurelinux-capabilities]: https://microsoft.github.io/CBL-Mariner/docs/#key-capabilities-of-cbl-mariner-linux
+[azurelinux-capabilities]: ../azure-linux/intro-azure-linux.md#azure-linux-container-host-key-benefits
 [azurelinux-cluster-config]: cluster-configuration.md#azure-linux-container-host-for-aks
-[azurelinux-node-pool]: use-multiple-node-pools.md#add-an-azure-linux-node-pool
-[ubuntu-to-azurelinux]: use-multiple-node-pools.md#migrate-ubuntu-nodes-to-azure-linux
+[azurelinux-node-pool]: create-node-pools.md#add-an-azure-linux-node-pool
+[ubuntu-to-azurelinux]: create-node-pools.md#migrate-ubuntu-nodes-to-azure-linux-nodes
 [auto-upgrade-aks]: auto-upgrade-cluster.md
 [kured]: node-updates-kured.md
+[azurelinuxdocumentation]: ../azure-linux/intro-azure-linux.md

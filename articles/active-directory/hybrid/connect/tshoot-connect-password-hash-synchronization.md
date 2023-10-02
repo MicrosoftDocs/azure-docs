@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot password hash synchronization with Azure AD Connect sync
+title: Troubleshoot password hash synchronization with Microsoft Entra Connect Sync
 description: This article provides information about how to troubleshoot password hash synchronization problems.
 services: active-directory
 documentationcenter: ''
@@ -18,11 +18,11 @@ ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshoot password hash synchronization with Azure AD Connect sync
+# Troubleshoot password hash synchronization with Microsoft Entra Connect Sync
 
 This topic provides steps for how to troubleshoot issues with password hash synchronization. If passwords are not synchronizing as expected, it can be either for a subset of users or for all users.
 
-For Azure Active Directory (Azure AD) Connect deployment with version 1.1.614.0 or after, use the troubleshooting task in the wizard to troubleshoot password hash synchronization issues:
+For Microsoft Entra Connect deployment with version 1.1.614.0 or after, use the troubleshooting task in the wizard to troubleshoot password hash synchronization issues:
 
 * If you have an issue where no passwords are synchronized, refer to the [No passwords are synchronized: troubleshoot by using the troubleshooting task](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task) section.
 
@@ -34,7 +34,7 @@ For deployment with version 1.1.524.0 or later, there is a diagnostic cmdlet tha
 
 * If you have an issue with individual objects, refer to the [One object is not synchronizing passwords: troubleshoot by using the diagnostic cmdlet](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet) section.
 
-For older versions of Azure AD Connect deployment:
+For older versions of Microsoft Entra Connect deployment:
 
 * If you have an issue where no passwords are synchronized, refer to the [No passwords are synchronized: manual troubleshooting steps](#no-passwords-are-synchronized-manual-troubleshooting-steps) section.
 
@@ -47,17 +47,17 @@ For older versions of Azure AD Connect deployment:
 You can use the troubleshooting task to figure out why no passwords are synchronized.
 
 > [!NOTE]
-> The troubleshooting task is available only for Azure AD Connect version 1.1.614.0 or later.
+> The troubleshooting task is available only for Microsoft Entra Connect version 1.1.614.0 or later.
 
 ### Run the troubleshooting task
 
 To troubleshoot issues where no passwords are synchronized:
 
-1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
+1. Open a new Windows PowerShell session on your Microsoft Entra Connect server with the **Run as Administrator** option.
 
 2. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
 
-3. Start the Azure AD Connect wizard.
+3. Start the Microsoft Entra Connect wizard.
 
 4. Navigate to the **Additional Tasks** page, select **Troubleshoot**, and click **Next**.
 
@@ -71,9 +71,9 @@ To troubleshoot issues where no passwords are synchronized:
 
 The troubleshooting task performs the following checks:
 
-* Validates that the password hash synchronization feature is enabled for your Azure AD tenant.
+* Validates that the password hash synchronization feature is enabled for your Microsoft Entra tenant.
 
-* Validates that the Azure AD Connect server is not in staging mode.
+* Validates that the Microsoft Entra Connect server is not in staging mode.
 
 * For each existing on-premises Active Directory connector (which corresponds to an existing Active Directory forest):
 
@@ -83,7 +83,7 @@ The troubleshooting task performs the following checks:
 
    * For each Active Directory domain under the on-premises Active Directory connector:
 
-      * Validates that the domain is reachable from the Azure AD Connect server.
+      * Validates that the domain is reachable from the Microsoft Entra Connect server.
 
       * Validates that the Active Directory Domain Services (AD DS) accounts used by the on-premises Active Directory connector has the correct username, password, and permissions required for password hash synchronization.
 
@@ -95,15 +95,17 @@ The rest of this section describes specific results that are returned by the tas
 
 #### password hash synchronization feature isn't enabled
 
-If you haven't enabled password hash synchronization by using the Azure AD Connect wizard, the following error is returned:
+If you haven't enabled password hash synchronization by using the Microsoft Entra Connect wizard, the following error is returned:
 
 ![password hash synchronization isn't enabled](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
 
-#### Azure AD Connect server is in staging mode
+<a name='azure-ad-connect-server-is-in-staging-mode'></a>
 
-If the Azure AD Connect server is in staging mode, password hash synchronization is temporarily disabled, and the following error is returned:
+#### Microsoft Entra Connect server is in staging mode
 
-![Azure AD Connect server is in staging mode](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
+If the Microsoft Entra Connect server is in staging mode, password hash synchronization is temporarily disabled, and the following error is returned:
+
+![Microsoft Entra Connect server is in staging mode](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
 #### No password hash synchronization heartbeat events
 
@@ -130,17 +132,17 @@ If the AD DS account used by the on-premises Active Directory connector to synch
 You can use the troubleshooting task to determine why one object is not synchronizing passwords.
 
 > [!NOTE]
-> The troubleshooting task is available only for Azure AD Connect version 1.1.614.0 or later.
+> The troubleshooting task is available only for Microsoft Entra Connect version 1.1.614.0 or later.
 
 ### Run the diagnostics cmdlet
 
 To troubleshoot issues for a specific user object:
 
-1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
+1. Open a new Windows PowerShell session on your Microsoft Entra Connect server with the **Run as Administrator** option.
 
 2. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
 
-3. Start the Azure AD Connect wizard.
+3. Start the Microsoft Entra Connect wizard.
 
 4. Navigate to the **Additional Tasks** page, select **Troubleshoot**, and click **Next**.
 
@@ -154,7 +156,7 @@ To troubleshoot issues for a specific user object:
 
 The troubleshooting task performs the following checks:
 
-* Examines the state of the Active Directory object in the Active Directory connector space, Metaverse, and Azure AD connector space.
+* Examines the state of the Active Directory object in the Active Directory connector space, Metaverse, and Microsoft Entra connector space.
 
 * Validates that there are synchronization rules with password hash synchronization enabled and applied to the Active Directory object.
 
@@ -166,21 +168,25 @@ The following diagram illustrates the results of the cmdlet when troubleshooting
 
 The rest of this section describes specific results returned by the cmdlet and corresponding issues.
 
-#### The Active Directory object isn't exported to Azure AD
+<a name='the-active-directory-object-isnt-exported-to-azure-ad'></a>
 
-password hash synchronization for this on-premises Active Directory account fails because there is no corresponding object in the Azure AD tenant. The following error is returned:
+#### The Active Directory object isn't exported to Microsoft Entra ID
 
-![Azure AD object is missing](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
+password hash synchronization for this on-premises Active Directory account fails because there is no corresponding object in the Microsoft Entra tenant. The following error is returned:
+
+![Microsoft Entra object is missing](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### User has a temporary password
 
-Currently, Azure AD Connect does not support synchronizing temporary passwords with Azure AD. A password is considered to be temporary if the **Change password at next logon** option is set on the on-premises Active Directory user. The following error is returned:
+Older versions of Microsoft Entra Connect did not support synchronizing temporary passwords with Microsoft Entra ID. A password is considered to be temporary if the **Change password at next logon** option is set on the on-premises Active Directory user. The following error is returned with these older versions:
 
 ![Temporary password is not exported](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
+To enable synchonization of temporary passwords you must have Microsoft Entra Connect version 2.0.3.0 or higher installed and the feature [ForcePasswordChangeOnLogon](../connect/how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon) must be enabled.
+
 #### Results of last attempt to synchronize password aren't available
 
-By default, Azure AD Connect stores the results of password hash synchronization attempts for seven days. If there are no results available for the selected Active Directory object, the following warning is returned:
+By default, Microsoft Entra Connect stores the results of password hash synchronization attempts for seven days. If there are no results available for the selected Active Directory object, the following warning is returned:
 
 ![Diagnostic output for single object - no password sync history](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
 
@@ -191,13 +197,13 @@ By default, Azure AD Connect stores the results of password hash synchronization
 You can use the `Invoke-ADSyncDiagnostics` cmdlet to figure out why no passwords are synchronized.
 
 > [!NOTE]
-> The `Invoke-ADSyncDiagnostics` cmdlet is available only for Azure AD Connect version 1.1.524.0 or later.
+> The `Invoke-ADSyncDiagnostics` cmdlet is available only for Microsoft Entra Connect version 1.1.524.0 or later.
 
 ### Run the diagnostics cmdlet
 
 To troubleshoot issues where no passwords are synchronized:
 
-1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
+1. Open a new Windows PowerShell session on your Microsoft Entra Connect server with the **Run as Administrator** option.
 
 2. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
 
@@ -212,13 +218,13 @@ To troubleshoot issues where no passwords are synchronized:
 You can use the `Invoke-ADSyncDiagnostics` cmdlet to determine why one object is not synchronizing passwords.
 
 > [!NOTE]
-> The `Invoke-ADSyncDiagnostics` cmdlet is available only for Azure AD Connect version 1.1.524.0 or later.
+> The `Invoke-ADSyncDiagnostics` cmdlet is available only for Microsoft Entra Connect version 1.1.524.0 or later.
 
 ### Run the diagnostics cmdlet
 
 To troubleshoot issues where no passwords are synchronized for a user:
 
-1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
+1. Open a new Windows PowerShell session on your Microsoft Entra Connect server with the **Run as Administrator** option.
 
 2. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
 
@@ -248,7 +254,7 @@ Follow these steps to determine why no passwords are synchronized:
 
     ![PowerShell script output from password sync settings](./media/tshoot-connect-password-hash-synchronization/psverifyconfig.png)  
 
-3. If the feature is not enabled in Azure AD or if the sync channel status is not enabled, run the Connect installation wizard. Select **Customize synchronization options**, and unselect password sync. This change temporarily disables the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
+3. If the feature is not enabled in Microsoft Entra ID or if the sync channel status is not enabled, run the Connect installation wizard. Select **Customize synchronization options**, and unselect password sync. This change temporarily disables the feature. Then run the wizard again and re-enable password sync. Run the script again to verify that the configuration is correct.
 
 4. Look in the event log for errors. Look for the following events, which would indicate a problem:
     * Source: "Directory synchronization" ID: 0, 611, 652, 655
@@ -260,7 +266,7 @@ Follow these steps to determine why no passwords are synchronized:
 
 ### Connectivity problems
 
-Do you have connectivity with Azure AD?
+Do you have connectivity with Microsoft Entra ID?
 
 Does the account have required permissions to read the password hashes in all domains? If you installed Connect by using Express settings, the permissions should already be correct. 
 
@@ -281,7 +287,7 @@ If you used custom installation, set the permissions manually by doing the follo
     * Replicate Directory Changes
     * Replicate Directory Changes All
 
-6. Are the domain controllers reachable by Azure AD Connect? If the Connect server cannot connect to all domain controllers, configure **Only use preferred domain controller**.  
+6. Are the domain controllers reachable by Microsoft Entra Connect? If the Connect server cannot connect to all domain controllers, configure **Only use preferred domain controller**.  
     
     ![Domain controller used by Active Directory connector](./media/tshoot-connect-password-hash-synchronization/preferreddc.png)  
 
@@ -292,7 +298,7 @@ If you used custom installation, set the permissions manually by doing the follo
 9. In the list, enter the domain controllers that Connect should use for password sync. The same list is used for import and export as well. Do these steps for all your domains.
 
 > [!NOTE]
-> To apply these changes, restart the **Microsoft Azure AD Sync** (ADSync) service.
+> To apply these changes, restart the **Microsoft Entra ID Sync** (ADSync) service.
 
 10. If the script shows that there is no heartbeat, run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
 
@@ -304,9 +310,9 @@ You can easily troubleshoot password hash synchronization issues by reviewing th
 
     ![Active Directory productive passwords](./media/tshoot-connect-password-hash-synchronization/adprodpassword.png)  
 
-    If the check box is selected, ask the user to sign in and change the password. Temporary passwords are not synchronized with Azure AD.
+    If the check box is selected, ask the user to sign in and change the password. Temporary passwords are not synchronized with Microsoft Entra ID.
 
-2. If the password looks correct in Active Directory, follow the user in the sync engine. By following the user from on-premises Active Directory to Azure AD, you can see whether there is a descriptive error on the object.
+2. If the password looks correct in Active Directory, follow the user in the sync engine. By following the user from on-premises Active Directory to Microsoft Entra ID, you can see whether there is a descriptive error on the object.
 
     a. Start the [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md).
 
@@ -326,7 +332,7 @@ You can easily troubleshoot password hash synchronization issues by reviewing th
 
     ![Object log details](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    If the object log is empty, Azure AD Connect has been unable to read the password hash from Active Directory. Continue your troubleshooting with Connectivity Errors. If you see any other value than **success**, refer to the table in [Password sync log](#password-sync-log).
+    If the object log is empty, Microsoft Entra Connect has been unable to read the password hash from Active Directory. Continue your troubleshooting with Connectivity Errors. If you see any other value than **success**, refer to the table in [Password sync log](#password-sync-log).
 
     h. Select the **lineage** tab, and make sure that at least one sync rule in the **PasswordSync** column is **True**. In the default configuration, the name of the sync rule is **In from AD - User AccountEnabled**.  
 
@@ -338,11 +344,11 @@ You can easily troubleshoot password hash synchronization issues by reviewing th
 
     Verify that there is no **cloudFiltered** attribute present. Make sure that the domain attributes (domainFQDN and domainNetBios) have the expected values.
 
-    j. Click the **Connectors** tab. Make sure that you see connectors to both on-premises Active Directory and Azure AD.
+    j. Click the **Connectors** tab. Make sure that you see connectors to both on-premises Active Directory and Microsoft Entra ID.
 
     ![Metaverse information](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
-    k. Select the row that represents Azure AD, click **Properties**, and then click the **Lineage** tab. The connector space object should have an outbound rule in the **PasswordSync** column set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.  
+    k. Select the row that represents Microsoft Entra ID, click **Properties**, and then click the **Lineage** tab. The connector space object should have an outbound rule in the **PasswordSync** column set to **True**. In the default configuration, the name of the sync rule is **Out to Microsoft Entra ID - User Join**.  
 
     ![Connector Space Object Properties dialog box](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
@@ -354,14 +360,14 @@ The status column can have the following values:
 | --- | --- |
 | Success |Password has been successfully synchronized. |
 | FilteredByTarget |Password is set to **User must change password at next logon**. Password has not been synchronized. |
-| NoTargetConnection |No object in the metaverse or in the Azure AD connector space. |
+| NoTargetConnection |No object in the metaverse or in the Microsoft Entra connector space. |
 | SourceConnectorNotPresent |No object found in the on-premises Active Directory connector space. |
-| TargetNotExportedToDirectory |The object in the Azure AD connector space has not yet been exported. |
+| TargetNotExportedToDirectory |The object in the Microsoft Entra connector space has not yet been exported. |
 | MigratedCheckDetailsForMoreInfo |Log entry was created before build 1.0.9125.0 and is shown in its legacy state. |
 | Error |Service returned an unknown error. |
 | Unknown |An error occurred while trying to process a batch of password hashes.  |
-| MissingAttribute |Specific attributes (for example, Kerberos hash) required by Azure AD Domain Services are not available. |
-| RetryRequestedByTarget |Specific attributes (for example, Kerberos hash) required by Azure AD Domain Services were not available previously. An attempt to resynchronize the user's password hash is made. |
+| MissingAttribute |Specific attributes (for example, Kerberos hash) required by Microsoft Entra Domain Services are not available. |
+| RetryRequestedByTarget |Specific attributes (for example, Kerberos hash) required by Microsoft Entra Domain Services were not available previously. An attempt to resynchronize the user's password hash is made. |
 
 ## Scripts to help troubleshooting
 
@@ -443,6 +449,6 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 ## Next steps
 
-* [Implementing password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md)
-* [Azure AD Connect Sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md)
+* [Implementing password hash synchronization with Microsoft Entra Connect Sync](how-to-connect-password-hash-synchronization.md)
+* [Microsoft Entra Connect Sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
+* [Integrating your on-premises identities with Microsoft Entra ID](../whatis-hybrid-identity.md)

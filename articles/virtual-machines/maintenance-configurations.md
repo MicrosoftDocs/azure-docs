@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/06/2021
 ms.author: cynthn
-#pmcontact: pphillips
+#pmcontact: ApnaLakshay
 ---
 
 # Managing VM updates with Maintenance Configurations
@@ -50,18 +50,25 @@ Using this scope with maintenance configurations lets you decide when to apply u
 
 ### Guest
 
-This scope is integrated with [update management center](../update-center/overview.md), which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
+This scope is integrated with [Update Manager](../update-center/overview.md), which allows you to save recurring deployment schedules to install updates for your Windows Server and Linux machines in Azure, in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. Some features and limitations unique to this scope include:
 
 - [Patch orchestration](automatic-vm-guest-patching.md#patch-orchestration-modes) for virtual machines need to be set to AutomaticByPlatform
 
-- A minimum of 1 hour and 10 minutes is required for the maintenance window.
-    :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of the upper maintenance window minimum time specification.":::
+    :::image type="content" source="./media/maintenance-configurations/add-schedule-maintenance-window.png" alt-text="Screenshot of the upper maintenance window time.":::
 
 - The upper maintenance window is 3 hours 55 mins.
 - A minimum of 1 hour and 30 minutes is required for the maintenance window.
-- There is no limit to the recurrence of your schedule.
+- The value of **Repeat** should be at least 6 hours.
 
-To learn more about this topic, checkout [update management center and scheduled patching](../update-center/scheduled-patching.md)
+In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window don't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
+
+>[!IMPORTANT]
+> The minimum maintenance window has been increased from 1 hour 10 minutes to 1 hour 30 minutes, while the minimum repeat value has been set to 6 hours for new schedules. **Please note that your existing schedules will not get impacted; however, we strongly recommend updating existing schedules to include these new changes.**
+
+To learn more about this topic, checkout [Update Manager and scheduled patching](../update-center/scheduled-patching.md)
+
+> [!NOTE]
+> If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system.
 
 ## Shut Down Machines
 
@@ -79,6 +86,27 @@ You can create and manage maintenance configurations using any of the following 
 > Pre/Post **tasks** property is currently exposed in the API but it is not supported a this time.
 
 For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Configurations and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+
+## Service Limits
+
+The following are the recommended limits for the mentioned indicators
+
+| Indicator    | Limit          |
+|----------|----------------------------|
+| Number of schedules per Subscription per Region     | 250  |
+| Total number of Resource associations to a schedule | 3000 |
+| Resource associations on each dynamic scope    | 1000 |
+| Number of dynamic scopes per Resource Group or Subscription per Region     | 250  |
+
+The following are the Dynamic Scope Limits for **each dynamic scope**
+
+| Resource    | Limit          |
+|----------|----------------------------|
+| Resource associations     | 1000  |
+| Number of tag filters | 50 |
+| Number of Resource Group filters    | 50 |
+
+**Please note that the above limits are for the Dynamic Scoping in the Guest scope only.**
 
 ## Next steps
 

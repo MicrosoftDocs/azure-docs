@@ -29,7 +29,7 @@ Before you begin, have the following prerequisites in place:
 + Azure Storage account with Blob Storage.
 
 > [!NOTE]
-> This quickstart uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create a Cognitive Services resource.
+> This quickstart uses [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Azure AI services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create an Azure AI multi-service resource.
 
 ## Set up your data
 
@@ -61,7 +61,7 @@ You're now ready to move on the Import data wizard.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command." border="true":::
 
-### Step 1 - Create a data source
+### Step 1: Create a data source
 
 1. In **Connect to your data**, choose **Azure Blob Storage**.
 
@@ -79,13 +79,13 @@ If you get "Error detecting index schema from data source", the indexer that's p
 | Resource is behind an IP firewall | [Create an inbound rule for Search and for Azure portal](search-indexer-howto-access-ip-restricted.md) |
 | Resource requires a private endpoint connection | [Connect over a private endpoint](search-indexer-howto-access-private.md) |
 
-### Step 2 - Add cognitive skills
+### Step 2: Add cognitive skills
 
 Next, configure AI enrichment to invoke OCR, image analysis, and natural language processing. 
 
-1. For this quickstart, we're using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
+1. For this quickstart, we're using the **Free** Azure AI services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Azure AI services is sufficient for this quickstart. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Screenshot of the Attach Cognitive Services tab." border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Screenshot of the Attach Azure AI services tab." border="true":::
 
 1. Expand **Add enrichments** and make six selections. 
 
@@ -97,7 +97,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
    Continue to the next page.
 
-### Step 3 - Configure the index
+### Step 3: Configure the index
 
 An index contains your searchable content and the **Import data** wizard can usually create the schema for you by sampling the data source. In this step, review the generated schema and potentially revise any settings. Below is the default schema created for the demo Blob data set.
 
@@ -115,7 +115,7 @@ Marking a field as **Retrievable** doesn't mean that the field *must* be present
   
 Continue to the next page.
 
-### Step 4 - Configure the indexer
+### Step 4: Configure the indexer
 
 The indexer drives the indexing process. It specifies the data source name, a target index, and frequency of execution. The **Import data** wizard creates several objects, including an indexer that you can reset and run repeatedly.
 

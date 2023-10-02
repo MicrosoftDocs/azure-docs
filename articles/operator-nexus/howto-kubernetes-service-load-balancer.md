@@ -6,7 +6,7 @@ ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 06/27/2023
-ms.custom: template-how-to-pattern
+ms.custom: template-how-to-pattern, devx-track-bicep
 ---
 
 # Configure service load-balancer in Azure Operator Nexus Kubernetes service

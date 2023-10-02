@@ -5,16 +5,13 @@ services: notification-hubs
 documentationcenter: android
 author: sethmanheim
 manager: femila
-
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 03/18/2020
+ms.date: 07/17/2023
 ms.author: sethm
-ms.reviewer: jowargo
-ms.lastreviewed: 06/19/2019
 ms.custom: devx-track-java, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -229,7 +226,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
     Set the value of the `API_KEY` string with the API_KEY from the Baidu Cloud Project.
 
-    Set the value of the `NotificationHubName` string with your notification hub name from the [Azure portal]; and then `NotificationHubConnectionString` with `DefaultListenSharedAccessSignature` from the [Azure portal].
+    Set the value of the `NotificationHubName` string with your notification hub name from the [Azure portal] and then `NotificationHubConnectionString` with `DefaultListenSharedAccessSignature` from the [Azure portal].
 
 11. Open MainActivity.java, and add the following to the onCreate method:
 
@@ -411,7 +408,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
 ## Send notifications to your app
 
-You can quickly test receiving notifications from the [Azure portal]: use the **Send** button in the notification hub configuration screen, as shown in the following screens:
+You can quickly test receiving notifications from the [Azure portal] via the **Send** button in the notification hub configuration screen, as shown in the following screens:
 
 ![Screenshot of the Azure Portal with the Test Send option outlined in red and a red arrow pointing to it.](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
 ![Screenshot to the Baidu Test Send page in the Azure portal.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
@@ -478,7 +475,7 @@ To test this app with the emulator, on the Android Studio top toolbar, click **R
 
 The app retrieves the `userId` and `channelId` from the Baidu Push notification service and registers with the notification hub.
 
-To send a test notification, you can use the debug tab of the [Azure portal]. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application sends a notification that appears in the top notification area of your device or emulator.
+To send a test notification, you can use the debug tab of the [Azure portal](https://portal.azure.com). If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application sends a notification that appears in the top notification area of your device or emulator.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409

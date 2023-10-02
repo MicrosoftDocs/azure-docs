@@ -31,7 +31,7 @@ This quickstart requires two instances of a web application that run in differen
 
 If you don't already have a web app, use the following steps to set up example web apps.
 
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the top left-hand side of the screen, select **Create a resource** >  **Web App**.
 

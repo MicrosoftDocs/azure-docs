@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: ASP.NET web app that signs in users"
-description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
+description: Download and run a code sample that shows how an ASP.NET web app can sign in Microsoft Entra users.
 services: active-directory
 author: Dickson-Mwendia
 manager: CelesteDG
@@ -12,22 +12,22 @@ ms.date: 08/16/2022
 ROBOTS: NOINDEX
 ms.author: dmwendia
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", contperf-fy21q1, mode-other
-#Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
+#Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Microsoft Entra users.
 ---
 
-# Quickstart: ASP.NET web app that signs in Azure AD users
+# Quickstart: ASP.NET web app that signs in Microsoft Entra users
 
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
-> > [Quickstart: ASP.NET web app that signs in users](web-app-quickstart.md?pivots=devlang-aspnet)
+> > [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-web-app-aspnet-sign-in.md)
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
-> # Quickstart: ASP.NET web app that signs in Azure AD users
+> # Quickstart: ASP.NET web app that signs in Microsoft Entra users
 >
-> In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
+> In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Microsoft Entra accounts.
 > 
 > #### Step 1: Configure your application in the Azure portal
 > For the code sample in this quickstart to work, enter **https://localhost:44368/** for **Redirect URI**.
@@ -161,4 +161,4 @@ ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-
 > For a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart, try out the ASP.NET tutorial.
 > 
 > > [!div class="nextstepaction"]
-> > [Add sign-in to an ASP.NET web app](tutorial-v2-asp-webapp.md)
+> > [Add sign-in to an ASP.NET web app](./web-app-tutorial-01-register-application.md)

@@ -201,7 +201,7 @@ resources.
 The list of subscriptions or management groups to query can be manually defined to change the scope
 of the results. For example, the REST API `managementGroups` property takes the management group ID,
 which is different from the name of the management group. When `managementGroups` is specified,
-resources from the first 5,000 subscriptions in or under the specified management group hierarchy
+resources from the first 10,000 subscriptions in or under the specified management group hierarchy
 are included. `managementGroups` can't be used at the same time as `subscriptions`.
 
 Example: Query all resources within the hierarchy of the management group named `My Management

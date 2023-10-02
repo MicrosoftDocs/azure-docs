@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
 ms.date: 05/09/2023
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 ---
 
 # Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift using the Azure portal

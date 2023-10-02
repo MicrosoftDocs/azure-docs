@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ---
 
 # Deliver service level agreement for data pipelines

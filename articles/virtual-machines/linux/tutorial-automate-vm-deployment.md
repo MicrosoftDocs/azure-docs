@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 04/06/2023
 ms.author: cynthn
 ms.reviewer: mattmcinnes
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator or developer, I want learn about cloud-init so that I customize and configure Linux VMs in Azure on first boot to minimize the number of post-deployment configuration tasks required.
 ---
 
@@ -97,7 +97,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--cust
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myAutomatedVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
@@ -224,7 +224,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The certificate
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMWithCerts \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-secured.txt \

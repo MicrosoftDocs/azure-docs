@@ -3,7 +3,7 @@ title: "Symantec ProxySG connector for Microsoft Sentinel"
 description: "Learn how to install the connector Symantec ProxySG to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 07/26/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -76,7 +76,16 @@ Configure the facilities you want to collect and their severities.
 
 3. Configure and connect the Symantec ProxySG
 
-[Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+ 
+ 1. Log in to the Blue Coat Management Console .
+ 2. Select Configuration > Access Logging > Formats.
+ 3. Select New.
+ 4.  Enter a unique name in the Format Name field.
+ 5. Click the radio button for  **Custom format string**  and paste the following string into the field.
+ <p><code>date time time-taken c-ip cs-userdn cs-auth-groups x-exception-id sc-filter-result cs-categories cs(Referer) sc-status s-action cs-method rs(Content-Type) cs-uri-scheme cs-host cs-uri-port cs-uri-path cs-uri-query cs-uri-extension cs(User-Agent) s-ip sr-bytes rs-bytes x-virus-id x-bluecoat-application-name x-bluecoat-application-operation cs-uri-port x-cs-client-ip-country cs-threat-risk</code></p>
+ 6. Click the **OK** button. 
+ 7. Click the **Apply** button. 
+ 8. [Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address
 
 
 

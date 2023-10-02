@@ -1,5 +1,5 @@
 ---
-title: Manage the Defender for APIs plan in Microsoft Defender for Cloud
+title: Manage the Defender for APIs plan
 description: Manage your Defender for APIs deployment in Microsoft Defender for Cloud
 author: dcurwin
 ms.author: dacurwin
@@ -32,7 +32,7 @@ There are three types of APIs you can query:
 
 - **API Endpoints** - A group of all types of API endpoints.
 
-- **API Management** services - API management services are platforms that provide tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
+- **API Management services** - API management services are platforms that provide tools and infrastructure for managing APIs, typically through a web-based interface. They often include features such as: API gateway, API portal, API analytics and API security.
 
 **To query APIs in the cloud security graph**:
 

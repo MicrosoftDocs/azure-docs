@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: sopand
@@ -39,29 +39,31 @@ The following roles have the required permissions:
 - Security Administrator
 - Global Administrator
 
- An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+ A Microsoft Entra ID P1 or P2 license is required to access usage and insights. Microsoft Entra multifactor authentication and self-service password reset (SSPR) licensing information can be found on the [Microsoft Entra pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## How it works
 
+[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
+
 To access authentication method usage and insights:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Click **Azure Active Directory** > **Security** > **Authentication Methods** > **Activity**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator).
+1. Browse to **Protection** > **Authentication Methods** > **Activity**.
 1. There are two tabs in the report: **Registration** and **Usage**.
 
    ![Authentication Methods Activity overview](media/how-to-authentication-methods-usage-insights/registration-usage-tabs.png)
 
 ## Registration details
 
-You can access the [**Registration tab**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) to show the number of users capable of multi-factor authentication, passwordless authentication, and self-service password reset. 
+You can access the **Registration** tab to show the number of users capable of multifactor authentication, passwordless authentication, and self-service password reset. 
 
 Click any of the following options to pre-filter a list of user registration details:
 
-- **Users capable of Azure Multi-Factor Authentication** shows the breakdown of users who are both:
+- **Users capable of Azure multifactor authentication** shows the breakdown of users who are both:
   - Registered for a strong authentication method 
   - Enabled by policy to use that method for MFA 
   
-  This number doesn't reflect users registered for MFA outside of Azure AD. 
+  This number doesn't reflect users registered for MFA outside of Microsoft Entra ID. 
 - **Users capable of passwordless authentication** shows the breakdown of users who are registered to sign in without a password by using FIDO2, Windows Hello for Business, or passwordless Phone sign-in with the Microsoft Authenticator app. 
 - **Users capable of self-service password reset** shows the breakdown of users who can reset their passwords. Users can reset their password if they're both:
   - Registered for enough methods to satisfy their organization's policy for self-service password reset 
@@ -83,7 +85,7 @@ The **Usage** report shows which authentication methods are used to sign-in and 
 
 ![Screenshot of Usage page](media/how-to-authentication-methods-usage-insights/usage-page.png)
 
-**Sign-ins by authentication requirement** shows the number of successful user interactive sign-ins that were required for single-factor versus multi-factor authentication in Azure AD. Sign-ins where MFA was enforced by a third-party MFA provider are not included.
+**Sign-ins by authentication requirement** shows the number of successful user interactive sign-ins that were required for single-factor versus multifactor authentication in Microsoft Entra ID. Sign-ins where MFA was enforced by a third-party MFA provider are not included.
 
 ![Screenshot of sign ins by authentication requirement](media/how-to-authentication-methods-usage-insights/sign-ins-protected.png)
 
@@ -104,7 +106,7 @@ The **Usage** report shows which authentication methods are used to sign-in and 
 Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
 >[!NOTE]
->User accounts that were recently deleted, also known as [soft-deleted users](../fundamentals/active-directory-users-restore.md), are not listed in user registration details.  
+>User accounts that were recently deleted, also known as [soft-deleted users](../fundamentals/users-restore.md), are not listed in user registration details.  
 
 The registration details report shows the following information for each user:
 
@@ -136,7 +138,7 @@ The registration details report shows the following information for each user:
 ## Limitations
 
 - The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
-- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard on **Azure AD Authentication methods - Policies**. 
+- The **PhoneAppNotification** or **PhoneAppOTP** methods that a user might have configured are not displayed in the dashboard on **Microsoft Entra authentication methods - Policies**. 
 
 ## Next steps
 

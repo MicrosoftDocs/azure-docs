@@ -2,7 +2,7 @@
 title: Control plane metrics in Azure Monitor
 description: Azure Resource Manager metrics in Azure Monitor | Traffic and latency observability for subscription-level control plane requests
 ms.topic: conceptual
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, devx-track-linux
 ms.date: 04/26/2023
 ---
 
@@ -50,15 +50,15 @@ Now, let's look at some scenarios that can help you exploring Azure Resource Man
 
 First, navigate to the Azure Monitor blade within the [portal](https://portal.azure.com):
 
-:::image type="content" source="./media/view-arm-monitor-metrics/explore-metrics-portal.png" alt-text="Navigate to the Azure portal's Monitor page":::
+:::image type="content" source="./media/view-arm-monitor-metrics/explore-metrics-portal.png" alt-text="Screenshot of navigating to the Azure portal's Monitor page with Explore Metrics highlighted.":::
 
 After selecting **Explore Metrics**, select a single subscription and then select the **Azure Resource Manager** metric:
 
-:::image type="content" source="./media/view-arm-monitor-metrics/select-arm-metric.png" alt-text="Select a single subscription and the Azure Resource Manager metric.":::
+:::image type="content" source="./media/view-arm-monitor-metrics/select-arm-metric.png" alt-text="Screenshot of selecting a single subscription and the Azure Resource Manager metric in the Azure portal.":::
 
 Then, after selecting **Apply**, you can visualize your Traffic or Latency control plane metrics with custom filtering and splitting:
 
-:::image type="content" source="./media/view-arm-monitor-metrics/arm-metrics-view.png" alt-text="From the metrics visualization, you can filter and split by the dimensions you choose.":::
+:::image type="content" source="./media/view-arm-monitor-metrics/arm-metrics-view.png" alt-text="Screenshot of the metrics visualization in the Azure portal, showing options to filter and split by dimensions.":::
 
 ### Query traffic and latency control plane metrics via REST API
 
@@ -172,7 +172,7 @@ curl --location --request GET 'https://management.azure.com/subscriptions/000000
 ```
 
 You can also filter directly in portal:
-:::image type="content" source="./media/view-arm-monitor-metrics/throttling-filter-portal.png" alt-text="Filter HTTP Status Code to 429 responses only":::
+:::image type="content" source="./media/view-arm-monitor-metrics/throttling-filter-portal.png" alt-text="Screenshot of filtering HTTP Status Code to 429 responses only in the Azure portal.":::
 
 
 ### Examining Server Errors

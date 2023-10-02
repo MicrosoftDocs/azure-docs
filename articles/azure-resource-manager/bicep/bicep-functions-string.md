@@ -478,15 +478,19 @@ The following example shows how to use the format function.
 param greeting string = 'Hello'
 param name string = 'User'
 param numberToFormat int = 8175133
+param objectToFormat object = { prop: 'value' }
 
 output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting, name, numberToFormat)
+output formatObject string = format('objectToFormat: {0}', objectToFormat)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+| formatTest | String | `Hello, User. Formatted number: 8,175,133` |
+| formatObject | String | `objectToFormat: {'prop':'value'}` |
 
 ## guid
 
@@ -1060,6 +1064,8 @@ The output from the preceding example with the default values is:
 `string(valueToConvert)`
 
 Converts the specified value to a string.
+Strings are returned as-is. Other types are converted to their equivalent JSON representation.
+If you need to convert a string to JSON, i.e. quote/escape it, you can use `substring(string([value]), 1, length(string([value]) - 2)`.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -1083,24 +1089,30 @@ param testObject object = {
   valueB: 'Example Text'
 }
 param testArray array = [
-  'a'
-  'b'
-  'c'
+  '\'a\''
+  '"b"'
+  '\\c\\'
 ]
 param testInt int = 5
+param testString string = 'foo " \' \\'
 
 output objectOutput string = string(testObject)
 output arrayOutput string = string(testArray)
 output intOutput string = string(testInt)
+output stringOutput string = string(testString)
+output stringEscapedOutput string = substring(string([testString]), 1, length(string([testString])) - 2)
+
 ```
 
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | String | `{"valueA":10,"valueB":"Example Text"}` |
+| arrayOutput | String | `["'a'","\"b\"","\\c\\"]` |
+| intOutput | String | `5` |
+| stringOutput | String | `foo " ' \` |
+| stringEscapedOutput | String | `"foo \" ' \\"` |
 
 ## substring
 

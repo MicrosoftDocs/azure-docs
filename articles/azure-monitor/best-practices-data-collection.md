@@ -81,7 +81,7 @@ Virtual machines generate similar data as other Azure resources, but they requir
 
 ## Monitor containers
 
-Virtual machines generate similar data as other Azure resources, but they require a containerized version of the Log Analytics agent to collect required data. Container insights help you prepare your containerized environment for monitoring. It works in conjunction with third-party tools to provide comprehensive monitoring of Azure Kubernetes Service (AKS) and the workflows it supports. See [Monitoring Azure Kubernetes Service with Azure Monitor](../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json) for a dedicated scenario on monitoring AKS with Azure Monitor.
+Containers generate similar data as other Azure resources, but they require a containerized version of the Log Analytics agent to collect required data. Container insights help you prepare your containerized environment for monitoring. It works in conjunction with third-party tools to provide comprehensive monitoring of Azure Kubernetes Service (AKS) and the workflows it supports. See [Monitoring Azure Kubernetes Service with Azure Monitor](../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json) for a dedicated scenario on monitoring AKS with Azure Monitor.
 
 ## Monitor applications
 
@@ -114,7 +114,7 @@ To enable monitoring for an application, you must decide whether you'll use code
 - [.NET console applications](app/console.md)
 - [Java](app/opentelemetry-enable.md?tabs=java)
 - [Node.js](app/nodejs.md)
-- [Python](app/opencensus-python.md)
+- [Python](/previous-versions/azure/azure-monitor/app/opencensus-python)
 - [Other platforms](app/app-insights-overview.md#supported-languages)
 
 ### Configure availability testing

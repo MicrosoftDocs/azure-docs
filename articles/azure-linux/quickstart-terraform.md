@@ -4,6 +4,7 @@ description: Learn how to quickly create an Azure Linux Container Host for AKS c
 author: htaubenfeld
 ms.author: htaubenfeld
 ms.service: microsoft-linux
+ms.custom: devx-track-terraform
 ms.editor: schaffererin
 ms.topic: quickstart
 ms.date: 06/27/2023

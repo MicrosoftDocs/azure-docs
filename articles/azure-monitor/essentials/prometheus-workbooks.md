@@ -3,7 +3,7 @@ title: Query Prometheus metrics using Azure workbooks
 description: Query Prometheus metrics in the portal using Azure Workbooks.
 author: EdB-MSFT
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 07/17/2023
 ms.author: edbaynash
 ---
 
@@ -12,21 +12,20 @@ ms.author: edbaynash
 Create dashboards powered by Azure Monitor managed service for Prometheus using [Azure Workbooks](../visualize/workbooks-overview.md).
 This article introduces workbooks for Azure Monitor workspaces and shows you how to query Prometheus metrics using Azure workbooks and the Prometheus query language (PromQL).
 
-## Pre-requisites
-To query Prometheus metrics from an Azure Monitor workspace you need the following:
--	An Azure Monitor workspace. To create an Azure Monitor workspace see [Create an Azure Monitor Workspace](./azure-monitor-workspace-overview.md?tabs=azure-portal.md).
+## Prerequisites
+To query Prometheus metrics from an Azure Monitor workspace, you need the following:
+-	An Azure Monitor workspace. To create an Azure Monitor workspace, see [Create an Azure Monitor Workspace](./azure-monitor-workspace-overview.md?tabs=azure-portal.md).
 -	Your Azure Monitor workspace must be [collecting Prometheus metrics](./prometheus-metrics-enable.md) from an AKS cluster.
--	The user must be assigned the **Monitoring Data Reader** role for the Azure Monitor workspace.
-
-> [!NOTE]
-> Querying data from an Azure Monitor workspace is a data plane operation. Even if you are an owner or have elevated control plane access, you still need to assign the **Monitoring Data Reader** role. For more information, see [Azure control and data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md).
+-	The user must be assigned role that can perform the **microsoft.monitor/accounts/read** operation on the Azure Monitor workspace.
 
 ## Prometheus Explorer workbook
 Azure Monitor workspaces include an exploration workbook to query your Prometheus metrics. 
 
-1. From the Azure Monitor workspace overview page, select **Workbooks** 
+1. From the Azure Monitor workspace overview page, select **Prometheus explorer**
 
-1. In the Azure Monitor workspace gallery, select the **Prometheus Explorer** workbook tile.
+![Screenshot that shows Azure Monitor workspace menu selection.](./media/prometheus-workbooks/prometheus-explorer-menu.png)
+    
+2. Or the **Workbooks** menu item, and in the Azure Monitor workspace gallery, select the **Prometheus Explorer** workbook tile.
 
 ![Screenshot that shows Azure Monitor workspace gallery.](./media/prometheus-workbooks/prometheus-gallery.png)
 
@@ -39,11 +38,11 @@ A workbook has the following input options:
 
 ## Create a Prometheus workbook
 
-Workbooks supports many visualizations and Azure integrations. For more information about Azure Workbooks, see [Creating an Azure Workbook](../visualize/workbooks-create-workbook.md).  
+Workbooks support many visualizations and Azure integrations. For more information about Azure Workbooks, see [Creating an Azure Workbook](../visualize/workbooks-create-workbook.md).  
 
 
 
-1.	From your Azure Monitor workspace select **Workbooks**.
+1.	From your Azure Monitor workspace, select **Workbooks**.
 
 1.  Select **New**.
 1.	In the new workbook, select **Add**, and select **Add query** from the dropdown.
@@ -59,10 +58,15 @@ Workbooks supports many visualizations and Azure integrations. For more informat
 
 ## Troubleshooting
 
-If your workbook query does not return data:
+If you receive a message indicating that "You currently do not have any Prometheus data ingested to this Azure Monitor workspace":
 
--	Check that you have **Monitoring Data Reader** role permissions assigned through Access Control (IAM) in your Azure Monitor workspace
 -	Verify that you have turned on metrics collection in the Monitored clusters blade of your Azure Monitor workspace.
+
+If your workbook query does not return data with a message "You do not have query access":
+
+-	Check that you have sufficient permissions to perform **microsoft.monitor/accounts/read** assigned through Access Control (IAM) in your Azure Monitor workspace.
+-	Confirm if your Networking settings support query access. You may need to enable private access through your private endpoint or change settings to allow public access.
+-	If you have ad block enabled in your browser, you may need to pause or disable and refresh the workbook in order to view data.
 
 
 ## Next steps

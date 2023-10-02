@@ -2,7 +2,7 @@
 title: Azure DevTest Labs usage across multiple labs and subscriptions
 description: Learn how to report Azure DevTest Labs usage across multiple labs and subscriptions.
 ms.topic: how-to
-ms.custom: ignite-2022
+ms.custom: ignite-2022, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020

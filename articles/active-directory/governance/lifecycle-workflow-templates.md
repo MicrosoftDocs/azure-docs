@@ -35,7 +35,7 @@ The list of templates are as follows:
 - [Offboard an employee](lifecycle-workflow-templates.md#offboard-an-employee)
 - [Post-Offboarding of an employee](lifecycle-workflow-templates.md#post-offboarding-of-an-employee)
 
-For a complete guide on creating a new workflow from a template, see: [Tutorial: On-boarding users to your organization using Lifecycle workflows with Azure portal](tutorial-onboard-custom-workflow-portal.md).
+For a complete guide on creating a new workflow from a template, see: [Tutorial: On-boarding users to your organization using Lifecycle workflows with the Microsoft Entra admin center](tutorial-onboard-custom-workflow-portal.md).
 
 ### Onboard pre-hire employee
 
@@ -107,7 +107,7 @@ The **Real-time employee change** template is designed to configure tasks that a
 
 :::image type="content" source="media/lifecycle-workflow-templates/on-demand-change-template.png" alt-text="Screenshot of a Lifecycle Workflow real time employee change template.":::
 
-The default specific parameters for the **Real-time employee termination** template are as follows:
+The default specific parameters for the **Real-time employee change** template are as follows:
 
 |Parameter  |Description  |Customizable  |
 |---------|---------|---------|

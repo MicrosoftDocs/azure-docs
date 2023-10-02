@@ -5,8 +5,8 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 02/28/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Use Azure role-based access control to manage Azure Backup recovery points

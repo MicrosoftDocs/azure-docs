@@ -1,60 +1,62 @@
 ---
-title: ST_DISTANCE in Azure Cosmos DB query language
-description: Learn about SQL system function ST_DISTANCE in Azure Cosmos DB.
-author: ginamr
+title: ST_DISTANCE
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns the distance between two GeoJSON Point, Polygon, MultiPolygon or LineStrings.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 02/17/2021
-ms.author: girobins
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.date: 09/21/2023
+ms.custom: query-reference
 ---
-# ST_DISTANCE (Azure Cosmos DB)
+
+# ST_DISTANCE (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns the distance between the two GeoJSON Point, Polygon, MultiPolygon or LineString expressions. To learn more, see the [Geospatial and GeoJSON location data](geospatial-intro.md) article.
-  
+Returns the distance between two GeoJSON Point, Polygon, MultiPolygon or LineString expressions.
+
+> [!NOTE]
+> For more information, see [Geospatial and GeoJSON location data](geospatial-intro.md).
+
 ## Syntax
-  
+
 ```sql
-ST_DISTANCE (<spatial_expr>, <spatial_expr>)  
-```  
-  
-## Arguments
-  
-*spatial_expr*  
-   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
-  
-## Return types
-  
-  Returns a numeric expression containing the distance. This is expressed in meters for the default reference system.  
-  
-## Examples
-  
-  The following example shows how to return all family documents that are within 30 km of the specified location using the `ST_DISTANCE` built-in function. 
-  
-```sql
-SELECT f.id
-FROM Families f
-WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
-```  
-  
- Here is the result set.  
-  
-```json
-[{  
-  "id": "WakefieldFamily"  
-}]  
+ST_DISTANCE(<spatial_expr_1>, <spatial_expr_2>)  
 ```
+
+## Arguments
+
+| | Description |
+| --- | --- |
+| **`spatial_expr_1`** | Any valid GeoJSON **Point**, **Polygon**, **MultiPolygon** or **LineString** expression. |
+| **`spatial_expr_2`** | Any valid GeoJSON **Point**, **Polygon**, **MultiPolygon** or **LineString** expression. |
+
+## Return types
+
+Returns a numeric expression that enumerates the distance between two expressions.
+
+## Examples
+
+The following example assumes a container exists with two items.
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-distance/seed.json" range="1-2,4-14,16-26" highlight="4-10,15-21":::
+
+The example shows how to use the function as a filter to return items within a specified distance.
+
+:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-distance/query.sql" highlight="3-6":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-distance/result.json":::
 
 ## Remarks
 
-This system function will benefit from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
+- The result is expressed in meters for the default reference system.
+- This function benefits from a [geospatial index](../../index-policy.md#spatial-indexes) except in queries with aggregates.
+- The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
-> [!NOTE]
-> The GeoJSON specification requires that points within a Polygon be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
+## Related content
 
-## Next steps
-
-- [System functions Azure Cosmos DB](system-functions.yml)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`ST_INTERSECTS`](st-intersects.md)
