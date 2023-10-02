@@ -11,7 +11,7 @@ ms.date: 09/28/2023
 
 # Diagnostics logs and metrics for Managed Airflow.
 
-This guide will walk you through the following:
+This guide walks you through the following:
 
 1. How to enable diagnostics logs and metrics for the Managed Airflow.
 
@@ -19,7 +19,7 @@ This guide will walk you through the following:
 
 3. How to run a query.
 
-4. How to monitor metrics and set the alert system in case of Dag failure.
+4. How to monitor metrics and set the alert system in Dag failure.
 
 ## How to enable Diagnostics logs and metrics for the Managed Airflow.
 
@@ -52,7 +52,7 @@ This guide will walk you through the following:
 2. Click on **View Logs**, under the section “Maximize your Log Analytics experience”.
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/02-view-logs.png" alt-text="Screenshot that shows click on view logs.":::
 
-3. You will be directed to your log analytics workspace, where the chosen tables will be imported into the workspace automatically.
+3. You are directed to your log analytics workspace, where the chosen tables are imported into the workspace automatically.
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/03-log-analytics-workspace.png" alt-text="Screenshot that shows logs analytics workspace.":::
 
 Other useful links for the schema:
@@ -80,7 +80,6 @@ You can double click on the table name to add it to query window, or you can dir
    ADFAirflowTaskLogs
    | where DagId == "<your_dag_id>"
    and TaskId == "<your_task_id>"
-
    ```
 
 Similarly, you can create custom queries according to your needs using any tables available in LogManagement.
@@ -109,7 +108,7 @@ Azure Data Factory offers comprehensive metrics for Airflow Integration Runtimes
 5. You can set up an alert rule that triggers when specific conditions are met by your metrics.
    Refer to guide: [Overview of Azure Monitor alerts - Azure Monitor | Microsoft Learn](/azure/azure-monitor/alerts/alerts-overview)
 
-6. Click on Save to Dashboard, once your chat is complete, else your chart will disappear.
+6. Click on Save to Dashboard, once your chat is complete, else your chart disappears.
    :::image type="content" source="media/diagnostics-logs-and-metrics-for-managed-airflow/save-to-dashboard.png" alt-text="Screenshot that shows save to dashboard.":::
 
 For more information: [https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/microsoft-datafactory-factories-metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-datafactory-factories-metrics)
