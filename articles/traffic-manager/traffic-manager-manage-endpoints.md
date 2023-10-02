@@ -1,6 +1,6 @@
 ---
 title: Manage endpoints in Azure Traffic Manager
-description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
+description: This article helps you add, remove, enable, disable, and move Azure Traffic Manager endpoints.
 services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
@@ -31,11 +31,11 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
     2. Provide a **Name** by which you want to recognize this endpoint.
     3. For **Target resource type**, from the drop-down, choose the appropriate resource type.
     4. For **Target resource**, select the **Choose...** selector to list resources under the same subscription in the **Resources blade**. In the **Resource** blade that is displayed, pick the service that you want to add as the first endpoint.
-    5. For **Priority**, select as **1**. This results in all traffic going to this endpoint if it is healthy.
+    5. For **Priority**, select as **1**. This results in all traffic going to this endpoint if it's healthy.
     6. Keep **Add as disabled** unchecked.
     7. Select **OK**
 6.	Repeat steps 4 and 5 to add the next Azure endpoint. Make sure to add it with its **Priority** value set at **2**.
-7.	When the addition of both endpoints is complete, they are displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
+7.	When the addition of both endpoints is complete, they're displayed in the **Traffic Manager profile** blade along with their monitoring status as **Online**.
 
 > [!NOTE]
 > After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered the way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](./traffic-manager-configure-priority-routing-method.md).
@@ -72,8 +72,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 2. In the portal’s search bar, search for the  Traffic Manager profile name that you want to modify, and then select the Traffic Manager profile in the results that are displayed.
 3. Inside the resource's blade, select the **Move** option. Follow the instructions to move the resource to the desired subscription or resource group. 
 4. When the resource has been successfully moved, return to the Azure Traffic Manager Profile that had the resource as an endpoint. 
-5. Locate and select the old endpoint that was previously linked to the resource you moved. Select **Delete** to remove this old endpoint from the ATM profile.
-6. Select the the **Add** or **Create** button to create and configure the new endpoint. The new endpoint points to the recently moved Azure resource.
+5. Locate and select the old endpoint that was previously linked to the resource you moved. Select **Delete** to remove this old endpoint from the Traffic Manager profile.
+6. Select **Add** or **Create** to create and configure the new endpoint. The new endpoint is configured to point to the recently moved Azure resource.
 
 Also see [How do I move my Traffic Manager profile's Azure endpoints to a different resource group or subscription?](traffic-manager-FAQs.md#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription).
 
