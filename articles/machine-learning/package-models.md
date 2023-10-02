@@ -48,6 +48,43 @@ Packages can be used directly as inputs to Online Endpoints. This helps streamli
 
 :::image type="content" source="media/model-packaging/model-package-targets.png" alt-text="Screenshot that shows all the possible targets for a model package.":::
 
+The simplest way to deploy models with packages is by indicating Azure Machine Learning to do so before executing the deployment. When creating a deployment in an Online Endpoints, just indicate to prepackage the model. This is supported in the Azure CLI, Azure Machine Learning SDK, and Azure Machine Learning studio.
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az ml online-deployment create  -f deployment.yml --package-model
+```
+
+# [Python](#tab/sdk)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we connect to the workspace in which you perform deployment tasks.
+
+```python
+ml_client.batch_deployment.create(
+    ManagedOnlineDeployment(
+        name="default",
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_count=1,
+        package_model=True,
+    )
+).result()
+```
+
+# [Studio](#tab/studio)
+
+In the model detail page in [Azure Machine Learning studio](https://ml.azure.com), select the option **Deploy** and then click on **Online Endpoints**. In the creation wizard, you see an option to package the model before deployment.
+
+:::image type="content" source="./media/model-packaging/model-package-ux.png" alt-text="An screenshot of the model deployment wizard to Online Endpoints highlighting the Package model option.":::
+
+---
+
+Azure Machine Learning packages the model first and then execute the deployment. Notice that when using packages, if you indicate a base environment with conda or pip dependencies, you don't need to include the dependencies of the inference server (`azureml-inference-server-http`). It's automatically added for you.
+
+> [!TIP] 
+> Packaging MLflow models before deployment is highly advisable and required for endpoints without outbound networking connectivity. MLflow models indicate their dependencies in the model itself, which requires dynamic installation of packages. When an MLflow model is packaged, this dynamic installation is performed at packaging time, avoiding the installation of software at deployment time.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
