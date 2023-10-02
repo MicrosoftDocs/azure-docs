@@ -241,7 +241,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
     | Kubernetes       | Local UI Kubernetes workload profile     | Update package name   | Example Update File |
     |------------------|--------------|---------------------------|-----------------------------------|
-    | Azure Kubernetes Service   | Azure Private MEC Solution in your environment<br/>SAP Digital Manufacturing for Edge Computing or another Microsoft Partner Solution in your Environment | Azure Stack Edge Update 2309 Kubernetes Package for Private MEC/SAP Workloads  | release~ase-2307d.3.2.2380.1632-42623-79365624-release_host_MsKubernetes_Package   |
+    | Azure Kubernetes Service   | Azure Private MEC Solution in your environment<br><br>SAP Digital Manufacturing for Edge Computing or another Microsoft Partner Solution in your Environment | Azure Stack Edge Update 2309 Kubernetes Package for Private MEC/SAP Workloads  | release~ase-2307d.3.2.2380.1632-42623-79365624-release_host_MsKubernetes_Package   |
     | Kubernetes for Azure Stack Edge |Other workloads in your environment  | Azure Stack Edge Update 2309 Kubernetes Package for Non Private MEC/Non SAP Workloads | \release~ase-2307d.3.2.2380.1632-42623-79365624-release_host_AseKubernetes_Package |
 
 
