@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Enable scan statistics for queries
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Often data teams are required to investigate performance or optimize queries to improve resource utilization or meet business requirements. 
 

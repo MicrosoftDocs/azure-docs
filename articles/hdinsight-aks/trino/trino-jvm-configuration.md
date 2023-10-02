@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Configure JVM heap size
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 This article describes how to modify initial and max heap size for HDInsight on AKS Trino pods.
 

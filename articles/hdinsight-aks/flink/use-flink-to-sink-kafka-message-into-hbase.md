@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Write messages to HBase with DataStream API
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 In this article, learn how to write messages to HBase with Apache Flink DataStream API
 

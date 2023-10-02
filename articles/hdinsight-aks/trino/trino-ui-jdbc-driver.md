@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Trino JDBC driver
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 HDInsight on AKS Trino provides JDBC driver, which supports Azure Active Directory authentication and adds few parameters for it. 
 

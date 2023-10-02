@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Custom plugins
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 This article provides details on how to deploy custom plugins to your HDInsight on AKS Trino cluster. 
 

@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Apache Flink Command-Line Interface (CLI)
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Apache Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (programs) that are packaged as JAR files and to control their execution. The CLI is part of the Flink setup and can be set up on a single-node VM. It connects to the running JobManager specified in **conf/flink-conf.yaml**.
 

@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Using Elasticsearch with HDInsight on AKS - Apache Flink
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data using Elasticsearch and Kibana. 
 

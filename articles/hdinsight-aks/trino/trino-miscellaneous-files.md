@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Using miscellaneous files
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 This article provides details on how to specify and use miscellaneous files configuration.
 

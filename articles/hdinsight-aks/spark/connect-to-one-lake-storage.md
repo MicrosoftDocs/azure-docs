@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Connect to OneLake Storage
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 This tutorial shows how to connect to OneLake with a Jupyter notebook from an Azure HDInsight on AKS cluster.
 

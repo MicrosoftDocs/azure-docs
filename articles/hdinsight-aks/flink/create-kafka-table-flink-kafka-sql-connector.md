@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Create Kafka table on Apache FlinkSQL
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 Using this example, learn how to Create Kafka table on Apache FlinkSQL.
 

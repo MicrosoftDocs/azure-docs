@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Configure Azure Active Directory OAuth2 login
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 This article describes how to allow users to use their Azure Active Directory (Azure AD) account ("Microsoft work or school account") to log in to Apache Superset. 
 

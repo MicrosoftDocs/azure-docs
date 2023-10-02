@@ -8,7 +8,7 @@ ms.date: 09/18/2023
 
 # Hive dialect in Flink
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 In this article, learn how to use Hive dialect in HDInsight on AKS - Flink.
 

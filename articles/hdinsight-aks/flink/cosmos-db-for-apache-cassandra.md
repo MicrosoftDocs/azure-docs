@@ -8,7 +8,7 @@ ms.date: 08/29/2023
 
 # Sink Kafka messages into Azure Cosmos DB for Apache Cassandra, with HDInsight on AKS - Flink
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 This example uses [HDInsight on AKS Flink 1.16.0](../flink/flink-overview.md) to sink [HDInsight Kafka 3.2.0](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction)
 
