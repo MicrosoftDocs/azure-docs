@@ -47,9 +47,9 @@ Creating a snapshot, which is a read-only copy of a blob, can result in extra da
 
 Blob snapshots, like blob versions, are billed at the same rate as active data. How snapshots are billed depends on whether you have explicitly set the tier for the base blob or for any of its snapshots (or versions). For more information about blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
-If you haven't changed a blob or snapshot's tier, then you're billed for unique blocks of data across that blob, its snapshots, and any versions it may have. For more information, see [Billing when the blob tier hasn't been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+If you haven't changed a blob or snapshot's tier, then you're billed for unique blocks of data across that blob, its snapshots, and any versions it may have. For more information, see [Billing when the blob tier hasn't been explicitly set](#billing-when-the-blob-tier-hasnt-been-explicitly-set).
 
-If you have changed a blob or snapshot's tier, then you're billed for the entire object, regardless of whether the blob and snapshot are eventually in the same tier again. For more information, see [Billing when the blob tier has been explicitly set](#billing-when-the-blob-tier-hasn't-explicitly-set).
+If you have changed a blob or snapshot's tier, then you're billed for the entire object, regardless of whether the blob and snapshot are eventually in the same tier again. For more information, see [Billing when the blob tier has been explicitly set](#billing-when-the-blob-tier-hasnt-been-explicitly-set).
 
 For more information about billing details for blob versions, see [Blob versioning](versioning-overview.md).
 
@@ -101,7 +101,7 @@ In scenario 4, the base blob has been completely updated and contains none of it
 
 ### Billing when the blob tier has been explicitly set
 
-If you have explicitly set the blob tier for a blob or snapshot (or version), then you're charged for the full content length of the object in the new tier, regardless of whether it shares blocks with an object in the original tier. You're also charged for the full content length of the oldest version in the original tier. Any versions or snapshots that remain in the original tier are charged for unique blocks that they may share, as described in [Billing when the blob tier hasn't been explicitly set](#billing-when-the-blob-tier-hasn't-been-explicitly-set).
+If you have explicitly set the blob tier for a blob or snapshot (or version), then you're charged for the full content length of the object in the new tier, regardless of whether it shares blocks with an object in the original tier. You're also charged for the full content length of the oldest version in the original tier. Any versions or snapshots that remain in the original tier are charged for unique blocks that they may share, as described in [Billing when the blob tier hasn't been explicitly set](#billing-when-the-blob-tier-hasnt-been-explicitly-set).
 
 #### Moving a blob to a new tier
 
@@ -113,7 +113,7 @@ The following table describes the billing behavior for a blob or snapshot when i
 | A base blob with a previous version and a snapshot | The base blob in the new tier, the oldest version in the original tier, and the oldest snapshot in the original tier, plus any unique blocks in other versions or snapshots<sup>1</sup>. |
 | A snapshot | The snapshot in the new tier and the base blob in the original tier, plus any unique blocks in other snapshots.<sup>1</sup> |
 
-<sup>1</sup>If there are other previous versions or snapshots that haven't been moved from their original tier, those versions or snapshots are charged based on the number of unique blocks they contain, as described in [Billing when the blob tier hasn't been explicitly set](#billing-when-the-blob-tier-hasn't-been-explicitly-set).
+<sup>1</sup>If there are other previous versions or snapshots that haven't been moved from their original tier, those versions or snapshots are charged based on the number of unique blocks they contain, as described in [Billing when the blob tier hasn't been explicitly set](#billing-when-the-blob-tier-hasnt-been-explicitly-set).
 
 The following diagram illustrates how objects are billed when a blob with snapshots is moved to a different tier.
 
