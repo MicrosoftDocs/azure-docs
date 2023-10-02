@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: ignite-2022
 ms.topic: overview
-ms.date: 09/26/2023
+ms.date: 09/29/2023
 ---
 
 # What is Azure Cache for Redis?
@@ -63,18 +63,18 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Redis Modules](cache-redis-modules.md) |-|-|-|✔|Preview|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
-| [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
+| [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates) |✔|✔|✔|-|-|
 
 > [!NOTE]
-> The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module. 
+> The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module.
 
 ### Choosing the right tier
 
 Consider the following options when choosing an Azure Cache for Redis tier:
 
 - **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB; the Premium tier 6 GB - 1.2 TB; the Enterprise tier 4 GB - 2 TB, and the Enterprise Flash tier 300 GB - 4.5 TB.  To create a Premium tier cache larger than 120 GB, you can use Redis OSS clustering. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/). For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
-- **Performance**: Caches in the Premium and Enterprise tiers are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. The Enterprise tier typically has the best performance for most workloads, especially with larger cache instances. For more information, see [Performance testing](cache-best-practices-performance.md). 
-- **Dedicated core for Redis server**: All caches except C0 run dedicated vCPUs. The Basic, Standard, and Premium tiers run open source Redis, which by design uses only one thread for command processing. On these tiers, having more vCPUs usually improves throughput performance because Azure Cache for Redis uses other vCPUs for I/O processing or for OS processes. However, adding more vCPUs per instance may not produce linear performance increases. Scaling out usually boosts performance more than scaling up in these tiers. Enterprise and Enterprise Flash tier caches run on Redis Enterprise which is able to utilize multiple vCPUs per instance, which can also significantly increase performance over other tiers. For Enterprise and Enterprise flash tiers, scaling up is recommended before scaling out. For more information, see [Sharding and CPU utilization](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization). 
+- **Performance**: Caches in the Premium and Enterprise tiers are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. The Enterprise tier typically has the best performance for most workloads, especially with larger cache instances. For more information, see [Performance testing](cache-best-practices-performance.md).
+- **Dedicated core for Redis server**: All caches except C0 run dedicated vCPUs. The Basic, Standard, and Premium tiers run open source Redis, which by design uses only one thread for command processing. On these tiers, having more vCPUs usually improves throughput performance because Azure Cache for Redis uses other vCPUs for I/O processing or for OS processes. However, adding more vCPUs per instance may not produce linear performance increases. Scaling out usually boosts performance more than scaling up in these tiers. Enterprise and Enterprise Flash tier caches run on Redis Enterprise which is able to utilize multiple vCPUs per instance, which can also significantly increase performance over other tiers. For Enterprise and Enterprise flash tiers, scaling up is recommended before scaling out. For more information, see [Sharding and CPU utilization](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization).
 - **Network performance**: If you have a workload that requires high throughput, the Premium or Enterprise tier offers more bandwidth compared to Basic or Standard. Also within each tier, larger size caches have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that cause timeouts in your application.For more information, see [Performance testing](cache-best-practices-performance.md).
 - **Maximum number of client connections**: The Premium and Enterprise tiers offer the maximum numbers of clients that can connect to Redis, offering higher numbers of connections for larger sized caches. Clustering increases the total amount of network bandwidth available for a clustered cache.
 - **High availability**: Azure Cache for Redis provides multiple [high availability](cache-high-availability.md) options. It guarantees that a Standard, Premium, or Enterprise cache is available according to our [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. We recommend using the Redis data persistence feature in the Premium and Enterprise tiers to increase resiliency against data loss.
