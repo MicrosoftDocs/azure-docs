@@ -11,7 +11,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2023
-ms.custom: "it-pro, seodec18", "references-regions"
+ms.custom: 'it-pro, seodec18, references-regions'
 ms.collection: M365-identity-device-management
 ---
 
