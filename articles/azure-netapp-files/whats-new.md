@@ -21,6 +21,8 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
+
 ## September 2023
 
 * [Azure NetApp Files customer-managed keys for Azure NetApp Files volume encryption is now available in select US Gov regions (Preview)](configure-customer-managed-keys.md#supported-regions)

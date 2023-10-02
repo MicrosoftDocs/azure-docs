@@ -35,17 +35,6 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 
 ## Considerations
 
-> [!IMPORTANT]
-> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command:
->
-> ```azurepowershell-interactive
-> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAzureKeyVaultEncryption
->
-> FeatureName                ProviderName     RegistrationState
-> -----------                ------------     -----------------
-> ANFAzureKeyVaultEncryption Microsoft.NetApp Registered
-> ```
-
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption.
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
 * For increased security, you can select the **Disable public access** option within the network settings of your key vault. When selecting this option, you must also select **Allow trusted Microsoft services to bypass this firewall** to permit the Azure NetApp Files service to access your encryption key.
