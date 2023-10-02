@@ -17,7 +17,7 @@ keywords:
 ## September 2023
 
 ### GPT-4
-GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers.  Customers no longer need to request access to use GPT-4 and GPT-4-32k.  Availability may be limited by region.  Check the [models page](concepts/models.md), for the latest information on model availability in each region.
+GPT-4 and GPT-4-32k are now available to all Azure OpenAI Service customers. Customers no longer need to apply for the waitlist to use GPT-4 and GPT-4-32k (the Limited Access registration requirements continue to apply for all Azure OpenAI models). Availability may vary by region. Check the [models page](concepts/models.md), for the latest information on model availability in each region.
 
 ### GPT-3.5 Turbo Instruct
 
