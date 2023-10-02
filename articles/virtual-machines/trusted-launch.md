@@ -6,7 +6,7 @@ ms.author: howieasmerom
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 09/29/2023
 ms.reviewer: mattmcinnes
 ms.custom: template-concept; references_regions
 ---
@@ -18,8 +18,9 @@ ms.custom: template-concept; references_regions
 Azure offers trusted launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
-> - You can now enable Trusted Launch on existing [Azure Generation 2 VM](generation-2.md). For more information, see **[Enable Trusted Launch on existing VMs](trusted-launch-existing-vm.md)**
-> - Trusted launch requires the creation of new virtual machine scale set (VMSS). You cannot enable trusted launch on existing VMSS that were initially created without it.
+> - Trusted Launch is selected as the default state for newly created Azure VMs. If your new VM requires features which are not supported by trusted launch, see the [Trusted Launch FAQs](trusted-launch-faq.md)
+> - Existing [Azure Generation 2 VMs](generation-2.md) can have trusted launch enabled after being created. For more information, see **[Enable Trusted Launch on existing VMs](trusted-launch-existing-vm.md)**
+> - You cannot enable trusted launch on an existing virtual machine scale set (VMSS) that was initially created without it. Trusted launch requires the creation of new VMSS. 
 
 ## Benefits
 
@@ -81,6 +82,7 @@ No additional cost to existing VM pricing.
 - [Azure Site Recovery](../site-recovery/site-recovery-overview.md)
 - [Azure Automanage](../automanage/overview-about.md)
 - [Ultra disk](disks-enable-ultra-ssd.md)
+- [Shared disk](disks-shared.md)
 - [Managed Image](capture-image-resource.md) (Customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images))
 - Nested Virtualization (most v5 VM size families supported)
 
