@@ -5,8 +5,7 @@ description: Deploy the language detection container, with a running sample, to 
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 01/10/2022
 ms.author: aahi
@@ -49,9 +48,9 @@ This website is equivalent to your own client-side application that makes reques
 
 The language detection container, in this specific procedure, is accessible to any external request. The container hasn't been changed in any way so the standard Azure AI services container-specific language detection API is available.
 
-For this container, that API is a POST request for language detection. As with all Azure AI services containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000/swagger/index.html`.
+For this container, that API is a POST request for language detection. As with all Azure AI containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000/swagger/index.html`.
 
-Port 5000 is the default port used with the Azure AI services containers.
+Port 5000 is the default port used with the Azure AI containers.
 
 ## Create Azure Container Registry service
 
@@ -110,7 +109,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
 
 ## Get website Docker image
 
-1. The sample code used in this procedure is in the Azure AI services containers samples repository. Clone the repository to have a local copy of the sample.
+1. The sample code used in this procedure is in the Azure AI containers samples repository. Clone the repository to have a local copy of the sample.
 
     ```console
     git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
@@ -304,7 +303,7 @@ This section uses the **kubectl** CLI to talk with the Azure Kubernetes Service.
 
 1. Copy the following file and name it `language.yml`. The file has a `service` section and a `deployment` section each for the two container types, the `language-frontend` website container and the `language` detection container.
 
-    [!code-yml[Kubernetes orchestration file for the Azure AI services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Azure AI services containers sample")]
+    [!code-yml[Kubernetes orchestration file for the Azure AI containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Azure AI containers sample")]
 
 1. Change the language-frontend deployment lines of `language.yml` based on the following table to add your own container registry image names, client secret, and Language service settings.
 
@@ -400,4 +399,4 @@ az group delete --name cogserv-container-rg
 
 ## Next steps
 
-[Azure AI services containers](../cognitive-services-container-support.md)
+[Azure AI containers](../cognitive-services-container-support.md)

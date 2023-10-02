@@ -47,7 +47,7 @@ You can quickly test out any pre-trained model using the Sample Inference widget
 > * When `egress_public_network_access` is set to `disabled`, the deployment can only access the workspace-associated resources secured in the virtual network. 
 > * When `egress_public_network_access` is set to `enabled` for a managed online endpoint deployment, the deployment can only access the resources with public access. Which means that it cannot access resources secured in the virtual network.
 >
-> For more information, see [Outbound resource access for managed online endpoints](how-to-secure-online-endpoint.md#outbound-resource-access).
+> For more information, see [Secure outbound access with legacy network isolation method](concept-secure-online-endpoint.md#secure-outbound-access-with-legacy-network-isolation-method).
 
 ## How to evaluate foundation models using your own test data
 
@@ -137,6 +137,10 @@ Deployment Settings:
 Since the scoring script and environment are automatically included with the foundation model, you only need to specify the Virtual machine SKU to use, number of instances and the endpoint name to use for the deployment.
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-options.png" alt-text="Screenshot showing the deploy options on the foundation model card after user selects the deploy button.":::
+
+If you're deploying a Llama model from the model catalog but don't have enough quota available for the deployment, Azure Machine Learning allows you to use quota from a shared quota pool for a limited time. For _Llama-2-70b_ and _Llama-2-70b-chat_ model deployment, access to the shared quota is available only to customers with [Enterprise Agreement subscriptions](/azure/cost-management-billing/manage/create-enterprise-subscription). For more information on shared quota, see [Azure Machine Learning shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota).
+
+:::image type="content" source="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png" alt-text="Screenshot showing the option to deploy a Llama model temporarily, using shared quota." lightbox="media/how-to-use-foundation-models/deploy-llama-model-with-shared-quota.png":::
 
 ### Deploying using code based samples
 

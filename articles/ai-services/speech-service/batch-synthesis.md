@@ -5,8 +5,7 @@ description: Learn how to use the batch synthesis API for asynchronous synthesis
 services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/16/2022
 ms.author: eur
@@ -365,6 +364,24 @@ Batch synthesis properties are described in the following table.
 |`synthesisConfig.voice`|The voice that speaks the audio output.<br/><br/>For information about the available prebuilt neural voices, see [language and voice support](language-support.md?tabs=tts). To use a custom voice, you must specify a valid custom voice and deployment ID mapping in the `customVoices` property.<br/><br/>This property is required when `textType` is set to `"PlainText"`.|
 |`synthesisConfig.volume`|The volume of the audio output.<br/><br/>For information about the accepted values, see the [adjust prosody](speech-synthesis-markup-voice.md#adjust-prosody) table in the Speech Synthesis Markup Language (SSML) documentation. Invalid values are ignored.<br/><br/>This optional property is only applicable when `textType` is set to `"PlainText"`.|
 |`textType`|Indicates whether the `inputs` text property should be plain text or SSML. The possible case-insensitive values are "PlainText" and "SSML". When the `textType` is set to `"PlainText"`, you must also set the `synthesisConfig` voice property.<br/><br/>This property is required.|
+ 
+## Batch synthesis latency and best practices
+
+When using batch synthesis for generating synthesized speech, it's important to consider the latency involved and follow best practices for achieving optimal results.
+
+### Latency in batch synthesis
+
+The latency in batch synthesis depends on various factors, including the complexity of the input text, the number of inputs in the batch, and the processing capabilities of the underlying hardware.
+
+The latency for batch synthesis is as follows (approximately):
+
+- The latency of 50% of the synthesized speech outputs is within 10-20 seconds.
+
+- The latency of 95% of the synthesized speech outputs is within 120 seconds.
+
+### Best practices
+
+When considering batch synthesis for your application, it's recommended to assess whether the latency meets your requirements. If the latency aligns with your desired performance, batch synthesis can be a suitable choice. However, if the latency does not meet your needs, you might consider using real-time API.
 
 ## HTTP status codes
 

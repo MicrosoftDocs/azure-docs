@@ -4,9 +4,13 @@ description: This article describes how to get started with Azure AI Video Index
 ms.date: 07/03/2023
 ms.topic: tutorial
 ms.custom: devx-track-csharp
+author: IngridAtMicrosoft
+ms.author: inhenkel
 ---
 
 # Tutorial: Use the Azure AI Video Indexer API
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 

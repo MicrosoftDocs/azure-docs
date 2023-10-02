@@ -149,7 +149,7 @@ The Azure Linux container host for AKS is an open-source Linux distribution avai
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
-        --name azurelinuxpool \
+        --name azlinuxpool \
         --os-sku AzureLinux
     ```
 

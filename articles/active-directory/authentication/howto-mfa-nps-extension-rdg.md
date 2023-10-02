@@ -1,12 +1,13 @@
 ---
-title: Integrate RDG with Azure AD MFA NPS extension
-description: Integrate your Remote Desktop Gateway infrastructure with Azure AD MFA using the Network Policy Server extension for Microsoft Azure
+title: Integrate RDG with Microsoft Entra multifactor authentication NPS extension
+description: Integrate your Remote Desktop Gateway infrastructure with Microsoft Entra multifactor authentication using the Network Policy Server extension for Microsoft Azure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 09/13/2023
 
 ms.author: justinha
 author: justinha
@@ -15,16 +16,16 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD
+# Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Microsoft Entra ID
 
-This article provides details for integrating your Remote Desktop Gateway infrastructure with Azure AD Multi-Factor Authentication (MFA) using the Network Policy Server (NPS) extension for Microsoft Azure.
+This article provides details for integrating your Remote Desktop Gateway infrastructure with Microsoft Entra multifactor authentication using the Network Policy Server (NPS) extension for Microsoft Azure.
 
-The Network Policy Server (NPS) extension for Azure allows customers to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using Azure's cloud-based [Multi-Factor Authentication (MFA)](./concept-mfa-howitworks.md). This solution provides two-step verification for adding a second layer of security to user sign-ins and transactions.
+The Network Policy Server (NPS) extension for Azure allows customers to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using Azure's cloud-based [multifactor authentication](./concept-mfa-howitworks.md). This solution provides two-step verification for adding a second layer of security to user sign-ins and transactions.
 
-This article provides step-by-step instructions for integrating the NPS infrastructure with Azure AD MFA using the NPS extension for Azure. This enables secure verification for users attempting to sign in to a Remote Desktop Gateway.
+This article provides step-by-step instructions for integrating the NPS infrastructure with Microsoft Entra multifactor authentication using the NPS extension for Azure. This enables secure verification for users attempting to sign in to a Remote Desktop Gateway.
 
 > [!NOTE]
-> This article should not be used with MFA Server deployments and should only be used with Azure AD MFA (Cloud-based) deployments.
+> This article should not be used with MFA Server deployments and should only be used with Microsoft Entra multifactor authentication (Cloud-based) deployments.
 
 The Network Policy and Access Services (NPS) gives organizations the ability to do the following:
 
@@ -34,9 +35,9 @@ The Network Policy and Access Services (NPS) gives organizations the ability to 
 
 Typically, organizations use NPS (RADIUS) to simplify and centralize the management of VPN policies. However, many organizations also use NPS to simplify and centralize the management of RD Desktop Connection Authorization Policies (RD CAPs).
 
-Organizations can also integrate NPS with Azure AD MFA to enhance security and provide a high level of compliance. This helps ensure that users establish two-step verification to sign in to the Remote Desktop Gateway. For users to be granted access, they must provide their username/password combination along with information that the user has in their control. This information must be trusted and not easily duplicated, such as a cell phone number, landline number, application on a mobile device, and so on. RDG currently supports phone call and **Approve**/**Deny** push notifications from Microsoft authenticator app methods for 2FA. For more information about supported authentication methods see the section [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+Organizations can also integrate NPS with Microsoft Entra multifactor authentication to enhance security and provide a high level of compliance. This helps ensure that users establish two-step verification to sign in to the Remote Desktop Gateway. For users to be granted access, they must provide their username/password combination along with information that the user has in their control. This information must be trusted and not easily duplicated, such as a cell phone number, landline number, application on a mobile device, and so on. RDG currently supports phone call and **Approve**/**Deny** push notifications from Microsoft authenticator app methods for 2FA. For more information about supported authentication methods see the section [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
-Prior to the availability of the NPS extension for Azure, customers who wished to implement two-step verification for integrated NPS and Azure AD MFA environments had to configure and maintain a separate MFA Server in the on-premises environment as documented in [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
+Prior to the availability of the NPS extension for Azure, customers who wished to implement two-step verification for integrated NPS and Microsoft Entra multifactor authentication environments had to configure and maintain a separate MFA Server in the on-premises environment as documented in [Remote Desktop Gateway and Azure multifactor authentication Server using RADIUS](howto-mfaserver-nps-rdg.md).
 
 The availability of the NPS extension for Azure now gives organizations the choice to deploy either an on-premises based MFA solution or a cloud-based MFA solution to secure RADIUS client authentication.
 
@@ -50,22 +51,22 @@ When the NPS extension for Azure is integrated with the NPS and Remote Desktop G
 
 1. The Remote Desktop Gateway server receives an authentication request from a remote desktop user to connect to a resource, such as a Remote Desktop session. Acting as a RADIUS client, the Remote Desktop Gateway server converts the request to a RADIUS Access-Request message and sends the message to the RADIUS (NPS) server where the NPS extension is installed.
 1. The username and password combination is verified in Active Directory and the user is authenticated.
-1. If all the conditions as specified in the NPS Connection Request and the Network Policies are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure AD MFA.
-1. Azure AD MFA communicates with Azure AD, retrieves the user's details, and performs the secondary authentication using supported methods.
-1. Upon success of the MFA challenge, Azure AD MFA communicates the result to the NPS extension.
+1. If all the conditions as specified in the NPS Connection Request and the Network Policies are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Microsoft Entra multifactor authentication.
+1. Microsoft Entra multifactor authentication communicates with Microsoft Entra ID, retrieves the user's details, and performs the secondary authentication using supported methods.
+1. Upon success of the MFA challenge, Microsoft Entra multifactor authentication communicates the result to the NPS extension.
 1. The NPS server, where the extension is installed, sends a RADIUS Access-Accept message for the RD CAP policy to the Remote Desktop Gateway server.
 1. The user is granted access to the requested network resource through the RD Gateway.
 
 ## Prerequisites
 
-This section details the prerequisites necessary before integrating Azure AD MFA with the Remote Desktop Gateway. Before you begin, you must have the following prerequisites in place.  
+This section details the prerequisites necessary before integrating Microsoft Entra multifactor authentication with the Remote Desktop Gateway. Before you begin, you must have the following prerequisites in place.  
 
 * Remote Desktop Services (RDS) infrastructure
-* Azure AD MFA License
+* Microsoft Entra multifactor authentication License
 * Windows Server software
 * Network Policy and Access Services (NPS) role
 * Azure Active Directory synched with on-premises Active Directory
-* Azure Active Directory GUID ID
+* Microsoft Entra GUID ID
 
 ### Remote Desktop Services (RDS) infrastructure
 
@@ -74,9 +75,11 @@ You must have a working Remote Desktop Services (RDS) infrastructure in place. I
 If you wish to manually create an on-premises RDS infrastructure quickly for testing purposes, follow the steps to deploy one.
 **Learn more**: [Deploy RDS with Azure quickstart](/windows-server/remote/remote-desktop-services/rds-in-azure) and [Basic RDS infrastructure deployment](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
-### Azure AD MFA License
+<a name='azure-ad-mfa-license'></a>
 
-Required is a license for Azure AD MFA, which is available through Azure AD Premium or other bundles that include it. Consumption-based licenses for Azure AD MFA, such as per user or per authentication licenses, are not compatible with the NPS extension. For more information, see [How to get Azure AD Multi-Factor Authentication](concept-mfa-licensing.md). For testing purposes, you can use a trial subscription.
+### Microsoft Entra multifactor authentication License
+
+Required is a license for Microsoft Entra multifactor authentication, which is available through Microsoft Entra ID P1 or P2 or other bundles that include it. Consumption-based licenses for Microsoft Entra multifactor authentication, such as per user or per authentication licenses, are not compatible with the NPS extension. For more information, see [How to get Microsoft Entra multifactor authentication](concept-mfa-licensing.md). For testing purposes, you can use a trial subscription.
 
 ### Windows Server software
 
@@ -90,46 +93,49 @@ For information on installing the NPS role service Windows Server 2012 or older,
 
 ### Azure Active Directory synched with on-premises Active Directory
 
-To use the NPS extension, on-premises users must be synced with Azure AD and enabled for MFA. This section assumes that on-premises users are synched with Azure AD using AD Connect. For information on Azure AD connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+To use the NPS extension, on-premises users must be synced with Microsoft Entra ID and enabled for MFA. This section assumes that on-premises users are synched with Microsoft Entra ID using AD Connect. For information on Microsoft Entra Connect, see [Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md).
 
-### Azure Active Directory GUID ID
+<a name='azure-active-directory-guid-id'></a>
 
-To install NPS extension, you need to know the GUID of the Azure AD. Instructions for finding the GUID of the Azure AD are provided below.
+### Microsoft Entra GUID ID
 
-## Configure Multi-Factor Authentication
+To install NPS extension, you need to know the GUID of the Microsoft Entra ID. Instructions for finding the GUID of the Microsoft Entra ID are provided below.
 
-This section provides instructions for integrating Azure AD MFA with the Remote Desktop Gateway. As an administrator, you must configure the Azure AD MFA service before users can self-register their multi-factor devices or applications.
+<a name='configure-multi-factor-authentication'></a>
 
-Follow the steps in [Getting started with Azure AD Multi-Factor Authentication in the cloud](howto-mfa-getstarted.md) to enable MFA for your Azure AD users.
+## Configure multifactor authentication
+
+This section provides instructions for integrating Microsoft Entra multifactor authentication with the Remote Desktop Gateway. As an administrator, you must configure the Microsoft Entra multifactor authentication service before users can self-register their multifactor devices or applications.
+
+Follow the steps in [Getting started with Microsoft Entra multifactor authentication in the cloud](howto-mfa-getstarted.md) to enable MFA for your Microsoft Entra users.
 
 ### Configure accounts for two-step verification
 
 Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor and have authenticated using two-step verification.
 
-Follow the steps in [What does Azure AD Multi-Factor Authentication mean for me?](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to understand and properly configure your devices for MFA with your user account.
+Follow the steps in [What does Microsoft Entra multifactor authentication mean for me?](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to understand and properly configure your devices for MFA with your user account.
 
 > [!IMPORTANT]
-> The sign-in behavior for Remote Desktop Gateway doesn't provide the option to enter a verification code with Azure AD Multi-Factor Authentication. A user account must be configured for phone verification or the Microsoft Authenticator App with **Approve**/**Deny** push notifications.
+> The sign-in behavior for Remote Desktop Gateway doesn't provide the option to enter a verification code with Microsoft Entra multifactor authentication. A user account must be configured for phone verification or the Microsoft Authenticator App with **Approve**/**Deny** push notifications.
 >
-> If neither phone verification or the Microsoft Authenticator App with **Approve**/**Deny** push notifications is configured for a user, the user won't be able to complete the Azure AD Multi-Factor Authentication challenge and sign in to Remote Desktop Gateway.
+> If neither phone verification or the Microsoft Authenticator App with **Approve**/**Deny** push notifications is configured for a user, the user won't be able to complete the Microsoft Entra multifactor authentication challenge and sign in to Remote Desktop Gateway.
 >
 > The SMS text method doesn't work with Remote Desktop Gateway because it doesn't provide the option to enter a verification code.
 
 ## Install and configure NPS extension
 
-This section provides instructions for configuring RDS infrastructure to use Azure AD MFA for client authentication with the Remote Desktop Gateway.
+This section provides instructions for configuring RDS infrastructure to use Microsoft Entra multifactor authentication for client authentication with the Remote Desktop Gateway.
 
-### Acquire Azure Active Directory tenant ID
+### Obtain the directory tenant ID
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-As part of the configuration of the NPS extension, you need to supply admin credentials and the Azure AD ID for your Azure AD tenant. To get the tenant ID, complete the following steps:
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Microsoft Entra tenant. To get the tenant ID, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
-1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
-1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Global Administrator](../roles/permissions-reference.md#global-administrator).
+1. Browse to **Identity** > **Settings**.
 
-   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension-rdg/azure-active-directory-tenant-id-portal.png)
+   ![Getting the Tenant ID from the Microsoft Entra admin center](./media/howto-mfa-nps-extension-vpn/tenant-id.png)
 
 ### Install the NPS extension
 
@@ -143,24 +149,24 @@ Install the NPS extension on a server that has the Network Policy and Access Ser
 1. Download the [NPS extension](https://aka.ms/npsmfa).
 1. Copy the setup executable file (NpsExtnForAzureMfaInstaller.exe) to the NPS server.
 1. On the NPS server, double-click **NpsExtnForAzureMfaInstaller.exe**. If prompted, click **Run**.
-1. In the NPS Extension For Azure AD MFA Setup dialog box, review the software license terms, check **I agree to the license terms and conditions**, and click **Install**.
-1. In the NPS Extension For Azure AD MFA Setup dialog box, click **Close**.
+1. In the NPS Extension For Microsoft Entra multifactor authentication Setup dialog box, review the software license terms, check **I agree to the license terms and conditions**, and click **Install**.
+1. In the NPS Extension For Microsoft Entra multifactor authentication Setup dialog box, click **Close**.
 
 ### Configure certificates for use with the NPS extension using a PowerShell script
 
-Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a Windows PowerShell script that configures a self-signed certificate for use with NPS.
+Next, you need to configure certificates for use by the NPS extension to ensure secure communications and assurance. The NPS components include a PowerShell script that configures a self-signed certificate for use with NPS.
 
 The script performs the following actions:
 
 * Creates a self-signed certificate
-* Associates public key of certificate to service principal on Azure AD
+* Associates public key of certificate to service principal on Microsoft Entra ID
 * Stores the cert in the local machine store
 * Grants access to the certificate's private key to the network user
 * Restarts Network Policy Server service
 
-If you want to use your own certificates, you need to associate the public key of your certificate to the service principal on Azure AD, and so on.
+If you want to use your own certificates, you need to associate the public key of your certificate to the service principal on Microsoft Entra ID, and so on.
 
-To use the script, provide the extension with your Azure AD Admin credentials and the Azure AD tenant ID that you copied earlier. Run the script on each NPS server where you installed the NPS extension. Then do the following:
+To use the script, provide the extension with your Microsoft Entra Admin credentials and the Microsoft Entra tenant ID that you copied earlier. Run the script on each NPS server where you installed the NPS extension. Then do the following:
 
 1. Open an administrative Windows PowerShell prompt.
 1. At the PowerShell prompt, type `cd 'c:\Program Files\Microsoft\AzureMfa\Config'`, and press **ENTER**.
@@ -168,9 +174,9 @@ To use the script, provide the extension with your Azure AD Admin credentials an
 
    ![Running AzureMfaNpsExtnConfigSetup.ps1 in Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
-1. After the script verifies the installation of the PowerShell module, it displays the Azure Active Directory PowerShell module dialog box. In the dialog box, enter your Azure AD admin credentials and password, and click **Sign In**.
+1. After the script verifies the installation of the PowerShell module, it displays the Azure Active Directory PowerShell module dialog box. In the dialog box, enter your Microsoft Entra admin credentials and password, and click **Sign In**.
 
-   ![Authenticating to Azure AD in PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
+   ![Authenticating to Microsoft Entra ID in PowerShell](./media/howto-mfa-nps-extension-rdg/image5.png)
 
 1. When prompted, paste the *Tenant ID* you copied to the clipboard earlier, and press **ENTER**.
 
@@ -188,7 +194,7 @@ The authentication flow requires that RADIUS messages be exchanged between the R
 
 ### Configure Remote Desktop Gateway connection authorization policies to use central store
 
-Remote Desktop connection authorization policies (RD CAPs) specify the requirements for connecting to a Remote Desktop Gateway server. RD CAPs can be stored locally (default) or they can be stored in a central RD CAP store that is running NPS. To configure integration of Azure AD MFA with RDS, you need to specify the use of a central store.
+Remote Desktop connection authorization policies (RD CAPs) specify the requirements for connecting to a Remote Desktop Gateway server. RD CAPs can be stored locally (default) or they can be stored in a central RD CAP store that is running NPS. To configure integration of Microsoft Entra multifactor authentication with RDS, you need to specify the use of a central store.
 
 1. On the RD Gateway server, open **Server Manager**.
 1. On the menu, click **Tools**, point to **Remote Desktop Services**, and then click **Remote Desktop Gateway Manager**.
@@ -239,7 +245,7 @@ To ensure there is time to validate users' credentials, perform two-step verific
 
 ### Verify Connection Request Policies
 
-By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure AD MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy.  
+By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Microsoft Entra multifactor authentication extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy.  
 
 1. On the RD Gateway, in the NPS (Local) console, expand **Policies**, and select **Connection Request Policies**.
 1. Double-click **TS GATEWAY AUTHORIZATION POLICY**.
@@ -287,7 +293,7 @@ The Remote Desktop Gateway needs to be configured as a RADIUS client to the NPS 
 
 ### Configure Network Policy
 
-Recall that the NPS server with the Azure AD MFA extension is the designated central policy store for the Connection Authorization Policy (CAP). Therefore, you need to implement a CAP on the NPS server to authorize valid connections requests.  
+Recall that the NPS server with the Microsoft Entra multifactor authentication extension is the designated central policy store for the Connection Authorization Policy (CAP). Therefore, you need to implement a CAP on the NPS server to authorize valid connections requests.  
 
 1. On the NPS Server, open the NPS (Local) console, expand **Policies**, and click **Network Policies**.
 1. Right-click **Connections to other access servers**, and click **Duplicate Policy**.
@@ -314,7 +320,7 @@ Recall that the NPS server with the Azure AD MFA extension is the designated cen
 
 ## Verify configuration
 
-To verify the configuration, you need to sign in to the Remote Desktop Gateway with a suitable RDP client. Be sure to use an account that is allowed by your Connection Authorization Policies and is enabled for Azure AD MFA.
+To verify the configuration, you need to sign in to the Remote Desktop Gateway with a suitable RDP client. Be sure to use an account that is allowed by your Connection Authorization Policies and is enabled for Microsoft Entra multifactor authentication.
 
 As show in the image below, you can use the **Remote Desktop Web Access** page.
 
@@ -322,7 +328,7 @@ As show in the image below, you can use the **Remote Desktop Web Access** page.
 
 Upon successfully entering your credentials for primary authentication, the Remote Desktop Connect dialog box shows a status of Initiating remote connection, as shown below. 
 
-If you successfully authenticate with the secondary authentication method you previously configured in Azure AD MFA, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to the resource. 
+If you successfully authenticate with the secondary authentication method you previously configured in Microsoft Entra multifactor authentication, you are connected to the resource. However, if the secondary authentication is not successful, you are denied access to the resource. 
 
 ![Remote Desktop Connection initiating a remote connection](./media/howto-mfa-nps-extension-rdg/image26.png)
 
@@ -334,7 +340,7 @@ Once you have successfully authenticated using the secondary authentication meth
 
 ### View Event Viewer logs for successful logon events
 
-To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following Windows PowerShell command to query the Windows Terminal Services and Windows Security logs.
+To view the successful sign-in events in the Windows Event Viewer logs, you can issue the following PowerShell command to query the Windows Terminal Services and Windows Security logs.
 
 To query successful sign-in events in the Gateway operational logs _(Event Viewer\Applications and Services Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, use the following PowerShell commands:
 
@@ -359,15 +365,15 @@ You can also view the Security log or the Network Policy and Access Services cus
 
 ![Network Policy and Access Services Event Viewer](./media/howto-mfa-nps-extension-rdg/image31.png)
 
-On the server where you installed the NPS extension for Azure AD MFA, you can find Event Viewer application logs specific to the extension at _Application and Services Logs\Microsoft\AzureMfa_.
+On the server where you installed the NPS extension for Microsoft Entra multifactor authentication, you can find Event Viewer application logs specific to the extension at _Application and Services Logs\Microsoft\AzureMfa_.
 
 ![Event Viewer AuthZ application logs](./media/howto-mfa-nps-extension-rdg/image32.png)
 
 ## Troubleshoot Guide
 
-If the configuration is not working as expected, the first place to start to troubleshoot is to verify that the user is configured to use Azure AD MFA. Have the user sign in to the [Azure portal](https://portal.azure.com). If users are prompted for secondary verification and can successfully authenticate, you can eliminate an incorrect configuration of Azure AD MFA.
+If the configuration is not working as expected, the first place to start to troubleshoot is to verify that the user is configured to use Microsoft Entra multifactor authentication. Have the user sign in to the [Microsoft Entra admin center](https://entra.microsoft.com). If users are prompted for secondary verification and can successfully authenticate, you can eliminate an incorrect configuration of Microsoft Entra multifactor authentication.
 
-If Azure AD MFA is working for the user(s), you should review the relevant Event logs. These include the Security Event, Gateway operational, and Azure AD MFA logs that are discussed in the previous section.
+If Microsoft Entra multifactor authentication is working for the user(s), you should review the relevant Event logs. These include the Security Event, Gateway operational, and Microsoft Entra multifactor authentication logs that are discussed in the previous section.
 
 Below is an example output of Security log showing a failed logon event (Event ID 6273).
 
@@ -375,7 +381,7 @@ Below is an example output of Security log showing a failed logon event (Event I
 
 Below is a related event from the AzureMFA logs:
 
-![Sample Azure AD MFA log in Event Viewer](./media/howto-mfa-nps-extension-rdg/image34.png)
+![Sample Microsoft Entra multifactor authentication log in Event Viewer](./media/howto-mfa-nps-extension-rdg/image34.png)
 
 To perform advanced troubleshoot options, consult the NPS database format log files where the NPS service is installed. These log files are created in _%SystemRoot%\System32\Logs_ folder as comma-delimited text files.
 
@@ -393,8 +399,8 @@ The image below from Microsoft Message Analyzer shows network traffic filtered o
 
 ## Next steps
 
-[How to get Azure AD Multi-Factor Authentication](concept-mfa-licensing.md)
+[How to get Microsoft Entra multifactor authentication](concept-mfa-licensing.md)
 
-[Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
+[Remote Desktop Gateway and Azure multifactor authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
+[Integrate your on-premises directories with Microsoft Entra ID](../hybrid/whatis-hybrid-identity.md)

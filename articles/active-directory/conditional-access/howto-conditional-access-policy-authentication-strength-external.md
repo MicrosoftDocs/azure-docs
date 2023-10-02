@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Authentication strength is a Conditional Access control that lets you define a specific combination of multifactor authentication (MFA) methods that an external user must complete to access your resources. This control is especially useful for restricting external access to sensitive apps in your organization. For example, you can create a Conditional Access policy, require a phishing-resistant authentication strength in the policy, and assign it to guests and external users.
 
-Azure AD provides three [built-in authentication strengths](https://aka.ms/b2b-auth-strengths):
+Microsoft Entra ID provides three [built-in authentication strengths](https://aka.ms/b2b-auth-strengths):
 
 - Multifactor authentication strength
 - Passwordless MFA strength
@@ -29,13 +29,13 @@ You can use one of the built-in strengths or create a [custom authentication str
 In external user scenarios, the MFA authentication methods that a resource tenant can accept vary depending on whether the user is completing MFA in their home tenant or in the resource tenant. For details, see [Conditional Access authentication strength](https://aka.ms/b2b-auth-strengths).
 
 > [!NOTE]
-> Currently, you can only apply authentication strength policies to external users who authenticate with Azure AD. For email one-time passcode, SAML/WS-Fed, and Google federation users, use the [MFA grant control](concept-conditional-access-grant.md#require-multifactor-authentication) to require MFA.
+> Currently, you can only apply authentication strength policies to external users who authenticate with Microsoft Entra ID. For email one-time passcode, SAML/WS-Fed, and Google federation users, use the [MFA grant control](concept-conditional-access-grant.md#require-multifactor-authentication) to require MFA.
 
 ## Configure cross-tenant access settings to trust MFA
 
-Authentication strength policies work together with [MFA trust settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims) in your cross-tenant access settings to determine where and how the external user must perform MFA. An Azure AD user first authenticates with their own account in their home tenant. Then when this user tries to access your resource, Azure AD applies the authentication strength Conditional Access policy and checks to see if you've enabled MFA trust.
+Authentication strength policies work together with [MFA trust settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims) in your cross-tenant access settings to determine where and how the external user must perform MFA. A Microsoft Entra user first authenticates with their own account in their home tenant. Then when this user tries to access your resource, Microsoft Entra ID applies the authentication strength Conditional Access policy and checks to see if you've enabled MFA trust.
 
-- **If MFA trust is enabled**, Azure AD checks the user's authentication session for a claim indicating that MFA has been fulfilled in the user's home tenant.
+- **If MFA trust is enabled**, Microsoft Entra ID checks the user's authentication session for a claim indicating that MFA has been fulfilled in the user's home tenant.
 - **If MFA trust is disabled**, the resource tenant presents the user with a challenge to complete MFA in the resource tenant using an acceptable authentication method.
 
 The authentication methods that external users can use to satisfy MFA requirements are different depending on whether the user is completing MFA in their home tenant or the resource tenant. See the table in [Conditional Access authentication strength](https://aka.ms/b2b-auth-strengths).
@@ -47,8 +47,8 @@ The authentication methods that external users can use to satisfy MFA requiremen
 
 Determine if one of the built-in authentication strengths will work for your scenario or if you'll need to create a custom authentication strength.
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Authentication methods** > **Authentication strengths**.
 1. Review the built-in authentication strengths to see if one of them meets your requirements.
 1. If you want to enforce a different set of authentication methods, [create a custom authentication strength](https://aka.ms/b2b-auth-strengths).
 
@@ -56,8 +56,8 @@ Determine if one of the built-in authentication strengths will work for your sce
 
 Use the following steps to create a Conditional Access policy that applies an authentication strength to external users.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.

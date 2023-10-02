@@ -3,9 +3,13 @@ title: Index videos stored on OneDrive - Azure AI Video Indexer
 description: Learn how to index videos stored on OneDrive by using Azure AI Video Indexer.
 ms.topic: article
 ms.date: 12/17/2021
+ms.author: inhenkel
+author: IngridAtMicrosoft
 ---
 
 # Index your videos stored on OneDrive
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 This article shows how to index videos stored on OneDrive by using the Azure AI Video Indexer website.
 

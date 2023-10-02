@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 01/06/2023
+ms.date: 08/29/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -78,27 +78,20 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Azure Event Hubs s
 
 ## TLS functionality  
 
-To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity to `ocsp.msocsp.com`, `mscrl.microsoft.com`, and `crl.microsoft.com`. This dependency is not required if any certificate you upload to API Management contains the full chain to the CA root.
+To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity on ports `80` and `443` to `ocsp.msocsp.com`, `oneocsp.msocsp.com`, `mscrl.microsoft.com`, `crl.microsoft.com`, and `csp.digicert.com`. This dependency is not required if any certificate you upload to API Management contains the full chain to the CA root.
+
 
 ## DNS access
 
 Outbound access on port `53` is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
 
-### FQDN dependencies
+## Azure Active Directory integration
 
-To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
-
-| Description | Required | Notes |
-|:------------|:---------------------|:------|
-| Endpoints for Azure Active Directory integration | ✔️ | Required endpoints are `<region>.login.microsoft.com` and `login.microsoftonline.com`. |
+To operate properly, the API Management service needs outbound connectivity on port 443 to the following endpoints associated with Azure Active Directory: `<region>.login.microsoft.com` and `login.microsoftonline.com`. 
 
 ## Metrics and health monitoring 
 
 Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains, are represented under the **AzureMonitor** service tag for use with Network Security Groups.
-
-### Metrics and health monitoring 
-
-Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains, are represented under the AzureMonitor service tag for use with Network Security Groups.
 
 |     Azure Environment | Endpoints                                                                                                                                                                                                                                                                                                                                           |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -125,6 +118,18 @@ Enable publishing the [developer portal](api-management-howto-developer-portal.m
 ## KMS endpoint
 
 When adding virtual machines running Windows to the VNet, allow outbound connectivity on port `1688` to the [KMS endpoint](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) in your cloud. This configuration routes Windows VM traffic to the Azure Key Management Services (KMS) server to complete Windows activation.
+
+## Internal infrastructure and diagnostics
+
+The following settings and FQDNs are required to maintain and diagnose API Management's internal compute infrastructure.
+
+* Allow outbound UDP access on port `123` for NTP.
+* Allow outbound TCP access on port `12000` for diagnostics.
+* Allow outbound access on port `443` to the following endpoints for internal diagnostics: `azurewatsonanalysis-prod.core.windows.net`, `*.data.microsoft.com`, `azureprofiler.trafficmanager.net`, `shavamanifestazurecdnprod1.azureedge.net`, `shavamanifestcdnprod1.azureedge.net`.
+* Allow outbound access on port `443` to the following endpoint for internal PKI: `issuer.pki.azure.com`.
+* Allow outbound access on ports `80` and `443` to the following endpoints for Windows Update: `*.update.microsoft.com`, `*.ctldl.windowsupdate.com`, `ctldl.windowsupdate.com`, `download.windowsupdate.com`.
+* Allow outbound access on ports `80` and `443` to the endpoint `go.microsoft.com`.
+* Allow outbound access on port `443` to the following endpoints for Windows Defender: `wdcp.microsoft.com`, `wdcpalt.microsoft.com `.
 
 ## Control plane IP addresses
 
@@ -195,6 +200,7 @@ The following IP addresses are divided by **Azure Environment** and **Region**. 
 | Azure Government| USGov Texas| 52.243.154.118|
 | Azure Government| USDoD Central| 52.182.32.132|
 | Azure Government| USDoD East| 52.181.32.192|
+
 
 ## Next steps
 

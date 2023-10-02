@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure AI services containers FAQ
+  title: Azure AI containers FAQ
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions.
   services: cognitive-services
@@ -10,24 +10,24 @@ metadata:
   ms.topic: faq
   ms.date: 05/26/2023
   ms.author: aahi
-title: FAQ for Azure AI services containers
+title: FAQ for Azure AI containers
 summary: |
 sections:
   - name: General questions
     questions:
       - question: What is available?
         answer: |
-          Azure AI services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview that might require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure AI services](../cognitive-services-container-support.md) article. You can also view the containers in the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/catalog?search=azure%20AI).
+          Azure AI containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview that might require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure AI services](../cognitive-services-container-support.md) article. You can also view the containers in the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/catalog?search=azure%20AI).
       - question:  Is there any difference between the Azure AI services cloud and the containers?
         answer: |
-          Azure AI services containers are an alternative to the Azure AI services cloud. Containers offer the same capabilities as the corresponding cloud services. Customers can deploy the containers on-premises or in Azure. The core AI technology, pricing tiers, API keys, and API signature are the same between the container and the corresponding cloud services. There are [features and benefits](../cognitive-services-container-support.md#features-and-benefits) for choosing containers over their cloud service equivalent.
+          Azure AI containers are an alternative to the Azure AI services cloud. Containers offer the same capabilities as the corresponding cloud services. Customers can deploy the containers on-premises or in Azure. The core AI technology, pricing tiers, API keys, and API signature are the same between the container and the corresponding cloud services. There are [features and benefits](../cognitive-services-container-support.md#features-and-benefits) for choosing containers over their cloud service equivalent.
       - question: How do I access and use a gated preview container?
         answer: |
           Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. As of September 22, 2020, these containers are hosted on the Microsoft Container Registry. Downloading them doesn't require you to use the `docker login` command. You can run a gated preview container if your Azure resource was created with the approved Azure subscription ID. You won't be able to run the container if your Azure subscription hasn't been approved after completion of the [request form](https://aka.ms/csgate).
       - question: Will containers be available for all Azure AI services offerings, and what's the next set of containers I should expect?
         answer: |
           We'd like to make more Azure AI services offerings available as containers. Contact your local Microsoft account manager to get updates on new container releases and other Azure AI services announcements.
-      - question: What is the service-level agreement (SLA) for Azure AI services containers?
+      - question: What is the service-level agreement (SLA) for Azure AI containers?
         answer: |
           > [!IMPORTANT]
           > To learn more about service-level agreements for Azure AI services, [visit our SLA page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
@@ -37,7 +37,7 @@ sections:
           However, Azure AI services in containers don't provide an SLA as it is on-premises software. Customers control Azure AI services container configurations of resources, so Microsoft is unable to offer an SLA for general availability (GA). Customers are free to deploy containers on-premises and define the host environments.
       - question: Are these containers available in Sovereign clouds?
         answer: |
-          Standard Azure AI services containers can be used in the Sovereign clouds. The containers can run and connect to the billing endpoint in these clouds once authorized, but container images must be pulled from the Public cloud container registry. Containers that rely on language models downloaded at runtime, such as Translator or Custom Speech to text, also are configured to pull models from Public endpoints.
+          Standard Azure AI containers can be used in the Sovereign clouds. The containers can run and connect to the billing endpoint in these clouds once authorized, but container images must be pulled from the Public cloud container registry. Containers that rely on language models downloaded at runtime, such as Translator or Custom Speech to text, also are configured to pull models from Public endpoints.
 
           Purchasing disconnected containers isn't currently supported in Sovereign clouds. Disconnected containers purchased in Public cloud along with all dependencies can be transferred to Sovereign clouds and run on Sovereign cloud infrastructure.
   - name: Versioning
@@ -59,16 +59,16 @@ sections:
         answer: |
           [!INCLUDE [Containers next steps](includes/diagnostics-container.md)]
 
-      - question: How should I run the Azure AI services containers on IoT devices?
+      - question: How should I run the Azure AI containers on IoT devices?
         answer: |
-          Whether you don't have a reliable internet connection, you want to save on bandwidth cost, you have low-latency requirements, or you're dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with Azure AI services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+          Whether you don't have a reliable internet connection, you want to save on bandwidth cost, you have low-latency requirements, or you're dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with Azure AI containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
       - question: Are these containers compatible with OpenShift?
         answer: |
-          We don't test containers with OpenShift, but generally, Azure AI services containers should run on any platform that supports Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
+          We don't test containers with OpenShift, but generally, Azure AI containers should run on any platform that supports Docker images. If you're using OpenShift, we recommend running the containers as `root-user`.
       - question: How do I provide product feedback and feature recommendations?
         answer: |
           We encourage customers to [voice their concerns](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) publicly and to up-vote others who have done the same where potential issues overlap. You can use the feedback tool for both product feedback and feature recommendations.
-      - question: What status messages and errors do Azure AI services containers return?
+      - question: What status messages and errors do Azure AI containers return?
         answer: |
           Here are the status messages and errors:
 
@@ -82,11 +82,12 @@ sections:
           | `BillingEndpointBusy` | The billing endpoint is currently busy. Check the `Retry-After` value and wait for this period to end before you make more requests. |
           | `ContainerUseUnauthorized` | The provided API key isn't authorized for use with this container. You're likely using a gated container, so make sure your Azure subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
           | `[ERROR] Failed to download: context deadline exceeded` | The model file download request to our servers timed out. Make sure you have a strong internet connection to download all required files within one hour. Model downloads apply to Text Translation and some Speech service containers. |
+          | `The provided license path was not found. Please ensure a volume is mounted and a directory exists at the location specified by Mounts:License` | **Disconnected containers only.** There is no license file stored locally at the location specified in your docker run command. You may have mounted the license volume incorrectly. Be sure to check your local file system and provide a valid filepath to the desired local storage location for the license file using the -v argument in your docker run command. |
           | `Unknown` | The server is currently unable to process billing requests. |
 
       - question: How do I get support?
         answer: |
-          Customer support channels are the same as for the Azure AI services cloud-based APIs. All Azure AI services containers include logging features that help us and the community support customers. Here are options for more support:
+          Customer support channels are the same as for the Azure AI services cloud-based APIs. All Azure AI containers include logging features that help us and the community support customers. Here are options for more support:
           * Find contact information in your [Azure support plan](https://azure.microsoft.com/support/plans/).
           * Try these areas of [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow), a question-and-answer site for professional and enthusiast programmers:
             * [Azure AI services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
@@ -108,7 +109,7 @@ sections:
           * [Language service - key phrase extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#billing)
 
           > [!IMPORTANT]
-          > Azure AI services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to always communicate billing information with the metering service. Azure AI services containers don't send customer data to Microsoft.
+          > Azure AI containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to always communicate billing information with the metering service. Azure AI containers don't send customer data to Microsoft.
 
           Here's an example of the information that a container communicates for metering:
 
@@ -133,17 +134,17 @@ sections:
         answer: |
           Microsoft's standard warranty for enterprise software applies for all containers formally announced as generally available (GA). There's no warranty for previews.
 
-      - question: What happens to Azure AI services containers when internet connectivity is lost?
+      - question: What happens to Azure AI containers when internet connectivity is lost?
         answer: |
-          Azure AI services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to always communicate with the metering service.
+          Azure AI containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to always communicate with the metering service.
 
       - question:  How long can the container operate without being connected to Azure?
         answer: |
-          Azure AI services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to always communicate with the metering service.
+          Azure AI containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to always communicate with the metering service.
 
       - question: What hardware is required to run these containers?
         answer: |
-          Azure AI services containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
+          Azure AI containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
 
           * [Anomaly Detector](../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations)
           * [Azure AI Vision](../computer-vision/computer-vision-how-to-install-containers.md)
@@ -158,18 +159,18 @@ sections:
 
       - question: Are these containers currently supported on Windows?
         answer: |
-          Azure AI services containers are Linux containers, but there's some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](/virtualization/windowscontainers/deploy-containers/linux-containers).
+          Azure AI containers are Linux containers, but there's some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
-      - question:  How do Azure AI services containers compare to AWS and Google offerings?
+      - question:  How do Azure AI containers compare to AWS and Google offerings?
         answer: |
           Microsoft is the first cloud provider to move its pretrained AI models in containers with simple billing per transaction as though customers are using a cloud service. Microsoft believes a hybrid cloud gives customers more choice.
       - question: What compliance certifications do containers have?
         answer: |
-          Azure AI services containers don't have any compliance certifications.
+          Azure AI containers don't have any compliance certifications.
 
-      - question: What regions are Azure AI services containers available in?
+      - question: What regions are Azure AI containers available in?
         answer: |
           Containers can be run anywhere in any region, but they need a key and need to call back to Azure for metering. All supported regions for the cloud service are supported for the containers' metering call.
 
 additionalContent: |
-          * [How to use Azure AI services containers in disconnected environments](disconnected-containers.md)
+          * [How to use Azure AI containers in disconnected environments](disconnected-containers.md)

@@ -5,6 +5,7 @@ description: Learn how to configure certificate-based authentication with federa
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
+ms.custom: has-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 05/04/2022
 
@@ -14,11 +15,10 @@ manager: amycolannino
 ms.reviewer: annaba
 
 ms.collection: M365-identity-device-management
-
 ---
-# Get started with certificate-based authentication in Azure Active Directory with federation
+# Get started with certificate-based authentication in Microsoft Entra ID with federation
 
-Certificate-based authentication (CBA) with federation enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android, or iOS device when connecting your Exchange online account to:
+Certificate-based authentication (CBA) with federation enables you to be authenticated by Microsoft Entra ID with a client certificate on a Windows, Android, or iOS device when connecting your Exchange online account to:
 
 - Microsoft mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
@@ -26,7 +26,7 @@ Certificate-based authentication (CBA) with federation enables you to be authent
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
 >[!NOTE]
->As an alternative, organizations can deploy Azure AD CBA without needing federation. For more information, see [Overview of Azure AD certificate-based authentication against Azure Active Directory](concept-certificate-based-authentication.md).
+>As an alternative, organizations can deploy Microsoft Entra CBA without needing federation. For more information, see [Overview of Microsoft Entra certificate-based authentication against Microsoft Entra ID](concept-certificate-based-authentication.md).
 
 This topic:
 
@@ -37,16 +37,16 @@ This topic:
 
 To configure CBA with federation, the following statements must be true:
 
-- CBA with federation is only supported for Federated environments for browser applications, native clients using modern authentication, or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for federated and managed accounts. To configure Azure AD CBA without needing federation, see [How to configure Azure AD certificate-based authentication](how-to-certificate-based-authentication.md).
-- The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
+- CBA with federation is only supported for Federated environments for browser applications, native clients using modern authentication, or MSAL libraries. The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for federated and managed accounts. To configure Microsoft Entra CBA without needing federation, see [How to configure Microsoft Entra certificate-based authentication](how-to-certificate-based-authentication.md).
+- The root certificate authority and any intermediate certificate authorities must be configured in Microsoft Entra ID.
 - Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
-- You must have at least one certificate authority configured in Azure Active Directory. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.
-- For Exchange ActiveSync clients, the client certificate must have the user's routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.
+- You must have at least one certificate authority configured in Microsoft Entra ID. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.
+- For Exchange ActiveSync clients, the client certificate must have the user's routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Microsoft Entra ID maps the RFC822 value to the Proxy Address attribute in the directory.
 - Your client device must have access to at least one certificate authority that issues client certificates.
 - A client certificate for client authentication must have been issued to your client.
 
 >[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download and cache is 20MB, and the time required to download the CRL must not exceed 10 seconds.  If Azure Active Directory can't download a CRL, certificate based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates.
+>The maximum size of a CRL for Microsoft Entra ID to successfully download and cache is 20MB, and the time required to download the CRL must not exceed 10 seconds.  If Microsoft Entra ID can't download a CRL, certificate based authentications using certificates issued by the corresponding CA will fail. Best practices to ensure CRL files are within size constraints are to keep certificate lifetimes to within reasonable limits and to clean up expired certificates.
 
 ## Step 1: Select your device platform
 

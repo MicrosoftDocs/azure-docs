@@ -1,12 +1,12 @@
 ---
-title: Pre-populate contact information for self-service password reset
-description: Learn how to pre-populate contact information for users of Azure Active Directory self-service password reset (SSPR) so they can use the feature without completing a registration process.
+title: Prepopulate contact information for self-service password reset
+description: Learn how to prepopulate contact information for users of Microsoft Entra self-service password reset (SSPR) so they can use the feature without completing a registration process.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 09/21/2023
 
 ms.author: justinha
 author: justinha
@@ -14,16 +14,16 @@ manager: amycolannino
 ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management 
-ms.custom:
+ms.custom: has-azure-ad-ps-ref
 ---
-# Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
+# Prepopulate user authentication contact information for Microsoft Entra self-service password reset (SSPR)
 
-To use Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication information for a user must be present. Most organizations have users register their authentication data themselves while collecting information for MFA. Some organizations prefer to bootstrap this process through synchronization of authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Azure AD and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
+To use Microsoft Entra self-service password reset (SSPR), authentication information for a user must be present. Most organizations have users register their authentication data themselves while collecting information for MFA. Some organizations prefer to bootstrap this process through synchronization of authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Microsoft Entra ID and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
 
-You can pre-populate authentication contact information if you meet the following requirements:
+You can prepopulate authentication contact information if you meet the following requirements:
 
 * You have properly formatted the data in your on-premises directory.
-* You have configured [Azure AD Connect](../hybrid/connect/how-to-connect-install-express.md) for your Azure AD tenant.
+* You have configured [Microsoft Entra Connect](../hybrid/connect/how-to-connect-install-express.md) for your Microsoft Entra tenant.
 
 Phone numbers must be in the format *+CountryCode PhoneNumber*, such  as *+1 4251234567*.
 
@@ -34,20 +34,20 @@ Phone numbers must be in the format *+CountryCode PhoneNumber*, such  as *+1 425
 
 ## Fields populated
 
-If you use the default settings in Azure AD Connect, the following mappings are made to populate authentication contact information for SSPR:
+If you use the default settings in Microsoft Entra Connect, the following mappings are made to populate authentication contact information for SSPR:
 
-| On-premises Active Directory | Azure AD     |
+| On-premises Active Directory | Microsoft Entra ID     |
 |------------------------------|--------------|
 | telephoneNumber              | Office phone |
 | mobile                       | Mobile phone |
 
-After a user verifies their mobile phone number, the *Phone* field under **Authentication contact info** in Azure AD is also populated with that number.
+After a user verifies their mobile phone number, the *Phone* field under **Authentication contact info** in Microsoft Entra ID is also populated with that number.
 
 ## Authentication contact info
 
-On the **Authentication methods** page for an Azure AD user in the Azure portal, a Global Administrator can manually set the authentication contact information. You can review existing methods under the *Usable authentication methods* section, or **+Add authentication methods**, as shown in the following example screenshot:
+On the **Authentication methods** page for a Microsoft Entra user in the Microsoft Entra admin center, a Global Administrator can manually set the authentication contact information. You can review existing methods under the *Usable authentication methods* section, or **+Add authentication methods**, as shown in the following example screenshot:
 
-:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Manage authentication methods from the Azure portal":::
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Screenshot of how to manage authentication methods":::
 
 The following considerations apply for this authentication contact info:
 
@@ -56,7 +56,7 @@ The following considerations apply for this authentication contact info:
 
 ## Security questions and answers
 
-The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via My Security-Info's [Combined registration experience](https://aka.ms/mfasetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
+The security questions and answers are stored securely in your Microsoft Entra tenant and are only accessible to users via My Security-Info's [Combined registration experience](https://aka.ms/mfasetup). Administrators can't see, set, or modify the contents of another users' questions and answers.
 
 ## What happens when a user registers
 
@@ -79,8 +79,7 @@ The following fields can be set through PowerShell:
 * *Office phone*
     * Can only be set if you're not synchronizing with an on-premises directory.
 
-> [!IMPORTANT]
-> Azure AD PowerShell is planned for deprecation. You can start using [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) to interact with Azure AD as you would in Azure AD PowerShell, or use the [Microsoft Graph REST API for managing authentication methods](/graph/api/resources/authenticationmethods-overview).
+You can use [Microsoft Graph PowerShell](/powershell/microsoftgraph/overview) to interact with Microsoft Entra ID, or use the [Microsoft Graph REST API for managing authentication methods](/graph/api/resources/authenticationmethods-overview).
 
 ### Use Microsoft Graph PowerShell
 
@@ -121,47 +120,9 @@ Get-MgUser -UserId 'user@domain.com' | select businessPhones
 Get-MgUser -UserId 'user@domain.com' | Select businessPhones, mobilePhone, otherMails | Format-Table
 ```
 
-### Use Azure AD PowerShell
-
-To get started, [download and install the Azure AD version 2 PowerShell module](/powershell/module/azuread/).
-
-To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
-
-```PowerShell
-Get-Module AzureAD
-Install-Module AzureAD
-Connect-AzureAD
-```
-
-After the module is installed, use the following steps to configure each field.
-
-#### Set the authentication data with Azure AD PowerShell version 2
-
-```PowerShell
-Connect-AzureAD
-
-Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
-Set-AzureADUser -ObjectId user@domain.com -Mobile "+1 4251234567"
-Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 4252345678"
-
-Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 4251234567" -TelephoneNumber "+1 4252345678"
-```
-
-#### Read the authentication data with Azure AD PowerShell version 2
-
-```PowerShell
-Connect-AzureAD
-
-Get-AzureADUser -ObjectID user@domain.com | select otherMails
-Get-AzureADUser -ObjectID user@domain.com | select Mobile
-Get-AzureADUser -ObjectID user@domain.com | select TelephoneNumber
-
-Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,TelephoneNumber | Format-Table
-```
-
 ## Next steps
 
-Once authentication contact information is pre-populated for users, complete the following tutorial to enable self-service password reset:
+Once authentication contact information is prepopulated for users, complete the following tutorial to enable self-service password reset:
 
 > [!div class="nextstepaction"]
-> [Enable Azure AD self-service password reset](tutorial-enable-sspr.md)
+> [Enable Microsoft Entra self-service password reset](tutorial-enable-sspr.md)

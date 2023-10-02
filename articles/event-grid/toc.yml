@@ -7,6 +7,8 @@ items:
       href: overview.md
     - name: What's new?
       href: whats-new.md
+    - name: Choose the right tier
+      href: choose-right-tier.md
   - name: MQTT messaging
     items:
     - name: Overview
@@ -52,8 +54,8 @@ items:
         href: mqtt-support.md
       - name: MQTT clients life cycle events
         href: mqtt-client-life-cycle-events.md
-      - name: RBAC roles to authorize clients with Azure AD identity
-        href: mqtt-client-authorization-use-rbac.md
+      - name: JWT authentication and RBAC authorization for clients with Azure AD identity
+        href: mqtt-client-azure-ad-token-and-rbac.md
       - name: Use cases
         items:
         - name: Automotive Messaging
@@ -134,6 +136,8 @@ items:
         href: create-view-manage-namespace-topics.md
       - name: Create, view, and manage event subscriptions
         href: create-view-manage-event-subscriptions.md
+      - name: Enable managed identity for namespace
+        href: event-grid-namespace-managed-identity.md         
     - name: Reference
       items:
       - name: SDKs
@@ -335,6 +339,12 @@ items:
             href: ./event-schema-policy.md
           - name: Azure resource groups
             href: event-schema-resource-groups.md
+          - name: Azure Resource Notifications
+            items:
+            - name: Overview
+              href: event-schema-resource-notifications.md
+            - name: Health Resources
+              href: event-schema-health-resources.md
           - name: Azure Service Bus
             href: event-schema-service-bus.md
           - name: Azure SignalR
@@ -486,6 +496,8 @@ items:
         href: how-to-event-domains.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
+      - name: Subscribe to Azure Resource Notifications - Health Resources events
+        href: subscribe-to-resource-notifications-health-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
       - name: Move

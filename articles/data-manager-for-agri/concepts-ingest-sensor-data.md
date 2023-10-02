@@ -38,7 +38,7 @@ In addition to the above approach, IOT devices (sensors/nodes/gateway) can direc
 
 ## Sensor topology
 
-The following diagram depicts the topology of a sensor in Azure Data Manager for Agriculture. Each boundary under a party has a set of devices placed within it. A device can be either be a node or a gateway and each device has a set of sensors associated with it. Sensors send the recordings via gateway to the cloud. Sensors are tagged with GPS coordinates helping in creating a geospatial time series for all measured data.
+The following diagram depicts the topology of a sensor in Azure Data Manager for Agriculture. Each geometry under a party has a set of devices placed within it. A device can be either be a node or a gateway and each device has a set of sensors associated with it. Sensors send the recordings via gateway to the cloud. Sensors are tagged with GPS coordinates helping in creating a geospatial time series for all measured data.
 
 :::image type="content" source="./media/sensor-topology-new.png" alt-text="Screenshot showing sensor topology.":::
 

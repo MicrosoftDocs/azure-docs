@@ -259,7 +259,7 @@ For more information, see [Overview of Backup Center](backup-center-overview.md)
 You can stop operational backup for your storage account according to your requirement.
 
 >[!NOTE]
->When you remove backups, the **OR policy** isn't removed from the source. So, you need to remove the policy separately. Stopping protection only dissociates the storage account from the Backup vault (and the backup tools, such as Backup center), and doesn’t disable blob point-in-time restore, versioning, and change feed that were configured.
+>When you remove backups, the **object replication policy** isn't removed from the source. So, you need to remove the policy separately. Stopping protection only dissociates the storage account from the Backup vault (and the backup tools, such as Backup center), and doesn’t disable blob point-in-time restore, versioning, and change feed that were configured.
 
 To stop backup for a storage account, follow these steps:
 

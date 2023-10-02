@@ -1,5 +1,5 @@
 ---
-title: How to leverage virtual TPMs in Azure confidential VMs
+title: Leverage virtual TPMs in Azure confidential VMs
 description: Learn how to use the vTPM benefits after building trust in a confidential VM.
 author: simranparkhe
 ms.service: virtual-machines
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/02/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
-# How to leverage virtual TPMs in Azure confidential VMs
+# Leverage virtual TPMs in Azure confidential VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -47,7 +47,7 @@ These steps list out which artifacts you need and how to get them:
 
     The AMD Versioned Chip Endorsement Key (VCEK) is used to sign the AMD SEV-SNP report. The VCEK certificate allows you to verify that the report was signed by a genuine AMD CPU key. There are two ways retrieve the certificate:
 
-    a.	Obtain the VCEK certificate by running the following command – it obtains the cert from a well-known IMDS endpoint: 
+    a.	Obtain the VCEK certificate by running the following command – it obtains the cert from a well-known [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service) (IMDS) endpoint: 
     ```bash
     curl -H Metadata:true http://169.254.169.254/metadata/THIM/amd/certification > vcek
     cat ./vcek | jq -r '.vcekCert , .certificateChain' > ./vcek.pem

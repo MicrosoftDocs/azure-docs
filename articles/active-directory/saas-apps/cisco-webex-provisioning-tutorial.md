@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Cisco Webex for automatic user provisioning with Azure Active Directory'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Cisco Webex.
+title: 'Tutorial: Configure Cisco Webex for automatic user provisioning with Microsoft Entra ID'
+description: Learn how to configure Microsoft Entra ID to automatically provision and de-provision user accounts to Cisco Webex.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -15,77 +15,70 @@ ms.author: thwimmer
 
 # Tutorial: Configure Cisco Webex for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Cisco Webex  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users to Cisco Webex.
+The objective of this tutorial is to demonstrate the steps to be performed in Cisco Webex  and Microsoft Entra ID to configure Microsoft Entra ID to automatically provision and de-provision users to Cisco Webex.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+> This tutorial describes a connector built on top of the Microsoft Entra user provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Microsoft Entra ID](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in Preview. For more information about previews, see [Universal License Terms For Online Services](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant.
+* A Microsoft Entra tenant.
 * [A Cisco Webex tenant](https://www.webex.com/pricing/index.html).
 * A user account in Cisco Webex  with Admin permissions.
 
 > [!NOTE]
-> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+> This integration is also available to use from Microsoft Entra US Government Cloud environment. You can find this application in the Microsoft Entra US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Adding Cisco Webex from the gallery
 
-Before configuring Cisco Webex for automatic user provisioning with Azure AD, you need to add Cisco Webex from the Azure AD application gallery to your list of managed SaaS applications.
+Before configuring Cisco Webex for automatic user provisioning with Microsoft Entra ID, you need to add Cisco Webex from the Microsoft Entra application gallery to your list of managed SaaS applications.
 
-**To add Cisco Webex from the Azure AD application gallery, perform the following steps:**
+**To add Cisco Webex from the Microsoft Entra application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
-
-    ![The Azure Active Directory button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-    ![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add new application, click **New application** button on the top of dialog.
-
-    ![The New application button](common/add-new-app.png)
-
-4. In the search box, type **Cisco Webex**, select **Cisco Webex** from result panel then click **Add** button to add the application.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **New application**.
+1. In the **Add from the gallery** section, type **Cisco Webex**, select **Cisco Webex** from result panel then click **Add** button to add the application.
 
     ![Cisco Webex in the results list](media/cisco-webex-provisioning-tutorial/search-cisco-app.png)
 
 ## Assigning users to Cisco Webex
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized.
+Microsoft Entra ID uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Microsoft Entra ID are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users in Azure AD need access to Cisco Webex. Once decided, you can assign these users to Cisco Webex by following the instructions here:
+Before configuring and enabling automatic user provisioning, you should decide which users in Microsoft Entra ID need access to Cisco Webex. Once decided, you can assign these users to Cisco Webex by following the instructions here:
 
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Cisco Webex
 
-* It is recommended that a single Azure AD user is assigned to Cisco Webex to test the automatic user provisioning configuration. Additional users may be assigned later.
+* It is recommended that a single Microsoft Entra user is assigned to Cisco Webex to test the automatic user provisioning configuration. Additional users may be assigned later.
 
 * When assigning a user to Cisco Webex, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to Cisco Webex
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Cisco Webex based on user assignments in Azure AD.
+This section guides you through the steps to configure the Microsoft Entra provisioning service to create, update, and disable users in Cisco Webex based on user assignments in Microsoft Entra ID.
 
-### To configure automatic user provisioning for Cisco Webex in Azure AD:
+<a name='to-configure-automatic-user-provisioning-for-cisco-webex-in-azure-ad'></a>
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Cisco Webex**.
+### To configure automatic user provisioning for Cisco Webex in Microsoft Entra ID:
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator).
+1. Browse to **Identity** > **Applications** > **Enterprise applications** > **Cisco Webex**.
 
     ![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Cisco Webex**.
+1. In the applications list, select **Cisco Webex**.
 
     ![The Cisco Webex link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
-    :::image type="content" source="common/provisioning.png" alt-text="Screenshot of a menu in the Azure portal. Under Manage, Provisioning is highlighted." border="false":::
+    :::image type="content" source="common/provisioning.png" alt-text="Screenshot of a menu. Under Manage, Provisioning is highlighted." border="false":::
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
@@ -105,7 +98,7 @@ This section guides you through the steps to configure the Azure AD provisioning
         
         :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test1.png" alt-text="Screenshot showing a long U R L. Part of the address is indecipherable but is highlighted and labeled Bearer token." border="false":::
 
-7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Cisco Webex. If the connection fails, ensure your Cisco Webex account has Admin permissions and try again.
+7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Microsoft Entra ID can connect to Cisco Webex. If the connection fails, ensure your Cisco Webex account has Admin permissions and try again.
 
     ![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
    
@@ -115,17 +108,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Click **Save**.
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Cisco Webex**.
+10. Under the **Mappings** section, select **Synchronize Microsoft Entra users to Cisco Webex**.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section in the Azure portal. Under Name, Synchronize Azure Active Directory Users to CiscoSpark is highlighted." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Microsoft Entra users to CiscoSpark is highlighted." border="false":::
 
-11. Review the user attributes that are synchronized from Azure AD to Cisco Webex in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cisco Webex for update operations. Select the **Save** button to commit any changes.
+11. Review the user attributes that are synchronized from Microsoft Entra ID to Cisco Webex in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Cisco Webex for update operations. Select the **Save** button to commit any changes.
 
-    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Screenshot of the Attribute Mappings section showing Azure Active Directory attributes, corresponding CiscoSpark attributes, and the matching status." border="false":::
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Screenshot of the Attribute Mappings section showing Microsoft Entra attributes, corresponding CiscoSpark attributes, and the matching status." border="false":::
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Cisco Webex, change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Microsoft Entra provisioning service for Cisco Webex, change the **Provisioning Status** to **On** in the **Settings** section.
 
     ![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -137,9 +130,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
     ![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Cisco Webex.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Microsoft Entra provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Microsoft Entra provisioning service on Cisco Webex.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+For more information on how to read the Microsoft Entra provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -149,7 +142,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Microsoft Entra ID?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 

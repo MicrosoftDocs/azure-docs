@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About Network Watcher
-    href: network-watcher-monitoring-overview.md
+    href: network-watcher-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -30,7 +30,7 @@
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
-    href: network-watcher-nsg-flow-logging-portal.md
+    href: nsg-flow-logs-tutorial.md
 - name: Concepts
   items:
   - name: Network Watcher FAQ
@@ -40,21 +40,23 @@
   - name: Connection monitor schema
     href: connection-monitor-schema.md
   - name: IP flow verify
-    href: network-watcher-ip-flow-verify-overview.md
+    href: ip-flow-verify-overview.md
   - name: NSG diagnostics
     href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Next hop
     href: network-watcher-next-hop-overview.md
   - name: Connection troubleshoot
-    href: network-watcher-connectivity-overview.md
+    href: connection-troubleshoot-overview.md
   - name: VPN troubleshoot
     href: network-watcher-troubleshoot-overview.md
   - name: Packet capture
     href: network-watcher-packet-capture-overview.md
   - name: Effective security rules
-    href: network-watcher-security-group-view-overview.md
+    href: effective-security-rules-overview.md
   - name: NSG flow logs
     href: network-watcher-nsg-flow-logging-overview.md
+  - name: VNet flow logs
+    href: vnet-flow-logs-overview.md
   - name: Traffic analytics
     items:
     - name: Overview
@@ -73,8 +75,6 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
-  - name: Moving Network Watcher resources
-    href: resource-move.md
 - name: How-to guides
   items:
   - name: Enable Network Watcher
@@ -185,6 +185,12 @@
         href: network-watcher-nsg-flow-logging-azure-resource-manager.md
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
+    - name: Manage VNet flow logs
+      items:
+      - name: PowerShell
+        href: vnet-flow-logs-powershell.md
+      - name: Azure CLI
+        href: vnet-flow-logs-cli.md
     - name: Read NSG flow logs
       href: network-watcher-read-nsg-flow-logs.md
     - name: Analyze NSG flow logs
@@ -213,8 +219,6 @@
         href: network-watcher-security-group-view-powershell.md
       - name: Azure CLI
         href: network-watcher-security-group-view-cli.md
-      - name: REST
-        href: network-watcher-security-group-view-rest.md
     - name: Perform compliance and audit your network
       href: network-watcher-nsg-auditing-powershell.md
   - name: View network topology

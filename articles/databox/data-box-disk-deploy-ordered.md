@@ -2,13 +2,13 @@
 title: Tutorial to order Azure Data Box Disk | Microsoft Docs
 description: Use this tutorial to learn how to sign up and order an Azure Data Box Disk to import data into Azure.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.date: 10/21/2022
-ms.author: alkohli
+ms.author: shaas
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order an Azure Data Box Disk

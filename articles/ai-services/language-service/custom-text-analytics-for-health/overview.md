@@ -5,8 +5,7 @@ description: Customize an AI model to label and extract healthcare information f
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
 ms.date: 04/14/2023
 ms.author: aahi

@@ -18,19 +18,15 @@ ms.custom: template-how-to
 When a workflow is created, it's important to check its status, and run history to make sure it ran properly for the users it processed both by schedule and by on-demand. To get information about the status of workflows, Lifecycle Workflows allows you to check run and user processing history. This history also gives you summaries to see how often a workflow has run, and who it ran successfully for. You're also able to check the status of both the workflow, and its tasks. Checking the status of workflows and their tasks allows you to troubleshoot potential problems that could come up during their execution.
 
 
-## Run workflow history using the Azure portal
+## Run workflow history using the Microsoft Entra admin center
 
 [!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
 
-You're able to retrieve run information of a workflow using Lifecycle Workflows. To check the runs of a workflow using the Azure portal, you would do the following steps:
+You're able to retrieve run information of a workflow using Lifecycle Workflows. To check the runs of a workflow using the Microsoft Entra Admin center, you would do the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Lifecycle Workflows Administrator](../roles/permissions-reference.md#lifecycle-workflows-administrator).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**.
-
-1. On the left menu, select **Lifecycle Workflows**.
-
-1. On the Lifecycle Workflows overview page, select **Workflows**.
+1. Browse to **Identity governance** > **Lifecycle workflows** > **workflows**.
 
 1. Select the workflow you want to run history of. 
 
@@ -42,10 +38,9 @@ You're able to retrieve run information of a workflow using Lifecycle Workflows.
     :::image type="content" source="media/check-status-workflow/run-list.png" alt-text="Screenshot of a workflow Runs list.":::
 1. The runs summary cards include the total number of processed runs, the number of successful runs, the number of failed runs, and the total number of failed tasks.   
 
-## User workflow history using the Azure portal
+## User workflow history using the Microsoft Entra admin center
 
-To get further information than just the runs summary for a workflow, you're also able to get information about users processed by a workflow. To check the status of users a workflow has processed using the Azure portal, you would do the following steps:
-
+To get further information than just the runs summary for a workflow, you're also able to get information about users processed by a workflow. To check the status of users a workflow has processed using the Microsoft Entra admin center, you would do the following steps:
  
 1. In the left menu, select **Lifecycle Workflows**.
 

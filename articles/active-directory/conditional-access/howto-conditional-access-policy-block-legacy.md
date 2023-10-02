@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policy: Block legacy authentication
 
-Due to the increased risk associated with legacy authentication protocols, Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication. For more information about why blocking legacy authentication is important, see the article [How to: Block legacy authentication to Azure AD with Conditional Access](block-legacy-authentication.md).
+Due to the increased risk associated with legacy authentication protocols, Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication. For more information about why blocking legacy authentication is important, see the article [How to: Block legacy authentication to Microsoft Entra ID with Conditional Access](block-legacy-authentication.md).
 
 ## Template deployment
 
@@ -27,8 +27,8 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they'll have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
 
-1. Sign in to the **[Microsoft Entra admin center](https://entra.microsoft.com)** as a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
-1. Browse to **Microsoft Entra ID (Azure AD)** > **Protection** > **Conditional Access**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access**.
 1. Select **Create new policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users or workload identities**.

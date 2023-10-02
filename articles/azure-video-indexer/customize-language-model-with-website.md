@@ -1,14 +1,16 @@
 ---
 title: Customize Language model with Azure AI Video Indexer website
 description: Learn how to customize a Language model with the Azure AI Video Indexer website.
-author: anikaz
-manager: johndeu
 ms.topic: article
 ms.date: 08/10/2020
+ms.custom: prevauth-anikaz
 ms.author: kumud
+author: IngridAtMicrosoft
 ---
 
 # Customize a Language model with the Azure AI Video Indexer website
+
+[!INCLUDE [AMS AVI retirement announcement](./includes/important-ams-retirement-avi-announcement.md)]
 
 Azure AI Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized.
 

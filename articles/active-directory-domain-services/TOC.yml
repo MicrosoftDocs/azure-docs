@@ -1,8 +1,8 @@
-- name: Azure AD Domain Services documentation
+- name: Microsoft Entra Domain Services documentation
   href: index.yml
 - name: Overview
   items:
-    - name: What is Azure AD Domain Services?
+    - name: What is Microsoft Entra Domain Services?
       href: overview.md
     - name: Compare identity services
       href: compare-identity-solutions.md
@@ -49,29 +49,29 @@
       href: concepts-replica-sets.md
     - name: Forests trusts
       href: concepts-forest-trust.md
-    - name: How Azure AD DS synchronization works
+    - name: How Domain Services synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
-      href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+      href: /azure/active-directory/hybrid/connect/how-to-connect-password-hash-synchronization?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Custom attributes
       href: concepts-custom-attributes.md
     - name: Virtual network considerations
       href: network-considerations.md
-    - name: What is Azure Active Directory?
-      href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
-    - name: Azure Active Directory architecture
-      href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: What is Microsoft Entra ID?
+      href: /azure/active-directory/fundamentals/whatis?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Microsoft Entra architecture
+      href: /azure/active-directory/architecture/architecture?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: How to
   items:
     - name: Configure common settings
       items:
-        - name: Configure scoped synchronization from Azure AD
+        - name: Configure scoped synchronization from Microsoft Entra ID
           href: scoped-synchronization.md
         - name: Create an organizational unit (OU)
           href: create-ou.md
         - name: Create a group managed service account (gMSA)
           href: create-gmsa.md
-    - name: Manage Azure AD DS
+    - name: Manage Domain Services
       items:
         - name: Administer Group Policy
           href: manage-group-policy.md
@@ -89,7 +89,7 @@
           href: change-sku.md
         - name: Retrieve data
           href: how-to-data-retrieval.md
-    - name: Secure Azure AD DS
+    - name: Secure Domain Services
       items:
         - name: Secure your managed domain
           href: secure-your-domain.md
@@ -125,7 +125,7 @@
           href: ad-auth-no-join-linux-vm.md
     - name: Deploy applications
       items:
-        - name: Deploy Azure AD Application Proxy
+        - name: Deploy Microsoft Entra application proxy
           href: deploy-azure-app-proxy.md
         - name: Enable profile synchronization for SharePoint Server
           href: deploy-sp-profile-sync.md
@@ -172,7 +172,7 @@
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory-ds/
-    - name: Azure AD feedback forum
+    - name: Microsoft Entra feedback forum
       href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
-    - name: Use Azure AD Domain Services in Azure CSP subscriptions
+    - name: Use Microsoft Entra Domain Services in Azure CSP subscriptions
       href: csp.md
