@@ -146,7 +146,7 @@ Use the following steps to connect your service instances:
    | `SPRING_DATASOURCE_USERNAME` | `<your-PostgreSQL-admin-user>`                                                         |
    | `SPRING_DATASOURCE_PASSWORD` | `<your-PostgreSQL-admin-password>`                                                     |
 
-   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection page for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png":::
+   :::image type="content" source="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png" alt-text="Screenshot of the Azure portal that shows the Environment variables tab with all the values for the PostgreSQL connection." lightbox="../../media/quickstart-deploy-restful-api-app/consumption-app-env-variables.png":::
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
