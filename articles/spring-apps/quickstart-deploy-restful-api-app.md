@@ -29,7 +29,7 @@ These RESTful APIs are protected by applying role-based access control (RBAC). A
 
 After the deployment is successful, you can view and test the APIs through the Swagger UI.
 
-:::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui.png" alt-text="Image that shows the API document of Swagger UI." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui.png":::
+:::image type="content" source="media/quickstart-deploy-restful-api-app/swagger-ui.png" alt-text="Screenshot of the Swagger UI that shows the API document." lightbox="media/quickstart-deploy-restful-api-app/swagger-ui.png":::
 
 The following diagram shows the architecture of the system:
 
