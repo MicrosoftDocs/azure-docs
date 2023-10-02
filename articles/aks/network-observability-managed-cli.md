@@ -1,87 +1,77 @@
 ---
-title: Use Azure-managed Prometheus and Grafana with the Network Observability add-on for Azure Kubernetes Service (AKS) (Preview)
-description: Learn how to use Azure-managed Prometheus and Grafana with the Network Observability add-on for AKS.
+title: "Setup of Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
+description: Get started with AKS Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
 author: asudbring
 ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 06/20/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Use Azure-managed Prometheus and Grafana with the Network Observability add-on for Azure Kubernetes Service (AKS) (Preview)
+# Setup of Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
-The Network Observability add-on for AKS collects the network traffic data from your clusters and enables a centralized platform for monitoring application and network health. Prometheus collects the network metrics and Grafana visualizes them. Network Observability supports Cilium and non-Cilium data planes. In this article, you learn how to enable the Network Observability add-on for AKSf and use Azure-managed Prometheus and Grafana to visualize the scraped metrics.
+AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
 
 > [!IMPORTANT]
-> AKS Network Observability is currently in preview.
+> AKS Network Observability is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-For more information, see [What is AKS Network Observability?](network-observability-overview.md)
+For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
-## Before you begin
+## Prerequisites
 
-- You need an Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-- This article requires Azure CLI version 2.44.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-- [Install or update the `aks-preview` Azure CLI extension](#install-the-aks-preview-azure-cli-extension).
-- [Register the `NetworkObservabilityPreview` feature flag](#register-the-networkobservabilitypreview-feature-flag).
-
+- Minimum version of **Azure CLI** required for the steps in this article is **2.44.0**. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 ### Install the `aks-preview` Azure CLI extension
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-- Install or update to the latest version of the `aks-preview` extension using the [`az extension add`](/cli/azure/extension#az-extension-add) or [`az extension update`](/cli/azure/extension#az-extension-update) command.
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
 
-    ```azurecli-interactive
-    # Install the aks-preview extension
-    az extension add --name aks-preview
-    
-    # Update the aks-preview extension to make sure you have the latest version installed
-    az extension update --name aks-preview
-    ```
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register the `NetworkObservabilityPreview` feature flag
 
-1. Register the `NetworkObservabilityPreview` feature flag using the [`az feature register`](/cli/azure/feature#az-feature-register) command.
+```azurecli-interactive 
+az feature register --namespace "Microsoft.ContainerService" --name "NetworkObservabilityPreview"
+```
 
-    ```azurecli-interactive
-    az feature register --namespace "Microsoft.ContainerService" --name "NetworkObservabilityPreview"
-    ```
+Use [az feature show](/cli/azure/feature#az-feature-show) to check the registration status of the feature flag:
 
-2. Check the registration status using the [`az feature show`](/cli/azure/feature#az-feature-show) command.
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "NetworkObservabilityPreview"
+```
 
-    ```azurecli-interactive
-    az feature show --namespace "Microsoft.ContainerService" --name "NetworkObservabilityPreview"
-    ```
+Wait for the feature to say **Registered** before preceding with the article.
 
-    Wait for the state in the output to change from *Registering* to *Registered* before preceding with the article.
+```output
+{
+  "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/providers/Microsoft.Features/providers/Microsoft.ContainerService/features/NetworkObservabilityPreview",
+  "name": "Microsoft.ContainerService/NetworkObservabilityPreview",
+  "properties": {
+    "state": "Registering"
+  },
+  "type": "Microsoft.Features/providers/features"
+}
+```
+When the feature is registered, refresh the registration of the Microsoft.ContainerService resource provider with [az provider register](/cli/azure/provider#az-provider-register):
 
-    ```output
-    {
-      "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/providers/Microsoft.Features/providers/Microsoft.ContainerService/features/NetworkObservabilityPreview",
-      "name": "Microsoft.ContainerService/NetworkObservabilityPreview",
-      "properties": {
-        "state": "Registering"
-      },
-      "type": "Microsoft.Features/providers/features"
-    }
-    ```
-
-3. Once the feature shows as *Registered*, refresh the registration of the resource provider using the [`az provider register`](/cli/azure/provider#az-provider-register) command.
-
-    ```azurecli-interactive
-    az provider register -n Microsoft.ContainerService
-    ```
+```azurecli-interactive
+az provider register -n Microsoft.ContainerService
+```
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed.
-
-Create a resource group with [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **myResourceGroup** in the **eastus** location:
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group with [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **myResourceGroup** in the **eastus** location:
 
 ```azurecli-interactive
 az group create \
