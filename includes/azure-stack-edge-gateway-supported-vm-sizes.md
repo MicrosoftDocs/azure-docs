@@ -11,8 +11,8 @@ The VM size determines the amount of compute resources (like CPU, GPU, and memor
 The following VMs are supported for creation on your Azure Stack Edge device.
 
 ### Dv2-series
-| Size             | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  | Premium Support |
-|------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| Size             | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  | Premium Storage |
+|------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|---|
 | **Standard_D1_v2**   | 1     | 3.5           | 50                  | 1000                           | 3000                                | 500                              | 4               | 2         | No  |
 | **Standard_D2_v2**   | 2     | 7             | 100                 | 1000                           | 6000                                | 500                              | 8               | 4         | No  |
 | **Standard_D3_v2**   | 4     | 14            | 200                 | 1000                           | 12000                               | 500                              | 16              | 4         | No  |
@@ -26,8 +26,8 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 
 
 ### DSv2-series
-| Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  | Premium Support |
-|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  | Premium Storage |
+|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|---|
 | **Standard_DS1_v2**   | 1     | 3.5           | 7                   | 2000                           | 4000                                | 2300                             | 4               | 2         | Yes |
 | **Standard_DS2_v2**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 2         | Yes |
 | **Standard_DS3_v2**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         | Yes |
@@ -48,8 +48,8 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 
 #### NVIDIA Tesla T4 GPU
 
-| Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  | Premium Support |
-|-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
+| Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  | Premium Storage |
+|-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|---|
 | **Standard_NC4as_T4_v3**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         | Yes |
 | **Standard_NC8as_T4_v3**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         | Yes |
 | **Standard_NC16as_T4_v3**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         | Yes |
@@ -64,8 +64,8 @@ For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v
 #### NVIDIA A2 Tensor Core GPU
 
 
-| Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  | Premium Support |
-|-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|
+| Size                  | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | GPU  | GPU memory (GiB)  | Max NICs  | Premium Storage |
+|-----------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|------|-------------------|-----------|---|
 | **Standard_NC4as_A2**  | 4     | 28            | 176                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 4         | Yes |
 | **Standard_NC8as_A2**  | 8     | 56            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         | Yes |
 | **Standard_NC16as_A2**   | 16    | 110            | 352                 | 2000                           | 48000                               | 2300                             | 1    | 16                | 8         | Yes |
@@ -79,8 +79,8 @@ For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v
 
 These series are optimized for computational workloads and run on Intel Xeon processors. 
 
-| Size           | vCPU  | Memory: GiB  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  | Premium Support |
-|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| Size           | vCPU  | Memory: GiB  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs  | Premium Storage |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|---|
 | **Standard_F1**    | 1       | 2            | 16                  | 1000                           | 3000                                | 500                              | 4               | 2         | Yes |
 | **Standard_F2**    | 2       | 4            | 32                  | 1000                           | 6000                                | 500                              | 8               | 4         | Yes |
 | **Standard_F4**    | 4       | 8            | 64                  | 1000                           | 12000                               | 500                              | 16              | 4         | Yes |
@@ -105,55 +105,55 @@ The high-performance network (HPN) virtual machines are tailored for workloads t
 
 #### HPN DSv2-series
 
-| Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  
-|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
-| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 14         |
-| **Standard_DS3_v2_HPN**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         |
-| **Standard_DS4_v2_HPN**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         |
+| Size              | vCPU  | Memory (GiB)  | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  Premium Storage | 
+|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|---|
+| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 14         | Yes |
+| **Standard_DS3_v2_HPN**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         | Yes |
+| **Standard_DS4_v2_HPN**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         | Yes |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
 #### HPN F-series
 
-| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  |
-|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
-| **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 14         |
-| **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |
-| **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |
-| **Standard_F12s_HPN**  | 12      | 24           | 48                  |             2000                           | 48000                                  | 2300                             | 64              | 14
-| **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |
-| **Standard_F12_HPN**   | 12      | 24           | 64                 | 1000                           | 48000                               |   500                             | 64              | 14         |
+| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | Premium Storage |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|---|
+| **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 14         | Yes |
+| **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         | Yes |
+| **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         | Yes |
+| **Standard_F12s_HPN**  | 12      | 24           | 48                  |             2000                           | 48000                                  | 2300                             | 64              | 14 | Yes |
+| **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         | Yes |
+| **Standard_F12_HPN**   | 12      | 24           | 64                 | 1000                           | 48000                               |   500                             | 64              | 14         | Yes |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
 #### HPN and NVIDIA Tesla T4 GPU series
 
-| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
-|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
-| **Standard_DS2_v2_HPN_T4_v3**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  |
-| **Standard_DS3_v2_HPN_T4_v3**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
-| **Standard_DS4_v2_HPN_T4_v3**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
-| **Standard_F2s_HPN_T4_v3**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 14         |1   |16  |
-| **Standard_F4s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
-| **Standard_F8s_HPN_T4_v3**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
-| **Standard_F12s_HPN_T4_v3**   | 12       | 24            | 48                  | 2000                           | 48000                               | 2300                             | 64              | 14         |1   |16  |
-| **Standard_F16s_HPN_T4_v3**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |1   |16  |
-| **Standard_F12_HPN_T4_v3**   | 12       | 24            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  |
+| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   | Premium Storage |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|---|
+| **Standard_DS2_v2_HPN_T4_v3**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  | Yes |
+| **Standard_DS3_v2_HPN_T4_v3**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  | Yes |
+| **Standard_DS4_v2_HPN_T4_v3**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  | Yes |
+| **Standard_F2s_HPN_T4_v3**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 14         |1   |16  | Yes |
+| **Standard_F4s_HPN_T4_v3**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  | Yes |
+| **Standard_F8s_HPN_T4_v3**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  | Yes |
+| **Standard_F12s_HPN_T4_v3**   | 12       | 24            | 48                  | 2000                           | 48000                               | 2300                             | 64              | 14         |1   |16  | Yes |
+| **Standard_F16s_HPN_T4_v3**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |1   |16  | Yes |
+| **Standard_F12_HPN_T4_v3**   | 12       | 24            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  | Yes |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
 
 #### HPN and NVIDIA Tesla A2 Tensor Core GPU series
 
-| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   |
-|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|   
-| **Standard_DS2_v2_HPN_A2**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  |
-| **Standard_DS3_v2_HPN_A2**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
-| **Standard_DS4_v2_HPN_A2**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
-| **Standard_F2s_HPN_A2**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 14         |1   |16  |
-| **Standard_F4s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  |
-| **Standard_F8s_HPN_A2**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  |
-| **Standard_F12s_HPN_A2**   | 12       | 24            | 48                  | 2000                           | 48000                               | 2300                             | 64              | 14         |1   |16  |
-| **Standard_F16s_HPN_A2**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |1   |16  |
-| **Standard_F12_HPN_A2**   | 12       | 64            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  |
+| Size           | vCPU  | Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS)  | Max temp storage throughput (IOPS)  | Max data disk throughput (IOPS)  | Max data disks  | Max NICs<sup>1</sup>  | GPU   | GPU memory (GiB)   | Premium Storage |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|------|------|---|
+| **Standard_DS2_v2_HPN_A2**   | 2       | 7            | 14                   | 2000                           | 8000                                | 2300                             | 8               | 14         |1   |16  | Yes |
+| **Standard_DS3_v2_HPN_A2**   | 4       | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  | Yes |
+| **Standard_DS4_v2_HPN_A2**   | 8       | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  | Yes |
+| **Standard_F2s_HPN_A2**   | 2       | 4            | 8                  | 2000                           | 8000                               | 2300                             | 8              | 14         |1   |16  | Yes |
+| **Standard_F4s_HPN_A2**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 14         |1   |16  | Yes |
+| **Standard_F8s_HPN_A2**   | 8       | 16            | 32                  | 2000                           | 32000                               | 2300                             | 32              | 14         |1   |16  | Yes |
+| **Standard_F12s_HPN_A2**   | 12       | 24            | 48                  | 2000                           | 48000                               | 2300                             | 64              | 14         |1   |16  | Yes |
+| **Standard_F16s_HPN_A2**   | 16       | 32            | 64                  | 2000                           | 64000                               | 2300                             | 64              | 14         |1   |16  | Yes |
+| **Standard_F12_HPN_A2**   | 12       | 64            | 64                  | 1000                           | 48000                               | 500                             | 64              | 14         |1   |16  | Yes |
 
 <sup>1</sup>Windows Server 2016 Datacenter VHD has a limit of 8 NICs for all HPN VM sizes.
