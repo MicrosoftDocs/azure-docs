@@ -12,7 +12,7 @@ ms.date: 05/16/2023
 
 A snapshot is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
 
-A brief overview is available in this [video](https://aka.ms/appconfig/snapshotVideo) which highlights three reasons that snapshots are an important tool in App Configuration.
+A brief overview is available in this [video](https://aka.ms/appconfig/snapshotVideo), highlighting three reasons that snapshots can be helpful to you.
 
 ## Deploy safely with snapshots
 
