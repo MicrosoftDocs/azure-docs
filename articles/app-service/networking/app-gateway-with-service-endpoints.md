@@ -25,11 +25,11 @@ This article walks through how to configure Application Gateway with App Service
 
 ## Integration with App Service (multitenant)
 
-App Service (multitenant) has a public internet-facing endpoint. By using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), you can allow traffic from only a specific subnet within an Azure virtual network and block everything else. In the following scenario, you use this functionality to ensure that an App Service instance can receive traffic from only a specific Application Gateway instance.
+App Service (multitenant) has a public internet-facing endpoint. By using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), you can allow traffic from only a specific subnet within an Azure virtual network and block everything else. In the following scenario, you use this functionality to ensure that an App Service instance can receive traffic from only a specific application gateway.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram that shows the internet flowing to an Application Gateway instance in an Azure virtual network and flowing from there through a firewall icon to instances of apps in App Service.":::
+:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram that shows the internet flowing to an application gateway in an Azure virtual network and flowing from there through a firewall icon to instances of apps in App Service.":::
 
-There are two parts to this configuration, aside from creating the App Service and Application Gateway instances. The first part is enabling service endpoints in the subnet of the virtual network where Application Gateway is deployed. Service endpoints ensure that all network traffic leaving the subnet toward App Service is tagged with the specific subnet ID.
+There are two parts to this configuration, aside from creating the App Service instance and the application gateway. The first part is enabling service endpoints in the subnet of the virtual network where Application Gateway is deployed. Service endpoints ensure that all network traffic leaving the subnet toward App Service is tagged with the specific subnet ID.
 
 The second part is to set an access restriction on the specific web app to ensure that only traffic tagged with this specific subnet ID is allowed. You can configure the access restriction by using different tools, depending on your preference.
 
@@ -38,7 +38,7 @@ The second part is to set an access restriction on the specific web app to ensur
 With the Azure portal, you follow four steps to create and configure the setup of App Service and Application Gateway. If you have existing resources, you can skip the first steps.
 
 1. Create an App Service instance by using one of the quickstarts in the App Service documentation. One example is the [.NET Core quickstart](../quickstart-dotnetcore.md).
-2. Create an Application Gateway instance by using the [portal quickstart](../../application-gateway/quick-create-portal.md), but skip the section about adding back-end targets.
+2. Create an application gateway by using the [portal quickstart](../../application-gateway/quick-create-portal.md), but skip the section about adding back-end targets.
 3. Configure [App Service as a back end in Application Gateway](../../application-gateway/configure-web-app.md), but skip the section about restricting access.
 4. Create the [access restriction by using service endpoints](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
@@ -54,7 +54,7 @@ To apply the template, you can use the **Deploy to Azure** button in the descrip
 
 ## Set up services by using the Azure CLI
 
-The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) creates an App Service instance that's locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. If you only need to isolate traffic to an existing App Service instance from an existing Application Gateway instance, use the following command:
+The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-application-gateway.md) creates an App Service instance that's locked down with service endpoints and an access restriction to receive traffic only from Application Gateway. If you only need to isolate traffic to an existing App Service instance from an existing application gateway, use the following command:
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group myRG --name myWebApp --rule-name AppGwSubnet --priority 200 --subnet mySubNetName --vnet-name myVnetName
@@ -66,7 +66,7 @@ In the default configuration, the command ensures both setup of the service endp
 
 As an alternative to service endpoints, you can use private endpoints to secure traffic between Application Gateway and App Service (multitenant). You need to ensure that Application Gateway can use DNS to resolve the private IP address of the App Service apps. Alternatively, you can use the private IP address in the back-end pool and override the host name in the HTTP settings.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to Application Gateway in an Azure virtual network and flowing from there through a private endpoint to instances of apps in App Service.":::
+:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway in an Azure virtual network and flowing from there through a private endpoint to instances of apps in App Service.":::
 
 Application Gateway caches the DNS lookup results. If you use fully qualified domain names (FQDNs) and rely on DNS lookup to get the private IP address, you might need to restart Application Gateway if the DNS update or the link to an Azure private DNS zone happened after you configured the back-end pool.
 
@@ -83,11 +83,11 @@ An ILB App Service Environment isn't exposed to the internet. Traffic between th
 
 If you want to ensure that only traffic from the Application Gateway subnet is reaching the App Service Environment, you can configure a network security group (NSG) that affects all web apps in the App Service Environment. For the NSG, you can specify the subnet IP range and optionally the ports (80/443). For the App Service Environment to function correctly, make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups).
 
-To isolate traffic to an individual web app, you need to use IP-based access restrictions, because service endpoints don't work with an App Service Environment. The IP address should be the private IP of the Application Gateway instance.
+To isolate traffic to an individual web app, you need to use IP-based access restrictions, because service endpoints don't work with an App Service Environment. The IP address should be the private IP of the application gateway.
 
 ## Considerations for an external App Service Environment
 
-An external App Service Environment has a public-facing load balancer like multitenant App Service. Service endpoints don't work for an App Service Environment. That's why you have to use IP-based access restrictions by using the public IP address of the Application Gateway instance. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](../environment/create-external-ase.md).
+An external App Service Environment has a public-facing load balancer like multitenant App Service. Service endpoints don't work for an App Service Environment. That's why you have to use IP-based access restrictions by using the public IP address of the application gateway. To create an external App Service Environment by using the Azure portal, you can follow [this quickstart](../environment/create-external-ase.md).
 
 [template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Azure Resource Manager template for a complete scenario"
 
