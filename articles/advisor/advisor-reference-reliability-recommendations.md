@@ -56,7 +56,7 @@ Learn more about [Azure FarmBeats - FarmBeatsPythonSdkVersion (Upgrade to the la
 
 SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certificate is requested over an already established connection. When it's blocked, reading 'context.Request.Certificate' in policy expressions returns 'null.' To support client certificate authentication scenarios, enable 'Negotiate client certificate' on listed hostnames. For browser-based clients, enabling this option might result in a certificate prompt being presented to the client.
 
-Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](https://aka.ms/api-management/api-management-howto-mutual-certificates-for-clients).
+Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiation blocked)](/azure/api-management/api-management-howto-mutual-certificates-for-clients).
 
 ### Hostname certificate rotation failed
 
