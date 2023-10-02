@@ -631,7 +631,7 @@ Learn more about [Service limits in Azure Cognitive Search](/azure/search/search
 
 As previously announced, Azure Data Lake Storage Gen1 will be retired on February 29, 2024. We highly recommend migrating your data lake to Azure Data Lake Storage Gen2, which offers advanced capabilities specifically designed for big data analytics and is built on top of Azure Blob Storage.
 
-Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
+Learn more about [Data lake store account - ADLSGen1_Deprecation (You have ADLS Gen1 Accounts Which Needs to be Migrated to ADLS Gen2)](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/).
 
 ### Enable Soft Delete to protect your blob data
 
