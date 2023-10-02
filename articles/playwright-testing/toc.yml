@@ -46,8 +46,10 @@ items:
 - name: Troubleshoot & debug
   expanded: true
   items:
-    - name: Trouble signing into Playwright portal
+    - name: Troubleshoot Playwright portal sign-in issues
       href: troubleshoot-unable-sign-into-playwright-portal.md
+    - name: Troubleshoot test run failures
+      href: troubleshoot-test-run-failures.md
 - name: Resources
   items: 
     - name: Azure roadmap
