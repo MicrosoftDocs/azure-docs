@@ -42,6 +42,8 @@ From now through June 30, 2023, you can continue to use existing Azure Cache for
 
 If your cache instance is affected by the Cloud Service retirement, you're unable to upgrade to Redis 6 until after you migrate to a cache built on Virtual Machine Scale Set. In this case, send mail to azurecachemigration@microsoft.com, and we'll help you with the migration.
 
+Note that all remaining on Cloud Services based caches using Redis 4 will be migrated automatically after 31 October, 2023. This migration method requires around 30 minutes of downtime and full data loss on the cache. To avoid this, please be sure to migrate your Cloud Service based cache instance to a Virtual Machine Scale Set based cache instance before that date.
+
 For more information on what to do if your cache is on Cloud Services (classic), see [Azure Cache for Redis on Cloud Services (classic)](cache-faq.yml#what-should-i-do-with-any-instances-of-azure-cache-for-redis-that-depend-on-cloud-services--classic-).
 
 ### Redis 4 Retirement Questions
@@ -88,9 +90,9 @@ If you don't upgrade your Redis 4 cache by June 30, 2023, the cache is automatic
 
 Cloud Service version 4 caches can't be upgraded to version 6 until they're migrated to a cache based on Azure Virtual Machine Scale Set.
 
-For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml).
+All remaining on Cloud Services based caches using Redis 4 will be migrated automatically after 31 October, 2023. This migration method requires around 30 minutes of downtime and full data loss on the cache. To avoid this, please be sure to migrate your Cloud Service based cache instance to a Virtual Machine Scale Set based cache before that date. We highly recommend migrating your caches to Azure Virtual Machine Scale Set as soon as possible.
 
-Cloud Service cache will continue to function beyond June 30, 2023, however, starting on April 30, 2023, Cloud Service caches receive only critical security updates and bug fixes with limited support. Cloud Service caches won't support any new features released after April 30, 2023. We highly recommend migrating your caches to Azure Virtual Machine Scale Set as soon as possible.
+For more information, see [Caches with a dependency on Cloud Services (classic)](./cache-faq.yml).
 
 #### Do I need to update my application to be able to use Redis version 6?
 
