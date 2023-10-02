@@ -80,9 +80,9 @@ If you want to configure UE Usage Tracking for your site, collect all the values
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The namespace for the Azure Event Hub that your site will use for UE usage tracking. |**Azure Event Hub Namespace**|
-   |The name of the Azure Event Hub that your site will use for UE usage tracking.|**Event Hub name**|
-   |The user assigned managed identity that has the **Resource Policy Contributor** role for the Event Hub and is assigned to the **Packet Core Control Plane** for the site. |**User Assigned Managed Identity**|
+   |The namespace for the Azure Event Hubs instance that your site will use for UE usage tracking. |**Azure Event Hub Namespace**|
+   |The name of the Azure Event Hubs instance that your site will use for UE usage tracking.|**Event Hub name**|
+   |The user assigned managed identity that has the **Resource Policy Contributor** role for the Event Hubs instance and is assigned to the **Packet Core Control Plane** for the site. See [Use a user-assigned managed identity to capture events](/azure/event-hubs/event-hubs-capture-managed-identity) for more information. |**User Assigned Managed Identity**|
 
 ## Collect data network values
 
