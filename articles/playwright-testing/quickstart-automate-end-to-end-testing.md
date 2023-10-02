@@ -185,6 +185,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         # Access token and regional endpoint for Microsoft Playwright Testing
         PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
         PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+        PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
       run: npx playwright test -c playwright.service.config.ts --workers=20
     ```
 
