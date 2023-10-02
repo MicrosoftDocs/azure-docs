@@ -16,7 +16,7 @@ Azure Virtual Desktop supports graphics processing unit (GPU) acceleration in re
 
 The list doesn't specifically include multi-session versions of Windows. However, each GPU in NV-series Azure virtual machines (VMs) comes with a GRID license that supports 25 concurrent users. For more information, see [NV-series](../virtual-machines/nv-series.md).
 
-Follow the instructions in this article to create a GPU-optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes that you already [created a host pool](./create-host-pools-azure-marketplace.md) and an [application group](./manage-app-groups.md).
+This article shows you how to create a GPU-optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding.
 
 ## Select an appropriate GPU-optimized Azure VM size
 
