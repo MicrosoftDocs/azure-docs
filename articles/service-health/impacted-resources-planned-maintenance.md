@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 9/29/2023
 ---
 
-# Impacted Resources for Planned Maintenance events
+# Resource impact from Azure planned maintenance
 
 In support of the experience for viewing Impacted Resources, Service Health has enabled a new feature to:
 
@@ -21,7 +21,7 @@ This article details what is communicated to users and where they can view infor
 
 In the Azure portal, the **Impacted Resources** tab under **Service Health** > **Planned Maintenance** displays resources that are affected by a planned maintenance event. The following example of the Impacted Resources tab shows a planned maintenance event with impacted resources.
 
-:::image type="content" source="./media/impacted-resource-pm/grid-image.PNG" alt-text="Screenshot of planned maintenance impacted resources in Azure Service Health.":::
+:::image type="content" source="./media/impacted-resource-maintenance/grid-image.PNG" alt-text="Screenshot of planned maintenance impacted resources in Azure Service Health.":::
 
 Service Health provides the information below   on resources impacted by a planned maintenance event:
 
@@ -47,13 +47,13 @@ Customers can filter on the results using the below filters
 - Subscription ID: All Subscription IDs the user has access to 
 - Resource Type: All Resource types under the users subscriptions
 
-:::image type="content" source="./media/impacted-resource-pm/pm-filters.PNG" alt-text="Screenshot of filters used to sort impacted resources":::
+:::image type="content" source="./media/impacted-resource-maintenance/details-filters.PNG" alt-text="Screenshot of filters used to sort impacted resources.":::
 
 ## Export to CSV
 
 The list of impacted resources can be exported to an excel file by clicking on this option.
 
-:::image type="content" source="./media/impacted-resource-pm/ir-csv.PNG" alt-text="Screenshot of export to csv button":::
+:::image type="content" source="./media/impacted-resource-maintenance/ir-csv.PNG" alt-text="Screenshot of export to csv button.":::
 
 ## Next steps
 - [Introduction to the Azure Service Health dashboard](service-health-overview.md)
