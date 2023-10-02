@@ -98,7 +98,7 @@ When you have an approved Private Endpoint for an Azure Cosmos DB account, in th
 
 1. Select **Private Endpoint** from the list of settings to view all Private endpoints 
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
-> [{TODO: Link}](about:blank)
+> [Try Azure Cosmos DB for free](../try-free.md)
