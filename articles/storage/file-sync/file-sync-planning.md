@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/03/2023
+ms.date: 10/02/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -171,10 +171,11 @@ The following table shows the interop state of NTFS file system features:
 | ~$\*.\* | Office temporary file |
 | \*.tmp | Temporary file |
 | \*.laccdb | Access DB locking file|
-| 635D02A9D91C401B97884B82B3BCDAEA.* | Internal Sync file|
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Internal sync file|
 | \\System Volume Information | Folder specific to volume |
 | $RECYCLE.BIN| Folder |
-| \\SyncShareState | Folder for Sync |
+| \\SyncShareState | Folder for sync |
+| .SystemShareInformation  | Folder for sync in Azure file share |
 
 ### Consider how much free space you need on your local disk
 When planning on using Azure File Sync, consider how much free space you need on the local disk you plan to have a server endpoint on.
