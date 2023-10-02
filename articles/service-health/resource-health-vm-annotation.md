@@ -10,7 +10,7 @@ ms.date: 10/02/2023
 
 Virtual Machine (VM) health annotations inform you of any ongoing activity that influences the availability of your VMs (see [Resource types and health checks](resource-health-checks-resource-types.md)). Annotations carry metadata that help you rationalize the exact impact to availability. 
 
-Here are more details on important attributes we recently added,  to help you understand below annotations you may observe in [Resource Health](https://learn.microsoft.com/azure/service-health/resource-health-overview), [Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview) and [Event Grid System](https://learn.microsoft.com/azure/event-grid/event-schema-health-resources?tabs=event-grid-event-schema) topics:
+Here are more details on important attributes we recently added,  to help you understand below annotations you may observe in [Resource Health](resource-health-overview.md), [Azure Resource Graph](/azure/governance/resource-graph/overview) and [Event Grid System](/azure/event-grid/event-schema-health-resources?tabs=event-grid-event-schema) topics:
 
 - **Context**: Informs whether VM availability was influenced due to Azure or user orchestrated activity. This can assume values of _Platform Initiated | Customer Initiated | VM Initiated | Unknown_
 - **Category**: Informs whether VM availability was influenced due to planned or unplanned activity. This is only applicable to ‘Platform-Initiated’ events. This can assume values of _Planned | Unplanned | Not Applicable | Unknown_
