@@ -6,7 +6,6 @@ ms.date: 06/01/2023
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: JeffWo
-
 ---
 
 # Install Log Analytics agent on Windows computers
@@ -75,6 +74,9 @@ Regardless of the installation method used, you'll require the workspace ID and 
 
 > [!NOTE]
 > You can't configure the agent to report to more than one workspace during initial setup. [Add or remove a workspace](agent-manage.md#add-or-remove-a-workspace) after installation by updating the settings from Control Panel or PowerShell.
+
+>[!NOTE]
+>While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Install the agent 
 
@@ -201,6 +203,7 @@ To retrieve the product code from the agent install package directly, you can us
 1. [Import the MMAgent.ps1 configuration script](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) into your Automation account.
 1. [Assign a Windows computer or node](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
 
+
 ---
 
 ## Verify agent connectivity to Azure Monitor
@@ -233,3 +236,4 @@ The default cache size is 50 MB, but it can be configured between a minimum of 5
 
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 - Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while you install or manage the agent.
+
