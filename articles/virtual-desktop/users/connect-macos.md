@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop client for macOS
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for macOS.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 09/28/2023
+ms.date: 10/02/2023
 ms.author: daknappe
 ---
 

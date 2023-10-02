@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 09/28/2023
+ms.date: 10/02/2023
 ---
 
 ## Latest client versions
@@ -16,7 +16,7 @@ The following table lists the current versions available for the public and beta
 
 ## Updates for version 10.9.3
 
-*Date published: September 27, 2023*
+*Date published: October 2, 2023*
 
 In this release, we've made the following changes:
 
