@@ -27,9 +27,9 @@ This article walks through how to configure Application Gateway with App Service
 
 App Service (multitenant) has a public internet-facing endpoint. By using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md), you can allow traffic from only a specific subnet within an Azure virtual network and block everything else. In the following scenario, you use this functionality to ensure that an App Service instance can receive traffic from only a specific application gateway.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram that shows the internet flowing to an application gateway in an Azure virtual network and flowing from there through a firewall icon to instances of apps in App Service.":::
+:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Diagram that shows the internet flowing to an application gateway in an Azure virtual network and then flowing through a firewall icon to instances of apps in App Service.":::
 
-There are two parts to this configuration, aside from creating the App Service instance and the application gateway. The first part is enabling service endpoints in the subnet of the virtual network where Application Gateway is deployed. Service endpoints ensure that all network traffic leaving the subnet toward App Service is tagged with the specific subnet ID.
+There are two parts to this configuration, aside from creating the App Service instance and the application gateway. The first part is enabling service endpoints in the subnet of the virtual network where the application gateway is deployed. Service endpoints ensure that all network traffic leaving the subnet toward App Service is tagged with the specific subnet ID.
 
 The second part is to set an access restriction on the specific web app to ensure that only traffic tagged with this specific subnet ID is allowed. You can configure the access restriction by using different tools, depending on your preference.
 
@@ -60,17 +60,17 @@ The [Azure CLI sample](../../app-service/scripts/cli-integrate-app-service-with-
 az webapp config access-restriction add --resource-group myRG --name myWebApp --rule-name AppGwSubnet --priority 200 --subnet mySubNetName --vnet-name myVnetName
 ```
 
-In the default configuration, the command ensures both setup of the service endpoint configuration in the subnet and the access restriction in App Service.
+In the default configuration, the command ensures setup of the service endpoint configuration in the subnet and the access restriction in App Service.
 
 ## Considerations for using private endpoints
 
 As an alternative to service endpoints, you can use private endpoints to secure traffic between Application Gateway and App Service (multitenant). You need to ensure that Application Gateway can use DNS to resolve the private IP address of the App Service apps. Alternatively, you can use the private IP address in the back-end pool and override the host name in the HTTP settings.
 
-:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway in an Azure virtual network and flowing from there through a private endpoint to instances of apps in App Service.":::
+:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway in an Azure virtual network and then flowing through a private endpoint to instances of apps in App Service.":::
 
-Application Gateway caches the DNS lookup results. If you use fully qualified domain names (FQDNs) and rely on DNS lookup to get the private IP address, you might need to restart Application Gateway if the DNS update or the link to an Azure private DNS zone happened after you configured the back-end pool.
+Application Gateway caches the DNS lookup results. If you use fully qualified domain names (FQDNs) and rely on DNS lookup to get the private IP address, you might need to restart the application gateway if the DNS update or the link to an Azure private DNS zone happened after you configured the back-end pool.
 
-To restart Application Gateway, you must start and stop the instance by using the Azure CLI:
+To restart the application gateway, stop and start it by using the Azure CLI:
 
 ```azurecli-interactive
 az network application-gateway stop --resource-group myRG --name myAppGw
@@ -79,7 +79,7 @@ az network application-gateway start --resource-group myRG --name myAppGw
 
 ## Considerations for an ILB App Service Environment
 
-An ILB App Service Environment isn't exposed to the internet. Traffic between the instance and Application Gateway is already isolated to the virtual network. To configure an ILB App Service Environment and integrate it with Application Gateway by using the Azure portal, see the [how-to guide](../environment/integrate-with-application-gateway.md).
+An ILB App Service Environment isn't exposed to the internet. Traffic between the instance and an application gateway is already isolated to the virtual network. To configure an ILB App Service Environment and integrate it with an application gateway by using the Azure portal, see the [how-to guide](../environment/integrate-with-application-gateway.md).
 
 If you want to ensure that only traffic from the Application Gateway subnet is reaching the App Service Environment, you can configure a network security group (NSG) that affects all web apps in the App Service Environment. For the NSG, you can specify the subnet IP range and optionally the ports (80/443). For the App Service Environment to function correctly, make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups).
 

@@ -67,7 +67,7 @@ If you prefer to use the Azure CLI to configure your environment, these are the 
    az webapp config set --resource-group [myResourceGroup] --name [myWebApp] --vnet-route-all-enabled
    ```
 
-1. Create a public IP address and NAT gateway:
+1. Create a public IP address and a NAT gateway:
 
    ```azurecli-interactive
    az network public-ip create --resource-group [myResourceGroup] --name myPublicIP --sku standard --allocation static
