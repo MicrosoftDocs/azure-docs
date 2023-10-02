@@ -166,5 +166,5 @@ For more information on using the golang Management SDK, see [Azure Communicatio
 ## Next Steps
 Now that you have learned how to enable Managed Identity with Azure Communication Services, consider implementing this feature in your own applications to simplify your authentication process and improve security. 
 
-- [Managed Identities ](/articles/active-directory/managed-identities-azure-resources/overview)
-- [Manage user-assigned managed identities](/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
+- [Managed Identities ](../../active-directory/managed-identities-azure-resources/overview)
+- [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
