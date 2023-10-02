@@ -255,7 +255,7 @@ sudo snap connect azure-iot-edge:home
 sudo snap connect azure-iot-edge:log-observe
 sudo snap connect azure-iot-edge:mount-observe
 sudo snap connect azure-iot-edge:system-observe
-
+sudo snap connect azure-iot-edge:hostname-control
 # Allow IoT Edge to connect to the /var/run/iotedge folder and use sockets
 
 sudo snap connect azure-iot-edge:run-iotedge
