@@ -30,24 +30,20 @@ items:
       items:
       - name: Overview
         href: pub-sub-mqtt/overview-pub-sub-mqtt.md
-      - name: Concepts
-        items:
-        - name: Secure communications
-          href: pub-sub-mqtt/concepts/about-listeners.md
-      - name: How to
-        items:
-        - name: TLS auto cert management
-          href: pub-sub-mqtt/how-to/configure-tls-auto-cert.md
-        - name: TLS manual cert management
-          href: pub-sub-mqtt/how-to/configure-tls-manual-cert.md
-        - name: Configure authentication
-          href: pub-sub-mqtt/how-to/configure-authentication.md
-        - name: Configure authorization
-          href: pub-sub-mqtt/how-to/configure-authorization.md
-        - name: Availability and scale
-          href: pub-sub-mqtt/how-to/configure-availability-scale.md
-        - name: Store key value data
-          href: pub-sub-mqtt/how-to/store-key-value-data.md
+      - name: Secure communications
+        href: pub-sub-mqtt/concept-about-listeners.md
+      - name: TLS auto cert management
+        href: pub-sub-mqtt/howto-configure-tls-auto-cert.md
+      - name: TLS manual cert management
+        href: pub-sub-mqtt/howto-configure-tls-manual-cert.md
+      - name: Configure authentication
+        href: pub-sub-mqtt/howto-configure-authentication.md
+      - name: Configure authorization
+        href: pub-sub-mqtt/howto-configure-authorization.md
+      - name: Availability and scale
+        href: pub-sub-mqtt/howto-configure-availability-scale.md
+      - name: Store key value data
+        href: pub-sub-mqtt/howto-store-key-value-data.md
     - name: Process messages
       items:
       - name: Overview
@@ -97,13 +93,13 @@ items:
       - name: Overview
         href: develop/overview-develop-customizations.md
       - name: Develop high available apps
-        href: develop/concepts/concept-develop-ha-apps.md
+        href: develop/concept-develop-ha-apps.md
       - name: Develop Dapr apps
-        href: develop/how-to/howto-develop-dapr-apps.md
+        href: develop/howto-develop-dapr-apps.md
       - name: Develop MQTTnet apps
-        href: develop/how-to/howto-develop-mqttnet-apps.md
+        href: develop/howto-develop-mqttnet-apps.md
       - name: Develop Node-RED apps
-        href: develop/how-to/howto-develop-node-red-apps.md
+        href: develop/howto-develop-node-red-apps.md
     - name: Administrator guide
       items:
       - name: Overview

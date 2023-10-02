@@ -5,7 +5,7 @@ description: Store data in Azure IoT MQ distributed key-value store
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-vms.date: 10/02/2023
+ms.date: 10/02/2023
 
 #CustomerIntent: As an operator, I want to understand how to store data in Azure IoT MQ so that I can use it as a distributed key-value store.
 ---
