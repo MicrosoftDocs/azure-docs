@@ -3,7 +3,7 @@ title: Configure Multi-user authorization using Resource Guard
 description: This article explains how to configure Multi-user authorization using Resource Guard.
 ms.topic: how-to
 zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
-ms.date: 11/08/2022
+ms.date: 09/25/2023
 ms.service: backup
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: AbhishekMallick-MS
@@ -20,19 +20,9 @@ This article describes how to configure Multi-user authorization (MUA) for Azure
 
 This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
-This document includes the following sections:
-
->[!div class="checklist"]
->- Before you start
->- Testing scenarios
->- Create a Resource Guard
->- Enable MUA on a Recovery Services vault
->- Protected operations on a vault using MUA
->- Authorize critical operations on a vault
->- Disable MUA on a Recovery Services vault
-
 >[!NOTE]
-> Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization using Resource Guard for Backup vault is now generally available. [Learn more](multi-user-authorization.md?pivots=vaults-backup-vault).
 
 ## Before you start
 
@@ -56,9 +46,9 @@ To create the Resource Guard in a tenant different from the vault tenant, follow
    
    :::image type="content" source="./media/multi-user-authorization/portal-settings-directories-subscriptions.png" alt-text="Screenshot showing the portal settings.":::
      
-1. Search for **Resource Guards** in the search bar and select the corresponding item from the drop-down list.
+1. Search for **Resource Guards** in the search bar, and then select the corresponding item from the drop-down list.
     
-   :::image type="content" source="./media/multi-user-authorization/resource-guards-preview-inline.png" alt-text="Screenshot showing resource guards." lightbox="./media/multi-user-authorization/resource-guards-preview-expanded.png":::
+   :::image type="content" source="./media/multi-user-authorization/resource-guards.png" alt-text="Screenshot shows how to search resource guards." lightbox="./media/multi-user-authorization/resource-guards.png":::
     
    - Select **Create** to start creating a Resource Guard.
    - In the create blade, fill in the required details for this Resource Guard.
@@ -70,9 +60,7 @@ To create the Resource Guard in a tenant different from the vault tenant, follow
    You can also [select the operations for protection after creating the resource guard](?pivots=vaults-recovery-services-vault#select-operations-to-protect-using-resource-guard).
 
 1. Optionally, add any tags to the Resource Guard as per the requirements
-1. Select **Review + Create**.
-
-   Follow notifications for status and successful creation of the Resource Guard.
+1. Select **Review + Create** and follow notifications for status and successful creation of the Resource Guard.
 
 # [PowerShell](#tab/powershell)
 
@@ -102,7 +90,7 @@ Choose the operations you want to protect using the Resource Guard out of all su
 
 To exempt operations, follow these steps:
 
-1. In the Resource Guard created above, go to **Properties**.
+1. In the Resource Guard created above, go to **Properties** > **Recovery Services vault** tab.
 2. Select **Disable** for operations that you want to exclude from being authorized using the Resource Guard.
 
    >[!Note]
@@ -162,7 +150,7 @@ To enable MUA on a vault, the admin of the vault must have **Reader** role on th
 
    :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-access-control.png" alt-text="Screenshot showing demo resource guard-access control.":::
     
-1. Select **Reader** from the list of built-in roles and select **Next** on the bottom of the screen.
+1. Select **Reader** from the list of built-in roles, and select **Next**.
 
    :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-add-role-assignment-inline.png" alt-text="Screenshot showing demo resource guard-add role assignment." lightbox="./media/multi-user-authorization/demo-resource-guard-add-role-assignment-expanded.png":::
 
@@ -182,21 +170,21 @@ After the Reader role assignment on the Resource Guard is complete, enable multi
 
 To enable MUA on the vaults, follow these steps.
 
-1. Go to the Recovery Services vault. Go to **Properties** on the left navigation panel, then to **Multi-User Authorization** and click **Update**.
+1. Go to the Recovery Services vault. Go to **Properties** on the left navigation panel, then to **Multi-User Authorization** and select **Update**.
 
    :::image type="content" source="./media/multi-user-authorization/test-vault-properties.png" alt-text="Screenshot showing the Recovery services vault properties.":::
 
 1. Now, you're presented with the option to enable MUA and choose a Resource Guard using one of the following ways:
 
-   1. You can either specify the URI of the Resource Guard, make sure you specify the URI of a Resource Guard you have **Reader** access to and that is the same regions as the vault. You can find the URI (Resource Guard ID) of the Resource Guard in its **Overview** screen:
+   - You can either specify the URI of the Resource Guard, make sure you specify the URI of a Resource Guard you have **Reader** access to and that is the same regions as the vault. You can find the URI (Resource Guard ID) of the Resource Guard in its **Overview** screen:
 
       :::image type="content" source="./media/multi-user-authorization/resource-guard-rg-inline.png" alt-text="Screenshot showing the Resource Guard." lightbox="./media/multi-user-authorization/resource-guard-rg-expanded.png":::
     
-   1. Or, you can select the Resource Guard from the list of Resource Guards you have **Reader** access to, and those available in the region.
+   - Or, you can select the Resource Guard from the list of Resource Guards you have **Reader** access to, and those available in the region.
 
       1. Click **Select Resource Guard**
-      1. Click on the dropdown and select the directory the Resource Guard is in.
-      1. Click **Authenticate** to validate your identity and access.
+      1. Select the dropdown list, and then choose the directory the Resource Guard is in.
+      1. Select **Authenticate** to validate your identity and access.
       1. After authentication, choose the **Resource Guard** from the list displayed.
 
       :::image type="content" source="./media/multi-user-authorization/testvault1-multi-user-authorization-inline.png" alt-text="Screenshot showing multi-user authorization." lightbox="./media/multi-user-authorization/testvault1-multi-user-authorization-expanded.png" :::
@@ -260,14 +248,14 @@ Depicted below is an illustration of what happens when the Backup admin tries to
 
    :::image type="content" source="./media/multi-user-authorization/test-vault-properties-security-settings-inline.png" alt-text="Screenshot showing the Test Vault properties security settings." lightbox="./media/multi-user-authorization/test-vault-properties-security-settings-expanded.png":::
 
-## Authorize critical (protected) operations using Azure AD Privileged Identity Management
+## Authorize critical (protected) operations using Azure Active Directory Privileged Identity Management
 
 The following sections discuss authorizing these requests using PIM. There are cases where you may need to perform critical operations on your backups and MUA can help you ensure that these are performed only when the right approvals or permissions exist. As discussed earlier, the Backup admin needs to have a Contributor role on the Resource Guard to perform critical operations that are in the Resource Guard scope. One of the ways to allow just-in-time for such operations is through the use of [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
 >Though using Azure AD PIM is the recommended approach, you can use manual or custom methods to manage access for the Backup admin on the Resource Guard. For managing access to the Resource Guard manually, use the ‘Access control (IAM)’ setting on the left navigation bar of the Resource Guard and grant the **Contributor** role to the Backup admin.
 
-### Create an eligible assignment for the Backup admin (if using Azure AD Privileged Identity Management)
+### Create an eligible assignment for the Backup admin (if using Azure Active Directory Privileged Identity Management)
 
 The Security admin can use PIM to create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation. To do so, the **security admin** performs the following:
 
@@ -307,7 +295,7 @@ By default, the setup above may not have an approver (and an approval flow requi
 
    :::image type="content" source="./media/multi-user-authorization/add-contributor.png" alt-text="Screenshot showing how to add contributor.":::
 
-1. If the setting named **Approvers** shows *None* or displays incorrect approvers, select **Edit** to add the reviewers who would need to review and approve the activation request for the Contributor role.
+1. If the setting named **Approvers** shows *None* or display incorrect approver(s), select **Edit** to add the reviewers who would need to review and approve the activation request for the Contributor role.
 
 1. On the **Activation** tab, select **Require approval to activate** and add the approver(s) who need to approve each request. You can also select other security options like using MFA and mandating ticket options to activate the Contributor role. Optionally, select relevant settings on the **Assignment** and **Notification** tabs as per your requirements.
 
@@ -413,26 +401,13 @@ The tenant ID is required if the resource guard exists in a different tenant.
 
 ::: zone pivot="vaults-backup-vault"
 
-This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Backup vault (preview).
-
->[!Note]
->Multi-user authorization using Resource Guard for Backup vault is in preview.
+This article describes how to configure Multi-user authorization (MUA) for Azure Backup to add an additional layer of protection to critical operations on your Backup vault.
 
 This article demonstrates Resource Guard creation in a different tenant that offers maximum protection. It also demonstrates how to  request and approve requests for performing critical operations using [Azure Active Directory Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) in the tenant housing the Resource Guard. You can optionally use other mechanisms to manage JIT permissions on the Resource Guard as per your setup.
 
-This document includes the following sections:
-
->[!div class="checklist"]
->- Before you start
->- Testing scenarios
->- Create a Resource Guard
->- Enable MUA on a Backup vault
->- Protected operations on a vault using MUA
->- Authorize critical operations on a vault
->- Disable MUA on a Backup vault
-
 >[!NOTE]
->Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization using Resource Guard for Backup vault is now generally available.
+>- Multi-user authorization for Azure Backup is available in all public Azure regions.
 
 ## Before you start
 
@@ -454,13 +429,13 @@ To create the Resource Guard in a tenant different from the vault tenant as a Se
    
    :::image type="content" source="./media/multi-user-authorization/portal-settings-directories-subscriptions.png" alt-text="Screenshot showing the portal settings to configure for Backup vault.":::
      
-1. Search for **Resource Guards** in the search bar and select the corresponding item from the drop-down list.
+1. Search for **Resource Guards** in the search bar, and then select the corresponding item from the dropdown list.
     
-   :::image type="content" source="./media/multi-user-authorization/resource-guards-preview-inline.png" alt-text="Screenshot showing resource guards for Backup vault." lightbox="./media/multi-user-authorization/resource-guards-preview-expanded.png":::
+   :::image type="content" source="./media/multi-user-authorization/resource-guards.png" alt-text="Screenshot showing resource guards for Backup vault." lightbox="./media/multi-user-authorization/resource-guards.png":::
     
    1. Select **Create** to create a Resource Guard.
    1. In the Create blade, fill in the required details for this Resource Guard.
-       - Ensure that the Resource Guard is in the same Azure regions as the Backup vault.
+       - Ensure that the Resource Guard is in the same Azure region as the Backup vault.
        - Add a description on how to request access to perform actions on associated vaults when needed. This description appears in the associated vaults to guide the Backup admin on how to get the required permissions.
        
 1. On the **Protected operations** tab, select the operations you need to protect using this resource guard under the **Backup vault** tab.
@@ -472,7 +447,7 @@ To create the Resource Guard in a tenant different from the vault tenant as a Se
    :::image type="content" source="./media/multi-user-authorization/backup-vault-select-operations-for-protection.png" alt-text="Screenshot showing how to select operations for protecting using Resource Guard.":::
 
 1. Optionally, add any tags to the Resource Guard as per the requirements.
-1. Select **Review + Create** and then follow the notifications to monitor the status and a successful creation of the Resource Guard.
+1. Select **Review + Create** and then follow the notifications to monitor the status and the successful creation of the Resource Guard.
 
 ### Select operations to protect using Resource Guard
 
@@ -483,7 +458,7 @@ To select the operations for protection, follow these steps:
 1. In the Resource Guard that you've created, go to **Properties** > **Backup vault** tab.
 1. Select **Disable** for the operations that you want to exclude from being authorized.
 
-   You can't disable the **Remove MUA protection** operation.
+   You can't disable the **Remove MUA protection** and **Disable soft delete** operations.
 
 1. Optionally, in the **Backup vaults** tab, update the description for the Resource Guard.
 1. Select **Save**.
@@ -500,7 +475,7 @@ To assign the **Reader** role on the Resource Guard, follow these steps:
 
    :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-access-control.png" alt-text="Screenshot showing demo resource guard-access control for Backup vault.":::
     
-1. Select **Reader** from the list of built-in roles and select **Next** on the bottom of the screen.
+1. Select **Reader** from the list of built-in roles, and select **Next**.
 
    :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-add-role-assignment-inline.png" alt-text="Screenshot showing demo resource guard-add role assignment for Backup vault." lightbox="./media/multi-user-authorization/demo-resource-guard-add-role-assignment-expanded.png":::
 
@@ -524,14 +499,14 @@ Once the Backup admin has the Reader role on the Resource Guard, they can enable
 
 1. To enable MUA and choose a Resource Guard, perform one of the following actions:
 
-   - You can either specify the URI of the Resource Guard. Ensure that you specify the URI of a Resource Guard you have **Reader** access to and it's in the same regions as the vault. You can find the URI (Resource Guard ID) of the Resource Guard on its **Overview** page.
+   - You can either specify the URI of the Resource Guard. Ensure that you specify the URI of a Resource Guard you have **Reader** access to and it's in the same region as the vault. You can find the URI (Resource Guard ID) of the Resource Guard on its **Overview** page.
 
      :::image type="content" source="./media/multi-user-authorization/resource-guard-rg-inline.png" alt-text="Screenshot showing the Resource Guard for Backup vault protection." lightbox="./media/multi-user-authorization/resource-guard-rg-expanded.png":::
     
    - Or, you can select the Resource Guard from the list of Resource Guards you have **Reader** access to, and those available in the region.
 
      1. Click **Select Resource Guard**.
-     1. Select the drop-down and select the directory the Resource Guard is in.
+     1. Select the dropdown and select the directory the Resource Guard is in.
      1. Select **Authenticate** to validate your identity and access.
      1. After authentication, choose the **Resource Guard** from the list displayed.
 
@@ -567,16 +542,16 @@ To perform a protected operation (disabling MUA), follow these steps:
 
    :::image type="content" source="./media/multi-user-authorization/test-vault-properties-security-settings-inline.png" alt-text="Screenshot showing the test Backup vault properties security settings." lightbox="./media/multi-user-authorization/test-vault-properties-security-settings-expanded.png":::
 
-## Authorize critical (protected) operations using Azure AD Privileged Identity Management
+## Authorize critical (protected) operations using Azure Active Directory Privileged Identity Management
 
-There are scenarios where you may need to perform critical operations on your backups and you can perform them with the right approvals or permissions with MUA. The following sections explain on how to authorize the critical operation requests using Privileged Identity Management (PIM).
+There are scenarios where you may need to perform critical operations on your backups and you can perform them with the right approvals or permissions with MUA. The following sections explain how to authorize the critical operation requests using Privileged Identity Management (PIM).
 
 The Backup admin must have a Contributor role on the Resource Guard to perform critical operations in the Resource Guard scope. One of the ways to allow just-in-time (JIT) operations is through the use of [Azure Active Directory (Azure AD) Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 
 >[!NOTE]
->We recommend to use the Azure AD PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
+>We recommend that you use the Azure AD PIM. However, you can also use manual or custom methods to manage access for the Backup admin on the Resource Guard. To manually manage access to the Resource Guard, use the *Access control (IAM)* setting on the left pane of the Resource Guard and grant the **Contributor** role to the Backup admin.
 
-### Create an eligible assignment for the Backup admin using Azure AD Privileged Identity Management
+### Create an eligible assignment for the Backup admin using Azure Active Directory Privileged Identity Management
 
 The **Security admin** can use PIM to create an eligible assignment for the Backup admin as a Contributor to the Resource Guard. This enables the Backup admin to raise a request (for the Contributor role) when they need to perform a protected operation.
 
@@ -618,15 +593,15 @@ By default, the above setup may not have an approver (and an approval flow requi
 
    :::image type="content" source="./media/multi-user-authorization/add-contributor.png" alt-text="Screenshot showing how to add a contributor.":::
 
-1. Select **Edit** to add the reviewers who must review and approve the activation request for the *Contributor* role in case you find that Approvers show *None* or displays incorrect approvers.
+1. Select **Edit** to add the reviewers who must review and approve the activation request for the *Contributor* role in case you find that Approvers show *None* or display incorrect approver(s).
 
 1. On the **Activation** tab, select **Require approval to activate** to add the approver(s) who must approve each request. 
-1. Select security options, such as Multi Factor Authentication (MFA), Mandating ticket. to activate *Contributor* role.
+1. Select security options, such as Multi-Factor Authentication (MFA), Mandating ticket to activate *Contributor* role.
 1. Select the appropriate options on **Assignment** and **Notification** tabs as per your requirement.
 
    :::image type="content" source="./media/multi-user-authorization/edit-role-settings.png" alt-text="Screenshot showing how to edit the role setting.":::
 
-1. Select **Update** to complete the set-up of approvers to activate *Contributor* role.
+1. Select **Update** to complete the setup of approvers to activate the *Contributor* role.
 
 ### Request activation of an eligible assignment to perform critical operations
 
@@ -648,7 +623,7 @@ Once the Backup admin raises a request for activating the Contributor role, the 
 
 To review and approve the request, follow these steps:
 
-1. In the security tenant, go to [Azure AD Privileged Identity Management.](../active-directory/privileged-identity-management/pim-configure.md).
+1. In the security tenant, go to [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md).
 1. Go to **Approve Requests**.
 1. Under **Azure resources**, you can see the request awaiting approval.
 

@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 09/26/2023
+ms.date: 09/29/2023
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -123,9 +123,6 @@ The currently supported versions of the `microsoft.flux` extension are described
 
 ### 1.7.7 (September 2023)
 
-> [!NOTE]
-> We have started to roll out this release across regions. We'll remove this note once version 1.7.6 is available to all supported regions.
-
 Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0.1)
 
 - source-controller: v1.0.1
@@ -137,7 +134,7 @@ Flux version: [Release v2.0.1](https://github.com/fluxcd/flux2/releases/tag/v2.0
 
 Changes made for this version:
 
-- Updated SSH key entry to use the [updated RSA SSH host key](https://bitbucket.org/blog/ssh-host-key-changes) to prevent failures in configurations with `ssh` authentication type for Bitbucket.
+- Updated SSH key entry to use the [Ed25519 SSH host key](https://bitbucket.org/blog/ssh-host-key-changes) to prevent failures in configurations with `ssh` authentication type for Bitbucket.
 
 ### 1.7.6 (August 2023)
 

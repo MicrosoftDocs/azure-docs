@@ -5,7 +5,7 @@ description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to o
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/15/2023
+ms.date: 09/26/2023
 ms.author: cherylmc
 
 ---
@@ -80,12 +80,12 @@ The zip file also provides the values of some of the important settings on the A
 
 ### <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
+The following table shows gateway SKUs by tunnel, connection, and throughput. For additional tables and more information regarding this table, see the Gateway SKUs section of the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
+
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* For gateway SKU recommendations, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-
->[!NOTE]
->The Basic SKU does not support IKEv2 or RADIUS authentication.
+> [!NOTE]
+> The Basic SKU has limitations and does not support IKEv2, or RADIUS authentication. See the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article for more information.
 >
 
 ### <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?

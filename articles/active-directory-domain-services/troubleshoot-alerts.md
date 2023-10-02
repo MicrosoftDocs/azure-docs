@@ -88,7 +88,7 @@ The managed domain's health automatically updates itself within two hours and re
 
 Domain Services requires an active subscription, and can't be moved to a different subscription. If the Azure subscription that the managed domain was associated with is deleted, you must recreate an Azure subscription and managed domain.
 
-1. [Create an Azure subscription](../cost-management-billing/manage/create-subscription.md).
+1. [Create an Azure subscription](/azure/cost-management-billing/manage/create-subscription).
 1. [Delete the managed domain](delete-aadds.md) from your existing Microsoft Entra directory.
 1. [Create a replacement managed domain](tutorial-create-instance.md).
 
@@ -102,7 +102,7 @@ Domain Services requires an active subscription, and can't be moved to a differe
 
 Domain Services requires an active subscription. If the Azure subscription that the managed domain was associated with isn't active, you must renew it to reactivate the subscription.
 
-1. [Renew your Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
+1. [Renew your Azure subscription](/azure/cost-management-billing/manage/subscription-disabled).
 2. Once the subscription is renewed, a Domain Services notification lets you re-enable the managed domain.
 
 When the managed domain is enabled again, the managed domain's health automatically updates itself within two hours and removes the alert.
@@ -159,7 +159,7 @@ This error is unrecoverable. To resolve the alert, [delete your existing managed
 
 Some automatically generated service principals are used to manage and create resources for a managed domain. If the access permissions for one of these service principals is changed, the domain is unable to correctly manage resources. The following steps show you how to understand and then grant access permissions to a service principal:
 
-1. Read about [Azure role-based access control and how to grant access to applications in the Microsoft Entra admin center](../role-based-access-control/role-assignments-portal.md).
+1. Read about [Azure role-based access control and how to grant access to applications in the Microsoft Entra admin center](/azure/role-based-access-control/role-assignments-portal).
 2. Review the access that the service principal with the ID *abba844e-bc0e-44b0-947a-dc74e5d09022* has and grant the access that was denied at an earlier date.
 
 ## AADDS112: Not enough IP address in the managed domain
@@ -296,7 +296,7 @@ The following common reasons cause synchronization to stop in a managed domain:
 
 Domain Services requires an active subscription. If the Azure subscription that the managed domain was associated with isn't active, you must renew it to reactivate the subscription.
 
-1. [Renew your Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
+1. [Renew your Azure subscription](/azure/cost-management-billing/manage/subscription-disabled).
 2. Once the subscription is renewed, a Domain Services notification lets you re-enable the managed domain.
 
 When the managed domain is enabled again, the managed domain's health automatically updates itself within two hours and removes the alert.
@@ -332,4 +332,4 @@ When the managed domain is enabled again, the managed domain's health automatica
 If you still have issues, [open an Azure support request][azure-support] for more troubleshooting help.
 
 <!-- INTERNAL LINKS -->
-[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[azure-support]: /azure/active-directory/fundamentals/how-to-get-support
