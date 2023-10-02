@@ -177,6 +177,9 @@ The following table shows the interop state of NTFS file system features:
 | \\SyncShareState | Folder for sync |
 | .SystemShareInformation  | Folder for sync in Azure file share |
 
+> [!Note]  
+> While Azure File Sync supports syncing database files, databases are not a good workload for sync solutions (including Azure File Sync) since the log files and databases need to be synced together and they can get out of sync for various reasons which could lead to database corruption.
+
 ### Consider how much free space you need on your local disk
 When planning on using Azure File Sync, consider how much free space you need on the local disk you plan to have a server endpoint on.
 
