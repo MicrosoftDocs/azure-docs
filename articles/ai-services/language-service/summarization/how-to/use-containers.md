@@ -33,13 +33,13 @@ Containers enable you to host the Summarization API on your own infrastructure. 
 
 The following table describes the minimum and recommended specifications for the summarization container skills. Listed CPU/memory combinations are for a 4000 token input (conversation consumption is for all the aspects in the same request).
 
-| Skill         | Recommended number of CPU cores  | Recommended memory |
-|---------------|----------------------------------|--------------------|
-| Abstractive   | 8.5                              | 15.5 GB            |
-| Conversation  | 16                               | 48 GB              |
-| Abstractive   | 5.5                              | 6 GB               |
+| Container Type             | Recommended number of CPU cores  | Recommended memory | Notes |
+|----------------------------|----------------------------------|--------------------|-------|
+| Summarization CPU container| 16                               | 48 GB              |       |
+| Summarization GPU container| 2                                | 24 GB              | Requires an Nvidia GPU that supports Cuda 11.8 with 16GB VRAM.|
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+
 
 ## Get the container image with `docker pull`
 
@@ -50,8 +50,13 @@ To use the latest version of the container, you can use the `latest` tag. You ca
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the Microsoft Container Registry.
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:cpu
 ```
+for CPU containers,
+```
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization:gpu
+```
+for GPU containers.
 
 [!INCLUDE [Tip for using docker list](../../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -66,9 +71,6 @@ docker run -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-servi
 ```
 It's not recommended to download models for all skills inside the same `HOST_MODELS_PATH`, as the container loads all models inside the `HOST_MODELS_PATH`. Doing so would use a large amount of memory. It's recommended to only download the model for the skill you need in a particular `HOST_MODELS_PATH`.
 
-> [!NOTE]
-> Only download the needed models for the features you want to use.
-
 In order to ensure compatibility between models and the container, re-download the utilized models whenever you create a container using a new image version. When using a disconnected container, the license should be downloaded again after downloading the models.
 
 ## Run the container with `docker run`
@@ -78,6 +80,13 @@ Once the container is on the host computer, use the following command to run the
 ```bash
 docker run -p 5000:5000 -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
 ```
+
+Or if you are running a GPU container, use the this command instead.
+```bash
+docker run -p 5000:5000 --gpus all -v {HOST_MODELS_PATH}:/models mcr.microsoft.com/azure-cognitive-services/textanalytics/summarization eula=accept rai_terms=accept billing={ENDPOINT_URI} apikey={API_KEY}
+```
+If there is more  than one GPU on the machine, replace `--gpus all` with `--gpus device={DEVICE_ID}`.
+
 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
