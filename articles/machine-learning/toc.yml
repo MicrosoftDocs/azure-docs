@@ -1057,10 +1057,12 @@
           href: how-to-share-data-across-workspaces-with-registries.md
     - name: Model Deployment
       items:
-        - name: Package models for inference
-          href: package-models.md
         - name: Deploy models to endpoints
           href: concept-endpoints.md
+        - name: Package models for deployment
+          href: package-models.md
+        - name: Deploy model packages to online endpoints
+          href: how-to-package-models.md
         - name: Deploy models outside Azure Machine Learning
           href: how-to-package-models-app-service.md
     - name: Automation

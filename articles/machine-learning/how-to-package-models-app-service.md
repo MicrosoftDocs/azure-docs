@@ -116,7 +116,7 @@ Let's see how to package the previously registered MLflow model to deploy it to 
     > [!TIP]
     > Notice that we have indicated **model configuration** using *copy* for the property **mode**. This guarantees all the model artifacts are copied inside of the generated docker image instead of downloaded from Azure Machine Learning model registry, allowing true portability outside of Azure Machine Learning. For a full specification about all the options when creating packages see [Package a model for online deployment](how-to-package-models.md).
 
-1. Let's start the package operation. The result of the package operation is an environment.
+1. Let's start the package operation.
 
     # [Azure CLI](#tab/cli)
     
@@ -130,7 +130,7 @@ Let's see how to package the previously registered MLflow model to deploy it to 
     model_package = ml_client.models.begin_package(model_name, model.version, package_config)
     ```
 
-1. Each environment in Azure Machine Learning has a corresponding docker image. We are going to use that image in our deployment. Images are hosted in Azure Container Registry. We will need the name of the generated image:
+1. The result of the package operation is an environment in Azure Machine Learning. The advantage of them is that each environment has a corresponding docker image we can use in our external deployment. Images are hosted in Azure Container Registry. We will need the name of the generated image:
 
     1. Go to [Azure Machine Learning studio](https://ml.azure.com).
 
