@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 10/02/2023
 
 ms.author: justinha
 author: justinha
@@ -23,7 +23,7 @@ Features like multifactor authentication (MFA) are a great way to secure your or
 | --- | --- | --- |
 | Passwordless | Windows 10 Device, phone, or security key | Biometric or PIN |
 
-Each organization has different needs when it comes to authentication. Microsoft global Azure and Azure Government offer the following three passwordless authentication options that integrate with Microsoft Entra ID:
+Each organization has different needs when it comes to authentication. Microsoft Global Azure and Azure Government offer the following three passwordless authentication options that integrate with Microsoft Entra ID:
 
 - Windows Hello for Business
 - Microsoft Authenticator 
@@ -182,6 +182,10 @@ The following considerations apply:
 - Users can use passwordless credentials to access resources in tenants where they are a guest, but they may still be required to perform MFA in that resource tenant. For more information, see [Possible double multi-factor authentication](../external-identities/current-limitations.md#possible-double-multi-factor-authentication).  
 
 - Users may not register passwordless credentials within a tenant where they are a guest, the same way that they do not have a password managed in that tenant.  
+
+## Unsupported scenarios
+
+We recommend no more than 20 sets of keys for each passwordless method for any user account. If more keys are added, you may notice degradation of operations that include the user object. 
 
 
 ## Choose a passwordless method
