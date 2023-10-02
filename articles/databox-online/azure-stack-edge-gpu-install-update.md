@@ -130,6 +130,8 @@ Depending on the software version that you are running, install process may diff
 
 [!INCLUDE [azure-stack-edge-install-2110-updates](../../includes/azure-stack-edge-install-2110-updates.md)]
 
+![Screenshot of updated software version in local UI.](media/azure-stack-edge-install-updates/portal-update-17.png)
+
 ### [version 2105 and earlier](#tab/version-2105-and-earlier)
 
 1. When the updates are available for your device, you see a notification in the **Overview** page of your Azure Stack Edge resource. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
@@ -259,7 +261,6 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 1. In the local web UI, go to **Maintenance** > **Software update**. Make a note of the software version that you are running. 
    
-   ![update device 2.](./media/azure-stack-edge-gpu-install-update/local-ui-update-2.png)
 
 2. Provide the path to the update file. You can also browse to the update installation file if placed on a network share. Select the two software files (with *SoftwareUpdatePackage.0.exe* and *SoftwareUpdatePackage.1.exe* suffix) together.
 
