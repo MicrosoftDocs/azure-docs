@@ -646,7 +646,7 @@ The identity that your deployment script uses needs to be authorized to work wit
 
 ## Access private virtual network
 
-With Microsoft.Resources/deploymentScripts version 2022-09-01, you can run deployment scripts in private networks with some additional configurations.
+With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deployment scripts in private networks with some additional configurations.
 
 - Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](#identity).
 - Create a storage account in the private network, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.
@@ -665,7 +665,7 @@ With Microsoft.Resources/deploymentScripts version 2022-09-01, you can run deplo
 The following Bicep file shows how to configure the environment:
 
 ```bicep
-param prefix string = 'dspvn'
+param prefix string 
 param location string = resourceGroup().location
 param userAssignedIdentityName string = '${prefix}Identity'
 param storageAccountName string = '${prefix}storage'
@@ -673,7 +673,8 @@ param vnetName string = '${prefix}Vnet'
 param subnetName string = '${prefix}Subnet'
 
 var subnetId = resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, subnetName)
-@description('Create the Vnet')
+
+@description('Create the VNet')
 resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
   name: vnetName
   location: location
@@ -684,37 +685,37 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' = {
       ]
     }
     enableDdosProtection: false
-  }
-}
-
-@description('Create the subnet')
-resource subnet 'Microsoft.Network/virtualNetworks/subnets@2023-05-01' = {
-  parent: vnet
-  name: subnetName
-  properties: {
-    addressPrefix: '10.0.0.0/24'
-    serviceEndpoints: [
+    subnets: [
       {
-        service: 'Microsoft.Storage'
-        locations: [
-          'westus'
-          'eastus2euap'
-          'centraluseuap'
-        ]
-      }
-    ]
-    delegations: [
-      {
-        name: 'Microsoft.ContainerInstance.containerGroups'
-        id: '${subnetId}/delegations/Microsoft.ContainerInstance.containerGroups'
+        name: subnetName
         properties: {
-          serviceName: 'Microsoft.ContainerInstance/containerGroups'
+          addressPrefix: '10.0.0.0/24'
+          serviceEndpoints: [
+            {
+              service: 'Microsoft.Storage'
+              locations: [
+                'westus2'
+                'westus'
+                'eastus2euap'
+                'centraluseuap'
+              ]
+            }
+          ]
+          delegations: [
+            {
+              name: 'Microsoft.ContainerInstance.containerGroups'
+              id: '${subnetId}/delegations/Microsoft.ContainerInstance.containerGroups'
+              properties: {
+                serviceName: 'Microsoft.ContainerInstance/containerGroups'
+              }
+              type: 'Microsoft.Network/virtualNetworks/subnets/delegations'
+            }
+          ]
+          privateEndpointNetworkPolicies: 'Disabled'
+          privateLinkServiceNetworkPolicies: 'Enabled'
         }
-        type: 'Microsoft.Network/virtualNetworks/subnets/delegations'
       }
     ]
-    privateEndpointNetworkPolicies: 'Disabled'
-    privateLinkServiceNetworkPolicies: 'Enabled'
   }
 }
 
@@ -763,7 +764,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
     accessTier: 'Hot'
   }
   dependsOn: [
-    subnet
+    vnet
   ]
 }
 
@@ -773,7 +774,7 @@ resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@
   location: location
 }
 
-@description('get the built-in role definition Storage File Data Priviledged Contributor')
+@description('get the built-in role definition Storage File Data Privileged Contributor')
 resource storageFileDataPrivilegedContributor 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
   name: '69566ab7-960f-475b-8e7c-b3118f30c6bd'
   scope: tenant()
@@ -803,6 +804,8 @@ var storageAccountName = '${prefix}storage'
 param vnetName string = '${prefix}Vnet'
 var subnetName = '${prefix}Subnet'
 var userAssignedIdentityName = '${prefix}Identity'
+var containerGroupName = '${prefix}Aci'
+var dsName = '${prefix}DS'
 
 resource vnet 'Microsoft.Network/virtualNetworks@2023-05-01' existing = {
   name: vnetName
@@ -812,8 +815,8 @@ resource userAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@
   name: userAssignedIdentityName
 }
 
-resource dsTest 'Microsoft.Resources/deploymentScripts@2022-09-01' = {
-  name: 'ACI_test4'
+resource dsTest 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
+  name: dsName
   location: location
   identity: {
     type: 'userAssigned'
@@ -829,31 +832,18 @@ resource dsTest 'Microsoft.Resources/deploymentScripts@2022-09-01' = {
       storageAccountName: storageAccountName
     }
     containerSettings: {
-      containerGroupName: 'my-aci'
+      containerGroupName: containerGroupName
       subnetIds: [
         {
           id: '${vnet.id}/subnets/${subnetName}'
         }
       ]
     }
-    arguments: '\'foo\' \'bar\''
-    environmentVariables: [
-      {
-        name: 'UserName'
-        value: 'jdole'
-      }
-      {
-        name: 'Password'
-        secureValue: 'jDolePassword'
-      }
-    ]
-    scriptContent: 'result=$(az keyvault list); echo "arg1 is: $1"; echo "arg2 is: $2"; echo "Username is :$Username"; echo "Password is: $Password"; echo $result | jq -c \'{Result: map({id: .id})}\' > $AZ_SCRIPTS_OUTPUT_PATH'
+    scriptContent: 'echo "Hello world!"'
     retentionInterval: 'P1D'
     cleanupPreference: 'OnExpiration'
   }
 }
-
-output result object = dsTest.properties.outputs
 ```
 
 ## Next steps
