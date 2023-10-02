@@ -517,7 +517,7 @@ dependencies:
     - bar
 ```
 
-If your model is MLflow, model dependencies are indicated inside the model itself and hence a **base environment** isn't needed. In that case, indicate private feed dependencies when logging the model as explained at [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md##logging-models-with-a-custom-signature-environment-or-samples).
+If your model is MLflow, model dependencies are indicated inside the model itself and hence a **base environment** isn't needed. In that case, indicate private feed dependencies when logging the model as explained at [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
 
 ## Package models in registries
 

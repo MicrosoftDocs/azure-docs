@@ -8,6 +8,7 @@ ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/04/2023
+ms.topic: how-to
 ---
 
 # Model packages for deployment
