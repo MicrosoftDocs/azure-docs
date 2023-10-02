@@ -4,7 +4,7 @@ description: Guidance on how to deprovision your Azure File Sync server endpoint
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 6/01/2021
+ms.date: 10/02/2023
 ms.author: kendownie
 ---
 
@@ -75,7 +75,7 @@ Before you recall any files, make sure that you have enough free space locally t
 
 Use the **Invoke-StorageSyncFileRecall** PowerShell cmdlet and specify the **SyncGroupName** parameter to recall all files. 
 ```powershell
-Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname"
+Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname" -ThreadCount 4
 ```
 Once this cmdlet has finished running, you can move onto the next section.
 
