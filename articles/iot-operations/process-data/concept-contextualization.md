@@ -12,6 +12,8 @@ ms.date: 09/28/2023
 
 # What is contextualization?
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 Contextualization adds information to messages in a pipeline. Contextualization can:
 
 - Enhance the value, meaning, and insights derived from the data flowing through the pipeline.
@@ -26,7 +28,7 @@ Contextualized data provides a more comprehensive picture of the operations, hel
 
 ## Message enrichment
 
-A Data Processor pipeline contextualizes data by enriching the messages that flow through the pipeline with previously stored reference data. Contextualization uses the built-in [reference data store](howto-configure-reference.md). You can break the process of using the reference data store within a pipeline into three steps:
+A Data Processor Preview pipeline contextualizes data by enriching the messages that flow through the pipeline with previously stored reference data. Contextualization uses the built-in [reference data store](howto-configure-reference.md). You can break the process of using the reference data store within a pipeline into three steps:
 
 1. Create and configure a dataset. This step creates and configures your datasets within the [reference data store](howto-configure-reference.md). The configuration includes the keys to use for joins and the reference data expiration policies.
 

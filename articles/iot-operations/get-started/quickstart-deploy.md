@@ -36,6 +36,7 @@ For example: "Quickstart: Demonstrate the incident response capabilities of Micr
 
 # Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 

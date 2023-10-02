@@ -12,6 +12,8 @@ ms.date: 09/07/2023
 
 # What are jq expressions?
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 _jq expressions_ provide a powerful way to perform computations and manipulations on data pipeline messages. This guide demonstrates language patterns and approaches for common computation and processing needs in your data pipelines.
 
 > [!TIP]
@@ -2025,7 +2027,7 @@ true
 
 ## Binary manipulation
 
-While jq itself is designed to work with data that can be represented as JSON, Data Processor pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
+While jq itself is designed to work with data that can be represented as JSON, Data Processor Preview pipelines also support a raw data format that holds unparsed binary data. To work with binary data, the version of jq that ships with Data Processor contains a package designed to help you process binary data. It lets you:
 
 - Convert back and forth between binary and other formats such as base64 and integer arrays.
 - Use built-in functions to read numeric and string values from a binary message.

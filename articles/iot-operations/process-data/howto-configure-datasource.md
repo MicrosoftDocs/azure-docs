@@ -12,12 +12,14 @@ ms.date: 09/19/2023
 
 # Configure a pipeline data source stage
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 The source stage is the first and required stage in a data processor pipeline. The source stage gets data into the data processing pipeline and prepares it for further processing. In the source stage, you define connection details to the data source and establish a partitioning configuration based on your specific data processing requirements. This stage helps you get data into the pipeline and prepare it for further processing.
 
 ## Prerequisites
 
-- A functioning instance of Data Processor is deployed.
-- An instance of the Operations MQ broker is operational with all necessary raw data available.
+- A functioning instance of Data Processor Preview is deployed.
+- An instance of the Operations MQ Preview broker is operational with all necessary raw data available.
 - Basic knowledge of Operations MQ and the corresponding MQTT topic structure.
 
 ## Configure the data source

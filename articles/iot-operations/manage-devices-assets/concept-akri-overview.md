@@ -48,6 +48,9 @@ One clear sign of a procedural article would be the use of a numbered list. With
 -->
 
 # Azure IoT Akri overview
+
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 TODO: Add your heading
 
 <!-- 2. Introductory paragraph
