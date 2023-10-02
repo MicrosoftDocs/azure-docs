@@ -73,7 +73,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 3. Inside the resource's blade, select the **Move** option. Follow the instructions to move the resource to the desired subscription or resource group. 
 4. When the resource has been successfully moved, return to the Azure Traffic Manager Profile that had the resource as an endpoint. 
 5. Locate and select the old endpoint that was previously linked to the resource you moved. Select **Delete** to remove this old endpoint from the Traffic Manager profile.
-6. Select **Add** or **Create** to create and configure the new endpoint. The new endpoint is configured to point to the recently moved Azure resource.
+6. Select **Add** or **Create** to create and configure a new endpoint that targets the recently moved Azure resource.
 
 Also see [How do I move my Traffic Manager profile's Azure endpoints to a different resource group or subscription?](traffic-manager-FAQs.md#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription).
 
