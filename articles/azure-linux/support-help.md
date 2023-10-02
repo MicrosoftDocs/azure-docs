@@ -62,7 +62,7 @@ If you need help with the language and tools used to develop and manage the Azur
 | --- | --- |
 | Azure Kubernetes Service | https://github.com/Azure/AKS/issues |
 | Azure CLI | https://github.com/Azure/azure-cli/issues |
-<!-- | Terraform | https://github.com/Azure/terraform/issues | -->
+| CBL-Mariner | https://github.com/microsoft/CBL-Mariner/issues |
 
 ## Stay informed of updates and new releases
 
