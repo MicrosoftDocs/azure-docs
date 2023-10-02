@@ -110,7 +110,7 @@ After virtual switches are created, you can enable the switches for Kubernetes c
    SAP   a SAP Digital Manufacturing for Edge Computing or another Microsoft partner solution   
    NONE  other workloads
    [Device-IP]: PS>
-   ```powershell
+   ```
     
 4. Use the `Set-HcsKubernetesWorkloadProfile` cmdlet to set the workload profile for AP5GC, an Azure Private MEC solution.
 
