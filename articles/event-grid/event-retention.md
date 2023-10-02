@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/29/2023
 ---
 
-# Event retention for Azure Event Grid namespace topics and event subscriptions to the topics
+# Event retention for Azure Event Grid namespace topics and event subscriptions
 This article describes event retention for Azure Event Grid namespace topics and event subscriptions to those topics. 
 
 ## Event retention for namespace topics

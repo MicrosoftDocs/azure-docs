@@ -122,7 +122,7 @@ items:
         href: concepts-pull-delivery.md
       - name: Publisher and subscriber operations
         href: publisher-subscriber-operations.md
-      - name: Dead lettering for event subscriptions to namespaces topics 
+      - name: Dead lettering for event subscriptions 
         href: dead-letter-event-subscriptions-namespace-topics.md
       - name: Event retention
         href: event-retention.md
