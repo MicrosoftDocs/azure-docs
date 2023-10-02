@@ -3,19 +3,20 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build a Bicep file or an Azure Resource Manager template that deploys your function app.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 08/30/2022
+ms.date: 10/02/2023
 ms.custom: fasttrack-edit, devx-track-azurepowershell
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Automate resource deployment for your function app in Azure Functions
 
-<a name="top"></a>You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app. For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md). For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
+You can use a Bicep file or an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app. For more information about creating Bicep files, see [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md). For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 For sample Bicep files and ARM templates, see:
 
 - [ARM templates for function app deployment](https://github.com/Azure-Samples/function-app-arm-templates)
 - [Function app on Consumption plan]
+- [Function app on Elastic Premium plan](#premium)
 - [Function app on Azure App Service plan]
 
 >[!IMPORTANT]
@@ -27,25 +28,25 @@ An Azure Functions deployment typically consists of these resources:
 
 # [Bicep](#tab/bicep)
 
-| Resource                                                                           | Requirement | Syntax and properties reference                                                         |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| A function app                                                                     | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep)                             |
-| A [storage account](../storage/index.yml)                                         | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) |
-| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)         |
-| A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep)
+| Resource  | Requirement | Syntax and properties reference |
+|------|-------|----|
+| A function app | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep)  |
+| A [storage account](../storage/index.yml) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) |
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)|
+| A [hosting plan](functions-scale.md)| Optional<sup>1</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep)
 
 # [JSON](#tab/json)
 
-| Resource                                                                           | Requirement | Syntax and properties reference                                                         |
-|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| A function app                                                                     | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template)                             |
-| A [storage account](../storage/index.yml)                                          | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-arm-template) |
+| Resource | Requirement | Syntax and properties reference   |
+|----|-------|----|
+| A function app | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template) |
+| A [storage account](../storage/index.yml)        | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-arm-template) |
 | An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-arm-template)         |
-| A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template)                 |
+| A [hosting plan](functions-scale.md)           | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template)   |
 
 ---
 
-<sup>1</sup>A hosting plan is only required when you choose to run your function app on a [Premium plan](./functions-premium-plan.md) or on an [App Service plan](../app-service/overview-hosting-plans.md).
+<sup>1</sup>An explicit hosting plan is only required when you choose to run your function app on a [Premium plan](functions-premium-plan.md) or on an [App Service plan](dedicated-plan.md).
 
 > [!TIP]
 > While not required, it is strongly recommended that you configure Application Insights for your app.
@@ -130,41 +131,22 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ### Application Insights
 
-Application Insights is recommended for monitoring your function apps. The Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind **web**:
+Application Insights is recommended for monitoring your function apps. The Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind `web`:
 
 # [Bicep](#tab/bicep)
 
-```bicep
-resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
-  name: applicationInsightsName
-  location: appInsightsLocation
-  kind: 'web'
-  properties: {
-    Application_Type: 'web'
-    Request_Source: 'IbizaWebAppExtensionCreate'
-  }
-}
-```
+:::code language="bicep" source="~/function-app-arm-templates/function-app-linux-consumption/main.bicep" range="60-70":::
+
+For a complete example, see [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L60) in the templates repository.
 
 # [JSON](#tab/json)
 
-```json
-"resources": [
-  {
-    "type": "Microsoft.Insights/components",
-    "apiVersion": "2020-02-02",
-    "name": "[parameters('applicationInsightsName')]",
-    "location": "[parameters('appInsightsLocation')]",
-    "kind": "web",
-    "properties": {
-      "Application_Type": "web",
-      "Request_Source": "IbizaWebAppExtensionCreate"
-    }
-  }
-]
-```
+:::code language="json" source="~/function-app-arm-templates/function-app-linux-consumption/azuredeploy.json" range="102-114":::
+
+For a complete example, see [azuredeploy.json](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/azuredeploy.json#L102) in the templates repository.
 
 ---
+
 
 In addition, the instrumentation key needs to be provided to the function app using the `APPINSIGHTS_INSTRUMENTATIONKEY` application setting. This property is specified in the `appSettings` collection in the `siteConfig` object:
 
@@ -287,12 +269,12 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 A function app must include these application settings:
 
-| Setting name                 | Description                                                                               | Example values                        |
-|------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
+| Setting name   | Description           | Example values|
+|-----|----|----|
 | AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime uses for internal queueing | See [Storage account](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~4`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, `python`, or `powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack on **Windows**, specifies the [version](./functions-reference-node.md#node-version) to use              | `~14`                             |
+| FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime| `~4`|
+| FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app | `dotnet`, `node`, `java`, `python`, or `powershell` |
+| WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack on **Windows**, specifies the [version](functions-reference-node.md#node-version) to use| `~14` |
 
 These properties are specified in the `appSettings` collection in the `siteConfig` property:
 
@@ -683,7 +665,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 <a name="premium"></a>
 ## Deploy on Premium plan
 
-The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and extra capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
+The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and extra capabilities. To learn more, see [Azure Functions Premium Plan](functions-premium-plan.md).
 
 ### Create a Premium plan
 
@@ -1104,17 +1086,17 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
 
 ### Create a function app
 
-For function app on a Dedicated plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
+When creating a function app on a Dedicated (App Service) plan, must include the following in your deployment:
 
-On App Service plan, you should enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions.
-
-The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Dedicated plan.
-
-For a sample Bicep file/Azure Resource Manager template, see [Azure Function App Hosted on Dedicated Plan](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-dedicated-plan).
++ Set the `serverFarmId` property on the app so that it points to the resource ID of the plan. 
++ Make sure that the function app has a `dependsOn` setting that also references the plan.
++ Enable the `"alwaysOn": true` setting under site config so that your function app runs correctly. On an App Service plan, the functions runtime goes idle after a few minutes of inactivity, so only HTTP triggers will "wake up" your functions. Without this setting your non-HTTP trigger functions, including Timer trigger, won't run correctly.
++ Don't include [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings. These dynamic scale settings aren't supported on a Dedicated plan.
 
 The settings required by a function app running in Dedicated plan differ between Windows and Linux. You can choose your operating system at the [top of this article](#top).
 
 :::zone pivot="platform-windows" 
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -1293,7 +1275,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ### Custom Container Image
 
-If you're [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+If you're [deploying a custom container image](functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
 
 # [Bicep](#tab/bicep)
 
@@ -1610,9 +1592,28 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 A function app has many child resources that you can use in your deployment, including app settings and source control options. You also might choose to remove the **sourcecontrols** child resource, and use a different [deployment option](functions-continuous-deployment.md) instead.
 
-Considerations for custom deployments:
+### Application settings
 
-+ To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your function app must be deployed *before* **config/appSettings** is applied. For example, when you're using functions with [Logic Apps](../logic-apps/index.yml), your functions are a dependency of another resource.
+The following table indicates which required `appSettings` are supported for a given operating system and hosting plan:
+
+|Seetting |Windows<br/>Consumption|Windows<br/>Premium|Windows<br/>App&nbsp;Service|Linux<br/>Consumption|Linux<br/>Premium|Linux<br/>App&nbsp;Service|
+|----|-----|-----|-----|-----|-----|-----|
+|[`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey)<sup>1</sup>|✅|✅|✅|✅|✅|✅|
+|[`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)|✅|✅|✅|✅|✅|✅|
+|[`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)|✅|✅|✅|✅|✅|✅|
+|[`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version)|✅|✅|✅|✅|✅|✅|
+|[`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime)|✅|✅|✅|✅|✅|✅|
+|[`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)|✅|✅|❌|✅|✅|❌|
+|[`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)|✅|✅|❌|✅|✅|❌|
+|[`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)|✅|✅|✅|❌|✅|✅|
+|[`WEBSITE_NODE_DEFAULT_VERSION`](functions-app-settings.md#website_node_default_version)|✅<sup>2</sup>|✅<sup>2</sup>|✅<sup>2</sup>|❌|❌|❌| 
+
+<sup>1</sup>`APPINSIGHTS_INSTRUMENTATIONKEY` is deprecated. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead.  
+<sup>2</sup>Supported only for Node.js deployments on Windows. Node.js deployments to Linux must instead use the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting. 
+
+Considerations for custom deployments: 
+
++ To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In the following example, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child **sourcecontrols/web** resource is applied. Although it's possible to configure these settings in the child-level **config/appSettings** resource, in some cases your function app must be deployed *before* **config/appSettings** is applied. For example, when you're using functions with [Logic Apps](.logic-apps/index.yml), your functions are a dependency of another resource.
 
     # [Bicep](#tab/bicep)
     
@@ -1739,6 +1740,14 @@ Considerations for custom deployments:
 
 + When updating application settings using Bicep or ARM, make sure that you include all existing settings. You must do this because the underlying REST APIs calls replace the existing application settings when the update APIs are called. 
 
+### Site settings
+
+In addition to application settings, there are also site settings that should be included in your deployment template.
+
+| Settings| Required? | OS type | Comment |
+| --- | --- | --- | --- |
+| 
+
 ## Validate your template
 
 When you manually create your deployment template file, it's important to validate your template before deployment. All deployment methods validate your template syntax and raise a `validation failed` error message as shown in the following JSON formatted example:
@@ -1863,7 +1872,7 @@ Learn more about how to develop and configure Azure Functions.
 
 - [Azure Functions developer reference](functions-reference.md)
 - [How to configure Azure function app settings](functions-how-to-use-azure-function-app-settings.md)
-- [Create your first Azure function](./functions-get-started.md)
+- [Create your first Azure function](functions-get-started.md)
 
 <!-- LINKS -->
 

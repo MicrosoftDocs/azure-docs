@@ -2,13 +2,17 @@
 title: Best practices for Azure Functions deployments 
 description: Learn best practices for deploying required resources for Azure Functions by using Azure Resources Manager templates.
 ms.topic: conceptual
-ms.date: 02/07/2023
+ms.date: 10/02/2023
 # Customer intent: As a developer, I want to understand how to successfully deploy my function app resources by using Aure Resource Manager templates and related technologies so I can produce stable and repeatable deployments.
 ---
 
 # Best practices for Azure Functions deployments
 
-This article details some best practices for creating function app and related resources to Azure and deploying function project code using Azure Resource Manager templates and Bicep files.   
+This article details some best practices for creating function app and related resources in Azure and deploying function project code. 
+
+## Template-based deployments
+
+Guidance in this section applies when deploying resources to Azure by using Azure Resource Manager templates and Bicep files.   
 
 ### dependsOn  
 
@@ -103,7 +107,6 @@ NOTE: Please include rest of the existing app settings in the template to preser
 }
 ```
 
-<br/>
 
 ### App Settings in ARM template
 
@@ -111,7 +114,7 @@ NOTE: Please include rest of the existing app settings in the template to preser
 
 * It is an expected behavior that the ARM template will delete the existing app settings and replace the app settings for a function app based on the app settings present in the ARM template. The API requires the payload to contains all necessary settings which will replace the existing one entirely. There is no partial remove or patch support with existing AppSettings. For instance, if one you want to add a new setting, one needs to get existing set, add to that collection and update as a whole.
 
-<br/>
+To learn more about best practices related to application settings, see <<>>.
 
 ### Deployment .zip file requirements
 
