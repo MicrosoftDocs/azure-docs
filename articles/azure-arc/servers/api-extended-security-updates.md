@@ -12,7 +12,7 @@ This article provides instructions to programmatically provision and manage Wind
 For each of the API commands explained in this article, be sure to enter accurate parameter information for location, state, edition, type, and processors depending on your particular scenario
 
 > [!NOTE]
-> You'll need to create a service principal in order to use the Azure API to manage ESUs. See [Connect hybrid machines to Azure at scale](onboard-service-principal.md) and [Azure REST API reference](/rest/api/azure/)for more information.
+> You'll need to create a service principal to use the Azure API to manage ESUs. See [Connect hybrid machines to Azure at scale](onboard-service-principal.md) and [Azure REST API reference](/rest/api/azure/)for more information.
 > 
 
 ## Provision a license
