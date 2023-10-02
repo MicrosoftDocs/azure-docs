@@ -9,7 +9,7 @@ metadata:
   ms.workload: identity
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 09/26/2023
+  ms.date: 10/02/2023
   ms.author: sarahlipsey
   ms.reviewer: egreenberg14
 
@@ -98,7 +98,7 @@ sections:
       - question: |
           I used the signInActivity resource to look up a user's last sign-in time, but it hasn't updated after a few hours. When will it be updated with the latest sign in time? 
         answer: |
-          The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It doesn't update in near real time; you should expect up to 6 hours before the property is updated for a given user. If you need to find the user's last sign-in activity more quickly, you can use the Microsoft Entra sign-in logs to see near real time sign-in activity for all your users. 
+          The signInActivity resource is used to find inactive [users who haven't signed in for some time](howto-manage-inactive-user-accounts.md). It doesn't update in near real time. If you need to find the user's last sign-in activity more quickly, you can use the Microsoft Entra sign-in logs to see near real time sign-in activity for all your users. 
 
       - question: |
           What data is included in the CSV file I can download from the Microsoft Entra sign-in logs?
