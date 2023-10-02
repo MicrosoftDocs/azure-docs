@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy confidential Containers (preview) on an Azure Kubernetes Service (AKS) cluster to maintain security and protect sensitive information.
 ms.topic: article
-ms.date: 09/27/2023
+ms.date: 10/02/2023
 ---
 
 # Confidential Containers (preview) with Azure Kubernetes Service (AKS)
@@ -17,7 +17,7 @@ Together with other security measures or data protection controls, as part of yo
 This article helps you understand this new feature, and how to implement and configure the following:
 
 * Deploy or upgrade an AKS cluster using the Azure CLI
-* Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account.
+* Create an Microsoft Entra ID workload identity and Kubernetes service account.
 * Configure the managed identity for token federation.
 * Grant access to the Azure Key Vault Managed HSM and secret
 * Configure an application to be deployed as a Confidential container.
@@ -37,10 +37,16 @@ Confidential Containers (preview) are appropriate for deployment scenarios that 
 - The Azure CLI version 2.44.1 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 - The `aks-preview` Azure CLI extension version 0.5.123 or later.
+- 
+- The `ConfCom` Confidential Container Security Policy Generator Azure CLI extension 2.62.2 or later.
 
 - Register the `Preview` feature in your Azure subscription.
 
-- AKS supports Confidential Containers (preview) on version 1.24.0 and higher.
+- AKS supports Confidential Containers (preview) on version 1.25.0 and higher.
+
+- To create a Microsoft Entra ID workload identity and configure a federated identity credential, see their [Preqequisites][entra-id-workload-identity-prerequisites] for role assignment.
+
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][cluster-access-and-identity-options].
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
@@ -86,7 +92,7 @@ az provider register --namespace "Microsoft.ContainerService"
 
 The following are constraints with this preview of Confidential Containers (preview):
 
-* List of limitation(s)
+* List of limitation(s) - Manuel Huber can provide me with the limtitations.
 
 ## Deploy a new cluster
 
@@ -94,13 +100,20 @@ Create an AKS cluster using the [az aks create][az-aks-create] command and speci
 
    * **--workload-runtime**: Specify *KataCcIsolation* to enable the Confidential Containers feature on the node pool. With this parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
     * **--os-sku**: *AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
-    * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Dsv3][dv3-series] VMs.
 
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
    ```azurecli-interactive
-   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.24.0 and above> --os-sku AzureLinux –-node-vm-size <VM sizes capable of nested SNP VM> --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
+   az aks create --resource-group myResourceGroup --name myManagedCluster –kubernetes-version <1.24.0 and above> --os-sku AzureLinux --workload-runtime <kataCcIsolation> --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
    ```
+
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. The cluster created in the previous step has a single node pool. In the next step, we add a second node pool to the cluster.
+
+The following example adds a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
+
+```azurecli-interactive
+az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> 
+```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
@@ -121,11 +134,12 @@ Use the following command to enable Confidential Containers (preview) by creatin
    * **--name**: Enter a unique name for your clusters node pool, such as *nodepool2*.
    * **--workload-runtime**: Specify *kataCcIsolation* to enable the feature on the node pool. Along with the `--workload-runtime` parameter, these other parameters shall satisfy the following requirements. Otherwise, the command fails and reports an issue with the corresponding parameter(s).
      * **--os-sku**: **AzureLinux*. Only the Azure Linux os-sku supports this feature in this preview release.
+   * **--node-vm-size**: Any Azure VM size that is a generation 2 VM and supports nested virtualization works. For example, [Standard_DC8as_cc_v5][DC8as-series] VMs.
 
-   The following example adds a node pool to *myAKSCluster* with one node in *nodepool2* in the *myResourceGroup*:
+   The following example adds a node pool to *myAKSCluster* with two nodes in *nodepool2* in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --os-sku Azurelinux SKU
+    az aks nodepool add --resource-group myResourceGroup --name myManagedCluster –-cluster-name myCluster --node-count 2 --os-sku Azurelinux SKU --node-vm-size <VM sizes capable of nested SNP VM> 
     ```
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -213,7 +227,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
     az confcom katapolicygen -y <path to pod yaml>
     ```
 
-1. Upload keys to your Managed HSM instance with key release policy
+1. Upload keys to your Managed HSM instance with key release policy (Need details)
 
 1. Deploy the application by running the following command:
 
@@ -221,7 +235,7 @@ Before you configure access to the Azure Key Vault Managed HSM and secret, and d
     Kubectl apply -f myapplication
     ```
 
-1. To verify the application is running in isolation from parent and any other pods deployed on the cluster, run the following command.
+1. To verify the application is running in isolation from parent and any other pods deployed on the cluster, run the following command. (Run command to view secrets to verify it is working from the pod).
 
 ## Cleanup
 
@@ -260,3 +274,6 @@ kubectl delete pod pod-name
 [create-managed-hsm]: ../key-vault/managed-hsm/quick-create-cli.md
 [upgrade-cluster-enable-workload-identity]: workload-identity-deploy-cluster.md#update-an-existing-aks-cluster
 [deploy-and-configure-workload-identity]: workload-identity-deploy-cluster.md
+[entra-id-workload-identity-prerequisites]: ../active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md
+[cluster-access-and-identity-options]: concepts-identity.md
+[DC8as-series]: ../virtual-machines/dcasccv5-dcadsccv5-series.md
