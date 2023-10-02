@@ -66,8 +66,8 @@ sections:
              You can use the [import/export](cache-how-to-import-export-data.md) feature to save a copy of your data before the migration. 
 
              To utilize this option, please reach out to azurecachemigration@microsoft.com or create a support request to request a migration.
-             We have migrated most caches from being built on Cloud Services (classic) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. We highly recommend not using old subnets while migrating caches. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
 
+             
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |
           Check to see if your cache is using geo-replication. If so, you’ll need to migrate your data from your current geo-replicated pair to a fresh geo-replicated pair. 
