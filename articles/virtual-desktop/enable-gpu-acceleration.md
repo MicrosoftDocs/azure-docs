@@ -64,7 +64,7 @@ Configure Group Policy for the session host to enable GPU-accelerated frame enco
 
     If you're using Windows Server 2016, set **Prefer AVC Hardware Encoding** to **Always attempt**.
 
-2. Now that you've edited the policies, force a Group Policy update. Open the command prompt and enter:
+2. Now that you've edited the policies, force a Group Policy update. Open the command prompt as an administrator and run the following command:
 
     ```cmd
     gpupdate.exe /force
