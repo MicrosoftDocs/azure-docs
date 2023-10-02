@@ -228,14 +228,14 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
     ![Search catalog.](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
+1. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
     The update listing appears as **Azure Stack Edge Update 2309**.
 
     > [NOTE!]
     > Make sure to verify which workload you are running on your device [via the local UI](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-ips-1) or [via the PowerShell](./azure-stack-edge-connect-powershell-interface.md) interface of the device. Depending on the workload that you are running, the update package will differ.
 
-	Specify the update package for your environment:
+	Specify the update package for your environment. Use the following table as a reference:
 
     | Kubernetes       | Local UI Kubernetes workload profile     | Update package name   | Example Update File |
     |------------------|--------------|---------------------------|-----------------------------------|
@@ -243,18 +243,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
     | Kubernetes for Azure Stack Edge |Other workloads in your environment  | Azure Stack Edge Update 2309 Kubernetes Package for Non Private MEC/Non SAP Workloads | \release~ase-2307d.3.2.2380.1632-42623-79365624-release_host_AseKubernetes_Package |
 
 
-<!--    - - Azure Stack Edge Update 2309 Software Package.
-	   - host update .exe
-	- Azure Stack Edge Update 2309 Kubernetes Package for Private MEC/SAP Workloads.
-	   - msk8.0.exe
-	   - msk8.1.exe
-	- Azure Stack Edge Update 2309 Kubernetes Package for Non Private MEC/Non SAP Workloads.
-	   - asek8.0.exe
-       - asek8.1.exe -->
-   
-    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
-
-4. Select **Download**. There are two packages to download for the update. The first package will have two files for the device software updates (*SoftwareUpdatePackage.0.exe*, *SoftwareUpdatePackage.1.exe*) and the second package has two files for the Kubernetes updates (*Kubernetes_Package.0.exe* and *Kubernetes_Package.1.exe*), respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device. 
+1. Select **Download**. There are two packages to download for the update. The first package will have two files for the device software updates (*SoftwareUpdatePackage.0.exe*, *SoftwareUpdatePackage.1.exe*) and the second package has two files for the Kubernetes updates (*Kubernetes_Package.0.exe* and *Kubernetes_Package.1.exe*), respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device. 
 
 
 ### Install the update or the hotfix
