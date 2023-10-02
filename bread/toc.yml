@@ -350,7 +350,7 @@
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
-  - name: Cognitive Search
+  - name: Search
     tocHref: /azure/search/
     topicHref: /azure/search/
   - name: AI Services
