@@ -357,7 +357,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### Using Bicep/Azure Resource Manager templates
 
-For assigned a built in assignment via Bicep:
+For a built-in assignment using a Bicep template:
 
 ```
 resource sqlRoleAssignment 'Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments@2023-04-15' = {
