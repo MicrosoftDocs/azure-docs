@@ -88,7 +88,12 @@ To get the list of Playwright workspaces that you have access to:
 
 1. On the **Workspaces** page, you can now see all the workspaces that you have access to.
 
-    The page shows all workspaces for the currently selected Azure subscription. You can switch to another subscription from the list.
+    The page shows a card for each of the workspaces in the currently selected Azure subscription. You can switch to another subscription by selecting a subscription from the list.
+    
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/playwright-portal-workspaces.png" alt-text="Screenshot that shows the list of all workspaces in the Playwright portal." lightbox="./media/how-to-manage-playwright-workspace/playwright-portal-workspaces.png":::
+
+    > [!TIP]
+    > Notice that the workspace card indicates if the workspace is included in a free trial.
 
 1. Select a workspace to view the workspace details and activity log.
 
