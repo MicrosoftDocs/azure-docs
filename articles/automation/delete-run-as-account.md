@@ -3,7 +3,7 @@ title: Delete an Azure Automation Run As account
 description: This article tells how to delete a Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/01/2023
+ms.date: 10/02/2023
 ms.topic: conceptual
 ---
 
