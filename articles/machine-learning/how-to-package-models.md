@@ -207,9 +207,9 @@ base_environment = ml_client.environments.create_or_update(
 
 1. Configure the wizard as follows:
 
-    1. Idicate *sklearn-regression-env* as **Name**.
+    1. On **Name**, enter *sklearn-regression-env*.
 
-    1. Indicate *use existing docker image with optional conda file* as **Select environment source**.
+    1. On **Select environment source**, select *Use existing docker image with optional conda file*.
 
     1. Leave **Container registry image path** as defaults.
 
