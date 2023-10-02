@@ -16,7 +16,7 @@ ms.author: alkohli
 
 This article describes the steps required to install update on your Azure Stack Edge Pro with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluster on the device up-to-date.
 
-> [NOTE!]
+> [!NOTE]
 > The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version. 
 
 ## About latest updates
@@ -234,7 +234,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
    
     The update listing appears as **Azure Stack Edge Update 2309**.
 
-    > [NOTE!]
+    > [!NOTE]
     > Make sure to verify which workload you are running on your device [via the local UI](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-ips-1) or [via the PowerShell](./azure-stack-edge-connect-powershell-interface.md) interface of the device. Depending on the workload that you are running, the update package will differ.
 
 	Specify the update package for your environment. Use the following table as a reference:
