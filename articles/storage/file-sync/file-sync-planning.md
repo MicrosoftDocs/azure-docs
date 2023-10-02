@@ -156,7 +156,7 @@ The following table shows the interop state of NTFS file system features:
 | Mount points | Partially supported | Mount points might be the root of a server endpoint, but they are skipped if they are contained in a server endpoint's namespace. |
 | Junctions | Skipped | For example, Distributed File System DfrsrPrivate and DFSRoots folders. |
 | Reparse points | Skipped | |
-| NTFS compression | Fully supported | |
+| NTFS compression | Partially supported | Azure File Sync does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
 | Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags created by the File Classification Infrastructure are not synced. Existing classification tags on files on each of the server endpoints are left untouched. |
 
