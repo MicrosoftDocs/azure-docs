@@ -243,7 +243,7 @@ To use Azure Private 5G Core, you need to register some additional resource prov
 1. If your account has multiple subscriptions, make sure you are in the correct one:
 
     ```azurecli
-    az account set –-subscription <subscription_id>
+    az account set --subscription <subscription_id>
     ```
 
 1. Check the Azure CLI version:
