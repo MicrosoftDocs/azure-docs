@@ -47,7 +47,7 @@ To enable pre-registered alphanumeric sender ID, go to your Communication Servic
 
 Navigate to the Alphanumeric Sender ID blade in the resource menu, select pre-registered tab and click on "Submit an application" button to submit the registration form.
 
-:::image type="content" source="./media/enable-alphanumeric-sender-id/enable-alphanumeric-sender-id.png"alt-text="Screenshot showing an Alphanumeric senderID blade.":::
+:::image type="content" source="./media/enable-alphanumeric-sender-id/enable-pre-reg-alphanumeric-sender-id.png"alt-text="Screenshot showing the pre-registered tab in Alphanumeric senderID blade.":::
 
 ## Next steps
 
