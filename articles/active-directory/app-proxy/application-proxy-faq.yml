@@ -172,7 +172,7 @@ sections:
               > Deleting CWAP_AuthSecret breaks preauthentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
 
       - question: |
-         I'm using or want to use Microsoft Entra application proxy. Can I replace the `onmicrosoft.com` fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](/microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain)? 
+         I'm using or want to use Microsoft Entra application proxy. Can I replace the `onmicrosoft.com` fallback domain of my tenant in Microsoft 365 as suggested in the article [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](https://learn.microsoft.com/microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain?view=o365-worldwide)? 
         answer: |
               No. You must use the original fallback domain.  
 
