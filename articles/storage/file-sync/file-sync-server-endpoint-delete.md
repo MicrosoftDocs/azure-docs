@@ -75,7 +75,7 @@ Before you recall any files, make sure that you have enough free space locally t
 
 Use the **Invoke-StorageSyncFileRecall** PowerShell cmdlet and specify the **SyncGroupName** parameter to recall all files. 
 ```powershell
-Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname"
+Invoke-StorageSyncFileRecall -SyncGroupName "samplesyncgroupname" -ThreadCount 4
 ```
 Once this cmdlet has finished running, you can move onto the next section.
 
