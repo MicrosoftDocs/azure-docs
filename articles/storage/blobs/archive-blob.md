@@ -38,7 +38,7 @@ To archive a blob or set of blobs on upload from the Azure portal, follow these 
 1. Expand the **Advanced** section, and set the **Access tier** to *Archive*.
 1. Select the **Upload** button.
 
-    :::image type="content" source="media/archive-blob/upload-blobs-archive-portal.png" alt-text="Screenshot showing how to upload blobs to the archive tier in the Azure portal":::
+    :::image type="content" source="media/archive-blob/upload-blobs-archive-portal.png" alt-text="Screenshot showing how to upload blobs to the archive tier in the Azure portal.":::
 
 ### [PowerShell](#tab/azure-powershell)
 

@@ -288,7 +288,7 @@ To learn how to test the function by rehydrating a blob, see one of these two pr
 
 After the rehydration is complete, the log blob is written to the same container as the blob that you rehydrated. For example, after you rehydrate a blob with a copy operation, you can see in the Azure portal that the original source blob remains in the archive tier, the fully rehydrated destination blob appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
 
-:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler":::
+:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler.":::
 
 Keep in mind that rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
