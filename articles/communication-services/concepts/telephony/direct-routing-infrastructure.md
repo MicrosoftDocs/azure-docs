@@ -45,7 +45,7 @@ Alternatively, Communication Services direct routing supports a wildcard in the 
 
 Customers who already use Office 365 and have a domain registered in Microsoft 365 Admin Center can use SBC FQDN from the same domain.
 
-An example would be using `\*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
+An example would be using `*.contoso.com`, which would match the SBC FQDN `sbc.contoso.com`, but wouldn't match with `sbc.test.contoso.com`.
 
  >[!NOTE]
  > SBC FQDN in Azure Communication Services direct routing must be different from SBC FQDN in Teams Direct Routing.

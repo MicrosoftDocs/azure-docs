@@ -1,9 +1,11 @@
 ---
 title: Reliability recommendations
 description: Full list of available reliability recommendations in Advisor.
+author: mabrahms
+ms.author: v-mabrahms
+ms.service: azure
 ms.topic: article
-ms.custom: ignite-2022
-ms.date: 02/04/2022
+ms.date: 09/27/2023
 ---
 
 # Reliability recommendations
@@ -50,7 +52,6 @@ Learn more about [Azure FarmBeats - FarmBeatsPythonSdkVersion (Upgrade to the la
 
 ## API Management
 
-
 ### SSL/TLS renegotiation blocked
 
 SSL/TLS renegotiation attempt blocked. Renegotiation happens when a client certificate is requested over an already established connection. When it is blocked, reading 'context.Request.Certificate' in policy expressions returns 'null'. To support client certificate authentication scenarios, enable 'Negotiate client certificate' on listed hostnames. For browser-based clients, enabling this option might result in a certificate prompt being presented to the client.
@@ -69,7 +70,19 @@ Learn more about [Api Management - HostnameCertRotationFail (Hostname certificat
 
 We detected the minimal replica count set for your container app may be lower than optimal. Consider increasing the minimal replica count for better availability.
 
-Learn more about [Resource - ContainerAppMinimalReplicaCountTooLow (Increase the minimal replica count for your container app)](https://aka.ms/containerappscalingrules).
+Learn more about [Microsoft App Container App - ContainerAppMinimalReplicaCountTooLow (Increase the minimal replica count for your container app)](https://aka.ms/containerappscalingrules).
+
+### Renew custom domain certificate
+
+We detected the custom domain certificate you uploaded is near expiration. Please renew your certificate and upload the new certificate for your container apps.
+
+Learn more about [Microsoft App Container App - ContainerAppCustomDomainCertificateNearExpiration (Renew custom domain certificate)](https://aka.ms/containerappcustomdomaincert).
+
+### A potential networking issue has been identified with your Container Apps Environment that requires it to be re-created to avoid DNS issues
+
+A potential networking issue has been identified for your Container Apps Environments. To prevent this potential networking issue from impacting your Container Apps Environment, create a new Container Apps Environment, re-create your Container Apps in the new environment, and delete the old Container Apps Environment
+
+Learn more about [Managed Environment - CreateNewContainerAppsEnvironment (A potential networking issue has been identified with your Container Apps Environment that requires it to be re-created to avoid DNS issues)](https://aka.ms/createcontainerapp).
 
 ## Cache for Redis
 
@@ -90,7 +103,7 @@ Learn more about [Front Door Profile - SwitchVersionBYOC (Switch Secret version 
 
 ### Migrate Virtual Machines to Availability Zones
 
-By migrating virtual machines to Availability Zones, you can ensure the isolation of your VMs from potential failures in other zones. With this, you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions. 
+By migrating virtual machines to Availability Zones, you can ensure the isolation of your VMs from potential failures in other zones, and you can expect enhanced resiliency in your workload by avoiding downtime and business interruptions. 
 
 Learn more about [Availability Zones](../reliability/availability-zones-overview.md).
 
@@ -108,7 +121,7 @@ Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgr
 
 ### Enable virtual machine replication to protect your applications from regional outage
 
-Virtual machines which do not have replication enabled to another region are not resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the below list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
+Virtual machines that do not have replication enabled to another region, are not resilient to regional outages. Replicating the machines drastically reduce any adverse business impact during the time of an Azure region outage. We highly recommend enabling replication of all the business critical virtual machines from the below list so that in an event of an outage, you can quickly bring up your machines in remote Azure region.
 Learn more about [Virtual machine - ASRUnprotectedVMs (Enable virtual machine replication to protect your applications from regional outage)](https://aka.ms/azure-site-recovery-dr-azure-vms).
 
 ### Upgrade VM from Premium Unmanaged Disks to Managed Disks at no extra cost
@@ -131,13 +144,13 @@ Learn more about [Availability set - ManagedDisksAvSet (Use Managed Disks to imp
 
 ### Check Point Virtual Machine may lose Network Connectivity.
 
-We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. It is recommended that you upgrade to a newer version of the image that addresses this issue. Contact Check Point for further instructions on how to upgrade your image.
+We have identified that your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. It is recommended that you upgrade to a newer version of the image. Contact Check Point for further instructions on how to upgrade your image.
 
 Learn more about [Virtual machine - CheckPointPlatformServicingKnownIssueA (Check Point Virtual Machine may lose Network Connectivity.)](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk151752&partition=Advanced&product=CloudGuard).
 
 ### Access to mandatory URLs missing for your Azure Virtual Desktop environment
 
-In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to allowed list in case your virtual machine runs in restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
+In order for a session host to deploy and register to Azure Virtual Desktop properly, you need to add a set of URLs to the allowed list, in case your virtual machine runs in a restricted environment. After visiting the "Learn More" link, you see the minimum list of URLs you need to unblock to have a successful deployment and functional session host. For specific URL(s) missing from allowed list, you may also search Application event log for event 3702.
 
 Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Access to mandatory URLs missing for your Azure Virtual Desktop environment)](../virtual-desktop/safe-url-list.md).
 
@@ -145,7 +158,7 @@ Learn more about [Virtual machine - SessionHostNeedsAssistanceForUrlCheck (Acces
 
 ### Improve PostgreSQL availability by removing inactive logical replication slots
 
-Our internal telemetry indicates that your PostgreSQL server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. This can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
+Our internal telemetry indicates that your PostgreSQL server may have inactive logical replication slots. THIS NEEDS IMMEDIATE ATTENTION. Inactive logical replication can result in degraded server performance and unavailability due to WAL file retention and buildup of snapshot files. To improve performance and availability, we STRONGLY recommend that you IMMEDIATELY either delete the inactive replication slots, or start consuming the changes from these slots so that the slots' Log Sequence Number (LSN) advances and is close to the current LSN of the server.
 
 Learn more about [PostgreSQL server - OrcasPostgreSqlLogicalReplicationSlots (Improve PostgreSQL availability by removing inactive logical replication slots)](https://aka.ms/azure_postgresql_logical_decoding).
 

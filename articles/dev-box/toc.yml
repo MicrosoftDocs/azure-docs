@@ -29,8 +29,6 @@ items:
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
-    - name: Dev Box and Deployment Environments components
-      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:
