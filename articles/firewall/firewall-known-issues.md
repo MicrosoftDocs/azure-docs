@@ -1,5 +1,5 @@
 ---
-title: Azure Firewall know issues
+title: Azure Firewall known issues
 description: Learn about Azure Firewall known issues.
 services: firewall
 author: vhorne
