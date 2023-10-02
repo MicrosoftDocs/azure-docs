@@ -14,14 +14,14 @@ The Azure Log Analytics Microsoft Monitor Agent (MMA) will be [deprecated in Aug
 ## Prepare Defender for Servers
 
 - **Review upcoming plans**: Review the upcoming changes and timelines for the impact of Log Analytics agent deprecation on Defender for Servers features (link to section in upcoming changes doc)
-- **Enable Defender for Endpoint integration/agentless scanning**: Enable Defender for Endpoint integration and agentless disk scanning on your subscriptions. Learn more about [endpoint protection](integration-defender-for-endpoint.md) and [agentless scanning](concept-agentless-data-collection.md). This will assure your servers are secured, receive all the security content of Defender for Servers, and up-to-date with the alternative deliverables 
+- **Enable Defender for Endpoint integration/agentless scanning**: Enable Defender for Endpoint integration and agentless disk scanning on your subscriptions. Learn more about [endpoint protection](integration-defender-for-endpoint.md) and [agentless scanning](concept-agentless-data-collection.md). This will assure your servers are secured, receive all the security content of Defender for Servers, and up-to-date with the alternative deliverables.
 - **Don’t migrate to AMA**: We don’t recommend migrating to the Azure Monitor Agent (AMA) in Defender for Servers, since we’re not continuing to GA with this feature. Note that:
   - Machines with AMA installed will remain protected with Defender for Servers features that are based on the AMA public preview.
   - Features that are currently provided over AMA public preview will remain supported until an alternative version is provided based on Defender for Endpoint integration or agentless disk scanning.  
 
 - **Prepare for auto-provisioning AMA deprecation__: In Upcoming Changes, note the timeline for the deprecation of AMA auto-provisioning  and related preview policies. Note that:
   - After the deprecation of AMA auto-provisioning, only the Log Analytics agent will be available for machines via the Defender for Cloud portal.
-  - After the deprecation, even if Log Analytics agent  auto-provisioning is enabled, the agent won’t be provisioned on machines that already have AMA installed. 
+  - After the deprecation, even if Log Analytics agent  auto-provisioning is enabled, the agent won’t be provisioned on machines that already have AMA installed.
   - If you have the AMA-related public preview policy initiative enabled, support will continue until August 2024.  
   - To disable AMA provisioning, you’ll need to manually remove the policy initiative.
 
@@ -29,9 +29,9 @@ The Azure Log Analytics Microsoft Monitor Agent (MMA) will be [deprecated in Aug
 
 ## Prepare Defender for SQL Server on machines
 
-When the new SQL-targeted AMA autoprovisioning process is released to GA, new customers will be automatically onboarded. For existing customers using the Log Analytics agent or current AMA process, follow these steps to prepare. 
+When the new SQL-targeted AMA auto-provisioning process is released to GA, new customers will be automatically onboarded. For existing customers using the Log Analytics agent or current AMA process, follow these steps to prepare.
 
-1. **Review upcoming plans**: Review the upcoming changes and timelines for the impact of deprecation on Defender for SQL Server on machines (link to section in upcoming changes doc). 
+1. **Review upcoming plans**: Review the upcoming changes and timelines for the impact of deprecation on Defender for SQL Server on machines (link to section in upcoming changes doc).
 
 1. **Watch for notifications**: If you’re an existing customer using the Log Analytics agent or AMA you’ll be notified to migrate after the preview of SQL-targeted AMA.  
 
@@ -45,4 +45,3 @@ When the new SQL-targeted AMA autoprovisioning process is released to GA, new cu
     - After GA of SQL-targeted AMA, it will be the default for all new customers.
 
 ## Next steps
-
