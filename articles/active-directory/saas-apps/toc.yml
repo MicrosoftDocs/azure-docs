@@ -572,6 +572,8 @@
         href: cognidox-tutorial.md
       - name: Cognician
         href: cognician-tutorial.md
+      - name: CoLab
+        href: colab-tutorial.md
       - name: Collaborative Innovation
         href: collaborativeinnovation-tutorial.md
       - name: Colloquial
@@ -1005,6 +1007,8 @@
         href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
+      - name: Flock Safety
+        href: flock-safety-tutorial.md
       - name: FloQast
         href: floqast-tutorial.md
       - name: Fluxx Labs
@@ -1091,6 +1095,8 @@
         href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: Glia Hub
+        href: glia-hub-tutorial.md
       - name: Glint Inc
         href: glint-inc-tutorial.md  
       - name: GlobalOne
@@ -1103,6 +1109,8 @@
         href: gofluent-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
+      - name: GovWin IQ
+        href: govwin-iq-tutorial.md
       - name: GoToMeeting
         href: citrix-gotomeeting-tutorial.md
       - name: gr8 People
@@ -1131,6 +1139,8 @@
         href: gtnexus-sso-module-tutorial.md  
       - name: Guardium Data Protection
         href: guardium-data-protection-tutorial.md
+      - name: Guru
+        href: guru-tutorial.md
     - name: H - I
       items:
       - name: Hackerone
@@ -1311,8 +1321,8 @@
         href: insideview-tutorial.md
       - name: Insight4GRC
         href: insight4grc-tutorial.md
-      - name: Insightly SAML
-        href: insightly-saml-tutorial.md
+      - name: Insightsfirst
+        href: insightsfirst-tutorial.md
       - name: Insignia SAML SSO
         href: insigniasamlsso-tutorial.md
       - name: Insperity ExpensAble
@@ -1651,6 +1661,8 @@
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
         href: michigan-data-hub-single-sign-on-tutorial.md
+      - name: MIC SAAS Portal
+        href: mic-saas-portal-tutorial.md
       - name: MiHCM
         href: mihcm-tutorial.md  
       - name: Mimecast
@@ -2301,6 +2313,8 @@
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
         href: serraview-space-utilization-software-solutions-tutorial.md
+      - name: Serenity Connect
+        href: serenity-connect-tutorial.md
       - name: SoSafe
         href: servicessosafe-tutorial.md
       - name: ServiceChannel
@@ -2445,6 +2459,8 @@
         href: speexx-tutorial.md  
       - name: Splashtop
         href: splashtop-tutorial.md
+      - name: SPS|Production Manager
+        href: sps-production-manager-tutorial.md
       - name: Splunk Enterprise and Splunk Cloud
         href: splunkenterpriseandsplunkcloud-tutorial.md
       - name: Spotinst
@@ -2587,6 +2603,8 @@
         href: textmagic-tutorial.md
       - name: The Funding Portal
         href: the-funding-portal-tutorial.md
+      - name: The People Experience Hub
+        href: the-people-experience-hub-tutorial.md
       - name: Theom
         href: theom-tutorial.md
       - name: ThirdLight

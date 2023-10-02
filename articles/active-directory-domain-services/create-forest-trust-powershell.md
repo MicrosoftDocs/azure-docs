@@ -49,8 +49,8 @@ To complete this article, you need the following resources and privileges:
 * Install and configure Azure AD PowerShell.
     * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Microsoft Entra ID](/powershell/azure/active-directory/install-adv2).
     * Make sure that you sign in to your Microsoft Entra tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
-* You need [Application Administrator](../active-directory/roles/permissions-reference.md#application-administrator) and [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
-* You need [Domain Services Contributor](../role-based-access-control/built-in-roles.md#contributor) Azure role to create the required Domain Services resources.
+* You need [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) and [Groups Administrator](/azure/active-directory/roles/permissions-reference#groups-administrator) Microsoft Entra roles in your tenant to enable Domain Services.
+* You need [Domain Services Contributor](/azure/role-based-access-control/built-in-roles#contributor) Azure role to create the required Domain Services resources.
 
 ## Sign in to the Microsoft Entra admin center
 
@@ -148,8 +148,8 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. Create the hybrid connectivity to your on-premises network to Azure using an Azure VPN or Azure ExpressRoute connection. The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
 
-    * [Azure Site-to-Site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-    * [Azure ExpressRoute Overview](../expressroute/expressroute-introduction.md).
+    * [Azure Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure ExpressRoute Overview](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > If you create the connection directly to your managed domain's virtual network, use a separate gateway subnet. Don't create the gateway in the managed domain's subnet.
@@ -262,7 +262,7 @@ You should have Windows Server virtual machine joined to the managed domain reso
 1. Connect to the Windows Server VM joined to the managed domain using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
     > [!TIP]
-    > To securely connect to your VMs joined to Microsoft Entra Domain Services, you can use the [Azure Bastion Host Service](../bastion/bastion-overview.md) in supported Azure regions.
+    > To securely connect to your VMs joined to Microsoft Entra Domain Services, you can use the [Azure Bastion Host Service](/azure/bastion/bastion-overview) in supported Azure regions.
 
 1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
 
@@ -290,7 +290,7 @@ Using the Windows Server VM joined to the managed domain, you can test the scena
 1. Connect to the Windows Server VM joined to the managed domain using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
     > [!TIP]
-    > To securely connect to your VMs joined to Microsoft Entra Domain Services, you can use the [Azure Bastion Host Service](../bastion/bastion-overview.md) in supported Azure regions.
+    > To securely connect to your VMs joined to Microsoft Entra Domain Services, you can use the [Azure Bastion Host Service](/azure/bastion/bastion-overview) in supported Azure regions.
 
 1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
 1. Choose the option for **Change advanced sharing** settings.
@@ -411,14 +411,14 @@ For more conceptual information about forest types in Domain Services, see [How 
 
 <!-- INTERNAL LINKS -->
 [concepts-trust]: concepts-forest-trust.md
-[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
-[associate-azure-ad-tenant]: ../active-directory/fundamentals/how-subscriptions-associated-directory.md
+[create-azure-ad-tenant]: /azure/active-directory/fundamentals/sign-up-organization
+[associate-azure-ad-tenant]: /azure/active-directory/fundamentals/how-subscriptions-associated-directory
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
 [Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
 [Connect-AzureAD]: /powershell/module/azuread/connect-azuread
 [New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
-[network-peering]: ../virtual-network/virtual-network-peering-overview.md
-[New-AzureADServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
+[network-peering]: /azure/virtual-network/virtual-network-peering-overview
+[New-AzureADServicePrincipal]: /powershell/module/azuread/new-azureadserviceprincipal
 [Get-AzureRMSubscription]: /powershell/module/azurerm.profile/get-azurermsubscription
 [Install-Script]: /powershell/module/powershellget/install-script
 

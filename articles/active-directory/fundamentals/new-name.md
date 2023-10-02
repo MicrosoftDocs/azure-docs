@@ -6,9 +6,9 @@ author: CelesteDG
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.custom: has-azure-ad-ps-ref, docutune-disable
+ms.custom: has-azure-ad-ps-ref
 ms.topic: overview
-ms.date: 08/29/2023
+ms.date: 09/27/2023
 ms.author: celested
 ms.reviewer: nicholepet
 
@@ -17,7 +17,7 @@ ms.reviewer: nicholepet
 
 # New name for Azure Active Directory
 
-To communicate the multicloud, multiplatform functionality of the products, alleviate confusion with Windows Server Active Directory, and unify the [Microsoft Entra](/entra) product family, the new name for Azure Active Directory (Azure AD) is Microsoft Entra ID.  
+To communicate the multicloud, multiplatform functionality of the products, alleviate confusion with Windows Server Active Directory, and unify the [Microsoft Entra](/entra) product family, the new name for Azure Active Directory (Azure AD) is Microsoft Entra ID.
 
 ## No interruptions to usage or service
 
@@ -33,7 +33,7 @@ Service plan display names will change on October 1, 2023. Microsoft Entra ID Fr
 
 :::image type="content" source="./media/new-name/azure-ad-new-name.png" alt-text="Diagram showing the new name for Azure AD and Azure AD External Identities." border="false" lightbox="./media/new-name/azure-ad-new-name-high-res.png":::
 
-During 2023, you may see both the current Azure AD name and the new Microsoft Entra ID name in support area paths. For self-service support, look for the topic path of "Microsoft Entra" or "Azure Active Directory/Microsoft Entra ID."
+During 2023, you may see both the current Azure AD name and the new Microsoft Entra ID name in support area paths. For self-service support, look for the topic path of `Microsoft Entra` or `Azure Active Directory/Microsoft Entra ID`.
 
 The product name and icons are changing, and features are now branded as Microsoft Entra instead of Azure AD. If you're updating the name to Microsoft Entra ID in your own content or experiences, see [How to: Rename Azure AD](how-to-rename-azure-ad.md).
 
@@ -95,7 +95,7 @@ The Microsoft Entra ID name more accurately represents the multicloud and multip
 
 ### What is Microsoft Entra?
 
-Microsoft Entra helps you protect all identities and secure network access everywhere. The expanded product family includes:
+The Microsoft Entra product family helps you protect all identities and secure network access everywhere. The expanded product family includes:
 
 | Identity and access management | New identity categories | Network access |
 |---------|---------|---------|
@@ -167,7 +167,7 @@ There are no changes to the identity features and functionality available in Mic
 
 ### What's changing for Microsoft 365 E5?
 
-In addition to the capabilities they already have, Microsoft 365 E5 customers also get access to new identity protection capabilities like token protection, Conditional Access based on GPS-based location and step-up authentication for the most sensitive actions. Microsoft 365 E5 includes Microsoft Entra P2, currently known as Azure AD Premium P2.
+In addition to the capabilities they already have, Microsoft 365 E5 customers also get access to new identity protection capabilities like token protection, Conditional Access based on GPS-based location and step-up authentication for the most sensitive actions. Microsoft 365 E5 includes Microsoft Entra ID P2, currently known as Azure AD Premium P2.
 
 ### What's changing for identity developer and devops experience?
 
@@ -191,7 +191,7 @@ Naming is also not changing for:
 
 No. Today, we offer two PowerShell modules for administering identity tasks: the Azure AD PowerShell module, which is planned for deprecation in March 2024, and the Microsoft Graph PowerShell module.
 
-In the Azure AD PowerShell for Graph module, "AzureAD" is in the name of almost all the cmdlets. These won't change, and you can continue to use these same cmdlets now that the official product name is Microsoft Entra ID.
+In the Azure AD PowerShell for Graph module, `AzureAD` is in the name of almost all the cmdlets. These won't change, and you can continue to use these same cmdlets now that the official product name is Microsoft Entra ID.
 
 Microsoft Graph PowerShell cmdlets aren't branded with Azure AD. We encourage you to plan your migration from Azure AD PowerShell to Microsoft Graph PowerShell, which is the recommended module for interacting with Microsoft Entra ID in the future.
 
@@ -299,6 +299,8 @@ Only official product names are capitalized, plus Conditional Access and My * ap
 ## Next steps
 
 - [How to: Rename Azure AD](how-to-rename-azure-ad.md)
-- [Stay up-to-date with what's new in Azure AD/Microsoft Entra ID](whats-new.md)
+- [Stay up-to-date with what's new in Microsoft Entra ID (formerly Azure AD)](./whats-new.md)
 - [Get started using Microsoft Entra ID at the Microsoft Entra admin center](https://entra.microsoft.com/)
-- [Learn more about Microsoft Entra with content from Microsoft Learn](/entra)
+- [Learn more about the Microsoft Entra family with content from Microsoft Learn](/entra)
+
+<!-- docutune:ignore "Azure Active Directory" "Azure AD" "AAD" "Entra ID" "Cloud Knox" "Identity Governance" -->
