@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Configure Azure Active Directory OAuth2 login
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 This article describes how to allow users to use their Azure Active Directory (Azure AD) account ("Microsoft work or school account") to log in to Apache Superset. 
 
 The following configuration allows users to have Superset accounts automatically created when they use their Azure AD login. Azure groups can be automatically mapped to Superset roles, which allow control over who can access Superset and what permissions are given.

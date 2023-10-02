@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Trino CLI
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 The Trino CLI provides a terminal-based, interactive shell for running queries.
 
 ## Install on Windows
@@ -48,8 +50,8 @@ If you can't download the MSI installer because your proxy is blocking the conne
 
 In order to get the MSI, your proxy needs to allow HTTPS connections to the following addresses:
 
-* https://aka.ms/
-* https://hdionaksresources.blob.core.windows.net/
+* `https://aka.ms/`
+* `https://hdionaksresources.blob.core.windows.net/`
 
 ### Uninstall
 
@@ -116,8 +118,8 @@ The issue can also occur if you didn't restart your shell after installation. Ma
 
 In order to get the installation scripts, your proxy needs to allow HTTPS connections to the following addresses:
 
-* https://aka.ms/
-* https://hdionaksresources.blob.core.windows.net/
+* `https://aka.ms/`
+* `https://hdionaksresources.blob.core.windows.net/`
 
 **Uninstall**
 

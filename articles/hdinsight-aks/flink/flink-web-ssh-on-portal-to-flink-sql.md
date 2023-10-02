@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Access CLI Client using Secure Shell (SSH) on Azure portal
 
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 This example guides how to enter the HDInsight on AKS Flink CLI client using SSH on Azure portal, we cover both Flink SQL and Flink DataStream
 
 ## Prerequisites

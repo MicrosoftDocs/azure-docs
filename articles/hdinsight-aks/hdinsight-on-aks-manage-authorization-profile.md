@@ -8,6 +8,8 @@ ms.date: 08/4/2023
 
 # Manage cluster access
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article provides an overview of the mechanisms available to manage access for HDInsight on AKS cluster pools and clusters. 
 It also covers how to assign permission to users, groups, user-assigned managed identity, and service principals to enable access to cluster data plane.
 
