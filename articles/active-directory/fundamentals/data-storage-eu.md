@@ -11,7 +11,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2023
-ms.custom: "it-pro, seodec18"
+ms.custom: "it-pro, seodec18", "references-regions"
 ms.collection: M365-identity-device-management
 ---
 
@@ -67,7 +67,7 @@ See more information on Microsoft Entra permanent partial customer data transfer
 
 Some services include capabilities that are optional (in some cases requiring a customer subscription), and where customer administrators can choose to enable or disable these capabilities for their service tenancies. If made available and used by a customer's users, these capabilities will result in data transfers out of Europe as described in the following sections in this article. 
 
-- [Muli-tenant administration](/azure/active-directory/multi-tenant-organizations/overview): An organization may choose to create a multi-tenant organization within Microsoft Entra ID. For example, a customer can invite users to their tenant in a B2B context. A customer can create a multi-tenant SaaS application that allows other third-party tenants to provision the application in the third-party tenant. A customer can make two or more tenants affiliated with one another and act as a single tenant in certain scenarios, such as multi-tenant organization (MTO) formation, tenant to tenant sync, and shared e-mail domain sharing. Administrator configuration and use of multi-tenant collaboration may occur with tenants outside of the EU Data Residency and EU Data Boundary resulting in some customer data, such as user and device account data, usage data, and service configuration (application, policy, and group) being stored and processed in the location of the collaborating tenant. 
+- [Muli-tenant administration](/azure/active-directory/multi-tenant-organizations/overview): An organization may choose to create a multitenant organization within Microsoft Entra ID. For example, a customer can invite users to their tenant in a B2B context. A customer can create a multitenant SaaS application that allows other third-party tenants to provision the application in the third-party tenant. A customer can make two or more tenants affiliated with one another and act as a single tenant in certain scenarios, such as multitenant organization (MTO) formation, tenant to tenant sync, and shared e-mail domain sharing. Administrator configuration and use of multitenant collaboration may occur with tenants outside of the EU Data Residency and EU Data Boundary resulting in some customer data, such as user and device account data, usage data, and service configuration (application, policy, and group) being stored and processed in the location of the collaborating tenant. 
 - [Application Proxy](/azure/active-directory/app-proxy/application-proxy): Application proxy allows customers to access both cloud and on-premises applications through an external URL or an internal application portal. Customers may choose advanced routing configurations that would cause Customer Data to egress outside of the EU Data Residency and EU Data Boundary, including user account data, usage data, and application configuration data. 
 
 **EU Data  Boundary:**
