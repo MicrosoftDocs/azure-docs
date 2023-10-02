@@ -14,8 +14,10 @@ Here are more details on important attributes we recently added,  to help you un
 
 - **Context**: Informs whether VM availability was influenced due to Azure or user orchestrated activity. This can assume values of _Platform Initiated | Customer Initiated | VM Initiated | Unknown_
 - **Category**: Informs whether VM availability was influenced due to planned or unplanned activity. This is only applicable to ‘Platform-Initiated’ events. This can assume values of _Planned | Unplanned | Not Applicable | Unknown_
-- **ImpactType**: Informs the type of impact to VM availability. This can assume values of :
-    - *Downtime Reboot or Downtime Freeze*:  Informs when VM is Unavailable due to Azure orchestrated activity (e.g., VirtualMachineStorageOffline, LiveMigrationSucceeded etc). The reboot or freeze distinction can help you discern the type of downtime impact faced.
+- **ImpactType**: Informs the type of impact to VM availability. This can assume values of:
+
+    - *Downtime Reboot or Downtime Freeze*:  Informs when VM is Unavailable due to Azure orchestrated activity (e.g., VirtualMachineStorageOffline, LiveMigrationSucceeded etc.). The reboot or freeze distinction can help you discern the type of downtime impact faced.
+
     - *Degraded*: Informs when Azure predicts a HW failure on the host server or detects potential degradation in performance. (e.g., VirtualMachinePossiblyDegradedDueToHardwareFailure)
     - *Informational*: Informs when an authorized user or process triggers a control plane operation (e.g., VirtualMachineDeallocationInitiated, VirtualMachineRestarted). This category also captures cases of platform actions due to customer defined thresholds or conditions. (E.g., VirtualMachinePreempted)
 
