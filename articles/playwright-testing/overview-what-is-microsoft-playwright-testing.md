@@ -25,17 +25,19 @@ As your application becomes more complex, your test suite increases in size. The
 
 - Distribute your tests across many parallel browsers, hosted on cloud infrastructure.
 
-- Scale your test beyond the processing power of your developer workstation, local infrastructure, or CI agent machines.
+- Scale your tests beyond the processing power of your developer workstation, local infrastructure, or CI agent machines.
 
 - Consistent regional performance by running your tests on browsers in an Azure region that's closest to your client machine.
 
-Learn more about how you can [optimize regional performance](./how-to-optimize-regional-latency.md).
+Learn more about how you can [configure for optimal performance](./concept-determine-optimal-configuration.md).
 
-## Test across multiple operating systems and browsers
+## Test consistently across multiple operating systems and browsers
 
 Modern web apps need to work flawlessly across numerous browsers, operating systems, and devices.
 
 - Run tests simultaneously across all modern browsers on Windows, Linux, and mobile emulation of Google Chrome for Android and Mobile Safari.
+
+- Using service-managed browsers ensures consistent and reliable results for both functional and visual regression testing, whether tests are run from your team's developer workstations or CI pipeline.
 
 - Microsoft Playwright Testing supports all [browsers supported by Playwright](https://playwright.dev/docs/release-notes).
 
