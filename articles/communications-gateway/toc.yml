@@ -76,7 +76,7 @@ items:
       href: monitoring-azure-communications-gateway-data-reference.md
   - name: Get support or request changes
     href: request-changes.md
-- name: Resources
+- name: Reference
   items:
   - name: Azure Communications Gateway product page
     href: https://azure.microsoft.com/products/communications-gateway
@@ -84,4 +84,5 @@ items:
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect
   - name: Overview of Teams Phone Mobile
     href: https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/teams-phone-mobile
-
+  - name: Overview of multi-tenant Microsoft Teams Direct Routing
+    href: /microsoftteams/direct-routing-sbc-multiple-tenants
