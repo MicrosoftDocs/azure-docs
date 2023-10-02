@@ -12,24 +12,24 @@ Azure supports [moving resources to a different resource group](https://aka.ms/M
 
 ## Background
 
-CycleCloud supports two modes for credentials in an Azure subscription: 
+Each subscription has one or more _credentials_ associated with it in CycleCloud, and each cluster references the credential used to make calls to Azure. There are two options for which resource group is used for a cluster: 
 
-* All clusters are in a single shared resource group that must already exist.
-* Each cluster gets its own separate _managed resource group_ that is created automatically when the cluster is started and deleted when the cluster is deleted.
+* A single shared resource group, which must already exist.
+* A dedicated _managed resource group_ per cluster, created and deleted automatically for each cluster.
  
 This is specified on the credential set up when a subscription is added to CycleCloud, via the `Resource Group` setting. Set it to the shared resource group that all clusters should use, or set it to `<Create New Per Cluster>` to use a managed resource group. This setting affects all clusters created using that credential.
 
 > [!NOTE]
-> This setting affects new clusters only. Once a cluster is started, it stores which resource group it is using and whether or not it is managed, so it is not affected by the setting on the credential. If it was created with a managed resource group, it knows it should delete the resource group as the last step of deleting the cluster.
+> This setting only affects new clusters. When a cluster is started, it stores this resource group it is using and whether or not it is managed, so it is not affected by the credential settings. A cluster created with a managed resource group will delete the resource group as the last step of deleting the cluster.
 
 ## How to move resources
 
-To move the resources, the cluster must first be terminated. While the cluster is started and autoscaling, moving the resources in Azure is not supported.
+Only terminated clusters can be moved to a new resource group. While the cluster is running, moving the resources in Azure is not supported.
 
-Once the cluster is terminated, the resources can be moved. This can be done [in the Azure portal or via the CLI](https://aka.ms/MoveAzureResources). Moving the resources may take up to 4 hours in some cases. 
+Once the cluster is terminated, the resources can be moved using [the Azure portal or the CLI](https://aka.ms/MoveAzureResources). Moving the resources may take up to 4 hours. 
 
 > [!NOTE]
-> You must move all the resources for a cluster. Since the cluster is terminated, this is probably just the persistent disk for the head node, if any. You can move resources for more than one cluster at the same time, as long as all the affected clusters are already terminated.
+> You must move all the resources for a cluster. Since the cluster is terminated, this is likely just the head node's persistent disk, if any. You can move resources for more than one terminated cluster at the same time.
 
 After the move-resources operation completes, run the following command for each cluster, supplying the correct cluster name, as well as the name of the resource group it was using and the name of the new resource group the resources were moved to:
 
