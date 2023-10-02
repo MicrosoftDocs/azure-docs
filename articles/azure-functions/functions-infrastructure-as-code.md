@@ -5,7 +5,7 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 10/02/2023
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: functions-hosting-plan
 ---
 
 # Automate resource deployment for your function app in Azure Functions
@@ -20,7 +20,7 @@ For sample Bicep files and ARM templates, see:
 - [Function app on Azure App Service plan]
 
 >[!IMPORTANT]
->Deployment code differs between Windows and Linux. Choose your operating system at the top of the article to see the correct example code.
+>Deployment code depends on your [Azure Functions hosting plan](./functions-scale.md). Choose your hosting plan at the top of the article to see the correct example code.
 
 ## Required resources
 
@@ -32,8 +32,11 @@ An Azure Functions deployment typically consists of these resources:
 |------|-------|----|
 | A function app | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-bicep)  |
 | A [storage account](../storage/index.yml) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep) |
-| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)|
-| A [hosting plan](functions-scale.md)| Optional<sup>1</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep)
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional<sup>1</sup> | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-bicep)|
+:::zone pivot="premium,dedicated"  
+| A [hosting plan](functions-scale.md)| Required<sup>2</sup> | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-bicep) |
+:::zone-end
+
 
 # [JSON](#tab/json)
 
@@ -41,15 +44,15 @@ An Azure Functions deployment typically consists of these resources:
 |----|-------|----|
 | A function app | Required    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template) |
 | A [storage account](../storage/index.yml)        | Required    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-arm-template) |
-| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-arm-template)         |
-| A [hosting plan](functions-scale.md)           | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template)   |
+| An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional<sup>1</sup>    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components?pivots=deployment-language-arm-template) |
+:::zone pivot="premium,dedicated"  
+| A [hosting plan](functions-scale.md)           | Required<sup>2</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template)   |
+:::zone-end
 
 ---
 
-<sup>1</sup>An explicit hosting plan is only required when you choose to run your function app on a [Premium plan](functions-premium-plan.md) or on an [App Service plan](dedicated-plan.md).
-
-> [!TIP]
-> While not required, it is strongly recommended that you configure Application Insights for your app.
+<sup>1</sup>While not required, it is strongly recommended that you configure Application Insights for your app.
+<sup>2</sup>An explicit hosting plan isn't required when you choose to host your function app in a [Consumption plan](./consumption-plan.md).
 
 <a name="storage"></a>
 ### Storage account
