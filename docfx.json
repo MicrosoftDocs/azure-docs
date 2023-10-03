@@ -10,7 +10,6 @@
           "**/*.yml"
         ],
         "exclude": [
-          "index.yml",
           "iot-edge/**",
           "ai-services/document-intelligence/**",
           "**/_themes/**",
@@ -1031,7 +1030,7 @@
         "articles/media-services/*.md": "media-services",
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
-        "acticles/object-anchors/**/*.md": "azure-object-anchors",
+        "articles/object-anchors/**/*.md": "azure-object-anchors",
         "articles/openshift/**/*.md": "azure-redhat-openshift",
         "articles/quotas/**/*.md": "azure-quotas",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
