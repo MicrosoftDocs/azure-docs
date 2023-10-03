@@ -74,7 +74,7 @@ items:
       href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Troubleshooting and support
   items:
-    - name: Troubleshoot dev box RDP connectivity issues
+    - name: Troubleshoot dev box connectivity issues
       href: how-to-troubleshoot-repair-dev-box.md
     - name: Get support for Microsoft Dev Box
       href: how-to-get-help.md
