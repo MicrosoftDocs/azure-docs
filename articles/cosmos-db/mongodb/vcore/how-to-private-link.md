@@ -64,8 +64,7 @@ Follow these steps to create a private endpoint for an existing Azure Cosmos DB 
     | Subscription | Select the subscription containing the resource you're connecting to.|
     | Resource Type | Select the resource type you're connecting to. |
     | Resource | Select the resource type you're connecting to. |
-    | Target sub-resource |
-Select the type of sub-resource for the resource selected above that your private endpoint will be able to access. | 
+    | Target sub-resource | Select the type of sub-resource for the resource selected above that your private endpoint will be able to access. | 
 
 1. Select **Next: Virtual Network**.
 
