@@ -11,66 +11,63 @@ ms.author: mmitrik
 
 # What is the DICOM service?
 
-The Digital Imaging and Communications in Medicine (DICOM) service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb&trade;-enabled systems or applications.
+The Digital Imaging and Communications in Medicine (DICOM) service is a cloud-based solution that enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently with any DICOMweb&trade;-enabled systems or applications. The DICOM service is part of Azure Health Data Services.
 
-The DICOM service offers these benefits:
+The DICOM service offers many benefits, including:
 
-- **Global availability**. The DICOM service is available in any of the regions where Azure Health Data Servives is available. Microsoft is continuously expanding availability of the DICOM service,so check [regional availability](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=health-data-services&regions=all) for updates.
+- **Global availability**. The DICOM service is available in any of the regions where Azure Health Data Services is available. Microsoft is continuously expanding availability of the DICOM service, so check [regional availability](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=health-data-services&regions=all) for updates.
 
-- **Scalability**. DICOM service is designed out-of-the-box to support different workload levels at a hospital, country/region, and global scale without sacrificing any performance spec by using autoscaling features.
+- **Scalability**. The DICOM service supports different workload levels at hospitals and within regions on a global scale without sacrificing any performance spec by using autoscaling features.
 
 - **Advanced threat protection**. The DICOM service uses machine learning and AI to identify and block any potential or emerging threats to your organization's data, such as ransomware, SQL injection, or data exfiltration.
 
-- **Multi-region failover**. The DICOM service replicates your organization's data across multiple regions, which means that if one region fails or becomes unavailable, your data can be accessed from another region without interruption.
+- **Multi-region failover**. The DICOM service replicates your organization's data across multiple regions. If one region fails or becomes unavailable, your data can be accessed from another region without interruption.
 
-- **Role-based access control (RBAC)**. RBAC enables you to manage how your organization's data is stored and accessed. You determine who has access to datasets  based on roles you define for your environment.
+- **Role-based access control (RBAC)**. RBAC enables you to manage how your organization's data is stored and accessed. You determine who has access to datasets based on roles you define for your environment.
 
-- **Open-source DICOM server project**. The [open-source DICOM server project](https://github.com/microsoft/dicom-server) is regularly checked for feature parity with Azure managed service to enable developers to deploy open source versions as a set of Docker containers to speed up development and testing in their environments. They can also contribute to managed service features.
+- **Open-source DICOM server project**. The [open-source DICOM server project](https://github.com/microsoft/dicom-server) is regularly checked for feature parity with Azure managed service to enable developers to deploy open source versions as a set of Docker containers, which speeds up development and testing.
 
+## Use imaging data to enable healthcare scenarios
 
+To effectively treat patients, research treatments, diagnose illnesses, or get an overview of a patient's health history, organizations need to integrate data across several sources. The DICOM service enables imaging data to persist securely in the Microsoft cloud and allows it to reside with electronic health records (EHR) and healthcare device (IoT) data in the same Azure subscription.  
 
-- **Data isolation**. The DICOM service assigns a unique database for each API instance, which means your organization's data isn't mixed with other organizations' data.
-- **Extended Query Tags**: Additionally index DICOM studies, series, and instances on both standard and private DICOM tags by expanding list of tags that are already specified within [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md).
-- **Change Feed**: Access ordered, guaranteed, immutable, read-only logs of all the changes that occur in DICOM service. Client applications can read these logs at any time independently, in parallel and at their own pace.
-- **DICOMcast**: Via DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service, or FHIR server, as an imaging study resource allowing a single source of truth for both clinical data and imaging metadata. This feature is available as an open-source feature that can be self-hosted in Azure.  Learn more about [deploying DICOMcast](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md).
+FHIR&trade; supports integration of other types of data directly, or through references. With the DICOM service, organizations are able to store references to imaging data in FHIR&trade; and enable queries that cross clinical and imaging datasets. This capability enables organizations to deliver better healthcare. For example:
 
-## Applications for the DICOM service
+- **Image back-up**. Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, or organizations can use the DICOM service to back up their images with unlimited storage and access. There's no need to deidentify PHI data because the service is validated for PHI compliance.
 
-In order to effectively treat patients, research new treatments, diagnose solutions, or provide an effective overview of the health history of a single patient, organizations must integrate data across several sources. One of the most pressing integrations is between clinical and imaging data. DICOM service enables imaging data to securely persist in the Microsoft cloud and allows it to reside with EHR and IoT data in the same Azure subscription.  
+- **Image exchange and collaboration**. Share an image, a subset of images, or an entire image library instantly with or without related EHR data.
 
-FHIR&trade; is becoming an important standard for clinical data and provides extensibility to support integration of other types of data directly, or through references. By using DICOM service, organizations can store references to imaging data in FHIR&trade; and enable queries that cross clinical and imaging datasets. This can enable many different scenarios, for example:
+- **Create cohorts for research**. To find the right patients for clinical trials, researchers need to query for patients that match data in both clinical and imaging systems. The service allows reseachers to use natural language to query across systems. For example, “Give me all the medications prescribed with all the CT scan documents and their associated radiology reports for any patient older than 45 that has had a diagnosis of osteosarcoma over the last two years.”
 
-- **Image back-up**: Research institutions, clinics, imaging centers, veterinary clinics, pathology institutions, retailers, any team or organization can use the DICOM service to back up their images with unlimited storage and access. And there's no need to de-identify PHI data as our service is validated for PHI compliance.
-- **Image exchange and collaboration**: Share an image, a sub set of images in your storage, or entire image library instantly with or without related EHR data.
-- **Disaster recovery**: High availability is a resiliency characteristic of DICOM service. High availability is implemented in place (in the same region as your primary service) by designing it as a feature of the primary system.
-- **Creating cohorts for research**: Often through queries for patients that match data in both clinical and imaging systems, such as this one (which triggered the effort to integrate FHIR&trade; and DICOM data): “Give me all the medications prescribed with all the CT scan documents and their associated radiology reports for any patient older than 45 that has had a diagnosis of osteosarcoma over the last two years.”
-- **Finding outcomes for similar patients to understand options and plan treatments**: When presented with a patient diagnosis, a physician can identify patient outcomes and treatment plans for past patients with a similar diagnosis, even when these include imaging data.
-- **Providing a longitudinal view of a patient during diagnosis**: Radiologists, especially teleradiologists, often don't have complete access to a patient’s medical history and related imaging studies. Through FHIR&trade; integration, this data can be easily provided, even to radiologists outside of the organization’s local network.
-- **Closing the feedback loop with teleradiologists**: Ideally a radiologist has access to a hospital’s clinical data to close the feedback loop after making a recommendation. However for teleradiologists, this is often not the case. Instead, they're often unable to close the feedback loop after performing a diagnosis, since they don't have access to patient data after the initial read. With no (or limited) access to clinical results or outcomes, they can’t get the feedback necessary to improve their skills. As one teleradiologist put it: “Take parathyroid for example. We do more than any other clinic in the country/region, and yet I have to beg and plead for surgeons to tell me what they actually found. Out of the more than 500 studies I do each month, I get direct feedback on only three or four.”  Through integration with FHIR&trade;, an organization can easily create a tool that will provide direct feedback to teleradiologists, helping them to hone their skills and make better recommendations in the future.
-- **Closing the feedback loop for AI/ML models**: Machine learning models do best when real-world feedback can be used to improve their models. However, third-party ML model providers rarely get the feedback they need to improve their models over time. For instance, one ISV put it this way: “We use a combination of machine models and human experts to recommend a treatment plan for heart surgery. However, we only rarely get feedback from physicians on how accurate our plan was. For instance, we often recommend a stent size. We’d love to get feedback on if our prediction was correct, but the only time we hear from customers is when there’s a major issue with our recommendations.” As with feedback for teleradiologists, integration with FHIR&trade; allows organizations to create a mechanism to provide feedback to the model retraining pipeline.
+- **Plan treatment based on similar patients**. When presented with a patient diagnosis, a physician can identify patient outcomes and treatment plans for past patients with a similar diagnosis even when these include imaging data.
 
-## Deploy DICOM service to Azure
+- **Get a longitudinal view of a patient during diagnosis**. Radiologists, especially teleradiologists, often don't have complete access to a patient’s medical history and related imaging studies. Through FHIR&trade; integration, this data can be provided even to radiologists outside of the organization’s local network.
 
-DICOM service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required. For each instance of DICOM service, we create a combination of isolated and multi-tenant resource.
+- **Close the feedback loop with teleradiologists**. Teleradiologists are often unable to find out about the accuracy and quality of their diagnoses because they don't have access to patient data after the initial read. With limited or no access to clinical results or outcomes, they miss opportunities to improve their skills. Through integration with FHIR&trade;, an organization can create a tool that provides direct feedback to teleradiologists, helping them make better recommendations in the future.
 
-## DICOM server
+- **Close the feedback loop for AI and machine learning models**. Third-party machine learning model providers often lack real-world feedback to refine their models. For example, an ISV that recommends treatment plans for heart surgery rarely gets feedback from physicians on the accuracy of their suggestions. Integrating with FHIR™ enables organizations to provide feedback to the model retraining pipeline.
 
-The Medical Imaging Server for DICOM (hereby known as DICOM server) is an open source DICOM server that is easily deployed on Azure. It allows standards-based communication with any DICOMweb™ enabled systems, and injects DICOM metadata into a FHIR server to create a holistic view of patient data. See [DICOM server](https://github.com/microsoft/dicom-server).
+## Manage medical imaging data securely and efficiently
 
-## Summary
+The DICOM service enables organizations to manage medical imaging data with several key capabilities:
 
-This conceptual article provided you with an overview of DICOM and the DICOM service.
+- **Data isolation**. The DICOM service assigns a unique database to each API instance, which means your organization's data isn't mixed with other organizations' data.
+
+- **Extended query tags**. The DICOM service allows you to expand the list of tags specified in the [DICOM Conformance Statement](dicom-services-conformance-statement-v2.md) so you can index DICOM studies, series, and instances on standard or private DICOM tags.
+
+- **Change feed**. The DICOM service enables you to access ordered, guaranteed, immutable, read-only logs of all changes that occur in the DICOM service. Client applications can read these logs at any time independently, in parallel and at their own pace.
+
+- **DICOMcast**. DICOMcast is an [open-source capability](https://github.com/microsoft/dicom-server/blob/main/docs/quickstarts/deploy-dicom-cast.md) that can be self-hosted in Azure. DICOMcast enables a single source of truth for clinical data and imaging metadata. With DICOMcast, the DICOM service can inject DICOM metadata into a FHIR service or FHIR server as an imaging study resource.
+
+## Prerequisites to deploy the DICOM service
+
+Your organization needs an Azure subscription to configure and run the required components. By default, the components are created inside of an Azure resource group to simplify management. Additionally, a Microsoft Entra ID account is required. For each instance of the DICOM service, Microsoft creates a combination of isolated and multitenant resources.
  
 ## Next steps
 
-To get started using the DICOM service, see
+[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
+[Use DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
 
-For more information about  how to use the DICOMweb&trade; Standard APIs with the DICOM service, see
-
->[!div class="nextstepaction"]
->[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+> [!NOTE]
+> FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
