@@ -155,11 +155,11 @@ import logging
 import json
 import azure.functions as func
 
-dapp = func.DaprFunctionApp()
+app = func.FunctionApp()
 
-@dapp.function_name(name="RetrieveOrder")
-@dapp.dapr_service_invocation_trigger(arg_name="payload", method_name="RetrieveOrder")
-@dapp.dapr_state_input(arg_name="data", state_store="statestore", key="order")
+@app.function_name(name="RetrieveOrder")
+@app.dapr_service_invocation_trigger(arg_name="payload", method_name="RetrieveOrder")
+@app.dapr_state_input(arg_name="data", state_store="statestore", key="order")
 def main(payload, data: str) :
     # Function should be invoked with this command: dapr invoke --app-id functionapp --method RetrieveOrder  --data '{}'
     logging.info('Python function processed a RetrieveOrder request from the Dapr Runtime.')
@@ -301,7 +301,7 @@ To use the `daprServiceInvocationTrigger` in Python v2, set up your project with
 1. In your `requirements.text` file, add the following line:
 
    ```txt
-   azure-functions==1.18.0b1
+   azure-functions==1.18.0b3
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:

@@ -171,11 +171,11 @@ import logging
 import json
 import azure.functions as func
 
-dapp = func.DaprFunctionApp()
+app = func.FunctionApp()
 
-@dapp.function_name(name="TransferEventBetweenTopics")
-@dapp.dapr_topic_trigger(arg_name="subEvent", pub_sub_name="%PubSubName%", topic="A", route="A")
-@dapp.dapr_publish_output(arg_name="pubEvent", pub_sub_name="%PubSubName%", topic="B")
+@app.function_name(name="TransferEventBetweenTopics")
+@app.dapr_topic_trigger(arg_name="subEvent", pub_sub_name="%PubSubName%", topic="A", route="A")
+@app.dapr_publish_output(arg_name="pubEvent", pub_sub_name="%PubSubName%", topic="B")
 def main(subEvent, pubEvent: func.Out[bytes]) -> None:
     logging.info('Python function processed a TransferEventBetweenTopics request from the Dapr Runtime.')
     subEvent_json = json.loads(subEvent)
@@ -327,7 +327,7 @@ To use the `daprPublish` in Python v2, set up your project with the correct depe
 1. In your `requirements.text` file, add the following line:
 
    ```txt
-   azure-functions==1.18.0b1
+   azure-functions==1.18.0b3
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:

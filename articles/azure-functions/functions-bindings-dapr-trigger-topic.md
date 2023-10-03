@@ -160,10 +160,10 @@ import logging
 import json
 import azure.functions as func
 
-dapp = func.DaprFunctionApp()
+app = func.FunctionApp()
 
-@dapp.function_name(name="PrintTopicMessage")
-@dapp.dapr_topic_trigger(arg_name="subEvent", pub_sub_name="%PubSubName%", topic="B", route="B")
+@app.function_name(name="PrintTopicMessage")
+@app.dapr_topic_trigger(arg_name="subEvent", pub_sub_name="%PubSubName%", topic="B", route="B")
 def main(subEvent) -> None:
     logging.info('Python function processed a PrintTopicMessage request from the Dapr Runtime.')
     subEvent_json = json.loads(subEvent)
@@ -316,7 +316,7 @@ To use the `daprTopicTrigger` in Python v2, set up your project with the correct
 1. In your `requirements.text` file, add the following line:
 
    ```txt
-   azure-functions==1.18.0b1
+   azure-functions==1.18.0b3
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:

@@ -148,10 +148,10 @@ import logging
 import json
 import azure.functions as func
 
-dapp = func.DaprFunctionApp()
+app = func.FunctionApp()
 
-@dapp.function_name(name="ConsumeMessageFromKafka")
-@dapp.dapr_binding_trigger(arg_name="triggerData", binding_name="%KafkaBindingName%")
+@app.function_name(name="ConsumeMessageFromKafka")
+@app.dapr_binding_trigger(arg_name="triggerData", binding_name="%KafkaBindingName%")
 def main(triggerData: str) -> None:
     logging.info('Python function processed a ConsumeMessageFromKafka request from the Dapr Runtime.')
     logging.info('Trigger data: ' + triggerData)
@@ -295,7 +295,7 @@ To use the `daprBindingTrigger` in Python v2, set up your project with the corre
 1. In your `requirements.text` file, add the following line:
 
    ```txt
-   azure-functions==1.18.0b1
+   azure-functions==1.18.0b3
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:

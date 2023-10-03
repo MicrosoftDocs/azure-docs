@@ -2,7 +2,7 @@
 title: Dapr State output binding for Azure Functions
 description: Learn how to provide Dapr State output binding data during a function execution in Azure Functions.
 ms.topic: reference
-ms.date: 09/26/2023
+ms.date: 10/03/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -179,11 +179,11 @@ import logging
 import json
 import azure.functions as func
 
-dapp = func.DaprFunctionApp()
+app = func.FunctionApp()
 
-@dapp.function_name(name="HttpTriggerFunc")
-@dapp.route(route="req", auth_level=dapp.auth_level.ANONYMOUS)
-@dapp.dapr_state_output(arg_name="state", state_store="statestore", key="newOrder")
+@app.function_name(name="HttpTriggerFunc")
+@app.route(route="req", auth_level=dapp.auth_level.ANONYMOUS)
+@app.dapr_state_output(arg_name="state", state_store="statestore", key="newOrder")
 def main(req: func.HttpRequest, state: func.Out[str] ) -> str:
     # request body must be passed this way '{\"value\": { \"key\": \"some value\" } }'
     body = req.get_body()
@@ -339,7 +339,7 @@ To use the `daprState` in Python v2, set up your project with the correct depend
 1. In your `requirements.text` file, add the following line:
 
    ```txt
-   azure-functions==1.18.0b1
+   azure-functions==1.18.0b3
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:

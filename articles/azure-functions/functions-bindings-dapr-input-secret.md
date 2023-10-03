@@ -164,11 +164,11 @@ import logging
 import json
 import azure.functions as func
 
-dapp = func.DaprFunctionApp()
+app = func.FunctionApp()
 
-@dapp.function_name(name="RetrieveSecret")
-@dapp.dapr_service_invocation_trigger(arg_name="payload", method_name="RetrieveSecret")
-@dapp.dapr_secret_input(arg_name="secret", secret_store_name="localsecretstore", key="my-secret", metadata="metadata.namespace=default")
+@app.function_name(name="RetrieveSecret")
+@app.dapr_service_invocation_trigger(arg_name="payload", method_name="RetrieveSecret")
+@app.dapr_secret_input(arg_name="secret", secret_store_name="localsecretstore", key="my-secret", metadata="metadata.namespace=default")
 def main(payload, secret: str) :
     # Function should be invoked with this command: dapr invoke --app-id functionapp --method RetrieveSecret  --data '{}'
     logging.info('Python function processed a RetrieveSecret request from the Dapr Runtime.')
@@ -333,7 +333,7 @@ To use the `daprSecret` in **Python v2**, set up your project with the correct d
 1. In your `requirements.text` file, add the following line:
 
    ```txt
-   azure-functions==1.18.0b1
+   azure-functions==1.18.0b3
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:

@@ -2,7 +2,7 @@
 title: Dapr Invoke output binding for Azure Functions
 description: Learn how to send data to a Dapr Invoke output binding during function execution in Azure Functions.
 ms.topic: reference
-ms.date: 09/26/2023
+ms.date: 10/03/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -181,11 +181,11 @@ import logging
 import json
 import azure.functions as func
 
-dapp = func.DaprFunctionApp()
+app = func.FunctionApp()
 
-@dapp.function_name(name="InvokeOutputBinding")
-@dapp.route(route="invoke/{appId}/{methodName}", auth_level=dapp.auth_level.ANONYMOUS)
-@dapp.dapr_invoke_output(arg_name = "payload", app_id = "{appId}", method_name = "{methodName}", http_verb = "post")
+@app.function_name(name="InvokeOutputBinding")
+@app.route(route="invoke/{appId}/{methodName}", auth_level=dapp.auth_level.ANONYMOUS)
+@app.dapr_invoke_output(arg_name = "payload", app_id = "{appId}", method_name = "{methodName}", http_verb = "post")
 def main(req: func.HttpRequest, payload: func.Out[str] ) -> str:
     # request body must be passed this way "{\"body\":{\"value\":{\"key\":\"some value\"}}}" to use the InvokeOutputBinding, all the data must be enclosed in body property.
     logging.info('Python function processed a InvokeOutputBinding request from the Dapr Runtime.')
@@ -345,7 +345,7 @@ To use the `daprInvoke` in Python v2, set up your project with the correct depen
 1. In your `requirements.text` file, add the following line:
 
    ```txt
-   azure-functions==1.18.0b1
+   azure-functions==1.18.0b3
    ```
 
 1. Modify your `local.setting.json` file with the following configuration:
