@@ -6,7 +6,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 10/03/2023
 ms.author: jgao
 ---
 
@@ -126,10 +126,10 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
     ]
     scriptContent: '''
       param([string] $name)
-      $output = \'Hello {0}. The username is {1}, the password is {2}.\' -f $name,\${Env:UserName},\${Env:Password}
+      $output = 'Hello {0}. The username is {1}, the password is {2}.' -f $name,${Env:UserName},${Env:Password}
       Write-Output $output
       $DeploymentScriptOutputs = @{}
-      $DeploymentScriptOutputs[\'text\'] = $output
+      $DeploymentScriptOutputs['text'] = $output
     ''' // or primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/inlineScript.ps1'
     supportingScriptUris: []
     timeout: 'PT30M'
@@ -665,7 +665,7 @@ With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deplo
 The following Bicep file shows how to configure the environment:
 
 ```bicep
-param prefix string 
+param prefix string
 param location string = resourceGroup().location
 param userAssignedIdentityName string = '${prefix}Identity'
 param storageAccountName string = '${prefix}storage'

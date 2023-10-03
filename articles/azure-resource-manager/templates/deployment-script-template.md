@@ -6,7 +6,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 05/22/2023
+ms.date: 10/03/2023
 ms.author: jgao
 ---
 
@@ -655,7 +655,255 @@ The identity that your deployment script uses needs to be authorized to work wit
 
 ## Access private virtual network
 
-The supporting resources including the container instance can't be deployed to a private virtual network. To access a private virtual network from your deployment script, you can create another virtual network with a publicly accessible virtual machine or a container instance, and create a peering from this virtual network to the private virtual network.
+With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deployment scripts in private networks with some additional configurations.
+
+- Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](#identity).
+- Create a storage account in the private network, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.
+
+    1. Open the storage account in the [Azure portal](https://portal.azure.com).
+    1. From the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
+    1. Add the `Storage File Data Privileged Contributor` role to the user-assignment managed identity.
+    1. From the left menu, under **Security + networking**, select **Networking**, and then select **Firewalls and virtual networks**.
+    1. Select **Enabled from selected virtual networks and IP addresses**.
+
+        :::image type="content" source="./media/deployment-script-template/resource-manager-deployment-script-access-vnet-config-storage.png" alt-text="Screenshot of configuring storage account for accessing private network.":::
+
+    1. Under **Virtual networks**, add a subnet. On the screenshot, the subnet is called *dspvnVnet*.
+    1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this storage account**.
+
+The following ARM template shows how to configure the environment:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "prefix": {
+      "type": "string",
+      "defaultValue": "dspvn"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "userAssignedIdentityName": {
+      "type": "string",
+      "defaultValue": "[format('{0}Identity', parameters('prefix'))]"
+    },
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "[format('{0}storage', parameters('prefix'))]"
+    },
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "[format('{0}Vnet', parameters('prefix'))]"
+    },
+    "subnetName": {
+      "type": "string",
+      "defaultValue": "[format('{0}Subnet', parameters('prefix'))]"
+    }
+  },
+  "variables": {
+    "subnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2023-05-01",
+      "name": "[parameters('vnetName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "enableDdosProtection": false,
+        "subnets": [
+          {
+            "name": "[parameters('subnetName')]",
+            "properties": {
+              "addressPrefix": "10.0.0.0/24",
+              "serviceEndpoints": [
+                {
+                  "service": "Microsoft.Storage",
+                  "locations": [
+                    "westus2",
+                    "westus",
+                    "eastus2euap",
+                    "centraluseuap"
+                  ]
+                }
+              ],
+              "delegations": [
+                {
+                  "name": "Microsoft.ContainerInstance.containerGroups",
+                  "id": "[format('{0}/delegations/Microsoft.ContainerInstance.containerGroups', variables('subnetId'))]",
+                  "properties": {
+                    "serviceName": "Microsoft.ContainerInstance/containerGroups"
+                  },
+                  "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+                }
+              ],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "description": "Create the Vnet"
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "dnsEndpointType": "Standard",
+        "defaultToOAuthAuthentication": false,
+        "publicNetworkAccess": "Enabled",
+        "allowCrossTenantReplication": true,
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": true,
+        "allowSharedKeyAccess": true,
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [
+            {
+              "id": "[variables('subnetId')]",
+              "action": "Allow",
+              "state": "Succeeded"
+            }
+          ],
+          "defaultAction": "Deny"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+          "requireInfrastructureEncryption": false,
+          "services": {
+            "file": {
+              "keyType": "Account",
+              "enabled": true
+            },
+            "blob": {
+              "keyType": "Account",
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "accessTier": "Hot"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
+      ],
+      "metadata": {
+        "description": "Create the storage with necessary settings"
+      }
+    },
+    {
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+      "apiVersion": "2023-01-31",
+      "name": "[parameters('userAssignedIdentityName')]",
+      "location": "[parameters('location')]",
+      "metadata": {
+        "description": "Create the user managed identity"
+      }
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2022-04-01",
+      "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('storageAccountName'))]",
+      "name": "[guid(tenantResourceId('Microsoft.Authorization/roleDefinitions', '69566ab7-960f-475b-8e7c-b3118f30c6bd'), resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')))]",
+      "properties": {
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), '2023-01-31').principalId]",
+        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', '69566ab7-960f-475b-8e7c-b3118f30c6bd')]",
+        "principalType": "ServicePrincipal"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
+      ],
+      "metadata": {
+        "description": "assign the built in role to the storage account"
+      }
+    }
+  ]
+}
+```
+
+You can use the following ARM template to test the deployment:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "prefix": {
+      "type": "string",
+      "defaultValue": "dspvn"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "utcValue": {
+      "type": "string",
+      "defaultValue": "[utcNow()]"
+    },
+    "vnetName": {
+      "type": "string",
+      "defaultValue": "[format('{0}Vnet', parameters('prefix'))]"
+    }
+  },
+  "variables": {
+    "storageAccountName": "[format('{0}storage', parameters('prefix'))]",
+    "subnetName": "[format('{0}Subnet', parameters('prefix'))]",
+    "userAssignedIdentityName": "[format('{0}Identity', parameters('prefix'))]",
+    "containerGroupName": "[format('{0}Aci', parameters('prefix'))]",
+    "dsName": "[format('{0}DS', parameters('prefix'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2023-08-01",
+      "name": "[variables('dsName')]",
+      "location": "[parameters('location')]",
+      "identity": {
+        "type": "userAssigned",
+        "userAssignedIdentities": {
+          "[format('{0}', resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName')))]": {}
+        }
+      },
+      "kind": "AzureCLI",
+      "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "azCliVersion": "2.47.0",
+        "storageAccountSettings": {
+          "storageAccountName": "[variables('storageAccountName')]"
+        },
+        "containerSettings": {
+          "containerGroupName": "[variables('containerGroupName')]",
+          "subnetIds": [
+            {
+              "id": "[format('{0}/subnets/{1}', resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), variables('subnetName'))]"
+            }
+          ]
+        },
+        "scriptContent": "echo \"Hello world!\"",
+        "retentionInterval": "P1D",
+        "cleanupPreference": "OnExpiration"
+      }
+    }
+  ]
+}
+```
 
 ## Next steps
 
