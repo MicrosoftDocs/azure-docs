@@ -134,7 +134,7 @@ To perform a vector search, use the `$search` aggregation pipeline stage in a Mo
 ```
 To retrieve the similarity score (`searchScore`) along with the documents found by the vector search, use the `$project` operator to include `searchScore` and rename it as `<custom_name_for_similarity_score>` in the results. Then the document is also projected as nested object. Note that the similarity score is calculated using the metric defined in the vector index.
 
-### Query a vector index by using $search
+### Query vectors and vector distances (aka similarity scores) using $search"
 
 Continuing with the last example, create another vector, `queryVector`. Vector search measures the distance between `queryVector` and the vectors in the `vectorContent` path of your documents. You can set the number of results that the search returns by setting the parameter `k`, which is set to `2` here.
 
