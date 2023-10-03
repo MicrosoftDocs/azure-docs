@@ -1,13 +1,13 @@
 ---
-title: Migrate an HBase cluster to a HDInsight 5.1 - Azure HDInsight
-description: Learn how to migrate Apache HBase clusters in Azure HDInsight to a HDInsight 5.1.
+title: Migrate an HBase cluster to an HDInsight 5.1 - Azure HDInsight
+description: Learn how to migrate Apache HBase clusters in Azure HDInsight to an HDInsight 5.1.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/20/2023
+ms.date: 10/03/2023
 ---
 
-# Migrate an Apache HBase cluster to HDInsight 5.1
+# Migrate an Apache HBase cluster to an HDInsight 5.1
 
 This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version.
 
@@ -75,12 +75,12 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
    1. Verify HBCK Report page on HBase UI.  Healthy cluster does not show any inconsistencies
    :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." border="false":::
-   1. If any inconsistencies exists, fix inconsistencies using [hbase hbck2](https://learn.microsoft.com/azure/hdinsight/hbase/how-to-use-hbck2-tool)
+   1. If any inconsistencies exists, fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
 
 1. Note down number of regions in online at source cluster, so that the number can be refered at destination cluster after the migration. 
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing total number of regions." border="false":::
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing total number of regions.":::
 
-1. If replication enabled on the cluster, stop and reenable the replication on destination cluster after migration. For more information, see [Hbase replication guide](https://learn.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication)  
+1. If replication enabled on the cluster, stop and reenable the replication on destination cluster after migration. For more information, see [Hbase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
 
 1. Flush the source HBase cluster you're upgrading.
    
@@ -98,7 +98,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 
     1. Verity the Procedures page to confirm that there are no pending procedures.
     
-        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." border="false"::: 
+        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process."::: 
 
 1. STOP HBase
 
@@ -106,7 +106,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    1. Turn on maintenance mode for HBase.
    1. Stop HBase Masters only first. First stop standby masters, in last stop Active HBase master.
    
-       :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-master-services.png" alt-text="Screenshot showing how to stop master services." border="false":::
+       :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-master-services.png" alt-text="Screenshot showing how to stop master services.":::
    
    1. Stop the HBase service, it stops remaining servers.
    
@@ -133,7 +133,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
 1. Under **Services** > **HDFS** > **Configs** > **Advanced** > **Advanced core-site**, change the `fs.defaultFS` HDFS setting to point to the original source cluster container name. For example, the setting in the following screenshot should be changed to `wasbs://hbase-upgrade-old-2021-03-22`.
    
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="In Ambari, select Services > HDFS > Configs > Advanced > Advanced core-site and change the container name." border="false":::
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png" alt-text="In Ambari, select Services > HDFS > Configs > Advanced > Advanced core-site and change the container name.":::
    
 1. If your destination cluster has the Accelerated Writes feature, change the `hbase.rootdir` path to point to the original source cluster container name. For example, the following path should be changed to `hbase-upgrade-old-2021-03-22`. If your cluster doesn't have Accelerated Writes, skip this step.
    
@@ -234,7 +234,7 @@ sudo -u hbase hdfs dfs -Dfs.azure.page.blob.dir="/hbase-wals" -cp <source-contai
 
     1. Verity the Procedures page to confirm that there are no pending procedures.
     
-        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." border="false"::: 
+        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process."::: 
 
 
 1. Execute the script [migrate-to-HDI5.1-hbase-source.sh ](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-to-HDI5.1-hbase-source.sh) on the source cluster and [migrate-hbase-dest.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/migrate-hbase-dest.sh) on the destination cluster. Use the following instructions to execute these scripts.
@@ -261,7 +261,7 @@ Mandatory argument for the above command:
 ```
 
 
-## TroubleShooting
+## Troubleshooting
 
 ### Use case 1: 
 If Hbase masters and region servers up and regions stuck in transition or only one region, for example, `hbase:meta` region is assigned. Waiting for other regions to assign
