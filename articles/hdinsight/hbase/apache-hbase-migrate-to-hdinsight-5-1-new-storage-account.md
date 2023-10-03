@@ -79,7 +79,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 
       :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report.":::
       
-   1. If any inconsistencies exists, please fix inconsistencies using [hbase hbck2](https://learn.microsoft.com/azure/hdinsight/hbase/how-to-use-hbck2-tool)
+   1. If any inconsistencies exists, please fix inconsistencies using [hbase hbck2](/azure/hdinsight/hbase/how-to-use-hbck2-tool/)
 
 1. Note down number of regions in online at source cluster, so that the number can be refered at destination cluster after the migration. 
 
