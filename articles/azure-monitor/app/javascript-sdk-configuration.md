@@ -323,6 +323,14 @@ This section only applies to you if you're using the deprecated functions and yo
 | **ConnectionStringParser** | **@microsoft/applicationinsights-common-js** |
 | ConnectionStringParser.parse | parseConnectionString |
 
+## Service notifications
+
+Service notifications is an upcoming new feature that will be enabled by default and automatically sends [active notifications](#active-notifications). When this feature is released, we will provide documentation on how you can opt out of receiving active notifications.
+
+### Active notifications
+
+None currently.
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
