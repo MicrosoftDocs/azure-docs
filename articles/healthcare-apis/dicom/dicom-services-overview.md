@@ -1,9 +1,8 @@
 ---
 title:  Overview of the DICOM service in Azure Health Data Services
-description: Get an overview of 
+description: The DICOM service is a cloud-based solution for storing, managing, and exchanging medical imaging data securely and efficiently with any DICOMweb™-enabled systems or applications. Learn more about its benefits and use cases.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: DICOM
 ms.topic: overview
 ms.date: 10/06/2023
 ms.author: mmitrik
