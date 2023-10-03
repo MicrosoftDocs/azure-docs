@@ -544,7 +544,7 @@ Learn more about [Media Service - AccountQuotaLimit (Increase Media Services quo
 
 High availability of SAP while used with Azure NetApp Files relies on setting proper timeout values to prevent disruption to your application. Review the documentation to ensure your configuration meets the timeout values as noted in the documentation.
 
-Learn more about [Volume - SAPTimeoutsANF (Review SAP configuration for timeout values used with Azure NetApp Files)](https://learn.microsoft.com/en-us/azure/sap/workloads/get-started).
+Learn more about [Volume - SAPTimeoutsANF (Review SAP configuration for timeout values used with Azure NetApp Files)](/azure/sap/workloads/get-started).
 
 ### Implement disaster recovery strategies for your Azure NetApp Files Resources
 
@@ -719,7 +719,7 @@ Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Di
 
 Configure blob backup
 
-Learn more about [Storage Account - ConfigureBlobBackup (Configure blob backup)](https://learn.microsoft.com/en-us/azure/backup/blob-backup-overview).
+Learn more about [Storage Account - ConfigureBlobBackup (Configure blob backup)](/azure/backup/blob-backup-overview).
 
 ## Subscriptions
 
@@ -804,49 +804,49 @@ Learn more about [App service 32-bit limitations](/troubleshoot/azure/app-servic
 
 Enable HA ports in the Load balancing rules for HA set up of ASCS instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
 
-Learn more about [Central Server Instance - ASCSHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#:~:text=To%20set%20up%20standard%20load%20balancer%2C%20follow%20these%20configuration%20steps).
+Learn more about [Central Server Instance - ASCSHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Enable Floating IP in the Azure Load balancer for ASCS HA setup in SAP workloads
 
 Enable floating IP in the load balancing rules for the Azure Load Balancer for HA set up of ASCS instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings
 
-Learn more about [Central Server Instance - ASCSHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for ASCS HA setup in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#:~:text=To%20set%20up%20standard%20load%20balancer%2C%20follow%20these%20configuration%20steps).
+Learn more about [Central Server Instance - ASCSHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Set the Idle timeout in Azure Load Balancer to 30 minutes for ASCS HA setup in SAP workloads
 
 To prevent load balancer timeout, make sure that all Azure Load Balancing Rules have: 'Idle timeout (minutes)' set to the maximum value of 30 minutes. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings
 
-Learn more about [Central Server Instance - ASCSHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for ASCS HA setup in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#:~:text=To%20set%20up%20standard%20load%20balancer%2C%20follow%20these%20configuration%20steps).
+Learn more about [Central Server Instance - ASCSHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for ASCS HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Enable HA ports in the Azure Load Balancer for HANA DB HA setup in SAP workloads
 
 Enable HA ports in the Load balancing rules for HA set up of HANA DB instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings.
 
-Learn more about [Database Instance - DBHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for HANA DB HA setup in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#:~:text=To%20set%20up%20standard%20load%20balancer%2C%20follow%20these%20configuration%20steps).
+Learn more about [Database Instance - DBHAEnableLBPorts (Enable HA ports in the Azure Load Balancer for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Set the Idle timeout in Azure Load Balancer to 30 minutes for HANA DB HA setup in SAP workloads
 
 To prevent load balancer timeout, make sure that all Azure Load Balancing Rules have: 'Idle timeout (minutes)' set to the maximum value of 30 minutes. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings
 
-Learn more about [Database Instance - DBHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for HANA DB HA setup in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#:~:text=To%20set%20up%20standard%20load%20balancer%2C%20follow%20these%20configuration%20steps).
+Learn more about [Database Instance - DBHASetIdleTimeOutLB (Set the Idle timeout in Azure Load Balancer to 30 minutes for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Enable Floating IP in the Azure Load balancer for HANA DB HA setup in SAP workloads
 
 Enable floating IP in the load balancing rules for the Azure Load Balancer for HA set up of HANA DB instance in SAP workloads. Open the load balancer, select 'load balancing rules' and add/edit the rule to enable the recommended settings
 
-Learn more about [Database Instance - DBHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for HANA DB HA setup in SAP workloads)](https://learn.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#:~:text=To%20set%20up%20standard%20load%20balancer%2C%20follow%20these%20configuration%20steps).
+Learn more about [Database Instance - DBHAEnableFloatingIpLB (Enable Floating IP in the Azure Load balancer for HANA DB HA setup in SAP workloads)](/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
 
 ### Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads
 
 Disable TCP timestamps on VMs placed behind AzurEnabling TCP timestamps will cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack causing the load balancer to mark the endpoint as down
 
-Learn more about [Central Server Instance - ASCSLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads)](https://launchpad.support.sap.com/#/notes/2382421).
+Learn more about [Central Server Instance - ASCSLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in ASCS HA setup in SAP workloads)](azure/sap/workloads/sap-hana-high-availability).
 
 ### Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads
 
 Disable TCP timestamps on VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail due to TCP packets being dropped by the VM's guest OS TCP stack causing the load balancer to mark the endpoint as down
 
-Learn more about [Database Instance - DBLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads)](/azure/load-balancer/load-balancer-custom-probe-overview#:~:text=Don%27t%20enable%20TCP,must%20be%20disabled).
+Learn more about [Database Instance - DBLBHADisableTCP (Disable TCP timestamps on VMs placed behind Azure Load Balancer in HANA DB HA setup in SAP workloads)](/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### Enable stonith in the cluster cofiguration in HA enabled SAP workloads for VMs with Redhat OS
 
