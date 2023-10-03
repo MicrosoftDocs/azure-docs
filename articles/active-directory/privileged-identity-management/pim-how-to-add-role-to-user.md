@@ -1,29 +1,29 @@
 ---
-title: Assign Azure AD roles in PIM
-description: Learn how to assign Azure AD roles in Privileged Identity Management (PIM).
+title: Assign Microsoft Entra roles in PIM
+description: Learn how to assign Microsoft Entra roles in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barclayn
 manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/02/2022
-ms.author: billmath
+ms.date: 09/13/2023
+ms.author: barclayn
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
 ---
 
-# Assign Azure AD roles in Privileged Identity Management
+# Assign Microsoft Entra roles in Privileged Identity Management
 
-With Azure Active Directory (Azure AD), a Global administrator can make **permanent** Azure AD admin role assignments. These role assignments can be created using the [Microsoft Entra admin center](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
+With Microsoft Entra ID, a Global administrator can make **permanent** Microsoft Entra admin role assignments. These role assignments can be created using the [Microsoft Entra admin center](../roles/permissions-reference.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
-The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
+The Microsoft Entra Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Microsoft Entra admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
-Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
+Privileged Identity Management support both built-in and custom Microsoft Entra roles. For more information on Microsoft Entra custom roles, see [Role-based access control in Microsoft Entra ID](../roles/custom-overview.md).
 
 >[!Note]
 >When a role is assigned, the assignment:
@@ -32,15 +32,13 @@ Privileged Identity Management support both built-in and custom Azure AD roles. 
 
 ## Assign a role
 
-[!INCLUDE [portal updates](~/articles/active-directory/includes/portal-update.md)]
-
-Follow these steps to make a user eligible for an Azure AD admin role.
+Follow these steps to make a user eligible for a Microsoft Entra admin role.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles**.
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**.
 
-1. Select **Roles** to see the list of roles for Azure AD permissions.
+1. Select **Roles** to see the list of roles for Microsoft Entra permissions.
 
     ![Screenshot of the "Roles" page with the "Add assignments" action selected.](./media/pim-how-to-add-role-to-user/roles-list.png)
 
@@ -72,7 +70,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 ## Assign a role with restricted scope
 
-For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Azure AD organizations.
+For certain roles, the scope of the granted permissions can be restricted to a single admin unit, service principal, or application. This procedure is an example if assigning a role that has the scope of an administrative unit. For a list of roles that support scope via administrative unit, see [Assign scoped roles to an administrative unit](../roles/admin-units-assign-roles.md). This feature is currently being rolled out to Microsoft Entra organizations.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
@@ -245,13 +243,13 @@ The following is an example of the response. The response object shown here migh
 
 ## Update or remove an existing role assignment
 
-Follow these steps to update or remove an existing role assignment. **Microsoft Entra Premium P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
+Follow these steps to update or remove an existing role assignment. **Microsoft Entra ID P2 or Microsoft Entra ID Governance licensed customers only**: Don't assign a group as Active to a role through both Microsoft Entra ID and Privileged Identity Management (PIM). For a detailed explanation, see [Known issues](../roles/groups-concept.md#known-issues).
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator).
 
-1. Browse to **Identity governance** > **Privileged Identity Management** > **Azure AD roles**. 
+1. Browse to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**. 
 
-1. Select **Roles** to see the list of roles for Azure AD.
+1. Select **Roles** to see the list of roles for Microsoft Entra ID.
 
 1. Select the role that you want to update or remove.
 
@@ -316,4 +314,4 @@ POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilitySc
 
 ## Next steps
 
-- [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
+- [Configure Microsoft Entra admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)

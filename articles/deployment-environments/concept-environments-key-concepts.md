@@ -12,7 +12,9 @@ ms.date: 04/25/2023
 
 # Key concepts for Azure Deployment Environments
 
-Learn about the key concepts and components of Azure Deployment Environments. This knowledge can help you more effectively deploy environments for your scenarios.
+In this article, you'll learn about the key concepts and components of Azure Deployment Environments. This knowledge helps you more effectively deploy environments for your scenarios.
+
+As you learn about Deployment Environments, you'll also encounter components of [Microsoft Dev Box](../dev-box/overview-what-is-microsoft-dev-box.md), a complementary service that shares certain architectural components. Dev Box provides developers with a cloud-based development workstation, called a dev box, which is configured with the tools they need for their work.  
 
 This diagram shows the key components of Deployment Environments and how they relate to each other. You can learn more about each component in the following sections.
 
@@ -20,16 +22,22 @@ This diagram shows the key components of Deployment Environments and how they re
 
 ## Dev centers
 
-A dev center is a collection of projects that require similar settings. Dev centers enable platform engineers to:
+A dev center is a collection of [Projects](#projects) that require similar settings. Dev centers enable platform engineers to:
 
 - Use catalogs to manage infrastructure as code (IaC) templates that are available to the projects.
 - Use environment types to configure the types of environments that development teams can create.
+ 
+[Microsoft Dev Box](../dev-box/concept-dev-box-concepts.md#dev-center) also uses dev centers to organize resources. An organization can use the same dev center for both services.
 
 ## Projects
 
-A project is the point of access for the development team. When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. 
+In Deployment Environments, a project represents a team or business function within the organization. When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. 
 
 Each project can be associated with only one dev center. Platform engineers can configure environments for a project by specifying which environment types are appropriate for the development team.
+
+To enable developers to create their own deployment environments, you must [provide access for developers to projects](how-to-configure-deployment-environments-user.md) by assigning the Deployment Environments User role.
+
+You can configure projects for Deployment Environments and projects for [Microsoft Dev Box](../dev-box/concept-dev-box-concepts.md#project) resources in the same dev center.
 
 ## Environments
 
@@ -73,6 +81,14 @@ An environment definition is a combination of an IaC template and a manifest fil
 
 To learn about the structure of an ARM template, the sections of a template, and the properties that are available in those sections, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-## Next steps
+## Resources shared with Microsoft Dev Box
 
-[Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
+Azure Deployment Environments and Microsoft Dev Box are complementary services that share certain architectural components. Dev centers and projects are common to both services, and they help organize resources in an enterprise. You can configure projects for Deployment Environments and projects for Dev Box resources in the same dev center. 
+
+To learn more about the components common to Deployment Environments and Dev Box, see [Components common to Microsoft Dev Box and Azure Deployment Environments](/azure/dev-box/concept-common-components).
+
+## Related content
+
+- [What is Azure Deployment Environments?](overview-what-is-azure-deployment-environments.md)
+- [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md)
+- [What is Microsoft Dev Box?](../dev-box/overview-what-is-microsoft-dev-box.md)

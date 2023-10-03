@@ -18,6 +18,8 @@
       href: ./events/events-overview.md
     - name: Azure API for FHIR
       href: ./azure-api-for-fhir/overview.md
+    - name: Business continuity & disaster recovery
+      href: business-continuity-disaster-recovery.md
 - name: Quickstarts
   expanded: false
   items: 

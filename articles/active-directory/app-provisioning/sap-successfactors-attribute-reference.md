@@ -1,6 +1,6 @@
 ---
-title: SAP SuccessFactors attribute reference for Azure Active Directory
-description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning in Azure Active Directory.
+title: SAP SuccessFactors attribute reference for Microsoft Entra ID
+description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning in Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/26/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: chmutali
 ---
 
-# SAP SuccessFactors attribute reference for Azure Active Directory
+# SAP SuccessFactors attribute reference for Microsoft Entra ID
 
 In this article, you'll find information on:
 
@@ -25,7 +25,7 @@ In this article, you'll find information on:
 The table below captures the list of SuccessFactors attributes included by default in the following two provisioning apps:
 
 - [SuccessFactors to Active Directory User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-- [SuccessFactors to Azure AD User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+- [SuccessFactors to Microsoft Entra user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
 Please refer to the [SAP SuccessFactors integration reference](./sap-successfactors-integration-reference.md#retrieving-more-attributes) to extend the schema for additional attributes. 
 
@@ -113,9 +113,9 @@ Please refer to the [SAP SuccessFactors integration reference](./sap-successfact
 
 ## Default attribute mapping
 
-The table below provides the default attribute mapping between SuccessFactors attributes listed above and AD/Azure AD attributes. In the Azure AD provisioning app "Mapping" blade, you can modify this default mapping to include attributes from the list above. 
+The table below provides the default attribute mapping between SuccessFactors attributes listed above and Active Directory / Microsoft Entra attributes. In the Microsoft Entra provisioning app "Mapping" blade, you can modify this default mapping to include attributes from the list above. 
 
-| \# | SuccessFactors Entity                  | SuccessFactors Attribute | Default AD/Azure AD attribute mapping   | Processing Remark                                                                            |
+| \# | SuccessFactors Entity                  | SuccessFactors Attribute | Default attribute mapping   | Processing Remark                                                                            |
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
 | 1  | PerPerson                              | personIdExternal         | employeeId                              | Used as matching attribute                                                                   |
 | 2  | PerPerson                              | perPersonUuid            | \[Not mapped \- used as source anchor\] | During initial sync, the Provisioning Service links the personUuid to existing objectGuid\.  |

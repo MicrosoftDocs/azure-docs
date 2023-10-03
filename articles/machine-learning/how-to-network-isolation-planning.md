@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 02/14/2023
 ms.topic: how-to
-ms.custom: build-2023, moe-wsvnet
+ms.custom: build-2023
 ---
 
 # Plan for network isolation
@@ -19,7 +19,7 @@ In this article, you learn how to plan your network isolation for Azure Machine 
 
 ## Recommended architecture (Managed Network Isolation pattern)
 
-[Using a Managed virtual network](how-to-managed-network.md) (preview) provides an easier configuration for network isolation. It automatically secures your workspace and managed compute resources in a managed virtual network. You can add private endpoint connections for other Azure services that the workspace relies on, such as Azure Storage Accounts. Depending on your needs, you can allow all outbound traffic to the public network or allow only the outbound traffic you approve. Outbound traffic required by the Azure Machine Learning service is automatically enabled for the managed virtual network. We recommend using workspace managed network isolation for a built-in friction less network isolation method. We have two patterns: allow internet outbound mode or allow only approved outbound mode.
+[Using a Managed virtual network](how-to-managed-network.md) provides an easier configuration for network isolation. It automatically secures your workspace and managed compute resources in a managed virtual network. You can add private endpoint connections for other Azure services that the workspace relies on, such as Azure Storage Accounts. Depending on your needs, you can allow all outbound traffic to the public network or allow only the outbound traffic you approve. Outbound traffic required by the Azure Machine Learning service is automatically enabled for the managed virtual network. We recommend using workspace managed network isolation for a built-in friction less network isolation method. We have two patterns: allow internet outbound mode or allow only approved outbound mode.
 
 ### Allow internet outbound mode
 
@@ -157,9 +157,7 @@ Azure Machine Learning uses a private endpoint to secure inbound communication t
 
 #### Outbound communication
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
-
-To secure outbound communication from a deployment to resources, Azure Machine Learning uses a workspace managed virtual network (preview).  The deployment needs to be created in the workspace managed VNet so that it can use the private endpoints of the workspace managed virtual network for outbound communication.
+To secure outbound communication from a deployment to resources, Azure Machine Learning uses a workspace managed virtual network.  The deployment needs to be created in the workspace managed VNet so that it can use the private endpoints of the workspace managed virtual network for outbound communication.
 
 The following architecture diagram shows how communications flow through private endpoints to the managed online endpoint. Incoming scoring requests from a client's virtual network flow through the workspace's private endpoint to the managed online endpoint. Outbound communication from deployments to services is handled through private endpoints from the workspace's managed virtual network to those service instances.
 

@@ -1,5 +1,5 @@
 ---
-title: Migrate Oracle workload to Azure VMs (IaaS)| Microsoft Docs
+title: Migrate Oracle workload to Azure VMs (IaaS)
 description: Migrate Oracle workload to Azure VMs. 
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -18,7 +18,7 @@ First step in the migration journey starts with understanding the customer’s O
 
 1. **Assess your Oracle workload using AWR Reports**: To move your Oracle workload onto Azure, carefully [analyze the actual database workloads of the customer by using AWR reports](https://github.com/Azure/Oracle-Workloads-for-Azure/tree/main/az-oracle-sizing) and determine the best VM size on Azure that meets the workload performance requirements.  The reader is cautioned not to take the hardware specifications of the existing, on-premises Oracle servers or appliances and map one-to-one to Azure VM specifications since most Oracle environments are heavily oversized both from a hardware and Oracle licensing perspective. 
 
-Take AWR reports from heavy usage time periods of the databases (such as peak hours, nightly backup and batch processing, or end of month processing, etc.). The AWR-based right sizing analysis takes all key performance indicators and provides a buffer for unexpected peaks during the calculation of required VM specifications.  
+   Take AWR reports from heavy usage time periods of the databases (such as peak hours, nightly backup and batch processing, or end of month processing, etc.). The AWR-based right sizing analysis takes all key performance indicators and provides a buffer for unexpected peaks during the calculation of required VM specifications.  
 
 2. **Collect necessary AWR report data to calculate Azure VM Sizing:** From AWR report, fill in the key data required in ['Oracle_AWR_Erstimates.xltx'](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183) file as needed and determine suitable Azure VM and related workload (Memory).
 
@@ -30,48 +30,49 @@ Take AWR reports from heavy usage time periods of the databases (such as peak ho
 
 6. Move your **on-premises Oracle data to the Oracle on Azure VM:** Now that your required Oracle setup is done, pending task is to move data from on premise to cloud. There are many approaches. Best approaches are:
 
-- Azure databox: [Copy your on-premises](/training/modules/move-data-with-azure-data-box/3-how-azure-data-box-family-works) data and ship to Azure cloud securely. This suits high volume data scenarios. Data box [provides multiple options.](https://azure.microsoft.com/products/databox/data)
-- Data Factory [data pipeline to](/azure/data-factory/connector-oracle?tabs=data-factory) move data from one premise to Oracle on Azure – heavily dependent on bandwidth.
+   - Azure databox: [Copy your on-premises](/training/modules/move-data-with-azure-data-box/3-how-azure-data-box-family-works) data and ship to Azure cloud securely. This suits high volume data scenarios. Data box [provides multiple options.](https://azure.microsoft.com/products/databox/data)
+   - Data Factory [data pipeline to](../../../data-factory/connector-oracle.md?tabs=data-factory) move data from one premise to Oracle on Azure – heavily dependent on bandwidth.
 
-Depending on the size of your data, you can also select from the following available options. 
+   Depending on the size of your data, you can also select from the following available options. 
 
-- **Azure Data Box Disk**:
+   - **Azure Data Box Disk**:
 
-  Azure Data Box Disk is a powerful and flexible tool for businesses looking to transfer large amounts of data to Azure quickly and securely. 
+   Azure Data Box Disk is a powerful and flexible tool for businesses looking to transfer large amounts of data to Azure quickly and securely. 
 
-  Learn more [Microsoft Azure Data Box Heavy overview | Microsoft Learn](/azure/databox/data-box-heavy-overview)
+   Learn more [Microsoft Azure Data Box Heavy overview | Microsoft Learn](/azure/databox/data-box-heavy-overview)
 
-- **Azure Data Box Heavy**: 
+   - **Azure Data Box Heavy**: 
 
-  Azure Data Box Heavy is a powerful and flexible tool for businesses looking to transfer massive amounts of data to Azure quickly and securely. 
+   Azure Data Box Heavy is a powerful and flexible tool for businesses looking to transfer massive amounts of data to Azure quickly and securely. 
 
-  To learn more about data box, see [Microsoft Azure Data Box Heavy overview | Microsoft Learn](/azure/databox/data-box-heavy-overview)
+   To learn more about data box, see [Microsoft Azure Data Box Heavy overview | Microsoft Learn](/azure/databox/data-box-heavy-overview)
 
- 7. **Load data received at cloud to Oracle on Azure VM:**
+7. **Load data received at cloud to Oracle on Azure VM:**
 
-Now that data is moved into data box, or data factory is pumping it to file system, in this step migrate this data to a newly set up Oracle on Azure VM using the following tools. 
+   Now that data is moved into data box, or data factory is pumping it to file system, in this step migrate this data to a newly set up Oracle on Azure VM using the following tools. 
 
-- RMAN - Recovery Manager
-- Oracle Data Guard 
-- Goldengate with Data Guard
-- Oracle Data Pump
+   - RMAN - Recovery Manager
+   - Oracle Data Guard 
+   - Goldengate with Data Guard
+   - Oracle Data Pump
 
 8. **Measure performance of your Oracle on Azure VM:** Demonstrate the performance of the Oracle on Azure VM using:
 
-- IO Benchmarking – VM tooling (Monitoring – CPU cycles etc.)
+   - IO Benchmarking – VM tooling (Monitoring – CPU cycles etc.)
 
-Use the following handy tools and approaches.
+   Use the following handy tools and approaches.
 
-- FIO – CPU Utilization/OS
-- SLOB – Oracle specific
-- Oracle Swingbench
-- AWR/statspack report (CPU, IO)
+   - FIO – CPU Utilization/OS
+   - SLOB – Oracle specific
+   - Oracle Swingbench
+   - AWR/statspack report (CPU, IO)
 
 9. **Move your on-premises Oracle data to the Oracle on Azure VM**: Finally switch off your on-premises Oracle and switchover to Azure VM. Some checks to be in place are as follows:
 
-- If you have applications using the database, plan downtime. 
+   - If you have applications using the database, plan downtime. 
 
-- Use a change control management tool and consider checking in data changes, not just code changes, into the system. 
+   - Use a change control management tool and consider checking in data changes, not just code changes, into the system. 
 
 ## Next steps
-- [Storage options for Oracle on Azure VMs](oracle-storage.md)
+
+[Storage options for Oracle on Azure VMs](oracle-storage.md)

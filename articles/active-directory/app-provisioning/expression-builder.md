@@ -1,6 +1,6 @@
 ---
-title: Understand how expression builder works with Application Provisioning in Azure Active Directory
-description: Understand how expression builder works with Application Provisioning in Azure Active Directory.
+title: Understand how expression builder works with Application Provisioning in Microsoft Entra ID
+description: Understand how expression builder works with Application Provisioning in Microsoft Entra ID.
 services: active-directory
 author: kenwith
 manager: amycolannino
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/26/2023
+ms.date: 09/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

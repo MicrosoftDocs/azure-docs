@@ -5,7 +5,7 @@ description: Learn how to enable SFTP support for Azure Blob Storage so that you
 author: normesta
 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 05/17/2023
 ms.author: normesta

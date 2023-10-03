@@ -144,9 +144,9 @@ Use the following steps to create a compute instance.
 
 Since the Azure Machine Learning studio partially runs in the web browser on the client, the client needs to be able to directly access the default storage account for the workspace to perform data operations. To enable this, use the following steps:
 
-1. From the [Azure portal](https://portal.azure.com), select the jump box VM you created earlier. From the __Overview__ section, copy the __Private IP address__.
+1. From the [Azure portal](https://portal.azure.com), select the jump box VM you created earlier. From the __Overview__ section, copy the __Public IP address__.
 1. From the [Azure portal](https://portal.azure.com), select the workspace you created earlier. From the __Overview__ section, select the link for the __Storage__ entry.
-1. From the storage account, select __Networking__, and add the jump box's _private_ IP address to the __Firewall__ section.
+1. From the storage account, select __Networking__, and add the jump box's _public_ IP address to the __Firewall__ section.
 
     > [!TIP]
     > In a scenario where you use a VPN gateway or ExpressRoute instead of a jump box, you could add a private endpoint or service endpoint for the storage account to the Azure Virtual Network. Using a private endpoint or service endpoint would allow multiple clients connecting through the Azure Virtual Network to successfully perform storage operations through studio.
