@@ -63,6 +63,9 @@ The following table describes the cluster types that are compatible with the Aut
    
      :::image type="content" source="./media/hdinsight-on-aks-autoscale-clusters/configure-scale-rule-add-rule-concept-step-4.png" alt-text="Screenshot showing how to add rules in configure scale rules for load based scaling.":::
 
+     > [!TIP]
+     > * Scale Up rules take precedence when one or more rules are triggered. Even if only one of the rules for scale up suggest cluster being under-provisioned, cluster will try to scale up. For scale down to happen, no scale up rule should be triggered.
+
 ### Load-based scale conditions
 
 When the following conditions are detected, Auto scale issues a scale request
