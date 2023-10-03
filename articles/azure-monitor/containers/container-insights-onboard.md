@@ -18,7 +18,6 @@ Container insights supports the following environments:
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)
 - [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-   - [AKS engine](https://github.com/Azure/aks-engine)
    - [Red Hat OpenShift](https://docs.openshift.com/container-platform/latest/welcome/index.html) version 4.x
 
 The versions of Kubernetes and support policy are the same as those versions [supported in AKS](../../aks/supported-kubernetes-versions.md).
