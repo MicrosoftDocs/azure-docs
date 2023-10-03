@@ -657,6 +657,10 @@ Data connectors are available as part of the following offerings:
 
 - [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
 
+## Wiz, Inc.
+
+- [Wiz](data-connectors/wiz.md)
+
 ## ZERO NETWORKS LTD
 
 - [Zero Networks Segment Audit](data-connectors/zero-networks-segment-audit.md)
