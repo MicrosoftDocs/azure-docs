@@ -91,7 +91,7 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
-:::image type="content" source="media/application-observability/show-application-logs-abnormal-num.png" alt-text="Screenshot of the Azure portal that shows abnormal logs number for the Azure Spring Apps instance." lightbox="media/application-observability/show-application-logs-abnormal-num.png":::
+:::image type="content" source="media/application-observability/show-application-logs-abnormal-number.png" alt-text="Screenshot of the Azure portal that shows abnormal logs number for the Azure Spring Apps instance." lightbox="media/application-observability/show-application-logs-abnormal-number.png":::
 
 #### Query the customers service log with a key word
 
