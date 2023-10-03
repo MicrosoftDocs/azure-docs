@@ -12,7 +12,7 @@ ms.author: duau
 ---
 # Configure custom alerts to monitor advertised routes
 
-This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 [routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 [routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-virtual-network-to-on-premises-on-expressroute-private-peering)
 
 **Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. When using the configuration in this article, the runbook contains a PowerShell script that queries one or more ExpressRoute gateways. It collects a dataset containing the resource group, ExpressRoute gateway name, and number of network prefixes advertised on-premises.
 
