@@ -2,7 +2,7 @@
 title: Azure Event Grid publisher and subscriber operations
 description: Describes publisher and subscriber operations supported by Azure Event Grid when using namespaces. 
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 10/03/2023
 ---
 
 # Azure Event Grid - publisher and subscriber operations 
@@ -13,7 +13,7 @@ This article describes the publisher and subscriber operations supported by Azur
 ### Publish cloud events
 Use the publish operation to publish a single cloud event or a batch of cloud events in the JSON format. 
 
-Here's an example of a REST API command to publish cloud events. For more information about the operation and the command, see [REST API - Publish Cloud Events](/rest/api/eventgrid/dataplanepreview-version2023-06-01/publish-cloud-events/publish-cloud-events).
+Here's an example of a REST API command to publish cloud events. For more information about the operation and the command, see [REST API - Publish Cloud Events](/rest/api/eventgrid/dataplane-preview/publish-cloud-events/publish-cloud-events).
 
 ```http
 POST myNamespaceName.westus-1.eventgrid.azure.net/topics/myTopic:publish?api-version=2023-06-01-preview
@@ -46,7 +46,7 @@ Here's the sample response when the status is 200.
 ### Acknowledge cloud events
 Use this operation to acknowledge events from a queue subscription to indicate that they have been successfully processed and those events shouldn't be redelivered. The operation is considered successful if at least one event in the batch is successfully acknowledged. The response includes a set of successfully acknowledged lock tokens, along with other failed lock tokens with their corresponding information. The successfully acknowledged events will no longer be available to any consumer. 
 
-Here's an example of a REST API command to acknowledge cloud events. For more information about the operation and the command, see [REST API - Acknowledge Cloud Events](/rest/api/eventgrid/dataplanepreview-version2023-06-01/acknowledge-cloud-events/acknowledge-cloud-events).
+Here's an example of a REST API command to acknowledge cloud events. For more information about the operation and the command, see [REST API - Acknowledge Cloud Events](/rest/api/eventgrid/dataplane-preview/acknowledge-cloud-events/acknowledge-cloud-events).
 
 ```http
 POST myNamespaceName.westus-1.eventgrid.azure.net/topics/myTopic/eventsubscriptions/myEventSubscription:acknowledge?api-version=2023-06-01-preview
@@ -78,7 +78,7 @@ Here's the sample response:
 ### Receive cloud events
 Use this operation to receive a single cloud event or a batch of cloud events from a queue subscription. 
 
-Here's an example of a REST API command to receive events. For more information about the operation and the command, see [REST API - Receive Cloud Events](/rest/api/eventgrid/dataplanepreview-version2023-06-01/receive-cloud-events/receive-cloud-events).
+Here's an example of a REST API command to receive events. For more information about the operation and the command, see [REST API - Receive Cloud Events](/rest/api/eventgrid/dataplane-preview/receive-cloud-events/receive-cloud-events).
 
 
 ```http
@@ -113,7 +113,7 @@ Here's the sample response:
 ### Reject cloud events
 Use this operation to reject a cloud event to signal that such event should be redelivered again because it's not actionable. If there's a dead-letter configured, the event is sent to the dead-letter destination. 
 
-Here's an example of the REST API command to reject events. For more information about the operation and the command, see [REST API - Reject Cloud Events](/rest/api/eventgrid/dataplanepreview-version2023-06-01/reject-cloud-events/reject-cloud-events).
+Here's an example of the REST API command to reject events. For more information about the operation and the command, see [REST API - Reject Cloud Events](/rest/api/eventgrid/dataplane-preview/reject-cloud-events/reject-cloud-events).
 
 ```http
 POST myNamespaceName.westus-1.eventgrid.azure.net/topics/myTopic/eventsubscriptions/myEventSubscription:reject?api-version=2023-06-01-preview
@@ -148,7 +148,7 @@ A client releases an event to be available again for delivery. The request may c
 
 The operation is considered successful if at least one event in a batch is successfully released. The response body includes a set of successfully release lock tokens along with other failed lock tokens with corresponding error information. 
 
-Here's an example of the REST API command to release events. For more information about the operation and the command, see [REST API - Release Cloud Events](/rest/api/eventgrid/dataplanepreview-version2023-06-01/release-cloud-events/release-cloud-events).
+Here's an example of the REST API command to release events. For more information about the operation and the command, see [REST API - Release Cloud Events](/rest/api/eventgrid/dataplane-preview/release-cloud-events/release-cloud-events).
 
 ```http
 POST myNamespaceName.westus-1.eventgrid.azure.net/topics/myTopic/eventsubscriptions/myEventSubscription:release?api-version=2023-06-01-preview&delayInSeconds=3600
