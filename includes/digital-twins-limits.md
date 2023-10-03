@@ -44,7 +44,7 @@ The following table reflects the rate limits of different APIs.
 | API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
 | Jobs API | Number of requests per second | 1 | Yes |
-| Jobs API | Number of bulk import jobs running concurrently | 1 | Yes |
+| Jobs API | Number of bulk jobs running concurrently (including import and delete) | 1 | Yes |
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of read requests per second | 1,000 | Yes |
 | Digital Twins API | Number of patch requests per second | 1,000 | Yes |
