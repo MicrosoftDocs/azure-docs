@@ -60,6 +60,8 @@ landingContent:
           text: Custom Named Entity Recognition
         - url: ../Translator/containers/translator-how-to-install-container.md
           text: Translator container
+        - url: ../language-service/summarization/how-to/use-containers.md
+          text: Summarization
 - title: Speech containers
   linkLists:
       - linkListType: how-to-guide
