@@ -1,5 +1,5 @@
 ---
-title: Migrate an HBase cluster to a HDInsight 5.1 and new Storage account - Azure HDInsight
+title: Migrate an HBase cluster to an HDInsight 5.1 and new storage account - Azure HDInsight
 description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to a HDInsight 5.1 with a different Azure Storage account.
 ms.service: hdinsight
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 ms.date: 06/30/2023
 ---
 
-# Migrate Apache HBase to a HDInsight 5.1 and new storage account
+# Migrate Apache HBase to an HDInsight 5.1 and new storage account
 
 This article discusses how to update your Apache HBase cluster on Azure HDInsight to a newer version with a different Azure Storage account.
 
@@ -77,15 +77,15 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
    
    1. Verify HBCK Report page on HBase UI.  Healthy cluster does not show any inconsistencies
 
-      :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." border="false":::
+      :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report.":::
       
    1. If any inconsistencies exists, please fix inconsistencies using [hbase hbck2](https://learn.microsoft.com/azure/hdinsight/hbase/how-to-use-hbck2-tool)
 
 1. Note down number of regions in online at source cluster, so that the number can be refered at destination cluster after the migration. 
 
-   :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing count of number of regions." border="false":::
+   :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing count of number of regions.":::
    
-1. If replication enabled on the cluster, please stop it and reenable the replication on destination cluster after migration. Refer [HBase replication guide] (https://learn.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication)  
+1. If replication enabled on the cluster, please stop it and reenable the replication on destination cluster after migration. Refer [HBase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
 
 1. Flush the source HBase cluster you're upgrading.
    
@@ -103,14 +103,14 @@ Use these detailed steps and commands to migrate your Apache HBase cluster with 
 
     1. Verity the Procedures page to confirm that there are no pending procedures.
     
-        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process." border="false"::: 
+        :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-master-process.png" alt-text="Screenshot showing how to verify master process."::: 
 1. STOP HBase
 
    1. Sign in to [Apache Ambari](https://ambari.apache.org/) on the source cluster with `https://<OLDCLUSTERNAME>.azurehdinsight.net`
    1. Turn on maintenance mode for HBase.
    1. Stop HBase Masters only first. First stop standby masters, in last stop Active HBase master.
    
-    :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-master-services.png" alt-text="Screenshot showing how to stop master services." border="false":::
+       :::image type="content" source="./media/apache-hbase-migrate-new-version/stop-master-services.png" alt-text="Screenshot showing how to stop master services.":::
 
    1. Stop the HBase service, it stops remaining servers.
    
@@ -237,7 +237,7 @@ You can download AzCopy from [Get started with AzCopy](../../storage/common/stor
    
 1. If the destination cluster is satisfactory, delete the source cluster.
 
-## TroubleShooting
+## Troubleshooting
 
 ### Use case 1: 
 If Hbase masters and region servers up and regions stuck in transition or only one region i.e `hbase:meta` region is assigned. Waiting for other regions to assign
