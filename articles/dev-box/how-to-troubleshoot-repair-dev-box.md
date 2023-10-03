@@ -25,7 +25,7 @@ When you run the *Troubleshoot & repair* tool, your dev box and its backend serv
 
 ## Run Troubleshoot and repair
 
-If you're unable to connect to your dev box using an RDP client, you can use the *Troubleshoot & repair* tool from the developer portal. This tool helps you to diagnose and resolve connectivity issues.
+If you're unable to connect to your dev box using an RDP client, use the *Troubleshoot & repair* tool. 
 
 The *Troubleshoot & repair* process takes between 10 to 40 minutes to complete. During this time, you can't use your dev box. The tool scans a list of critical components that relate to RDP connectivity, including but not limited to:
 - Domain join check
