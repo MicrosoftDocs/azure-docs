@@ -168,10 +168,11 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
     1. For Authentication, select OAuth2.0 and choose the OAuth profile that was created during the app registration process.
     1. Select the "*Submit*" button to save the changes.
     1. Go back to the REST API Messages section under System Web Services.
+    1. Under HTTP Headers add Content-Type with the Value application/json.
     1. Select Http Request and then select "*New*". Enter a name, and select "POST" as the Http method.
     1. In the Http request, add the content for the Http query parameters using the following API Schema:
         ``` http
-        API Schema: {
+        {
         "data": {
             "@odata.type": "#microsoft.graph.accessPackageAssignmentRequestCallbackData",
             "customExtensionStageInstanceDetail": "Resuming-Assignment for user",
@@ -181,6 +182,7 @@ At this point it's time to configure ServiceNow for resuming the entitlement man
                   "source": "ServiceNow",
                     "type": "microsoft.graph.accessPackageCustomExtensionStage.${Stage}"
                     }
+        }
         ```
     1. Select "*Submit*" to save the changes.
         :::image type="content" source="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-resume-call.png" alt-text="Screenshot of resume call selection within ServiceNow." lightbox="media/entitlement-management-servicenow-integration/entitlement-management-servicenow-resume-call.png"::: 
