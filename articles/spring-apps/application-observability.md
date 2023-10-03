@@ -113,7 +113,7 @@ Use the following steps to investigate request failures in the application clust
 
 1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page. Then, select **Failures**.
 
-   :::image type="content" source="media/application-observability/application-insights-failures.png" alt-text="Screenshot of the Azure portal that shows the failures." lightbox="media/application-observability/application-insights-failures.png":::
+   :::image type="content" source="media/application-observability/application-insights-failures.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Failures page." lightbox="media/application-observability/application-insights-failures.png":::
 
 1. On the **Failure** page, select the `PUT` operation that has the most failed requests count, select **1 Samples** to go into the details, and then select the suggested sample.
 
@@ -121,7 +121,7 @@ Use the following steps to investigate request failures in the application clust
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel.
 
-   :::image type="content" source="media/application-observability/application-insights-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the failure exception." lightbox="media/application-observability/application-insights-e2e-exception.png":::
+   :::image type="content" source="media/application-observability/application-insights-e2e-exception.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with Application Insights failures." lightbox="media/application-observability/application-insights-e2e-exception.png":::
 
 ## 5. Improve the application performance using Application Insights
 
@@ -133,7 +133,7 @@ To use Application Insights to investigate the performance issues, use the follo
 
 1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page. Then, select **Performance**.
 
-   :::image type="content" source="media/application-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the performance page." lightbox="media/application-observability/application-insights-performance.png":::
+   :::image type="content" source="media/application-observability/application-insights-performance.png" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page." lightbox="media/application-observability/application-insights-performance.png":::
 
 1. On the **Performance** page, select the slowest `GET /api/gateway/owners/{ownerId}` operation, select **3 Samples** to go into the details, and then select the suggested sample.
 
@@ -141,7 +141,7 @@ To use Application Insights to investigate the performance issues, use the follo
 
 1. Go to the **End-to-end transaction details** page to view the full call stack in the right panel.
 
-   :::image type="content" source="media/application-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the performance issue." lightbox="media/application-observability/application-insights-e2e-performance.png":::
+   :::image type="content" source="media/application-observability/application-insights-e2e-performance.png" alt-text="Screenshot of the Azure portal that shows the End-to-end transaction details page with the Application Insights performance issue." lightbox="media/application-observability/application-insights-e2e-performance.png":::
 
 [!INCLUDE [clean-up-resources-portal](includes/application-observability/clean-up-resources.md)]
 
