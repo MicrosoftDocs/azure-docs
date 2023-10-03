@@ -1,6 +1,6 @@
 ---
-title: OAUTH 2.0 authentication with Microsoft Entra ID
-description: Architectural guidance on achieving OAUTH 2.0 authentication with Microsoft Entra ID.
+title: OAUTH 2.0 authorization with Microsoft Entra ID
+description: Architectural guidance on achieving OAUTH 2.0 authorization with Microsoft Entra ID.
 services: active-directory
 author: janicericketts
 manager: martinco
@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# OAuth 2.0 authentication with Microsoft Entra ID
+# OAuth 2.0 authorization with Microsoft Entra ID
 
 The OAuth 2.0 is the industry protocol for authorization. It allows a user to grant limited access to its protected resources. Designed to work specifically with Hypertext Transfer Protocol (HTTP), OAuth separates the role of the client from the resource owner. The client requests access to the resources controlled by the resource owner and hosted by the resource server. The resource server issues access tokens with the approval of the resource owner. The client uses the access tokens to access the protected resources hosted by the resource server. 
 
@@ -36,7 +36,7 @@ Rich client and modern app scenarios and RESTful web API access.
 
 * **Web app**: The web app, or resource server, is where the resource or data resides. It trusts the authorization server to securely authenticate and authorize the OAuth client. 
 
-* **Microsoft Entra ID**: Microsoft Entra ID is the authorization server, also known as the Identity Provider (IdP). It securely handles anything to do with the user's information, their access, and the trust relationship. It's responsible for issuing the tokens that grant and revoke access to resources.
+* **Microsoft Entra ID**: Microsoft Entra ID is the authentication server, also known as the Identity Provider (IdP). It securely handles anything to do with the user's information, their access, and the trust relationship. It's responsible for issuing the tokens that grant and revoke access to resources.
 
 <a name='implement-oauth-20-with-azure-ad'></a>
 
