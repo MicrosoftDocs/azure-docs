@@ -94,6 +94,8 @@ landingContent:
         links:
           - text: Overview of interoperability
             url: interoperability-teams-direct-routing.md
+          - text: Emergency calling
+            url: emergency-calling-teams-direct-routing.md
 
   # Card
   - title: Manage Azure Communications Gateway

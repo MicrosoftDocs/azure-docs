@@ -66,6 +66,8 @@ items:
       href: configure-test-numbers-teams-direct-routing.md
     - name: Prepare for live traffic
       href: prepare-for-live-traffic-teams-direct-routing.md
+  - name: Emergency calling
+    href: emergency-calling-teams-direct-routing.md
 - name: Maintenance
   items:
   - name: Set up user roles
