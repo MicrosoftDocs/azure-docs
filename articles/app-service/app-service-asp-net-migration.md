@@ -21,7 +21,7 @@ These tools are developed to support different kinds of scenarios, focused on di
 > [Learn how to migrate .NET apps to App Service using the .NET migration tutorial.](../migrate/tutorial-modernize-asp-net-appservice-code.md)
 >
 
-Azure Migrate recently announced at-scale, agentless discovery, and assessment of ASP.NET web apps. You can now easily discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below.
+Azure Migrate recently announced at-scale, agentless discovery, and assessment of ASP.NET web apps. You can now easily discover ASP.NET web apps running on Internet Information Services (IIS) servers in a VMware environment and assess them for migration to Azure App Service. Assessments will help you determine the web app migration readiness, migration blockers, remediation guidance, recommended SKU, and hosting costs. At-scale migration resources for  are found below. test
 
 Once you have successfully assessed readiness, you should proceed with migration of ASP.NET web apps to Azure App Services.  
 
